@@ -9,3 +9,4 @@
 - ssh-certificates-copy
 - secure-remote-access-bastion-docker
 - web-access-bastion-docker
+- basic-bastion
