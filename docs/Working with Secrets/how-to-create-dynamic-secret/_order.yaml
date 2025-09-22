@@ -13,3 +13,4 @@
 - google-workspace-secret
 - k8s-generic-dynamic-secrets
 - ldap-dynamic-secret
+- ping-dynamic-secrets
