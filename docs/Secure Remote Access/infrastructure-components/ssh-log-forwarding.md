@@ -30,7 +30,7 @@ target_syslog_host="<host>:<port>"
 target_syslog_formatter="[default=text]|cef"
 ```
 
-**Note: **  
+**Note:**\
 The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
 
 Default format: `<date > <time> <host name> <log level> <message>`.
@@ -58,9 +58,8 @@ target_logstash_dns="localhost:8911"
 target_logstash_protocol="tcp"
 ```
 
-Configure your Logstash to use the same port and protocol:  
-Add the following to the <code>logstash.conf</code> file:  
-<code>input { tcp { port => 8911 codec => json } }</code>
+Configure your Logstash to use the same port and protocol:\
+Add the following to the <code>logstash.conf</code> file:\ <code>input \{ tcp \{ port => 8911 codec => json } }</code>
 
 ## ELK Elasticsearch
 
@@ -99,7 +98,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 ## AWS S3
 
 > 🚧 Warning
-> 
+>
 > Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
 
 ```yaml
