@@ -16,19 +16,19 @@ Akeyless connect provides you with secure CLI access to resources or a secure tu
 
 To use Akeyless Connect  you need:
 
-- Akeyless CLI v1.42.0 or higher. 
+* Akeyless CLI v1.42.0 or higher. 
 
-- An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
+* An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
-- An [Akeyless Gateway](doc:api-gw) with Remote Access enabled.
+* An [Akeyless Gateway](doc:api-gw) with Remote Access enabled.
 
-- OpenSSH v7.2 or higher on target servers.
+* OpenSSH v7.2 or higher on target servers.
 
 > 👍 Note
-> 
-> Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."  
+>
+> Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."\
 > This feature enables users to utilize their Windows OS environment as a UNIX-like system.
-> 
+>
 > To work with the `akeyless-connect` command from a Windows machine, place the <code>.akeyless-connect.rc</code> script in your home directory.
 
 # Set Up Akeyless Connect
@@ -38,7 +38,7 @@ Install the latest version of [Akeyless Command Line Interface (CLI)](doc:cli). 
 **Optional**: Download the `akeyless-connect.rc` file from [here](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs. If you prefer to get started without this, go straight to the Usage section below.
 
 > 📘 RC file location
-> 
+>
 > Note that the `~/.akeyless-connect.rc` file must be placed in your local $HOME directory to work.
 
 ```shell akeyless-connect.rc
@@ -133,18 +133,18 @@ Where the URL will be set as follows:
 `USE_SSH_LEGACY_ALG`- Specifies whether to use ssh-legacy-signing-algorithm. The default is No
 
 > 🚧 Compatibility Issue with Legacy SSH Versions (7.4 & 7.6)
-> 
+>
 > Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using Akeyless Connect to access remote machines running OpenSSH version 7.4 or 7.6. This occurs both in CLI and the Web portal.
-> 
+>
 > It is possible to bypass this issue by setting the following environment variable in the Web bastion deployment, to all outgoiing SSH connections:
-> 
+>
 > ```shell values.yaml
 > env:
 >   - name: SSH_EXTRA_ARGS
 >     value: -o PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com
 > ```
-> 
-> NOTE that this workaround explicitly enables legacy SSH key types that are deprecated and **not aligned **with modern security best practices.
+>
+> NOTE that this workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
 
 # Usage
 
@@ -155,9 +155,9 @@ akeyless connect -t <[user@]target/hostname/ip[:port]> -g <your-gateway-ip[:port
 ```
 
 > 📘 Legacy SRA Deployments
-> 
+>
 > For legacy deployments, users will still run:
-> 
+>
 > `akeyless connect -t <[user@]target/hostname/ip[:port]> -v <your-gateway-ip[:port]> -c <cert-issuer-name>`
 
 Full options list:
@@ -201,10 +201,10 @@ akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert
 ```
 
 > 📘 Info
-> 
+>
 > For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert-issuer-name` for the **other** cert-issuer. This will enable access through the bastion based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
 
-**AWS: **
+**AWS:**
 
 ```shell Akeyless CLI
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
