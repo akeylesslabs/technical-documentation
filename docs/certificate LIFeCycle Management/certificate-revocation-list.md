@@ -13,8 +13,8 @@ next:
 Akeyless enables you to proactively revoke certificates before their scheduled expiration date and seamlessly add them to a **Certificate Revocation List (CRL)**, ensuring enhanced security and trust in your certificate management process. Each [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) generates a consistent **Certificate Revocation List (CRL)** for all its issued certificates. 
 
 > 📘 Note
-> 
-> Your PKI Issuer **Signer Key ** must be set with the `keyusage:critical,cRLSign` extension to maintain a  **CRL** and support self-signed certificate revocation.
+>
+> Your PKI Issuer **Signer Key** must be set with the `keyusage:critical,cRLSign` extension to maintain a  **CRL** and support self-signed certificate revocation.
 
 # Revoke a certificate using the Akeyless CLI
 
@@ -28,8 +28,8 @@ akeyless revoke-certificate \
 
 Where:
 
-- `name`: The certificate's full name. Alternatively, it can be provided using `item-id`.
-- `version`: Certificate version to revoke.
+* `name`: The certificate's full name. Alternatively, it can be provided using `item-id`.
+* `version`: Certificate version to revoke.
 
 Upon successful revocation, the certificate status will change from **Valid** to **Revoked**.
 
