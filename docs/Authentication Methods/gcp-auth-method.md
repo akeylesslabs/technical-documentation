@@ -26,13 +26,13 @@ compute.instanceGroups.list
 ```
 
 > 👍 Note
-> 
+>
 > **GKE Workloads Authentication**
-> 
+>
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any bounded rules other than `Bound Service Accounts` **will not apply**. GKE Workload Identity conceals metadata information about the running instance.
-> 
+>
 > To work with the GKE Workload Identity with bounded rules, please configure **only** the `Bound Service Accounts` rule.
-> 
+>
 > Be sure to follow the <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity" target="_blank">GKE Guide</a> when configuring the GKE Workload Identity.
 
 # Create a GCP Authentication Method from the CLI
@@ -51,13 +51,13 @@ akeyless auth-method create gcp \
 
 Where:
 
-- `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-- `type`: The authentication method type. It should be either `iam` or `gce`.
+* `type`: The authentication method type. It should be either `iam` or `gce`.
 
-- `audience`: The audience to verify the JWT received by the client. By default, `akeyless.io`.
+* `audience`: The audience to verify the JWT received by the client. By default, `akeyless.io`.
 
-- `bound-projects`:  A list of GCP Project IDs. 
+* `bound-projects`:  A list of GCP Project IDs. 
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorbluegcpp) section.
 
@@ -78,31 +78,31 @@ akeyless get-cloud-identity --cloud-provider gcp
 
 3. Define the remaining parameters as follows:
 
-- **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-- **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-- **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-- **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs
 
-- **GCP Type:** Select the type of GCP authentication method to create, either `IAM` or `GCE`.
+* **GCP Type:** Select the type of GCP authentication method to create, either `IAM` or `GCE`.
 
-- **Bound Projects:** Enter a comma-separated list of GCP project IDs. The client must belong to one of these projects to authenticate. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+* **Bound Projects:** Enter a comma-separated list of GCP project IDs. The client must belong to one of these projects to authenticate. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-- **Audience:** Enter the audience to verify in the JWT received by the client. By default,  
+* **Audience:** Enter the audience to verify in the JWT received by the client. By default,\
   the **Audience** is `akeyless.io`.
 
-- **Service Account Credentials:** Enter a Base64-encoded string of the service account credentials or upload a JSON file with the service account credentials. Required in case no project is provided. 
+* **Service Account Credentials:** Enter a Base64-encoded string of the service account credentials or upload a JSON file with the service account credentials. Required in case no project is provided. 
 
-- **Bound Service Accounts:** Enter a valid Service Account. This parameter is only relevant for **IAM** authentication methods. Leave it empty for unrestricted access.
+* **Bound Service Accounts:** Enter a valid Service Account. This parameter is only relevant for **IAM** authentication methods. Leave it empty for unrestricted access.
 
-- **Bound Zones:** Enter a comma-separated list of zones. The GCE instance must belong to one of these zones to authenticate. This parameter is only relevant for **GCE** authentication methods. Leave it empty for unrestricted access.
+* **Bound Zones:** Enter a comma-separated list of zones. The GCE instance must belong to one of these zones to authenticate. This parameter is only relevant for **GCE** authentication methods. Leave it empty for unrestricted access.
 
-- **Bound Regions:** Enter a comma-separated list of regions. The GCE instance must belong to one of these regions to authenticate. This parameter is only relevant for **GCE** authentication methods. Leave it empty for unrestricted access.
+* **Bound Regions:** Enter a comma-separated list of regions. The GCE instance must belong to one of these regions to authenticate. This parameter is only relevant for **GCE** authentication methods. Leave it empty for unrestricted access.
 
-- **Bound Labels:** Enter a `key:value` list of GCP labels. The GCE instance must have one of these labels to authenticate. This parameter is only relevant for **GCE** authentication methods. Leave it empty for unrestricted access.
+* **Bound Labels:** Enter a `key:value` list of GCP labels. The GCE instance must have one of these labels to authenticate. This parameter is only relevant for **GCE** authentication methods. Leave it empty for unrestricted access.
 
-- **Unique Identifier:** Optional, a unique identifier (ID) value that contains details uniquely identifying that resource. This sub-claim name is used to distinguish between different identities.
+* **Unique Identifier:** Optional, a unique identifier (ID) value that contains details uniquely identifying that resource. This sub-claim name is used to distinguish between different identities.
 
 4. Click **Finish**.
