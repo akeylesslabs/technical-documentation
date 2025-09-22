@@ -31,15 +31,15 @@ akeyless target create ssh \
 
 Where:
 
-- `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+* `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-- `host`: The SSH hostname.
+* `host`: The SSH hostname.
 
-- `port`: The SSH port.
+* `port`: The SSH port.
 
-- `ssh-username`: The SSH username.
+* `ssh-username`: The SSH username.
 
-- `ssh-password`: The SSH password.
+* `ssh-password`: The SSH password.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluesshp) section.
 
@@ -49,25 +49,25 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.  
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-- **Hostname**, **Port** and **Username** to set up the connection. 
+* **Hostname**, **Port** and **Username** to set up the connection. 
 
-- **Authentication Type:** In this section, you can select the preferred type of authentication with the SSH server either `SSH Key` or `Password`:
+* **Authentication Type:** In this section, you can select the preferred type of authentication with the SSH server either `SSH Key` or `Password`:
 
-  - Select the **SSH Key** radio button to authenticate with the Private Key and an optional Passphrase.
+  * Select the **SSH Key** radio button to authenticate with the Private Key and an optional Passphrase.
 
-  - Select the **Password** radio button to authenticate with the password.
+  * Select the **Password** radio button to authenticate with the password.
 
 Set the following details accordingly: 
 
-- **Private Key:** Provide an SSH private key.
+* **Private Key:** Provide an SSH private key.
 
-- **Private Key Passphrase:** Enter a passphrase for the SSH key.
+* **Private Key Passphrase:** Enter a passphrase for the SSH key.
 
-- **Password:** Provide a password for the above-mentioned username.
+* **Password:** Provide a password for the above-mentioned username.
 
 5. Click **Finish**.
