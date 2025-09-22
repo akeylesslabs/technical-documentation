@@ -75,7 +75,7 @@ akeyless kmip-client-set-rule --gateway-url <Your_Akeyless_GW_URL> --client-id <
 
 ![](https://files.readme.io/4d64c95-image-20210914-152556.png "image-20210914-152556.png")
 
-7. For the** KMS Certificate** and** KMS Private key** set the certificate and the Private Key and click **Establish Trust**:
+7. For the **KMS Certificate** and **KMS Private key** set the certificate and the Private Key and click **Establish Trust**:
 
 ![](https://files.readme.io/e797dc2-image-20210914-154420.png "image-20210914-154420.png")
 
