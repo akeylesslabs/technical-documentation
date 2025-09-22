@@ -16,23 +16,23 @@ This guide explains how to configure Oracle Transparent Data Encryption (TDE) wi
 
 #### Steps & Explanations:
 
-Oracle Database Installation:  
-Step: Ensure that Oracle Database is installed and running on your system.  
+Oracle Database Installation:\
+Step: Ensure that Oracle Database is installed and running on your system.\
 Explanation: This guide assumes a direct installation of Oracle Database (**Oracle 19c RU or later, including all 23ai/23c builds**), without the use of containerization.
 
 #### Oracle Database Version Check:
 
-Step: Confirm your Oracle version (this guide is written for** Oracle 19c RU or later, including all 23ai/23c builds**) and its architecture (multitenant with CDB/PDB or single instance).  
+Step: Confirm your Oracle version (this guide is written for **Oracle 19c RU or later, including all 23ai/23c builds**) and its architecture (multitenant with CDB/PDB or single instance).\
 Explanation: Configuration details such as keystore parameters can vary by version. For instance, Oracle 23ai deprecates certain parameters. Always verify with the official documentation.
 
 #### Akeyless & HSM Library Requirements:
 
-Step: Download the required shared library (libakeyless.so) from Akeyless.  
+Step: Download the required shared library (libakeyless.so) from Akeyless.\
 Explanation: This library provides the interface between Oracle TDE and the external key management (HSM) system. Ensure that you use the correct API credentials (access ID and key) so that the integration can securely communicate with Akeyless.
 
 #### File and Directory Permissions:
 
-Step: Ensure that the necessary directories (such as /opt/oracle/extapi, /logs, and configuration folders) have the proper ownership and permissions for the Oracle user.  
+Step: Ensure that the necessary directories (such as /opt/oracle/extapi, /logs, and configuration folders) have the proper ownership and permissions for the Oracle user.\
 Explanation: Correct permissions are essential to avoid runtime errors and ensure that the Oracle Database and its wallet management processes have access to required files.
 
 ### Environment Setup and Library Installation
@@ -98,11 +98,11 @@ access_key="oLw05FzH3Rgmca.............lcijrsReM="
 
 ##### Explanation:
 
-- This file defines how the Oracle DB will interact with the Akeyless service. It includes logging settings, the Akeyless API Gateway URL (to use a local Gateway, reference the `/api/v2` endpoint), and the Authentication Method (supported auth methods also include `aws_iam`, `azure_ad`, `gcp`).
-- Ensure your Auth Method is associated with an Access Roles granting it permissions to create and access items under the desired items folder (base_item_path)
-- Notice: to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) (the default is otherwise DFC) you can add the following setting (in the top section):  
+* This file defines how the Oracle DB will interact with the Akeyless service. It includes logging settings, the Akeyless API Gateway URL (to use a local Gateway, reference the `/api/v2` endpoint), and the Authentication Method (supported auth methods also include `aws_iam`, `azure_ad`, `gcp`).
+* Ensure your Auth Method is associated with an Access Roles granting it permissions to create and access items under the desired items folder (base\_item\_path)
+* Notice: to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) (the default is otherwise DFC) you can add the following setting (in the top section):\
   `use_classic_keys="true"`
-  - To work with Classic Keys make sure you work against your own Gateway (on the API v2 endpoint), and grant the above Auth Method “Access Permissions” to said Gateway to manage “Classic Keys”
+  * To work with Classic Keys make sure you work against your own Gateway (on the API v2 endpoint), and grant the above Auth Method “Access Permissions” to said Gateway to manage “Classic Keys”
 
 Set proper file permissions:
 
@@ -112,7 +112,7 @@ chown -R oracle:dba /var/akeyless/conf/pkcs11.conf
 
 ##### Explanation:
 
-- Setting the correct ownership ensures that the Oracle user can access this file during runtime.
+* Setting the correct ownership ensures that the Oracle user can access this file during runtime.
 
 #### Database Wallet and TDE Configuration
 
@@ -127,10 +127,10 @@ mkdir -p ./hsm_wallet/tde
 
 ##### Explanation:
 
-- Navigate to the Admin Directory:
-  - The directory $ORACLE_BASE/admin/your_db_name/ is the default location for managing database-specific files. Replace “your_db_name” with your actual database name.
-- Create Wallet Directory:
-  - Creating the directory for the HSM wallet ensures that the TDE configuration has a designated location to store keystore files.
+* Navigate to the Admin Directory:
+  * The directory $ORACLE\_BASE/admin/your\_db\_name/ is the default location for managing database-specific files. Replace “your\_db\_name” with your actual database name.
+* Create Wallet Directory:
+  * Creating the directory for the HSM wallet ensures that the TDE configuration has a designated location to store keystore files.
 
 ### Connect to the Database and Set Initial Parameters
 
@@ -143,10 +143,10 @@ ALTER SYSTEM SET WALLET_ROOT='/opt/oracle/admin/your_db_name/hsm_wallet' SCOPE=S
 
 ##### Explanation:
 
-- Connecting via SQL\*Plus:
-  - This gives you a SQL prompt as the system administrator (SYSDBA) to execute configuration commands.
-- WALLET_ROOT Parameter:
-  - This command sets the root location for the wallet. The SCOPE=SPFILE option ensures that the change is saved in the server parameter file and used at the next startup.
+* Connecting via SQL\*Plus:
+  * This gives you a SQL prompt as the system administrator (SYSDBA) to execute configuration commands.
+* WALLET\_ROOT Parameter:
+  * This command sets the root location for the wallet. The SCOPE=SPFILE option ensures that the change is saved in the server parameter file and used at the next startup.
 
 ### Restart the Database:
 
@@ -157,7 +157,7 @@ STARTUP;
 
 ##### Explanation:
 
-A restart is necessary for the new parameter values (like WALLET_ROOT) to take effect.
+A restart is necessary for the new parameter values (like WALLET\_ROOT) to take effect.
 
 ### Set TDE Configuration:
 
@@ -167,8 +167,8 @@ ALTER SYSTEM SET TDE_CONFIGURATION='KEYSTORE_CONFIGURATION=HSM' SCOPE=BOTH;
 
 ##### Explanation:
 
-- TDE_CONFIGURATION Parameter:
-  - This command instructs Oracle TDE to use a keystore that is configured with HSM. The SCOPE=BOTH option applies the parameter change to both the in-memory environment and the spfile.
+* TDE\_CONFIGURATION Parameter:
+  * This command instructs Oracle TDE to use a keystore that is configured with HSM. The SCOPE=BOTH option applies the parameter change to both the in-memory environment and the spfile.
 
 ### Create and Open the HSM Wallet
 
@@ -181,12 +181,12 @@ ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 
 ##### Explanation:
 
-- Opening the Keystore:
-  - The first command opens the keystore using the provided password ("AKEYLESS").
-- Setting the Master Key:
-  - The second command sets the TDE master encryption key. The CONTAINER=ALL option applies this change to the entire multitenant environment (both the container database and all pluggable databases).
-- Verification:
-  - You should verify in the Akeyless management console or by checking Oracle's views that the key has been created successfully.
+* Opening the Keystore:
+  * The first command opens the keystore using the provided password ("AKEYLESS").
+* Setting the Master Key:
+  * The second command sets the TDE master encryption key. The CONTAINER=ALL option applies this change to the entire multitenant environment (both the container database and all pluggable databases).
+* Verification:
+  * You should verify in the Akeyless management console or by checking Oracle's views that the key has been created successfully.
 
 ### Enabling Auto Login
 
@@ -203,10 +203,10 @@ ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=FILE";
 
 ##### Explanation:
 
-- Close the Keystore:
-  - This command closes the HSM-based keystore in preparation for creating a file-based wallet for auto-login.
-- Switch TDE Configuration:
-  - Changing the parameter to "KEYSTORE_CONFIGURATION=FILE" directs Oracle to use a file-based keystore for subsequent operations.
+* Close the Keystore:
+  * This command closes the HSM-based keystore in preparation for creating a file-based wallet for auto-login.
+* Switch TDE Configuration:
+  * Changing the parameter to "KEYSTORE\_CONFIGURATION=FILE" directs Oracle to use a file-based keystore for subsequent operations.
 
 ### Create a File-Based Keystore and Enable Auto Login
 
@@ -262,7 +262,7 @@ ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/opt/oracle/
 
 This command generates an auto-login version of the file-based wallet. The auto-login keystore allows Oracle to open the wallet automatically at startup, eliminating the need for manual intervention.
 
-<!--
+{/*
 
  
 
@@ -276,7 +276,7 @@ ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "AKEYLESS" REVERSE MI
 
 Reverse migration applies the encryption key from the HSM-based configuration to the new file-based wallet, ensuring that the master encryption key remains consistent between configurations.
 
-\-->
+*/}
 
 Reference: [Configuring an Auto-Open Connection into an External Key Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/managing-keystore-and-tde-master-encryption-key.html#GUID-1E8CD504-A87D-4690-8076-B2F1BA8EC645)
 
@@ -287,7 +287,7 @@ ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE";
 ```
 
 > 📘 Note
-> 
+>
 > When using Oracle RAC, perform all the above steps only on one target instance and have all the other RAC instance(s) shutdown. After following the above steps copy the `cwallet.sso` and `ewallet.p12` file from the configured node to all the other node(s) at the same `<software_wallet_location>` location. After copying `cwallet.sso` and `ewallet.p12` on the other node(s), restart all the other RAC instance(s).
 
 ##### Explanation:
@@ -306,30 +306,30 @@ SELECT * FROM V$ENCRYPTION_WALLET;
 
 ##### Explanation:
 
-- Restart the Database:
-  - A restart is necessary for the new wallet configuration to fully take effect.
-- Verify Wallet Status:
-  - Running the query against V$ENCRYPTION_WALLET confirms that the wallet is open and shows the expected configuration. The output should indicate that the wallet is properly configured for auto-login.
+* Restart the Database:
+  * A restart is necessary for the new wallet configuration to fully take effect.
+* Verify Wallet Status:
+  * Running the query against V$ENCRYPTION\_WALLET confirms that the wallet is open and shows the expected configuration. The output should indicate that the wallet is properly configured for auto-login.
 
-In a multitenant environment (CDB/PDB). Note that you may see multiple rows corresponding to each container (for example, CON_ID=0 for the CDB root, CON_ID=5 for a PDB):
+In a multitenant environment (CDB/PDB). Note that you may see multiple rows corresponding to each container (for example, CON\_ID=0 for the CDB root, CON\_ID=5 for a PDB):
 
 ![](https://files.readme.io/0000d0f056d736ed13b4dd2f0a76517a1954d665075d3df44bf745543f7af6ef-2082746d-b5e1-467e-bb62-8923dffaefe0_1.png)
 
 Key Points About the Columns:
 
-- WRL_TYPE: The type of wallet location in use (e.g., FILE, HSM).
-- WRL_PARAMETER: The file system path or parameter details for the wallet (sometimes blank for HSM rows).
-- STATUS: Should be OPEN if the wallet is active and accessible.
-- WALLET_TYPE: Indicates whether it is AUTOLOGIN, HSM, or another type.
-- WALLET_OR_KEYSTORE: Shows whether it’s a PRIMARY or SECONDARY wallet. In configurations using both HSM and FILE, the file wallet often appears as PRIMARY and HSM as SECONDARY.
-- FULLY_BACK: Indicates if the wallet is fully backed up. Common values are NONE or UNDEFINED.
-- CON_ID: The container ID. 0 typically refers to the root container (CDB$ROOT), while non-zero values (5) refer to pluggable databases (PDBs).
-- STATUS: Should display “OPEN” if the keystore is accessible.  
-  Additional Note: If the keystore is open but the TDE master encryption key has not yet been created—or if the wallet is configured as an SSL wallet rather than a TDE wallet—the STATUS column may show OPEN_NO_MASTER_KEY.
+* WRL\_TYPE: The type of wallet location in use (e.g., FILE, HSM).
+* WRL\_PARAMETER: The file system path or parameter details for the wallet (sometimes blank for HSM rows).
+* STATUS: Should be OPEN if the wallet is active and accessible.
+* WALLET\_TYPE: Indicates whether it is AUTOLOGIN, HSM, or another type.
+* WALLET\_OR\_KEYSTORE: Shows whether it’s a PRIMARY or SECONDARY wallet. In configurations using both HSM and FILE, the file wallet often appears as PRIMARY and HSM as SECONDARY.
+* FULLY\_BACK: Indicates if the wallet is fully backed up. Common values are NONE or UNDEFINED.
+* CON\_ID: The container ID. 0 typically refers to the root container (CDB$ROOT), while non-zero values (5) refer to pluggable databases (PDBs).
+* STATUS: Should display “OPEN” if the keystore is accessible.\
+  Additional Note: If the keystore is open but the TDE master encryption key has not yet been created—or if the wallet is configured as an SSL wallet rather than a TDE wallet—the STATUS column may show OPEN\_NO\_MASTER\_KEY.
 
 For more details on these columns, refer to the official Oracle documentation:
 
-Reference: [ENCRYPTION_WALLET](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-ENCRYPTION_WALLET.html) , 
+Reference: [ENCRYPTION\_WALLET](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-ENCRYPTION_WALLET.html) , 
 
 ### Additional Notes and Version-Specific Considerations
 
@@ -341,7 +341,7 @@ Reference: [ENCRYPTION_WALLET](https://docs.oracle.com/en/database/oracle/oracle
 
 In a 19c environment (which may use a multitenant architecture with a CDB/PDB), you have the option to use united mode (one master key for all containers) or isolated mode (separate keys per PDB). 
 
-<!--
+{/*
 
  
 
@@ -349,27 +349,27 @@ Note that reverse migration from an HSM to a file-based wallet may not be suppor
 
 .
 
-\-->
+*/}
 
-Reference:  
+Reference:\
 [Oracle 19c Advanced Security Guide ​](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/managing-keystores-encryption-keys-in-united-mode.html#GUID-02343C2C-160B-4950-A191-48317B20C507)
 
 #### For Oracle 23ai:
 
 ##### Explanation:
 
-Some parameters, such as ENCRYPTION_WALLET_LOCATION, are deprecated in 23ai. Always consult the latest Oracle documentation for current key management practices.
+Some parameters, such as ENCRYPTION\_WALLET\_LOCATION, are deprecated in 23ai. Always consult the latest Oracle documentation for current key management practices.
 
-Reference:  
+Reference:\
 [Introduction to TDE for Oracle 23ai ​](https://docs.oracle.com/en/database/oracle/oracle-database/23/dbtde/introduction-to-transparent-data-encryption.html#GUID-B0870B12-E6AD-4254-B4B3-D6A15A637975)
 
-### Explanation of ENCRYPTION_WALLET Status
+### Explanation of ENCRYPTION\_WALLET Status
 
 ##### Explanation:
 
-- If you see OPEN_NO_MASTER_KEY in the output of V$ENCRYPTION_WALLET, it means that while the keystore is open, the master encryption key has not been created yet. This can also occur if the wallet location is configured for an SSL wallet (created with orapki) rather than a TDE wallet.
-- Reference:  
-  [Why ENCRYPTION_WALLET Shows OPEN_NO_MASTER_KEY](https://support.oracle.com/rs?type=doc&id=2641533.1) ​
+* If you see OPEN\_NO\_MASTER\_KEY in the output of V$ENCRYPTION\_WALLET, it means that while the keystore is open, the master encryption key has not been created yet. This can also occur if the wallet location is configured for an SSL wallet (created with orapki) rather than a TDE wallet.
+* Reference:\
+  [Why ENCRYPTION\_WALLET Shows OPEN\_NO\_MASTER\_KEY](https://support.oracle.com/rs?type=doc\&id=2641533.1) ​
 
 ### Summary and Final Checks
 
@@ -377,33 +377,33 @@ Reference:
 
 ##### Environment Preparation:
 
-- Confirm Oracle Database is installed and running on your system.
-- Verify you are using the correct Oracle version and architecture.
-- Ensure all required libraries and configuration files are in place with proper permissions.  
+* Confirm Oracle Database is installed and running on your system.
+* Verify you are using the correct Oracle version and architecture.
+* Ensure all required libraries and configuration files are in place with proper permissions.\
   Explanation: This minimizes the risk of errors during the TDE configuration process.
 
 ##### Initial HSM Wallet Configuration:
 
-- Configure and open the HSM-based keystore.
-- Set the TDE master encryption key.  
+* Configure and open the HSM-based keystore.
+* Set the TDE master encryption key.\
   Explanation: These steps secure the database encryption process by integrating the HSM library and initializing the keystore.
 
 ##### Auto-Login Enablement:
 
-- Transition from the HSM wallet to a file-based wallet.
-- Create an auto-login keystore so that the wallet opens automatically at startup.  
+* Transition from the HSM wallet to a file-based wallet.
+* Create an auto-login keystore so that the wallet opens automatically at startup.\
   Explanation: Auto-login keystores remove the need for manual intervention during database startup, which is critical for production environments.
 
 ##### Verification:
 
-- Restart the database.
-- Verify the wallet status using `SELECT * FROM V$ENCRYPTION_WALLET;`.  
+* Restart the database.
+* Verify the wallet status using `SELECT * FROM V$ENCRYPTION_WALLET;`.\
   Explanation: This confirms that the configuration changes are applied correctly and the keystore is accessible.
 
 ##### Version Considerations:
 
-- Adjust settings as needed and consult the latest documentation, since configuration parameters may differ across Oracle versions.
-- Explanation: Ensuring that your configuration complies with the current Oracle guidelines is essential for security and stability.
+* Adjust settings as needed and consult the latest documentation, since configuration parameters may differ across Oracle versions.
+* Explanation: Ensuring that your configuration complies with the current Oracle guidelines is essential for security and stability.
 
 ### Column and Tablespace Encryption
 
@@ -461,19 +461,19 @@ SELECT * FROM V$ENCRYPTED_TABLESPACES;
 ```
 
 > 👍 Note
-> 
+>
 > To migrate a database with an existing file-based wallet, follow these steps:
-> 
+>
 > 1. Set the TDE configuration:
-> 
+>
 > ```sql
 > ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
 > ```
-> 
+>
 > 2. Migrate the encryption key:
-> 
+>
 > ```sql
 > ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
 > ```
-> 
+>
 > Ensure to replace <old file based tde password> with the appropriate password.
