@@ -18,32 +18,32 @@ This guide provides guidance for the deployment of the Akeyless-Web-Access-Basti
 
 # Prerequisites
 
-- Docker Compose installed.
+* Docker Compose installed.
 
-- Web Access Bastion - `docker-compose.yml` file.
+* Web Access Bastion - `docker-compose.yml` file.
 
-- Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher`.
+* Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher`.
 
-**_Network_**
+***Network***
 
 When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
 
-e.g, when running on AWS with ELB: <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console>
+e.g, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-**_Storage_**
+***Storage***
 
-To be able to download files to your local machine, the Docker engine requires mounted volumes.  
-e.g, when running on AWS with EKS: <https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html>
+To be able to download files to your local machine, the Docker engine requires mounted volumes.\
+e.g, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
 For security reasons, please limit the volume mount permissions to `0650`.
 
 > 🚧 Note:
-> 
+>
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless's private repository. Please contact your Account Manager for more details.
 
 # Configuration
 
-Download the **Docker Compose** file using this link: <https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml>
+Download the **Docker Compose** file using this link: [https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml](https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml)
 
 To work with a specific Gateway, set the environment variable that points to your Gateway URL on port `8080`. Alternatively, you can work with Akeyless public Gateway endpoint instead. To support `HTTP` connections, set the `DISABLE_SECURE_COOKIE` variable with `true` otherwise, only `HTTPS` connection will be supported, and set your policy for internal authentication using `ALLOW_INTERNAL_AUTH`. In the following example, internal authentication is blocked:
 
@@ -96,13 +96,13 @@ services:
 
 The following [Authentication Methods](doc:access-and-authentication-methods) are supported: 
 
-- [API Key](doc:api-key) 
+* [API Key](doc:api-key) 
 
-- [AWS IAM](doc:aws-iam) 
+* [AWS IAM](doc:aws-iam) 
 
-- [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](doc:azure-ad)
 
-- [GCP GCE](doc:gcp-auth-method) 
+* [GCP GCE](doc:gcp-auth-method) 
 
 ## API Key Authentication
 
@@ -137,9 +137,9 @@ While running your Docker inside your cloud environment, you can use [AWS IAM](d
 
 AWS IAM can be used in the following approach: 
 
-- Instance IAM Role 
+* Instance IAM Role 
 
-While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](doc:aws-iam) `Access ID`  as your <code>PRIVILEGED_ACCESS_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](doc:aws-iam) `Access ID`  as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -165,7 +165,7 @@ services:
 
 Azure AD authentication is provided with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-Set your [Azure Active Directory](doc:azure-ad) `Access ID` as your <code>PRIVILEGED_ACCESS_ID</code> with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+Set your [Azure Active Directory](doc:azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -189,7 +189,7 @@ services:
 
 ## GCP GCE
 
-Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](doc:gcp-auth-method) can be done using the GCP.  
+Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](doc:gcp-auth-method) can be done using the GCP.\
  Set your [GCP GCE](doc:gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
 
 ```yaml
@@ -347,13 +347,13 @@ EOT
 ```
 
 > 🚧 Notice:
-> 
+>
 > The `policies.json` **must** be provided for the isolated web browsing to work.
 
-**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the web-access-bastion, or if your AKEYLESS_GW_URL is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
+**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the web-access-bastion, or if your AKEYLESS\_GW\_URL is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
 
 1. Mount your organization's Root CA certificate to the containers (in the docker-compose.yml, under services.worker.volumes)
-2. In the `policies.json` above, uncomment the _Certificates.Install_ line and set it to the relevant certificates' paths inside the container
+2. In the `policies.json` above, uncomment the *Certificates.Install* line and set it to the relevant certificates' paths inside the container
 
 ## DLP
 
@@ -386,5 +386,4 @@ docker-compose up -d --scale worker=3
 
 Verify that both containers are up and running: 
 
-<code>web-worker-deployment</code>  
-<code>web-dispatcher-deployment</code>
+<code>web-worker-deployment</code>\ <code>web-dispatcher-deployment</code>
