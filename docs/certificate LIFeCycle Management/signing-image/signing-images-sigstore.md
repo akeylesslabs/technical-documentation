@@ -18,11 +18,11 @@ To sign software artifacts and verify signatures using Sigstore, you need to ins
 
 The following registries are compatible with the Sigstore signature specification and its implementation in **Cosign**:
 
-- **Gitlab**
-- **DockerHub**
+* **Gitlab**
+* **DockerHub**
 
 > 📘 Gateway Version
-> 
+>
 > This procedure is supported starting from Gateway version **3.59.0**
 
 # Install Cosign CLI
@@ -44,7 +44,7 @@ chmod +x <build name>
 
 # Configuration
 
-Create a folder for the Akeyless **Sigstore **plugin configuration:
+Create a folder for the Akeyless **Sigstore** plugin configuration:
 
 ```shell Ubuntu
 mkdir /var/akeyless/conf/
@@ -55,7 +55,7 @@ mkdir -p /var/akeyless/conf/
 
 Create a file named `/var/akeyless/conf/sigstore.conf` that will store the credentials for authenticating with Akeyless:
 
-```shell Linux \\ MacOS
+```shell Linux \ MacOS
 cat <<EOF > sigstore.conf
 akeyless_url="https://<Your Gateway URL>:8081"
 [auth]
@@ -75,22 +75,22 @@ echo access_type="access_key" >> sigstore.conf
 
 Where:
 
-- `akeyless_url` - Your Akeyless Gateway `API v2` endpoint (port `8081`), if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`.
+* `akeyless_url` - Your Akeyless Gateway `API v2` endpoint (port `8081`), if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`.
 
-- `access_id` - The Auth method **Access ID**.
+* `access_id` - The Auth method **Access ID**.
 
-- `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth method.
+* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth method.
 
-- `access_type` - The Authentication Method type.
+* `access_type` - The Authentication Method type.
 
 # Create an Encryption Key
 
 Create an Encryption Key in Akeyless, using supported algorithms:
 
-- `RSA2048`
-- `RSA3072`
-- `RSA4096`
-- `EC256`
+* `RSA2048`
+* `RSA3072`
+* `RSA4096`
+* `EC256`
 
 Both [DFC ](https://docs.akeyless.io/docs/encryption-keys)and [Classic key](https://docs.akeyless.io/docs/classic-keys) are supported. 
 
