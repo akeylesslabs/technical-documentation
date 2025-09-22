@@ -12,7 +12,7 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless.
 ---
-When setting up your Akeyless account, you will assign it an email address and a password. This authentication method will allow you to invite your teammates to join your account and utilize the items and resources in it using their email addresses and setting up their own passwords.  
+When setting up your Akeyless account, you will assign it an email address and a password. This authentication method will allow you to invite your teammates to join your account and utilize the items and resources in it using their email addresses and setting up their own passwords.\
 While this flow is simple and easy to use, we recommend you mainly use it for basic onboarding.
 
 # Creating an Email Authentication in the CLI
@@ -29,8 +29,8 @@ akeyless auth-method create email \
 
 Where:
 
-- `name`:  A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
-- `email`: The User email address
+* `name`:  A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+* `email`: The User email address
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueemailp) section.
 
@@ -42,21 +42,21 @@ You can find the complete list of additional parameters for this command in the 
 
 3. Define the remaining parameters as follows:
 
-- **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-- **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-- **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-- **Audit Log Sub-Claims:** Include the following sub-claims values in audit logs.
+* **Audit Log Sub-Claims:** Include the following sub-claims values in audit logs.
 
-- **JWT TTL (in minutes):** The timespan from acceptance of the invitation to the JWT expiration.
+* **JWT TTL (in minutes):** The timespan from acceptance of the invitation to the JWT expiration.
 
 On the **Email Configuration** step define the following:
 
-- **Email:** The email address of the invite recipient.
+* **Email:** The email address of the invite recipient.
 
-- **Set Two-Factor Authentication:** Optional, Select to set 2-Factor Authentication.
+* **Set Two-Factor Authentication:** Optional, Select to set 2-Factor Authentication.
 
 4. Click **Finish**.
 
