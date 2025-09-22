@@ -6,3 +6,4 @@
 - docker-hub-target
 - gcp-targets
 - github-target
+- gitlab-target
