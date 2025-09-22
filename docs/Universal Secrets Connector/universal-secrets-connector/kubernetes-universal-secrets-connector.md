@@ -14,7 +14,7 @@ This page discusses the creation of Kubernetes [Universal Secrets Connectors](do
 
 # Prerequisites
 
-- An [Akeyless Gateway](doc:api-gw)  with **Read** permission on the target associated with the **USC**.
+* An [Akeyless Gateway](doc:api-gw)  with **Read** permission on the target associated with the **USC**.
 
 # Working With Universal Secrets Connector from the Console
 
@@ -30,11 +30,11 @@ akeyless create-usc --usc-name <name> --target-to-associate <target name> --k8s-
 
 The main parameters are:
 
-- `name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
+* `name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
 
-- `target-to-associate`: An existing [Target](doc:targets) that points to your desired endpoint.
+* `target-to-associate`: An existing [Target](doc:targets) that points to your desired endpoint.
 
-- `k8s-namespace`: Kubernetes namespace
+* `k8s-namespace`: Kubernetes namespace
 
 Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
 
@@ -72,9 +72,9 @@ akeyless usc get --usc-name <usc name> --secret-id <secret id or name>
 
 The main parameters are:
 
-- `usc-name`: Name of the Universal Secrets Connector.
+* `usc-name`: Name of the Universal Secrets Connector.
 
-- `secret-id`: The name or ID of the secret you would like to fetch.
+* `secret-id`: The name or ID of the secret you would like to fetch.
 
 Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
 
@@ -100,11 +100,11 @@ akeyless usc create --usc-name <usc name> --secret-id <secret id or name> --valu
 
 The main parameters are:
 
-- `usc-name`: Name of the Universal Secrets Connector.
+* `usc-name`: Name of the Universal Secrets Connector.
 
-- `secret-name`: The name of the secret you would like to create.
+* `secret-name`: The name of the secret you would like to create.
 
-- `value`: The value of the secret you would like to create, plaintext or base64 encoded.
+* `value`: The value of the secret you would like to create, plaintext or base64 encoded.
 
 Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
 
@@ -138,17 +138,17 @@ Additional parameters can be found in the [CLI Reference](doc:cli-reference-exte
 
 4. Define the remaining settings as follows:
 
-- **Description:** Optional, enter a description of the Universal Secrets Connector.
+* **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-- **Tags:** Optional, select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+* **Tags:** Optional, select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-- **Delete Protection:** Optional, turn on this setting to protect the item from deletion
+* **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-- **Target:** Select an existing [K8s Target](https://docs.akeyless.io/docs/kubernetes-targets).
+* **Target:** Select an existing [K8s Target](https://docs.akeyless.io/docs/kubernetes-targets).
 
-- **Gateway:** Select the desired corresponding Gateway.
+* **Gateway:** Select the desired corresponding Gateway.
 
-- **Namespace:** Kubernetes namespace.
+* **Namespace:** Kubernetes namespace.
 
 5. Click **Finish**.
 
@@ -156,10 +156,10 @@ Additional parameters can be found in the [CLI Reference](doc:cli-reference-exte
 
 Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 
-- **Name:** Secret name
+* **Name:** Secret name
 
-- **Type:** Secret type
+* **Type:** Secret type
 
-- **Age:** Secret age displayed in seconds (S), minutes (M), hours (H), or days (D)
+* **Age:** Secret age displayed in seconds (S), minutes (M), hours (H), or days (D)
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
