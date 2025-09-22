@@ -7,3 +7,4 @@
 - certificate-revocation-list
 - acme-server
 - kubectl-access
+- signing-image
