@@ -14,24 +14,7 @@ In our Akeyless browser extension, you have the flexibility to define specific s
 
 ### How It Works:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c6ca311-Screenshot_2024-01-10_at_16.41.08.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="200px" src="https://files.readme.io/c6ca311-Screenshot_2024-01-10_at_16.41.08.png" />
 
 ### Creating a New Secret:
 
