@@ -5,3 +5,4 @@
 - chef-infra-producer
 - create-dynamic-secret-to-sql-db
 - docker-hub-dynamic-secrets
+- eks-dynamic-secret-producer
