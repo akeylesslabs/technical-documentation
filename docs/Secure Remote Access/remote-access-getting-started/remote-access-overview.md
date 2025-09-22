@@ -15,7 +15,7 @@ next:
       title: Quick Start
 ---
 > 📘 Unified Gateway/Secure Remote Access
-> 
+>
 > Please note that these docs are written with the Gateway and Secure Remote Access single chart deployment. You may continue using the separate Gateway and Secure Remote Access solution you currently have in order to access your remote resources.
 
 # What is Secure Remote Access?
@@ -28,22 +28,9 @@ Users can connect securely to resources through the Gateway's internal SRA Porta
 
 SRA is deployed alongside the Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a Web application and SSH application, each a separate container in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png",
-        "",
-        ""
-      ],
-      "align": "center",
-      "caption": "Gateway & Secure Remote Access architecture"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Gateway & Secure Remote Access architecture" align="center" src="https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png">
+  Gateway & Secure Remote Access architecture
+</Image>
 
 1. Web: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
 2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any UNIX-supporting resource.
@@ -61,7 +48,7 @@ Akeyless Secure Remote Access provides a robust set of features designed to supp
 3. Support for Various Protocols: Akeyless supports a variety of protocols, including SSH, RDP, SQL, Kubectl, and more.
 4. Request for Access: Admins have the ability to enable an option for users to request access for a specific resource on-demand.
 5. Audit and Session Management: Akeyless provides full session management with auditing and recording capabilities to keep you compliant. Session recordings and transcripts can be automatically exported to remote storage systems for long-term retention.
-6. Granular RBAC: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need (Users are restricted from accessing anything beyond their defined scope). Users only need SRA permissions to initiate connections—without requiring any _Read_ access to the underlying secrets.
+6. Granular RBAC: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need (Users are restricted from accessing anything beyond their defined scope). Users only need SRA permissions to initiate connections—without requiring any *Read* access to the underlying secrets.
 7. Native SSO integrations: SRA supports authentication via SSO protocols such as OIDC, SAML, and LDAP.
 8. Multiple connection interfaces: WebUI, CLI, Desktop app
 
@@ -87,17 +74,17 @@ Remote Access supports access to any flavor of K8s cluster, including EKS, GKE o
 
 Akeyless' Remote Access solution supports connections to the following resource types:
 
-- [Databases](https://docs.akeyless.io/docs/database-secure-remote-access)
-- [Windows Remote Desktop](https://docs.akeyless.io/docs/remote-desktop-secure-access)
-- [AWS Console](https://docs.akeyless.io/docs/aws-console-secure-remote-access)
-- [Azure Portal](https://docs.akeyless.io/docs/azure-portal-access)
-- [GCP Portal](https://docs.akeyless.io/docs/gcp-portal-access)
-- [SSH Servers](https://docs.akeyless.io/docs/ssh-remote-access)
-- [LDAP Servers](#)
-- [RabbitMQ](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access)
-- [Kubernetes](https://docs.akeyless.io/docs/k8s-cluster-access)
-- [Web Applications](https://docs.akeyless.io/docs/web-applications-secure-remote-access)
-- [Kubectl](https://docs.akeyless.io/docs/kubectl-access)
+* [Databases](https://docs.akeyless.io/docs/database-secure-remote-access)
+* [Windows Remote Desktop](https://docs.akeyless.io/docs/remote-desktop-secure-access)
+* [AWS Console](https://docs.akeyless.io/docs/aws-console-secure-remote-access)
+* [Azure Portal](https://docs.akeyless.io/docs/azure-portal-access)
+* [GCP Portal](https://docs.akeyless.io/docs/gcp-portal-access)
+* [SSH Servers](https://docs.akeyless.io/docs/ssh-remote-access)
+* [LDAP Servers](#)
+* [RabbitMQ](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access)
+* [Kubernetes](https://docs.akeyless.io/docs/k8s-cluster-access)
+* [Web Applications](https://docs.akeyless.io/docs/web-applications-secure-remote-access)
+* [Kubectl](https://docs.akeyless.io/docs/kubectl-access)
 
 # Web Access
 
