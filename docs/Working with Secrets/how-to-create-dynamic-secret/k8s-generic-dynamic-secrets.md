@@ -27,26 +27,26 @@ When working in **Dynamic Mode**, you may use a predefined role and only generat
 In addition, you must supply a list of Allowed Namespaces to exist within, to control where the Service Account will be created. If you select a pre-existing role (and not a cluster role) - it also must exist in the mentioned namespaces. It’s also possible to define the wildcard character `*` as the list of Allowed Namespaces to allow any namespace.
 
 > 👍 Note
-> 
+>
 > We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 # Prerequisites
 
-- An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](doc:api-gw)
 
-- A [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) or the equivalent inline credentials
+* A [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) or the equivalent inline credentials
 
-- **Fixed Mode:** A pre-defined privileged service account or a K8s user, with permission to run the Kubernetes API `RequestToken` command to generate JWT tokens for other service accounts. In our example, it will be called `token-request-sa` or `token-request-user` respectively. This entity would be used as a privileged user to generate the temporary tokens for other service accounts. In our example, it will be called `example-service-account`.
+* **Fixed Mode:** A pre-defined privileged service account or a K8s user, with permission to run the Kubernetes API `RequestToken` command to generate JWT tokens for other service accounts. In our example, it will be called `token-request-sa` or `token-request-user` respectively. This entity would be used as a privileged user to generate the temporary tokens for other service accounts. In our example, it will be called `example-service-account`.
 
-- **Dynamic Mode:** A pre-defined privileged service account or a k8s user with permission to create and manage `Service Accounts`, `Role Binding` and `Roles` as well as `get` permissions to `namespaces`. In our example, it will be called `akeyless-jit`. This entity will be used as a privileged user to dynamically generate and manage temporary service accounts.
+* **Dynamic Mode:** A pre-defined privileged service account or a k8s user with permission to create and manage `Service Accounts`, `Role Binding` and `Roles` as well as `get` permissions to `namespaces`. In our example, it will be called `akeyless-jit`. This entity will be used as a privileged user to dynamically generate and manage temporary service accounts.
 
 # Authentication Strategies
 
 Akeyless supports several authentication strategies to interact with the K8s cluster using: 
 
-- **The Akeyless Gateway Service Account**
-- **A dedicated Service Account's Bearer Token **
-- **A K8s User based on a Client Certificate**
+* **The Akeyless Gateway Service Account**
+* **A dedicated Service Account's Bearer Token**
+* **A K8s User based on a Client Certificate**
 
 ## Authenticate using a Service Account
 
@@ -130,9 +130,9 @@ subjects:
 If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using either the GW Service Account, or the dedicated Service Account (if its a dedicated Service Account, be sure to extract its Bearer Token).
 
 > 📘 Info
-> 
+>
 > **K8s v1.24 and above**
-> 
+>
 > Starting from K8s v1.24 and above, note that Service Accounts are created without tokens by default. In order to provide the privileged Service Account a Bearer Token for the creation of the [K8s Generic Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic), please create the token manually.
 
 When using `kubeadm`, please make sure to enable the following API flags in the <code>kubeadm-config.yaml</code> file.
@@ -275,17 +275,17 @@ akeyless dynamic-secret create k8s \
 
 Where:
 
-- `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+* `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-- `target-name`: A name of the target that enables connection to the Kubernetes cluster. The name can include the path to the virtual folder where this target resides.
+* `target-name`: A name of the target that enables connection to the Kubernetes cluster. The name can include the path to the virtual folder where this target resides.
 
-- `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- `k8s-service-account-type`: This is the parameter that will define if you are working with a Fixed SA or a Dynamic SA. The default is `fixed`.
+* `k8s-service-account-type`: This is the parameter that will define if you are working with a Fixed SA or a Dynamic SA. The default is `fixed`.
 
-- `k8s-service-account`: The Kubernetes Service Account to generate tokens for (Relevant for **Fixed Mode ** only).
+* `k8s-service-account`: The Kubernetes Service Account to generate tokens for (Relevant for **Fixed Mode** only).
 
-- `k8s-namespace`: The name of the K8S Namespace where the example Service Account exists.
+* `k8s-namespace`: The name of the K8S Namespace where the example Service Account exists.
 
 **Dynamic Mode:** To create a dynamic generic Kubernetes secret from the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Dynamic Mode**, use the following command (note parameters will change if you choose to create a ServiceAccount using an existing Role, or if you choose to generate everything from scratch):
 
@@ -311,13 +311,13 @@ akeyless dynamic-secret create k8s \
 
 Where:
 
-- `k8s-predefined-role-type`: The type of the pre-existing K8S role [`Role`/`ClusterRole`] \(For dynamic mode only).
+* `k8s-predefined-role-type`: The type of the pre-existing K8S role [`Role`/`ClusterRole`] \(For dynamic mode only).
 
-- `k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (For dynamic mode only).
+* `k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (For dynamic mode only).
 
-- `k8s-allowed-namespaces`: Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (For dynamic mode only).
+* `k8s-allowed-namespaces`: Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (For dynamic mode only).
 
-- `k8s-rolebinding-yaml-def`: This can be an alternative for specifying other dynamic mode parameters by supplying a YAML file with all of the relevant data in the following format:
+* `k8s-rolebinding-yaml-def`: This can be an alternative for specifying other dynamic mode parameters by supplying a YAML file with all of the relevant data in the following format:
 
 ```yaml RoleBinding.yml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -340,16 +340,16 @@ roleRef:
 ```
 
 > 🚧 Warning
-> 
+>
 > While working with Role Binding using `yml` file, the `namespace` subjects are ignored and managed only via the `Allowed Namespaces` list
 
 If you don't have a configured [Kubernetes Targets](doc:kubernetes-targets) yet, you can use the command with your K8s Cluster connection strings inline:
 
-- `k8s-cluster-endpoint`: The URL of the cluster.
+* `k8s-cluster-endpoint`: The URL of the cluster.
 
-- `k8s-cluster-ca-cert`: The base-64 encoded CA cluster certificate.
+* `k8s-cluster-ca-cert`: The base-64 encoded CA cluster certificate.
 
-- `k8s-cluster-token`: A JWT authentication token authorized to manage Service Accounts, Roles, and Role Binding depending on the working mode.
+* `k8s-cluster-token`: A JWT authentication token authorized to manage Service Accounts, Roles, and Role Binding depending on the working mode.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluek8sp) section.
 
@@ -426,7 +426,7 @@ akeyless get-dynamic-secret-value --name <Path to the dynamic secret> --args=nam
 Then you need to replace `< Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
 > 👍 Note
-> 
+>
 > To start working with dynamic secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 # Dynamic Generic Kubernetes Secrets in the Console
@@ -441,41 +441,41 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
 4. Define the remaining parameters as follows:
 
-- **Description:** A brief description of the item.
+* **Description:** A brief description of the item.
 
-- **Tags:** Tags you would like to attach to the item.
+* **Tags:** Tags you would like to attach to the item.
 
-- **Delete Protection:** When enabled, it protects the secret from accidental deletion.
+* **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-- **Target mode:** In this section, you can either select an existing [Kubernetes Target](doc:kubernetes-targets) or specify details of the endpoint specifically in the next section explicitly.
+* **Target mode:** In this section, you can either select an existing [Kubernetes Target](doc:kubernetes-targets) or specify details of the endpoint specifically in the next section explicitly.
 
 5. Select your Service Account mode, **Fixed** or **Dynamic**, and fill in the following parameters:
 
 **For Fixed Mode**
 
-- **Service Account:** The name of the Kubernetes Service Account to generate the tokens for.
+* **Service Account:** The name of the Kubernetes Service Account to generate the tokens for.
 
-- **Namespace:** The namespace of the Kubernetes Service Account.
+* **Namespace:** The namespace of the Kubernetes Service Account.
 
 **For Dynamic Mode**
 
-- **Role Bindings:** A YAML file describing the Role, and Role Binding parameters.
+* **Role Bindings:** A YAML file describing the Role, and Role Binding parameters.
 
-- **Role Type:** Select if the role is a K8s Role or a Cluster Role.
+* **Role Type:** Select if the role is a K8s Role or a Cluster Role.
 
-- **Allowed Namespaces:** A list of namespaces the secret is allowed to exist within. If the role type is a K8s Role, it must also exist within these namespaces. You can input the wildcard character `*` to allow any namespace.
+* **Allowed Namespaces:** A list of namespaces the secret is allowed to exist within. If the role type is a K8s Role, it must also exist within these namespaces. You can input the wildcard character `*` to allow any namespace.
 
-- **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
+* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
 6. Fill in the remaining parameters for either type of service account:
 
-- **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
+* **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
 
-- **Time Unit:** Select the time unit (`seconds`, `minutes`,`hours`) for the TTL value.
+* **Time Unit:** Select the time unit (`seconds`, `minutes`,`hours`) for the TTL value.
 
-- **Gateway:** Select the Gateway through which the dynamic secret will create users.
+* **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-- **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
 
 If you selected the **Explicitly specify target properties** mode, click **Next**. Otherwise, select **Finish**.
 
@@ -483,17 +483,17 @@ If you selected the **Explicitly specify target properties** mode, click **Next*
 
    1. **Bearer Token**
 
-      - **Bearer Token:** Provide a JWT authentication token authorized to manage Service Account tokens, Roles, and Role Binding, depending on the working mode.
+      * **Bearer Token:** Provide a JWT authentication token authorized to manage Service Account tokens, Roles, and Role Binding, depending on the working mode.
 
-      - **Cluster CA Certificate:**Provide the k8s cluster CA certificate (PEM format)
+      * **Cluster CA Certificate:**&#x50;rovide the k8s cluster CA certificate (PEM format)
 
-      - **Cluster Endpoint URL:** Specify the URL of the cluster.
-   2. ** GW Service Account** to extract the connection settings from a  **Gateway** that runs on a **K8s** cluster, with a Service Account with permissions as described in the [prerequisits](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
-   3. ** Client Certificate**
-      - **Client Certificate:**Provide the k8s client certificate (PEM format).
-      - **Client Private Key :** Provide the K8s client private key (PEM format).
-      - **Cluster CA Certificate:** Provide the k8s cluster CA certificate (PEM format).
-      - **Cluster Endpoint URL:** Specify the URL of the cluster.
+      * **Cluster Endpoint URL:** Specify the URL of the cluster.
+   2. **GW Service Account** to extract the connection settings from a  **Gateway** that runs on a **K8s** cluster, with a Service Account with permissions as described in the [prerequisits](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
+   3. **Client Certificate**
+      * **Client Certificate:**&#x50;rovide the k8s client certificate (PEM format).
+      * **Client Private Key :** Provide the K8s client private key (PEM format).
+      * **Cluster CA Certificate:** Provide the k8s cluster CA certificate (PEM format).
+      * **Cluster Endpoint URL:** Specify the URL of the cluster.
 8. Select **Finish**.
 
 ## Using Dynamic Generic Kubernetes Secrets
@@ -511,7 +511,7 @@ Let's see an example of how you could use dynamic generic Kubernetes secrets to 
 In this example, the **token-request-sa** service account will have permission to create tokens for the existing service account **kubernetes-dashboard** on the **kubernetes-dashboard** namespace.
 
 > 👍 Note
-> 
+>
 > Make sure you have the `kubernetes-dashboard` created on your cluster in advance, and confirm the service account has some roles bound to it (in this example, we use the ServiceAccount `kubernetes-dashboard`, which might not have any roles by default, so feel free to change it).
 
 ```yaml
@@ -604,14 +604,14 @@ The CLI command is `akeyless kubeconfig-generate [OPTIONS]`
 
 **Options**
 
-- `n, --name` - List of Dynamic Secret names (repeatable)
-- `t, --tag` - A single tag attached to Dynamic Secrets
-- `o, --out[=kubeconfig.json]` - Output path for the generated kubeconfig
-- `-profile, --token` - Use a saved profile (`$HOME/.akeyless/profiles`) or a temporary access token
-- `-uid-token` - Universal Identity token (required only with `universal_identity` auth)
-- `-json[=false]` - Return tool output in JSON
-- `-jq-expression` - JQ filter for JSON output
-- `-no-creds-cleanup[=false]` -  Do not clean local temporary expired creds
+* `n, --name` - List of Dynamic Secret names (repeatable)
+* `t, --tag` - A single tag attached to Dynamic Secrets
+* `o, --out[=kubeconfig.json]` - Output path for the generated kubeconfig
+* `-profile, --token` - Use a saved profile (`$HOME/.akeyless/profiles`) or a temporary access token
+* `-uid-token` - Universal Identity token (required only with `universal_identity` auth)
+* `-json[=false]` - Return tool output in JSON
+* `-jq-expression` - JQ filter for JSON output
+* `-no-creds-cleanup[=false]` -  Do not clean local temporary expired creds
 
 Remember to provide at least one selector - `--name` (one or more secret names) **or** `--tag` (a single tag). When both are provided, the first appearing selector is prioritized.
 
@@ -619,14 +619,14 @@ Remember to provide at least one selector - `--name` (one or more secret names) 
 
 When duplicate context names are detected during merge:
 
-- **Default behavior:** It keeps the **first** occurrence and **log a warning** about the conflict.
-- **Resolution message:** the CLI prints a clear notice in the terminal describing which context was kept and which was skipped or renamed.
-- **Auditability:** the same message is written to the log for later review.
+* **Default behavior:** It keeps the **first** occurrence and **log a warning** about the conflict.
+* **Resolution message:** the CLI prints a clear notice in the terminal describing which context was kept and which was skipped or renamed.
+* **Auditability:** the same message is written to the log for later review.
 
 > Example terminal notice:
 >
 > `WARNING: Context "prod-us1" already exists. Keeping the first occurrence; skipped merging duplicate from secret "ds-kube-prod-us1".`
 
 > 👍 Note
-> 
-> - Ensure the user or automation has permission to retrieve the selected Dynamic Secrets
+>
+> * Ensure the user or automation has permission to retrieve the selected Dynamic Secrets
