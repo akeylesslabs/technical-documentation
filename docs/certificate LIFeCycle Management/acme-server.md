@@ -14,13 +14,13 @@ next:
 
 The ACME protocol defines an external account binding (**EAB**), allowing clients to securely interact with the **ACME Server** for certificate management.
 
-Akeyless supports creating a [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) that deploys an **ACME Server** on the [Gateway](https://docs.akeyless.io/docs/api-gw), with **EAB** support for secure registration. This setup allows external ACME clients (like [CertBot](https://certbot.eff.org/instructions?ws=other&os=windows)) to automate the management of TLS certificates within the organization’s security framework.
+Akeyless supports creating a [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) that deploys an **ACME Server** on the [Gateway](https://docs.akeyless.io/docs/api-gw), with **EAB** support for secure registration. This setup allows external ACME clients (like [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows)) to automate the management of TLS certificates within the organization’s security framework.
 
 Before proceeding, ensure you have permission to manage **ACME** on your Gateway.
 
 # Enable ACME Server
 
-In this guide, we will create a **PKI Cert Issuer** with  **ACME Server** where we will register [CertBot](https://certbot.eff.org/instructions?ws=other&os=windows) as an **ACME Client** using External Account Binding. 
+In this guide, we will create a **PKI Cert Issuer** with  **ACME Server** where we will register [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows) as an **ACME Client** using External Account Binding. 
 
 ## Create a Signer Key
 
@@ -43,9 +43,9 @@ EOF
 
 Where:
 
-- `basicConstraints`:   Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
+* `basicConstraints`:   Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
 
-- `keyUsage`: Key Usage for CA certificate with  `digitalSignature`,`KeyCertSign`,`cRLSign`.
+* `keyUsage`: Key Usage for CA certificate with  `digitalSignature`,`KeyCertSign`,`cRLSign`.
 
 Run the following command to create the **Signer Key**:
 
@@ -61,17 +61,17 @@ akeyless create-dfc-key \
 
 Where:
 
-- `name`: A unique name for the DFC Key. The name can include a path to the virtual folder where you want to create a new DFC Key using the slash / separators. If the folder does not exist, it will be created together with the item.
+* `name`: A unique name for the DFC Key. The name can include a path to the virtual folder where you want to create a new DFC Key using the slash / separators. If the folder does not exist, it will be created together with the item.
 
-- `alg`: DFC Key type, options: [`AES128GCM`, `AES256GCM`, `AES128SIV`, `AES256SIV`, `AES128CBC`, `AES256CBC`, `RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`].
+* `alg`: DFC Key type, options: [`AES128GCM`, `AES256GCM`, `AES128SIV`, `AES256SIV`, `AES128CBC`, `AES256CBC`, `RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`].
 
-- `generate-self-signed-certificate`: Whether to generate a self signed certificate with the key. If set, `--certificate-ttl` must be provided.
+* `generate-self-signed-certificate`: Whether to generate a self signed certificate with the key. If set, `--certificate-ttl` must be provided.
 
-- `certificate-ttl`: TTL in days for the generated certificate. Required only for generate-self-signed-certificate.
+* `certificate-ttl`: TTL in days for the generated certificate. Required only for generate-self-signed-certificate.
 
-- `certificate-format`: The format of the returned certificate can be `pem` or `der`.
+* `certificate-format`: The format of the returned certificate can be `pem` or `der`.
 
-- `conf-file-path`: Path to the configuration file that contains CSR config data.
+* `conf-file-path`: Path to the configuration file that contains CSR config data.
 
 Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** for our [PKI Cert Issuer](doc:ssh-and-pkitls-certificates). 
 
@@ -92,21 +92,21 @@ akeyless create-pki-cert-issuer \
 
 Where:
 
-- `name`: A unique name for the PKI issuer. The name can include a path to the virtual folder where you want to create a new PKI cert issuer using the slash / separators. If the folder does not exist, it will be created together with the item.
+* `name`: A unique name for the PKI issuer. The name can include a path to the virtual folder where you want to create a new PKI cert issuer using the slash / separators. If the folder does not exist, it will be created together with the item.
 
-- `signer-key-name`: The **Signer Key** that was created earlier which will sign the certificates.
+* `signer-key-name`: The **Signer Key** that was created earlier which will sign the certificates.
 
-- `gw-cluster-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gw-cluster-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- `destination-path`: A path in Akeyless to save generated certificates.
+* `destination-path`: A path in Akeyless to save generated certificates.
 
-- `ttl`: The requested TTL for the issued certificate, Maximum **90 days**.
+* `ttl`: The requested TTL for the issued certificate, Maximum **90 days**.
 
-- `allowed-domains`: Allowed domains that clients can request to be included in the certificate.
+* `allowed-domains`: Allowed domains that clients can request to be included in the certificate.
 
-- `enable-acme`: Enable  **ACME Server**.
+* `enable-acme`: Enable  **ACME Server**.
 
-Upon successful creation,  the generated **ACME Server **  URL will use the following format:
+Upon successful creation,  the generated **ACME Server**  URL will use the following format:
 
 `https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory` 
 
@@ -142,9 +142,9 @@ Upon successful generation of an external account binding token, the following w
 
 Where:
 
-- `kid`: The **Key Identifier** for the external account will be used by the **ACME client**.
+* `kid`: The **Key Identifier** for the external account will be used by the **ACME client**.
 
-- `mac_key`: The **HMAC key** for the external account will be used by the **ACME client**.
+* `mac_key`: The **HMAC key** for the external account will be used by the **ACME client**.
 
 This external account binding token will be used to register an **ACME client** to request a certificate from the **ACME server**.
 
@@ -161,13 +161,13 @@ certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<
 
 Where:
 
-- `server`: The **ACME Server URL**, can be found under **ACME Server** tab on the **PKI Cert Issuer** in the console.
+* `server`: The **ACME Server URL**, can be found under **ACME Server** tab on the **PKI Cert Issuer** in the console.
 
-- `domain`: The domain name for which you want to issue the certificate, must be listed in the [PKI Cert Issuer](https://docs.akeyless.io/docs/acme-server#create-a-pki-cert-issuer) under the `Allowed domains list` field. 
+* `domain`: The domain name for which you want to issue the certificate, must be listed in the [PKI Cert Issuer](https://docs.akeyless.io/docs/acme-server#create-a-pki-cert-issuer) under the `Allowed domains list` field. 
 
-- `eab-kid`: The external accounts binding  **Key Identifier** .
+* `eab-kid`: The external accounts binding  **Key Identifier** .
 
-- `eab-hmac-key`: The external account binding **HMAC key**. 
+* `eab-hmac-key`: The external account binding **HMAC key**. 
 
 Upon successful certificate request, the certificate will be issued.
 
@@ -213,10 +213,10 @@ akeyless deactivate-acme-account \
 
 Where:
 
-- `cert-issuer-name`: The full path of the **PKI Cert Issuer** of the **ACME Server**.
+* `cert-issuer-name`: The full path of the **PKI Cert Issuer** of the **ACME Server**.
 
-- `acme-account-id`: The **Account ID** of the external account.
+* `acme-account-id`: The **Account ID** of the external account.
 
-- `delete-account`: Set to `true` to delete the account.
+* `delete-account`: Set to `true` to delete the account.
 
 You can find the complete list of parameters for these commands in the [CLI Reference - ACME](https://docs.akeyless.io/docs/cli-reference-certificates#acme) section.
