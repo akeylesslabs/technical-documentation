@@ -13,24 +13,24 @@ next:
 Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway)  to bootstrap the Akeyless Gateway deployment.  
 
 > 📘 New Chart
-> 
+>
 > This guide describe the flow using the **latest** chart of the Akeyless Gateway.
-> 
+>
 > The documentation for the legacy charts is available [here](https://docs.akeyless.io/docs/gateway-k8s)
 
 # Prerequisites
 
-- An [Authentication Method](doc:access-and-authentication-methods) with an [Access Role](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets). 
+* An [Authentication Method](doc:access-and-authentication-methods) with an [Access Role](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets). 
 
-- [Helm](https://helm.sh/) Installed
+* [Helm](https://helm.sh/) Installed
 
-- K8s Installed with [K8s metrics server](https://github.com/kubernetes-sigs/metrics-server)
+* K8s Installed with [K8s metrics server](https://github.com/kubernetes-sigs/metrics-server)
 
-- Minimum 1 vCPU available with 2GB RAM.
+* Minimum 1 vCPU available with 2GB RAM.
 
-- Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your cluster. 
+* Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your cluster. 
 
-- Network port `8000` on the cluster must be open** only for internal network access**, allowing access to the following services using the corresponding endpoints: 
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints: 
 
 | Service                                              | Endpoint   |
 | :--------------------------------------------------- | :--------- |
@@ -67,17 +67,17 @@ To set your Gateway with a default [Authentication Methods](doc:access-and-authe
 
 The following [Authentication Methods](doc:access-and-authentication-methods) are supported for K8s deployments: 
 
-- [API Key](doc:api-key) 
+* [API Key](doc:api-key) 
 
-- [AWS IAM](doc:aws-iam) 
+* [AWS IAM](doc:aws-iam) 
 
-- [GCP](doc:gcp-auth-method)   
+* [GCP](doc:gcp-auth-method)   
 
-- [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](doc:azure-ad)
 
-- [Universal Identity](doc:universal-identity) 
+* [Universal Identity](doc:universal-identity) 
 
-- [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)
+* [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)
 
 ## API Key Authentication
 
@@ -125,9 +125,9 @@ Set the `gatewayAccessId` with your IAM [Authentication Method](doc:access-and-a
 
 AWS IAM can be used in the following approaches: 
 
-- Instance IAM Role 
+* Instance IAM Role 
 
-- Service Account IAM Role 
+* Service Account IAM Role 
 
 In both cases, provide your [AWS IAM](doc:aws-iam) Auth Method's `Access ID` as your `gatewayAccessId`, and at least one other `Access ID` in the `allowedAccessPermissions` section  to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-on-k8s-copy-1#access-permissions): 
 
@@ -141,10 +141,10 @@ globalConfig:
 
 When working from an AWS instance with an IAM Role associated with it (which is the default state for EKS clusters that leverage the IAM Role of their Node group), nothing else is required, as the Gateway will be leveraging the IAM Role of the AWS instance itself where K8s is running. 
 
-Alternatively, you can also leverage an IAM Role assumed by a K8s Service Account in your Cluster. For that, you must either [create an IAM Role bound to a K8s Service Account](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html), or use an existing IAM role for annotating the Service Account in the Gateway's `values.yaml` helm-chart:  
+Alternatively, you can also leverage an IAM Role assumed by a K8s Service Account in your Cluster. For that, you must either [create an IAM Role bound to a K8s Service Account](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html), or use an existing IAM role for annotating the Service Account in the Gateway's `values.yaml` helm-chart:\
 Set the `serviceAccountName` with the desired Kubernetes Service Account name, and set its `eks.amazonaws.com/role-arn` annotation to the ARN of the IAM Role in question (which is constructed using the following format: `arn:aws:iam::<AWS-Account-ID>:role/<IAM-Role-Name>`).
 
-You can also create a new Service Account by simply setting the `create` field to `true`, so the `serviceAccountName` you defined will be created upon deployment. Furthermore, if the `serviceAccountName` is left empty, by default - the chart will create a new Service Account called `<release name>-akeyless-gateway`.  
+You can also create a new Service Account by simply setting the `create` field to `true`, so the `serviceAccountName` you defined will be created upon deployment. Furthermore, if the `serviceAccountName` is left empty, by default - the chart will create a new Service Account called `<release name>-akeyless-gateway`.\
 Make sure to set the required role-arn `annotation` to connect your IAM Role with the Service Account in **any** of the scenarios. 
 
 ```yaml values.yaml
@@ -176,18 +176,18 @@ Create a Kubernetes service account for Akeyless Gateway to use. You can also us
 Use the existing IAM service account that is bound to your [GCP](doc:gcp-auth-method) auth method.
 
 > 👍 Note
-> 
+>
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
-> 
+>
 > To work with the GKE Workload Identity you must configure **only** the `Bound Service Accounts`  field in your [GCP Auth Method](doc:gcp-auth-method).
 
 Allow the Kubernetes service account to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes service account to act as the IAM service account.
 
-Replace the following:  
-   `PROJECT_ID`: your Google Cloud project ID.  
-   `GSA_NAME `: the name of your IAM service account.  
-   `GSA_PROJECT`: the project ID of the Google Cloud project of your IAM service account.  
-   `KSA_NAME`: the name of your new Kubernetes service account.  
+Replace the following:\
+   `PROJECT_ID`: your Google Cloud project ID.\
+   `GSA_NAME `: the name of your IAM service account.\
+   `GSA_PROJECT`: the project ID of the Google Cloud project of your IAM service account.\
+   `KSA_NAME`: the name of your new Kubernetes service account.\
    `NAMESPACE`: the name of the Kubernetes namespace for the service account.
 
 ```shell GKE
@@ -230,7 +230,7 @@ nodeSelector:
 ```
 
 > 📘 Info
-> 
+>
 > **NodeSelector** - For Autopilot clusters, omit the `nodeSelector` field. Autopilot rejects this `nodeSelector` because all nodes use Workload Identity.
 
 Save the file and proceed with the [installation](doc:gateway-k8s#installation) instructions.
@@ -341,7 +341,7 @@ In this case, the above will create an **Access Permission** object named **Admi
 
 In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
 
-In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.  
+In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.\
 **If you don't specify the sub-claims, every user authenticated by this IdP will be able to log in to the Gateway with admin privileges.**
 
 To work with [API Key](doc:api-key) as an `allowedAccessPermissions` simply provide your [API Key](doc:api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of `permissions`.
@@ -403,54 +403,175 @@ Set the name of the secret `allowed-permissions` under `allowedAccessPermissions
 
 Full list of available permissions:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Permission",
-    "h-1": "Description",
-    "0-0": "`admin`",
-    "0-1": "Admin permission can manage all Gateway components, including **Access Permissions**",
-    "1-0": "`defaults`",
-    "1-1": "Management of the defaults settings of your Gateway  \nIncluding `GatewayUrl`,`TLS`,`Default Encryption Key` & `Default AccessID` for login.",
-    "2-0": "`classic_keys`",
-    "2-1": "Management of [Classic Keys](doc:classic-keys)",
-    "3-0": "`dynamic_secret`",
-    "3-1": "Management of [Dynamic Secrets](doc:how-to-create-dynamic-secret)",
-    "4-0": "`rotated_secret`",
-    "4-1": "Management of [Rotated Secrets](doc:rotated-secrets)",
-    "5-0": "`rotate-secret-value`",
-    "5-1": "Permission to only rotate the secret value without editing it.",
-    "6-0": "`targets`",
-    "6-1": "Management of all Targets items that were created using your Gateway",
-    "7-0": "`automatic_migration`",
-    "7-1": "Management of  [Dynamic Secrets](doc:how-to-create-dynamic-secret) settings",
-    "8-0": "`log_forwarding`",
-    "8-1": "Management of [Log Forwarding](doc:log-forwarding) settings",
-    "9-0": "`zero_knowledge_encryption`",
-    "9-1": "Management of [Zero-Knowledge](doc:zero-knowledge)",
-    "10-0": "`caching`",
-    "10-1": "Management of [Gateway Cache](doc:configure-the-gateway-cache) settings",
-    "11-0": "`event_forwarding`",
-    "11-1": "Management of [Event](doc:event-center) Forwarding settings",
-    "12-0": "`ladp_auth`",
-    "12-1": "Management of [LDAP](doc:ldap) Auth Gateway configuration. ",
-    "13-0": "`k8s_auth`",
-    "13-1": "Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration ",
-    "14-0": "`kmip`",
-    "14-1": "Management of [KMIP Servers](doc:kmip-server)"
-  },
-  "cols": 2,
-  "rows": 15,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Permission
+      </th>
 
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `admin`
+      </td>
+
+      <td>
+        Admin permission can manage all Gateway components, including **Access Permissions**
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `defaults`
+      </td>
+
+      <td>
+        Management of the defaults settings of your Gateway\
+        Including `GatewayUrl`,`TLS`,`Default Encryption Key` & `Default AccessID` for login.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `classic_keys`
+      </td>
+
+      <td>
+        Management of [Classic Keys](doc:classic-keys)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `dynamic_secret`
+      </td>
+
+      <td>
+        Management of [Dynamic Secrets](doc:how-to-create-dynamic-secret)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `rotated_secret`
+      </td>
+
+      <td>
+        Management of [Rotated Secrets](doc:rotated-secrets)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `rotate-secret-value`
+      </td>
+
+      <td>
+        Permission to only rotate the secret value without editing it.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `targets`
+      </td>
+
+      <td>
+        Management of all Targets items that were created using your Gateway
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `automatic_migration`
+      </td>
+
+      <td>
+        Management of  [Dynamic Secrets](doc:how-to-create-dynamic-secret) settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `log_forwarding`
+      </td>
+
+      <td>
+        Management of [Log Forwarding](doc:log-forwarding) settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `zero_knowledge_encryption`
+      </td>
+
+      <td>
+        Management of [Zero-Knowledge](doc:zero-knowledge)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `caching`
+      </td>
+
+      <td>
+        Management of [Gateway Cache](doc:configure-the-gateway-cache) settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `event_forwarding`
+      </td>
+
+      <td>
+        Management of [Event](doc:event-center) Forwarding settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `ladp_auth`
+      </td>
+
+      <td>
+        Management of [LDAP](doc:ldap) Auth Gateway configuration. 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `k8s_auth`
+      </td>
+
+      <td>
+        Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `kmip`
+      </td>
+
+      <td>
+        Management of [KMIP Servers](doc:kmip-server)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 > 👍 Note
-> 
+>
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
 You may also edit this parameter on your console, by going to the Gateways tab and selecting the desired Gateway. On the right of the screen, you will see the Gateway details, including **Access Permissions**.
@@ -465,7 +586,7 @@ TLSConf:
 ```
 
 > 👍 Note
-> 
+>
 > All changes to allowed access IDs, such as editing, removing, and so on, can only be performed on **post-deployment allowed access IDs**. If an ID was defined during deployment it can't be removed or changed.
 
 # Installation
@@ -486,7 +607,7 @@ gw-akeyless-gateway-6554f7c66c-56fgs   1/1     Running   0   						5s
 gw-akeyless-gateway-6554f7c66c-7jt8r   1/1     Running   0              5s
 ```
 
-3. Log in to the Gateway using your browser: <http://Your-Akeyless-Gateway-URL:8000> - with your Gateway admin credentials.
+3. Log in to the Gateway using your browser: [http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000) - with your Gateway admin credentials.
 
 # Upgrade Gateway
 
