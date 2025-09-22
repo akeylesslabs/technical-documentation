@@ -16,22 +16,22 @@ Instead of authenticating identities itself, in most cases, Akeyless integrates 
 
 For **machine** access, Akeyless supports:
 
-- Cloud identities (CSP IAM) such as [AWS IAM](doc:aws-iam), [Azure AD](doc:azure-ad), [GCP IAM](doc:gcp-auth-method), and [OCI IAM](doc:oci-iam)
-- On-prem machines using [Universal Identity](doc:universal-identity)™
-- [Kubernetes](doc:kubernetes-auth)
-- [Certificate](doc:certificate-based-authentication) 
-- [OAuth2.0/JWT](doc:oauth20jwt)
-- [API Keys](doc:api-key)
-- [Kerberos](doc:kerberos)
+* Cloud identities (CSP IAM) such as [AWS IAM](doc:aws-iam), [Azure AD](doc:azure-ad), [GCP IAM](doc:gcp-auth-method), and [OCI IAM](doc:oci-iam)
+* On-prem machines using [Universal Identity](doc:universal-identity)™
+* [Kubernetes](doc:kubernetes-auth)
+* [Certificate](doc:certificate-based-authentication) 
+* [OAuth2.0/JWT](doc:oauth20jwt)
+* [API Keys](doc:api-key)
+* [Kerberos](doc:kerberos)
 
 For **human** access, Akeyless supports:
 
-- [LDAP](doc:ldap)
-- [SAML](doc:saml)
-- [OIDC](https://docs.akeyless.io/docs/openid)
-- [OAuth2.0/JWT](doc:oauth20jwt)
-- [Email](https://docs.akeyless.io/docs/email)
-- [API Keys](doc:api-key)
+* [LDAP](doc:ldap)
+* [SAML](doc:saml)
+* [OIDC](https://docs.akeyless.io/docs/openid)
+* [OAuth2.0/JWT](doc:oauth20jwt)
+* [Email](https://docs.akeyless.io/docs/email)
+* [API Keys](doc:api-key)
 
 which are used by known identity providers such as [Okta](doc:okta), [Azure AD](doc:azure-ad-saml-authentication), and others.
 
@@ -44,8 +44,8 @@ You can set a custom range of possible TTL for your tokens, setting the minimum,
 The default setting of your token TTL will affect all your authentication methods unless you have set a different TTL for a specific authentication method. 
 
 > 👍 Note
-> 
-> For an authentication method to have the necessary permissions to perform actions, you will need to attach it to a matching role.  
+>
+> For an authentication method to have the necessary permissions to perform actions, you will need to attach it to a matching role.\
 > To learn more about this, please go to [Role-based Access Control (RBAC)](doc:rbac).
 
 ## Product Type
