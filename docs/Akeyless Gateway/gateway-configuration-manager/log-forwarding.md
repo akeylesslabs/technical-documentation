@@ -12,43 +12,43 @@ next:
 ---
 You can export the audit logs from the Akeyless Gateway to any of the following log services:
 
-- [Amazon S3](https://docs.akeyless.io/docs/log-forwarding#amazon-s3)
+* [Amazon S3](https://docs.akeyless.io/docs/log-forwarding#amazon-s3)
 
-- [Azure Log Analytics](https://docs.akeyless.io/docs/log-forwarding#azure-log-analytics)
+* [Azure Log Analytics](https://docs.akeyless.io/docs/log-forwarding#azure-log-analytics)
 
-- [Datadog](https://docs.akeyless.io/docs/log-forwarding#datadog)
+* [Datadog](https://docs.akeyless.io/docs/log-forwarding#datadog)
 
-- [Elasticsearch](https://docs.akeyless.io/docs/log-forwarding#elasticsearch)
+* [Elasticsearch](https://docs.akeyless.io/docs/log-forwarding#elasticsearch)
 
-- [Logstash](https://docs.akeyless.io/docs/log-forwarding#logstash)
+* [Logstash](https://docs.akeyless.io/docs/log-forwarding#logstash)
 
-- [Logz.io](https://docs.akeyless.io/docs/log-forwarding#logzio)
+* [Logz.io](https://docs.akeyless.io/docs/log-forwarding#logzio)
 
-- [Splunk](https://docs.akeyless.io/docs/log-forwarding#splunk)
+* [Splunk](https://docs.akeyless.io/docs/log-forwarding#splunk)
 
-- [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
+* [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
 
-- [Sumo Logic ](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
+* [Sumo Logic ](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
 
-- [Google Chronicle](https://docs.akeyless.io/docs/log-forwarding#google-chronicle)
+* [Google Chronicle](https://docs.akeyless.io/docs/log-forwarding#google-chronicle)
 
 > 🚧 Warning
-> 
+>
 > The log forwarding mechanism can only fetch logs from the previous 24 hours. Please ensure that your Gateway default Authentication Method has an [Access Role ](https://docs.akeyless.io/docs/rbac) that allows viewing **all** audit logs in the account.
 
 # Amazon S3
 
 When you export the audit logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under:
 
-**{root_folder_name} / {year} / {month} / {day}**
+**\{root\_folder\_name} / \{year} / \{month} / \{day}**
 
 > 📘 Info
-> 
+>
 > The default root folder is `akeyless-log`. You can change this when you set up the log file export in the Akeyless Gateway.
 
 The log files include log records from a ten-minute window, where the file name includes the start time of the logs. For example:
 
-**akeyless-log/2021/05/25/akeyless-audit_2021-05-25T16:30.log**
+**akeyless-log/2021/05/25/akeyless-audit\_2021-05-25T16:30.log**
 
 This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file that can be parsed individually.
 
@@ -66,7 +66,7 @@ This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file 
 
 7. Choose the authentication mode either using **Credentials**, **Gateway Cloud ID**or using **Assume Role**.
 
-8. For **Credentials** Define the **Access ID**, **Access Key**, and **Bucket Name** for the bucket you created in the first step. For **Assume Role** provide the **AWS Role ARNs **
+8. For **Credentials** Define the **Access ID**, **Access Key**, and **Bucket Name** for the bucket you created in the first step. For **Assume Role** provide the **AWS Role ARNs**
 
 9. From the **Region** dropdown list, select the region in which your S3 bucket is defined.
 
@@ -75,12 +75,12 @@ This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file 
 11. Select **Save Changes**.
 
 > 🚧 Warning
-> 
+>
 > Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
 
 # Azure Log Analytics
 
-When you export the audit logs from the Akeyless Gateway to Azure Log Analytics, the logs are stored in the specified workspace in the **AkeylessAudit_CL** table. The **TimeGenerated** is the time the log was created in Akeyless, and **msg_s** is textual information for the log.
+When you export the audit logs from the Akeyless Gateway to Azure Log Analytics, the logs are stored in the specified workspace in the **AkeylessAudit\_CL** table. The **TimeGenerated** is the time the log was created in Akeyless, and **msg\_s** is textual information for the log.
 
 1. Create a new Log Analytics workspace in the Azure Portal, then select **Agent Management**.
 
@@ -94,9 +94,9 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 6. From the **Log Service** dropdown list, select `Azure Log Analytics`.
 
-7. For the **Workspace ID**, copy the value of the **Workspace ID** from the** Agent Management** options in the Azure Portal. 
+7. For the **Workspace ID**, copy the value of the **Workspace ID** from the **Agent Management** options in the Azure Portal. 
 
-8. For the** Workspace Key**, copy the value of either the **Primary key** or the **Secondary key** from the** Agent Management** options in the Azure Portal. 
+8. For the **Workspace Key**, copy the value of either the **Primary key** or the **Secondary key** from the **Agent Management** options in the Azure Portal. 
 
 9. Select **Save Changes**.
 
@@ -118,7 +118,7 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 8. Define the **Elasticsearch Index**.
 
-9. Optional, check **TLS** and upload the **TLS Certificate ** of your log server.
+9. Optional, check **TLS** and upload the **TLS Certificate** of your log server.
 
 10. Select **Save Changes**.
 
@@ -138,11 +138,11 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 7. From the **Logstash Protocol** options, select the network protocol used to connect to the Logstash server.
 
-8. Optional, check **TLS** and upload the **TLS Certificate ** of your log server.
+8. Optional, check **TLS** and upload the **TLS Certificate** of your log server.
 
 9. Select **Save Changes**.
 
-10. To configure your Logstash to use the same port and protocol, add the following to the **logstash.conf **file:
+10. To configure your Logstash to use the same port and protocol, add the following to the **logstash.conf** file:
 
 ```shell
 input {
@@ -189,7 +189,7 @@ input {
 
 8. Define the **Splunk Index**. 
 
-9. Optional, check **TLS** and upload the **TLS Certificate ** of your Splunk server.
+9. Optional, check **TLS** and upload the **TLS Certificate** of your Splunk server.
 
 10. Select **Save Changes**.
 
@@ -213,7 +213,7 @@ input {
 
 9. Select the **Syslog Formatter** either `Text` or `CEF`.
 
-10. Optional, check **TLS** and upload the **TLS Certificate ** of your log server.
+10. Optional, check **TLS** and upload the **TLS Certificate** of your log server.
 
 11. Select **Save Changes**.
 
