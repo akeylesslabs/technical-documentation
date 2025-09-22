@@ -14,19 +14,19 @@ Akeyless Secure Remote Access for Web Applications enables full secure remote co
 
 The following browsing modes are available:
 
-- **Direct Connections** - Users access web targets directly in the browser by simply injecting the secret credentials into the correct fields through the Akeyless Browser Extension.
-- **Secure Web Browsing** - Users access an embedded, isolated & secured remote browser (Firefox) where the credentials are injected into the correct fields without exposing them to the user, provides auditing, and allows restricting user access to only allowed websites while enforcing specific policies per your preferences (such as disabling developer-tools, etc.)
-- **Secure Web Proxy** - Users access the web application where the Web Access Bastion acts as web proxy to access internal web resources from the external network (through the standard browser). This offers a VPN-like functionality for specific web apps.
+* **Direct Connections** - Users access web targets directly in the browser by simply injecting the secret credentials into the correct fields through the Akeyless Browser Extension.
+* **Secure Web Browsing** - Users access an embedded, isolated & secured remote browser (Firefox) where the credentials are injected into the correct fields without exposing them to the user, provides auditing, and allows restricting user access to only allowed websites while enforcing specific policies per your preferences (such as disabling developer-tools, etc.)
+* **Secure Web Proxy** - Users access the web application where the Web Access Bastion acts as web proxy to access internal web resources from the external network (through the standard browser). This offers a VPN-like functionality for specific web apps.
 
 > 🚧 Warning
-> 
+>
 > Your web application must run over HTTPS
 
 ## Prerequisite
 
-- The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) deployed.
+* The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) deployed.
 
-- Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions). 
+* Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions). 
 
 This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: <code>username..password</code>. i.e. a concatenation of your username and password, with double dots as a delimiter. 
 
@@ -45,12 +45,12 @@ akeyless update-item --name <static secret name> /
 
 where:
 
-- **secure-access-url:** The web application login URL to inject secret.
-- **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
-- **secure-access-web-proxy:** Optional, secure web-proxy,**available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* **secure-access-url:** The web application login URL to inject secret.
+* **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* **secure-access-web-proxy:** Optional, secure web-proxy,**available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 > 🚧 Warning
-> 
+>
 > In case you are using an Alias or multiple fields as part of your login credentials, please make sure your secret value follows this format: <code>username..alias..password</code>
 
 On Akeyless Secure Remote Access Portal, click on the Web Access application, select the relevant item in the list. 
@@ -67,11 +67,11 @@ Let's set up remote access to the web application from the Akeyless Console. If 
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-- `Injection URL`: The web application login URL to inject secrets. 
+* `Injection URL`: The web application login URL to inject secrets. 
 
-- `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
-- `Secure Web Proxy`: Optional, secure web proxy via the bastion, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Proxy`: Optional, secure web proxy via the bastion, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 **Secure Web Browsing (Isolated)**
 
