@@ -14,15 +14,15 @@ To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follo
 
 ## Create an Okta application
 
-1. In your Okta account, go to** Applications > Add Application > Create App Integration**.
+1. In your Okta account, go to **Applications > Add Application > Create App Integration**.
 
-2. For **Sign-in method** select **OIDC - OpenID Connect** and for Application type  
+2. For **Sign-in method** select **OIDC - OpenID Connect** and for Application type\
    select **Web Application** and press **Next**.
 
 ![](https://files.readme.io/b6c2478-okta-oidc1.png "okta-oidc1.png")
 
-3. On the Settings page:  
-   a. For the Grant type, check **Authorization Code**.  
+3. On the Settings page:\
+   a. For the Grant type, check **Authorization Code**.\
    b. Set `https://auth.akeyless.io/oidc/callback` into the **Sign-in redirect URIs**.
 
 ![](https://files.readme.io/42962ac-image-20210824-102417.png "image-20210824-102417.png")
@@ -32,7 +32,7 @@ To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follo
 ![](https://files.readme.io/7af68f3-image-20210824-103109.png "image-20210824-103109.png")
 
 > 📘 Adding ״groups״ claim - Okta side
-> 
+>
 > In Okta, add a custom "groups" claim under Authorization Server → Claims, using a filter (e.g. regex) and bind it to a custom scope.
 
 5. In order to bind the Okta application with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
@@ -44,7 +44,7 @@ akeyless auth-method create oidc --name 'My Okta app' --issuer https://{your-okt
 ```
 
 > 📘 Required Scopes
-> 
+>
 > Set the OIDC Auth Method "Required Scopes" to "groups" to be included it in the sub claims.
 
 ## Login with OIDC from Akeyless CLI
