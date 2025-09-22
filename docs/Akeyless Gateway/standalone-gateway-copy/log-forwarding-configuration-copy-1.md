@@ -31,11 +31,11 @@ TARGET_SYSLOG_TLS_CERTIFICATE:"<BASE64 PEM ENCODED CERT>"
 ```
 
 > 👍 Note
-> 
+>
 > The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
-> 
+>
 > Default format: `<date > <time> <host name> <log level> <message>`.
-> 
+>
 > The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF**  format.
 
 ## Splunk
@@ -67,9 +67,8 @@ target_logstash_enable_tls="true"
 target_logstash_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-Configure your Logstash to use the same port and protocol:  
-Add the following to the <code>logstash.conf</code> file:  
-<code>input { tcp { port => 8911 codec => json } }</code>
+Configure your Logstash to use the same port and protocol:\
+Add the following to the <code>logstash.conf</code> file:\ <code>input \{ tcp \{ port => 8911 codec => json } }</code>
 
 ## ELK Elasticsearch
 
@@ -113,7 +112,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 ## AWS S3
 
 > 🚧 Warning
-> 
+>
 > Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your container scales down or restarts, logs that were not uploaded to your bucket will be lost.
 
 ```yaml
