@@ -19,8 +19,8 @@ From the UI, under the **Items** screen, click the settings icon, and toggle the
 You can set the **Maximum** number of older versions that will be stored automatically, from the account settings you can set the global number of maximum versions, whereas, on the item level, you can control explicitly the number of versions that will be stored on the item itself.
 
 > 🚧 Warning
-> 
-> Setting a new **Maximum** number of versions will affect your existing versions of secret.  
+>
+> Setting a new **Maximum** number of versions will affect your existing versions of secret.\
 > Setting a lower number than your current items versions amount will delete the older versions upon the next version update.
 
 Once a secret has more than one version, a list of all previous values is available within the secret at the bottom of the configurations. Click the arrow to open and close the list and view older versions.
