@@ -14,16 +14,16 @@ Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/
 
 # Prerequisites
 
-- An [Authentication Method](doc:access-and-authentication-methods). Make sure it has the right [access permission](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets).
-- A Linux or a Windows machine with [Docker engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2GB RAM.
-- [Docker compose installed](https://docs.docker.com/compose/install/)
-- Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your machine. 
+* An [Authentication Method](doc:access-and-authentication-methods). Make sure it has the right [access permission](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets).
+* A Linux or a Windows machine with [Docker engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2GB RAM.
+* [Docker compose installed](https://docs.docker.com/compose/install/)
+* Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your machine. 
 
 > 🚧 Warning
-> 
+>
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
-- Network port `8000` on the cluster must be open** only for internal network access**, allowing access to the following services using the corresponding endpoints: 
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints: 
 
 | Service                                                            | Endpoint   |
 | :----------------------------------------------------------------- | :--------- |
@@ -46,7 +46,7 @@ gh repo clone akeylesslabs/docker-compose
 To configure the Gateway, create a file named `gateway.env` in the same directory the `docker-compose.yaml` file is.
 
 > 👍 Note
-> 
+>
 > The following `env` file uses an [API Key](https://docs.akeyless.io/docs/api-key) for authentication, however, each auth method from the **Authentication** section can be used.
 
 This `gateway.env` file will hold the following settings for the Gateway:
@@ -59,9 +59,9 @@ GATEWAY_ACCESS_TYPE="access_key"
 
 Where:
 
-- `GATEWAY_ACCESS_ID`: The admin of the Gateway.
-- `GATEWAY_ACCESS_KEY`: The Access Key.
-- `GATEWAY_ACCESS_TYPE`: The type of the Auth Method being used.  
+* `GATEWAY_ACCESS_ID`: The admin of the Gateway.
+* `GATEWAY_ACCESS_KEY`: The Access Key.
+* `GATEWAY_ACCESS_TYPE`: The type of the Auth Method being used.  
 
 The full list of permissions can be found [here](https://docs.akeyless.io/docs/standalone-gateway-copy#access-permissions).
 
@@ -69,9 +69,9 @@ The full list of permissions can be found [here](https://docs.akeyless.io/docs/s
 
 Using profiles, you can declare which service will start when running the configuration file. The available services are:
 
-- **Gateway** - Will start the **Gateway** service.
-- **SRA** - Will start the SRA Service (Both **SSH** and **Web**).
-- **Metrics** - Will start **Prometheus** and **Grafana** services.
+* **Gateway** - Will start the **Gateway** service.
+* **SRA** - Will start the SRA Service (Both **SSH** and **Web**).
+* **Metrics** - Will start **Prometheus** and **Grafana** services.
 
 Example:
 
@@ -87,18 +87,18 @@ To set your Gateway with a default [Authentication Methods](doc:access-and-authe
 
 The following [Authentication Methods](doc:access-and-authentication-methods) are supported for Docker deployments: 
 
-- [API Key](doc:api-key)
+* [API Key](doc:api-key)
 
-- [AWS IAM](doc:aws-iam) 
+* [AWS IAM](doc:aws-iam) 
 
-- [GCP](doc:gcp-auth-method)   
+* [GCP](doc:gcp-auth-method)   
 
-- [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](doc:azure-ad)
 
-- [Certificates](doc:certificate-based-authentication) 
+* [Certificates](doc:certificate-based-authentication) 
 
 > 👍 Note
-> 
+>
 > Your Gateway **Authentication Method**  should have permission to create and manage both Items along with Targets items **only**.
 
 ## API Key Authentication
@@ -164,7 +164,7 @@ In this case, the above will create an **Access Permission** object named **Admi
 
 In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
 
-In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.  
+In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.\
 **If you don't specify the sub-claims, every user authenticated by this IdP will be able to log in to the Gateway with admin privileges.**
 
 To work with [API Key](doc:api-key) as an `GATEWAY_AUTHORIZED_ACCESS_ID` simply provide your [API Key](doc:api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of `permissions`.
@@ -181,52 +181,165 @@ In the above example, your Gateway **Admins** are `test01@testhost.com,test01@te
 
 Full list of available permissions:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Permission",
-    "h-1": "Description",
-    "0-0": "`admin`",
-    "0-1": "Admin permission can manage all Gateway components, including **Access Permissions**",
-    "1-0": "`defaults`",
-    "1-1": "Management of the defaults settings of your Gateway  \nIncluding  `GatewayUrl`,`TLS`, `Defualt Encryption Key` & `Defualt AccessID` for login.",
-    "2-0": "`dynamic_secret`",
-    "2-1": "Management of [Dynamic Secrets](doc:how-to-create-dynamic-secret)",
-    "3-0": "`rotated_secret`",
-    "3-1": "Management of [Rotated Secrets](doc:rotated-secrets)",
-    "4-0": "`rotate_secret_value`",
-    "4-1": "Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item",
-    "5-0": "`targets`",
-    "5-1": "Management of all Targets items that were created using your Gateway",
-    "6-0": "`classic_keys`",
-    "6-1": "Management of [Classic Keys](doc:classic-keys)",
-    "7-0": "`log_forwarding`",
-    "7-1": "Management of [Log Forwarding](doc:log-forwarding) settings",
-    "8-0": "`zero_knowledge_encryption`",
-    "8-1": "Management of [Zero-Knowledge](doc:zero-knowledge)",
-    "9-0": "`caching`",
-    "9-1": "Management of [Gateway Cache](doc:configure-the-gateway-cache) settings",
-    "10-0": "`event_forwarding`",
-    "10-1": "Management of [Event](doc:event-center) Forwarding settings",
-    "11-0": "`ldap_auth`",
-    "11-1": "Management of [LDAP](doc:ldap) Auth Gateway configuration. ",
-    "12-0": "`k8s_auth`",
-    "12-1": "Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration ",
-    "13-0": "`kmip`",
-    "13-1": "Management of [KMIP Servers](doc:kmip-server)"
-  },
-  "cols": 2,
-  "rows": 14,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Permission
+      </th>
 
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `admin`
+      </td>
+
+      <td>
+        Admin permission can manage all Gateway components, including **Access Permissions**
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `defaults`
+      </td>
+
+      <td>
+        Management of the defaults settings of your Gateway\
+        Including  `GatewayUrl`,`TLS`, `Defualt Encryption Key` & `Defualt AccessID` for login.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `dynamic_secret`
+      </td>
+
+      <td>
+        Management of [Dynamic Secrets](doc:how-to-create-dynamic-secret)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `rotated_secret`
+      </td>
+
+      <td>
+        Management of [Rotated Secrets](doc:rotated-secrets)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `rotate_secret_value`
+      </td>
+
+      <td>
+        Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `targets`
+      </td>
+
+      <td>
+        Management of all Targets items that were created using your Gateway
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `classic_keys`
+      </td>
+
+      <td>
+        Management of [Classic Keys](doc:classic-keys)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `log_forwarding`
+      </td>
+
+      <td>
+        Management of [Log Forwarding](doc:log-forwarding) settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `zero_knowledge_encryption`
+      </td>
+
+      <td>
+        Management of [Zero-Knowledge](doc:zero-knowledge)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `caching`
+      </td>
+
+      <td>
+        Management of [Gateway Cache](doc:configure-the-gateway-cache) settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `event_forwarding`
+      </td>
+
+      <td>
+        Management of [Event](doc:event-center) Forwarding settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `ldap_auth`
+      </td>
+
+      <td>
+        Management of [LDAP](doc:ldap) Auth Gateway configuration. 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `k8s_auth`
+      </td>
+
+      <td>
+        Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `kmip`
+      </td>
+
+      <td>
+        Management of [KMIP Servers](doc:kmip-server)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 > 👍 Note
-> 
+>
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
 You may also edit this parameter on your console, by going to the Gateways tab and selecting the desired Gateway. On the right of the screen, you will see the Gateway details, including **Access Permissions**.
