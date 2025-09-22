@@ -15,7 +15,7 @@ To forward your Akeyless audit logs directly from your Gateway, you can set the 
 By default, the log format of all of the commands below is `text` and the pull interval is set to `10` seconds. 
 
 > 📘 Authorized Users
-> 
+>
 > Only users with [access permission ](https://docs.akeyless.io/docs/gateway-access-permissions) on the gateway to manage log forwarding will authorize to set log forwards using the CLI.
 
 ## Syslog
@@ -27,7 +27,7 @@ akeyless gateway update log-forwarding syslog \
 ```
 
 > 👍 Note
-> 
+>
 > The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
 
 Default format: `<date > <time> <host name> <log level> <message>`. 
@@ -91,7 +91,7 @@ You can find the complete list of additional parameters for this command in the 
 ## AWS S3
 
 > 🚧 Warning
-> 
+>
 > Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
 
 The following permissions are required to forward the audit logs to an S3 bucket:
