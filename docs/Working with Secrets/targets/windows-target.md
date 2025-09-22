@@ -26,18 +26,18 @@ akeyless target create windows \
 
 Where:
 
-- `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+* `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-- `hostname`: The Windows Server Hostname or IP address.
+* `hostname`: The Windows Server Hostname or IP address.
 
-- `username`: A local or domain Windows priviledge username.
+* `username`: A local or domain Windows priviledge username.
 
-- `password`: The password of the Windows user. 
+* `password`: The password of the Windows user. 
 
 > 👍 Note
-> 
+>
 > **WinRM TLS**
-> 
+>
 > By default, Windows targets are working with TLS. When using a self-signed certificate, you can either load the certificate to your Target, or mount the relevant certificate into your Gateway filesystem under `etc/ssl/certs`
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-reference-akeyless-targets#p-stylecolorblue-create-windows-targetp) section.
@@ -48,14 +48,14 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.  
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-- **Hostname** ,**Port** , **Username**  and **Domain** to set up the connection. 
+* **Hostname** ,**Port** , **Username**  and **Domain** to set up the connection. 
 
-- **TLS:** Check to work with TLS and load your CA certificate.
+* **TLS:** Check to work with TLS and load your CA certificate.
 
 5. Click **Finish**.
 
