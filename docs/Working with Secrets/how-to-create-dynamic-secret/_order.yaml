@@ -1,2 +1,3 @@
 - artifactory-dynamic-secret-producer
 - aws-producer
+- azure-ad-dynamic-secrets
