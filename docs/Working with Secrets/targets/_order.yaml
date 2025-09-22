@@ -14,3 +14,4 @@
 - hashicorp-vault-target
 - kubernetes-targets
 - ldap-target
+- linked-target
