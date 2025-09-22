@@ -14,28 +14,14 @@ Via a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the 
 
 Instead of issuing a public and private SSH key pair, Akeyless provides ephemeral SSH certificates to allow access over the standard SSH protocol while eliminating the need for public SSH keys on the server side.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d650059-SSH_Certificates.png",
-        "SSH Certificates.png",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/d650059-SSH_Certificates.png" />
 
 You can define several SSH Certificate Authorities (CAs). Each CA can sign your SSH public keys, with additional parameters like expiration date, principals, extensions, etc.
 
 You can sign the certificate with your own private key or generate a new one in the Akeyless Platform.
 
 > 📘 Usage Note
-> 
+>
 > We put the SSH Certificates section in the Secure Remote Access section of the docs because it is an integral part of setting up remote access SSH sessions. However, this feature can still be used for basic SSH logins without the need for a public SSH key on the target server even outside of the remote access use case.
 
 # Configuration
@@ -54,7 +40,7 @@ The command will upload an existing key to the `/keys/signer/` directory.
 
 ## Creating a new key
 
-Alternatively, you can create a new **RSA key ** in `/keys/new-signer/` folder:
+Alternatively, you can create a new **RSA key** in `/keys/new-signer/` folder:
 
 ```shell your-RSA-key-name
 akeyless create-dfc-key --name /keys/new-signer/MyRSA --alg RSA2048
@@ -107,7 +93,7 @@ akeyless get-rsa-public --name /path/to/MyRSA --json --jq-expression='.ssh' > /e
 ssh-rsa AAAAB3NzaC1yc2EAAAA...
 ```
 
-3. Add the following lines to `/etc/ssh/sshd_config` on the target server.  
+3. Add the following lines to `/etc/ssh/sshd_config` on the target server.\
    Once done, the `sshd` service **must** be restarted.
 
 ```shell /etc/ssh/sshd_config
@@ -156,44 +142,44 @@ AuthorizedPrincipalsFile /etc/ssh/principals
 
 The following command will create a new SSH Cert Issuer in the Akeyless Platform with ancillary data.
 
-- `name`: The name that will be assigned to the new Cert Issuer 
+* `name`: The name that will be assigned to the new Cert Issuer 
 
-- `signer-key-name`: The private key to be used for certificate signing 
+* `signer-key-name`: The private key to be used for certificate signing 
 
-- `allowed-users`: Users allowed to use the certificate (supports wildcard) for explicitly provided list, or extracting the relevant username from an existing [Sub-Claim](doc:sub-claims)
+* `allowed-users`: Users allowed to use the certificate (supports wildcard) for explicitly provided list, or extracting the relevant username from an existing [Sub-Claim](doc:sub-claims)
 
-- `ttl`: The time (in seconds) to the expiration of the certificate
+* `ttl`: The time (in seconds) to the expiration of the certificate
 
-- `principals`: A specific set of SSH Certificate principals (optional)
+* `principals`: A specific set of SSH Certificate principals (optional)
 
-- `extensions`: A specific set of SSH Certificate extensions (this parameter is also optional, if not stated the default extensions are: permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc)
+* `extensions`: A specific set of SSH Certificate extensions (this parameter is also optional, if not stated the default extensions are: permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc)
 
 ```shell CLI
 akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /path/to/MyRSA --allowed-users 'ubuntu,root' --ttl 300
 ```
 
 > 👍 Akeyless Secure Remote Access
-> 
+>
 > While working with Secure Remote Access, make sure to set `allowed_users` with `session_*` to ensure JIT users will be authorized for access.
-> 
+>
 > You will also need to enable Secure Remote Access on the SSH Cert Issuer.
 
 ## Issuing a Certificate
 
 After setting up a key and a certificate issuer, the following command will generate a certificate signed by the CA.
 
-- `cert-username`: The username with which you intend to connect to the server, note to match it to the `allowed-users` from the previous section.
+* `cert-username`: The username with which you intend to connect to the server, note to match it to the `allowed-users` from the previous section.
 
-- `cert-issuer-name`: The certificate issuer you configured using the previous section.
+* `cert-issuer-name`: The certificate issuer you configured using the previous section.
 
-- `public-key-file-path`: The path to the file containing your SSH public key.
+* `public-key-file-path`: The path to the file containing your SSH public key.
 
 ```shell CLI
 akeyless get-ssh-certificate --cert-username ubuntu --cert-issuer-name /prod/ssh-cert-issuer --public-key-file-path ~/.ssh/id_rsa.pub
 ```
 
 > 📘 Tip
-> 
+>
 > The command `get-ssh-certificate` returns a certificate that is signed by the private CA key and uses the client’s public key that will be used to connect to the target server. The client's public key is not the same as the CA’s public key. It is a local public key that should be located in the command’s path together with the client’s private key. After you run the command, the signed certificate will be placed in the same path, so you will be able to connect to the target server using the client’s private/public keys which are located on the same path.
 
 The outcome of this command will be creating a new file beside the public key by adding a suffix to its name with `-cert.pub`, e.g. `~/.ssh/id_rsa-cert.pub`. This is a well-known convention that OpenSSH uses during authentication.
@@ -216,15 +202,15 @@ This guide includes the steps needed for the necessary prerequisites. If you wan
 
 3. Define the remaining parameters as follows:
 
-- **Description:** general description of the key (optional).
+* **Description:** general description of the key (optional).
 
-- **Tags:** assign tags to the key (optional).
+* **Tags:** assign tags to the key (optional).
 
-- **Delete Protection:** When enabled, protects the secret from accidental deletion.
+* **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-- **Type:** The encryption algorithm used for the key.
+* **Type:** The encryption algorithm used for the key.
 
-- **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
 
 4. Go to the folder in Akeyless where you saved the desired key, select it, and tap **get public RSA key**.
 
@@ -236,19 +222,19 @@ This guide includes the steps needed for the necessary prerequisites. If you wan
 
 8. Define the remaining parameters as follows:
 
-- **Description:** General description of the key (optional).
+* **Description:** General description of the key (optional).
 
-- **Tags:** Assign tags to the key (optional).
+* **Tags:** Assign tags to the key (optional).
 
-- **Delete Protection:** When enabled, protects the secret from accidental deletion.
+* **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-- **Signer Key:** The name of the linked key you defined in advance and used in steps 4-5.
+* **Signer Key:** The name of the linked key you defined in advance and used in steps 4-5.
 
-- **Certificate Lifetime in Seconds:** The time (in seconds) to the expiration of the certificate.
+* **Certificate Lifetime in Seconds:** The time (in seconds) to the expiration of the certificate.
 
-- **Allowed Users:** Specify the allowed users for the certificates issued.
+* **Allowed Users:** Specify the allowed users for the certificates issued.
 
-- **Principals:** A specific set of SSH Certificate principals (optional)
+* **Principals:** A specific set of SSH Certificate principals (optional)
 
 You should now have a working certificate issuer.
 
@@ -262,9 +248,9 @@ In order to issue an SSH certificate using an existing CI through the console, g
 
 3. Fill in the following details:
 
-- **Certificate Username:** The username that will be linked to the certificate. Make sure this username matches the allowed usernames you defined in the previous section.
+* **Certificate Username:** The username that will be linked to the certificate. Make sure this username matches the allowed usernames you defined in the previous section.
 
-- **Public Key:**  Your SSH public key, can be copied in or uploaded from file.
+* **Public Key:**  Your SSH public key, can be copied in or uploaded from file.
 
 4. Tap generate, and if all parameters are valid, you will get a string representing your certificate. Download the certificate, or copy it to a file, in the client's `ssh` relevant folder.
 
