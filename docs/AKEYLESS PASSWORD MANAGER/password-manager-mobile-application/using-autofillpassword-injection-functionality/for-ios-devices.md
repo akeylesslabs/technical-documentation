@@ -16,22 +16,7 @@ next:
 ---
 Before using Akeyless Password Manager for autofill, you must grant it permission in your device's settings. Here's a more detailed step-by-step process:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c9de03a-File_2.jpg",
-        null,
-        ""
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
+<Image align="right" width="200px" src="https://files.readme.io/c9de03a-File_2.jpg" />
 
 **Open Settings:** Locate and open the "Settings" app on your iOS device.
 
@@ -51,22 +36,7 @@ For iOS 14 and later, scroll down and select "Passwords". This might also appear
 
 With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure. Here's how to utilize it:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c309879-File_3.jpg",
-        null,
-        ""
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
+<Image align="right" width="200px" src="https://files.readme.io/c309879-File_3.jpg" />
 
 **Autofilling Credentials:**
 
