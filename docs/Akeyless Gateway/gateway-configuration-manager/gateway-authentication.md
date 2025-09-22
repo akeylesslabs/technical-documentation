@@ -14,13 +14,13 @@ next:
       slug: configuring-tls
       title: Configuring TLS
 ---
-Due to its nature as an extension to Akeyless SaaS services, the Akeyless Gateway can also act as a proxy for the Akeyless SaaS console. This proxy can be found on the `/console` endpoint of the Gateway URL e.g.  `https://Your_Akeyless_Gateway_URL:8000/console`  
+Due to its nature as an extension to Akeyless SaaS services, the Akeyless Gateway can also act as a proxy for the Akeyless SaaS console. This proxy can be found on the `/console` endpoint of the Gateway URL e.g.  `https://Your_Akeyless_Gateway_URL:8000/console`\
 Any user in the account can connect without any requirements based on their [Access Roles](doc:rbac). This endpoint replicates the Akeyless SaaS console, enabling seamless work with [Zero-Knowledge](doc:zero-knowledge) items.
 
 To set a default [Authentication Methods](doc:access-and-authentication-methods) for your users, you can set either [SAML](doc:saml), [OIDC](doc:openid) or [Certificates-Based](doc:certificate-based-authentication) Authentication. 
 
 > 👍 Note
-> 
+>
 > Gateway Users Authentication does not mean those users will be able to log in and manage your Gateway deployment, to set a list of Gateway Allowed Admins please refer to the Gateway Admins section in the relevant deployment guide.
 
 # SAML & OIDC
@@ -42,5 +42,5 @@ Open the Gateway Console by going to **Gateways -> Your-Gateway -> Manage Gatewa
 Once saved, users can log in to your Gateway Console on the `/console` endpoint of the Gateway URL i.e.  `https://Your_Akeyless_Gateway_URL:8000/console`.
 
 > 🚧 Warning
-> 
+>
 > Certificate-Based Authentication utilizes mTLS. Therefore, it is required that the Gateway itself will manage any TLS termination for the connection to Akeyless SaaS core services.
