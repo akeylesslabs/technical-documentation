@@ -5,3 +5,4 @@
 - database-targets
 - docker-hub-target
 - gcp-targets
+- github-target
