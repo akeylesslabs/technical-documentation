@@ -29,5 +29,5 @@ Before installing, it would be advised to view the prerequisites for each compon
 For more detailed instructions, see the respective components articles, which are linked from this page.
 
 > 🚧 Warning
-> 
+>
 > To enable Secure Remote Access features you will have to get an access-key to Akeyless private repository. Please contact your Account Manager for more details.
