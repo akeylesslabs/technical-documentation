@@ -28,17 +28,17 @@ In order to use Ping Identity SAML authentication for the Akeyless Platform, you
 
 4. Once the metadata has been uploaded, configuration information appears. Ensure that:
 
-- **Assertion Consumer Service (ACS)**: `https://auth.akeyless.io/saml/acs`
-- **Entity ID**: `https://auth.akeyless.io/saml/metadata`
+* **Assertion Consumer Service (ACS)**: `https://auth.akeyless.io/saml/acs`
+* **Entity ID**: `https://auth.akeyless.io/saml/metadata`
 
 5. From the **Signing** options, select the **Sign Assertion** radio button, then select **Continue to Next Step**.
 
 6. On the **Attribute Mapping** tab, select **Add New Attribute**, and add the following attribute settings:
 
-- **Application Attribute**: `SAML_SUBJECT` should be mapped to `User ID`
-- **Application Attribute**: `Email` should be mapped to `Email Address`
+* **Application Attribute**: `SAML_SUBJECT` should be mapped to `User ID`
+* **Application Attribute**: `Email` should be mapped to `Email Address`
 
-7. Edit your Application configuration and in the **SUBJECT NAMEID FORMAT** field,  
+7. Edit your Application configuration and in the **SUBJECT NAMEID FORMAT** field,\
    select `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
 
 8. Select **Continue to Next Step**.
@@ -56,7 +56,7 @@ Your new application appears in the list of available applications.
 3. Set the **Unique Identifier** field with `email`.
 
 > 👍 Note
-> 
+>
 > **Unique Identifier** should be a **key** name, i.e. not the value itself. for example, `email` should be provided as is, and not the actual email address.
 
 3. Click **Finish**.
