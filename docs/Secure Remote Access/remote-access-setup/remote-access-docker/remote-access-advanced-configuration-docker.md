@@ -34,16 +34,16 @@ akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url <
 
 The options for this are:
 
-- curve25519-sha256
-- diffie-hellman-group-exchange-sha1
-- diffie-hellman-group-exchange-sha256
-- diffie-hellman-group14-sha1
-- diffie-hellman-group14-sha256
-- diffie-hellman-group16-sha512
-- diffie-hellman-group18-sha512
-- ecdh-sha2-nistp256
-- ecdh-sha2-nistp384
-- ecdh-sha2-nistp521
+* curve25519-sha256
+* diffie-hellman-group-exchange-sha1
+* diffie-hellman-group-exchange-sha256
+* diffie-hellman-group14-sha1
+* diffie-hellman-group14-sha256
+* diffie-hellman-group16-sha512
+* diffie-hellman-group18-sha512
+* ecdh-sha2-nistp256
+* ecdh-sha2-nistp384
+* ecdh-sha2-nistp521
 
 ## Concurrent Unauthenticated Connections
 
@@ -58,7 +58,7 @@ CONFIG_MAX_STARTUPS="200:30:300"
 Use this parameter to store fingerprint information in a specific folder within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
 
 > 📘 Permissions
-> 
+>
 > Ensure your remote access default Auth Method has the following permissions on that folder: `create`,`read`, `list`
 
 ```yaml
