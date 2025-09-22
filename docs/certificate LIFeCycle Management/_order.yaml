@@ -4,3 +4,4 @@
 - certificate-storage
 - certificate-provisioning
 - certificate-renewal
+- certificate-revocation-list
