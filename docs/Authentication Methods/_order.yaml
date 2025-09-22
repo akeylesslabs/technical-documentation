@@ -6,3 +6,4 @@
 - certificate-based-authentication
 - email
 - gcp-auth-method
+- kubernetes-auth
