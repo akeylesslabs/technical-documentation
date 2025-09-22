@@ -16,8 +16,8 @@ next:
 
 To authenticate **OCI** resources to Akeyless, the following configuration is required: 
 
-- Create a [Dynamic Group](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm) for authenticating resources 
-- Create a [Group](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managinggroups.htm) to authenticate users 
+* Create a [Dynamic Group](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm) for authenticating resources 
+* Create a [Group](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managinggroups.htm) to authenticate users 
 
 Once the group is created, a policy needs to be added to it:
 
@@ -47,11 +47,11 @@ akeyless auth-method create oci \
 
 Where:
 
-- `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-- `tenant-ocid`: An OCI tenant ID to authenticate to Akeyless using this authentication method. 
+* `tenant-ocid`: An OCI tenant ID to authenticate to Akeyless using this authentication method. 
 
-- `group-ocid`: An OCI group ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one Group ID by repeating this parameter.
+* `group-ocid`: An OCI group ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one Group ID by repeating this parameter.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueocip).
 
@@ -67,10 +67,10 @@ akeyless get-cloud-identity --oci-auth-type apikey
 
 Where: 
 
-- `oci-auth-type`: Represents the [OCI Authentication type  ](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm) , supporting `apikey`,`resource` and `instance`.
+* `oci-auth-type`: Represents the [OCI Authentication type  ](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm) , supporting `apikey`,`resource` and `instance`.
 
 > 📘 Note:
-> 
+>
 > When the `group-ocid` explicitly provided, the authentication flow will use them, if no **group** provided, the CLI will send a preliminary request to verify that the user is a member of the same tenant,  and will extract the required **group** from the response.
 
 # Create an OCI IAM authentication method in the Akeyless Console
@@ -81,16 +81,16 @@ Where:
 
 3. Define the remaining parameters as follows:
 
-- **Tenant OCID:** Enter the Oracle Cloud tenant IDs for which access is allowed.
+* **Tenant OCID:** Enter the Oracle Cloud tenant IDs for which access is allowed.
 
-- **Group OCIDs:** Enter a comma-separated list of full OCI groups IDs for which access is allowed. For example: `ocid1.group.oc1..abc,ocid1.group.oc1..xyz`.
+* **Group OCIDs:** Enter a comma-separated list of full OCI groups IDs for which access is allowed. For example: `ocid1.group.oc1..abc,ocid1.group.oc1..xyz`.
 
-- **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-- **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-- **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-- **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
 4. Click **Finish**.
