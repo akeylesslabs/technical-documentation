@@ -5,3 +5,4 @@
 - gcp-portal-access
 - ssh-remote-access
 - ldap-remote-access
+- rabbitmq-secure-remote-access
