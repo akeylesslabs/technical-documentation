@@ -16,7 +16,7 @@ You can enable secure remote access to a Windows machine with a [Dynamic Secret]
 
 To enable secure remote access to a Windows machine you need:
 
-- [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
+* [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
 # Create an RDP Secret
 
@@ -48,15 +48,15 @@ akeyless rotated-secret update windows \
 
 where:
 
-- **secure-access-host:** The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret. For multiple values repeat this flag.
-- **secure-access-rdp-domain:** Optional, only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
+* **secure-access-host:** The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret. For multiple values repeat this flag.
+* **secure-access-rdp-domain:** Optional, only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
 
 Optional: 
 
-- **secure-access-rdp-user :** Override the RDP Domain username. 
-- **secure-access-allow-external-user:** Allow providing external user for a domain users [true/false].
-- **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
-- **secure-access-rd-gateway-server:** Optional for Dynamic Secret, to connect from SRA to the remote host via an RD-Gateway server.
+* **secure-access-rdp-user :** Override the RDP Domain username. 
+* **secure-access-allow-external-user:** Allow providing external user for a domain users \[true/false].
+* **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+* **secure-access-rd-gateway-server:** Optional for Dynamic Secret, to connect from SRA to the remote host via an RD-Gateway server.
 
 # Set Up Remote Access to a Windows Machine from the Akeyless Console
 
@@ -68,20 +68,20 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-- `Host(s)`: The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret.
-- `Domain`: Optional for Dynamic Secret. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
-- `Override User`: Optional for Dynamic Secret. Override the RDP Domain username. 
-- `Allow Providing External Username`: Optional for Dynamic Secret. Select to enable an external username to log in to the target host.
-- `RD Gateway`: Optional for Dynamic Secret. Connect from SRA to the remote host via an RD-Gateway server.
-- `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+* `Host(s)`: The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret.
+* `Domain`: Optional for Dynamic Secret. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
+* `Override User`: Optional for Dynamic Secret. Override the RDP Domain username. 
+* `Allow Providing External Username`: Optional for Dynamic Secret. Select to enable an external username to log in to the target host.
+* `RD Gateway`: Optional for Dynamic Secret. Connect from SRA to the remote host via an RD-Gateway server.
+* `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
-4. To the right of the ** Enable Secure Remote Access ** field, select the tick mark icon to save your changes.
+4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
 # Access a Windows Machine Over the Web from the Secure Remote Access Portal
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **Remote Desktop**.
 
-2. Select the Windows machine hostname or IP address, then select **Connect**.  
+2. Select the Windows machine hostname or IP address, then select **Connect**.\
    A new tab opens, in which you can interact with the Windows machine according to your permissions.
 
 3. To lock the RDP screen, you can leverage the **On-Screen Keyboard (OSK)**- when using your own keyboard, press “Ctrl + Alt” and hit “Del” on the OSK inside your RDP session. Alternatively, you can simply close the relevant tab to disconnect the session.
@@ -89,10 +89,10 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 4. If you are locked out of a session, click on the "Unlock" button at the top of your screen and you will be given the option to reconnect to your session. **IMPORTANT** This option is only supported with the installation of our [Remote Access (SRA) Web Extension](https://chromewebstore.google.com/search/Akeyless%20SRA) on your browser.
 
 > 📘 Session In Use Indicator
-> 
+>
 > For RDP sessions using a **Rotated Secret** or **Static Secret**, there will be a text indicator showing "In use" next to any sessions that are currently occupied by another user.
-> 
-> To enable this feature, the Auth Method used for the Gateway-SRA privileged Access-ID requires an Access Role with the _Update_ permission on the relevant items' path
+>
+> To enable this feature, the Auth Method used for the Gateway-SRA privileged Access-ID requires an Access Role with the *Update* permission on the relevant items' path
 
 # Inject a Fixed User Password Automatically
 
@@ -107,6 +107,6 @@ Based on your permissions, you will have the ability to upload files from your l
 To download files from a remote server, simply drag the desired files into the `Download` folder inside the mounted virtual disk named `file-share on Guacamole RDP` located under `This PC`, and a download process will start immediately where the file will be put into your local machine's Download folder. To upload files, use the **Upload** button on top of your session actions bar menu. The files you upload will be located in the same shared drive. 
 
 > 📘 Info
-> 
-> **Mounted Folder**  
+>
+> **Mounted Folder**\
 > Notice that upload stores (temporarily) the file on the secure remote access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.
