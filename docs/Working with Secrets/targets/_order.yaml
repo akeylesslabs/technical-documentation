@@ -19,3 +19,4 @@
 - rabbitmq-targets
 - salesforce-target
 - sectigo-target
+- ssh-target
