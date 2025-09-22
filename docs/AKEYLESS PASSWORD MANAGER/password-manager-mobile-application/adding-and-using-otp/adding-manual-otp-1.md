@@ -32,52 +32,8 @@ Input Secret: Enter the OTPAuth secret string into the "Field Name Value" box (a
 
 <br />
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/31a69fb27196aa64ab36b2f9023c35cd3ed646c1c88e90f01b21c371a3274e49-Screenshot_2024-10-07_at_11.55.12.png",
-        null,
-        null
-      ],
-      "align": "center",
-      "sizing": "1px"
-    }
-  ]
-}
-[/block]
+<Image align="center" width="1px" src="https://files.readme.io/31a69fb27196aa64ab36b2f9023c35cd3ed646c1c88e90f01b21c371a3274e49-Screenshot_2024-10-07_at_11.55.12.png" />
 
+<Image align="left" width="200px" src="https://files.readme.io/482c2db0fdfdf2a6dbed1c834403f289e5412806f56bcaf335ba380a8390c6b6-Screenshot_2024-10-07_at_11.55.12.png" />
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/482c2db0fdfdf2a6dbed1c834403f289e5412806f56bcaf335ba380a8390c6b6-Screenshot_2024-10-07_at_11.55.12.png",
-        null,
-        null
-      ],
-      "align": "left",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/668b604f63d6a4ef43ccc0effbffd40583bfc5268b50e2c6d96c2e4970f6eaef-Screenshot_2024-10-07_at_11.55.19.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
+<Image align="right" width="200px" src="https://files.readme.io/668b604f63d6a4ef43ccc0effbffd40583bfc5268b50e2c6d96c2e4970f6eaef-Screenshot_2024-10-07_at_11.55.19.png" />
