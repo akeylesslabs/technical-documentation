@@ -26,16 +26,16 @@ akeyless rotated-secret sync \
 
 Where:
 
-- `name`: The Rotated Secret name.
+* `name`: The Rotated Secret name.
 
-- `usc-name`: The name of the Universal Secret Connector.
+* `usc-name`: The name of the Universal Secret Connector.
 
-- `remote-secret-name`: Remote Secret Name that will be created on the remote endpoint. If the secret already exists, sync will override its value and tags.
+* `remote-secret-name`: Remote Secret Name that will be created on the remote endpoint. If the secret already exists, sync will override its value and tags.
 
-- `filter-secret-value`: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, e.g. `.password` etc.
+* `filter-secret-value`: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, e.g. `.password` etc.
 
 > 👍 Format restrictions
-> 
+>
 > K8s & Hashicorp target enforces that secrets will be in a JSON format, meaning that a valid JQ filter would be for example:  `{"password": .password}`
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#sync) section.
@@ -46,14 +46,14 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Go to the **Sync** tab on the secret item and click **Attach**.
 3. Set the following settings: 
 
-- **Universal Secret Connector Name:** Choose the target **Universal Secret Connector**.
+* **Universal Secret Connector Name:** Choose the target **Universal Secret Connector**.
 
-- **Remote Secret Name:** Enter the name of the secret that will be created or updated on the remote endpoint.
+* **Remote Secret Name:** Enter the name of the secret that will be created or updated on the remote endpoint.
 
-- **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, e.g. `.password` etc. 
+* **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, e.g. `.password` etc. 
 
 > 👍 Format restrictions
-> 
+>
 > K8s & Hashicorp target enforces that secrets will be in a JSON format, meaning that a valid JQ filter would be for example:  `{"password": .password}`
 
 Click on **Save** to synchronize the rotated secret. 
