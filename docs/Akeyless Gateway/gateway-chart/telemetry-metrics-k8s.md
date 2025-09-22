@@ -58,11 +58,11 @@ Set the relevant `API Key` of your **Datadog** server, and set the relevant site
 
 Akeyless is an official Datadog Partner and our dashboard can be found inside the Datadog app.
 
-- Go directly to your Datadog account and click on **Integrations** --> **Integrations**. Then choose **Akeyless Gateway** from the list of Integrations and click the **Install Integration** button.
+* Go directly to your Datadog account and click on **Integrations** --> **Integrations**. Then choose **Akeyless Gateway** from the list of Integrations and click the **Install Integration** button.
 
-- Once installed, go to **Dashboards** --> **Dashboard List** and choose the **Akeyless GW** Dashboard that was installed.
+* Once installed, go to **Dashboards** --> **Dashboard List** and choose the **Akeyless GW** Dashboard that was installed.
 
-- If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for "akeyless.gw".
+* If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for "akeyless.gw".
 
 # Prometheus
 
@@ -202,11 +202,11 @@ To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_AP
 
 After starting the Docker container, you can utilize [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
 
-- In **Grafana**, navigate to Data Sources and add a new [Loki Data Source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/)
+* In **Grafana**, navigate to Data Sources and add a new [Loki Data Source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/)
 
-- Once the data source is configured, go to the **Explore** section
+* Once the data source is configured, go to the **Explore** section
 
-- In the **Label Filter**, select **Exporter** and [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) to filter the logs accordingly
+* In the **Label Filter**, select **Exporter** and [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) to filter the logs accordingly
 
 This will enable you to monitor and analyze your application logs seamlessly.
 
