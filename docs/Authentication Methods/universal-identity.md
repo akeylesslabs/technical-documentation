@@ -36,9 +36,9 @@ akeyless auth-method create universal-identity \
 
 Where:
 
-- **name:** A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+* **name:** A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-- **ttl:** The root token time-to-live in minutes. The TTL is renewed with every rotation.
+* **ttl:** The root token time-to-live in minutes. The TTL is renewed with every rotation.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity) section.
 
@@ -90,13 +90,13 @@ curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 
 It is considered a best practice to rotate tokens often, and with tokens being a machine identity authentication method, you may set up an automated script that will rotate your token in pre-scheduled intervals.
 
-While you can write your own script, we have a compatible one-minute interval token rotation script in the <a href="https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/" target="_blank">Akeyless Downloads</a> folder.  
+While you can write your own script, we have a compatible one-minute interval token rotation script in the <a href="https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/" target="_blank">Akeyless Downloads</a> folder.\
 This script is Linux/MacOS compatible, and has the following flow:
 
 1. Write the token to a path
 2. Take the token from path to perform commands
 3. Rotate token
-4. Replace the token in path  
+4. Replace the token in path\
    After downloading the `.sh` file, execute it and select `init` and insert the token you generated to start the process. From this point on the script can be run automatically to rotate the token by itself.
 
 If you wish to write your own script, here are some useful parts you might want to include:
@@ -169,26 +169,26 @@ Universal Identity Details:
 
 # Create a Universal Identity Authentication Method in the Console
 
-1. Log in to the Akeyless Console and go to **Users & Auth Methods** > ** ⊕ New** > ** Akeyless (Universal Identity)**.
+1. Log in to the Akeyless Console and go to **Users & Auth Methods** > **⊕ New** > **Akeyless (Universal Identity)** .
 
 2. Define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
 3. Define the remaining parameters as follows:
 
-- **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-- **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-- **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).  
+* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).\
   If empty, the Gateway's IP will be used in the logs.
 
-- **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-- Check **Deny Rotate** if you want to forbid token rotation.
+* Check **Deny Rotate** if you want to forbid token rotation.
 
-- Check **Deny Inheritance** if you want to forbid creating child tokens.
+* Check **Deny Inheritance** if you want to forbid creating child tokens.
 
-- **TTL (minutes):** Specify token TTL (between 1min to 43200min).
+* **TTL (minutes):** Specify token TTL (between 1min to 43200min).
 
 4. Click **Finish**.
 
@@ -200,7 +200,7 @@ To generate a token in the Console,
 2. Go to **UID Tree** tab and then click**Generate**.
 
 > 🚧 Warning
-> 
+>
 > If a UID token already exists, generating a new UID token will reset the existing token
 
 ## Revoke a Token
@@ -221,11 +221,11 @@ To create a child token in the Console,
 3. Right-click the root node and click **Create child token**.
 4. Define the parameters as follows:
 
-   - Check **Deny Rotate** if you want to forbid child token rotation.
+   * Check **Deny Rotate** if you want to forbid child token rotation.
 
-   - Check **Deny Inheritance** if you want to forbid creating child tokens.
+   * Check **Deny Inheritance** if you want to forbid creating child tokens.
 
-   - **Child TTL (minutes):** Specify child token TTL.
+   * **Child TTL (minutes):** Specify child token TTL.
 5. Click **Save**.
 
 ## Get the Token Tree
@@ -236,11 +236,11 @@ To get the token tree in the Console,
 2. Go to **UID Tree** tab.
 
 > 📘 Note
-> 
+>
 > When your Token Tree becomes complex, you can use your mouse and **zoom in** to see specific Token better or **zoom out** to see the whole Token Tree
 
 # Best practice
 
 A UID token is initially used to authenticate a client with Akeyless. The UID token includes essential authentication information, ensuring that the client's identity has been verified.
 
-Once authenticated, the best practice is to exchange the UID token for a **t-token **(Temporary Token). The **t-token ** is a short-lived token used for subsequent API requests enabling better performance using the token for subsequent requests minimizes the need for repeated authentication processes, while using a shorter lifespan token reduces the opportunity for potential misuse.
+Once authenticated, the best practice is to exchange the UID token for a **t-token** (Temporary Token). The **t-token** is a short-lived token used for subsequent API requests enabling better performance using the token for subsequent requests minimizes the need for repeated authentication processes, while using a shorter lifespan token reduces the opportunity for potential misuse.
