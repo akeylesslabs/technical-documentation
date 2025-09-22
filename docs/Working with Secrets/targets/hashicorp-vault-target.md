@@ -26,13 +26,13 @@ akeyless target create hashi-vault \
 
 Where:
 
-- `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+* `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-- `hashi-url`: HashiCorp Vault URL, e.g. `https://vault-mgr01:8200`.
+* `hashi-url`: HashiCorp Vault URL, e.g. `https://vault-mgr01:8200`.
 
-- `vault-token`: Vault access token with sufficient permissions.
+* `vault-token`: Vault access token with sufficient permissions.
 
-- `namespace`: List of vault namespaces. To specify multiple namespaces use the argument multiple times: `--namespace ns1` `--namespace ns2`
+* `namespace`: List of vault namespaces. To specify multiple namespaces use the argument multiple times: `--namespace ns1` `--namespace ns2`
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluehashi-vaultp) section.
 
@@ -42,17 +42,17 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.  
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Set the maximum versions for the target.
 
 5. Define the remaining parameters as follows:
 
-- **Token:** Vault access token with [sufficient permissions](https://developer.hashicorp.com/vault/docs/concepts/policies) that will be used for authentication.
+* **Token:** Vault access token with [sufficient permissions](https://developer.hashicorp.com/vault/docs/concepts/policies) that will be used for authentication.
 
-- **URL:** Vault URL.
+* **URL:** Vault URL.
 
-- **Namespace:** Enter the [namespace](https://developer.hashicorp.com/vault/docs/enterprise/namespaces) in which your vault resources are located.
+* **Namespace:** Enter the [namespace](https://developer.hashicorp.com/vault/docs/enterprise/namespaces) in which your vault resources are located.
 
 6. Click **Finish**.
