@@ -13,14 +13,14 @@ next:
 Upon network outage, the Gateway cache can still handle requests for Secrets retrievals (read-only). The cache will start working only after the Gateway is successfully operated. Only users already authenticated can get service from the Gateway cache, where the following [Authentication Methods](doc:access-and-authentication-methods) can keep authenticating on offline modes: **K8s**, **email**, **API Key**, **LDAP**, **Certificate** and **JWT**. 
 
 > 👍 Offline Authentciton Cache
-> 
+>
 > Offline authentication cache is only supported in [Cluster Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache#cluster-cache-mode) mode and requires the user being authenticated to have at least list permission on the relevant Authentication Method.
 
 The most straightforward use cases are the following:
 
-- The Gateway Cache is used to improve performance when fetching secrets. 
+* The Gateway Cache is used to improve performance when fetching secrets. 
 
-- The Proactive Cache enables storing secrets in the Gateway Cache in advance upon successful user authentication.
+* The Proactive Cache enables storing secrets in the Gateway Cache in advance upon successful user authentication.
 
 The Gateway cache utilizes two primary types of caches: a **Local In-Memory Cache** for individual Gateway instances and a **Cluster Cache** for high availability in Kubernetes environments. This architecture ensures that secrets are readily available to applications while minimizing the load on the Akeyless SaaS platform.
 
@@ -41,9 +41,9 @@ To enable and configure the Gateway Cache:
 5. Click **Save Changes**.
 
 > 👍 Note
-> 
+>
 > Usually, after the Stale Timeout period expires for a secret, the secret is deleted from the Gateway Cache. 
-> 
+>
 > In case there is no internet connection, the Gateway Cache won’t delete old items until the internet connection is restored.
 
 # Proactive Gateway Cache
@@ -52,29 +52,15 @@ The Proactive Cache fetches all secrets from the Akeyless Cloud and stores them 
 
 The Gateway utilizes a proactive caching model with a delta-based update process to avoid the resource-intensive task of re-fetching all secrets periodically. This is managed by two parallel background processes:
 
-- **Refresh-TTL Ticker **: This process runs at a configurable interval (by default every 5 minutes) and queries the Akeyless SaaS platform only for secrets that have been modified within that time window. By checking just for the delta of updated secrets, the Gateway significantly reduces the overhead of keeping the cache synchronized.
-- **Cleanup-TTL Ticker:** This independent process periodically compares the cache with the SaaS to remove entries for secrets that have been deleted or for which the Gateway's access permissions have been revoked.
+* **Refresh-TTL Ticker** : This process runs at a configurable interval (by default every 5 minutes) and queries the Akeyless SaaS platform only for secrets that have been modified within that time window. By checking just for the delta of updated secrets, the Gateway significantly reduces the overhead of keeping the cache synchronized.
+* **Cleanup-TTL Ticker:** This independent process periodically compares the cache with the SaaS to remove entries for secrets that have been deleted or for which the Gateway's access permissions have been revoked.
 
 This dual-ticker system ensures the cache remains fresh and accurate with minimal performance impact. When a user updates a secret in the Akeyless UI, the change is picked up by the next refresh cycle, and the updated value is propagated to the cache and subsequently to the workload without requiring any manual intervention. This provides a highly efficient and scalable solution for secrets management.
 
-The following diagram illustrates the key phases of the Akeyless Gateway's proactive caching mechanism, showing how it efficiently populates and maintains its cache, and how an application consumes secrets from it.  
+The following diagram illustrates the key phases of the Akeyless Gateway's proactive caching mechanism, showing how it efficiently populates and maintains its cache, and how an application consumes secrets from it.\
 In this example, the user set the Refresh-TTL Ticker to 2 minutes.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1fdc1d01ea89e625913853199b7ed1aba17bdebdd713ce3b708af7c1fa9b2e77-Cache_Diagaram.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/1fdc1d01ea89e625913853199b7ed1aba17bdebdd713ce3b708af7c1fa9b2e77-Cache_Diagaram.png" />
 
 To enable and configure the Proactive Cache: 
 
@@ -85,7 +71,7 @@ To enable and configure the Proactive Cache:
 3. Select the **Enable Proactive Caching** checkbox. 
 
 > 🚧 Using Legacy Mode
-> 
+>
 > Once you disable **Legacy Mode**, you won't be able to re-enable it.
 
 4. Set the **Refresh TTL** value. This setting instructs the system to update secrets in the cache if they are older than the specified value. By default, each secret kept in the cache for more than 5 minutes will be re-requested from the Akeyless Cloud or the local Gateway.
