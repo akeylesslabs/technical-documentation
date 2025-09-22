@@ -5,3 +5,4 @@
 - certificate-provisioning
 - certificate-renewal
 - certificate-revocation-list
+- acme-server
