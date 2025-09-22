@@ -40,7 +40,7 @@ To choose an existing [Encryption Key](doc:encryption-keys) to encrypt your Gate
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
 > 🚧 Warning
-> 
+>
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
 ## Customer fragment
@@ -63,7 +63,7 @@ customerFragmentsExistingSecret: customer-fragment
 
 # TLS Configuration
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.  
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.\
 Please note that when you're enabling TLS, you must provide a `TLS certificate` and a corresponding `TLS Private Key`.
 
 To set the TLS settings, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) includes your **TLS certificate** in `base64 encoded` format where the `key` of the secret has to be `tls-certificate`:
@@ -142,7 +142,7 @@ To control the cache settings, you can [configure the cache](https://docs.akeyle
 While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a storage class with the `ReadWriteOnce` access mode.
 
 > 📘 Note
-> 
+>
 > This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
 
 To set the default encryption key to support full offline mode, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` base64 encoded :
@@ -228,7 +228,7 @@ cacheHA:
 
 Where the **TLS** settings will be applied and generated automatically, make sure to leave the `authClients`set to `false` as `mTLS` between the Gateway and the Cache service is not supported yet, and `sentinel` must be `enabled`.
 
-Additionally, you can add [topology spread constraints](<>)  settings to control how Pods are spread across your cluster in the event of failures. Ensure that you set the relevant settings in the Gateway section as well, in addition to the `cacheHA` section:
+Additionally, you can add [topology spread constraints]()  settings to control how Pods are spread across your cluster in the event of failures. Ensure that you set the relevant settings in the Gateway section as well, in addition to the `cacheHA` section:
 
 ```yaml Cache HA
 cacheHA:
@@ -282,16 +282,16 @@ To control the cache settings, you should [configure the cache](https://docs.ake
 
 To provide the settings of your Gateway deployment directly from your local k8s secrets store, you can set the following settings:
 
-- `gateway-access-key`
-- `gateway-uid-init-token`
-- `allowed-access-permissions`
-- `tlsCertificate`
-- `gateway-certificate`
-- `gateway-certificate-key`
-- `customer-fragments`
+* `gateway-access-key`
+* `gateway-uid-init-token`
+* `allowed-access-permissions`
+* `tlsCertificate`
+* `gateway-certificate`
+* `gateway-certificate-key`
+* `customer-fragments`
 
 > 🚧 Warning
-> 
+>
 > Providing any of those settings using an existing K8s secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
 ```yaml values.yaml
