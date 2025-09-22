@@ -10,6 +10,7 @@ metadata:
 next:
   description: ''
 ---
+```mdx
 # Introduction
 
 The Desktop Application is designed to work across Windows and macOS, It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software.
@@ -39,7 +40,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 ## Windows Installation
 
-1. Open Windows command line as an Administrator and generate Private & Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`.This will create an .ssh folder with the respective `id_rsa` and `id_rsa.pub` files.
+1. Open Windows command line as an Administrator and generate Private & Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This will create an .ssh folder with the respective `id_rsa` and `id_rsa.pub` files.
 2. Run the .exe file and follow the setup wizard. 
 3. Grant necessary permissions if prompted
 
@@ -72,14 +73,14 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 > 🚧 Important
 > 
 > 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
-> 2. You will also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable `true flag to your CLI command
+> 2. You will also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable` `true` flag to your CLI command
 > 3. Ensure that `akeyless` user is added to the list of `Allowed User(s)` in the SSH-CERT-Issuer item. Otherwise, the desktop application won't be able to establish connection.
 
 3. Upon successfully connecting to the remote target, the Desktop Application launches the default application configured for this resource type. 
 
 > 👍 Note
 > 
-> Applications such **Azure Data Studio**, **WindowsApp**, **DBeaver**, **Putty**,  **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
+> Applications such **Azure Data Studio**, **WindowsApp**, **DBeaver**, **Putty**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
 
 # Configuration & First-Time Setup
 
@@ -114,7 +115,7 @@ You should be able to see a list of the resources you can connect to, upon your 
 > 
 > The Desktop Application supports the use of multiple hosts / linked targets. You can easily add / remove hosts you wish to connect to and press on `Confirm`. 
 > 
-> >  NOTE - Removing host from the list only removes it from the list of hosts in the desktop application.
+> > NOTE - Removing host from the list only removes it from the list of hosts in the desktop application.
 
 3. Configure the **Defaults Configuration**  - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (aka, the target you wish to connect to). If this information is not accessible to the desktop application, it will use the information configured in the Advanced Configuration.
    1. **Web Application Dispatcher** & **Web Proxy URL** - Should be provided if working with Zero trust Web Access solution (ZTWA)
@@ -130,3 +131,4 @@ You should be able to see a list of the resources you can connect to, upon your 
 > If the desktop application fails to connect to the resource, it will display a message prompting you to verify your configuration. 
 > 
 > Please note that the Desktop log contains additional information that may help during an investigation.
+```
