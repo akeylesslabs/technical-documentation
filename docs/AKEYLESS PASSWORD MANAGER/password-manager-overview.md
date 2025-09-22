@@ -14,7 +14,7 @@ next:
 
 Akeyless transcends conventional password management by offering a comprehensive platform that securely stores, manages, generates, and shares passwords. Users will have unparalleled flexibility, choosing to save passwords within their personal folders for exclusive use or opting for shared spaces within the account to facilitate seamless collaboration among team members.
 
-![](https://files.readme.io/f851fd0-Screenshot_2024-02-18_at_10.27.50.png)
+![Akeyless Screenshot](https://files.readme.io/f851fd0-Screenshot_2024-02-18_at_10.27.50.png)
 
 In the realm of collaborative password management, Akeyless stands out by empowering users to effortlessly share access to specific passwords within the team, thereby enhancing overall productivity. This shared environment ensures that crucial credentials are readily available to authorized team members, eliminating bottlenecks associated with traditional password-sharing methods.
 
@@ -22,7 +22,7 @@ For users on the move, Akeyless provides the added convenience of a mobile appli
 
 The Akeyless **browser extension** remains a powerful tool, streamlining the process of injecting stored passwords directly into corresponding websites. This not only saves time but also bolsters security by minimizing the need for manual entry. The extension seamlessly integrates into the user's workflow, offering an efficient solution for managing passwords on the go.
 
-![](https://files.readme.io/2c80505-Screenshot_2024-05-06_at_17.24.19.png)
+![Akeyless Browser Extension Screenshot](https://files.readme.io/2c80505-Screenshot_2024-05-06_at_17.24.19.png)
 
 <br>
 
