@@ -3,3 +3,4 @@
 - create-a-database-rotated-secret
 - create-a-docker-hub-rotated-secret
 - gcp-rotated-secret
+- create-an-ldap-rotated-secret
