@@ -12,21 +12,7 @@ next:
 ---
 A Linked Target is an item that represents a collection of hosts that are considered equivalent for access control while sharing privileged credentials.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/83762de-Linked-Target.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/83762de-Linked-Target.png" />
 
 For example, a [Dynamic Secret](doc:how-to-create-dynamic-secret) that is used for [Secure Remote Access](doc:secure-remote-access) can be created with a Linked Target that uses the privileged credentials which are stored within a standard [Target](doc:targets), where users that are sharing the same access level can use a single Dynamic Secret item to generate JIT credentials to establish a remote session using Akeyless [Secure Remote Access](doc:secure-remote-access) solutions to different endpoints while ensuring the privileged credentials are rotated periodically. 
 
@@ -49,16 +35,16 @@ akeyless target create linked \
 
 Where:
 
-- `name`: A unique name for the Linked Target. The name can include the path to the virtual folder where you want to create the new Linked Target, using slash `/` separators. If the folder does not exist, it will be created together with the Linked Target.
+* `name`: A unique name for the Linked Target. The name can include the path to the virtual folder where you want to create the new Linked Target, using slash `/` separators. If the folder does not exist, it will be created together with the Linked Target.
 
-- `parent-target-name`: The name of an existing parent target from which to inherit credentials.
+* `parent-target-name`: The name of an existing parent target from which to inherit credentials.
 
-- `hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon `;` (i.e. `server-dev.com;My Dev server,server-prod.com;My Prod server description`).
+* `hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon `;` (i.e. `server-dev.com;My Dev server,server-prod.com;My Prod server description`).
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluelinkedp) section.
 
 > 👍 Note
-> 
+>
 > All Linked Target hosts will be added to the Secure Remote Access hosts lists automatically
 
 ## Update a Linked Target
@@ -82,14 +68,14 @@ To create a Linked Target follow these steps:
 
 2. Define a **Name** for the Linked Target, and specify the **Location** as a path to the virtual folder where you want to create the new Linked Target, using slash `/` separators. If the folder does not exist, it will be created together with the Linked Target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.  
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Fill in these parameters:
 
-- **Parent Target**: Select an existing target from which to inherit credentials.
+* **Parent Target**: Select an existing target from which to inherit credentials.
 
-- **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname in order to open another row. After finishing, select **Confirm**.
+* **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname in order to open another row. After finishing, select **Confirm**.
 
 5. Click **Finish**.
 
