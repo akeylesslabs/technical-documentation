@@ -30,11 +30,11 @@ Akeyless is designed to scale alongside your business, seamlessly adapting to yo
 
 Akeyless offers a comprehensive suite of password management features, including:
 
-- Centralized Password Storage: Store and manage all passwords in a single, secure location.
-- [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac): Define granular access permissions to control who can access specific passwords and secrets.
-- [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret): Automatically rotate and update passwords for privileged accounts, eliminating the need for manual intervention.
-- Password Injection: Seamlessly inject passwords into websites and applications using the Akeyless browser extension.
-- [Audit Logging](https://docs.akeyless.io/docs/audit-logs): Track all password activities and user access for comprehensive auditing and compliance purposes.
+* Centralized Password Storage: Store and manage all passwords in a single, secure location.
+* [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac): Define granular access permissions to control who can access specific passwords and secrets.
+* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret): Automatically rotate and update passwords for privileged accounts, eliminating the need for manual intervention.
+* Password Injection: Seamlessly inject passwords into websites and applications using the Akeyless browser extension.
+* [Audit Logging](https://docs.akeyless.io/docs/audit-logs): Track all password activities and user access for comprehensive auditing and compliance purposes.
 
 ### Empower Your Team with Secure and Efficient Password Management
 
