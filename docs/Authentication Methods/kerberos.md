@@ -10,57 +10,43 @@ metadata:
 next:
   description: ''
 ---
-[Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) is a network authentication protocol that securely verifies the identities of users and services using secret-key cryptography. It operates on a client-server model, centered around a **Key Distribution Center (KDC)**, which includes:
+[Kerberos](https://en.wikipedia.org/wiki/Kerberos_\(protocol\)) is a network authentication protocol that securely verifies the identities of users and services using secret-key cryptography. It operates on a client-server model, centered around a **Key Distribution Center (KDC)**, which includes:
 
 **Authentication Server (AS)**: Issues **Ticket Granting Tickets (TGTs)**.  
 
-**Ticket Granting Server (TGS)**: Provides service tickets for accessing network services.  
+**Ticket Granting Server (TGS)**: Provides service tickets for accessing network services.\
 The authentication process follows these steps:
 
-1. **Client Sends Credentials to AS**  
+1. **Client Sends Credentials to AS**\
    The client sends its credentials (username) to the Authentication Server (AS).
 
-2. **AS Verifies Credentials and Issues TGT**  
+2. **AS Verifies Credentials and Issues TGT**\
    If the credentials are verified, the Authentication Server (AS) issues a Ticket Granting Ticket (TGT).
 
-3. **Client Requests Service Ticket from TGS**  
+3. **Client Requests Service Ticket from TGS**\
    The client uses the TGT to request a service ticket from the Ticket Granting Server (TGS).
 
-4. **TGS Issues Service Ticket**  
+4. **TGS Issues Service Ticket**\
    The Ticket Granting Server (TGS) verifies the TGT and issues a service ticket for the requested service.
 
-5. **Client Presents Service Ticket to Service Server**  
+5. **Client Presents Service Ticket to Service Server**\
    The client presents the service ticket to the desired service server for authentication.
 
 This method ensures secure and efficient authentication across the network, making Kerberos a widely used solution for identity verification.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8a44b2fd698958a43ad9423a017e54f6a5622c1a39655e83267b7a377dea49ec-User_Auth_Flow_2.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/8a44b2fd698958a43ad9423a017e54f6a5622c1a39655e83267b7a377dea49ec-User_Auth_Flow_2.png" />
 
 # Prerequisites
 
 To use the **Kerberos** Auth Method in Akeyless, the following accounts and permissions need to be configured:
 
-- **Service Account for the Gateway:** This **Domain User** account is used by the Akeyless Gateway to authenticate with services and perform actions on behalf of users.
+* **Service Account for the Gateway:** This **Domain User** account is used by the Akeyless Gateway to authenticate with services and perform actions on behalf of users.
 
-- **Service Account for the LDAP Server:** This **Domain User** account is responsible for supplying user data to the **Gateway**, enabling it to verify credentials and complete the authentication process.
+* **Service Account for the LDAP Server:** This **Domain User** account is responsible for supplying user data to the **Gateway**, enabling it to verify credentials and complete the authentication process.
 
-- **Admin access to the Active Directory Domain Controller**: Administrative privileges on the Active Directory Domain Controller are required to manage the accounts and services for Kerberos authentication.
+* **Admin access to the Active Directory Domain Controller**: Administrative privileges on the Active Directory Domain Controller are required to manage the accounts and services for Kerberos authentication.
 
-- **Active Directory module for Windows**: This [module](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) needs to be installed in your Windows environment to run the commands described later in this guide. 
+* **Active Directory module for Windows**: This [module](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) needs to be installed in your Windows environment to run the commands described later in this guide. 
 
 # Configuration
 
@@ -72,9 +58,9 @@ setspn -U -S HTTP/<SPN> <AccountName>
 
 Where:
 
-- `U`: Updates the SPN in Active Directory.
-- `S`: Checks for duplicates before adding the SPN
-- `SPN`: Your Gateway FQDN, e.g. `my.gateway.com`
+* `U`: Updates the SPN in Active Directory.
+* `S`: Checks for duplicates before adding the SPN
+* `SPN`: Your Gateway FQDN, e.g. `my.gateway.com`
 
 # Authentication
 
@@ -86,7 +72,7 @@ First, we will retrieve the `msDS-KeyVersionNumber` value:
 Get-ADUser <AccountName> -Property msDS-KeyVersionNumber
 ```
 
-- `msDS-KeyVersionNumber`: An integer that indicates the version of the Kerberos key associated with a **user** or **service principal**.
+* `msDS-KeyVersionNumber`: An integer that indicates the version of the Kerberos key associated with a **user** or **service principal**.
 
 The retrieved value will be used as the `kvno` parameter on the `ktpass` command. 
 
@@ -143,21 +129,21 @@ Create the `krb5.conf` File:
 
 Where:
 
-- `default_realm`: Defines the default Kerberos realm
+* `default_realm`: Defines the default Kerberos realm
 
-- `dns_lookup_realm`: Controls whether the realm can be discovered via DNS
+* `dns_lookup_realm`: Controls whether the realm can be discovered via DNS
 
-- `dns_lookup_kdc`: Controls whether the KDC can be discovered via DNS
+* `dns_lookup_kdc`: Controls whether the KDC can be discovered via DNS
 
-- `ticket_lifetime`: Specifies how long tickets are valid
+* `ticket_lifetime`: Specifies how long tickets are valid
 
-- `renew_lifetime`: Specifies how long tickets can be renewed
+* `renew_lifetime`: Specifies how long tickets can be renewed
 
-- `forwardable`: Allows tickets to be forwarded to other services
+* `forwardable`: Allows tickets to be forwarded to other services
 
-- `rdns`: Enables or disables reverse DNS lookups for KDC
+* `rdns`: Enables or disables reverse DNS lookups for KDC
 
-- `preferred_preauth_types`: Specifies which pre-authentication methods are preferred by the client
+* `preferred_preauth_types`: Specifies which pre-authentication methods are preferred by the client
 
 Once done, continue with creating a Kerberos Authentication Method:
 
@@ -180,31 +166,31 @@ akeyless auth-method create kerberos \
 
 Where:
 
-- `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-- `krb5conf-file-path`: The path to a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication
+* `krb5conf-file-path`: The path to a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication
 
-- `keytab-file-path`: The path to a valid keytab file, containing the service account's entry
+* `keytab-file-path`: The path to a valid keytab file, containing the service account's entry
 
-- `ldap-url`: LDAP server URL, e.g., `ldap://ldap.domain.com:389`
+* `ldap-url`: LDAP server URL, e.g., `ldap://ldap.domain.com:389`
 
-- `bind-dn`: Full DN of the LDAP user to bind with
+* `bind-dn`: Full DN of the LDAP user to bind with
 
-- `bind-dn-password`: Password for the LDAP Bind DN
+* `bind-dn-password`: Password for the LDAP Bind DN
 
-- `user-dn`: The base DN for user searches
+* `user-dn`: The base DN for user searches
 
-- `user-attribute`: LDAP attribute that maps to the username used for signing in
+* `user-attribute`: LDAP attribute that maps to the username used for signing in
 
-- `group-dn`: Base DN for group membership searches
+* `group-dn`: Base DN for group membership searches
 
-- `group-filter`: Go template for constructing the group membership query
+* `group-filter`: Go template for constructing the group membership query
 
-- `group-attr`: LDAP attribute to follow on objects returned by `ldap_group_filter` to enumerate user group membership
+* `group-attr`: LDAP attribute to follow on objects returned by `ldap_group_filter` to enumerate user group membership
 
-- `gateway-url`: Gateway URL (Configuration Management port)
+* `gateway-url`: Gateway URL (Configuration Management port)
 
-- `unique-identifier`: A unique identifier (ID) value which is a sub-claim name that contains details uniquely identifying that resource. This sub-claim is used to distinguish between different identities
+* `unique-identifier`: A unique identifier (ID) value which is a sub-claim name that contains details uniquely identifying that resource. This sub-claim is used to distinguish between different identities
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-reference-kerberos)
 
