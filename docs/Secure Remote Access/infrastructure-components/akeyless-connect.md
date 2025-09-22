@@ -20,28 +20,28 @@ Akeyless connect provides you with secure CLI access to resources or a secure tu
 
 To use Akeyless Connect you need:
 
-- Akeyless CLI v1.42.0 or higher. 
+* Akeyless CLI v1.42.0 or higher. 
 
-- An [SSH certificate issuer](doc:how-to-configure-ssh) for certificate authentication.
+* An [SSH certificate issuer](doc:how-to-configure-ssh) for certificate authentication.
 
-- A [Secure Remote Access Bastion](doc:secure-remote-access-bastion).
+* A [Secure Remote Access Bastion](doc:secure-remote-access-bastion).
 
-- OpenSSH v7.9  and OpenSSL 1.1.1 or higher on target servers.
+* OpenSSH v7.9  and OpenSSL 1.1.1 or higher on target servers.
 
 > 👍 Note
-> 
+>
 > `Akeyless connect` command supports legacy `~/.akeyless-sphere.rc` configuration file.
-> 
-> Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."  
+>
+> Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."\
 > This feature enables users to utilize their Windows OS environment as a UNIX-like system. 
-> 
+>
 > To work with the `akeyless-connect` command from a Windows machine, place the <code>.akeyless-connect.rc</code> script in your home directory.
 
 # Set Up Akeyless Connect
 
 1. Download the latest version of [Akeyless Command Line Interface (CLI)](doc:cli).
 
-2. Create a resource file called **~/.akeyless-connect.rc** as follows: 
+2. Create a resource file called **\~/.akeyless-connect.rc** as follows: 
 
 ```shell akeyless-connect.rc
 # ---------------------------------------------------------------------
@@ -173,10 +173,10 @@ akeyless connect -t user@ssh-server[:port] -v <via-sra-bastion-ssh-service> -c "
 ```
 
 > 📘 Info
-> 
+>
 > For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert_issuer_name` for the **other** cert-issuer. This will enable access through the bastion based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
 
-**AWS: **
+**AWS:**
 
 ```shell Akeyless CLI
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -v <via-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
