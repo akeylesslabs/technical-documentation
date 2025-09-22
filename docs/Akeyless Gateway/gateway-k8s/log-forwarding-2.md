@@ -53,7 +53,7 @@ target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
 > 👍 Note
-> 
+>
 > The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
 
 Default format: `<date > <time> <host name> <log level> <message>`.
@@ -87,8 +87,8 @@ target_logstash_enable_tls="true"
 target_logstash_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-Configure your Logstash to use the same port and protocol:  
-Add the following to the `logstash.conf` file:  
+Configure your Logstash to use the same port and protocol:\
+Add the following to the `logstash.conf` file:\
 `input { tcp { port => 8911 codec => json } }`
 
 ## ELK - Elasticsearch
@@ -134,7 +134,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 ## AWS S3
 
 > 🚧 Warning
-> 
+>
 > Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
 
 ```yaml
