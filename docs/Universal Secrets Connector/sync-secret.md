@@ -14,26 +14,12 @@ The Akeyless [Universal Secret Connector](https://docs.akeyless.io/docs/universa
 
 # Prerequisites
 
-- Universal Secret Connector Item.
+* Universal Secret Connector Item.
 
-- An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the the associated USC, and its target.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the the associated USC, and its target.
 
-- An [Authentication Method ](https://docs.akeyless.io/docs/access-and-authentication-methods) with **Read** and **Update** permission on the [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) item, and **Read** permission on the associated USC.
+* An [Authentication Method ](https://docs.akeyless.io/docs/access-and-authentication-methods) with **Read** and **Update** permission on the [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) item, and **Read** permission on the associated USC.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/84d68fd1c6e90bb12b48f538b74db51f35ad9c15a90235524268f07b20572d61-Synced_Secret-2.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/84d68fd1c6e90bb12b48f538b74db51f35ad9c15a90235524268f07b20572d61-Synced_Secret-2.png" />
 
 This solution makes managing secrets in remote endpoints more efficient and consistent, enabling a secure, centralized approach to secret lifecycle management.
