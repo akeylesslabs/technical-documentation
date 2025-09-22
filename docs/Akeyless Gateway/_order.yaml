@@ -2,3 +2,4 @@
 - install-and-configure-the-gateway
 - standalone-gateway-copy
 - gateway-k8s
+- gateway-chart
