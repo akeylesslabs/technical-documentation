@@ -23,7 +23,7 @@ We will also cover deploying the Web Access component for connecting to web appl
 
 Other features in this section include:
 
-- [Session Management](https://docs.akeyless.io/docs/remote-access-session-management) with Session Forwarding and RDP Recordings
-- [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) for native CLI remote SSH access
-- [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) for native CLI Secure Copy access
-- [SSH Certificates](https://docs.akeyless.io/docs/ssh-certificates) for accessing remote machines using just-in-time, temporary certificates instead of SSH Keys.
+* [Session Management](https://docs.akeyless.io/docs/remote-access-session-management) with Session Forwarding and RDP Recordings
+* [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) for native CLI remote SSH access
+* [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) for native CLI Secure Copy access
+* [SSH Certificates](https://docs.akeyless.io/docs/ssh-certificates) for accessing remote machines using just-in-time, temporary certificates instead of SSH Keys.
