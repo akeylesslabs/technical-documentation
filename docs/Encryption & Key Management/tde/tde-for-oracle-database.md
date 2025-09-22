@@ -18,12 +18,12 @@ Transparent Data Encryption (TDE) is a security feature provided by Oracle Datab
 
 To ensure compatibility, Oracle Database must be on an supported version. The supported Oracle Database versions for PKCS#11 integration with Transparent Data Encryption (TDE) are as follows:
 
-- 11g Release 2 (11.2)
-- 12c: Including both 12c Release 1 (12.1) and 12c Release 2 (12.2)
-- 18c
-- 19c
-- 21c
-- 23c
+* 11g Release 2 (11.2)
+* 12c: Including both 12c Release 1 (12.1) and 12c Release 2 (12.2)
+* 18c
+* 19c
+* 21c
+* 23c
 
 ## Key Concepts of TDE
 
@@ -41,13 +41,13 @@ To ensure compatibility, Oracle Database must be on an supported version. The su
 
 ## Security Benefits of TDE
 
-**Data Protection at Rest:**  
+**Data Protection at Rest:**\
 TDE ensures that sensitive data remains secure even when stored in the database's physical files on the operating system. This protection is crucial for compliance with data protection regulations and safeguarding against data breaches.
 
-**Seamless Implementation:**  
+**Seamless Implementation:**\
 Since TDE operates transparently at the database level, no modifications to existing applications or database schemas are required. The encryption and decryption processes are handled automatically by the database, simplifying the implementation of data security.
 
-**Centralized Key Management:**  
+**Centralized Key Management:**\
 By using an external keystore for encryption key management, TDE provides centralized control over key usage and rotation. This centralization ensures that encryption keys are properly managed and protected, further enhancing data security.
 
 ## Setting Up Oracle Database for Integration
@@ -92,23 +92,23 @@ access_key="<Access Key>"
 
  Where:
 
-- `akeyless_url` is your [Akeyless Gateway](doc:api-gw) URL on API port `8081`.
+* `akeyless_url` is your [Akeyless Gateway](doc:api-gw) URL on API port `8081`.
 
-- `base_item_path` - The destination path, to save all your TDE encryption keys inside the Akeyless Platform. Ensure your [Authentication Method](doc:access-and-authentication-methods) has permission to create and manage items under the desired path. 
+* `base_item_path` - The destination path, to save all your TDE encryption keys inside the Akeyless Platform. Ensure your [Authentication Method](doc:access-and-authentication-methods) has permission to create and manage items under the desired path. 
 
-- The `[auth]` section should be set with the relevant [Authentication Method](doc:access-and-authentication-methods) type and settings. Using the same structure as the Akeyless [CLI](doc:cli) profile setting file.
+* The `[auth]` section should be set with the relevant [Authentication Method](doc:access-and-authentication-methods) type and settings. Using the same structure as the Akeyless [CLI](doc:cli) profile setting file.
 
-- `default_aes_mechanism` - Set the type of **AES** encryption keys. Oracle supports only `CBC`.
+* `default_aes_mechanism` - Set the type of **AES** encryption keys. Oracle supports only `CBC`.
 
 Optional:
 
-- `customer_fragment_id` - Relevant Customer Fragment ID for  [Zero-Knowledge Encryption](doc:zero-knowledge).
+* `customer_fragment_id` - Relevant Customer Fragment ID for  [Zero-Knowledge Encryption](doc:zero-knowledge).
 
-- `split_level` - Defines the requested split level. By default, split level set with `2`.
+* `split_level` - Defines the requested split level. By default, split level set with `2`.
 
-- `[syslog]` Section can be added, to set the destination Syslog server settings:
-  - `network` - Either **TCP** or **UDP**
-  - `url` - Syslog server URL. 
+* `[syslog]` Section can be added, to set the destination Syslog server settings:
+  * `network` - Either **TCP** or **UDP**
+  * `url` - Syslog server URL. 
 
 Set the relevant permission on the `pkcs11.conf` file for your `oracle` user & group : 
 
@@ -127,7 +127,7 @@ ENCRYPTION_WALLET_LOCATION=(SOURCE=(METHOD=HSM))
 ```
 
 > 👍 Note
-> 
+>
 > Starting from Oracle version 18C/19C, before running the commands below, you need to first complete the steps below to set the keystore
 
 1. Create a directory, called `wallet`, in the `$ORACLE_BASE/admin/db_unique_name` directory.
@@ -183,21 +183,21 @@ CREATE TABLE my_table (
 <br />
 
 > 👍 Note
-> 
+>
 > To migrate a database with an existing file-based wallet, follow these steps:
-> 
+>
 > 1. Set the TDE configuration:
-> 
+>
 > ```sql
 > ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
 > ```
-> 
+>
 > 2. Migrate the encryption key:
-> 
+>
 > ```sql
 > ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
 > ```
-> 
+>
 > Ensure to replace <old file based tde password> with the appropriate password.
 
 ## Testing Data Encrypt
@@ -209,15 +209,15 @@ Once TDE is configured on the Oracle Database, you can start encrypting your dat
 
 ## Testing Encrypting Individual Column
 
-**Connect to SQL_Plus as a Non-Sysadmin User**
+**Connect to SQL\_Plus as a Non-Sysadmin User**
 
-To begin, connect to the Oracle database using SQL_Plus as a non-sysadmin user. This user should have the necessary privileges to create tables and manage encryption.
+To begin, connect to the Oracle database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tables and manage encryption.
 
 ```sql bash
 sqlplus your_username@your_database
 ```
 
-Replace your_username with your actual username and your_database with the database service name.
+Replace your\_username with your actual username and your\_database with the database service name.
 
 **Enable Encryption on a Table**
 
@@ -235,7 +235,7 @@ CREATE TABLE employee (
 
 In this example:
 
-The first_name, last_name, and empID columns are created as normal.  
+The first\_name, last\_name, and empID columns are created as normal.\
 The salary column is encrypted using Oracle's Transparent Data Encryption (TDE) by adding the ENCRYPT clause.
 
 **Insert Data into the Encrypted Table**
@@ -250,7 +250,7 @@ This command inserts a record into the employee table, where the salary value of
 
 **List Encrypted Columns in the Database**
 
-To verify which columns in your database are encrypted, you can query the DBA_ENCRYPTED_COLUMNS view. This view provides details about the encrypted columns, including the encryption algorithm used, whether salt is applied, and the integrity algorithm
+To verify which columns in your database are encrypted, you can query the DBA\_ENCRYPTED\_COLUMNS view. This view provides details about the encrypted columns, including the encryption algorithm used, whether salt is applied, and the integrity algorithm
 
 ```sql sql
 SELECT * FROM dba_encrypted_columns;
@@ -266,20 +266,20 @@ OE     EMPLOYEE   SALARY      AES 192 bits   YES  SHA-1
 
 In this example:
 
-The SALARY column in the EMPLOYEE table is encrypted using the AES 192 bits algorithm.  
+The SALARY column in the EMPLOYEE table is encrypted using the AES 192 bits algorithm.\
 SALT is applied, and the integrity algorithm used is SHA-1.For more details about encryption options, such as how to specify different encryption algorithms or disable the use of salt, you can refer to the [Oracle documentation on Transparent Data Encryption (TDE)](https://docs.oracle.com/database/121/TDPSG/GUID-61259237-5514-4531-AFB4-CF716F93F1E5.htm#TDPSG44324). This documentation provides comprehensive guidelines on using TDE to secure sensitive data at rest within your Oracle database.
 
 ## Testing Tablespace Encryption
 
-** Connect to SQL_Plus as a Regular User**
+**Connect to SQL\_Plus as a Regular User**
 
-Start by connecting to your Oracle database using SQL_Plus as a non-sysadmin user. This user should have the necessary privileges to create tablespaces.
+Start by connecting to your Oracle database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tablespaces.
 
 ```sql bash
 sqlplus your_username@your_database
 ```
 
-Replace your_username with your actual username and your_database with the appropriate database service name.
+Replace your\_username with your actual username and your\_database with the appropriate database service name.
 
 **Verify and Set the COMPATIBLE Initialization Parameter**
 
@@ -322,7 +322,7 @@ ENCRYPTION USING 'AES256'
 DEFAULT STORAGE(ENCRYPT);
 ```
 
-Replace \<PATH_TO_DATAFILE> with the actual path where you want to store the data file.
+Replace \<PATH\_TO\_DATAFILE> with the actual path where you want to store the data file.
 
 The tablespace is encrypted using the AES256 encryption algorithm.
 
@@ -344,7 +344,7 @@ CREATE TABLE ets_test (
 TABLESPACE encrypted_ts;
 ```
 
-This creates a table named ets_test in the encrypted_ts tablespace.
+This creates a table named ets\_test in the encrypted\_ts tablespace.
 
 **Insert Data into the Encrypted Table**
 
@@ -357,7 +357,7 @@ COMMIT;
 
 **Verify Tablespace Encryption**
 
-To confirm that the tablespace is indeed encrypted, query the DBA_TABLESPACES or USER_TABLESPACES views.
+To confirm that the tablespace is indeed encrypted, query the DBA\_TABLESPACES or USER\_TABLESPACES views.
 
 ```sql sql
 SELECT tablespace_name, encrypted FROM dba_tablespaces;
@@ -373,7 +373,7 @@ SYSAUX                      NO
 ENCRYPTED_TS                YES
 ```
 
-The ENCRYPTED_TS tablespace should display YES under the ENC column, confirming that encryption is enabled.
+The ENCRYPTED\_TS tablespace should display YES under the ENC column, confirming that encryption is enabled.
 
 For more information, please refer to the [Oracle Tablespace Encryption documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/introduction-to-transparent-data-encryption.html)
 
@@ -387,7 +387,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 First, you need to create a software-based keystore that will securely store the Oracle Wallet credentials. This keystore will facilitate the auto-login feature.
 
-**Create the Keystore Directory:**  
+**Create the Keystore Directory:**\
 Choose a secure location on your database server to store the keystore files. For example:
 
 ```sql bash
@@ -415,7 +415,7 @@ ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
 
 To enable the auto-login feature, the keystore must be converted to an auto-login keystore. This process creates an auto-login file that Oracle will use to open the wallet automatically.
 
-**Convert to Auto-Login:**  
+**Convert to Auto-Login:**\
 Execute the following command to create the auto-login keystore:
 
 ```sql sql
@@ -468,11 +468,11 @@ shutdown immediate;
 startup;
 ```
 
-** Testing and Verification**
+**Testing and Verification**
 
 After setting up the auto-login keystore, it is crucial to test and verify the configuration to ensure that everything works as expected.
 
-**Verify Wallet Status:**  
+**Verify Wallet Status:**\
 Use the following query to check the wallet status:
 
 ```sql sql
@@ -481,7 +481,7 @@ SELECT * FROM V$ENCRYPTION_WALLET;
 
 The output should indicate that the wallet is open and that auto-login is enabled.
 
-To displays information on the status of the wallet and the wallet location for Transparent Data Encryption (TDE) please refer to [7.204 V$ENCRYPTION_WALLET documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-ENCRYPTION_WALLET.html).  
+To displays information on the status of the wallet and the wallet location for Transparent Data Encryption (TDE) please refer to [7.204 V$ENCRYPTION\_WALLET documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-ENCRYPTION_WALLET.html).  
 
 **Test Encrypted Data Access:**
 
