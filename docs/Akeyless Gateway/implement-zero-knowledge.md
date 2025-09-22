@@ -23,9 +23,9 @@ Once you have a Gateway up and running, you will be able to generate a component
 Using our unique Zero-Knowledge architecture, you can deploy multiple [Gateway](doc:api-gw) on several different geographical jurisdictions with different fragments to comply with the regulatory requirements applied in those jurisdictions.
 
 > 🚧 Warning
-> 
+>
 > When working with Customer Fragments, it is **your responsibility to back them up** securely and in a safe place. 
-> 
+>
 > Encryption keys created with the Customer Fragment cannot be reconstructed without it. Any and all information that is encrypted with those keys will not be recoverable if the Customer Fragment is lost.
 
 # Generate Customer Fragment from the Akeyless CLI
@@ -68,7 +68,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -v /path/of/customer_fragments.json:/hom
 Once the **Customer Fragment** is mounted in the Gateway, it can be used to secure your DFC Encryption Keys for full Zero Knowledge Encryption. 
 
 > 🚧 Warning
-> 
+>
 > To create a DFC encryption key with Customer Fragment, the Auth Method that's being used needs to be on the list of allowed access IDs for the gateway.
 
 ## Create DFC Key from the Akeyless Console
@@ -95,9 +95,9 @@ akeyless create-dfc-key --name MyKeyWithMyCF --alg AES256GCM -f <customer-fragme
 
 Where:
 
-- `name`: The name of the DFC Encryption Key
-- `alg`: The algorithm of the DFC Encryption Key
-- `customer-frg-id`: The customer fragment ID that will be used to create the DFC key
+* `name`: The name of the DFC Encryption Key
+* `alg`: The algorithm of the DFC Encryption Key
+* `customer-frg-id`: The customer fragment ID that will be used to create the DFC key
 
 You'll get the following output:
 
@@ -110,7 +110,7 @@ A new AES256GCM key named MyKeyWithMyCF was successfully created
 To set a default Encryption Key based on your Customer Fragment to enforce Zero-Knowledge by default for all your secrets that will be created using your Gateway. This will ensure that any item created with Akeyless (via Web UI, CLI, or SDKs) will be encrypted using your encryption key.
 
 > 👍 Note
-> 
+>
 > Only Symmetric encryption keys of `AESGCM` algorithm can be used as Default Encryption Keys.
 
 To set up a default Encryption Key:
