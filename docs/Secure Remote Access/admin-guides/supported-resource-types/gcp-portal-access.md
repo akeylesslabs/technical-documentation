@@ -18,15 +18,15 @@ Users can then access the GCP Portal from the Secure Remote Access Portal withou
 
 To enable secure remote access to the GCP Portal you need:
 
-- A [Static Secret](doc:static-secrets) that specifies the GCP login details, with **Web Access** selected.
+* A [Static Secret](doc:static-secrets) that specifies the GCP login details, with **Web Access** selected.
 
-- The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
+* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
-- The [Akeyless Browser Extension](doc:browser-extensions).
+* The [Akeyless Browser Extension](doc:browser-extensions).
 
-- The [Zero Trust Web Access](doc:web-access-bastion).
+* The [Zero Trust Web Access](doc:web-access-bastion).
 
-- The GCP Portal site URL specified in the **values.yaml** file on the Web Access Bastion.
+* The GCP Portal site URL specified in the **values.yaml** file on the Web Access Bastion.
 
 # Set Up Remote Access to GCP Portal from the Akeyless Console
 
@@ -35,35 +35,21 @@ To enable secure remote access to the GCP Portal you need:
 2. Create a new static secret and enter the **Value** specifying the GCP portal login details in the following format:`Username..Password` and click Next.
 
 > 📘 Info
-> 
+>
 > The **Secret** value is a concatenation of your GCP Username and your GCP Password with double dots as a delimiter.
 
 3. On the next screen, tick the box to `Enable Scure Remote Access` and fill in the following fields for the `Web Access` option:
 
 `Injection URL`: The GCP login URL to inject secrets. e.g.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/b0cf7f8-Screenshot_2024-07-08_at_17.13.30.png",
-        "Screen Shot 2021-10-25 at 16.05.11.png",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/b0cf7f8-Screenshot_2024-07-08_at_17.13.30.png" />
 
-
-- `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 **Secure Web Browsing (Isolated)**
 
 All secrets which have **Secure Web Browsing** option enabled are marked with a badge in the Akeyless Secure Remote Access Portal. 
 
 > 👍 Note
-> 
+>
 > Please make sure that the GCP Portal site URL specified in the **values.yaml** file on the Web Access Bastion.
