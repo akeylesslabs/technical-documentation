@@ -20,25 +20,11 @@ Since Akeyless DFC enables Akeyless to perform cryptographic operations WITHOUT 
 
 Therefore, in order to enable Zero-Knowledge Encryption, all you need is your own Customer Fragment. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8c54a7f-CFZK.png",
-        "API key auth (1).png",
-        1920
-      ],
-      "align": "center",
-      "sizing": "100",
-      "caption": "Simplified scheme of key storage breakdown. The cloud platform key fragments are backed up by Akeyless, and the customer fragment is kept by the customer."
-    }
-  ]
-}
-[/block]
-
+<Image title="API key auth (1).png" alt={1920} align="center" width="100%" src="https://files.readme.io/8c54a7f-CFZK.png">
+  Simplified scheme of key storage breakdown. The cloud platform key fragments are backed up by Akeyless, and the customer fragment is kept by the customer.
+</Image>
 
 > 📘 Info
-> 
-> **Implementing Zero Knowledge**  
+>
+> **Implementing Zero Knowledge**\
 > In order to implement the Zero Knowledge Encryption solution on your gateway, refer to the [Implementing Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) guide.
