@@ -18,9 +18,9 @@ akeyless/gateway:<version>-container-app
 
 # Prerequisites
 
-- Azure [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)
-- Azure [Container Apps environment](https://learn.microsoft.com/en-us/azure/container-apps/environment)
-- Azure [Container Registry](https://azure.microsoft.com/en-us/products/container-registry) 
+* Azure [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)
+* Azure [Container Apps environment](https://learn.microsoft.com/en-us/azure/container-apps/environment)
+* Azure [Container Registry](https://azure.microsoft.com/en-us/products/container-registry) 
 
 The steps below will demonstrate how to set the environment for deploying the Gateway.
 
@@ -132,48 +132,48 @@ az containerapp create \
 
 Where:
 
-- `name` - The name of the Container App.
+* `name` - The name of the Container App.
 
-- `resource-group` - The resource group used for this Container App.
+* `resource-group` - The resource group used for this Container App.
 
-- `environment` - Your Container App environment.
+* `environment` - Your Container App environment.
 
-- `image` - The container image to run.
+* `image` - The container image to run.
 
-- `registry-server` - The container registry where the image is stored.
+* `registry-server` - The container registry where the image is stored.
 
-- `cpu` - Assigns 4 `vCPUs` to the container.
+* `cpu` - Assigns 4 `vCPUs` to the container.
 
-- `memory` - Allocates 8 `GiB RAM` to the container.
+* `memory` - Allocates 8 `GiB RAM` to the container.
 
-- `ingress` - Either **External** or **Internal**:
+* `ingress` - Either **External** or **Internal**:
 
-  - **External**: Accepts traffic from both the public internet and your container app's internal environment.
+  * **External**: Accepts traffic from both the public internet and your container app's internal environment.
 
-  - **Internal**: Allows only internal access from within your container app's environment.
+  * **Internal**: Allows only internal access from within your container app's environment.
 
-- `target-port` - The app inside the container listens on port `8000` for incoming traffic.
+* `target-port` - The app inside the container listens on port `8000` for incoming traffic.
 
-- `gateway_access_id` - Your [Azure](https://docs.akeyless.io/docs/azure-ad) Authentication Method Access ID.
+* `gateway_access_id` - Your [Azure](https://docs.akeyless.io/docs/azure-ad) Authentication Method Access ID.
 
-- `gateway_access_type` - The Auth Method type for the Gateway (In our case - `azure`).
+* `gateway_access_type` - The Auth Method type for the Gateway (In our case - `azure`).
 
-- `allowed_access_permissions` - A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components.  
+* `allowed_access_permissions` - A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components.\
   **Required** when `admin_access_id_type` is `azure`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
 
-- `akeyless_url` - `https://vault.akeyless.io`.
+* `akeyless_url` - `https://vault.akeyless.io`.
 
-- `cluster_name` - The name of the cluster.
+* `cluster_name` - The name of the cluster.
 
-- `customer-fragment` - Optional, Add a customer fragment in `JSON` format to the `CUSTOMER_FRAGMENTS` parameter to work with [Zero-Knowledge encryption](https://docs.akeyless.io/docs/zero-knowledge).
+* `customer-fragment` - Optional, Add a customer fragment in `JSON` format to the `CUSTOMER_FRAGMENTS` parameter to work with [Zero-Knowledge encryption](https://docs.akeyless.io/docs/zero-knowledge).
 
-- `user-assigned` - Optional, The **User Assigned Managed Identity** your container app will use at runtime to access Azure resources (only relevant when using a **User-Assigned Identity**).
+* `user-assigned` - Optional, The **User Assigned Managed Identity** your container app will use at runtime to access Azure resources (only relevant when using a **User-Assigned Identity**).
 
-- `registry-identity` - Optional, The **User Assigned Managed Identity** used by the container app to authenticate to **Azure Container Registry** when pulling images (only relevant when using a **User-Assigned Identity**).
+* `registry-identity` - Optional, The **User Assigned Managed Identity** used by the container app to authenticate to **Azure Container Registry** when pulling images (only relevant when using a **User-Assigned Identity**).
 
-- `AZURE_CLIENT_ID` - Optional, The Client ID of your Managed Identity (only relevant when using a **User-Assigned Identity**)
+* `AZURE_CLIENT_ID` - Optional, The Client ID of your Managed Identity (only relevant when using a **User-Assigned Identity**)
 
-- `AZURE_TENANT_ID` - Optional, the Azure Tenant ID of your Managed Identity (only relevant when using a **User-Assigned Identity**)
+* `AZURE_TENANT_ID` - Optional, the Azure Tenant ID of your Managed Identity (only relevant when using a **User-Assigned Identity**)
 
 Upon successful deployment, A new [Container APP](https://azure.microsoft.com/en-us/products/container-apps) will be created, which will hold the Gateway application.
 
