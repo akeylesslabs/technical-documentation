@@ -18,8 +18,8 @@ The primary goal is to enhance the existing tokenization service by integrating 
 
 **Bulk Input Capability**
 
-- Modification: The existing tokenize function will be updated to accept an array of data entries (or a similar bulk format) instead of processing single data entries individually.
-- Format: Data will be in a batch format such as
+* Modification: The existing tokenize function will be updated to accept an array of data entries (or a similar bulk format) instead of processing single data entries individually.
+* Format: Data will be in a batch format such as
 
 ```shell JSON
 {
@@ -34,6 +34,6 @@ A caching mechanism is being implemented to further improve the performance of t
 
 **Key Points**
 
-- Purpose: The cache is intended to handle frequently accessed tokens, reducing the need for repeated processing and further optimizing resource usage.
-- API Support: A single API call will be introduced for `tokenize-batch` and `detokenize-batch`. This will streamline batch operations, excluding normal `tokenize/detokenize` operations from caching.
-- Key Support: The tokenizer can support both classic and Distributed Fragments Cryptography™ (DFC) keys.
+* Purpose: The cache is intended to handle frequently accessed tokens, reducing the need for repeated processing and further optimizing resource usage.
+* API Support: A single API call will be introduced for `tokenize-batch` and `detokenize-batch`. This will streamline batch operations, excluding normal `tokenize/detokenize` operations from caching.
+* Key Support: The tokenizer can support both classic and Distributed Fragments Cryptography™ (DFC) keys.
