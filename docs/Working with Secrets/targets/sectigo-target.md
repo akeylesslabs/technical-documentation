@@ -33,22 +33,22 @@ akeyless target create globalsign \
 
 Where:
 
-- `name`: A unique name for the target. The name can include a path to the virtual folder where you want to create a new target using the slash /separators. The folder will be created with the target if it does not exist.
+* `name`: A unique name for the target. The name can include a path to the virtual folder where you want to create a new target using the slash /separators. The folder will be created with the target if it does not exist.
 
-- `username`: The username used to log in to Sectigo.
+* `username`: The username used to log in to Sectigo.
 
-- `password`: the password used to log in to Sectigo.
+* `password`: the password used to log in to Sectigo.
 
-- `customer-uri`: The Customer URI of the Sectigo account.
+* `customer-uri`: The Customer URI of the Sectigo account.
 
-- `organization-id`: Sectigo Orgnaiztion ID. 
+* `organization-id`: Sectigo Orgnaiztion ID. 
 
-- `certificate-profile-id`: Sectigo Certificate Profile ID. 
+* `certificate-profile-id`: Sectigo Certificate Profile ID. 
 
-- `external-requester`: Sectigo external requester username. 
+* `external-requester`: Sectigo external requester username. 
 
 > 📘 Sectigo Approval Workflow
-> 
+>
 > Akeyless PKI Issuer does not support approval workflow, make sure your sectigo certificate profile is not require 2nd approval.
 
 Once the Sectig Target is created, it can be used to generate a [Public certificate](https://docs.akeyless.io/docs/public-ca).
@@ -61,23 +61,23 @@ You can find the complete list of parameters for this command in the [CLI refere
 
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.  
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-- ** Customer URI:** The Customer URI of the Sectigo account.
+* **Customer URI:** The Customer URI of the Sectigo account.
 
-- **Username:** Username used to log in to Sectigo.
+* **Username:** Username used to log in to Sectigo.
 
-- **Password:** Password of the Sectigo account
+* **Password:** Password of the Sectigo account
 
-- **Organization ID:** Sectigo Orgnaiztion ID.
+* **Organization ID:** Sectigo Orgnaiztion ID.
 
-- **Certificate Profile ID:** Sectigo Certificate Profile ID.
+* **Certificate Profile ID:** Sectigo Certificate Profile ID.
 
-- **External Requester:** Sectigo External Requester username.
+* **External Requester:** Sectigo External Requester username.
 
-- **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
+* **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
 
 5. Click **Finish**.
