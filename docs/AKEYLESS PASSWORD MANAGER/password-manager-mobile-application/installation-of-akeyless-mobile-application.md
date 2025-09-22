@@ -24,24 +24,9 @@ Locate Akeyless Mobile App: Browse through the search results until you find the
 
 Grant Permissions: A prompt will appear, detailing the permissions required by the Akeyless app to function optimally on your device. Carefully review these permissions. If they seem appropriate and necessary for the app’s functionality, tap on the "Accept" button to begin the installation process.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg",
-        null,
-        null
-      ],
-      "align": "center",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
+<Image align="center" width="200px" src="https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg" />
 
-
-<br>
+<br />
 
 ### Akeyless Password Manager iOS Installation:
 
@@ -53,24 +38,9 @@ Choose Akeyless Mobile App: The search results will display various apps. Naviga
 
 Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password or using Face ID/Touch ID for verification. Follow these steps to finalize the installation.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9f41004-File_5.jpg",
-        null,
-        null
-      ],
-      "align": "center",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
+<Image align="center" width="200px" src="https://files.readme.io/9f41004-File_5.jpg" />
 
-
-<br>
+<br />
 
 ### Authentication Methods Support
 
@@ -88,11 +58,11 @@ Therefore, requiring users to have a VPN installed on their phones before using 
 
 Once you've installed the Akeyless browser extension. Simply locate the Akeyless Password Manager mobile app. To securely access your Akeyless account, you can utilize one of the following authentication methods:
 
-- Access-ID & Access-Key: Utilize your unique Access-ID and Access-Key combination for secure login.
-- SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
-- OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
-- LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
-  - Configure the [LDAP gateway url](https://docs.akeyless.io/docs/configure-ldap-gateway-url) via advanced settings then login with Email option as a login type.
-- Account Alias: Support for using an account alias to simplify identification and enhance user experience.
+* Access-ID & Access-Key: Utilize your unique Access-ID and Access-Key combination for secure login.
+* SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
+* OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
+* LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
+  * Configure the [LDAP gateway url](https://docs.akeyless.io/docs/configure-ldap-gateway-url) via advanced settings then login with Email option as a login type.
+* Account Alias: Support for using an account alias to simplify identification and enhance user experience.
 
-For more details about Akeyless Authentication Methods please visit this \[[link](https://docs.akeyless.io/docs/access-and-authentication-methods)]
+For more details about Akeyless Authentication Methods please visit this [link](https://docs.akeyless.io/docs/access-and-authentication-methods)
