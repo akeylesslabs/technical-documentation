@@ -36,14 +36,10 @@ When creating a new password in Akeyless, you can choose its location within the
 
 ![](https://files.readme.io/53eef20-Screenshot_2024-01-10_at_14.53.26.png)
 
-
-
 2. You will be redirected to a screen where you can choose between the personal and corporate areas (folders).
 3. If you choose the personal folder, you will see your personal folder hierarchy and can select one of the existing folders to save the password in.
 
 ![](https://files.readme.io/7bd7af9-Screenshot_2024-01-10_at_14.54.06.png)
-
-
 
 4. If you want to create a new folder, click on the "Create New Folder" button.
 5. In the pop-up window, provide a name for the new folder and click "Create."
