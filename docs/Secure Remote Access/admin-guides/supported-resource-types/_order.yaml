@@ -6,3 +6,4 @@
 - ssh-remote-access
 - ldap-remote-access
 - rabbitmq-secure-remote-access
+- k8s-cluster-access
