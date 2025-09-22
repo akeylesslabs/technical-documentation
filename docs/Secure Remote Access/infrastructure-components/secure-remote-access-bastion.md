@@ -20,27 +20,27 @@ This chart bootstraps the Secure Remote Access Bastion deployment on a Kubernete
 
 # Prerequisites
 
-- Helm Installed
+* Helm Installed
 
-- K8s Installed
+* K8s Installed
 
-- [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) for CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) for CLI Access.
 
-- Minimum 1 vCPU available with 2GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
+* Minimum 1 vCPU available with 2GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 
-- Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set requests values.
+* Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set requests values.
 
-**_Network_**
+***Network***
 
-- Ingress - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
+* Ingress - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
 
-- Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html>
+* Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
 
 When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited.
 
-e.g., when running on AWS with ELB: <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console>
+e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-**_Storage_**
+***Storage***
 
 To be able to make more than 1 SSH-bastion pod work, the chart requires a persistent storage, with the `ReadWriteMany` access mode.
 
@@ -61,15 +61,15 @@ persistence:
     size: 2Gi
 ```
 
-e.g., when running on AWS with EKS: <https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html>
+e.g., when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
-**_Horizontal Auto-Scaling_**
+***Horizontal Auto-Scaling***
 
-Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.  
-For it to work correctly, the Kubernetes metrics server must be installed in the cluster - <https://github.com/kubernetes-sigs/metrics-server>, as well as the above Storage PV must be defined for the `sshConfig` Statefulset (HPA can not support multiple pods without defining a shared persistent storage volume).
+Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.\
+For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` Statefulset (HPA can not support multiple pods without defining a shared persistent storage volume).
 
 > 🚧 Warning
-> 
+>
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
 # Installing the Chart
@@ -83,7 +83,7 @@ helm repo update
 
 The values.yaml file holds default values. Copy the file from: 
 
-<https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-secure-remote-access>
+[https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-secure-remote-access](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-secure-remote-access)
 
 Or run the following helm command to generate the values file locally:
 
@@ -106,7 +106,7 @@ apiGatewayURL: https://rest.akeyless.io
 The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read**, **List** and **Update** permissions, to fetch the relevant secret on behalf of your users, set the `privilegedAccess` field with the relevant `AccessID` as described in the Authentication section of this page.
 
 > 📘 Update permissions
-> 
+>
 > The requirement for "update" permissions is to allow SRA to display information about sessions.
 
 Users can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
@@ -133,22 +133,22 @@ sshConfig:
 ```
 
 > 📘 Info
-> 
+>
 > If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) with Akeyless Platform and set your CA Public key in the chart `values`.
-> 
+>
 > You will also need to enable Secure Remote Access on the SSH Cert Issuer.
 
 ## Authentication
 
 The following [Authentication Methods](doc:access-and-authentication-methods) are supported: 
 
-- [API Key](doc:api-key) 
+* [API Key](doc:api-key) 
 
-- [AWS IAM](doc:aws-iam) 
+* [AWS IAM](doc:aws-iam) 
 
-- [GCP GCE](doc:gcp-auth-method)   
+* [GCP GCE](doc:gcp-auth-method)   
 
-- [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](doc:azure-ad)
 
 ## API Key Authentication
 
@@ -170,9 +170,9 @@ While running your K8s cluster inside your cloud environment, you can use [AWS I
 
 AWS IAM can be used in the following approaches: 
 
-- Instance IAM Role 
+* Instance IAM Role 
 
-- Service Account IAM Role 
+* Service Account IAM Role 
 
 While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](doc:aws-iam) `Access ID`  as your <code>accessID</code>, with a list of `allowedAccessIDs` that will be authorized to request access:
 
@@ -189,7 +189,7 @@ Alternatively, you can leverage an IAM Role assumed by a K8s Service Account in 
 
 Set the `serviceAccountName` with the desired Kubernetes Service Account name, and set its `eks.amazonaws.com/role-arn` annotation to the ARN of the IAM Role in question (which is constructed using the following format: `arn:aws:iam::<AWS-Account-ID>:role/<IAM-Role-Name>`).
 
-You can also create a new Service Account by simply setting the `create` field to `true`, so the `serviceAccountName` you defined will be created upon deployment. Furthermore, if the `serviceAccountName` is left empty, by default - the chart will create a new Service Account called `<release name>-akeyless-sra`.  
+You can also create a new Service Account by simply setting the `create` field to `true`, so the `serviceAccountName` you defined will be created upon deployment. Furthermore, if the `serviceAccountName` is left empty, by default - the chart will create a new Service Account called `<release name>-akeyless-sra`.\
 Make sure to set the required role-arn `annotation` to connect your IAM Role with the Service Account in **any** of the scenarios. 
 
 ```yaml values.yaml
@@ -219,18 +219,18 @@ Create a Kubernetes service account for Akeyless Bastion to use. You can also us
 Use the existing IAM service account as provided in your [GCP GCE](doc:gcp-auth-method) auth method.
 
 > 👍 Note
-> 
+>
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
-> 
+>
 > To work with the GKE Workload Identity with `bounded rules`, please configure **only** the `Bound Service Accounts`  field in your [GCP Auth Method](doc:gcp-auth-method).
 
 Allow the Kubernetes service account to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes service account to act as the IAM service account.
 
-Replace the following:  
-   `PROJECT_ID`: your Google Cloud project ID.  
-   `GSA_NAME `: the name of your IAM service account.  
-   `GSA_PROJECT`: the project ID of the Google Cloud project of your IAM service account.  
-   `KSA_NAME`: the name of your new Kubernetes service account.  
+Replace the following:\
+   `PROJECT_ID`: your Google Cloud project ID.\
+   `GSA_NAME `: the name of your IAM service account.\
+   `GSA_PROJECT`: the project ID of the Google Cloud project of your IAM service account.\
+   `KSA_NAME`: the name of your new Kubernetes service account.\
    `NAMESPACE`: the name of the Kubernetes namespace for the service account.
 
 ```shell GKE
@@ -289,8 +289,8 @@ helm install <RELEASE NAME> akeyless/akeyless-sra -f values.yaml
 Verify that both **ssh-sra-akeyless** and **web-sra-akeyless** pods are up and running.
 
 > 👍 Note
-> 
-> Akeyless supports session termination, which can be configured as part of this chart deployment.  
+>
+> Akeyless supports session termination, which can be configured as part of this chart deployment.\
 > To enable session termination, please set your Gateway URL or your Okta\\Keycloak  `apiURL` and `apiToken` under `sessionTermination` section.
 
 # Upgrade SRA Bastion
