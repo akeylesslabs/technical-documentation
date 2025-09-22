@@ -2,3 +2,4 @@
 - auth0-oidc
 - google-oidc
 - gitlab-oidc
+- azure-active-directory-oidc
