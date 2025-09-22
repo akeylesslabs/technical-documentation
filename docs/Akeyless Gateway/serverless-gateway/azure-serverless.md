@@ -14,13 +14,13 @@ This guide describes how to run a Serverless Gateway on **Azure** based on [Func
 
 # Prerequisites
 
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
-- [Azure Bicep ](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+* [Azure Bicep ](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 
-- Permission to create and manage [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) in Azure.
+* Permission to create and manage [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) in Azure.
 
-- Network port `8000` on the cluster must be open** only for internal network access**, allowing access to the following services using the corresponding endpoints: 
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints: 
 
 | Service                                              | Endpoint   |
 | :--------------------------------------------------- | :--------- |
@@ -33,7 +33,7 @@ This guide describes how to run a Serverless Gateway on **Azure** based on [Func
 For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/api/v2/`
 
 > 🚧 Warning
-> 
+>
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
 # Gateway Configuration
@@ -52,13 +52,13 @@ Set your Gateway with a default [Authentication Method](doc:access-and-authentic
 
 The following Authentication Methods are supported for Azure Serverless:
 
-- [API Key](https://docs.akeyless.io/docs/api-key)
-- [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+* [API Key](https://docs.akeyless.io/docs/api-key)
+* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
 
 > 👍 Tip
-> 
+>
 > When working with **Azure AD** authentication method, you can set a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) containing the **Azure Object ID** on the Access-Role associated to the authentication method.
-> 
+>
 > When using the **Azure AD** authentication method, you can configure a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) on the associated [Access Role](https://docs.akeyless.io/docs/rbac) to match the user's **Azure Object ID** which can be found under **Identity** tab, in the **Function App** running the gateway.
 
 <br />
@@ -177,15 +177,15 @@ param docker_tag = 'latest'
 
 Where:
 
-- `admin_access_id_type`: The Auth Method type for the Gateway either  `access_key` or  `azure`.
+* `admin_access_id_type`: The Auth Method type for the Gateway either  `access_key` or  `azure`.
 
-- `admin_access_id`: The **Access ID** of the Gateway default Auth Method.
+* `admin_access_id`: The **Access ID** of the Gateway default Auth Method.
 
-- `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only ** when `admin_access_id_type` is `access_key`.
+* `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-- `allowed_access_permissions`:  A list of allowed **Access IDs**, to delegate [permissions](doc:gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](doc:saml), etc.
+* `allowed_access_permissions`:  A list of allowed **Access IDs**, to delegate [permissions](doc:gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](doc:saml), etc.
 
-- `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
+* `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
 
 ## Customer Fragment
 
@@ -217,17 +217,17 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 
 Where:
 
-- `name`: The name of the storage account.
+* `name`: The name of the storage account.
 
-- `location`: The location where the storage account is deployed.
+* `location`: The location where the storage account is deployed.
 
-- `sku`: [Stock Keeping Unit](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/file#parameters) - A unique identifier used to specify a particular version or configuration of the storage account. 
+* `sku`: [Stock Keeping Unit](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/file#parameters) - A unique identifier used to specify a particular version or configuration of the storage account. 
 
-- `kind`: Type of storage account.
+* `kind`: Type of storage account.
 
-- `properties`: Settings for the storage account.
+* `properties`: Settings for the storage account.
 
-- `supportsHttpsTrafficOnly`: Only allows HTTPS traffic.
+* `supportsHttpsTrafficOnly`: Only allows HTTPS traffic.
 
 For more information on the above configuration, refer to the [official Azure documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#recommended-workload-configurations).
 
@@ -259,9 +259,9 @@ BICEP_PARAMS = params.bicepparam
 Upon successfully installing the **Serverless Gateway**, the Gateway console URL will be printed.
 
 > 📘 Gateway URL
-> 
+>
 > The default value of the Gateway URL ends with `/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
-> 
+>
 > To connect to **Akeyless Gateway Configuration Manager** (Port `8000`) use: `/config` instead
 
 # Initial Gateway Configuration
