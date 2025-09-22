@@ -3,3 +3,4 @@
 - standalone-gateway-copy
 - gateway-k8s
 - gateway-chart
+- serverless-gateway
