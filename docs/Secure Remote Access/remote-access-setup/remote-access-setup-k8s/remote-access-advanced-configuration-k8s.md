@@ -11,9 +11,9 @@ next:
   description: ''
 ---
 > 📘 New Chart
-> 
+>
 > This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
-> 
+>
 > The documentation for the legacy chart is available [here](https://docs.akeyless.io/docs/secure-remote-access-advance)
 
 # SSH Configuration
@@ -40,23 +40,23 @@ akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url <
 
 The options for this are:
 
-- curve25519-sha256
-- diffie-hellman-group-exchange-sha1
-- diffie-hellman-group-exchange-sha256
-- diffie-hellman-group14-sha1
-- diffie-hellman-group14-sha256
-- diffie-hellman-group16-sha512
-- diffie-hellman-group18-sha512
-- ecdh-sha2-nistp256
-- ecdh-sha2-nistp384
-- ecdh-sha2-nistp521
+* curve25519-sha256
+* diffie-hellman-group-exchange-sha1
+* diffie-hellman-group-exchange-sha256
+* diffie-hellman-group14-sha1
+* diffie-hellman-group14-sha256
+* diffie-hellman-group16-sha512
+* diffie-hellman-group18-sha512
+* ecdh-sha2-nistp256
+* ecdh-sha2-nistp384
+* ecdh-sha2-nistp521
 
 ## SSH Fingerprint
 
 Use this parameter to store fingerprint information in a specific folder within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
 
 > 📘 Permissions
-> 
+>
 > Ensure your remote access default Auth Method has the following permissions on that folder: `create`,`read`, `list`
 
 ```yaml
@@ -128,12 +128,12 @@ value: tr-tr-qwerty # Turkish-Q (Qwerty)
 
 For further configuration, please refer to the Akeyless official [repository](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-secure-remote-access/README.md#akeyless-secure-remote-access).
 
-> 🚧 SSH session ends after ~30s on GKE/Ingress
-> 
+> 🚧 SSH session ends after \~30s on GKE/Ingress
+>
 > If you’re running SRA behind a GKE HTTP(S) Load Balancer, the backend service timeout defaults to 30 seconds. Long-lived SSH (and WebSocket-based) sessions will close around this time.
-> 
+>
 > To fix it, you should set a higher backend timeout with a BackendConfig (spec.timeoutSec) and annotate your Service. 
-> 
+>
 > See GCP docs on backend service timeout and Ingress BackendConfig. After updating, your SSH session lifetime should match your intended TTL
-> 
+>
 > For other vendors please refer to [System Requirments](https://docs.akeyless.io/docs/remote-access-system-requirements#additional-considerations)section
