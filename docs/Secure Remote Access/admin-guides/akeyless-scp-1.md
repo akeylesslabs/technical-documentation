@@ -13,16 +13,16 @@ next:
 Akeyless SCP enables secure copy via [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
 
 > 👍 Note
-> 
+>
 > Akeyless SCP currently supports only UNIX-like OS.
 
 ## Prerequisite
 
-- Akeyless [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
+* Akeyless [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
 
-- [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
 
-- OpenSSH V7.3 or higher on target servers.
+* OpenSSH V7.3 or higher on target servers.
 
 ## Usage
 
@@ -34,7 +34,7 @@ chmod +x akeyless-scp
 mv akeyless-scp /usr/local/bin
 ```
 
-2. Create a resource file called **~/.akeyless-connect.rc** as follows:
+2. Create a resource file called **\~/.akeyless-connect.rc** as follows:
 
 ```shell akeyless-connect.rc
 # ---------------------------------------------------------------------
