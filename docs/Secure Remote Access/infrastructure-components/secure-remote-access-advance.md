@@ -71,7 +71,7 @@ httpProxySettings:
 
 SRA supports the recording of RDP, SSH, DB & K8s sessions.
 
-CLI-based sessions of **SSH**, **DB** & **K8s** connections provide a full transcript of Input commands and Output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, ElasticSearch, or just using Syslog) - for more information, see: <https://docs.akeyless.io/docs/ssh-log-forwarding>
+CLI-based sessions of **SSH**, **DB** & **K8s** connections provide a full transcript of Input commands and Output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, ElasticSearch, or just using Syslog) - for more information, see: [https://docs.akeyless.io/docs/ssh-log-forwarding](https://docs.akeyless.io/docs/ssh-log-forwarding)
 
 **RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob storage:  
 
@@ -153,7 +153,7 @@ sshConfig:
 
 # SSH Fingerprint
 
-To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.  
+To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.\
 Note, please  ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
 
 ```yaml
