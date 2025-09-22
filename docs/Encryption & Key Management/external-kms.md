@@ -34,27 +34,28 @@ The Akeyless KMS provides a workflow for sharing cryptographic keys with cloud K
 
 When your cloud provider encryption keys are managed by Akeyless:
 
-- You have centralized control of sensitive data across multiple clouds
-- Encryption keys are separated from the data
-- Your requirements on key complexity are met
-- All your keys are managed in a uniform manner
-- You have a complete audit trail of key usage
+* You have centralized control of sensitive data across multiple clouds
+* Encryption keys are separated from the data
+* Your requirements on key complexity are met
+* All your keys are managed in a uniform manner
+* You have a complete audit trail of key usage
 
 When you share a key with one of the supported cloud KMS providers, a copy of the key material is securely transferred in accordance with the key import specification (BYOK) of the KMS provider.
 
 > 👍 Note
-> 
+>
 > Only [classic keys](doc:classic-keys) can be distributed to cloud KMS providers.
 
 ## Supported Cloud KMS Providers
 
 Akeyless KMS integrates with the following cloud KMS providers:
 
-- [AWS KMS](https://docs.akeyless.io/docs/aws-kms)
-- [Azure Key Vault](https://docs.akeyless.io/docs/azure-kms)
-- [Google Cloud EKM](https://docs.akeyless.io/docs/gcp-kms)
-- [Salesforce Shield](https://docs.akeyless.io/docs/salesforce-shield)
+* [AWS KMS](https://docs.akeyless.io/docs/aws-kms)
+* [Azure Key Vault](https://docs.akeyless.io/docs/azure-kms)
+* [Google Cloud EKM](https://docs.akeyless.io/docs/gcp-kms)
+* [Salesforce Shield](https://docs.akeyless.io/docs/salesforce-shield)
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/external-kms-with-classic-keys" target="_blank" style="color: #00e">Akeyless as an External Multi-Cloud KMS</a>.
+Check out our tutorial video on 
+<a href="https://tutorials.akeyless.io/docs/external-kms-with-classic-keys" target="_blank" style={{ color: "#00e" }}>Akeyless as an External Multi-Cloud KMS</a>.
