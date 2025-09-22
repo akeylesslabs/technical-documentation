@@ -17,3 +17,4 @@
 - rabbitmq-producer
 - rdp-dynamic-secrets
 - snowflake-dynamic-secrets
+- custom-producer
