@@ -18,17 +18,17 @@ You can define a Chef Infra target to be used with [Chef Infra dynamic secrets](
 
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.  
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-- **Server Username:** Specify the username of the privileged Chef Infra user authorized to generate temporary credentials.
+* **Server Username:** Specify the username of the privileged Chef Infra user authorized to generate temporary credentials.
 
-- **Server Key:** Provide the access key of the privileged Chef Infra user.
+* **Server Key:** Provide the access key of the privileged Chef Infra user.
 
-- **Server URL:** Provide the URL of the Chef Infra server.
+* **Server URL:** Provide the URL of the Chef Infra server.
 
-- **Skip SSL:** Select this checkbox to skip SSL.
+* **Skip SSL:** Select this checkbox to skip SSL.
 
 5. Click **Finish**.
