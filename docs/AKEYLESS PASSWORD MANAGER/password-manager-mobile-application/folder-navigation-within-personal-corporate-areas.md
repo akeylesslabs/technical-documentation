@@ -22,24 +22,7 @@ The user can also use the search bar at the top of the page to search for specif
 
 ![](https://files.readme.io/3b63123-Screenshot_2024-01-10_at_16.28.55.png)
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/42af225-Screenshot_2024-01-10_at_16.29.12.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "150px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="150px" src="https://files.readme.io/42af225-Screenshot_2024-01-10_at_16.29.12.png" />
 
 Corporate folders
 
@@ -47,9 +30,9 @@ Users can navigate through the corporate folder hierarchy in Akeyless in a simil
 
 However, there are a few important differences:
 
-- Users can only access corporate folders that they have been granted access to by an Akeyless administrator.
-- Users can only see the secrets and keys that they have been granted access to within a corporate folder.
-- Users can create or delete corporate folders according to the permission they have.
+* Users can only access corporate folders that they have been granted access to by an Akeyless administrator.
+* Users can only see the secrets and keys that they have been granted access to within a corporate folder.
+* Users can create or delete corporate folders according to the permission they have.
 
 To navigate to a corporate folder, the user can simply click on the name of the folder in the folder hierarchy. The user can also use the breadcrumb trail at the top of the page to navigate back to the parent folder or to the root of the folder hierarchy.
 
