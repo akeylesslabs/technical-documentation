@@ -2,3 +2,4 @@
 - create-an-azure-rotated-secret
 - create-a-database-rotated-secret
 - create-a-docker-hub-rotated-secret
+- gcp-rotated-secret
