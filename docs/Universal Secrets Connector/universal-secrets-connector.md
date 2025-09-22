@@ -22,33 +22,19 @@ The **USC** solution works in a governance loop model, supporting and reflecting
 
 Setting up Universal Secret Connector requires the **Defaults** permission on the Gateway.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/80a2ad6-External_Secrets_-_Architecture.png",
-        "External Secrets - Architecture.png",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/80a2ad6-External_Secrets_-_Architecture.png" />
 
 Akeyless currently supports creating Universal Secrets Connectors for the following services:
 
-- [AWS Universal Secrets Connector](doc:aws-external-secrets-manager) 
+* [AWS Universal Secrets Connector](doc:aws-external-secrets-manager) 
 
-- [GCP Universal Secrets Connector](doc:gcp-external-secrets-manager) 
+* [GCP Universal Secrets Connector](doc:gcp-external-secrets-manager) 
 
-- [Azure Universal Secrets Connector](doc:azure-external-secrets-manager) 
+* [Azure Universal Secrets Connector](doc:azure-external-secrets-manager) 
 
-- [Kubernetes Universal Secrets Connector](doc:kubernetes-external-secrets-manager)
+* [Kubernetes Universal Secrets Connector](doc:kubernetes-external-secrets-manager)
 
-- [Hashicorp Vault Universal Secret Connector ](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
+* [Hashicorp Vault Universal Secret Connector ](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
 
 To view all your Universal Secret Connectors, log in to the **Console** and navigate to **Items** > **Universal Secrets Connector**.
 
