@@ -18,31 +18,17 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 2 modes can be used for authentication:
 
-- **CLI** / **UI**- In this mode, you only need to provide the `location` or `data` of the certificate and the matching private key locally.
+* **CLI** / **UI**- In this mode, you only need to provide the `location` or `data` of the certificate and the matching private key locally.
 
-- **SDK** – In this mode, to verify the possession of the client on the private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge. Alternatively, you can perform the certificate verification challenge [manually](https://docs.akeyless.io/docs/certificate-based-authentication#manual-certificate-verification). Allowing you to avoid transmitting the private key to the Gateway.
+* **SDK** – In this mode, to verify the possession of the client on the private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge. Alternatively, you can perform the certificate verification challenge [manually](https://docs.akeyless.io/docs/certificate-based-authentication#manual-certificate-verification). Allowing you to avoid transmitting the private key to the Gateway.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8191f2c-Cert_key_auth.png",
-        "Cert key auth.jpg",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/8191f2c-Cert_key_auth.png" />
 
 # Prerequisites
 
-- A **Chain of Trust** for siging a **Client** Certificate , If you don't have one, you can [build your chain of trust](doc:build-your-chain-of-trust) in Akeyless. 
+* A **Chain of Trust** for siging a **Client** Certificate , If you don't have one, you can [build your chain of trust](doc:build-your-chain-of-trust) in Akeyless. 
 
-- A **Client** Certificate (signed by an Intermediate CA) with `clientauth` key usage, along with the corresponding Private Key, both in `PEM` format.
+* A **Client** Certificate (signed by an Intermediate CA) with `clientauth` key usage, along with the corresponding Private Key, both in `PEM` format.
 
 ## Create a Certificate-based Authentication Method in the CLI
 
@@ -61,11 +47,11 @@ akeyless auth-method create cert \
 
 Where:
 
-- `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-- `unique-identifier` A unique identifier parameter plays the same role as a `sub-claim` in OIDC, OAuth2, LDAP, and SAML authentication method types. It contains details that allow the system to uniquely identify the user (e.g., distinguishing between users from within the same organization).
+* `unique-identifier` A unique identifier parameter plays the same role as a `sub-claim` in OIDC, OAuth2, LDAP, and SAML authentication method types. It contains details that allow the system to uniquely identify the user (e.g., distinguishing between users from within the same organization).
 
-- `certificate-file-name`: A path to the **Client** certificate.
+* `certificate-file-name`: A path to the **Client** certificate.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorbluecertp) section.
 
@@ -83,11 +69,11 @@ akeyless auth \
 
 Where:
 
-- `access-id`: The `Access ID` of the **Certificate** Authentication Method
+* `access-id`: The `Access ID` of the **Certificate** Authentication Method
 
-- `cert-file-name`: Path to the signed x509 PEM Encoded Certificate in a `PEM` format
+* `cert-file-name`: Path to the signed x509 PEM Encoded Certificate in a `PEM` format
 
-- `key-file-name`: Matching **Private Key** for the certificate in a `PEM` format
+* `key-file-name`: Matching **Private Key** for the certificate in a `PEM` format
 
 As a result, you should get the authentication token
 
@@ -101,33 +87,33 @@ You can find the complete list of additional parameters for this command in the 
 
 3. Define the remaining parameters as follows:
 
-- **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-- **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-- **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
+* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
 
-- **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-- **CA Certificate:** Download the CA certificate in Base64 format.
+* **CA Certificate:** Download the CA certificate in Base64 format.
 
-- **Bound Common Names:** Enter a list of names. At least one must exist in the Common Name of the certificate. Supports globbing. 
+* **Bound Common Names:** Enter a list of names. At least one must exist in the Common Name of the certificate. Supports globbing. 
 
-- **Bound DNS SANs:** Enter a list of DNS names. At least one must exist in the SANs of the certificate. Supports globbing. 
+* **Bound DNS SANs:** Enter a list of DNS names. At least one must exist in the SANs of the certificate. Supports globbing. 
 
-- **Bound Email SANs:** Enter a list of Email Addresses. At least one must exist in the SANs of the certificate. Supports globbing. 
+* **Bound Email SANs:** Enter a list of Email Addresses. At least one must exist in the SANs of the certificate. Supports globbing. 
 
-- **Bound URI SANs:** Enter a list of URIs. At least one must exist in the SANs of the certificate. Supports globbing. 
+* **Bound URI SANs:** Enter a list of URIs. At least one must exist in the SANs of the certificate. Supports globbing. 
 
-- **Bound Organizational Units:** Enter a list of Organizational Units' names. At least one must exist in the OU field of the certificate. 
+* **Bound Organizational Units:** Enter a list of Organizational Units' names. At least one must exist in the OU field of the certificate. 
 
-- **Bound Extensions:** Enter a list of extensions formatted as `oid:value`. Expects the extension value to be some type of ASN1 encoded string. All values must exist in the certificate. Supports globbing on `value`. 
+* **Bound Extensions:** Enter a list of extensions formatted as `oid:value`. Expects the extension value to be some type of ASN1 encoded string. All values must exist in the certificate. Supports globbing on `value`. 
 
-- **Revoked Cert Ids:** Enter a list of revoked certificate IDs. It can be used to revoke specific certificates or intermediate certificates.
+* **Revoked Cert Ids:** Enter a list of revoked certificate IDs. It can be used to revoke specific certificates or intermediate certificates.
 
-- **Allowed CORS Domains:** Comma-separated list of allowed CORS domains to be validated as part of the authentication flow. Relevant only when using UI, specify which CN\\domain to look in the key store.
+* **Allowed CORS Domains:** Comma-separated list of allowed CORS domains to be validated as part of the authentication flow. Relevant only when using UI, specify which CN\\domain to look in the key store.
 
-- **Unique Identifier:** A unique identifier to distinguish different users, such as `common_name` or `organizational_unit`.
+* **Unique Identifier:** A unique identifier to distinguish different users, such as `common_name` or `organizational_unit`.
 
 4. Click **Finish**.
 
@@ -139,7 +125,7 @@ Use this option when you want maximum protection for your private key, or when y
 
 This can be done using 2 modes:
 
-- Manual challenge generation and signing:
+* Manual challenge generation and signing:
 
 Run the following command to generate a challenge for the certificate:
 
@@ -151,16 +137,16 @@ akeyless get-cert-challenge \
 
 Running the above will produce a unique value that must be signed by the corresponding private key in order to continue the authentication process. Note, this challenge is valid for 60 seconds only. 
 
-- Automated challenge generation and signing with the SDK:
+* Automated challenge generation and signing with the SDK:
 
 Alternatively, you can use one of the scripts below to fully automate the process. The script will generate and sign the challenge, then return an authentication token as the output.
 
 The script requires the following parameters:
 
-- **Certificate location** - The location of the certificate.
-- **Private Key Location** - The location of the Private Key.
-- **Access ID** - The Access ID of the Certificate Authentication Method.
-- **Gateway URL** - Your Gateway URL followed by the `/api/v2` API path.
+* **Certificate location** - The location of the certificate.
+* **Private Key Location** - The location of the Private Key.
+* **Access ID** - The Access ID of the Certificate Authentication Method.
+* **Gateway URL** - Your Gateway URL followed by the `/api/v2` API path.
 
 ```go main.go
 package main
