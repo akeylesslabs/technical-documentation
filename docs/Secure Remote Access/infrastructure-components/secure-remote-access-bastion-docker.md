@@ -11,44 +11,44 @@ next:
   description: ''
 ---
 > 📘 Legacy Chart
-> 
+>
 > This guide describe the flow using the **Legacy** chart of the Akeyless Secure Remote Access.
-> 
-> A new and updated chart is soon to be released. 
+>
+> A new and updated chart is soon to be released.
 
 The Akeyless Secure Remote Access Bastion provides secure remote access to resources using Just In Time credentials (dynamic, rotated secrets, and SSH certificates). This guide provides guidance for a **Docker** deployment of Akeyless Secure Remote Access Bastions both **Web-bastion**  and **SSH-bastion**.
 
 # Prerequisites
 
-- Docker Installed
+* Docker Installed
 
-- [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) for CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) for CLI Access.
 
-- At least 1 vCPU available with 1GB RAM per Docker container. 
+* At least 1 vCPU available with 1GB RAM per Docker container. 
 
 \***\*Network\*\***
 
-- Make sure to use sticky session.
+* Make sure to use sticky session.
 
-- Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html>
+* Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
 
 When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited.
 
-e.g., when running on AWS with ELB: <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console>
+e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
 \***\*Storage\*\***
 
 Currently, this setup requires a **Volume** storage mechanism of [Docker](https://docs.docker.com/storage/volumes/).
 
 > 🚧 Note:
-> 
+>
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless private docker repository. Please contact your Account Manager for more details.
 
 # Configuration
 
 The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page. 
 
-Users can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.  
+Users can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.\
 To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` that will be authorized to request access. 
 
 For RDP access that uses the **Fixed user** feature, rely on the username sub-claims to figure out **Windows** username to use. If you use a different sub-claim, it should be specified at deployment time using `USERNAME_SUB_CLAIM` environment variable. To use this mode, separately for either `SSH` or for `RDP` only, you can use instead `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM` correspondingly. 
@@ -56,20 +56,20 @@ For RDP access that uses the **Fixed user** feature, rely on the username sub-cl
 To provide just-in-time native CLI access for your users using [Keyless SSH](doc:how-to-configure-ssh) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](doc:how-to-configure-ssh)
 
 > 📘 Info
-> 
+>
 > If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) with Akeyless Platform and set your CA.
 
 ## Authentication
 
 The following [Authentication Methods](doc:access-and-authentication-methods) are supported: 
 
-- [API Key](doc:api-key) 
+* [API Key](doc:api-key) 
 
-- [AWS IAM](doc:aws-iam) 
+* [AWS IAM](doc:aws-iam) 
 
-- [GCP GCE](doc:gcp-auth-method)   
+* [GCP GCE](doc:gcp-auth-method)   
 
-- [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](doc:azure-ad)
 
 ## API Key Authentication
 
@@ -102,7 +102,7 @@ While running your Dockers inside your cloud environment, you can use [AWS IAM](
 
 ## AWS IAM
 
-AWS IAM can be used for an instance with an IAM Role. While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](doc:aws-iam) `Access ID` as your <code>PRIVILEGED_ACCESS_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+AWS IAM can be used for an instance with an IAM Role. While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](doc:aws-iam) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -125,7 +125,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ## GCP GCE
 
-Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](doc:gcp-auth-method) can be done using the GCP.  
+Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](doc:gcp-auth-method) can be done using the GCP.\
 Set your [GCP GCE](doc:gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
 
 ```shell web-bastion
@@ -150,7 +150,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ## Azure Active Directory
 
-Set your [Azure Active Directory](doc:azure-ad) `Access ID` as your <code>PRIVILEGED_ACCESS_ID</code> with the matching service principal `azureobjectID', with a list of `ALLOWED_ACCESS_IDS\` that will be authorized to request access.
+Set your [Azure Active Directory](doc:azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with the matching service principal `azureobjectID', with a list of `ALLOWED\_ACCESS\_IDS\` that will be authorized to request access.
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -303,7 +303,7 @@ Verify that both **web-bastion** and **ssh-bastion** containers are up and runni
 
 ## SSH Fingerprint
 
-To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the Docker deployment with a dedicated folder within your Akeyless account. The SSH bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.  
+To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the Docker deployment with a dedicated folder within your Akeyless account. The SSH bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.\
 Note, please  ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
 
 ```shell
