@@ -25,14 +25,14 @@ Let’s create a static secret using the Akeyless CLI. If you’d prefer, see ho
 The CLI command to create a static secret is:
 
 ```shell Akeyless CLI
-akeyless create-secret --name <secret name> --value <secret value>
+akeyless create-secret --name &lt;secret name&gt; --value &lt;secret value&gt;
 ```
 
 where:
 
-- `name`: A unique name for the secret. The name can include the path to the virtual folder in which you want to create the new secret, using slash `/` separators. If the folder does not exist, it will be created together with the secret. 
+* `name`: A unique name for the secret. The name can include the path to the virtual folder in which you want to create the new secret, using slash `/` separators. If the folder does not exist, it will be created together with the secret. 
 
-- `value`: The value of the secret. The secret value maximum size is 16KB.
+* `value`: The value of the secret. The secret value maximum size is 16KB.
 
 For example, to create a secret in the **Admin** folder called **AdminCredentials** with the value **Admin101!**, type:
 
@@ -47,7 +47,7 @@ $ A new secret named /Admin/AdminCredentials was successfully created
 ```
 
 > 👍 Note
-> 
+>
 > For details about these CLI command options, see the [CLI Command Reference](https://docs.akeyless.io/docs/cli-reference-static-secrets).
 
 Next, assign the static secret to an access role that defines who can access the secret value, and with what permissions. For details, see [Add a Static Secret to an Access Role](doc:add-a-static-secret-to-an-access-role).
@@ -62,22 +62,22 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 3. Define the remaining parameters as follows:
 
-- **Description:** Optional, enter a description of the secret.
+* **Description:** Optional, enter a description of the secret.
 
-- **Tags:** Optional, select one or more tags for the secret, or enter the name of a new tag to be added as part of the secret creation.
+* **Tags:** Optional, select one or more tags for the secret, or enter the name of a new tag to be added as part of the secret creation.
 
-- **Delete Protection:** Prevent accidental deletion. 
+* **Delete Protection:** Prevent accidental deletion. 
 
-- **Protection Key:**  Select the encryption key with which to encrypt the secret (if your system includes multiple encryption keys). Otherwise, select `Default`.
+* **Protection Key:**  Select the encryption key with which to encrypt the secret (if your system includes multiple encryption keys). Otherwise, select `Default`.
 
-- **Format:** The format type of the value either **Text** , **JSON** or **Key/Value**. 
+* **Format:** The format type of the value either **Text** , **JSON** or **Key/Value**. 
 
-- **Value:** Enter the value of the secret. The value length should be 16KB.
+* **Value:** Enter the value of the secret. The value length should be 16KB.
 
-- **Change Event** Optional, trigger an event when the value is changed. 
+* **Change Event** Optional, trigger an event when the value is changed. 
 
 3. Select **Save**.
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-a-static-secret" target="_blank" style="color: #00e">Creating and Updating a Static Secret</a>.
+Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-a-static-secret" target="_blank" style={{ color: "#00e" }}>Creating and Updating a Static Secret</a>.
