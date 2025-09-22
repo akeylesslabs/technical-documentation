@@ -26,13 +26,13 @@ akeyless target create rabbitmq \
 
 Where:
 
-- `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+* `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-- `user`: The username of the privileged RabbitMQ user.
+* `user`: The username of the privileged RabbitMQ user.
 
-- `pwd`: The password of the privileged RabbitMQ user.
+* `pwd`: The password of the privileged RabbitMQ user.
 
-- `uri`: The URL of the RabbitMQ server. 
+* `uri`: The URL of the RabbitMQ server. 
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluerabbitmqp) section.
 
@@ -42,15 +42,15 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.  
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-- **Server URI:** Enter the RabbitMQ server address. 
+* **Server URI:** Enter the RabbitMQ server address. 
 
-- **Admin User:** Enter your RabbitMQ admin credentials.
+* **Admin User:** Enter your RabbitMQ admin credentials.
 
-- **Admin Password:** Enter your RabbitMQ admin credentials.
+* **Admin Password:** Enter your RabbitMQ admin credentials.
 
 5. Click **Finish**.
