@@ -33,13 +33,13 @@ akeyless target create globalsign-atlas \
 
 Where:
 
-- `name`: A unique name for the target. The name can include a path to the virtual folder where you want to create a new target using the slash /separators. The folder will be created with the target if it does not exist.
+* `name`: A unique name for the target. The name can include a path to the virtual folder where you want to create a new target using the slash /separators. The folder will be created with the target if it does not exist.
 
-- `api-key`: API Key of the GlobalSign Atlas account.
+* `api-key`: API Key of the GlobalSign Atlas account.
 
-- `api-secret`: API Secret of the GlobalSign Atlas account.
+* `api-secret`: API Secret of the GlobalSign Atlas account.
 
-- `mtls-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path.pem` or `tls-cert-data-base64` must be supplied.
+* `mtls-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path.pem` or `tls-cert-data-base64` must be supplied.
 
 You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsign-atlasp) section.
 
@@ -49,19 +49,19 @@ You can find the complete list of parameters for this command in the [CLI refere
 
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.  
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-- **API Secret:** API Secret of the GlobalSign Atlas account
+* **API Secret:** API Secret of the GlobalSign Atlas account
 
-- **API Key:** API Key of the GlobalSign Atlas account
+* **API Key:** API Key of the GlobalSign Atlas account
 
-- **mTLS Cert:** mutual TLS (mTLS) Certificate of the GlobalSign Atlas account
+* **mTLS Cert:** mutual TLS (mTLS) Certificate of the GlobalSign Atlas account
 
-- **mTLS Key:** mutual TLS (mTLS) Key of the GlobalSign Atlas account
+* **mTLS Key:** mutual TLS (mTLS) Key of the GlobalSign Atlas account
 
-- **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
+* **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
 
 5. Click **Finish**.
