@@ -12,24 +12,7 @@ next:
 ---
 This innovative feature allows users of the password manager application to enhance their experience by setting up a custom or specific tenant URL. This functionality is crafted to customize access management, enabling users to connect more securely and efficiently to web services that meet their organizational or personal requirements. By configuring a unique tenant URL within the password manager, users can ensure a direct and secure connection to the desired services or databases, thus improving both the efficiency and security of their digital interactions.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e2cd65b-Screenshot_2024-03-20_at_11.16.36.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "150px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="150px" src="https://files.readme.io/e2cd65b-Screenshot_2024-03-20_at_11.16.36.png" />
 
 **Detailed Instructions for Configuring Your Custom/Specific Tenant URL in the Password Manager Application:**
 
@@ -41,23 +24,6 @@ Within the settings or configuration section, look for a field designated for en
 
 **Saving Your Configuration:**
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/180af2d-Screenshot_2024-03-20_at_11.17.16.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "150px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="150px" src="https://files.readme.io/180af2d-Screenshot_2024-03-20_at_11.17.16.png" />
 
 After accurately entering the tenant URL, complete the setup by clicking the "Save" button. This step confirms and applies your settings, incorporating the custom tenant URL into your password manager application. With this configuration active, the application will automatically utilize the specified tenant URL for relevant operations, thus providing a more tailored and secure access management experience.
