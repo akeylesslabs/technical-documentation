@@ -6,3 +6,4 @@
 - certificate-renewal
 - certificate-revocation-list
 - acme-server
+- kubectl-access
