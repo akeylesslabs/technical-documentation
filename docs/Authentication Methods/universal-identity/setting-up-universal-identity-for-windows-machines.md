@@ -14,15 +14,15 @@ To use [Universal Identity](doc:universal-identity) tokens for a Windows machine
 
 # Prerequisites
 
-- An Akeyless [Universal Identity](doc:universal-identity) Auth Method
+* An Akeyless [Universal Identity](doc:universal-identity) Auth Method
 
 # Steps
 
-1. On the Windows machine, create the following [PowerShell script](https://download.akeyless.io/Akeyless_Artifacts/Windows/Universal_Identity/), where you can replace the`$HOME` (wherever it appears in the script) with the home directory of the user who is going to use this token to authenticate.  
-   Save the script as **akeyless_universal_identity.ps1**.
+1. On the Windows machine, create the following [PowerShell script](https://download.akeyless.io/Akeyless_Artifacts/Windows/Universal_Identity/), where you can replace the`$HOME` (wherever it appears in the script) with the home directory of the user who is going to use this token to authenticate.\
+   Save the script as **akeyless\_universal\_identity.ps1**.
 
 > 👍 Tip
-> 
+>
 > If the `gwURL` parameter is not set to `https://<Your-Akeyless-GW-URL:8000/api/v1>`, it will default to` https://rest.akeyless.io`
 
 Create the PowerShell script:
@@ -122,27 +122,11 @@ else {
 ```
 
 > 👍 Note
-> 
+>
 > The script also auto-creates the task-scheduler job, which will rotate your u-token every 10 minutes
 
 3. Open **Task Scheduler**, and modify the settings of the newly created task (`akeyless_universal_identity_rotator`) to use the following options:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a78ce9d-universal-identity.png",
-        "universal-identity.png",
-        629
-      ],
-      "align": "center",
-      "sizing": "smart",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="smart" border={true} src="https://files.readme.io/a78ce9d-universal-identity.png" />
 
 4. Confirm the newly created `$HOME\.vault-token` file should start refreshing with a new `u-token` every 10 minutes.
