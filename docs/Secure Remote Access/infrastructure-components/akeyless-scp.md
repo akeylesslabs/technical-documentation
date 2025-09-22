@@ -13,16 +13,16 @@ next:
 Akeyless SCP enables secure copy via [Secure Remote Access Bastion](doc:secure-remote-access-bastion).
 
 > 👍 Note
-> 
+>
 > Akeyless SCP currently supports only UNIX-like OS.
 
 ## Prerequisite
 
-- Akeyless [Secure Remote Access Bastion](doc:secure-remote-access-bastion).
+* Akeyless [Secure Remote Access Bastion](doc:secure-remote-access-bastion).
 
-- [SSH Issuer](doc:how-to-configure-ssh).
+* [SSH Issuer](doc:how-to-configure-ssh).
 
-- OpenSSH V7.3 or higher on target servers.
+* OpenSSH V7.3 or higher on target servers.
 
 ## Usage
 
@@ -34,7 +34,7 @@ chmod +x akeyless-scp
 mv akeyless-scp /usr/local/bin
 ```
 
-2. Create a resource file called **~/.akeyless-connect.rc** as follows:
+2. Create a resource file called **\~/.akeyless-connect.rc** as follows:
 
 ```shell akeyless-connect.rc
 # ---------------------------------------------------------------------
