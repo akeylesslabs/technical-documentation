@@ -1,3 +1,4 @@
 - artifactory-targets
 - aws-targets
 - azure-targets
+- chef-infra-targets
