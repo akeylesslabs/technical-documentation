@@ -6,3 +6,4 @@
 - create-dynamic-secret-to-sql-db
 - docker-hub-dynamic-secrets
 - eks-dynamic-secret-producer
+- gcp-dynamic-secrets
