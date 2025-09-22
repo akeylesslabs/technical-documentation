@@ -15,13 +15,13 @@ Akeyless [Access Roles](doc:rbac) control all user access levels for items, anal
 In parallel with [Gateway](doc:api-gw) administrative operations, you can set the exact level of access your [Gateway administrative users](https://docs.akeyless.io/docs/advance-gw-docker-configuration#gateway-admins) will have, from the management of just [Dynamic](doc:how-to-create-dynamic-secret) or [Rotated](doc:rotated-secrets) Secrets, up to, and including, complete admin rights.
 
 > 📘 Info
-> 
+>
 > **Pre-Provisioned Admin Users** - Pre-Provisioned settings of your Gateway Admin users can not be modified after setup. To limit already **existing** admin users of your Gateway, you will be required to remove them from your deployment files.
 
 # Configuring Access Permissions from the Gateway
 
 > 👍 Note
-> 
+>
 > Only Gateway **Admin** users can access and manage the Access Permissions settings.
 
 To configure **Access Permissions** in your [Gateway Configuration Manager](doc:gateway-configuration-manager), under the **Access Permissions** tab:
