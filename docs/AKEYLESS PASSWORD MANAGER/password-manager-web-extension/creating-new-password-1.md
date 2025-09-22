@@ -15,41 +15,11 @@ next:
 1. Once installed, the Akeyless Web Extension icon will appear in your browser's toolbar.
 2. Click on the Akeyless Web Extension icon to launch the extension.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/33368d1-Screenshot_2023-11-14_at_19.10.15.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "300px"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" width="300px" src="https://files.readme.io/33368d1-Screenshot_2023-11-14_at_19.10.15.png" />
 
 **Step 2: Access the Password Creation Form**
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9d80c86-Screenshot_2024-02-22_at_14.22.38.png",
-        null,
-        ""
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
+<Image align="right" width="200px" src="https://files.readme.io/9d80c86-Screenshot_2024-02-22_at_14.22.38.png" />
 
 Click on the "New Item" button. This will open the Akeyless Password Creation form.
 
@@ -67,22 +37,7 @@ Optionally, you can specify the "Password Location" using the drop-down menu. to
 
 If you want to store the password in a folder, you can create a new folder by providing the name in the location field.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d75a38d-Screenshot_2024-02-22_at_14.22.54.png",
-        null,
-        ""
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
+<Image align="right" width="200px" src="https://files.readme.io/d75a38d-Screenshot_2024-02-22_at_14.22.54.png" />
 
 **Step 4: Enhance Security and Add Context**
 
@@ -108,28 +63,13 @@ The Akeyless Web Extension password manager will open, displaying a list of your
 
 Click on the desired password to view its details or copy it to your clipboard.
 
-<br>
+<br />
 
 **Password Strength Policy**
 
 The "Password Strength Policy" feature is like the guardian at the gate, ensuring that users' passwords meet the organization's security standards. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/91fa4a2-Screenshot_2024-04-11_at_14.21.32.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "150px"
-    }
-  ]
-}
-[/block]
-
+<Image align="right" width="150px" src="https://files.readme.io/91fa4a2-Screenshot_2024-04-11_at_14.21.32.png" />
 
 Users can customize their password strength policies, but, they can't go below the minimum standards set by the organization. 
 
