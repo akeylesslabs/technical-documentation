@@ -1,0 +1,60 @@
+---
+title: Adding and Using OTP
+excerpt: ''
+deprecated: false
+hidden: false
+metadata:
+  title: ''
+  description: ''
+  robots: index
+next:
+  description: ''
+---
+Locate the Password: Navigate to the corporate or personal area where the desired password is stored.
+
+Open Options Menu: Tap the three dots button next to the password entry to open the options menu.
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/6da4508-Screenshot_2024-06-16_at_11.17.19.png",
+        null,
+        null
+      ],
+      "align": "center",
+      "sizing": "200px"
+    }
+  ]
+}
+[/block]
+
+
+<br />
+
+Prepare OTP for Scanning: Ensure that the OTP (One-Time Password) code is visible on the screen in a scannable format.
+
+Scan the Code: Use the camera to scan the OTP code.
+
+Select Scan OTP: Choose the "Scan OTP" option from the menu.
+
+Verify Addition: The OTP code will be added as a custom field to the selected password entry.
+
+Access OTP Code: You can view the OTP code by tapping the eye icon next to the custom field.
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/2d50b9c-Screenshot_2024-06-16_at_11.16.55.png",
+        null,
+        null
+      ],
+      "align": "center",
+      "sizing": "200px"
+    }
+  ]
+}
+[/block]
