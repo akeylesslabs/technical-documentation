@@ -11,3 +11,4 @@
 - gitlab-dynamic-secret
 - gke-dynamic-secret-producer
 - google-workspace-secret
+- k8s-generic-dynamic-secrets
