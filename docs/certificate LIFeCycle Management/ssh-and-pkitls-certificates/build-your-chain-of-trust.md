@@ -14,43 +14,28 @@ Akeyless offers the creation of a private certificate authority, in which you ca
 
 The certificate chain includes the following components: 
 
-- **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](doc:encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
+* **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](doc:encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
 
-- **Intermediate CA**: Signed by the **Root CA**, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has authorized the Intermediate CA.
+* **Intermediate CA**: Signed by the **Root CA**, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has authorized the Intermediate CA.
 
-- **Leaf Certificate**: A certificate that is being used by any application. 
+* **Leaf Certificate**: A certificate that is being used by any application. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png",
-        "",
-        ""
-      ],
-      "align": "center",
-      "sizing": "123% "
-    }
-  ]
-}
-[/block]
-
+<Image align="center" width="123% " src="https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png" />
 
 # Creating a Chain of Trust
 
 The whole chain of trust can be generated using one dedicated CLI command, which automatically creates:
 
-- **Root **and** Intermediate **PKI Issuers.
+* **Root** and **Intermediate**PKI Issuers.
 
-- **Signer key** with a signed certificate for each issuer which includes the following parameters:
+* **Signer key** with a signed certificate for each issuer which includes the following parameters:
 
-  - **basicConstraints**: `critical`, `CA:TRUE`, `pathlen:1`
+  * **basicConstraints**: `critical`, `CA:TRUE`, `pathlen:1`
 
-  - **keyUsage**: `critical`, `cRLSign`, `digitalSignature`, `keyCertSign`
+  * **keyUsage**: `critical`, `cRLSign`, `digitalSignature`, `keyCertSign`
 
-> 🚧  Warning
-> 
+> 🚧 Warning
+>
 > Automatic creation of a Chain of Trust is not supported if the Item Naming Convention configured in Global Settings contains a literal space character. In this case, follow the [manual guide](https://docs.akeyless.io/docs/ca-chain-of-trust-manually) to build the Chain of Trust.
 
 Example for generating a **Chain of Trust** where the `common-name` for the **Root** issuer will be: `My-First-Chain root CA` and the `common-name` for the  **Intermediate** issuer will be: `My-First-Chain intermediate CA` (You can customize the maximum path length by using the `--max-path-len` flag):
@@ -66,20 +51,20 @@ akeyless generate-ca \
 
 Where:
 
-- `pki-chain-name`: The name of the **Root** and **Intermediate** issuers and the main folder contain all of the related objects.
+* `pki-chain-name`: The name of the **Root** and **Intermediate** issuers and the main folder contain all of the related objects.
 
-- `allowed-domains`: Domains that will be allowed by the issuer.
+* `allowed-domains`: Domains that will be allowed by the issuer.
 
-- `extended-key-usage[=serverauth,clientauth]`: extended key usage for the intermediate (`serverauth` / `clientauth` / `codesigning`).
+* `extended-key-usage[=serverauth,clientauth]`: extended key usage for the intermediate (`serverauth` / `clientauth` / `codesigning`).
 
-- `ttl`: The maximum requested Time To Live for the issued certificate by default in seconds, supported formats are `s`,`m`,`h`,`d`.
+* `ttl`: The maximum requested Time To Live for the issued certificate by default in seconds, supported formats are `s`,`m`,`h`,`d`.
 
-- `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 Running the command above will create  a **Certificate Chain** under **/My-First-Chain** folder, where certificates for `example.com` domain can be issued with a `TTL` of 10 days.
 
 > 👍 Tip
-> 
+>
 > The `pathlen` value can be change by using the `--max-path-len` flag.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates section.](https://docs.akeyless.io/docs/cli-reference-certificates#chain-of-trust)
@@ -88,12 +73,12 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 The following is the structure of the items related to the newly created CA:
 
-- **pki** - A root folder that will contain all **Certs**, **Issuers** and **Keys**.
-- **Certs** - Contains the certificate for both **Root** and **Intermediate** issuers.
-- **Issuers** -  Contains the both **Root** and **Intermediate** issuers.
-- **Keys** - Contains the signer keys for both **Root** and **Intermediate** issuers.
+* **pki** - A root folder that will contain all **Certs**, **Issuers** and **Keys**.
+* **Certs** - Contains the certificate for both **Root** and **Intermediate** issuers.
+* **Issuers** -  Contains the both **Root** and **Intermediate** issuers.
+* **Keys** - Contains the signer keys for both **Root** and **Intermediate** issuers.
 
-Once the certificate is generated, a new folder named **certificates ** will be created, containing the newly generated certificate. 
+Once the certificate is generated, a new folder named **certificates** will be created, containing the newly generated certificate. 
 
 ## Issuing a Leaf Certificate
 
@@ -109,9 +94,9 @@ akeyless generate-csr \
 
 Where:
 
-- `name`: **Required**, Full path to the key to sign the CSR.
+* `name`: **Required**, Full path to the key to sign the CSR.
 
-- `common-name`: **Required**, `common-name` to be included in the CSR certificate. In this case, we use `example.com` as this is the `common-name` that we set in the allowed domains of the issuer.
+* `common-name`: **Required**, `common-name` to be included in the CSR certificate. In this case, we use `example.com` as this is the `common-name` that we set in the allowed domains of the issuer.
 
 The next step will be to generate the certificate using the **Intermediate** issuer:
 
@@ -123,8 +108,8 @@ akeyless get-pki-certificate \
 
 Where:
 
-- `cert-issuer-name`: The full path for the **Intermediate** issuer.
+* `cert-issuer-name`: The full path for the **Intermediate** issuer.
 
-- `csr-file-path`: Path to the CSR that was created earlier.
+* `csr-file-path`: Path to the CSR that was created earlier.
 
 Running the command above will create a certificate with the called `example.com`, where clicking the **View Certificate Details** button will show the full certificate chain.
