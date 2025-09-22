@@ -15,3 +15,4 @@
 - ldap-dynamic-secret
 - ping-dynamic-secrets
 - rabbitmq-producer
+- rdp-dynamic-secrets
