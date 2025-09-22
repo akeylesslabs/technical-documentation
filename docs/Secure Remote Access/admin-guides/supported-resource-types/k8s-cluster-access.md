@@ -14,13 +14,13 @@ You can enable secure remote access to a K8s cluster based on the dynamic secret
 
 ## Prerequisite
 
-- The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
+* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
-- A running K8s dynamic Secret [EKS](https://docs.akeyless.io/docs/eks-dynamic-secret-producer) , [GKE](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [K8s Generic](doc:k8s-generic-dynamic-secrets) .
+* A running K8s dynamic Secret [EKS](https://docs.akeyless.io/docs/eks-dynamic-secret-producer) , [GKE](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [K8s Generic](doc:k8s-generic-dynamic-secrets) .
 
-- [Akeyless Connect](doc:akeyless-connect) 
+* [Akeyless Connect](doc:akeyless-connect) 
 
-- An  [SSH Certificate Issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates).
+* An  [SSH Certificate Issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates).
 
 ## Set Up Remote Access to a K8s cluster from the Akeyless CLI
 
@@ -39,14 +39,14 @@ akeyless dynamic-secret update k8s \
 
 where:
 
-- **secure-access-certificate-issuer:** Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication..
-- **secure-access-cluster-endpoint:**  The K8s cluster endpoint URL.
-- **secure-access-allow-port-forwading:** Optional, allows running non-interactive kubectl commands, such as: exec / port-forward / etc. Also allows using the --watch flag (-w), for example.
+* **secure-access-certificate-issuer:** Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication..
+* **secure-access-cluster-endpoint:**  The K8s cluster endpoint URL.
+* **secure-access-allow-port-forwading:** Optional, allows running non-interactive kubectl commands, such as: exec / port-forward / etc. Also allows using the --watch flag (-w), for example.
 
 For [Kubernetes Generic Dynamic Secrets](doc:k8s-generic-dynamic-secrets) you can have secure remote access for your K8s dashboard URL: 
 
-- **secure-access-dashboard-url:** The K8s dashboard URL available only for Generic K8s. 
-- **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* **secure-access-dashboard-url:** The K8s dashboard URL available only for Generic K8s. 
+* **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 # Set Up Remote Access to a K8s Cluster from the Akeyless Console
 
@@ -60,25 +60,25 @@ Let's set up remote access to a K8s cluster from the Akeyless Console. If you'd 
 
 For [GKE Dynamic Secrets](doc:gke-dynamic-secret-producer) or [EKS Dynamic Secrets](doc:eks-dynamic-secret-producer):
 
-- `Cluster Endpoint URL`: Required, your K8s cluster URL. 
-- `certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
-- `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / etc. Also allows using the `--watch` flag (`-w`), for example.
+* `Cluster Endpoint URL`: Required, your K8s cluster URL. 
+* `certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
+* `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / etc. Also allows using the `--watch` flag (`-w`), for example.
 
 For [Kubernetes Generic Dynamic Secrets](doc:k8s-generic-dynamic-secrets):
 
-- `Cluster Endpoint URL`: Required, your K8s cluster URL. 
+* `Cluster Endpoint URL`: Required, your K8s cluster URL. 
 
 For **Web Access**: 
 
-- `Dashboard URL`: Required to enable secure remote access to your K8s dashboard. 
+* `Dashboard URL`: Required to enable secure remote access to your K8s dashboard. 
 
-- `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 For **CLI Access**: 
 
-- `certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
+* `certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
 
-- `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / etc. Also allows using the `--watch` flag (`-w`), for example.
+* `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / etc. Also allows using the `--watch` flag (`-w`), for example.
 
 From any terminal which has [Akeyless Connect](doc:akeyless-connect) configured, you can run the following command: 
 
