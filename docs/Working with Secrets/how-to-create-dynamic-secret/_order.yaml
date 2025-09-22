@@ -1,3 +1,4 @@
 - artifactory-dynamic-secret-producer
 - aws-producer
 - azure-ad-dynamic-secrets
+- create-an-azure-ad-app-service-account
