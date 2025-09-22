@@ -12,44 +12,30 @@ next:
 ---
 The Kubernetes (K8s) Auth Method uses K8s JWTs in order to authenticate the K8s application (e.g. a pod). Throughout the process, this K8s JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png",
-        "k8s-auth.png",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png" />
 
 # Prerequisites
 
-- [Akeyless Gateway](doc:api-gw) with network access to the K8s cluster.
+* [Akeyless Gateway](doc:api-gw) with network access to the K8s cluster.
 
-- `K8s v1.21` or later.
+* `K8s v1.21` or later.
 
 > 📘 Info
-> 
+>
 > **Required Gateway Access Permissions**
-> 
+>
 > To set K8s Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the K8s Auth
 
 # Authentication Strategies
 
 Akeyless supports several authentication strategies to interact with the K8s cluster. Each of the below links describes the entire flow of creating the Akeyless K8s Auth Method. Choose the one that works for you and follow the entire flow:
 
-- The Akeyless Gateway ServiceAccount
-- A [dedicated ServiceAccount ](https://docs.akeyless.io/docs/dedicated-k8s-auth-service-accounts)
-- A [client certificate ](https://docs.akeyless.io/docs/k8s-auth-client-certificate)
+* The Akeyless Gateway ServiceAccount
+* A [dedicated ServiceAccount ](https://docs.akeyless.io/docs/dedicated-k8s-auth-service-accounts)
+* A [client certificate ](https://docs.akeyless.io/docs/k8s-auth-client-certificate)
 
 > 📘 Info
-> 
+>
 > ServiceAccount approaches work based on K8s bearer tokens, whereas Certificate-based Authentication works based on a certificate and private key
 
 # Using Akeyless Gateway ServiceAccount
@@ -103,7 +89,7 @@ Upon successful creation, the response:
 ```
 
 > 👍 Note
-> 
+>
 > Save returned private key & AccessID for next steps inside an environment variables  `$PRV_KEY` and `$ACCESS_ID`
 
 ### Create K8s Gateway Auth Config Using Gateway ServiceAccount
@@ -120,15 +106,15 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 
 Where:
 
-- `name`: The config name (will be used during the authentication process).
+* `name`: The config name (will be used during the authentication process).
 
-- `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- `access-id`: The `Access Id` of the Kubernetes auth method that was created.
+* `access-id`: The `Access Id` of the Kubernetes auth method that was created.
 
-- `signing-key`: The private key (The key that was created when the Kubernetes auth method was created).
+* `signing-key`: The private key (The key that was created when the Kubernetes auth method was created).
 
-- `use-gw-service-account`: Extract all the relevant information using the Gateway Service Account.
+* `use-gw-service-account`: Extract all the relevant information using the Gateway Service Account.
 
 # Authenticate from a pod in your K8s cluster
 
@@ -169,13 +155,13 @@ chmod +x akeyless
 
 Where:
 
-- `access-id`: The `Access Id` of the Kubernetes auth method that was created.
+* `access-id`: The `Access Id` of the Kubernetes auth method that was created.
 
-- `access-type`: the access type - `k8s`
+* `access-type`: the access type - `k8s`
 
-- `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- `k8s-auth-config-name`: The K8s auth config name in your [Gateway](https://docs.akeyless.io/docs/api-gw).
+* `k8s-auth-config-name`: The K8s auth config name in your [Gateway](https://docs.akeyless.io/docs/api-gw).
 
 Upon successful authentication, the response will be:
 
@@ -185,7 +171,7 @@ Token: t-bb7b...3564a7c9
 ```
 
 > 👍 Note
-> 
+>
 > Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
 
 # Available claims for K8s Auth
@@ -223,7 +209,7 @@ minikube start \
 ```
 
 > 👍 Note
-> 
+>
 > This example uses `api` as the service account issuer name, for your service accounts API audience.
 
 # Tutorial
