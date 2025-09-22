@@ -14,8 +14,8 @@ next:
 
 Java JAR code signing ensures the integrity and authenticity of Java Archive (JAR) files. By digitally signing JAR files with tools like Java JarSigner, developers and organizations can guarantee that:
 
-- The file contents have not been tampered with since signing.
-- The JAR originates from a trusted source.
+* The file contents have not been tampered with since signing.
+* The JAR originates from a trusted source.
 
 ### Role of PKCS#11 in Code Signing
 
@@ -23,17 +23,17 @@ Java’s JarSigner tool is not designed to directly call vendor-specific APIs. I
 
 #### Why This Matters
 
-- Key Security:  
+* Key Security:\
   With PKCS#11, private keys remain inside Akeyless platform, JarSigner never exports them. It simply asks the PKCS#11 library to perform the signing operation.
-- Compatibility with Java Security APIs:  
+* Compatibility with Java Security APIs:\
   Java’s PKCS11 provider can only work with libraries that implement PKCS#11. This means supporting PKCS#11 is essential for using Akeyless keys in standard Java signing flows.
-- Certificate Handling:  
+* Certificate Handling:\
   JarSigner expects both the key and the certificate to be available through PKCS#11 objects. 
 
 PKCS#11 acts as the translation layer between:
 
-- JarSigner’s expectations (standard Java cryptography provider interface).
-- Akeyless’s cryptographic capa4bilities (keys and certificates stored securely, operations executed within Akeyless).
+* JarSigner’s expectations (standard Java cryptography provider interface).
+* Akeyless’s cryptographic capa4bilities (keys and certificates stored securely, operations executed within Akeyless).
 
 With its PKCS#11 support, Akeyless enables JarSigner to seamlessly access and use Akeyless-managed keys and certificates for signing. This ensures that private keys remain securely protected within the Akeyless platform, while still allowing developers to perform standard Java JAR signing operations safely and without code changes.
 
