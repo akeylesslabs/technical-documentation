@@ -14,21 +14,7 @@ next:
 ---
 API Key is a simple [Authentication Method](doc:access-and-authentication-methods) supported by the Akeyless Platform. API Keys are very popular primarily for testing or staging environments.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/574347a-API_key_auth.png",
-        "API key auth.jpg",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/574347a-API_key_auth.png" />
 
 # Create an API Key Authentication Method from the CLI
 
@@ -42,10 +28,10 @@ akeyless auth-method create api-key --name MyFirstAPIKey
 
 Where:
 
-- `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
 > 🚧 Note
-> 
+>
 > Akeyless API Key is displayed only once.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueapi-keyp) section.
@@ -66,13 +52,13 @@ akeyless configure --profile default --access-id <AccessID>  --access-key < API 
 
 3. Define the remaining parameters as follows:
 
-- **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-- **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-- **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-- **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
 4. Click **Finish**.
 
