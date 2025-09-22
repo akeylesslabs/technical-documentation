@@ -14,17 +14,19 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 
 **TDE** protects data at rest, which is the data and log files. It lets you follow many laws, regulations, and guidelines established in various industries. This ability lets software developers encrypt data by using **AES** and **3DES** encryption algorithms without changing existing applications.
 
-> 📒 **Platform prerequisites**
-> 
-> _The TDE for MSSQL workflow documented above has been tested **only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”)._  
-> 
-> **Not supported**  
-> • MSSQL in Docker containers (Microsoft does not support TDE in containers)  
-> • Azure SQL Managed DB / Managed Instance (they only expose Azure Key Vault for external keys)  
-> 
-> **Supported**  
-> • Traditional Windows Server + SQL Server  
-> • Azure “SQL VM” (a standard VM running SQL Server)
+<Callout icon="📒" theme="default">
+  ### **Platform prerequisites**
+
+  *The TDE for MSSQL workflow documented above has been tested**only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”).*  
+
+  **Not supported**\
+  • MSSQL in Docker containers (Microsoft does not support TDE in containers)\
+  • Azure SQL Managed DB / Managed Instance (they only expose Azure Key Vault for external keys)  
+
+  **Supported**\
+  • Traditional Windows Server + SQL Server\
+  • Azure “SQL VM” (a standard VM running SQL Server)
+</Callout>
 
 # Install the Akeyless EKM provider
 
@@ -39,15 +41,15 @@ Follow the wizard installation steps - enter your Akeyless [Gateway](doc:api-gw)
 Choose the OS installation path and save it for later. This will copy the `dll`  files, and also creates a configuration file that can be edited later. 
 
 > 📘 The file should be formatted as follows:
-> 
-> log_level="debug"  
-> akeyless_url="https\://Your-GW-URL/api/v2"  
-> base_item_path=" /path/to/keys"  
-> use_classic_keys=true
+>
+> log\_level="debug"\
+> akeyless\_url="https\://Your-GW-URL/api/v2"\
+> base\_item\_path=" /path/to/keys"\
+> use\_classic\_keys=true
 
 **Notice:** It is optional to configure TDE to create & leverage Akeyless [Classic Keys](doc:classic-keys), the default is otherwise using a DFC key.
 
-- To work with Classic Keys, make sure you work against your own Gateway (on the API v2 endpoint)
+* To work with Classic Keys, make sure you work against your own Gateway (on the API v2 endpoint)
 
 # Configure the Akeyless EKM provider
 
@@ -84,16 +86,18 @@ FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
 GO
 ```
 
-- For instance, if you wish to utilize`'azure ad authentication'`you will need to modify the configuration file located in the installation directory at`'C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf'` Specifically, add the following lines:  
+* For instance, if you wish to utilize`'azure ad authentication'`you will need to modify the configuration file located in the installation directory at`'C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf'` Specifically, add the following lines:\
   `[auth]
   access_type="azure_ad"
   object_id="..." # optional`
 
-> 📒 Access-Role Reminder
-> 
-> The API Key (or other Auth Method) used in **`akeyless_tde`** **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
-> 
-> When working **Classic Keys**, make sure you also  grant the Auth Method the appropriate Gateway “[Access Permissions](doc:gateway-access-permissions)” to manage “**Classic Keys**”
+<Callout icon="📒" theme="default">
+  ### Access-Role Reminder
+
+  The API Key (or other Auth Method) used in **`akeyless_tde`** **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
+
+  When working **Classic Keys**, make sure you also  grant the Auth Method the appropriate Gateway “[Access Permissions](doc:gateway-access-permissions)” to manage “**Classic Keys**”
+</Callout>
 
 4. Add the credential to a privileged user, in the following example replace the [`DOMAIN\login`] with your privileged username format and add the SQL `CREDENTIAL`:
 
@@ -114,9 +118,9 @@ GO
 ```
 
 > 📘 Working on Cluster
-> 
+>
 > When working with cluster, the above command should be executed only on the Primary server, on all other servers run the following statement: 
-> 
+>
 > `CREATE ASYMMETRIC KEY akls_ekm_login_key
 > FROM PROVIDER Akeyless WITH PROVIDER_KEY_NAME = 'SQL_Server_Key' , CREATION_DISPOSITION=OPEN_EXISTING;`
 
@@ -162,15 +166,13 @@ SET ENCRYPTION ON ;
 GO
 ```
 
-
-
 # Troubleshooting
 
 If you're running into issues getting TDE with Akeyless set up on MSSQL, here are some useful tips and common pitfalls to check:
 
-- If you're looking for logs about the setup, you can find them in the **Windows Event Viewer** — most EKM-related errors are recorded there and are very helpful for debugging.
-- After you first run the installer, any future changes to the configuration file (which by default will be located under: `C:\\Program Files\\Akeyless\\Akeyless Ekm Provider\\sqlcrypt.conf`) will only take effect after restarting the `SQL Server (MSSQLSERVER)` Windows service.
-- If no config file is found, the setup will default to using <https://api.akeyless.io> as the Akeyless Gateway URL and the root path / for key creation.
-- Make sure the key was created at the specified path in Akeyless. If not:
-  - Confirm that the TDE auth method you created has an Access Role permitting access to that path.
-  - If you are using Classic Keys (instead of DFC), ensure the auth method also has Gateway Access Permissions to manage Classic Keys.
+* If you're looking for logs about the setup, you can find them in the **Windows Event Viewer** — most EKM-related errors are recorded there and are very helpful for debugging.
+* After you first run the installer, any future changes to the configuration file (which by default will be located under: `C:\\Program Files\\Akeyless\\Akeyless Ekm Provider\\sqlcrypt.conf`) will only take effect after restarting the `SQL Server (MSSQLSERVER)` Windows service.
+* If no config file is found, the setup will default to using [https://api.akeyless.io](https://api.akeyless.io) as the Akeyless Gateway URL and the root path / for key creation.
+* Make sure the key was created at the specified path in Akeyless. If not:
+  * Confirm that the TDE auth method you created has an Access Role permitting access to that path.
+  * If you are using Classic Keys (instead of DFC), ensure the auth method also has Gateway Access Permissions to manage Classic Keys.
