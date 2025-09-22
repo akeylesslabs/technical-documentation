@@ -24,10 +24,10 @@ Once data is encrypted using TDE, it remains encrypted on disk. However, when au
 
 The key management capabilities of the Akeyless Platform include:
 
-- Key Creation: Generating encryption keys with secure algorithms and appropriate key lengths.
-- Key Storage: Storing encryption keys in a secure, tamper-proof environment.
-- Key Rotation: Regularly updating encryption keys to mitigate the risk of key compromise.
-- Access Control: Defining and enforcing policies to ensure that only authorized personnel can access and manage encryption keys.
+* Key Creation: Generating encryption keys with secure algorithms and appropriate key lengths.
+* Key Storage: Storing encryption keys in a secure, tamper-proof environment.
+* Key Rotation: Regularly updating encryption keys to mitigate the risk of key compromise.
+* Access Control: Defining and enforcing policies to ensure that only authorized personnel can access and manage encryption keys.
 
 <br />
 
@@ -35,10 +35,10 @@ The key management capabilities of the Akeyless Platform include:
 
 Implementing TDE offers several benefits for organizations looking to secure their sensitive data:
 
-- Data Protection: Encrypts sensitive data to protect it from unauthorized access and breaches.
-- Compliance: Helps organizations meet regulatory requirements for data security and privacy.
-- Transparency: Provides seamless encryption and decryption, ensuring that authorized users experience no disruption in data access.
-- Centralized Key Management: Utilizes the Akeyless Platform to securely manage encryption keys, reducing the risk of key management errors and security vulnerabilities.
+* Data Protection: Encrypts sensitive data to protect it from unauthorized access and breaches.
+* Compliance: Helps organizations meet regulatory requirements for data security and privacy.
+* Transparency: Provides seamless encryption and decryption, ensuring that authorized users experience no disruption in data access.
+* Centralized Key Management: Utilizes the Akeyless Platform to securely manage encryption keys, reducing the risk of key management errors and security vulnerabilities.
 
 <br />
 
