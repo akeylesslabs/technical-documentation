@@ -14,24 +14,7 @@ There are two ways to delete passwords and secrets using the Akeyless Password M
 
 ### Method 1: Using the Quick Action Menu
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/62cf452-Screenshot_2024-01-10_at_16.46.49.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="200px" src="https://files.readme.io/62cf452-Screenshot_2024-01-10_at_16.46.49.png" />
 
 Hover over the password or secret you want to delete in the password or secrets list.
 
@@ -47,30 +30,7 @@ Click on the "Delete" button.
 
 The password or secret will be deleted.
 
-
-
-
-
-
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/cc914f5-Screenshot_2024-01-10_at_16.47.07.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="200px" src="https://files.readme.io/cc914f5-Screenshot_2024-01-10_at_16.47.07.png" />
 
 ### Method 2: Using the Delete Action Button
 
