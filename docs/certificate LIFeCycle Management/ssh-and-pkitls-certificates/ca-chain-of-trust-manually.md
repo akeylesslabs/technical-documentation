@@ -14,28 +14,13 @@ Akeyless offers the creation of a private certificate authority, in which you ca
 
 The certificate chain includes the following components: 
 
-- **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](doc:encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
+* **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](doc:encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
 
-- **Intermediate CA**: Signed by the **Root CA**, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has authorized the Intermediate CA.
+* **Intermediate CA**: Signed by the **Root CA**, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has authorized the Intermediate CA.
 
-- **Leaf Certificate**: A certificate that is being used by any application. 
+* **Leaf Certificate**: A certificate that is being used by any application. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png",
-        "",
-        ""
-      ],
-      "align": "center",
-      "sizing": "123% "
-    }
-  ]
-}
-[/block]
-
+<Image align="center" width="123% " src="https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png" />
 
 # Creating a Root CA
 
@@ -44,7 +29,7 @@ Given the critical role of the Root CA in validating end-user certificates, it's
 Using a [DFC Key](doc:encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key adds an extra level of protection.
 
 > 👍 Note
-> 
+>
 > In this guide, we used the environment variable `MY_GW` to store the gateway address (`https://<Your-Akeyless-GW-URL:8000`). You can also directly use the gateway address if preferred.
 
 ## Creating a Root CA Signer Key
@@ -68,9 +53,9 @@ EOF
 
 Where:
 
-- `CA:TRUE`:  Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
+* `CA:TRUE`:  Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
 
-- `digitalSignature`,`KeyCertSign`,`cRLSign`: Key Usage for CA certificates.
+* `digitalSignature`,`KeyCertSign`,`cRLSign`: Key Usage for CA certificates.
 
 Run the following command to create [DFC key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) and the certificate: 
 
@@ -86,17 +71,18 @@ akeyless create-dfc-key \
 
 Where:
 
-- `name`: A unique name for the DFC Key. The name can include a path to the virtual folder where you want to create a new DFC Key using the slash / separators. If the folder does not exist, it will be created together with the item.
+* `name`: A unique name for the DFC Key. The name can include a path to the virtual folder where you want to create a new DFC Key using the slash / separators. If the folder does not exist, it will be created together with the item.
 
-- `alg`: DFC Key type, options: [`AES128GCM`, `AES256GCM`, `AES128SIV`, `AES256SIV`, `AES128CBC`, `AES256CBC`, `RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`].
+* `alg`: DFC Key type, options: AES128GCM`, `AES256GCM`, `AES128SIV`, `AES256SIV`, `AES128CBC`, `AES256CBC`, `RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`].
+  .
 
-- `generate-self-signed-certificate`: Whether to generate a self signed certificate with the key. If set, --`certificate-ttl` must be provided.
+* `generate-self-signed-certificate`: Whether to generate a self signed certificate with the key. If set, --`certificate-ttl` must be provided.
 
-- `certificate-ttl`: TTL in days for the generated certificate. Required only for generate-self-signed-certificate.
+* `certificate-ttl`: TTL in days for the generated certificate. Required only for generate-self-signed-certificate.
 
-- `certificate-format`: The format of the returned certificate can be `pem` or `der`.
+* `certificate-format`: The format of the returned certificate can be `pem` or `der`.
 
-- `--conf-file-path`: Path to the configuration file that contains CSR config data.
+* `--conf-file-path`: Path to the configuration file that contains CSR config data.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
 
@@ -126,8 +112,8 @@ akeyless create-pki-cert-issuer \
 
 At this point, we have created the following:
 
-- **Root CA Key**: A Singer Key with a Self Signed Certificate. 
-- **Root PKI Cert Issuer**: To sign new Intermediate CA. 
+* **Root CA Key**: A Singer Key with a Self Signed Certificate. 
+* **Root PKI Cert Issuer**: To sign new Intermediate CA. 
 
 Where **only** certificate with the domain`example.com`  will be accepted and valid for 100 days, they will be automatically stored under the `/MyChain/IntermediateCertificates/`  folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage** , **OU** and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
@@ -153,7 +139,7 @@ akeyless generate-csr \
 --common-name example.com  >> intermediate.csr
 ```
 
-Now let's issue the certificate using the **Root PKI Issuer **which we created earlier:
+Now let's issue the certificate using the **Root PKI Issuer** which we created earlier:
 
 ```shell
 akeyless get-pki-certificate \
@@ -192,7 +178,7 @@ akeyless create-pki-cert-issuer \
 --locality NY 
 ```
 
-Where **only** certificate with the domain`myexample.com`  will be accepted and valid for 30 days, and it will be automatically stored under the `/MyChain/Intermediate/Leaf/`  folder, with the **Extended key Usage **of `client auth` , **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+Where **only** certificate with the domain`myexample.com`  will be accepted and valid for 30 days, and it will be automatically stored under the `/MyChain/Intermediate/Leaf/`  folder, with the **Extended key Usage** of `client auth` , **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
 # Issuing a Leaf Certificate
 
