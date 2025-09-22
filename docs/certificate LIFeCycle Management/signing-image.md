@@ -16,11 +16,11 @@ Notation is an open-source supply chain tool developed by the [Notary Project](h
 
 The following registries are compatible with the Notary Project OCI signature specification and its implementation in Notation:
 
-- **Azure Container Registry**
-- **Amazon Elastic Container Registry**
-- **GitHub Container Registry**
-- **ORAS Distribution Registry**
-- **Zot registry**
+* **Azure Container Registry**
+* **Amazon Elastic Container Registry**
+* **GitHub Container Registry**
+* **ORAS Distribution Registry**
+* **Zot registry**
 
 Akeyless can be used to store certificates with signing keys that can be used by Notation with the Akeyless plugin for Notation, to sign and verify container images and other artifacts for the [supported](https://notaryproject.dev/docs/faq/) container registries.
 
@@ -66,7 +66,7 @@ curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/Windows/no
 ```
 
 > 📘 Note
-> 
+>
 > For **AMD** architecture download the relevant binaries from [here](https://rest.akeyless.io/Akeyless_Artifacts/)
 
 List the Notation Plugins list to verify that Akeyless is listed. 
@@ -81,7 +81,7 @@ Notation Plugins configuration supports the use of environment variables or stat
 
 Depending on your OS type create the relevant config file accordingly:
 
-```shell Linux \\ MacOS
+```shell Linux \ MacOS
 cd /var/akeyless/conf
 cat <<EOF > notation.conf
 akeyless_url="https://<Your Gateway URL>:8000/api/v2 # Or using port :8081"
@@ -102,22 +102,22 @@ echo access_type="access_key" >> notation.conf
 
 Where: 
 
-- `akeyless_url` - Your Akeyless Gateway `API v2` endpoint `8000/api/v2 ` (or using your gateway url at port `8081`).,  if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`. 
+* `akeyless_url` - Your Akeyless Gateway `API v2` endpoint `8000/api/v2 ` (or using your gateway url at port `8081`).,  if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`. 
 
-- `access_type` - The [Authentication Method](doc:access-and-authentication-methods) type, supporting:`access_key`,`aws_iam`,`gcp`,`azure_ad` `certificate`,`jwt` and `k8s`. 
+* `access_type` - The [Authentication Method](doc:access-and-authentication-methods) type, supporting:`access_key`,`aws_iam`,`gcp`,`azure_ad` `certificate`,`jwt` and `k8s`. 
 
-- `access_id` - The Auth method **Access ID**.  
+* `access_id` - The Auth method **Access ID**.  
 
-- `access_key` - Relevant only for  [API Key](doc:api-key) Auth method.
+* `access_key` - Relevant only for  [API Key](doc:api-key) Auth method.
 
-- `k8s_conf_name` - Relevant only for [Kubernetes](doc:kubernetes-auth) Auth method. 
+* `k8s_conf_name` - Relevant only for [Kubernetes](doc:kubernetes-auth) Auth method. 
 
 ## Create a Self-Signed Certificate
 
 The Notary project specified the [requirements](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements) for different types of certificates, the following examples will use a **Self Signed CA** certificate. 
 
 > 📘 Note
-> 
+>
 > It is possible to work with Akeyless  [PKI Issuer](doc:ssh-and-pkitls-certificates)  to generate the certificates, the PKI Issuer must be set with the `Code Signing` flag , and `Key Usage List` of `critical,DigitalSignature`.
 
 Akeyless Supports both **EC** and **RSA** algorithms, run the following commands to create a key with a self signed certificate.
@@ -153,9 +153,9 @@ notation key add  --plugin akeyless  --id /CodeSign --default Akeyless
 
 Where: 
 
-- `id`- The full key name or the key `item id`, as stored inside Akeyless. In our example, we used the created key named `CodeSign`.
+* `id`- The full key name or the key `item id`, as stored inside Akeyless. In our example, we used the created key named `CodeSign`.
 
-- `default` - Optional, to mark this key for Notation as a default key, with a friendly name for notation, in this example, we simply named it`Akeyless`.
+* `default` - Optional, to mark this key for Notation as a default key, with a friendly name for notation, in this example, we simply named it`Akeyless`.
 
 Verify that the key is added to the Notation keys:
 
@@ -196,7 +196,7 @@ notation sign $IMAGE
 To verify the container image, add the root certificate that signs the leaf certificate to the trust store and create trust policies for verification. For the self-signed certificate used in this tutorial, the root certificate is the self-signed certificate itself.
 
 > 📘 Note
-> 
+>
 > Depending on your OS the follow the folder structure as described [here](https://notaryproject.dev/docs/user-guides/tutorials/trust-policy/#create-a-trust-policy)
 
 Get the certificate from Akeyless: 
