@@ -8,3 +8,4 @@
 - gcp-auth-method
 - kubernetes-auth
 - oci-iam
+- ldap
