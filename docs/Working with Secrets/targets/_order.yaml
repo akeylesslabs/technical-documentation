@@ -2,3 +2,4 @@
 - aws-targets
 - azure-targets
 - chef-infra-targets
+- database-targets
