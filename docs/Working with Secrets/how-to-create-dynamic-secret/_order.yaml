@@ -7,3 +7,4 @@
 - docker-hub-dynamic-secrets
 - eks-dynamic-secret-producer
 - gcp-dynamic-secrets
+- github-dynamic-secret
