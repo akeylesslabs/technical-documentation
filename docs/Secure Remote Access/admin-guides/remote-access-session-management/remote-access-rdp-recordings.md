@@ -30,22 +30,22 @@ Choose the output resolution for the encoded video file (default is 1280×720).
 
 Optionally compress the encoded video file using GZIP.
 
-- **When to use:** Enable compression to reduce storage footprint, especially for long sessions.
+* **When to use:** Enable compression to reduce storage footprint, especially for long sessions.
 
 ### Encryption (AES)
 
 Protect recordings at rest with AES-based encryption.
 
-- **Algorithm:** AES (Akeyless supported key types).
-- **Scope:** Entire video payload is encrypted after encoding (and after optional compression).
-- **Access:** Only authorized users with the appropriate permissions can decrypt and access the file.
+* **Algorithm:** AES (Akeyless supported key types).
+* **Scope:** Entire video payload is encrypted after encoding (and after optional compression).
+* **Access:** Only authorized users with the appropriate permissions can decrypt and access the file.
 
 ### File Naming & Formats
 
 The final file name indicates which operations were applied:
 
-- **Encrypted (no compression):** `*.enc`
-- **Compressed, then encrypted:** `*.enc.gzip`
+* **Encrypted (no compression):** `*.enc`
+* **Compressed, then encrypted:** `*.enc.gzip`
 
 > **Note:** Compression occurs before encryption to preserve compression efficiency; the final artifact reflects both operations in its suffix.
 
@@ -55,10 +55,10 @@ Encoding is executed via a **[decrypt file command](https://docs.akeyless.io/doc
 
 ### Where to Configure
 
-- **Latest (Console UI):** **Gateway Manager → Remote Access → Session Recording → RDP recordings**  
+* **Latest (Console UI):** **Gateway Manager → Remote Access → Session Recording → RDP recordings**\
   From here you can set the recording **Quality**, toggle **GZIP Compression**, and enable **Encryption**.
 
-- **Legacy Helm Chart:** Configure under the **`rdpRecord`** section of your values file to set **quality**, **compression**, and **encryption** parameters for RDP recordings.
+* **Legacy Helm Chart:** Configure under the **`rdpRecord`** section of your values file to set **quality**, **compression**, and **encryption** parameters for RDP recordings.
 
 # Storage Options
 
@@ -76,18 +76,18 @@ When storing RDP session recordings in AWS S3, the user can choose between two a
 
 With this option, the system uses the Gateway’s instance identity (such as an IAM Role) to authenticate with AWS. The user needs to provide the following details:
 
-**Region** (required): The AWS region where the S3 bucket is located.  
-**Bucket Name**: The name of the S3 bucket where the recordings will be uploaded.  
+**Region** (required): The AWS region where the S3 bucket is located.\
+**Bucket Name**: The name of the S3 bucket where the recordings will be uploaded.\
 **Bucket Prefix**: A folder structure within the bucket to organize the recordings.
 
 ### Provide Credentials
 
 With this option, the user provides explicit AWS credentials for authentication. The following details are required:
 
-**AWS Access Key ID** (required): The access key ID for AWS authentication.  
-**AWS Secret Access Key** (required): The corresponding secret access key for the provided access key ID.  
-**Region** (required): The AWS region where the S3 bucket is located.  
-**Bucket Name**: The name of the S3 bucket where the recordings will be stored.  
+**AWS Access Key ID** (required): The access key ID for AWS authentication.\
+**AWS Secret Access Key** (required): The corresponding secret access key for the provided access key ID.\
+**Region** (required): The AWS region where the S3 bucket is located.\
+**Bucket Name**: The name of the S3 bucket where the recordings will be stored.\
 **Bucket Prefix**: A folder structure within the bucket to organize the recordings.
 
 ## Azure Blob Storage
@@ -98,17 +98,17 @@ For storing RDP session recordings in Azure Blob Storage, the user can also sele
 
 This option allows the system to use the Gateway’s identity (such as Managed Identity) for authentication with Azure. The user must provide the following details:
 
-**Storage Account Name** (required) The name of the Azure Storage account where the recordings will be uploaded.  
+**Storage Account Name** (required) The name of the Azure Storage account where the recordings will be uploaded.\
 **Storage Container Name** (required): The container within the storage account where recordings will be saved.
 
 ### Provide Credentials
 
 With this option, the user provides explicit credentials for Azure authentication. The following details are required:
 
-**Azure Client ID** (required): The client ID used for Azure authentication.  
-**Azure Client Secret** (required): The corresponding secret key for the provided client ID.  
-**Azure Tenant ID** (required): The tenant ID associated with the Azure account.  
-**Storage Account Name**: The name of the Azure Storage account where the recordings will be uploaded.  
+**Azure Client ID** (required): The client ID used for Azure authentication.\
+**Azure Client Secret** (required): The corresponding secret key for the provided client ID.\
+**Azure Tenant ID** (required): The tenant ID associated with the Azure account.\
+**Storage Account Name**: The name of the Azure Storage account where the recordings will be uploaded.\
 **Storage Container Name**: The container within the storage account where recordings will be saved.
 
 This can also be done via the CLI:
