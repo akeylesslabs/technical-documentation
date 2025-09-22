@@ -6,3 +6,4 @@
 - serverless-gateway
 - gateway-on-azure-container-app
 - gateway-configuration-manager
+- configure-the-gateway-cache
