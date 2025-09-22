@@ -25,33 +25,20 @@ Our unique approach enables a variety of capabilities relying on our state-of-th
 
 With this Gateway, Akeyless offers:
 
-- Live fallback for network connectivity issues
+* Live fallback for network connectivity issues
 
-- Service continuity via secrets snapshots 
+* Service continuity via secrets snapshots 
 
-- Local in-memory cache for continuous service
+* Local in-memory cache for continuous service
 
-- Log forwarding to an existing SIEM server.
+* Log forwarding to an existing SIEM server.
 
-- [Zero-Knowledge Encryption](doc:zero-knowledge) 
+* [Zero-Knowledge Encryption](doc:zero-knowledge) 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/eaaa39e-Gateway_2.png",
-        null,
-        "Akeyless Gateway Architecture"
-      ],
-      "align": "center",
-      "caption": "Akeyless Gateway Architecture"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Akeyless Gateway Architecture" align="center" src="https://files.readme.io/eaaa39e-Gateway_2.png">
+  Akeyless Gateway Architecture
+</Image>
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway" target="_blank" style="color: #00e">Installing and Configuring the Gateway</a>.
+Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway" target="_blank" style={{ color: "#00e" }}>Installing and Configuring the Gateway</a>.
