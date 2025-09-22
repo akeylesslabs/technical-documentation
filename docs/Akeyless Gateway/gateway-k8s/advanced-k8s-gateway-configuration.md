@@ -44,7 +44,7 @@ To choose an existing [Encryption Key](doc:encryption-keys) to encrypt your Gate
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
 > 🚧 Warning
-> 
+>
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
 ## Customer fragment
@@ -69,7 +69,7 @@ customerFragments: |
 
 You can also [configure TLS settings using the Web interface](https://docs.akeyless.io/docs/tls-certificate) of the Gateway Configuration Manager.
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.  
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.\
 Please note that when you're enabling TLS, you must provide a TLS certificate and a TLS Private Key.
 
 To set the relevant service to use TLS and the minimum TLS version that will be used by default, set the following:
@@ -104,7 +104,7 @@ Set the default [Encryption Key](doc:encryption-keys) that will encrypt all item
 Set the default location secrets created by this Gateway will be stored within your Akeyless account using the`defaultSecretLocation` setting with a path to store your secrets. 
 
 > 🚧 Warning
-> 
+>
 > Make sure your Gateway default Authentication Method has `read` permission to access your Encryption key, as well as `create` permission on the desired location to save your secrets.
 
 ```yaml values.yaml
@@ -170,17 +170,17 @@ cachingConf:
 
 To provide the settings of your Gateway deployment directly from your local k8s secrets store, you can set the following settings with the corresponding `K8s Secrets names`:
 
-- `admin-access-id`
-- `admin-access-key`
-- `allowed-access-ids`
-- `customer-fragments`
-- `akeyless-api-cert.crt` 
-- `akeyless-api-cert.key`
-- `admin-certificate (base64)`
-- `admin-certificate-key (base64)`
+* `admin-access-id`
+* `admin-access-key`
+* `allowed-access-ids`
+* `customer-fragments`
+* `akeyless-api-cert.crt` 
+* `akeyless-api-cert.key`
+* `admin-certificate (base64)`
+* `admin-certificate-key (base64)`
 
 > 🚧 Warning
-> 
+>
 > Providing any of those settings using an existing K8s secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
 ```yaml values.yaml
