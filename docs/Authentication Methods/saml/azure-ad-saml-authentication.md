@@ -13,7 +13,7 @@ next:
 This guide will take you through the steps to set up SAML authentication with Azure AD, both on the Azure end and on the Akeyless end.
 
 > 🚧 Note
-> 
+>
 > The Azure AD limit for groups per user is set by default to 150. Users with more groups cannot use SAML with Azure.
 
 # Create an Azure AD application
@@ -30,34 +30,34 @@ This guide will take you through the steps to set up SAML authentication with Az
 
 6. Insert the following URLs to the configuration:
 
-- Identifier (Entity ID): `https://auth.akeyless.io/saml/metadata`
+* Identifier (Entity ID): `https://auth.akeyless.io/saml/metadata`
 
-- Reply URL (Assertion Consumer Service URL): `https://auth.akeyless.io/saml/acs`
+* Reply URL (Assertion Consumer Service URL): `https://auth.akeyless.io/saml/acs`
 
-7. After filling in the details, you will be able to view the SAML Signing Certificate.  
+7. After filling in the details, you will be able to view the SAML Signing Certificate.\
    Copy the **App Federation Metadata URL** (starts with `https://login.microsoftonline.com/...`) and paste it somewhere accessible, as you will need it for the Akeyless-side steps.
 
 8. In your SAML application's **Attributes & Claims**, select Edit to add user & group claims.
 
 9. Select **Add new claim** - and fill in the following details:
 
-- `Name` = `email`
-- `Source attribute` = `user.userprincipalname`
+* `Name` = `email`
+* `Source attribute` = `user.userprincipalname`
 
 > 📘 Info
-> 
+>
 > **Customize SAML token claims**
-> 
+>
 > You can customize your SAML token claims in Azure as decsribed in [this](https://learn.microsoft.com/en-us/azure/active-directory/develop/saml-claims-customization#edit-nameid) guide.
 
 10. Select **Add a group claim** - Configure the group claim according to the instructions provided in [here](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-fed-group-claims#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). See the following example:
 
-- On the multiple-choice groups-association question, select **Security groups**.
-- Source attribute `Group ID` (or, `sAMAccountName`, for Active Directory-synchronized groups).
-- under Advanced options, select **Customize**, and set the name to **groups**.
+* On the multiple-choice groups-association question, select **Security groups**.
+* Source attribute `Group ID` (or, `sAMAccountName`, for Active Directory-synchronized groups).
+* under Advanced options, select **Customize**, and set the name to **groups**.
 
 > 👍 Note
-> 
+>
 > The group sub-claim by default will provide the group's Azure AD object identifier (OID), and not the group name - which affects how you should set the groups' sub-claims when configuring Access Roles. If you wish to expose the group display name as an attribute instead, you can either use `sAMAccountName` - but **only** for groups that were synced from an on-premise Active Directory, or you can follow the instruction on how to [emit cloud-only group display name](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-fed-group-claims#emit-cloud-only-group-display-name-in-token-preview).
 
 11. Finally, make sure to add and assign the relevant **Users and groups** to the application.
@@ -89,8 +89,8 @@ The IDP metadata URL is the **App Federation Metadata URL** you copied from the 
 
 3. Fill in the mandatory parameters:
 
-- Name: The in-system name for the authentication method.
-- IDP Metadata URL: The  **App Federation Metadata URL** you copied from the Azure process.
-- Unique identifier: The required identifier. In this case, you can use **email**.
+* Name: The in-system name for the authentication method.
+* IDP Metadata URL: The  **App Federation Metadata URL** you copied from the Azure process.
+* Unique identifier: The required identifier. In this case, you can use **email**.
 
 Your SAML authentication should be up and running.
