@@ -30,19 +30,19 @@ akeyless auth-method create oidc --name <Auth Method Name> \
 
 Where:
 
-- `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-- `issuer`: The Identity Provider URL (for more information check the [Okta](doc:okta) example).
+* `issuer`: The Identity Provider URL (for more information check the [Okta](doc:okta) example).
 
-- `client-id`: The Client ID (application ID). 
+* `client-id`: The Client ID (application ID). 
 
-- `client-secret`: The Client's secret.
+* `client-secret`: The Client's secret.
 
-- `unique-identifier`: A unique identifier is usually one of the following **keys**: `email`, `username`, or `UPN`. Whenever a user logs in with a token, OIDC Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
+* `unique-identifier`: A unique identifier is usually one of the following **keys**: `email`, `username`, or `UPN`. Whenever a user logs in with a token, OIDC Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
 > 🚧 Note
-> 
-> **Unique Identifier** should be a **key** name, i.e. not the value itself.  
+>
+> **Unique Identifier** should be a **key** name, i.e. not the value itself.\
 > For example, `email` should be provided as is, and not the actual email address.
 
 By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes, in case your IdP uses different characters as a delimiter, you might set those using the `delimiters` parameter.
@@ -57,27 +57,27 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Define the remaining parameters as follows:
 
-- **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-- **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-- **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
+* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
 
-- **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-- **Issuer URL:** The Identity Provider URL (for more information check the [Okta](doc:okta) example).
+* **Issuer URL:** The Identity Provider URL (for more information check the [Okta](doc:okta) example).
 
-- **Client ID:** The Client ID (application ID). 
+* **Client ID:** The Client ID (application ID). 
 
-- **Client Secret:** Client secret.
+* **Client Secret:** Client secret.
 
-- **Allowed Redirect URIs:** Enter a comma-separated list of Redirect URIs to be validated as part of the authentication flow. If you leave this field empty, it can be insecure. Malicious users could steal access credentials using open redirects.
+* **Allowed Redirect URIs:** Enter a comma-separated list of Redirect URIs to be validated as part of the authentication flow. If you leave this field empty, it can be insecure. Malicious users could steal access credentials using open redirects.
 
-- **Unique Identifier:** A unique identifier is usually one of the following **keys**: `email`, `username`, or `UPN`. Whenever a user logs in with a token, SAML Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
+* **Unique Identifier:** A unique identifier is usually one of the following **keys**: `email`, `username`, or `UPN`. Whenever a user logs in with a token, SAML Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
 > 🚧 Note
-> 
-> **Unique Identifier** should be a **key** name, i.e. not the value itself.  
+>
+> **Unique Identifier** should be a **key** name, i.e. not the value itself.\
 > For example, `email` should be provided as is, and not the actual email address.
 
 4. Click **Finish**.
