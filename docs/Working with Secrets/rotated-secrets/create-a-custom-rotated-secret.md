@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports Rotated Secrets for a growing number of services. Suppose you need to integrate with a service that is not yet natively implemented in Akeyless. In that case, you can create a custom Rotated Secret implementation that calls the service on demand to rotate secrets. 
+Akeyless supports Rotated Secrets for a growing number of services. Suppose you need to integrate with a service that is not yet natively implemented in Akeyless. In that case, you can create a custom Rotated Secret implementation that calls the service on demand to rotate secrets.
 
 Akeyless communicates with custom Rotated Secret implementations over `HTTP` and delegates the `rotate` operation to the external services using a particular `HTTP` endpoint that follows a specific input/output format.
 
@@ -27,14 +27,14 @@ First, you must create a [Web Target](doc:web-targets) in Akeyless. This target 
 To create a [Web Target](doc:web-targets) using the Akeyless CLI, run the following command:
 
 ```shell Akeyless CLI
-akeyless create-web-target -n <your web target name> \
+akeyless create-web-target -n &lt;your web target name&gt; \
 -u https://my.web.server/rotate
 ```
 
 ## Authentication
 
 > 👍 Note
-> 
+>
 > Custom Rotated Secret implementations should only handle requests from a known Akeyless Gateway instance. Every request made by Akeyless to a custom Rotated Secret implementation includes an `AkeylessCreds` header with a temporary JWT token issued and signed by Akeyless.
 
 Use the following endpoint to verify all requests:
@@ -42,7 +42,7 @@ Use the following endpoint to verify all requests:
 ```http
 POST auth.akeyless.io/validate-producer-credentials
 {
-  "creds": "<redacted jwt token>",
+  "creds": "&lt;redacted jwt token&gt;",
   "expected_access_id": "p-1234",
   "expected_item_name": "/custom-rotated-foo",
 }
@@ -58,19 +58,19 @@ Where:
 
 ## Create a Custom Rotated Secret from the CLI
 
-To create a custom Rotated Secret from the CLI, run the following command: 
+To create a custom Rotated Secret from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless rotated-secret create custom \
---name <Rotated Secret name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---target-name <Web Target item name> \
---authentication-credentials <use-user-creds> \
+--name &lt;Rotated Secret name&gt;
+--gateway-url 'https://&lt;Your-Akeyless-GW-URL:8000&gt;' \
+--target-name &lt;Web Target item name&gt; \
+--authentication-credentials &lt;use-user-creds&gt; \
 --password-length 16
 --rotator-type custom \
---custom-payload <Secret payload to be sent with rotation request> \
---auto-rotate <true|false> \
---rotation-interval <1-365>
+--custom-payload &lt;Secret payload to be sent with rotation request&gt; \
+--auto-rotate &lt;true|false&gt; \
+--rotation-interval &lt;1-365&gt;
 ```
 
 Where:
