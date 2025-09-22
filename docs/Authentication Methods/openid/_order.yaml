@@ -3,3 +3,4 @@
 - google-oidc
 - gitlab-oidc
 - azure-active-directory-oidc
+- github-oidc
