@@ -12,32 +12,32 @@ next:
 ---
 You can create dynamic secrets for a wide range of databases, including:
 
-- MySQL
+* MySQL
 
-- MSSQL
+* MSSQL
 
-- PostgreSQL
+* PostgreSQL
 
-- MongoDB
+* MongoDB
 
-- OracleDB
+* OracleDB
 
-- Cassandra
+* Cassandra
 
-- Redshift
+* Redshift
 
-- SAP Hana DB 
+* SAP Hana DB 
 
-- Vertica
+* Vertica
 
-- Redis
+* Redis
 
 With dynamic secrets, you can control and manage which databases, tables, schema, and what set of permissions to issue for each type of application access, as well as completely manage the lifecycle of those temporary credentials which are created just in time-based on short-lived TTL with flexible revocation statements.
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the database through the [Gateway](https://docs.akeyless.io/docs/api-gw) within your internal network and generates a temporary set of restricted access credentials.
 
 > 👍 Note
-> 
+>
 > We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/database-targets). While it saves time for multiple secret level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the DB used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 # Create a Dynamic Database Secret from the CLI
@@ -291,13 +291,13 @@ akeyless dynamic-secret create redis \
 
 Where:
 
-- `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+* `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-- `target-name`: Full path of the [Target](doc:targets) item that stores the connection settings to your database server. 
+* `target-name`: Full path of the [Target](doc:targets) item that stores the connection settings to your database server. 
 
-- `gateway-url`: Akeyless Gateway URL.
+* `gateway-url`: Akeyless Gateway URL.
 
-- `password-length`: **Optional** The temporary user password length. 
+* `password-length`: **Optional** The temporary user password length. 
 
 Depending on each database, set the relevant creation and revocation statements to control and manage the level of access and roles of your temporary credentials.
 
@@ -313,7 +313,7 @@ Please add the following to the creation statement `GRANT “{{name}}” TO post
 
 **Revocation Statement**
 
-Standard** PostgreSQL** provides full superuser privileges, allowing complete cleanup of user-owned objects and active sessions before dropping a user.
+Standard **PostgreSQL** provides full superuser privileges, allowing complete cleanup of user-owned objects and active sessions before dropping a user.
 
 In **RDS PostgreSQL**, the administrative role has limited privileges, so certain cleanup operations, such as reassigning ownership or terminating sessions, may not be supported. Therefore, simpler revocation commands are required when removing users in RDS.
 
@@ -324,13 +324,13 @@ The following is an example revocation statement for Postgres:
 <br />
 
 > 📘 Info
-> 
+>
 > **MySQL 8 Dynamic Secrets**
-> 
+>
 > For MySQL 8, modify the default `CREATE USER` statement to allow native MySQL password authentication. 
-> 
+>
 > For example:
-> 
+>
 > `CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON *.* TO '{{name}}'@'%';`
 
 ### Inline connection string
@@ -359,21 +359,21 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-- **Delete Protection:** When enabled, protects the secret from accidental deletion.
+* **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-- **Target mode:** In this section, you can either select an existing [Database Target](doc:database-targets) or specify details of the DB Server explicitly.
+* **Target mode:** In this section, you can either select an existing [Database Target](doc:database-targets) or specify details of the DB Server explicitly.
 
-- **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
+* **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
 
-- **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
+* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-- **Temporary Password Length** Set the length of the temporary password.
+* **Temporary Password Length** Set the length of the temporary password.
 
-- **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
-- **Gateway:** Select the Gateway through which the dynamic secret will create users.
+* **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-- **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
 
 If you selected the **Explicitly specify target properties** mode, click **Next**.
 
