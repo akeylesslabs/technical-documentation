@@ -30,21 +30,7 @@ Inject and provision secrets into DevOps tools such as CI/CD and Configuration M
 
 Learn more about managing your secrets [here](doc:manage-your-secrets-overview).
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7814b0e-Customers_Applications.png",
-        "Screenshot at Dec 19 10-52-00.png",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/7814b0e-Customers_Applications.png" />
 
 ## Universal Secret Connector
 
