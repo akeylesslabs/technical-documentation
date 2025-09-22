@@ -16,3 +16,4 @@
 - ping-dynamic-secrets
 - rabbitmq-producer
 - rdp-dynamic-secrets
+- snowflake-dynamic-secrets
