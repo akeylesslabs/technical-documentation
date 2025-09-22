@@ -15,7 +15,7 @@ You can securely share copies of static secret items saved in Akeyless with anyo
 When sharing via **emails** you’ll get a unique link you need to share with those users, choose when the share expires and who are the specific users that will be able to access it. When sharing using **wrapping tokens**, you'll get a temporary token that can be shared on the wire without exposing the real secret.
 
 > 🚧 Note
-> 
+>
 > For security purposes, when workin with share based on emails, only the users you've specified their **email** will be able to access the item using this link
 
 # Sharing Static Secret from the Akeyless Console
@@ -44,11 +44,11 @@ akeyless share-item --item-name <item name> --action share --email <email addres
 
 Where:
 
-- `item-name`:  The name of the item to examine, this parameter is mandatory
+* `item-name`:  The name of the item to examine, this parameter is mandatory
 
-- `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
+* `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
 
-- `email`: List of emails to start/stop sharing the secret with, To specify multiple emails use argument multiple times (`--email email1 --email email2` etc.). This parameter is mandatory for `start` or `stop` actions.
+* `email`: List of emails to start/stop sharing the secret with, To specify multiple emails use argument multiple times (`--email email1 --email email2` etc.). This parameter is mandatory for `start` or `stop` actions.
 
 To share an item via **Token** run the following: 
 
@@ -58,9 +58,9 @@ akeyless share-item --item-name <item name> --action <action to perform> --share
 
 Where:
 
-- `item-name`:  The name of the item to examine, this parameter is mandatory
-- `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
-- `share-type`: The share type set to `token`, by default set to `email`.
+* `item-name`:  The name of the item to examine, this parameter is mandatory
+* `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
+* `share-type`: The share type set to `token`, by default set to `email`.
 
 You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorblueshare-itemp)
 
