@@ -59,7 +59,7 @@ Despite the fact that users do not have access to items unless granted explicitl
 akeyless set-role-rule --role-name role1 --path /path/to/folder/topSecret --capability deny
 ```
 
-Add **client1 **to the **role1**, so client1 will be able to access all items under **/path/to/folder/** apart from **/path/to/folder/topSecret**:
+Add **client1** to the **role1**, so client1 will be able to access all items under **/path/to/folder/** apart from **/path/to/folder/topSecret**:
 
 ```shell CLI
 akeyless assoc-role-am --role-name role1 --am-name client1
@@ -72,24 +72,24 @@ Akeyless has six main permission types for Items, Access Roles, Auth Methods, an
 The built-in admin role has full access to all parts of the accounts.
 
 > 🚧 Warning
-> 
+>
 > It is considered a best practice **not** to use an API key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](doc:access-and-authentication-methods)
 
 ## Permissions for Items, Access Roles, Auth Methods, and Targets
 
 The existing permissions for Items, Access Roles, Auth Methods, and Targets are as follows:
 
-- List: Allows a user to list the items available under an authorized path.
-- Read: Allows a user to read the items available in an authorized path.
-- Create: Allows a user to create new secrets and items in an authorized path.
-- Update: Allows a user to update existing secrets and items in an authorized path.
-- Delete: Allows a user to delete existing secrets and items in an authorized path.
-- Deny: Allows a user to deny any permission to other users in their authorized path.
+* List: Allows a user to list the items available under an authorized path.
+* Read: Allows a user to read the items available in an authorized path.
+* Create: Allows a user to create new secrets and items in an authorized path.
+* Update: Allows a user to update existing secrets and items in an authorized path.
+* Delete: Allows a user to delete existing secrets and items in an authorized path.
+* Deny: Allows a user to deny any permission to other users in their authorized path.
 
 > 👍 Note
-> 
+>
 > **Permission Hierarchy**
-> 
+>
 > Some Akeyless permissions include others in them. For example, `list` is included under all other permissions, and `deny` has a complete override over any other permission.
 
 ### Deny Rule Application and Role Management
@@ -104,12 +104,12 @@ This design ensures that the RBAC system remains resilient against permission el
 
 The existing permissions for Secure Remote Access are as follows:
 
-- Allow Access: Allows a user full access to login to a remote resource.
-- Request Access: Allows a user to request access and requires adding a reason for access. Once the request is sent, an admin or approver receives a notification in the Event Center to approve or deny. If approved, the user can then access the remote resource.
-- Justify Access Only: Allows a user to access a remote resource only after entering the reason for access.
-- Approval Authority: Allows a user to be part of the eligible approvers for Secure Remote Access Requests of the organization in the specified path. This option cannot be selected if “Request Access” is enabled.
-- Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/remote-desktop-secure-access#download--upload-files).
-- Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/remote-desktop-secure-access#download--upload-files).
+* Allow Access: Allows a user full access to login to a remote resource.
+* Request Access: Allows a user to request access and requires adding a reason for access. Once the request is sent, an admin or approver receives a notification in the Event Center to approve or deny. If approved, the user can then access the remote resource.
+* Justify Access Only: Allows a user to access a remote resource only after entering the reason for access.
+* Approval Authority: Allows a user to be part of the eligible approvers for Secure Remote Access Requests of the organization in the specified path. This option cannot be selected if “Request Access” is enabled.
+* Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/remote-desktop-secure-access#download--upload-files).
+* Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/remote-desktop-secure-access#download--upload-files).
 
 # Administrative Rules
 
@@ -117,21 +117,21 @@ With Administrative Rules, you can choose whether users have access only to the 
 
 The following **Administrative Rules** can be set:
 
-- `Audit Log`
+* `Audit Log`
 
-- `Analytics`
+* `Analytics`
 
-- `Gateways`
+* `Gateways`
 
-- `Secure Remote Access`
+* `Secure Remote Access`
 
-- `Event Center`
+* `Event Center`
 
-- `Reverse RBAC`
+* `Reverse RBAC`
 
-- `Manage Event Forwarders`
+* `Manage Event Forwarders`
 
-- `Usage Reports`
+* `Usage Reports`
 
 Example:
 
@@ -161,7 +161,7 @@ In addition, a `+` can be used to denote any number of characters bounded within
 akeyless set-role-rule --role-name role1 --path "foo/+/+/bar/*" --capability read
 ```
 
- This Access Role will permit reading secrets under those folders path:  
+ This Access Role will permit reading secrets under those folders path:\
  `foo/any/folder/bar/*`, `foo/other/folder/bar/*`, etc.
 
 # Multiple rules
@@ -197,8 +197,8 @@ Where the relevant Akeyless paths, e.g `secret/foo` and `secret/bar` correlate w
 
 # View As
 
-To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.  
-Click on your account logo on the top right corner of your console, and select **Impersonate As**.  
+To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.\
+Click on your account logo on the top right corner of your console, and select **Impersonate As**.\
 On the dialog, choose from the drop-down menu and existing [Authentication Methods](doc:access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](doc:sub-claims) as well to validate the level of access the relevant audience has.
 
 # Tutorial
