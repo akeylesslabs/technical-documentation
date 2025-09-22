@@ -17,7 +17,7 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ENV_VARIABLE_1="value1" -e ENV_VARIA
 ```
 
 > 👍 Note
-> 
+>
 > To update an existing Gateway, use the same **Gateway Access ID**  and **Cluster Name** for the new Gateway in order to retrieve the latest settings and data from the previously removed Docker instance.
 
 # Authentication
@@ -26,20 +26,20 @@ To set your Gateway with a default [Authentication Methods](doc:access-and-authe
 
 The following [Authentication Methods](doc:access-and-authentication-methods) are supported for Docker deployments: 
 
-- Email\\Password
+* Email\\Password
 
-- [API Key](doc:api-key)
+* [API Key](doc:api-key)
 
-- [AWS IAM](doc:aws-iam) 
+* [AWS IAM](doc:aws-iam) 
 
-- [GCP](doc:gcp-auth-method)   
+* [GCP](doc:gcp-auth-method)   
 
-- [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](doc:azure-ad)
 
-- [Certificates](doc:certificate-based-authentication) 
+* [Certificates](doc:certificate-based-authentication) 
 
 > 👍 Note
-> 
+>
 > Your Gateway **Authentication Method**  should have permission to create and manage both Items along with Targets items **only**.
 
 While working with Cloud Service Providers [Authentication Methods](doc:access-and-authentication-methods) you can provide a list of allowed users that will be able to log in and manage your Gateway configuration.
@@ -53,7 +53,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="email" -e ADMIN_PASS
 ```
 
 > 🚧 Warning
-> 
+>
 > Using your default account credentials is not recommended for production environments and can not work with MFA.
 
 ## API Key Authentication
@@ -145,7 +145,7 @@ In this case, the above will create an **Access Permission** object named **Admi
 
 In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
 
-In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.  
+In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.\
 **If you don't specify the sub-claims, every user authenticated by this IdP will be able to log in to the Gateway with admin privileges.**
 
 To work with [API Key](doc:api-key) as an `ALLOWED_ACCESS_PERMISSIONS` simply provide your [API Key](doc:api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of permissions.
@@ -162,56 +162,185 @@ In the above example, your Gateway **Admins** are `test01@testhost.com,test01@te
 
 Full list of available permissions:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Permission",
-    "h-1": "Description",
-    "0-0": "`defaults`",
-    "0-1": "Management of the defaults settings of your Gateway  \nIncluding `Defualt Encryption Key` & `Defualt AccessID` for login.",
-    "1-0": "`targets`",
-    "1-1": "Management of all Targets items that were created using your Gateway",
-    "2-0": "`classic_keys`",
-    "2-1": "Management of [Classic Keys](doc:classic-keys)",
-    "3-0": "`automatic_migration`",
-    "3-1": "Management of  [Dynamic Secrets](doc:how-to-create-dynamic-secret) settings",
-    "4-0": "`dynamic_secret`",
-    "4-1": "Management of [Dynamic Secrets](doc:how-to-create-dynamic-secret)",
-    "5-0": "`rotated_secret`",
-    "5-1": "Management of [Rotated Secrets](doc:rotated-secrets)",
-    "6-0": "`rotate_secret_value`",
-    "6-1": "Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item",
-    "7-0": "`log_forwarding`",
-    "7-1": "Management of [Log Forwarding](doc:log-forwarding) settings",
-    "8-0": "`zero_knowledge_encryption`",
-    "8-1": "Management of [Zero-Knowledge](doc:zero-knowledge)",
-    "9-0": "`caching`",
-    "9-1": "Management of [Gateway Cache](doc:configure-the-gateway-cache) settings",
-    "10-0": "`event_forwarding`",
-    "10-1": "Management of [Event](doc:event-center) Forwarding settings",
-    "11-0": "`ldap_auth`",
-    "11-1": "Management of [LDAP](doc:ldap) Auth Gateway configuration. ",
-    "12-0": "`k8s_auth`",
-    "12-1": "Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration ",
-    "13-0": "`kmip`",
-    "13-1": "Management of [KMIP Servers](doc:kmip-server)",
-    "14-0": "`general`",
-    "14-1": "Management of Gateway General settings including `GatewayUrl`,`TLS`",
-    "15-0": "`admin`",
-    "15-1": "Admin permission can manage all Gateway components, including **Access Permissions**"
-  },
-  "cols": 2,
-  "rows": 16,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Permission
+      </th>
 
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `defaults`
+      </td>
+
+      <td>
+        Management of the defaults settings of your Gateway\
+        Including `Defualt Encryption Key` & `Defualt AccessID` for login.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `targets`
+      </td>
+
+      <td>
+        Management of all Targets items that were created using your Gateway
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `classic_keys`
+      </td>
+
+      <td>
+        Management of [Classic Keys](doc:classic-keys)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `automatic_migration`
+      </td>
+
+      <td>
+        Management of  [Dynamic Secrets](doc:how-to-create-dynamic-secret) settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `dynamic_secret`
+      </td>
+
+      <td>
+        Management of [Dynamic Secrets](doc:how-to-create-dynamic-secret)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `rotated_secret`
+      </td>
+
+      <td>
+        Management of [Rotated Secrets](doc:rotated-secrets)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `rotate_secret_value`
+      </td>
+
+      <td>
+        Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `log_forwarding`
+      </td>
+
+      <td>
+        Management of [Log Forwarding](doc:log-forwarding) settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `zero_knowledge_encryption`
+      </td>
+
+      <td>
+        Management of [Zero-Knowledge](doc:zero-knowledge)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `caching`
+      </td>
+
+      <td>
+        Management of [Gateway Cache](doc:configure-the-gateway-cache) settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `event_forwarding`
+      </td>
+
+      <td>
+        Management of [Event](doc:event-center) Forwarding settings
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `ldap_auth`
+      </td>
+
+      <td>
+        Management of [LDAP](doc:ldap) Auth Gateway configuration. 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `k8s_auth`
+      </td>
+
+      <td>
+        Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `kmip`
+      </td>
+
+      <td>
+        Management of [KMIP Servers](doc:kmip-server)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `general`
+      </td>
+
+      <td>
+        Management of Gateway General settings including `GatewayUrl`,`TLS`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `admin`
+      </td>
+
+      <td>
+        Admin permission can manage all Gateway components, including **Access Permissions**
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 > 👍 Note
-> 
+>
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
 You may also edit this parameter on your console, by going to the Gateways tab and selecting the desired Gateway. On the right of the screen, you will see the Gateway details, including **Access Permissions**.
@@ -222,9 +351,9 @@ Each Gateway instance is uniquely identified by combining the **Gateway Access I
 
 It means that changing the Gateway **Access ID** or the **Cluster Name** of your Gateway instance will create an entirely new Gateway instance, and it will not retrieve the settings and data from the previous Gateway instance.
 
-That’s why we recommend setting up a meaningful Cluster Name for your Gateway instance from the very beginning. By default, your cluster name is _defaultCluster_.
+That’s why we recommend setting up a meaningful Cluster Name for your Gateway instance from the very beginning. By default, your cluster name is *defaultCluster*.
 
-To do that, you can set the <code> CLUSTER_NAME="meaningful-cluster-name"</code> variable. In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` variable as part of the Gateway Installation command.
+To do that, you can set the <code> CLUSTER\_NAME="meaningful-cluster-name"</code> variable. In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` variable as part of the Gateway Installation command.
 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
@@ -233,12 +362,12 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e ADMIN_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-You can also provide a custom display name for the Gateway Instance using the <code>INITIAL_DISPLAY_NAME</code> variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
+You can also provide a custom display name for the Gateway Instance using the <code>INITIAL\_DISPLAY\_NAME</code> variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
 
 # Encryption Key
 
-While the **Secret Encryption** section discusses the secrets created when using the Gateway, this section discusses the encryption of the configuration file.  
-To choose an [Encryption Key](doc:encryption-keys) to encrypt your Gateway configuration, you can choose an existing key using the following variable <code>CONFIG_PROTECTION_KEY_NAME</code>
+While the **Secret Encryption** section discusses the secrets created when using the Gateway, this section discusses the encryption of the configuration file.\
+To choose an [Encryption Key](doc:encryption-keys) to encrypt your Gateway configuration, you can choose an existing key using the following variable <code>CONFIG\_PROTECTION\_KEY\_NAME</code>
 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
@@ -286,7 +415,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e A
 
 # TLS Configuration
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.  
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.\
 Please note that when you're enabling TLS, you must provide a TLS certificate and a TLS Private Key in PEM format.
 
 ```shell
@@ -301,23 +430,23 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e
 
 In the example above,
 
-- The <code>ENABLE_TLS</code> variable enables TLS for the Gateway Console.
+* The <code>ENABLE\_TLS</code> variable enables TLS for the Gateway Console.
 
-- The <code>ENABLE_TLS_CONFIGURE</code> variable enables TLS for the Gateway Configuration Manager.
+* The <code>ENABLE\_TLS\_CONFIGURE</code> variable enables TLS for the Gateway Configuration Manager.
 
-- The <code>ENABLE_TLS_HVP</code> variable enables TLS for the HVP service.
+* The <code>ENABLE\_TLS\_HVP</code> variable enables TLS for the HVP service.
 
-- The <code>ENABLE_TLS_CURL</code> variable enables TLS for the Akeyless API Services.
+* The <code>ENABLE\_TLS\_CURL</code> variable enables TLS for the Akeyless API Services.
 
-- The <code> MIN_TLS_VERSION</code>  variable sets the minimum TLS version that will be supported supporting `<TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>`.
+* The <code> MIN\_TLS\_VERSION</code>  variable sets the minimum TLS version that will be supported supporting `<TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>`.
 
 In addition to exclude specific cipher suites, use this variable `EXCLUDE_CIPHER_SUITES` with the relevant suites, you wish to exclude comma-separated.
 
 With the following attributes, you can mount the TLS certificate and the TLS Private Key from the Present Working Directory to the Gateway target directory:
 
-- <code>-v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-api-cert.crt</code>
+* <code>-v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-api-cert.crt</code>
 
-- <code>-v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key</code>
+* <code>-v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key</code>
 
 It is also possible to [Set up TLS](doc:tls-certificate) in the Gateway Configuration Manager after the Gateway is installed.
 
@@ -334,11 +463,11 @@ docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-
 
 In the example above,
 
-- `CACHE_TTL` variable allows setting the time (in minutes) during which a secret should be kept in the cache. 
+* `CACHE_TTL` variable allows setting the time (in minutes) during which a secret should be kept in the cache. 
 
-- `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` variable instructs the system to update secrets in the cache if they are older than the specified value.
+* `PROACTIVE_CACHE_MINIMUM_FETCHING_TIME` variable instructs the system to update secrets in the cache if they are older than the specified value.
 
-- `PROACTIVE_CACHE_DUMP_INTERVAL`  variable allows setting the time (in minutes) between the two consecutive backups.
+* `PROACTIVE_CACHE_DUMP_INTERVAL`  variable allows setting the time (in minutes) between the two consecutive backups.
 
 It is also possible to <a href="https://docs.akeyless.io/docs/configure-the-gateway-cache" target="_blank">configure caching</a> in the Gateway Configuration Manager after the Gateway is installed.
 
@@ -357,7 +486,7 @@ In the above example, in addition to your Gateway admin lists, you are limiting 
 
 # Default Secret Encryption
 
-While the **Encryption Key** section discusses the encryption of the configuration file, this section discusses the secrets created when using the Gateway.  
+While the **Encryption Key** section discusses the encryption of the configuration file, this section discusses the secrets created when using the Gateway.\
 To set a default existing key that will be used to encrypt any secret created through the gateway, add the parameter `DEFAULT_ENCRYPTION_KEY` in the following way:
 
 ```shell CLI
@@ -380,12 +509,12 @@ docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_SECRET_LOCATION="path to rele
 
 # Setting a Default Login
 
-When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console`, a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML & OIDC](doc:gateway-authentication).  
+When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console`, a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML & OIDC](doc:gateway-authentication).\
 When configuring your gateway, you may supply a default value for either OIDC, SAML, or both, using the following parameters:
 
-- `-e DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`
-- `-e DEFAULT_OIDC_ACCESS_ID=<OIDC Access ID>`
-- `-e AKEYLESS_OIDC_GW_AUTH=true` Optional, to authenticate directly against your Gateway. To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IDP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable while making sure the corresponding OIDC App on your IDP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
+* `-e DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`
+* `-e DEFAULT_OIDC_ACCESS_ID=<OIDC Access ID>`
+* `-e AKEYLESS_OIDC_GW_AUTH=true` Optional, to authenticate directly against your Gateway. To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IDP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable while making sure the corresponding OIDC App on your IDP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
 In the following way:
 
@@ -397,8 +526,8 @@ To work with [CBA](doc:certificate-based-authentication) flow for users' login, 
 
 Set your deployment with the following parameters:
 
-- `-e DEFAULT_CERTIFICATE_ACCESS_ID=<Cert Auth Method Access ID>`
-- `-e ENABLE_SNI_PROXY="true"`
+* `-e DEFAULT_CERTIFICATE_ACCESS_ID=<Cert Auth Method Access ID>`
+* `-e ENABLE_SNI_PROXY="true"`
 
 In the following way:
 
