@@ -4,3 +4,4 @@
 - chef-infra-targets
 - database-targets
 - docker-hub-target
+- gcp-targets
