@@ -17,7 +17,7 @@ next:
 Access roles provide clients with permission to work with secrets. When you add a secret to a role, you can specify exactly which **CRUD** operations clients can perform for that secret.
 
 > 📘 Info
-> 
+>
 > By default, the account owner has privilege permissions in Akeyless. Managing users' access roles and permissions can be done using Akeyless Platform [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with [Access Roles](https://docs.akeyless.io/docs/rbac) to grant users the minimum permissions they need.
 
 # Add a Static Secret to a Role from the Akeyless CLI
@@ -36,13 +36,13 @@ akeyless set-role-rule \
 
 where:
 
-- `role-name`: The name of the role to which to add the static secret.
+* `role-name`: The name of the role to which to add the static secret.
 
-- `path`: The full path to the static secret.
+* `path`: The full path to the static secret.
 
-- `capability`: A CRUD operation clients associated with the role can perform for the secret. Each `capability` argument can include a single permission, either `Create`, `Read`, `Update`, `Delete`, `List`, or `Deny`. Use multiple `capability` arguments to assign multiple permissions.
+* `capability`: A CRUD operation clients associated with the role can perform for the secret. Each `capability` argument can include a single permission, either `Create`, `Read`, `Update`, `Delete`, `List`, or `Deny`. Use multiple `capability` arguments to assign multiple permissions.
 
-- `rule type`: `item-rule`.
+* `rule type`: `item-rule`.
 
 For example, to add the **AdminCredentials** secret in the **Admin** folder to the **SystemAdmin** access role, also in the **Admin** folder, with **Read** and **List** permissions, type:
 
@@ -73,12 +73,12 @@ Let’s add a static secret to a role from the Akeyless Console. If you’d pref
 
 3. Select the **Items**s tab, then select **Add**.
 
-4. In the **Add Rule for Items** dialog box, in the **Allow access to the following path \*** field, enter the full path to the static secret.
+4. In the **Add Rule for Items** dialog box, in the **Allow access to the following path\*** field, enter the full path to the static secret.
 
 5. From the **Allow the following actions** options, select the **CRUD** operation(s) the client associated with the role that can perform for the secret.
 
 > 👍 Note
-> 
+>
 > **Deny** overrides all other operations.
 
 6. Click **Add**.
