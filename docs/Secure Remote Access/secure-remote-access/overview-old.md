@@ -11,32 +11,17 @@ next:
   description: ''
 ---
 > ❗️ Legacy Docs
-> 
+>
 > Please note that this version of our Remote Access documentation is not current. Please see our most updated docs [here](doc:secure-remote-access).
 
 The Akeyless Platform's Secure Remote Access solution enables users to securely connect directly to resources - servers, databases, internal applications, and SaaS - in any of your environments, whether private, public, or on-prem.
 
 Users can connect securely to resources either from the [Remote Access Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) via the web or using the [Akeyless Connect](doc:akeyless-connect) command for native CLI access to some resources from any UNIX terminal. Akeyless supports a variety of protocols, including SSH, RDP, SQL, Kubectl, and more.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/145d617-Secure_Remote_Access_Overview.png",
-        "Group 1030.png",
-        1568
-      ],
-      "align": "center",
-      "sizing": "100"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" width="100%" src="https://files.readme.io/145d617-Secure_Remote_Access_Overview.png" />
 
 > 📘 Info
-> 
+>
 > For more information about the resource types to which you can connect and how to set up access, see [Supported Resource Types](doc:supported-resource-types).
 
 # Remote Access Basics
@@ -57,4 +42,4 @@ For details about these components, see [Infrastructure Components](doc:infrastr
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/install-and-configure-remote-access-bastion" target="_blank" style="color: #00e">Install and Configure Remote Access Bastion</a>.
+Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/install-and-configure-remote-access-bastion" target="_blank" style={{ color: "#00e" }}>Install and Configure Remote Access Bastion</a>.
