@@ -13,3 +13,4 @@
 - godaddy-target
 - hashicorp-vault-target
 - kubernetes-targets
+- ldap-target
