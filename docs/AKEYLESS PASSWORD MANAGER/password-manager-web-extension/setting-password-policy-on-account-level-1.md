@@ -12,24 +12,7 @@ next:
 ---
 ### Accessing Secret Generation Policy:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="200px" src="https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png" />
 
 Open the Akeyless browser extension.
 
@@ -38,8 +21,6 @@ Navigate to the "Settings" menu on the bottom represented as 3 dots on the upper
 Locate and click on "Password Generation Policy" in the displayed, click on this option.
 
 A Password Generation Policy screen will appear, providing options to configure the secret generation policy.
-
-
 
 ### Define the Following Parameters:
 
