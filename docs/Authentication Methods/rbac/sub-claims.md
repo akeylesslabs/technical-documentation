@@ -30,12 +30,12 @@ Groups=Engineering,Security
 Email=james@example.com,linda@example.com
 ```
 
-Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes, and respective matching values of [`Engineering` or `Security`] and [`james@example.com` or `linda@example.com`], would be authorized.
+Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes, and respective matching values of [`Engineering` or `Security`] and \[\`james\@example.com\` or \`linda\@example.com\`], would be authorized.
 
 > 📘 Info
-> 
-> You may also use wildcard characters to allow a wider range of permissions. The supported wildcard characters are:  
-> `?`: Replaces one character. For example, the string `1?1` will accept `121` but not `1231`.  
+>
+> You may also use wildcard characters to allow a wider range of permissions. The supported wildcard characters are:\
+> `?`: Replaces one character. For example, the string `1?1` will accept `121` but not `1231`.\
 > `*`: Replaces any amount of characters. For example, the string `*@example.com` will accept any address in that domain.
 
 You can set the relevant sub-claims to an existing role using the Akeyless [Command Line Interface (CLI)](doc:cli) 
@@ -51,7 +51,7 @@ Or directly from the Akeyless Console using the [Access Roles](doc:rbac) with [A
 While by default between different sub-claims values the logic of the comma symbol  is `OR`, it is possible to use the syntax of `OR`. In addition, to force logical `AND` between different values of a specific sub-claim, you can use the `AND` syntax.
 
 > 📘 Required Version
-> 
+>
 > The Logicial Operators Syntax support requires Gateway `4.19` version or higher.
 
 For example: 
@@ -97,7 +97,7 @@ Each user will get `read` permissions for the relevant paths, based on the sub-c
 This means that `Alice` will get `read` permissions under`/Engineering/Alice/*`, `Bob`&`Charlie` will have access to `/Security/Bob/*` and `/Security/Charlie/*` accordingly, and `Dennis` will have access to `/DevOps/Dennis/*`. 
 
 > 👍 Note
-> 
+>
 > Templating Access **Rules**  supports Access **Role** case-sensitive settings.
 
 # View Sub-Claims
