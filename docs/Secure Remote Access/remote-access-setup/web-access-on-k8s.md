@@ -18,17 +18,17 @@ This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes
 
 # Prerequisites
 
-- Helm Installed
+* Helm Installed
 
-- K8s Installed
+* K8s Installed
 
-- Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `webWorker` and for the `dispatcher` services.
+* Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `webWorker` and for the `dispatcher` services.
 
 \***\*Network\*\***
 
 When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
 
-e.g, when running on AWS with ELB: <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console>
+e.g, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
 \***\*Storage\*\***
 
@@ -51,17 +51,17 @@ persistence:
     size: 2Gi
 ```
 
-e.g, when running on AWS with EKS: <https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html>
+e.g, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
 For security reasons, please limit the PersistentVolumes`mount permissions to`0650\`.
 
 \***\*Horizontal Auto-Scaling\*\***
 
-Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.  
-For it to work correctly, the Kubernetes metrics server must be installed in the cluster - <https://github.com/kubernetes-sigs/metrics-server>.
+Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.\
+For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server).
 
 > 🚧 Warning
-> 
+>
 > To enable Secure Remote Access features you will have to get an access-key to Akeyless private repository. Please contact your Account Manager for more details.
 
 # Installing the Chart
@@ -75,7 +75,7 @@ helm repo update
 
 The values.yaml file holds default values. Copy the file from: 
 
-<https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access>
+[https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access)
 
 Or run the following helm command to generate the values file locally:
 
@@ -106,7 +106,7 @@ env:
 ```
 
 > 🚧 Warning
-> 
+>
 > The HTTP-type proxy will only work with Chrome browsers currently. For Firefox, you can skip this environment variable configuration so the default `socks-proxy` protocol will be used for example: `socks://proxy.example.com`
 
 The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions. To fetch the relevant secret on behalf of your users, set the `privilegedAccess` field with the relevant `AccessID` as described in the Authentication section of this page. 
@@ -125,11 +125,11 @@ privilegedAccess:
 
 The following [Authentication Methods](doc:access-and-authentication-methods) are supported: 
 
-- [API Key](doc:api-key) 
+* [API Key](doc:api-key) 
 
-- [AWS IAM](doc:aws-iam) 
+* [AWS IAM](doc:aws-iam) 
 
-- [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](doc:azure-ad)
 
 ## API Key Authentication
 
@@ -151,7 +151,7 @@ While running your K8s cluster inside your cloud environment, you can use [AWS I
 
 AWS IAM can be used in the following approach: 
 
-- Instance IAM Role 
+* Instance IAM Role 
 
 While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](doc:aws-iam) `Access ID`  as your <code>accessID</code>, with a list of `allowedAccessIDs` that will be authorized to request access:
 
@@ -183,5 +183,4 @@ helm install <RELEASE NAME> akeyless/akeyless-zero-trust-web-access -f values.ya
 
 Verify that both pods are up and running: 
 
-<code>web-worker-deployment</code>  
-<code>web-dispatcher-deployment</code>
+<code>web-worker-deployment</code>\ <code>web-dispatcher-deployment</code>
