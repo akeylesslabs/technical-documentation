@@ -31,22 +31,22 @@ The value of secret <secret name>  was successfully updated
 When you update a static secret, by default the latest version is updated. To keep the previous version of the secret stored in Akeyless, run the `--keep-prev-version=true`option.
 
 > 🚧 Warning
-> 
+>
 > **Metadata changes**
-> 
+>
 > Changing the metadata of a secret does not change its version. To change the version and store the previous version, you must explicitly run `--keep-prev-version=true`.
 
 The rest of this section shows examples of how to manage secret versions directly from your CLI with different examples based on the assumption you've already created a secret called `/secret1` with `value1`. 
 
 Examples are as follows:
 
-- Create a new version of **secret1** with the new value **value2** and keep previous version
-- Getting a secret value always returns the current value.
-- Get a specific version of the secret value
-- Delete a specific version of the secret value
-- Roll back to a previous secret version
+* Create a new version of **secret1** with the new value **value2** and keep previous version
+* Getting a secret value always returns the current value.
+* Get a specific version of the secret value
+* Delete a specific version of the secret value
+* Roll back to a previous secret version
 
-### Create a new version of _secret1_ with the new value _value2_ and keep previous version:
+### Create a new version of *secret1* with the new value *value2* and keep previous version:
 
 ```shell retrieve-and-view-from-the-ui
 $ akeyless update-secret-val -n /secret1 -v value2 --keep-prev-version=true
@@ -166,15 +166,15 @@ value2
 
 ## Updates and versions from the UI
 
-From the UI, click the pencil icon next to the **Value **of the secret and toggle **Create new version** to update the value and create a new version of the secret.
+From the UI, click the pencil icon next to the **Value** of the secret and toggle **Create new version** to update the value and create a new version of the secret.
 
 Once a secret has more than one version, a list of all previous values is available within the secret at the **Versions** tab.
 
 From the version history, click the eye icon next to a specific version to open a pop-up and view its value.
 
-To delete a specific secret version from that same list, click the **Delete **icon and then confirm the deletion.
+To delete a specific secret version from that same list, click the **Delete** icon and then confirm the deletion.
 
-To restore a specific secret version, from the list of secret versions, click the **Restore **icon to open a pop-up and confirm. This rolls the selected version back, overriding the current version.
+To restore a specific secret version, from the list of secret versions, click the **Restore** icon to open a pop-up and confirm. This rolls the selected version back, overriding the current version.
 
 ## Change Event
 
