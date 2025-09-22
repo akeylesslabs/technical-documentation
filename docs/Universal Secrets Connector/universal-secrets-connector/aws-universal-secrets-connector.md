@@ -20,26 +20,12 @@ After connecting to your AWS Secret Manager source, you will be able to manage a
 
 The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from the AWS Secret Manager. This is done automatically as Akeyless doesn't store a copy of the AWS secrets, ensuring that data residency and security policies remain untouched. The **USC** simply reflects them in real time, without any requirements or changes that should be made on the AWS Secret Manager endpoint.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/60251a70458e8bb82d88317bde1ad04b9e9a7b6ea82e68e0b11086106a0f6a7c-Synced_Secret-AWS.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/60251a70458e8bb82d88317bde1ad04b9e9a7b6ea82e68e0b11086106a0f6a7c-Synced_Secret-AWS.png" />
 
 # Prerequisites
 
-- An [Akeyless Gateway](doc:api-gw)  with **Read** permission on the target associated with the **USC**.
-- [AWS Target](doc:aws-targets) which holds an AWS IAM Principal with the following permissions:
+* An [Akeyless Gateway](doc:api-gw)  with **Read** permission on the target associated with the **USC**.
+* [AWS Target](doc:aws-targets) which holds an AWS IAM Principal with the following permissions:
 
 ```json
 {
@@ -85,9 +71,9 @@ akeyless usc create --name <name> --target-to-associate <target name>
 
 The main parameters are:
 
-- `name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
+* `name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
 
-- `target-to-associate`: An existing [Target](doc:targets) that points to your desired endpoint.
+* `target-to-associate`: An existing [Target](doc:targets) that points to your desired endpoint.
 
 Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
 
@@ -125,9 +111,9 @@ akeyless usc get --usc-name <usc name> --secret-id <secret id or name>
 
 The main parameters are:
 
-- `usc-name`: Name of the Universal Secrets Connector.
+* `usc-name`: Name of the Universal Secrets Connector.
 
-- `secret-id`: The name or ID of the secret you would like to fetch.
+* `secret-id`: The name or ID of the secret you would like to fetch.
 
 Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
 
@@ -153,11 +139,11 @@ akeyless usc create --usc-name <usc name> --secret-name <new secret name> --valu
 
 The main parameters are:
 
-- `usc-name`: Name of the Universal Secrets Connector.
+* `usc-name`: Name of the Universal Secrets Connector.
 
-- `secret-name`: The name of the secret you would like to create.
+* `secret-name`: The name of the secret you would like to create.
 
-- `value`: The value of the secret you would like to create, plaintext or base64 encoded.
+* `value`: The value of the secret you would like to create, plaintext or base64 encoded.
 
 Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
 
@@ -191,19 +177,19 @@ Additional parameters can be found in the [CLI Reference](doc:cli-reference-exte
 
 4. Define the remaining settings as follows:
 
-- **Description:** Optional, enter a description of the Universal Secrets Connector.
+* **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-- **Tags:** Optional, select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+* **Tags:** Optional, select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-- **Delete Protection:** Optional, turn on this setting to protect the item from deletion.
+* **Delete Protection:** Optional, turn on this setting to protect the item from deletion.
 
-- **Target:** Select an existing [AWS Target](doc:aws-targets).
+* **Target:** Select an existing [AWS Target](doc:aws-targets).
 
-- **Gateway:** Select the desired corresponding Gateway.
+* **Gateway:** Select the desired corresponding Gateway.
 
-- **USC Secret Prefix:** Optional, provide a prefix to be appended to any newly created secret.
+* **USC Secret Prefix:** Optional, provide a prefix to be appended to any newly created secret.
 
-- **Use Prefix as Filter:** Optional, use the secret prefix as a filter.
+* **Use Prefix as Filter:** Optional, use the secret prefix as a filter.
 
 5. Click **Finish**
 
@@ -211,11 +197,11 @@ Additional parameters can be found in the [CLI Reference](doc:cli-reference-exte
 
 Once connected to a Target, you will be able to access a Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 
-- **Name:** Secret name
+* **Name:** Secret name
 
-- **Description:** Secret description
+* **Description:** Secret description
 
-- **Last Retrieved:** The last time the secret was fetched, displayed in UTC time.
+* **Last Retrieved:** The last time the secret was fetched, displayed in UTC time.
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
 
