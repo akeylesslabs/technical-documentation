@@ -10,25 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Rotated secrets enable you to protect the credentials for privileged-user accounts such as an _Administrator_ account on a Windows server, a **root** account on a Linux server, or an **Admin** account on a network device, by resetting its password.
+Rotated secrets enable you to protect the credentials for privileged-user accounts such as an *Administrator* account on a Windows server, a **root** account on a Linux server, or an **Admin** account on a network device, by resetting its password.
 
 Setting up Rotated Secrets requires the **Rotated Secret** permission on the Gateway. You can also set the **Rotate Secret Value** permission to allow rotation of the secret value without granting edit rights (this also requires **Read** permission on the rotated secret item).
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f32a578-Rotated_Secret.png",
-        "rotated-secret.png",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/f32a578-Rotated_Secret.png" />
 
 The Akeyless Platform generates a new password, resets it on the target machine, and stores the updated secret value so that it can be retrieved when required.
 
@@ -36,16 +22,16 @@ You can define a rotated secret to automatically update the password at defined 
 
 You can configure:
 
-- [SSH Rotated Secret](doc:create-an-ssh-rotated-secret) 
-- [AWS Rotated Secret](doc:create-an-aws-rotated-secret) 
-- [Azure Rotated Secret](doc:create-an-azure-rotated-secret) 
-- [GCP Rotated Secret](https://docs.akeyless.io/docs/gcp-rotated-secret)
-- [Database Rotated Secret](doc:create-a-database-rotated-secret) 
-- [Windows Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret)
-- [Custom Rotated Secret](doc:create-a-custom-rotated-secret) 
-- [LDAP Rotated Secret](doc:create-an-ldap-rotated-secret) 
-- [Linked Target Rotated Secret](doc:linked-target-rotated-secret)
-- [Docker Hub Rotated Secret](doc:create-a-docker-hub-rotated-secret) 
+* [SSH Rotated Secret](doc:create-an-ssh-rotated-secret) 
+* [AWS Rotated Secret](doc:create-an-aws-rotated-secret) 
+* [Azure Rotated Secret](doc:create-an-azure-rotated-secret) 
+* [GCP Rotated Secret](https://docs.akeyless.io/docs/gcp-rotated-secret)
+* [Database Rotated Secret](doc:create-a-database-rotated-secret) 
+* [Windows Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret)
+* [Custom Rotated Secret](doc:create-a-custom-rotated-secret) 
+* [LDAP Rotated Secret](doc:create-an-ldap-rotated-secret) 
+* [Linked Target Rotated Secret](doc:linked-target-rotated-secret)
+* [Docker Hub Rotated Secret](doc:create-a-docker-hub-rotated-secret) 
 
 The typical flow for working with rotated secrets is:
 
