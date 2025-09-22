@@ -14,16 +14,16 @@ This document outlines the steps to set up Transparent Data Encryption (TDE) on 
 
 ### Directory Creation
 
-•	Create the folder and subfolder /tde.  
+•	Create the folder and subfolder /tde.\
 •	No changes required to sqlnet.ora for Oracle Database 19c and up.
 
 ### Configuration Steps
 
-a. In this example, we use hsm_wallet as the base folder. This can be adjusted based on your specific environment or the naming conventions used in your organization.
+a. In this example, we use hsm\_wallet as the base folder. This can be adjusted based on your specific environment or the naming conventions used in your organization.
 
-b. The APP_PASSWORD is not directly used during the configuration process. It can be any value, as the actual configuration is pulled from a file.
+b. The APP\_PASSWORD is not directly used during the configuration process. It can be any value, as the actual configuration is pulled from a file.
 
-c. /opt/oracle/admin corresponds to the $ORACLE_HOME directory in your environment.
+c. /opt/oracle/admin corresponds to the $ORACLE\_HOME directory in your environment.
 
 ### Key Management and Keystore Setup
 
@@ -57,7 +57,7 @@ Result: Keystore opened seccessfully
 SQL> ADMINISTER KEY MANAGEMENT ADD SECRET 'APP_PASSWORD' FOR CLIENT 'HSM_PASSWORD' IDENTIFIED BY "APP_PASSWORD" WITH BACKUP;
 ```
 
-Result: Secret added successfully for client HSM_PASSWORD.
+Result: Secret added successfully for client HSM\_PASSWORD.
 
 ```text SQL
 SQL> ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY "APP_PASSWORD";
