@@ -19,15 +19,15 @@ next:
 ---
 # Prerequisites
 
-- An [Authentication Method](doc:access-and-authentication-methods). Make sure it has the right [access permission](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets).
+* An [Authentication Method](doc:access-and-authentication-methods). Make sure it has the right [access permission](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets).
 
 > 👍 Note
-> 
+>
 > The following example uses the account default [Authentication Method.](https://docs.akeyless.io/docs/access-and-authentication-methods) Using the account owner's email and password which has superuser privileges on the account.
 
-- A Linux or a Windows machine with [Docker engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2GB RAM.
+* A Linux or a Windows machine with [Docker engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2GB RAM.
 
-- Network port `8000` on the cluster must be open** only for internal network access**, allowing access to the following services using the corresponding endpoints: 
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints: 
 
 | Service                                              | Endpoint   |
 | :--------------------------------------------------- | :--------- |
@@ -38,7 +38,7 @@ next:
 | [KMIP Server](doc:kmip-server)                       | `5696`     |
 
 > 🚧 Warning
-> 
+>
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
 # Installation
@@ -54,7 +54,7 @@ After executing the above command, a new container named **akeyless-gateway** sh
 To upgrade your current Gateway version, simply restart the container using the `docker restart <container name>` command.
 
 > 📘 Info
-> 
+>
 > In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in will become the admin user on this Gateway.
 
 For further installation options, visit the [Advanced Configuration](advance-gw-docker-configuration) page.
@@ -63,10 +63,10 @@ For further installation options, visit the [Advanced Configuration](advance-gw-
 
 To configure your Akeyless Gateway:
 
-1. On your browser, navigate to <http://Your-Akeyless-Gateway-URL:8000/console> and log in.
+1. On your browser, navigate to [http://Your-Akeyless-Gateway-URL:8000/console](http://Your-Akeyless-Gateway-URL:8000/console) and log in.
 
 2. Navigate to **Gateways > Select Your Gateway > Manage Gateway**
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway" target="_blank" style="color: #00e">Installing and Configuring the Gateway on Docker</a>.
+Check out our tutorial video on [Installing and Configuring the Gateway on Docker](https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway).
