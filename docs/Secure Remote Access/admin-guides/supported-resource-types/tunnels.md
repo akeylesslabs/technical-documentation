@@ -16,14 +16,14 @@ While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/do
 
 # Prerequisites
 
-- [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) configured.
+* [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) configured.
 
-- The [Secure Remote Access server](https://docs.akeyless.io/docs/remote-access-setup-k8s) deployed.
+* The [Secure Remote Access server](https://docs.akeyless.io/docs/remote-access-setup-k8s) deployed.
 
 # Usage
 
 > 🚧 Warning
-> 
+>
 > For security reasons, please bind services only to the **local interface**. You can use local port forwarding to access the service that is listening on the remote server.
 
 Connections on the local machine made to the forwarded port will, in effect, connect to the remote machine.
@@ -39,21 +39,21 @@ akeyless connect --target <user>@<targetserver> \
 
 Where: 
 
-- **target:**  The target resource, e.g. `user@ssh-server[:port]`, `us-east-2`, `mysql-server:3306`, etc.
+* **target:**  The target resource, e.g. `user@ssh-server[:port]`, `us-east-2`, `mysql-server:3306`, etc.
 
-- **--via-sra:** SRA host, which the connection will go through. e.g.: sra-host:port\`.
-  - NOTE - With unified Gateway, you should be using `-g <your-gateway-ip[:port]>`instead of `--via-sra`
+* **--via-sra:** SRA host, which the connection will go through. e.g.: sra-host:port\`.
+  * NOTE - With unified Gateway, you should be using `-g <your-gateway-ip[:port]>`instead of `--via-sra`
 
-- **tunnel:** SSH tunnel setting e.g. `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
+* **tunnel:** SSH tunnel setting e.g. `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
 
-- **cert-issuer-name:** Optional. If already configured inside `akeyless-connect.rc` file, alternativity provide  
+* **cert-issuer-name:** Optional. If already configured inside `akeyless-connect.rc` file, alternativity provide\
   the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion. 
 
-- **name :** Full name of the secret item to use in order to connect. i.e. Dynamic or a Rotated Secret for Database,RDP etc. Or a static secret which contains the credentials of the target system.
+* **name :** Full name of the secret item to use in order to connect. i.e. Dynamic or a Rotated Secret for Database,RDP etc. Or a static secret which contains the credentials of the target system.
 
-- **command:** Command to execute on the target remote host (useful for non-interactive mode). e.g. `-C='ls -al'`
+* **command:** Command to execute on the target remote host (useful for non-interactive mode). e.g. `-C='ls -al'`
 
-- **ssh-extra-args:** Additional SSH arguments (except -i).
+* **ssh-extra-args:** Additional SSH arguments (except -i).
 
 ## RDP
 
@@ -107,14 +107,14 @@ akeyless connect -t <k8s.server.host> \
 ```
 
 > 📘 Note
-> 
+>
 > A remote port on the SSH bastion will automatically be allocated based on availability.
 
 Once that's done, **in a new terminal tab** you can run `kubectl` commands as normal after switching to the above `kubectl` context.
 
 ### Lens
 
-Similarly, after having run the `akeyless connect` command as in the previous section, to work with [Lens](https://k8slens.dev/) K8s IDE, open your Lens Settings > Proxy and set the proxy server with your localhost interface in the following format: <http://127.0.0.1:2345>.
+Similarly, after having run the `akeyless connect` command as in the previous section, to work with [Lens](https://k8slens.dev/) K8s IDE, open your Lens Settings > Proxy and set the proxy server with your localhost interface in the following format: [http://127.0.0.1:2345](http://127.0.0.1:2345).
 
 Now, you can start interacting with your remote K8s API server using the tunnel.
 
