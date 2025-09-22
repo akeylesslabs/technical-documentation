@@ -9,3 +9,4 @@
 - gcp-dynamic-secrets
 - github-dynamic-secret
 - gitlab-dynamic-secret
+- gke-dynamic-secret-producer
