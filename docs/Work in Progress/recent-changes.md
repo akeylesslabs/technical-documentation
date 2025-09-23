@@ -142,7 +142,7 @@ Users can now log into the Secure Remote Access Portal using LDAP authentication
 
 ### Path Templating for Sub-Claims
 
-For easier management of your access rules, sub-claims keys can be utilized for quicker and more scalable rule definitions for the access path, which enables admins to give multiple users access to their specific paths based on the sub-claim values. This means [claims can be templated](https://docs.akeyless.io/docs/sub-claims#path-templating), for example, as /{{Group}}/{{Username}}/\* for your rule path based on your IdP mapping.
+For easier management of your access rules, sub-claims keys can be utilized for quicker and more scalable rule definitions for the access path, which enables admins to give multiple users access to their specific paths based on the sub-claim values. This means [claims can be templated](https://docs.akeyless.io/docs/sub-claims#path-templating), for example, as /\{\{Group}}/\{\{Username}}/\* for your rule path based on your IdP mapping.
 
 ### Item Naming Convention
 
@@ -168,10 +168,10 @@ You can now configure K8s and [LDAP](https://docs.akeyless.io/docs/ldap#create-l
 
 ### SPIRE Plugin Support
 
-Users can now integrate with SPIFFE systems using our [SPIRE plugin](https://docs.akeyless.io/docs/spire-plugin) for:  
-SPIRE Key Manager  
-SPIRE Secret Manager  
-SPIRE Upstream Authority  
+Users can now integrate with SPIFFE systems using our [SPIRE plugin](https://docs.akeyless.io/docs/spire-plugin) for:\
+SPIRE Key Manager\
+SPIRE Secret Manager\
+SPIRE Upstream Authority\
 SPIRE Upstream Authority SM
 
 ### Auth Method Expiration in Event Center
