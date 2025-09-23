@@ -351,3 +351,4 @@
 - kmipdeleteserver
 - kmipdescribeclient
 - kmipdescribeserver
+- kmiplistclients
