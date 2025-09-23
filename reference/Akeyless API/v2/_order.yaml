@@ -106,3 +106,4 @@
 - deleteeventforwarder
 - deletegwcluster
 - deletegroup
+- deleteitem
