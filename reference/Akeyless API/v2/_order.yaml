@@ -513,3 +513,4 @@
 - updateauthmethodoauth2
 - updateauthmethodoci
 - updateauthmethodoidc
+- updateauthmethodsaml
