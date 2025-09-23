@@ -39,3 +39,4 @@
 - connect-1
 - createartifactorytarget
 - createauthmethod
+- createauthmethodawsiam
