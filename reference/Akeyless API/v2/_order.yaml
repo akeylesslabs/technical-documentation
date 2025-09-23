@@ -292,3 +292,4 @@
 - gatewayupdateproducerhanadb
 - gatewayupdateproducernativek8s
 - gatewayupdateproducerldap
+- gatewayupdateproducermongo
