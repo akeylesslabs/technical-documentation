@@ -309,3 +309,4 @@
 - gatewayupdateremoteaccessrdprecordings
 - gwupdateremoteaccesssessionlogsawss3
 - gwupdateremoteaccesssessionlogsazureanalytics
+- gwupdateremoteaccesssessionlogsdatadog
