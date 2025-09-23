@@ -16,7 +16,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -27,12 +27,12 @@ General Flags:
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
 > 👍 Tip
-> 
+>
 > Flags with a default value of `use-existing` indicate that the field's value will remain unchanged unless explicitly modified.
 
 To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server using the CLI.
 
-## <p style="color:blue">_update_</p>
+## <p style="color:blue">*update*</p>
 
 Command to update log forwarding configuration
 
@@ -60,7 +60,7 @@ Command to update log forwarding configuration
 
 `syslog`
 
-### <p style="color:blue">_AWS S3_</p>
+### <p style="color:blue">*AWS S3*</p>
 
 Updates Log Forwarding config for aws-s3
 
@@ -83,9 +83,9 @@ akeyless gateway update log-forwarding aws-s3 \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -95,7 +95,7 @@ akeyless gateway update log-forwarding aws-s3 \
 
 `--bucket-name`: AWS S3 bucket name
 
-`--auth-type`: AWS auth type [`access_key`/`cloud_id`/`assume_role`]
+`--auth-type`: AWS auth type \[\`access\_key\`/\`cloud\_id\`/\`assume\_role\`]
 
 `--access-id`: AWS access id relevant for `access_key` auth-type
 
@@ -105,7 +105,7 @@ akeyless gateway update log-forwarding aws-s3 \
 
 `--role-arn`: AWS role arn relevant for `assume_role` auth-type
 
-### <p style="color:blue">_Azure Log Analytics_</p>
+### <p style="color:blue">*Azure Log Analytics*</p>
 
 Updates Log Forwarding config for azure-analytics
 
@@ -123,9 +123,9 @@ akeyless gateway update log-forwarding azure-analytics \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -135,7 +135,7 @@ akeyless gateway update log-forwarding azure-analytics \
 
 `--workspace-key`: Azure workspace key
 
-### <p style="color:blue">_Datadog_</p>
+### <p style="color:blue">*Datadog*</p>
 
 Updates Log Forwarding config for datadog
 
@@ -156,9 +156,9 @@ akeyless gateway update log-forwarding datadog \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -174,7 +174,7 @@ akeyless gateway update log-forwarding datadog \
 
 `--log-service[=use-existing]`: Datadog log service
 
-### <p style="color:blue">_ELK - Elasticsearch_</p>
+### <p style="color:blue">*ELK - Elasticsearch*</p>
 
 Updates Log Forwarding config for elasticsearch
 
@@ -201,9 +201,9 @@ akeyless gateway update log-forwarding elasticsearch \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -211,13 +211,13 @@ akeyless gateway update log-forwarding elasticsearch \
 
 `--index`: Elasticsearch index
 
-`--server-type`: Elasticsearch server type [`nodes`/`cloud`]
+`--server-type`: Elasticsearch server type \[\`nodes\`/\`cloud\`]
 
 `--nodes`: Elasticsearch nodes relevant only for `nodes` server-type
 
 `--cloud-id`: Elasticsearch cloud id relevant only for `cloud` server-type
 
-`--auth-type`: Elasticsearch auth type [`api_key`/`password`]
+`--auth-type`: Elasticsearch auth type \[\`api\_key\`/\`password\`]
 
 `--api-key`: Elasticsearch api key relevant only for `api_key` auth-type
 
@@ -231,7 +231,7 @@ akeyless gateway update log-forwarding elasticsearch \
 
 `--tls-certificate[=use-existing]`: Elasticsearch tls certificate (`PEM format`) in a Base64 format
 
-### <p style="color:blue">_Google Chronicle_</p>
+### <p style="color:blue">*Google Chronicle*</p>
 
 Updates Log Forwarding config for google-chronicle
 
@@ -252,9 +252,9 @@ akeyless gateway update log-forwarding google-chronicle \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -266,11 +266,11 @@ akeyless gateway update log-forwarding google-chronicle \
 
 `--customer-id`: Google chronicle `customer id`
 
-`--region`: Google chronicle region [`eu_multi_region`/`london`/`us_multi_region`/`singapore`/`tel_aviv`]
+`--region`: Google chronicle region \[\`eu\_multi\_region\`/\`london\`/\`us\_multi\_region\`/\`singapore\`/\`tel\_aviv\`]
 
 `--log-type`: Google chronicle log type
 
-### <p style="color:blue">_ELK - Logstash_</p>
+### <p style="color:blue">*ELK - Logstash*</p>
 
 Updates Log Forwarding config for logstash
 
@@ -291,9 +291,9 @@ akeyless gateway update log-forwarding logstash \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -301,7 +301,7 @@ akeyless gateway update log-forwarding logstash \
 
 `--dns`: Logstash dns
 
-`--protocol`: Logstash protocol [`tcp`/`udp`]
+`--protocol`: Logstash protocol \[\`tcp\`/\`udp\`]
 
 `--enable-tls`: Enable-tls
 
@@ -309,7 +309,7 @@ akeyless gateway update log-forwarding logstash \
 
 `--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
 
-### <p style="color:blue">_Logz.io_</p>
+### <p style="color:blue">*Logz.io*</p>
 
 Updates Log Forwarding config for logz-io
 
@@ -327,9 +327,9 @@ akeyless gateway update log-forwarding logz-io \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -337,9 +337,9 @@ akeyless gateway update log-forwarding logz-io \
 
 `--logz-io-token`: Logz-io token
 
-`--protocol`: Logz-io protocol [tcp/https]
+`--protocol`: Logz-io protocol \[tcp/https]
 
-### <p style="color:blue">_Splunk_</p>
+### <p style="color:blue">*Splunk*</p>
 
 Updates Log Forwarding config for splunk
 
@@ -363,9 +363,9 @@ akeyless gateway update log-forwarding splunk \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -387,7 +387,7 @@ akeyless gateway update log-forwarding splunk \
 
 `--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
 
-### <p style="color:blue">_STDOUT_</p>
+### <p style="color:blue">*STDOUT*</p>
 
 Updates Log Forwarding config for standard output
 
@@ -403,15 +403,15 @@ akeyless gateway update log-forwarding stdout \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-### <p style="color:blue">_Sumo Logic_</p>
+### <p style="color:blue">*Sumo Logic*</p>
 
 Updates Log Forwarding config for sumologic
 
@@ -430,9 +430,9 @@ akeyless gateway update log-forwarding sumologic \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -444,7 +444,7 @@ akeyless gateway update log-forwarding sumologic \
 
 `--host[=use-existing]`: Sumologic host
 
-### <p style="color:blue">_Syslog_</p>
+### <p style="color:blue">*Syslog*</p>
 
 Updates Log Forwarding config for syslog
 
@@ -467,21 +467,21 @@ akeyless gateway update log-forwarding syslog \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
+`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
 
-`--output-format[=text]`: Logs format [`text`/`json`]
+`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--network`: Syslog network [`tcp`/`udp`]
+`--network`: Syslog network \[\`tcp\`/\`udp\`]
 
 `--host`: Syslog host
 
 `--target-tag[=use-existing]`: Syslog target tag
 
-`--formatter[=text]`: Syslog formatter [`text`/`cef`]
+`--formatter[=text]`: Syslog formatter \[\`text\`/\`cef\`]
 
 `--enable-tls`: Enable-tls
 
@@ -489,7 +489,7 @@ akeyless gateway update log-forwarding syslog \
 
 `--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
 
-### <p style="color:blue">_get_</p>
+### <p style="color:blue">*get*</p>
 
 Command to get log forwarding configuration
 
