@@ -510,3 +510,4 @@
 - updateauthmethodgcp
 - updateauthmethodk8s
 - updateauthmethodldap
+- updateauthmethodoauth2
