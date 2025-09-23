@@ -16,7 +16,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">_assoc-role-am_</p>
+### <p style="color:blue">*assoc-role-am*</p>
 
 Create an association between role and auth method
 
@@ -48,7 +48,7 @@ akeyless assoc-role-am \
 
  `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
-### <p style="color:blue">_create-role_</p>
+### <p style="color:blue">*create-role*</p>
 
 Creates a new role
 
@@ -80,9 +80,9 @@ akeyless create-role name <Role Name>
 
  `description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">_delete-assoc_</p>
+### <p style="color:blue">*delete-assoc*</p>
 
 Delete an association between role and auth method
 
@@ -92,7 +92,7 @@ Delete an association between role and auth method
 akeyless delete-assoc --assoc-id <association ID to be deleted>
 ```
 
-### <p style="color:blue">_delete-role_</p>
+### <p style="color:blue">*delete-role*</p>
 
 Delete a role
 
@@ -102,7 +102,7 @@ Delete a role
 akeyless delete-role --name <Role Name>
 ```
 
-### <p style="color:blue">_delete-role-rule_</p>
+### <p style="color:blue">*delete-role-rule*</p>
 
 Delete a rule from a role
 
@@ -122,7 +122,7 @@ akeyelss delete-role-rule \
 
  `--rule-type[=item-rule]`: item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule.  \\nA type of the item for which permissions are deleted. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Role, auth-method-rule - for Authentication Methods. By default, permissions are deleted only for Items
 
-### <p style="color:blue">_delete-roles_</p>
+### <p style="color:blue">*delete-roles*</p>
 
 Delete multiple roles from a given path
 
@@ -132,7 +132,7 @@ Delete multiple roles from a given path
 akeyless delete-roles --path <Path/to/roles>
 ```
 
-### <p style="color:blue">_describe-permissions_</p>
+### <p style="color:blue">*describe-permissions*</p>
 
 See which authentication methods have access to a particular object
 
@@ -144,11 +144,11 @@ akeyless describe-permissions \
 --type <Type of object (item, am, role, target)>
 ```
 
-### <p style="color:blue">_describe-sub-claims_</p>
+### <p style="color:blue">*describe-sub-claims*</p>
 
 Get the sub-claims associated with the provided token or authentication profile
 
-### <p style="color:blue">_describe-role-am-assoc_</p>
+### <p style="color:blue">*describe-role-am-assoc*</p>
 
 Describe role association details
 
@@ -159,7 +159,7 @@ akeyless describe-role-am-assoc \
 --assoc-id <association-id>
 ```
 
-### <p style="color:blue">_get-role_</p>
+### <p style="color:blue">*get-role*</p>
 
 Get role details
 
@@ -169,7 +169,7 @@ Get role details
 akeyless get-role -n <Role Name>
 ```
 
-### <p style="color:blue">_list-roles_</p>
+### <p style="color:blue">*list-roles*</p>
 
 List of all roles in the account
 
@@ -179,7 +179,7 @@ List of all roles in the account
 
  `--pagination-token`: Next page reference
 
-### <p style="color:blue">_request-access_</p>
+### <p style="color:blue">*request-access*</p>
 
 Request a temporary access for an item, supporting Static Secret, and Targets
 
@@ -198,11 +198,11 @@ akeyless request-access \
 
  `--type`: **Required**, The type of item to which access is requested. The supported types are: [StaticSecret, Target] 
 
- `-c, --capability`: **Required**, List of the required capabilities, options: [read, update, delete]                             
+ `-c, --capability`: **Required**, List of the required capabilities, options: \[read, update, delete]                             
 
  `--comment`: Optional, comment about the request.
 
-### <p style="color:blue">_reverse-rbac_</p>
+### <p style="color:blue">*reverse-rbac*</p>
 
 See which authentication methods have access to a particular object
 
@@ -220,7 +220,7 @@ akeyless reverse-rbac \
 
 `-t, --type`: **Required**, Type of object (item, am, role, target)
 
-### <p style="color:blue">_set-role-rule_</p>
+### <p style="color:blue">*set-role-rule*</p>
 
 Set a rule to a role
 
@@ -238,9 +238,9 @@ akeyless set-role-rule \
 
   `-r, --role-name`: **Required**, The role name to be updated
 
-  `-p, --path`: **(Mandatory if `-f, file` is not given)** The path the rule refers to
+  `-p, --path`: **(Mandatory if`-f, file` is not given)** The path the rule refers to
 
-  `-c, --capability`: **(Mandatory if `-f, file` is not given)** List of the approved/denied capabilities in the path options: [read, create, update, delete, list, deny]
+  `-c, --capability`: **(Mandatory if`-f, file` is not given)** List of the approved/denied capabilities in the path options: \[read, create, update, delete, list, deny]
 
   `rule-type[=item-rule]`: item-rule, target-rule, role-rule, auth-method-rule.  \\nA type of the item for which permissions are defined. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Roles, auth-method-rule - for Authentication Methods. By default, permissions are set only for Items.
 
@@ -248,7 +248,7 @@ akeyless set-role-rule \
 
   `-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This  replaces the `capability`, `path` and `rule-type` 
 
-### <p style="color:blue">_update-assoc_</p>
+### <p style="color:blue">*update-assoc*</p>
 
 Update the sub-claims of an association between the role and the auth method.
 
@@ -266,7 +266,7 @@ akeyless update-assoc --assoc-id <association ID to be updated>
 
  `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive                 
 
-### <p style="color:blue">_update-role_</p>
+### <p style="color:blue">*update-role*</p>
 
 Update role details
 
@@ -301,4 +301,4 @@ akeyless update-role -n <Role name> \
 
  `--description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
