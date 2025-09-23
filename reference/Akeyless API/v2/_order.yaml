@@ -495,3 +495,4 @@
 - tokenize
 - tokenizebatch
 - uidcreatechildtoken
+- uidgeneratetoken
