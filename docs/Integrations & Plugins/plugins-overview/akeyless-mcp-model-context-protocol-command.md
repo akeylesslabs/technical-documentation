@@ -18,17 +18,17 @@ Model Context Protocol (MCP) is an open standard that allows AI assistants to se
 
 ### With MCP, you can:
 
-- Safely authenticate AI assistants with Akeyless
-- Interact with Akeyless secrets, targets, and other resources
-- Leverage existing profiles and authentication methods
-- Connect to Akeyless Gateway instances
+* Safely authenticate AI assistants with Akeyless
+* Interact with Akeyless secrets, targets, and other resources
+* Leverage existing profiles and authentication methods
+* Connect to Akeyless Gateway instances
 
 ### Features
 
-- Secure Authentication – Uses Akeyless authentication mechanisms
-- Tool Integration – Access Akeyless secrets, targets, RBAC, and more
-- Profile Support – Works with your existing Akeyless CLI profiles
-- Gateway Integration – Supports both local and cloud Akeyless Gateways
+* Secure Authentication – Uses Akeyless authentication mechanisms
+* Tool Integration – Access Akeyless secrets, targets, RBAC, and more
+* Profile Support – Works with your existing Akeyless CLI profiles
+* Gateway Integration – Supports both local and cloud Akeyless Gateways
 
 ### Usage
 
@@ -52,14 +52,14 @@ akeyless mcp --profile <profile-name> --gateway-url https://api.akeyless.io
 (access_key / password / saml / ldap / k8s / azure_ad / oidc / aws_iam / universal_identity / jwt / gcp / cert / oci / kerberos)
 ```
 
-The MCP command accepts the same authentication parameters as standard Akeyless CLI auth commands.  
+The MCP command accepts the same authentication parameters as standard Akeyless CLI auth commands.\
 For more details, see [Akeyless Authentication Documentation](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
 ### Common Parameters
 
 \--access-id: Your Akeyless Access ID
 
-\--access-key: Your Akeyless Access Key (for access_key auth)
+\--access-key: Your Akeyless Access Key (for access\_key auth)
 
 \--access-type: Authentication method (see list above)
 
@@ -69,9 +69,9 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 
 ### Setting up MCP with Cursor
 
-1. Install Akeyless CLI  
+1. Install Akeyless CLI\
    Ensure the Akeyless CLI is installed and configured.
-2. Update Cursor Settings  
+2. Update Cursor Settings\
    Open settings (Cmd/Ctrl + Shift + P → Preferences: Open Settings (JSON)) and add:
 
 ```yaml
@@ -95,14 +95,14 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 
 <br />
 
-3. Restart Cursor  
+3. Restart Cursor\
    Restart for the changes to take effect.
-4. Verify  
+4. Verify\
    You can now run queries such as:
 
-- “Show me my Akeyless secrets”
-- “Create a new secret called api-key”
-- “List all my targets”
+* “Show me my Akeyless secrets”
+* “Create a new secret called api-key”
+* “List all my targets”
 
 ### Setting up MCP with GitHub Copilot
 
@@ -114,7 +114,7 @@ npm install -g @githubnext/github-copilot-cli
 
 2. Configure Copilot
 
-Edit ~/.copilot/config.yml to include:
+Edit \~/.copilot/config.yml to include:
 
 ```yaml
 mcpServers:
@@ -135,7 +135,7 @@ mcpServers:
 copilot mcp
 ```
 
-4. Use Copilot  
+4. Use Copilot\
    You can now manage secrets, configure targets, and perform infrastructure tasks via Copilot.
 
 ### Examples
