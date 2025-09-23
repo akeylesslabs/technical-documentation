@@ -12,22 +12,7 @@ next:
 ---
 The Akeyless Password Manager web browser extension enhances its functionality with an advanced multi-field search capability, designed to streamline your search process and ensure you find the passwords and secrets you need with ease. This powerful feature allows you to simultaneously search across multiple criteria, significantly broadening your search scope and improving the chances of locating the exact information you require.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6f615f8-Screenshot_2024-04-11_at_14.12.10.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "150px"
-    }
-  ]
-}
-[/block]
-
+<Image align="right" width="150px" src="https://files.readme.io/6f615f8-Screenshot_2024-04-11_at_14.12.10.png" />
 
 Password Name: Directly look up the name you've assigned to your password or secret, ensuring you can quickly find credentials without remembering their associated details.
 
@@ -37,14 +22,15 @@ Username: If you're looking for a password or secret associated with a specific 
 
 Website URL (Hover Feature): For an enhanced user experience, hovering over a search result will reveal the website URL associated with each password or secret, provided this information exists. This feature is especially useful when you need to differentiate between multiple accounts held on the same platform.
 
-### 
+###
 
 **Search Results Display**  
 When your search yields results, the Akeyless Password Manager web browser extension ensures that certain key fields are always visible to you:
 
-- Password/Secret Name: This is always displayed, making it straightforward to identify the specific credential you're after.
-- Password/Secret Path: The path is also always shown, helping you understand where in your folder hierarchy the password or secret resides.  
-  Additionally, the username associated with each password or secret will be displayed by default. However, for a deeper insight, simply hover over an item to switch this display to the web site URL, if such information is available. This dual-display functionality enriches your search experience by providing contextual information that can help you better manage your credentials.
+* Password/Secret Name: This is always displayed, making it straightforward to identify the specific credential you're after.
+* Password/Secret Path: The path is also always shown, helping you understand where in your folder hierarchy the password or secret resides.
+
+  Additionally, the username associated with each password or secret will be displayed by default. However, for a deeper insight, simply hover over an item to switch this display to the website URL, if such information is available. This dual-display functionality enriches your search experience by providing contextual information that can help you better manage your credentials.
 
 <br>
 
