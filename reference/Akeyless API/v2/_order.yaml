@@ -506,3 +506,4 @@
 - updateauthmethod
 - updateauthmethodawsiam
 - updateauthmethodazuread
+- updateauthmethodcert
