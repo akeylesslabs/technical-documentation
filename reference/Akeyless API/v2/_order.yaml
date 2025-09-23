@@ -334,3 +334,4 @@
 - getkubeexeccreds
 - getpkicertificate
 - getrole
+- getrotatedsecretvalue
