@@ -16,35 +16,33 @@ Managing secrets across AWS services can be challenging, especially in a multi-c
 
 With Akeyless Vault, you can manage secrets centrally and securely for Databricks workloads, including:
 
-- Delta Live Tables (DLT) and Non-DLT jobs
-- DataOps and MLOps use cases
+* Delta Live Tables (DLT) and Non-DLT jobs
+* DataOps and MLOps use cases
 
 Akeyless helps avoid secret scattering across AWS Secrets Manager, Databricks secret scopes, and other platforms, giving you a cloud-agnostic and portable solution.
-
-
 
 ### Supported Languages in Databricks
 
 #### Databricks supports:
 
-- Python (natively supported by Akeyless SDK)
-- Scala & R (via spark.conf or dbutils)
-- SQL (generally does not require secrets)
+* Python (natively supported by Akeyless SDK)
+* Scala & R (via spark.conf or dbutils)
+* SQL (generally does not require secrets)
 
 ### Requirements
 
 #### AWS Infrastructure
 
-- An IAM role for EC2 instances used by Databricks compute clusters
-- A cross-account IAM role allowing Databricks to manage AWS resources
-- Properly configured Instance Profile in Databricks to link IAM roles
+* An IAM role for EC2 instances used by Databricks compute clusters
+* A cross-account IAM role allowing Databricks to manage AWS resources
+* Properly configured Instance Profile in Databricks to link IAM roles
 
 #### Akeyless Configuration
 
-- An Akeyless Access ID
-- An AWS IAM Auth Method created in Akeyless
-- A secret stored in Akeyless (e.g., /devops/data_gov_api_key)
-- A Databricks workspace with internet access or the access to the Akeyless gateway
+* An Akeyless Access ID
+* An AWS IAM Auth Method created in Akeyless
+* A secret stored in Akeyless (e.g., /devops/data\_gov\_api\_key)
+* A Databricks workspace with internet access or the access to the Akeyless gateway
 
 ### Architecture Overview
 
@@ -103,7 +101,7 @@ res = api.get_secret_value(secret_request)
 API_KEY = res[secret_path]
 ```
 
-This fetches your API key securely and stores it in the API_KEY variable.
+This fetches your API key securely and stores it in the API\_KEY variable.
 
 #### Step 4: Use the Secret (API Call Example)
 
@@ -154,9 +152,9 @@ Uses DLT’s @dlt.table decorator to register the DataFrame as a managed DLT tab
 
 You’ll need:
 
-- IAM Role for EC2: Trusted entity includes ec2.amazonaws.com and Databricks AWS accounts
-- IAM Role for cross-account: Allows Databricks to provision compute
-- External IDs: Use STORAGE_EXTERNAL-ID and DATABRICKS_WORKSPACE_ID in trust policies
+* IAM Role for EC2: Trusted entity includes ec2.amazonaws.com and Databricks AWS accounts
+* IAM Role for cross-account: Allows Databricks to provision compute
+* External IDs: Use STORAGE\_EXTERNAL-ID and DATABRICKS\_WORKSPACE\_ID in trust policies
 
 Example trust policy (EC2 role):
 
@@ -189,9 +187,9 @@ Example trust policy (cross-account):
 
 ### Best Practices
 
-- Use Instance Profiles in Databricks to map to IAM roles
-- Use Akeyless short-lived tokens to avoid hardcoding secrets
-- For Scala or R notebooks, set the secret in spark.conf and read it back in the appropriate language
+* Use Instance Profiles in Databricks to map to IAM roles
+* Use Akeyless short-lived tokens to avoid hardcoding secrets
+* For Scala or R notebooks, set the secret in spark.conf and read it back in the appropriate language
 
 Example:
 
