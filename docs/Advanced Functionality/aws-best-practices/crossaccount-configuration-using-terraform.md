@@ -14,8 +14,8 @@ This guide will demonstrate how to use **Terraform** in order to create 2 roles 
 
 # Prerequisites
 
-- Akeyless Gateway
-- Terraform installed
+* Akeyless Gateway
+* Terraform installed
 
 # Management Account Configuration
 
@@ -235,7 +235,7 @@ In order to have a centralized Gateway that will be able to manage resources in 
 A new **External ID** will be generated.
 
 > 👍 Role ARN
-> 
+>
 > Once the role will be created, we will add it to the target.
 
 ## Creating the Role in the Destination Account
@@ -458,23 +458,23 @@ variable "profile" {
 ```
 
 > 👍 Note
-> 
+>
 > `external_id` - take the value of the external id from the new target.
 
 At this point, we have created the following resources:
 
-- An IAM-Role in the source Account.
-- An IAM-Role in the destination account Account.
-- A target in Akeyless with an External ID
+* An IAM-Role in the source Account.
+* An IAM-Role in the destination account Account.
+* A target in Akeyless with an External ID
 
 # CrossAccount Deployment
 
 Now, we will use the roles that were created in order to manage the destination AWS account.
 
 > 👍 Akeyless Gateway
-> 
+>
 > The following Actions will take place from the Gateway that has the IAM-User from the source account assigned.
-> 
+>
 > Make sure you have an [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with the IAM Role from the source account atttached.
 
 Connect to your Gateway - `https://public-ip>:8000`, this will automatically update the URL of your Gateway in Akelyess. 
@@ -483,13 +483,13 @@ Then, enter the GW console - `https://public-ip>:8000/console`
 
 ## Create the Dynamic Secret
 
-This example will use **IAM_USER** mode, this will create a new temporary user in the destination account in AWS.
+This example will use **IAM\_USER** mode, this will create a new temporary user in the destination account in AWS.
 
 In Akeyless, Navigate to **Items** > **New** > **Dynamic Secret** > **AWS**.
 
 1. Give the Dynamic Secret a name and press **Next**.
 2. Choose the **Target** that was created with the **External ID**.
-3. For **Access Mode**, choose **IAM_USER**.
+3. For **Access Mode**, choose **IAM\_USER**.
 4. For **Gateway**, choose **This Gateway** and click **Finish**.
 
 Once the Dynamic Secret is created, press **Get Dynamic Secret**
