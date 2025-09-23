@@ -16,8 +16,8 @@ The Akeyless [Java SDK](https://github.com/akeylesslabs/akeyless-java) makes it 
 
 Building the API client library requires: 
 
-- Java version 1.7+.
-- Maven (3.8.3+)/Gradle (7.2+)
+* Java version 1.7+.
+* Maven (3.8.3+)/Gradle (7.2+)
 
 ### Maven Users
 
@@ -43,7 +43,7 @@ Then, add the following dependency to your project's `pom.xml` file:
 ```
 
 > 👍 Note
-> 
+>
 > Don't forget to modify the value of the `<version>` element in the `pom.xml` file to specify the dependency version you want to include.
 
 ## Build from Source
