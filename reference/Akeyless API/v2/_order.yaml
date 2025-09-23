@@ -313,3 +313,4 @@
 - gwupdateremoteaccesssessionlogselasticsearch
 - gwupdateremoteaccesssessionlogsgooglechronicle
 - gwupdateremoteaccesssessionlogslogstash
+- gwupdateremoteaccesssessionlogslogzio
