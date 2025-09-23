@@ -418,3 +418,4 @@
 - rotatedsecretupdatepostgresql
 - rotatedsecretupdateredis
 - rotatedsecretupdateredshift
+- rotatedsecretupdatesnowflake
