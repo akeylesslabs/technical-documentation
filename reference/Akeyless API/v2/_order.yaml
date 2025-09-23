@@ -238,3 +238,4 @@
 - gatewaydeleteproducer
 - gatewaydownloadcustomerfragments
 - gatewaygetallowedaccess
+- gatewaygetcache
