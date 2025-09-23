@@ -40,3 +40,4 @@
 - createartifactorytarget
 - createauthmethod
 - createauthmethodawsiam
+- createauthmethodazuread
