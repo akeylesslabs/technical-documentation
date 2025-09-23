@@ -18,13 +18,13 @@ The Akeyless Kubernetes plugins enable containerized applications to use [Static
 
 The following plugins are available for K8s: 
 
-- [Akeyless K8s Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) 
-- [K8s External Secret Operator (ESO)](https://docs.akeyless.io/docs/external-secret-operator) 
-- [K8s Secrets Store Container Storage Interface (CSI)](https://docs.akeyless.io/docs/kubernetes-secrets-store-csi-provider) 
-- [K8s Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) 
+* [Akeyless K8s Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) 
+* [K8s External Secret Operator (ESO)](https://docs.akeyless.io/docs/external-secret-operator) 
+* [K8s Secrets Store Container Storage Interface (CSI)](https://docs.akeyless.io/docs/kubernetes-secrets-store-csi-provider) 
+* [K8s Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) 
 
 > 👍 Note
-> 
+>
 > The documentation, configuration and examples for Akeyless K8s plugins are also applicable to Red Hat OpenShift environment.
 
 # Tutorial
