@@ -59,15 +59,4 @@ inspec shell -c 'package("git").installed?' -t ssh://ubuntu@172.17.0.1
 inspec shell -c 'package("git").version' -t ssh://ubuntu@172.17.0.1
 ```
 
-[block:embed]
-{
-  "html": false,
-  "url": "https://drive.google.com/file/d/1eb_tzY-0MoY3UpHkO41fbKpXQzZ2dcXb/view?usp=sharing",
-  "title": "AKEYLESS Vault CHEF InSpec integration.mp4",
-  "favicon": "https://ssl.gstatic.com/docs/doclist/images/icon_14_video_favicon.ico",
-  "image": "https://lh3.googleusercontent.com/Liw_VVJyvAVd1vSLBcx-cCggDocmAgn5GwOlAHWyX8ikA3npWB7mkvHMxBcTaxw=w1200-h630-p",
-  "provider": "drive.google.com",
-  "href": "https://drive.google.com/file/d/1eb_tzY-0MoY3UpHkO41fbKpXQzZ2dcXb/view?usp=sharing",
-  "iframe": false
-}
-[/block]
+<Embed url="https://drive.google.com/file/d/1eb_tzY-0MoY3UpHkO41fbKpXQzZ2dcXb/view?usp=sharing" title="AKEYLESS Vault CHEF InSpec integration.mp4" favicon="https://ssl.gstatic.com/docs/doclist/images/icon_14_video_favicon.ico" image="https://lh3.googleusercontent.com/Liw_VVJyvAVd1vSLBcx-cCggDocmAgn5GwOlAHWyX8ikA3npWB7mkvHMxBcTaxw=w1200-h630-p" provider="drive.google.com" href="https://drive.google.com/file/d/1eb_tzY-0MoY3UpHkO41fbKpXQzZ2dcXb/view?usp=sharing" iframe="false" />
