@@ -14,7 +14,7 @@ This section outlines the CLI commands relevant to Universal Identity authentica
 
 General Flags:
 
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
+`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
 
@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">_create_</p>
+### <p style={{ color: "blue" }}>*create*</p>
 
 Create a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
@@ -34,35 +34,35 @@ Create a new Auth Method that will be able to authenticate using Akeyless Univer
 
 ```shell
 akeyless auth-method create universal-identity \
---name <Auth method name> \
---ttl <Token TTL> 
+--name &lt;Auth method name&gt; \
+--ttl &lt;Token TTL&gt;
 ```
 
 ##### Flags
 
 `-n, --name`: **Required** Auth Method name
 
- `--descrpition`: Auth Method description
+`--descrpition`: Auth Method description
 
-`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)                         
+`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
- `--bound-ips`: A comma-separated CIDR block list to allow client access                                                           
+`--bound-ips`: A comma-separated CIDR block list to allow client access
 
- `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity                                                   
+`--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
 
-`--delete-protection`: Protection from accidental deletion of this object, \[true/false 
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false\]
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
- `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings) 
+`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
- `--deny-rotate`: Deny from the token to rotate                           
+`--deny-rotate`: Deny from the token to rotate
 
- `--deny-inheritance`: Deny from root to create children                          
+`--deny-inheritance`: Deny from root to create children
 
- `--ttl[=60]`: Token TTL (has the value that configured in Akeyless console > Authentication settings)
+`--ttl[=60]`: Token TTL (has the value that configured in Akeyless console &gt; Authentication settings)
 
-### <p style="color:blue">_uid-create-child-token_</p>
+### <p style={{ color: "blue" }}>*uid-create-child-token*</p>
 
 Create a new child token using Akeyless Universal Identity
 
@@ -76,41 +76,41 @@ akeyless uid-create-child-token \
 
 ##### Flags
 
- `--child-deny-rotate`: Deny from new child to rotate        
+`--child-deny-rotate`: Deny from new child to rotate
 
- `--child-deny-inheritance`: Deny from new child to create their own children  
+`--child-deny-inheritance`: Deny from new child to create their own children
 
- `--child-ttl`: New child token TTL                            
+`--child-ttl`: New child token TTL
 
- `-n, --auth-method-name`: The universal identity auth method name, required only when uid-token is not provided  
+`-n, --auth-method-name`: The universal identity auth method name, required only when uid-token is not provided
 
- `--tid, --uid-token-id`: The ID of the uid-token, required only when uid-token is not provided 
+`--tid, --uid-token-id`: The ID of the uid-token, required only when uid-token is not provided
 
- `--profile` or `--token`: Use a specific Akeyless profile (located at $HOME/.akeyless/profiles) or a temporary access token 
+`--profile` or `--token`: Use a specific Akeyless profile (located at $HOME/.akeyless/profiles) or a temporary access token
 
- `--uid-token`: The universal identity token. It is required only for universal_identity authentication
+`--uid-token`: The universal identity token. It is required only for universal_identity authentication
 
-### <p style="color:blue">_uid-generate-token_</p>
+### <p style={{ color: "blue" }}>*uid-generate-token*</p>
 
 Generate a new token using Akeyless Universal Identity
 
 ##### Usage
 
 ```shell
-akeyless uid-generate-token --auth-method-name <Auth method name>
+akeyless uid-generate-token --auth-method-name &lt;Auth method name&gt;
 ```
 
-### <p style="color:blue">_uid-list-children _</p>
+### <p style={{ color: "blue" }}>*uid-list-children*</p>
 
 List the token children ids of Akeyless Universal Identity
 
 ##### Usage
 
 ```shell
-akeyless uid-list-children --auth-method-name <UID Auth Method Name>
+akeyless uid-list-children --auth-method-name &lt;UID Auth Method Name&gt;
 ```
 
-### <p style="color:blue">_uid-revoke-token_</p>
+### <p style={{ color: "blue" }}>*uid-revoke-token*</p>
 
 Revoke token using Akeyless Universal Identity
 
@@ -118,37 +118,37 @@ Revoke token using Akeyless Universal Identity
 
 ```shell
 akeyless uid-revoke-token \
---revoke-type <revokeSelf/revokeAll> \
---revoke-token <UID Token ID> 
+--revoke-type &lt;revokeSelf/revokeAll&gt; \
+--revoke-token &lt;UID Token ID&gt;
 ```
 
 ##### Flags
 
- `--revoke-type`: **Required**, revokeSelf/revokeAll (delete only this token/this token and his children) 
+`--revoke-type`: **Required**, revokeSelf/revokeAll (delete only this token/this token and his children)
 
- `--revoke-token`: **Required**, the universal identity token/token-id to revoke                           
+`--revoke-token`: **Required**, the universal identity token/token-id to revoke
 
- `-n, --auth-method-name`: The universal identity auth method name                                                   
+`-n, --auth-method-name`: The universal identity auth method name
 
-### <p style="color:blue">_uid-rotate-token_</p>
+### <p style={{ color: "blue" }}>*uid-rotate-token*</p>
 
 Rotate Akeyless Universal Identity token
 
 ##### Flags
 
- `-t, --token, --uid-token`: The Universal identity token to rotate                                       
+`-t, --token, --uid-token`: The Universal identity token to rotate
 
- `--fork`: Create a new child token with default Flags                             
+`--fork`: Create a new child token with default Flags
 
- `--send-manual-ack-token`: The new rotated token to send manual ack for (with uid-token=the-orig-token) 
+`--send-manual-ack-token`: The new rotated token to send manual ack for (with uid-token=the-orig-token)
 
- `--with-manual-ack`: Disable automatic ack                                                        
+`--with-manual-ack`: Disable automatic ack
 
- `-o, --output-file`: Path to the output file                                                      
+`-o, --output-file`: Path to the output file
 
- `-i, --input-file`:          Path to the input file                                                       
+`-i, --input-file`: Path to the input file
 
-### <p style="color:blue">_update_</p>
+### <p style={{ color: "blue" }}>*update*</p>
 
 Update a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
@@ -156,34 +156,34 @@ Update a new Auth Method that will be able to authenticate using Akeyless Univer
 
 ```shell
 akeyless auth-method update universal-identity \
---name <Auth method name> \
---new-name <Auth method new name> 
+--name &lt;Auth method name&gt; \
+--new-name &lt;Auth method new name&gt;
 ```
 
 ##### Flags
 
- `--new-name`: Auth Method new name                                                                                               
+`--new-name`: Auth Method new name
 
- `-n, --name`: **Required**, Auth Method name                                                                                   
+`-n, --name`: **Required**, Auth Method name
 
- `--descrpition`: Auth Method description 
+`--descrpition`: Auth Method description
 
-`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)                                 
+`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
- `--bound-ips`: A comma-separated CIDR block list to allow client access                                                           
+`--bound-ips`: A comma-separated CIDR block list to allow client access
 
- `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity                                                      
+`--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
 
- `--force-sub-claims`: enforce role-association must include sub-claims                                                                   
+`--force-sub-claims`: enforce role-association must include sub-claims
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
+`--audit-logs-claims`: Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false\]
 
- `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings) 
+`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
- `--deny-rotate`: Deny from the token to rotate                                                                                      
+`--deny-rotate`: Deny from the token to rotate
 
- `--deny-inheritance`: Deny from root to create children                                                                                  
+`--deny-inheritance`: Deny from root to create children
 
- `--ttl[=60]`: Token ttl (in minutes)
+`--ttl[=60]`: Token ttl (in minutes)
