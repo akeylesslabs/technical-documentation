@@ -12,3 +12,4 @@
 - authmethodcreatekerberos
 - authmethodcreateldap
 - authmethodcreateoauth2
+- authmethodcreateoci
