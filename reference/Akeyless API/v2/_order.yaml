@@ -347,3 +347,4 @@
 - kmipclientsetrule
 - kmipcreateclient
 - kmipserversetup
+- kmipdeleteclient
