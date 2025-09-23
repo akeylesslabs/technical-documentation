@@ -11,16 +11,16 @@ next:
   description: ''
 ---
 > 📘 Note
-> 
+>
 > Currently, FIPS mode is supported only for Linux OS
 
 While working within a FIPS compliant environment, the following features are **not** supported:
 
-- `RSA` asymmetric encryption key with a length of `1024 bits`.
+* `RSA` asymmetric encryption key with a length of `1024 bits`.
 
-- `AES SIV` symmetric encryption keys.
+* `AES SIV` symmetric encryption keys.
 
-- `TLS` version lower than `TLS 1.2`
+* `TLS` version lower than `TLS 1.2`
 
 To run your Gateway in a FIPS compliant environment, run your Gateway deployment with this setting enabled: 
 
