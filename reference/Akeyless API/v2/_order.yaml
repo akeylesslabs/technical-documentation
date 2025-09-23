@@ -326,3 +326,4 @@
 - getaccountsettings
 - getanalyticsdata
 - getauthmethod
+- getcertificatevalue
