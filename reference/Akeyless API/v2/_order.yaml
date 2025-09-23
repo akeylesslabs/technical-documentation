@@ -102,3 +102,4 @@
 - deleteroleassociation
 - deletetargetassociation
 - deleteauthmethod
+- deleteauthmethods
