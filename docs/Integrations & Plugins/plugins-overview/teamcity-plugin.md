@@ -13,7 +13,7 @@ next:
 When performing integration tests and deployments, build scripts need credentials to access external servers and services. The [TeamCity plugin](https://blog.jetbrains.com/teamcity/2017/09/vault/) allows connecting TeamCity to the Akeyless Platform, requesting new credentials when a build starts, passing them to the build script, and revoking them immediately when it finishes.
 
 > 👍 Note
-> 
+>
 > Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](doc:hashicorp-vault-proxy)
 
 # Prerequisites
@@ -23,170 +23,58 @@ When performing integration tests and deployments, build scripts need credential
 2. An [Authentication Methods](doc:access-and-authentication-methods) configured in the Akeyless Platform with access to secrets that will be used by the build agent.
 
 > 📘 Info
-> 
+>
 > Currently, TeamCity plugin supports three authentication methods:
-> 
-> - [AWS IAM](doc:aws-iam)
-> - [LDAP](doc:ldap)
-> - Akeyless [API Key](doc:api-key)
-> 
+>
+> * [AWS IAM](doc:aws-iam)
+> * [LDAP](doc:ldap)
+> * Akeyless [API Key](doc:api-key)
+>
 > Ensure that your [Authentication Methods](doc:access-and-authentication-methods) is associated with an [access role](https://docs.akeyless.io/docs/rbac) that has sufficient permissions to access the required secrets.
 
 # Configure The TeamCity Plugin
 
 1. Log in to TeamCity and go to **Administration > Plugins**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/b6836f5-TC-Plugin-01.png",
-        "TC-Plugin-01.png",
-        1580
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/b6836f5-TC-Plugin-01.png" />
 
 2. Click **Browse plugins repository** to find and download the `HashiCorp Vault` plugin.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9748a1d-TC-Plugin-02.png",
-        "TC-Plugin-02.png",
-        1266
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/9748a1d-TC-Plugin-02.png" />
 
 3. Then click **Upload plugin ZIP** to install the `Hashicorp Vault` plugin.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3525c64-TC-Plugin-03.png",
-        "TC-Plugin-03.png",
-        1330
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/3525c64-TC-Plugin-03.png" />
 
 4. Go to **Administration > Projects** and create a new project.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/55d4b83-TC-Plugin-04.png",
-        "TC-Plugin-04.png",
-        1508
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/55d4b83-TC-Plugin-04.png" />
 
 5. Open the created project and go to the Connections section.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a0acacb-TC-Plugin-05.png",
-        "TC-Plugin-05.png",
-        1417
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/a0acacb-TC-Plugin-05.png" />
 
 6. Click **Add Connection** to connect your project to the `Vault` plugin.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6c9b5cd-TC-Plugin-06.png",
-        "TC-Plugin-06.png",
-        1239
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/6c9b5cd-TC-Plugin-06.png" />
 
 7. Provide connection parameters to the Akeyless Platform in the pop-up window.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d23f619-TC-Plugin-07.png",
-        "TC-Plugin-07.png",
-        1573
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/d23f619-TC-Plugin-07.png" />
 
 Where:
 
-- **Vault URL:** Specify your Gateway URL with the HVP port: `https://<Your-Gateway-URL>:8200` or use the public endpoint of Akeyless HVP: `https://hvp.akeyless.io`.
+* **Vault URL:** Specify your Gateway URL with the HVP port: `https://<Your-Gateway-URL>:8200` or use the public endpoint of Akeyless HVP: `https://hvp.akeyless.io`.
 
-- **Authentication method:** Select the authentication method to use when authenticating with Akeyless. 
+* **Authentication method:** Select the authentication method to use when authenticating with Akeyless. 
 
 Available options: AWS IAM, LDAP, or Akeyless [API Key](doc:api-key) (Vault AppRole).
 
 For example, to use [API Key](doc:api-key) set the following:
 
-- **AppRole Role ID:** Your [API Key](doc:api-key) `Access ID` .
+* **AppRole Role ID:** Your [API Key](doc:api-key) `Access ID` .
 
-- **AppRole Secret ID**: `Access Key` of the provided `Access ID`.
+* **AppRole Secret ID**: `Access Key` of the provided `Access ID`.
 
 # Static Secrets
 
@@ -200,51 +88,19 @@ After that, you need to create an environment variable in your TeamCity project 
 
 1. Go to the Parameters section to declare a new build parameter which will refer to the Akeyless secret. Currently, these values can be used in the build parameter declaration only and cannot be specified in build steps.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/19f7283-TC-parameters.png",
-        "TC-parameters.png",
-        1528
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/19f7283-TC-parameters.png" />
 
 2. Click **Add new parameter** and provide the settings in the pop-up window.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ea40d72-TC-New-Parameter.png",
-        "TC-New-Parameter.png",
-        1551
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/ea40d72-TC-New-Parameter.png" />
 
 Where:
 
-- **Name:** Specify your parameter name (without any prefixes). 
+* **Name:** Specify your parameter name (without any prefixes). 
 
-- **Kind:** Select the **Environment variable (env.)** parameter type. This will add an **env.** prefix to the parameter name, but later in the build script, you should specify the name without a prefix.
+* **Kind:** Select the **Environment variable (env.)** parameter type. This will add an **env.** prefix to the parameter name, but later in the build script, you should specify the name without a prefix.
 
-- **Value:** Provide the full path to your secret in Akeyless using the following format:
+* **Value:** Provide the full path to your secret in Akeyless using the following format:
 
 Syntax: 
 
@@ -254,75 +110,27 @@ In our example: `%vault:secret/hvp/test!/password%`
 
 Finally, let's create a simple build script using this environment variable and run it:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/359e8ae-TC-GenSettings.png",
-        "TC-GenSettings.png",
-        1511
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/359e8ae-TC-GenSettings.png" />
 
 In the Audit Logs screen, you'll see that the script requested and successfully received the `hvp/test` secret value:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/eb25fc4-TC-Results.png",
-        "TC-Results.png",
-        1587
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/eb25fc4-TC-Results.png" />
 
 # Dynamic Secrets
 
 1. Go to the Parameters section to declare new build parameters for username and password which will refer to the corresponding dynamic secret values.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c51a015-TC-parameters.png",
-        "TC-parameters.png",
-        1528
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/c51a015-TC-parameters.png" />
 
 2. Click **Add new parameter** and provide the settings in the pop-up window.
 
 Where:
 
-- **Name:** Specify your parameter name (without any prefixes). 
+* **Name:** Specify your parameter name (without any prefixes). 
 
-- **Kind:** Select the **Environment variable (env.)** parameter type. This will add an **env.** prefix to the parameter name, but later in the build script, you should specify the name without a prefix.
+* **Kind:** Select the **Environment variable (env.)** parameter type. This will add an **env.** prefix to the parameter name, but later in the build script, you should specify the name without a prefix.
 
-- **Value:** Provide the full path to your secret in Akeyless using the following format:
+* **Value:** Provide the full path to your secret in Akeyless using the following format:
 
 Syntax: 
 
@@ -332,24 +140,9 @@ In our example: `%vault:/mysql/creds/hvp/mysql!/username%` and `%vault:/mysql/cr
 
 Another example: 
 
-`%vault:azure/creds/<path/to/secretname>!/user.password%`  
+`%vault:azure/creds/<path/to/secretname>!/user.password%`\
 `%vault:azure/creds/<path/to/secretname>!/user.userPrincipalName%`
 
 Finally, create a simple build script using this environment variable, and run it:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/fb23889-TC-Dynamic3.png",
-        "TC-Dynamic3.png",
-        1396
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/fb23889-TC-Dynamic3.png" />
