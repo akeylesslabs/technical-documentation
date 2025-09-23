@@ -24,8 +24,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `share_item`: Share an item from Akeyless
 
-	
-# Roles	
+# Roles
 
 * `create_role`: Create a new role
 
@@ -39,7 +38,6 @@ This page includes a thorough comb through all of the different options for the 
 
 * `list_roles`: List roles, either in a specific path or in your root Akeyless folder
 
-	
 # Authentication Methods
 
 * `create_auth_method`: Create a new authentication method
@@ -56,7 +54,6 @@ This page includes a thorough comb through all of the different options for the 
 
 * `delete_assoc_role_auth_method`: Delete an association between a role and an auth method
 
-
 # General Item Actions
 
 * `create_item`: Create an item
@@ -70,7 +67,6 @@ This page includes a thorough comb through all of the different options for the 
 * `rotate_item`: Rotate a key
 
 * `share_item`: Share an item
-
 
 # Secrets and Keys Actions
 
@@ -91,7 +87,6 @@ This page includes a thorough comb through all of the different options for the 
 * `get_dynamic_secret_value`: Fetch a dynamic secret
 
 * `new_dynamic_secret_value_pushed_by_producer`: Information that a dynamic secret has been fetched
-	
 
 # Universal Identity Actions
 
@@ -101,8 +96,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `universal_identity_rotate`: Rotation of UIDs
 
-
-# Targets	
+# Targets
 
 * `create_target`: Create a new target
 
@@ -119,8 +113,7 @@ This page includes a thorough comb through all of the different options for the 
 * `create_assoc_target_item`: Associate an item with a target
 
 * `delete_assoc_target_item`: Break association between a target and an item
-	
-	
+
 # Notification Forwarders
 
 * `create_notification_forwarder`: Create a notification forwarder
@@ -137,7 +130,6 @@ This page includes a thorough comb through all of the different options for the 
 
 * `list_bastions`: List bastions
 
-	
 # Gateways
 
 * `issue_gateway_jwt`: Get gateway credentials
@@ -145,7 +137,6 @@ This page includes a thorough comb through all of the different options for the 
 * `retrieve_gateway_information`: Fetch details of a specific gateway
 
 * `list_gateways`: List gateways
-
 
 # Billing
 
@@ -162,7 +153,6 @@ This page includes a thorough comb through all of the different options for the 
 * `list_invoices`: List all invoices
 
 * `get_next_invoice`: Show next invoice
-
 
 # Additional Log Actions
 
