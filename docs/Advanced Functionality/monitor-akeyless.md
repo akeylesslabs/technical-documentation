@@ -37,17 +37,17 @@ A full list of the log servers to which logs can be forwarded can be found in th
 Setting the [Gateway](https://docs.akeyless.io/docs/api-gw) to forward the **Audit Logs** can be configured either during deployment or after the Gateway is deployed.
 
 > 📘 Authorized Users
-> 
+>
 > Only users with access permission on the gateway to manage log forwarding will authorize to set log forwards.
 
 # Metrics
 
 Akeyless provides detailed telemetry metrics to offer insights into the health and performance of Akeyless components. These metrics help you track and optimize key areas, such as:
 
-- **Request Rates**: Monitor the volume of requests handled by the Akeyless Gateway.
-- **Latency**: Measure response times to ensure performance goals are met.
-- **Error Rates**: Identify and fix issues by tracking errors.
-- **Resource Utilization**: Monitor CPU, memory, and other system resources.
+* **Request Rates**: Monitor the volume of requests handled by the Akeyless Gateway.
+* **Latency**: Measure response times to ensure performance goals are met.
+* **Error Rates**: Identify and fix issues by tracking errors.
+* **Resource Utilization**: Monitor CPU, memory, and other system resources.
 
 Telemetry metrics work with leading monitoring tools, including **Prometheus**, **Grafana**, and **DataDog**. By exporting metrics to these systems, you can set up dashboards and alerts to support active monitoring and quick responses. In addition to those metrics, you can also forward the Gateway application logs as well.
 
@@ -89,9 +89,9 @@ Each **Gateway** cluster exposes a `/status` endpoint that provides basic runtim
 
 To assess the Gateway’s connectivity to Akeyless SaaS core services, you can use the `/health` endpoint. Additionally, when working with [Cluster Cache](https://docs.akeyless.io/docs/advanced-chart-configuration#cache-configuration), this endpoint will also be affected by the cache status.
 
-- If the Gateway is successfully connected, it responds with an HTTP status code `200` and the message: **Health Check Ok**.
-- If the connection fails, it returns an HTTP status code `503` with the message: **Health Check Error**
-- If Cluster Cache is used, and not available, even when the Gateway is successfully connected, it will return `503` with **Health Check Error** 
+* If the Gateway is successfully connected, it responds with an HTTP status code `200` and the message: **Health Check Ok**.
+* If the connection fails, it returns an HTTP status code `503` with the message: **Health Check Error**
+* If Cluster Cache is used, and not available, even when the Gateway is successfully connected, it will return `503` with **Health Check Error** 
 
 To disable the effect of the [Cluster Cache](https://docs.akeyless.io/docs/advanced-chart-configuration#cache-configuration) on the `/health` endpoint you can set the following env variable as part of your Gateway deployment: 
 
