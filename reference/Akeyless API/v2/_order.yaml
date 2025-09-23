@@ -463,3 +463,4 @@
 - targetcreatezerossl
 - targetdelete
 - targetget
+- targetgetdetails
