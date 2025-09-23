@@ -333,3 +333,4 @@
 - getgroup
 - getkubeexeccreds
 - getpkicertificate
+- getrole
