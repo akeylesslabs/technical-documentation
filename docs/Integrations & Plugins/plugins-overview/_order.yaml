@@ -1,3 +1,4 @@
 - kubernetes-plugins
 - terraform-provider
 - github-action
+- ansible-awx-plugin
