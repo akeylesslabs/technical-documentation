@@ -100,3 +100,4 @@
 - decryptpkcs1
 - decryptwithclassickey
 - deleteroleassociation
+- deletetargetassociation
