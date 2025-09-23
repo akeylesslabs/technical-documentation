@@ -48,12 +48,12 @@ Right-click on a highlighted secret to move it securely to your Akeyless vault.
 
 View alerts in the “Problems” panel and manage all your Akeyless secrets from a dedicated sidebar within Cursor.
 
-Command Palette Integration  
+Command Palette Integration\
 Use Cursor’s command palette to scan your entire codebase for hardcoded secrets.
 
 #### Getting Started
 
-**Step 1: Install Akeyless CLI**  
+**Step 1: Install Akeyless CLI**\
 Before using the extension, you must have the Akeyless CLI installed and be authenticated.
 
 ```shell
@@ -83,10 +83,10 @@ akeyless auth
 
 #### How to Use
 
-**Scan for Secrets**  
+**Scan for Secrets**\
 Press Ctrl+Shift+P and run “Akeyless: Scan for Hardcoded Secrets”.
 
-**Save to Akeyless**  
+**Save to Akeyless**\
 Right-click a detected secret in your code and select “Save to Akeyless”.
 
 **Manage Secrets**
