@@ -174,3 +174,4 @@
 - dynamicsecretupdatemysql
 - dynamicsecretupdateoracledb
 - dynamicsecretupdateping
+- dynamicsecretupdatepostgresql
