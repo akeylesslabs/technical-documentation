@@ -14,13 +14,13 @@ Custom Fields allow you to enforce structured metadata on Akeyless objects such 
 
 For example:
 
-- Every Secret may require an `Owner` field.
-- Keys can optionally include a `Managed By` field.
+* Every Secret may require an `Owner` field.
+* Keys can optionally include a `Managed By` field.
 
 Administrators can define which fields are available for each object type in Akeyless and whether those fields are required or optional.
 
 > 📘 Supported Objects
-> 
+>
 > Currently Custom Fields supports only **Items**
 
 # Manage Custom Field
@@ -31,9 +31,9 @@ Run the following CLI command to create a new custom field in the account:
 
 ```shell
 akeyless custom-field create \
---object[=items] \
---object-type  static-secret \
---required[=false] 
+--object=`[items]` \
+--object-type static-secret \
+--required=`[false]`
 ```
 
 Where: 
@@ -51,7 +51,7 @@ Once a custom field is created, it applies to all new objects of the selected ty
 Delete a custom field from the account:
 
 ```shell
-akeyless custom-field delete --id  <custom field ID>
+akeyless custom-field delete --id <custom field ID>
 ```
 
 ## Update a custom field
@@ -62,7 +62,7 @@ Updates an existing custom field in the account:
 akeyless custom-field update \
 --id <custom field ID> \
 --name <new name> \
--required[=false]
+--required=`[false]`
 ```
 
 ## Fetch a custom field
@@ -73,13 +73,13 @@ Retrieves a custom field:
 akeyless custom-field get --id <custom field ID>
 ```
 
- Retrieves a list of all custom fields in the account:
+Retrieves a list of all custom fields in the account:
 
 ```shell
-akeyless custom-field list  --object items --object-type static-secret
+akeyless custom-field list --object items --object-type static-secret
 ```
 
-You can find the complete list of additional parameters for this command in the <link> section.
+You can find the complete list of additional parameters for this command in the [link](section).
 
 # Manage Custom Field from Console
 
