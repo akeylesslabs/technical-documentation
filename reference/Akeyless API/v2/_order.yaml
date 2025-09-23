@@ -152,3 +152,4 @@
 - dynamicsecretgetvalue
 - dynamicsecretlist
 - dynamicsecrettmpcredsget
+- dynamicsecrettmpcredsdelete
