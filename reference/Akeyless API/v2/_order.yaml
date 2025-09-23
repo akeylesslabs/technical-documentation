@@ -400,3 +400,4 @@
 - rotatedsecretcreatewindows
 - rotatedsecretdelete
 - rotatedsecretdeletesync
+- rotatedsecretgetvalue
