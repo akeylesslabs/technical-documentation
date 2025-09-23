@@ -348,3 +348,4 @@
 - kmipcreateclient
 - kmipserversetup
 - kmipdeleteclient
+- kmipdeleteserver
