@@ -46,3 +46,4 @@
 - createauthmethodgcp
 - createauthmethodhuawei
 - createauthmethodk8s
+- createauthmethodldap
