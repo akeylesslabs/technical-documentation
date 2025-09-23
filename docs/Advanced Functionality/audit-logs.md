@@ -14,9 +14,9 @@ next:
       slug: log-forwarding
       title: Log Forwarding
 ---
-Akeyless collects detailed audit logs per secret type, operation, user, time, etc. 
+Akeyless collects detailed audit logs per secret type, operation, user, time, etc.
 
-Akeyless audit logs take note of just about every change\\action within the Akeyless system, providing a complete track record of your Akeyless system operations. Therefore, Akeyless audit logs are a valuable resource for Akeyless admins and auditors who want to examine suspicious activity on Akeyless or diagnose and troubleshoot issues. 
+Akeyless audit logs take note of just about every change\\action within the Akeyless system, providing a complete track record of your Akeyless system operations. Therefore, Akeyless audit logs are a valuable resource for Akeyless admins and auditors who want to examine suspicious activity on Akeyless or diagnose and troubleshoot issues.
 
 These audit logs can give an Akeyless administrator invaluable insight into what behavior is normal and what behavior isn’t. A log event, for example, will show what activity was attempted and whether it succeeded. This can be useful when identifying whether a system component is misconfigured or likely to fail.
 
@@ -26,22 +26,7 @@ Akeyless log auditing is important for cybersecurity because it provides records
 
 When using the console, you will be able to navigate to the **Audit Logs** tab to view logs in the following format:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png",
-        "Screenshot at Nov 10 13-44-36.png",
-        1912
-      ],
-      "align": "center",
-      "caption": "Example of Akeyless Audit log"
-    }
-  ]
-}
-[/block]
-
+<Image title="Screenshot at Nov 10 13-44-36.png" alt="1912" align="center" src="https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png"> Example of Akeyless Audit log </Image>
 
 These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status in the 400s means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
 
@@ -49,7 +34,7 @@ You will be able to filter your logs based on any of these rubricks or tags insi
 
 # Reading the Raw Logs
 
-Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, etc.  
+Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, etc.\
 The logs will show up as a line of text, from which you will be able to read the following information:
 
 | Log Line             | Description                                                                                                                                                                               |
@@ -69,4 +54,4 @@ The logs will show up as a line of text, from which you will be able to read the
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports" target="_blank" style="color: #00e">Audit Logs, Analytics, and Usage Reports</a>.
+Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports" target="_blank" style={{ color: "#00e" }}>Audit Logs, Analytics, and Usage Reports</a>.
