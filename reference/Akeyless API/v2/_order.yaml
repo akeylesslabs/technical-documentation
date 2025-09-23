@@ -412,3 +412,4 @@
 - rotatedsecretupdatehanadb
 - rotatedsecretupdateldap
 - rotatedsecretupdatemongodb
+- rotatedsecretupdatemssql
