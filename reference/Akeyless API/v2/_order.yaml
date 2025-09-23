@@ -569,3 +569,4 @@
 - validatetoken
 - verifydatawithclassickey
 - verifyecdsa
+- verifygpg
