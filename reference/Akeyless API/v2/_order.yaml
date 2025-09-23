@@ -402,3 +402,4 @@
 - rotatedsecretdeletesync
 - rotatedsecretgetvalue
 - rotatedsecretlist
+- rotatedsecretsync
