@@ -307,3 +307,4 @@
 - gatewayupdateremoteaccess
 - gatewayupdateremoteaccessdesktopapp
 - gatewayupdateremoteaccessrdprecordings
+- gwupdateremoteaccesssessionlogsawss3
