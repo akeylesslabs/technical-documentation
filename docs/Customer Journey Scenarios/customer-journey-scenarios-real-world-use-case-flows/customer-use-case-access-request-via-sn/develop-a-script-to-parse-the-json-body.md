@@ -16,31 +16,31 @@ The provided script is designed to be used in a ServiceNow instance, specificall
 
 **Receive and Parse JSON Payload**
 
-- The script starts by accessing the incoming HTTP request's body through request.body.dataString. This contains the raw JSON payload sent to the endpoint.
-- It attempts to parse this JSON string into a JavaScript object using JSON.parse(requestBody). If parsing fails (e.g., due to malformed JSON), it catches the error and responds with a 400 status code (Bad Request) and an error message indicating the JSON is invalid.
+* The script starts by accessing the incoming HTTP request's body through request.body.dataString. This contains the raw JSON payload sent to the endpoint.
+* It attempts to parse this JSON string into a JavaScript object using JSON.parse(requestBody). If parsing fails (e.g., due to malformed JSON), it catches the error and responds with a 400 status code (Bad Request) and an error message indicating the JSON is invalid.
 
 **Initialize a New Record**
 
-- It then initializes a new record in the u_akeyless_event_reciver table using GlideRecord, a ServiceNow API for database operations. This table name is specified in the script and should exist in your ServiceNow instance. If it doesn’t, you need to create it or use an existing table name.
+* It then initializes a new record in the u\_akeyless\_event\_reciver table using GlideRecord, a ServiceNow API for database operations. This table name is specified in the script and should exist in your ServiceNow instance. If it doesn’t, you need to create it or use an existing table name.
 
 **Set Record Fields from JSON Data**
 
-- The script sets various fields of the new record (u_access_id, u_event_id, etc.) with values extracted from the parsed JSON data. It's important that these field names match the column names in your u_akeyless_event_reciver table.
-- For fields that are expected to store complex data types like arrays or objects (u_capabilities), the script converts them into JSON strings using JSON.stringify() before storing. This is because relational database fields typically store text or numbers and cannot directly store complex types.
+* The script sets various fields of the new record (u\_access\_id, u\_event\_id, etc.) with values extracted from the parsed JSON data. It's important that these field names match the column names in your u\_akeyless\_event\_reciver table.
+* For fields that are expected to store complex data types like arrays or objects (u\_capabilities), the script converts them into JSON strings using JSON.stringify() before storing. This is because relational database fields typically store text or numbers and cannot directly store complex types.
 
 **Insert the Record and Respond**
 
-- After setting all the necessary fields, the script attempts to insert the new record into the database with record.insert().
-- If the insertion is successful, it retrieves the new record's Sys ID (newRecordSysId), responds with a 201 status code (Created), and includes the Sys ID in the response body.
-- If the insertion fails, perhaps due to missing mandatory fields or other database constraints, it responds with a 500 status code (Internal Server Error) and an appropriate error message.
+* After setting all the necessary fields, the script attempts to insert the new record into the database with record.insert().
+* If the insertion is successful, it retrieves the new record's Sys ID (newRecordSysId), responds with a 201 status code (Created), and includes the Sys ID in the response body.
+* If the insertion fails, perhaps due to missing mandatory fields or other database constraints, it responds with a 500 status code (Internal Server Error) and an appropriate error message.
 
 **Key Points to Note**
 
-- Table and Field Names: Ensure that the table u_akeyless_event_reciver and the field names like u_access_id, u_event_id, etc., exist in your ServiceNow instance. If they don't, you'll need to create them according to your data model.
-- Error Handling: The script includes basic error handling for JSON parsing and database insertion. It responds with HTTP status codes and messages that help the caller understand what went wrong.
-- Data Conversion: Complex data types are converted to JSON strings to be stored in text fields. Ensure that your application logic accounts for this when reading these fields.
+* Table and Field Names: Ensure that the table u\_akeyless\_event\_reciver and the field names like u\_access\_id, u\_event\_id, etc., exist in your ServiceNow instance. If they don't, you'll need to create them according to your data model.
+* Error Handling: The script includes basic error handling for JSON parsing and database insertion. It responds with HTTP status codes and messages that help the caller understand what went wrong.
+* Data Conversion: Complex data types are converted to JSON strings to be stored in text fields. Ensure that your application logic accounts for this when reading these fields.
 
-**Script Example **
+**Script Example**
 
 ```Text JavaScript
 (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
