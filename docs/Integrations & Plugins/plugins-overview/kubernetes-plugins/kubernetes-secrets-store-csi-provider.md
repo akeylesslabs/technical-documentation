@@ -15,23 +15,23 @@ next:
 The Secrets Store CSI Driver `secrets-store.csi.k8s.io` allows K8s to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the volume is attached, the data is mounted into the container's file system.
 
 > 👍 Note
-> 
+>
 > K8s Secrets Store CSI Provider supports Static Secrets, Rotated Secrets and Certificates
 
 [Akeyless provider](https://github.com/akeylesslabs/akeyless-csi-provider) for the Secrets Store CSI driver allows you to fetch existing secrets that are stored in Akeyless and use the Secrets Store CSI driver interface to mount them into K8s pods.
 
 Similar to K8s secrets, upon pod start, the Secrets Store CSI driver communicates with the provider using gRPC to retrieve the secret content from the external Secrets Store specified in the `SecretProviderClass` custom resource.
 
-Then the volume is mounted in the pod as `tmpfs` and the secret value is written to the volume.  
+Then the volume is mounted in the pod as `tmpfs` and the secret value is written to the volume.\
 Upon pod deletion, the corresponding volume is cleaned up and deleted.
 
 # Prerequisites
 
-- K8s v1.16 or higher.
+* K8s v1.16 or higher.
 
-- [Secrets store CSI driver](https://secrets-store-csi-driver.sigs.k8s.io/getting-started/installation.html) installed.
+* [Secrets store CSI driver](https://secrets-store-csi-driver.sigs.k8s.io/getting-started/installation.html) installed.
 
-- [TokenRequest](https://kubernetes-csi.github.io/docs/token-requests.html) enabled.
+* [TokenRequest](https://kubernetes-csi.github.io/docs/token-requests.html) enabled.
 
 # Install Akeyless CSI Provider
 
@@ -54,11 +54,11 @@ The `SecretProviderClass` is a namespaced resource in Secrets Store CSI Provider
 
 Supported [Authentication Methods](doc:access-and-authentication-methods) :
 
-- [API Key](doc:api-key)  
-- [Kubernetes (K8s)](doc:kubernetes-auth) 
-- [AWS IAM](doc:aws-iam) 
-- [Azure AD](doc:azure-ad) 
-- [GCP](doc:gcp-auth-method) 
+* [API Key](doc:api-key)  
+* [Kubernetes (K8s)](doc:kubernetes-auth) 
+* [AWS IAM](doc:aws-iam) 
+* [Azure AD](doc:azure-ad) 
+* [GCP](doc:gcp-auth-method) 
 
 `SecretProviderClass` custom resource should state the `akeylessAccessType`-  which can be one of the supported [Authentication Methods](doc:access-and-authentication-methods) : `access_key`, `aws_iam`, `azure_ad`, `gcp`, `universal_identity`. 
 
@@ -159,7 +159,7 @@ spec:
 ```
 
 > 🚧 Warning
-> 
+>
 > Using Access Key within `YAML` files is not secure. You can provide the `AKEYLESS_ACCESS_KEY` as an environment variable instead.
 
 Reference the `SecretProviderClass` inside the pod deployment volumes when using the CSI driver:
@@ -191,7 +191,7 @@ spec:
 ```
 
 > 🚧 Warning
-> 
+>
 > The `SecretProviderClass` needs to be created in the same namespace as the pod.
 
 After the pod is created, the secret can be found inside the pod, under the `mountPath` - within the `fileName`
