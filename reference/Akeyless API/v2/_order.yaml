@@ -103,3 +103,4 @@
 - deletetargetassociation
 - deleteauthmethod
 - deleteauthmethods
+- deleteeventforwarder
