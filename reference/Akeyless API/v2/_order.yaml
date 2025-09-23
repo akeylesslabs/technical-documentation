@@ -330,3 +330,4 @@
 - get-cert-challenge
 - getdynamicsecretvalue
 - geteventforwarder
+- getgroup
