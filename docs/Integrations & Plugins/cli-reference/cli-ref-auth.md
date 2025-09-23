@@ -16,7 +16,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-## <p style="color:blue">_auth_</p>
+## <p style="color:blue">*auth*</p>
 
 This command authenticates to Akeyless and saves the temporary token so that it can be used again until the token expires without the need to re-authenticate every time.
 
@@ -46,7 +46,7 @@ with the relevant flags according to the `access-type` being used.
 
  `--cloud-id`: The cloud identity (relevant only for access-type=`azure_ad`,`aws_iam`,`gcp`)
 
- `--uid_token`: The universal_identity token (relevant only for access-type=`universal_identity`)
+ `--uid_token`: The universal\_identity token (relevant only for access-type=`universal_identity`)
 
  `--jwt`: The JSON Web Token (relevant only for access-type=`jwt`/`oidc`)
 
@@ -82,7 +82,7 @@ with the relevant flags according to the `access-type` being used.
 
  `--cert-challenge`: Certificate challenge encoded in base64. (relevant only for access-type=`cert`)
 
-`--oci-auth-type[=apikey]`: The type of the OCI configuration to use [instance/apikey/resource] \(relevant only for access-type=oci)
+`--oci-auth-type[=apikey]`: The type of the OCI configuration to use \[instance/apikey/resource] \(relevant only for access-type=oci)
 
 `--oci-group-ocid`: A list of Oracle Cloud IDs groups (relevant only for access-type=oci)
 
@@ -148,17 +148,17 @@ akeyless auth-method create api-key --name <Auth method name>
 
  `--jwt-ttl[=0]`:creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
- `--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+ `--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
  `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
  `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
- `--delete-protection`: Protection from accidental deletion of this object, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 <br />
 
-### <p style="color:blue">_aws-iam_</p>
+### <p style="color:blue">*aws-iam*</p>
 
 Create a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -189,13 +189,13 @@ akeyless auth-method create aws-iam \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to         
 
@@ -215,7 +215,7 @@ akeyless auth-method create aws-iam \
 
  `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### <p style="color:blue">_azure-ad_</p>
+### <p style="color:blue">*azure-ad*</p>
 
 Create a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -243,19 +243,19 @@ akeyless auth-method create azure-ad \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
- `--delete-protection`: Protection from accidental deletion of this object, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `-b, --bound-tenant-id`: **Required**, The Azure tenant id that the access is restricted to                         
 
  `--issuer`: Issuer URL (=`https://sts.windows.net/bound_tenant_id`)             
 
- `--jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server (=\`<https://login.microsoftonline.com/common/discovery/keys>) 
+ `--jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server (=\`[https://login.microsoftonline.com/common/discovery/keys](https://login.microsoftonline.com/common/discovery/keys)) 
 
  `--audience[=https://management.azure.com/]`: The audience in the JWT            
 
@@ -277,7 +277,7 @@ akeyless auth-method create azure-ad \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### <p style="color:blue">_cert_</p>
+### <p style="color:blue">*cert*</p>
 
 Create a new Auth Method that will be able to authenticate using a client certificate
 
@@ -306,7 +306,7 @@ akeyless auth-method create cert \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
@@ -334,7 +334,7 @@ akeyless auth-method create cert \
 
  ` -u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization 
 
-### <p style="color:blue">_email_</p>
+### <p style="color:blue">*email*</p>
 
 Create a new Auth Method that will be able to authenticate using an email address
 
@@ -362,17 +362,17 @@ akeyless auth-method create email \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
- `--delete-protection`: Protection from accidental deletion of this object, [true/false] 
+ `--delete-protection`: Protection from accidental deletion of this object, \[true/false] 
 
  `--email`: **Required**, An email address to be invited to have access                                                      
 
-### <p style="color:blue">_gcp_</p>
+### <p style="color:blue">*gcp*</p>
 
 Create a new Auth Method that will be able to authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
 
@@ -402,13 +402,13 @@ akeyless auth-method create gcp \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 ` --audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
- `--delete-protection`: Protection from accidental deletion of this object, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `-t, --type`: **Required**, The type of the GCP Auth Method (iam/gce)                      
 
@@ -430,7 +430,7 @@ akeyless auth-method create gcp \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### <p style="color:blue">_oauth2_</p>
+### <p style="color:blue">*oauth2*</p>
 
 Create a new Auth Method that will be able to authenticate using OAuth2
 
@@ -461,7 +461,7 @@ akeyless auth-method create oauth2 \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
@@ -481,11 +481,11 @@ akeyless auth-method create oauth2 \
 
  `--audience`: The audience in the JWT
 
- `--gateway-url`:  Gateway URL <http://Your-Akeyless-Gateway-URL:8000>
+ `--gateway-url`:  Gateway URL [http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)
 
  `-d, --delimiters`: A list of additional sub-claims delimiters"
 
-### <p style="color:blue">_oci_</p>
+### <p style="color:blue">*oci*</p>
 
 Create a new Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -518,15 +518,15 @@ akeyless auth-method create oci \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">_oidc_</p>
+### <p style="color:blue">*oidc*</p>
 
 Creates a new Authentication Method object that will allow the user to authenticate using OIDC
 
@@ -557,7 +557,7 @@ akeyless auth-method create oidc \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
@@ -565,12 +565,12 @@ akeyless auth-method create oidc \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false
 
- `--issuer`: Issuer URL  
- `--client-id`: Client ID  
- `--client-secret`: Client Secret  
+ `--issuer`: Issuer URL\
+ `--client-id`: Client ID\
+ `--client-secret`: Client Secret\
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization 
 
- `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is <https://console.akeyless.io/login-oidc> to enable OIDC via Akeyless Console and <http://127.0.0.1:*> to enable OIDC via akeyless CLI)   
+ `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-oidc](https://console.akeyless.io/login-oidc) to enable OIDC via Akeyless Console and [http://127.0.0.1:\*](http://127.0.0.1:*) to enable OIDC via akeyless CLI)   
 
  `--require-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve                  
 
@@ -580,7 +580,7 @@ akeyless auth-method create oidc \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters  
 
-### <p style="color:blue">_saml_</p>
+### <p style="color:blue">*saml*</p>
 
 Create a new Auth Method that will be able to authenticate using SAML
 
@@ -610,7 +610,7 @@ akeyless auth-method create saml \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
@@ -622,7 +622,7 @@ akeyless auth-method create saml \
 
  `--idp-metadata-url`: IDP metadata url            
 
- `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is <https://console.akeyless.io/login-saml> to enable SAML via Akeyless Console and  <http://127.0.0.1:*> to enable SAML via akeyless CLI)   
+ `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-saml](https://console.akeyless.io/login-saml) to enable SAML via Akeyless Console and  [http://127.0.0.1:\*](http://127.0.0.1:*) to enable SAML via akeyless CLI)   
 
  `--idp-metadata-xml-file-path`: IDP metadata xml file path                       
 
@@ -630,7 +630,7 @@ akeyless auth-method create saml \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters
 
-## <p style="color:blue">_get-cloud-identity_</p>
+## <p style="color:blue">*get-cloud-identity*</p>
 
 Get Cloud Identity Token (relevant only for access-type=`azure_ad`, `aws_iam`, `gcp`, `oci`)
 
@@ -644,13 +644,13 @@ akeyless get-cloud-identity \
 
 ##### Flags
 
- `--cloud-provider`: Cloud provider (azure_ad/aws_iam/gcp)
+ `--cloud-provider`: Cloud provider (azure\_ad/aws\_iam/gcp)
 
  `--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for access-type=`azure_ad`)
 
  `--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for access-type=`gcp`)
 
- `--oci-auth-type[=apikey]`: The type of the OCI configuration to use [instance/apikey/resource] \(relevant only for access-type=`oci`)
+ `--oci-auth-type[=apikey]`: The type of the OCI configuration to use \[instance/apikey/resource] \(relevant only for access-type=`oci`)
 
  `--describe-sub-claims`: Describe the cloud identity sub-claims
 
@@ -664,7 +664,7 @@ akeyless get-cloud-identity \
 
 Update Auth Method
 
-#### <p style="color:blue">_api-key_</p>
+#### <p style="color:blue">*api-key*</p>
 
 Update a new API Key Auth Method in the account
 
@@ -692,15 +692,15 @@ akeyless auth-method update api-key --name <Auth method>
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-#### <p style="color:blue">_aws-iam_</p>
+#### <p style="color:blue">*aws-iam*</p>
 
 Update a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -731,7 +731,7 @@ akeyless auth-method update aws-iam \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
@@ -739,7 +739,7 @@ akeyless auth-method update aws-iam \
 
  `-b, --bound-aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to                
 
- `--sts-url[=https://sts.amazonaws.com]`: STS URL  
+ `--sts-url[=https://sts.amazonaws.com]`: STS URL\
  `--bound-arn`: A list of full arns that the access is restricted to                    
 
  `--bound-role-name`: A list of full role-name that the access is restricted to            
@@ -752,9 +752,9 @@ akeyless auth-method update aws-iam \
 
  `--bound-user-id`: A list of full user ids that the access is restricted to               
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-#### <p style="color:blue">_azure-ad_</p>
+#### <p style="color:blue">*azure-ad*</p>
 
 Update a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -785,13 +785,13 @@ akeyless auth-method update azure-ad \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `-b, --bound-tenant-id`: **Required**, The Azure tenant id that the access is restricted to   
 
@@ -817,7 +817,7 @@ akeyless auth-method update azure-ad \
 
  `--bound-resource-id`: A list of full resource ids that the access is restricted to                                                                                                      
 
-#### <p style="color:blue">_cert_</p>
+#### <p style="color:blue">*cert*</p>
 
 Update a new Auth Method that will be able to authenticate using a client certificate.
 
@@ -848,13 +848,13 @@ akeyless auth-method update cert \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]  
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]  
 
  `--certificate-data`: The certificate data in base64, if no file was provided.                                   
 
@@ -876,7 +876,7 @@ akeyless auth-method update cert \
 
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization. 
 
-#### <p style="color:blue">_gcp_</p>
+#### <p style="color:blue">*gcp*</p>
 
 Update a new Auth Method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials
 
@@ -908,13 +908,13 @@ akeyless auth-method update gcp \
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `-t, --type`: **Required**, The type of the GCP Auth Method (iam/gce)      
 
@@ -934,7 +934,7 @@ akeyless auth-method update gcp \
 
  `--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data`  becomes mandatory. 
 
-#### <p style="color:blue">_oauth2_</p>
+#### <p style="color:blue">*oauth2*</p>
 
 Update a new Auth Method that will be able to authenticate using OAuth2
 
@@ -965,13 +965,13 @@ akeyless auth-method update oauth2 \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `-j, --jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.    
 
@@ -983,11 +983,11 @@ akeyless auth-method update oauth2 \
 
  `--audience`: The audience in the JWT                                
 
- `--gateway-url`: API Gateway URL <http://Your-Akeyless-Gateway-URL:8000>    
+ `--gateway-url`: API Gateway URL [http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)    
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                         
 
-#### <p style="color:blue">_oci_</p>
+#### <p style="color:blue">*oci*</p>
 
 Update an Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -1023,15 +1023,15 @@ akeyless auth-method update oci \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-#### <p style="color:blue">_oidc_</p>
+#### <p style="color:blue">*oidc*</p>
 
 Update a new Auth Method that will be able to authenticate using OIDC
 
@@ -1059,18 +1059,18 @@ akeyless auth-method update oidc \
 
  `--bound-ips`: A comma-separated CIDR block list to allow client access                     
 
- `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity  
+ `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity\
  `--force-sub-claims`: enforce role-association must include sub-claims 
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--issuer`: Issuer URL                                                                      
 
@@ -1080,16 +1080,16 @@ akeyless auth-method update oidc \
 
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization 
 
- `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is <https://console.akeyless.io/login-oidc> to enable OIDC via Akeyless Console and <http://127.0.0.1:*> to enable OIDC via akeyless CLI)                                        
+ `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-oidc](https://console.akeyless.io/login-oidc) to enable OIDC via Akeyless Console and [http://127.0.0.1:\*](http://127.0.0.1:*) to enable OIDC via akeyless CLI)                                        
 
- `--required-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve  
+ `--required-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve\
  `--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the oidc server (for example, azures\` Application ID URI)                             
 
  `--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider\`s Application                       
 
  `-d, --delimiters`          A list of additional sub-claims delimiters                                                                                                                  
 
-#### <p style="color:blue">_saml_</p>
+#### <p style="color:blue">*saml*</p>
 
 Update a new Auth Method that will be able to authenticate using SAML
 
@@ -1105,11 +1105,11 @@ akeyless auth-method update saml \
 
 #### Flags
 
-`--new-name`: Auth Method new name  
- `-n, --name`: **Required**, Auth Method name  
+`--new-name`: Auth Method new name\
+ `-n, --name`: **Required**, Auth Method name\
  `--descrpition`: Auth Method description 
 
-`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)  
+`--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)\
  `--bound-ips`: A comma-separated CIDR block list to allow client access                     
 
  `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity                                                          
@@ -1118,25 +1118,25 @@ akeyless auth-method update saml \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the auth method \[\`sm\`, \`sra\`, \`pm\`, \`dp\`, \`ca\`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization. 
 
  `--idp-metadata-url`: IDP metadata url                                                      
 
- `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is <https://console.akeyless.io/login-saml> to enable SAML via Akeyless Console and  <http://127.0.0.1:*> to enable SAML via akeyless CLI)  
- `--idp-metadata-xml-file-path`: IDP metadata xml file path  
+ `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-saml](https://console.akeyless.io/login-saml) to enable SAML via Akeyless Console and  [http://127.0.0.1:\*](http://127.0.0.1:*) to enable SAML via akeyless CLI)\
+ `--idp-metadata-xml-file-path`: IDP metadata xml file path\
  `--idp-metadata-xml-data`: IDP metadata as xml encoded in base64                                                                       
 
  `-d, --delimiters`: A list of additional sub-claims delimiters
 
-## <p style="color:blue">_validate-token_</p>
+## <p style="color:blue">*validate-token*</p>
 
 Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
 
@@ -1147,7 +1147,7 @@ akeyless validate-token \
 --token <Token to validate>
 ```
 
-## <p style="color:blue">_revoke-creds_</p>
+## <p style="color:blue">*revoke-creds*</p>
 
 This command will permanently revoke the credentials associated with the provided token or profile
 
@@ -1175,7 +1175,7 @@ akeyless auth-method list \
 
 ##### Flags
 
- `-t, --type`: The auth method types list of the requested method. In case it is empty, all types of auth method will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s, cert] 
+ `-t, --type`: The auth method types list of the requested method. In case it is empty, all types of auth method will be returned. options: \[api\_key, azure\_ad, oauth2/jwt, saml2, ldap, aws\_iam, oidc, universal\_identity, gcp, k8s, cert] 
 
  `--filter`: Filter by auth method name or part of it           
 
