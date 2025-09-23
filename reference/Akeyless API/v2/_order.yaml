@@ -257,3 +257,4 @@
 - gatewayrevoketmpusers
 - rotatesecret
 - gatewaystartproducer
+- gatewaystopproducer
