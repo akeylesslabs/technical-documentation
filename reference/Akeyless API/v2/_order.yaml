@@ -329,3 +329,4 @@
 - getcertificatevalue
 - get-cert-challenge
 - getdynamicsecretvalue
+- geteventforwarder
