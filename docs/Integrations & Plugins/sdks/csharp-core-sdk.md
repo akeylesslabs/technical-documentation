@@ -21,7 +21,7 @@ dotnet add package akeyless --version <package-version>
 ```
 
 > 👍 Note
-> 
+>
 > For a full list of the existing versions & dependencies, see [here](https://www.nuget.org/packages/akeyless).
 
 # Configuration
