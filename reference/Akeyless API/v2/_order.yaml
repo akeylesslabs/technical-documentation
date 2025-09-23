@@ -235,3 +235,4 @@
 - deletegatewayallowedaccessid
 - gatewaydeletek8sauthconfig
 - gatewaydeletemigration
+- gatewaydeleteproducer
