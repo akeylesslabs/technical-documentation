@@ -14,9 +14,9 @@ To work with Venafi TPP, you can choose either to work with Venafi as your certi
 
 ## Prerequisites
 
-- Akeyless [Gateway](doc:api-gw).
+* Akeyless [Gateway](doc:api-gw).
 
-- Venafi TPP.
+* Venafi TPP.
 
 ## Usage
 
@@ -47,7 +47,7 @@ Where:
 
 `venafi-refresh-token`: Venafi Refresh Token to use when the Access Token is expired (Relevant when using TPP).
 
-`venafi-baseurl`: Base URL of the TPP environment. Or Cloud environment which isn't <https://venafi.cloud/>.
+`venafi-baseurl`: Base URL of the TPP environment. Or Cloud environment which isn't [https://venafi.cloud/](https://venafi.cloud/).
 
 `venafi-zone`: Venafi Zone.
 
@@ -122,7 +122,7 @@ Where:
 
 `venafi-refresh-token`: Venafi Refresh Token to use when the Access Token is expired (Relevant when using TPP).
 
-`venafi-baseurl`: Base URL of the TPP environment. Or a Cloud environment which isn't <https://venafi.cloud/>.
+`venafi-baseurl`: Base URL of the TPP environment. Or a Cloud environment which isn't [https://venafi.cloud/](https://venafi.cloud/).
 
 `venafi-zone`: Venafi Zone.
 
