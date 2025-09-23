@@ -393,3 +393,4 @@
 - rotatedsecretcreatemysql
 - rotatedsecretcreateoracledb
 - rotatedsecretcreatepostgresql
+- rotatedsecretcreateredis
