@@ -389,3 +389,4 @@
 - rotatedsecretcreatehanadb
 - rotatedsecretcreateldap
 - rotatedsecretcreatemongodb
+- rotatedsecretcreatemssql
