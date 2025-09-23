@@ -428,3 +428,4 @@
 - signecdsa
 - signgpg
 - signjwtwithclassickey
+- signpkcs1
