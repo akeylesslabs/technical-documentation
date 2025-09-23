@@ -16,7 +16,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-## <p style="color:blue">_create_</p>
+## <p style="color:blue">*create*</p>
 
 Create a new Target
 
@@ -80,7 +80,7 @@ Create a new Target
 
 `zerossl`
 
-### <p style="color:blue">_artifactory_</p>
+### <p style="color:blue">*artifactory*</p>
 
 Creates a new Artifactory target in the current account
 
@@ -111,7 +111,7 @@ akeyless target create artifactory \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_aws_</p>
+### <p style="color:blue">*aws*</p>
 
 Creates a new AWS target in the current account
 
@@ -149,7 +149,7 @@ akeyless target create aws \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_azure_</p>
+### <p style="color:blue">*azure*</p>
 
 Creates a new azure target in the current account
 
@@ -183,10 +183,10 @@ akeyless target create azure \
 
  `-k, --key`: Key name. The key is used to encrypt the target secret value. If the key name is not specified, the account default protection key is used 
 
- `--description`: Target description  
+ `--description`: Target description\
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_db_</p>
+### <p style="color:blue">*db*</p>
 
 Creates a new DB target in the current account
 
@@ -215,7 +215,7 @@ akeyless target create db \
 
  `--host`: Database host                                                                      
 
- `--pwd`: Database password  
+ `--pwd`: Database password\
  `--port`: Database port                                                                      
 
  `--db-name`: Database name
@@ -238,9 +238,9 @@ akeyless target create db \
 
  `--cloud-service-provider`: Cloud service provider (currently only supports Azure)
 
- `--connection-type[=credentials]`: Type of connection to mssql database [credentials/cloud-identity]  
+ `--connection-type[=credentials]`: Type of connection to mssql database \[credentials/cloud-identity]  
 
- `--ssl[=false]`: Enable/Disable SSL [true/false]                                                                                
+ `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                
 
  `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) 
 
@@ -260,7 +260,7 @@ akeyless target create db \
 
  `--mongodb-default-auth-db`: MongoDB server default authentication database
 
- `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
+ `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet\&authSource=authDB)
 
  `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -274,7 +274,7 @@ akeyless target create db \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_dockerhub_</p>
+### <p style="color:blue">*dockerhub*</p>
 
 Creates a new Docker Hub target in the current account
 
@@ -302,7 +302,7 @@ akeyless target create dockerhub \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_eks_</p>
+### <p style="color:blue">*eks*</p>
 
 Creates a new EKS target in the current account
 
@@ -344,7 +344,7 @@ akeyless target create eks \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_gcp_</p>
+### <p style="color:blue">*gcp*</p>
 
 Creates a new GCP target in the current account
 
@@ -375,7 +375,7 @@ akeyless target create gcp \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_github_</p>
+### <p style="color:blue">*github*</p>
 
 Creates a new GitHub target in the current account
 
@@ -406,7 +406,7 @@ akeyless target create github \
 
  `-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used. 
 
-### <p style="color:blue">_gke_</p>
+### <p style="color:blue">*gke*</p>
 
 Creates a new GKE target in the current account
 
@@ -445,7 +445,7 @@ akeyless target create gke \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_globalsign_</p>
+### <p style="color:blue">*globalsign*</p>
 
 Creates a new GlobalSign Target in the current account
 
@@ -489,7 +489,7 @@ akeyless target create globalsign \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_globalsign-atlas_</p>
+### <p style="color:blue">*globalsign-atlas*</p>
 
 Creates a new GlobalSign Atlas target in the current account
 
@@ -524,7 +524,7 @@ akeyless target create globalsign-atlas \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_godaddy_</p>
+### <p style="color:blue">*godaddy*</p>
 
 Creates a new Godaddy target
 
@@ -566,7 +566,7 @@ akeyless target create godaddy \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_hashi-vault_</p>
+### <p style="color:blue">*hashi-vault*</p>
 
 Creates a new hashi-vault target
 
@@ -596,7 +596,7 @@ akeyless target create hashi-vault \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-### <p style="color:blue">_k8s_</p>
+### <p style="color:blue">*k8s*</p>
 
 Creates a new K8S target in the current account
 
@@ -624,7 +624,7 @@ akeyless target create k8s \
 
  `-i, --use-gw-service-account`: Use GW's service account. **Boolean** when provided only `name` is required                                                                  
 
- `--k8s-auth-type[=token]`: K8S auth type, [token/certificate]  
+ `--k8s-auth-type[=token]`: K8S auth type, \[token/certificate]\
  `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format                                                                         
 
  `--k8s-client-certificate-file`: Path to a file that contain the k8s client private key in PEM format                                                                         
@@ -641,7 +641,7 @@ akeyless target create k8s \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_ldap_</p>
+### <p style="color:blue">*ldap*</p>
 
 Creates a new LDAP target in the current account
 
@@ -681,7 +681,7 @@ akeyless target create ldap \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_linked_</p>
+### <p style="color:blue">*linked*</p>
 
 Creates a new Linked Target which can inherit credentials from existing Targets
 
@@ -706,7 +706,7 @@ akeyless target create linked \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_ping_</p>
+### <p style="color:blue">*ping*</p>
 
 Creates a new Ping target in the current account
 
@@ -740,7 +740,7 @@ akeyless target create ping \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_rabbitmq_</p>
+### <p style="color:blue">*rabbitmq*</p>
 
 Creates a new RabbitMQ target in the current account
 
@@ -771,7 +771,7 @@ akeyless target create rabbitmq \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_salesforce_</p>
+### <p style="color:blue">*salesforce*</p>
 
 Creates a new Salesforce target in the current account
 
@@ -821,7 +821,7 @@ akeyless target create salesforce \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_sectigo_</p>
+### <p style="color:blue">*sectigo*</p>
 
 Creates a new Sectigo target in the current account
 
@@ -864,7 +864,7 @@ akeyless target create sectigo \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_ssh_</p>
+### <p style="color:blue">*ssh*</p>
 
 Creates a new SSH target in the current account
 
@@ -908,7 +908,7 @@ akeyless target create ssh \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_web_</p>
+### <p style="color:blue">*web*</p>
 
 Creates a new web target in the current account
 
@@ -933,7 +933,7 @@ akeyless target create web \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_windows_</p>
+### <p style="color:blue">*windows*</p>
 
 Creates a new Windows Target in the current account
 
@@ -961,7 +961,7 @@ akeyless target create windows \
 
  `-r, --port[=5986]`: Windows Server WinRM port, by default, set to `5986` for `Https`                                                                           
 
- `--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS [true/false]                                                                                       
+ `--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS \[true/false]                                                                                       
 
  `--certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)                                                  
 
@@ -971,7 +971,7 @@ akeyless target create windows \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style="color:blue">_zerossl_</p>
+### <p style="color:blue">*zerossl*</p>
 
 Creates a new ZeroSSL Target in the current account
 
@@ -997,7 +997,7 @@ akeyless target create zerossl \
 
  `--imap-password`: **Required**, IMAP APP-Password
 
- `imap-fqdn`: **(Mandatory) **IMAP FQDN, for example: `imap.gmail.com`
+ `imap-fqdn`: **(Mandatory)** IMAP FQDN, for example: `imap.gmail.com`
 
  `--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`,  `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com` 
 
@@ -1011,7 +1011,7 @@ akeyless target create zerossl \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-## <p style="color:blue">_ assoc-target-item_</p>
+## <p style="color:blue"> *assoc-target-item*</p>
 
 Create an association between target and item
 
@@ -1067,7 +1067,7 @@ akeyless assoc-target-item \
 
  `--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
 
-## <p style="color:blue">_delete-assoc-target-item_</p>
+## <p style="color:blue">*delete-assoc-target-item*</p>
 
 Delete an association between target and item
 
@@ -1088,7 +1088,7 @@ akeyless delete-assoc-target-item \
 
  `-t, --target-name`: The target name with which association will be deleted                  
 
-## <p style="color:blue">_delete_</p>
+## <p style="color:blue">*delete*</p>
 
 Delete a target in the current account 
 
@@ -1108,7 +1108,7 @@ akeyless target delete \
 
  `--force-deletion[=false]`: Delete target even if it has associated items                                       
 
-## <p style="color:blue">_delete-targets_</p>
+## <p style="color:blue">*delete-targets*</p>
 
 Delete multiple targets from a given path
 
@@ -1125,7 +1125,7 @@ akeyless delete-targets \
 
  `--force-deletion[=false]`: Delete target even if it has associated items   
 
-## <p style="color:blue">_get_</p>
+## <p style="color:blue">*get*</p>
 
 Get target in the current account
 
@@ -1141,7 +1141,7 @@ akeyless taregt get --name <Target name>
 
  `--show-versions[=false]`: Include all target versions in reply 
 
-## <p style="color:blue">_get-details_</p>
+## <p style="color:blue">*get-details*</p>
 
 Get details of the specified target
 
@@ -1159,7 +1159,7 @@ akeyless target get-details --name <Target Name>
 
  `--show-versions[=false]`: Include all target versions in reply 
 
-## <p style="color:blue">_list_</p>
+## <p style="color:blue">*list*</p>
 
 List of all targets in the account
 
@@ -1167,13 +1167,13 @@ List of all targets in the account
 
  `--filter`: Filter by target name or part of it
 
- `-t, --type`: The target types list of the requested targets. In case it is empty, all types of targets will be returned. Options: [hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres] 
+ `-t, --type`: The target types list of the requested targets. In case it is empty, all types of targets will be returned. Options: \[hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres] 
 
  `--pagination-token`: Next page reference                                                   
 
  `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
- `--uid-token`: The universal identity token, Required only for universal_identity authentication
+ `--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 ## <p style="text-decoration:underline">update</p>
 
@@ -1213,9 +1213,9 @@ akeyless target update artifactory \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_aws_</p>
+#### <p style="color:blue">*aws*</p>
 
 Updates an existing aws target in the current account
 
@@ -1258,13 +1258,13 @@ akeyless target update aws \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
  `--description`: Target description
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style="color:blue">_azure_</p>
+#### <p style="color:blue">*azure*</p>
 
 Updates an existing azure target in the current account
 
@@ -1310,9 +1310,9 @@ akeyless taregt update azure \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_db_</p>
+#### <p style="color:blue">*db*</p>
 
 Update an existing db target in the current account
 
@@ -1362,7 +1362,7 @@ akeyless update-db-target \
 
  `--mongodb-default-auth-db`: MongoDB server default authentication database
 
- `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
+ `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet\&authSource=authDB)
 
  `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -1372,7 +1372,7 @@ akeyless update-db-target \
 
 `--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MsSQL targets
 
- `--ssl[=false]`: Enable/Disable SSL [true/false]
+ `--ssl[=false]`: Enable/Disable SSL \[true/false]
 
  `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
@@ -1380,9 +1380,9 @@ akeyless update-db-target \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
-#### <p style="color:blue">_dockerhub_</p>
+#### <p style="color:blue">*dockerhub*</p>
 
 updates an existing dockerhub target in the current account
 
@@ -1414,9 +1414,9 @@ akeyless target update dockerhub \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
-#### <p style="color:blue">_eks_</p>
+#### <p style="color:blue">*eks*</p>
 
 Updates an existing eks target in the current account
 
@@ -1461,9 +1461,9 @@ akeyless target update eks \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_gcp_</p>
+#### <p style="color:blue">*gcp*</p>
 
 Update an existing gcp target in the current account
 
@@ -1499,9 +1499,9 @@ akeyless taregt update gcp \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_github_</p>
+#### <p style="color:blue">*github*</p>
 
 updates a new github target in the current account
 
@@ -1536,9 +1536,9 @@ akeyless target update github \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
-#### <p style="color:blue">_gke_</p>
+#### <p style="color:blue">*gke*</p>
 
 Updates an existing gke target in the current account
 
@@ -1584,9 +1584,9 @@ akeyless target update gke \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_globalsign_</p>
+#### <p style="color:blue">*globalsign*</p>
 
 Update an existing GlobalSign Target in the current account
 
@@ -1629,13 +1629,13 @@ akeyless target update globalsign \
 
  `-k, --key`: Key name. The key will be used to encrypt the target secret value
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
  `--description`: Description of the object
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style="color:blue">_globalsign-atlas_</p>
+#### <p style="color:blue">*globalsign-atlas*</p>
 
 Updates an existing GlobalSignAtlas target in the current account
 
@@ -1674,7 +1674,7 @@ akeyless target update globalsign-atlas \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style="color:blue">_godaddy_</p>
+#### <p style="color:blue">*godaddy*</p>
 
 Creates a new Godaddy target
 
@@ -1713,13 +1713,13 @@ akeyless target update-godaddy-target \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
 `--description`: Description of the object
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style="color:blue">_hashi-vault_</p>
+#### <p style="color:blue">*hashi-vault*</p>
 
 Updates a new hashi-vault target
 
@@ -1752,7 +1752,7 @@ akeyless target update hashi-vault \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-#### <p style="color:blue">_k8s_</p>
+#### <p style="color:blue">*k8s*</p>
 
 Updates an existing k8s target in the current account
 
@@ -1780,7 +1780,7 @@ akeyless target update k8s \
 
  `-i, --use-gw-service-account`: Use the GW's service account
 
- `--k8s-auth-type[=token]`: K8S auth type, [token/certificate]
+ `--k8s-auth-type[=token]`: K8S auth type, \[token/certificate]
 
  `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format                                                                        
 
@@ -1802,9 +1802,9 @@ akeyless target update k8s \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_ldap_</p>
+#### <p style="color:blue">*ldap*</p>
 
 updates a new ldap target in the current account
 
@@ -1846,9 +1846,9 @@ akeyless target update ldap \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_linked_</p>
+#### <p style="color:blue">*linked*</p>
 
 Update an existing Liked Target in the current account
 
@@ -1876,7 +1876,7 @@ akeyless target update linked \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style="color:blue">_rabbitmq_</p>
+#### <p style="color:blue">*rabbitmq*</p>
 
 Update an existing new rabbitmq target in the current account
 
@@ -1912,9 +1912,9 @@ akeyless target update rabbitmq \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
-#### <p style="color:blue">_salesforce_</p>
+#### <p style="color:blue">*salesforce*</p>
 
 Updates the Salesforce target in the current account
 
@@ -1969,9 +1969,9 @@ akeyless target update salesforce \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings 
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings 
 
-#### <p style="color:blue">_sectigo_</p>
+#### <p style="color:blue">*sectigo*</p>
 
 Updates the sectigo target in the current account
 
@@ -2017,7 +2017,7 @@ akeyless target create sectigo \
 
  `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style="color:blue">_ssh_</p>
+#### <p style="color:blue">*ssh*</p>
 
 Update an existing ssh target in the current account
 
@@ -2063,9 +2063,9 @@ akeyless target update ssh \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_web_</p>
+#### <p style="color:blue">*web*</p>
 
 Update an existing web target in the current account
 
@@ -2094,9 +2094,9 @@ akeyless target update web \
 
  `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                              
+ `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
 
-#### <p style="color:blue">_windows_</p>
+#### <p style="color:blue">*windows*</p>
 
 Update an existing Windows Target in the current account
 
@@ -2127,17 +2127,17 @@ akeyless target update windows \
 
  `-r, --port[=5986]`: Server WinRM port
 
- `--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS [true/false]
+ `--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS \[true/false]
 
  `--certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
  `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- ` --keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+ ` --keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
 
  `--description`: Description of the object
 
-#### <p style="color:blue">_zerossl_</p>
+#### <p style="color:blue">*zerossl*</p>
 
 Update an existing ZeroSSL Target in the current account
 
@@ -2164,7 +2164,7 @@ akeyless target update-zerossl-target \
 
  `imap-password`: **Required**, IMAP APP-Password - for example, on Gmail Under Settings-> Security, click on 2-Step Verification and generate APP-Password (2-Step verification must be enabled)
 
- `--imap-fqdn`: **(Mandatory) **IMAP FQDN, for example imap.gmail.com
+ `--imap-fqdn`: **(Mandatory)** IMAP FQDN, for example imap.gmail.com
 
  `--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`, `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com`
 
@@ -2174,7 +2174,7 @@ akeyless target update-zerossl-target \
 
  `-k, --key`: Key name. The key will be used to encrypt the target secret value
 
- `--keep-prev-version`: Whether to keep the previous version, options:[true, false], If not set, use default according to account settings
+ `--keep-prev-version`: Whether to keep the previous version, options:\[true, false], If not set, use default according to account settings
 
  `--description`: Description of the object
 
