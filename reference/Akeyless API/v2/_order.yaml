@@ -226,3 +226,4 @@
 - gatewaycreateproducermysql
 - gatewaycreateproduceroracledb
 - gatewaycreateproducerping
+- gatewaycreateproducerpostgresql
