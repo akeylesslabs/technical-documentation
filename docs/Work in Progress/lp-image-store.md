@@ -32,65 +32,10 @@ next:
 
 ![](https://files.readme.io/34cdddb-Flat_copy_51.svg)
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3c89460-e413600204d9c271897fe80988c3a69e.svg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/3c89460-e413600204d9c271897fe80988c3a69e.svg" />
 
+<Image align="center" src="https://files.readme.io/c82bf7b-Group_8061.svg" />
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c82bf7b-Group_8061.svg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/6c8e15d-Flat_copy_5.svg" />
 
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6c8e15d-Flat_copy_5.svg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8359c2f-6e86b2ad2fbb7c61d672faafe10403eb.svg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/8359c2f-6e86b2ad2fbb7c61d672faafe10403eb.svg" />
