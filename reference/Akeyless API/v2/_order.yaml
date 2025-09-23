@@ -230,3 +230,4 @@
 - gatewaycreateproducerrabbitmq
 - gatewaycreateproducerrdp
 - gatewaycreateproducerredshift
+- gatewaycreateproducersnowflake
