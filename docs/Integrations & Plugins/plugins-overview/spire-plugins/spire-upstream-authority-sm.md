@@ -12,22 +12,22 @@ next:
 ---
 # Prerequisites
 
-- [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.40.0` or later
-- An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read` permission for **Items**
-- **Certificate Item** stored in Akeyless Platform containing the   `certificate` and `private_key` in `pem` format. 
+* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.40.0` or later
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read` permission for **Items**
+* **Certificate Item** stored in Akeyless Platform containing the   `certificate` and `private_key` in `pem` format. 
 
 # Authentication
 
 The following Authentication Methods are supported: 
 
-- [API Key](https://docs.akeyless.io/docs/api-key)
-- [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-- [Azure](https://docs.akeyless.io/docs/azure-ad)
-- [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-- [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [Azure](https://docs.akeyless.io/docs/azure-ad)
+* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
 
 > 👍 Note
-> 
+>
 > In this guide, we will use an `API Key` Authentication Method for simplicity
 
 Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/api-key) using the CLI:
@@ -113,25 +113,25 @@ UpstreamAuthority  "akeyless_sm" {
 
 Where: 
 
-- `plugin_cmd` - The location of the binary file that was created.
+* `plugin_cmd` - The location of the binary file that was created.
 
-- `plugin_checksum` - sha256 of the binary.
+* `plugin_checksum` - sha256 of the binary.
 
-- `access_id` - The Auth Method **Access-ID**
+* `access_id` - The Auth Method **Access-ID**
 
-- `access_key` - Optional, The AccessKey. Relevant only for API Key.
+* `access_key` - Optional, The AccessKey. Relevant only for API Key.
 
-- `akeyless_gateway_url` - Akeyless Gateway URL API v2 endpoint.
+* `akeyless_gateway_url` - Akeyless Gateway URL API v2 endpoint.
 
-- `certificate_name` - The `certificate` item that was created earlier in Akeyless. In our example `/SPIRE/SVID/certificate_name`
+* `certificate_name` - The `certificate` item that was created earlier in Akeyless. In our example `/SPIRE/SVID/certificate_name`
 
-For **K8s, GCP** or **AzureAD **Auth methods set the following settings as well:
+For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
 
-- `k8s_auth_config_name` - K8s Auth Config name as created under your Gateway
+* `k8s_auth_config_name` - K8s Auth Config name as created under your Gateway
 
-- `gcp_audience` - The audience to verify the `JWT` received by the client. By default, `akeyless.io`
+* `gcp_audience` - The audience to verify the `JWT` received by the client. By default, `akeyless.io`
 
-- `azure_object_id` - Optional for Azure, `objectID`
+* `azure_object_id` - Optional for Azure, `objectID`
 
 ## SPIRE Server Initialization
 
@@ -148,9 +148,9 @@ trust_bundle_path = "/Path/To/certificate/file"
 ```
 
 > 📘 Info
-> 
+>
 > **trust bundle**
-> 
+>
 > The `"/Path/To/certificate.pem"` is a path on your machine where a `certificate.pem` file will be exist and the value of the file will be the value of the `certificate` that was created earlier in Akeyless.
 
 Run the following command in order to generate a token that will be used to attest the `agent` to the `server`
@@ -168,7 +168,7 @@ bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 ```
 
 > 📘 Info
-> 
+>
 > **SPIFFE/SPIRE**
-> 
+>
 > For the full configuration steps, visit the official [Quickstart for Linux and MacOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
