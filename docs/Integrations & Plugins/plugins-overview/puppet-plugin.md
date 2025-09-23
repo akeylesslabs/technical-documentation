@@ -12,17 +12,17 @@ next:
 ---
 # Prerequisites
 
-- **Puppet** version 6 or later.
-- **Puppet/vault_lookup** module installed
+* **Puppet** version 6 or later.
+* **Puppet/vault\_lookup** module installed
 
-The **puppet/vault_lookup** module can be installed by running the following command on your server:
+The **puppet/vault\_lookup** module can be installed by running the following command on your server:
 
 ```shell
 puppet module install puppet/vault_lookup
 ```
 
 > 👍 Note
-> 
+>
 > Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](doc:hashicorp-vault-proxy)
 
 # Create a sample module
@@ -53,10 +53,10 @@ file { '/tmp/secret.txt':
 
 Where: 
 
-- `secret/<path/to/secret_name>`: A full secret name, with `secret` prefix. 
-- `vault-addr`: either the public `/8000/hvp` endpoint, or your Gateway URL on port `8200`.
-- `role_id`: Set with your [API Key](doc:api-key) auth method AccessID.
-- `secret_id`: Set with the matching API Key value. 
+* `secret/<path/to/secret_name>`: A full secret name, with `secret` prefix. 
+* `vault-addr`: either the public `/8000/hvp` endpoint, or your Gateway URL on port `8200`.
+* `role_id`: Set with your [API Key](doc:api-key) auth method AccessID.
+* `secret_id`: Set with the matching API Key value. 
 
 The following logic will create a `txt` file with the secret value, where for the sake of simplicity we are running `cat` command to print the value, this should not be used as is in a production environment. 
 
