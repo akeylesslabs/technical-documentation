@@ -414,3 +414,4 @@
 - rotatedsecretupdatemongodb
 - rotatedsecretupdatemssql
 - rotatedsecretupdatemysql
+- rotatedsecretupdateoracledb
