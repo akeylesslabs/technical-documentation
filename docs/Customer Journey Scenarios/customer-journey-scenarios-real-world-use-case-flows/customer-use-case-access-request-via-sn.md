@@ -36,15 +36,15 @@ Utilizing the security and compliance data provided by Akeyless, approvers could
 
 Before beginning the implementation of the solution, it's essential to have the following prerequisites in place:
 
-- **Akeyless Admin Account:** An administrative account on Akeyless is required. This account will enable access to Akeyless APIs and the management of secure access credentials and permissions.
-- **ServiceNow Admin Account:** An administrative account on ServiceNow is necessary to facilitate the integration and to manage the workflows and access requests directly within the ServiceNow platform.
-- **Docker:** A system with Docker installed is crucial for deploying any necessary containers that might be required for the integration or for running specific services related to Akeyless or ServiceNow. Docker will provide the flexibility and ease of deployment for various components of the solution.
+* **Akeyless Admin Account:** An administrative account on Akeyless is required. This account will enable access to Akeyless APIs and the management of secure access credentials and permissions.
+* **ServiceNow Admin Account:** An administrative account on ServiceNow is necessary to facilitate the integration and to manage the workflows and access requests directly within the ServiceNow platform.
+* **Docker:** A system with Docker installed is crucial for deploying any necessary containers that might be required for the integration or for running specific services related to Akeyless or ServiceNow. Docker will provide the flexibility and ease of deployment for various components of the solution.
 
 To implement the integration of Akeyless with ServiceNow for managing access requests and utilizing event forwarding, follow these detailed steps:
 
 **[Create a Gateway in Akeyless](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system-1):** The initial step involves setting up an Akeyless gateway. This is a crucial step as having a gateway is mandatory to utilize the event forwarder functionality. The gateway serves as a bridge, facilitating secure communication between Akeyless and other systems or applications.
 
-- [To begin constructing the Gateway, we must first set up Docker.](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system)
+* [To begin constructing the Gateway, we must first set up Docker.](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system)
 
 **[Set Up Event Forwarder in Akeyless](https://docs.akeyless.io/docs/set-up-event-forwarder-on-akeyless-system):** Once the gateway is in place, the next step is to configure an event forwarder in Akeyless. This forwarder will be responsible for detecting and forwarding specific events (such as access requests) to the ServiceNow platform.
 
