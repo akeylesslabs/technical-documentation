@@ -512,3 +512,4 @@
 - updateauthmethodldap
 - updateauthmethodoauth2
 - updateauthmethodoci
+- updateauthmethodoidc
