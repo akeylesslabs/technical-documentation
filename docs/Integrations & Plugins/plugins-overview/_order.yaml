@@ -9,3 +9,4 @@
 - consul-template-plugin
 - circleci-plugin
 - teamcity-plugin
+- puppet-plugin
