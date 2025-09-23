@@ -19,7 +19,7 @@ The Akeyless plugin for GitLab Component enables a secure, easy, and intuitive w
 Each job has a [JSON Web Token (JWT)](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens) provided as a CI/CD variable named `ID_TOKEN`. When a pipeline is about to run, GitLab uses the job token and generates a unique token for it.
 
 > 👍 Note
-> 
+>
 > **GitLab v16 and higher** - `CI_JOB_JWT_V2` is replaced by [ID tokens](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens)  which are the JSON Web Tokens (JWTs) that can be added to a GitLab CI/CD job.
 
 The token is valid only while the pipeline job is running. After the job finishes, you can’t use the token anymore.
@@ -39,11 +39,11 @@ akeyless create-auth-method-oauth2 --name /Dev/GitLabAuth-JWT \
 
 Where:
 
-- `--jwks-uri` - The URL to the `JWKS` that contains the public keys that should be used for JWT verification.
+* `--jwks-uri` - The URL to the `JWKS` that contains the public keys that should be used for JWT verification.
 
-- `--unique-identifier` - A unique claim name that contains details uniquely identifying the request. In the following example, we will use the GitLab `user_login` claim.
+* `--unique-identifier` - A unique claim name that contains details uniquely identifying the request. In the following example, we will use the GitLab `user_login` claim.
 
-- `--force-sub-claims` - Enforce [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) on role association.
+* `--force-sub-claims` - Enforce [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) on role association.
 
 Create an [Access Role](https://docs.akeyless.io/docs/rbac):
 
@@ -60,8 +60,8 @@ akeyless assoc-role-am --role-name /Dev/GitLabRole \
 ```
 
 > 🚧 Warning
-> 
-> **Sub Claims **- It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the available [GitLab claims ](https://docs.gitlab.com/ee/ci/examples/authenticating-with-hashicorp-vault/) to prevent access of unauthorized users.
+>
+> **Sub Claims** - It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the available [GitLab claims ](https://docs.gitlab.com/ee/ci/examples/authenticating-with-hashicorp-vault/) to prevent access of unauthorized users.
 
 Set `Read` and `List`  permissions for **Items**:
 
@@ -170,14 +170,14 @@ akeyless_secrets:
 
 where the plugin can be used in the following modes:
 
-- `env-file`: This mode stores **secrets**  in environment variables, which are stored inside an `env` file for future usage across jobs, this mode has character and structure limitations, for example, it's not possible to fetch **certificates** items.
+* `env-file`: This mode stores **secrets**  in environment variables, which are stored inside an `env` file for future usage across jobs, this mode has character and structure limitations, for example, it's not possible to fetch **certificates** items.
 
-- `json`:  This mode stores **secrets** and **certificates** in a `json` file where any format can be fetched. It is recommended to use with `jq` for easier parsing of the`JSON` content.
+* `json`:  This mode stores **secrets** and **certificates** in a `json` file where any format can be fetched. It is recommended to use with `jq` for easier parsing of the`JSON` content.
 
 Your secrets are stored either in `akeyless.env` or `akeyless.json` accordingly, enabling secret usage across different jobs.
 
 > 📘 Pull Policy
-> 
+>
 > Note that the `pull_policy` should be kept to `always` when using a shared runner.
 
 # Examples
@@ -221,7 +221,7 @@ use_secret:
 In this example, we demonstrated using both [Static](doc:static-secrets), [Dynamic](doc:how-to-create-dynamic-secret), and [Rotated Secrets](doc:rotated-secrets) while using the [JWT](doc:oauth20jwt) auth method which we created earlier.
 
 > 👍 Tip
-> 
+>
 > Use [GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/#for-a-project) to store your **Access ID** for easier future reference.
 
 In this example, we will use the `json` mode by setting the `env-file` setting to `false`  in order to fetch [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or [SSH](https://docs.akeyless.io/docs/how-to-configure-ssh#issuing-a-certificate) certificates:
@@ -292,11 +292,11 @@ use_secret:
 
 Where:
 
-- `csr-data`: **Base64 Encoded CSR**  for issuing the certificate. **Relevant only for PKI Certificate**, alternatively you can use `public-key-data` instead.
+* `csr-data`: **Base64 Encoded CSR**  for issuing the certificate. **Relevant only for PKI Certificate**, alternatively you can use `public-key-data` instead.
 
-- `public-key-data`**public key** for issuing a certificate, only for **PKI Certificate** must be in a **Base64** format 
+* `public-key-data`**public key** for issuing a certificate, only for **PKI Certificate** must be in a **Base64** format 
 
-- `cert-user-name`: Users who will be allowed to use the certificate. **Relevant only for SSH Certificate**.
+* `cert-user-name`: Users who will be allowed to use the certificate. **Relevant only for SSH Certificate**.
 
 # Working with Gateway
 
