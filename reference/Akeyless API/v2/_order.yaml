@@ -140,3 +140,4 @@
 - dynamicsecretcreatemysql
 - dynamicsecretcreateoracledb
 - dynamicsecretcreateping
+- dynamicsecretcreatepostgresql
