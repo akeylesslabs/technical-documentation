@@ -498,3 +498,4 @@
 - uidgeneratetoken
 - uidlistchildren
 - uidrevoketoken
+- uidrotatetoken
