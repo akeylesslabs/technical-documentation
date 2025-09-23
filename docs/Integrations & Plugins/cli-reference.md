@@ -10,14 +10,14 @@ metadata:
 next:
   description: ''
 ---
-This section describes the available CLI commands that you can use when working with Akeyless.  
+This section describes the available CLI commands that you can use when working with Akeyless.\
 If you need help in context, check out the help from the terminal:
 
 General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -35,7 +35,7 @@ akeyless <command> --debug
 
 ## Update Akeyless CLI
 
-### <p style="color:blue">_akeyless update_</p>
+### <p style="color:blue">*akeyless update*</p>
 
 Update to the latest Akeyless CLI version
 
@@ -51,9 +51,9 @@ akeyless update
 
 `-s, --show-changelog`: Show the changelog between the current version and the latest one and exit (update will not be performed)
 
-`-r, --artifact-repository`: Alternative CLI repository url. e.g. <https://artifacts.site2.akeyless.io>
+`-r, --artifact-repository`: Alternative CLI repository url. e.g. [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
 
-### <p style="color:blue">_describe-item_</p>
+### <p style="color:blue">*describe-item*</p>
 
 Gets the item details
 
@@ -73,7 +73,7 @@ Gets the item details
 
  `--services-details[=false]`: Include all associated services details                           
 
- `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal] 
+ `--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal] 
 
 ##### Output
 
@@ -83,14 +83,14 @@ When a version number is specified, the command returns all details about the sp
 
 When `--show-versions` is specified, the command returns all details about the specified item including a full list of versions, their creation dates, and their encryption keys for any version for which a key other than the default was used. 
 
-### <p style="color:blue">_update-item_</p>
+### <p style="color:blue">*update-item*</p>
 
 Update item name and description
 
 > ❗️ Critical
-> 
+>
 > **Secret versioning**
-> 
+>
 > No updates made with `update-item` can be saved as part of new versions, which means that these changes override existing data. If you wish to track these updates as part of secret versioning, first create a new version with `update-version-val`. You can create a new version value using the same value for the current version if you don't want to actually change the value. Thereafter, run `update-item`.
 
 ##### Usage
@@ -102,7 +102,8 @@ akeyless update-item --name <Item name> \
 
 ##### Flags
 
-[block:Flags]
+block:Flags]
+
 
  `-n, --name`: Required,  Current item name
 
@@ -114,11 +115,11 @@ akeyless update-item --name <Item name> \
 
  `--rm-tag`: List of the existent tags that will be removed from this item.  \\nTo specify multiple tags use argument multiple times: `--rm-tag` Tag1 `--rm-tag` Tag2
 
- `--secure-access-enable`: Enable/Disable secure remote access, \"0-1\": \"\\_\\_(M
+ `--secure-access-enable`: Enable/Disable secure remote access, \"0-1\": \"\\*\\*(M
 
  `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. <https://my.bastion:9900>  \\n(relevant only for ssh cert issuer)
+ `--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. [https://my.bastion:9900](https://my.bastion:9900)  \\n(relevant only for ssh cert issuer)
 
  `--secure-access-bastion-ssh`: Bastion's SSH server. E.g. my.bastion:22  \\n(relevant only for ssh cert issuer)
 
@@ -148,7 +149,7 @@ akeyless update-item --name <Item name> \
 
  `--secure-access-rdp-user`: Override the RDP Domain username
 
- `--secure-access-allow-external-user`: Allow providing external user for a domain users (Mandatory)\\_\\_ 
+ `--secure-access-allow-external-user`: Allow providing external user for a domain users (Mandatory)\\*\\* 
 
  `--secure-access-db-schema`: The DB schema (relevant only for DB Dynamic-Secret)
 
@@ -166,21 +167,21 @@ akeyless update-item --name <Item name> \
 
  `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access  \\n(relevant only for EKS/GKE/K8s Dynamic-Secret)
 
- `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends (Mandatory)\\_\\_ Curre  \\n(relevant only for Rotated-secret on SRA)
+ `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends (Mandatory)\\*\\* Curre  \\n(relevant only for Rotated-secret on SRA)
 
  `--behaviordelete-protection`: Protection from accidental deletion of this item
 
-`--change-event`: Trigger an event when a secret value changed [true/false] \(Relevant only for Static Secret)
+`--change-event`: Trigger an event when a secret value changed \[true/false] \(Relevant only for Static Secret)
 
  `-c, --cert-file-path`: Path to a file that contain the certificate in a PEM format.  \\nUsed for updating RSA keys' certificates
 
  `--cert-file-data`: PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.
 
- `--certificate-format`: The format of the returned certificate [`pem`/`der`]
+ `--certificate-format`: The format of the returned certificate \[\`pem\`/\`der\`]
 
  `--accessibility  \"data\":` In case of an item in a user's personal folder 
 
-### <p style="color:blue">_set-item-state_</p>
+### <p style="color:blue">*set-item-state*</p>
 
 Set Dynamic Secret item's state (Enabled, Disabled)
 
@@ -197,7 +198,7 @@ akeyless set-item-state --name <Current item name> \
 
  `-s, --desired-state`: Required,  Desired item state                                                       
 
-### <p style="color:blue">_get-tags_</p>
+### <p style="color:blue">*get-tags*</p>
 
 Get all tags of selected item
 
@@ -211,7 +212,7 @@ akeyless get-tags --name <Item Name>
 
  `-n, --name`: Required,  The item name                                                       
 
-### <p style="color:blue">_update-account-settings_</p>
+### <p style="color:blue">*update-account-settings*</p>
 
 Updates account settings.
 
@@ -237,7 +238,7 @@ Note: The operation is allowed only for admin user
 
  `--jwt-ttl-max`: maximum allowed jwt ttl for auth method authentication (in minutes)
 
- `--max-versions`: Maximum versions of a given item-type, valid range [`1`, `300`]. When item version exceeds this number, the oldest versions will be deleted
+ `--max-versions`: Maximum versions of a given item-type, valid range \[\`1\`, \`300\`]. When item version exceeds this number, the oldest versions will be deleted
 
  `--item-type`: Associated with max-versions
 
@@ -259,25 +260,25 @@ Note: The operation is allowed only for admin user
 
  `--password-policy-contains-special-characters`: Password must contain special characters 
 
- `--items-deletion-protection`: Set to update the default behaviour of new items creations deletion protection attribute [true/false]
+ `--items-deletion-protection`: Set to update the default behaviour of new items creations deletion protection attribute \[true/false]
 
  `--default-key-name`: Set the account default key based on the DFC key item name. Use \"set-original-akeyless-default-key\" to revert to using the original default key of the account. Empty string will change nothing
 
- `--invalid-characters[=notReceivedInvalidCharacter]`: Characters that cannot be used for items/targets/roles/auths/event_forwarder names
+ `--invalid-characters[=notReceivedInvalidCharacter]`: Characters that cannot be used for items/targets/roles/auths/event\_forwarder names
 
- `--lock-default-key`: Lock the account's default protection key, if set - users will not be able to use a different protection key, relevant only if default-key-name is configured [true/false]
+ `--lock-default-key`: Lock the account's default protection key, if set - users will not be able to use a different protection key, relevant only if default-key-name is configured \[true/false]
 
- `--usage-event-enable`: Enable event for objects that have not been used or changed [true/false]
+ `--usage-event-enable`: Enable event for objects that have not been used or changed \[true/false]
 
- `--usage-event-object-type`: Usage event is supported for auth method or secrets-and-keys [auth/item]
+ `--usage-event-object-type`: Usage event is supported for auth method or secrets-and-keys \[auth/item]
 
  `--usage-event-interval`: Interval by days for unused objects. Default and minimum interval is 90 days
 
- `--dynamic-secret-max-ttl-enable`: Set a maximum ttl for dynamic secrets [true/false]
+ `--dynamic-secret-max-ttl-enable`: Set a maximum ttl for dynamic secrets \[true/false]
 
  `--dynamic-secret-max-ttl`: Set the maximum ttl for dynamic secrets
 
- `--max-rotation-interval-enable`: Set a maximum rotation interval for rotated secrets auto rotation settings [true/false]
+ `--max-rotation-interval-enable`: Set a maximum rotation interval for rotated secrets auto rotation settings \[true/false]
 
  `--max-rotation-interval`: Set the maximum rotation interval for rotated secrets auto rotation settings
 
@@ -289,7 +290,7 @@ Note: The operation is allowed only for admin user
 
  `--lock-gw-bound-ips`: Lock bound-ips setting globally in the account
 
- `--enable-password-expiration`: Enable password expiration policy [`true`/`false`]
+ `--enable-password-expiration`: Enable password expiration policy \[\`true\`/\`false\`]
 
  `--password-expiration-days`: Specifies the number of days that a password is valid before it must be changed. A default value of 90 days is used
 
@@ -297,17 +298,17 @@ Note: The operation is allowed only for admin user
 
 `--hide-personal-folder`: Controls the visibility of the personal folder, this setting hides the personal folder  for users.
 
-`--hide-static-password`: Hide static secret's password type [`true`/`false`].
+`--hide-static-password`: Hide static secret's password type \[\`true\`/\`false\`].
 
-`--enable-default-certificate-expiration-event`: Enable how many days before the expiration of the certificate would you like to be notified. [`true`/`false`].
+`--enable-default-certificate-expiration-event`: Enable how many days before the expiration of the certificate would you like to be notified. \[\`true\`/\`false\`].
 
 `--default-certificate-expiration-notification-days`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--default-certificate-expiration-notification-days 1`, `--default-certificate-expiration-notification-days 5`.
 
-### <p style="color:blue">_get-account-settings_</p>
+### <p style="color:blue">*get-account-settings*</p>
 
 Get the settings of the account 
 
-### <p style="color:blue">_delete-item_</p>
+### <p style="color:blue">*delete-item*</p>
 
 Delete an item or an item version
 
@@ -327,9 +328,9 @@ akeyless delete-item -n <Item name>
 
  `--delete-immediately[=false]`: When delete-in-days=-1, must be set                                                                  
 
- `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]                                    
+ `--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal]                                    
 
-### <p style="color:blue">_delete-items_</p>
+### <p style="color:blue">*delete-items*</p>
 
 Deletes multiple items from a given path
 
@@ -343,13 +344,13 @@ akeyless delete-items -p <Path\do\delete\items>
 
  `-p, --path`: Required,  Path to delete the items from                                       
 
-### <p style="color:blue">_list-items_</p>
+### <p style="color:blue">*list-items*</p>
 
 List of all accessible items
 
 ##### Flags
 
- `-t, --type`: The item types list of the requested items. In case it is empty, all types of items will be returned, options: [key, static-secret, dynamic-secret, rotated-secret, ssh-cert-issuer, pki-cert-issuer, classic-key] 
+ `-t, --type`: The item types list of the requested items. In case it is empty, all types of items will be returned, options: \[key, static-secret, dynamic-secret, rotated-secret, ssh-cert-issuer, pki-cert-issuer, classic-key] 
 
  `--sub-types`: Optional the items sub types                                                                                                                                                                                       
 
@@ -367,9 +368,9 @@ List of all accessible items
 
  `--minimal-view`: Show only basic information of the items                                                                                                                                                                           
 
- `--accessibility[=regular]`: In case of an item in a user's personal folder, options: [regular/personal]                                                                                                                                        
+ `--accessibility[=regular]`: In case of an item in a user's personal folder, options: \[regular/personal]                                                                                                                                        
 
-### <p style="color:blue">_list-sra-bastions_</p>
+### <p style="color:blue">*list-sra-bastions*</p>
 
 List of all Secure Remote Access (SRA) Bastions in the account
 
@@ -377,7 +378,7 @@ List of all Secure Remote Access (SRA) Bastions in the account
 
  `--only-allowed-urls[=false]`: Filter the response to show only bastions allowed URLs                              
 
-### <p style="color:blue">_move-objects_</p>
+### <p style="color:blue">*move-objects*</p>
 
 Moves/Renames objects
 
@@ -395,9 +396,9 @@ akeyless move-objects --source <Source path to move the objects from> \
 
  `--t, --target`: Required,  Target path to move the objects to                                  
 
- `-o, --objects-type[=item]`: The objects type to move (item/auth_method/role)                                    
+ `-o, --objects-type[=item]`: The objects type to move (item/auth\_method/role)                                    
 
-### <p style="color:blue">_configure_</p>
+### <p style="color:blue">*configure*</p>
 
 Configure client profile
 
@@ -415,7 +416,7 @@ akeyless configure
 
  `--access-key`: Access Key
 
- `--access-type[=access_key]`: Access Type, options: (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s)
+ `--access-type[=access_key]`: Access Type, options: (access\_key/password/azure\_ad/saml/oidc/aws\_iam/gcp/k8s)
 
  `--admin-password`: Password (relevant only for access-type=password)
 
@@ -423,7 +424,7 @@ akeyless configure
 
  `--oidc-sp`: OIDC Service Provider (relevant only for access-type=oidc, inferred if empty), supported SPs: google, github
 
- `--azure_ad_object_id`: Azure Active Directory ObjectId  \\n(relevant only for access-type=azure_ad)
+ `--azure_ad_object_id`: Azure Active Directory ObjectId  \\n(relevant only for access-type=azure\_ad)
 
  `--gcp-audience`: GCP audience to use in signed JWT  \\n(relevant only for access-type=gcp)
 
@@ -441,7 +442,7 @@ akeyless configure
 
  `--key-data`: Private key data encoded in base64. Used if file was not provided (relevant only for access-type=cert in Curl Context)
 
-### <p style="color:blue">_unconfigure_</p>
+### <p style="color:blue">*unconfigure*</p>
 
 Remove configuration of client profile
 
