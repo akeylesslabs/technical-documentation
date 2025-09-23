@@ -295,3 +295,4 @@
 - gatewayupdateproducermongo
 - gatewayupdateproducermssql
 - gatewayupdateproducermysql
+- gatewayupdateproduceroracledb
