@@ -273,3 +273,4 @@
 - gatewayupdatelogforwardinglogstash
 - gatewayupdatelogforwardinglogzio
 - gatewayupdatelogforwardingsplunk
+- gatewayupdatelogforwardingstdout
