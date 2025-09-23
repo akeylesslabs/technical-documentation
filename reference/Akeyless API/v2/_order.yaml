@@ -229,3 +229,4 @@
 - gatewaycreateproducerpostgresql
 - gatewaycreateproducerrabbitmq
 - gatewaycreateproducerrdp
+- gatewaycreateproducerredshift
