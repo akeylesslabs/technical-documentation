@@ -2,3 +2,4 @@
 - auth-meth-k8s
 - policy-segregation-for-kubernetes
 - external-secret-operator
+- kubernetes-secrets-store-csi-provider
