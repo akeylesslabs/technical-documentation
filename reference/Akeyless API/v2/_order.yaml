@@ -82,3 +82,4 @@
 - createpkicertissuer-1
 - createrabbitmqtarget
 - createrole
+- createrotatedsecret
