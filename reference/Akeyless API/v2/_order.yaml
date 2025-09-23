@@ -49,3 +49,4 @@
 - createauthmethodldap
 - createauthmethodoauth2
 - createauthmethodoci
+- createauthmethodoidc
