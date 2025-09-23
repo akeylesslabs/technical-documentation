@@ -385,3 +385,4 @@
 - rotatedsecretcreatecassandra
 - rotatedsecretcreatecustom
 - rotatedsecretcreatedockerhub
+- rotatedsecretcreategcp
