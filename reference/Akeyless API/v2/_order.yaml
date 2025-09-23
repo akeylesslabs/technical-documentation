@@ -207,3 +207,4 @@
 - gatewaycreatemigration
 - gatewaycreateproducerredis
 - gatewaycreateproducerartifactory
+- gatewaycreateproduceraws
