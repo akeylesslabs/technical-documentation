@@ -18,7 +18,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -28,7 +28,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">_auth_</p>
+### <p style="color:blue">*auth*</p>
 
 This command authenticates to Akeyless and saves the temporary token so that it can be used again until the token expires without the need to re-authenticate every time.
 
@@ -42,7 +42,7 @@ This command authenticates to Akeyless and saves the temporary token so that it 
 
  `--cloud-id`: The cloud identity (relevant only for access-type=`azure_ad`,`aws_iam`,`gcp`)
 
- `--uid_token`: The universal_identity token (relevant only for access-type=`universal_identity`)
+ `--uid_token`: The universal\_identity token (relevant only for access-type=`universal_identity`)
 
  `--jwt`: The JSON Web Token (relevant only for access-type=`jwt`/`oidc`)
 
@@ -74,7 +74,7 @@ This command authenticates to Akeyless and saves the temporary token so that it 
 
  `--key-data`: Private key data encoded in base64. Used if file was not provided.(relevant only for access-type=`cert`)
 
-`--oci-auth-type[=apikey]`: The type of the OCI configuration to use [instance/apikey/resource] \(relevant only for access-type=oci)
+`--oci-auth-type[=apikey]`: The type of the OCI configuration to use \[instance/apikey/resource] \(relevant only for access-type=oci)
 
 `--oci-group-ocid`: A list of Oracle Cloud IDs groups (relevant only for access-type=oci)
 
@@ -106,13 +106,13 @@ akeyless create-auth-method --name <Auth method name>
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
- `--delete-protection`: Protection from accidental deletion of this object, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--force-sub-claims`: enforce role-association must include sub-claims
 
  `--jwt-ttl[=0]`:creds expiration time in minutes. If not set, use default according to account settings  \\n(see get-account-settings)
 
-### <p style="color:blue">_create-auth-method-email_</p>
+### <p style="color:blue">*create-auth-method-email*</p>
 
 Create a new Auth Method that will be able to authenticate using an email address
 
@@ -138,7 +138,7 @@ akeyless create-auth-method-email \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
- `--delete-protection`: Protection from accidental deletion of this object, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--force-sub-claims`: enforce role-association must include sub-claims              
 
@@ -146,7 +146,7 @@ akeyless create-auth-method-email \
 
  `--email`: **Required**, An email address to be invited to have access                                                      
 
-### <p style="color:blue">_create-auth-method-azure-ad_</p>
+### <p style="color:blue">*create-auth-method-azure-ad*</p>
 
 Create a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -172,7 +172,7 @@ akeyless create-auth-method-azure-ad \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
- `--delete-protection`: Protection from accidental deletion of this object, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--force-sub-claims`: enforce role-association must include sub-claims    
 
@@ -182,7 +182,7 @@ akeyless create-auth-method-azure-ad \
 
  `--issuer`: Issuer URL (=`https://sts.windows.net/bound_tenant_id`)             
 
- `--jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server (=\`<https://login.microsoftonline.com/common/discovery/keys>) 
+ `--jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server (=\`[https://login.microsoftonline.com/common/discovery/keys](https://login.microsoftonline.com/common/discovery/keys)) 
 
  `--audience[=https://management.azure.com/]`: The audience in the JWT            
 
@@ -202,7 +202,7 @@ akeyless create-auth-method-azure-ad \
 
  `--bound-resource-id`: A list of full resource ids that the access is restricted to                                              
 
-### <p style="color:blue">_create-auth-method-aws-iam_</p>
+### <p style="color:blue">*create-auth-method-aws-iam*</p>
 
 Create a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -231,7 +231,7 @@ akeyless create-auth-method-aws-iam \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--force-sub-claims`: enforce role-association must include sub-claims               
 
@@ -253,7 +253,7 @@ akeyless create-auth-method-aws-iam \
 
  `--bound-user-id`: A list of full user ids that the access is restricted to                                                           
 
-### <p style="color:blue">_create-auth-method-gcp_</p>
+### <p style="color:blue">*create-auth-method-gcp*</p>
 
 Create a new Auth Method that will be able to authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
 
@@ -281,7 +281,7 @@ akeyless create-auth-method-gcp \
 
 ` --audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
- `--delete-protection`: Protection from accidental deletion of this object, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--force-sub-claims`: enforce role-association must include sub-claims                     
 
@@ -305,7 +305,7 @@ akeyless create-auth-method-gcp \
 
  `--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data`  becomes mandatory. 
 
-### <p style="color:blue">_create-auth-method-oci_</p>
+### <p style="color:blue">*create-auth-method-oci*</p>
 
 Create a new Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -342,11 +342,11 @@ akeyless create-auth-method-oci \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+`--product-type`: Choose the relevant product type for the auth method \[sm, sra, pm, dp, ca]
 
-### <p style="color:blue">_get-cloud-identity_</p>
+### <p style="color:blue">*get-cloud-identity*</p>
 
-Get Cloud Identity Token (relevant only for access-type=azure_ad, aws_iam, gcp)
+Get Cloud Identity Token (relevant only for access-type=azure\_ad, aws\_iam, gcp)
 
 ##### Usage
 
@@ -358,7 +358,7 @@ akeyless get-cloud-identity \
 
 ##### Flags
 
- `--cloud-provider`: Cloud provider (azure_ad/aws_iam/gcp)
+ `--cloud-provider`: Cloud provider (azure\_ad/aws\_iam/gcp)
 
  `--azure_ad_object_id`: Azure Active Directory ObjectId  \\n(relevant only for access-type=`azure_ad`)
 
@@ -366,7 +366,7 @@ akeyless get-cloud-identity \
 
  `--url_safe`: Escapes the token so it can be safely placed inside a URL query"
 
-### <p style="color:blue">_create-auth-method-oauth2_</p>
+### <p style="color:blue">*create-auth-method-oauth2*</p>
 
 Create a new Auth Method that will be able to authenticate using OAuth2
 
@@ -413,11 +413,11 @@ akeyless create-auth-method-oauth2 \
 
  `--audience`: The audience in the JWT
 
- `--gateway-url`: API Gateway URL <http://Your-Akeyless-Gateway-URL:8000>
+ `--gateway-url`: API Gateway URL [http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)
 
  `-d, --delimiters`: A list of additional sub-claims delimiters"
 
-### <p style="color:blue">_create-auth-method-saml_</p>
+### <p style="color:blue">*create-auth-method-saml*</p>
 
 Create a new Auth Method that will be able to authenticate using SAML
 
@@ -455,7 +455,7 @@ akeyless create-auth-method-saml \
 
  `--idp-metadata-url`: IDP metadata url            
 
- `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is <https://console.akeyless.io/login-saml> to enable SAML via Akeyless Console and  <http://127.0.0.1:*> to enable SAML via akeyless CLI)   
+ `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-saml](https://console.akeyless.io/login-saml) to enable SAML via Akeyless Console and  [http://127.0.0.1:\*](http://127.0.0.1:*) to enable SAML via akeyless CLI)   
 
  `--idp-metadata-xml-file-path`: IDP metadata xml file path                       
 
@@ -463,7 +463,7 @@ akeyless create-auth-method-saml \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
-### <p style="color:blue">_create-auth-method-oidc_</p>
+### <p style="color:blue">*create-auth-method-oidc*</p>
 
 Creates a new Authentication Method object that will allow the user to authenticate using OIDC
 
@@ -506,7 +506,7 @@ akeyless create-auth-method-oidc \
 
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization 
 
- `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is <https://console.akeyless.io/login-oidc> to enable OIDC via Akeyless Console and <http://127.0.0.1:*> to enable OIDC via akeyless CLI)   
+ `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-oidc](https://console.akeyless.io/login-oidc) to enable OIDC via Akeyless Console and [http://127.0.0.1:\*](http://127.0.0.1:*) to enable OIDC via akeyless CLI)   
 
  `--require-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve                  
 
@@ -516,7 +516,7 @@ akeyless create-auth-method-oidc \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 
-### <p style="color:blue">_create-auth-method-k8s_</p>
+### <p style="color:blue">*create-auth-method-k8s*</p>
 
 Creates a new Authentication Method object that will allow the user to authenticate using Kubernetes
 
@@ -566,7 +566,7 @@ akeyless create-auth-method-k8s \
 
  `--gen-key[=true]`: Automatically generate key-pair for K8S configuration. If set to false, a public key needs to be provided            
 
-### <p style="color:blue">_gateway-create-k8s-auth-config_</p>
+### <p style="color:blue">*gateway-create-k8s-auth-config*</p>
 
 Creates K8S Auth config
 
@@ -621,17 +621,17 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 
  `--k8s-ca-cert`: The CA Certificate (base64 encoded) to use to call into the kubernetes API server       
 
- `--k8s-auth-type[=token]`: Native K8S auth type, [token/certificate]. (relevant for "native_k8s" only)      
+ `--k8s-auth-type[=token]`: Native K8S auth type, \[token/certificate]. (relevant for "native\_k8s" only)      
 
- `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for "native_k8s" only)     
+ `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for "native\_k8s" only)     
 
- `--k8s-client-certificate-file`: Path to a file that contain the k8s client certificate in PEM format (relevant for "native_k8s" only)  
+ `--k8s-client-certificate-file`: Path to a file that contain the k8s client certificate in PEM format (relevant for "native\_k8s" only)  
 
- `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format (relevant for "native_k8s" only)              
+ `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format (relevant for "native\_k8s" only)              
 
- `--k8s-client-key-file`: Path to a file that contain the k8s client private key in PEM format (relevant for "native_k8s" only)          
+ `--k8s-client-key-file`: Path to a file that contain the k8s client private key in PEM format (relevant for "native\_k8s" only)          
 
- `--token-reviewer-jwt`: A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for "native_k8s" only) 
+ `--token-reviewer-jwt`: A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for "native\_k8s" only) 
 
  `--rancher-api-key`: The API Key used to access the TokenReview API to validate other JWTs (relevant for "rancher" only)                    
 
@@ -645,7 +645,7 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)      
 
-### <p style="color:blue">_gateway-get-k8s-auth-config_</p>
+### <p style="color:blue">*gateway-get-k8s-auth-config*</p>
 
 Gets K8S Auth config
 
@@ -659,10 +659,10 @@ akeyless gateway-get-k8s-auth-config \
 
 ##### Flags
 
- `-n, --name`: **Required**, K8S Auth config name  
+ `-n, --name`: **Required**, K8S Auth config name\
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port) 
 
-### <p style="color:blue">_create-auth-method-ldap_</p>
+### <p style="color:blue">*create-auth-method-ldap*</p>
 
 Creates a new Authentication Method object that will allow the user to authenticate using LDAP
 
@@ -702,7 +702,7 @@ akeyless create-auth-method-ldap \
 
  `--gen-key[=true]`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided                                                                                                                                                                                                                                                                                                                                                                                   
 
-### <p style="color:blue">_gateway-get-ldap-auth-config_</p>
+### <p style="color:blue">*gateway-get-ldap-auth-config*</p>
 
 Gets Ldap Auth config
 
@@ -717,7 +717,7 @@ akeyless gateway-get-ldap-auth-config \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">_create-auth-method-universal-identity_</p>
+### <p style="color:blue">*create-auth-method-universal-identity*</p>
 
 Create a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
@@ -753,7 +753,7 @@ akeyless create-auth-method-universal-identity \
 
  `--ttl[=60]`: Token TTL (has the value that configured in Akeyless console > Authentication settings)                            
 
-### <p style="color:blue">_create-auth-method-cert_</p>
+### <p style="color:blue">*create-auth-method-cert*</p>
 
 Create a new Auth Method that will be able to authenticate using a client certificate
 
@@ -806,7 +806,7 @@ akeyless create-auth-method-cert \
 
  ` -u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization 
 
-### <p style="color:blue">_validate-token_</p>
+### <p style="color:blue">*validate-token*</p>
 
 Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
 
@@ -817,7 +817,7 @@ akeyless validate-token \
 --token <Token to validate>
 ```
 
-### <p style="color:blue">_revoke-creds_</p>
+### <p style="color:blue">*revoke-creds*</p>
 
 This command will permanently revoke the credentials associated with the provided token or profile
 
@@ -825,7 +825,7 @@ This command will permanently revoke the credentials associated with the provide
 akeyless revoke-creds --profile/token <Profile/Token>
 ```
 
-### <p style="color:blue">_get-auth-method_</p>
+### <p style="color:blue">*get-auth-method*</p>
 
 Get Auth Method details
 
@@ -835,7 +835,7 @@ Get Auth Method details
 akeyless get-auth-method -n <Auth method name>
 ```
 
-### <p style="color:blue">_list-auth-methods_</p>
+### <p style="color:blue">*list-auth-methods*</p>
 
 List details of all the Auth Methods in the account
 
@@ -849,13 +849,13 @@ akeyless list-auth-methods \
 
 ##### Flags
 
- `-t, --type`: The auth method types list of the requested method. In case it is empty, all types of auth method will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s, cert] 
+ `-t, --type`: The auth method types list of the requested method. In case it is empty, all types of auth method will be returned. options: \[api\_key, azure\_ad, oauth2/jwt, saml2, ldap, aws\_iam, oidc, universal\_identity, gcp, k8s, cert] 
 
  `--filter`: Filter by auth method name or part of it           
 
  `--pagination-token`: Next page reference                                                                                                                                                                                                          
 
-### <p style="color:blue">_delete-auth-method_</p>
+### <p style="color:blue">*delete-auth-method*</p>
 
 Delete the Auth Method
 
@@ -869,7 +869,7 @@ akeyless delete-auth-method -n <Auth method name>
 
  `-n, --name`: **Required**, Auth Method name 
 
-### <p style="color:blue">_delete-auth-methods_</p>
+### <p style="color:blue">*delete-auth-methods*</p>
 
 Delete multiple auth methods from a given path
 
@@ -883,7 +883,7 @@ akeyless delete-auth-methods -p <Path/to/auth-methods>
 
  `-p, --path`: **Required**, path to delete the auth methods from 
 
-### <p style="color:blue">_gateway-delete-k8s-auth-config_</p>
+### <p style="color:blue">*gateway-delete-k8s-auth-config*</p>
 
 Deletes K8S Auth config
 
@@ -901,7 +901,7 @@ akeyless gateway-delete-k8s-auth-config \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port) 
 
-### <p style="color:blue">_update-auth-method_</p>
+### <p style="color:blue">*update-auth-method*</p>
 
 Update a new API Key Auth Method in the account
 
@@ -929,11 +929,11 @@ akeyless update-auth-method --name <Auth method>
 
 `--force-sub-claims`: enforce role-association must include sub-claims                   
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings) 
 
-### <p style="color:blue">_gateway-update-k8s-auth-config_</p>
+### <p style="color:blue">*gateway-update-k8s-auth-config*</p>
 
 Updates the K8s Auth config
 
@@ -961,23 +961,23 @@ akeyless gateway-update-k8s-auth-config \
 
  `-i, --use-gw-service-account`: Use the GW's service account                         
 
- `--cluster-api-type[=native_k8s]`: Cluster access type. options: [native_k8s, rancher]        
+ `--cluster-api-type[=native_k8s]`: Cluster access type. options: \[native\_k8s, rancher]        
 
  `--k8s-host`: The URL of the kubernetes API server                   
 
  `--k8s-ca-cert`: The CA Certificate (base64 encoded) to use to call into the kubernetes API server      
 
- `--k8s-auth-type[=token]`: Native K8S auth type, [token/certificate]. (relevant for "native_k8s" only)  
+ `--k8s-auth-type[=token]`: Native K8S auth type, \[token/certificate]. (relevant for "native\_k8s" only)  
 
- `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for "native_k8s" only)       
+ `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for "native\_k8s" only)       
 
- `--k8s-client-certificate-file`: Path to a file that contain the k8s client certificate in PEM format (relevant for "native_k8s" only)  
+ `--k8s-client-certificate-file`: Path to a file that contain the k8s client certificate in PEM format (relevant for "native\_k8s" only)  
 
- `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format (relevant for "native_k8s" only)   
+ `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format (relevant for "native\_k8s" only)   
 
- `--k8s-client-key-file`: Path to a file that contain the k8s client private key in PEM format (relevant for "native_k8s" only)  
+ `--k8s-client-key-file`: Path to a file that contain the k8s client private key in PEM format (relevant for "native\_k8s" only)  
 
- `--token-reviewer-jwt`: A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for "native_k8s" only) 
+ `--token-reviewer-jwt`: A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for "native\_k8s" only) 
 
  `--rancher-api-key`: The api key used to access the TokenReview API to validate other JWTs (relevant for "rancher" only)                      
 
@@ -995,9 +995,9 @@ akeyless gateway-update-k8s-auth-config \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">_gateway-update-ldap-auth-config_</p>
+### <p style="color:blue">*gateway-update-ldap-auth-config*</p>
 
 Updates LDAP Auth config
 
@@ -1022,7 +1022,7 @@ akeyless gateway-update-ldap-auth-config \
 
  `--signing-key-file-name`: the path to the file containing the private key                   
 
- `--ldap-url`: LDAP Server URL, e.g. ldap://planetexpress.com:389                         
+ `--ldap-url`: LDAP Server URL, e.g. ldap\://planetexpress.com:389                         
 
  `-t, --ldap-ca-cert`: LDAP CA Certificate (base64 encoded)                               
 
@@ -1042,15 +1042,15 @@ akeyless gateway-update-ldap-auth-config \
 
  `--group-filter`: Go template used when constructing the group membership query. The template can access the following context variables: [UserDN, Username] 
 
- `--group-attr`: LDAP attribute to follow on objects returned by ldap_group_filter in order to enumerate user group membership                            
+ `--group-attr`: LDAP attribute to follow on objects returned by ldap\_group\_filter in order to enumerate user group membership                            
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                            
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">_update-auth-method-aws-iam_</p>
+### <p style="color:blue">*update-auth-method-aws-iam*</p>
 
 Update a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -1083,7 +1083,7 @@ akeyless update-auth-method-aws-iam \
 
  `-b, --bound-aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to                
 
- `--sts-url[=https://sts.amazonaws.com]`: STS URL  
+ `--sts-url[=https://sts.amazonaws.com]`: STS URL\
  `--bound-arn`: A list of full arns that the access is restricted to                    
 
  `--bound-role-name`: A list of full role-name that the access is restricted to            
@@ -1098,9 +1098,9 @@ akeyless update-auth-method-aws-iam \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">_update-auth-method-azure-ad_</p>
+### <p style="color:blue">*update-auth-method-azure-ad*</p>
 
 Update a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -1131,7 +1131,7 @@ akeyless update-auth-method-azure-ad \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)    
 
@@ -1159,7 +1159,7 @@ akeyless update-auth-method-azure-ad \
 
  `--bound-resource-id`: A list of full resource ids that the access is restricted to                                                                                                      
 
-### <p style="color:blue">_update-auth-method-cert_</p>
+### <p style="color:blue">*update-auth-method-cert*</p>
 
 Update a new Auth Method that will be able to authenticate using a client certificate.
 
@@ -1190,7 +1190,7 @@ akeyless update-auth-method-cert \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)  
 
@@ -1214,7 +1214,7 @@ akeyless update-auth-method-cert \
 
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization. 
 
-### <p style="color:blue">_update-auth-method-gcp_</p>
+### <p style="color:blue">*update-auth-method-gcp*</p>
 
 Update a new Auth Method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials
 
@@ -1246,7 +1246,7 @@ akeyless update-auth-method-gcp \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)     
 
@@ -1268,7 +1268,7 @@ akeyless update-auth-method-gcp \
 
  `--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data`  becomes mandatory. 
 
-### <p style="color:blue">_update-auth-method-oci_</p>
+### <p style="color:blue">*update-auth-method-oci*</p>
 
 Update an Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -1304,13 +1304,13 @@ akeyless update-auth-method-oci \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+`--product-type`: Choose the relevant product type for the auth method \[sm, sra, pm, dp, ca]
 
-### <p style="color:blue">_update-auth-method-k8s_</p>
+### <p style="color:blue">*update-auth-method-k8s*</p>
 
 Update a new Auth Method that will be able to authenticate using Kubernetes
 
@@ -1340,7 +1340,7 @@ akeyless update-auth-method-k8s \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)   
 
@@ -1358,7 +1358,7 @@ akeyless update-auth-method-k8s \
 
  `--gen-key`: Automatically generate key-pair for K8S configuration. If set to false, a public key needs to be provided            
 
-### <p style="color:blue">_update-auth-method-ldap_</p>
+### <p style="color:blue">*update-auth-method-ldap*</p>
 
 Update a new Auth Method that will be able to authenticate using LDAP
 
@@ -1389,7 +1389,7 @@ akeyless update-auth-method-ldap \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)   
 
@@ -1401,7 +1401,7 @@ akeyless update-auth-method-ldap \
 
  `--gen-key`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided                                                                                                                                                                                                                                                                                                                                                                                    
 
-### <p style="color:blue">_update-auth-method-oauth2_</p>
+### <p style="color:blue">*update-auth-method-oauth2*</p>
 
 Update a new Auth Method that will be able to authenticate using OAuth2
 
@@ -1432,7 +1432,7 @@ akeyless update-auth-method-oauth2 \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)      
 
@@ -1446,11 +1446,11 @@ akeyless update-auth-method-oauth2 \
 
  `--audience`: The audience in the JWT                                
 
- `--gateway-url`: API Gateway URL <http://Your-Akeyless-Gateway-URL:8000>    
+ `--gateway-url`: API Gateway URL [http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)    
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
-### <p style="color:blue">_update-auth-method-oidc_</p>
+### <p style="color:blue">*update-auth-method-oidc*</p>
 
 Update a new Auth Method that will be able to authenticate using OIDC
 
@@ -1484,7 +1484,7 @@ akeyless update-auth-method-oidc \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)                                                                                                                                                                                                                                                                                                                                                                                           
 
@@ -1496,7 +1496,7 @@ akeyless update-auth-method-oidc \
 
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization 
 
- `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is <https://console.akeyless.io/login-oidc> to enable OIDC via Akeyless Console and <http://127.0.0.1:*> to enable OIDC via akeyless CLI)                                                                                                                                                                                                                                                                                                            
+ `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-oidc](https://console.akeyless.io/login-oidc) to enable OIDC via Akeyless Console and [http://127.0.0.1:\*](http://127.0.0.1:*) to enable OIDC via akeyless CLI)                                                                                                                                                                                                                                                                                                            
 
  `--required-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve                                                                                                                                                                                                                                                                                                                                                                                                           
 
@@ -1506,7 +1506,7 @@ akeyless update-auth-method-oidc \
 
  `-d, --delimiters`          A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
-### <p style="color:blue">_update-auth-method-saml_</p>
+### <p style="color:blue">*update-auth-method-saml*</p>
 
 Update a new Auth Method that will be able to authenticate using SAML
 
@@ -1538,7 +1538,7 @@ akeyless update-auth-method-saml \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)                                                                                                                                                                                                                                                                                                                                                                                            
 
@@ -1546,7 +1546,7 @@ akeyless update-auth-method-saml \
 
  `--idp-metadata-url`: IDP metadata url                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
- `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is <https://console.akeyless.io/login-saml> to enable SAML via Akeyless Console and  <http://127.0.0.1:*> to enable SAML via akeyless CLI)                                                                                                                                                                                                                                                                                                            
+ `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-saml](https://console.akeyless.io/login-saml) to enable SAML via Akeyless Console and  [http://127.0.0.1:\*](http://127.0.0.1:*) to enable SAML via akeyless CLI)                                                                                                                                                                                                                                                                                                            
 
  `--idp-metadata-xml-file-path`: IDP metadata xml file path                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
@@ -1554,7 +1554,7 @@ akeyless update-auth-method-saml \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
-### <p style="color:blue">_update-auth-method-universal-identity_</p>
+### <p style="color:blue">*update-auth-method-universal-identity*</p>
 
 Update a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
@@ -1584,7 +1584,7 @@ akeyless update-auth-method-universal-identity \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username` 
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings) 
 
@@ -1594,7 +1594,7 @@ akeyless update-auth-method-universal-identity \
 
  `--ttl[=60]`: Token ttl (in minutes)                                                                                             
 
-### <p style="color:blue">_gateway-get-ldap-auth-config_</p>
+### <p style="color:blue">*gateway-get-ldap-auth-config*</p>
 
 Gets Ldap Auth config
 
@@ -1611,11 +1611,11 @@ akeyless gateway-get-ldap-auth-config \
 
  `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token 
 
- `--uid-token`: The universal identity token, Required only for universal_identity authentication   
+ `--uid-token`: The universal identity token, Required only for universal\_identity authentication   
 
 ## Akeyless Universal Identity
 
-### <p style="color:blue">_uid-list-children _</p>
+### <p style="color:blue"> *uid-list-children*</p>
 
 List the token children ids of Akeyless Universal Identity
 
@@ -1625,7 +1625,7 @@ List the token children ids of Akeyless Universal Identity
 akeyless uid-list-children --auth-method-name <UID Auth Method Name>
 ```
 
-### <p style="color:blue">_uid-revoke-token_</p>
+### <p style="color:blue">*uid-revoke-token*</p>
 
 Revoke token using Akeyless Universal Identity
 
@@ -1645,7 +1645,7 @@ akeyless uid-revoke-token \
 
  `-n, --auth-method-name`: The universal identity auth method name                                                   
 
-### <p style="color:blue">_uid-generate-token_</p>
+### <p style="color:blue">*uid-generate-token*</p>
 
 Generate a new token using Akeyless Universal Identity
 
@@ -1655,7 +1655,7 @@ Generate a new token using Akeyless Universal Identity
 akeyless uid-generate-token --auth-method-name <Auth method name>
 ```
 
-### <p style="color:blue">_uid-rotate-token_</p>
+### <p style="color:blue">*uid-rotate-token*</p>
 
 Rotate Akeyless Universal Identity token
 
@@ -1673,7 +1673,7 @@ Rotate Akeyless Universal Identity token
 
  `-i, --input-file`:          Path to the input file                                                       
 
-### <p style="color:blue">_uid-create-child-token_</p>
+### <p style="color:blue">*uid-create-child-token*</p>
 
 Create a new child token using Akeyless Universal Identity
 
@@ -1699,4 +1699,4 @@ akeyless uid-create-child-token \
 
  `--profile` or `--token`: Use a specific Akeyless profile (located at $HOME/.akeyless/profiles) or a temporary access token 
 
- `--uid-token`: The universal identity token. It is required only for universal_identity authentication
+ `--uid-token`: The universal identity token. It is required only for universal\_identity authentication
