@@ -17,13 +17,13 @@ At its core, the **Akeyless Gateway** serves as a secure execution layer that fa
 When managing environments across multiple AWS accounts, the key requirement is to establish a consistent and automated approach for deploying and operating the **Akeyless Gateway** across the organization. This ensures reliable configuration, centralized control, and seamless integration of Gateway capabilities throughout all AWS member accounts.
 
 > 👍 AWS Partner
-> 
+>
 > Akeyless is an [official AWS partner](https://partners.amazonaws.com/partners/0018a00001orv7AAAQ/) recognized with the Security ISV Competency.
 
 # How Akeyless Gateway authenticates using IAM
 
-AWS compute resources can authenticate directly to Akeyless using supported identity mechanisms. These include:  
-EC2 instances, Lambda functions, ECS (Elastic Container Service) tasks, EKS (Elastic Kubernetes Service) pods (if using IAM roles for service accounts)  
+AWS compute resources can authenticate directly to Akeyless using supported identity mechanisms. These include:\
+EC2 instances, Lambda functions, ECS (Elastic Container Service) tasks, EKS (Elastic Kubernetes Service) pods (if using IAM roles for service accounts)\
 These resources use AWS IAM roles to obtain temporary credentials, which Akeyless uses to validate their identity. 
 
 When the **Gateway** is running on such a resource, it utilizes the existing identity to authenticate to Akeyless SaaS services. 
@@ -45,50 +45,22 @@ All deployment patterns are working **without** any AWS long-lived credentials a
 When using an [AWS Target](doc:aws-targets)with the **Gateway Cloud ID** option, the Akeyless **Gateway** leverages the IAM role associated with the underlying compute service it’s running on, such as a service account role in EKS or an instance profile role attached to an EC2 instance. To extend access beyond the AWS account the Gateway is running on, the Target can be explicitly set with a **role ARN** with **External ID**, overriding the default identity behavior and allowing secure, cross-account operations. This means a single **Target** can be shared across multiple **Gateways**, with each **Gateway** operating under the permissions granted to its own associated AWS role.
 
 > 📘 AWS Configuration and credential precedence
-> 
+>
 > Akelyess uses AWS official SDK, hence the role that will be used is according to [AWS precedence](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html#cli-chap-authentication-precedence).
 
 # Deployment patterns
 
 As the Akelyess Gateway is a light, stateless application, it might be deployed using the following patterns according to your preference while managing an AWS organization with multiple accounts: 
 
-- [Centralized Gateway](https://docs.akeyless.io/docs/terraform-centralized-deployment): Deploy a single **Gateway** in a “security-services” or “shared-tools” account. In each member account, create an **IAM role** that the [Gateway](https://docs.akeyless.io/docs/gateway-chart) can assume, protected with an **External ID**. Register each role as an [AWS Target](https://docs.akeyless.io/docs/aws-targets) in Akeyless. Where [Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector), etc., will point to that Target. This will end with 1 or more **Gateways** to manage and monitor, while keeping member accounts isolated.
+* [Centralized Gateway](https://docs.akeyless.io/docs/terraform-centralized-deployment): Deploy a single **Gateway** in a “security-services” or “shared-tools” account. In each member account, create an **IAM role** that the [Gateway](https://docs.akeyless.io/docs/gateway-chart) can assume, protected with an **External ID**. Register each role as an [AWS Target](https://docs.akeyless.io/docs/aws-targets) in Akeyless. Where [Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector), etc., will point to that Target. This will end with 1 or more **Gateways** to manage and monitor, while keeping member accounts isolated.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/603ecd924daae82ebfff8e8153f147779849a6d0d616e42888e8e965ba07bd2d-Flows_for_Akelyess_Target_with_Cloud_ID_and_external_ID_1.jpg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/603ecd924daae82ebfff8e8153f147779849a6d0d616e42888e8e965ba07bd2d-Flows_for_Akelyess_Target_with_Cloud_ID_and_external_ID_1.jpg" />
 
+* [Distributed Gateways](https://docs.akeyless.io/docs/terraform-distributed-deployment): Deploy different **Gateways** in every account. Each **Gateway** works only on its local AWS account, but is managed from the same Akeyless account.
 
-- [Distributed Gateways](https://docs.akeyless.io/docs/terraform-distributed-deployment): Deploy different **Gateways** in every account. Each **Gateway** works only on its local AWS account, but is managed from the same Akeyless account.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a3ee87d843bbeed8d385418b8e87cb87af8a574672cf3d434ce0adedad180350-Flows_for_Akelyess_Target_with_Cloud_ID_and_external_ID.jpg",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/a3ee87d843bbeed8d385418b8e87cb87af8a574672cf3d434ce0adedad180350-Flows_for_Akelyess_Target_with_Cloud_ID_and_external_ID.jpg" />
 
 You can find a Terraform example with the required IAM roles for these deployments in the following links:
 
-- [AWS Roles for Centralized Gateway Using Terraform](doc:terraform-centralized-deployment)
-- [AWS Roles for Distributed Gateway Using Terraform](doc:terraform-distributed-deployment)
+* [AWS Roles for Centralized Gateway Using Terraform](doc:terraform-centralized-deployment)
+* [AWS Roles for Distributed Gateway Using Terraform](doc:terraform-distributed-deployment)
