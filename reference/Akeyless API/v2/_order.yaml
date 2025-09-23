@@ -121,3 +121,4 @@
 - detokenize
 - detokenizebatch
 - dynamicsecretcreateartifactory
+- dynamicsecretcreateaws
