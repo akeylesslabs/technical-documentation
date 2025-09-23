@@ -6,3 +6,4 @@
 - kubernetes-cert-manager
 - injector-and-external-secrets-operator-comparison
 - kubernetes-external-kms
+- k8s-external-secrets
