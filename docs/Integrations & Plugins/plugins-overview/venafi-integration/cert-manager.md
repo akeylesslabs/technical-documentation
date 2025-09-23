@@ -30,8 +30,8 @@ Once cert-manager is installed and running in your K8s cluster, you’ll need to
 
 The following Authentication Methods are supported:
 
-- [K8s Auth](https://docs.akeyless.io/docs/kubernetes-auth)
-- [API Key](https://docs.akeyless.io/docs/api-key)
+* [K8s Auth](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/api-key)
 
 The Secret object allows cert-manager to connect to Akeyless:
 
@@ -52,10 +52,10 @@ access_id..acces_key | base64
 ```
 
 > 👍 Note
-> 
-> The API Key token should be a concatenation of your <code>access_id</code> and your <code>access_key</code> with double dots as a delimiter. 
-> 
-> Make sure this [Authentication method](https://akeyless.readme.io/docs/understanding-authentication) is set with the appropriate [RBAC](https://akeyless.readme.io/docs/rbac) in Akeyless, to grant access to your dynamic secret.  
+>
+> The API Key token should be a concatenation of your <code>access\_id</code> and your <code>access\_key</code> with double dots as a delimiter. 
+>
+> Make sure this [Authentication method](https://akeyless.readme.io/docs/understanding-authentication) is set with the appropriate [RBAC](https://akeyless.readme.io/docs/rbac) in Akeyless, to grant access to your dynamic secret.\
 > The path in the yaml should always start with the prefix `pki/sign/` prior to the item path in Akeyless
 
 The Issuer object is what allows the cert-manager to call Akeyless with the appropriate dynamic secret.
