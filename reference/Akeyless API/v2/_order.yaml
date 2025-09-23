@@ -123,3 +123,4 @@
 - dynamicsecretcreateartifactory
 - dynamicsecretcreateaws
 - dynamicsecretcreateazure
+- dynamicsecretcreatecassandra
