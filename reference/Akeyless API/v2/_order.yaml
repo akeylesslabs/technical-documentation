@@ -298,3 +298,4 @@
 - gatewayupdateproduceroracledb
 - gatewayupdateproducerping
 - gatewayupdateproducerpostgresql
+- gatewayupdateproducerrabbitmq
