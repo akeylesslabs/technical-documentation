@@ -256,3 +256,4 @@
 - gatewaystatusmigration
 - gatewayrevoketmpusers
 - rotatesecret
+- gatewaystartproducer
