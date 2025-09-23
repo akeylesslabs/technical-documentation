@@ -149,3 +149,4 @@
 - dynamicsecretcreatevenafi
 - dynamicsecretdelete
 - dynamicsecretget-1
+- dynamicsecretgetvalue
