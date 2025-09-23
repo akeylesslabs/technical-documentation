@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">_client-delete-rule_</p>
+### <p style={{ color: "blue" }}>*client-delete-rule*</p>
 
 Delete an RBAC rule from a client
 
@@ -34,10 +34,10 @@ Delete an RBAC rule from a client
 
 ```shell
 akeyless kmip-client-delete-rule \
---path <Access path> \
---name <KMIP client name> \
---client-id <KMIP client ID> \
---gateway-url <API Gateway URL:8000>
+--path &lt;Access path&gt; \
+--name &lt;KMIP client name&gt; \
+--client-id &lt;KMIP client ID&gt; \
+--gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
 ##### Flags
@@ -50,31 +50,31 @@ akeyless kmip-client-delete-rule \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port) 
 
-### <p style="color:blue">_client-set-rule_</p>
+### <p style={{ color: "blue" }}>*client-set-rule*</p>
 
 Add a new RBAC rule to a client
 
-Supported capabilities are:  
-`DENY`  
-`CREATE`  
-`REGISTER`  
-`REKEY`  
-`LOCATE`  
-`GET`  
-`GET_ATTRIBUTES`  
-`ACTIVATE`  
-`REVOKE`  
+Supported capabilities are:\
+`DENY`\
+`CREATE`\
+`REGISTER`\
+`REKEY`\
+`LOCATE`\
+`GET`\
+`GET_ATTRIBUTES`\
+`ACTIVATE`\
+`REVOKE`\
 `DESTROY`
 
 ##### Usage
 
 ```shell
 akeyless kmip-client-set-rule \
---path <Access path> \
---capability <Access capability> \
---name <KMIP client name> \
---client-id <KMIP client ID> \
---gateway-url <API Gateway URL:8000>
+--path &lt;Access path&gt; \
+--capability &lt;Access capability&gt; \
+--name &lt;KMIP client name&gt; \
+--client-id &lt;KMIP client ID&gt; \
+--gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
 ##### Flags
@@ -89,7 +89,7 @@ akeyless kmip-client-set-rule \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">_create-client_</p>
+### <p style={{ color: "blue" }}>*create-client*</p>
 
 Create a new KMIP client
 
@@ -97,9 +97,9 @@ Create a new KMIP client
 
 ```shell
 akeyless kmip-create-client \
---name <Client name> \
---certificate-ttl <Server certificate TTL in days (Deafult = 90)> \
---gateway-url <API Gateway URL:8000>
+--name &lt;Client name&gt; \
+--certificate-ttl &lt;Server certificate TTL in days (Deafult = 90)&gt; \
+--gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
 ##### Flags
@@ -108,13 +108,13 @@ akeyless kmip-create-client \
 
  `-t, --certificate-ttl[=90]`: Client certificate TTL in days                                                                                                   
 
- `-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: <client-name>.key and <client-name>.cert 
+ `-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: &lt;client-name&gt;.key and &lt;client-name&gt;.cert 
 
  `-a, --activate-keys-on-creation"h-0": "`: If set to 'true', newly created keys on the client will be set to an 'active' state                                              
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">_delete-client_</p>
+### <p style={{ color: "blue" }}>*delete-client*</p>
 
 Delete a KMIP client
 
@@ -126,7 +126,7 @@ Delete a KMIP client
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port) 
 
-### <p style="color:blue">_describe-client_</p>
+### <p style={{ color: "blue" }}>*describe-client*</p>
 
 Show KMIP client details
 
@@ -138,7 +138,7 @@ Show KMIP client details
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">_describe-server_</p>
+### <p style={{ color: "blue" }}>*describe-server*</p>
 
 Show KMIP environment details
 
@@ -146,7 +146,7 @@ Show KMIP environment details
 
  `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-### <p style="color:blue">_list-clients_</p>
+### <p style={{ color: "blue" }}>*list-clients*</p>
 
 Show existing KMIP clients
 
@@ -154,7 +154,7 @@ Show existing KMIP clients
 
  `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-### <p style="color:blue">_renew-client-certificate _</p>
+### <p style={{ color: "blue" }}> *renew-client-certificate*</p>
 
 Renew KMIP client certificate
 
@@ -164,11 +164,11 @@ Renew KMIP client certificate
 
  `-i, --client-id`: KMIP client ID (either name or id are required)                                                                                  
 
- `-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: <client-name>.key and <client-name>.cert 
+ `-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: &lt;client-name&gt;.key and &lt;client-name&gt;.cert 
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">_renew-server-certificate_</p>
+### <p style={{ color: "blue" }}>*renew-server-certificate*</p>
 
 Renew KMIP server certificate
 
@@ -176,15 +176,15 @@ Renew KMIP server certificate
 
  `-u, --gateway-url[=http://localhost:8000]`:  API Gateway URL (Configuration Management port)  
 
-### <p style="color:blue">_server-delete_</p>
+### <p style={{ color: "blue" }}>*server-delete*</p>
 
 Delete the kmip server (allowed only if it has no clients nor associated items)
 
 ##### Flags
 
- `-u, --gateway-url[=http://localhost:8000]\<c`: Gateway URL (Configuration Management port).
+ `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-### <p style="color:blue">_server-setup _</p>
+### <p style={{ color: "blue" }}> *server-setup*</p>
 
  Create a new KMIP environment
 
@@ -192,10 +192,10 @@ Delete the kmip server (allowed only if it has no clients nor associated items)
 
 ```shell
 akeyless kmip-server-setup \
---hostname <KMPI server hostname> \
---certificate-ttl <Server certificate TTL in days (Deafult = 90)> \
---root <Root path of KMIP Objects> \
---gateway-url <API Gateway URL:8000>
+--hostname &lt;KMPI server hostname&gt; \
+--certificate-ttl &lt;Server certificate TTL in days (Deafult = 90)&gt; \
+--root &lt;Root path of KMIP Objects&gt; \
+--gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
 ##### Flags
@@ -210,7 +210,7 @@ akeyless kmip-server-setup \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">_server-move_</p>
+### <p style={{ color: "blue" }}>*server-move*</p>
 
 Move the root location of the kmip server and all associated items to a new root location
 
@@ -218,8 +218,8 @@ Move the root location of the kmip server and all associated items to a new root
 
 ```shell
 akeyless kmip-server-move \
---new-root <New root for the kmip server> \
---gateway-url <API Gateway URL:8000>
+--new-root &lt;New root for the kmip server&gt; \
+--gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
 ##### Flags
@@ -228,7 +228,7 @@ akeyless kmip-server-move \
 
  `-n, --new-root`: **Required**, New root for the kmip server 
 
-### <p style="color:blue">_set-server-state_</p>
+### <p style={{ color: "blue" }}>*set-server-state*</p>
 
 Set the server state to enabled/disabled
 
@@ -236,20 +236,20 @@ Set the server state to enabled/disabled
 
 ```shell
 akeyless kmip-set-server-state \ 
---state <Enabled / Disabled> \
---gateway-url <API Gateway URL:8000>
+--state &lt;Enabled / Disabled&gt; \
+--gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
 ##### Flags
 
- `-s, --state`: **Required**, Make the server enabled or disabled [use 'enabled' or 'disabled']   
+ `-s, --state`: **Required**, Make the server enabled or disabled \[use 'enabled' or 'disabled']   
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                     
 
 > 📘 Info
-> 
+>
 > **Writing commands - generating secrets**
-> 
-> The default Akeyless Vault behavior is that the write commands (generate secrets) are performed to the main region of Akeyless Vault, while the read commands (fetch secrets) are performed on the nearest region to you, in order to minimize latency.  
-> If you wish to change that, in order to work only with the master region, please add  
+>
+> The default Akeyless Vault behavior is that the write commands (generate secrets) are performed to the main region of Akeyless Vault, while the read commands (fetch secrets) are performed on the nearest region to you, in order to minimize latency.\
+> If you wish to change that, in order to work only with the master region, please add\
 > optimize_dns_disable=true in the settings file.
