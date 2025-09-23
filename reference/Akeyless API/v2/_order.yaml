@@ -29,3 +29,4 @@
 - authmethodupdatekerberos
 - authmethodupdateldap
 - authmethodupdateoauth2
+- authmethodupdateoci
