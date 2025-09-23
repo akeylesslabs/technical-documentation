@@ -504,3 +504,4 @@
 - updateartifactorytarget
 - updateassoc
 - updateauthmethod
+- updateauthmethodawsiam
