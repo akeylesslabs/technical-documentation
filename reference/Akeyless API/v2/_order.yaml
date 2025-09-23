@@ -221,3 +221,4 @@
 - gatewaycreateproducerhanadb
 - gatewaycreateproducernativek8s
 - gatewaycreateproducerldap
+- gatewaycreateproducermongo
