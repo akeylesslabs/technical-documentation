@@ -16,71 +16,163 @@ By default, Secrets are not encrypted at rest and are open to attack, either via
 
 ## Prerequisites
 
-- K8s v1.10 or higher.
+* K8s v1.10 or higher.
 
-- Direct access to K8s control plane.
+* Direct access to K8s control plane.
 
-- `kube-apiserver` must be restarted after the External KMS plugin has been configured and started.
+* `kube-apiserver` must be restarted after the External KMS plugin has been configured and started.
 
-- For `kubernetes-external-secrets` to be able to retrieve your secrets it will need access to your Akeyless Platform via Akeyless [RBAC](doc:rbac) associated with an [Authentication Method](doc:access-and-authentication-methods).
+* For `kubernetes-external-secrets` to be able to retrieve your secrets it will need access to your Akeyless Platform via Akeyless [RBAC](doc:rbac) associated with an [Authentication Method](doc:access-and-authentication-methods).
 
-- An AES [Encryption Key](doc:encryption-keys) in Akeyless Platform.
+* An AES [Encryption Key](doc:encryption-keys) in Akeyless Platform.
 
 ## Usage
 
 K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) or a standalone docker container both methods require direct access to the K8s master nodes on the control plane where the `kube-apiserver` is running:  
 
 > 👍 Note
-> 
+>
 > `kube-apiserver` communicates with the plugin through a UNIX socket,hence a volume must be mounted accordingly where the plugin will create the socket on, and the `kube-apiserver` will send and received requests through it.
 
 ## Akeyless Environment Variables
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Name",
-    "h-1": "Value",
-    "h-2": "Default",
-    "0-0": "`AKEYLESS_URL`",
-    "0-1": "URL of the Akeyless RestAPI Gateway  \n(port 8081)",
-    "0-2": "<https://api.akeyless.io>",
-    "1-0": "`AKEYLESS_UNIX_SOCKET`",
-    "1-1": "Path to listen on UNIX socket",
-    "1-2": "`/tmp/akeyless_kms_plugin.sock`",
-    "2-0": "`AKEYLESS_KEY_ENCRYPTION_KEY`",
-    "2-1": "The key used for encryption  \n(decryption is handled automatically)",
-    "2-2": "N\\\\A",
-    "3-0": "`AKEYLESS_ACCESS_ID`",
-    "3-1": "Access ID of the auth method used",
-    "3-2": "",
-    "4-0": "`AKEYLESS_ACCESS_KEY`",
-    "4-1": "Access Key if access_key auth method is used",
-    "4-2": "",
-    "5-0": "`AKEYLESS_AZURE_OBJECT_ID`",
-    "5-1": "Azure Object ID if azure_ad auth method is used",
-    "5-2": "",
-    "6-0": "`AKEYLESS_GCP_AUDIENCE`",
-    "6-1": "GCP Audience if gcp auth method is used",
-    "6-2": "`akeyless.io`",
-    "7-0": "`AKEYLESS_UID_INIT_TOKEN`",
-    "7-1": "Universal Identity init token if universal_identity auth method is used",
-    "7-2": ""
-  },
-  "cols": 3,
-  "rows": 8,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
 
+      <th>
+        Value
+      </th>
+
+      <th>
+        Default
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `AKEYLESS_URL`
+      </td>
+
+      <td>
+        URL of the Akeyless RestAPI Gateway\
+        (port 8081)
+      </td>
+
+      <td>
+        [https://api.akeyless.io](https://api.akeyless.io)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `AKEYLESS_UNIX_SOCKET`
+      </td>
+
+      <td>
+        Path to listen on UNIX socket
+      </td>
+
+      <td>
+        `/tmp/akeyless_kms_plugin.sock`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `AKEYLESS_KEY_ENCRYPTION_KEY`
+      </td>
+
+      <td>
+        The key used for encryption\
+        (decryption is handled automatically)
+      </td>
+
+      <td>
+        N\\A
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `AKEYLESS_ACCESS_ID`
+      </td>
+
+      <td>
+        Access ID of the auth method used
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `AKEYLESS_ACCESS_KEY`
+      </td>
+
+      <td>
+        Access Key if access\_key auth method is used
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `AKEYLESS_AZURE_OBJECT_ID`
+      </td>
+
+      <td>
+        Azure Object ID if azure\_ad auth method is used
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `AKEYLESS_GCP_AUDIENCE`
+      </td>
+
+      <td>
+        GCP Audience if gcp auth method is used
+      </td>
+
+      <td>
+        `akeyless.io`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `AKEYLESS_UID_INIT_TOKEN`
+      </td>
+
+      <td>
+        Universal Identity init token if universal\_identity auth method is used
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ## Standalone docker container
 
-Run the docker image **on the same machine as the `kube-apiserver`** with the relevant environment variables, and a mounted volume for the UNIX socket.
+Run the docker image **on the same machine as the`kube-apiserver`** with the relevant environment variables, and a mounted volume for the UNIX socket.
 
 ```shell
 docker run -d \
@@ -107,7 +199,7 @@ $ docker logs akeyless-kms-plugin
 
 ## Static Pod
 
-Update the below Static Pod template and run it **on the same machine as the `kube-apiserver`** 
+Update the below Static Pod template and run it **on the same machine as the`kube-apiserver`** 
 
 ```yaml
 apiVersion: v1
@@ -157,7 +249,7 @@ $ kubectl logs $CONTAINER
 
 ## Configure kube-apiserver
 
-Once the plugin is up and running, the next step is to [configure kube-apiserver] \(<https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider>)
+Once the plugin is up and running, the next step is to \[configure kube-apiserver] \([https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider))
 
 To do this you will need to use the below `encryption_provider_config.yaml` file.
 
