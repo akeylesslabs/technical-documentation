@@ -384,3 +384,4 @@
 - rotatedsecretcreateazure
 - rotatedsecretcreatecassandra
 - rotatedsecretcreatecustom
+- rotatedsecretcreatedockerhub
