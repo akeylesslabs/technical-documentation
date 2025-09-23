@@ -22,3 +22,4 @@
 - hashicorp-vault-proxy
 - chef-plugin
 - azure-devops-community-plugin
+- gitlab-secrets-plugin
