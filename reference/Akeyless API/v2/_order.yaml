@@ -242,3 +242,4 @@
 - gatewaygetconfig
 - gatewaygetdefaults
 - gatewaygetk8sauthconfig
+- gatewaygetldapauthconfig
