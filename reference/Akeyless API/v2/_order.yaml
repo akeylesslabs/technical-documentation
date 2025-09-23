@@ -328,3 +328,4 @@
 - getauthmethod
 - getcertificatevalue
 - get-cert-challenge
+- getdynamicsecretvalue
