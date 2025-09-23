@@ -172,3 +172,4 @@
 - dynamicsecretupdatemongodb
 - dynamicsecretupdatemssql
 - dynamicsecretupdatemysql
+- dynamicsecretupdateoracledb
