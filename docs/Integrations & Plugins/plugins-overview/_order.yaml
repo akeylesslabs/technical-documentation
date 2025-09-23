@@ -12,3 +12,4 @@
 - puppet-plugin
 - chef-inspec-plugin
 - chef-infra-plugin
+- slack-plugin
