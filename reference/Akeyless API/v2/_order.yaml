@@ -359,3 +359,4 @@
 - kubeconfiggenerate
 - listacmeaccounts
 - listauthmethods
+- listgateways
