@@ -438,3 +438,4 @@
 - staticsecretsync
 - targetcreateazure
 - targetcreatedb
+- targetcreatedockerhub
