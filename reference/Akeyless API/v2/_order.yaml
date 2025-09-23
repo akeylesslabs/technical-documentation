@@ -416,3 +416,4 @@
 - rotatedsecretupdatemysql
 - rotatedsecretupdateoracledb
 - rotatedsecretupdatepostgresql
+- rotatedsecretupdateredis
