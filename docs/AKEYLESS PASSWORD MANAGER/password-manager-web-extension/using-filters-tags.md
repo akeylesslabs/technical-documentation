@@ -16,24 +16,7 @@ The Akeyless Password Manager web browser extension provides a powerful filterin
 
 ### Using Types
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1525939-Screenshot_2024-01-10_at_16.51.06.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "300px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="300px" src="https://files.readme.io/1525939-Screenshot_2024-01-10_at_16.51.06.png" />
 
 Types are custom identifiers that you can assign to passwords and secrets. This can be helpful for organizing passwords and secrets according to their purpose or website.
 
@@ -49,36 +32,11 @@ Click on the "Apply" button.
 
 The filtered passwords and secrets will be displayed in the Personal or Corporate Area.
 
-
-
-
-
-
-
-
-
 ### Using Tags
 
 Tags are predefined keywords that are associated with passwords and secrets. Tags can be used to further categorize passwords and secrets.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c13164c-Screenshot_2024-01-10_at_16.50.58.png",
-        null,
-        null
-      ],
-      "align": "right",
-      "sizing": "300px"
-    }
-  ]
-}
-[/block]
-
-
-
+<Image align="right" width="300px" src="https://files.readme.io/c13164c-Screenshot_2024-01-10_at_16.50.58.png" />
 
 #### To filter passwords and secrets by tags:
 
