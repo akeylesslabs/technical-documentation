@@ -137,3 +137,4 @@
 - dynamicsecretcreateldap
 - dynamicsecretcreatemongodb
 - dynamicsecretcreatemssql
+- dynamicsecretcreatemysql
