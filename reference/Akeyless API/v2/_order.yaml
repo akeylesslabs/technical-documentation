@@ -122,3 +122,4 @@
 - detokenizebatch
 - dynamicsecretcreateartifactory
 - dynamicsecretcreateaws
+- dynamicsecretcreateazure
