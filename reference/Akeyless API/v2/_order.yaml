@@ -321,3 +321,4 @@
 - gatewayupdatetlscert
 - generateacmeeab
 - generateca
+- generatecsr
