@@ -14,15 +14,15 @@ To work with the Venafi Cloud platform, you can choose either to work with Venaf
 
 ## Prerequisites
 
-- Akeyless [Gateway](doc:api-gw).
+* Akeyless [Gateway](doc:api-gw).
 
-- Venafi Cloud.
+* Venafi Cloud.
 
 ## Usage
 
 **Venafi Issuer** 
 
-The following command creates a Venafi **Dynamic Secret** using Venafi as the** certificate issuer**.
+The following command creates a Venafi **Dynamic Secret** using Venafi as the **certificate issuer**.
 
 ```shell
 akeyless dynamic-secret create venafi \
@@ -44,7 +44,7 @@ Where:
 
 **Akeyless Issuer**
 
-The following commands create a Venafi **Dynamic Secret **using Akeyless as the **certificate issuer**.
+The following commands create a Venafi **Dynamic Secret** using Akeyless as the **certificate issuer**.
 
 When using Akeyless as the issuer, first, you need to create an RSA key with a **self-signed certificate** attached:
 
@@ -120,7 +120,7 @@ akeyless get-dynamic-secret-value \
 
 Certificate request using a **Certificate Signing Request (CSR)**:
 
-To fetch a new certificate via **CSR **, you need to create your **CSR **in Akeyless:
+To fetch a new certificate via **CSR** , you need to create your **CSR** in Akeyless:
 
 ```shell
 CSR=$(akeyless generate-csr \
@@ -131,7 +131,7 @@ CSR=$(akeyless generate-csr \
 --common-name marketing.newyork.company.com | base64)
 ```
 
- Get the Dynamic Secret using the **Certificate request: **
+ Get the Dynamic Secret using the **Certificate request:**
 
 ```shell
 akeyless get-dynamic-secret-value \
