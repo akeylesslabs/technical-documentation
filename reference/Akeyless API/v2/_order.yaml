@@ -270,3 +270,4 @@
 - gatewayupdatelogforwardingdatadog
 - gatewayupdatelogforwardingelasticsearch
 - gatewayupdatelogforwardinggooglechronicle
+- gatewayupdatelogforwardinglogstash
