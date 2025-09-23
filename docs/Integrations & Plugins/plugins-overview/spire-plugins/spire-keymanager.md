@@ -12,21 +12,21 @@ next:
 ---
 ## Prerequisites
 
-- [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.35.0` or later
-- An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `create` and `read` permissions for **Items**, as well as [Gateway Access Permission](https://docs.akeyless.io/docs/gateway-access-permissions) to manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
+* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.35.0` or later
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `create` and `read` permissions for **Items**, as well as [Gateway Access Permission](https://docs.akeyless.io/docs/gateway-access-permissions) to manage [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
 
 ## Authentication
 
 The following Authentication Methods can be used: 
 
-- [API Key](https://docs.akeyless.io/docs/api-key)
-- [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-- [Azure](https://docs.akeyless.io/docs/azure-ad)
-- [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-- [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [Azure](https://docs.akeyless.io/docs/azure-ad)
+* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
 
 > 👍 Note
-> 
+>
 > In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For MacOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
 Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/api-key) using the CLI:
@@ -115,37 +115,37 @@ KeyManager "akeyless_kms" {
 
 Where:
 
-- `plugin_cmd` - The location of the binary file that was created.
+* `plugin_cmd` - The location of the binary file that was created.
 
-- `plugin_checksum` - sha256 of the binary.
+* `plugin_checksum` - sha256 of the binary.
 
-- `akeyless_gateway_url` -  Akeyless Gateway URL API v2 endpoint.
+* `akeyless_gateway_url` -  Akeyless Gateway URL API v2 endpoint.
 
-- `access_id` - The **Auth Method** `AccessID` 
+* `access_id` - The **Auth Method** `AccessID` 
 
-- `access_key` - Optional, The `AccessKey`. Relevant only for **API Key**. 
+* `access_key` - Optional, The `AccessKey`. Relevant only for **API Key**. 
 
-- `key_metadata_file` - A file path location where information about generated keys will be persisted
+* `key_metadata_file` - A file path location where information about generated keys will be persisted
 
-- `target_folder` - A path to save all items inside Akeyless where the generated `KEY-ID` will be stored using the following form `/SPIRE/Keys/{TRUST_DOMAIN}/{SERVER_ID}/{KEY_ID}`
+* `target_folder` - A path to save all items inside Akeyless where the generated `KEY-ID` will be stored using the following form `/SPIRE/Keys/{TRUST_DOMAIN}/{SERVER_ID}/{KEY_ID}`
 
 For **K8s**,**GCP** or **AzureAD** Auth methods set the following settings as well: 
 
-- `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
+* `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
 
-- `gcp_audience`-  The audience to verify the JWT received by the client. By default, `akeyless.io`
+* `gcp_audience`-  The audience to verify the JWT received by the client. By default, `akeyless.io`
 
-- `azure_object_id` - Optional for Azure, `objectID`
+* `azure_object_id` - Optional for Azure, `objectID`
 
 ## SPIRE Server Initialization
 
 > 📘 Info
-> 
+>
 > **Key Type**
-> 
+>
 > In order to set a key type for the spire server, inside the `server` section, add the following parameter.
-> 
-> For example, if we would want to use a key type of `RSA-2048` we will add:  
+>
+> For example, if we would want to use a key type of `RSA-2048` we will add:\
 > `ca_key_type` = `rsa-2048`. The default Key Type is: `ec-p256`
 
 To initialize the server, run the following command:
@@ -156,11 +156,11 @@ bin/spire-server run -config conf/server/server.conf &
 
 With a successful server initialization, 2 **Classic keys** will be created in your Akeyless account and you can find them in the console in the `SPIRE/Keys` folder:
 
-- **JWT-Signer-A** - Uses **JSON Web Tokens (JWT)** signed by an identity provider for authentication and authorization of clients.
-- **X509-CA-A** - Relies on **X.509** certificates issued by a trusted Certificate Authority.
+* **JWT-Signer-A** - Uses **JSON Web Tokens (JWT)** signed by an identity provider for authentication and authorization of clients.
+* **X509-CA-A** - Relies on **X.509** certificates issued by a trusted Certificate Authority.
 
 > 📘 Info
-> 
+>
 > **SPIFFE/SPIRE**
-> 
+>
 > For the full configuration steps, visit the official [Quickstart for Linux and MacOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
