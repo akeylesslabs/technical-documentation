@@ -26,14 +26,14 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 
 ## Supported Authentication Methods
 
-- [API Key](https://docs.akeyless.io/docs/api-key)
-- [AWS IAM ](https://docs.akeyless.io/docs/aws-iam)
-- [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-- [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
-- [Google Cloud Platform (GCP)](https://docs.akeyless.io/docs/gcp-auth-method)
-- [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
-- [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
-- [Email](https://docs.akeyless.io/docs/email)
+* [API Key](https://docs.akeyless.io/docs/api-key)
+* [AWS IAM ](https://docs.akeyless.io/docs/aws-iam)
+* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+* [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
+* [Google Cloud Platform (GCP)](https://docs.akeyless.io/docs/gcp-auth-method)
+* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
+* [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
+* [Email](https://docs.akeyless.io/docs/email)
 
 ## Configuration
 
@@ -44,15 +44,15 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 3. Set the Akeyless URL to your gateway URL, with the /api/v2 endpoint.
 4. Add a new Access Mode:
 
-- Under Vault Credential, press Add > Jenkins.
-- #### Choose the Authentication Method from the Kind drop-down:
-  - Username with password - Email Authentication Method.
-  - Akeyless Access Key Credentials - API Key Authentication Method.
-  - Akeyless Certificate Credentials - Certificate Authentication Method.
-  - Akeyless Cloud Provider Credentials - AWS, Azure or GCP Authentication Method.
-  - Akeyless Universal Identity Credentials - Universal Identity Authentication Method.
-  - Akeyless t-Token Credentials - t-Token.
-- Click Add to save the configuration.
+* Under Vault Credential, press Add > Jenkins.
+* #### Choose the Authentication Method from the Kind drop-down:
+  * Username with password - Email Authentication Method.
+  * Akeyless Access Key Credentials - API Key Authentication Method.
+  * Akeyless Certificate Credentials - Certificate Authentication Method.
+  * Akeyless Cloud Provider Credentials - AWS, Azure or GCP Authentication Method.
+  * Akeyless Universal Identity Credentials - Universal Identity Authentication Method.
+  * Akeyless t-Token Credentials - t-Token.
+* Click Add to save the configuration.
 
 ## Retrieving Items
 
@@ -65,9 +65,9 @@ To retrieve a secret:
 1. Click Add Akeyless Secret.
 2. Configure the following parameters:
 
-- Path: Enter the full path of the secret.
-- Environment Variable: Define an environment variable to store the secret's value.
-- Key Name (for JSON-type secrets): Specify the key to fetch. To retrieve all keys, enter data.
+* Path: Enter the full path of the secret.
+* Environment Variable: Define an environment variable to store the secret's value.
+* Key Name (for JSON-type secrets): Specify the key to fetch. To retrieve all keys, enter data.
 
 ## Issuing Certificates
 
@@ -76,13 +76,13 @@ To Issue a certificate:
 1. Click Add Akeyless Issuer.
 2. Configure the following parameters:
 
-- Path: Enter the full path of the certificate issuer.
-- Output Name: Name the retrieved certificate.
-- Certificate User Name: (For SSH certificates) Enter the username to be signed.
-- Public Key: Provide the public key (if required).
-- CSR in base64: Provide the Certificate Signing Request (CSR) in base64 format.
-- Environment Variable: Define an environment variable to store the certificate.
-- Key Name: Specify the key to fetch. To retrieve all keys, enter data.
+* Path: Enter the full path of the certificate issuer.
+* Output Name: Name the retrieved certificate.
+* Certificate User Name: (For SSH certificates) Enter the username to be signed.
+* Public Key: Provide the public key (if required).
+* CSR in base64: Provide the Certificate Signing Request (CSR) in base64 format.
+* Environment Variable: Define an environment variable to store the certificate.
+* Key Name: Specify the key to fetch. To retrieve all keys, enter data.
 
 ## Examples
 
