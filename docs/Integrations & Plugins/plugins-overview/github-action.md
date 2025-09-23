@@ -14,7 +14,7 @@ Akeyless Official [GitHub Actions](https://github.com/marketplace/actions/akeyle
 
 # Prerequisites
 
-- Job permissions requirement: **(Relevant for OAuth 2.0 / JWT Authentication only)**
+* Job permissions requirement: **(Relevant for OAuth 2.0 / JWT Authentication only)**
 
 The default usage relies on using the GitHub `JWT` (JSON Web Token) to authenticate to Akeyless. To make this available, you must configure it inside your job workflow.
 
@@ -32,23 +32,23 @@ jobs:
 
 Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners):
 
-- In GitHub - navigate to the main page of the repository and select  **Settings > Actions > Runners > New self-hosted runner**.
-- Select the operating system and architecture of your self-hosted-runner machine.
-- Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
-- Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
+* In GitHub - navigate to the main page of the repository and select  **Settings > Actions > Runners > New self-hosted runner**.
+* Select the operating system and architecture of your self-hosted-runner machine.
+* Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
+* Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
 
 # Authentication
 
 This Action plugin supports the following Authentication Methods:
 
-- [JWT](https://docs.akeyless.io/docs/oauth20jwt)
-- [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-- [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-- [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-- [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
-- [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
-- [Access Key](https://docs.akeyless.io/docs/api-key)
-- [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
+* [JWT](https://docs.akeyless.io/docs/oauth20jwt)
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
+* [Access Key](https://docs.akeyless.io/docs/api-key)
+* [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
 
 ## GitHub Repository Variable
 
@@ -56,9 +56,9 @@ You can store the `Access ID` as a GitHub variable inside the repository to use 
 
 In the following examples, instead of explicitly specifying the `Access ID` of the **Authentication Method** inside the workflow, we store it as a variable in the repository called `AKEYLESS_ACCESS_ID`.
 
-- On GitHub, navigate to the main page of the repository, and select **Settings > Secrets and variables > Actions > Variables tab >  New repository variable**.
-- Enter the name for the variable (for example, `AKEYLESS_ACCESS_ID` ) and set the value to your Auth Method **Access ID**.
-- Select **Add Variable**.
+* On GitHub, navigate to the main page of the repository, and select **Settings > Secrets and variables > Actions > Variables tab >  New repository variable**.
+* Enter the name for the variable (for example, `AKEYLESS_ACCESS_ID` ) and set the value to your Auth Method **Access ID**.
+* Select **Add Variable**.
 
 This is only part of the `YAML` action. More complete examples are given in the next section.
 
@@ -142,9 +142,9 @@ This is only part of the `YAML` action. More complete examples are given in the 
 ```
 
 > 🚧 Warning
-> 
+>
 > For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
-> 
+>
 > Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that GitHub provides in the JWT.
 
 For example, Create and Associate your Authentication Method with an Access Role to grant the relevant permissions within Akeyless.
@@ -167,7 +167,7 @@ For example: `repository=octo-org/octo-repo` where `octo-org = {GitHub Account}`
 Although this repository's workflows use placeholder values, it is still a real Akeyless account and a real provider. The approaches demonstrated in these examples are still valid as-is for real implementations. Use these to your advantage!
 
 > 👍 Zero-Knowledge Encryption
-> 
+>
 > If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint e.g.  `<https://Your_GW_URL:8000/api/v2>` (or using your gateway URL at port `8081`).
 
 ## Static Secrets Example
@@ -406,9 +406,9 @@ jobs:
 
 By default, the action sets the environment variable value to the entire JSON string in the secret value. You can set `parse-json-secrets` to `true` to create environment variables for each key/value pair in the secret JSON.
 
-- If the JSON uses case-sensitive keys such as "name" and "Name", the action will have duplicate name conflicts. In this case, set `parse-json-secrets` to `false` and parse the JSON secret value separately.
-- You can still use the `key` and `output-name` for extracting a specific `key` with a specific name.
-- The default env `name` will be the path to the secret. If your secret name is `/dev/test`, the default name will be `env.DEV_TEST_{key}`.
+* If the JSON uses case-sensitive keys such as "name" and "Name", the action will have duplicate name conflicts. In this case, set `parse-json-secrets` to `false` and parse the JSON secret value separately.
+* You can still use the `key` and `output-name` for extracting a specific `key` with a specific name.
+* The default env `name` will be the path to the secret. If your secret name is `/dev/test`, the default name will be `env.DEV_TEST_{key}`.
 
 For a secret with JSON values:
 
