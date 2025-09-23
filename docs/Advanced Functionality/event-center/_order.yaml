@@ -1,3 +1,4 @@
 - email-event-forwarder
 - webhook-event-forwarder
 - servicenow-event-forwarder
+- slack-event-forwarder
