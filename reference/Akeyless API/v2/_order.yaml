@@ -318,3 +318,4 @@
 - gwupdateremoteaccesssessionlogsstdout
 - gwupdateremoteaccesssessionlogssumologic
 - gwupdateremoteaccesssessionlogssyslog
+- gatewayupdatetlscert
