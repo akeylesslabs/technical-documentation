@@ -276,3 +276,4 @@
 - gatewayupdatelogforwardingstdout
 - gatewayupdatelogforwardingsumologic
 - gatewayupdatelogforwardingsyslog
+- gatewayupdatemigration
