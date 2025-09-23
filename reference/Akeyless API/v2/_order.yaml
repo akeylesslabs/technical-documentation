@@ -269,3 +269,4 @@
 - gatewayupdatelogforwardingazureanalytics
 - gatewayupdatelogforwardingdatadog
 - gatewayupdatelogforwardingelasticsearch
+- gatewayupdatelogforwardinggooglechronicle
