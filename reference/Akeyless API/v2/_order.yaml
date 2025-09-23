@@ -320,3 +320,4 @@
 - gwupdateremoteaccesssessionlogssyslog
 - gatewayupdatetlscert
 - generateacmeeab
+- generateca
