@@ -148,3 +148,4 @@
 - dynamicsecretcreatesnowflake
 - dynamicsecretcreatevenafi
 - dynamicsecretdelete
+- dynamicsecretget-1
