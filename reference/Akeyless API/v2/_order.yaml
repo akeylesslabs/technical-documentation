@@ -271,3 +271,4 @@
 - gatewayupdatelogforwardingelasticsearch
 - gatewayupdatelogforwardinggooglechronicle
 - gatewayupdatelogforwardinglogstash
+- gatewayupdatelogforwardinglogzio
