@@ -13,3 +13,4 @@
 - authmethodcreateldap
 - authmethodcreateoauth2
 - authmethodcreateoci
+- authmethodcreateoidc
