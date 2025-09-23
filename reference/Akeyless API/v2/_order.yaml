@@ -267,3 +267,4 @@
 - gatewayupdateldapauthconfig
 - gatewayupdatelogforwardingawss3
 - gatewayupdatelogforwardingazureanalytics
+- gatewayupdatelogforwardingdatadog
