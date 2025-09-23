@@ -268,3 +268,4 @@
 - gatewayupdatelogforwardingawss3
 - gatewayupdatelogforwardingazureanalytics
 - gatewayupdatelogforwardingdatadog
+- gatewayupdatelogforwardingelasticsearch
