@@ -391,3 +391,4 @@
 - rotatedsecretcreatemongodb
 - rotatedsecretcreatemssql
 - rotatedsecretcreatemysql
+- rotatedsecretcreateoracledb
