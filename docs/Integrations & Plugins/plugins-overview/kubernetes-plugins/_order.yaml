@@ -3,3 +3,4 @@
 - policy-segregation-for-kubernetes
 - external-secret-operator
 - kubernetes-secrets-store-csi-provider
+- kubernetes-cert-manager
