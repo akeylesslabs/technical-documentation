@@ -299,3 +299,4 @@
 - gatewayupdateproducerping
 - gatewayupdateproducerpostgresql
 - gatewayupdateproducerrabbitmq
+- gatewayupdateproducerrdp
