@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless SDK for Ruby makes it easy for you to integrate your Ruby applications, libraries, or scripts with the Akeyless Platform secret management services.  
+The Akeyless SDK for Ruby makes it easy for you to integrate your Ruby applications, libraries, or scripts with the Akeyless Platform secret management services.\
 The below Ruby code examples show a typical sequence of integrating secrets into your application.
 
 # Installation
