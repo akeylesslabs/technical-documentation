@@ -240,3 +240,4 @@
 - gatewaygetallowedaccess
 - gatewaygetcache
 - gatewaygetconfig
+- gatewaygetdefaults
