@@ -245,3 +245,4 @@
 - gatewaygetldapauthconfig
 - gatewaygetlogforwarding
 - gatewaygetmigration
+- gatewaygetproducer
