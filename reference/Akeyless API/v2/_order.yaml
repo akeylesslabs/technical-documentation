@@ -135,3 +135,4 @@
 - dynamicsecretcreatehanadb
 - dynamicsecretcreatek8s
 - dynamicsecretcreateldap
+- dynamicsecretcreatemongodb
