@@ -239,3 +239,4 @@
 - gatewaydownloadcustomerfragments
 - gatewaygetallowedaccess
 - gatewaygetcache
+- gatewaygetconfig
