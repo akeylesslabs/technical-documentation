@@ -308,3 +308,4 @@
 - gatewayupdateremoteaccessdesktopapp
 - gatewayupdateremoteaccessrdprecordings
 - gwupdateremoteaccesssessionlogsawss3
+- gwupdateremoteaccesssessionlogsazureanalytics
