@@ -11,10 +11,14 @@ next:
   description: ''
 ---
 # Finding the Right Pricing Option
+
 Akeyless is priced monthly, based on the package you select. The package types are Free, Team, and Enterprise, and their full detail can be found [here.](https://www.akeyless.io/pricing/)
+
 ## How to Select a Package
-The three packages are tiered, meaning the higher up you go, the more features and options you open.
+
+The three packages are tiered, meaning the higher up you go, the more features and options you open.\
 There are a few important features to note when selecting a package:
+
 * **Clients**: An Akeyless Client is a unique identity, such as an application, user, or machine, which consumes secrets and/or authenticates itself through the Akeyless Secret Orchestration. If you wish to try out the system and see if it fits your organization, you might not need many clients, however, if you scale up, you will eventually need to use more. Please note that registration and reception of the same uniquely identified client are counted as one client per month.
 
 * **Support**: The free tier is not eligible for special customer support, and our team might take some time to respond to tickets. The Team tier is eligible for our Silver-level support, which offers more thorough support, And the Enterprise tier offers 24/7 support and preferred status.
@@ -25,62 +29,25 @@ There are a few important features to note when selecting a package:
 
 # Checking and Updating Your Billing in the Akeyless Console
 
-On the top right corner of the screen, you will see your icon.
+On the top right corner of the screen, you will see your icon.\
 Tap the icon and select account settings. After selecting this, you will be transferred to a screen with a "Billing Information" label. Selecting this will lead you to your billing area.
 
 ## First Time Purchases
+
 If you are currently on the free tier, you will see the following screen:
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7edb2a1-bill1.jpg",
-        "bill1.jpg",
-        1618,
-        692,
-        "#000000"
-      ],
-      "sizing": "80"
-    }
-  ]
-}
-[/block]
+
+<Image width="80%" src="https://files.readme.io/7edb2a1-bill1.jpg" />
+
 Selecting **Buy Now** will lead you to a form within which you can fill in your details and make a purchase:
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/77ddc02-bill2.jpg",
-        "bill2.jpg",
-        1622,
-        812,
-        "#000000"
-      ],
-      "sizing": "80"
-    }
-  ]
-}
-[/block]
+
+<Image width="80%" src="https://files.readme.io/77ddc02-bill2.jpg" />
+
 If you wish to set up an Enterprise tier account, select **Schedule Demo** and fill in the request form that will pop up.
 
-##Updating an Existing Payed Account
+## Updating an Existing Payed Account
+
 If you are already on the Teams tier, you will instead see this screen:
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9ce22e9-bill3.jpg",
-        "bill3.jpg",
-        1620,
-        548,
-        "#000000"
-      ],
-      "sizing": "80"
-    }
-  ]
-}
-[/block]
+
+<Image width="80%" src="https://files.readme.io/9ce22e9-bill3.jpg" />
+
 In which you will be able to update your credit information or cancel your plan.
