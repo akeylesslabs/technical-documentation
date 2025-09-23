@@ -24,21 +24,7 @@ To Set the Slash command a workspace admin shall perform the following configura
 
 Short Description - exactly what it sounds like, a short description of what your command does. e.g. `AKEYLESS Secrets Management`
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3b3858f-IMG_1834.JPG",
-        "IMG_1834.JPG",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/3b3858f-IMG_1834.JPG" />
 
 ![](https://files.readme.io/4664042-Screen_Shot_2020-04-30_at_11.27.35.png "Screen Shot 2020-04-30 at 11.27.35.png")
 
