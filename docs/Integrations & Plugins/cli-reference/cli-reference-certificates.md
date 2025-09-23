@@ -16,7 +16,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -28,7 +28,7 @@ General Flags:
 
 ## SSH certificates
 
-### <p style="color:blue">_create-ssh-cert-issuer_</p>
+### <p style="color:blue">*create-ssh-cert-issuer*</p>
 
 Creates a new SSH certificate issuer
 
@@ -52,17 +52,17 @@ akeyless create-ssh-cert-issuer \
 
  `-t, --ttl`: **Required**, The requested Time To Live for the certificate, in seconds
 
- `-p, --principals`: Signed certificates with principal, e.g example_role1,example_role2
+ `-p, --principals`: Signed certificates with principal, e.g example\_role1,example\_role2
 
  `-x, --extensions `: Signed certificates with extensions, e.g permit-port-forwarding="true"
 
- `--host-provider[=explicit]`: Host provider type [explicit/target]
+ `--host-provider[=explicit]`: Host provider type \[explicit/target]
 
  `-m, --metadata`: A metadata about the issuer
 
- `--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+ `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]
 
- `--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. <https://my.bastion:9900>
+ `--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. [https://my.bastion:9900](https://my.bastion:9900)
 
  `--secure-access-bastion-ssh`: Bastion's SSH server. E.g. my.bastion:22
 
@@ -72,9 +72,9 @@ akeyless create-ssh-cert-issuer \
 
  `--secure-access-use-internal-bastion`: Use internal SSH Bastion - Relevant only for Secure Remote Access Deployment, mostly when using Dockers. Set the relevant IP address of the SSH Bastion for internal communication between ZT and SSH bastions. 
 
- `--delete-protection`: Protection from accidental deletion of this item, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
-### <p style="color:blue">_get-ssh-certificate_</p>
+### <p style="color:blue">*get-ssh-certificate*</p>
 
 Generate SSH certificate using Akeyless certificate issuer 
 
@@ -104,7 +104,7 @@ akeyless get-ssh-certificate \
 
  `--legacy-signing-alg-name[=false]`: Set this option to use the legacy signing algorithm `ssh-rsa-cert-v01@openssh.com`.
 
-### <p style="color:blue">_update-ssh-cert-issuer_</p>
+### <p style="color:blue">*update-ssh-cert-issuer*</p>
 
 Updates an existing SSH certificate issuer
 
@@ -130,11 +130,11 @@ akeyless update-ssh-cert-issuer \
 
  `-t, --ttl`: **Required**, The requested Time To Live for the certificate, in seconds.
 
- `-p, --principals`: Signed certificates with principal, e.g example_role1,example_role2
+ `-p, --principals`: Signed certificates with principal, e.g example\_role1,example\_role2
 
  `-x, --extensions`: Signed certificates with extensions, e.g permit-port-forwarding="true"
 
- `--host-provider[=explicit]`: Host provider type [explicit/target]
+ `--host-provider[=explicit]`: Host provider type \[explicit/target]
 
  `-m, --metadata`: A metadata about the issuer
 
@@ -142,9 +142,9 @@ akeyless update-ssh-cert-issuer \
 
  `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use argument multiple times: --rm-tag Tag1 --rm-tag Tag2 
 
- `--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+ `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]
 
- `--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. <https://my.bastion:9900>
+ `--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. [https://my.bastion:9900](https://my.bastion:9900)
 
  `--secure-access-bastion-ssh`: Bastion's SSH server. E.g. my.bastion:22
 
@@ -156,7 +156,7 @@ akeyless update-ssh-cert-issuer \
 
 ## PKI certificates
 
-### <p style="color:blue">_create-pki-cert-issuer_</p>
+### <p style="color:blue">*create-pki-cert-issuer*</p>
 
 Creates a new PKI certificate issuer
 
@@ -203,7 +203,7 @@ akeyless create-pki-cert-issuer \
 
  `--key-usage[=DigitalSignature,KeyAgreement,KeyEncipherment]`: A list of Key Usage flags
 
-`--critical-key-usage[=true]`: Mark key usage as critical [`true`/`false`]
+`--critical-key-usage[=true]`: Mark key usage as critical \[\`true\`/\`false\`]
 
  `--organization-units `: A comma-separated list of organizational units (OU) that will be set in the issued certificate.
 
@@ -249,11 +249,11 @@ akeyless create-pki-cert-issuer \
 
  `--description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
 `--tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: --tag Tag1 --tag Tag2
 
-### <p style="color:blue">_generate-csr_</p>
+### <p style="color:blue">*generate-csr*</p>
 
 Generates a new Certificate Signing Request (CSR)
 
@@ -303,11 +303,11 @@ akeyless generate-csr \
 
  `--uri-sans`: a comma-separated list of uri alternative names
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL <http://Your-Akeyless-Gateway-URL:8000>
+ `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL [http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)
 
  `--description`: Description of the object
 
-### <p style="color:blue">_get-kube-exec-creds_</p>
+### <p style="color:blue">*get-kube-exec-creds*</p>
 
 Gets credentials for authentication with Kubernetes cluster based on a PKI Cert Issuer
 
@@ -347,7 +347,7 @@ akeyless get-kube-exec-creds \
 
  `-a, --api-version[=v1]`: The version of the client authentication API
 
-### <p style="color:blue">_get-pki-certificate_</p>
+### <p style="color:blue">*get-pki-certificate*</p>
 
 Generates PKI certificate from a PKI Issuer
 
@@ -388,7 +388,7 @@ akeyless get-pki-certificate \
 
  `-o, --outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension 
 
-### <p style="color:blue">_get-cert-challenge_</p>
+### <p style="color:blue">*get-cert-challenge*</p>
 
 Get a challenge for certificate authentication
 
@@ -400,7 +400,7 @@ akeyless get-cert-challenge \
 --cert-data <'Certificate data encoded in base64'>
 ```
 
-### <p style="color:blue">_renew-certificate_</p>
+### <p style="color:blue">*renew-certificate*</p>
 
 Renew a PKI certificate
 
@@ -422,7 +422,7 @@ akeyless renew-certificate \
 
 `-c, --cert-issuer-name`: Optional,the name of the PKI certificate issuer, relevant only for **imported** Certificates.
 
-### <p style="color:blue">_update-pki-cert-issuer_</p>
+### <p style="color:blue">*update-pki-cert-issuer*</p>
 
 Updates a new PKI certificate issuer
 
@@ -466,7 +466,7 @@ akeyless update-pki-cert-issuer \
 
  `--key-usage[=DigitalSignature, KeyAgreement, KeyEncipherment]`: A comma-separated string or list of key usages
 
- `--critical-key-usage[=true]`: Mark key usage as critical [`true`/`false`]
+ `--critical-key-usage[=true]`: Mark key usage as critical \[\`true\`/\`false\`]
 
  `--organization-units`: A comma-separated list of organizational units (OU) that will be set in the issued certificate
 
@@ -512,7 +512,7 @@ akeyless update-pki-cert-issuer \
 
  `--description`: Description of the object
 
- `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
+ `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
  `--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use the argument multiple times: `--add-tag Tag1` `--add-tag Tag2`                          
 
@@ -520,7 +520,7 @@ akeyless update-pki-cert-issuer \
 
 ## Certificate Storage
 
-### <p style="color:blue">_create-certificate_</p>
+### <p style="color:blue">*create-certificate*</p>
 
 Creates a new certificate
 
@@ -556,9 +556,9 @@ akeyless create-certificate \
 
  `-t, --tag`: List of the tags attached to this certificate. To specify multiple tags use argument multiple times: --tag Tag1 -t Tag2
 
- `--delete-protection`: Protection from accidental deletion of this item, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
-### <p style="color:blue">_get-certificate-value_</p>
+### <p style="color:blue">*get-certificate-value*</p>
 
 Gets the certificate's PEM, and the private key's PEM if it exists, in a JSON file
 
@@ -582,7 +582,7 @@ akeyless get-certificate-value --name <certificate-name>
 
  `--private-key-file-output`: File to write the private key to
 
-### <p style="color:blue">_provision-certificate_</p>
+### <p style="color:blue">*provision-certificate*</p>
 
 Provision a certificate content to a target
 
@@ -602,7 +602,7 @@ akeyless provision-certificate \
 
 `-d, --display-id`: Certificate display ID
 
-### <p style="color:blue">_revoke-certificate_</p>
+### <p style="color:blue">*revoke-certificate*</p>
 
 Revokes a certificate and adds it to the issuer CRL
 
@@ -624,7 +624,7 @@ akeyless revoke-certificate \
 
 `--version`: Certificate version to revoke. Required if item-id or name are used
 
-### <p style="color:blue">_update-certificate-value_</p>
+### <p style="color:blue">*update-certificate-value*</p>
 
 Updates the data in an existing certificate
 
@@ -660,11 +660,11 @@ akeyless update-certificate-value \
 
  `-t, --tag`: List of the tags attached to this certificate. To specify multiple tags use argument multiple times: --tag Tag1 -t Tag2                                                                        
 
- `--delete-protection`: Protection from accidental deletion of this item, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
 ## ACME
 
-### <p style="color:blue">_generate-acme-eab_</p>
+### <p style="color:blue">*generate-acme-eab*</p>
 
 Generates an external account binding for a cert issuer
 
@@ -675,7 +675,7 @@ akeyless generate-acme-eab \
 --cert-issuer-name <PKI issuer name> 
 ```
 
-### <p style="color:blue">_list-acme-accounts_</p>
+### <p style="color:blue">*list-acme-accounts*</p>
 
 Lists acme external accounts for a cert issuer
 
@@ -686,7 +686,7 @@ akeyless list-acme-accounts \
 --cert-issuer-name <PKI issuer name>
 ```
 
-### <p style="color:blue">_deactivate-acme-account_</p>
+### <p style="color:blue">*deactivate-acme-account*</p>
 
 Deactivate \\ Delete an acme external account
 
@@ -700,7 +700,7 @@ akeyless deactivate-acme-account \
 
 ## Chain of Trust
 
-### <p style="color:blue">_generate-ca_</p>
+### <p style="color:blue">*generate-ca*</p>
 
 Creates a new PKI CA and Intermediate issuers
 
@@ -736,4 +736,4 @@ akeyless generate-ca \
 
 `-s, --split-level[=3]`: The number of fragments that the item will be split into.
 
-`--delete-protection`: Protection from accidental deletion of this object, [`true`/`false`].
+`--delete-protection`: Protection from accidental deletion of this object, \[\`true\`/\`false\`].
