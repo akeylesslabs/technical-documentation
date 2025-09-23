@@ -568,3 +568,4 @@
 - getlastusereventstatus
 - validatetoken
 - verifydatawithclassickey
+- verifyecdsa
