@@ -105,3 +105,4 @@
 - deleteauthmethods
 - deleteeventforwarder
 - deletegwcluster
+- deletegroup
