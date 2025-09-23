@@ -259,3 +259,4 @@
 - gatewaystartproducer
 - gatewaystopproducer
 - gatewaysyncmigration
+- gatewayupdateallowedaccess
