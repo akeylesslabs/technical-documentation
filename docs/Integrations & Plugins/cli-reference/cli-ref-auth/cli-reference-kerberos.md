@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">_create_</p>
+### <p style={{ color: "blue" }}>*create*</p>
 
 Creates a new Authentication Method object that will allow the user to authenticate using Kerberos
 
@@ -36,13 +36,13 @@ Creates a new Authentication Method object that will allow the user to authentic
 akeyless auth-method create kerberos \
 --name <Auth method name> \
 --krb5conf-file-path path/to/krb5.conf \
---keytab-file-path path/to/keytab
+--keytab-file-path path/to/keytab \
 --ldap-url ldap://ldap.domain.com:389
 ```
 
 ##### Flags
 
-  `-n, --name`: Auth Method name
+`-n, --name`: Auth Method name
 
 `--description`: Auth Method description
 
@@ -56,13 +56,13 @@ akeyless auth-method create kerberos \
 
 `--jwt-ttl[=0]`: Creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+`--product-type`: Choose the relevant product type for the auth method \[sm, sra, pm, dp, ca]
 
 `--audit-logs-claims`: Subclaims to include in audit logs. e.g `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-`-d, --delimiters`: A list of additional sub-claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT). To specify multiple delimiters use the argument multiple times: `-d # -d ^`      
+`-d, --delimiters`: A list of additional sub-claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT). To specify multiple delimiters use the argument multiple times: `-d # -d ^`
 
 `--krb5conf-file-path`: The path to a valid `krb5.conf` file, specifying the settings and parameters required for Kerberos authentication.
 
@@ -84,11 +84,11 @@ akeyless auth-method create kerberos \
 
 `--bind-dn-password`: Password for the LDAP Bind DN
 
-`--user-dn`:  The base DN for user searches
+`--user-dn`: The base DN for user searches
 
 `--user-attribute[=sAMAccountName]`: LDAP attribute that maps to the username used for signing in
 
-`--group-dn`:  Base DN for group membership searches
+`--group-dn`: Base DN for group membership searches
 
 `--group-filter`: Go template for constructing the group membership query. The template can access the following context variables: [`UserDN`, `Username`]
 
@@ -96,9 +96,9 @@ akeyless auth-method create kerberos \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--unique-identifier`:  A unique identifier (ID) value which is a "sub claim" name that contains details uniquely identifying that resource. This "sub claim" is used to distinguish between different identities.
+`--unique-identifier`: A unique identifier (ID) value which is a "sub claim" name that contains details uniquely identifying that resource. This "sub claim" is used to distinguish between different identities.
 
-### <p style="color:blue">_update_</p>
+### <p style={{ color: "blue" }}>*update*</p>
 
 Updates an Authentication Method object that will allow the user to authenticate using Kerberos
 
@@ -107,9 +107,9 @@ Updates an Authentication Method object that will allow the user to authenticate
 ```shell
 akeyless auth-method update kerberos \
 --name <Auth method name> \
---new-name <Auth Method new name>
+--new-name <Auth Method new name> \
 --krb5conf-file-path path/to/krb5.conf \
---keytab-file-path path/to/keytab
+--keytab-file-path path/to/keytab \
 --ldap-url ldap://ldap.domain.com:389
 ```
 
@@ -131,13 +131,13 @@ akeyless auth-method update kerberos \
 
 `--jwt-ttl[=0]`: Creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+`--product-type`: Choose the relevant product type for the auth method \[sm, sra, pm, dp, ca]
 
 `--audit-logs-claims`: Subclaims to include in audit logs. e.g `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-`-d, --delimiters`: A list of additional sub-claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT). To specify multiple delimiters use the argument multiple times: `-d # -d ^`      
+`-d, --delimiters`: A list of additional sub-claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT). To specify multiple delimiters use the argument multiple times: `-d # -d ^`
 
 `--krb5conf-file-path`: The path to a valid `krb5.conf` file, specifying the settings and parameters required for Kerberos authentication.
 
@@ -159,11 +159,11 @@ akeyless auth-method update kerberos \
 
 `--bind-dn-password`: Password for the LDAP Bind DN
 
-`--user-dn`:  The base DN for user searches
+`--user-dn`: The base DN for user searches
 
 `--user-attribute[=sAMAccountName]`: LDAP attribute that maps to the username used for signing in
 
-`--group-dn`:  Base DN for group membership searches
+`--group-dn`: Base DN for group membership searches
 
 `--group-filter`: Go template for constructing the group membership query. The template can access the following context variables: [`UserDN`, `Username`]
 
@@ -171,4 +171,4 @@ akeyless auth-method update kerberos \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--unique-identifier`:  A unique identifier (ID) value which is a "sub claim" name that contains details uniquely identifying that resource. This "sub claim" is used to distinguish between different identities.
+`--unique-identifier`: A unique identifier (ID) value which is a "sub claim" name that contains details uniquely identifying that resource. This "sub claim" is used to distinguish between different identities.
