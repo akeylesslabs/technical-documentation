@@ -357,3 +357,4 @@
 - kmiprenewservercertificate
 - kmipsetserverstate
 - kubeconfiggenerate
+- listacmeaccounts
