@@ -16,7 +16,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">_create-secret_</p>
+### <p style="color:blue">*create-secret*</p>
 
 Creates a new static secret item
 
@@ -43,11 +43,11 @@ akeyless create-secret \
 
  `--name`: **Required**, Secret name                                                                                                                                                                    
 
-`--type[=generic]`: The secret sub type [`generic`/`password`]
+`--type[=generic]`: The secret sub type \[\`generic\`/\`password\`]
 
  `--value`: **Required**, The secret value (relevant only for type `generic`)                                                                                                                                                               
 
- `-f, --format[=text]`: Secret format [`text`/`json` / `key-value`] \(relevant only for type '`generic`')
+ `-f, --format[=text]`: Secret format \[\`text\`/\`json\` / \`key-value\`] \(relevant only for type '`generic`')
 
  `--url, --inject-url`: Comma separated list of URLs associated with the item (only relevant for type 'password')                                                                                                      
 
@@ -57,7 +57,7 @@ akeyless create-secret \
 
  `-c, --custom-field`: Additional custom fields to associate with the item, to specify multiple fields repeat the argument: --custom-field fieldName1=value1 -c fieldName2=value2 (only relevant for type 'password') 
 
- `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]                                                                                                                              
+ `--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal]                                                                                                                              
 
  `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: --tag Tag1 -t Tag2                                                                             
 
@@ -69,7 +69,7 @@ akeyless create-secret \
 
  `--secure-access-enable`: Enable/Disable secure remote access, 'true'/'false'                                                                                                                                            
 
- `--secure-access-ssh-creds`: Static-Secret values contains SSH Credentials, either Private Key or Password [password/private-key]                                                                                           
+ `--secure-access-ssh-creds`: Static-Secret values contains SSH Credentials, either Private Key or Password \[password/private-key]                                                                                           
 
  `--secure-access-url`: Destination URL to inject secrets                                                                                                                                                              
 
@@ -87,11 +87,11 @@ akeyless create-secret \
 
  `--description`: Secret description                                                                                                                                                                             
 
- `--delete-protection`: Protection from accidental deletion of this item, [true/false]
+ `--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
  `--change-event`: Trigger an event when a secret value changed, [True/False] 
 
-### <p style="color:blue">_describe-item_</p>
+### <p style="color:blue">*describe-item*</p>
 
 Get the item details
 
@@ -120,11 +120,11 @@ akeyless describe-item \
 
 `--services-details[=false]`: Include all associated services details
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal]
 
 See [Commands for all items and objects](doc:cli-reference#commands-for-all-items-and-objects) and also [Updating and versioning static secrets](doc:staticversions) for details.
 
-### <p style="color:blue">_get-secret-value_</p>
+### <p style="color:blue">*get-secret-value*</p>
 
 Get static secret value
 
@@ -140,16 +140,16 @@ akeyless get-secret-value --name <Secret Name>
 
  `--version`: Secret version, if negative value N is provided (--version=-N) the last N versions will return (maximum 20)                                                                                                               
 
- `--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI 
+ `--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache \[true/false]. This flag is only relevant when using the RestAPI 
 
- `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+ `--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal]
 
-### <p style="color:blue">_import-passwords_</p>
+### <p style="color:blue">*import-passwords*</p>
 
 Import passwords from CSV file
 
 > 📘 CSV Example
-> 
+>
 > The box below has an example CSV that is valid for importing in the format of Chrome
 
 ##### Usage
@@ -173,7 +173,7 @@ name,url,username,password,description
 
  `--format[=LastPass]`: Password format type [`LastPass`/`Chrome`/`Firefox`,`1password`,`keeper`,`bitwarden`,`dashlane`]                                                                             
 
- `--accessibility[=personal]`: Whether passwords should be imported to the user's personal folder [regular/personal]                                      
+ `--accessibility[=personal]`: Whether passwords should be imported to the user's personal folder \[regular/personal]                                      
 
  `--target-folder[=/]`: Target folder for imported passwords                                                                                       
 
@@ -181,11 +181,11 @@ name,url,username,password,description
 
  `--update-mode[=skip]`: Specify how to handle passwords that already exist (skip/update)
 
-### <p style="color:blue">_list-shared-items_</p>
+### <p style="color:blue">*list-shared-items*</p>
 
 List shared items in the current account
 
-### <p style="color:blue">_rollback-secret_</p>
+### <p style="color:blue">*rollback-secret*</p>
 
 Rollback secret to older version
 
@@ -203,9 +203,9 @@ akeyless rollback-secret \
 
  `--old-version`: **Required**, Old secret version to rollback to 
 
-### <p style="color:blue">_share-item_</p>
+### <p style="color:blue">*share-item*</p>
 
-Sharing item operation [start sharing/stop sharing/sharing describe]
+Sharing item operation \[start sharing/stop sharing/sharing describe]
 
 ##### Usage
 
@@ -220,9 +220,9 @@ akeyless share-item \
 
  `-n, --item-name`: **Required**, The secret name (supported types: static secret)                                                                  
 
- `-a, --action`: **Required**, The action to perform [`start`/`stop`/`describe`]
+ `-a, --action`: **Required**, The action to perform \[\`start\`/\`stop\`/\`describe\`]
 
- `--share-type[=email]`: Share type [`email`/`token`]
+ `--share-type[=email]`: Share type \[\`email\`/\`token\`]
 
  `-e, --email`: List of emails to start/stop sharing the secret with, To specify multiple emails use argument multiple times: -e email1 -e email2 
 
@@ -230,11 +230,11 @@ akeyless share-item \
 
  `-t, --ttl`: Availability of the shared secret in seconds                                                                                      
 
- `-v, --view-once[=false]`: Shared secrets can only be viewed once [true/false]                                                                               
+ `-v, --view-once[=false]`: Shared secrets can only be viewed once \[true/false]                                                                               
 
- `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+ `--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal]
 
-### <p style="color:blue">_unwrap-token_</p>
+### <p style="color:blue">*unwrap-token*</p>
 
 Unwrapping the token containing a secret
 
@@ -249,7 +249,7 @@ akeyless unwrap-token \
 
  `-s, --shared-token`: **Required**, The value of the shared token that wraps the secret
 
-### <p style="color:blue">_update-secret-val_</p>
+### <p style="color:blue">*update-secret-val*</p>
 
 Update static secret value
 
@@ -283,13 +283,13 @@ akeyless update-secret-val \
 
 `--new-version`:  [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
-`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings                                                                                 
+`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                                                                                 
 
- `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]                                                                                                                              
+ `--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal]                                                                                                                              
 
 For other data, such as description or tags, use `update-item` as described in [Commands for all items and objects](doc:cli-reference#commands-for-all-items-and-objects).
 
-### <p style="color:blue">_static-secret-sync_</p>
+### <p style="color:blue">*static-secret-sync*</p>
 
 Sync a Static Secret using Universal Secret Connector
 
