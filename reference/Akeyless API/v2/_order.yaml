@@ -31,3 +31,4 @@
 - authmethodupdateoauth2
 - authmethodupdateoci
 - authmethodupdateoidc
+- authmethodupdatesaml
