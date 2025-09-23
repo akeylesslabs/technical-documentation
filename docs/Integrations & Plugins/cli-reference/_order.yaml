@@ -8,3 +8,4 @@
 - cli-ref-targets
 - cli-reference-certificates
 - cli-reference-encryption-keys
+- cli-reference-akeyless-kmip-server
