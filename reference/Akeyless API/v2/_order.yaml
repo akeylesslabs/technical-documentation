@@ -390,3 +390,4 @@
 - rotatedsecretcreateldap
 - rotatedsecretcreatemongodb
 - rotatedsecretcreatemssql
+- rotatedsecretcreatemysql
