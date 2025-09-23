@@ -80,7 +80,7 @@ username             tmp.JJRXoSsvDuj1Dp
 
 Create a new static secret in Akeyless. If it already exists, it will add a new version of that secret.
 
-**Usage:**  
+**Usage:**\
 `vault kv put secret/{secret-name} {my-key}={my-value}`
 
 **Get secret**
@@ -90,11 +90,11 @@ To retrieve the value from Akeyless:
 `vault kv get secret/{secret-name}`
 
 > 📘 Info
-> 
+>
 > An optional flag: `-version` to get a specific version of the secret for example:
-> 
+>
 > `vault kv get -version=3 secret/{secret-name}`
-> 
+>
 > Default value is the latest version.
 
 **Delete secret**
@@ -104,9 +104,9 @@ To delete a secret from Akeyless:
 `vault kv delete secret/{secret-name}`
 
 > 📘 Info
-> 
+>
 > An optional flag: `-versions` , a list of specific versions you would like to delete from Akeyless , for example: 
-> 
+>
 > `vault kv delete -versions=2,6,15 secret/{secret-name}`
-> 
+>
 > If no version is sent all your secret versions will be deleted as well
