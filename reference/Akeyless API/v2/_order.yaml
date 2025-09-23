@@ -41,3 +41,4 @@
 - createauthmethod
 - createauthmethodawsiam
 - createauthmethodazuread
+- createauthmethodcert
