@@ -353,3 +353,4 @@
 - kmipdescribeserver
 - kmiplistclients
 - kmipmoveserver
+- kmiprenewclientcertificate
