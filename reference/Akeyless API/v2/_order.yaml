@@ -98,3 +98,4 @@
 - decryptbatch
 - decryptgpg
 - decryptpkcs1
+- decryptwithclassickey
