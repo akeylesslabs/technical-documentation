@@ -177,3 +177,4 @@
 - dynamicsecretupdatepostgresql
 - dynamicsecretupdaterabbitmq
 - dynamicsecretupdaterdp
+- dynamicsecretupdateredis
