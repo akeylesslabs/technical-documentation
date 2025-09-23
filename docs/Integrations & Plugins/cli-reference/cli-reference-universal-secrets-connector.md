@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-_The External Secrets Manager has been renamed Universal Secrets Connector. All `esm` commands will still work as expected._
+*The External Secrets Manager has been renamed Universal Secrets Connector. All`esm` commands will still work as expected.*
 
 ## Universal Secrets Connector
 
@@ -20,7 +20,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -30,7 +30,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">_create-usc_</p>
+### <p style={{ color: "blue" }}>*create-usc*</p>
 
 Creates a new Universal Secrets Connector
 
@@ -66,7 +66,7 @@ akeyless create-usc \
 
  `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
- `--uid-token`: The universal identity token, Required only for universal_identity authentication
+ `--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
  `-h, --help`: Display help information
 
@@ -80,11 +80,11 @@ akeyless create-usc \
 
 After creating a USC, you will need to use these sub-commands, prefixed with `usc`, to further interact with it.
 
-### <p style="color:blue">_usc_</p>
+### <p style={{ color: "blue" }}>*usc*</p>
 
 This command only has one parameter, `-h`, and it will display a list of the other `usc` commands.
 
-### <p style="color:blue">_create_</p>
+### <p style={{ color: "blue" }}>*create*</p>
 
 Create a new secret in an existing USC
 
@@ -117,7 +117,7 @@ usc create \
 
  `--tags`:Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
 
-### <p style="color:blue">_delete_</p>
+### <p style={{ color: "blue" }}>*delete*</p>
 
 Delete a secret from an Universal Secrets Connector
 
@@ -141,7 +141,7 @@ usc delete \
 
 <br />
 
-### <p style="color:blue">_get_</p>
+### <p style={{ color: "blue" }}>*get*</p>
 
 Gets the value and internal details of a secret from an Universal Secrets Connector
 
@@ -167,7 +167,7 @@ usc get \
 
  `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
- `--uid-token`:The universal identity token, Required only for universal_identity authentication
+ `--uid-token`:The universal identity token, Required only for universal\_identity authentication
 
  `-h, --help`:Display help information
 
@@ -177,7 +177,7 @@ usc get \
 
  `--no-creds-cleanup[=false]`:Do not clean local temporary expired creds 
 
-### <p style="color:blue">_list_</p>
+### <p style={{ color: "blue" }}>*list*</p>
 
 Lists the secrets within the Universal Secrets Connector
 
@@ -197,7 +197,7 @@ akeyless usc list --usc-name <USC name>
 
  `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
- `--uid-token`: The universal identity token, Required only for universal_identity authentication
+ `--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
  `-h, --help`: Display help information
 
@@ -207,7 +207,7 @@ akeyless usc list --usc-name <USC name>
 
  `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds                                          
 
-### <p style="color:blue">_update_</p>
+### <p style={{ color: "blue" }}>*update*</p>
 
 Update an existing secret within the Universal Secrets Connector
 
