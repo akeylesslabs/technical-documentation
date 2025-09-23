@@ -14,9 +14,9 @@ The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to 
 
 # Prerequisites
 
-- A GitHub, GitLab, or Bitbucket project set up in CircleCI
+* A GitHub, GitLab, or Bitbucket project set up in CircleCI
 
-- Permissions to create CircleCI [context](https://circleci.com/docs/contexts/?utm_source=google&utm_medium=sem&utm_campaign=sem) that will be used to secure and share environment variables across projects
+* Permissions to create CircleCI [context](https://circleci.com/docs/contexts/?utm_source=google\&utm_medium=sem\&utm_campaign=sem) that will be used to secure and share environment variables across projects
 
 # Authentication
 
@@ -26,24 +26,24 @@ In CircleCI jobs that use at least one context, the OpenID Connect ID token is a
 
 You can find your CircleCI organization ID by navigating to **Organization Settings > Overview** on the CircleCI web app.
 
-The OpenID Connect ID tokens issued by CircleCI have a fixed audience which is also the organization ID. A full list of available claims can be found [here](https://circleci.com/docs/openid-connect-tokens#format-of-the-openid-connect-id-token), and can be later used for the [Access Roles](doc:rbac) setup. 
+The OpenID Connect ID tokens issued by CircleCI have a fixed audience which is also the organization ID. A full list of available claims can be found [here](https://circleci.com/docs/openid-connect-tokens#format-of-the-openid-connect-id-token), and can be later used for the [Access Roles](doc:rbac) setup.
 
-In Akeyless Platform, create a new [OAuth2.0/JWT](doc:oauth20jwt) Authentication Method with the following settings: 
+In Akeyless Platform, create a new [OAuth2.0/JWT](doc:oauth20jwt) Authentication Method with the following settings:
 
 ```shell Shell
 akeyless create-auth-method-oauth2 --name /Dev/CI/CircleCIAuth \ 
---jwks-uri https://oidc.circleci.com/org/<ORGANIZATION ID>/.well-known/jwks-pub.json \
+--jwks-uri https://oidc.circleci.com/org/&lt;ORGANIZATION ID&gt;/.well-known/jwks-pub.json \
 --unique-identifier iss \
 --force-sub-claims
 ```
 
 Where:
 
-- `--jwks-uri` - The CirclCI OIDC  `JWKS` URL contains the public keys that should be used for JWT verification. Make sure to replace the `ORGANIZATION ID`  with your organization id.
+* `--jwks-uri` - The CirclCI OIDC  `JWKS` URL contains the public keys that should be used for JWT verification. Make sure to replace the `ORGANIZATION ID`  with your organization id.
 
-- `--unique-identifier` - A unique claim name that contains details uniquely identifying the request. In the following example, we will use the **CircleCI** OIDC  `iss` claim. 
+* `--unique-identifier` - A unique claim name that contains details uniquely identifying the request. In the following example, we will use the **CircleCI** OIDC  `iss` claim.
 
-- `--force-sub-claims` - Enforce [Sub-Claims](doc:sub-claims) on role association.
+* `--force-sub-claims` - Enforce [Sub-Claims](doc:sub-claims) on role association.
 
 Create a dedicated Access Role. Please note that you will assign it the necessary permissions in a later stage of this guide:
 
@@ -60,7 +60,7 @@ akeyless assoc-role-am --role-name /Dev/CI/CircleCIRole \
 ```
 
 > 🚧 Warning
-> 
+>
 > **Sub Claims** - It is **mandatory** to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the CircleCI documentation](https://circleci.com/docs/openid-connect-tokens#format-of-the-openid-connect-id-token) to prevent access of unauthorized users. This can also be used to limit access to specific workflows as described on the same CircleCI page under **Additional Claims**.
 
 Grant `Read` and `List` permissions for **Items**:
@@ -77,17 +77,17 @@ Instead of checking your Auth Method `access Id`, or your [Gateway](doc:api-gw) 
 
 Go to **Project Settings** > **Environment variables** > **Add Environment Variable**
 
-Create an environment variable in CircleCI called `ACCESS_ID` and store your Auth Method's `access-id` in it. 
+Create an environment variable in CircleCI called `ACCESS_ID` and store your Auth Method's `access-id` in it.
 
 While working with [Zero Knowledge](doc:implement-zero-knowledge) encryption based on your fragment, store your Akeyless Gateway Restful API URL (i.e. port `8080`) in an environment variable named `AKEYLESS_GATEWAY_URL`.
 
 > 👍 Note
-> 
+>
 > **Zero Knowledge** - The Akeyless Gateway should be reachable within your network. Working with your Gateway can be used when running CircleCI with self-hosted runners.
 
 In jobs using a context, CircleCI provides OpenID Connect ID (OIDC) tokens in environment variables. A job can use these tokens to access Akeyless without storing long-lived credentials in CircleCI.
 
-Go to **Organization Settings** > **Contexts** > **Add a context**  
+Go to **Organization Settings** > **Contexts** > **Add a context**\
 Name it  `akeyless`, we will later add this context to a job by adding the context key to the workflows section of your `circleci/config.yml` file.
 
 # Usage
@@ -126,7 +126,7 @@ workflows:
 ```
 
 > 👍 Note
-> 
+>
 > It is best practice to use environment variables instead of writing the actual variable values inside the pipeline
 
 ![](https://files.readme.io/1329672-Screenshot_2023-03-19_100113.png "Screenshot 2023-03-19 100113.png")
@@ -135,4 +135,4 @@ workflows:
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-in-circleci-pipelines" target="_blank" style="color: #00e">Managing Secrets in CircleCI Pipelines</a>.
+Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-in-circleci-pipelines" target="_blank" style={{ color: "#00e" }}>Managing Secrets in CircleCI Pipelines</a>.
