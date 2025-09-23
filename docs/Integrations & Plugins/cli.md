@@ -119,7 +119,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 ## Windows
 
 > 📘 Note
-> 
+>
 > PowerShell ISE does not support interactive input mode. Please work with the PowerShell cmdlet to set up the Akeyless CLI.
 
 Once the authentication succeeds, the following prompt will appear:
@@ -141,7 +141,7 @@ setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permenantly)
 ```
 
 > 👍 Note
-> 
+>
 > The CLI updates the path env for the **current user only**.  This change only takes effect after the user logs off and logs back on.
 
 Copy and run the relevant command for your purpose (`permanent` or `current session`), after that, The CLI should be ready to use.
@@ -154,8 +154,8 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ## Non-Interactive Mode
 
-To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.  
-If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.  
+To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.\
+If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.\
 For example, to work with the `eu` tenant you would run:
 
 ```shell
@@ -200,17 +200,17 @@ The following parameters can be added to a profile, for example, on the`deafult`
 
 Where:
 
-- `gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- `default_location_prefix`:  A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder. 
+* `default_location_prefix`:  A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder. 
 
-- `cert_issuer_name`: The default name of an [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) to use. 
+* `cert_issuer_name`: The default name of an [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) to use. 
 
-- `cert_username`:  The username the SSH certificate Issuer will issue the certificate for, e.g `ubuntu`.
+* `cert_username`:  The username the SSH certificate Issuer will issue the certificate for, e.g `ubuntu`.
 
-- `public_key_file_path`: Path to the file containing the SSH public key.
+* `public_key_file_path`: Path to the file containing the SSH public key.
 
-- `legacy_signing_alg`: Set this option to use the  SSH legacy signing algorithm.  
+* `legacy_signing_alg`: Set this option to use the  SSH legacy signing algorithm.  
 
 # Working with the Gateway
 
@@ -245,9 +245,9 @@ Settings can be found in various locations, such as environment variables, the `
 
 For access deny issues, ensure the following:
 
-- **Permissions**: Make sure the authentication method you created the profile with is associated with the proper role with the authority to perform the action you tried.
+* **Permissions**: Make sure the authentication method you created the profile with is associated with the proper role with the authority to perform the action you tried.
 
-- **Profile configuration file**: Make sure your profile configuration file is valid and that everything is spelled correctly and matches the authentication method you chose.
+* **Profile configuration file**: Make sure your profile configuration file is valid and that everything is spelled correctly and matches the authentication method you chose.
 
 # Tutorial
 
