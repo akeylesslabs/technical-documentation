@@ -38,7 +38,7 @@ In addition, to create an authentication methods that support user login, for si
 2. Provide a name and click **Finish**
 
 > 👍 API Key Credentials
-> 
+>
 > Save the **Access ID** and **Access Key** shown. You’ll need them later.
 
 ## Create an Access Role
@@ -51,11 +51,11 @@ In addition, to create an authentication methods that support user login, for si
 
 4. Click **Add** to define permissions:
 
-   - **Type**: **Items** and **Targets** 
+   * **Type**: **Items** and **Targets** 
 
-   - **Access Path**: Apply recursively
+   * **Access Path**: Apply recursively
 
-   - **Permissions**: All except Deny
+   * **Permissions**: All except Deny
 
 # Gateway Configuration
 
@@ -530,17 +530,17 @@ Outputs:
 
 After uploading the `.yaml` file, set the following parameters:
 
-- **AccessID** – The **Access ID** of the **AWS IAM** Auth Method that was created earlier.
+* **AccessID** – The **Access ID** of the **AWS IAM** Auth Method that was created earlier.
 
-- **AllowedAccessID** – The **Access ID** of the **API Key** Auth Method that was created earlier.
+* **AllowedAccessID** – The **Access ID** of the **API Key** Auth Method that was created earlier.
 
-- **AllowedIP** – Your IP address or CIDR block (e.g. `203.0.113.5/32`).
+* **AllowedIP** – Your IP address or CIDR block (e.g. `203.0.113.5/32`).
 
-- **AssumeRoleArn** -  ARN of the role to assume for the assume_role dynamic secret
+* **AssumeRoleArn** -  ARN of the role to assume for the assume\_role dynamic secret
 
-- **ClusterName** – A name for your Gateway cluster
+* **ClusterName** – A name for your Gateway cluster
 
-- **ImageID** – The **AMI ID** of the EC2 image. Run the following command to fetch the latest Ubuntu `22.04` image:
+* **ImageID** – The **AMI ID** of the EC2 image. Run the following command to fetch the latest Ubuntu `22.04` image:
 
 ```shell
 aws ec2 describe-images \
@@ -551,18 +551,18 @@ aws ec2 describe-images \
   --output text
 ```
 
-- **InstanceType** – e.g. `t3.small`, `t3.medium`
-- **KeyName** - Optional, EC2 Key Pair name for SSH access.
+* **InstanceType** – e.g. `t3.small`, `t3.medium`
+* **KeyName** - Optional, EC2 Key Pair name for SSH access.
 
 3. Click **Next**, then **Create Stack**.
 
 This stack will:
 
-- Launch an [EC2 instance](https://aws.amazon.com/pm/ec2/?refid=3fc1271f-8d0f-43b5-b177-4fba4b680f8b) with Docker installed and ready to run containers.
+* Launch an [EC2 instance](https://aws.amazon.com/pm/ec2/?refid=3fc1271f-8d0f-43b5-b177-4fba4b680f8b) with Docker installed and ready to run containers.
 
-- Deploy the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) inside a Docker container on the **EC2 instance** for secure, high-availability access to Akeyless Vault services.
+* Deploy the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) inside a Docker container on the **EC2 instance** for secure, high-availability access to Akeyless Vault services.
 
-- Create an IAM Role with scoped permissions for managing secrets and IAM users through AWS.
+* Create an IAM Role with scoped permissions for managing secrets and IAM users through AWS.
 
 ## Log In to the Gateway
 
@@ -571,7 +571,7 @@ First, login to `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console` , and enter the 
 1. Visit: `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console`.
 
 > 👍 Public IP
-> 
+>
 > The `INSTANCE_PUBLIC_IP` can be found under the **Outputs** tab in the CloudFormation stack.
 
 2. Select **Access Key** login.
@@ -621,9 +621,9 @@ Click the **eye** icon to view the current credentials, or select **Rotate Secre
 
 You can use the USC to:
 
-- **View**, **update**, and **create** new **AWS secrets**.
+* **View**, **update**, and **create** new **AWS secrets**.
 
-- Rotate AWS credentials directly from Akeyless
+* Rotate AWS credentials directly from Akeyless
 
 ## Sync the Rotated Secret with your AWS Account
 
