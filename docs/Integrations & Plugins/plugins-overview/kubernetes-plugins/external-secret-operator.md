@@ -18,16 +18,16 @@ The ESO runs within your K8s cluster as a `deployment` resource. It utilizes `Cu
 
 You can use two types of resources to fetch secrets from Akeyless:
 
-- [SecretStore](https://external-secrets.io/v0.5.5/api-secretstore/): Defines how to access secrets from Akeyless within a specific namespace.
+* [SecretStore](https://external-secrets.io/v0.5.5/api-secretstore/): Defines how to access secrets from Akeyless within a specific namespace.
 
-- [ClusterSecretStore](http://external-secrets.io/v0.5.5/api-clustersecretstore/): Defines how to access secrets from Akeyless across the entire Kubernetes cluster.
+* [ClusterSecretStore](http://external-secrets.io/v0.5.5/api-clustersecretstore/): Defines how to access secrets from Akeyless across the entire Kubernetes cluster.
 
 In addition to retrieving secrets from Akeyless to your K8s cluster, you can use the `PushSecret` resource to push a local K8s secret from your cluster to Akeyless.
 
 # Prerequisites
 
-- [Helm ](https://helm.sh/) installed
-- `K8s v1.16` or higher
+* [Helm ](https://helm.sh/) installed
+* `K8s v1.16` or higher
 
 # Installing with Helm
 
@@ -42,14 +42,14 @@ helm install external-secrets external-secrets/external-secrets
 
 Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/) support the following Auth Methods:
 
-- [API Key](https://docs.akeyless.io/docs/api-key)
-- [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-- [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-- [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-- [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
 
 > 👍 Note
-> 
+>
 > This guide demonstrates authentication using API Key and K8s Auth Methods. However, for security purposes, it’s highly recommended to avoid using API Keys in production.
 
 To set an auth method for the external secret operator, first create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with the relevant settings, for example: 
@@ -79,13 +79,13 @@ stringData:
 
 Where:
 
-- `name`: A name for the k8s secret to store the Authentication details. 
+* `name`: A name for the k8s secret to store the Authentication details. 
 
-- `accessId`: The Auth Method `Access ID`.
+* `accessId`: The Auth Method `Access ID`.
 
-- `accessType`: The Auth method type. 
+* `accessType`: The Auth method type. 
 
-- `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **K8s**. For more options, check the official [provider ](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
+* `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **K8s**. For more options, check the official [provider ](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
 
 Apply the configuration:
 
@@ -123,11 +123,11 @@ spec:
 
 Where: 
 
-- `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`. (or using your gateway url at port `8081`)
+* `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`. (or using your gateway url at port `8081`)
 
-- `authSecretRef`: References a K8s Secret `akeyless-secret-creds` containing authentication credentials.
+* `authSecretRef`: References a K8s Secret `akeyless-secret-creds` containing authentication credentials.
 
-- `secretRef`: Refers to a K8s Secret named `akeyless-secret-creds`, which contains values for `accessID`, `accessType`, and `accessTypeParam`. 
+* `secretRef`: Refers to a K8s Secret named `akeyless-secret-creds`, which contains values for `accessID`, `accessType`, and `accessTypeParam`. 
 
 Apply the configuration: 
 
@@ -160,11 +160,11 @@ spec:
 
 Where:
 
-- `accessId`: The K8s Auth Method `Access ID`.
+* `accessId`: The K8s Auth Method `Access ID`.
 
-- `k8sConfName`: The name of the **K8s Conf** on the Gateway.
+* `k8sConfName`: The name of the **K8s Conf** on the Gateway.
 
-- `serviceAccountRef`: The name of the K8s service account used to fetch secrets from Akeyless. Only secrets defined in a role associated with that service account under claim `service_account_name` can be accessed.
+* `serviceAccountRef`: The name of the K8s service account used to fetch secrets from Akeyless. Only secrets defined in a role associated with that service account under claim `service_account_name` can be accessed.
 
 # ExternalSecret
 
@@ -194,15 +194,15 @@ spec:
 
 Where:
 
-- `refreshInterval`: The amount of time before the values are read again 
+* `refreshInterval`: The amount of time before the values are read again 
 
-- `secretStoreRef`: Reference to the `SecretStore`  that was created earlier, in case of `ClusterSecretStore`  set the `Kind`  to `ClusterSecretStore`
+* `secretStoreRef`: Reference to the `SecretStore`  that was created earlier, in case of `ClusterSecretStore`  set the `Kind`  to `ClusterSecretStore`
 
-- `target`: Name of the K8s secret to create.
+* `target`: Name of the K8s secret to create.
 
-- `secretKey`: The key of the secret that will be created locally in the k8s cluster.
+* `secretKey`: The key of the secret that will be created locally in the k8s cluster.
 
-- `key`: Full path to the secret in Akeyless
+* `key`: Full path to the secret in Akeyless
 
 Apply the configuration: 
 
@@ -243,13 +243,13 @@ spec:
 
 Where:
 
-- `refreshInterval`: The amount of time before the values are read again 
+* `refreshInterval`: The amount of time before the values are read again 
 
-- `secretStoreRef`: Reference to the `SecretStore`.
+* `secretStoreRef`: Reference to the `SecretStore`.
 
-- `target`: Name of the K8s secret to create.
+* `target`: Name of the K8s secret to create.
 
-- `key`: Full path to the secret in Akeyless
+* `key`: Full path to the secret in Akeyless
 
 Getting the K8s secret:
 
@@ -291,17 +291,17 @@ spec:
 
 Where:
 
-- `refreshInterval`: The amount of time before the values are read again 
+* `refreshInterval`: The amount of time before the values are read again 
 
-- `secretStoreRef`: Reference to the `SecretStore`.
+* `secretStoreRef`: Reference to the `SecretStore`.
 
-- `target`: Name of the K8s secret to create.
+* `target`: Name of the K8s secret to create.
 
-- `secretKey`: The Secret keys that will be created.
+* `secretKey`: The Secret keys that will be created.
 
-- `key`: Full path to the secret in Akeyless
+* `key`: Full path to the secret in Akeyless
 
-- `Property`: The existing keys of the secret as stored in Akeyless.
+* `Property`: The existing keys of the secret as stored in Akeyless.
 
 Apply the configuration: 
 
@@ -323,7 +323,7 @@ kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.key}' | ba
 The [ClusterSecretStore](https://external-secrets.io/v0.4.2/api-clustersecretstore/) is cluster-wide and can be accessed by `ExternalSecrets` from any namespace, offering centralized secret management:
 
 > 👍 Note
-> 
+>
 > The **namespace** value is required in the `secretRef` section.
 
 Set the **ClusterSecretStore** resource:
@@ -355,9 +355,9 @@ spec:
 
 Where:
 
-- `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`  (or using your gateway url at port `8081`).
+* `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`  (or using your gateway url at port `8081`).
 
-- `authSecretRef`: Reference to the  [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that holds the authentication details, in our example  `akeyless-secret-creds`.
+* `authSecretRef`: Reference to the  [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that holds the authentication details, in our example  `akeyless-secret-creds`.
 
 Run the following command to create the **ClusterSecretStore** resource:
 
@@ -402,15 +402,15 @@ spec:
 
 Where:
 
-- `refreshInterval`: The amount of time before the values are read again 
+* `refreshInterval`: The amount of time before the values are read again 
 
-- `secretStoreRef`: Reference to the `SecretStore`
+* `secretStoreRef`: Reference to the `SecretStore`
 
-- `updatePolicy`: Policy to overwrite existing secrets in the provider on sync
+* `updatePolicy`: Policy to overwrite existing secrets in the provider on sync
 
-- `deletePolicy`: The provider secret will be deleted if the `PushSecret` is deleted
+* `deletePolicy`: The provider secret will be deleted if the `PushSecret` is deleted
 
-- `remoteKey` The location within the provider where the secret will be stored
+* `remoteKey` The location within the provider where the secret will be stored
 
 Apply the configuration:
 
