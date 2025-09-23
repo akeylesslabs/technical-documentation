@@ -228,3 +228,4 @@
 - gatewaycreateproducerping
 - gatewaycreateproducerpostgresql
 - gatewaycreateproducerrabbitmq
+- gatewaycreateproducerrdp
