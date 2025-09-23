@@ -12,10 +12,10 @@ next:
 ---
 # Prerequisites
 
-- Chef Workstation installed. Refer to [this](https://docs.chef.io/workstation/install_workstation/) guide to install the workstation.
+* Chef Workstation installed. Refer to [this](https://docs.chef.io/workstation/install_workstation/) guide to install the workstation.
 
 > 👍 Note
-> 
+>
 > Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](doc:hashicorp-vault-proxy)
 
 # Chef Infra Plugin Configuration
@@ -111,5 +111,5 @@ Secret is: my chef secret value!
 ```
 
 > 📘 Info
-> 
-> **Chef Plugin repo** - <https://github.com/exospheredata/secrets_management>
+>
+> **Chef Plugin repo** - [https://github.com/exospheredata/secrets\_management](https://github.com/exospheredata/secrets_management)
