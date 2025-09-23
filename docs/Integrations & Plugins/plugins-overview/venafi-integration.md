@@ -26,9 +26,9 @@ You no longer need to manually issue new PKI certificates, and you can dynamical
 
 Either Akeyless or Venafi can act as the certificate issuer.
 
-- **Venafi Issuer:** The certificate is signed by Venafi’s intermediate Certificate Authority (CA). The issued certificate is saved on Venafi and in the Akeyless Platform. The certificate issuing policy template is pulled from the Venafi Zone configuration.
+* **Venafi Issuer:** The certificate is signed by Venafi’s intermediate Certificate Authority (CA). The issued certificate is saved on Venafi and in the Akeyless Platform. The certificate issuing policy template is pulled from the Venafi Zone configuration.
 
-- **Akeyless Issuer:** The certificate is signed by a CA key from the Akeyless Platform created by the user. In addition, the issued certificate is saved in the Akeyless Platform as a secret and exported to Venafi for monitoring.
+* **Akeyless Issuer:** The certificate is signed by a CA key from the Akeyless Platform created by the user. In addition, the issued certificate is saved in the Akeyless Platform as a secret and exported to Venafi for monitoring.
 
 A certificate can be requested based on a Common Name (CN) or via a Certificate Signing Request (CSR). Both these methods fully support [Cert Manager](https://cert-manager.io/docs/).
 
@@ -48,7 +48,7 @@ The outcome artifacts of certificate issuance, including the certificate, privat
 
 **Optional fields:**
 
-**Sign Using Akeyless PKI ** - Determines whether to use Akeyless as an issuer.
+**Sign Using Akeyless PKI** - Determines whether to use Akeyless as an issuer.
 
 **Signer Key Name** - The signer key to use as the issuer, must be a valid RSA 2048/4096 key with a certificate (Required when using Akeyless PKI, must already exist in Akeyless).
 
@@ -60,6 +60,6 @@ The outcome artifacts of certificate issuance, including the certificate, privat
 
 **Certificate Chain Order-Root First** - Where to place the root certificate in the certificate chain (<code>default: root first</code>).
 
-**Store Private Key in Akeyless ** -Whether to keep the generated private key in Akeyless as a static secret (Not relevant when generating a certificate using CSR) (default: `true`)
+**Store Private Key in Akeyless** -Whether to keep the generated private key in Akeyless as a static secret (Not relevant when generating a certificate using CSR) (default: `true`)
 
-**Artifacts Location** - The location to place the generated artifacts in Akeyless (<code>default: /cert_automation</code>).
+**Artifacts Location** - The location to place the generated artifacts in Akeyless (<code>default: /cert\_automation</code>).
