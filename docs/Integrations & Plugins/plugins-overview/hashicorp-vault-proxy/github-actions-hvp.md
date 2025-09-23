@@ -42,22 +42,7 @@ git commit -m "Initial Commit"
 
 4. On GitHub, create a new repository. In this example, it's called **Akeyless-vault-example**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3258bde-Screenshot_at_May_25_14-24-05.png",
-        "Screenshot at May 25 14-24-05.png",
-        781
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" border={true} src="https://files.readme.io/3258bde-Screenshot_at_May_25_14-24-05.png" />
 
 5. Perform an initial commit to the new repository by running:
 
@@ -71,26 +56,11 @@ git push -u origin main
 
 1. On GitHub, navigate to the main page of the repository, and select **Settings** > **Secrets** > **New repository secret**.
 
-2. Name the secret  **VAULT_TOKEN**. 
+2. Name the secret  **VAULT\_TOKEN**. 
 
-3. Set the secret value in the following format : **\<access_id>..\<access_key>**. For example:
+3. Set the secret value in the following format : **\<access\_id>..\<access\_key>**. For example:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/51a6336-image-20210524-1247311.png",
-        "image-20210524-124731(1).png",
-        715
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" border={true} src="https://files.readme.io/51a6336-image-20210524-1247311.png" />
 
 4. Select **Add secret**.
 
@@ -137,16 +107,16 @@ jobs:
         run: echo "${{ env.app_secret }}"
 ```
 
-> 📘 
-> 
+> 📘
+>
 > If you are working with your own Akeyless Gateway, set the value of the **url** field as your Akeyless Gateway URL of your Gateway HVP endpoint `https://Your-Gateway-URL:8000/hvp` (or using your gateway url at port 8200)
 
-Note that the token used to authenticate is set to the **VAULT_TOKEN** secret you defined in the GitHub repository.
+Note that the token used to authenticate is set to the **VAULT\_TOKEN** secret you defined in the GitHub repository.
 
 where **secret/data** is a required prefix, followed by the secret path.  In this example, the secret <code>actions</code> in the Akeyless Platform is stored in the <code>/ci/Gitsecret/</code> folder. Therefore, the secret path is <code>/ci/Gitsecret/actions</code>, the selector is `ci/Gitsecret/actions`, and `action` is an environment variable that can be used in the workflow. 
 
 > 🚧 Warning
-> 
+>
 > The selector format must not start with the `/` prefix.
 
 ```yaml
@@ -161,7 +131,7 @@ secrets: |
   secret/data/ci/Gitsecret app_secret | secret_app ;
 ```
 
-<code>app_secret</code> is the key name and <code>secret_app</code> is the environment variable to store the secret value within your flow. 
+<code>app\_secret</code> is the key name and <code>secret\_app</code> is the environment variable to store the secret value within your flow. 
 
 # Trigger the GitHub Runner
 
