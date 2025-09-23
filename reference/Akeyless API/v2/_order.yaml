@@ -302,3 +302,4 @@
 - gatewayupdateproducerrdp
 - gatewayupdateproducerredis
 - gatewayupdateproducerredshift
+- gatewayupdateproducersnowflake
