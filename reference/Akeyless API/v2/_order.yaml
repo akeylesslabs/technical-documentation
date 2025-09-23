@@ -241,3 +241,4 @@
 - gatewaygetcache
 - gatewaygetconfig
 - gatewaygetdefaults
+- gatewaygetk8sauthconfig
