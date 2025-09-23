@@ -14,22 +14,7 @@ Locate the Password: Navigate to the corporate or personal area where the desire
 
 Open Options Menu: Click the three dots button next to the password entry to open the options menu.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ba937b7-Screenshot_2024-06-16_at_11.01.45.png",
-        null,
-        null
-      ],
-      "align": "center",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" width="200px" src="https://files.readme.io/ba937b7-Screenshot_2024-06-16_at_11.01.45.png" />
 
 <br />
 
@@ -41,18 +26,4 @@ Verify Addition: The OTP code will be added as a custom field to the selected pa
 
 Access OTP Code: You can view the OTP code by clicking the eye icon next to the custom field.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f962648-Screenshot_2024-06-16_at_11.08.08.png",
-        null,
-        null
-      ],
-      "align": "center",
-      "sizing": "200px"
-    }
-  ]
-}
-[/block]
+<Image align="center" width="200px" src="https://files.readme.io/f962648-Screenshot_2024-06-16_at_11.08.08.png" />
