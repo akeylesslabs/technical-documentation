@@ -380,3 +380,4 @@
 - rollbacksecret
 - rotatekey
 - rotateoidcclientsecret
+- rotatedsecretcreateaws
