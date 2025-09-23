@@ -379,3 +379,4 @@
 - revoke-creds
 - rollbacksecret
 - rotatekey
+- rotateoidcclientsecret
