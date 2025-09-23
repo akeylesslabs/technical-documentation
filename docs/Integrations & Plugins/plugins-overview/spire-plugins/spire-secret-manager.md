@@ -12,21 +12,21 @@ next:
 ---
 ## Prerequisites
 
-- [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.35.0` or later
-- An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with the following permissions: `Create`,`Update` for **Items**
+* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.35.0` or later
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with the following permissions: `Create`,`Update` for **Items**
 
 ## Authentication
 
 The following Authentication Methods can be used: 
 
-- [API Key](https://docs.akeyless.io/docs/api-key)
-- [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-- [Azure](https://docs.akeyless.io/docs/azure-ad)
-- [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-- [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [Azure](https://docs.akeyless.io/docs/azure-ad)
+* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
 
 > 👍 Note
-> 
+>
 > In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For MacOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
 Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/api-key) using the CLI:
@@ -100,32 +100,32 @@ SVIDStore "akeyless_secretsmanager" {
 
 Where:
 
-- `plugin_cmd` - The location of the binary file that was created.
+* `plugin_cmd` - The location of the binary file that was created.
 
-- `plugin_checksum` - sha256 of the binary.
+* `plugin_checksum` - sha256 of the binary.
 
-- `akeyless_gateway_url` - Akeyless Gateway URL API v2 endpoint.
+* `akeyless_gateway_url` - Akeyless Gateway URL API v2 endpoint.
 
-- `access_id` - The ** Auth Method ** `AccessID`
+* `access_id` - The **Auth Method** `AccessID`
 
-- `access_key` - Optional, the `AccessKey`. Relevant only for **API Key**
+* `access_key` - Optional, the `AccessKey`. Relevant only for **API Key**
 
-- `target_folder` - A path to save all items inside Akeyless where the generated `SVIDs` will be stored
+* `target_folder` - A path to save all items inside Akeyless where the generated `SVIDs` will be stored
 
 For **K8s**,**GCP** or **AzureAD** Auth method set the following settings as well: 
 
-- `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
+* `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
 
-- `gcp_audience`-  The audience to verify the JWT received by the client. By default, `akeyless.io`
+* `gcp_audience`-  The audience to verify the JWT received by the client. By default, `akeyless.io`
 
-- `azure_object_id` - Optional for Azure, `objectID`
+* `azure_object_id` - Optional for Azure, `objectID`
 
 ## SPIRE Agent Initialization
 
 > 📘 Info
-> 
+>
 > **SPIRE Server**
-> 
+>
 > You are required to start the [SPIRE server](https://docs.akeyless.io/docs/keymanager#spire-server-initialization) before running the Agent commands.
 
 In order to attest the SPIRE agent to the server, create a join token:
@@ -152,12 +152,12 @@ bin/spire-server entry create -parentID spiffe://example.org/myagent \
 
 Upon successful registration of the workload, a secret will be created in Akeyless in the `/SPIRE/SVID/` folder, which will contain the following information:
 
-- SpiffeID
-- Certificate
-- x509SVIDKey
+* SpiffeID
+* Certificate
+* x509SVIDKey
 
 > 📘 Info
-> 
+>
 > **SPIFFE/SPIRE**
-> 
+>
 > For the full configuration steps, visit the official [Quickstart for Linux and MacOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
