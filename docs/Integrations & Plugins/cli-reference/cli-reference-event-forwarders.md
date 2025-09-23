@@ -16,7 +16,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, Required only for universal\_identity authentication
 
 `-h, --help`: Display help information
 
@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-## <p style="color:blue">_create_</p>
+## <p style="color:blue">*create*</p>
 
 Commands for managing the event forwarders.
 
@@ -40,7 +40,7 @@ Commands for managing the event forwarders.
 
 `webhook`: Create a new webhook Event Forwarder
 
-### <p style="color:blue">_create email_</p>
+### <p style="color:blue">*create email*</p>
 
 Create a new Email Event Forwarder
 
@@ -65,7 +65,7 @@ akeyless event-forwarder create email \
 
 `-n, --name`: **Required**, Event Forwarder name
 
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
 
 `--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
 
@@ -77,7 +77,7 @@ akeyless event-forwarder create email \
 
 `--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
 
-`--include-error`: Set this option to include event errors details [ `true` / `false` ]
+`--include-error`: Set this option to include event errors details \[ \`true\` / \`false\` ]
 
 `-k, --key`: Key name. The key will be used to encrypt the Event Forwarder secret value. If the key name is not specified, the account default protection key is used
 
@@ -91,7 +91,7 @@ akeyless event-forwarder create email \
 
 `--description`: Description of the object
 
-### <p style="color:blue">_servicenow_</p>
+### <p style="color:blue">*servicenow*</p>
 
 Create a new Service Now Event Forwarder
 
@@ -113,7 +113,7 @@ akeyless event-forwarder create servicenow \
 
 `-n, --name`: **Required**, Event Forwarder name
 
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
 
 `--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
 
@@ -129,7 +129,7 @@ akeyless event-forwarder create servicenow \
 
 `--host`: Workstation Host
 
-`--auth-type[=user-pass]`: The authentication type to use [`user-pass`/`jwt`]
+`--auth-type[=user-pass]`: The authentication type to use \[\`user-pass\`/\`jwt\`]
 
 `--admin-name`: Workstation Admin Name
 
@@ -151,7 +151,7 @@ akeyless event-forwarder create servicenow \
 
 `--description`: Description of the object
 
-### <p style="color:blue">_slack_</p>
+### <p style="color:blue">*slack*</p>
 
 Create a new Slack Event Forwarder
 
@@ -175,7 +175,7 @@ akeyless event-forwarder create slack \
 
 `-n, --name`: **Required**, Event Forwarder name
 
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
 
 `url`: **Required**, Slack Webhook URL
 
@@ -197,7 +197,7 @@ akeyless event-forwarder create slack \
 
 `--description`: Description of the object
 
-### <p style="color:blue">_webhook_</p>
+### <p style="color:blue">*webhook*</p>
 
 Create a new Webhook Event Forwarder
 
@@ -221,7 +221,7 @@ akeyless event-forwarder create webhook \
 
 `-n, --name`: **Required**, Event Forwarder name
 
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
 
 `--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
 
@@ -243,7 +243,7 @@ akeyless event-forwarder create webhook \
 
 `--server-certificates`: `Base64 encoded PEM` certificate of the Webhook
 
-`--auth-type[=user-pass]`: The Webhook authentication type [`user-pass`, `token`, `certificate`]
+`--auth-type[=user-pass]`: The Webhook authentication type \[\`user-pass\`, \`token\`, \`certificate\`]
 
 `--username`: Username for authentication relevant for `user-pass` auth-type
 
