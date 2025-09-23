@@ -30,52 +30,52 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 # Step 1: Define Your API Requirements
 
-- Understand the API you're calling, including the endpoint URL, required headers, and the JSON body structure for your POST request.
+* Understand the API you're calling, including the endpoint URL, required headers, and the JSON body structure for your POST request.
 
 > 📘 For our use case we will use the following Akeyless API endpoints
-> 
-> - <https://api.akeyless.io/auth>
-> - <https://api.akeyless.io/create-auth-method-saml'>
-> - <https://api.akeyless.io/assoc-role-am>
+>
+> * [https://api.akeyless.io/auth](https://api.akeyless.io/auth)
+> * [https://api.akeyless.io/create-auth-method-saml'](https://api.akeyless.io/create-auth-method-saml')
+> * [https://api.akeyless.io/assoc-role-am](https://api.akeyless.io/assoc-role-am)
 
 # Step 2: Access ServiceNow's Flow Designer
 
-- Navigate to Flow Designer in ServiceNow by searching for it in the navigation filter box.
+* Navigate to Flow Designer in ServiceNow by searching for it in the navigation filter box.
 
 ![](https://files.readme.io/6a3c7a0-Screenshot_2024-02-29_at_19.01.09.png)
 
-- Flow Designer is a powerful tool in ServiceNow that allows you to automate processes and create custom actions without writing a lot of code.
+* Flow Designer is a powerful tool in ServiceNow that allows you to automate processes and create custom actions without writing a lot of code.
 
 # Step 3: Create a New Action
 
-- In Flow Designer, go to the Actions tab and click on New Action.
-- Provide a name for your action that clearly describes its purpose.
+* In Flow Designer, go to the Actions tab and click on New Action.
+* Provide a name for your action that clearly describes its purpose.
 
 ![](https://files.readme.io/f745a1d-Screenshot_2024-02-29_at_19.06.28.png)
 
 # Step 4: Configure the Action Inputs
 
-- Define inputs for your action. These are variables that you will use in your POST request, such as API endpoint, any dynamic data that needs to be sent in the request body, or authentication credentials.
+* Define inputs for your action. These are variables that you will use in your POST request, such as API endpoint, any dynamic data that needs to be sent in the request body, or authentication credentials.
 
 ![](https://files.readme.io/d43fd8d-Screenshot_2024-02-29_at_19.08.53.png)
 
 # Step 5: Add a Script Step for the POST Request
 
-- In the action editor, add a new step and choose the type that allows you to execute a script, often labeled as Run Script or something similar.
-- In the script step, you will write the code to make the POST request to the external API. ServiceNow provides a RESTMessageV2 class for this purpose.
-- To add a place where you will be able to write a script press the blue plus button. 
+* In the action editor, add a new step and choose the type that allows you to execute a script, often labeled as Run Script or something similar.
+* In the script step, you will write the code to make the POST request to the external API. ServiceNow provides a RESTMessageV2 class for this purpose.
+* To add a place where you will be able to write a script press the blue plus button. 
 
 ![](https://files.readme.io/b18117b-Screenshot_2024-02-29_at_19.11.03.png)
 
-- Select script option 
+* Select script option 
 
 ![](https://files.readme.io/cff4c4c-Screenshot_2024-02-29_at_19.11.15.png)
 
-- Place to write you scrip 
+* Place to write you scrip 
 
 ![](https://files.readme.io/1f19248-Screenshot_2024-02-29_at_19.11.26.png)
 
-- In our scenario, we aim to obtain a token for utilizing the Akeyless API. Following this, we intend to establish an authentication method for a new employee and subsequently link this authentication method to the appropriate access role. Below is a script exemplifying this process.
+* In our scenario, we aim to obtain a token for utilizing the Akeyless API. Following this, we intend to establish an authentication method for a new employee and subsequently link this authentication method to the appropriate access role. Below is a script exemplifying this process.
 
 ```shell JavaScript
 (function execute(inputs, outputs) {
