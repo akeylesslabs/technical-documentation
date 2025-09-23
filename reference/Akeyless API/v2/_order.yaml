@@ -101,3 +101,4 @@
 - decryptwithclassickey
 - deleteroleassociation
 - deletetargetassociation
+- deleteauthmethod
