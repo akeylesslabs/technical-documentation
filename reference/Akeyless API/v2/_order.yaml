@@ -4,3 +4,4 @@
 - auth
 - authmethodcreateapikey
 - authmethodcreateawsiam
+- authmethodcreateazuread
