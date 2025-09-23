@@ -315,3 +315,4 @@
 - gwupdateremoteaccesssessionlogslogstash
 - gwupdateremoteaccesssessionlogslogzio
 - gwupdateremoteaccesssessionlogssplunk
+- gwupdateremoteaccesssessionlogsstdout
