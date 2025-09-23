@@ -13,10 +13,10 @@ next:
 A common usage pattern is the use of a third-party credential management system for managing passwords and keys for accessing hosts and services. In the past, this sort of environment was tricky to manage with Ansible AWX. Now, with the combination of Ansible AWX Custom Credentials, it has become simple.
 
 > 👍 Supported Ansible Version
-> 
+>
 > The minimum Ansible version for Akeyless is `2.18.0`
 
 Akeyless plugins are available for:
 
-- [Ansible Plugin](doc:ansible-plugin)
-- [Ansible AWX Plugin](doc:ansible-awx-plugin-secret-fetch-via-playbook-1)
+* [Ansible Plugin](doc:ansible-plugin)
+* [Ansible AWX Plugin](doc:ansible-awx-plugin-secret-fetch-via-playbook-1)
