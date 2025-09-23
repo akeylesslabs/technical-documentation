@@ -18,7 +18,7 @@ Users that have a valid JWT token issued by Akeyless, which includes their email
 
 Download the latest version of the plugin from:
 
-<https://akeyless.jfrog.io/artifactory/akeyless-keycloak/io/akeyless/akeyless-keycloak/>
+[https://akeyless.jfrog.io/artifactory/akeyless-keycloak/io/akeyless/akeyless-keycloak/](https://akeyless.jfrog.io/artifactory/akeyless-keycloak/io/akeyless/akeyless-keycloak/)
 
 Or use the following Maven dependency definition:
 
@@ -44,7 +44,7 @@ Verify your deployment in Keycloak logs:
 ```
 
 > 👍 Note
-> 
+>
 > When working with ephemeral containers, `deployments` folder should be mounted using persistent volumes.
 
 # Setting up Akeyless Keycloak Authenticator
@@ -55,7 +55,7 @@ Navigate to "Authentication", Select "Browser" in the combo-box, and click "Copy
 
 ![](https://files.readme.io/7b9f1f2-image-20210621-110924.png "image-20210621-110924.png")
 
-Name the flow as **Akeyless Browser **and click **Save**.
+Name the flow as **Akeyless Browser** and click **Save**.
 
 Click **Add execution**, select **Akeyless** from the combo-box and save:
 
