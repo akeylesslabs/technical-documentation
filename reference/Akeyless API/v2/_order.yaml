@@ -311,3 +311,4 @@
 - gwupdateremoteaccesssessionlogsazureanalytics
 - gwupdateremoteaccesssessionlogsdatadog
 - gwupdateremoteaccesssessionlogselasticsearch
+- gwupdateremoteaccesssessionlogsgooglechronicle
