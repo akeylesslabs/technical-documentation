@@ -344,3 +344,4 @@
 - hmac
 - importpasswords
 - kmipclientdeleterule
+- kmipclientsetrule
