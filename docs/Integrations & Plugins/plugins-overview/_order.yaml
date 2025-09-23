@@ -10,3 +10,4 @@
 - circleci-plugin
 - teamcity-plugin
 - puppet-plugin
+- chef-inspec-plugin
