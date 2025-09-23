@@ -1,3 +1,4 @@
 - ansible-plugin
 - ansible-awx-plugin-secret-fetch-via-playbook-1
 - ansible-awx-plugin-secret-fetch-via-playbook-using-universal-identity
+- ansible-plugin-secret-fetch-via-playbook-using-ansible-playbook-cli
