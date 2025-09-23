@@ -332,3 +332,4 @@
 - geteventforwarder
 - getgroup
 - getkubeexeccreds
+- getpkicertificate
