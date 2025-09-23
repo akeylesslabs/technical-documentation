@@ -300,3 +300,4 @@
 - gatewayupdateproducerpostgresql
 - gatewayupdateproducerrabbitmq
 - gatewayupdateproducerrdp
+- gatewayupdateproducerredis
