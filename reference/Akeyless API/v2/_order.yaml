@@ -514,3 +514,4 @@
 - updateauthmethodoci
 - updateauthmethodoidc
 - updateauthmethodsaml
+- updateauthmethoduniversalidentity
