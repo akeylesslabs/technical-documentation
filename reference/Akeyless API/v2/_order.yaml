@@ -411,3 +411,4 @@
 - rotatedsecretupdategcp
 - rotatedsecretupdatehanadb
 - rotatedsecretupdateldap
+- rotatedsecretupdatemongodb
