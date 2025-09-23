@@ -197,3 +197,4 @@
 - eventforwardercreatewebhook
 - eventforwarderdelete
 - eventforwarderget
+- eventforwarderupdateemail
