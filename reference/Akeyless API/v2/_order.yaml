@@ -143,3 +143,4 @@
 - dynamicsecretcreatepostgresql
 - dynamicsecretcreaterabbitmq
 - dynamicsecretcreaterdp
+- dynamicsecretcreateredis
