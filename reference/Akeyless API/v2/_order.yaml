@@ -17,3 +17,4 @@
 - authmethodcreatesaml
 - authmethodcreateuniversalidentity
 - authmethoddelete
+- authmethodget
