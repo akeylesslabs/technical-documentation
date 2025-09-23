@@ -45,3 +45,4 @@
 - createauthmethodemail
 - createauthmethodgcp
 - createauthmethodhuawei
+- createauthmethodk8s
