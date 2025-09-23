@@ -405,3 +405,4 @@
 - rotatedsecretsync
 - rotatedsecretupdateaws
 - rotatedsecretupdateazure
+- rotatedsecretupdatecassandra
