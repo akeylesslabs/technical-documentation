@@ -1,1 +1,2 @@
 - ansible-plugin
+- ansible-awx-plugin-secret-fetch-via-playbook-1
