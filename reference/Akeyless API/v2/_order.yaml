@@ -303,3 +303,4 @@
 - gatewayupdateproducerredis
 - gatewayupdateproducerredshift
 - gatewayupdateproducersnowflake
+- gatewayupdatetmpusers
