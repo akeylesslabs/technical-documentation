@@ -27,7 +27,7 @@ This guide will demonstrate the use of an [ OAuth 2.0 / JWT](https://docs.akeyle
    2. Go to [Akeyless Extensions - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=LancelotSoftware.akeyless-extensions)
 
 > 📘 Step-by-Step
-> 
+>
 > If this is your first time using the extension, see the documentation here to make sure you have the required prerequisites prepared: [Setup Akeyless and Azure service principal](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/getting-started.md).
 
 # Authentication
@@ -47,11 +47,11 @@ akeyless create-auth-method-oauth2 --name /Dev/AzureAuth  \
 
 Where:
 
-- `--jwks-uri` - The URL to the `JWKS` that contains the public keys that would be used for JWT verification.
+* `--jwks-uri` - The URL to the `JWKS` that contains the public keys that would be used for JWT verification.
 
-- `--unique identifier` - For the unique identifier, you can use the Azure service principal's `tenantid`, or `appid`. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](doc:sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization. You can find your `appid` in your Azure DevOps account in "Project settings" -> "Service connections" -> Click on your connection -> "Manage App registration".
+* `--unique identifier` - For the unique identifier, you can use the Azure service principal's `tenantid`, or `appid`. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](doc:sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization. You can find your `appid` in your Azure DevOps account in "Project settings" -> "Service connections" -> Click on your connection -> "Manage App registration".
 
-- `--force-sub-claims` -  Enforce role association to include sub-claims.
+* `--force-sub-claims` -  Enforce role association to include sub-claims.
 
 Create an **[Access Role](https://docs.akeyless.io/docs/rbac)**:
 
@@ -60,9 +60,9 @@ akeyless create-role --name /Dev/AzureRole
 ```
 
 > 🚧 Warning
-> 
-> ** It is required ** to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
-> 
+>
+> **It is required** to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
+>
 > Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that Azure DevOps provides in the JWT.
 
 Attach your `OAuth 2.0 / JWT` **Authentication Method** to the **Access Role** that was created and add an appropriate **Sub-Claim**, for example: `appid=<appid-string>`.
@@ -73,7 +73,7 @@ akeyless assoc-role-am --role-name /Dev/AzureRole \
 --sub-claims appid=<appid-string>
 ```
 
-Set `Read` permissions for **Items **for the **Access Role**:     
+Set `Read` permissions for **Items** for the **Access Role**:     
 
 ```shell
 akeyless set-role-rule --role-name /Dev/AzureRole \
@@ -86,7 +86,7 @@ akeyless set-role-rule --role-name /Dev/AzureRole \
 The following examples will demonstrate how to fetch [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
 > 📘 Classic Pipelines
-> 
+>
 > If you are using classic pipelines, you will find the `Reference Name` under the `Output Variables` section. This will be the `name` of your task in the YAML file.
 
 ## Fetching Static Secrets
@@ -116,7 +116,7 @@ steps:
 ```
 
 > 📘 JWT Usage
-> 
+>
 > Note that we are using the `azure_jwt` output from the `AzureCLI` task to hold the JWT, then use it in the `akeyless-secret` task with `$(AzureCLI.azure_jwt)`.
 
 You will also have `$(MyAkeylessTask.first_secret)` and  `$(MyAkeylessTask.second_secret)` available in subsequent tasks of that job if needed.
