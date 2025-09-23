@@ -413,3 +413,4 @@
 - rotatedsecretupdateldap
 - rotatedsecretupdatemongodb
 - rotatedsecretupdatemssql
+- rotatedsecretupdatemysql
