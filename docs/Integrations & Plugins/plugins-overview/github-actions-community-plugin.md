@@ -20,7 +20,7 @@ This guide will demonstrate the uses of [ OAuth 2.0 / JWT](https://docs.akeyless
 
 # Prerequisites
 
-- Job permissions requirement: **(Relevant for OAuth 2.0 / JWT Authentication only)**
+* Job permissions requirement: **(Relevant for OAuth 2.0 / JWT Authentication only)**
 
 The default usage relies on using the GitHub JWT (JSON Web Token) to authenticate to Akeyless. To make this available, you must configure it inside your job workflow.
 
@@ -34,7 +34,7 @@ jobs:
     #--------------------------#
 ```
 
-- For Dynamic Secrets, [jq](https://stedolan.github.io/jq/) must be installed on the runner host.
+* For Dynamic Secrets, [jq](https://stedolan.github.io/jq/) must be installed on the runner host.
 
 # Authentication
 
@@ -53,11 +53,11 @@ akeyless create-auth-method-oauth2 --name /Dev/GitHubAuth  \
 
 Where:
 
-- `--jwks-uri` - The URL to the `JWKS` that contains the public keys that would be used for JWT verification.
+* `--jwks-uri` - The URL to the `JWKS` that contains the public keys that would be used for JWT verification.
 
-- `--unique identifier`, A unique ID, usually a value such as `email`, `username` or `upn` for example. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](doc:sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization.
+* `--unique identifier`, A unique ID, usually a value such as `email`, `username` or `upn` for example. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](doc:sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization.
 
-- `--force-sub-claims` -  Enforce role association to include sub-claims.
+* `--force-sub-claims` -  Enforce role association to include sub-claims.
 
 Create an **[Access Role](https://docs.akeyless.io/docs/rbac)**:
 
@@ -66,9 +66,9 @@ akeyless create-role --name /Dev/GitHubRole
 ```
 
 > 🚧 Warning
-> 
-> ** It is required ** to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
-> 
+>
+> **It is required** to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
+>
 > Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that GitHub provides in the JWT.
 
 Attach your `OAuth 2.0 / JWT` **Authentication Method** to the **Access Role** that was created and add an appropriate **Sub-Claim**, for example: `repository=octo-org/octo-repo` where `octo-org = {GitHub Account}` and `octo-repo = {GitHub Repository}`.
@@ -79,7 +79,7 @@ akeyless assoc-role-am --role-name /Dev/GitHubRole \
 --sub-claims repository=<octo-org/octo-repo>
 ```
 
-Set `Read` permissions for **Items **for the **Access Role**:     
+Set `Read` permissions for **Items** for the **Access Role**:     
 
 ```shell
 akeyless set-role-rule --role-name /Dev/GitHubRole \
@@ -122,10 +122,10 @@ akeyless set-role-rule --role-name /Dev/AWSRole \
 
 Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners):
 
-- In GitHub - navigate to the main page of the repository and select  **Settings > Actions > Runners > New self-hosted runner**.
-- Select the operating system and architecture of your self-hosted-runner machine.
-- Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
-- Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
+* In GitHub - navigate to the main page of the repository and select  **Settings > Actions > Runners > New self-hosted runner**.
+* Select the operating system and architecture of your self-hosted-runner machine.
+* Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
+* Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
 
 ## GitHub Repository Secret
 
@@ -133,9 +133,9 @@ You can store the `AccessID` as a GitHub secret inside the repository to use in 
 
 In the following examples, instead of explicitly specifying the `AccessID` of the **Authentication Method** inside the workflow, we store it as a secret in the repository as a variable called `ACCESS_ID`.
 
-- On GitHub, navigate to the main page of the repository, and select **Settings > Secrets and variables > Actions > New repository secret**.
-- Enter the name for the secret (for example, `ACCESS_ID` ) and set the secret value to your Auth Method **Access ID**.
-- Select **Add secret**.
+* On GitHub, navigate to the main page of the repository, and select **Settings > Secrets and variables > Actions > New repository secret**.
+* Enter the name for the secret (for example, `ACCESS_ID` ) and set the secret value to your Auth Method **Access ID**.
+* Select **Add secret**.
 
 # Usage
 
@@ -149,7 +149,7 @@ Create a static secret using the following command:
 akeyless create-secret --name /GitHub/MyGitSecret --value <Secret value>
 ```
 
-Example of fetching a static secret using OAuth 2.0 / JWT and AWS_IAM Authentication Methods :
+Example of fetching a static secret using OAuth 2.0 / JWT and AWS\_IAM Authentication Methods :
 
 ```yaml JWT
 name: 'Static-Secret'
