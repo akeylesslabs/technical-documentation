@@ -125,3 +125,4 @@
 - dynamicsecretcreateazure
 - dynamicsecretcreatecassandra
 - dynamicsecretcreatecustom
+- dynamicsecretcreatedockerhub
