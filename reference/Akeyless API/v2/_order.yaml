@@ -497,3 +497,4 @@
 - uidcreatechildtoken
 - uidgeneratetoken
 - uidlistchildren
+- uidrevoketoken
