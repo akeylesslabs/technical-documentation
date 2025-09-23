@@ -383,3 +383,4 @@
 - rotatedsecretcreateaws
 - rotatedsecretcreateazure
 - rotatedsecretcreatecassandra
+- rotatedsecretcreatecustom
