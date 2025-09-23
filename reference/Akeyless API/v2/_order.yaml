@@ -505,3 +505,4 @@
 - updateassoc
 - updateauthmethod
 - updateauthmethodawsiam
+- updateauthmethodazuread
