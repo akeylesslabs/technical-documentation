@@ -232,3 +232,4 @@
 - gatewaycreateproducerredshift
 - gatewaycreateproducersnowflake
 - gatewaydeleteallowedaccess
+- deletegatewayallowedaccessid
