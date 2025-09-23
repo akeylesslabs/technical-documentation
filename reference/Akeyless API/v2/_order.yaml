@@ -124,3 +124,4 @@
 - dynamicsecretcreateaws
 - dynamicsecretcreateazure
 - dynamicsecretcreatecassandra
+- dynamicsecretcreatecustom
