@@ -12,18 +12,18 @@ next:
 ---
 Akeyless supports multiple options to authenticate your K8s cluster with Akeyless platform:
 
-- **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/kubernetes-auth)**
-- **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)**  Not supported by the External Secret Operator (ESO).
-- **[API Key](https://docs.akeyless.io/docs/api-key)**
-- Cloud Authentication:
-  - **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/azure-ad)**
-  - **[AWS-IAM](https://docs.akeyless.io/docs/aws-iam)**
-  - **[GCP Auth](https://docs.akeyless.io/docs/gcp-auth-method)**
+* **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/kubernetes-auth)**
+* **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)**  Not supported by the External Secret Operator (ESO).
+* **[API Key](https://docs.akeyless.io/docs/api-key)**
+* Cloud Authentication:
+  * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/azure-ad)**
+  * **[AWS-IAM](https://docs.akeyless.io/docs/aws-iam)**
+  * **[GCP Auth](https://docs.akeyless.io/docs/gcp-auth-method)**
 
 # K8s Auth
 
 > 👍 Note
-> 
+>
 > Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](doc:sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth).
 
 To use the K8s Auth method for authentication:
@@ -39,7 +39,7 @@ AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>" # or using por
 ```
 
 > 📘 Zero-Knowledge
-> 
+>
 > While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>"`
 
 # Universal Identity (UID)
