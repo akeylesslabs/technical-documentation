@@ -331,3 +331,4 @@
 - getdynamicsecretvalue
 - geteventforwarder
 - getgroup
+- getkubeexeccreds
