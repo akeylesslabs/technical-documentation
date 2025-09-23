@@ -2,3 +2,4 @@
 - terraform-provider
 - github-action
 - ansible-awx-plugin
+- gitlab-plugin
