@@ -19,7 +19,7 @@ This option needs to be enabled by an admin in the account under Account setting
 While default access can be assigned via [Role-based Access Control (RBAC)](doc:rbac),  this article discusses how to easily manage your access requests using customizable notifications and easy workflow to approve such requests
 
 > 👍 Note
-> 
+>
 > Upon approval of an Access Request a temporary Access Role will be created with details about the request ID under a dedicated folder `/Access Requests/<Requestor AccessID>/<ID>`, and will be deleted automatically within an hour.
 
 # Requesting Access  From the CLI
@@ -32,10 +32,10 @@ akeyless request-access --name <name> --type <item type> --capability <permissio
 
 Where:
 
-- `name`: Name of the item to which access is requested.
-- `type`: The type of item to which access is requested. The supported types are Static Secret and Target.
-- `capability`: List of the required capabilities, the supported options are: `read`, `update`, `delete`
-- `comment`: A comment about the request.
+* `name`: Name of the item to which access is requested.
+* `type`: The type of item to which access is requested. The supported types are Static Secret and Target.
+* `capability`: List of the required capabilities, the supported options are: `read`, `update`, `delete`
+* `comment`: A comment about the request.
 
 Once requested, a new event will be triggered inside your [Event Center](doc:event-center), to view the request, on the event from the action menu click on **View Request** and choose either to approve or decline this request.
 
