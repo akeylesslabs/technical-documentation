@@ -387,3 +387,4 @@
 - rotatedsecretcreatedockerhub
 - rotatedsecretcreategcp
 - rotatedsecretcreatehanadb
+- rotatedsecretcreateldap
