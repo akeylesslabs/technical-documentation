@@ -32,9 +32,9 @@ For Organization integration, ensure you have an existing AWS environment with A
 
 In this step, you will connect to your AWS management account to apply using a Terraform template that will create the IAM role that enables the **Akeyless Gateway** to:
 
-- Create and manage [AWS Dynamic Secrets](doc:aws-producer)
-- Rotate existing IAM credentials using [AWS Rotated Secret](doc:create-an-aws-rotated-secret)
-- Operate the [AWS Universal Secrets Connector](doc:aws-universal-secrets-connector)
+* Create and manage [AWS Dynamic Secrets](doc:aws-producer)
+* Rotate existing IAM credentials using [AWS Rotated Secret](doc:create-an-aws-rotated-secret)
+* Operate the [AWS Universal Secrets Connector](doc:aws-universal-secrets-connector)
 
 ## Provide the parameters to identify your AWS Organization
 
@@ -186,4 +186,4 @@ resource "aws_iam_role_policy_attachment" "attach" {
 
 1. Run `terraform init && terraform apply`.  
 2. Create an [AWS Target](doc:aws-targets) in Akeyless using the **Gateway Cloud ID** option.  
-3. Use that target whenever you create a **Dynamic Secret**, **Rotated Secret**, or ** USC**.
+3. Use that target whenever you create a **Dynamic Secret**, **Rotated Secret**, or **USC** .
