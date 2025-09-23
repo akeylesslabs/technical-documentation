@@ -4,3 +4,4 @@
 - external-secret-operator
 - kubernetes-secrets-store-csi-provider
 - kubernetes-cert-manager
+- injector-and-external-secrets-operator-comparison
