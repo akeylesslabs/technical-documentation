@@ -350,3 +350,4 @@
 - kmipdeleteclient
 - kmipdeleteserver
 - kmipdescribeclient
+- kmipdescribeserver
