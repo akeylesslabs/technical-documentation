@@ -378,3 +378,4 @@
 - revokecertificate
 - revoke-creds
 - rollbacksecret
+- rotatekey
