@@ -64,41 +64,41 @@ akeyless event-forwarder create webhook \
 
 The main parameters for the command are as follows: 
 
-- `name`: **Event Forwarder** name
+* `name`: **Event Forwarder** name
 
-- `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- `url`: The server that will receive the events.
+* `url`: The server that will receive the events.
 
-- `items-event-source-locations`: Items event sources to forward events about, for example: `/abc/*`
+* `items-event-source-locations`: Items event sources to forward events about, for example: `/abc/*`
 
-- `event-types`: A comma-separated list of types of events to notify about, [view the full list of the available events](https://docs.akeyless.io/docs/event-center#event-types)
+* `event-types`: A comma-separated list of types of events to notify about, [view the full list of the available events](https://docs.akeyless.io/docs/event-center#event-types)
 
-- `auth-type`: The Webhook Authentication Type [`user-pass`, `bearer-token`, `certificate`]
+* `auth-type`: The Webhook Authentication Type \[\`user-pass\`, \`bearer-token\`, \`certificate\`]
 
-  - For `user-pass`:
+  * For `user-pass`:
 
-    - `username`: Username for Authentication
+    * `username`: Username for Authentication
 
-    - `password`: Password for Authentication
+    * `password`: Password for Authentication
 
-  - For `bearer-token`:
+  * For `bearer-token`:
 
-    - `auth-token`: Base64 encoded Token string
+    * `auth-token`: Base64 encoded Token string
 
-  - For `certificate`:
+  * For `certificate`:
 
-    - `client-cert-file-name`: Name of a file containing a `PEM` certificate
+    * `client-cert-file-name`: Name of a file containing a `PEM` certificate
 
-    - `client-cert-data`: `Base64` encoded `PEM` certificate
+    * `client-cert-data`: `Base64` encoded `PEM` certificate
 
-    - `private-key-file-name`: Name of a file containing a `PEM` **RSA Private Key**
+    * `private-key-file-name`: Name of a file containing a `PEM` **RSA Private Key**
 
-    - `private-key-data`: `Base64` encoded `PEM` **RSA Private Key**
+    * `private-key-data`: `Base64` encoded `PEM` **RSA Private Key**
 
-- `runner-type[=immediate]`: Event Forwarder runner type [`immediate`, `periodic`]
+* `runner-type[=immediate]`: Event Forwarder runner type \[\`immediate\`, \`periodic\`]
 
-- `every`: Rate of periodic runner repetition in hours
+* `every`: Rate of periodic runner repetition in hours
 
 You can find the complete list of parameters for this command in the [CLI Reference - Webhook Event forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-webhookp)
 
@@ -108,34 +108,34 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Fill in the following fields:
 
-- **Name**: The **Webhook** event forwarder name
-- **Webhook URL**: The **URL** which will receive the notifications from Akeyless
-- **Server Certificate**: **PEM certificate** of the **Webhook**
+* **Name**: The **Webhook** event forwarder name
+* **Webhook URL**: The **URL** which will receive the notifications from Akeyless
+* **Server Certificate**: **PEM certificate** of the **Webhook**
 
 Choose Authentication Type (**Password / Token / Certificate**) 
 
-- For **Password**:
+* For **Password**:
 
-  - Provide: **Username ** and a **Password** 
+  * Provide: **Username** and a **Password** 
 
-- For **Token**:
+* For **Token**:
 
-  - Provide: **Base64 **encoded Token string
+  * Provide: **Base64** encoded Token string
 
-- For **Certificate**:
+* For **Certificate**:
 
-  - Provide: ** PEM Certificate** and a ** PEM Private Key** 
+  * Provide: **PEM Certificate** and a **PEM Private Key** 
 
-- **Gateway**: Choose a gateway from the list
+* **Gateway**: Choose a gateway from the list
 
-- **Protection-Key**: Protection key other than the default, if you wish to change it
+* **Protection-Key**: Protection key other than the default, if you wish to change it
 
-- Choose either to:
+* Choose either to:
 
-  - **Forward Events Immediately**: Forward events as soon as the event occurs
+  * **Forward Events Immediately**: Forward events as soon as the event occurs
 
-  - **Forward Events Every**: choose when to forward events, in **hours**
+  * **Forward Events Every**: choose when to forward events, in **hours**
 
-- **Event Sources**: Select the **Items / Auth Methods / Targets / Gateways** you would like to get events on based on their locations
+* **Event Sources**: Select the **Items / Auth Methods / Targets / Gateways** you would like to get events on based on their locations
 
-- **Event Type**: Choose the relevant event to be notified about [from the following list](https://docs.akeyless.io/docs/event-center#event-types)
+* **Event Type**: Choose the relevant event to be notified about [from the following list](https://docs.akeyless.io/docs/event-center#event-types)
