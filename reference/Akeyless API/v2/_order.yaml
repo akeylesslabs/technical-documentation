@@ -144,3 +144,4 @@
 - dynamicsecretcreaterabbitmq
 - dynamicsecretcreaterdp
 - dynamicsecretcreateredis
+- dynamicsecretcreateredshift
