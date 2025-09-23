@@ -150,3 +150,4 @@
 - dynamicsecretdelete
 - dynamicsecretget-1
 - dynamicsecretgetvalue
+- dynamicsecretlist
