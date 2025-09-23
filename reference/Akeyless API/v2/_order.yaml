@@ -187,3 +187,4 @@
 - encryptwithclassickey
 - esmcreate
 - esmdelete
+- esmget
