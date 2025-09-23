@@ -338,3 +338,4 @@
 - getrsapublic
 - getsecretvalue-1
 - getsshcertificate
+- gettags
