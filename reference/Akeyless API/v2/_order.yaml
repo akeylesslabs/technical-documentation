@@ -243,3 +243,4 @@
 - gatewaygetdefaults
 - gatewaygetk8sauthconfig
 - gatewaygetldapauthconfig
+- gatewaygetlogforwarding
