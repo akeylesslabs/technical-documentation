@@ -42,9 +42,9 @@ A custom logo (for both Light and Dark modes) as well as a custom Favicon can be
 
 Users can update the name of their company by clicking the pencil next to that field.
 
-** Account Alias** 
+**Account Alias** 
 
-Option to set an alias for the account, this requires **Akeyless Customer Success ** help, to provide end users an option to sign in to akeyless using a human-friendly string, with an [Auth Method](doc:access-and-authentication-methods) full name instead of Access IDs.
+Option to set an alias for the account, this requires **Akeyless Customer Success** help, to provide end users an option to sign in to akeyless using a human-friendly string, with an [Auth Method](doc:access-and-authentication-methods) full name instead of Access IDs.
 
 **Password expiration policy**
 
@@ -81,7 +81,7 @@ Users can choose which types of Encryption Keys can be used as a Protection Key 
 
 **Default Protection Key**
 
-Users can choose a default Encryption Key to protect all of their items. If you choose to enable _Exclusively use default key_, this will lock the Encryption Key making it the only option to be used for all items.
+Users can choose a default Encryption Key to protect all of their items. If you choose to enable *Exclusively use default key*, this will lock the Encryption Key making it the only option to be used for all items.
 
 **Request Access**
 
