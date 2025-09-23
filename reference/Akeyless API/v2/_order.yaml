@@ -297,3 +297,4 @@
 - gatewayupdateproducermysql
 - gatewayupdateproduceroracledb
 - gatewayupdateproducerping
+- gatewayupdateproducerpostgresql
