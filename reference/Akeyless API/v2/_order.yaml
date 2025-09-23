@@ -83,3 +83,4 @@
 - createrabbitmqtarget
 - createrole
 - createrotatedsecret
+- createsalesforcetarget
