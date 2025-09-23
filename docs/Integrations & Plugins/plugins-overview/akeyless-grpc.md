@@ -15,16 +15,16 @@ next:
 To work with **gRPC** clients  make sure your [Gateway](doc:api-gw) runs on version `4.14` or higher. The **gRPC** runs  on Gateway port `8085`.
 
 > 👍 Enabling gRPC
-> 
+>
 > gRPC is not enabled by default on Gateway, make sure to [enable](https://docs.akeyless.io/docs/advance-gw-docker-configuration#grpc) this as part of your Gateway deployment.
 
 The following clients' libraries are currently supported: 
 
-- [GO](https://github.com/akeylesslabs/akeyless-grpc-go)
-- [Rust](https://github.com/akeylesslabs/akeyless-grpc-rust)
-- [Java](https://github.com/akeylesslabs/akeyless-grpc-java)
-- [PHP](https://github.com/akeylesslabs/akeyless-grpc-php)
-- [.NET](https://github.com/akeylesslabs/akeyless-grpc-dotnet)
+* [GO](https://github.com/akeylesslabs/akeyless-grpc-go)
+* [Rust](https://github.com/akeylesslabs/akeyless-grpc-rust)
+* [Java](https://github.com/akeylesslabs/akeyless-grpc-java)
+* [PHP](https://github.com/akeylesslabs/akeyless-grpc-php)
+* [.NET](https://github.com/akeylesslabs/akeyless-grpc-dotnet)
 
 # Installation
 
