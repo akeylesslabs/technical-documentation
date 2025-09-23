@@ -7,3 +7,4 @@
 - jenkins
 - azure-devops-plugin
 - consul-template-plugin
+- circleci-plugin
