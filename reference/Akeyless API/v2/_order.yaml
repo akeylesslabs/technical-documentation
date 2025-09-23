@@ -205,3 +205,4 @@
 - gatewaycreateallowedaccess
 - gatewaycreatek8sauthconfig
 - gatewaycreatemigration
+- gatewaycreateproducerredis
