@@ -171,3 +171,4 @@
 - dynamicsecretupdateldap
 - dynamicsecretupdatemongodb
 - dynamicsecretupdatemssql
+- dynamicsecretupdatemysql
