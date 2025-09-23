@@ -14,8 +14,8 @@ Steampipe is an open source tool to instantly query cloud services with SQL. Thi
 
 # Prerequisites
 
-- [Steampipe](https://steampipe.io/) installed
-- A supported Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods)
+* [Steampipe](https://steampipe.io/) installed
+* A supported Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
 # Installation
 
@@ -29,13 +29,13 @@ steampipe plugin install akeyless-community/akeyless
 
 The Steampipe plugin supports the following Authentication Methods:
 
-- [JWT](https://docs.akeyless.io/docs/oauth20jwt)
-- [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-- [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-- [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-- [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
-- [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
-- [Access Key](https://docs.akeyless.io/docs/api-key)
+* [JWT](https://docs.akeyless.io/docs/oauth20jwt)
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
+* [Access Key](https://docs.akeyless.io/docs/api-key)
 
 Edit the `akeyless.spc` file with your chosen Authentication Method. The only required fields are `access_type` and `access_id`:
 
@@ -134,7 +134,7 @@ This will show all your `Roles` by `Role Name`.
 You can also run `steampipe query` which will open the query shell where you can simply run `select role_name from akeyless_role;`.
 
 > 📘 Note
-> 
+>
 > A query will output only the information your Authentication Method has access to based on its Access Role.
 
 ## Examples
@@ -145,10 +145,10 @@ You can find more examples on our Steampipe Hub page [here](https://hub.steampip
 
 The following tables are available for querying.
 
-| Table                  | Description                     |
-| ---------------------- | ------------------------------- |
-| _akeyless_auth_method_ | Akeyless Authentication Methods |
-| _akeyless_gateway_     | Akeyless Gateways               |
-| _akeyless_item_        | Akeyless Items                  |
-| _akeyless_role_        | Akeyless Access Roles           |
-| _akeyless_target_      | Akeyless Targets                |
+| Table                    | Description                     |
+| ------------------------ | ------------------------------- |
+| *akeyless\_auth\_method* | Akeyless Authentication Methods |
+| *akeyless\_gateway*      | Akeyless Gateways               |
+| *akeyless\_item*         | Akeyless Items                  |
+| *akeyless\_role*         | Akeyless Access Roles           |
+| *akeyless\_target*       | Akeyless Targets                |
