@@ -3,3 +3,4 @@
 - github-action
 - ansible-awx-plugin
 - gitlab-plugin
+- gitlab-component-plugin
