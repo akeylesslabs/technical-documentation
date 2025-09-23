@@ -388,3 +388,4 @@
 - rotatedsecretcreategcp
 - rotatedsecretcreatehanadb
 - rotatedsecretcreateldap
+- rotatedsecretcreatemongodb
