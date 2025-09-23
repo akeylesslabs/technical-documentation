@@ -68,7 +68,7 @@ res = api.get_secret_value(body)
 print(res['my-secret'])
 ```
 
-Note that when working with  **Universal Identity ** you should use the`uid_token`, while for any other authentication method, you should use `token`.
+Note that when working with  **Universal Identity** you should use the`uid_token`, while for any other authentication method, you should use `token`.
 
 ## Using cloud ID
 
