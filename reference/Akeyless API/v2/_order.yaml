@@ -425,3 +425,4 @@
 - setrolerule
 - shareitem
 - signdatawithclassickey
+- signecdsa
