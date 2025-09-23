@@ -337,3 +337,4 @@
 - getrotatedsecretvalue
 - getrsapublic
 - getsecretvalue-1
+- getsshcertificate
