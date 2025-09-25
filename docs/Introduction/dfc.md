@@ -15,7 +15,7 @@ next:
 Our patented technology, Distributed Fragments Cryptography™ (DFC), enables us to perform cryptographic operations using fragments of an encryption key, without EVER combining the key fragments. As illustrated below, this technology allows Akeyless to store fragments of an encryption key in different regions on different cloud providers, and never combine those fragments.
 
 <Image title="DFC.png" alt="1238" align="center" width="80%" src="https://files.readme.io/0ef2ecb-DFC.png">
-  Fragments of a single Encryption Key that are stored in <br> different cloud providers and are NEVER combined
+  Fragments of a single Encryption Key that are stored in <br/> different cloud providers and are NEVER combined
 </Image>
 
 ***Q: So you're basically using key-split? Shamir's secret sharing?***
@@ -37,5 +37,5 @@ Since Akeyless DFC enables Akeyless to perform cryptographic operations WITHOUT 
 Therefore, in order to enable Zero-Knowledge Encryption, all you need is your own Customer Fragment.
 
 <Image title="API key auth (1).png" alt="1920" align="center" src="https://files.readme.io/3b36cbc-CFZK.png">
-  Fragments of a single Encryption Key that are managed by Akeyless <br> while a single fragment is stored in the customer's environment
+  Fragments of a single Encryption Key that are managed by Akeyless <br/> while a single fragment is stored in the customer's environment
 </Image>
