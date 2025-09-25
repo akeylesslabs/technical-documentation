@@ -26,7 +26,7 @@ The following table describes the main functionality of Akeyless microservices i
   <thead>
     <tr>
       <th>
-        Service 
+        Service
       </th>
 
       <th>
@@ -46,7 +46,7 @@ The following table describes the main functionality of Akeyless microservices i
   <tbody>
     <tr>
       <td>
-        * \*Console\*\*:  [https://console.akeyless.io](https://console.akeyless.io)
+        * **Console**:  [https://console.akeyless.io](https://console.akeyless.io)
       </td>
 
       <td>
@@ -64,7 +64,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * \*Vault\*\* : [https://vault.akeyless.io](https://vault.akeyless.io)\
+        * **Vault** : [https://vault.akeyless.io](https://vault.akeyless.io)
           [https://vault-ro.akeyless.io](https://vault-ro.akeyless.io)
       </td>
 
@@ -83,7 +83,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * \*Auth\*\* : [https://auth.akeyless.io](https://auth.akeyless.io)\
+        * **Auth** : [https://auth.akeyless.io](https://auth.akeyless.io)
           [https://auth-ro.akeyless.io](https://auth-ro.akeyless.io)
       </td>
 
@@ -102,7 +102,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * \*Certificate Auth\*\* [https://auth-cert.akeyless.io](https://auth-cert.akeyless.io)
+        * **Certificate Auth** [https://auth-cert.akeyless.io](https://auth-cert.akeyless.io)
       </td>
 
       <td>
@@ -114,13 +114,13 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td>
-        Relevant only for Certificate Based Auth 
+        Relevant only for Certificate Based Auth
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*Audit\*\* : [https://audit.akeyless.io](https://audit.akeyless.io)\
+        * **Audit** : [https://audit.akeyless.io](https://audit.akeyless.io)
           [https://audit-ro.akeyless.io](https://audit-ro.akeyless.io)
       </td>
 
@@ -139,7 +139,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * \*BIS\*\* : [https://bis.akeyless.io](https://bis.akeyless.io)\
+        * **BIS** : [https://bis.akeyless.io](https://bis.akeyless.io)
           [https://bis-ro.akeyless.io](https://bis-ro.akeyless.io)
       </td>
 
@@ -158,7 +158,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * \*Gator\*\* : [https://gator.akeyless.io](https://gator.akeyless.io)\
+        * **Gator** : [https://gator.akeyless.io](https://gator.akeyless.io)
           [https://gator-ro.akeyless.io](https://gator-ro.akeyless.io)
       </td>
 
@@ -177,7 +177,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * \*MQ\*\* : amqps\://mq.akeyless.io
+        * **MQ** : amqps://mq.akeyless.io
       </td>
 
       <td>
@@ -195,13 +195,13 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * \*KFM\*\*: [https://kfm1.akeyless.io](https://kfm1.akeyless.io),\
-          [https://kfm1-ro.akeyless.io](https://kfm1-ro.akeyless.io),\
-          [https://kfm2.akeyless.io](https://kfm2.akeyless.io),\
-          [https://kfm2-ro.akeyless.io](https://kfm2-ro.akeyless.io),\
-          [https://kfm3.akeyless.io](https://kfm3.akeyless.io),\
-          [https://kfm3-ro.akeyless.io](https://kfm3-ro.akeyless.io),\
-          [https://kfm4.akeyless.io](https://kfm4.akeyless.io),\
+        * **KFM**: [https://kfm1.akeyless.io](https://kfm1.akeyless.io),
+          [https://kfm1-ro.akeyless.io](https://kfm1-ro.akeyless.io),
+          [https://kfm2.akeyless.io](https://kfm2.akeyless.io),
+          [https://kfm2-ro.akeyless.io](https://kfm2-ro.akeyless.io),
+          [https://kfm3.akeyless.io](https://kfm3.akeyless.io),
+          [https://kfm3-ro.akeyless.io](https://kfm3-ro.akeyless.io),
+          [https://kfm4.akeyless.io](https://kfm4.akeyless.io),
           [https://kfm4-ro.akeyless.io](https://kfm4-ro.akeyless.io)
       </td>
 
@@ -220,8 +220,8 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * \*Public Gateway\*\*:\
-          [https://rest.akeyless.io](https://rest.akeyless.io)\
+        * **Public Gateway**:
+          [https://rest.akeyless.io](https://rest.akeyless.io)
           [https://api.akeyless.io](https://api.akeyless.io)
       </td>
 
@@ -234,13 +234,13 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td>
-        * \*Optional\*\* Public Gateway rest API v1\\v2
+        * *Optional** Public Gateway rest API v1\v2
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*Public HVP\*\*:\
+        * **Public HVP**:
           [https://hvp.akeyless.io](https://hvp.akeyless.io)
       </td>
 
@@ -253,13 +253,13 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td>
-        * \*Optional\*\* Public HVP endpoint
+        * *Optional** Public HVP endpoint
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*Logs\*\* : tcp\://log.akeyless.io:9997 tcp\://log.akeyless.io:9443
+        * **Logs** : tcp://log.akeyless.io:9997 tcp://log.akeyless.io:9443
       </td>
 
       <td>
@@ -277,11 +277,15 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
+
+
         [https://akeyless-cli.s3.us-east-2.amazonaws.com](https://akeyless-cli.s3.us-east-2.amazonaws.com)
+
+
       </td>
 
       <td>
-        N\\A
+        N\A
       </td>
 
       <td>
@@ -295,11 +299,15 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
+
+
         [https://akeylessservices.s3.us-east-2.amazonaws.com](https://akeylessservices.s3.us-east-2.amazonaws.com)
+
+
       </td>
 
       <td>
-        N\\A
+        N\A
       </td>
 
       <td>
@@ -313,7 +321,11 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
+
+
         [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
+
+
       </td>
 
       <td>
@@ -325,7 +337,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td>
-        * \*Optional\*\* Akeyless official artifacts endpoint. Relevant when working with whitelisted IP range
+        * *Optional** Akeyless official artifacts endpoint. Relevant when working with whitelisted IP range
       </td>
     </tr>
   </tbody>
