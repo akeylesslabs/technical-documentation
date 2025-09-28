@@ -1,5 +1,5 @@
 ---
-title: Java JAR Code Signing with Akeyless & JarSigner
+title: Java JAR & APK Signing with Akeyless
 excerpt: ''
 deprecated: false
 hidden: true
