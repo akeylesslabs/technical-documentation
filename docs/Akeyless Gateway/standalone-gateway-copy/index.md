@@ -335,11 +335,6 @@ From the directory where the `docker-compose.yaml` and the `.env` file are locat
 docker compose --profile <profile> up -d
 ```
 
-Check if the containers are up and running:
+Check if the containers are up and running `docker ps`.
 
-```shell
-docker ps
-
-CONTAINER ID   IMAGE                                                             COMMAND                  CREATED          STATUS                    PORTS                                                                                        NAMES
-c913bebbeed5   docker.registry-2.akeyless.io/base:latest                                            "/bin/bash /akeyless…"   20 minutes ago   Up 20 minutes (healthy)   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp, 0.0.0.0:8080->8080/tcp, :::8080->8080/tcp         akeyless-gateway
-```
+<br />
