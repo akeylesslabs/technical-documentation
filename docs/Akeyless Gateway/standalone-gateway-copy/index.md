@@ -10,20 +10,20 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/compose/), in which, the configuration process takes place before the actual installation. 
+Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/compose/), in which, the configuration process takes place before the actual installation.
 
 # Prerequisites
 
 * An [Authentication Method](doc:access-and-authentication-methods). Make sure it has the right [access permission](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets).
 * A Linux or a Windows machine with [Docker engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2GB RAM.
 * [Docker compose installed](https://docs.docker.com/compose/install/)
-* Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your machine. 
+* Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your machine.
 
 > 🚧 Warning
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
-* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints: 
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
 | Service                                                            | Endpoint   |
 | :----------------------------------------------------------------- | :--------- |
@@ -35,43 +35,25 @@ Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/
 
 # Configuration
 
-Clone the repository to your environment: 
+Clone the repository to your environment:
 
 ```shell
 gh repo clone akeylesslabs/docker-compose
 ```
 
-## Environment Variables
+Once you have cloned the repository into your environment, you will see the following files:
 
-To configure the Gateway, create a file named `gateway.env` in the same directory the `docker-compose.yaml` file is.
-
-> 👍 Note
->
-> The following `env` file uses an [API Key](https://docs.akeyless.io/docs/api-key) for authentication, however, each auth method from the **Authentication** section can be used.
-
-This `gateway.env` file will hold the following settings for the Gateway:
-
-```shell
-GATEWAY_ACCESS_ID="<Access ID>"             
-GATEWAY_ACCESS_KEY="<Access Key>"
-GATEWAY_ACCESS_TYPE="access_key" 
-```
-
-Where:
-
-* `GATEWAY_ACCESS_ID`: The admin of the Gateway.
-* `GATEWAY_ACCESS_KEY`: The Access Key.
-* `GATEWAY_ACCESS_TYPE`: The type of the Auth Method being used.  
-
-The full list of permissions can be found [here](https://docs.akeyless.io/docs/standalone-gateway-copy#access-permissions).
+* `docker-compose.yaml` - defines the Akeyless services and their setup.
+* `gateway.env` - stores environment variables for configuring the Gateway.
+* `sra.env` - stores environment variables for Secure Remote Access.
 
 ## Profiles
 
-Using profiles, you can declare which service will start when running the configuration file. The available services are:
+Profiles let you choose which services to start when running the configuration. The available profiles are:
 
-* **Gateway** - Will start the **Gateway** service.
-* **SRA** - Will start the SRA Service (Both **SSH** and **Web**).
-* **Metrics** - Will start **Prometheus** and **Grafana** services.
+* **Gateway** - runs the Gateway service.
+* **SRA** - runs the Secure Remote Access services (both SSH and Web).
+* **Metrics** - runs monitoring services (**Prometheus** and **Grafana**).
 
 Example:
 
@@ -83,19 +65,19 @@ The above command will deploy a Gateway.
 
 # Authentication
 
-To set your Gateway with a default [Authentication Methods](doc:access-and-authentication-methods) to control the level of access your Gateway instance will have inside your Akeyless account. 
+To set your Gateway with a default [Authentication Methods](doc:access-and-authentication-methods) to control the level of access your Gateway instance will have inside your Akeyless account.
 
-The following [Authentication Methods](doc:access-and-authentication-methods) are supported for Docker deployments: 
+The following [Authentication Methods](doc:access-and-authentication-methods) are supported for Docker deployments:
 
 * [API Key](doc:api-key)
 
-* [AWS IAM](doc:aws-iam) 
+* [AWS IAM](doc:aws-iam)
 
-* [GCP](doc:gcp-auth-method)   
+* [GCP](doc:gcp-auth-method)
 
 * [Azure Active Directory](doc:azure-ad)
 
-* [Certificates](doc:certificate-based-authentication) 
+* [Certificates](doc:certificate-based-authentication)
 
 > 👍 Note
 >
@@ -103,24 +85,24 @@ The following [Authentication Methods](doc:access-and-authentication-methods) ar
 
 ## API Key Authentication
 
-To set your Gateway default authentication based on [API Key](doc:api-key), edit the `gateway.env` file with the relevant `Access ID` and `Access Key` using the environment variables: 
+To set your Gateway default authentication based on [API Key](doc:api-key), edit the `gateway.env` file with the relevant `Access ID` and `Access Key` using the environment variables:
 
 ```shell gateway.env
-GATEWAY_ACCESS_ID=<Access ID>
-GATEWAY_ACCESS_KEY=<Access Key>
+GATEWAY_ACCESS_ID=<AccessID>
+GATEWAY_ACCESS_KEY=<AccessKey>
 GATEWAY_ACCESS_TYPE=access_key
 ```
 
 ## CSP IAM Authentication
 
-While running your Gateway instance inside your cloud environment, you can use [AWS IAM](doc:aws-iam), [GCP GCE](doc:gcp-auth-method), or [Azure Active Directory](doc:azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [allowed users](https://docs.akeyless.io/docs/standalone-gateway-copy#gateway-admins) that will be able to manage your Gateway configuration by adding the `GATEWAY_AUTHORIZED_ACCESS_ID` variable to the `.env` configuration file. 
+While running your Gateway instance inside your cloud environment, you can use [AWS IAM](doc:aws-iam), [GCP GCE](doc:gcp-auth-method), or [Azure Active Directory](doc:azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [allowed users](https://docs.akeyless.io/docs/standalone-gateway-copy#gateway-admins) that will be able to manage your Gateway configuration by adding the `GATEWAY_AUTHORIZED_ACCESS_ID` variable to the `.env` configuration file.
 
 Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods ](doc:access-and-authentication-methods) `Access ID`, where you need to set a list of users that will be able to [manage your Gateway](https://docs.akeyless.io/docs/standalone-gateway-copy#gateway-admins) configuration using `GATEWAY_AUTHORIZED_ACCESS_ID` variable with any other [Authentication Method](doc:access-and-authentication-methods) like [SAML](doc:saml) or [OIDC](doc:opened) or an [API Key](doc:api-key).
 
 ```shell AWS_IAM
-GATEWAY_ACCESS_ID=<Access ID>
+GATEWAY_ACCESS_ID=<AccessID>
 GATEWAY_ACCESS_TYPE=aws_iam 
-ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
+ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<AccessID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
 ```shell GCP_GCE
 GATEWAY_ACCESS_ID=<Access ID>
@@ -139,9 +121,10 @@ To set your Gateway default authentication based on [Certificates](doc:certifica
 
 ```shell gateway.env
 GATEWAY_ACCESS_ID=<AccessID>
+GATEWAY_ACCESS_TYPE=cert
 GATEWAY_CERTIFICATE=<certificate.pem base 64>
 GATEWAY_CERTIFICATE_KEY=<private key base 64>
-ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
+ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<AccessID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
 
 # Gateway Admins
@@ -164,7 +147,7 @@ In this case, the above will create an **Access Permission** object named **Admi
 
 In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
 
-In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.\
+In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.
 **If you don't specify the sub-claims, every user authenticated by this IdP will be able to log in to the Gateway with admin privileges.**
 
 To work with [API Key](doc:api-key) as an `GATEWAY_AUTHORIZED_ACCESS_ID` simply provide your [API Key](doc:api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of `permissions`.
@@ -211,7 +194,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of the defaults settings of your Gateway\
+        Management of the defaults settings of your Gateway
         Including  `GatewayUrl`,`TLS`, `Defualt Encryption Key` & `Defualt AccessID` for login.
       </td>
     </tr>
@@ -312,7 +295,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [LDAP](doc:ldap) Auth Gateway configuration. 
+        Management of [LDAP](doc:ldap) Auth Gateway configuration.
       </td>
     </tr>
 
@@ -322,7 +305,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration 
+        Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration
       </td>
     </tr>
 
