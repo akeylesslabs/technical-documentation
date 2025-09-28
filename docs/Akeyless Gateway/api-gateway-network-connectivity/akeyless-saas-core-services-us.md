@@ -36,13 +36,13 @@ The following table describes the main functionality of Akeyless microservices i
   <tbody>
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Console:**  
+        **Console:**
 
         [https://console.us.akeyless.io](https://console.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.227.83
+        4.242.224.82
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -56,15 +56,15 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Vault:**  
+        **Vault:**
 
-        [https://vault.us.akeyless.io](https://vault.us.akeyless.io)\
+        [https://vault.us.akeyless.io](https://vault.us.akeyless.io)
         [https://vault-ro.us.akeyless.io](https://vault-ro.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.234.6,\
-        34.49.227.83
+        68.154.26.48,
+        4.242.224.82
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -78,14 +78,14 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Auth:**  
+        **Auth:**
 
-        [https://auth.us.akeyless.io](https://auth.us.akeyless.io)\
+        [https://auth.us.akeyless.io](https://auth.us.akeyless.io)
         [https://auth-ro.us.akeyless.io](https://auth-ro.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.234.6, 34.49.227.83
+        68.154.26.48, 4.242.224.82
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -99,13 +99,13 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Certificate Auth:**  
+        **Certificate Auth:**
 
-         [https://auth-cert.us.akeyless.io](https://auth-cert.us.akeyless.io)
+        [https://auth-cert.us.akeyless.io](https://auth-cert.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        104.198.48.39
+        172.206.81.32
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -119,14 +119,14 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Audit:**  
+        **Audit:**
 
-        [https://audit.us.akeyless.io](https://audit.us.akeyless.io)\
+        [https://audit.us.akeyless.io](https://audit.us.akeyless.io)
         [https://audit-ro.us.akeyless.io](https://audit-ro.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.234.6, 34.49.227.83
+        68.154.26.48, 4.242.224.82
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -140,14 +140,14 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **BIS:**  
+        **BIS:**
 
-        [https://bis.us.akeyless.io](https://bis.us.akeyless.io)\
+        [https://bis.us.akeyless.io](https://bis.us.akeyless.io)
         [https://bis-ro.us.akeyless.io](https://bis-ro.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.234.6, 34.49.227.83
+        68.154.26.48, 4.242.224.82
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -161,14 +161,14 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Gator:**  
+        **Gator:**
 
-        [https://gator.us.akeyless.io](https://gator.us.akeyless.io)\
+        [https://gator.us.akeyless.io](https://gator.us.akeyless.io)
         [https://gator-ro.us.akeyless.io](https://gator-ro.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.234.6, 34.49.227.83
+        68.154.26.48, 4.242.224.82
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -182,13 +182,13 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **MQ:**  
+        **MQ:**
 
-        amqps\://mq.us.akeyless.io
+        amqps://mq.us.akeyless.io
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.132.72.118
+        172.177.144.122
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -202,21 +202,21 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **KFM:**  
+        **KFM:**
 
-        [https://kfm1.us.akeyless.io](https://kfm1.us.akeyless.io),\
-        [https://kfm1-ro.us.akeyless.io](https://kfm1-ro.us.akeyless.io),\
-        [https://kfm2.us.akeyless.io](https://kfm2.us.akeyless.io),\
-        [https://kfm2-ro.us.akeyless.io](https://kfm2-ro.us.akeyless.io),\
-        [https://kfm3.us.akeyless.io](https://kfm3.us.akeyless.io),\
-        [https://kfm3-ro.us.akeyless.io](https://kfm3-ro.us.akeyless.io),\
-        [https://kfm4.us.akeyless.io](https://kfm4.us.akeyless.io),\
+        [https://kfm1.us.akeyless.io](https://kfm1.us.akeyless.io),
+        [https://kfm1-ro.us.akeyless.io](https://kfm1-ro.us.akeyless.io),
+        [https://kfm2.us.akeyless.io](https://kfm2.us.akeyless.io),
+        [https://kfm2-ro.us.akeyless.io](https://kfm2-ro.us.akeyless.io),
+        [https://kfm3.us.akeyless.io](https://kfm3.us.akeyless.io),
+        [https://kfm3-ro.us.akeyless.io](https://kfm3-ro.us.akeyless.io),
+        [https://kfm4.us.akeyless.io](https://kfm4.us.akeyless.io),
         [https://kfm4-ro.us.akeyless.io](https://kfm4-ro.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.234.6,\
-        34.49.227.83
+        68.154.26.48,
+        4.242.224.82
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -230,14 +230,15 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Public Gateway:**  
+        **Public Gateway:**
 
-        [https://rest.us.akeyless.io](https://rest.us.akeyless.io)\
+        [https://rest.us.akeyless.io](https://rest.us.akeyless.io)
         [https://api.us.akeyless.io](https://api.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.33.88
+        68.154.26.48, 
+        4.242.224.82
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -245,19 +246,19 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Optional Public Gateway rest API v1\\v2
+        Optional Public Gateway rest API v1\v2
       </td>
     </tr>
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Public HVP:**  
+        **Public HVP:**
 
         [https://hvp.us.akeyless.io](https://hvp.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        34.49.33.88
+        68.154.26.48
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -271,9 +272,9 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Logs:**  
+        **Logs:**
 
-        tcp\://log.akeyless.io:9997 tcp\://log.akeyless.io:9443
+        tcp://log.akeyless.io:9997 tcp://log.akeyless.io:9443
       </td>
 
       <td style={{ textAlign: "left" }}>
