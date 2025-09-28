@@ -47,22 +47,6 @@ Once you have cloned the repository into your environment, you will see the foll
 * `gateway.env` - stores environment variables for configuring the Gateway.
 * `sra.env` - stores environment variables for Secure Remote Access.
 
-## Profiles
-
-Profiles let you choose which services to start when running the configuration. The available profiles are:
-
-* **Gateway** - runs the Gateway service.
-* **SRA** - runs the Secure Remote Access services (both SSH and Web).
-* **Metrics** - runs monitoring services (**Prometheus** and **Grafana**).
-
-Example:
-
-```shell
-sudo docker compose --profile gateway up -d
-```
-
-The above command will deploy a Gateway.
-
 # Authentication
 
 To set your Gateway with a default [Authentication Methods](doc:access-and-authentication-methods) to control the level of access your Gateway instance will have inside your Akeyless account.
@@ -326,6 +310,22 @@ Full list of available permissions:
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
 You may also edit this parameter on your console, by going to the Gateways tab and selecting the desired Gateway. On the right of the screen, you will see the Gateway details, including **Access Permissions**.
+
+## Profiles
+
+Profiles let you choose which services to start when running the configuration. The available profiles are:
+
+* **Gateway** - runs the Gateway service.
+* **SRA** - runs the Secure Remote Access services (both SSH and Web).
+* **Metrics** - runs monitoring services (**Prometheus** and **Grafana**).
+
+Example:
+
+```shell
+sudo docker compose --profile gateway up -d
+```
+
+The above command will deploy a Gateway.
 
 # Installation
 
