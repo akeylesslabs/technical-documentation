@@ -16,6 +16,10 @@ next:
 ---
 The [Akeyless Gateway](doc:api-gw) built-in KMIP server handles the lifecycle of KMIP-managed objects.
 
+> 👍 Note
+>
+> This guide was created using MongoDB version 4.2 or earlier.
+
 Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](doc:api-gw) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
 
 > 👍 Note
@@ -24,7 +28,7 @@ Cryptographic objects managed by the Akeyless KMIP server are stored under the `
 
 # Enable a KMIP server from the Akeyless CLI
 
-To start the Akeyless KMIP server using Akeyless CLI, run the following command: 
+To start the Akeyless KMIP server using Akeyless CLI, run the following command:
 
 ```shell
 akeyless kmip-server-setup \
@@ -64,7 +68,7 @@ Note that this will automatically create 2 items under the `/kmip/default` path 
 
 # KMIP client configuration
 
-* In this guide, we will use MongoDB Enterprise as a KMIP Client. 
+* In this guide, we will use MongoDB Enterprise as a KMIP Client.
 
 > 👍 Note
 >
@@ -79,7 +83,7 @@ akeyless kmip-create-client \
 --output-file-folder /current/working/dir
 ```
 
-Where: 
+Where:
 
 * `name`: A unique name of the KMIP client. The name can include the path to the virtual folder where you want to create the new client, using slash `/` separators. If the folder does not exist, it will be created together with the client.
 
@@ -87,10 +91,10 @@ Where:
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#p-stylecolorbluekmip-create-clientp) section.
 
-* `output-file-folder`: Folder path to save client certificate files locally (for example, `.` for current working dir).\
+* `output-file-folder`: Folder path to save client certificate files locally (for example, `.` for current working dir).
   Two files are created: `<client-name>.key` and `<client-name>.cert`
 
-This returns the `client ID`, `key`, and `certificate`: 
+This returns the `client ID`, `key`, and `certificate`:
 
 ```shell
 New client successfully created.
@@ -141,7 +145,7 @@ Where:
 
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-This command grants our MongoDB KMIP client the ability to create and retrieve objects under the `/kmip/default/` path. 
+This command grants our MongoDB KMIP client the ability to create and retrieve objects under the `/kmip/default/` path.
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#p-stylecolorbluekmip-client-set-rulep) section.
 
@@ -160,11 +164,11 @@ mongod --enableEncryption \
   --kmipClientCertificateFile '/<path to>/mongodb.pem'
 ```
 
-Where: 
+Where:
 
 * `kmipServerName` is the address you specified when setting up the KMIP Server.
 
-* `kmipServerCAFile` is the file that contains the KMIP CA Certificate received earlier\
+* `kmipServerCAFile` is the file that contains the KMIP CA Certificate received earlier
   (can be retrieved using the `akeyless kmip-describe-server` command).
 
 * `kmipClientCertificateFile` is the file with both private key and certificate that were created during the `kmip-create-client` step. Simply `cat key-file cert-file > mongodb.pem` and use the resulting file to connect.
