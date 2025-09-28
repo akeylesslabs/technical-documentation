@@ -332,7 +332,7 @@ The above command will deploy a Gateway.
 From the directory where the `docker-compose.yaml` and the `.env` file are located, run:
 
 ```shell
-docker compose up -d
+docker compose --profile <profile> up -d
 ```
 
 Check if the containers are up and running:
