@@ -311,7 +311,7 @@ Full list of available permissions:
 
 You may also edit this parameter on your console, by going to the Gateways tab and selecting the desired Gateway. On the right of the screen, you will see the Gateway details, including **Access Permissions**.
 
-## Profiles
+# Profiles
 
 Profiles let you choose which services to start when running the configuration. The available profiles are:
 
