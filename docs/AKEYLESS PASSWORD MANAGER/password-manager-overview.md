@@ -24,7 +24,7 @@ The Akeyless **browser extension** remains a powerful tool, streamlining the pro
 
 ![Akeyless Browser Extension Screenshot](https://files.readme.io/2c80505-Screenshot_2024-05-06_at_17.24.19.png)
 
-<br>
+<br></br>
 
 Furthermore, the Akeyless browser extension extends its utility beyond mere password injection. It acts as a dynamic tool for capturing and saving passwords in real time, ensuring that no password is left unsecured. This feature is particularly useful in scenarios where users need to rapidly save newly generated or updated passwords without disrupting their workflow.
 
