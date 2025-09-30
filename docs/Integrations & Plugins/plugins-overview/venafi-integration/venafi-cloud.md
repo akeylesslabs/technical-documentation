@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-To work with the Venafi Cloud platform, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer. 
+To work with the Venafi Cloud platform, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
 
 ## Prerequisites
 
-* Akeyless [Gateway](doc:api-gw).
+* Akeyless [Gateway](doc:api-gw)
 
-* Venafi Cloud.
+* Venafi Cloud
 
 ## Usage
 
-**Venafi Issuer** 
+**Venafi Issuer**
 
 The following command creates a Venafi **Dynamic Secret** using Venafi as the **certificate issuer**.
 
@@ -104,13 +104,13 @@ Where:
 
 `sign-using-akeyless-pki`: Issue certificates using Akeyless PKI.
 
-`signer-key-name`: Signer key name in Akeyless. 
+`signer-key-name`: Signer key name in Akeyless.
 
 Once your Venafi dynamic secret has been successfully created, you can request a new certificate.
 
 **Certificate request**:
 
-Certificate request using **Common Name (CN)**: 
+Certificate request using **Common Name (CN)**:
 
 ```shell
 akeyless get-dynamic-secret-value \
@@ -131,7 +131,7 @@ CSR=$(akeyless generate-csr \
 --common-name marketing.newyork.company.com | base64)
 ```
 
- Get the Dynamic Secret using the **Certificate request:**
+Get the Dynamic Secret using the **Certificate request:**
 
 ```shell
 akeyless get-dynamic-secret-value \
@@ -139,8 +139,8 @@ akeyless get-dynamic-secret-value \
   --args csr=$CSR
 ```
 
-In the response you’ll see the relevant information and artifacts for the request including the <code>certificate</code>, <code>serial number</code>, <code>common name</code>, and <code>expiration</code>.
+In the response you’ll see the relevant information and artifacts for the request including the `certificate`, `serial number`, `common name`, and `expiration`.
 
- Depending on your flow you may also see the <code>certificate chain</code>, <code>issuing ca</code>, <code>ca chain</code>, and <code>private key</code>. 
+Depending on your flow you may also see the `certificate chain`, `issuing ca`, `ca chain`, and `private key`.
 
-The artifacts <code>certificate</code>, <code>certificate chain</code>, and <code>private key</code> can also be found as Static Secrets under the Artifacts Folder defined in the Dynamic Secret's settings.
+The artifacts `certificate`, `certificate chain`, and `private key`can also be found as Static Secrets under the Artifacts Folder defined in the Dynamic Secret's settings.
