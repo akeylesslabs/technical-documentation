@@ -1,5 +1,6 @@
 - kubernetes-plugins
 - terraform-provider
+- akeyless-grpc
 - ansible-awx-plugin
 - github-action
 - gitlab-plugin
@@ -18,7 +19,6 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- akeyless-grpc
 - hashicorp-vault-proxy
 - chef-plugin
 - azure-devops-community-plugin
