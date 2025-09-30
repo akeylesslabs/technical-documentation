@@ -1,5 +1,5 @@
-- okta-oidc
 - auth0-oidc
+- okta-oidc
 - google-oidc
 - gitlab-oidc
 - azure-active-directory-oidc
