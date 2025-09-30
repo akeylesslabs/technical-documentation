@@ -122,10 +122,10 @@ akeyless:
 
 Sample output of a successful job:
 
-<Image align="center" src="https://files.readme.io/d82b92c-gitlab-docs.png" />
+<Image align="center" border={false} src="https://files.readme.io/d82b92c-gitlab-docs.png" />
 
 Success! - the secrets are accessible to use within the job logic (in this example, they are just being printed).
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-in-gitlab-pipelines" target="_blank" style={{ color: "#00e" }}>Managing Secrets in GitLab Pipelines</a>.
+Check out our tutorial video on [Managing Secrets in GitLab Pipelines](https://tutorials.akeyless.io/docs/managing-secrets-in-gitlab-pipelines).
