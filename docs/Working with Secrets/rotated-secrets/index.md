@@ -49,4 +49,4 @@ When a rotated secret becomes obsolete, you can delete it.
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets" target="_blank">Creating and Using Rotated Secrets</a>.
+Check out our tutorial video on [Creating and Using Rotated Secrets](https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets).
