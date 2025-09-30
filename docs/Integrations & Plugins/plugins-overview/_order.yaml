@@ -11,6 +11,7 @@
 - gitlab-secrets-plugin
 - gitlab-component-plugin
 - jenkins
+- databricks-plugin
 - azure-devops-plugin
 - azure-devops-community-plugin
 - butbucket-plugin
@@ -28,5 +29,4 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- databricks-plugin
 - cursor-akeyless-secrets-manager
