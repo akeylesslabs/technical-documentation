@@ -12,7 +12,7 @@ next:
 ---
 Akeyless enables you to work with the following secret types:
 
-* **Static Secrets:** Key/value pairs that you create and update manually. The values usually remain the same for long periods. Typically, you use static secrets to protect passwords, API tokens, and personal identifiers (PII) or credit card numbers. See [Static Secrets](doc:static-secrets).
+* **Static Secrets**: Key/value pairs that you create and update manually. The values usually remain the same for long periods. Typically, you use static secrets to protect passwords, API tokens, and personal identifiers (PII) or credit card numbers. See [Static Secrets](doc:static-secrets).
 
 * **Dynamic Secrets**: Temporary credentials generated on-demand to provide a client with access to a resource for a limited period of time, with a limited set of permissions. See [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
