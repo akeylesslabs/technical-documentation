@@ -4,6 +4,7 @@
 - akeyless-grpc
 - akeyless-mcp-model-context-protocol-command
 - ansible-awx-plugin
+- aws-databricks-plugin
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
@@ -27,6 +28,5 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- aws-databricks-plugin
 - databricks-plugin
 - cursor-akeyless-secrets-manager
