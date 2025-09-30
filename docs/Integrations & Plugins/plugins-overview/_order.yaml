@@ -12,10 +12,10 @@
 - consul-template-plugin
 - keycloack-plugin
 - puppet-plugin
+- openshift
 - slack-plugin
 - steampipe-plugin
 - teamcity-plugin
-- openshift
 - venafi-integration
 - spire-plugins
 - akeyless-grpc
