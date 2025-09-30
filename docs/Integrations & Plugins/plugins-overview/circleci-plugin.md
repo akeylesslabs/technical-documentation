@@ -87,7 +87,7 @@ While working with [Zero Knowledge](doc:implement-zero-knowledge) encryption bas
 
 In jobs using a context, CircleCI provides OpenID Connect ID (OIDC) tokens in environment variables. A job can use these tokens to access Akeyless without storing long-lived credentials in CircleCI.
 
-Go to **Organization Settings** > **Contexts** > **Add a context**\
+Go to **Organization Settings** > **Contexts** > **Add a context**
 Name it  `akeyless`, we will later add this context to a job by adding the context key to the workflows section of your `circleci/config.yml` file.
 
 # Usage
@@ -129,10 +129,10 @@ workflows:
 >
 > It is best practice to use environment variables instead of writing the actual variable values inside the pipeline
 
-![](https://files.readme.io/1329672-Screenshot_2023-03-19_100113.png "Screenshot 2023-03-19 100113.png")
+<Image border={false} src="https://files.readme.io/1329672-Screenshot_2023-03-19_100113.png" title="Screenshot 2023-03-19 100113.png" />
 
 **Success!** - the secrets are accessible to use within the job logic (in this example, they are just being printed).
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-in-circleci-pipelines" target="_blank" style={{ color: "#00e" }}>Managing Secrets in CircleCI Pipelines</a>.
+Check out our tutorial video on [Managing Secrets in CircleCI Pipelines](https://tutorials.akeyless.io/docs/managing-secrets-in-circleci-pipelines) .
