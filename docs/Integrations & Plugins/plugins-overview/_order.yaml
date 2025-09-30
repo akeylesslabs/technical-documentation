@@ -1,5 +1,6 @@
 - kubernetes-plugins
 - terraform-provider
+- akeyless-azure-devops-extension
 - akeyless-grpc
 - akeyless-mcp-model-context-protocol-command
 - ansible-awx-plugin
@@ -29,4 +30,3 @@
 - aws-databricks-plugin
 - databricks-plugin
 - cursor-akeyless-secrets-manager
-- akeyless-azure-devops-extension
