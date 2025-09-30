@@ -14,11 +14,11 @@ You can define a GitHub Dynamic Secret to generate just-in-time installation acc
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
 * A GitHub application with permissions you would like to grant to the temporary tokens. Then, you need to install this app and select the repositories you want to allow access to.
 
-For more information on how to use installation access tokens in GitHub, see the [GitHub documentation](https://docs.github.com/en/developers/apps/building-github-apps/creating-a-github-app). 
+For more information on how to use installation access tokens in GitHub, see the [GitHub documentation](https://docs.github.com/en/developers/apps/building-github-apps/creating-a-github-app).
 
 # Create a Dynamic GitHub Secret from the CLI
 
@@ -26,7 +26,7 @@ For more information on how to use installation access tokens in GitHub, see the
 >
 > We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic GitHub secret from the CLI using an existing GitHub target, run the following command: 
+To create a dynamic GitHub secret from the CLI using an existing GitHub target, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create github \
@@ -36,7 +36,7 @@ akeyless dynamic-secret create github \
 --installation-id <Your GitHub Installation ID>
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create github \
@@ -56,7 +56,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `installation-id`: The GitHub installation ID. 
+* `installation-id`: The GitHub installation ID.
 
 * `installation-organization`: Optional, mutually exclusive with installation ID, GitHub organization name.
 
@@ -76,7 +76,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic GitHub Secret value from the CLI
 
-To fetch a dynamic GitHub secret value from the CLI, run the following command: 
+To fetch a dynamic GitHub secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
@@ -102,7 +102,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
   * Use the **Choose an existing target** drop-down list to select the existing GitHub Target.
 
   * Select the **Explicitly specify target properties** option, to provide details of the target GitHub repository in the next step.
-* **Installation ID\\ Repository path\\ Organization Name:** Specify a GitHub application installation ID or repository path or Organization name.
+* **Installation ID\ Repository path\ Organization Name:** Specify a GitHub application installation ID or repository path or Organization name.
 * **Installation Token Repositories:** Specify repositories that will accept generated tokens. By default, repositories of the GitHub installation will be used.
 * **Installation Token Permissions:** Specify permissions for generated tokens. By default, permissions for the GitHub installation will be used. Input format: `key=value` pairs or a `JSON`  e.g., `{"content":"read"}`.
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
