@@ -16,9 +16,9 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* RabbitMQ privileged user.
+* RabbitMQ privileged user
 
 Before creating a dynamic RabbitMQ secret, ensure that the RabbitMQ user has sufficient privileges to create users.
 
@@ -28,7 +28,7 @@ Before creating a dynamic RabbitMQ secret, ensure that the RabbitMQ user has suf
 >
 > We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rabbitmq-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic RabbitMQ secret from the CLI using an existing [RabbitMQ Target](doc:rabbitmq-targets) , run the following command: 
+To create a dynamic RabbitMQ secret from the CLI using an existing [RabbitMQ Target](doc:rabbitmq-targets) , run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create rabbitmq \
@@ -41,7 +41,7 @@ akeyless dynamic-secret create rabbitmq \
 --password-length 16
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create akeyless dynamic-secret get-valuerabbitmq \
@@ -86,7 +86,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic RabbitMQ Secret value from the CLI
 
-To fetch a dynamic RabbitMQ secret value from the CLI, run the following command: 
+To fetch a dynamic RabbitMQ secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
@@ -114,7 +114,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Select the **Explicitly specify target properties**  to provide details of the target RabbitMQ server in the next step.
 
-RabbitMQ distinguishes between `configure`, `write`, and `read` operations on a resource. To perform an operation on a resource, the user must be granted the appropriate permissions for it. The [RabbitMQ permissions reference](https://www.rabbitmq.com/access-control.html#:~:text=Permissions%20are%20expressed%20as%20a,names%20matching%20the%20regular%20expressions.\&text=and%20server%20generated%20names%20are%20prefixed%20with%20amq) outlines the relevant resources and operations. 
+RabbitMQ distinguishes between `configure`, `write`, and `read` operations on a resource. To perform an operation on a resource, the user must be granted the appropriate permissions for it. The [RabbitMQ permissions reference](https://www.rabbitmq.com/access-control.html#:~:text=Permissions%20are%20expressed%20as%20a,names%20matching%20the%20regular%20expressions.\&text=and%20server%20generated%20names%20are%20prefixed%20with%20amq) outlines the relevant resources and operations.
 
 * **User Configuration Permission:** Enter the resources for which the `configure` operation can be performed when accessed using the relevant dynamic key.
 
@@ -144,7 +144,7 @@ RabbitMQ distinguishes between `configure`, `write`, and `read` operations on a 
 
 * **Admin User:** Enter your RabbitMQ admin credentials.
 
-* **Admin Password:** Enter your RabbitMQ admin credentials. 
+* **Admin Password:** Enter your RabbitMQ admin credentials.
 
 7. Click **Finish**.
 
