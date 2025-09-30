@@ -180,4 +180,4 @@ If you select the **Custom** template, you'll need to provide values for the fol
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/tokenization" target="_blank" style="color: #00e">Creating and Using a Tokenizer</a>.
+Check out our tutorial video on [Creating and Using a Tokenizer](https://tutorials.akeyless.io/docs/tokenization).
