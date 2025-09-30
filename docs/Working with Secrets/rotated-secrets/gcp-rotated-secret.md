@@ -16,8 +16,8 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 # Prerequsites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
-* [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Service Account Key Admin](https://cloud.google.com/iam/docs/understanding-roles#iam.serviceAccountKeyAdmin) role assigned. 
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Service Account Key Admin](https://cloud.google.com/iam/docs/understanding-roles#iam.serviceAccountKeyAdmin) role assigned
 
 # Create a Rotated GCP Service Account Secret from the CLI
 
@@ -58,7 +58,7 @@ Where:
 
 * `gcp-key-file-path`: A path to the GCP Service account credentials file of the GCP Service Account whose Key should be rotated.
 
-* `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older service account key will be rotated. When there is only one key, a new version will be created to maintain 2 values at the same time. 
+* `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older service account key will be rotated. When there is only one key, a new version will be created to maintain 2 values at the same time.
 
 * `auto-rotate`: Enable auto-rotation if you need to update the Service Account Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
   * `grace-rotation-interval` and `grace-rotation-hour` relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
