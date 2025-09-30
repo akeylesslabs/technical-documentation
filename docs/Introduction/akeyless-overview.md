@@ -1,18 +1,18 @@
 ---
 title: 'Part 1: Akeyless Overview'
-excerpt: ''
 deprecated: false
 hidden: false
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
 next:
-  description: ''
   pages:
-    - type: basic
-      slug: understanding-authentication
+    - slug: understanding-authentication
       title: 'Part 2: Authentication & Authorization'
+      type: basic
 ---
 The Akeyless Platform is a unified secrets management system that enables you to store, protect, rotate, and dynamically create credentials, certificates, and encryption keys. Our platform supports various use cases, including managing static and dynamic credentials, certificate lifecycle management, encryption, digital signing, and zero-trust application access, which secures remote access to your internal resources.
 
@@ -22,7 +22,7 @@ Using a patented, FIPS 140-2 certified technology called Akeyless [Distributed F
 
 ## Manage Your Secrets
 
-Your secrets are safe with the Akeyless Platform. **Protect your static secrets**, such as connection strings, passwords, tokens, and encryption keys, in our encrypted Key/Value store, **generate dynamic secrets on-demand** to support just-in-time access, or **automatically rotate** privilege credentials.
+Your secrets are safe with the Akeyless Platform. **Protect your static secrets**, such as connection strings, passwords, tokens, and encryption keys, in our encrypted Key/Value store, **generate dynamic secrets on-demand** to support just-in-time access, or **automatically rotate** privileged credentials.
 
 Easily create new secrets, or use our automatic secret migration tool to import secrets from your current secret repositories or vaulting solutions.
 
@@ -34,7 +34,7 @@ Learn more about managing your secrets [here](doc:manage-your-secrets-overview).
 
 ## Universal Secret Connector
 
-Akeyless not only secures and manages secrets within its own platform, but also extends this capability to external Secret Management systems such as AWS Secrets Manager, Google Secret Manager, Azure Key Vault, etc. Through the [Universal Secrets Connector (USC)](doc:universal-secrets-connector) Akeyless creates a secure “window” into these external systems, enabling centralized management without duplicating or migrating secrets.
+Akeyless not only secures and manages secrets within its own platform but also extends this capability to external Secret Management systems such as AWS Secrets Manager, Google Secret Manager, Azure Key Vault, etc. Through the [Universal Secrets Connector (USC)](doc:universal-secrets-connector), Akeyless creates a secure “window” into these external systems, enabling centralized management without duplicating or migrating secrets.
 
 The **USC** also supports [Secrets Synchronization](doc:sync-secret), ensuring that any updates made in Akeyless are automatically propagated in real time to all connected systems, including [Automatic Rotation](doc:rotated-secrets). This eliminates manual updates, reduces the risk of inconsistency, and guarantees that applications always have access to the most current secret values.
 
@@ -46,20 +46,20 @@ With Akeyless, organizations can operate their own **private Certificate Authori
 
 ## Encryption & Key Management
 
-The Akeyless Platform combines the capabilities of an HSM and a KMS to provide enhanced key life cycle management, including cryptographic key generation, protection, versioning/rotation, and using keys with **Encryption-as-a-Service** and **Digital Signing** functions. 
+The Akeyless Platform combines the capabilities of an HSM and a KMS to provide enhanced key lifecycle management, including cryptographic key generation, protection, versioning/rotation, and using keys with **Encryption-as-a-Service** and **Digital Signing** functions.
 
 Easily integrate your applications, libraries, or scripts with Akeyless using our [SDKs](doc:sdks) and plugins.
 
-Leveraging Akeyless’ unique FIPS-certified Encryption Key Management technology, your encryption keys never exist as a whole. They are instead created as fragments on different regions and cloud providers and NEVER combined, not even during the encryption/signing process itself. To make sure that you are the exclusive owner of your keys, one of the fragments is created on your side, and cannot be accessed by Akeyless.
+Leveraging Akeyless’ unique FIPS-certified Encryption Key Management technology, your encryption keys never exist as a whole. They are instead created as fragments in different regions and cloud providers and are NEVER combined, not even during the encryption/signing process itself. To make sure that you are the exclusive owner of your keys, one of the fragments is created on your side and cannot be accessed by Akeyless.
 
-Learn more about encryption and key management [here](doc:encryption-key-management-overview). 
+Learn more about encryption and key management [here](doc:encryption-key-management-overview).
 
 ## Secure Remote Access (SRA)
 
-Enable your DevOps, Engineers and IT teams to securely and seamlessly access resources - servers, databases, internal applications, and SaaS - in any of your environments, whether private, public, or on-prem.
+Enable your DevOps, Engineers, and IT teams to securely and seamlessly access resources - servers, databases, internal applications, and SaaS - in any of your environments, whether private, public, or on-prem.
 
-AKA Zero-Trust Application Access, our solution uniquely combines the ability to interface with 3rd-party **identity providers** for authentication with robust **role-based access control** for authorization, and the ability to provide **just-in-time access** to endpoint resources, using dynamic secrets as short-lived credentials and certificates.
+Also known as Zero-Trust Application Access, our solution uniquely combines the ability to interface with third-party **identity providers** for authentication with robust **role-based access control** for authorization, and the ability to provide **just-in-time access** to endpoint resources, using dynamic secrets as short-lived credentials and certificates.
 
-Privileged and non-privileged access is allowed via protocols such as SSH, RDP, SQL, Kubectl (and more), either from the Akeyless Remote Access Portal or the native CLI tools. Furthermore, keep compliant with session auditing and recording capabilities. You can even revoke sessions in real-time if any suspicious activity is detected.
+Privileged and non-privileged access is allowed via protocols such as SSH, RDP, SQL, Kubectl (and more), either from the Akeyless Remote Access Portal or the native CLI tools. Furthermore, maintain compliance with session auditing and recording capabilities. You can even revoke sessions in real-time if any suspicious activity is detected.
 
 Learn more about Secure Remote Access (SRA) [here](doc:secure-remote-access).
