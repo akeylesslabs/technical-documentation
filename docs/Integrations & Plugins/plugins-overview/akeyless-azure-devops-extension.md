@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This extension provides seamless integration with [Akeyless REST API,](https://docs.akeyless.io/reference) allowing your Azure DevOps pipelines to securely fetch secrets and inject them as pipeline variables at runtime.
+This extension provides seamless integration with the [Akeyless REST API](https://docs.akeyless.io/reference) allowing your Azure DevOps pipelines to securely fetch secrets and inject them as pipeline variables at runtime.
 
 This eliminates the need to hardcode sensitive credentials in your repositories, enhancing your security posture.
 
@@ -29,11 +29,11 @@ Any Akeyless API operations performed by this extension will be registered as `S
 To get started, you need to install the Akeyless Azure DevOps Extension from the Visual Studio Marketplace into your Azure DevOps organization.
 
 1. Navigate to your Azure DevOps organization, e.g. [https://dev.azure.com/$YOUR\_ORG](https://dev.azure.com/$YOUR_ORG).
-2. Click on the *Organization* settings icon (bottom-left corner).
-3. Under *Extensions*, click on *Extensions*.
-4. Click on *Browse marketplace*.
+2. Click on the _Organization_ settings icon (bottom-left corner).
+3. Under _Extensions_, click on _Extensions_.
+4. Click on _Browse marketplace_.
 5. Search for "Akeyless".
-6. Click on the extension and then click *Get it free* or *Install*.
+6. Click on the extension and then click _Get it free_ or _Install_.
 7. Select your organization and complete the installation process.
 
 ## Create an Akeyless Service Connection
@@ -41,15 +41,15 @@ To get started, you need to install the Akeyless Azure DevOps Extension from the
 Before using the task in your pipelines, you need to configure a [Service Connection](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops) that allows Azure DevOps to authenticate with your Akeyless Vault.
 
 1. Navigate to your Azure DevOps project.
-2. Click on *Project settings* (bottom-left corner).
-3. Under *Pipelines*, click on *Service connections*.
-4. Click *New service connection*.
+2. Click on _Project settings_ (bottom-left corner).
+3. Under _Pipelines_, click on _Service connections_.
+4. Click _New service connection_.
 5. Search for and select the Akeyless service connection type.
 6. Click Next.
 7. Configure the service connection parameters:
    1. Server URL (Base Path): Enter the base URL of your Akeyless Gateway or Akeyless SaaS API (e.g., [https://api.akeyless.io](https://api.akeyless.io), [https://my.gw/api/v2](https://my.gw/api/v2)).
    2. Access ID: Your Akeyless Access ID.
-   3. Service connection name: Give your connection a descriptive name (e.g., 'my-akeyless-vault,' 'mge\_prod'). This name will be used in your pipeline YAML.
+   3. Service connection name: Give your connection a descriptive name (e.g., 'my-akeyless-vault,' 'mge_prod'). This name will be used in your pipeline YAML.
    4. Description: (Optional) Provide a brief description.
    5. Grant access permission to all pipelines: (Recommended for ease of use, or configure specific pipeline permissions later).
 8. Click Save to create the service connection.
