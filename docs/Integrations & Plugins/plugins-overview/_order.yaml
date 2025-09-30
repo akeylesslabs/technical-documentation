@@ -8,13 +8,13 @@
 - databricks-plugin
 - azure-devops-plugin
 - azure-devops-community-plugin
+- butbucket-plugin
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
 - gitlab-secrets-plugin
 - gitlab-component-plugin
 - jenkins
-- butbucket-plugin
 - chef-plugin
 - chef-infra-plugin
 - chef-inspec-plugin
