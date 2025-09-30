@@ -14,11 +14,9 @@ next:
 
 Our patented technology, Distributed Fragments Cryptography™ (DFC), enables us to perform cryptographic operations using fragments of an encryption key, without EVER combining the key fragments. As illustrated below, this technology allows Akeyless to store fragments of an encryption key in different regions on different cloud providers, and never combine those fragments.
 
-<Image title="DFC.png" alt="1238" align="center" width="80%" src="https://files.readme.io/0ef2ecb-DFC.png">
-  Fragments of a single Encryption Key that are stored in <br/> different cloud providers and are NEVER combined
-</Image>
+<Image align="center" alt="1238" border={false} caption="Fragments of a single Encryption Key that are stored in <br /> different cloud providers and are NEVER combined" title="DFC.png" src="https://files.readme.io/0ef2ecb-DFC.png" width="80%" />
 
-***Q: So you're basically using key-split? Shamir's secret sharing?***
+_**Q: So you're basically using key-split? Shamir's secret sharing?**_
 
 * Answer: **NO. We're definitely not**. The known weakness of any split method is that whenever you wish to encrypt/decrypt any data, you MUST combine the fragments of the key. When you do so, a malicious attacker could potentially gain access to your constructed key, and then - your key is compromised. It's game over. This is why, using Akeyless DFC, the key is never constructed, not even during the encryption/decryption process, meaning, the key never exists as a whole.
 
@@ -36,6 +34,6 @@ Since Akeyless DFC enables Akeyless to perform cryptographic operations WITHOUT 
 
 Therefore, in order to enable Zero-Knowledge Encryption, all you need is your own Customer Fragment.
 
-<Image title="API key auth (1).png" alt="1920" align="center" src="https://files.readme.io/3b36cbc-CFZK.png">
-  Fragments of a single Encryption Key that are managed by Akeyless <br/> while a single fragment is stored in the customer's environment
-</Image>
+<Image align="center" alt="1920" border={false} caption="Fragments of a single Encryption Key that are managed by Akeyless while a single fragment is stored in the customer's environment." title="API key auth (1).png" src="https://files.readme.io/3b36cbc-CFZK.png" />
+
+<br />
