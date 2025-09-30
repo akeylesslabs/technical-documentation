@@ -16,7 +16,7 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 * [AWS Target](doc:aws-targets) which holds an AWS IAM principal with the following IAM permissions:
 
 ```json
@@ -38,7 +38,7 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 }
 ```
 
-Where those permissions are required to rotate the IAM user AccessKeys, Akeyless Rotated secret will create a new Access Key, and revoke the old Access Key, depending on the rotation settings. 
+Where those permissions are required to rotate the IAM user AccessKeys, Akeyless Rotated secret will create a new Access Key, and revoke the old Access Key, depending on the rotation settings.
 
 # Create a Rotated AWS Secret from the CLI
 
@@ -79,14 +79,14 @@ Where:
   * `api-key` - to rotate the Access Key specified in the Rotated Secret.
   * `target` - to rotate the Access Key for the user specified in the [AWS Target](doc:aws-targets).
 
-* `api-id`: The Access Key ID of the AWS user whose Access Key should be rotated. If left empty, the Rotated Secret will create a new key and manage its rotation. **Note** When  `api-id` is not provided, upon successful creation, the AWS Access Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. , the AWS Access Key will be deleted from the cloud as well. 
+* `api-id`: The Access Key ID of the AWS user whose Access Key should be rotated. If left empty, the Rotated Secret will create a new key and manage its rotation. **Note** When  `api-id` is not provided, upon successful creation, the AWS Access Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. , the AWS Access Key will be deleted from the cloud as well.
 
 * `api-key`: The Access Key to rotate.
 
 * `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created - to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
 
 * `auto-rotate`: Enable auto-rotation if you need to update the Access Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
-  * `grace-rotation-interval` and `grace-rotation-hour` defines the 2nd interval following the main rotation settings, relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place. 
+  * `grace-rotation-interval` and `grace-rotation-hour` defines the 2nd interval following the main rotation settings, relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueawsp) section.
 
