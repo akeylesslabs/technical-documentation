@@ -11,6 +11,7 @@
 - ldap
 - oauth20jwt
 - openid
+- okta-oidc
 - saml
 - universal-identity
 - kerberos
