@@ -244,4 +244,4 @@ Starting from SDK version 4 the following methods:
 
 return value is  `map[string]interface{}` instead of `map[string]string`
 
-<br>
+<br />
