@@ -1,5 +1,5 @@
 ---
-title: OpenShift
+title: Red Hat OpenShift
 excerpt: ''
 deprecated: false
 hidden: false
