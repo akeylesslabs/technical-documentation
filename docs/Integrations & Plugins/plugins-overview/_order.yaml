@@ -13,13 +13,13 @@
 - chef-infra-plugin
 - chef-inspec-plugin
 - circleci-plugin
+- consul-template-plugin
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
 - gitlab-secrets-plugin
 - gitlab-component-plugin
 - jenkins
-- consul-template-plugin
 - hashicorp-vault-proxy
 - keycloack-plugin
 - puppet-plugin
