@@ -14,9 +14,9 @@ You can define a Chef Infra dynamic secret to allow users to dynamically generat
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* Chef privileged user.
+* Chef privileged user
 
 # Create a Dynamic Chef Infra Secret from the CLI
 
@@ -24,7 +24,7 @@ You can define a Chef Infra dynamic secret to allow users to dynamically generat
 >
 > We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/chef-infra-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Chef Infra secret from the CLI using an existing [Chef Infra Target](doc:chef-infra-targets)the , run the following command: 
+To create a dynamic Chef Infra secret from the CLI using an existing [Chef Infra Target](doc:chef-infra-targets)the , run the following command:
 
 ```shell
 akeyless dynamic-secret create chef \
@@ -35,7 +35,7 @@ akeyless dynamic-secret create chef \
 --password-length 16
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell
 akeyless dynamic-secret create akeyless dynamic-secret get-valuechef \
@@ -77,7 +77,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic Chef Infra Secret value from the CLI
 
-To fetch a dynamic Chef Infra secret value from the CLI, run the following command: 
+To fetch a dynamic Chef Infra secret value from the CLI, run the following command:
 
 ```text
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
