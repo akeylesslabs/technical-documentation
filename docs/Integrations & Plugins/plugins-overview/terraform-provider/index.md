@@ -14,7 +14,7 @@ The Terraform provider enables Terraform to utilize secrets, roles, authenticati
 
 Terraform can be used to configure Akeyless and populate it with secrets, as well as ensure that the state and any plans associated with the configuration are stored and communicated with care, as they will contain any values written into Akeyless in plain text.
 
-For more information on the Terraform provider, see the <a href="https://github.com/akeyless-community/terraform-provider-akeyless" target="_blank">Akeyless GitHub Repository</a> and the <a href="https://registry.terraform.io/providers/akeyless-community/akeyless/latest" target="_blank">Terraform Registry</a>.
+For more information on the Terraform provider, see the [Akeyless GitHub Repository](https://github.com/akeyless-community/terraform-provider-akeyless) and the [Terraform Registry](https://registry.terraform.io/providers/akeyless-community/akeyless/latest).
 
 # Configuration
 
