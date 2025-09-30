@@ -22,5 +22,4 @@ Each type has its own sub-types and unique uses that will be elaborated upon in 
 
 # Tutorial
 
-Check out our tutorial video on
-<a href="https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys" target="_blank" style={{ color: "#00e" }}>Creating and Rotating Encryption Keys</a>.
+Check out our tutorial video on [Creating and Rotating Encryption Keys](https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys).
