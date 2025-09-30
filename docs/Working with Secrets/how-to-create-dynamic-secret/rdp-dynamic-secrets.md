@@ -16,11 +16,11 @@ When a client requests a dynamic secret value, the Akeyless Platform, through yo
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* SSH access is enabled on the target Windows host (see [Install OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui#install-openssh-for-windows)).
+* SSH access is enabled on the target Windows host (see [Install OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui#install-openssh-for-windows))
 
-* Privileged Windows user with permission to create and remove users. 
+* Privileged Windows user with permission to create and remove users
 
 # Create a Dynamic RDP Secret from the CLI
 
@@ -28,7 +28,7 @@ When a client requests a dynamic secret value, the Akeyless Platform, through yo
 >
 > We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic RDP secret from the CLI using an existing [RDP Target](doc:ssh-target), run the following command: 
+To create a dynamic RDP secret from the CLI using an existing [RDP Target](doc:ssh-target), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create rdp \
@@ -39,7 +39,7 @@ akeyless dynamic-secret create rdp \
 --password-length 16
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create akeyless dynamic-secret get-valuerdp \
@@ -84,7 +84,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic RDP Secret value from the CLI
 
-To fetch a dynamic RDP secret value from the CLI, run the following command: 
+To fetch a dynamic RDP secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
@@ -113,7 +113,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Groups:** A comma-separated list of RDP user groups to which the new user should be added.
 * **Display message to the user before TTL expires:** Select this checkbox to allow displaying messages to the user before TTL expires.
 * **Allow user to extend session periodically:** Select this checkbox to allow the user to extend session periodically.
-* **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IDP. 
+* **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IDP.
 * **Sub Claim Name:** From which Sub Claim configured on your IDP to extract the user, where the default value is `ext_username`
 * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
