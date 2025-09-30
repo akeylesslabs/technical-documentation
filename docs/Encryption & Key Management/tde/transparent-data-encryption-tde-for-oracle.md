@@ -473,7 +473,7 @@ SELECT * FROM V$ENCRYPTED_TABLESPACES;
 > 2. Migrate the encryption key:
 >
 > ```sql
-> ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
+> ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "akeyless" MIGRATE USING "&lt;old file based tde password&gt;" WITH BACKUP;
 > ```
 >
-> Ensure to replace <old file based tde password> with the appropriate password.
+> Ensure to replace &lt;old file based tde password&gt; with the appropriate password.
