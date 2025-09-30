@@ -14,9 +14,9 @@ You can create a dynamic Google Kubernetes Engine (GKE) secret to allow users re
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* GKE Service Account.
+* GKE Service Account
 
 To use a dynamic GKE secret, your GCP administrator needs to create a GCP IAM service account with the desired [Kubernetes Engine role](https://cloud.google.com/iam/docs/understanding-roles#kubernetes-engine-roles) that should be given to users. The service account itself will serve as the user for each individual connection, with access tokens that will last for 60 minutes.
 
@@ -26,7 +26,7 @@ To use a dynamic GKE secret, your GCP administrator needs to create a GCP IAM se
 >
 > We recommend using dynamic secrets with [Targets](doc:kubernetes-targets#gke). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gke-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic GKE secret from the CLI using an existing [GKE Target](doc:kubernetes-targets#gke), run the following command: 
+To create a dynamic GKE secret from the CLI using an existing [GKE Target](doc:kubernetes-targets#gke), run the following command:
 
 ```shell
 akeyless dynamic-secret create gke \
@@ -35,7 +35,7 @@ akeyless dynamic-secret create gke \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell
 akeyless dynamic-secret create akeyless dynamic-secret get-valuegke \
@@ -52,7 +52,7 @@ Where:
 
 * `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: A name of the [GKE Target](doc:kubernetes-targets#gke) that enables connection to the GKE cluster. 
+* `target-name`: A name of the [GKE Target](doc:kubernetes-targets#gke) that enables connection to the GKE cluster.
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
@@ -72,7 +72,7 @@ If you don't have a [GKE Target](doc:kubernetes-targets#gke) yet, you can use th
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegkep) section.
 
-For guidelines on how to get the GKE service account name and key, see the [API server authentication](https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication#environments-without-gcloud) guide. 
+For guidelines on how to get the GKE service account name and key, see the [API server authentication](https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication#environments-without-gcloud) guide.
 
 If you followed this guide, run:
 
@@ -88,7 +88,7 @@ Then copy the values to the dynamic GKE secret settings. You can find the rest o
 
 # Use a Dynamic GKE Secret with the Akeyless CLI running on the same host
 
-If the Akeyless CLI is installed on the same host as the `kubectl`, you can define a `kubeconfig` file to automatically run the `get-dynamic-secret-value` command and fetch new access tokens as required. 
+If the Akeyless CLI is installed on the same host as the `kubectl`, you can define a `kubeconfig` file to automatically run the `get-dynamic-secret-value` command and fetch new access tokens as required.
 
 You need to either download the <code>kubeconfig</code> file directly from the [Akeyless Console](https://console.akeyless.io/) by selecting the **Dynamic Secret** item and copying the file from the **Dynamic Secret Description**, or generate the file manually as follows:
 
