@@ -2,5 +2,5 @@
 - azure-active-directory-oidc
 - okta-oidc
 - github-oidc
-- google-oidc
 - gitlab-oidc
+- google-oidc
