@@ -53,9 +53,9 @@ access_id..acces_key | base64
 
 > 👍 Note
 >
-> The API Key token should be a concatenation of your <code>access\_id</code> and your <code>access\_key</code> with double dots as a delimiter. 
+> The API Key token should be a concatenation of your `access_id` and your `access_key` with double dots as a delimiter.
 >
-> Make sure this [Authentication method](https://akeyless.readme.io/docs/understanding-authentication) is set with the appropriate [RBAC](https://akeyless.readme.io/docs/rbac) in Akeyless, to grant access to your dynamic secret.\
+> Make sure this [Authentication method](https://akeyless.readme.io/docs/understanding-authentication) is set with the appropriate [RBAC](https://akeyless.readme.io/docs/rbac) in Akeyless, to grant access to your dynamic secret.
 > The path in the yaml should always start with the prefix `pki/sign/` prior to the item path in Akeyless
 
 The Issuer object is what allows the cert-manager to call Akeyless with the appropriate dynamic secret.
@@ -75,7 +75,7 @@ spec:
           key: token
 ```
 
-The <code>my-cert-automation-dynamic secret</code> under the **path** entry is the full name of the Dynamic Secret in Akeyless.
+The `my-cert-automation-dynamic secret` under the **path** entry is the full name of the Dynamic Secret in Akeyless.
 
 The **Server** entry sets with the Akeyless Gateway where the Venafi dynamic secret has been created, using port `8200`.
 
@@ -101,7 +101,7 @@ spec:
 
 The keys are cert-manager related and there are no special keys required by Akeyless at this point. For more information see [here](https://cert-manager.io/docs/concepts/certificate/).
 
-When finished, validate your Certificate has been issued via <code>kubectl get my-certificate</code>
+When finished, validate your Certificate has been issued via `kubectl get my-certificate`.
 
 ```shell
 $ kubectl get my-certificate
