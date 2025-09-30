@@ -14,6 +14,7 @@
 - chef-inspec-plugin
 - circleci-plugin
 - consul-template-plugin
+- cursor-akeyless-secrets-manager
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
@@ -29,4 +30,3 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- cursor-akeyless-secrets-manager
