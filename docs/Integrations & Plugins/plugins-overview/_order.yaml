@@ -10,10 +10,10 @@
 - chef-inspec-plugin
 - circleci-plugin
 - consul-template-plugin
+- keycloack-plugin
 - puppet-plugin
 - slack-plugin
 - teamcity-plugin
-- keycloack-plugin
 - steampipe-plugin
 - openshift
 - venafi-integration
