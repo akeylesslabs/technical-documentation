@@ -50,7 +50,7 @@ Where:
 
 * `email`: List of emails to start/stop sharing the secret with, To specify multiple emails use argument multiple times (`--email email1 --email email2` etc.). This parameter is mandatory for `start` or `stop` actions.
 
-To share an item via **Token** run the following: 
+To share an item via **Token** run the following:
 
 ```shell Akeyless CLI
 akeyless share-item --item-name <item name> --action <action to perform> --share-type token
@@ -76,12 +76,12 @@ You can find the complete list of parameters for these commands in the [CLI Refe
 
 # Managing Shared Items
 
-Once an item has been shared, a full auditing activity is logged into Akeyless audit logs, to remove a user from an item, **Admins** or the item owners can remove those users from the sharing list. 
+Once an item has been shared, a full auditing activity is logged into Akeyless audit logs, to remove a user from an item, **Admins** or the item owners can remove those users from the sharing list.
 
-Navigate to the shared item, and remove the relevant email address from the **Recipient email address** list. 
+Navigate to the shared item, and remove the relevant email address from the **Recipient email address** list.
 
 **Admins** can easily find new temporary **Access Roles** for those users who received temporary access. Simply delete those temporary **Access Roles** to revoke the share.
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/sharing-a-static-secret" target="_blank">Sharing a Static Secret</a>.
+Check out our tutorial video on [Sharing a Static Secret](https://tutorials.akeyless.io/docs/sharing-a-static-secret) .
