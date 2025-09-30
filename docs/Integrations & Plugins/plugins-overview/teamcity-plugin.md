@@ -1,5 +1,5 @@
 ---
-title: Teamcity Plugin
+title: TeamCity Plugin
 excerpt: ''
 deprecated: false
 hidden: false
