@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports dynamic secrets for a growing number of services. If you need to integrate with a service that is not yet natively implemented in Akeyless, you can create a custom dynamic secret implementation that calls the service on demand to generate or revoke temporary secrets. 
+Akeyless supports dynamic secrets for a growing number of services. If you need to integrate with a service that is not yet natively implemented in Akeyless, you can create a custom dynamic secret implementation that calls the service on demand to generate or revoke temporary secrets.  
 
 Akeyless communicates with custom dynamic secret implementations over HTTP, and delegates `create`  
 and `revoke` operations to the external services using a particular set of HTTP endpoints that follow a specific input/output format.
@@ -51,32 +51,45 @@ POST /sync/create
 
 Where:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Description",
-    "h-2": "Example",
-    "0-0": "payload",
-    "0-1": "(Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.",
-    "0-2": "`mongodb://user:password@host`  \n  \n`{\"user\":\"foo\",\"pass\":\"bar\"}`",
-    "1-0": "input",
-    "1-1": "(Optional) User input provided with the current  \n `get-dynamic-secret-value` operation. This is a JSON object, and its format depends on the information provided by the user.",
-    "1-2": "`{\n  \"domain\":\"foo.example.com\",\n  \"use_staging\":true\n}`  \n  \n`{\"project_id\":42}`",
-    "2-0": "client_info",
-    "2-1": "Information about the user requesting the credentials. It includes the user's Akeyless access ID, as well as any sub-claims.",
-    "2-2": "`{\n  \"access_id\": \"p-1234\",\n  \"sub_claims\": {\n    \"claim1\": [\"value1\"]\n  }\n}`"
-  },
-  "cols": 3,
-  "rows": 3,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
-
+<HTMLBlock>{`
+<table style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>payload</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>mongodb://user:password@host</code>  </p>
+<p><code>{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}</code></p>
+</td>
+</tr>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>input</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) User input provided with the current<br> <code>get-dynamic-secret-value</code> operation. This is a JSON object, and its format depends on the information provided by the user.</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>{   &quot;domain&quot;:&quot;foo.example.com&quot;,   &quot;use_staging&quot;:true }</code>  </p>
+<p><code>{&quot;project_id&quot;:42}</code></p>
+</td>
+</tr>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>client_info</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>Information about the user requesting the credentials. It includes the user&#39;s Akeyless access ID, as well as any sub-claims.</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>{   &quot;access_id&quot;: &quot;p-1234&quot;,   &quot;sub_claims&quot;: {     &quot;claim1&quot;: [&quot;value1&quot;]   } }</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+`}</HTMLBlock>
 
 ## POST /sync/create Output
 
@@ -90,28 +103,41 @@ HTTP 200 OK
 
 Where:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Description",
-    "h-2": "Example",
-    "0-0": "id",
-    "0-1": "A unique identifier for the temporary credentials, which is required during a \\`POST /sync/revoke' operation.",
-    "0-2": "`tmp.user1234`  \n  \n`f2fa1940-8d7e-41d4-a688-8d915795e88b`",
-    "1-0": "response",
-    "1-1": "A JSON object that includes any fields required by the particular use case.",
-    "1-2": "`{\n  \"cert\":\"<redacted>\",\n  \"private_key\":\"<redacted>\"\n}`  \n  \n`{\"password\":\"strongpassword!\"}`"
-  },
-  "cols": 3,
-  "rows": 2,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<HTMLBlock>{`
+<table style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>id</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+  <p>
+    A unique identifier for the temporary credentials, which is required during a <code>POST /sync/revoke</code> operation.
+  </p>
+</td>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>tmp.user1234</code>  </p>
+<p><code>f2fa1940-8d7e-41d4-a688-8d915795e88b</code></p>
+</td>
+</tr>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>response</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A JSON object that includes any fields required by the particular use case.</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>{   &quot;cert&quot;:&quot;&lt;redacted&gt;&quot;,   &quot;private_key&quot;:&quot;&lt;redacted&gt;&quot; }</code>  </p>
+<p><code>{&quot;password&quot;:&quot;strongpassword!&quot;}</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+`}</HTMLBlock>
 
 
 ## POST /sync/revoke Input
@@ -130,28 +156,36 @@ POST /sync/revoke
 
 Where:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Description",
-    "h-2": "Example",
-    "0-0": "payload",
-    "0-1": "(Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.",
-    "0-2": "`mongodb://user:password@host`  \n  \n`{\"user\":\"foo\",\"pass\":\"bar\"}`",
-    "1-0": "ids",
-    "1-1": "A list of IDs to revoke. These IDs were previously received in response to `POST /sync/create` operations.",
-    "1-2": "`[\"foo\", \"bar\"]`"
-  },
-  "cols": 3,
-  "rows": 2,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<HTMLBlock>{`
+<table style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>payload</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>mongodb://user:password@host</code>  </p>
+<p><code>{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}</code></p>
+</td>
+</tr>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>ids</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A list of IDs to revoke. These IDs were previously received in response to <code>POST /sync/create</code> operations.</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>[&quot;foo&quot;, &quot;bar&quot;]</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+`}</HTMLBlock>
 
 
 ## POST /sync/revoke Output
@@ -184,25 +218,28 @@ POST /sync/rotate
 
 Where:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Description",
-    "h-2": "Example",
-    "0-0": "payload",
-    "0-1": "Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.",
-    "0-2": "`mongodb://user:password@host`  \n  \n`{\"user\":\"foo\",\"pass\":\"bar\"}`"
-  },
-  "cols": 3,
-  "rows": 1,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<HTMLBlock>{`
+<table style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>payload</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>mongodb://user:password@host</code>  </p>
+<p><code>{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+`}</HTMLBlock>
 
 
 ## POST /sync/rotate Output
@@ -216,26 +253,28 @@ HTTP 200 OK
 
 Where:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Description",
-    "h-2": "Example",
-    "0-0": "payload",
-    "0-1": "New secret credentials to replace the existing credentials stored by Akeyless.",
-    "0-2": "`mongodb://user:password@host`  \n  \n`{\"user\":\"mun\",\"pass\":\"goh\"}`"
-  },
-  "cols": 3,
-  "rows": 1,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
-
+<HTMLBlock>{`
+<table style="width: 100%; border-collapse: collapse;">
+<thead>
+<tr>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
+  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>payload</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>New secret credentials to replace the existing credentials stored by Akeyless.</p>
+</td>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>mongodb://user:password@host</code>  </p>
+<p><code>{&quot;user&quot;:&quot;mun&quot;,&quot;pass&quot;:&quot;goh&quot;}</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+`}</HTMLBlock>
 
 > 👍 Note
 > 
