@@ -4,6 +4,7 @@
 - ansible-awx-plugin
 - github-action
 - gitlab-plugin
+- gitlab-secrets-plugin
 - gitlab-component-plugin
 - jenkins
 - azure-devops-plugin
@@ -22,7 +23,6 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- gitlab-secrets-plugin
 - github-actions-community-plugin
 - aws-databricks-plugin
 - databricks-plugin
