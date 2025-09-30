@@ -6,11 +6,11 @@
 - gitlab-component-plugin
 - jenkins
 - azure-devops-plugin
+- chef-inspec-plugin
 - circleci-plugin
 - consul-template-plugin
 - puppet-plugin
 - teamcity-plugin
-- chef-inspec-plugin
 - chef-infra-plugin
 - slack-plugin
 - keycloack-plugin
