@@ -11,8 +11,8 @@
 - circleci-plugin
 - consul-template-plugin
 - puppet-plugin
-- teamcity-plugin
 - slack-plugin
+- teamcity-plugin
 - keycloack-plugin
 - steampipe-plugin
 - openshift
