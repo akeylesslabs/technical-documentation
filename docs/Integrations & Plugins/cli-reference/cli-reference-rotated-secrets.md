@@ -28,7 +28,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-## <p style=color:blue>*create*</p>
+## <p style={{ color: "blue" }}>*create*</p>
 
 `akeyless rotated-secret create`
 
@@ -72,7 +72,7 @@ Commands to create a Rotated Secret
 
 `windows`: Creates new windows rotated secret item
 
-### <p style=color:blue>*aws*</p>
+### <p style={{ color: "blue" }}>*aws*</p>
 
 Creates new AWS rotated secret item
 
@@ -138,7 +138,7 @@ akeyless rotated-secret create aws \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*azure*</p>
+### <p style={{ color: "blue" }}>*azure*</p>
 
 Creates new azure rotated secret item
 
@@ -204,7 +204,7 @@ akeyless rotated-secret create azure \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*cassandra*</p>
+### <p style={{ color: "blue" }}>*cassandra*</p>
 
 Creates new cassandra rotated secret item
 
@@ -250,7 +250,7 @@ Creates new cassandra rotated secret item
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*custom*</p>
+### <p style={{ color: "blue" }}>*custom*</p>
 
 Creates new custom rotated secret item
 
@@ -329,7 +329,7 @@ akeyless rotated-secret create custom \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*dockerhub*</p>
+### <p style={{ color: "blue" }}>*dockerhub*</p>
 
 Creates new dockerhub rotated secret item
 
@@ -366,7 +366,7 @@ akeyless rotated-secret create dockerhub \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-### <p style="color:blue">*gcp*</p>
+### <p style={{ color: "blue" }}>*gcp*</p>
 
 Creates new gcp rotated secret item
 
@@ -424,7 +424,7 @@ akeyless rotated-secret create gcp \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*hanadb*</p>
+### <p style={{ color: "blue" }}>*hanadb*</p>
 
 Creates new hanadb rotated secret item
 
@@ -468,7 +468,7 @@ akeyless rotated-secret create hanadb \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*ldap*</p>
+### <p style={{ color: "blue" }}>*ldap*</p>
 
 Creates new ldap rotated secret item
 
@@ -536,7 +536,7 @@ akeyless rotated-secret create ldap \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*mongodb*</p>
+### <p style={{ color: "blue" }}>*mongodb*</p>
 
 Creates new mongodb rotated secret item
 
@@ -594,7 +594,7 @@ akeyless rotated-secret create mongodb \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*mssql*</p>
+### <p style={{ color: "blue" }}>*mssql*</p>
 
 Creates new mssql rotated secret item
 
@@ -654,7 +654,7 @@ akeyless rotated-secret create mssql \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*mysql*</p>
+### <p style={{ color: "blue" }}>*mysql*</p>
 
 Creates new mysql rotated secret item
 
@@ -712,7 +712,7 @@ akeyless rotated-secret create mysql \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*oracledb*</p>
+### <p style={{ color: "blue" }}>*oracledb*</p>
 
 Creates new oracledb rotated secret item
 
@@ -768,7 +768,7 @@ akeyless rotated-secret create oracledb \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*postgresql*</p>
+### <p style={{ color: "blue" }}>*postgresql*</p>
 
 Creates new postgresql rotated secret item
 
@@ -828,7 +828,7 @@ akeyless rotated-secret create postgresql \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*redis*</p>
+### <p style={{ color: "blue" }}>*redis*</p>
 
 Creates new redis rotated secret item
 
@@ -874,7 +874,7 @@ akeyless rotated-secret create redis \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*redshift*</p>
+### <p style={{ color: "blue" }}>*redshift*</p>
 
 Creates new redshift rotated secret item
 
@@ -928,7 +928,7 @@ akeyless rotated-secret create redshift \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*snowflake*</p>
+### <p style={{ color: "blue" }}>*snowflake*</p>
 
 Creates new snowflake rotated secret item
 
@@ -978,7 +978,7 @@ akeyless rotated-secret create snowflake \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*ssh*</p>
+### <p style={{ color: "blue" }}>*ssh*</p>
 
 Creates new ssh rotated secret item
 
@@ -1044,7 +1044,7 @@ akeyless rotated-secret create ssh \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-### <p style="color:blue">*windows*</p>
+### <p style={{ color: "blue" }}>*windows*</p>
 
 Creates new windows rotated secret item
 
@@ -1104,7 +1104,7 @@ akeyless rotated-secret create windows \
 
 `--delete-protection`: Protection from accidental deletion of this item, \[\`true\`/\`false\`]
 
-## <p style=color:blue>*update*</p>
+## <p style={{ color: "blue" }}>*update*</p>
 
 `akeyless rotated-secret-update`
 
