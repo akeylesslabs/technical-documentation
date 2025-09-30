@@ -8,8 +8,8 @@
 - azure-devops-plugin
 - circleci-plugin
 - consul-template-plugin
-- teamcity-plugin
 - puppet-plugin
+- teamcity-plugin
 - chef-inspec-plugin
 - chef-infra-plugin
 - slack-plugin
