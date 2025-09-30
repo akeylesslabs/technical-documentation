@@ -12,12 +12,12 @@ next:
 ---
 Easily integrate your applications, libraries, or scripts with Akeyless using our SDKs. We currently support:
 
-* [Java SDK](doc:java-sdk-1)
-* [Python SDK](doc:python-sdk-1)
-* [Go SDK](doc:go)
 * [C# .NET Core SDK](doc:csharp-core-sdk)
-* [Ruby SDK](doc:ruby-sdk)
+* [Go SDK](doc:go)
+* [Java SDK](doc:java-sdk-1)
 * [JavaScript SDK](doc:javascript-sdk)
+* [Python SDK](doc:python-sdk-1)
+* [Ruby SDK](doc:ruby-sdk)
 
 Akeyless is hosted in the following environments. Each environment has its base URL.
 
