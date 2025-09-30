@@ -19,8 +19,8 @@
 - gitlab-plugin
 - gitlab-secrets-plugin
 - gitlab-component-plugin
-- jenkins
 - hashicorp-vault-proxy
+- jenkins
 - keycloack-plugin
 - puppet-plugin
 - openshift
