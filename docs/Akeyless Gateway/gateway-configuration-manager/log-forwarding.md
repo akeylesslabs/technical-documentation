@@ -20,17 +20,17 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 
 * [Elasticsearch](https://docs.akeyless.io/docs/log-forwarding#elasticsearch)
 
+* [Google Chronicle](https://docs.akeyless.io/docs/log-forwarding#google-chronicle)
+
 * [Logstash](https://docs.akeyless.io/docs/log-forwarding#logstash)
 
 * [Logz.io](https://docs.akeyless.io/docs/log-forwarding#logzio)
 
 * [Splunk](https://docs.akeyless.io/docs/log-forwarding#splunk)
 
-* [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
-
 * [Sumo Logic ](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
 
-* [Google Chronicle](https://docs.akeyless.io/docs/log-forwarding#google-chronicle)
+* [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
 
 > 🚧 Warning
 >
@@ -40,7 +40,7 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 
 When you export the audit logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under:
 
-**\{root\_folder\_name} / \{year} / \{month} / \{day}**
+**\{root_folder_name} / \{year} / \{month} / \{day}**
 
 > 📘 Info
 >
@@ -48,7 +48,7 @@ When you export the audit logs from the Akeyless Gateway to Amazon S3, the logs 
 
 The log files include log records from a ten-minute window, where the file name includes the start time of the logs. For example:
 
-**akeyless-log/2021/05/25/akeyless-audit\_2021-05-25T16:30.log**
+**akeyless-log/2021/05/25/akeyless-audit_2021-05-25T16:30.log**
 
 This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file that can be parsed individually.
 
@@ -80,7 +80,7 @@ This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file 
 
 # Azure Log Analytics
 
-When you export the audit logs from the Akeyless Gateway to Azure Log Analytics, the logs are stored in the specified workspace in the **AkeylessAudit\_CL** table. The **TimeGenerated** is the time the log was created in Akeyless, and **msg\_s** is textual information for the log.
+When you export the audit logs from the Akeyless Gateway to Azure Log Analytics, the logs are stored in the specified workspace in the **AkeylessAudit_CL** table. The **TimeGenerated** is the time the log was created in Akeyless, and **msg_s** is textual information for the log.
 
 1. Create a new Log Analytics workspace in the Azure Portal, then select **Agent Management**.
 
@@ -94,9 +94,9 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 6. From the **Log Service** dropdown list, select `Azure Log Analytics`.
 
-7. For the **Workspace ID**, copy the value of the **Workspace ID** from the **Agent Management** options in the Azure Portal. 
+7. For the **Workspace ID**, copy the value of the **Workspace ID** from the **Agent Management** options in the Azure Portal.
 
-8. For the **Workspace Key**, copy the value of either the **Primary key** or the **Secondary key** from the **Agent Management** options in the Azure Portal. 
+8. For the **Workspace Key**, copy the value of either the **Primary key** or the **Secondary key** from the **Agent Management** options in the Azure Portal.
 
 9. Select **Save Changes**.
 
@@ -114,7 +114,7 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 6. Define the **Elasticsearch Server**. It can be set either as **Node** or **Cloud ID**.
 
-7. Define the **Elasticsearch Authentication**. It can be set as **Api Key** or **Username & Password**. 
+7. Define the **Elasticsearch Authentication**. It can be set as **Api Key** or **Username & Password**.
 
 8. Define the **Elasticsearch Index**.
 
@@ -187,7 +187,7 @@ input {
 
 7. Define the **Splunk Token**.
 
-8. Define the **Splunk Index**. 
+8. Define the **Splunk Index**.
 
 9. Optional, check **TLS** and upload the **TLS Certificate** of your Splunk server.
 
@@ -231,11 +231,11 @@ input {
 
 6. Define the **Datadog host**.
 
-7. Define the **Datadog API Key**. 
+7. Define the **Datadog API Key**.
 
-8. Optional - Define **Log Source**. Default value `akeyless`. 
+8. Optional - Define **Log Source**. Default value `akeyless`.
 
-9. Optional - Define **Log Tags** - using `key`:`value` format. 
+9. Optional - Define **Log Tags** - using `key`:`value` format.
 
 10. Optional - Define **Log Service** , default value `akeyless-gateway`.
 
