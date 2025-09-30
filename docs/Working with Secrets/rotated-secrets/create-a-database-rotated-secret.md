@@ -12,25 +12,25 @@ next:
 ---
 You can create a Rotated Secret for a database user. Currently, Akeyless Rotated Secrets can be created for the following databases:
 
-* MySQL
-
-* MSSQL
-
-* PostgreSQL
-
-* Oracle
+* Amazon Redshift
 
 * Cassandra
 
-* Redshift
-
-* SAP HanaDB
+* Microsoft SQL Server
 
 * MongoDB
 
-* Snowflake
+* MySQL
+
+* Oracle Database
+
+* PostgreSQL
 
 * Redis
+
+* SAP HANA
+
+* Snowflake
 
 > 🚧 Warning
 >
