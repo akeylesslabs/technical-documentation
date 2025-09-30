@@ -7,6 +7,7 @@
 - gitlab-component-plugin
 - jenkins
 - azure-devops-plugin
+- azure-devops-community-plugin
 - chef-plugin
 - chef-infra-plugin
 - chef-inspec-plugin
@@ -21,7 +22,6 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- azure-devops-community-plugin
 - gitlab-secrets-plugin
 - github-actions-community-plugin
 - aws-databricks-plugin
