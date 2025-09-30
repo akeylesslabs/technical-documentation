@@ -18,7 +18,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 * An [Akeyless Gateway](doc:api-gw)
 
-* RabbitMQ privileged user
+* A RabbitMQ privileged user
 
 Before creating a dynamic RabbitMQ secret, ensure that the RabbitMQ user has sufficient privileges to create users.
 
