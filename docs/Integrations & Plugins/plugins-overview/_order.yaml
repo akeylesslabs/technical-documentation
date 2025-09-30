@@ -1,7 +1,7 @@
 - kubernetes-plugins
 - terraform-provider
-- github-action
 - ansible-awx-plugin
+- github-action
 - gitlab-plugin
 - gitlab-component-plugin
 - jenkins
