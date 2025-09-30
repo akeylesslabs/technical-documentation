@@ -105,7 +105,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 >
 > You can rotate the password for the [SSH Target](doc:ssh-target) too, by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
 
-* **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](doc:create-an-ssh-rotated-secret#custom-rotation-statement). 
+* **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](doc:create-an-ssh-rotated-secret#custom-rotation-statement).
 
 * **Password Length**: Set the user's password length.
 
@@ -127,9 +127,9 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 Akeyless Rotated Secret for an [SSH Target](doc:ssh-target) supports a Custom Rotation Statement. This script or command will be executed on the target server after the secret rotation operation completes. You can specify any command you need.
 
-For example, you can provide a command that will be executed instead of the default command to perform a secret rotation operation and specify three different arguments for it: **USERNAME, NEW\_PASSWORD, OLD\_PASSWORD**. 
+For example, you can provide a command that will be executed instead of the default command to perform a secret rotation operation and specify three different arguments for it: **USERNAME, NEW_PASSWORD, OLD_PASSWORD**.
 
-Where: 
+Where:
 
 * `USERNAME`: The configured username within the [SSH Target](doc:ssh-target) or Rotated Secret which password should be rotated.
 
@@ -139,7 +139,7 @@ Where:
 
 (These arguments can also be used within any command or script that will run upon a password rotation attempt on the target server. )
 
-Upon successful execution of your script, the Rotated Secret will be updated. 
+Upon successful execution of your script, the Rotated Secret will be updated.
 
 Syntax:
 
@@ -163,4 +163,4 @@ net user /domain "{{USERNAME}}" {{NEW_PASSWORD}} && sc config "lfsvc" obj= "ad\{
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets" target="_blank">Creating and Using SSH Rotated Secrets</a>.
+Check out our tutorial video on [Creating and Using SSH Rotated Secrets](https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets) .
