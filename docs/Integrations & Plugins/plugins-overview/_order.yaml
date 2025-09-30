@@ -10,6 +10,7 @@
 - jenkins
 - azure-devops-plugin
 - azure-devops-community-plugin
+- butbucket-plugin
 - chef-plugin
 - chef-infra-plugin
 - chef-inspec-plugin
@@ -28,5 +29,4 @@
 - databricks-plugin
 - cursor-akeyless-secrets-manager
 - akeyless-azure-devops-extension
-- butbucket-plugin
 - akeyless-mcp-model-context-protocol-command
