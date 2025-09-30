@@ -32,7 +32,7 @@ When your search yields results, the Akeyless Password Manager web browser exten
 
   Additionally, the username associated with each password or secret will be displayed by default. However, for a deeper insight, simply hover over an item to switch this display to the website URL, if such information is available. This dual-display functionality enriches your search experience by providing contextual information that can help you better manage your credentials.
 
-<br>
+<br />
 
 **Using the Search Bar**  
 To utilize this enhanced search functionality, follow these steps:
