@@ -12,13 +12,13 @@ next:
 ---
 # Introduction
 
-Key rotation is the process in which a new version of an encryption key is created. The key fragment instances and split level remain the same throughout the versions, as well as the customer fragment associated with it (if any).\
+Key rotation is the process in which a new version of an encryption key is created. The key fragment instances and split level remain the same throughout the versions, as well as the customer fragment associated with it (if any).
 There are some constraints when rotating a key:
 
 * For **DFC™**, only **AES** keys can be rotated.
 * Only **Enabled** keys can be rotated.
 
-A key can be set to automatically rotate every 7-365 days.\
+A key can be set to automatically rotate every 7-365 days.
 When rotating a key, the last version of it will be used for **Encryption** and **Decryption** operations, previous versions can still be used for **Decryption** operations done by them.
 
 ## Why would I want to rotate my keys?
@@ -30,7 +30,7 @@ Key rotation is considered a best practice for management for a few reasons:
 
 # Managing a Key in the CLI
 
-To rotate a key in the CLI, use the following command:  
+To rotate a key in the CLI, use the following command:
 
 ```shell MyAES256SIVKey
 akeyless rotate-key --name MyAES256SIVKey
@@ -120,7 +120,7 @@ akeyless delete-item --name MyAES256SIVKey --version=1 --delete-in-days=30
 
 # Managing a Key in the Console
 
-To rotate a key in the console, 
+To rotate a key in the console,
 
 1. Go to the folder in Akeyless where you saved the desired key and select it
 
@@ -134,4 +134,4 @@ To rotate a key in the console,
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys" target="_blank" style={{ color: "#00e" }}>Creating and Rotating Encryption Keys</a>.
+Check out our tutorial video on [Creating and Rotating Encryption Keys](https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys) .
