@@ -18,22 +18,22 @@ You can define an Azure AD dynamic secret to dynamically generate access credent
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* Azure AD Service Account.
+* Azure AD Service Account
 
 To provide access to the Akeyless Platform from Azure AD, create a **Registration for Application** within your Microsoft Identity Platform. This registration will serve as a service account to enable API calls from the Akeyless Platform.
 
-To create a Service Account in your Azure AD, follow the guide on [how to create an Application Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) in Azure Active Directory. 
+To create a Service Account in your Azure AD, follow the guide on [how to create an Application Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) in Azure Active Directory.
 
 **Required Permissions by Action Type:**
 
-| Action                            | Permissions                                                                | Usage                                     |
-| :-------------------------------- | :------------------------------------------------------------------------- | :---------------------------------------- |
-| Create/Delete user                | User.ReadWrite.All, Directory.ReadWrite.All                                | Ephemeral Azure Web Portal Credentials    |
-| Add user to group                 | GroupMember.ReadWrite.All, Group.ReadWrite.All and Directory.ReadWrite.All | Ephemeral Azure Web Portal Credentials    |
-| Add user role                     | RoleManagement.ReadWrite.Directory                                         | Ephemeral Azure Web Portal Credentials    |
-| Create\\Delete Application secret | Application.ReadWrite.OwnedBy, Application.ReadWrite.All                   | Ephemeral Azure Service Principal Secrets |
+| Action                           | Permissions                                                                | Usage                                     |
+| :------------------------------- | :------------------------------------------------------------------------- | :---------------------------------------- |
+| Create/Delete user               | User.ReadWrite.All, Directory.ReadWrite.All                                | Ephemeral Azure Web Portal Credentials    |
+| Add user to group                | GroupMember.ReadWrite.All, Group.ReadWrite.All and Directory.ReadWrite.All | Ephemeral Azure Web Portal Credentials    |
+| Add user role                    | RoleManagement.ReadWrite.Directory                                         | Ephemeral Azure Web Portal Credentials    |
+| Create\Delete Application secret | Application.ReadWrite.OwnedBy, Application.ReadWrite.All                   | Ephemeral Azure Service Principal Secrets |
 
 **Entra ID Custom Roles**
 
@@ -47,7 +47,7 @@ for example, the `microsoft.directory/applications/credentials/update` permissio
 >
 > We recommend using dynamic secrets with [Targets](doc:azure-targets). It both saves time for multiple secret-level configurations (by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/azure-targets#create-an-azure-target-from-the-cli) each time), and it's also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Azure AD secret from the CLI using an existing [Azure Target](doc:azure-targets), run the following command: 
+To create a dynamic Azure AD secret from the CLI using an existing [Azure Target](doc:azure-targets), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create azure \
@@ -63,7 +63,7 @@ akeyless dynamic-secret create azure \
 --password-length 16
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create akeyless dynamic-secret get-valueazure \
@@ -84,7 +84,7 @@ Where:
 
 * `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* \`target-name: A name of the [target](http://google.com) that enables connection to the Azure AD server. The name can include the path to the virtual folder where this target resides.
+* `target-name: A name of the [target](http://google.com) that enables connection to the Azure AD server. The name can include the path to the virtual folder where this target resides.
 
 * `gateway-url`: Akeyless Gateway URL.
 
@@ -116,7 +116,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic Azure AD Secret value from the CLI
 
-To fetch a dynamic Azure AD secret value from the CLI, run the following command: 
+To fetch a dynamic Azure AD secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
