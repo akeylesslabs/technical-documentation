@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-<br>
+<br></br>
 
 The Favorites Tab is crafted to offer you quick and easy access to select passwords and secrets that you deem most critical or use often. It acts as a personalized shortcut, streamlining your navigation and saving you time.
 
 <Image align="right" width="150px" src="https://files.readme.io/267b625-Screenshot_2024-04-11_at_15.25.13.png" />
 
-<br>
+<br></br>
 
 **Adding Items to Favorites**
 
@@ -34,4 +34,4 @@ View Options: The Favorites Tab organizes your chosen items in a user-friendly l
 
 Quick Search: The integrated search bar enables you to rapidly locate specific entries within your Favorites Tab, eliminating the need for manual scrolling.
 
-<br>
+<br></br>
