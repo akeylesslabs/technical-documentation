@@ -206,4 +206,4 @@ selecting a hash function between sha-256 and sha-512. The full parameters for t
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys" target="_blank" style="color: #00e">Creating and Rotating Encryption Keys</a>.
+Check out our tutorial video on [Creating and Rotating Encryption Keys](https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys).
