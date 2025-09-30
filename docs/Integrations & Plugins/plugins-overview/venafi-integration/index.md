@@ -32,7 +32,7 @@ Either Akeyless or Venafi can act as the certificate issuer.
 
 A certificate can be requested based on a Common Name (CN) or via a Certificate Signing Request (CSR). Both these methods fully support [Cert Manager](https://cert-manager.io/docs/).
 
-The outcome artifacts of certificate issuance, including the certificate, private key, and certificate chain, are saved in the Akeyless Platform as a static secret in a configurable location. 
+The outcome artifacts of certificate issuance, including the certificate, private key, and certificate chain, are saved in the Akeyless Platform as a static secret in a configurable location.
 
 ## Venafi Dynamic Secret settings
 
@@ -52,14 +52,14 @@ The outcome artifacts of certificate issuance, including the certificate, privat
 
 **Signer Key Name** - The signer key to use as the issuer, must be a valid RSA 2048/4096 key with a certificate (Required when using Akeyless PKI, must already exist in Akeyless).
 
-**Allowed Domains** - A list of allowed domains when requesting a new certificate (<code>default: all</code>).
+**Allowed Domains** - A list of allowed domains when requesting a new certificate (`default: all`).
 
-**Allow Subdomains** - Whether to allow subdomains (<code>default: false</code>).
+**Allow Subdomains** - Whether to allow subdomains (`default: false`).
 
-**User TLL** - The TTL of requested certificates (<code>default: 90 days</code>).
+**User TLL** - The TTL of requested certificates (`default: 90 days`).
 
-**Certificate Chain Order-Root First** - Where to place the root certificate in the certificate chain (<code>default: root first</code>).
+**Certificate Chain Order-Root First** - Where to place the root certificate in the certificate chain (`default: root first`).
 
 **Store Private Key in Akeyless** -Whether to keep the generated private key in Akeyless as a static secret (Not relevant when generating a certificate using CSR) (default: `true`)
 
-**Artifacts Location** - The location to place the generated artifacts in Akeyless (<code>default: /cert\_automation</code>).
+**Artifacts Location** - The location to place the generated artifacts in Akeyless (`default: /cert_automation`).
