@@ -7,13 +7,13 @@
 - aws-databricks-plugin
 - databricks-plugin
 - azure-devops-plugin
+- azure-devops-community-plugin
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
 - gitlab-secrets-plugin
 - gitlab-component-plugin
 - jenkins
-- azure-devops-community-plugin
 - butbucket-plugin
 - chef-plugin
 - chef-infra-plugin
