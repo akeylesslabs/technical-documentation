@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can create Rotated Secrets for Azure Apps and Azure Storage Account. Before you get started, ensure you have a [Target](doc:azure-targets) for your [Azure App](https://docs.akeyless.io/docs/create-an-azure-ad-app-service-account) or for your [Azure Storage Account](doc:azure-targets). 
+You can create Rotated Secrets for Azure Apps and Azure Storage Account. Before you get started, ensure you have a [Target](doc:azure-targets) for your [Azure App](https://docs.akeyless.io/docs/create-an-azure-ad-app-service-account) or for your [Azure Storage Account](doc:azure-targets).
 
 The target must include the Azure tenant ID and client ID, as well as a client secret for a privileged App authorized to rotate credentials.
 
@@ -18,11 +18,11 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 # Prerequisites
 
-[Azure AD App](https://docs.akeyless.io/docs/create-an-azure-ad-app-service-account) or an [Azure AD Storage Account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys) 
+[Azure AD App](https://docs.akeyless.io/docs/create-an-azure-ad-app-service-account) or an [Azure AD Storage Account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys)
 
-**Azure permissions description** 
+**Azure permissions description**
 
-| Action                          | Permissions \\ Role                                            |
+| Action                          | Permissions \ Role                                             |
 | :------------------------------ | :------------------------------------------------------------- |
 | To`Rotate` Application Secret   | `Application.ReadWrite.OwnedBy` or `Application.ReadWrite.All` |
 | To`Reset password`for user      | `User-PasswordProfile.ReadWrite.All`                           |
@@ -30,15 +30,15 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 Where:
 
-* `Application.ReadWrite.OwnedBy`: Allows reading and writing of properties for applications owned by the user. 
+* `Application.ReadWrite.OwnedBy`: Allows reading and writing of properties for applications owned by the user.
 
-* `Application.ReadWrite.All`: Allows read and write access to all applications in **Azure Active Directory**. 
+* `Application.ReadWrite.All`: Allows read and write access to all applications in **Azure Active Directory**.
 
 * `User-PasswordProfile.ReadWrite.All`: Allows the app to read and write password profiles and reset passwords for all users.
 
-* `Storage Account Key Operator Service Role`: Allows listing and regenerating keys on Storage Accounts. For more information, see the [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage#storage-account-key-operator-service-role) documentation. 
+* `Storage Account Key Operator Service Role`: Allows listing and regenerating keys on Storage Accounts. For more information, see the [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage#storage-account-key-operator-service-role) documentation.
 
-For more information, see the Microsoft Graph [permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference) 
+For more information, see the Microsoft Graph [permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference).
 
 # Create a Rotated Azure Secret from the CLI
 
@@ -112,7 +112,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 3. Define the remaining settings as follows:
 
 * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
-* **Target:** Defines the name of the [Azure Target](doc:azure-targets) to be associated with the Rotated Secret. 
+* **Target:** Defines the name of the [Azure Target](doc:azure-targets) to be associated with the Rotated Secret.
 
 > 👍 Note
 >
