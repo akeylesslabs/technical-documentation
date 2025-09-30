@@ -14,7 +14,7 @@ The Akeyless [Java SDK](https://github.com/akeylesslabs/akeyless-java) makes it 
 
 # Installation
 
-Building the API client library requires: 
+Building the API client library requires:
 
 * Java version 1.7+.
 * Maven (3.8.3+)/Gradle (7.2+)
@@ -82,7 +82,7 @@ To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set the `clien
 
 # Authentication
 
-The Akeyless **Java** SDK supports multiple [Authentication Methods](doc:access-and-authentication-methods). 
+The Akeyless **Java** SDK supports multiple [Authentication Methods](doc:access-and-authentication-methods).
 
 ## API Key
 
@@ -204,4 +204,4 @@ public class Main {
 
 # API Reference
 
-For a detailed API reference, see <a href="https://github.com/akeylesslabs/akeyless-java" target="_blank">here</a>.
+For a detailed API reference, see [here](https://github.com/akeylesslabs/akeyless-java).
