@@ -9,13 +9,13 @@
 - azure-devops-plugin
 - azure-devops-community-plugin
 - butbucket-plugin
+- chef-plugin
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
 - gitlab-secrets-plugin
 - gitlab-component-plugin
 - jenkins
-- chef-plugin
 - chef-infra-plugin
 - chef-inspec-plugin
 - circleci-plugin
