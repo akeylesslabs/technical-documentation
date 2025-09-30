@@ -1,6 +1,6 @@
 - auth0-oidc
 - azure-active-directory-oidc
 - okta-oidc
+- github-oidc
 - google-oidc
 - gitlab-oidc
-- github-oidc
