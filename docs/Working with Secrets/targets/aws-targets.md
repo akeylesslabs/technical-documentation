@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-You can define an AWS target that contains an AWS IAM principal to be used with an [AWS dynamic secrets](https://docs.akeyless.io/docs/aws-producer) or an [AWS rotated secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret). 
+You can define an AWS target that contains an AWS IAM principal to be used with an [AWS dynamic secrets](https://docs.akeyless.io/docs/aws-producer) or an [AWS rotated secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 
-In case working with an explicit **Access Key**, to follow [AWS best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#update-access-keys), ensure to create an automatic rotation for this **Access Key** using  [AWS rotated secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret). 
+In case working with an explicit **Access Key**, to follow [AWS best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#update-access-keys), ensure to create an automatic rotation for this **Access Key** using  [AWS rotated secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 
 When working with [Gateway](doc:api-gw) Cloud Identity, Akeyless will use AWS SDK and its default credentials precedence. In addition, in case [External ID ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) is used,  make sure to add to the **AWS Role** your Gateway is using permission to assume the relevant roles in the account.
 
@@ -45,7 +45,7 @@ Where:
   * `generate-external-id[=false]`: Optional, a unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless. Relevant only when using the Gateway cloud ID.
   * `role-arn`: Optional, AWS IAM role identifier that Gateway will assume in your AWS account, relevant only when using an external ID
 
-Alternatively, to use IAM explicit credentials: 
+Alternatively, to use IAM explicit credentials:
 
 * `access-key-id`: The access key ID assigned to an admin user that will be used to authenticate Akeyless with AWS.
 
@@ -67,7 +67,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
    For more information, [read here](doc:implement-zero-knowledge).
 
 4. Choose your preferred authentication mode by selecting one of the options:
@@ -82,7 +82,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 5. Define the remaining parameters as follows:
 
-* **Access Key ID:** If you selected the **Use Credentials** option in the previous step, specify the Access ID assigned to the admin user you created to authenticate Akeyless with AWS. 
+* **Access Key ID:** If you selected the **Use Credentials** option in the previous step, specify the Access ID assigned to the admin user you created to authenticate Akeyless with AWS.
 
 * **Secret Access Key:** Specify the Access Key assigned to the admin user you created to authenticate Akeyless with AWS.
 
@@ -98,4 +98,4 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-targets" target="_blank">Creating and Configuring AWS Targets</a>.
+Check out our tutorial video on [Creating and Configuring AWS Targets](https://tutorials.akeyless.io/docs/creating-targets).
