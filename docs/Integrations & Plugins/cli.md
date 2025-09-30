@@ -251,4 +251,4 @@ For access deny issues, ensure the following:
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-cli" target="_blank" style="color: #00e">Installing and Configuring the CLI</a>.
+Check out our tutorial video on [Installing and Configuring the CLI](https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-cli).
