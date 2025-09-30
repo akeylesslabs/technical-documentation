@@ -134,4 +134,4 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets" target="_blank">Creating and Using MySQL Rotated Secrets</a>.
+Check out our tutorial video on [Creating and Using MySQL Rotated Secrets](https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets).
