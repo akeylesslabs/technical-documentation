@@ -12,25 +12,25 @@ next:
 ---
 You can create dynamic secrets for a wide range of databases, including:
 
-* MySQL
-
-* MSSQL
-
-* PostgreSQL
-
-* MongoDB
-
-* OracleDB
+* Amazon Redshift
 
 * Cassandra
 
-* Redshift
+* Microsoft SQL Server
 
-* SAP Hana DB 
+* MongoDB
 
-* Vertica
+* MySQL
+
+* OracleDB
+
+* PostgreSQL
 
 * Redis
+
+* SAP HANA
+
+* Vertica
 
 With dynamic secrets, you can control and manage which databases, tables, schema, and what set of permissions to issue for each type of application access, as well as completely manage the lifecycle of those temporary credentials which are created just in time-based on short-lived TTL with flexible revocation statements.
 
@@ -42,7 +42,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 # Create a Dynamic Database Secret from the CLI
 
-To create a dynamic database secret from the CLI using an existing [Target](doc:targets), run the following command: 
+To create a dynamic database secret from the CLI using an existing [Target](doc:targets), run the following command:
 
 ```shell MySQL
 akeyless dynamic-secret create mysql \
@@ -151,7 +151,7 @@ akeyless dynamic-secret create redis \
 --acl-rules '["~*", "+@read", "+info"]'
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell MySQL
 akeyless dynamic-secret create mysql \
@@ -293,11 +293,11 @@ Where:
 
 * `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: Full path of the [Target](doc:targets) item that stores the connection settings to your database server. 
+* `target-name`: Full path of the [Target](doc:targets) item that stores the connection settings to your database server.
 
 * `gateway-url`: Akeyless Gateway URL.
 
-* `password-length`: **Optional** The temporary user password length. 
+* `password-length`: **Optional** The temporary user password length.
 
 Depending on each database, set the relevant creation and revocation statements to control and manage the level of access and roles of your temporary credentials.
 
@@ -327,7 +327,7 @@ The following is an example revocation statement for Postgres:
 >
 > **MySQL 8 Dynamic Secrets**
 >
-> For MySQL 8, modify the default `CREATE USER` statement to allow native MySQL password authentication. 
+> For MySQL 8, modify the default `CREATE USER` statement to allow native MySQL password authentication.
 >
 > For example:
 >
@@ -335,7 +335,7 @@ The following is an example revocation statement for Postgres:
 
 ### Inline connection string
 
-If you don't have a [Database Target](doc:database-targets), you can use the command with your database target server connection string inline:    
+If you don't have a [Database Target](doc:database-targets), you can use the command with your database target server connection string inline:
 
 Depending on your database type, provide a **privileged username** that has enough permission to create and revoke users on your database with the relevant connection settings. And set the relevant creation and revocation statements to control and manage the level of access and roles of your temporary credentials.
 
@@ -343,7 +343,7 @@ You can find the complete list of parameters for these commands in the [CLI Refe
 
 # Fetch a Dynamic Database Secret value from the CLI
 
-To fetch a dynamic database secret value from the CLI, run the following command: 
+To fetch a dynamic database secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
@@ -377,7 +377,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 If you selected the **Explicitly specify target properties** mode, click **Next**.
 
-Depending on your database type, provide a privileged username that has enough permission to create users on your database with the relevant connection settings. 
+Depending on your database type, provide a privileged username that has enough permission to create users on your database with the relevant connection settings.
 
 Set the relevant create & revoke statements to control and manage the level of access for your temporary credentials.
 
@@ -393,4 +393,4 @@ Set the relevant create & revoke statements to control and manage the level of a
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets" target="_blank">Creating and Using MySQL Dynamic Secrets</a>.
+Check out our tutorial video on [Creating and Using MySQL Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets) .
