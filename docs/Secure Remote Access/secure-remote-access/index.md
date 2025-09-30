@@ -22,7 +22,7 @@ next:
 ---
 The Akeyless Platform's Secure Remote Access solution enables users to securely connect directly to resources - servers, databases, internal applications, and SaaS - in any of your environments, whether private, public, or on-prem.
 
-<Image align="center" width="100%" src="https://files.readme.io/145d617-Secure_Remote_Access_Overview.png" />
+<Image align="center" border={false} width="100%" src="https://files.readme.io/145d617-Secure_Remote_Access_Overview.png" />
 
 Users can connect securely to resources from the [Secure Remote Access Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) or using the [Akeyless Connect](doc:akeyless-connect) command. Akeyless supports a variety of protocols, including SSH, RDP, SQL, Kubectl, and more.
 
@@ -44,4 +44,4 @@ As the network communication flows between the user and the resource, it passes 
 
 # Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/install-and-configure-remote-access-bastion" target="_blank" style={{ color: "#00e" }}>Install and Configure Remote Access Bastion</a>.
+Check out our tutorial video on [Install and Configure Remote Access Bastion](https://tutorials.akeyless.io/docs/install-and-configure-remote-access-bastion).
