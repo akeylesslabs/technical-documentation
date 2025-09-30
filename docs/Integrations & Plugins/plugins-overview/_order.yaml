@@ -1,6 +1,7 @@
 - kubernetes-plugins
 - terraform-provider
 - akeyless-grpc
+- akeyless-mcp-model-context-protocol-command
 - ansible-awx-plugin
 - github-action
 - github-actions-community-plugin
@@ -29,4 +30,3 @@
 - databricks-plugin
 - cursor-akeyless-secrets-manager
 - akeyless-azure-devops-extension
-- akeyless-mcp-model-context-protocol-command
