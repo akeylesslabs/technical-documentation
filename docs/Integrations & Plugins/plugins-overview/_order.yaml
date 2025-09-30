@@ -5,13 +5,13 @@
 - akeyless-mcp-model-context-protocol-command
 - ansible-awx-plugin
 - aws-databricks-plugin
+- databricks-plugin
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
 - gitlab-secrets-plugin
 - gitlab-component-plugin
 - jenkins
-- databricks-plugin
 - azure-devops-plugin
 - azure-devops-community-plugin
 - butbucket-plugin
