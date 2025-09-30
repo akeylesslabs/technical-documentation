@@ -14,10 +14,10 @@
 - puppet-plugin
 - openshift
 - slack-plugin
+- spire-plugins
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- spire-plugins
 - akeyless-grpc
 - hashicorp-vault-proxy
 - chef-plugin
