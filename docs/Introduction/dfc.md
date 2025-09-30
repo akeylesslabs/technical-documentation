@@ -14,7 +14,7 @@ next:
 
 Our patented technology, Distributed Fragments Cryptography™ (DFC), enables us to perform cryptographic operations using fragments of an encryption key, without EVER combining the key fragments. As illustrated below, this technology allows Akeyless to store fragments of an encryption key in different regions on different cloud providers, and never combine those fragments.
 
-<Image align="center" alt="1238" border={false} caption="Fragments of a single Encryption Key that are stored in <br /> different cloud providers and are NEVER combined" title="DFC.png" src="https://files.readme.io/0ef2ecb-DFC.png" width="80%" />
+<Image align="center" alt="1238" border={false} caption="Fragments of a single Encryption Key that are stored in different cloud providers and are NEVER combined" title="DFC.png" src="https://files.readme.io/0ef2ecb-DFC.png" width="80%" />
 
 _**Q: So you're basically using key-split? Shamir's secret sharing?**_
 
