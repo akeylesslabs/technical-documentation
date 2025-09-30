@@ -14,9 +14,9 @@ You can define a Docker Hub Dynamic Secret to generate just-in-time personal acc
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* Docker privileged user to be used to generate access tokens.
+* A Docker privileged user to be used to generate access tokens
 
 # Create a Dynamic Docker Hub Secret from the CLI
 
@@ -24,7 +24,7 @@ You can define a Docker Hub Dynamic Secret to generate just-in-time personal acc
 >
 > We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Docker Hub secret from the CLI using an existing [Docker Hub Target](doc:docker-hub-target), run the following command: 
+To create a dynamic Docker Hub secret from the CLI using an existing [Docker Hub Target](doc:docker-hub-target), run the following command:
 
 ```shell
 akeyless dynamic-secret create dockerhub \
@@ -34,7 +34,7 @@ akeyless dynamic-secret create dockerhub \
 --dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read'
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell
 akeyless dynamic-secret create akeyless dynamic-secret get-valuedockerhub \
@@ -73,7 +73,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic Docker Hub Secret value from the CLI
 
-To fetch a dynamic Docker Hub secret value from the CLI, run the following command: 
+To fetch a dynamic Docker Hub secret value from the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
