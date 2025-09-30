@@ -3,6 +3,7 @@
 - akeyless-grpc
 - ansible-awx-plugin
 - github-action
+- github-actions-community-plugin
 - gitlab-plugin
 - gitlab-secrets-plugin
 - gitlab-component-plugin
@@ -23,7 +24,6 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- github-actions-community-plugin
 - aws-databricks-plugin
 - databricks-plugin
 - cursor-akeyless-secrets-manager
