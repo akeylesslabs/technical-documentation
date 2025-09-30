@@ -13,8 +13,8 @@
 - keycloack-plugin
 - puppet-plugin
 - slack-plugin
-- teamcity-plugin
 - steampipe-plugin
+- teamcity-plugin
 - openshift
 - venafi-integration
 - spire-plugins
