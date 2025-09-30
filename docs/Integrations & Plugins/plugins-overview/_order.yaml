@@ -11,6 +11,7 @@
 - chef-inspec-plugin
 - circleci-plugin
 - consul-template-plugin
+- hashicorp-vault-proxy
 - keycloack-plugin
 - puppet-plugin
 - openshift
@@ -19,7 +20,6 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- hashicorp-vault-proxy
 - chef-plugin
 - azure-devops-community-plugin
 - gitlab-secrets-plugin
