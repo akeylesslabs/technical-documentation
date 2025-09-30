@@ -14,9 +14,9 @@ You can create a dynamic Amazon Elastic Kubernetes Service (EKS) secret to allow
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* AWS IAM principal (role or user).
+* AWS IAM principal (role or user)
 
 To use a dynamic EKS secret, you need an IAM principal (e.g. IAM Role or IAM User) with the permissions to be given to users. That IAM principal will serve as the user for each individual connection, with access tokens that will last for 15 minutes.
 
@@ -47,7 +47,7 @@ For more information about Kubernetes RBAC, see [the Kubernetes documentation](h
 >
 > We recommend using dynamic secrets with [Targets](doc:kubernetes-targets#eks). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/eks-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic EKS secret from the CLI using an existing [Target](doc:kubernetes-targets#eks), run the following command: 
+To create a dynamic EKS secret from the CLI using an existing [Target](doc:kubernetes-targets#eks), run the following command:
 
 ```shell
 akeyless dynamic-secret create eks \
@@ -57,7 +57,7 @@ akeyless dynamic-secret create eks \
 --eks-assume-role <Role ARN>
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell
 akeyless dynamic-secret create akeyless dynamic-secret get-valueeks \
@@ -90,7 +90,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have a configured [EKS Target](doc:kubernetes-targets#eks) yet, you can use the command with an inline connection string: 
+If you don't have a configured [EKS Target](doc:kubernetes-targets#eks) yet, you can use the command with an inline connection string:
 
 * `eks-access-key-id`: The access key ID of the IAM user to be used to connect to the EKS.
 
@@ -108,7 +108,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Use the EKS Dynamic Secret with the Akeyless CLI
 
-If the Akeyless CLI is installed on the same host as the `kubectl`, you can define a `kubeconfig` file to automatically run the `get-dynamic-secret-value` command and fetch new access tokens as required. 
+If the Akeyless CLI is installed on the same host as the `kubectl`, you can define a `kubeconfig` file to automatically run the `get-dynamic-secret-value` command and fetch new access tokens as required.
 
 You need to either download the `kubeconfig` file directly from the [Akeyless Console](https://console.akeyless.io/) by selecting the **Dynamic Secret** item and copying the file from the **Dynamic Secret Description**, or generate the file manually as follows:
 
