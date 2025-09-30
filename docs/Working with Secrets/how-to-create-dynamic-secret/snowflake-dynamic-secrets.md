@@ -14,9 +14,9 @@ You can use Akeyless dynamic secrets to generate access credentials for Snowflak
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* Snowflake privileged account - To create a Snowflake dynamic secret, ensure that you have a Snowflake account and credentials for the admin user (with the `USERADMIN` role or higher).
+* Snowflake privileged account: To create a Snowflake dynamic secret, ensure that you have a Snowflake account and credentials for the admin user (with the `USERADMIN` role or higher)
 
 # Create a Snowflake Dynamic Secret from the CLI
 
@@ -24,7 +24,7 @@ You can use Akeyless dynamic secrets to generate access credentials for Snowflak
 >
 > We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/snowflake-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Snowflake secret from the CLI using the existing [Snowflake Target](doc:database-targets#snowflake), run the following command: 
+To create a dynamic Snowflake secret from the CLI using the existing [Snowflake Target](doc:database-targets#snowflake), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create snowflake \
@@ -36,7 +36,7 @@ akeyless dynamic-secret create snowflake \
 --password-length 16
 ```
 
- Or using an inline connection strings/RSA private key:
+Or using an inline connection strings/RSA private key:
 
 ```shell Inline Login
 akeyless dynamic-secret create snowflake \
@@ -80,7 +80,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have [Snowflake Target](doc:database-targets#snowflake) yet, you can use the command with your Snowflake target connection string:                   
+If you don't have [Snowflake Target](doc:database-targets#snowflake) yet, you can use the command with your Snowflake target connection string:
 
 * `account`: The Snowflake account name in `xy12345.region.cloud_provider` format.
 
@@ -102,7 +102,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic Snowflake Secret value from the CLI
 
-To fetch a dynamic Snowflake secret value from the CLI, run the following command: 
+To fetch a dynamic Snowflake secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
@@ -147,7 +147,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
    * **Account Name:** Enter the Snowflake account name in the `xy12345.region.cloud_provider` format.
 
-   * **Account Username:** Enter the username for a Snowflake admin user (with the *USERADMIN* role or higher).
+   * **Account Username:** Enter the username for a Snowflake admin user (with the _USERADMIN_ role or higher).
 
    * **Account Password:** Enter the password for the Snowflake admin user account.
 
