@@ -102,7 +102,7 @@ CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/
 
 ### Create K8s Auth Method
 
-1. Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the K8s auth method. The result will output an `Access ID` and `private key` that you will need later for the K8s auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the K8s auth method. The result will output an `Access ID` and `private key` that you will need later for the K8s auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell Akeyless CLI
 akeyless auth-method create k8s -n my-k8s-auth-method  --json
