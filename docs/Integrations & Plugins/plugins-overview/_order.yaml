@@ -6,8 +6,8 @@
 - gitlab-component-plugin
 - jenkins
 - azure-devops-plugin
-- consul-template-plugin
 - circleci-plugin
+- consul-template-plugin
 - teamcity-plugin
 - puppet-plugin
 - chef-inspec-plugin
