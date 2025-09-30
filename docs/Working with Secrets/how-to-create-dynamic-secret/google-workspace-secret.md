@@ -17,15 +17,15 @@ next:
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw).
+* An [Akeyless Gateway](doc:api-gw)
 
-* `ext_email`Subclaim exists in your IdP. 
+* `ext_email`Subclaim exists in your IdP
 
-* [GCP Target](https://docs.akeyless.io/docs/gcp-targets) with a **privileged service account** 
+* [GCP Target](https://docs.akeyless.io/docs/gcp-targets) with a **privileged service account**
 
 ## Create a Service Account in GCP
 
-To create a **Google Workspace** Dynamic Secret, a Service Account that will be used for authentication is required. 
+To create a **Google Workspace** Dynamic Secret, a Service Account that will be used for authentication is required.
 
 Follow these steps to create a **Service Account** in **Google Cloud Platform**:
 
@@ -54,7 +54,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
 >
 > We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a Target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used. Using inline will force you to change the credentials in each individual item instead of just the Target.
 
-To create a dynamic Google Workspace secret from the CLI using an existing GCP target, run the following command: 
+To create a dynamic Google Workspace secret from the CLI using an existing GCP target, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create google-workspace \
@@ -93,7 +93,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `access-mode`: Adding a user to an existing group or assigning an admin role to a user \[\`group\` / \`role\`].
+* `access-mode`: Adding a user to an existing group or assigning an admin role to a user [`group` / `role`].
 
 * `admin-email`: The email of the Google Workspace Account.
 
@@ -115,7 +115,7 @@ You can find the complete list of parameters for this command in the CLI Referen
 
 # Fetch a Dynamic Google Workspace Secret value from the CLI
 
-To fetch a dynamic Google Workspace secret value from the CLI, run the following command: 
+To fetch a dynamic Google Workspace secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
@@ -147,7 +147,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Group Name**: Email of the Group to add the user to.
 * **Group Role**: **Owner, Manager or Member**
 * **Role Name**: Name of the admin role to assign to the user.
-* **Scope**: The scope in which this role is assigned **CUSTOMER**/**ORG\_UNIT**.
+* **Scope**: The scope in which this role is assigned **CUSTOMER**/**ORG_UNIT**.
 * **Admin Email** : The email of the Google Workspace Account.
 * **Sub Claim Name**: From which Sub Claim configured on your IDP to extract the user, where the default value is `ext_email`
 * **User TTL**: Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
