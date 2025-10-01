@@ -263,3 +263,77 @@ Akeyless MCP server supports multiple authentication methods:
   ]
 }
 ```
+
+#### Best Practices
+
+1. Security Best Practices
+   1. Use Environment Variables: Store sensitive credentials in environment
+   2. variables rather than hardcoding them
+   3. Principle of Least Privilege: Create dedicated access keys with minimal required permissions
+   4. Regular Rotation: Rotate access keys regularly
+   5. Secure Storage: Use secure credential storage solutions
+   6. Network Security: Use HTTPS endpoints and consider VPN access
+
+<br />
+
+2. Configuration Management
+   1. Version Control: Keep MCP configuration files in version control (excluding secrets)
+   2. Environment Separation: Use separate configurations for different environments
+   3. Documentation: Document your configuration choices and rationale
+   4. Testing: Test configurations in development before deploying to production
+3. Monitoring and Logging
+   1. Enable Debug Mode: Use --debug flag for troubleshooting
+   2. Monitor Access: Regularly review access logs and analytics
+   3. Set Up Alerts: Configure alerts for unusual access patterns
+   4. Audit Trail: Maintain audit trails for compliance requirements
+4. Performance Optimization
+   1. Connection Pooling: Reuse connections when possible
+   2. Caching: Implement appropriate caching strategies
+   3. Batch Operations: Use batch operations for multiple items
+   4. Resource Limits: Set appropriate resource limits
+
+#### Troubleshooting
+
+**Common Issues and Solutions**
+
+1. Authentication Failures
+   1. Problem: MCP server fails to authenticate
+      Solutions:
+      1. Verify access ID and access key are correct
+      2. Check if credentials have expired
+      3. Ensure proper permissions are assigned
+      4. Verify gateway URL is accessible
+      <br />
+      ```shell CLI
+      # Test authentication manually
+      akeyless auth --access-id "your-access-id" --access-key "your-access-key"
+      ```
+2. Connection Issues
+   1. Problem: Cannot connect to Akeyless gateway
+      Solutions:
+      * Check network connectivity
+      * Verify gateway URL format
+      * Check firewall settings
+      * Test with curl or wget
+      <br />
+      ```shell CLI
+      # Test connectivity
+      curl -I https://api.akeyless.io
+      ```
+
+<br />
+
+3. Permission Errors
+   1. Problem: Insufficient permissions for operations
+      Solutions:
+      * Review role assignments
+      * Check item-level permissions
+      * Verify authentication method permissions
+      * Contact administrator for access
+4. Configuration Errors
+   1. Problem: MCP server fails to start
+      Solutions:
+      * Validate JSON configuration syntax
+      * Check file paths are correct
+      * Verify command arguments
+      * Review environment variables
