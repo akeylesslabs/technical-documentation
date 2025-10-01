@@ -117,4 +117,24 @@ The Akeyless MCP server is configured through your MCP client configuration file
 }
 ```
 
+**Configuration Parameters**
+
+* command – Path to Akeyless CLI binary
+  Required: Yes | Default: –
+* --access-id – Your Akeyless access ID
+  Required: Yes | Default: –
+* --access-key – Your Akeyless access key
+  Required: Yes* | Default: –
+* --access-type – Authentication method
+  Required: Yes | Default: access_key
+* --gateway-url – Akeyless gateway URL
+  Required: No | Default: [https://api.akeyless.io](https://api.akeyless.io)
+* --profile – CLI profile name
+  Required: No | Default: default
+* --debug – Enable debug logging
+  Required: No | Default: false
+
+**Authentication Methods**
+Akeyless MCP server supports multiple authentication methods:
+
 <br />
