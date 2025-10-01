@@ -99,7 +99,7 @@ The Akeyless MCP server is configured through your MCP client configuration file
 
 **Basic Configuration Structure**
 
-```shell CLI
+```json JSON
 {
   "mcpServers": {
     "akeyless": {
@@ -137,4 +137,129 @@ The Akeyless MCP server is configured through your MCP client configuration file
 **Authentication Methods**
 Akeyless MCP server supports multiple authentication methods:
 
+1. Access Key Authentication (Default)
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--access-id", "p-xxxxxxxxxxxxx",
+    "--access-key", "your-access-key",
+    "--access-type", "access_key"
+  ]
+}
+```
+
+2. Password Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--admin-email", "user@example.com",
+    "--admin-password", "your-password",
+    "--access-type", "password"
+  ]
+}
+```
+
+3. SAML Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--access-type", "saml",
+    "--gateway-url", "https://your-gateway.com"
+  ]
+}
+```
+
+4. OIDC/JWT Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--access-type", "oidc",
+    "--jwt", "your-jwt-token",
+    "--gateway-url", "https://your-gateway.com"
+  ]
+}
+```
+
+5. Kubernetes Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--access-type", "aws_iam",
+    "--cloud-id", "your-aws-role-arn"
+  ]
+}
+```
+
+6. Cloud Provider Authentication
+   1. AWS IAM:
+   <br />
+   ```json JSON
+   {
+     "args": [
+       "mcp",
+       "--access-type", "aws_iam",
+       "--cloud-id", "your-aws-role-arn"
+     ]
+   }
+   ```
+   1. Azure AD:
+   <br />
+   ```json JSON
+   {
+     "args": [
+       "mcp",
+       "--access-type", "azure_ad",
+       "--cloud-id", "your-azure-client-id"
+     ]
+   }
+   ```
+   1. Google Cloud:
+   <br />
+   ```json JSON
+   {
+     "args": [
+       "mcp",
+       "--access-type", "gcp",
+       "--cloud-id", "your-gcp-service-account"
+     ]
+   }
+   ```
+
 <br />
+
+7. Certificate Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--access-type", "cert",
+    "--cert-file-name", "/path/to/cert.pem",
+    "--key-file-name", "/path/to/key.pem"
+  ]
+}
+```
+
+8. LDAP Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--access-type", "ldap",
+    "--ldap_proxy_url", "ldap://your-ldap-server",
+    "--username", "your-username",
+    "--password", "your-password"
+  ]
+}
+```
