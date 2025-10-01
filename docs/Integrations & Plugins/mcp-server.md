@@ -92,4 +92,29 @@ akeyless mcp --help
 akeyless update
 ```
 
+**Configuration and Setup**
+
+MCP Server Configuration
+The Akeyless MCP server is configured through your MCP client configuration file (typically `~/.cursor/mcp.json` for Cursor IDE).
+
+**Basic Configuration Structure**
+
+```shell CLI
+{
+  "mcpServers": {
+    "akeyless": {
+      "command": "/path/to/akeyless",
+      "args": [
+        "mcp",
+        "--access-id", "your-access-id",
+        "--access-key", "your-access-key",
+        "--access-type", "access_key",
+        "--gateway-url", "https://api.akeyless.io"
+      ],
+      "env": {}
+    }
+  }
+}
+```
+
 <br />
