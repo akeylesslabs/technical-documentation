@@ -119,7 +119,8 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
-        `args > --access-id`
+        `args >
+        --access-id`
       </td>
 
       <td>
@@ -138,7 +139,8 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
-        `args > --access-key`
+        `args >
+        --access-key`
       </td>
 
       <td>
@@ -157,7 +159,8 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
-        `args > --access-type`
+        `args >
+        --access-type`
       </td>
 
       <td>
@@ -175,7 +178,8 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
-        `args > --gateway-url`
+        `args >
+        --gateway-url`
       </td>
 
       <td>
@@ -193,7 +197,8 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
-        `args > --profile`
+        `args >
+        --profile`
       </td>
 
       <td>
@@ -211,7 +216,8 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
-        `args > --debug`
+        `args >
+        --debug`
       </td>
 
       <td>
