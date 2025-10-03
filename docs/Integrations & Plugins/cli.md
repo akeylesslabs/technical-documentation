@@ -10,15 +10,13 @@ metadata:
 next:
   description: ''
 ---
-There are a handful of ways to interact with the Akeyless Platform for managing, creating, and fetching multiple types of supported [secrets](doc:manage-your-secrets-overview). One of them is our Command Line Interface (CLI).
+There are multiple methods to interact with the Akeyless Platform for managing, creating, and fetching multiple types of supported [secrets](doc:manage-your-secrets-overview). One of them is our Command Line Interface (CLI).
 
-The Akeyless CLI has a pre-compiled binary version for **Linux, macOS, and Windows** which can be easily installed.
+The Akeyless CLI has pre-compiled binary versions for **Linux, macOS, and Windows** which can be easily installed.
 
 # Download
 
-To pull the latest CLI version from the Akeyless official bucket, please make sure that: `https://akeyless-cli.s3.*` endpoint is trusted.
-
-Run the following command to download and install the CLI binary:
+Run the following commands to download and install the CLI binary:
 
 ```shell Linux-AMD
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
@@ -30,49 +28,34 @@ curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/prod
 chmod +x akeyless
 ./akeyless
 ```
-```shell Mac Intel
+```shell macOS Intel
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-darwin-amd64
 chmod +x akeyless
 ./akeyless
 ```
-```shell Mac Apple Silicon
+```shell macOS Apple Silicon
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-darwin-arm64
 chmod +x akeyless
 ./akeyless
 ```
-```powershell Windows
+```powershell Windows 10+
 curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-windows-amd64.exe
 .\akeyless.exe
 ```
 
-Or using Homebrew package manager for **MacOS**:
+Or using the Homebrew package manager for **macOS (or Linux)**:
 
 ```shell Brew
 brew install akeylesslabs/tap/akeyless
 ```
 
-# Authentication
-
-The CLI supports various types of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
-
-1. [API Key](https://docs.akeyless.io/docs/api-key) (`access_key`)
-2. [AWS IAM](https://docs.akeyless.io/docs/aws-iam) (`aws_iam`)
-3. [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) (`azure_ad`)
-4. [SAML](https://docs.akeyless.io/docs/saml) (`saml`)
-5. Password (`email/password`)
-6. [Certificate ](https://docs.akeyless.io/docs/certificate-based-authentication) (`certificate`)
-7. [OIDC](doc:openid) (`oidc`)
-8. [K8s](doc:kubernetes-auth) (`k8s`)
-9. [GCP](doc:gcp-auth-method) (`GCP`)
-10. [OCI](https://docs.akeyless.io/docs/oci-iam) (`oci`)
-
-For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.
+To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
 
 # Installation
 
-Running the CLI for the first time will start an interactive flow by default, where you can modify the basic settings if needed. 
+Running the CLI for the first time will start an interactive flow by default, where you can modify the basic settings if needed.
 
-For example, the default Akeyless URL should be `vault.akeyless.io` unless specifically you are running in a different SaaS environment, press Enter to leave the URL as is: 
+For example, the default Akeyless URL should be `vault.akeyless.io` unless specifically you are running in a different SaaS environment, press Enter to leave the URL as is:
 
 ```shell
 "AKEYLESS-CLI, first use detected
@@ -96,7 +79,7 @@ access-key '<Access-Key>'
 
 Continue with installing the Akeyless CLI, depending on your operating system
 
-## Linux \\ Mac
+## Linux \ Mac
 
 Once the authentication succeeds, follow the prompt to add the CLI executable to your `$PATH` :
 
@@ -154,8 +137,35 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ## Non-Interactive Mode
 
-To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.\
-If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.\
+To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
+If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
+For example, to work with the `eu` tenant you would run:
+
+```shell
+./akeyless --init --akeyless-url vault.eu.akeyless.io
+```
+
+# Authentication
+
+The CLI supports various types of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
+
+1. [API Key](https://docs.akeyless.io/docs/api-key) (`access_key`)
+2. [AWS IAM](https://docs.akeyless.io/docs/aws-iam) (`aws_iam`)
+3. [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) (`azure_ad`)
+4. [SAML](https://docs.akeyless.io/docs/saml) (`saml`)
+5. Password (`email/password`)
+6. [Certificate ](https://docs.akeyless.io/docs/certificate-based-authentication) (`certificate`)
+7. [OIDC](doc:openid) (`oidc`)
+8. [K8s](doc:kubernetes-auth) (`k8s`)
+9. [GCP](doc:gcp-auth-method) (`GCP`)
+10. [OCI](https://docs.akeyless.io/docs/oci-iam) (`oci`)
+
+For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.
+
+<br />
+
+To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
+If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
 ```shell
@@ -202,15 +212,15 @@ Where:
 
 * `gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `default_location_prefix`:  A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder. 
+* `default_location_prefix`:  A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder.
 
-* `cert_issuer_name`: The default name of an [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) to use. 
+* `cert_issuer_name`: The default name of an [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) to use.
 
 * `cert_username`:  The username the SSH certificate Issuer will issue the certificate for, e.g `ubuntu`.
 
 * `public_key_file_path`: Path to the file containing the SSH public key.
 
-* `legacy_signing_alg`: Set this option to use the  SSH legacy signing algorithm.  
+* `legacy_signing_alg`: Set this option to use the  SSH legacy signing algorithm.
 
 # Working with the Gateway
 
