@@ -231,7 +231,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
 ### Authentication Methods
 
-Akeyless MCP server supports multiple authentication methods:
+Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor> :
 
 1. Access Key Authentication (Default)
 
@@ -297,43 +297,36 @@ Akeyless MCP server supports multiple authentication methods:
 ```
 
 6. Cloud Provider Authentication
-   1. AWS IAM:
-   <br />
-   ```json JSON
-   {
-     "args": [
-       "mcp",
-       "--access-type", "aws_iam",
-       "--cloud-id", "your-aws-role-arn"
-     ]
-   }
-   ```
-   1. Azure AD:
-   <br />
-   ```json JSON
-   {
-     "args": [
-       "mcp",
-       "--access-type", "azure_ad",
-       "--cloud-id", "your-azure-client-id"
-     ]
-   }
-   ```
-   1. Google Cloud:
-   <br />
-   ```json JSON
-   {
-     "args": [
-       "mcp",
-       "--access-type", "gcp",
-       "--cloud-id", "your-gcp-service-account"
-     ]
-   }
-   ```
 
-<br />
+```json AWS
+{
+  "args": [
+    "mcp",
+    "--access-type", "aws_iam",
+    "--cloud-id", "your-aws-role-arn"
+  ]
+}
+```
+```json Azure
+{
+  "args": [
+    "mcp",
+    "--access-type", "azure_ad",
+    "--cloud-id", "your-azure-client-id"
+  ]
+}
+```
+```json GCP
+{
+  "args": [
+    "mcp",
+    "--access-type", "gcp",
+    "--cloud-id", "your-gcp-service-account"
+  ]
+}
+```
 
-7. Certificate Authentication
+6. Certificate Authentication
 
 ```json JSON
 {
