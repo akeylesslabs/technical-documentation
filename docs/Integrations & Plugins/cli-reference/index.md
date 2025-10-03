@@ -11,21 +11,21 @@ next:
   description: ''
 ---
 This section describes the available CLI commands that you can use when working with Akeyless.
-If you need help in context, check out the help from the terminal:
+If you need help in context, check out the help flag (`-h`)
 
 # General Flags
 
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
+`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temporary access token
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+`--uid-token`: The universal identity token, required only for universal_identity authentication
 
 `-h, --help`: Display help information
 
-`--json[=false]`: Set output format to JSON
+`--json[=false]`: Set the output format to JSON
 
-`--jq-expression`: JQ expression to filter result output
+`--jq-expression`: Provide a jQuery expression to filter result output
 
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
+`--no-creds-cleanup[=false]`: Do not clean local temporary expired credentials
 
 ```shell
 akeyless -h
@@ -246,21 +246,21 @@ akeyless unconfigure --profile <Profile name>
 
 ## update
 
-Update to the latest Akeyless CLI version
+Update the Akeyless CLI version
 
 ### Usage
 
 ```shell
-akeyless update 
+akeyless update
 ```
 
 ### Flags
 
-`-v, --version[=latest]`: The CLI version
+`-v, --version[=latest]`: Provide the CLI version to update to, by default, the latest version is used 
 
-`-s, --show-changelog`: Show the changelog between the current version and the latest one and exit (update will not be performed)
+`-s, --show-changelog`: Show the changelog between the current version and the latest version
 
-`-r, --artifact-repository`: Alternative CLI repository url. e.g. [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
+`-r, --artifact-repository`: Alternative CLI repository url, for example, [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
 
 ## update-account-settings
 
