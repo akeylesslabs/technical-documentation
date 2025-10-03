@@ -18,12 +18,12 @@ The Akeyless CLI has pre-compiled binary versions for **Linux, macOS, and Window
 
 Run the following commands to download and install the CLI binary:
 
-```shell Linux-AMD
+```shell Linux AMD
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
 chmod +x akeyless
 ./akeyless
 ```
-```shell Linux-ARM
+```shell Linux ARM
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-arm64
 chmod +x akeyless
 ./akeyless
