@@ -38,7 +38,7 @@ curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-
 chmod +x akeyless
 ./akeyless
 ```
-```powershell Windows 10+
+```powershell Windows
 curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-windows-amd64.exe
 .\akeyless.exe
 ```
