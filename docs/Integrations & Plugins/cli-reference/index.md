@@ -13,7 +13,7 @@ next:
 This section describes the available CLI commands that you can use when working with Akeyless.\
 If you need help in context, check out the help from the terminal:
 
-General Flags:
+#General Flags
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
@@ -33,9 +33,7 @@ akeyless <command> -h, --help
 akeyless <command> --debug
 ```
 
-## Update Akeyless CLI
-
-### <p style="color:blue">*akeyless update*</p>
+##akeyless update
 
 Update to the latest Akeyless CLI version
 
@@ -45,7 +43,7 @@ Update to the latest Akeyless CLI version
 akeyless update 
 ```
 
-##### Flags
+### Flags
 
 `-v, --version[=latest]`: The CLI version
 
@@ -53,11 +51,11 @@ akeyless update
 
 `-r, --artifact-repository`: Alternative CLI repository url. e.g. [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
 
-### <p style="color:blue">*describe-item*</p>
+##describe-item
 
 Gets the item details
 
-##### Flags
+### Flags
 
  `-n, --name`: Item name                                                         
 
@@ -75,7 +73,7 @@ Gets the item details
 
  `--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal] 
 
-##### Output
+### Output
 
 With only `--name` specified, the command returns all details about the specified item except for its version. 
 
@@ -83,7 +81,7 @@ When a version number is specified, the command returns all details about the sp
 
 When `--show-versions` is specified, the command returns all details about the specified item including a full list of versions, their creation dates, and their encryption keys for any version for which a key other than the default was used. 
 
-### <p style="color:blue">*update-item*</p>
+##update-item
 
 Update item name and description
 
@@ -181,7 +179,7 @@ block:Flags]
 
  `--accessibility  \"data\":` In case of an item in a user's personal folder 
 
-### <p style="color:blue">*set-item-state*</p>
+###set-item-state
 
 Set Dynamic Secret item's state (Enabled, Disabled)
 
@@ -198,7 +196,7 @@ akeyless set-item-state --name <Current item name> \
 
  `-s, --desired-state`: Required,  Desired item state                                                       
 
-### <p style="color:blue">*get-tags*</p>
+###get-tags
 
 Get all tags of selected item
 
@@ -212,7 +210,7 @@ akeyless get-tags --name <Item Name>
 
  `-n, --name`: Required,  The item name                                                       
 
-### <p style="color:blue">*update-account-settings*</p>
+#update-account-settings
 
 Updates account settings.
 
@@ -304,11 +302,11 @@ Note: The operation is allowed only for admin user
 
 `--default-certificate-expiration-notification-days`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--default-certificate-expiration-notification-days 1`, `--default-certificate-expiration-notification-days 5`.
 
-### <p style="color:blue">*get-account-settings*</p>
+#get-account-settings
 
 Get the settings of the account 
 
-### <p style="color:blue">*delete-item*</p>
+#delete-item
 
 Delete an item or an item version
 
@@ -330,7 +328,7 @@ akeyless delete-item -n <Item name>
 
  `--accessibility[=regular]`: In case of an item in a user's personal folder \[regular/personal]                                    
 
-### <p style="color:blue">*delete-items*</p>
+#delete-items
 
 Deletes multiple items from a given path
 
@@ -344,7 +342,7 @@ akeyless delete-items -p <Path\do\delete\items>
 
  `-p, --path`: Required,  Path to delete the items from                                       
 
-### <p style="color:blue">*list-items*</p>
+#list-items
 
 List of all accessible items
 
@@ -370,7 +368,7 @@ List of all accessible items
 
  `--accessibility[=regular]`: In case of an item in a user's personal folder, options: \[regular/personal]                                                                                                                                        
 
-### <p style="color:blue">*list-sra-bastions*</p>
+#list-sra-bastions
 
 List of all Secure Remote Access (SRA) Bastions in the account
 
@@ -378,7 +376,7 @@ List of all Secure Remote Access (SRA) Bastions in the account
 
  `--only-allowed-urls[=false]`: Filter the response to show only bastions allowed URLs                              
 
-### <p style="color:blue">*move-objects*</p>
+#move-objects
 
 Moves/Renames objects
 
@@ -398,7 +396,7 @@ akeyless move-objects --source <Source path to move the objects from> \
 
  `-o, --objects-type[=item]`: The objects type to move (item/auth\_method/role)                                    
 
-### <p style="color:blue">*configure*</p>
+#configure
 
 Configure client profile
 
@@ -442,7 +440,7 @@ akeyless configure
 
  `--key-data`: Private key data encoded in base64. Used if file was not provided (relevant only for access-type=cert in Curl Context)
 
-### <p style="color:blue">*unconfigure*</p>
+#unconfigure
 
 Remove configuration of client profile
 
