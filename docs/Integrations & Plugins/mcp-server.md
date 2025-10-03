@@ -77,33 +77,157 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
 ### Configuration Parameters
 
-* `command`
-  * Path to the Akeyless CLI binary
-  * Required: Yes | Default: –
-* `--access-id`
-  * Your Akeyless access ID
-  * Required: Yes* (if using the access_key access-type)
-  * Default: (none)
-* `--access-key`
-  * Your Akeyless access key
-  * Required: Yes* (if using the access_key access-type)
-  * Default: (none)
-* `--access-type`
-  * Authentication method
-  * Required: Yes
-  * Default: `access_key`
-* `--gateway-url`
-  * Akeyless Gateway URL
-  * Required: No
-  * Default: [https://api.akeyless.io](https://api.akeyless.io)
-* `--profile`
-  * CLI profile name to use
-  * Required: No
-  * Default: default
-* `--debug`
-  * Enable debug logging
-  * Required: No
-  * Default: false
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Configuration
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Required
+      </th>
+
+      <th>
+        Default Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `command`
+      </td>
+
+      <td>
+        Path to the Akeyless CLI binary
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+      <td>
+        (none)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args > --access-id`
+      </td>
+
+      <td>
+        Your Akeyless access ID
+      </td>
+
+      <td>
+        Yes*
+        (if using the access_key access-type)
+      </td>
+
+      <td>
+        (none)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args > --access-key`
+      </td>
+
+      <td>
+        Your Akeyless access key
+      </td>
+
+      <td>
+        Yes*
+        (if using the access_key access-type)
+      </td>
+
+      <td>
+        (none)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args > --access-type`
+      </td>
+
+      <td>
+        Authentication method
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+      <td>
+        `access_key`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args > --gateway-url`
+      </td>
+
+      <td>
+        Akeyless Gateway URL
+      </td>
+
+      <td>
+        No
+      </td>
+
+      <td>
+        `https://api.akeyless.io`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args > --profile`
+      </td>
+
+      <td>
+        CLI profile name to use
+      </td>
+
+      <td>
+        No
+      </td>
+
+      <td>
+        `default`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args > --debug`
+      </td>
+
+      <td>
+        Enable debug logging
+      </td>
+
+      <td>
+        No
+      </td>
+
+      <td>
+        `false`
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ### Authentication Methods
 
