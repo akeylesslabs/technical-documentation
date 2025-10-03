@@ -18,7 +18,7 @@ The Model Context Protocol is a standardized protocol that allows AI systems to 
 * Perform operations on behalf of users
 * Maintain security boundaries and access controls
 
-Read more about the <Anchor label="Model Context Protocol" target="_blank" href="https://modelcontextprotocol.io/">Model Context Protocol</Anchor>.  
+Read more about the <Anchor label="Model Context Protocol" target="_blank" href="https://modelcontextprotocol.io/">Model Context Protocol</Anchor>.
 
 # Akeyless MCP Server Features
 
@@ -95,12 +95,12 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 * `--gateway-url`
   * Akeyless Gateway URL
   * Required: No
-  * Default: https://api.akeyless.io
-* --profile
+  * Default: [https://api.akeyless.io](https://api.akeyless.io)
+* `--profile`
   * CLI profile name to use
   * Required: No
   * Default: default
-* --debug
+* `--debug`
   * Enable debug logging
   * Required: No
   * Default: false
