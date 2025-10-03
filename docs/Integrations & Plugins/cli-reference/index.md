@@ -35,7 +35,7 @@ akeyless <command> --debug
 
 # Commands
 
-## akeyless update
+## update
 
 Update to the latest Akeyless CLI version
 
@@ -114,7 +114,7 @@ block:Flags]
 
 `--rm-tag`: List of the existent tags that will be removed from this item.  \nTo specify multiple tags use argument multiple times: `--rm-tag` Tag1 `--rm-tag` Tag2
 
-`--secure-access-enable`: Enable/Disable secure remote access, "0-1": "\_\_(M
+`--secure-access-enable`: Enable/Disable secure remote access, "0-1": "__(M
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -148,7 +148,7 @@ block:Flags]
 
 `--secure-access-rdp-user`: Override the RDP Domain username
 
-`--secure-access-allow-external-user`: Allow providing external user for a domain users (Mandatory)\_\_
+`--secure-access-allow-external-user`: Allow providing external user for a domain users (Mandatory)__
 
 `--secure-access-db-schema`: The DB schema (relevant only for DB Dynamic-Secret)
 
@@ -166,7 +166,7 @@ block:Flags]
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access  \n(relevant only for EKS/GKE/K8s Dynamic-Secret)
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends (Mandatory)\_\_ Curre  \n(relevant only for Rotated-secret on SRA)
+`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends (Mandatory)__ Curre  \n(relevant only for Rotated-secret on SRA)
 
 `--behaviordelete-protection`: Protection from accidental deletion of this item
 
