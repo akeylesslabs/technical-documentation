@@ -53,9 +53,9 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 
 ## Configuration and Setup
 
-The Akeyless MCP server is configured through a MCP client configuration file (typically `~/.cursor/mcp.json` for Cursor IDE).
+Access to the Akeyless MCP server is setup for a MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of some available MCP clients is available <Anchor label="here" target="_blank" href="https://modelcontextprotocol.io/clients">here</Anchor>.
 
-**Basic Configuration Structure**
+### Sample Configuration Structure
 
 ```json JSON
 {
@@ -75,24 +75,38 @@ The Akeyless MCP server is configured through a MCP client configuration file (t
 }
 ```
 
-**Configuration Parameters**
+### Configuration Parameters
 
-* command – Path to Akeyless CLI binary
-  Required: Yes | Default: –
-* --access-id – Your Akeyless access ID
-  Required: Yes | Default: –
-* --access-key – Your Akeyless access key
-  Required: Yes* | Default: –
-* --access-type – Authentication method
-  Required: Yes | Default: access_key
-* --gateway-url – Akeyless gateway URL
-  Required: No | Default: [https://api.akeyless.io](https://api.akeyless.io)
-* --profile – CLI profile name
-  Required: No | Default: default
-* --debug – Enable debug logging
-  Required: No | Default: false
+* `command`
+  * Path to the Akeyless CLI binary
+  * Required: Yes | Default: –
+* `--access-id`
+  * Your Akeyless access ID
+  * Required: Yes* (if using the access_key access-type)
+  * Default: (none)
+* `--access-key`
+  * Your Akeyless access key
+  * Required: Yes* (if using the access_key access-type)
+  * Default: (none)
+* `--access-type`
+  * Authentication method
+  * Required: Yes
+  * Default: `access_key`
+* `--gateway-url`
+  * Akeyless Gateway URL
+  * Required: No
+  * Default: https://api.akeyless.io
+* --profile
+  * CLI profile name to use
+  * Required: No
+  * Default: default
+* --debug
+  * Enable debug logging
+  * Required: No
+  * Default: false
 
-**Authentication Methods**
+### Authentication Methods
+
 Akeyless MCP server supports multiple authentication methods:
 
 1. Access Key Authentication (Default)
