@@ -1,6 +1,5 @@
 ---
 title: MCP Server
-excerpt: Model Context Protocol (MCP) Server
 deprecated: false
 hidden: false
 metadata:
@@ -8,95 +7,53 @@ metadata:
 ---
 # Overview
 
-The Akeyless Model Context Protocol (MCP) Server is a powerful integration that allows AI assistants and applications to securely interact with your Akeyless secrets management platform. It provides a standardized interface for AI models to access, manage, and manipulate secrets, keys, certificates, and other sensitive data stored in Akeyless.
+The Akeyless Model Context Protocol (MCP) Server is a robust integration that allows AI systems to securely interact with your Akeyless secrets management platform. It provides a standardized interface for AI models to access, manage, and manipulate secrets, keys, certificates, and other sensitive data stored in Akeyless.
 
-# What is MCP?
+# What is the MCP?
 
-Model Context Protocol (MCP) is a standardized protocol that enables AI assistants to securely connect to external data sources and services. It provides a secure, authenticated way for AI models to:
+The Model Context Protocol is a standardized protocol that allows AI systems to connect to external data sources and services. It provides a secure, authenticated method for AI models to:
 
 * Access external APIs and services
 * Retrieve and manage sensitive data
 * Perform operations on behalf of users
 * Maintain security boundaries and access controls
 
+Read more about the <Anchor label="Model Context Protocol" target="_blank" href="https://modelcontextprotocol.io/">Model Context Protocol</Anchor>.  
+
 # Akeyless MCP Server Features
 
-The Akeyless MCP server provides comprehensive access to Akeyless functionality including:
+The Akeyless MCP Server provides comprehensive access to Akeyless functionality, including:
 
 **Core Capabilities**
 
 * Secrets Management: Create, read, update, and delete static secrets
-* Key Management: Generate, rotate, and manage encryption keys
-* Certificate Management: Issue, renew, and manage PKI and SSH certificates
+* Encryption & Key Management: Generate, rotate, and manage encryption keys
+* Certificate Lifecycle Management: Issue, renew, and manage PKI and SSH certificates
 * Dynamic Secrets: Generate temporary credentials for databases and cloud services
 * Access Control: Manage roles, permissions, and authentication methods
 * Analytics: Retrieve usage analytics and audit data
 
 **Supported Operations**
 
-* List and describe items (secrets, keys, certificates)
+* List and describe items (such as secrets, keys, certificates)
 * Create and update secrets
 * Generate dynamic secrets
 * Manage authentication methods and roles
 * Retrieve analytics data
 * Handle targets and associations
 
-#### Installation Guide
+# Configuration
 
-**Prerequisites**
+## Prerequisites
 
-* macOS, Linux, or Windows operating system
-* Internet connection for downloading and updates
-* Akeyless account (free tier available)
+* The Akeyless CLI must be successfully installed and **updated to version 1.130.0+.**
+  * Read more about the <Anchor label="Akeyless CLI" target="_blank" href="https://docs.akeyless.io/update/docs/cli">Akeyless CLI</Anchor>.
+  * Learn about <Anchor label="updating the Akeyless CLI" target="_blank" href="https://docs.akeyless.io/docs/cli-reference#/update">updating the Akeyless CLI</Anchor>.
+* An Akeyless account must be created and a corresponding profile configured with the Akeyless CLI.
 
-**Step 1: Download Akeyless CLI**
+## Configuration and Setup
 
-```shell Linux-AMD
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-chmod +x akeyless
-./akeyless
-```
-```shell Linux-ARM
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-arm64
-chmod +x akeyless
-./akeyless
-```
-```shell Mac Intel
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-darwin-amd64
-chmod +x akeyless
-./akeyless
-```
-```shell Mac Apple Silicon
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-darwin-arm64
-chmod +x akeyless
-./akeyless
-```
-```powershell Windows
-curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-windows-amd64.exe
-.\akeyless.exe
-```
-
-**Step 2: Verify Installation**
-
-```shell CLI
-# Check version
-akeyless --version
-
-# Verify MCP command is available
-akeyless mcp --help
-```
-
-**Step 3: Update CLI (if needed)**
-
-```shell CLI
-# Update to latest version
-akeyless update
-```
-
-**Configuration and Setup**
-
-MCP Server Configuration
-The Akeyless MCP server is configured through your MCP client configuration file (typically `~/.cursor/mcp.json` for Cursor IDE).
+The Akeyless MCP server is configured through a MCP client configuration file (typically `~/.cursor/mcp.json` for Cursor IDE).
 
 **Basic Configuration Structure**
 
