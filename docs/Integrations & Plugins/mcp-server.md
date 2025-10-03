@@ -5,11 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-#### Overview
+# Overview
 
 The Akeyless MCP (Model Context Protocol) Server is a powerful integration that allows AI assistants and applications to securely interact with your Akeyless secrets management platform. It provides a standardized interface for AI models to access, manage, and manipulate secrets, keys, certificates, and other sensitive data stored in Akeyless.
 
-#### What is MCP?
+# What is MCP?
 
 Model Context Protocol (MCP) is a standardized protocol that enables AI assistants to securely connect to external data sources and services. It provides a secure, authenticated way for AI models to:
 
@@ -18,7 +18,7 @@ Model Context Protocol (MCP) is a standardized protocol that enables AI assistan
 * Perform operations on behalf of users
 * Maintain security boundaries and access controls
 
-#### Akeyless MCP Server Features
+# Akeyless MCP Server Features
 
 The Akeyless MCP server provides comprehensive access to Akeyless functionality including:
 
@@ -264,7 +264,7 @@ Akeyless MCP server supports multiple authentication methods:
 }
 ```
 
-#### Best Practices
+# Best Practices
 
 1. Security Best Practices
    1. Use Environment Variables: Store sensitive credentials in environment
@@ -292,7 +292,7 @@ Akeyless MCP server supports multiple authentication methods:
    3. Batch Operations: Use batch operations for multiple items
    4. Resource Limits: Set appropriate resource limits
 
-#### Troubleshooting
+# Troubleshooting
 
 **Common Issues and Solutions**
 
