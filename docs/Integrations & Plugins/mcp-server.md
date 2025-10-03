@@ -326,7 +326,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-6. Certificate Authentication
+7. Certificate Authentication
 
 ```json JSON
 {
@@ -362,9 +362,6 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
    4. Regular Rotation: Rotate access keys regularly
    5. Secure Storage: Use secure credential storage solutions
    6. Network Security: Use HTTPS endpoints and consider VPN access
-
-<br />
-
 2. Configuration Management
    1. Version Control: Keep MCP configuration files in version control (excluding secrets)
    2. Environment Separation: Use separate configurations for different environments
@@ -381,9 +378,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
    3. Batch Operations: Use batch operations for multiple items
    4. Resource Limits: Set appropriate resource limits
 
-# Troubleshooting
-
-**Common Issues and Solutions**
+# Troubleshooting: Common Issues and Solutions
 
 1. Authentication Failures
    1. Problem: MCP server fails to authenticate
