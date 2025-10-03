@@ -1,6 +1,6 @@
 ---
 title: MCP Server
-excerpt: Model Context Protocol
+excerpt: Model Context Protocol (MCP) Server
 deprecated: false
 hidden: false
 metadata:
