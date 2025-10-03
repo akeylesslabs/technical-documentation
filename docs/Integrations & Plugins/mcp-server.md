@@ -122,7 +122,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-        --access-id`
+                --access-id`
       </td>
 
       <td>
@@ -142,7 +142,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-        --access-key`
+                --access-key`
       </td>
 
       <td>
@@ -162,7 +162,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-        --access-type`
+                --access-type`
       </td>
 
       <td>
@@ -181,7 +181,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-        --gateway-url`
+                --gateway-url`
       </td>
 
       <td>
@@ -200,7 +200,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-        --profile`
+                --profile`
       </td>
 
       <td>
@@ -219,7 +219,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-        --debug`
+                --debug`
       </td>
 
       <td>
@@ -254,52 +254,15 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-#### Password Authentication
+#### Certificate Authentication
 
-```json JSON
+```json
 {
   "args": [
     "mcp",
-    "--admin-email", "user@example.com",
-    "--admin-password", "your-password",
-    "--access-type", "password"
-  ]
-}
-```
-
-#### SAML Authentication
-
-```json JSON
-{
-  "args": [
-    "mcp",
-    "--access-type", "saml",
-    "--gateway-url", "https://your-gateway.com"
-  ]
-}
-```
-
-#### OIDC/JWT Authentication
-
-```json JSON
-{
-  "args": [
-    "mcp",
-    "--access-type", "oidc",
-    "--jwt", "your-jwt-token",
-    "--gateway-url", "https://your-gateway.com"
-  ]
-}
-```
-
-#### Kubernetes Authentication
-
-```json JSON
-{
-  "args": [
-    "mcp",
-    "--access-type", "aws_iam",
-    "--cloud-id", "your-aws-role-arn"
+    "--access-type", "cert",
+    "--cert-file-name", "/path/to/cert.pem",
+    "--key-file-name", "/path/to/key.pem"
   ]
 }
 ```
@@ -334,22 +297,21 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-#### Certificate Authentication
+#### Kubernetes Authentication
 
 ```json JSON
 {
   "args": [
     "mcp",
-    "--access-type", "cert",
-    "--cert-file-name", "/path/to/cert.pem",
-    "--key-file-name", "/path/to/key.pem"
+    "--access-type", "aws_iam",
+    "--cloud-id", "your-aws-role-arn"
   ]
 }
 ```
 
 #### LDAP Authentication
 
-```json JSON
+```json
 {
   "args": [
     "mcp",
@@ -357,6 +319,44 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
     "--ldap_proxy_url", "ldap://your-ldap-server",
     "--username", "your-username",
     "--password", "your-password"
+  ]
+}
+```
+
+#### OIDC/JWT Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--access-type", "oidc",
+    "--jwt", "your-jwt-token",
+    "--gateway-url", "https://your-gateway.com"
+  ]
+}
+```
+
+#### Password Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--admin-email", "user@example.com",
+    "--admin-password", "your-password",
+    "--access-type", "password"
+  ]
+}
+```
+
+#### SAML Authentication
+
+```json JSON
+{
+  "args": [
+    "mcp",
+    "--access-type", "saml",
+    "--gateway-url", "https://your-gateway.com"
   ]
 }
 ```
@@ -380,7 +380,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 
 ## Monitoring and Logging
 
-* Enable Debug Mode: Use --debug flag for troubleshooting
+* Enable Debug Mode: Use the `--debug` flag for troubleshooting
 * Monitor Access: Regularly review access logs and analytics
 * Set Up Alerts: Configure alerts for unusual access patterns
 * Audit Trail: Maintain audit trails for compliance requirements
