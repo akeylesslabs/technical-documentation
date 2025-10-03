@@ -20,7 +20,7 @@ The Model Context Protocol is a standardized protocol that allows AI systems to 
 * Perform operations on behalf of users
 * Maintain security boundaries and access controls
 
-Read more about the [Model Context Protocol](https://modelcontextprotocol.io/).
+Read more about the <Anchor label="Model Context Protocol" target="_blank" href="https://modelcontextprotocol.io/">Model Context Protocol</Anchor>.
 
 # Akeyless MCP Server Features
 
@@ -48,18 +48,18 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 
 ## Prerequisites
 
-* The Akeyless CLI must be successfully installed and **updated to version 1.130.0+**.
-  * Read more about the [Akeyless CLI](https://docs.akeyless.io/update/docs/cli).
-  * Learn about [updating the Akeyless CLI](https://docs.akeyless.io/docs/cli-reference#/update).
-* An Akeyless account must be created, and a corresponding profile configured with the Akeyless CLI.
+* The Akeyless CLI must be successfully installed and **updated to version 1.130.0+.**
+  * Read more about the <Anchor label="Akeyless CLI" target="_blank" href="https://docs.akeyless.io/update/docs/cli">Akeyless CLI</Anchor>.
+  * Learn about <Anchor label="updating the Akeyless CLI" target="_blank" href="https://docs.akeyless.io/docs/cli-reference#/update">updating the Akeyless CLI</Anchor>.
+* An Akeyless account must be created and a corresponding profile configured with the Akeyless CLI.
 
 ## Configuration and Setup
 
-Access to the Akeyless MCP server is set up for an MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of some available MCP clients is available [here](https://modelcontextprotocol.io/clients).
+Access to the Akeyless MCP server is setup for a MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of some available MCP clients is available <Anchor label="here" target="_blank" href="https://modelcontextprotocol.io/clients">here</Anchor>.
 
 ### Sample Configuration Structure
 
-```json
+```json JSON
 {
   "mcpServers": {
     "akeyless": {
@@ -79,23 +79,171 @@ Access to the Akeyless MCP server is set up for an MCP client with a configurati
 
 ### Configuration Parameters
 
-| Configuration | Description | Required | Default Value |
-|---------------|-------------|----------|---------------|
-| `command` | Path to the Akeyless CLI binary | Yes | (none) |
-| `args > --access-id` | Your Akeyless access ID | Yes* (if using the access_key access-type) | (none) |
-| `args > --access-key` | Your Akeyless access key | Yes* (if using the access_key access-type) | (none) |
-| `args > --access-type` | Authentication method | Yes | `access_key` |
-| `args > --gateway-url` | Akeyless Gateway URL | No | `https://api.akeyless.io` |
-| `args > --profile` | CLI profile name to use | No | `default` |
-| `args > --debug` | Enable debug logging | No | `false` |
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Configuration
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Required
+      </th>
+
+      <th>
+        Default Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `command`
+      </td>
+
+      <td>
+        Path to the Akeyless CLI binary
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+      <td>
+        (none)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args >
+        --access-id`
+      </td>
+
+      <td>
+        Your Akeyless access ID
+      </td>
+
+      <td>
+        Yes*
+        (if using the access_key access-type)
+      </td>
+
+      <td>
+        (none)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args >
+        --access-key`
+      </td>
+
+      <td>
+        Your Akeyless access key
+      </td>
+
+      <td>
+        Yes*
+        (if using the access_key access-type)
+      </td>
+
+      <td>
+        (none)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args >
+        --access-type`
+      </td>
+
+      <td>
+        Authentication method
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+      <td>
+        `access_key`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args >
+        --gateway-url`
+      </td>
+
+      <td>
+        Akeyless Gateway URL
+      </td>
+
+      <td>
+        No
+      </td>
+
+      <td>
+        `https://api.akeyless.io`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args >
+        --profile`
+      </td>
+
+      <td>
+        CLI profile name to use
+      </td>
+
+      <td>
+        No
+      </td>
+
+      <td>
+        `default`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args >
+        --debug`
+      </td>
+
+      <td>
+        Enable debug logging
+      </td>
+
+      <td>
+        No
+      </td>
+
+      <td>
+        `false`
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ### Authentication Methods
 
-The Akeyless MCP server supports multiple [Authentication Methods](doc:access-and-authentication-methods):
+Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor> :
 
 #### Access Key Authentication (Default)
 
-```json
+```json JSON
 {
   "args": [
     "mcp",
@@ -108,7 +256,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
 
 #### Password Authentication
 
-```json
+```json JSON
 {
   "args": [
     "mcp",
@@ -121,7 +269,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
 
 #### SAML Authentication
 
-```json
+```json JSON
 {
   "args": [
     "mcp",
@@ -133,7 +281,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
 
 #### OIDC/JWT Authentication
 
-```json
+```json JSON
 {
   "args": [
     "mcp",
@@ -146,7 +294,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
 
 #### Kubernetes Authentication
 
-```json
+```json JSON
 {
   "args": [
     "mcp",
@@ -158,8 +306,7 @@ The Akeyless MCP server supports multiple [Authentication Methods](doc:access-an
 
 #### Cloud Provider Authentication
 
-```json
-AWS
+```json AWS
 {
   "args": [
     "mcp",
@@ -168,8 +315,7 @@ AWS
   ]
 }
 ```
-```json
-Azure
+```json Azure
 {
   "args": [
     "mcp",
@@ -178,8 +324,7 @@ Azure
   ]
 }
 ```
-```json
-GCP
+```json GCP
 {
   "args": [
     "mcp",
@@ -191,7 +336,7 @@ GCP
 
 #### Certificate Authentication
 
-```json
+```json JSON
 {
   "args": [
     "mcp",
@@ -204,7 +349,7 @@ GCP
 
 #### LDAP Authentication
 
-```json
+```json JSON
 {
   "args": [
     "mcp",
@@ -220,32 +365,33 @@ GCP
 
 ## Security Best Practices
 
-1. Use Environment Variables: Store sensitive credentials in environment variables rather than hardcoding them.
-2. Principle of Least Privilege: Create dedicated access keys with minimal required permissions.
-3. Regular Rotation: Rotate access keys regularly.
-4. Secure Storage: Use secure credential storage solutions.
-5. Network Security: Use HTTPS endpoints and consider VPN access.
+1. Use Environment Variables: Store sensitive credentials in environment
+2. variables rather than hardcoding them
+3. Principle of Least Privilege: Create dedicated access keys with minimal required permissions
+4. Regular Rotation: Rotate access keys regularly
+5. Secure Storage: Use secure credential storage solutions
+6. Network Security: Use HTTPS endpoints and consider VPN access
 
 ## Configuration Management
 
-1. Version Control: Keep MCP configuration files in version control (excluding secrets).
-2. Environment Separation: Use separate configurations for different environments.
-3. Documentation: Document your configuration choices and rationale.
-4. Testing: Test configurations in development before deploying to production.
+1. Version Control: Keep MCP configuration files in version control (excluding secrets)
+2. Environment Separation: Use separate configurations for different environments
+3. Documentation: Document your configuration choices and rationale
+4. Testing: Test configurations in development before deploying to production
 
 ## Monitoring and Logging
 
-1. Enable Debug Mode: Use the --debug flag for troubleshooting.
-2. Monitor Access: Regularly review access logs and analytics.
-3. Set Up Alerts: Configure alerts for unusual access patterns.
-4. Audit Trail: Maintain audit trails for compliance requirements.
+1. Enable Debug Mode: Use --debug flag for troubleshooting
+2. Monitor Access: Regularly review access logs and analytics
+3. Set Up Alerts: Configure alerts for unusual access patterns
+4. Audit Trail: Maintain audit trails for compliance requirements
 
 ## Performance Optimization
 
-1. Connection Pooling: Reuse connections when possible.
-2. Caching: Implement appropriate caching strategies.
-3. Batch Operations: Use batch operations for multiple items.
-4. Resource Limits: Set appropriate resource limits.
+1. Connection Pooling: Reuse connections when possible
+2. Caching: Implement appropriate caching strategies
+3. Batch Operations: Use batch operations for multiple items
+4. Resource Limits: Set appropriate resource limits
 
 # Troubleshooting: Common Issues and Solutions
 
@@ -253,32 +399,31 @@ GCP
 
 ### Akeyless MCP Server fails to authenticate
 
-1. Verify access ID and access key are correct.
-2. Check if credentials have expired.
-3. Ensure proper permissions are assigned.
-4. Verify gateway URL is accessible.
+1. Verify access ID and access key are correct
+2. Check if credentials have expired
+3. Ensure proper permissions are assigned
+4. Verify gateway URL is accessible
 
-```shell
+```shell CLI
 # Test authentication manually
-auth --access-id "your-access-id" --access-key "your-access-key"
+akeyless auth --access-id "your-access-id" --access-key "your-access-key"
 ```
 
 ## Connection Issues
 
 ### Cannot connect to the Akeyless Gateway
 
-* Check network connectivity.
-* Verify gateway URL format.
-* Check firewall settings.
+* Check network connectivity
+* Verify gateway URL format
+* Check firewall settings
 * Test with curl or wget:
 
-```shell
+```shell CLI
 # Test connectivity
 curl -I https://api.akeyless.io
 ```
 
-```text
-Sample Output
+```Text Sample Output
 HTTP/2 405 
 date: Fri, 03 Oct 2025 20:36:32 GMT
 content-type: application/json
@@ -300,16 +445,16 @@ x-frame-options: SAMEORIGIN
 
 ### Insufficient permissions for operations
 
-* Review role assignments.
-* Check item-level permissions.
-* Verify authentication method permissions.
-* Contact administrator for access.
+* Review role assignments
+* Check item-level permissions
+* Verify authentication method permissions
+* Contact administrator for access
 
 ## Configuration Errors
 
 ### MCP server fails to start
 
-* Validate JSON configuration syntax.
-* Check file paths are correct.
-* Verify command arguments.
-* Review environment variables.
+* Validate JSON configuration syntax
+* Check file paths are correct
+* Verify command arguments
+* Review environment variables
