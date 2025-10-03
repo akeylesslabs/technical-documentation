@@ -365,33 +365,32 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 
 ## Security Best Practices
 
-1. Use Environment Variables: Store sensitive credentials in environment
-2. variables rather than hardcoding them
-3. Principle of Least Privilege: Create dedicated access keys with minimal required permissions
-4. Regular Rotation: Rotate access keys regularly
-5. Secure Storage: Use secure credential storage solutions
-6. Network Security: Use HTTPS endpoints and consider VPN access
+* Use Environment Variables: Store sensitive credentials in environment variables rather than hardcoding them
+* Principle of Least Privilege: Create dedicated access keys with minimal required permissions
+* Regular Rotation: Rotate access keys regularly
+* Secure Storage: Use secure credential storage solutions
+* Network Security: Use HTTPS endpoints and consider VPN access
 
 ## Configuration Management
 
-1. Version Control: Keep MCP configuration files in version control (excluding secrets)
-2. Environment Separation: Use separate configurations for different environments
-3. Documentation: Document your configuration choices and rationale
-4. Testing: Test configurations in development before deploying to production
+* Version Control: Keep MCP configuration files in version control (excluding secrets)
+* Environment Separation: Use separate configurations for different environments
+* Documentation: Document your configuration choices and rationale
+* Testing: Test configurations in development before deploying to production
 
 ## Monitoring and Logging
 
-1. Enable Debug Mode: Use --debug flag for troubleshooting
-2. Monitor Access: Regularly review access logs and analytics
-3. Set Up Alerts: Configure alerts for unusual access patterns
-4. Audit Trail: Maintain audit trails for compliance requirements
+* Enable Debug Mode: Use --debug flag for troubleshooting
+* Monitor Access: Regularly review access logs and analytics
+* Set Up Alerts: Configure alerts for unusual access patterns
+* Audit Trail: Maintain audit trails for compliance requirements
 
 ## Performance Optimization
 
-1. Connection Pooling: Reuse connections when possible
-2. Caching: Implement appropriate caching strategies
-3. Batch Operations: Use batch operations for multiple items
-4. Resource Limits: Set appropriate resource limits
+* Connection Pooling: Reuse connections when possible
+* Caching: Implement appropriate caching strategies
+* Batch Operations: Use batch operations for multiple items
+* Resource Limits: Set appropriate resource limits
 
 # Troubleshooting: Common Issues and Solutions
 
