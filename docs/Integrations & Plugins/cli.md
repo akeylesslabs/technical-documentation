@@ -55,24 +55,26 @@ To download the latest version of the CLI, please make sure that the `https://ak
 
 Running the CLI for the first time by default, prompts you to configure the basic settings.
 
-For example, the default Akeyless URL is `vault.akeyless.io`. This value is changed if you are running in a different SaaS environment. Press Enter to keep the default value:
+For example, the default Akeyless URL is `vault.akeyless.io`. This value is changed if you are running in a different SaaS environment. Press Enter to keep the default value.
 
 ```shell
 AKEYLESS-CLI, first use detected
-Enter Akeyless URL (Default: vault.akeyless.io)
+For more info please visit: https://docs.akeyless.io/docs/cli 
+By default, the Akeyless URL is vault.akeyless.io. Use a different URL if another SaaS environment is being used.
+Please type your answer: (Default: vault.akeyless.io) 
 ```
 
-At the prompt `Would you like to configure a profile (Y/n)` line, type `Y`. Then, type a name to rename the default profile, or press Enter to leave the name as `default`:
+At the prompt `Would you like to configure a profile? (Y/n)` line, type `Y`. Type a name for the profile or press Enter to leave the name as `default`.
 
 ```shell
-"Would you like to configure a profile? (Y/n) Y
-Profile Name:  (Default: default)"
+Would you like to configure a profile? (Y/n) Y
+Profile Name:  (Default: default)
 ```
 
-Choose an Authentication Method from the list to configure the profile with, where pressing `Enter` will use by default  [API Key](https://docs.akeyless.io/docs/api-key), set the relevant **Access ID** and **Access Key**:
+Choose an <Anchor label="Authentication Method" target="_blank" href="https://docs.akeyless.io/docs/access-and-authentication-methods">Authentication Method</Anchor>  from the list to configure the profile with. Press `Enter` to use the default  [API Key](https://docs.akeyless.io/docs/api-key) method. Set the relevant **Access ID** and **Access Key**:
 
-```shell API-Key Authentication
-access-id '<Access-ID>' 
+```shell Shell
+Access ID: '<Access-ID>' 
 access-key '<Access-Key>' 
 'Profile default successfully configured'
 ```
@@ -161,8 +163,6 @@ The CLI supports various types of [Authentication Methods](https://docs.akeyless
 10. [OCI](https://docs.akeyless.io/docs/oci-iam) (`oci`)
 
 For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.
-
-<br />
 
 To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
 If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
