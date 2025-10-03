@@ -233,7 +233,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
 Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor> :
 
-1. Access Key Authentication (Default)
+#### Access Key Authentication (Default)
 
 ```json JSON
 {
@@ -246,7 +246,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-2. Password Authentication
+#### Password Authentication
 
 ```json JSON
 {
@@ -259,7 +259,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-3. SAML Authentication
+#### SAML Authentication
 
 ```json JSON
 {
@@ -271,7 +271,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-4. OIDC/JWT Authentication
+#### OIDC/JWT Authentication
 
 ```json JSON
 {
@@ -284,7 +284,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-5. Kubernetes Authentication
+#### Kubernetes Authentication
 
 ```json JSON
 {
@@ -296,7 +296,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-6. Cloud Provider Authentication
+#### Cloud Provider Authentication
 
 ```json AWS
 {
@@ -326,7 +326,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-7. Certificate Authentication
+#### Certificate Authentication
 
 ```json JSON
 {
@@ -339,7 +339,7 @@ Akeyless MCP server supports multiple <Anchor label="Authentication Methods" tar
 }
 ```
 
-8. LDAP Authentication
+#### LDAP Authentication
 
 ```json JSON
 {
