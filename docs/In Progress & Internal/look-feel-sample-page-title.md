@@ -8,7 +8,15 @@ metadata:
 ---
 # Heading 1
 
-Basic text.
+Basic text. Text `inline code` text.
+
+Second paragraph text.
+
+**Bold text.**
+
+***
+
+Horizontal line above.
 
 ## Heading 2
 
@@ -23,6 +31,8 @@ Unordered List, Prior Text:
 * Unordered List Item 3
 
 ### Heading 3
+
+Ordered List, Prior Text:
 
 1. Ordered List Item 1
    1. Level 2
