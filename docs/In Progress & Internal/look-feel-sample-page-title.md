@@ -7,6 +7,13 @@ metadata:
   robots: index
 next:
   description: What's Next Text
+  pages:
+    - slug: look-feel-sample-page-title
+      title: Look & Feel Sample [Page Title]
+      type: basic
+    - title: Akeyless
+      type: link
+      url: https://www.akeyless.io
 ---
 # Heading 1
 
