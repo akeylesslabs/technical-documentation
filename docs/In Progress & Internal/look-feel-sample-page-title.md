@@ -165,9 +165,9 @@ YouTube Embed:
 
 # Items Not Supported:
 
-* Superscripts.
-* Subscripts.
-* Highlighted text.
+* Superscripts
+* Subscripts
+* Highlighted Text
 * Markdown Standard Definition List
 
 [^1]: This is the footnote.
