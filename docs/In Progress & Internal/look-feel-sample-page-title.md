@@ -18,11 +18,11 @@ metadata:
 
 ###### Heading 6
 
-Basic text.
+Basic text.**Bolded text.** *Italicized text.*
 
 Second paragraph text.
 
-**Bold text.**
+<br />
 
 ***
 
