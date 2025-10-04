@@ -48,7 +48,7 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 
 ## Prerequisites
 
-* The Akeyless CLI must be successfully installed and **updated to version 1.130.0+.**
+* The Akeyless CLI must be successfully installed and **updated to version 1.130.0** or newer.
   * Read more about the <Anchor label="Akeyless CLI" target="_blank" href="https://docs.akeyless.io/update/docs/cli">Akeyless CLI</Anchor>.
   * Learn about <Anchor label="updating the Akeyless CLI" target="_blank" href="https://docs.akeyless.io/docs/cli-reference#/update">updating the Akeyless CLI</Anchor>.
 * An Akeyless account must be created and a corresponding profile configured with the Akeyless CLI.
@@ -122,7 +122,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-                --access-id`
+                        --access-id`
       </td>
 
       <td>
@@ -142,7 +142,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-                --access-key`
+                        --access-key`
       </td>
 
       <td>
@@ -162,7 +162,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-                --access-type`
+                        --access-type`
       </td>
 
       <td>
@@ -181,7 +181,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-                --gateway-url`
+                        --gateway-url`
       </td>
 
       <td>
@@ -200,7 +200,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-                --profile`
+                        --profile`
       </td>
 
       <td>
@@ -219,7 +219,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
     <tr>
       <td>
         `args >
-                --debug`
+                        --debug`
       </td>
 
       <td>
@@ -239,7 +239,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
 ### Authentication Methods
 
-Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor> :
+The Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor>:
 
 #### Access Key Authentication (Default)
 
