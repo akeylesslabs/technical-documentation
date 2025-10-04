@@ -5,12 +5,12 @@ hidden: true
 metadata:
   robots: index
 ---
-<Callout icon="🚧">
+<Callout icon="🚧" theme="warn">
   Work In Progress
 </Callout>
 
-<Callout icon="❗️">
-  This style guide is subsidiary to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use the Marketing Style Guide.
+<Callout icon="❗️" theme="error">
+  This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use the Marketing Style Guide.
 </Callout>
 
 # Purpose
@@ -61,7 +61,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 ## Code
 
-* Inline code: Use backticks (``command``). Use inline code for represent:
+* Inline code: Use backticks (`command`). Use inline code for represent:
   * A command in a sentence: Use `akeyless update` to update your Akeyless CLI version.
 * Code blocks: Use triple backticks with language identifiers:
 
@@ -133,7 +133,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 # Review Process
 
-* If possible, have Harrison (harrison.s@akeyless.io) review all content.
+* If possible, have Harrison ([harrison.s@akeyless.io](mailto:harrison.s@akeyless.io)) review all content.
 * Verify technical accuracy.
 * Run spell check and grammar review.
 * Validate code snippets and commands.
