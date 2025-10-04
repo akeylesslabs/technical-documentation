@@ -18,7 +18,7 @@ metadata:
 
 ###### Heading 6
 
-Basic text. Text `inline code` text.
+Basic text.
 
 Second paragraph text.
 
