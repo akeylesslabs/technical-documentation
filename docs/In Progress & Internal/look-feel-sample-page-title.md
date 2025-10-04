@@ -74,6 +74,10 @@ Sample text.
 
 Here's a sentence with a footnote. [^1]
 
-<br />
+Task List:
+
+* [x] Write the press release
+* [ ] Update the website
+* [ ] Contact the media
 
 [^1]: This is the footnote.
