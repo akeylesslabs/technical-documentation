@@ -22,8 +22,6 @@ Basic text. **Bolded text.** _Italicized text._ `Inline code.`<Anchor label="Lin
 
 Image:![](https://files.readme.io/56f25792543c2effd77045921c098e39aa3917e410c6945a72aefc95bfabd003-Certificate.svg)
 
-Second paragraph text.
-
 > Blockquote line 1.
 >
 > Blockquote line 2.
