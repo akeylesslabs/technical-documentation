@@ -2,7 +2,7 @@
 title: Look & Feel Sample [Page Title]
 excerpt: I am a page description
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
