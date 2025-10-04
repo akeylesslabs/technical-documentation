@@ -142,11 +142,11 @@ Tabs:
 
 Callout:
 
-<Callout icon="📘" theme="info">
-
+<Callout icon="❗️">
+  Callout text.
 </Callout>
 
-Recipe:
+Recipe (use these for complicated codeblock walkthroughs:
 
 <Recipe slug="python-aws_iam" title="Python  - AWS_IAM" />
 
