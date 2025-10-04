@@ -18,7 +18,7 @@ metadata:
 
 ###### Heading 6
 
-Basic text.**Bolded text.** *Italicized text.*
+Basic text.**Bolded text.** *Italicized text.* `Inline code.`
 
 Second paragraph text.
 
@@ -50,7 +50,7 @@ Ordered List, Prior Text:
 2. Ordered List Item 2
 3. Ordered List Item 3
 
-Horizontal line: "***"
+Horizontal line: "**"
 
 ***
 
