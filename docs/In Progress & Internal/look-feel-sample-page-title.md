@@ -74,4 +74,7 @@ Sample text.
 
 Here's a sentence with a footnote. [^1]
 
+term
+: definition
+
 [^1]: This is the footnote.
