@@ -22,7 +22,9 @@ Basic text.**Bolded text.** *Italicized text.*
 
 Second paragraph text.
 
-<br />
+>  Blockquote line 1.
+>
+> Blockquote line 2.
 
 ***
 
