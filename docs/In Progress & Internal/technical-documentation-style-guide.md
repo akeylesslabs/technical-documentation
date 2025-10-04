@@ -10,7 +10,7 @@ metadata:
 </Callout>
 
 <Callout icon="❗️" theme="error">
-  This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use the Marketing Style Guide.
+  This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites) .
 </Callout>
 
 # Purpose
@@ -69,8 +69,14 @@ This guide defines standards for writing clear, consistent, and professional tec
   git clone https://github.com/example/repo.git
   ```
 * Use code block tabbing when presenting the same example across multiple languages or platform configurations:
-  ```bash
-  git clone https://github.com/example/repo.git
+  ```python
+  Python Code
+  ```
+  ```ruby
+  Ruby Code
+  ```
+  ```java
+  Java Code
   ```
 
 # Formatting
