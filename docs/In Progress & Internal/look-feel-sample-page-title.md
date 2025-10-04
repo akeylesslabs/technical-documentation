@@ -18,17 +18,13 @@ metadata:
 
 ###### Heading 6
 
-Basic text.**Bolded text.** *Italicized text.* `Inline code.`
+Basic text.**Bolded text.** _Italicized text._ `Inline code.`
 
 Second paragraph text.
 
->  Blockquote line 1.
+> Blockquote line 1.
 >
 > Blockquote line 2.
-
-***
-
-Horizontal line above.
 
 Unordered List, Prior Text:
 
