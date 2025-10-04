@@ -46,7 +46,7 @@ Ordered List, Prior Text:
 2. Ordered List Item 2
 3. Ordered List Item 3
 
-Horizontal line: "**"
+Horizontal line: "***"
 
 ***
 
