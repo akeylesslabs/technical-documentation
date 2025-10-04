@@ -50,4 +50,28 @@ Horizontal line: "***" or "---"
 
 ***
 
+Table:
+
+| Header | Header |
+| ------ | ------ |
+| Text   | Text   |
+| Text   | Text   |
+
+Fenced Code Block:
+
+```json
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+```
+Sample text.
+```
+
 <br />
+
+Here's a sentence with a footnote. [^1]
+
+[^1]: This is the footnote.
