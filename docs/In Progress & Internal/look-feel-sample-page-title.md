@@ -18,7 +18,7 @@ metadata:
 
 ###### Heading 6
 
-Basic text.**Bolded text.** _Italicized text._ `Inline code.`
+Basic text.**Bolded text.** _Italicized text._ `Inline code.`<Anchor label="Link." target="_blank" href="https://www.example.com">Link.</Anchor>
 
 Second paragraph text.
 
