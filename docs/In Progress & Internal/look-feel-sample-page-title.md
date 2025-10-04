@@ -49,3 +49,9 @@ Ordered List, Prior Text:
             1. Level 5
 2. Ordered List Item 2
 3. Ordered List Item 3
+
+Horizontal line: "***"
+
+***
+
+<br />
