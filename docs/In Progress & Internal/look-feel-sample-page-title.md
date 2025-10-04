@@ -76,8 +76,8 @@ Here's a sentence with a footnote. [^1]
 
 Task List:
 
-* [x] Write the press release
-* [ ] Update the website
-* [ ] Contact the media
+* [x] Task 1
+* [ ] Task 2
+* [ ] Task 3
 
 [^1]: This is the footnote.
