@@ -5,6 +5,8 @@ deprecated: false
 hidden: true
 metadata:
   robots: index
+next:
+  description: What's Next Text
 ---
 # Heading 1
 
@@ -171,5 +173,3 @@ YouTube Embed:
 * Markdown Standard Definition List
 
 [^1]: This is the footnote.
-
-<br />
