@@ -89,9 +89,9 @@ This guide defines standards for writing clear, consistent, and professional tec
 # Terminology
 
 * Always use the product’s official names.
-* Capitalize proper nouns and feature names (e.g., **API Gateway**).
+* Capitalize proper nouns and feature names (e.g., Akeyless MCP Server).
 * Avoid abbreviations unless widely known (e.g., "API," "URL").
-* Provide expansions for the first use of acronyms.
+* Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
 
 # Examples
 
