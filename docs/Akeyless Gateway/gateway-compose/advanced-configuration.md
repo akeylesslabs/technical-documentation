@@ -2,7 +2,7 @@
 title: Advanced Configuration
 excerpt: Standalone Gateway
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
