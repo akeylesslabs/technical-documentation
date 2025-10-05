@@ -1,6 +1,6 @@
 - api-gw
 - install-and-configure-the-gateway
-- standalone-gateway-copy
+- gateway-compose
 - gateway-k8s
 - gateway-chart
 - serverless-gateway
