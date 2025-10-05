@@ -1,5 +1,5 @@
 ---
-title: Advanced Configuration (COPY)
+title: Advanced Configuration
 excerpt: Standalone Gateway
 deprecated: false
 hidden: true
