@@ -739,7 +739,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Returns a link to complete the authentication remotely (relevant only for the SAML and ODIC access types).
       </td>
 
       <td>
