@@ -166,19 +166,20 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
         Authentication method type to use
         Acceptable values are:
 
-        * `access_key`
-        * `aws_iam`
-        * `azure_ad`
-        * `cert`
-        * `jwt`
-        * `k8s`
-        * `kerberos`
-        * `ldap`
-        * `oci`
-        * `oidc`
-        * `password`
-        * `saml`
-        * `universal_identity`
+        * <Anchor label="`access_key`" target="_blank" href="https://docs.akeyless.io/update/docs/api-key#/">`access_key`</Anchor> 
+        * <Anchor label="`aws_iam`" target="_blank" href="https://docs.akeyless.io/update/docs/aws-iam#/">`aws_iam`</Anchor> 
+        * <Anchor label="`azure_ad`" target="_blank" href="http://docs.akeyless.io/update/docs/azure-ad#/">`azure_ad`</Anchor> 
+        * <Anchor label="`cert`" target="_blank" href="https://docs.akeyless.io/update/docs/certificate-based-authentication#/">`cert`</Anchor> 
+        * <Anchor label="`gcp`" target="_blank" href="https://docs.akeyless.io/update/docs/gcp-auth-method#/">`gcp`</Anchor> 
+        * <Anchor label="`jwt`" target="_blank" href="https://docs.akeyless.io/update/docs/oauth20jwt#/">`jwt`</Anchor> 
+        * <Anchor label="`k8s`" target="_blank" href="https://docs.akeyless.io/update/docs/kubernetes-auth#/">`k8s`</Anchor> 
+        * <Anchor label="`kerberos`" target="_blank" href="https://docs.akeyless.io/update/docs/kerberos#/">`kerberos`</Anchor> 
+        * <Anchor label="`ldap`" target="_blank" href="https://docs.akeyless.io/update/docs/ldap#/">`ldap`</Anchor> 
+        * <Anchor label="`oci`" target="_blank" href="https://docs.akeyless.io/update/docs/oci-iam#/">`oci`</Anchor> 
+        * <Anchor label="`oidc`" target="_blank" href="https://docs.akeyless.io/update/docs/openid#/">`oidc`</Anchor> 
+        * <Anchor label="`password`" target="_blank" href="https://docs.akeyless.io/update/docs/email#/">`password`</Anchor> 
+        * <Anchor label="`saml`" target="_blank" href="https://docs.akeyless.io/update/docs/saml#/">`saml`</Anchor> 
+        * <Anchor label="`universal_identity`" target="_blank" href="https://docs.akeyless.io/update/docs/universal-identity#/">`universal_identity`</Anchor> 
       </td>
 
       <td>
@@ -308,10 +309,10 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       <td>
         The identity for the chosen cloud provider:
 
-        * [`aws_iam`](doc:aws-iam)
-        * [`azure_id`](doc:azure-ad)
-        * [`gcp`](doc:gcp-auth-method)
-        * [`oci`](doc:oci-iam) 
+        * <Anchor label="`aws_iam`" target="_blank" href="doc:aws-iam">`aws_iam`</Anchor>
+        * <Anchor label="`azure_id`" target="_blank" href="doc:azure-ad">`azure_id`</Anchor>
+        * <Anchor label="`gcp`" target="_blank" href="doc:gcp-auth-method">`gcp`</Anchor>
+        * <Anchor label="`oci`" target="_blank" href="doc:oci-iam">`oci`</Anchor>
       </td>
 
       <td>
@@ -747,7 +748,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-         The Universal Identity token
+        The Universal Identity token
       </td>
 
       <td>
