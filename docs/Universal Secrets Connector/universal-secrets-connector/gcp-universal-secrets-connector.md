@@ -15,7 +15,7 @@ This page discusses the creation of GCP [Universal Secrets Connectors](doc:exter
 # Prerequisites
 
 * An [Akeyless Gateway](doc:api-gw)  with **Read** permission on the target associated with the **USC**.
-* [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned. 
+* [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned.
 
 # Working With Universal Secrets Connector from the Console
 
@@ -104,6 +104,8 @@ The main parameters are:
 * `secret-name`: The name of the secret you would like to create.
 
 * `value`: The value of the secret you would like to create, plaintext or base64 encoded.
+
+In addition, for this USC type, it is possible to select the encryption key that will be used to encrypt that secret from the **remote** Secrets Management system using the `usc-encrpytion-key` parameter. This requires explicit permissions on the desired key on GCP.  If not provided, the default encryption key will be used.
 
 Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
 
