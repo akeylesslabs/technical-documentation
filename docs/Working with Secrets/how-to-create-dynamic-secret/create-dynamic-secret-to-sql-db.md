@@ -44,7 +44,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 To create a dynamic database secret from the CLI using an existing [Target](doc:targets), run the following command:
 
-```shell MySQL
+```shell MySQL/MariaDB
 akeyless dynamic-secret create mysql \
 --name <New Secret Name> \
 --target-name <Target Name> \
@@ -153,7 +153,7 @@ akeyless dynamic-secret create redis \
 
 Or using an inline connection string:
 
-```shell MySQL
+```shell MySQL/MariaDB
 akeyless dynamic-secret create mysql \
 --name <New Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
