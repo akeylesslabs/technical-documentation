@@ -35,7 +35,7 @@ akeyless <command> --debug
 
 # Commands
 
-## configure
+## `configure`
 
 Configure client profile
 
@@ -79,7 +79,7 @@ akeyless configure
 
 `--key-data`: Private key data encoded in base64. Used if file was not provided (relevant only for access-type=cert in Curl Context)
 
-## delete-item
+## `delete-item`
 
 Delete an item or an item version
 
@@ -101,7 +101,7 @@ akeyless delete-item -n <Item name>
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-## delete-items
+## `delete-items`
 
 Deletes multiple items from a given path
 
@@ -115,7 +115,7 @@ akeyless delete-items -p <Path\do\delete\items>
 
 `-p, --path`: Required,  Path to delete the items from
 
-## describe-item
+## `describe-item`
 
 Gets the item details
 
@@ -145,11 +145,11 @@ When a version number is specified, the command returns all details about the sp
 
 When `--show-versions` is specified, the command returns all details about the specified item including a full list of versions, their creation dates, and their encryption keys for any version for which a key other than the default was used.
 
-## get-account-settings
+## `get-account-settings`
 
 Get the settings of the account
 
-## get-tags
+## `get-tags`
 
 Get all tags of selected item
 
@@ -163,7 +163,7 @@ akeyless get-tags --name <Item Name>
 
 `-n, --name`: Required,  The item name
 
-## list-items
+## `list-items`
 
 List of all accessible items
 
@@ -189,7 +189,7 @@ List of all accessible items
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder, options: [regular/personal]
 
-## list-sra-bastions
+## `list-sra-bastions`
 
 List of all Secure Remote Access (SRA) Bastions in the account
 
@@ -197,7 +197,7 @@ List of all Secure Remote Access (SRA) Bastions in the account
 
 `--only-allowed-urls[=false]`: Filter the response to show only bastions allowed URLs
 
-## move-objects
+## `move-objects`
 
 Moves/Renames objects
 
@@ -217,7 +217,7 @@ akeyless move-objects --source <Source path to move the objects from> \
 
 `-o, --objects-type[=item]`: The objects type to move (item/auth_method/role)
 
-## set-item-state
+## `set-item-state`
 
 Set Dynamic Secret item's state (Enabled, Disabled)
 
@@ -234,7 +234,7 @@ akeyless set-item-state --name <Current item name> \
 
 `-s, --desired-state`: Required,  Desired item state
 
-## unconfigure
+## `unconfigure`
 
 Remove configuration of client profile
 
@@ -244,7 +244,7 @@ Remove configuration of client profile
 akeyless unconfigure --profile <Profile name>
 ```
 
-## update
+## `update`
 
 Update the Akeyless CLI version or change to a prior version
 
@@ -262,7 +262,7 @@ akeyless update
 
 `-r, --artifact-repository`: Alternative CLI repository url, for example, [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
 
-## update-account-settings
+## `update-account-settings`
 
 Updates account settings.
 
@@ -354,7 +354,7 @@ Note: The operation is allowed only for admin user
 
 `--default-certificate-expiration-notification-days`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--default-certificate-expiration-notification-days 1`, `--default-certificate-expiration-notification-days 5`.
 
-## update-item
+## `update-item`
 
 Update item name and description
 
