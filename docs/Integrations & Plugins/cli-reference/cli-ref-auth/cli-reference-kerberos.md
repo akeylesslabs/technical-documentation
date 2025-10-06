@@ -86,7 +86,7 @@ akeyless auth-method create kerberos \
 
 `--unique-identifier`: A unique identifier (ID) value which is a "sub claim" name that contains details uniquely identifying that resource. This "sub claim" is used to distinguish between different identities.
 
-### <p style={{ color: "blue" }}>*update*</p>
+### `update`
 
 Updates an Authentication Method object that will allow the user to authenticate using Kerberos
 
