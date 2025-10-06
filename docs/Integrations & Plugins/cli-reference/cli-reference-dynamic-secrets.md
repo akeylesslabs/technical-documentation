@@ -14,15 +14,15 @@ This section outlines the CLI commands relevant to [Dynamic Secrets](https://doc
 
 Dynamic secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a temporary period with a defined set of permissions.
 
-You can create a dynamic secret using an existing [target ](https://docs.akeyless.io/docs/targets)or manually enter the connection settings. 
+You can create a dynamic secret using an existing [target ](https://docs.akeyless.io/docs/targets)or manually enter the connection settings.
 
 General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
+`--uid-token`: The universal identity token, Required only for universal_identity authentication
 
- `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
+`-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
 
 `-h, --help`: Display help information
 
@@ -32,9 +32,9 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
- `--description`: Description of the object
+`--description`: Description of the object
 
- `--delete-protection`: Protection from accidental deletion of this item, \[true/false]
+`--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
 ## <p style={{ color: "blue" }}>*create*</p>
 
@@ -125,27 +125,27 @@ akeyless dynamic-secret create artifactory \
 
 ##### Flags
 
-  `-n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
-  `-s, --artifactory-token-scope`: **Required**, Token scope provided as a space-separated list, for example: `member-of-groups:readers`  
+`-s, --artifactory-token-scope`: **Required**, Token scope provided as a space-separated list, for example: `member-of-groups:readers`
 
-  `-a, --artifactory-token-audience`: **Required**, A space-separated list of other Artifactory instances or services that should accept this token, for example: `jfrt@*`
+`-a, --artifactory-token-audience`: **Required**, A space-separated list of other Artifactory instances or services that should accept this token, for example: `jfrt@*`
 
-  `--target-name`: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
-  `-b, --base-url`: Artifactory REST URL, must end with artifactory postfix
+`-b, --base-url`: Artifactory REST URL, must end with artifactory postfix
 
-  `-r, --artifactory-admin-name`: Admin name
+`-r, --artifactory-admin-name`: Admin name
 
-  `-p, --artifactory-admin-pwd`: Admin API Key/Password
+`-p, --artifactory-admin-pwd`: Admin API Key/Password
 
-  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)  
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-  `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-  `--user-ttl[=60m]`: User TTL, Default = 60m
+`--user-ttl[=60m]`: User TTL, Default = 60m
 
-  `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
 ### <p style={{ color: "blue" }}>*aws*</p>
 
@@ -178,61 +178,61 @@ akeyless dynamic-secret create aws \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-i, --aws-access-key-id`: Access Key ID
+`-i, --aws-access-key-id`: Access Key ID
 
- `-s, --aws-access-secret-key`: Access Secret Key
+`-s, --aws-access-secret-key`: Access Secret Key
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port), Default = [http://localhost:8000](http://localhost:8000)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port), Default = [http://localhost:8000](http://localhost:8000)
 
- `--aws-access-mode`: The types of credentials to retrieve from AWS. Options:\[iam\_user,assume\_role]
+`--aws-access-mode`: The types of credentials to retrieve from AWS. Options:[iam_user,assume_role]
 
- `--aws-region[=us-east-2]`: Region, Default = us-east-2
+`--aws-region[=us-east-2]`: Region, Default = us-east-2
 
- `--aws-user-policies`: Policy ARN(s). Multiple values should be separated by comma
+`--aws-user-policies`: Policy ARN(s). Multiple values should be separated by comma
 
- `--aws-user-groups`: UserGroup name(s). Multiple values should be separated by comma
+`--aws-user-groups`: UserGroup name(s). Multiple values should be separated by comma
 
- `--aws-role-arns`: AWS Role ARNs to be use in the Assume Role operation. Multiple values should be separated by comma
+`--aws-role-arns`: AWS Role ARNs to be use in the Assume Role operation. Multiple values should be separated by comma
 
- `--aws-external-id`: The AWS External ID associated with the AWS role, relevant only for Assumed role
+`--aws-external-id`: The AWS External ID associated with the AWS role, relevant only for Assumed role
 
- `--aws-user-console-access=[false] `: Enable AWS User console access, Default = false
+`--aws-user-console-access=[false] `: Enable AWS User console access, Default = false
 
- `--aws-user-programmatic-access[=true]`: Enable AWS User programmatic access, Default = true
+`--aws-user-programmatic-access[=true]`: Enable AWS User programmatic access, Default = true
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL, Default = 60m
+`--user-ttl[=60m]`: User TTL, Default = 60m
 
- `--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation, Default = flase
+`--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation, Default = flase
 
- `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
+`--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
- `--session-tags`: String of Key value session tags comma separated, relevant only for Assumed Role
+`--session-tags`: String of Key value session tags comma separated, relevant only for Assumed Role
 
- `--transitive-tag-keys`: String of transitive tag keys space separated, relevant only for Assumed Role
+`--transitive-tag-keys`: String of transitive tag keys space separated, relevant only for Assumed Role
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-aws-account-id`: The AWS account ID
+`--secure-access-aws-account-id`: The AWS account ID
 
- `--secure-access-aws-native-cli`: The AWS native CLI
+`--secure-access-aws-native-cli`: The AWS native CLI
 
- `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion, Default = false
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion, Default = false
 
- `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion, Default = false
+`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion, Default = false
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-web[=true]`: Enable Web Secure Remote Access, Default = true
+`--secure-access-web[=true]`: Enable Web Secure Remote Access, Default = true
 
 ### <p style={{ color: "blue" }}>*azure*</p>
 
@@ -269,51 +269,51 @@ akeyless dynamic-secret create azure \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--azure-tenant-id`: Azure Tenant ID
+`--azure-tenant-id`: Azure Tenant ID
 
- `--azure-client-id`: Azure Client ID (Application ID)
+`--azure-client-id`: Azure Client ID (Application ID)
 
- `--azure-client-secret`: Azure AD Client Secret
+`--azure-client-secret`: Azure AD Client Secret
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)  
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--azure-user-portal-access[=false]`: Enable Azure AD user portal access, Default = false
+`--azure-user-portal-access[=false]`: Enable Azure AD user portal access, Default = false
 
- `--azure-user-programmatic-access[=true]`: Enable Azure AD user programmatic access, Default = True.
+`--azure-user-programmatic-access[=true]`: Enable Azure AD user programmatic access, Default = True.
 
- `--azure-app-obj-id`: Azure App Object ID (required if selected programmatic access)
+`--azure-app-obj-id`: Azure App Object ID (required if selected programmatic access)
 
- `--azure-user-principal-name`: Azure AD User Principal Name (required if selected Portal access)
+`--azure-user-principal-name`: Azure AD User Principal Name (required if selected Portal access)
 
- `--azure-user-group-obj-id `: Azure AD User Group Object ID (required if selected Portal access)
+`--azure-user-group-obj-id `: Azure AD User Group Object ID (required if selected Portal access)
 
- `--azure-administrative-unit`: Azure AD administrative unit (relevant only when `azure-user-portal-access`=`true`)
+`--azure-administrative-unit`: Azure AD administrative unit (relevant only when `azure-user-portal-access`=`true`)
 
- `--azure-user-role-template-id`: Azure AD User Role Template ID (required if selected Portal access)
+`--azure-user-role-template-id`: Azure AD User Role Template ID (required if selected Portal access)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--fixed-user-only[=false]`: Allow access using externally (IdP) provided username, Default = false
+`--fixed-user-only[=false]`: Allow access using externally (IdP) provided username, Default = false
 
- `--fixed-user-claim-keyname`: For externally provided users, denotes the key-name of IdP claim to extract username from
+`--fixed-user-claim-keyname`: For externally provided users, denotes the key-name of IdP claim to extract username from
 
-  `--user-ttl[=60m] `: User TTL
+`--user-ttl[=60m] `: User TTL
 
-  `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
- `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
 
- `--secure-access-web[=true]`: Enable Web Secure Remote Access
+`--secure-access-web[=true]`: Enable Web Secure Remote Access
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
 ### <p style={{ color: "blue" }}>*cassandra*</p>
 
@@ -341,33 +341,33 @@ akeyless dynamic-secret create cassandra  \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Target name                                                                                                     
+`--target-name`: Target name
 
- `--cassandra-hosts`: Cassandra hosts names or IP addresses, comma separated                                                          
+`--cassandra-hosts`: Cassandra hosts names or IP addresses, comma separated
 
- `--cassandra-username`: Cassandra superuser user name                                                                                   
+`--cassandra-username`: Cassandra superuser user name
 
- `--cassandra-password`: Cassandra superuser password                                                                                    
+`--cassandra-password`: Cassandra superuser password
 
- `--cassandra-port[=904]`: Cassandra port                                                                                                  
+`--cassandra-port[=904]`: Cassandra port
 
- `-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)                                                                 
+`-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
 
- `--cassandra-statements[=CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';]`: Cassandra Creation Statements                                                                                   
+`--cassandra-statements[=CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';]`: Cassandra Creation Statements
 
- `--user-ttl[=60m]`: User TTL (\<=60m for access token)                                                                              
+`--user-ttl[=60m]`: User TTL (\<=60m for access token)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--ssl[=false]`: Enable/Disable SSL \[true/false]
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
 `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
 ### <p style={{ color: "blue" }}>*chef*</p>
 
@@ -396,29 +396,29 @@ akeyless dynamic-secret create chef \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-c, --chef-server-username`: Chef server username                                                                                            
+`-c, --chef-server-username`: Chef server username
 
- `-y, --chef-server-key`: Chef server key                                                                                                 
+`-y, --chef-server-key`: Chef server key
 
- `-s, --chef-server-url`: Chef server URL                                                                                                 
+`-s, --chef-server-url`: Chef server URL
 
- `-g, --chef-orgs`: Chef organizations                                                                                              
+`-g, --chef-orgs`: Chef organizations
 
- `--skip-ssl[=true]`: Skip SSL                                                                                                        
+`--skip-ssl[=true]`: Skip SSL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                 
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m] `: User TTL                                                                                                        
+`--user-ttl[=60m] `: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
 ### <p style={{ color: "blue" }}>*custom*</p>
 
@@ -436,27 +436,27 @@ akeyless dynamic-secret create custom \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--create-sync-url`: **Required**, URL of an endpoint that implements /sync/create method                                          
+`--create-sync-url`: **Required**, URL of an endpoint that implements /sync/create method
 
- `--revoke-sync-url`: **Required**, URL of an endpoint that implements /sync/revoke method                                          
+`--revoke-sync-url`: **Required**, URL of an endpoint that implements /sync/revoke method
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                 
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--rotate-sync-url`: URL of an endpoint that implements /sync/rotate method                                                          
+`--rotate-sync-url`: URL of an endpoint that implements /sync/rotate method
 
- `--payload`: Secret payload to be sent with each create/revoke webhook request                                               
+`--payload`: Secret payload to be sent with each create/revoke webhook request
 
- `--timeout-sec[=60]`: Maximum allowed time in seconds for the webhook to return the results                                           
+`--timeout-sec[=60]`: Maximum allowed time in seconds for the webhook to return the results
 
- `--enable_admin_rotation[=false]`: Enable automatic admin credentials rotation                                                                     
+`--enable_admin_rotation[=false]`: Enable automatic admin credentials rotation
 
- `--admin_rotation_interval_days`: Rotation period in days                                                                                         
+`--admin_rotation_interval_days`: Rotation period in days
 
 ### <p style={{ color: "blue" }}>*dockerhub*</p>
 
@@ -482,21 +482,21 @@ akeyless dynamic-secret create dockerhub \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                 
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                           
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--dockerhub-username`: Username for docker repository                                                                                                                                
+`--dockerhub-username`: Username for docker repository
 
- `--dockerhub-password`: password for docker repository                                                                                                                                
+`--dockerhub-password`: password for docker repository
 
- `--dockerhub-token-scopes `: Comma-separated access token scopes list to give the created dynamic secret. Valid options are in 'repo:admin', 'repo:write', 'repo:read', 'repo:public\_read' 
+`--dockerhub-token-scopes `: Comma-separated access token scopes list to give the created dynamic secret. Valid options are in 'repo:admin', 'repo:write', 'repo:read', 'repo:public_read'
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                                               
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--user-ttl[=60m] `: User TTL (\<=60m for access token)                                                                                                                            
+`--user-ttl[=60m] `: User TTL (\<=60m for access token)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
 ### <p style={{ color: "blue" }}>*eks*</p>
 
@@ -526,39 +526,39 @@ akeyless dynamic-secret create eks \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--eks-cluster-name`: EKS cluster name. Must match the EKS cluster name you want to connect to                                        
+`--eks-cluster-name`: EKS cluster name. Must match the EKS cluster name you want to connect to
 
- `--eks-cluster-endpoint`: EKS Cluster endpoint. https\:// , \<DNS / IP> of the cluster                                                    
+`--eks-cluster-endpoint`: EKS Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
- `--eks-cluster-ca-cert`: EKS Cluster certificate. Base 64 encoded certificate                                                            
+`--eks-cluster-ca-cert`: EKS Cluster certificate. Base 64 encoded certificate
 
- `--eks-access-key-id`: EKS Access Key ID                                                                                               
+`--eks-access-key-id`: EKS Access Key ID
 
- `--eks-secret-access-key `: EKS Secret Access Key                                                                                           
+`--eks-secret-access-key `: EKS Secret Access Key
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                 
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--eks-region[=us-east-2]`: EKS Region, Default = us-east-2                                                                               
+`--eks-region[=us-east-2]`: EKS Region, Default = us-east-2
 
- `--eks-assume-role`: Role ARN. Role to assume when connecting to the EKS cluster                                                     
+`--eks-assume-role`: Role ARN. Role to assume when connecting to the EKS cluster
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL, Default = 60m                                                                                                     
+`--user-ttl[=60m]`: User TTL, Default = 60m
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL                                                                                    
+`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
 
- `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access.                                                                  
+`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access.
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*gcp*</p>
 
@@ -592,33 +592,33 @@ akeyless dynamic-secret create gcp \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                         
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                   
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--gcp-cred-type[=token]`: Credentials type, options are \[token, key]                                                                            
+`--gcp-cred-type[=token]`: Credentials type, options are [token, key]
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                       
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--gcp-key-file-path `: Path to file with the Base64-encoded service account private key                                                      
+`--gcp-key-file-path `: Path to file with the Base64-encoded service account private key
 
- `--gcp-key`: Base64-encoded service account private key text                                                                       
+`--gcp-key`: Base64-encoded service account private key text
 
- ` --gcp-token-scopes`: Access token scopes list, e.g. scope,scope                                                                          
+` --gcp-token-scopes`: Access token scopes list, e.g. scope,scope
 
- `--gcp-key-algo`: Service account key algorithm, e.g. KEY\_ALG\_RSA\_04                                                                  
+`--gcp-key-algo`: Service account key algorithm, e.g. KEY_ALG_RSA_04
 
- `--user-ttl='60m'`: User TTL, Default = 60m
+`--user-ttl='60m'`: User TTL, Default = 60m
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options\[fixed, dynamic]                                           
+`-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options[fixed, dynamic]
 
- `-e, --gcp-sa-email`: The email of the fixed service account to generate keys or tokens for. (revelant for service-account-type=fixed)      
+`-e, --gcp-sa-email`: The email of the fixed service account to generate keys or tokens for. (revelant for service-account-type=fixed)
 
- `--role-binding`: Role binding definitions in json format                                                                               
+`--role-binding`: Role binding definitions in json format
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
 ### <p style={{ color: "blue" }}>*google-workspace*</p>
 
@@ -642,13 +642,13 @@ akeyless dynamic-secret create google-workspace \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`-a, --access-mode`: **Required**, Adding a user to an existing group or assign an admin role to a user \[\`group\`/\`role\`]
+`-a, --access-mode`: **Required**, Adding a user to an existing group or assign an admin role to a user [`group`/`role`]
 
 `-d, --admin-email`: **Required**, Email of an admin user within the account
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
 `--group-email`: Email address of the group to add the user to (relevant only for `group access-mode`)
 
@@ -656,9 +656,9 @@ akeyless dynamic-secret create google-workspace \
 
 `--role-name`: Name of the admin role the user will be assign to, (relevant only for `role access-mode`)
 
-`--role-scope[=customer]`: The scope in which this role is assigned \[\`customer\`/\`org\_unit\`], relevant only for `role access-mode`
+`--role-scope[=customer]`: The scope in which this role is assigned [`customer`/`org_unit`], relevant only for `role access-mode`
 
- `--fixed-user-claim-keyname[=ext_email]`: For externally provided users, denotes the key-name of IdP claim to extract the username from
+`--fixed-user-claim-keyname[=ext_email]`: For externally provided users, denotes the key-name of IdP claim to extract the username from
 
 `--gcp-key-file-path`: Path to file with the service account private key
 
@@ -693,29 +693,29 @@ akeyless dynamic-secret create github \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                    
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--installation-id`: Github application installation id  
+`--installation-id`: Github application installation id
 
- `--installation-organization`: Optional, instead of installation id, set a GitHub organization name
+`--installation-organization`: Optional, instead of installation id, set a GitHub organization name
 
- `--installation-repository `: Optional, instead of installation id, set a GitHub repository \<`owner`>/\<`repo-name`>                                                                                                             
+`--installation-repository `: Optional, instead of installation id, set a GitHub repository \<`owner`>/\<`repo-name`>
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                              
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--github-app-id`: Github application id                                                                                                                                                                            
+`--github-app-id`: Github application id
 
- `--github-app-private-key`: Github application private key (base64 encoded key)                                                                                                                                              
+`--github-app-private-key`: Github application private key (base64 encoded key)
 
- `--github-base-url[=https://api.github.com/]`: Github base URL                                                                                                                                                                                  
+`--github-base-url[=https://api.github.com/]`: Github base URL
 
- `-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, e.g - -p contents=read -p issues=write or -p '\{content:read}' 
+`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, e.g - -p contents=read -p issues=write or -p '\{content:read}'
 
- `-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use the argument multiple times: -r RepoName -r RepoName                          
+`-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use the argument multiple times: -r RepoName -r RepoName
 
- `--token-ttl[=60m]`: Token TTL
+`--token-ttl[=60m]`: Token TTL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                                                                                  
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ### <p style={{ color: "blue" }}>*gke*</p>
 
@@ -742,35 +742,35 @@ akeyless dynamic-secret create gke \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-a, --gke-account-email`: GKE service account email
+`-a, --gke-account-email`: GKE service account email
 
- `-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https\\://\\\<DNS/IP>
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https\://\<DNS/IP>
 
- `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
+`-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
- `--gke-account-key-file-path`: File path to GKE service account key
+`--gke-account-key-file-path`: File path to GKE service account key
 
- `--gke-account-key`: GKE service account key
+`--gke-account-key`: GKE service account key
 
- `--gke-cluster-name`: GKE cluster name
+`--gke-cluster-name`: GKE cluster name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--user-ttl[=60m]`: User TTL, Default = 60m
+`--user-ttl[=60m]`: User TTL, Default = 60m
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
+`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
 
- `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
+`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
- `--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion
+`--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*hanadb*</p>
 
@@ -801,43 +801,43 @@ akeyless dynamic-secret create hanadb \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --hana-dbname`: Hana DB Name                                                                                                    
+`-d, --hana-dbname`: Hana DB Name
 
- `--hanadb-username`: HanaDB user                                                                                                     
+`--hanadb-username`: HanaDB user
 
- `--hanadb-password`: HanaDB password                                                                                                 
+`--hanadb-password`: HanaDB password
 
- `--hanadb-host[=127.0.0.1]`: HanaDB host name                                                                                                
+`--hanadb-host[=127.0.0.1]`: HanaDB host name
 
- `--hanadb-port[=443]`: HanaDB port                                                                                                     
+`--hanadb-port[=443]`: HanaDB port
 
- `--hanadb-creation-statements[=CREATE USER {{name}} PASSWORD {{password}}; GRANT MONITOR ADMIN TO {{name}};]`: HanaDB Creation Statements                                                                                      
+`--hanadb-creation-statements[=CREATE USER {{name}} PASSWORD {{password}}; GRANT MONITOR ADMIN TO {{name}};]`: HanaDB Creation Statements
 
- `--hanadb-revocation-statements[=DROP USER {{name}};]`: HanaDB Revocation Statements                                                                                    
+`--hanadb-revocation-statements[=DROP USER {{name}};]`: HanaDB Revocation Statements
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                    
+`--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.                                       
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
 
- `--secure-access-db-schema`: The db schema                                                                                                   
+`--secure-access-db-schema`: The db schema
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*k8s*</p>
 
@@ -870,57 +870,57 @@ akeyless dynamic-secret create k8s \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                          
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                    
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-e, --k8s-cluster-endpoint`: K8S Cluster endpoint. \<DNS / IP> of the cluster                                                                                       
+`-e, --k8s-cluster-endpoint`: K8S Cluster endpoint. \<DNS / IP> of the cluster
 
- `-c, --k8s-cluster-ca-cert`: K8S Cluster certificate. Base 64 encoded certificate                                                                                   
+`-c, --k8s-cluster-ca-cert`: K8S Cluster certificate. Base 64 encoded certificate
 
- `-t, --k8s-cluster-token`: K8S Cluster authentication token                                                                                                       
+`-t, --k8s-cluster-token`: K8S Cluster authentication token
 
- `-s, --k8s-service-account`: K8S ServiceAccount to extract token from                                                                                               
+`-s, --k8s-service-account`: K8S ServiceAccount to extract token from
 
- `-i, --use-gw-service-account`: Use GW's Service Account. **Boolean**, when provided, as part of the **inline connection**.                                            
+`-i, --use-gw-service-account`: Use GW's Service Account. **Boolean**, when provided, as part of the **inline connection**.
 
- `--k8s-service-account-type[=fixed]`: K8S ServiceAccount type \[fixed, dynamic].                                                                                              
+`--k8s-service-account-type[=fixed]`: K8S ServiceAccount type [fixed, dynamic].
 
- `--k8s-namespace[=default]`: K8S Namespace where the ServiceAccount exists.(relevant only for service-account-type=fixed)                                           
+`--k8s-namespace[=default]`: K8S Namespace where the ServiceAccount exists.(relevant only for service-account-type=fixed)
 
- `--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type=dynamic)   
+`--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type=dynamic)
 
- `--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type=dynamic) 
+`--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type=dynamic)
 
- `--k8s-predefined-role-type`: Specifies the type of the pre-existing K8S role [Role, ClusterRole] \(relevant only for k8s-service-account-type=dynamic)              
+`--k8s-predefined-role-type`: Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type=dynamic)
 
- `--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)
+`--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)
 
- `--k8s-cluster-name`: K8S cluster name
+`--k8s-cluster-name`: K8S cluster name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                        
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m] `: User TTL          
+`--user-ttl[=60m] `: User TTL
 
-  `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                                                      
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-cluster-endpoint`: The K8s cluster endpoint                                                                                                               
+`--secure-access-cluster-endpoint`: The K8s cluster endpoint
 
- `--secure-access-dashboard-url`: The K8s dashboard url                                                                                                                  
+`--secure-access-dashboard-url`: The K8s dashboard url
 
- `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access                                                                                          
+`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                                           
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion                                                                                         
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
- `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion                                                                                              
+`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                                        
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*ldap*</p>
 
@@ -948,51 +948,51 @@ akeyless dynamic-secret create ldap \
 
 ##### Flags
 
- ` -n, --name`: **Required**, Dynamic Secret name                                                                                         
+` -n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                   
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                       
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--ldap-url`: LDAP Server URL                                                                                                       
+`--ldap-url`: LDAP Server URL
 
- `--user-dn`: User Base DN
+`--user-dn`: User Base DN
 
- `--group-dn`: Group DN which the temporary user should be added
+`--group-dn`: Group DN which the temporary user should be added
 
- `--user-attribute`: LDAP User Attribute                                                                                                   
+`--user-attribute`: LDAP User Attribute
 
- `-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate                                                                                   
+`-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate
 
- `--bind-dn`: LDAP Bind DN                                                                                                          
+`--bind-dn`: LDAP Bind DN
 
- `--bind-dn-password`: Password for LDAP Bind DN                                                                                             
+`--bind-dn-password`: Password for LDAP Bind DN
 
- ` --external-username[=false]`: Externally provided username
+` --external-username[=false]`: Externally provided username
 
- `--fixed-user-claim-keyname[=ext_username]`: For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username=true)
+`--fixed-user-claim-keyname[=ext_username]`: For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username=true)
 
- `--token-expiration`: LDAP token expiration in seconds                                                                                      
+`--token-expiration`: LDAP token expiration in seconds
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key                                                                                   
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m] `: User TTL                                                                                                              
+`--user-ttl[=60m] `: User TTL
 
-  `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
+`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
- `--host-provider`: Host provider type \[explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+`--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
 
- `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
 
- `--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+`--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
 
- `--secure-access-rd-gateway-server`: RD Gateway server
+`--secure-access-rd-gateway-server`: RD Gateway server
 
 ### <p style={{ color: "blue" }}>*mongodb*</p>
 
@@ -1020,51 +1020,51 @@ akeyless dynamic-secret create mongodb \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                           
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name `: Name of existing target to use in Dynamic Secret creation                                                                                     
+`--target-name `: Name of existing target to use in Dynamic Secret creation
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                         
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--mongodb-name`: MongoDB name
+`--mongodb-name`: MongoDB name
 
- `--mongodb-roles\[=\[]]`: MongoDB roles (e.g. MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`) 
+`--mongodb-roles\[=\[]]`: MongoDB roles (e.g. MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`)
 
- `--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})                                                                                              
+`--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})
 
- `--mongodb-server-uri`: MongoDB server URI (e.g. mongodb://user:[password@my.mongo.db](mailto:password@my.mongo.db):707/admin?replicaSet=mySet)               
+`--mongodb-server-uri`: MongoDB server URI (e.g. mongodb://user:[password@my.mongo.db](mailto:password@my.mongo.db):707/admin?replicaSet=mySet)
 
- `--mongodb-username`: MongoDB server username                                                                                                                 
+`--mongodb-username`: MongoDB server username
 
- `--mongodb-password`: MongoDB server password                                                                                                                 
+`--mongodb-password`: MongoDB server password
 
- `--mongodb-host-port`: host:port (e.g. my.mongo.db:707)                                                                                                      
+`--mongodb-host-port`: host:port (e.g. my.mongo.db:707)
 
- `--mongodb-default-auth-db`: MongoDB server default authentication database                                                                                          
+`--mongodb-default-auth-db`: MongoDB server default authentication database
 
- `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet\&authSource=authDB)                                                                    
+`--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
 
- ` --mongodb-atlas-project-id`: MongoDB Atlas project ID                                                                                                                
+` --mongodb-atlas-project-id`: MongoDB Atlas project ID
 
- `--mongodb-atlas-api-public-key`: MongoDB Atlas public key                                                                                                                
+`--mongodb-atlas-api-public-key`: MongoDB Atlas public key
 
- `--mongodb-atlas-api-private-key`: MongoDB Atlas private key                                                                                                               
+`--mongodb-atlas-api-private-key`: MongoDB Atlas private key
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL (e.g. 60s, 60m, 60h)
+`--user-ttl[=60m]`: User TTL (e.g. 60s, 60m, 60h)
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                                                       
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                                            
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.                                                               
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                                         
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*mssql*</p>
 
@@ -1095,43 +1095,43 @@ akeyless dynamic-secret create mssql \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name `: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name `: Name of existing target to use in Dynamic Secret creation
 
- `-d, --mssql-dbname`: MSSQL Server DB Name                                                                                            
+`-d, --mssql-dbname`: MSSQL Server DB Name
 
- `--mssql-username`: MS SQL Server user                                                                                              
+`--mssql-username`: MS SQL Server user
 
- `--mssql-password`: MS SQL Server password                                                                                          
+`--mssql-password`: MS SQL Server password
 
- `--mssql-host[=127.0.0.1]`: MS SQL Server host name                                                                                         
+`--mssql-host[=127.0.0.1]`: MS SQL Server host name
 
- `--mssql-port[=1433]`: MS SQL Server port                                                                                              
+`--mssql-port[=1433]`: MS SQL Server port
 
- `--mssql-creation-statements\[=CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}';]`: MSSQL Server Creation Statements                                                                                
+`--mssql-creation-statements\[=CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}';]`: MSSQL Server Creation Statements
 
- `--mssql-revocation-statements\[=DROP LOGIN [{{name}}];]`: MSSQL Server Revocation Statements  
+`--mssql-revocation-statements\[=DROP LOGIN [{{name}}];]`: MSSQL Server Revocation Statements
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                   
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag                                       
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
- `--secure-access-db-schema`: The db schema                                                                                                   
+`--secure-access-db-schema`: The db schema
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*mysql*</p>
 
@@ -1160,49 +1160,49 @@ akeyless dynamic-secret create mysql \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --mysql-dbname`: MySQL DB name                                                                                                                                                                                                   
+`-d, --mysql-dbname`: MySQL DB name
 
- `--mysql-username`: MySQL user                                                                                                                                                                                                      
+`--mysql-username`: MySQL user
 
- `--mysql-password`: MySQL password                                                                                                                                                                                                  
+`--mysql-password`: MySQL password
 
- `--mysql-host[=127.0.0.1]`: MySQL host name                                                                                                                                                                                                 
+`--mysql-host[=127.0.0.1]`: MySQL host name
 
- `--mysql-port[=3306]`": MySQL port                                                                                                                                                                                                      
+`--mysql-port[=3306]`": MySQL port
 
- `--mysql-statements`: MySQL Creation Statements         
+`--mysql-statements`: MySQL Creation Statements
 
- `--mysql-revocation-statements`: MySQL Revocation Statements
+`--mysql-revocation-statements`: MySQL Revocation Statements
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                                                                                                                 
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)                                                                                                                       
+`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL  
+`--user-ttl[=60m]`: User TTL
 
- `--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates                                                                                                  
+`--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates
 
- `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address 
+`--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                                                                                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                                                                                                                    
+`--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts)
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts)
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                                                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*oracledb*</p>
 
@@ -1231,45 +1231,45 @@ akeyless dynamic-secret create oracledb \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --oracle-service-name`: Oracle service name                                                                                                                                                                                             
+`-d, --oracle-service-name`: Oracle service name
 
- `--oracle-username`: Oracle user                                                                                                                                                                                                     
+`--oracle-username`: Oracle user
 
- `--oracle-password`: Oracle password                                                                                                                                                                                                 
+`--oracle-password`: Oracle password
 
- `--oracle-host[=127.0.0.1]`: Oracle host name                                                                                                                                                                                                
+`--oracle-host[=127.0.0.1]`: Oracle host name
 
- `--oracle-port[=1521]`: Oracle port                                                                                                                                                                                                     
+`--oracle-port[=1521]`: Oracle port
 
- `--oracle-statements`: Oracle Creation Statements                                                                                                                                                                                      
+`--oracle-statements`: Oracle Creation Statements
 
- `--oracle-revocation-statements`: Oracle Revocation Statements
+`--oracle-revocation-statements`: Oracle Revocation Statements
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL    
+`--user-ttl[=60m]`: User TTL
 
- `--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates                                                                                                  
+`--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates
 
- `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
+`--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable[=false]`: Enable/Disable secure remote access, \[true/false]                                                                                                                                                               
+`--secure-access-enable[=false]`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                                                                                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.                                                                                                                                       
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                                                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*ping*</p>
 
@@ -1302,47 +1302,47 @@ akeyless dynamic-secret create ping \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                                                                                                             
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                                                                                                                       
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--ping-url`: Ping URL                                                                                                                                                                                                                                                                                  
+`--ping-url`: Ping URL
 
- `-s, --ping-privileged-user`: Ping Federate privileged user                                                                                                                                                                                                                                                             
+`-s, --ping-privileged-user`: Ping Federate privileged user
 
- `-p, --ping-password`: Ping Federate privileged user password                                                                                                                                                                                                                                                    
+`-p, --ping-password`: Ping Federate privileged user password
 
- `-i, --ping-administrative-port[=9999]`: Ping Federate administrative port                                                                                                                                                                                                                                                         
+`-i, --ping-administrative-port[=9999]`: Ping Federate administrative port
 
- `-j, --ping-authorization-port[=9031]`: Ping Federate authorization port                                                                                                                                                                                                                                                          
+`-j, --ping-authorization-port[=9031]`: Ping Federate authorization port
 
- `-t, --ping-client-authentication-type[=CLIENT_SECRET]`: OAuth Client Authentication Type [CLIENT_SECRET, PRIVATE_KEY_JWT, CLIENT_TLS_CERTIFICATE]                                                                                                                                                                                                 
+`-t, --ping-client-authentication-type[=CLIENT_SECRET]`: OAuth Client Authentication Type [CLIENT_SECRET, PRIVATE_KEY_JWT, CLIENT_TLS_CERTIFICATE]
 
- `--ping-issuer-dn`: Issuer DN of trusted CA certificate that imported into Ping Federate server. You may select Trust Any to trust all the existing issuers in Ping Federate server. Used in conjunction with --ping-cert-subject-dn (relevant for CLIENT\_TLS\_CERTIFICATE authentication method)            
+`--ping-issuer-dn`: Issuer DN of trusted CA certificate that imported into Ping Federate server. You may select Trust Any to trust all the existing issuers in Ping Federate server. Used in conjunction with --ping-cert-subject-dn (relevant for CLIENT_TLS_CERTIFICATE authentication method)
 
- `--ping-cert-subject-dn`: The subject DN of the client certificate. If no explicit value is given, the Dynamic Secret will create CA certificate and matched client certificate and return it as value. Used in conjunction with --ping-issuer-dn (relevant for CLIENT\_TLS\_CERTIFICATE authentication method)             
+`--ping-cert-subject-dn`: The subject DN of the client certificate. If no explicit value is given, the Dynamic Secret will create CA certificate and matched client certificate and return it as value. Used in conjunction with --ping-issuer-dn (relevant for CLIENT_TLS_CERTIFICATE authentication method)
 
- `-f, --ping-enforce-replay-prevention[=false]`: Determines whether PingFederate requires a unique signed JWT from the client for each action (relevant for PRIVATE\_KEY\_JWT authentication method)                                                                                                                                         
+`-f, --ping-enforce-replay-prevention[=false]`: Determines whether PingFederate requires a unique signed JWT from the client for each action (relevant for PRIVATE_KEY_JWT authentication method)
 
- `--ping-jwks`: Base64-encoded JSON Web Key Set (JWKS). If no explicit value is given, the Dynamic Secret will create JWKs and matched signed JWT (Sign Algo: RS56) and return it as value (relevant for PRIVATE\_KEY\_JWT authentication method)                                                                
+`--ping-jwks`: Base64-encoded JSON Web Key Set (JWKS). If no explicit value is given, the Dynamic Secret will create JWKs and matched signed JWT (Sign Algo: RS56) and return it as value (relevant for PRIVATE_KEY_JWT authentication method)
 
- `--ping-jwks-url`: The URL of the JSON Web Key Set (JWKS). If no explicit value is given, the Dynamic Secret will create JWKs and matched signed JWT and return it as value (relevant for PRIVATE\_KEY\_JWT authentication method)                                                                                   
+`--ping-jwks-url`: The URL of the JSON Web Key Set (JWKS). If no explicit value is given, the Dynamic Secret will create JWKs and matched signed JWT and return it as value (relevant for PRIVATE_KEY_JWT authentication method)
 
- `--ping-signing-algo`: The signing algorithm that the client must use to sign its request objects [RS56, RS384, RS5, ES56, ES384, ES5, PS56, PS384, PS5] If no explicit value is given, the client can use any of the supported signing algorithms (relevant for PRIVATE\_KEY\_JWT authentication method) 
+`--ping-signing-algo`: The signing algorithm that the client must use to sign its request objects [RS56, RS384, RS5, ES56, ES384, ES5, PS56, PS384, PS5] If no explicit value is given, the client can use any of the supported signing algorithms (relevant for PRIVATE_KEY_JWT authentication method)
 
- `-g, --ping-grant-types`: OAuth client grant types [IMPLICIT, AUTHORIZATION_CODE, CLIENT_CREDENTIALS, TOKEN_EXCHANGE, REFRESH_TOKEN, ASSERTION_GRANTS, PASSWORD, RESOURCE_OWNER_CREDENTIALS]. If no explicit value is given, AUTHORIZATION\_CODE will be selected as default. For multiple values repeat this flag.  
+`-g, --ping-grant-types`: OAuth client grant types [IMPLICIT, AUTHORIZATION_CODE, CLIENT_CREDENTIALS, TOKEN_EXCHANGE, REFRESH_TOKEN, ASSERTION_GRANTS, PASSWORD, RESOURCE_OWNER_CREDENTIALS]. If no explicit value is given, AUTHORIZATION_CODE will be selected as default. For multiple values repeat this flag.
 
- `-r, --ping-redirect-uris`: URI to which the OAuth authorization server may redirect the resource owner's user agent after authorization is obtained. At least one redirection URI is required for the AUTHORIZATION\_CODE and IMPLICIT grant types. For multiple values repeat this flag.                             
+`-r, --ping-redirect-uris`: URI to which the OAuth authorization server may redirect the resource owner's user agent after authorization is obtained. At least one redirection URI is required for the AUTHORIZATION_CODE and IMPLICIT grant types. For multiple values repeat this flag.
 
- `-d, --ping-atm-id`: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM Id. If no explicit value is given, the default pingfederate server ATM will be set.                                                                                               
+`-d, --ping-atm-id`: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM Id. If no explicit value is given, the default pingfederate server ATM will be set.
 
- `-o, --ping-restricted-scopes`: Limit the OAuth client to specific scopes. For multiple values repeat this flag.                                                                                                                                                                                                          
+`-o, --ping-restricted-scopes`: Limit the OAuth client to specific scopes. For multiple values repeat this flag.
 
- `-e, --producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`-e, --producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: The time from dynamic secret creation to expiration. 
+`--user-ttl[=60m]`: The time from dynamic secret creation to expiration.
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ### <p style={{ color: "blue" }}>*postgresql*</p>
 
@@ -1373,45 +1373,45 @@ akeyless dynamic-secret create postgresql \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --postgresql-db-name`: PostgreSQL DB name                                                                                              
+`-d, --postgresql-db-name`: PostgreSQL DB name
 
- `--postgresql-username`: PostgreSQL user                                                                                                 
+`--postgresql-username`: PostgreSQL user
 
- `--postgresql-password`: PostgreSQL password                                                                                             
+`--postgresql-password`: PostgreSQL password
 
- `--postgresql-host[=127.0.0.1]`: PostgreSQL hostname                                                                                            
+`--postgresql-host[=127.0.0.1]`: PostgreSQL hostname
 
- `--postgresql-port[=5432]`: PostgreSQL port                                                                                                 
+`--postgresql-port[=5432]`: PostgreSQL port
 
- `--postgresql-statements[=CREATE USER {{name}} WITH PASSWORD '{{password}}';GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{name}};GRANT CONNECT ON DATABASE postgres TO {{name}};GRANT USAGE ON SCHEMA public TO {{name}};]`: PostgreSQL Creation Statements                                                                                  
+`--postgresql-statements[=CREATE USER {{name}} WITH PASSWORD '{{password}}';GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{name}};GRANT CONNECT ON DATABASE postgres TO {{name}};GRANT USAGE ON SCHEMA public TO {{name}};]`: PostgreSQL Creation Statements
 
- `--postgresql-revoke-statement[=REASSIGN OWNED BY {{name}} TO {{userHost}}; DROP OWNED BY {{name}}; select pg_terminate_backend(pid) from pg_stat_activity where usename = '{{name}}'; DROP USER {{name}};]`: PostgreSQL Revocation Statement                                                                                 
+`--postgresql-revoke-statement[=REASSIGN OWNED BY {{name}} TO {{userHost}}; DROP OWNED BY {{name}}; select pg_terminate_backend(pid) from pg_stat_activity where usename = '{{name}}'; DROP USER {{name}};]`: PostgreSQL Revocation Statement
 
- `--enc-key-name`: Encrypt (Dynamic Secret) producer with the following key                                                                             
+`--enc-key-name`: Encrypt (Dynamic Secret) producer with the following key
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                 
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion.                                                   
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion.
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.                                       
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
 
- `--secure-access-db-schema`: The db schema                                                                                                   
+`--secure-access-db-schema`: The db schema
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*rabbitmq*</p>
 
@@ -1443,43 +1443,43 @@ akeyless dynamic-secret create rabbitmq \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-s, --rabbitmq-server-uri`: RabbitMQ server URI                                                                                             
+`-s, --rabbitmq-server-uri`: RabbitMQ server URI
 
- `-c, --rabbitmq-user-conf-permission`: User configuration permission, for example:\[.\*,queue-name]                                                      
+`-c, --rabbitmq-user-conf-permission`: User configuration permission, for example:[.*,queue-name]
 
- `-w, --rabbitmq-user-write-permission`: User write permission, for example:\[.\*,queue-name]                                                              
+`-w, --rabbitmq-user-write-permission`: User write permission, for example:[.*,queue-name]
 
- `-r, --rabbitmq-user-read-permission`: User read permission, for example:\[.\*,queue-name]                                                               
+`-r, --rabbitmq-user-read-permission`: User read permission, for example:[.*,queue-name]
 
- `-a, --rabbitmq-admin-user`: RabbitMQ server user                                                                                            
+`-a, --rabbitmq-admin-user`: RabbitMQ server user
 
- `-p, --rabbitmq-admin-pwd`: RabbitMQ server password                                                                                        
+`-p, --rabbitmq-admin-pwd`: RabbitMQ server password
 
- `--rabbitmq-user-vhost`: User Virtual Host                                                                                               
+`--rabbitmq-user-vhost`: User Virtual Host
 
- `--rabbitmq-user-tags`: Comma separated list of tags to apply to user                                                                   
+`--rabbitmq-user-tags`: Comma separated list of tags to apply to user
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion                                                                  
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
- `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion.                                                                      
+`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion.
 
- `--secure-access-url`: Destination URL to inject secrets.                                                                              
+`--secure-access-url`: Destination URL to inject secrets.
 
- `--secure-access-web[=true]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=true]`: Enable Web Secure Remote Access
 
 ### <p style={{ color: "blue" }}>*rdp*</p>
 
@@ -1507,49 +1507,49 @@ akeyless dynamic-secret create rdp \
 
 ##### Flags
 
-`-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-g, --rdp-user-groups `: RDP UserGroup name(s). Multiple values should be separated by a comma                                             
+`-g, --rdp-user-groups `: RDP UserGroup name(s). Multiple values should be separated by a comma
 
- `-r, --rdp-host-name`: RDP Hostname                                                                                                   
+`-r, --rdp-host-name`: RDP Hostname
 
- `--rdp-admin-name`: RDP Admin name                                                                                                  
+`--rdp-admin-name`: RDP Admin name
 
- `--rdp-admin-pwd`: RDP Admin password                                                                                              
+`--rdp-admin-pwd`: RDP Admin password
 
- `--rdp-host-port[=22]`: RDP Host port                                                                                                   
+`--rdp-host-port[=22]`: RDP Host port
 
- `--fixed-user-only[=false]`: Allow access using externally (IdP) provided username                                                           
+`--fixed-user-only[=false]`: Allow access using externally (IdP) provided username
 
- `--fixed-user-claim-keyname[=ext_username]`: For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only=true)
+`--fixed-user-claim-keyname[=ext_username]`: For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only=true)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--warn-user-before-expiration`: Display message to user before TTL expires (min)                                                                
+`--warn-user-before-expiration`: Display message to user before TTL expires (min)
 
- `--allow-user-extend-session`: Allow user to extend session periodically (min)                                                                 
+`--allow-user-extend-session`: Allow user to extend session periodically (min)
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user                                                      
+`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
- `--secure-access-rdp-user`: Override the RDP Domain username                                                                                
+`--secure-access-rdp-user`: Override the RDP Domain username
 
- `--secure-access-host`: Target servers for connections., For multiple values repeat this flag.                                          
+`--secure-access-host`: Target servers for connections., For multiple values repeat this flag.
 
- `--secure-access-rd-gateway-server`: RD Gateway server
+`--secure-access-rd-gateway-server`: RD Gateway server
 
- `--secure-access-allow-external-user[=false]`: Allow providing external user for a domain users                                                                
+`--secure-access-allow-external-user[=false]`: Allow providing external user for a domain users
 
 ### <p style={{ color: "blue" }}>*redis*</p>
 
@@ -1568,35 +1568,35 @@ akeyless dynamic-secret create redis \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                                                 
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                                                           
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL                                                                                                                                                                                                               
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL
 
- `--username`: Redis username                                                                                                                                                                                                                
+`--username`: Redis username
 
- `--password`: Redis password                                                                                                                                                                                                                
+`--password`: Redis password
 
- `--host[=127.0.0.1]`: Redis host                                                                                                                                                                                                                    
+`--host[=127.0.0.1]`: Redis host
 
- `--port[=6379]`: Redis port                                                                                                                                                                                                                    
+`--port[=6379]`: Redis port
 
- `--acl-rules`: A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys (\[\~\*, +\@read]) 
+`--acl-rules`: A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys ([~*, +@read])
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                                                                                                                               
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)                                                                                                                                     
+`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                                                                                                                                      
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
 ### <p style={{ color: "blue" }}>*redshift*</p>
 
@@ -1626,35 +1626,35 @@ akeyless dynamic-secret create redshift \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--redshift-db-name`: Redshift DB name                                                                                                
+`--redshift-db-name`: Redshift DB name
 
- `--redshift-username`: Redshift user                                                                                                  
+`--redshift-username`: Redshift user
 
- `--redshift-password`: Redshift password                                                                                               
+`--redshift-password`: Redshift password
 
- `--redshift-host[=127.0.0.1]`: Redshift host name                                                                                              
+`--redshift-host[=127.0.0.1]`: Redshift host name
 
- `--redshift-port[=5439]`: Redshift port                                                                                                   
+`--redshift-port[=5439]`: Redshift port
 
- `--redshift-statements[=CREATE USER {{username}} WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{username}};]`: Redshift Creation Statements                                                                                    
+`--redshift-statements[=CREATE USER {{username}} WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{username}};]`: Redshift Creation Statements
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                 
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--enc-key-name`: Encrypt (Dynamic Secret) producer with the following key                                                                             
+`--enc-key-name`: Encrypt (Dynamic Secret) producer with the following key
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `-u, --gateway-url[=http://localhost:8000]`: Gateway URL
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.                                       
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
 
 ### <p style={{ color: "blue" }}>*snowflake*</p>
 
@@ -1684,39 +1684,39 @@ akeyless dynamic-secret create snowflake \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                       
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                 
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-a, --account`: Snowflake account name                                                                                              
+`-a, --account`: Snowflake account name
 
- `--account-username`: Snowflake account user name                                                                                         
+`--account-username`: Snowflake account user name
 
- `--account-password`: Snowflake account password                                                                                          
+`--account-password`: Snowflake account password
 
- `-d, --db-name`: The DB the generated credentials are restricted to                                                                  
+`-d, --db-name`: The DB the generated credentials are restricted to
 
- `--role`: Role to be assigned to the generated credentials                                                                    
+`--role`: Role to be assigned to the generated credentials
 
- `--warehouse`: The warehouse the generated credentials are restricted to                                                           
+`--warehouse`: The warehouse the generated credentials are restricted to
 
- `--private-key`: RSA Private key (base64 encoded)    
+`--private-key`: RSA Private key (base64 encoded)
 
- `--private-key-file-name`: The path to the file containing the private key
+`--private-key-file-name`: The path to the file containing the private key
 
- `--private-key-passphrase`: The Private key passphrase 
+`--private-key-passphrase`: The Private key passphrase
 
- `--auth-mode[=password]`: The authentication mode for the temporary user \[\`password\`/\`key\`]  
+`--auth-mode[=password]`: The authentication mode for the temporary user [`password`/`key`]
 
- `--key-algo[=RSA2048]`: he temporary key algorithm to generate (relevant only for `auth-mode`=`key`) [`RSA2048`/`RSA3072`/`RSA4096`]
+`--key-algo[=RSA2048]`: he temporary key algorithm to generate (relevant only for `auth-mode`=`key`) [`RSA2048`/`RSA3072`/`RSA4096`]
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                     
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--user-ttl[=24h]`: User TTL                                                                                                            
+`--user-ttl[=24h]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
 ### <p style={{ color: "blue" }}>*venafi*</p>
 
@@ -1737,47 +1737,72 @@ akeyless gateway-create venafi \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-z, --venafi-zone`: Venafi Zone
+`-z, --venafi-zone`: Venafi Zone
 
- `--venafi-api-key`: Venafi API key (Relevant when using Venafi Cloud)
+`--venafi-api-key`: Venafi API key (Relevant when using Venafi Cloud)
 
- `--venafi-use-tpp`: When connecting to TPP this flag is required
+`--venafi-use-tpp`: When connecting to TPP this flag is required
 
- `--venafi-access-token`: Venafi Access Token to use to access the TPP environment (Relevant when using TPP)
+`--venafi-access-token`: Venafi Access Token to use to access the TPP environment (Relevant when using TPP)
 
- `--venafi-refresh-token`: Venafi Refresh Token to use when the Access Token is expired (Relevant when using TPP)
+`--venafi-refresh-token`: Venafi Refresh Token to use when the Access Token is expired (Relevant when using TPP)
 
- `--venafi-client-id[=akeyless]`: Venafi Client ID to use when refreshing the token (Relevant when using TPP)
+`--venafi-client-id[=akeyless]`: Venafi Client ID to use when refreshing the token (Relevant when using TPP)
 
- `--venafi-baseurl`: Base URL of the TPP environment. Or Cloud environment which isn't [https://venafi.cloud/](https://venafi.cloud/)
+`--venafi-baseurl`: Base URL of the TPP environment. Or Cloud environment which isn't [https://venafi.cloud/](https://venafi.cloud/)
 
- `--sign-using-akeyless-pki`: creating certificates using Akeyless PKI
+`--sign-using-akeyless-pki`: creating certificates using Akeyless PKI
 
- `--root-first-in-chain`: root first in chain
+`--root-first-in-chain`: root first in chain
 
- `--store-private-key`: store private key in Akeyless
+`--store-private-key`: store private key in Akeyless
 
- `--auto-generated-folder`: auto-generated folder
+`--auto-generated-folder`: auto-generated folder
 
- `--signer-key-name`: signer key name
+`--signer-key-name`: signer key name
 
- `--allowed-domains`: allowed domains
+`--allowed-domains`: allowed domains
 
- `--allow-subdomains`: allow subdomains
+`--allow-subdomains`: allow subdomains
 
- `--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation, Default = false
+`--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation, Default = false
 
- `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
+`--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60h]`: User TTL in time.Duration format (60h / 9600m / etc...). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/), Default = 60h
+`--user-ttl[=60h]`: User TTL in time.Duration format (60h / 9600m / etc...). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/), Default = 60h
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+### <p style={{ color: "blue" }}>*openai*</p>
+
+Creates an OpenAI Dynamic Secret that generates temporary API keys
+
+##### Usage
+
+```shell
+akeyless dynamic-secret create openai \
+--name <New Secret Name> \
+--api-key-id <Admin API key ID> \
+--api-key <Admin API key> \
+--org-id <organization ID> \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+```
+
+##### Flags
+
+* `--api-key-id`: The **ID** of the Admin API Key.
+
+* `--api-key`: The Admin API Key that will be used in order to create the API Key.
+
+* `--org-id`: The organization ID.
+
+* `--open-ai-url`: The endpoint for the OpenAI API
 
 ## <p style={{ color: "blue" }}>*update*</p>
 
@@ -1856,29 +1881,29 @@ akeyless dynamic-secret update artifactory \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                                     
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                         
+`-n, --name`: **Required**, Dynamic Secret name
 
- `-s, --artifactory-token-scope`: **Required**, Token scope provided as a space-separated list, for example: member-of-groups:readers                                 
+`-s, --artifactory-token-scope`: **Required**, Token scope provided as a space-separated list, for example: member-of-groups:readers
 
- `-a, --artifactory-token-audience`: **Required**, A space-separated list of other Artifactory instances or services that should accept this token, for example: jfrt@\* 
+`-a, --artifactory-token-audience`: **Required**, A space-separated list of other Artifactory instances or services that should accept this token, for example: jfrt@*
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                   
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-b, --base-url`: Artifactory REST URL, must end with artifactory postfix                                                                               
+`-b, --base-url`: Artifactory REST URL, must end with artifactory postfix
 
- `-r, --artifactory-admin-name`: Admin name                                                                                                                            
+`-r, --artifactory-admin-name`: Admin name
 
- `-p, --artifactory-admin-pwd`: Admin API Key/Password                                                                                                                
+`-p, --artifactory-admin-pwd`: Admin API Key/Password
 
- `u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                       
+`u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                                              
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
 **Updates AWS Dynamic Secret**
 
@@ -1898,63 +1923,63 @@ akeyless dynamic-secret update aws \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-i, --aws-access-key-id`: Access Key ID                                                                                                   
+`-i, --aws-access-key-id`: Access Key ID
 
- `-s, --aws-access-secret-key`: Access Secret Key                                                                                               
+`-s, --aws-access-secret-key`: Access Secret Key
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                 
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--aws-access-mode`: The types of credentials to retrieve from AWS. Options:\[iam\_user,assume\_role]                                   
+`--aws-access-mode`: The types of credentials to retrieve from AWS. Options:[iam_user,assume_role]
 
- `--aws-region[=us-east-2]`: Region, Default = us-east-2                                                                                                          
+`--aws-region[=us-east-2]`: Region, Default = us-east-2
 
- `--aws-user-policies`: Policy ARN(s). Multiple values should be separated by comma                                                     
+`--aws-user-policies`: Policy ARN(s). Multiple values should be separated by comma
 
- `--aws-user-groups`: UserGroup name(s). Multiple values should be separated by comma                                                 
+`--aws-user-groups`: UserGroup name(s). Multiple values should be separated by comma
 
- `--aws-role-arns`: AWS Role ARNs to be use in the Assume Role operation. Multiple values should be separated by comma
+`--aws-role-arns`: AWS Role ARNs to be use in the Assume Role operation. Multiple values should be separated by comma
 
-  `--aws-external-id`: The AWS External ID associated with the AWS role, relevant only for Assumed role\`
+`--aws-external-id`: The AWS External ID associated with the AWS role, relevant only for Assumed role`
 
- `--aws-user-console-access[=false]`: Enable AWS User console access                                                                                  
+`--aws-user-console-access[=false]`: Enable AWS User console access
 
- `--aws-user-programmatic-access[=true]`: Enable AWS User programmatic access                                                                             
+`--aws-user-programmatic-access[=true]`: Enable AWS User programmatic access
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation                                                                     
+`--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation
 
- `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
+`--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
- `--session-tags`: String of Key value session tags comma separated, relevant only for Assumed Role
+`--session-tags`: String of Key value session tags comma separated, relevant only for Assumed Role
 
- `--transitive-tag-keys`: String of transitive tag keys space separated, relevant only for Assumed Role
+`--transitive-tag-keys`: String of transitive tag keys space separated, relevant only for Assumed Role
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-aws-account-id`: The aws account id                                                                                              
+`--secure-access-aws-account-id`: The aws account id
 
- `--secure-access-aws-native-cli`: The aws native cli                                                                                              
+`--secure-access-aws-native-cli`: The aws native cli
 
- `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion                                                                  
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
- `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion                                                                       
+`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-web[=true]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=true]`: Enable Web Secure Remote Access
 
 **Updates Azure AD Dynamic Secret**
 
@@ -1976,51 +2001,51 @@ akeyless dynamic-secret update azure \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                     
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                         
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                   
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-t, --azure-tenant-id`: Azure Tenant ID                                                                                                       
+`-t, --azure-tenant-id`: Azure Tenant ID
 
- `-i, --azure-client-id`: Azure Client ID (Application ID)                                                                                      
+`-i, --azure-client-id`: Azure Client ID (Application ID)
 
- `-s, --azure-client-secret`: Azure AD Client Secret                                                                                                
+`-s, --azure-client-secret`: Azure AD Client Secret
 
- `--azure-user-portal-access[=false]`: Enable Azure AD user portal access                                                                                    
+`--azure-user-portal-access[=false]`: Enable Azure AD user portal access
 
- `--azure-user-programmatic-access[=false]`: Enable Azure AD user programmatic access                                                                              
+`--azure-user-programmatic-access[=false]`: Enable Azure AD user programmatic access
 
- `--azure-app-obj-id`: Azure App Object ID (required if selected programmatic access)                                                        
+`--azure-app-obj-id`: Azure App Object ID (required if selected programmatic access)
 
- `--azure-user-principal-name`: Azure AD User Principal Name (required if selected Portal access)                                                     
+`--azure-user-principal-name`: Azure AD User Principal Name (required if selected Portal access)
 
- `--azure-user-group-obj-id`: Azure AD User Group Object ID (required if selected Portal access)                                                    
+`--azure-user-group-obj-id`: Azure AD User Group Object ID (required if selected Portal access)
 
- `--azure-user-role-template-id`: Azure AD User Role Template ID (required if selected Portal access)                                                   
+`--azure-user-role-template-id`: Azure AD User Role Template ID (required if selected Portal access)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--fixed-user-only[=false]`: Allow access using externally (IdP) provided username                                                                 
+`--fixed-user-only[=false]`: Allow access using externally (IdP) provided username
 
- `--fixed-user-claim-keyname`: For externally provided users, denotes the key-name of IdP claim to extract username from                             
+`--fixed-user-claim-keyname`: For externally provided users, denotes the key-name of IdP claim to extract username from
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                                     
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion                                                                        
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
- `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion                                                                             
+`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
 
- `--secure-access-web[=true]`: Enable Web Secure Remote Access
+`--secure-access-web[=true]`: Enable Web Secure Remote Access
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
 **Update Cassandra Dynamic Secret**
 
@@ -2034,35 +2059,35 @@ akeyless dynamic-secret update cassandra \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Target name                                                                                                     
+`--target-name`: Target name
 
- `--cassandra-hosts`: Cassandra hosts names or IP addresses, comma-separated                                                          
+`--cassandra-hosts`: Cassandra hosts names or IP addresses, comma-separated
 
- `--cassandra-username`: Cassandra superuser user name                                                                                   
+`--cassandra-username`: Cassandra superuser user name
 
- `--cassandra-password`: Cassandra superuser password                                                                                    
+`--cassandra-password`: Cassandra superuser password
 
- `--cassandra-port[=9042]`: Cassandra port                                                                                                  
+`--cassandra-port[=9042]`: Cassandra port
 
- `--cassandra-statements[=CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';]`: Cassandra Creation Statements                                                                                   
+`--cassandra-statements[=CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';]`: Cassandra Creation Statements
 
- `--user-ttl[=60m]`: User TTL (\<=60m for access token)                                                                              
+`--user-ttl[=60m]`: User TTL (\<=60m for access token)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 **Updates Chef Dynamic Secret**
 
@@ -2077,31 +2102,31 @@ akeyless dynamic-secret update chef \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-c, --chef-server-username`: Chef server username                                                                                            
+`-c, --chef-server-username`: Chef server username
 
- `-y, --chef-server-key`: Chef server key                                                                                                 
+`-y, --chef-server-key`: Chef server key
 
- `-s, --chef-server-url`: Chef server URL                                                                                                 
+`-s, --chef-server-url`: Chef server URL
 
- `-g, --chef-orgs`: Chef organizations                                                                                              
+`-g, --chef-orgs`: Chef organizations
 
- `--skip-ssl[=true]`: Skip SSL                                                                                                        
+`--skip-ssl[=true]`: Skip SSL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                 
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
 **Updates a custom webhook based dynamic secret Dynamic Secret**
 
@@ -2116,27 +2141,27 @@ akeyless dynamic-secret update custom \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
- `-c, --create-sync-url`: **Required**, URL of an endpoint that implements /sync/create method                                          
+`-c, --create-sync-url`: **Required**, URL of an endpoint that implements /sync/create method
 
- `-r, --revoke-sync-url`: **Required**, URL of an endpoint that implements /sync/revoke method                                          
+`-r, --revoke-sync-url`: **Required**, URL of an endpoint that implements /sync/revoke method
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--payload`: Secret payload to be sent with each create/revoke webhook request                                               
+`--payload`: Secret payload to be sent with each create/revoke webhook request
 
- `--timeout-sec[=60]`: Maximum allowed time in seconds for the webhook to return the results                                           
+`--timeout-sec[=60]`: Maximum allowed time in seconds for the webhook to return the results
 
- `--enable_admin_rotation[=false]`: Enable automatic admin credentials rotation                                                                     
+`--enable_admin_rotation[=false]`: Enable automatic admin credentials rotation
 
- `--admin_rotation_interval_days`: Rotation period in days
+`--admin_rotation_interval_days`: Rotation period in days
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                               
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 **Updates a Dockerhub Dynamic Secret**
 
@@ -2154,23 +2179,23 @@ akeyless dynamic-secret update dockerhub \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                                                             
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                 
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                           
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--dockerhub-username`: Username for docker repository                                                                                                                                
+`--dockerhub-username`: Username for docker repository
 
- `--dockerhub-password`: Password for docker repository                                                                                                                                
+`--dockerhub-password`: Password for docker repository
 
- `--dockerhub-token-scopes`: Comma-separated access token scopes list to give the created dynamic secret. Valid options are in 'repo:admin', 'repo:write', 'repo:read', 'repo:public\_read' 
+`--dockerhub-token-scopes`: Comma-separated access token scopes list to give the created dynamic secret. Valid options are in 'repo:admin', 'repo:write', 'repo:read', 'repo:public_read'
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                                               
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--user-ttl[=60m]`: User TTL, Default = 60m
+`--user-ttl[=60m]`: User TTL, Default = 60m
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
 **Updates Amazon Elastic Kubernetes Service (Amazon EKS) Dynamic Secret**
 
@@ -2192,41 +2217,41 @@ akeyless dynamic-secret update eks \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-c, --eks-cluster-name`: EKS cluster name. Must match the EKS cluster name you want to connect to                                        
+`-c, --eks-cluster-name`: EKS cluster name. Must match the EKS cluster name you want to connect to
 
- `-e, --eks-cluster-endpoint`: EKS Cluster endpoint. https\:// , \<DNS / IP> of the cluster                                                    
+`-e, --eks-cluster-endpoint`: EKS Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
- `-r, --eks-cluster-ca-cert`: EKS Cluster certificate. Base 64 encoded certificate                                                            
+`-r, --eks-cluster-ca-cert`: EKS Cluster certificate. Base 64 encoded certificate
 
- `--eks-access-key-id`: EKS Access Key ID                                                                                               
+`--eks-access-key-id`: EKS Access Key ID
 
- `--eks-secret-access-key`: EKS Secret Access Key                                                                                           
+`--eks-secret-access-key`: EKS Secret Access Key
 
- `--eks-region[=us-east-2]`: EKS Region, Default = us-east-2                                                                                                      
+`--eks-region[=us-east-2]`: EKS Region, Default = us-east-2
 
- `--eks-assume-role`: Role ARN. Role to assume when connecting to the EKS cluster                                                     
+`--eks-assume-role`: Role ARN. Role to assume when connecting to the EKS cluster
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL                                                                                    
+`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
 
- `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access                                                                   
+`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 **Updates Google Cloud Provider (GCP) Dynamic Secret**
 
@@ -2249,35 +2274,35 @@ akeyless dynamic-secret update gcp \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                     
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                         
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                   
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-t, --gcp-cred-type[=token]`: Credentials type, options are \[token, key]                                                                            
+`-t, --gcp-cred-type[=token]`: Credentials type, options are [token, key]
 
- `--gcp-key-file-path`: Path to file with the Base64-encoded service account private key                                                      
+`--gcp-key-file-path`: Path to file with the Base64-encoded service account private key
 
- `--gcp-key`: Base64-encoded service account private key text                                                                       
+`--gcp-key`: Base64-encoded service account private key text
 
- `--gcp-token-scopes`: Access token scopes list, e.g. scope,scope                                                                          
+`--gcp-token-scopes`: Access token scopes list, e.g. scope,scope
 
- `--gcp-key-algo`: Service account key algorithm, e.g. KEY\_ALG\_RSA\_04                                                                  
+`--gcp-key-algo`: Service account key algorithm, e.g. KEY_ALG_RSA_04
 
- `-s, --service-account-type[=fixed]`: **Required**, The type of the gcp dynamic secret. Options\[fixed, dynamic]                                           
+`-s, --service-account-type[=fixed]`: **Required**, The type of the gcp dynamic secret. Options[fixed, dynamic]
 
- `-e, --gcp-sa-email`: The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)      
+`-e, --gcp-sa-email`: The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)
 
-  `--role-binding`: Role binding definitions in json format
+`--role-binding`: Role binding definitions in json format
 
-  `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--user-ttl[=60m]`: User TTL, Default = 60m
+`--user-ttl[=60m]`: User TTL, Default = 60m
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 **Updates Google-Workspace Dynamic Secret**
 
@@ -2302,9 +2327,9 @@ akeyless dynamic-secret update google-workspace \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`-a, --access-mode`: **Required**, Adding a user to an existing group or assign an admin role to a user \[\`group\`/\`role\`]
+`-a, --access-mode`: **Required**, Adding a user to an existing group or assign an admin role to a user [`group`/`role`]
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
 `-d, --admin-email`: **Required**, Email of an admin user within the account
 
@@ -2314,7 +2339,7 @@ akeyless dynamic-secret update google-workspace \
 
 `--role-name`: Name of the admin role the user will be assign to, (relevant only for `role access-mode`)
 
-`--role-scope[=CUSTOMER]`: The scope in which this role is assigned \[\`customer\`/\`org\_unit\`], relevant only for `role access-mode`
+`--role-scope[=CUSTOMER]`: The scope in which this role is assigned [`customer`/`org_unit`], relevant only for `role access-mode`
 
 `--gcp-key-file-path`: Path to file with the service account private key
 
@@ -2345,29 +2370,29 @@ akeyless dynamic-secret update github \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                                                                                                
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                    
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--installation-id`: Github application installation id                                                                                                                                                               
+`--installation-id`: Github application installation id
 
 `--installation-organization`: Optional, mutually exclusive with installation id, GitHub organization name
 
- `--installation-repository`: Optional, instead of installation id, set a GitHub repository `<owner>/<repo-name>`                                                                                                              
+`--installation-repository`: Optional, instead of installation id, set a GitHub repository `<owner>/<repo-name>`
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                              
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--github-app-id`: Github application id                                                                                                                                                                            
+`--github-app-id`: Github application id
 
- `--github-app-private-key`: Github application private key (base64 encoded key)                                                                                                                                              
+`--github-app-private-key`: Github application private key (base64 encoded key)
 
- `--github-base-url[=https://api.github.com/]`: Github base url                                                                                                                                                                                  
+`--github-base-url[=https://api.github.com/]`: Github base url
 
- `-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, e.g - -p contents=read -p issues=write or -p '\{content:read}' 
+`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, e.g - -p contents=read -p issues=write or -p '\{content:read}'
 
- `-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use argument multiple times: -r RepoName -r RepoName                          
+`-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use argument multiple times: -r RepoName -r RepoName
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                                                                                  
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 **Updates Google Kubernetes Engine (GKE) Dynamic Secret**
 
@@ -2389,39 +2414,39 @@ akeyless dynamic-secret update gke \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-a, --gke-account-email`: GKE service account email                                                                                       
+`-a, --gke-account-email`: GKE service account email
 
- `-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https\://\<DNS/IP>                                                      
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https://\<DNS/IP>
 
- `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate                                                                         
+`-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
- `--gke-account-key-file-path`: File path to GKE service account key                                                                            
+`--gke-account-key-file-path`: File path to GKE service account key
 
- `--gke-account-key`: GKE service account key                                                                                         
+`--gke-account-key`: GKE service account key
 
- `--gke-cluster-name`: GKE cluster name                                                                                                
+`--gke-cluster-name`: GKE cluster name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                 
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL                                                                                    
+`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
 
- `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access                                                                   
+`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 **Updates HanaDB Dynamic Secret**
 
@@ -2442,45 +2467,45 @@ akeyless dynamic-secret update hanadb \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --hana-dbname`: HanaDB database Name
+`-d, --hana-dbname`: HanaDB database Name
 
- `--hanadb-username`: HanaDB user                                                                                                     
+`--hanadb-username`: HanaDB user
 
- `--hanadb-password`: HanaDB password                                                                                                 
+`--hanadb-password`: HanaDB password
 
- `--hanadb-host[=127.0.0.1]`: HanaDB host name                                                                                                
+`--hanadb-host[=127.0.0.1]`: HanaDB host name
 
- `--hanadb-port[=443]`: HanaDB port                                                                                                     
+`--hanadb-port[=443]`: HanaDB port
 
- `--hanadb-creation-statements[=CREATE USER {{name}} PASSWORD {{password}}; GRANT MONITOR ADMIN TO {{name}};]`: HanaDB Creation Statements                                                                                      
+`--hanadb-creation-statements[=CREATE USER {{name}} PASSWORD {{password}}; GRANT MONITOR ADMIN TO {{name}};]`: HanaDB Creation Statements
 
- `--hanadb-revocation-statements[=DROP USER {{name}};]`: HanaDB Revocation Statements                                                                                    
+`--hanadb-revocation-statements[=DROP USER {{name}};]`: HanaDB Revocation Statements
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag                                        
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
- `--secure-access-db-schema`: The db schema                                                                                                   
+`--secure-access-db-schema`: The db schema
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 **Updates Native Kubernetes Service Dynamic Secret**
 
@@ -2495,59 +2520,59 @@ akeyless dynamic-secret update k8s \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                     
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                         
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                   
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-e, --k8s-cluster-endpoint`: K8s Cluster endpoint. https\:// , \<DNS / IP> of the cluster                                                          
+`-e, --k8s-cluster-endpoint`: K8s Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
- `-c, --k8s-cluster-ca-cert`: K8s Cluster certificate. Base 64 encoded certificate                                                                  
+`-c, --k8s-cluster-ca-cert`: K8s Cluster certificate. Base 64 encoded certificate
 
- `-t, --k8s-cluster-token`: K8s Cluster authentication token                                                                                      
+`-t, --k8s-cluster-token`: K8s Cluster authentication token
 
- `-i, --use-gw-service-account`: Use the GW's service account
+`-i, --use-gw-service-account`: Use the GW's service account
 
- `--k8s-service-account-type[=fixed]`: K8S ServiceAccount type \[fixed, dynamic]
+`--k8s-service-account-type[=fixed]`: K8S ServiceAccount type [fixed, dynamic]
 
- `-s, --k8s-service-account`: K8s ServiceAccount to extract token from                                                                              
+`-s, --k8s-service-account`: K8s ServiceAccount to extract token from
 
- `--k8s-namespace[=default]`: K8s Namespace where the ServiceAccount exists
+`--k8s-namespace[=default]`: K8s Namespace where the ServiceAccount exists
 
- `--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8s namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type=dynamic)
+`--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8s namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type=dynamic)
 
- `--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type=dynamic)
+`--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type=dynamic)
 
- `--k8s-predefined-role-type`: Specifies the type of the pre-existing K8S role [Role, ClusterRole] \(relevant only for k8s-service-account-type=dynamic)
+`--k8s-predefined-role-type`: Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type=dynamic)
 
- `--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)
+`--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)
 
- `--k8s-cluster-name`: K8s cluster name
+`--k8s-cluster-name`: K8s cluster name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                              
+`--user-ttl[=60m]`: User TTL
 
-  `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                                     
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-cluster-endpoint`: The K8s cluster endpoint                                                                                              
+`--secure-access-cluster-endpoint`: The K8s cluster endpoint
 
- `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access                                                                         
+`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                          
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
- `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion                                                                        
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
- `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion                                                                             
+`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
 
- `--secure-access-dashboard-url`: The K8s dashboard url
+`--secure-access-dashboard-url`: The K8s dashboard url
 
 **Updates LDAP Dynamic Secret**
 
@@ -2562,51 +2587,51 @@ akeyless dynamic-secret update ldap \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                     
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                         
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                   
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--ldap-url`: LDAP Server URL
+`--ldap-url`: LDAP Server URL
 
- `--user-dn`: User Base DN
+`--user-dn`: User Base DN
 
- `--group-dn`: Group DN which the temporary user should be added
+`--group-dn`: Group DN which the temporary user should be added
 
- `--user-attribute`: LDAP User Attribute                                                                                                   
+`--user-attribute`: LDAP User Attribute
 
- `-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate                                                                                   
+`-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate
 
- `--bind-dn`: LDAP Bind DN                                                                                                          
+`--bind-dn`: LDAP Bind DN
 
- `--bind-dn-password`: Password for LDAP Bind DN                                                                                             
+`--bind-dn-password`: Password for LDAP Bind DN
 
- `--external-username[=false]`: Externally provided username                                                                                          
+`--external-username[=false]`: Externally provided username
 
- `--token-expiration`: LDAP token expiration in seconds                                                                                      
+`--token-expiration`: LDAP token expiration in seconds
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--user-ttl[=60m]`: User TTL                                                                                                              
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, \[true/false]
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
+`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
- `--host-provider`: Host provider type \[explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+`--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
 
- `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
 
- `--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+`--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
 
- `--secure-access-rd-gateway-server`: RD Gateway server
+`--secure-access-rd-gateway-server`: RD Gateway server
 
 **Updates a MongoDB/MongoDB Atlas Dynamic Secret**
 
@@ -2627,53 +2652,53 @@ akeyless dynamic-secret update mongodb \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                                       
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**,                                                                                                                         
+`-n, --name`: **Required**,
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                     
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--mongodb-name`: MongoDB name                                                                                                                            
+`--mongodb-name`: MongoDB name
 
- `--mongodb-roles\[=\[]]`: MongoDB roles (e.g. MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`) 
+`--mongodb-roles\[=\[]]`: MongoDB roles (e.g. MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`)
 
- `--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})                                                                                              
+`--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})
 
- `--mongodb-server-uri`: MongoDB server URI (e.g. mongodb://user:[password@my.mongo.db](mailto:password@my.mongo.db):707/admin?replicaSet=mySet)               
+`--mongodb-server-uri`: MongoDB server URI (e.g. mongodb://user:[password@my.mongo.db](mailto:password@my.mongo.db):707/admin?replicaSet=mySet)
 
- `--mongodb-username`: MongoDB server username                                                                                                                 
+`--mongodb-username`: MongoDB server username
 
- `--mongodb-password`: MongoDB server password                                                                                                                 
+`--mongodb-password`: MongoDB server password
 
- `--mongodb-host-port`: host:port (e.g. my.mongo.db:707)                                                                                                      
+`--mongodb-host-port`: host:port (e.g. my.mongo.db:707)
 
- `--mongodb-default-auth-db`: MongoDB server default authentication database                                                                                          
+`--mongodb-default-auth-db`: MongoDB server default authentication database
 
- `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet\&authSource=authDB)                                                                    
+`--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
 
- `--mongodb-atlas-project-id`: MongoDB Atlas project ID                                                                                                                
+`--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
- `--mongodb-atlas-api-public-key`: MongoDB Atlas public key                                                                                                                
+`--mongodb-atlas-api-public-key`: MongoDB Atlas public key
 
- `--mongodb-atlas-api-private-key`: MongoDB Atlas private key                                                                                                               
+`--mongodb-atlas-api-private-key`: MongoDB Atlas private key
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL (e.g. 60s, 60m, 60h)
+`--user-ttl[=60m]`: User TTL (e.g. 60s, 60m, 60h)
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                                                       
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                                            
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag                                                                
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                                         
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 **Updates Microsoft SQL Server**
 
@@ -2694,45 +2719,45 @@ akeyless dynamic-secret update mssql \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**,                                                                                                 
+`-n, --name`: **Required**,
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --mssql-dbname`: MSSQL Server DB Name                                                                                            
+`-d, --mssql-dbname`: MSSQL Server DB Name
 
- `--mssql-username`: MS SQL Server user                                                                                              
+`--mssql-username`: MS SQL Server user
 
- `--mssql-password`: MS SQL Server password                                                                                          
+`--mssql-password`: MS SQL Server password
 
- `--mssql-host[=127.0.0.1]`: MS SQL Server host name                                                                                         
+`--mssql-host[=127.0.0.1]`: MS SQL Server host name
 
- `--mssql-port[=1433]`: MS SQL Server port                                                                                              
+`--mssql-port[=1433]`: MS SQL Server port
 
- `--mssql-creation-statements[=CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}';]`: MSSQL Server Creation Statements                                                                                
+`--mssql-creation-statements[=CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}';]`: MSSQL Server Creation Statements
 
- `--mssql-revocation-statements[=DROP LOGIN [{{name}}];]`: MSSQL Server Revocation Statements                                                                              
+`--mssql-revocation-statements[=DROP LOGIN [{{name}}];]`: MSSQL Server Revocation Statements
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag                                        
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
- `--secure-access-db-schema`: The db schema                                                                                                   
+`--secure-access-db-schema`: The db schema
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 **Update MySQL Dynamic Secret**
 
@@ -2752,51 +2777,51 @@ akeyless dynamic-secret update mysql \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --mysql-dbname`: MySQL DB name                                                                                                                                                                                                   
+`-d, --mysql-dbname`: MySQL DB name
 
- `--mysql-username`: MySQL user                                                                                                                                                                                                      
+`--mysql-username`: MySQL user
 
- `--mysql-password`: MySQL password                                                                                                                                                                                                  
+`--mysql-password`: MySQL password
 
- `--mysql-host[=127.0.0.1]`: MySQL host name                                                                                                                                                                                                 
+`--mysql-host[=127.0.0.1]`: MySQL host name
 
- `--mysql-port[=3306]`: MySQL port                                                                                                                                                                                                      
+`--mysql-port[=3306]`: MySQL port
 
- `--mysql-statements`: MySQL Creation Statements
+`--mysql-statements`: MySQL Creation Statements
 
- ` --mysql-revocation-statements`: MySQL Revocation Statements
+` --mysql-revocation-statements`: MySQL Revocation Statements
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                                                                                                                 
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)   
+`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates                                                                                                  
+`--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates
 
- `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
+`--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--password-length`: The length of the password to be generated 
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                                                                                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                                                                                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag                                                                                                                                        
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                                                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 **Update OracleDB Dynamic Secret**
 
@@ -2816,47 +2841,47 @@ akeyless dynamic-secret update oracledb \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --oracle-service-name`: Oracle service name                                                                                                                                                                                             
+`-d, --oracle-service-name`: Oracle service name
 
- `--oracle-username`: Oracle user                                                                                                                                                                                                     
+`--oracle-username`: Oracle user
 
- `--oracle-password`: Oracle password                                                                                                                                                                                                 
+`--oracle-password`: Oracle password
 
- `--oracle-host[=127.0.0.1]`: Oracle host name                                                                                                                                                                                                
+`--oracle-host[=127.0.0.1]`: Oracle host name
 
- `--oracle-port[=1521]`: Oracle port                                                                                                                                                                                                     
+`--oracle-port[=1521]`: Oracle port
 
- `--oracle-statements`: Oracle Creation Statements                                                                                                                                                                                      
+`--oracle-statements`: Oracle Creation Statements
 
- `--oracle-revocation-statements`: Oracle Revocation statements
+`--oracle-revocation-statements`: Oracle Revocation statements
 
- `--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates                                                                                                  
+`--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates
 
- `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
+`--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable[=false]`: Enable/Disable secure remote access, \[true/false]                                                                                                                                                               
+`--secure-access-enable[=false]`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                                                                                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag                                                                                                                                        
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                                                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 **Update PostgreSQL Dynamic Secret**
 
@@ -2878,49 +2903,49 @@ akeyless dynamic-secret update postgresql \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-d, --postgresql-db-name`: PostgreSQL DB name                                                                                              
+`-d, --postgresql-db-name`: PostgreSQL DB name
 
- `-u, --gateway-url[=http://localhost:8000]`: Gateway url                                                                                                     
+`-u, --gateway-url[=http://localhost:8000]`: Gateway url
 
- `--postgresql-username`: PostgreSQL user                                                                                                 
+`--postgresql-username`: PostgreSQL user
 
- `--postgresql-password`: PostgreSQL password                                                                                             
+`--postgresql-password`: PostgreSQL password
 
- `--postgresql-host[=127.0.0.1]`: PostgreSQL host name                                                                                            
+`--postgresql-host[=127.0.0.1]`: PostgreSQL host name
 
- `--postgresql-port[=5432]`: PostgreSQL port                                                                                                 
+`--postgresql-port[=5432]`: PostgreSQL port
 
- `--postgresql-statements[=CREATE USER {{name}} WITH PASSWORD '{{password}}';GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{name}};GRANT CONNECT ON DATABASE postgres TO {{name}};GRANT USAGE ON SCHEMA public TO {{name}};]`: PostgreSQL Creation Statements                                                                                  
+`--postgresql-statements[=CREATE USER {{name}} WITH PASSWORD '{{password}}';GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{name}};GRANT CONNECT ON DATABASE postgres TO {{name}};GRANT USAGE ON SCHEMA public TO {{name}};]`: PostgreSQL Creation Statements
 
- `--postgresql-revoke-statement[=REASSIGN OWNED BY {{name}} TO {{userHost}}; DROP OWNED BY {{name}}; select pg_terminate_backend(pid) from pg_stat_activity where usename = '{{name}}'; DROP USER {{name}};]`: PostgreSQL Revocation Statement                                                                                 
+`--postgresql-revoke-statement[=REASSIGN OWNED BY {{name}} TO {{userHost}}; DROP OWNED BY {{name}}; select pg_terminate_backend(pid) from pg_stat_activity where usename = '{{name}}'; DROP USER {{name}};]`: PostgreSQL Revocation Statement
 
- `--enc-key-name`: Encrypt Dynamic Secret with following key                                                                             
+`--enc-key-name`: Encrypt Dynamic Secret with following key
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                 
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--user-ttl[=60m]`: User TTL                                                                                                        
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion                                                    
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag                                        
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
- `--secure-access-db-schema`: The db schema                                                                                                   
+`--secure-access-db-schema`: The db schema
 
- `--secure-access-web[=false]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=false]`: Enable Web Secure Remote Access
 
 **Update RabbitMQ Dynamic Secret**
 
@@ -2941,45 +2966,45 @@ akeyless dynamic-secret update rabbitmq \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-s, --rabbitmq-server-uri`: RabbitMQ server URI                                                                                             
+`-s, --rabbitmq-server-uri`: RabbitMQ server URI
 
- `-c, --rabbitmq-user-conf-permission`: User configuration permission, for example:\[.\*,queue-name]                                                      
+`-c, --rabbitmq-user-conf-permission`: User configuration permission, for example:[.*,queue-name]
 
- `-w, --rabbitmq-user-write-permission`: User write permission, for example:\[.\*,queue-name]                                                              
+`-w, --rabbitmq-user-write-permission`: User write permission, for example:[.*,queue-name]
 
- `-r, --rabbitmq-user-read-permission`: User read permission, for example:\[.\*,queue-name]                                                               
+`-r, --rabbitmq-user-read-permission`: User read permission, for example:[.*,queue-name]
 
- `-a, --rabbitmq-admin-user`: RabbitMQ server user                                                                                            
+`-a, --rabbitmq-admin-user`: RabbitMQ server user
 
- `-p, --rabbitmq-admin-pwd`: RabbitMQ server password                                                                                        
+`-p, --rabbitmq-admin-pwd`: RabbitMQ server password
 
- `--rabbitmq-user-vhost`: User Virtual Host                                                                                               
+`--rabbitmq-user-vhost`: User Virtual Host
 
- `--rabbitmq-user-tags`: Comma separated list of tags to apply to user                                                                   
+`--rabbitmq-user-tags`: Comma separated list of tags to apply to user
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion                                                                  
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
- `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion                                                                       
+`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
 
- `--secure-access-url`: Destination URL to inject secrets                                                                               
+`--secure-access-url`: Destination URL to inject secrets
 
- `--secure-access-web[=true]`: Enable Web Secure Remote Access                                                                                 
+`--secure-access-web[=true]`: Enable Web Secure Remote Access
 
 **Update RDP Dynamic Secret**
 
@@ -2994,49 +3019,49 @@ akeyless dynamic-secret update rdp \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-g, --rdp-user-groups`: RDP UserGroup name(s). Multiple values should be separated by comma                                             
+`-g, --rdp-user-groups`: RDP UserGroup name(s). Multiple values should be separated by comma
 
- `-r, --rdp-host-name`: RDP Host name                                                                                                   
+`-r, --rdp-host-name`: RDP Host name
 
- `--rdp-admin-name`: RDP Admin name                                                                                                  
+`--rdp-admin-name`: RDP Admin name
 
- `--rdp-admin-pwd`: RDP Admin Password                                                                                              
+`--rdp-admin-pwd`: RDP Admin Password
 
- `--rdp-host-port[=22]`: RDP Host port                                                                                                   
+`--rdp-host-port[=22]`: RDP Host port
 
- `--fixed-user-only[=false]`: Allow access using externally (IdP) provided username                                                           
+`--fixed-user-only[=false]`: Allow access using externally (IdP) provided username
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--warn-user-before-expiration`: Display message to user before TTL expires (min)                                                                
+`--warn-user-before-expiration`: Display message to user before TTL expires (min)
 
- `--allow-user-extend-session`: Allow user to extend session periodically (min)                                                                 
+`--allow-user-extend-session`: Allow user to extend session periodically (min)
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user                                                      
+`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
- `--secure-access-rdp-user`: Override the RDP Domain username                                                                                
+`--secure-access-rdp-user`: Override the RDP Domain username
 
- `--secure-access-host`: Target servers for connections., For multiple values repeat this flag                                           
+`--secure-access-host`: Target servers for connections., For multiple values repeat this flag
 
- `--secure-access-rd-gateway-server`: RD Gateway server
+`--secure-access-rd-gateway-server`: RD Gateway server
 
- `--secure-access-allow-external-user[=false]`: Allow providing external user for a domain users                                                                
+`--secure-access-allow-external-user[=false]`: Allow providing external user for a domain users
 
 **Update Redis Dynamic Secret**
 
@@ -3054,37 +3079,37 @@ akeyless dynamic-secret update redis \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                                                 
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                                                           
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--username`: Redis username                                                                                                                                                                                                                
+`--username`: Redis username
 
- `--password`: Redis password                                                                                                                                                                                                                
+`--password`: Redis password
 
- `--host[=127.0.0.1]`: Redis host                                                                                                                                                                                                                    
+`--host[=127.0.0.1]`: Redis host
 
- `--port[=6379]`: Redis port                                                                                                                                                                                                                    
+`--port[=6379]`: Redis port
 
- `--acl-rules`: A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys (\[\~\*, +\@read]) 
+`--acl-rules`: A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys ([~*, +@read])
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                                                                                                                               
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)                                                                                                                                     
+`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60m]`: User TTL                                                                                                                                                                                                                      
+`--user-ttl[=60m]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
 **Update Redshift Dynamic Secret**
 
@@ -3106,37 +3131,37 @@ akeyless dynamic-secret update redshift \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                               
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                             
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `--redshift-db-name`: Redshift DB name                                                                                                
+`--redshift-db-name`: Redshift DB name
 
- `--redshift-username`: Redshift user                                                                                                  
+`--redshift-username`: Redshift user
 
- `--redshift-password`: Redshift password                                                                                               
+`--redshift-password`: Redshift password
 
- `--redshift-host[=127.0.0.1]`: Redshift host name                                                                                              
+`--redshift-host[=127.0.0.1]`: Redshift host name
 
- `--redshift-port[=5439]`: Redshift port                                                                                                   
+`--redshift-port[=5439]`: Redshift port
 
- `--redshift-statements[=CREATE USER {{username}} WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{username}};]`: Redshift Creation Statements                                                                                    
+`--redshift-statements[=CREATE USER {{username}} WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{username}};]`: Redshift Creation Statements
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                 
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--enc-key-name`: Encrypt Dynamic Secret with following key                                                                             
+`--enc-key-name`: Encrypt Dynamic Secret with following key
 
- `--user-ttl[=60m]`: User TTL
+`--user-ttl[=60m]`: User TTL
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
- `--secure-access-enable`: Enable/Disable secure remote access, \[true/false]                                                               
+`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
- `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag                                        
+`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
 **Update Snowflake Dynamic Secret**
 
@@ -3157,41 +3182,41 @@ akeyless dynamic-secret update snowflake \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                   
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                       
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                 
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-a, --account`: Snowflake account name                                                                                              
+`-a, --account`: Snowflake account name
 
- `--account-username`: Snowflake account user name                                                                                         
+`--account-username`: Snowflake account user name
 
- `--account-password`: Snowflake account password                                                                                          
+`--account-password`: Snowflake account password
 
- `-d, --db-name`: The DB the generated credentials are restricted to                                                                  
+`-d, --db-name`: The DB the generated credentials are restricted to
 
- `--role`: Role to be assigned to the generated credentials                                                                    
+`--role`: Role to be assigned to the generated credentials
 
- `--warehouse`: The warehouse the generated credentials are restricted to                                                           
+`--warehouse`: The warehouse the generated credentials are restricted to
 
- `--private-key`: RSA Private key (base64 encoded)
+`--private-key`: RSA Private key (base64 encoded)
 
- `--private-key-file-name`: The path to the file containing the private key
+`--private-key-file-name`: The path to the file containing the private key
 
- `--private-key-passphrase`: The Private key passphrase
+`--private-key-passphrase`: The Private key passphrase
 
- `--auth-mode[=password]`: The authentication mode for the temporary user \[\`password\`/\`key\`] 
+`--auth-mode[=password]`: The authentication mode for the temporary user [`password`/`key`]
 
- `--key-algo[=RSA2048]`: The temporary key algorithm to generate (relevant only for `auth-mode`=`key`) [`RSA2048`/`RSA3072`/`RSA4096`]
+`--key-algo[=RSA2048]`: The temporary key algorithm to generate (relevant only for `auth-mode`=`key`) [`RSA2048`/`RSA3072`/`RSA4096`]
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                     
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--user-ttl[=4h]`: User TTL                                                                                                            
+`--user-ttl[=4h]`: User TTL
 
- `--custom-username-template`: Customize how temporary usernames are generated using go template
+`--custom-username-template`: Customize how temporary usernames are generated using go template
 
- `--password-length`: The length of the password to be generated
+`--password-length`: The length of the password to be generated
 
 **Update a Venafi dynamic secret to update certificates generated by Venafi or monitored by Venafi and generated by Akeyless PKI**
 
@@ -3212,49 +3237,72 @@ akeyless dynamic-secret update venafi  \
 
 ##### Flags
 
- `--new-name`: Dynamic Secret New name                                                                                                                                                                                                                                                                                                                                                                                           
+`--new-name`: Dynamic Secret New name
 
- `-n, --name`: **Required**, Dynamic Secret name                                                                                                                                                                                                                                                                                                                                                                               
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--target-name`: Name of existing target to use in Dynamic Secret creation                                                                                                                                                                                                                                                                                                                                                         
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
- `-z, --venafi-zone`: Venafi Zone                                                                                                                                                                                                                                                                                                                                                                                                 
+`-z, --venafi-zone`: Venafi Zone
 
- `--venafi-api-key`: Venafi API key (Relevant when using Venafi Cloud)                                                                                                                                                                                                                                                                                                                                                           
+`--venafi-api-key`: Venafi API key (Relevant when using Venafi Cloud)
 
- `--venafi-use-tpp`: When connecting to TPP this flag is required                                                                                                                                                                                                                                                                                                                                                                
+`--venafi-use-tpp`: When connecting to TPP this flag is required
 
- `--venafi-access-token`: Venafi Access Token to use to access the TPP environment (Relevant when using TPP)                                                                                                                                                                                                                                                                                                                          
+`--venafi-access-token`: Venafi Access Token to use to access the TPP environment (Relevant when using TPP)
 
- `--venafi-refresh-token`: Venafi Refresh Token to use when the Access Token is expired (Relevant when using TPP)
+`--venafi-refresh-token`: Venafi Refresh Token to use when the Access Token is expired (Relevant when using TPP)
 
- `--venafi-client-id[=akeyless]`: Venafi Client ID to use when refreshing the token (Relevant when using TPP)
+`--venafi-client-id[=akeyless]`: Venafi Client ID to use when refreshing the token (Relevant when using TPP)
 
- `--venafi-baseurl`: Base URL of the TPP environment. Or Cloud environment which isn't [https://venafi.cloud/](https://venafi.cloud/)                                                                                                                                                                                                                                                                                                                   
+`--venafi-baseurl`: Base URL of the TPP environment. Or Cloud environment which isn't [https://venafi.cloud/](https://venafi.cloud/)
 
- `--sign-using-akeyless-pki`: creating certificates using Akeyless PKI                                                                                                                                                                                                                                                                                                                                                                    
+`--sign-using-akeyless-pki`: creating certificates using Akeyless PKI
 
- `--root-first-in-chain`: root first in chain                                                                                                                                                                                                                                                                                                                                                                                         
+`--root-first-in-chain`: root first in chain
 
- `--store-private-key`: store private key in Akeyless                                                                                                                                                                                                                                                                                                                                                                               
+`--store-private-key`: store private key in Akeyless
 
- `--auto-generated-folder`: auto generated folder                                                                                                                                                                                                                                                                                                                                                                                       
+`--auto-generated-folder`: auto generated folder
 
- `--signer-key-name`: signer key name                                                                                                                                                                                                                                                                                                                                                                                             
+`--signer-key-name`: signer key name
 
- `--allowed-domains`: allowed domains                                                                                                                                                                                                                                                                                                                                                                                             
+`--allowed-domains`: allowed domains
 
- `--allow-subdomains`: allow subdomains
+`--allow-subdomains`: allow subdomains
 
- `--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation                                                                                                                                                                                                                                                                                                                                                                 
+`--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation
 
- `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
+`--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
+`--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
- `--user-ttl[=60h]`: User TTL in time.Duration format (60h / 9600m / etc...). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/)
+`--user-ttl[=60h]`: User TTL in time.Duration format (60h / 9600m / etc...). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/)
+
+**Update OpenAI Dynamic Secret**
+
+##### Usage
+
+```shell
+akeyless dynamic-secret update openai \
+--name <New Secret Name> \
+--new-name <Dynamic Secret New name> \
+--api-key-id <Admin API key ID> \
+--api-key <Admin API key> \
+--org-id <organization ID> \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+```
+
+##### Flags
+
+* `--new-name`: Dynamic Secret New name
+* `-n, --name`: **Required**, Dynamic Secret name
+* `--api-key-id`: The **ID** of the Admin API Key.
+* `--api-key`: The Admin API Key that will be used in order to create the API Key.
+* `--org-id`: The organization ID.
+* `--open-ai-url`: The endpoint for the OpenAI API
 
 ## Get
 
@@ -3281,15 +3329,15 @@ akeyless dynamic-secret get-value \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `--host`: Host
+`--host`: Host
 
- `target`: Target Name
+`target`: Target Name
 
- `args`: Optional arguments as `key`=`value` pairs or JSON strings, e.g - "`--args`=csr=base64\_encoded\_csr --args=common\_name=bar" or `--args`='\{"csr":"base64\_encoded\_csr"}. It is possible to combine both formats.' \[role\_arn,username,csr,common\_name]
+`args`: Optional arguments as `key`=`value` pairs or JSON strings, e.g - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
 
- `--timeout[=15]`: Timeout in seconds       
+`--timeout[=15]`: Timeout in seconds
 
 ## List
 
@@ -3304,7 +3352,7 @@ akeyless dynamic-secret list \
 
 ##### Flags
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ## Delete
 
@@ -3320,9 +3368,9 @@ akeyless dynamic-secret delete \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)  
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ## Dynamic secrets tmp-creds
 
@@ -3342,17 +3390,17 @@ akeyless dynamic-secret tmp-creds delete \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `-i, --tmp-creds-id`: Temp Creds ID                                   
+`-i, --tmp-creds-id`: Temp Creds ID
 
- `--revoke-all`: Revoke All Temp Creds                           
+`--revoke-all`: Revoke All Temp Creds
 
- `-u, --gateway-url`: API Gateway URL (Configuration Management port) 
+`-u, --gateway-url`: API Gateway URL (Configuration Management port)
 
- `--soft-delete`: Use soft delete                                 
+`--soft-delete`: Use soft delete
 
- `--host`: Host
+`--host`: Host
 
 **Get dynamic secret temporary credentials list**
 
@@ -3366,9 +3414,9 @@ akeyless dynamic-secret tmp-creds get \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name                   
+`-n, --name`: **Required**, Dynamic Secret name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 **Update ttl of dynamic secret temporary credentials**
 
@@ -3385,15 +3433,15 @@ akeyless dynamic-secret tmp-creds update \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
- `-i, --tmp-creds-id`: **Required**, Temp Creds ID
+`-i, --tmp-creds-id`: **Required**, Temp Creds ID
 
- `-t, --new-ttl-min`: **Required**, New TTL in Minutes
+`-t, --new-ttl-min`: **Required**, New TTL in Minutes
 
- `--host`: Requested host (relevant in linked target only)
+`--host`: Requested host (relevant in linked target only)
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ### <p style={{ color: "blue" }}>*set-item-state*</p>
 
@@ -3410,9 +3458,9 @@ akeyless set-item-state \
 
 ##### Flags
 
- `-n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
-`-s, --desired-state`: **Required** Desired item state [Enabled, Disabled] 
+`-s, --desired-state`: **Required** Desired item state [Enabled, Disabled]
 
 `--version[=0]`: The specific version you want to update: 0=item level state (default) (relevant only for keys)
 
