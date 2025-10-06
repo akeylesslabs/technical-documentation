@@ -14,13 +14,13 @@ next:
 ---
 API Key is a simple [Authentication Method](doc:access-and-authentication-methods) supported by the Akeyless Platform. API Keys are very popular primarily for testing or staging environments.
 
-<Image align="center" src="https://files.readme.io/574347a-API_key_auth.png" />
+<Image align="center" border={false} src="https://files.readme.io/574347a-API_key_auth.png" />
 
 # Create an API Key Authentication Method from the CLI
 
 Let's create a new API Key authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/api-key#create-an-api-key-authentication-method-in-the-akeyless-console).)
 
-To create an API Key authentication method from the CLI, run the following command: 
+To create an API Key authentication method from the CLI, run the following command:
 
 ```shell Create API Key
 akeyless auth-method create api-key --name MyFirstAPIKey
@@ -38,7 +38,7 @@ You can find the complete list of additional parameters for this command in the 
 
 # Configure Akeyless CLI with the API Key authentication method
 
-To configure your CLI to work with API Key authentication, run the following command: 
+To configure your CLI to work with API Key authentication, run the following command:
 
 ```shell Akeyless CLI
 akeyless configure --profile default --access-id <AccessID>  --access-key < API Key>
@@ -59,6 +59,8 @@ akeyless configure --profile default --access-id <AccessID>  --access-key < API 
 * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`
 
 4. Click **Finish**.
 
