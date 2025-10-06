@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-You can define a RabbitMQ target to be used with OpenAI Dynamic Secret.
+You can define an OpenAI target to be used with OpenAI Dynamic Secret.
 
 # Create an OpenAI Target in the CLI
 
