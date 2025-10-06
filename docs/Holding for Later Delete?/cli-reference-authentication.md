@@ -28,7 +28,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">*auth*</p>
+### `auth`
 
 This command authenticates to Akeyless and saves the temporary token so that it can be used again until the token expires without the need to re-authenticate every time.
 
@@ -82,7 +82,7 @@ This command authenticates to Akeyless and saves the temporary token so that it 
 
  `--debug`: Use this flag for a printout of the authorization `JWT`."
 
-### <p style="color:blue">create-auth-method</p>
+### `create-auth-method`
 
 Create a new [API Key](doc:api-key) Auth Method in the current account
 
@@ -112,7 +112,7 @@ akeyless create-auth-method --name <Auth method name>
 
  `--jwt-ttl[=0]`:creds expiration time in minutes. If not set, use default according to account settings  \\n(see get-account-settings)
 
-### <p style="color:blue">*create-auth-method-email*</p>
+### `create-auth-method-email`
 
 Create a new Auth Method that will be able to authenticate using an email address
 
@@ -146,7 +146,7 @@ akeyless create-auth-method-email \
 
  `--email`: **Required**, An email address to be invited to have access                                                      
 
-### <p style="color:blue">*create-auth-method-azure-ad*</p>
+### `create-auth-method-azure-ad`
 
 Create a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -202,7 +202,7 @@ akeyless create-auth-method-azure-ad \
 
  `--bound-resource-id`: A list of full resource ids that the access is restricted to                                              
 
-### <p style="color:blue">*create-auth-method-aws-iam*</p>
+### `create-auth-method-aws-iam`
 
 Create a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -253,7 +253,7 @@ akeyless create-auth-method-aws-iam \
 
  `--bound-user-id`: A list of full user ids that the access is restricted to                                                           
 
-### <p style="color:blue">*create-auth-method-gcp*</p>
+### `create-auth-method-gcp`
 
 Create a new Auth Method that will be able to authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
 
@@ -305,7 +305,7 @@ akeyless create-auth-method-gcp \
 
  `--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data`  becomes mandatory. 
 
-### <p style="color:blue">*create-auth-method-oci*</p>
+### `create-auth-method-oci`
 
 Create a new Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -344,7 +344,7 @@ akeyless create-auth-method-oci \
 
 `--product-type`: Choose the relevant product type for the auth method \[sm, sra, pm, dp, ca]
 
-### <p style="color:blue">*get-cloud-identity*</p>
+### `get-cloud-identity`
 
 Get Cloud Identity Token (relevant only for access-type=azure\_ad, aws\_iam, gcp)
 
@@ -366,7 +366,7 @@ akeyless get-cloud-identity \
 
  `--url_safe`: Escapes the token so it can be safely placed inside a URL query"
 
-### <p style="color:blue">*create-auth-method-oauth2*</p>
+### `create-auth-method-oauth2`
 
 Create a new Auth Method that will be able to authenticate using OAuth2
 
@@ -417,7 +417,7 @@ akeyless create-auth-method-oauth2 \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters"
 
-### <p style="color:blue">*create-auth-method-saml*</p>
+### `create-auth-method-saml`
 
 Create a new Auth Method that will be able to authenticate using SAML
 
@@ -463,7 +463,7 @@ akeyless create-auth-method-saml \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
-### <p style="color:blue">*create-auth-method-oidc*</p>
+### `create-auth-method-oidc`
 
 Creates a new Authentication Method object that will allow the user to authenticate using OIDC
 
@@ -516,7 +516,7 @@ akeyless create-auth-method-oidc \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 
-### <p style="color:blue">*create-auth-method-k8s*</p>
+### `create-auth-method-k8s`
 
 Creates a new Authentication Method object that will allow the user to authenticate using Kubernetes
 
@@ -566,7 +566,7 @@ akeyless create-auth-method-k8s \
 
  `--gen-key[=true]`: Automatically generate key-pair for K8S configuration. If set to false, a public key needs to be provided            
 
-### <p style="color:blue">*gateway-create-k8s-auth-config*</p>
+### `gateway-create-k8s-auth-config`
 
 Creates K8S Auth config
 
@@ -645,7 +645,7 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)      
 
-### <p style="color:blue">*gateway-get-k8s-auth-config*</p>
+### `gateway-get-k8s-auth-config`
 
 Gets K8S Auth config
 
@@ -662,7 +662,7 @@ akeyless gateway-get-k8s-auth-config \
  `-n, --name`: **Required**, K8S Auth config name\
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port) 
 
-### <p style="color:blue">*create-auth-method-ldap*</p>
+### `create-auth-method-ldap`
 
 Creates a new Authentication Method object that will allow the user to authenticate using LDAP
 
@@ -702,7 +702,7 @@ akeyless create-auth-method-ldap \
 
  `--gen-key[=true]`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided                                                                                                                                                                                                                                                                                                                                                                                   
 
-### <p style="color:blue">*gateway-get-ldap-auth-config*</p>
+### `gateway-get-ldap-auth-config`
 
 Gets Ldap Auth config
 
@@ -717,7 +717,7 @@ akeyless gateway-get-ldap-auth-config \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">*create-auth-method-universal-identity*</p>
+### `create-auth-method-universal-identity`
 
 Create a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
@@ -753,7 +753,7 @@ akeyless create-auth-method-universal-identity \
 
  `--ttl[=60]`: Token TTL (has the value that configured in Akeyless console > Authentication settings)                            
 
-### <p style="color:blue">*create-auth-method-cert*</p>
+### `create-auth-method-cert`
 
 Create a new Auth Method that will be able to authenticate using a client certificate
 
@@ -806,7 +806,7 @@ akeyless create-auth-method-cert \
 
  ` -u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization 
 
-### <p style="color:blue">*validate-token*</p>
+### `validate-token`
 
 Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
 
@@ -817,7 +817,7 @@ akeyless validate-token \
 --token <Token to validate>
 ```
 
-### <p style="color:blue">*revoke-creds*</p>
+### `revoke-creds`
 
 This command will permanently revoke the credentials associated with the provided token or profile
 
@@ -825,7 +825,7 @@ This command will permanently revoke the credentials associated with the provide
 akeyless revoke-creds --profile/token <Profile/Token>
 ```
 
-### <p style="color:blue">*get-auth-method*</p>
+### `get-auth-method`
 
 Get Auth Method details
 
@@ -835,7 +835,7 @@ Get Auth Method details
 akeyless get-auth-method -n <Auth method name>
 ```
 
-### <p style="color:blue">*list-auth-methods*</p>
+### `list-auth-methods`
 
 List details of all the Auth Methods in the account
 
@@ -855,7 +855,7 @@ akeyless list-auth-methods \
 
  `--pagination-token`: Next page reference                                                                                                                                                                                                          
 
-### <p style="color:blue">*delete-auth-method*</p>
+### `delete-auth-method`
 
 Delete the Auth Method
 
@@ -869,7 +869,7 @@ akeyless delete-auth-method -n <Auth method name>
 
  `-n, --name`: **Required**, Auth Method name 
 
-### <p style="color:blue">*delete-auth-methods*</p>
+### `delete-auth-methods`
 
 Delete multiple auth methods from a given path
 
@@ -883,7 +883,7 @@ akeyless delete-auth-methods -p <Path/to/auth-methods>
 
  `-p, --path`: **Required**, path to delete the auth methods from 
 
-### <p style="color:blue">*gateway-delete-k8s-auth-config*</p>
+### `gateway-delete-k8s-auth-config`
 
 Deletes K8S Auth config
 
@@ -901,7 +901,7 @@ akeyless gateway-delete-k8s-auth-config \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port) 
 
-### <p style="color:blue">*update-auth-method*</p>
+### `update-auth-method`
 
 Update a new API Key Auth Method in the account
 
@@ -933,7 +933,7 @@ akeyless update-auth-method --name <Auth method>
 
  `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings) 
 
-### <p style="color:blue">*gateway-update-k8s-auth-config*</p>
+### `gateway-update-k8s-auth-config`
 
 Updates the K8s Auth config
 
@@ -997,7 +997,7 @@ akeyless gateway-update-k8s-auth-config \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">*gateway-update-ldap-auth-config*</p>
+### `gateway-update-ldap-auth-config`
 
 Updates LDAP Auth config
 
@@ -1050,7 +1050,7 @@ akeyless gateway-update-ldap-auth-config \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">*update-auth-method-aws-iam*</p>
+### `update-auth-method-aws-iam`
 
 Update a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -1100,7 +1100,7 @@ akeyless update-auth-method-aws-iam \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">*update-auth-method-azure-ad*</p>
+### `update-auth-method-azure-ad`
 
 Update a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -1159,7 +1159,7 @@ akeyless update-auth-method-azure-ad \
 
  `--bound-resource-id`: A list of full resource ids that the access is restricted to                                                                                                      
 
-### <p style="color:blue">*update-auth-method-cert*</p>
+### `update-auth-method-cert`
 
 Update a new Auth Method that will be able to authenticate using a client certificate.
 
@@ -1214,7 +1214,7 @@ akeyless update-auth-method-cert \
 
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization. 
 
-### <p style="color:blue">*update-auth-method-gcp*</p>
+### `update-auth-method-gcp`
 
 Update a new Auth Method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials
 
@@ -1268,7 +1268,7 @@ akeyless update-auth-method-gcp \
 
  `--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data`  becomes mandatory. 
 
-### <p style="color:blue">*update-auth-method-oci*</p>
+### `update-auth-method-oci`
 
 Update an Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -1310,7 +1310,7 @@ akeyless update-auth-method-oci \
 
 `--product-type`: Choose the relevant product type for the auth method \[sm, sra, pm, dp, ca]
 
-### <p style="color:blue">*update-auth-method-k8s*</p>
+### `update-auth-method-k8s`
 
 Update a new Auth Method that will be able to authenticate using Kubernetes
 
@@ -1358,7 +1358,7 @@ akeyless update-auth-method-k8s \
 
  `--gen-key`: Automatically generate key-pair for K8S configuration. If set to false, a public key needs to be provided            
 
-### <p style="color:blue">*update-auth-method-ldap*</p>
+### `update-auth-method-ldap`
 
 Update a new Auth Method that will be able to authenticate using LDAP
 
@@ -1401,7 +1401,7 @@ akeyless update-auth-method-ldap \
 
  `--gen-key`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided                                                                                                                                                                                                                                                                                                                                                                                    
 
-### <p style="color:blue">*update-auth-method-oauth2*</p>
+### `update-auth-method-oauth2`
 
 Update a new Auth Method that will be able to authenticate using OAuth2
 
@@ -1450,7 +1450,7 @@ akeyless update-auth-method-oauth2 \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
-### <p style="color:blue">*update-auth-method-oidc*</p>
+### `update-auth-method-oidc`
 
 Update a new Auth Method that will be able to authenticate using OIDC
 
@@ -1506,7 +1506,7 @@ akeyless update-auth-method-oidc \
 
  `-d, --delimiters`          A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
-### <p style="color:blue">*update-auth-method-saml*</p>
+### `update-auth-method-saml`
 
 Update a new Auth Method that will be able to authenticate using SAML
 
@@ -1554,7 +1554,7 @@ akeyless update-auth-method-saml \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
-### <p style="color:blue">*update-auth-method-universal-identity*</p>
+### `update-auth-method-universal-identity`
 
 Update a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
@@ -1594,7 +1594,7 @@ akeyless update-auth-method-universal-identity \
 
  `--ttl[=60]`: Token ttl (in minutes)                                                                                             
 
-### <p style="color:blue">*gateway-get-ldap-auth-config*</p>
+### `gateway-get-ldap-auth-config`
 
 Gets Ldap Auth config
 
@@ -1615,7 +1615,7 @@ akeyless gateway-get-ldap-auth-config \
 
 ## Akeyless Universal Identity
 
-### <p style="color:blue"> *uid-list-children*</p>
+### `uid-list-children`
 
 List the token children ids of Akeyless Universal Identity
 
@@ -1625,7 +1625,7 @@ List the token children ids of Akeyless Universal Identity
 akeyless uid-list-children --auth-method-name <UID Auth Method Name>
 ```
 
-### <p style="color:blue">*uid-revoke-token*</p>
+### `uid-revoke-token`
 
 Revoke token using Akeyless Universal Identity
 
@@ -1645,7 +1645,7 @@ akeyless uid-revoke-token \
 
  `-n, --auth-method-name`: The universal identity auth method name                                                   
 
-### <p style="color:blue">*uid-generate-token*</p>
+### `uid-generate-token`
 
 Generate a new token using Akeyless Universal Identity
 
@@ -1655,7 +1655,7 @@ Generate a new token using Akeyless Universal Identity
 akeyless uid-generate-token --auth-method-name <Auth method name>
 ```
 
-### <p style="color:blue">*uid-rotate-token*</p>
+### `uid-rotate-token`
 
 Rotate Akeyless Universal Identity token
 
@@ -1673,7 +1673,7 @@ Rotate Akeyless Universal Identity token
 
  `-i, --input-file`:          Path to the input file                                                       
 
-### <p style="color:blue">*uid-create-child-token*</p>
+### `uid-create-child-token`
 
 Create a new child token using Akeyless Universal Identity
 
