@@ -441,7 +441,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `k8s` access type)
       </td>
 
       <td>
@@ -549,7 +549,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `kerberos` access type and `args.--keytab-file-path` is not used)
       </td>
 
       <td>
@@ -567,7 +567,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `kerberos` access type and `args.--keytab-file-data` is not used)
       </td>
 
       <td>
@@ -585,7 +585,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `kerberos` access type and `args.--krb5conf-file-path` is not used)
       </td>
 
       <td>
@@ -603,7 +603,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `kerberos` access type and `args.--krb5conf-file-data` is not used)
       </td>
 
       <td>
@@ -621,7 +621,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `ldap` access type)
       </td>
 
       <td>
@@ -689,6 +689,24 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
+        `args.--password`
+      </td>
+
+      <td>
+        LDAP password
+      </td>
+
+      <td>
+        Yes* (if using the `ldap` access type)
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         `args.--profile`
       </td>
 
@@ -715,7 +733,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -751,7 +769,25 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
+        No
+      </td>
 
+      <td>
+        (none)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--username``
+      </td>
+
+      <td>
+        LDAP username
+      </td>
+
+      <td>
+        Yes* (if using the `ldap` access type)
       </td>
 
       <td>
