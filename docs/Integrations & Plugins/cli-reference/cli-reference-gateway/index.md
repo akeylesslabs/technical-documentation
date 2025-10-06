@@ -180,58 +180,54 @@ akeyless gateway-update-tls-cert \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-# Retrieve Gateway Information
-
-## `gateway get`
+# `gateway get`
 
 Command to get specified gateway configuration
 
-### `gateway get cache`
+## `gateway get cache`
 
 Get cache settings
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway get cache \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-### `gateway get defaults`
+## `gateway get defaults`
 
 Get defaults settings
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway get defaults \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-## `gateway list`
+# `gateway list`
 
-### `gateway list customer-fragments`
+## `gateway list customer-fragments`
 
 Command to list the Customer Fragments on the Gateway
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway list customer-fragments \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-# Update Gateway Information
-
-## `gateway update`
+# `gateway update`
 
 Command to update specified gateway configuration
 
-### `gateway update cache`
+## `gateway update cache`
 
 Updates cache settings
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway update cache \
@@ -241,7 +237,7 @@ akeyless gateway update cache \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-#### Flags
+### Flags
 
 `--enable-cache`: Enable cache [`true`/`false`]
 
@@ -255,11 +251,11 @@ akeyless gateway update cache \
 
 `-u, --gateway-url`: Gateway URL (Configuration Management port)
 
-### `gateway update defaults`
+## `gateway update defaults`
 
 Updates defaults settings
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway update defaults \
@@ -271,7 +267,7 @@ akeyless gateway update defaults \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-#### Flags
+### Flags
 
 `--saml-access-id[=use-existing]`: Default SAML access-id for UI login
 
