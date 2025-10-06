@@ -405,7 +405,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -683,7 +683,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        (none)
+        (inferred)
       </td>
     </tr>
 
@@ -761,7 +761,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
   </tbody>
 </Table>
 
-### Authentication Methods
+### Example Authentication Method Configurations
 
 The Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor>:
 
