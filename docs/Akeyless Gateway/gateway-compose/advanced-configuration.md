@@ -1,6 +1,6 @@
 ---
 title: Advanced Configuration
-excerpt: Standalone Gateway
+excerpt: Docker Compose Gateway
 deprecated: false
 hidden: false
 metadata:
