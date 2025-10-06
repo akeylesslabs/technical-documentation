@@ -27,7 +27,7 @@ akeyless dynamic-secret create openai \
 --name <New Secret Name> \
 --target-name <Target Name> \
 --project-id <Project ID>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \ 
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
 Or using an inline connection string:
@@ -35,10 +35,10 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create openai \
 --name <New Secret Name> \
---api-key-id <Admin api_key_id> \
---api-key <Admin api_key> \
---org-id <Organization ID> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \ 
+--api-key-id <Admin API key ID> \
+--api-key <Admin API key> \
+--org-id <organization ID> \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
 Where:
