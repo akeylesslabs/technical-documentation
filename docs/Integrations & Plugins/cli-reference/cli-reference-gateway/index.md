@@ -12,29 +12,17 @@ next:
 ---
 This section outlines the CLI commands relevant to the Gateway.
 
-General Flags:
+<CLIGeneralFlags />
 
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
-
-#Access Permissions
+# Access Permissions
 
 Commands for managing the access of users to your Gateway.
 
-##`add-gw-access-id`
+## `add-gw-access-id`
 
 Grants Gateway access to users
 
-###Usage
+### Usage
 
 ```shell
 akeyless add-gw-access-id \
@@ -43,19 +31,19 @@ akeyless add-gw-access-id \
 --sub-claims <group=admins>
 ```
 
-###Flags
+### Flags
 
- `-c, --cluster-name`: **Required**,  The name of the updated cluster                                     
+`-c, --cluster-name`: **Required**,  The name of the updated cluster
 
- `-a, --access-id`: **Required**,  The `Access ID` to be able to access the gateway                      
+`-a, --access-id`: **Required**,  The `Access ID` to be able to access the gateway
 
- `-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
+`-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
 
-##`create-allowed-access`
+## `gateway-create-allowed-access`
 
-Add users that will have permission to manage the Gateway 
+Add users that will have permission to manage the Gateway
 
-###Usage
+### Usage
 
 ```shell
 akeyless gateway-create-allowed-access \
@@ -67,27 +55,27 @@ akeyless gateway-create-allowed-access \
 --permissions <permissions for this allowed access> 
 ```
 
-###Flags
+### Flags
 
- `-n, --name`: **Required**,  Allowed access name                                                                                                                                                                                                                                           
+`-n, --name`: **Required**,  Allowed access name
 
- `--access-id`: **Required**,  The `Access ID` to be attached to this allowed access                                                                                                                                                                                                           
+`--access-id`: **Required**,  The `Access ID` to be attached to this allowed access
 
- `--description`: Allowed access description                                                                                                                                                                                                                                                    
+`--description`: Allowed access description
 
- `-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`                                                                                                                                                                                                                            
+`-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
 
- `-p, --permissions`: Comma-separated list of permissions for this allowed access. Available permissions: \[\`defaults\`,\`targets\`,\`classic\_keys\`,\`automatic\_migration\`,\`ldap\_auth\`,\`dynamic\_secret\`,\`k8s\_auth\`,\`log\_forwarding\`,\`zero\_knowledge\_encryption\`,\`rotated\_secret\`,\`caching,event\_forwarding\`,\`admin\`,\`kmip\`,\`general\`, \`rotate\_secret\_value\`] 
+`-p, --permissions`: Comma-separated list of permissions for this allowed access. Available permissions: [`defaults`,`targets`,`classic_keys`,`automatic_migration`,`ldap_auth`,`dynamic_secret`,`k8s_auth`,`log_forwarding`,`zero_knowledge_encryption`,`rotated_secret`,`caching,event_forwarding`,`admin`,`kmip`,`general`, `rotate_secret_value`]
 
- `-c, --case-sensitive[=true]`: Treat sub-claims as case-sensitive                                                                                                                                                                                                                                            
+`-c, --case-sensitive[=true]`: Treat sub-claims as case-sensitive
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-##`update-allowed-access`
+## `gateway-update-allowed-access`
 
 Set users that will have permission to manage the Gateway
 
-###Usage
+### Usage
 
 ```shell
 akeyless gateway-update-allowed-access \
@@ -100,29 +88,29 @@ akeyless gateway-update-allowed-access \
 --permissions <permissions for this allowed access> 
 ```
 
-###Flags
+### Flags
 
- `-n, --name`: **Required**,  Allowed access name                                                                                                                                                                                                                                           
+`-n, --name`: **Required**,  Allowed access name
 
- `--access-id`: **Required**,  The `Access ID` to be attached to this allowed access                                                                                                                                                                                                           
+`--access-id`: **Required**,  The `Access ID` to be attached to this allowed access
 
- `--new-name`: New allowed access name                                                                                                                                                                                                                                                       
+`--new-name`: New allowed access name
 
- `--description`: Allowed access description                                                                                                                                                                                                                                                    
+`--description`: Allowed access description
 
- `-s, --sub-claims`: `key/val` of sub claims, e.g `group=admins,developers`                                                                                                                                                                                                                            
+`-s, --sub-claims`: `key/val` of sub claims, e.g `group=admins,developers`
 
- `-p, --permissions`: Comma-seperated list of permissions for this allowed access. Available permissions: \[\`defaults\`,\`targets\`,\`classic\_keys\`,\`automatic\_migration\`,\`ldap\_auth\`,\`dynamic\_secret\`,\`k8s\_auth\`,\`log\_forwarding\`,\`zero\_knowledge\_encryption\`,\`rotated\_secret\`,\`caching\`,\`event\_forwarding\`,\`admin\`,\`kmip\`,\`general\`] 
+`-p, --permissions`: Comma-seperated list of permissions for this allowed access. Available permissions: [`defaults`,`targets`,`classic_keys`,`automatic_migration`,`ldap_auth`,`dynamic_secret`,`k8s_auth`,`log_forwarding`,`zero_knowledge_encryption`,`rotated_secret`,`caching`,`event_forwarding`,`admin`,`kmip`,`general`]
 
- `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive                                                                                                                                                                                                                                            
+`-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-##`delete-gw-access-id`
+## `delete-gw-access-id`
 
 Denials Gateway access to users
 
-###Usage
+### Usage
 
 ```shell
 akeyless delete-gw-access-id \
@@ -130,19 +118,19 @@ akeyless delete-gw-access-id \
 --access-id <Access ID>
 ```
 
-###Flags
+### Flags
 
-`-c, --cluster-name`: **Required**, The name of the updated cluster                                     
+`-c, --cluster-name`: **Required**, The name of the updated cluster
 
- `-a, --access-id`: **Required**, The `Access ID` to be able to access the gateway
+`-a, --access-id`: **Required**, The `Access ID` to be able to access the gateway
 
-#Gateway Configuration
+# Gateway Configuration
 
-##`delete-gateway-cluster`
+## `delete-gateway-cluster`
 
 Deletes a gateway in the account
 
-###Usage
+### Usage
 
 ```shell
 akeyless delete-gateway-cluster \
@@ -150,24 +138,24 @@ akeyless delete-gateway-cluster \
 --force < true / flase>
 ```
 
-###Flags
+### Flags
 
- `-c, --cluster-name`: **Required**,  Gateway Cluster, e.g. `acc-abcd12345678/p-123456789012/defaultCluster`
+`-c, --cluster-name`: **Required**,  Gateway Cluster, e.g. `acc-abcd12345678/p-123456789012/defaultCluster`
 
- `--force`: Deletes cluster even if there is an active gateway or associated secrets. All Gateway secrets will be deleted
+`--force`: Deletes cluster even if there is an active gateway or associated secrets. All Gateway secrets will be deleted
 
-##`get-config`
+## `gateway-get-config`
 
 Gets gateway configuration details
 
-###Usage
+### Usage
 
 ```shell
 akeyless gateway-get-config \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##`update-tls-cert`
+## `gateway-update-tls-cert`
 
 Updates TLS certificate in the Gateway
 
@@ -180,81 +168,70 @@ akeyless gateway-update-tls-cert \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-###Flags
+### Flags
 
- `--cert-data`: TLS Certificate (base64 encoded), this flag is ignored if `--cert-file-name` is supplied          
+`--cert-data`: TLS Certificate (base64 encoded), this flag is ignored if `--cert-file-name` is supplied
 
- `--cert-file-name`: Path to the file containing the TLS Certificate, this flag is ignored if `--cert-data` is supplied 
+`--cert-file-name`: Path to the file containing the TLS Certificate, this flag is ignored if `--cert-data` is supplied
 
- `--key-data`: TLS Private Key (base64 encoded), this flag is ignored if `--key-file-name` is supplied            
+`--key-data`: TLS Private Key (base64 encoded), this flag is ignored if `--key-file-name` is supplied
 
- ` --key-file-name`: Path to the file containing the TLS Private Key, this flag is ignored if `--key-data` is supplied  
+` --key-file-name`: Path to the file containing the TLS Private Key, this flag is ignored if `--key-data` is supplied
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-##Other Commands
-###`akeyless gateway get`
+# Retrieve Gateway Information
+
+## `gateway get`
 
 Command to get specified gateway configuration
 
-**Flags**
-
-`cache`
-
-`defaults`
-
-###`cache`
+### `gateway get cache`
 
 Get cache settings
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway get cache \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-### `defaults`
+### `gateway get defaults`
 
 Get defaults settings
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway get defaults \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##`list`
+## `gateway list`
 
-`akeyless gateway list customer-fragments`
+### `gateway list customer-fragments`
 
 Command to list the Customer Fragments on the Gateway
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway list customer-fragments \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##`update`
+# Update Gateway Information
 
-`akeyless gateway update`
+## `gateway update`
 
 Command to update specified gateway configuration
 
-**Flags**
-
-`cache`
-
-`defaults`
-
-###`cache`
+### `gateway update cache`
 
 Updates cache settings
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update cache \
@@ -264,13 +241,13 @@ akeyless gateway update cache \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##### Flags
+#### Flags
 
-`--enable-cache`: Enable cache \[\`true\`/\`false\`]
+`--enable-cache`: Enable cache [`true`/`false`]
 
 `--stale-timeout[=60]`: Stale timeout in minutes, cache entries which are not accessed within timeout will be removed from cache
 
-`--enable-proactive`: Enable proactive caching \[\`true\`/\`false\`]
+`--enable-proactive`: Enable proactive caching [`true`/`false`]
 
 `--minimum-fetch-interval[=5]`: When using Cache or/and Proactive Cache, additional secrets will be fetched upon requesting a secret, based on the requestor's access policy. Define minimum fetching interval to avoid over fetching in a given time frame
 
@@ -278,11 +255,11 @@ akeyless gateway update cache \
 
 `-u, --gateway-url`: Gateway URL (Configuration Management port)
 
-###`defaults`
+### `gateway update defaults`
 
 Updates defaults settings
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update defaults \
@@ -294,7 +271,7 @@ akeyless gateway update defaults \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##### Flags
+#### Flags
 
 `--saml-access-id[=use-existing]`: Default SAML access-id for UI login
 
@@ -304,8 +281,10 @@ akeyless gateway update defaults \
 
 `--key[=Default]`: The name of the gateway default encryption key
 
-`--hvp-route-version`: Hvp route version to use \[\`1\`/\`2\`]
+`--hvp-route-version`: Hvp route version to use [`1`/`2`]
 
-`--event-on-status-change`: Trigger an event when Gateway status is changed \[\`true\`/\`false\`]
+`--event-on-status-change`: Trigger an event when Gateway status is changed [`true`/`false`]
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+<br />
