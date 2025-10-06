@@ -35,7 +35,7 @@ Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/
 
 # Configuration
 
-Clone the repository to your environment:
+Clone the [repository](https://github.com/akeylesslabs/docker-compose) to your environment:
 
 ```shell
 gh repo clone akeylesslabs/docker-compose
