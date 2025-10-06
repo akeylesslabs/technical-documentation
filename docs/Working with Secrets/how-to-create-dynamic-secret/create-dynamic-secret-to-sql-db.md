@@ -20,7 +20,7 @@ You can create dynamic secrets for a wide range of databases, including:
 
 * MongoDB
 
-* MySQL
+* MySQL/MariaDB
 
 * OracleDB
 
