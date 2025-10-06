@@ -16,13 +16,9 @@ next:
 ---
 The [Akeyless Gateway](doc:api-gw) built-in Key Management Interoperability Protocol (KMIP) server handles the lifecycle of KMIP-managed objects.
 
-> 👍 Note
->
-> This guide was created using MongoDB version 4.2 or earlier.
-
 Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](doc:api-gw) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
 
-> 👍 Note
+> 📘 Note
 >
 > Only users from your Gateway admins list can configure the KMIP server.
 
@@ -69,6 +65,10 @@ Note that this will automatically create 2 items under the `/kmip/default` path 
 # KMIP client configuration
 
 * In this guide, we will use MongoDB Enterprise as a KMIP Client.
+
+> 📘 Note
+>
+> This guide was created using MongoDB version 4.2 or earlier.
 
 > 👍 Note
 >
@@ -232,7 +232,7 @@ Resolution Steps
 3. Specify the correct key ID in the MongoDB config file using keyIdentifier.
 4. Ensure the Akeyless Gateway returns the Unique Identifier as a TextString. If not, please contact Akeyless Support.
 
-Example mongod.conf Configuration
+Example `mongod.conf` Configuration
 
 ```yaml
 # mongod.conf
