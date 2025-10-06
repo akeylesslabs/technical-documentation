@@ -8,8 +8,8 @@
 - gcp-auth-method
 - kerberos
 - kubernetes-auth
-- oci-iam
 - ldap
+- oci-iam
 - oauth20jwt
 - openid
 - saml
