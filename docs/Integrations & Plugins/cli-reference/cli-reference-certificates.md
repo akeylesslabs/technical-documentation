@@ -227,7 +227,7 @@ akeyless create-pki-cert-issuer \
 
  `--max-path-len[=-1]`:  The maximum path length for the generated certificate. `-1`, means unlimited
 
-`--enable-acme`: If set, the cert issuer will support the acme protocol
+`--enable-acme`: If set, the cert issuer will support the ACME protocol
 
  `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified, To specify multiple events, use the argument multiple times: --expiration-event-in 1 --expiration-event-in 5
 
@@ -490,7 +490,7 @@ akeyless update-pki-cert-issuer \
 
  `--max-path-len[=-1]`:  The maximum path length for the generated certificate. `-1`, means unlimited
 
- `--enable-acme`: If set, the cert issuer will support the acme protocol
+ `--enable-acme`: If set, the cert issuer will support the ACME protocol
 
  `--expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`
 
