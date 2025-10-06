@@ -69,9 +69,9 @@ Where:
   To start working with dynamic secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 </Callout>
 
-1. Log in to the Akeyless Console, and go to Items > New > Dynamic Secret.
+1. Log in to the Akeyless Console, and go to **Items** > **New** > **Dynamic Secret**.
 
-2. Select the OpenAI secret type and click Next.
+2. Select the **OpenAI** secret type and click **Next**.
 
 3. Define a Name of the dynamic secret, and specify the Location as a path to the virtual folder where you want to create the new dynamic secret, using slash / separators. If the folder does not exist, it will be created together with the dynamic secret.
 
