@@ -1,16 +1,15 @@
 ---
 title: Akeyless SDKs
-excerpt: ''
 deprecated: false
 hidden: false
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
 ---
-Easily integrate your applications, libraries, or scripts with Akeyless using our SDKs. We currently support:
+Integrate your applications, libraries, or scripts with Akeyless using our SDKs. We currently support the following SDKs:
 
 * [C# .NET Core SDK](doc:csharp-core-sdk)
 * [Go SDK](doc:go)
@@ -19,7 +18,7 @@ Easily integrate your applications, libraries, or scripts with Akeyless using ou
 * [Python SDK](doc:python-sdk-1)
 * [Ruby SDK](doc:ruby-sdk)
 
-Akeyless is hosted in the following environments. Each environment has a unique base URL.
+Akeyless is available in the following environments, each with a unique base URL:
 
 | Environment | Base URL                                                 |
 | :---------- | :------------------------------------------------------- |
