@@ -16,7 +16,7 @@ General Flags:
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
+`--uid-token`: The universal identity token, Required only for universal_identity authentication
 
 `-h, --help`: Display help information
 
@@ -65,19 +65,19 @@ akeyless event-forwarder create email \
 
 `-n, --name`: **Required**, Event Forwarder name
 
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
 
-`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
+`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/*
 
-`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/\*
+`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/*
 
-`--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`/\*
+`--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`/*
 
 `--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
 
 `--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
 
-`--include-error`: Set this option to include event errors details \[ \`true\` / \`false\` ]
+`--include-error`: Set this option to include event errors details [ `true` / `false` ]
 
 `-k, --key`: Key name. The key will be used to encrypt the Event Forwarder secret value. If the key name is not specified, the account default protection key is used
 
@@ -113,11 +113,11 @@ akeyless event-forwarder create servicenow \
 
 `-n, --name`: **Required**, Event Forwarder name
 
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
 
-`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
+`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/*
 
-`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/\*
+`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/*
 
 `--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
 
@@ -129,7 +129,7 @@ akeyless event-forwarder create servicenow \
 
 `--host`: Workstation Host
 
-`--auth-type[=user-pass]`: The authentication type to use \[\`user-pass\`/\`jwt\`]
+`--auth-type[=user-pass]`: The authentication type to use [`user-pass`/`jwt`]
 
 `--admin-name`: Workstation Admin Name
 
@@ -175,59 +175,13 @@ akeyless event-forwarder create slack \
 
 `-n, --name`: **Required**, Event Forwarder name
 
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
 
 `url`: **Required**, Slack Webhook URL
 
-`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
+`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/*
 
-`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/\*
-
-`--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
-
-`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
-
-`--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
-
-`-k, --key`: Key name. The key will be used to encrypt the Event Forwarder secret value. If the key name is not specified, the account default protection key is used
-
-`--every`: Rate of periodic runner repetition in hours
-
-`-u, --gateway-url[=https://<Your-Akeyless-GW-URL:8000]`: API Gateway URL (Configuration Management port)
-
-`--description`: Description of the object
-
-### <p style={{color: 'blue'}}>*teams*</p>
-
-Create a new Teams Event Forwarder
-
-**Usage**
-
-```shell
-akeyless event-forwarder create Teams \
---name <Event Forwarder name> \
---url <Teams Webhook URL>
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
---items-event-source-locations </Secrets/*> \
---targets-event-source-locations </Targets/*> \
---auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL:8000>
---event-types <event type>
---runner-type[=immediate] <immediate / periodic> \
---every <1-24 hours>
-```
-
-**Flags**
-
-`-n, --name`: **Required**, Event Forwarder name
-
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
-
-`url`: **Required**, Teams Webhook URL
-
-`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
-
-`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/\*
+`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/*
 
 `--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
 
@@ -267,11 +221,11 @@ akeyless event-forwarder create webhook \
 
 `-n, --name`: **Required**, Event Forwarder name
 
-`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
 
-`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
+`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/*
 
-`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/\*
+`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/*
 
 `--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
 
@@ -289,7 +243,7 @@ akeyless event-forwarder create webhook \
 
 `--server-certificates`: `Base64 encoded PEM` certificate of the Webhook
 
-`--auth-type[=user-pass]`: The Webhook authentication type \[\`user-pass\`, \`token\`, \`certificate\`]
+`--auth-type[=user-pass]`: The Webhook authentication type [`user-pass`, `token`, `certificate`]
 
 `--username`: Username for authentication relevant for `user-pass` auth-type
 
