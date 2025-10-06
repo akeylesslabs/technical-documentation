@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-## <p style="color:blue">*auth*</p>
+## `auth`
 
 This command authenticates to Akeyless and saves the temporary token so that it can be used again until the token expires without the need to re-authenticate every time.
 
@@ -122,7 +122,7 @@ with the relevant flags according to the `access-type` being used.
 
 `universal-identity` Creates a new Universal Identity Auth method
 
-### <p style="color:blue">API Key</p>
+### API Key
 
 Create a new [API Key](doc:api-key) Auth Method
 
@@ -156,9 +156,8 @@ akeyless auth-method create api-key --name <Auth method name>
 
  `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-<br />
 
-### <p style="color:blue">*aws-iam*</p>
+### `aws-iam`
 
 Create a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -215,7 +214,7 @@ akeyless auth-method create aws-iam \
 
  `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### <p style="color:blue">*azure-ad*</p>
+### `azure-ad`
 
 Create a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -277,7 +276,7 @@ akeyless auth-method create azure-ad \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### <p style="color:blue">*cert*</p>
+### `cert`
 
 Create a new Auth Method that will be able to authenticate using a client certificate
 
@@ -334,7 +333,7 @@ akeyless auth-method create cert \
 
  ` -u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization 
 
-### <p style="color:blue">*email*</p>
+### `email`
 
 Create a new Auth Method that will be able to authenticate using an email address
 
@@ -372,7 +371,7 @@ akeyless auth-method create email \
 
  `--email`: **Required**, An email address to be invited to have access                                                      
 
-### <p style="color:blue">*gcp*</p>
+### `gcp`
 
 Create a new Auth Method that will be able to authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
 
@@ -430,7 +429,7 @@ akeyless auth-method create gcp \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### <p style="color:blue">*oauth2*</p>
+### `oauth2`
 
 Create a new Auth Method that will be able to authenticate using OAuth2
 
@@ -485,7 +484,7 @@ akeyless auth-method create oauth2 \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters"
 
-### <p style="color:blue">*oci*</p>
+### `oci`
 
 Create a new Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -526,7 +525,7 @@ akeyless auth-method create oci \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">*oidc*</p>
+### `oidc`
 
 Creates a new Authentication Method object that will allow the user to authenticate using OIDC
 
@@ -580,7 +579,7 @@ akeyless auth-method create oidc \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters  
 
-### <p style="color:blue">*saml*</p>
+### `saml`
 
 Create a new Auth Method that will be able to authenticate using SAML
 
@@ -630,7 +629,7 @@ akeyless auth-method create saml \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters
 
-## <p style="color:blue">*get-cloud-identity*</p>
+## `get-cloud-identity`
 
 Get Cloud Identity Token (relevant only for access-type=`azure_ad`, `aws_iam`, `gcp`, `oci`)
 
@@ -664,7 +663,7 @@ akeyless get-cloud-identity \
 
 Update Auth Method
 
-#### <p style="color:blue">*api-key*</p>
+#### `api-key`
 
 Update a new API Key Auth Method in the account
 
@@ -700,7 +699,7 @@ akeyless auth-method update api-key --name <Auth method>
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-#### <p style="color:blue">*aws-iam*</p>
+#### `aws-iam`
 
 Update a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -754,7 +753,7 @@ akeyless auth-method update aws-iam \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-#### <p style="color:blue">*azure-ad*</p>
+#### `azure-ad`
 
 Update a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -817,7 +816,7 @@ akeyless auth-method update azure-ad \
 
  `--bound-resource-id`: A list of full resource ids that the access is restricted to                                                                                                      
 
-#### <p style="color:blue">*cert*</p>
+#### `cert`
 
 Update a new Auth Method that will be able to authenticate using a client certificate.
 
@@ -876,7 +875,7 @@ akeyless auth-method update cert \
 
  `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization. 
 
-#### <p style="color:blue">*gcp*</p>
+#### `gcp`
 
 Update a new Auth Method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials
 
@@ -934,7 +933,7 @@ akeyless auth-method update gcp \
 
  `--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data`  becomes mandatory. 
 
-#### <p style="color:blue">*oauth2*</p>
+#### `oauth2`
 
 Update a new Auth Method that will be able to authenticate using OAuth2
 
@@ -987,7 +986,7 @@ akeyless auth-method update oauth2 \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters                                                                                                                         
 
-#### <p style="color:blue">*oci*</p>
+#### `oci`
 
 Update an Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -1031,7 +1030,7 @@ akeyless auth-method update oci \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-#### <p style="color:blue">*oidc*</p>
+#### `oidc`
 
 Update a new Auth Method that will be able to authenticate using OIDC
 
@@ -1089,7 +1088,7 @@ akeyless auth-method update oidc \
 
  `-d, --delimiters`          A list of additional sub-claims delimiters                                                                                                                  
 
-#### <p style="color:blue">*saml*</p>
+#### `saml`
 
 Update a new Auth Method that will be able to authenticate using SAML
 
@@ -1136,7 +1135,7 @@ akeyless auth-method update saml \
 
  `-d, --delimiters`: A list of additional sub-claims delimiters
 
-## <p style="color:blue">*validate-token*</p>
+## `validate-token`
 
 Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
 
@@ -1147,7 +1146,7 @@ akeyless validate-token \
 --token <Token to validate>
 ```
 
-## <p style="color:blue">*revoke-creds*</p>
+## `revoke-creds`
 
 This command will permanently revoke the credentials associated with the provided token or profile
 
@@ -1195,7 +1194,7 @@ akeyless auth-method delete -n <Auth method name>
 
  `-n, --name`: **Required**, Auth Method name 
 
-#### <p style="color:blue">delete-auth-methods</p>
+#### delete-auth-methods
 
 Delete multiple auth methods from a given path
 
