@@ -133,7 +133,17 @@ This guide defines standards for writing clear, consistent, and professional tec
   * GB (gigabytes) is not the same abbreviation as Gb (gigabits). This applies with all SI prefixes with bytes and bits (e.g., KB/Kb, MB/Mb, TB/Tb).
 * File paths: Use `/` for paths (e.g., `/usr/local/bin`).
 * JSON: When representing JSON elements outside of a full JSON file, use a period to represent child elements.
-  * <br />
+  * For example, represent `--access-type` from the below example as `args.--access-type`.
+  * ```json
+    {
+      "args": [
+        "mcp",
+        "--access-type", "cert",
+        "--cert-file-name", "/path/to/cert.pem",
+        "--key-file-name", "/path/to/key.pem"
+      ]
+    }
+    ```
 
 # Accessibility
 
