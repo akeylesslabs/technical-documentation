@@ -18,7 +18,7 @@ This section outlines the CLI commands relevant to Universal Secrets Connector.
 
 <CLIGeneralFlags />
 
-### <p style={{ color: "blue" }}>*create-usc*</p>
+### `create-usc`
 
 Creates a new Universal Secrets Connector
 
@@ -64,15 +64,15 @@ akeyless create-usc \
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-## USC Sub-Commands
+## USC Subcommands
 
 After creating a USC, you will need to use these sub-commands, prefixed with `usc`, to further interact with it.
 
-### <p style={{ color: "blue" }}>*usc*</p>
+### `usc`
 
 This command only has one parameter, `-h`, and it will display a list of the other `usc` commands.
 
-### <p style={{ color: "blue" }}>*create*</p>
+### `create`
 
 Create a new secret in an existing USC
 
@@ -105,7 +105,7 @@ usc create \
 
 `--tags`:Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
 
-### <p style={{ color: "blue" }}>*delete*</p>
+### `delete`
 
 Delete a secret from an Universal Secrets Connector
 
@@ -127,9 +127,7 @@ usc delete \
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
-<br />
-
-### <p style={{ color: "blue" }}>*get*</p>
+### `get`
 
 Gets the value and internal details of a secret from an Universal Secrets Connector
 
@@ -142,8 +140,6 @@ usc get \
 ```
 
 ##### Flags
-
-Parameter                                     Description
 
 `-n, --usc-name`: **Required**, USC name
 
@@ -165,7 +161,7 @@ Parameter                                     Description
 
 `--no-creds-cleanup[=false]`:Do not clean local temporary expired creds
 
-### <p style={{ color: "blue" }}>*list*</p>
+### `list`
 
 Lists the secrets within the Universal Secrets Connector
 
@@ -177,7 +173,7 @@ akeyless usc list --usc-name <USC name>
 
 ##### Flags
 
-`-n, --usc-name`:                  **Required**, USC name
+`-n, --usc-name`: **Required**, USC name
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
@@ -195,7 +191,7 @@ akeyless usc list --usc-name <USC name>
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style={{ color: "blue" }}>*update*</p>
+### `update`
 
 Update an existing secret within the Universal Secrets Connector
 
