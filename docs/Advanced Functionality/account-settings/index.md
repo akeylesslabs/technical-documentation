@@ -137,10 +137,6 @@ Enter a comma-separated list of CIDR blocks from which the client can issue call
 
 Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used. If needed, you can lock this list globally.
 
-**Allowed Client Type** 
-
-Select the **default** allowed client type that will be authorized to use this authentication method in the account. By default, all options are available. e.g. `CLI`, `SDK`, `Web UI` etc.  This setting can be locked to prevent a specific client type from being used in the account, for example `Mobile App`
-
 **Usage Events**
 
 Set a global event for Auth methods that have not been used or changed within the usage interval, the minimum is 90 days. The usage interval counter will start from the moment this feature is enabled.
