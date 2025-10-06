@@ -10,23 +10,11 @@ metadata:
 next:
   description: ''
 ---
-This section outlines the CLI commands relevant to K8s authentication.
+This section outlines the CLI commands relevant to Kerberos authentication.
 
-General Flags:
+<CLIGeneralFlags />
 
-`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
-
-### <p style={{ color: "blue" }}>*create*</p>
+### `create`
 
 Creates a new Authentication Method object that will allow the user to authenticate using Kerberos
 
@@ -56,11 +44,11 @@ akeyless auth-method create kerberos \
 
 `--jwt-ttl[=0]`: Creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method \[sm, sra, pm, dp, ca]
+`--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
 
 `--audit-logs-claims`: Subclaims to include in audit logs. e.g `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `-d, --delimiters`: A list of additional sub-claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT). To specify multiple delimiters use the argument multiple times: `-d # -d ^`
 
@@ -131,11 +119,11 @@ akeyless auth-method update kerberos \
 
 `--jwt-ttl[=0]`: Creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method \[sm, sra, pm, dp, ca]
+`--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
 
 `--audit-logs-claims`: Subclaims to include in audit logs. e.g `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `-d, --delimiters`: A list of additional sub-claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT). To specify multiple delimiters use the argument multiple times: `-d # -d ^`
 
