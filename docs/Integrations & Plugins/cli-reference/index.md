@@ -246,7 +246,7 @@ akeyless unconfigure --profile <Profile name>
 
 ## update
 
-Update the Akeyless CLI version
+Update the Akeyless CLI version or change to a prior version
 
 ### Usage
 
@@ -256,7 +256,7 @@ akeyless update
 
 ### Flags
 
-`-v, --version[=latest]`: Provide the CLI version to update to, by default, the latest version is used 
+`-v, --version[=latest]`: Provide the CLI version to update to, by default, the latest version is used
 
 `-s, --show-changelog`: Show the changelog between the current version and the latest version
 
