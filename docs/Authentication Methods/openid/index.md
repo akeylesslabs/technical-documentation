@@ -67,7 +67,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
 
-* **Issuer URL:** The Identity Provider URL (for more information check the [Okta](doc:okta) example).
+* **Issuer URL:** The Identity Provider URL (for more information, check the [Okta](doc:okta) example).
 
 * **Client ID:** The Client ID (application ID).
 
