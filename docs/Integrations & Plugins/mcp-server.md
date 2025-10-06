@@ -191,6 +191,96 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
+        `args.--account-id`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--admin-password`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--admin-email`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--cert-challenge`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--cert-data`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         `args.--cert-file-name`
       </td>
 
@@ -231,6 +321,60 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
+        `args.--debug`
+      </td>
+
+      <td>
+        Enable debug logging
+      </td>
+
+      <td>
+        No
+      </td>
+
+      <td>
+        `false`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--disable-kerberos-fast`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        `true`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--gateway-spn`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         `args.--gateway-url`
       </td>
 
@@ -244,6 +388,132 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
       <td>
         `https://api.akeyless.io`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--gcp.audience`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        `akeyless.io`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--jwt`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--k8s-auth-config-name`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--k8s-service-account-token`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--kerberos-token`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--kerberos-username`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--key-data`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
       </td>
     </tr>
 
@@ -267,6 +537,150 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
+        `args.--keytab-file-data`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--keytab-file-path`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--krb5conf-file-data`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--krb5conf-file-path`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--ldap-proxy-url`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--oci-auth-type`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        `apikey`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--oci-group-ocid`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--oidc-sp`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         `args.--profile`
       </td>
 
@@ -285,19 +699,55 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
-        `args.--debug`
+        `args.--signed-cert-challenge`
       </td>
 
       <td>
-        Enable debug logging
+
       </td>
 
       <td>
-        No
+
       </td>
 
       <td>
-        `false`
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--uid-token`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--use-remote-browser`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
       </td>
     </tr>
   </tbody>
