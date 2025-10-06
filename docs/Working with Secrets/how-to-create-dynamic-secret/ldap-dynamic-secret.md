@@ -1,5 +1,5 @@
 ---
-title: LDAP Dynamic Secret
+title: LDAP Dynamic Secrets
 excerpt: ''
 deprecated: false
 hidden: false
