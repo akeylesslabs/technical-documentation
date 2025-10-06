@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This section outlines the CLI commands relevant to K8s authentication.
+This section outlines the CLI commands relevant to Kubernetes authentication.
 
 General Flags:
 
@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">*create*</p>
+### `create`
 
 Creates a new Authentication Method object that will allow the user to authenticate using Kubernetes
 
@@ -76,9 +76,9 @@ akeyless auth-method create k8s \
 
  `--gen-key[=true]`: Automatically generate key-pair for K8S configuration. If set to false, a public key needs to be provided            
 
-#### <p style="color:blue">*gateway-create-k8s-auth-config*</p>
+#### `gateway-create-k8s-auth-config`
 
-Creates K8S Auth config on Gateway
+Creates Kubernetes Auth config on Gateway
 
 ##### Usage
 
@@ -155,9 +155,9 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)      
 
-### <p style="color:blue">*update*</p>
+### `update`
 
-Update a new Auth Method that will be able to authenticate using Kubernetes
+Update a new Authentication Method that will be able to authenticate using Kubernetes
 
 ##### Usage
 
@@ -265,9 +265,9 @@ akeyless gateway-update-k8s-auth-config \
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">*get*</p>
+### `get`
 
-Gets Gateway K8S Auth config
+Gets Gateway Kubernetes Auth config
 
 ##### Usage
 
@@ -282,7 +282,7 @@ akeyless gateway-get-k8s-auth-config \
  `-n, --name`: **Required**, K8S Auth config name\
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">*delete*</p>
+### `delete`
 
 Deletes K8S Auth config
 
