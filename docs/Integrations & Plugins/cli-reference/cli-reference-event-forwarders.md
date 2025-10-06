@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-## <p style="color:blue">*create*</p>
+## <p style={{color: 'blue'}}>*create*</p>
 
 Commands for managing the event forwarders.
 
@@ -40,7 +40,7 @@ Commands for managing the event forwarders.
 
 `webhook`: Create a new webhook Event Forwarder
 
-### <p style="color:blue">*create email*</p>
+### <p style={{color: 'blue'}}>*create email*</p>
 
 Create a new Email Event Forwarder
 
@@ -91,7 +91,7 @@ akeyless event-forwarder create email \
 
 `--description`: Description of the object
 
-### <p style="color:blue">*servicenow*</p>
+### <p style={{color: 'blue'}}>*servicenow*</p>
 
 Create a new Service Now Event Forwarder
 
@@ -151,7 +151,7 @@ akeyless event-forwarder create servicenow \
 
 `--description`: Description of the object
 
-### <p style="color:blue">*slack*</p>
+### <p style={{color: 'blue'}}>*slack*</p>
 
 Create a new Slack Event Forwarder
 
@@ -197,7 +197,53 @@ akeyless event-forwarder create slack \
 
 `--description`: Description of the object
 
-### <p style="color:blue">*webhook*</p>
+### <p style={{color: 'blue'}}>*teams*</p>
+
+Create a new Teams Event Forwarder
+
+**Usage**
+
+```shell
+akeyless event-forwarder create Teams \
+--name <Event Forwarder name> \
+--url <Teams Webhook URL>
+--gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--items-event-source-locations </Secrets/*> \
+--targets-event-source-locations </Targets/*> \
+--auth-methods-event-source-locations </Auth-Methods/*> \
+--gateways-event-source-locations <https://<Your-Akeyless-GW-URL:8000>
+--event-types <event type>
+--runner-type[=immediate] <immediate / periodic> \
+--every <1-24 hours>
+```
+
+**Flags**
+
+`-n, --name`: **Required**, Event Forwarder name
+
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type \[\`immediate\`, \`periodic\`]
+
+`url`: **Required**, Teams Webhook URL
+
+`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/\*  
+
+`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/\*
+
+`--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
+
+`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
+
+`--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
+
+`-k, --key`: Key name. The key will be used to encrypt the Event Forwarder secret value. If the key name is not specified, the account default protection key is used
+
+`--every`: Rate of periodic runner repetition in hours
+
+`-u, --gateway-url[=https://<Your-Akeyless-GW-URL:8000]`: API Gateway URL (Configuration Management port)
+
+`--description`: Description of the object
+
+### <p style={{color: 'blue'}}>*webhook*</p>
 
 Create a new Webhook Event Forwarder
 
