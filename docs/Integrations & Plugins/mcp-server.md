@@ -306,16 +306,16 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        The identity for the chosen cloud provider.
+        The identity for the chosen cloud provider:
 
-        * `aws_iam`: The ARN of the AWS IAM Role to authenticate with[^1]
-        * `azure_ad`: The Azure Client ID to authenticate with[^2]
-        * `gcp`: The GCP service account to authenticate with[^3]
-        * `oci`
+        * [`aws_iam`](doc:aws-iam)
+        * [`azure_id`](doc:azure-ad)
+        * [`gcp`](doc:gcp-auth-method)
+        * [`oci`](doc:oci-iam) 
       </td>
 
       <td>
-        Yes* (if using the `aws_iam`, `azure_id`, or `gcp` access types)
+        Yes* (if using the `aws_iam`, `azure_id`, `gcp`, or `oci` access types)
       </td>
 
       <td>
@@ -982,11 +982,3 @@ x-frame-options: SAMEORIGIN
 * Check file paths are correct
 * Verify command arguments
 * Review environment variables
-
-<br />
-
-[^1]: AWS <Anchor label="Amazon Resource Names (ARNs)" target="_blank" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</Anchor>  are used to uniquely identify resources across all AWS partitions, regions, and accounts. AWS <Anchor label="Identity and Access Management (IAM) roles" target="_blank" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">Identity and Access Management (IAM) roles</Anchor>  are one options for authenticating with AWS.
-
-[^2]: Azure Client IDs, also known as Application IDs, uniquely identity applications when they are registered in Microsoft Entra ID (formerly Azure Active Directory). Read more about [registering a client application in Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)  .
-
-[^3]: [GCP service accounts](https://cloud.google.com/iam/docs/service-account-overview)  are how applications uniquely authenticate to access GCP services.
