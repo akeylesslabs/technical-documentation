@@ -41,7 +41,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Use inclusive language (e.g., "they" instead of "he/she").
 * Maintain a neutral and instructional tone.
 
-# Structure
+# Markdown Structure
 
 ## Headings
 
