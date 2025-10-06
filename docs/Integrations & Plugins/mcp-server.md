@@ -125,7 +125,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Your Akeyless access ID
+        The Akeyless access ID to authenticate with
       </td>
 
       <td>
@@ -144,7 +144,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Your Akeyless access key
+        The Akeyless access key to authenticate with
       </td>
 
       <td>
@@ -163,7 +163,8 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Authentication method type to use. Acceptable values are:
+        Authentication method type to use
+        Acceptable values are:
 
         * `access_key`
         * `aws_iam`
@@ -195,11 +196,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Used to select which Akeyless account to use if the `--admin-email` is associated with more than one account
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -213,11 +214,12 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The Akeyless account password to authenticate with
       </td>
 
       <td>
-
+        Yes*
+        (if using the `password` access type)
       </td>
 
       <td>
@@ -231,11 +233,12 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The Akeyless account email address to authenticate with
       </td>
 
       <td>
-
+        Yes*
+        (if using the `password` access type)
       </td>
 
       <td>
@@ -249,7 +252,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Certificate challenge encoded in base64 (relevant only for the `cert` access type)
       </td>
 
       <td>
@@ -267,7 +270,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Certificate data encoded in base64, used if file was not provided (relevant only for the `cert` access-type)
       </td>
 
       <td>
@@ -305,9 +308,10 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       <td>
         The identity for the chosen cloud provider.
 
-        * `aws_iam`: The ARN of the AWS IAM Role to authenticate with[^1].
-        * `azure_ad`: The Azure Client ID to authenticate with[^2].
-        * `gcp`: The GCP service account to authenticate with[^3].
+        * `aws_iam`: The ARN of the AWS IAM Role to authenticate with[^1]
+        * `azure_ad`: The Azure Client ID to authenticate with[^2]
+        * `gcp`: The GCP service account to authenticate with[^3]
+        * `oci`
       </td>
 
       <td>
@@ -343,11 +347,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Disable Kerberos FAST negotiation
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -361,11 +365,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The service principal name of the gateway as registered in LDAP
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -397,7 +401,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        GCP audience to use with signed JWT (relevant only for the `gcp` access type)
       </td>
 
       <td>
@@ -415,7 +419,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The JSON Web Token
       </td>
 
       <td>
@@ -433,7 +437,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The Kubernetes Auth config name
       </td>
 
       <td>
@@ -451,7 +455,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The Kubernetes service account token
       </td>
 
       <td>
@@ -469,11 +473,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Kerberos token for the gateway SPN, used by SPNEGO for authentication
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -487,11 +491,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The username for the entry within the keytab to authenticate via Kerberos
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -505,11 +509,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Private key data encoded in base64
       </td>
 
       <td>
-
+        Yes* (if using the `cert` access type and `args.--key-file-data` is not used)
       </td>
 
       <td>
@@ -523,11 +527,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Path to where the key file for certificate authentication is located
+        Path to where the key file is located
       </td>
 
       <td>
-        Yes* (if using the `cert` access type)
+        Yes* (if using the `cert` access type and `args.--key-file-name` is not used)
       </td>
 
       <td>
@@ -541,7 +545,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Base64-encoded content of a valid keytab file, containing the service account's entry
       </td>
 
       <td>
@@ -559,7 +563,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The path to a valid keytab file, containing the user entry
       </td>
 
       <td>
@@ -577,7 +581,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The path to a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication
       </td>
 
       <td>
@@ -595,7 +599,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        The path to a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication
       </td>
 
       <td>
@@ -613,7 +617,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Address URL for LDAP proxy
       </td>
 
       <td>
@@ -631,11 +635,15 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
+        The type of the OCI configuration to use:
 
+        * `apikey`
+        * `instance`
+        * `resource`
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -649,7 +657,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        A list of Oracle Cloud IDs groups
       </td>
 
       <td>
@@ -667,11 +675,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        OIDC Service Provider (relevant only for the `oidc` access type). Inferred if empty. Supported SPs: `google`, `github`
       </td>
 
       <td>
-
+        No
       </td>
 
       <td>
@@ -685,7 +693,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        CLI profile name to use
+        The CLI profile name to use
       </td>
 
       <td>
@@ -703,7 +711,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Signed certificate challenge encoded in base64 (relevant only for the `cert` access type)
       </td>
 
       <td>
@@ -721,11 +729,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+         The Universal Identity token
       </td>
 
       <td>
-
+        Yes* (if using the `universal_identity` access type)
       </td>
 
       <td>
@@ -739,7 +747,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Returns a link to complete the authentication remotely (relevant only for the SAML and ODIC access types).
+        Returns a link to complete the authentication remotely (relevant only for the `saml` and `oidc` access types).
       </td>
 
       <td>
