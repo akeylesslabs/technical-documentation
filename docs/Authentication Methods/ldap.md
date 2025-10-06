@@ -32,14 +32,16 @@ The LDAP [Authentication Method](doc:access-and-authentication-methods) uses an 
 
 * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs).\
+* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs).
   This parameter is optional. If empty, the IP of the Gateway will be used in the logs.
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `Web UI`.
+
 * **Require Sub Claim on role association:** select to force [Sub-Claims](doc:sub-claims) during [Role](doc:rbac) association.
 
-* **Unique Identifier:** A unique identifier is usually one of the following keys `email`, `username`, or `UPN`. Identity Providers issue sub-claims containing details that uniquely identify the user whenever a user logs in.\
+* **Unique Identifier:** A unique identifier is usually one of the following keys `email`, `username`, or `UPN`. Identity Providers issue sub-claims containing details that uniquely identify the user whenever a user logs in.
   A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
 On the **LDAP Configuration** step define the following:
@@ -50,7 +52,7 @@ On the **LDAP Configuration** step define the following:
 
 * **Server CA Certificate:** LDAP server CA certificate, requires x509 PEM encoded certificate format, **Relevant** only if secured LDAP server `ldaps` is used.
 
-* **LDAP Bind DN:** Distinguished Name (DN) of object to bind when performing user and group search\
+* **LDAP Bind DN:** Distinguished Name (DN) of object to bind when performing user and group search
   e.g. `cn=admin,dc=planetexpress` ,**Relevant** only if **Enable LDAP Anonymous Search**  is checked.
 
 * **Password for LDAP Bind DN:** Password to perform user search, **Relevant** only if **Enable LDAP Anonymous Search** is NOT checked.
