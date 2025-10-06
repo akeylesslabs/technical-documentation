@@ -16,7 +16,7 @@ The Google Cloud Platform (GCP) authentication method enables GCP entities to au
 
 # Prerequisites
 
-You will need a GCP Service Account with the following permissions: 
+You will need a GCP Service Account with the following permissions:
 
 ```shell
 iam.serviceAccounts.get
@@ -57,13 +57,13 @@ Where:
 
 * `audience`: The audience to verify the JWT received by the client. By default, `akeyless.io`.
 
-* `bound-projects`:  A list of GCP Project IDs. 
+* `bound-projects`:  A list of GCP Project IDs.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorbluegcpp) section.
 
 # Configure Akeyless CLI with the GCP authentication method
 
-To configure your CLI to work with GCP authentication, run the following command from a GCP resource: 
+To configure your CLI to work with GCP authentication, run the following command from a GCP resource:
 
 ```shell Akeyless CLI
 akeyless configure --profile default --access-id <AccessID>  --access-type gcp --gcp-audience akeyless.io
@@ -84,16 +84,18 @@ akeyless get-cloud-identity --cloud-provider gcp
 
 * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
 
 * **GCP Type:** Select the type of GCP authentication method to create, either `IAM` or `GCE`.
 
 * **Bound Projects:** Enter a comma-separated list of GCP project IDs. The client must belong to one of these projects to authenticate. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Audience:** Enter the audience to verify in the JWT received by the client. By default,\
+* **Audience:** Enter the audience to verify in the JWT received by the client. By default,
   the **Audience** is `akeyless.io`.
 
-* **Service Account Credentials:** Enter a Base64-encoded string of the service account credentials or upload a JSON file with the service account credentials. Required in case no project is provided. 
+* **Service Account Credentials:** Enter a Base64-encoded string of the service account credentials or upload a JSON file with the service account credentials. Required in case no project is provided.
 
 * **Bound Service Accounts:** Enter a valid Service Account. This parameter is only relevant for **IAM** authentication methods. Leave it empty for unrestricted access.
 
