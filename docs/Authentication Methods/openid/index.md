@@ -34,7 +34,7 @@ Where:
 
 * `issuer`: The Identity Provider URL (for more information check the [Okta](doc:okta) example).
 
-* `client-id`: The Client ID (application ID). 
+* `client-id`: The Client ID (application ID).
 
 * `client-secret`: The Client's secret.
 
@@ -42,7 +42,7 @@ Where:
 
 > 🚧 Note
 >
-> **Unique Identifier** should be a **key** name, i.e. not the value itself.\
+> **Unique Identifier** should be a **key** name, i.e. not the value itself.
 > For example, `email` should be provided as is, and not the actual email address.
 
 By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes, in case your IdP uses different characters as a delimiter, you might set those using the `delimiters` parameter.
@@ -65,9 +65,11 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
+
 * **Issuer URL:** The Identity Provider URL (for more information check the [Okta](doc:okta) example).
 
-* **Client ID:** The Client ID (application ID). 
+* **Client ID:** The Client ID (application ID).
 
 * **Client Secret:** Client secret.
 
@@ -77,7 +79,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 🚧 Note
 >
-> **Unique Identifier** should be a **key** name, i.e. not the value itself.\
+> **Unique Identifier** should be a **key** name, i.e. not the value itself.
 > For example, `email` should be provided as is, and not the actual email address.
 
 4. Click **Finish**.
