@@ -39,6 +39,24 @@ akeyless add-gw-access-id \
 
 `-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
 
+## `delete-gw-access-id`
+
+Denials Gateway access to users
+
+### Usage
+
+```shell
+akeyless delete-gw-access-id \
+--cluster-name <Cluster Name> \
+--access-id <Access ID>
+```
+
+### Flags
+
+`-c, --cluster-name`: **Required**, The name of the updated cluster
+
+`-a, --access-id`: **Required**, The `Access ID` to be able to access the gateway
+
 ## `gateway-create-allowed-access`
 
 Add users that will have permission to manage the Gateway
@@ -106,23 +124,7 @@ akeyless gateway-update-allowed-access \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `delete-gw-access-id`
-
-Denials Gateway access to users
-
-### Usage
-
-```shell
-akeyless delete-gw-access-id \
---cluster-name <Cluster Name> \
---access-id <Access ID>
-```
-
-### Flags
-
-`-c, --cluster-name`: **Required**, The name of the updated cluster
-
-`-a, --access-id`: **Required**, The `Access ID` to be able to access the gateway
+<br />
 
 # Gateway Configuration
 
