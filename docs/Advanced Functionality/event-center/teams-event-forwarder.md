@@ -54,8 +54,13 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Fill in the following fields:
 
 * **Name**: The **Teams** event forwarder name.
+
 * **Teams URL**: The **URL** which will receive the notifications from Akeyless
+
 * **Gateway**: Choose an existing Gateway from the drop-down list to select the relevant Gateway
+
 * Choose either to receive notifications about the events immediately or on an hourly basis
+
 * **Event Sources**: Select the **Items / Auth Methods / Targets / Gateways** you would like to get events on based on their locations
+
 * **Event Type**: Choose the relevant event to be notified about [from the following list](https://docs.akeyless.io/docs/event-center#event-types)
