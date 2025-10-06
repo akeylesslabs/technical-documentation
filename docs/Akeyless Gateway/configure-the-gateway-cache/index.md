@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Upon network outage, the Gateway cache can still handle requests for Secrets retrievals (read-only). The cache will start working only after the Gateway is successfully operated. Only users already authenticated can get service from the Gateway cache, where the following [Authentication Methods](doc:access-and-authentication-methods) can keep authenticating on offline modes: **K8s**, **email**, **API Key**, **LDAP**, **Certificate** and **JWT**. 
+Upon network outage, the Gateway cache can still handle requests for Secrets retrievals (read-only). The cache will start working only after the Gateway is successfully operated. Only users already authenticated can get service from the Gateway cache, where the following [Authentication Methods](doc:access-and-authentication-methods) can keep authenticating on offline modes: **K8s**, **email**, **API Key**, **LDAP**, **Certificate** and **JWT**.
 
 > 👍 Offline Authentciton Cache
 >
@@ -18,7 +18,7 @@ Upon network outage, the Gateway cache can still handle requests for Secrets ret
 
 The most straightforward use cases are the following:
 
-* The Gateway Cache is used to improve performance when fetching secrets. 
+* The Gateway Cache is used to improve performance when fetching secrets.
 
 * The Proactive Cache enables storing secrets in the Gateway Cache in advance upon successful user authentication.
 
@@ -42,7 +42,7 @@ To enable and configure the Gateway Cache:
 
 > 👍 Note
 >
-> Usually, after the Stale Timeout period expires for a secret, the secret is deleted from the Gateway Cache. 
+> Usually, after the Stale Timeout period expires for a secret, the secret is deleted from the Gateway Cache.
 >
 > In case there is no internet connection, the Gateway Cache won’t delete old items until the internet connection is restored.
 
@@ -57,18 +57,18 @@ The Gateway utilizes a proactive caching model with a delta-based update process
 
 This dual-ticker system ensures the cache remains fresh and accurate with minimal performance impact. When a user updates a secret in the Akeyless UI, the change is picked up by the next refresh cycle, and the updated value is propagated to the cache and subsequently to the workload without requiring any manual intervention. This provides a highly efficient and scalable solution for secrets management.
 
-The following diagram illustrates the key phases of the Akeyless Gateway's proactive caching mechanism, showing how it efficiently populates and maintains its cache, and how an application consumes secrets from it.\
+The following diagram illustrates the key phases of the Akeyless Gateway's proactive caching mechanism, showing how it efficiently populates and maintains its cache, and how an application consumes secrets from it.
 In this example, the user set the Refresh-TTL Ticker to 2 minutes.
 
-<Image align="center" src="https://files.readme.io/1fdc1d01ea89e625913853199b7ed1aba17bdebdd713ce3b708af7c1fa9b2e77-Cache_Diagaram.png" />
+<Image align="center" border={false} src="https://files.readme.io/1fdc1d01ea89e625913853199b7ed1aba17bdebdd713ce3b708af7c1fa9b2e77-Cache_Diagaram.png" />
 
-To enable and configure the Proactive Cache: 
+To enable and configure the Proactive Cache:
 
 1. Open the **Akeyless Gateway Configuration Manager** at `https://Your_Akeyless_Gateway_URL:8000/console`.
 
 2. On the menu bar at the left, click **Gateways > Your-Gateway > Manage Gateway > Caching Configuration**.
 
-3. Select the **Enable Proactive Caching** checkbox. 
+3. Select the **Enable Proactive Caching** checkbox.
 
 > 🚧 Using Legacy Mode
 >
@@ -80,11 +80,11 @@ To enable and configure the Proactive Cache:
 
 # Cluster Cache Mode
 
-When deploying Gateway on K8s, a Cluster Cache can be set in addition to support offline authentication, this results in an additional service that syncs all pods and has a shared storage, to keep the secrets encrypted at rest, this mode requires a K8s encryption key. This feature can be set **only** during deployment.  To set this follow the installation guide under the [cache](https://docs.akeyless.io/docs/advanced-k8s-gateway-configuration#cache-configuration) section.  
+When deploying Gateway on K8s, a Cluster Cache can be set in addition to support offline authentication, this results in an additional service that syncs all pods and has a shared storage, to keep the secrets encrypted at rest, this mode requires a K8s encryption key. This feature can be set **only** during deployment.  To set this follow the installation guide under the [cache](https://docs.akeyless.io/docs/advanced-k8s-gateway-configuration#cache-configuration) section.
 
 # Bypass Cache
 
-When Cache is enabled by default, any client that requests a secret from the relevant Gateway will receive the latest cached value of the secret. To work directly with the Akeyless SaaS, to ensure you are retrieving the latest value of the secret, you can specify the `ignore-cache`  setting as part of the request to by-pass the cache mechanism : 
+When Cache is enabled by default, any client that requests a secret from the relevant Gateway will receive the latest cached value of the secret. To work directly with the Akeyless SaaS, to ensure you are retrieving the latest value of the secret, you can specify the `ignore-cache`  setting as part of the request to by-pass the cache mechanism :
 
 ```shell Akeyless CLI
 akeyless get-secret-value -n /mysecret --ignore-cache true
