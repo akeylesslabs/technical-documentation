@@ -9,7 +9,11 @@ metadata:
   description: ''
   robots: index
 ---
-Integrate your applications, libraries, or scripts with Akeyless using our SDKs. We currently support the following SDKs:
+Integrate your applications, libraries, or scripts with Akeyless using our software development kits (SDKs).
+
+# Available SDKs
+
+We currently support the following SDKs:
 
 * [C# .NET Core SDK](doc:csharp-core-sdk)
 * [Go SDK](doc:go)
@@ -17,6 +21,8 @@ Integrate your applications, libraries, or scripts with Akeyless using our SDKs.
 * [JavaScript SDK](doc:javascript-sdk)
 * [Python SDK](doc:python-sdk-1)
 * [Ruby SDK](doc:ruby-sdk)
+
+# Available Environments
 
 Akeyless is available in the following environments, each with a unique base URL:
 
