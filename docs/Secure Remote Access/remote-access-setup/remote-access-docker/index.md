@@ -18,7 +18,7 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 
 > ⚠️ Intended use & production guidance
 >
-> The purpose of the Docker Compose is mainly for 
+> The purpose of the Docker Compose is mainly for
 >
 > * Evaluation of Akeyless Gateway and SRA quickly on a single host
 > * Demo/POC workflows (API, Web SRA, SSH proxy)
@@ -29,15 +29,15 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 * Docker Installed (version 20.10 or later)
 * Docker Compose (version 1.29 or later)
 * [Gateway](https://docs.akeyless.io/docs/standalone-gateway-copy) deployed and Unified value is set to TRUE
-  * Make sure to set the UNIFIED\_GATEWAY=true in both Gateway & SRA env files.
+  * Make sure to set the UNIFIED_GATEWAY=true in both Gateway & SRA env files.
 * Environment variables configured in .env files
 * [SSH Certificate Issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates) for CLI Access.
-* At least 1 vCPU available with 1GB RAM per Docker container. 
+* At least 1 vCPU available with 1GB RAM per Docker container.
 
 <Callout icon="🌐" theme="default">
   ### Network Configuration
 
-  * Ensure *sticky sessions* are enabled.
+  * Ensure _sticky sessions_ are enabled.
   * Cloud Provider Load Balancer: Configure the load balancer to support sticky sessions. For example, in AWS, you can use Elastic Load Balancer (ELB). Refer to the AWS ELB Sticky Sessions Documentation for guidance.
 </Callout>
 
@@ -60,7 +60,7 @@ Each service runs within an isolated Docker bridge network (internal-net), ensur
 
 The deployment uses number of environment files for configuration:
 
-* `gateway.env` - Defines environment variables for Akeyless Gateway. For more information on deployment of Gateway via Docker Compose, please refer to [Gateway documentation](https://docs.akeyless.io/docs/standalone-gateway-copy).
+* `gateway.env` - Defines environment variables for Akeyless Gateway. For more information on deployment of Gateway via Docker Compose, please refer to [Gateway documentation](https://docs.akeyless.io/docs/gateway-compose#/).
 * `sra.env` - Defines environment variables for Secure Remote Access services.
 
 ## Example Configuration
@@ -113,7 +113,7 @@ SSH_HOST_KEYS_PATH=""
 
 > 🚧 Restricting User Access
 >
-> To enable only specific users to use Secure Remote Access, make sure to add the relevant `GATEWAY_AUTHORIZED_ACCESS_ID` in the `sra.env `file. 
+> To enable only specific users to use Secure Remote Access, make sure to add the relevant `GATEWAY_AUTHORIZED_ACCESS_ID` in the `sra.env `file.
 >
 > A comma-separated list can be used for multiple IDs. While this is not mandatory, it is a good security practice to limit user access. If not configured, a Warning message will appear.
 
@@ -125,7 +125,7 @@ In order to provide just-in-time native CLI access for your users using SSH Cert
 
 # Running the Deployment
 
-1. Ensure you have the `docker-compose.yml` and`.env`files are in your working directory. 
+1. Ensure you have the `docker-compose.yml` and`.env`files are in your working directory.
 2. Start the Services
 
 ### Deploying as Secure Remote Access (SRA)
@@ -136,7 +136,7 @@ To deploy only the SRA components, run:
 docker-compose --profile sra up -d
 ```
 
-The above command will deploy SRA (if Gateway is not deployed, it will deploy this as well). 
+The above command will deploy SRA (if Gateway is not deployed, it will deploy this as well).
 
 > 📘 Verify Deployment
 >
