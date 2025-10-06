@@ -4,7 +4,6 @@
 - cli-reference-static-secrets
 - cli-reference-dynamic-secrets
 - cli-reference-rotated-secrets
-- cli-reference-akeyless-targets
 - cli-ref-targets
 - cli-reference-certificates
 - cli-reference-encryption-keys
