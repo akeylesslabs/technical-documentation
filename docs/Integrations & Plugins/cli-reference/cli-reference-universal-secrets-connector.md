@@ -10,25 +10,13 @@ metadata:
 next:
   description: ''
 ---
-*The External Secrets Manager has been renamed Universal Secrets Connector. All`esm` commands will still work as expected.*
+_The External Secrets Manager has been renamed Universal Secrets Connector. All`esm` commands will still work as expected._
 
 ## Universal Secrets Connector
 
 This section outlines the CLI commands relevant to Universal Secrets Connector.
 
-General Flags:
-
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
+<CLIGeneralFlags />
 
 ### <p style={{ color: "blue" }}>*create-usc*</p>
 
@@ -44,37 +32,37 @@ akeyless create-usc \
 
 ##### Flags
 
- `-n, --name`: **Required**, Universal Secrets Connector name
+`-n, --name`: **Required**, Universal Secrets Connector name
 
- `-a, --target-to-associate` :**Required**, Target Universal Secrets Connector to connect
+`-a, --target-to-associate` :**Required**, Target Universal Secrets Connector to connect
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--description` :Description of the Universal Secrets Connector
+`--description` :Description of the Universal Secrets Connector
 
- `-t, --tag`: List of the tags attached to this Universal Secrets Connector. To specify multiple tags use the argument multiple times: -t Tag1 -t Tag2
+`-t, --tag`: List of the tags attached to this Universal Secrets Connector. To specify multiple tags use the argument multiple times: -t Tag1 -t Tag2
 
- `-v, --azure-kv-name`:   Azure Key Vault name (Relevant only for Azure targets)
+`-v, --azure-kv-name`:   Azure Key Vault name (Relevant only for Azure targets)
 
- `-s, --k8s-namespace`: K8s namespace (Relevant to Kubernetes targets)
+`-s, --k8s-namespace`: K8s namespace (Relevant to Kubernetes targets)
 
- `--usc-prefix`: A prefix for all secret that will be created on the USC endpoint (relevant only for AWS targets)
+`--usc-prefix`: A prefix for all secret that will be created on the USC endpoint (relevant only for AWS targets)
 
- `--use-prefix-as-filter[=true]`: Filter the USC secret list by the usc-prefix [`true`/`false`]
+`--use-prefix-as-filter[=true]`: Filter the USC secret list by the usc-prefix [`true`/`false`]
 
- `--delete-protection`: Protection from accidental deletion of this item, [true/false]
+`--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
- `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
- `--uid-token`: The universal identity token, Required only for universal\_identity authentication
+`--uid-token`: The universal identity token, Required only for universal_identity authentication
 
- `-h, --help`: Display help information
+`-h, --help`: Display help information
 
- `--json[=false]`: Set output format to JSON
+`--json[=false]`: Set output format to JSON
 
- `--jq-expression`: JQ expression to filter result output
+`--jq-expression`: JQ expression to filter result output
 
- `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds                                                                                               
+`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
 ## USC Sub-Commands
 
@@ -99,23 +87,23 @@ usc create \
 
 ##### Flags
 
- `-n, --usc-name`:  **Required**, USC name
+`-n, --usc-name`:  **Required**, USC name
 
- `-u, --gateway-url[=http://localhost:8000]`:API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`:API Gateway URL (Configuration Management port)
 
- `-s, --secret-name`:**Required**,Name for the new external secret
+`-s, --secret-name`:**Required**,Name for the new external secret
 
- `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
+`--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
- `-pfx-password`: Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
+`-pfx-password`: Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
 
- `-v, --value`:**Required**,Value of the external secret item, either text or base64 encoded binary
+`-v, --value`:**Required**,Value of the external secret item, either text or base64 encoded binary
 
- `-b, --binary-value`:Use this option if the external secret value is a base64 encoded binary
+`-b, --binary-value`:Use this option if the external secret value is a base64 encoded binary
 
- `--description`:Description of the external secret
+`--description`:Description of the external secret
 
- `--tags`:Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
+`--tags`:Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
 
 ### <p style={{ color: "blue" }}>*delete*</p>
 
@@ -131,13 +119,13 @@ usc delete \
 
 ##### Flags
 
- `-n, --usc-name`: **Required**, USC name
+`-n, --usc-name`: **Required**, USC name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `-s, --secret-id`: **Required**, The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
+`-s, --secret-id`: **Required**, The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
 
-  `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
+`--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
 <br />
 
@@ -155,27 +143,27 @@ usc get \
 
 ##### Flags
 
- Parameter                                     Description                                                                                                        
+Parameter                                     Description
 
- `-n, --usc-name`: **Required**, USC name
+`-n, --usc-name`: **Required**, USC name
 
 `-s, --secret-id`: **Required**, The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
 
- `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
+`--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
- `-u, --gateway-url[=http://localhost:8000]`:   API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`:   API Gateway URL (Configuration Management port)
 
- `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
- `--uid-token`:The universal identity token, Required only for universal\_identity authentication
+`--uid-token`:The universal identity token, Required only for universal_identity authentication
 
- `-h, --help`:Display help information
+`-h, --help`:Display help information
 
- `--json[=false]`:Set output format to JSON
+`--json[=false]`:Set output format to JSON
 
- `--jq-expression`:JQ expression to filter result output
+`--jq-expression`:JQ expression to filter result output
 
- `--no-creds-cleanup[=false]`:Do not clean local temporary expired creds 
+`--no-creds-cleanup[=false]`:Do not clean local temporary expired creds
 
 ### <p style={{ color: "blue" }}>*list*</p>
 
@@ -189,23 +177,23 @@ akeyless usc list --usc-name <USC name>
 
 ##### Flags
 
- `-n, --usc-name`:                  **Required**, USC name
+`-n, --usc-name`:                  **Required**, USC name
 
- `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
+`--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
- `-u, --gateway-url[=http://localhost:8000]`:  API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`:  API Gateway URL (Configuration Management port)
 
- `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
- `--uid-token`: The universal identity token, Required only for universal\_identity authentication
+`--uid-token`: The universal identity token, Required only for universal_identity authentication
 
- `-h, --help`: Display help information
+`-h, --help`: Display help information
 
- `--json[=false]`: Set output format to JSON
+`--json[=false]`: Set output format to JSON
 
- `--jq-expression`: JQ expression to filter result output
+`--jq-expression`: JQ expression to filter result output
 
- `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds                                          
+`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
 ### <p style={{ color: "blue" }}>*update*</p>
 
@@ -222,18 +210,18 @@ usc update \
 
 ##### Flags
 
- `-n, --usc-name`: **Required**, USC name
+`-n, --usc-name`: **Required**, USC name
 
 `-s, --secret-id`: **Required**, The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
 
- `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
+`--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `-v, --value`: **Required**,Value of the external secret item, either text or base64 encoded binary
+`-v, --value`: **Required**,Value of the external secret item, either text or base64 encoded binary
 
- `-b, --binary-value`: Use this option if the external secret value is a base64 encoded binary
+`-b, --binary-value`: Use this option if the external secret value is a base64 encoded binary
 
- `--description`: Description of the external secret
+`--description`: Description of the external secret
 
- `--tags`: Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
+`--tags`: Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
