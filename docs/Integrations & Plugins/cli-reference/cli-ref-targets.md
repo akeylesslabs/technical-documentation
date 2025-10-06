@@ -12,25 +12,13 @@ next:
 ---
 This section outlines the CLI commands relevant to Targets.
 
-General Flags:
+<CLIGeneralFlags />
 
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
-
-## <p style={{ color: "blue" }}>*create*</p>
+## `create`
 
 Create a new Target
 
-##### Flags
+##### Subcommands
 
 `artifactory`
 
@@ -80,7 +68,7 @@ Create a new Target
 
 `zerossl`
 
-### <p style={{ color: "blue" }}>*artifactory*</p>
+### `artifactory`
 
 Creates a new Artifactory target in the current account
 
@@ -97,21 +85,21 @@ akeyless target create artifactory \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-b, --base-url`: **Required**, Artifactory REST URL, must end with artifactory postfix
+`-b, --base-url`: **Required**, Artifactory REST URL, must end with artifactory postfix
 
- `-a, --artifactory-admin-name`: **Required**, Admin name
+`-a, --artifactory-admin-name`: **Required**, Admin name
 
- `-p, --artifactory-admin-pwd`: **Required**, Admin API Key/Password                                                                                   
+`-p, --artifactory-admin-pwd`: **Required**, Admin API Key/Password
 
- `-k, --key `: The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used) 
+`-k, --key `: The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*aws*</p>
+### `aws`
 
 Creates a new AWS target in the current account
 
@@ -127,29 +115,29 @@ akeyless target create aws \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--access-key-id`: **Required**, AWS access key ID
+`--access-key-id`: **Required**, AWS access key ID
 
- `--access-key`: **Required**, AWS secret access key
+`--access-key`: **Required**, AWS secret access key
 
- `--session-token`: Required only for temporary security credentials retrieved using STS                                                                        
+`--session-token`: Required only for temporary security credentials retrieved using STS
 
- `--region [=us-east-2]`: AWS region
+`--region [=us-east-2]`: AWS region
 
- `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `--generate-external-id[=false]`: A unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless. Relevant only when using **GW cloud ID**
+`--generate-external-id[=false]`: A unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless. Relevant only when using **GW cloud ID**
 
- `role-arn`: AWS IAM role identifier that Gateway will assume in your AWS account, relevant only when using **external ID**
+`role-arn`: AWS IAM role identifier that Gateway will assume in your AWS account, relevant only when using **external ID**
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*azure*</p>
+### `azure`
 
 Creates a new azure target in the current account
 
@@ -165,28 +153,28 @@ akeyless target create azure \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `--client-id`: **Required**, Azure client/application id
+`--client-id`: **Required**, Azure client/application id
 
- `--tenant-id`: Azure tenant id
+`--tenant-id`: Azure tenant id
 
- `--client-secret`: **Required**, Azure client secret
+`--client-secret`: **Required**, Azure client secret
 
- `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `--subscription-id`: Azure Subscription Id
+`--subscription-id`: Azure Subscription Id
 
- `--resource-group-name`: The Resource Group name in your Azure Subscription
+`--resource-group-name`: The Resource Group name in your Azure Subscription
 
- `--resource-name`: The name of the relevant Resource
+`--resource-name`: The name of the relevant Resource
 
- `-k, --key`: Key name. The key is used to encrypt the target secret value. If the key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key is used to encrypt the target secret value. If the key name is not specified, the account default protection key is used
 
- `--description`: Target description\
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--description`: Target description
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*db*</p>
+### `db`
 
 Creates a new DB target in the current account
 
@@ -205,76 +193,76 @@ akeyless target create db \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--db-type`: **Required**, Database type: `mysql/mssql/hanadb/postgres/mongodb/snowflake/oracle/cassandra/redshift/redis`                                                              
+`--db-type`: **Required**, Database type: `mysql/mssql/hanadb/postgres/mongodb/snowflake/oracle/cassandra/redshift/redis`
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If the key name is not specified, the account default protection key is used                                                                    
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If the key name is not specified, the account default protection key is used
 
- `--user-name`: Database user name                                                            
+`--user-name`: Database user name
 
- `--host`: Database host                                                                      
+`--host`: Database host
 
- `--pwd`: Database password\
- `--port`: Database port                                                                      
+`--pwd`: Database password
+`--port`: Database port
 
- `--db-name`: Database name
+`--db-name`: Database name
 
- `--snowflake-api-private-key`: RSA Private key (base64 encoded)
+`--snowflake-api-private-key`: RSA Private key (base64 encoded)
 
- `--snowflake-api-private-key-file-name`: The path to the file containing the private key
+`--snowflake-api-private-key-file-name`: The path to the file containing the private key
 
- `--snowflake-api-private-key-passphrases`: The Private key passphrase                        
+`--snowflake-api-private-key-passphrases`: The Private key passphrase
 
- `--db-server-certificates`: Set of root certificate authorities in base64 encoding used by clients to verify server certificates
+`--db-server-certificates`: Set of root certificate authorities in base64 encoding used by clients to verify server certificates
 
- `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address 
+`--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
- `--azure-client-id`: Azure client id (relevant for "cloud-service-provider" only)
+`--azure-client-id`: Azure client id (relevant for "cloud-service-provider" only)
 
- `--azure-tenant-id`: Azure tenant id (relevant for "cloud-service-provider" only)
+`--azure-tenant-id`: Azure tenant id (relevant for "cloud-service-provider" only)
 
- `--azure-client-secret`: Azure client secret (relevant for "cloud-service-provider" only)
+`--azure-client-secret`: Azure client secret (relevant for "cloud-service-provider" only)
 
- `--cloud-service-provider`: Cloud service provider (currently only supports Azure)
+`--cloud-service-provider`: Cloud service provider (currently only supports Azure)
 
- `--connection-type[=credentials]`: Type of connection to mssql database \[credentials/cloud-identity]  
+`--connection-type[=credentials]`: Type of connection to mssql database [credentials/cloud-identity]
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]                                                                                
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) 
+`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `--snowflake-account`: Snowflake account name   
+`--snowflake-account`: Snowflake account name
 
- `--oracle-service-name`: oracle db service name
+`--oracle-service-name`: oracle db service name
 
- `--oracle-wallet-login-type`: Oracle Wallet login type (`password`/`mtls`)
+`--oracle-wallet-login-type`: Oracle Wallet login type (`password`/`mtls`)
 
- `--oracle-wallet-path`: Path to Oracle wallet (where `cwallet.sso` and `ewallet.p12` reside)
+`--oracle-wallet-path`: Path to Oracle wallet (where `cwallet.sso` and `ewallet.p12` reside)
 
- `--oracle-wallet-sso-file-data`: Oracle wallet `sso` file data in base64
+`--oracle-wallet-sso-file-data`: Oracle wallet `sso` file data in base64
 
-  `--oracle-wallet-p12-file-data`: Oracle wallet `p12` file data in base64
+`--oracle-wallet-p12-file-data`: Oracle wallet `p12` file data in base64
 
- `--mongodb-atlas`: Flag, set database type to "mongodb" and the flag to "true" to create Mongo Atlas target 
+`--mongodb-atlas`: Flag, set database type to "mongodb" and the flag to "true" to create Mongo Atlas target
 
- `--mongodb-default-auth-db`: MongoDB server default authentication database
+`--mongodb-default-auth-db`: MongoDB server default authentication database
 
- `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet\&authSource=authDB)
+`--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
 
- `--mongodb-atlas-project-id`: MongoDB Atlas project ID
+`--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
- `--mongodb-atlas-api-public-key`: MongoDB Atlas public key
+`--mongodb-atlas-api-public-key`: MongoDB Atlas public key
 
- `--mongodb-atlas-api-private-key`: MongoDB Atlas private key
+`--mongodb-atlas-api-private-key`: MongoDB Atlas private key
 
- `--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MsSQL targets
+`--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MsSQL targets
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*dockerhub*</p>
+### `dockerhub`
 
 Creates a new Docker Hub target in the current account
 
@@ -290,21 +278,21 @@ akeyless target create dockerhub \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--dockerhub-username`: **Required**, Username for docker repository
+`--dockerhub-username`: **Required**, Username for docker repository
 
- `--dockerhub-password`: **Required**, Password for docker repository
+`--dockerhub-password`: **Required**, Password for docker repository
 
- `-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*eks*</p>
+### `eks`
 
-Creates a new EKS target in the current account
+Creates a new Amazon EKS target in the current account
 
 ##### Usage
 
@@ -322,29 +310,29 @@ akeyless target create eks \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `-e, --eks-cluster-name`: **Required**, EKS cluster name
+`-e, --eks-cluster-name`: **Required**, EKS cluster name
 
- `-c, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (i.e., https\://`<IP>` of the cluster)                                                                    
+`-c, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (i.e., https://`<IP>` of the cluster)
 
- `-t, --eks-cluster-ca-cert`: **Required**, EKS cluster base-64 encoded certificate
+`-t, --eks-cluster-ca-cert`: **Required**, EKS cluster base-64 encoded certificate
 
- `-i, --eks-access-key-id`: EKS access key ID
+`-i, --eks-access-key-id`: EKS access key ID
 
- `-s, --eks-secret-access-key`: EKS secret access key
+`-s, --eks-secret-access-key`: EKS secret access key
 
- `-g, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-g, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `--eks-region[=us-east-2]` EKS region
+`--eks-region[=us-east-2]` EKS region
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used. 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*gcp*</p>
+### `gcp`
 
 Creates a new GCP target in the current account
 
@@ -361,21 +349,21 @@ akeyless target create gcp \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `--gcp-key-file-path`: Path to file with the base64-encoded service account private key                                                                            
+`--gcp-key-file-path`: Path to file with the base64-encoded service account private key
 
- `--gcp-key`: Base64-encoded service account private key text
+`--gcp-key`: Base64-encoded service account private key text
 
- `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM 
+`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*github*</p>
+### `github`
 
 Creates a new GitHub target in the current account
 
@@ -392,21 +380,21 @@ akeyless target create github \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name 
+`-n, --name`: **Required**, Target name
 
- `--github-app-id`: Github application id
+`--github-app-id`: Github application id
 
- `--github-app-private-key`: Github application private key (base64 encoded key)
+`--github-app-private-key`: Github application private key (base64 encoded key)
 
- `--github-base-url[=https://api.github.com/]`: Github base url
+`--github-base-url[=https://api.github.com/]`: Github base url
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used. 
+`-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
 
-### <p style={{ color: "blue" }}>*gke*</p>
+### `gke`
 
 Creates a new GKE target in the current account
 
@@ -425,27 +413,27 @@ akeyless target create gke \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `-a, --gke-account-email`: GKE service account email
+`-a, --gke-account-email`: GKE service account email
 
- `-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https\://\<DNS/IP>                                                                                  
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https://\<DNS/IP>
 
- `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
+`-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
- `--gke-account-key-file-path`: File path to GKE service account key
+`--gke-account-key-file-path`: File path to GKE service account key
 
- `--gke-cluster-name`: GKE cluster name
+`--gke-cluster-name`: GKE cluster name
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*globalsign*</p>
+### `globalsign`
 
 Creates a new GlobalSign Target in the current account
 
@@ -465,31 +453,31 @@ akeyless target create globalsign \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name for the GlobalSign target                   
+`-n, --name`: **Required**, Name for the GlobalSign target
 
- `-u, --username`: **Required**, Username of the GlobalSign GCC account           
+`-u, --username`: **Required**, Username of the GlobalSign GCC account
 
- `-p, --password`: **Required**, Passwordof the GlobalSign GCC account            
+`-p, --password`: **Required**, Passwordof the GlobalSign GCC account
 
- `-i, --profile-id`: **Required**, Profile ID of the GlobalSign GCC account         
+`-i, --profile-id`: **Required**, Profile ID of the GlobalSign GCC account
 
- `-f, --contact-first-name`: **Required**, First name of the GlobalSign GCC account contact 
+`-f, --contact-first-name`: **Required**, First name of the GlobalSign GCC account contact
 
- `-l, --contact-last-name`: **Required**, Last name of the GlobalSign GCC account contact  
+`-l, --contact-last-name`: **Required**, Last name of the GlobalSign GCC account contact
 
- `--contact-phone`: **Required**, Telephone of the GlobalSign GCC account contact  
+`--contact-phone`: **Required**, Telephone of the GlobalSign GCC account contact
 
- `-e, --contact-email`: **Required**, Email of the GlobalSign GCC account contact      
+`-e, --contact-email`: **Required**, Email of the GlobalSign GCC account contact
 
- `--timeout[=5]`: Timeout for certificate validation.                              
+`--timeout[=5]`: Timeout for certificate validation.
 
- `-k, --key`: Key name. The key will be used to encrypt the target item.       
+`-k, --key`: Key name. The key will be used to encrypt the target item.
 
- `--description`: Description of the object                                        
+`--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*globalsign-atlas*</p>
+### `globalsign-atlas`
 
 Creates a new GlobalSign Atlas target in the current account
 
@@ -504,29 +492,29 @@ akeyless target create globalsign-atlas \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target Name
+`-n, --name`: **Required**, Target Name
 
- `-a, --api-key`: **Required**, API Key of the GlobalSign Atlas account
+`-a, --api-key`: **Required**, API Key of the GlobalSign Atlas account
 
- `-s, --api-secret`: **Required**, API Secret of the GlobalSign Atlas account
+`-s, --api-secret`: **Required**, API Secret of the GlobalSign Atlas account
 
- `--mtls-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path` or `tls-cert-data-base64` must be supplied                 
+`--mtls-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path` or `tls-cert-data-base64` must be supplied
 
- `--mtls-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied 
+`--mtls-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied
 
- `--mtls-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied                          
+`--mtls-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied
 
- `--mtls-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied           
+`--mtls-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied
 
- `--timeout[=5m]`: Timeout waiting for certificate validation
+`--timeout[=5m]`: Timeout waiting for certificate validation
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*godaddy*</p>
+### `godaddy`
 
-Creates a new Godaddy target
+Creates a new GoDaddy target
 
 ##### Usage
 
@@ -564,11 +552,11 @@ akeyless target create godaddy \
 
 `--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*hashi-vault*</p>
+### `hashi-vault`
 
-Creates a new hashi-vault target
+Creates a new HashiCorp Vault target
 
 ##### Usage
 
@@ -584,7 +572,7 @@ akeyless target create hashi-vault \
 
 `-n, --name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash / separators. If the folder does not exist, it will be created together with the target.
 
-`--hashi-url`: HashiCorp Vault URL, e.g. https\://vault-mgr01:8200.
+`--hashi-url`: HashiCorp Vault URL, e.g. https://vault-mgr01:8200.
 
 `--vault-token`: Vault access token with sufficient permissions.
 
@@ -592,13 +580,13 @@ akeyless target create hashi-vault \
 
 `--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-### <p style={{ color: "blue" }}>*k8s*</p>
+### `k8s`
 
-Creates a new K8S target in the current account
+Creates a new Kubernetes target in the current account
 
 ##### Usage
 
@@ -614,34 +602,34 @@ akeyless target create k8s \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https\:// , \<DNS / IP> of the cluster                                                                 
+`-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
- `-c, --k8s-cluster-ca-cert`: **Required**, K8S Cluster certificate. Base 64 encoded certificate                                                                         
+`-c, --k8s-cluster-ca-cert`: **Required**, K8S Cluster certificate. Base 64 encoded certificate
 
- `-t, --k8s-cluster-token`: **Required**, K8S Cluster authentication token
+`-t, --k8s-cluster-token`: **Required**, K8S Cluster authentication token
 
- `-i, --use-gw-service-account`: Use GW's service account. **Boolean** when provided only `name` is required                                                                  
+`-i, --use-gw-service-account`: Use GW's service account. **Boolean** when provided only `name` is required
 
- `--k8s-auth-type[=token]`: K8S auth type, \[token/certificate]\
- `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format                                                                         
+`--k8s-auth-type[=token]`: K8S auth type, [token/certificate]
+`--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format
 
- `--k8s-client-certificate-file`: Path to a file that contain the k8s client private key in PEM format                                                                         
+`--k8s-client-certificate-file`: Path to a file that contain the k8s client private key in PEM format
 
- `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format                                                                         
+`--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format
 
- `--k8s-client-key-file`: Path to a file that contain the k8s client private key in PEM format                                                                         
+`--k8s-client-key-file`: Path to a file that contain the k8s client private key in PEM format
 
 `--k8s-cluster-name`: K8S cluster name
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used. 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
 
- `--description`: Description of the object
+`--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*ldap*</p>
+### `ldap`
 
 Creates a new LDAP target in the current account
 
@@ -661,27 +649,27 @@ akeyless target create ldap \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-l, --ldap-url`: **Required**, LDAP Server URL
+`-l, --ldap-url`: **Required**, LDAP Server URL
 
- `-b, --bind-dn`: **Required**, LDAP Bind DN
+`-b, --bind-dn`: **Required**, LDAP Bind DN
 
- `-p, --bind-dn-password`: **Required**, Password for LDAP Bind DN
+`-p, --bind-dn-password`: **Required**, Password for LDAP Bind DN
 
- `-s, --server-type[=OpenLDAP]`: Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]. Default is OpenLDAP
+`-s, --server-type[=OpenLDAP]`: Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]. Default is OpenLDAP
 
- `-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate
+`-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate
 
- `--token-expiration`: --token-expiration
+`--token-expiration`: --token-expiration
 
- `-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*linked*</p>
+### `linked`
 
 Creates a new Linked Target which can inherit credentials from existing Targets
 
@@ -696,17 +684,17 @@ akeyless target create linked \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name for the linked target
+`-n, --name`: **Required**, Name for the linked target
 
- `-s, --hosts`: **Required**, A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (i.e. 'server-dev.com;My Dev server,server-prod.com;My Prod server description') 
+`-s, --hosts`: **Required**, A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (i.e. 'server-dev.com;My Dev server,server-prod.com;My Prod server description')
 
- `-p, --parent-target-name`: **Required**, The parent Target name from which to inherit credentials
+`-p, --parent-target-name`: **Required**, The parent Target name from which to inherit credentials
 
- `--description`: Description of the object
+`--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*ping*</p>
+### `ping`
 
 Creates a new Ping target in the current account
 
@@ -722,25 +710,25 @@ akeyless target create ping \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-u, --ping-url`: **Required**, Ping URL
+`-u, --ping-url`: **Required**, Ping URL
 
- `-s, --privileged-user`: **Required**, Privileged user name                                                                                     
+`-s, --privileged-user`: **Required**, Privileged user name
 
- `-p, --password`: **Required**, Privileged user Password                                                                                 
+`-p, --password`: **Required**, Privileged user Password
 
- `-i, --administrative-port[=9999]`: Ping Federate administrative port                                                                                        
+`-i, --administrative-port[=9999]`: Ping Federate administrative port
 
- `-j, --authorization-port[=9031]`: Ping Federate authorization port                                                                                         
+`-j, --authorization-port[=9031]`: Ping Federate authorization port
 
- `-k, --key `: The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used) 
+`-k, --key `: The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*rabbitmq*</p>
+### `rabbitmq`
 
 Creates a new RabbitMQ target in the current account
 
@@ -757,21 +745,21 @@ akeyless target create rabbitmq \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `--user`: **Required**, RabbitMQ server user
+`--user`: **Required**, RabbitMQ server user
 
- `--pwd`: RabbitMQ server password
+`--pwd`: RabbitMQ server password
 
- `--uri`: **Required**, RabbitMQ server URI
+`--uri`: **Required**, RabbitMQ server URI
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*salesforce*</p>
+### `salesforce`
 
 Creates a new Salesforce target in the current account
 
@@ -789,39 +777,39 @@ akeyless target create salesforce \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-u, --tenant-url`: **Required**, Url of the Salesforce tenant
+`-u, --tenant-url`: **Required**, Url of the Salesforce tenant
 
- `-i, --client-id`: **Required**, Client ID of the oauth2 app to use for connecting to Salesforce                                                             
+`-i, --client-id`: **Required**, Client ID of the oauth2 app to use for connecting to Salesforce
 
- `-e, --email`: **Required**, The email of the user attached to the oauth2 app used for connecting to Salesforce                                          
+`-e, --email`: **Required**, The email of the user attached to the oauth2 app used for connecting to Salesforce
 
- `-a, --auth-flow`: **Required**, type of the auth flow ('jwt' / 'user-password')                                                                             
+`-a, --auth-flow`: **Required**, type of the auth flow ('jwt' / 'user-password')
 
- `-s, --client-secret`: Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow)                                            
+`-s, --client-secret`: Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow)
 
- `-f, --app-private-key-file-name`: Name of the of file containing a PEM private key of the connected app (relevant for JWT auth only)                                          
+`-f, --app-private-key-file-name`: Name of the of file containing a PEM private key of the connected app (relevant for JWT auth only)
 
- `--app-private-key-data`: Base64 encoded PEM of the connected app private key (relevant for JWT auth only)                                                            
+`--app-private-key-data`: Base64 encoded PEM of the connected app private key (relevant for JWT auth only)
 
- `-p, --password`: The password of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)                    
+`-p, --password`: The password of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
 
- `-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)              
+`-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
 
- `--ca-cert-file-name`: Name of a file containing a PEM certificate to use when uploading new key to Salesforce                                                     
+`--ca-cert-file-name`: Name of a file containing a PEM certificate to use when uploading new key to Salesforce
 
- `--ca-cert-data`: Base64 encoded PEM cert to use when uploading a new key to Salesforce. Used if file name was not provided.                                  
+`--ca-cert-data`: Base64 encoded PEM cert to use when uploading a new key to Salesforce. Used if file name was not provided.
 
- `--ca-cert-name`: name of the certificate in Salesforce tenant to use when uploading new key                                                                  
+`--ca-cert-name`: name of the certificate in Salesforce tenant to use when uploading new key
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*sectigo*</p>
+### `sectigo`
 
 Creates a new Sectigo target in the current account
 
@@ -842,29 +830,29 @@ akeyless target create sectigo \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-u, --username`: **Required**, Username of the Sectigo account
+`-u, --username`: **Required**, Username of the Sectigo account
 
- `-p, --password`: **Required**, Password of the Sectigo account user                                                          
+`-p, --password`: **Required**, Password of the Sectigo account user
 
- `-c, --customer-uri`: **Required**, Customer Uri of the Sectigo account                                          
+`-c, --customer-uri`: **Required**, Customer Uri of the Sectigo account
 
- `-o, --organization-id`: **Required**, Organization ID of the Sectigo account                                                                             
+`-o, --organization-id`: **Required**, Organization ID of the Sectigo account
 
- `-i, --certificate-profile-id`: **Required**, Certificate Profile ID in Sectigo account                                            
+`-i, --certificate-profile-id`: **Required**, Certificate Profile ID in Sectigo account
 
- `-e, --external-requester`: **Required**, External Requester - a comma separated list of emails
+`-e, --external-requester`: **Required**, External Requester - a comma separated list of emails
 
- `--timeout[=5m]`: Timeout waiting for certificate validation
+`--timeout[=5m]`: Timeout waiting for certificate validation
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*ssh*</p>
+### `ssh`
 
 Creates a new SSH target in the current account
 
@@ -884,31 +872,31 @@ akeyless target create ssh \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--host`: SSH host name
+`--host`: SSH host name
 
- `--port[=22]`: SSH port
+`--port[=22]`: SSH port
 
- `--ssh-username`: SSH username
+`--ssh-username`: SSH username
 
- `--ssh-password`: SSH password to rotate
+`--ssh-password`: SSH password to rotate
 
- `--private-key-path`: SSH private key file path
+`--private-key-path`: SSH private key file path
 
- `--private-key`: SSH private key
+`--private-key`: SSH private key
 
- `--private-key-password`: SSH private key password
+`--private-key-password`: SSH private key password
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target desctiption
+`--description`: Target desctiption
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*web*</p>
+### `web`
 
 Creates a new web target in the current account
 
@@ -923,17 +911,17 @@ akeyless target create web \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `-u, --url`: **Required**, Web target URL
+`-u, --url`: **Required**, Web target URL
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*windows*</p>
+### `windows`
 
 Creates a new Windows Target in the current account
 
@@ -949,29 +937,29 @@ akeyless target create windows \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name for the Windows target
+`-n, --name`: **Required**, Name for the Windows target
 
- `-s, --hostname`: **Required**,  Server hostname or IP Address
+`-s, --hostname`: **Required**,  Server hostname or IP Address
 
- `-u, --username`: **Required**, Privileged username
+`-u, --username`: **Required**, Privileged username
 
- `-p, --password`: **Required**, Privileged user password 
+`-p, --password`: **Required**, Privileged user password
 
- `-d, --domain`: User domain name  
+`-d, --domain`: User domain name
 
- `-r, --port[=5986]`: Windows Server WinRM port, by default, set to `5986` for `Https`                                                                           
+`-r, --port[=5986]`: Windows Server WinRM port, by default, set to `5986` for `Https`
 
- `--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS \[true/false]                                                                                       
+`--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS [true/false]
 
- `--certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)                                                  
+`--certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `-k, --key`: Key name. The key is used to encrypt the target secret value. If the key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key is used to encrypt the target secret value. If the key name is not specified, the account default protection key is used
 
- `--description`: Description of the object 
+`--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### <p style={{ color: "blue" }}>*zerossl*</p>
+### `zerossl`
 
 Creates a new ZeroSSL Target in the current account
 
@@ -989,29 +977,29 @@ akeyless target create zerossl \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name for the ZeroSSL target
+`-n, --name`: **Required**, Name for the ZeroSSL target
 
- `--api-key`: **Required**, ZeroSSL API Key, can be found under your ZeroSSL account in the Developer section
+`--api-key`: **Required**, ZeroSSL API Key, can be found under your ZeroSSL account in the Developer section
 
- `--imap-username`: **Required**, An email address of the user registered to the IMAP service
+`--imap-username`: **Required**, An email address of the user registered to the IMAP service
 
- `--imap-password`: **Required**, IMAP APP-Password
+`--imap-password`: **Required**, IMAP APP-Password
 
- `imap-fqdn`: **(Mandatory)** IMAP FQDN, for example: `imap.gmail.com`
+`imap-fqdn`: **Required** IMAP FQDN, for example: `imap.gmail.com`
 
- `--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`,  `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com` 
+`--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`,  `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com`
 
- `-timeout[=5m]-`: Timeout for certificate validation.
+`-timeout[=5m]-`: Timeout for certificate validation.
 
- `--imap-port[=993]`: Port of the IMAP service
+`--imap-port[=993]`: Port of the IMAP service
 
- `-k, --key`: Key name. The key will be used to encrypt the target item.
+`-k, --key`: Key name. The key will be used to encrypt the target item.
 
- `--description`: Description of the object
+`--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-## <p style={{ color: "blue" }}> *assoc-target-item*</p>
+## `assoc-target-item`
 
 Create an association between target and item
 
@@ -1027,45 +1015,45 @@ akeyless assoc-target-item \
 
 ##### Flags
 
- `-t, --target-name`: **Required**, The target to associate
+`-t, --target-name`: **Required**, The target to associate
 
- `-n, --name`: **Required**, The item to associate  
+`-n, --name`: **Required**, The item to associate
 
- `--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for azure targets)
+`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for azure targets)
 
- `--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for azure targets)                                                                            
+`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for azure targets)
 
- `--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with azure targets) 
+`--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with azure targets)
 
 `--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
 
-`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)  
+`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
 
- `--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)  
+`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
 
- `--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)  
+`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
 
- `--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for gcp targets)  
+`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for gcp targets)
 
- `--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for salesforce targets)                                                            
+`--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for salesforce targets)
 
- `--multi-region[=false]`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets) 
+`--multi-region[=false]`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
 
- `--regions`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1 
+`--regions`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
 
- `--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning)
+`--private-key-path`: A path on the target to store the private key (relevant only for certificate provisioning)
 
- `--certificate-path`: A path on the target to store the certificate pem file (relevant only for certificate provisioning)
+`--certificate-path`: A path on the target to store the certificate pem file (relevant only for certificate provisioning)
 
- `--chain-path`: A path on the target to store the full chain pem file (relevant only for certificate provisioning)
+`--chain-path`: A path on the target to store the full chain pem file (relevant only for certificate provisioning)
 
- `--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
+`--post-provision-command`: A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
 
- `--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
+`--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
 
- `--sra-association[=false]`: Specify if the target to associate is for sra, relevant only for sra linked target association to `ldap` rotated secret
+`--sra-association[=false]`: Specify if the target to associate is for sra, relevant only for sra linked target association to `ldap` rotated secret
 
- `--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
+`--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
 
 ## <p style={{ color: "blue" }}>*delete-assoc-target-item*</p>
 
@@ -1082,15 +1070,15 @@ akeyless delete-assoc-target-item \
 
 ##### Flags
 
- `-n , --name`: **Required**, Item name                                               
+`-n , --name`: **Required**, Item name
 
- `--id, --assoc-id`: The association id to be deleted. Not required if target name specified 
+`--id, --assoc-id`: The association id to be deleted. Not required if target name specified
 
- `-t, --target-name`: The target name with which association will be deleted                  
+`-t, --target-name`: The target name with which association will be deleted
 
 ## <p style={{ color: "blue" }}>*delete*</p>
 
-Delete a target in the current account 
+Delete a target in the current account
 
 ##### Usage
 
@@ -1102,11 +1090,11 @@ akeyless target delete \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name                                                         
+`-n , --name`: **Required**, Target name
 
- `-v, --target-version`: Target version                                                                      
+`-v, --target-version`: Target version
 
- `--force-deletion[=false]`: Delete target even if it has associated items                                       
+`--force-deletion[=false]`: Delete target even if it has associated items
 
 ## <p style={{ color: "blue" }}>*delete-targets*</p>
 
@@ -1121,9 +1109,9 @@ akeyless delete-targets \
 
 ##### Flags
 
- `-p, --path`: **Required**, Path to delete the targets from 
+`-p, --path`: **Required**, Path to delete the targets from
 
- `--force-deletion[=false]`: Delete target even if it has associated items   
+`--force-deletion[=false]`: Delete target even if it has associated items
 
 ## <p style={{ color: "blue" }}>*get*</p>
 
@@ -1137,9 +1125,9 @@ akeyless taregt get --name <Target name>
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name          
+`-n , --name`: **Required**, Target name
 
- `--show-versions[=false]`: Include all target versions in reply 
+`--show-versions[=false]`: Include all target versions in reply
 
 ## <p style={{ color: "blue" }}>*get-details*</p>
 
@@ -1153,11 +1141,11 @@ akeyless target get-details --name <Target Name>
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name          
+`-n , --name`: **Required**, Target name
 
- `-v, --target-version`: Target version                       
+`-v, --target-version`: Target version
 
- `--show-versions[=false]`: Include all target versions in reply 
+`--show-versions[=false]`: Include all target versions in reply
 
 ## <p style={{ color: "blue" }}>*list*</p>
 
@@ -1165,15 +1153,15 @@ List of all targets in the account
 
 ##### Flags
 
- `--filter`: Filter by target name or part of it
+`--filter`: Filter by target name or part of it
 
- `-t, --type`: The target types list of the requested targets. In case it is empty, all types of targets will be returned. Options: \[hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres] 
+`-t, --type`: The target types list of the requested targets. In case it is empty, all types of targets will be returned. Options: [hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]
 
- `--pagination-token`: Next page reference                                                   
+`--pagination-token`: Next page reference
 
- `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
 
- `--uid-token`: The universal identity token, Required only for universal\_identity authentication
+`--uid-token`: The universal identity token, Required only for universal_identity authentication
 
 ## <p style={{ textDecoration: "underline" }}>update</p>
 
@@ -1195,25 +1183,25 @@ akeyless target update artifactory \
 
 #### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `-b, --base-url`: **Required**, Artifactory REST URL, must end with artifactory postfix                                                                     
+`-b, --base-url`: **Required**, Artifactory REST URL, must end with artifactory postfix
 
- `-a, --artifactory-admin-name`: **Required**, Admin name
+`-a, --artifactory-admin-name`: **Required**, Admin name
 
- `-p, --artifactory-admin-pwd`: **Required**, Admin API Key/Password
+`-p, --artifactory-admin-pwd`: **Required**, Admin API Key/Password
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `--description`: Target description
+`--description`: Target description
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*aws*</p>
 
@@ -1234,35 +1222,35 @@ akeyless target update aws \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--access-key-id`: AWS access key ID
+`--access-key-id`: AWS access key ID
 
- `--access-key`: AWS secret access key
+`--access-key`: AWS secret access key
 
- `--session-token`: Required only for temporary security credentials retrieved using STS                                                                        
+`--session-token`: Required only for temporary security credentials retrieved using STS
 
- `--region[=us-east-2]`: AWS region
+`--region[=us-east-2]`: AWS region
 
- `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `--generate-external-id[=false]`: A unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless. Relevant only when using **GW cloud ID**
+`--generate-external-id[=false]`: A unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless. Relevant only when using **GW cloud ID**
 
- `role-arn`: AWS IAM role identifier that Gateway will assume in your AWS account, relevant only when using **external ID**
+`role-arn`: AWS IAM role identifier that Gateway will assume in your AWS account, relevant only when using **external ID**
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 #### <p style={{ color: "blue" }}>*azure*</p>
 
@@ -1284,33 +1272,33 @@ akeyless taregt update azure \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `--client-id`: Azure client/application id
+`--client-id`: Azure client/application id
 
- `--tenant-id`: Azure tenant id
+`--tenant-id`: Azure tenant id
 
- `--client-secret`: Azure client secret
+`--client-secret`: Azure client secret
 
- `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `--subscription-id`: Azure Subscription Id
+`--subscription-id`: Azure Subscription Id
 
- `--resource-group-name`: The Resource Group name in your Azure Subscription
+`--resource-group-name`: The Resource Group name in your Azure Subscription
 
- `--resource-name`: The name of the relevant Resource
+`--resource-name`: The name of the relevant Resource
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*db*</p>
 
@@ -1332,55 +1320,55 @@ akeyless update-db-target \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-t, --db-type`: **Required**, Database type: mysql/mssql/postgres/mongodb/snowflake/cassandra/oracle/redshift/redis
+`-t, --db-type`: **Required**, Database type: mysql/mssql/postgres/mongodb/snowflake/cassandra/oracle/redshift/redis
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `--user-name`: Database user name
+`--user-name`: Database user name
 
- `--host`: Database host
+`--host`: Database host
 
- `--pwd`: Database password
+`--pwd`: Database password
 
- `--port`: Database port
+`--port`: Database port
 
- `--db-name`: Database name
+`--db-name`: Database name
 
- `--db-server-certificates`: Set of root certificate authorities in base64 encoding used by clients to verify server certificates
+`--db-server-certificates`: Set of root certificate authorities in base64 encoding used by clients to verify server certificates
 
- `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address 
+`--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
- `--snowflake-account`: Snowflake account name
+`--snowflake-account`: Snowflake account name
 
- `--mongodb-atlas`: Flag, set database type to "mongodb" and the flag to "true" to create Mongo Atlas target
+`--mongodb-atlas`: Flag, set database type to "mongodb" and the flag to "true" to create Mongo Atlas target
 
- `--mongodb-default-auth-db`: MongoDB server default authentication database
+`--mongodb-default-auth-db`: MongoDB server default authentication database
 
- `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet\&authSource=authDB)
+`--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
 
- `--mongodb-atlas-project-id`: MongoDB Atlas project ID
+`--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
- `--mongodb-atlas-api-public-key`: MongoDB Atlas public key
+`--mongodb-atlas-api-public-key`: MongoDB Atlas public key
 
- `--mongodb-atlas-api-private-key`: MongoDB Atlas private key
+`--mongodb-atlas-api-private-key`: MongoDB Atlas private key
 
 `--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MsSQL targets
 
- `--ssl[=false]`: Enable/Disable SSL \[true/false]
+`--ssl[=false]`: Enable/Disable SSL [true/false]
 
- `--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used                                                                        
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*dockerhub*</p>
 
@@ -1398,23 +1386,23 @@ akeyless target update dockerhub \
 
 #### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--dockerhub-username`: **Required**, Username for docker repository
+`--dockerhub-username`: **Required**, Username for docker repository
 
- `--dockerhub-password`: **Required**, Password for docker repository
+`--dockerhub-password`: **Required**, Password for docker repository
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*eks*</p>
 
@@ -1435,33 +1423,33 @@ akeyless target update eks \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `-c, --eks-cluster-name`: **Required**, EKS cluster name
+`-c, --eks-cluster-name`: **Required**, EKS cluster name
 
- `-e, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (i.e., https\://`<IP>` of the cluster)                                                                   
+`-e, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (i.e., https://`<IP>` of the cluster)
 
- `-r, --eks-cluster-ca-cert`: **Required**, EKS cluster base-64 encoded certificate
+`-r, --eks-cluster-ca-cert`: **Required**, EKS cluster base-64 encoded certificate
 
- `-i, --eks-access-key-id`: **Required**, EKS access key ID
+`-i, --eks-access-key-id`: **Required**, EKS access key ID
 
- `-s, --eks-secret-access-key`: **Required**, EKS secret access key
+`-s, --eks-secret-access-key`: **Required**, EKS secret access key
 
- `-g, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-g, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `--eks-region[=us-east-2]`: EKS region
+`--eks-region[=us-east-2]`: EKS region
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*gcp*</p>
 
@@ -1481,25 +1469,25 @@ akeyless taregt update gcp \
 
 ##### Flags
 
- `-n , --name`: **Required**, Target name
+`-n , --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `--gcp-key-file-path`: Path to file with the base64-encoded service account private key
+`--gcp-key-file-path`: Path to file with the base64-encoded service account private key
 
- `--gcp-key`: Base64-encoded service account private key text
+`--gcp-key`: Base64-encoded service account private key text
 
- `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*github*</p>
 
@@ -1518,25 +1506,25 @@ akeyless target update github \
 
 #### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--github-app-id`: Github application id
+`--github-app-id`: Github application id
 
- `--github-app-private-key`: Github application private key (base64 encoded key)
+`--github-app-private-key`: Github application private key (base64 encoded key)
 
- `--github-base-url[=https://api.github.com/]`: Github base url
+`--github-base-url[=https://api.github.com/]`: Github base url
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*gke*</p>
 
@@ -1558,33 +1546,33 @@ akeyless target update gke \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-a, --gke-account-email`: GKE service account email
+`-a, --gke-account-email`: GKE service account email
 
- `-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI
 
- `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
+`-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
- `--gke-account-key-file-path`: File path to GKE service account key
+`--gke-account-key-file-path`: File path to GKE service account key
 
- `--gke-account-key`: GKE service account key
+`--gke-account-key`: GKE service account key
 
- `--gke-cluster-name`: GKE cluster name
+`--gke-cluster-name`: GKE cluster name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*globalsign*</p>
 
@@ -1607,33 +1595,33 @@ akeyless target update globalsign \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-u, --username`: **Required**, Username of the GlobalSign GCC account
+`-u, --username`: **Required**, Username of the GlobalSign GCC account
 
- `-p, --password`: **Required**, Password of the GlobalSign GCC account
+`-p, --password`: **Required**, Password of the GlobalSign GCC account
 
- `-i, --profile-id`: **Required**, Profile ID of the GlobalSign GCC account
+`-i, --profile-id`: **Required**, Profile ID of the GlobalSign GCC account
 
- `-f, --contact-first-name`: **Required**, First name of the GlobalSign GCC account contact
+`-f, --contact-first-name`: **Required**, First name of the GlobalSign GCC account contact
 
- `-l, --contact-last-name`: **Required**, First name of the GlobalSign GCC account contact
+`-l, --contact-last-name`: **Required**, First name of the GlobalSign GCC account contact
 
- `--contact-phone`: **Required**, Telephone of the GlobalSign GCC account contact
+`--contact-phone`: **Required**, Telephone of the GlobalSign GCC account contact
 
- `-e, --contact-email`: **Required**, Email of the GlobalSign GCC account contact
+`-e, --contact-email`: **Required**, Email of the GlobalSign GCC account contact
 
- `--timeout[=5]`: Timeout waiting for certificate validation
+`--timeout[=5]`: Timeout waiting for certificate validation
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value
+`-k, --key`: Key name. The key will be used to encrypt the target secret value
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
- `--description`: Description of the object
+`--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 #### <p style={{ color: "blue" }}>*globalsign-atlas*</p>
 
@@ -1650,29 +1638,29 @@ akeyless target update globalsign-atlas \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target Name
+`-n, --name`: **Required**, Target Name
 
- `-a, --api-key`: **Required**, API Key of the GlobalSign Atlas account
+`-a, --api-key`: **Required**, API Key of the GlobalSign Atlas account
 
- `-s, --api-secret`: **Required**, API Secret of the GlobalSign Atlas account
+`-s, --api-secret`: **Required**, API Secret of the GlobalSign Atlas account
 
- `--mlts-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either mtls-cert-file-path or tls-cert-data-base64 must be supplied
+`--mlts-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either mtls-cert-file-path or tls-cert-data-base64 must be supplied
 
- `--mlts-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either mtls-cert-file-path or mtls-cert-data-base64 must be supplied 
+`--mlts-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either mtls-cert-file-path or mtls-cert-data-base64 must be supplied
 
- `--mlts-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either mtls-key-file-path or mtls-key-data-base64 must be supplied                          
+`--mlts-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either mtls-key-file-path or mtls-key-data-base64 must be supplied
 
- `--mlts-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either mtls-key-file-path or mtls-key-data-base64 must be supplied           
+`--mlts-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either mtls-key-file-path or mtls-key-data-base64 must be supplied
 
- `--timeout[=5]`: Timeout waiting for certificate validation
+`--timeout[=5]`: Timeout waiting for certificate validation
 
- `--new-name`: New Target Name
+`--new-name`: New Target Name
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 #### <p style={{ color: "blue" }}>*godaddy*</p>
 
@@ -1713,11 +1701,11 @@ akeyless target update-godaddy-target \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 `--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 #### <p style={{ color: "blue" }}>*hashi-vault*</p>
 
@@ -1740,7 +1728,7 @@ akeyless target update hashi-vault \
 
 `--new-name`: New target name
 
-`--hashi-url`: HashiCorp Vault URL, e.g. https\://vault-mgr01:8200.
+`--hashi-url`: HashiCorp Vault URL, e.g. https://vault-mgr01:8200.
 
 `--vault-token`: Vault access token with sufficient permissions.
 
@@ -1748,7 +1736,7 @@ akeyless target update hashi-vault \
 
 `--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
@@ -1770,39 +1758,39 @@ akeyless target update k8s \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https\:// , \<DNS / IP> of the cluster                                                                
+`-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
- `-c, --k8s-cluster-ca-cert`: **Required**, K8S Cluster certificate. Base 64 encoded certificate
+`-c, --k8s-cluster-ca-cert`: **Required**, K8S Cluster certificate. Base 64 encoded certificate
 
- `-t, --k8s-cluster-token`: **Required**, K8S Cluster authentication token
+`-t, --k8s-cluster-token`: **Required**, K8S Cluster authentication token
 
- `-i, --use-gw-service-account`: Use the GW's service account
+`-i, --use-gw-service-account`: Use the GW's service account
 
- `--k8s-auth-type[=token]`: K8S auth type, \[token/certificate]
+`--k8s-auth-type[=token]`: K8S auth type, [token/certificate]
 
- `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format                                                                        
+`--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format
 
- `--k8s-client-certificate-file`: Path to a file that contain the k8s client certificate in PEM format                                                                        
+`--k8s-client-certificate-file`: Path to a file that contain the k8s client certificate in PEM format
 
- `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format                                                                        
+`--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format
 
- `--k8s-client-key-file\`: Path to a file that contain the k8s client private key in PEM format                                                                        
+`--k8s-client-key-file\`: Path to a file that contain the k8s client private key in PEM format
 
 `--k8s-cluster-name`: k8s-cluster-name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*ldap*</p>
 
@@ -1822,31 +1810,31 @@ akeyless target update ldap \
 
 #### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-l, --ldap-url`: **Required**, LDAP Server URL
+`-l, --ldap-url`: **Required**, LDAP Server URL
 
- `-b, --bind-dn`: **Required**, LDAP Bind DN
+`-b, --bind-dn`: **Required**, LDAP Bind DN
 
- `-p, --bind-dn-password`: **Required**, Password for LDAP Bind DN
+`-p, --bind-dn-password`: **Required**, Password for LDAP Bind DN
 
- `-s, --server-type`: Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]
+`-s, --server-type`: Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate
+`-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate
 
- `--token-expiration`: LDAP token expiration in seconds
+`--token-expiration`: LDAP token expiration in seconds
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*linked*</p>
 
@@ -1864,17 +1852,17 @@ akeyless target update linked \
 
 ##### Flags
 
- `-n, --name`: **Required**, The name of the existing Linked Target
+`-n, --name`: **Required**, The name of the existing Linked Target
 
- `--new-name`: New name for the Linked Target
+`--new-name`: New name for the Linked Target
 
- `-s, --hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (i.e. `server-dev.com`;`My Dev server`,`server-prod.com`;`My Prod server description`)
+`-s, --hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (i.e. `server-dev.com`;`My Dev server`,`server-prod.com`;`My Prod server description`)
 
- `-p, --parent-target-name`: The parent Target name from which to inherit credentials
+`-p, --parent-target-name`: The parent Target name from which to inherit credentials
 
- `--description`: Description of the object
+`--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 #### <p style={{ color: "blue" }}>*rabbitmq*</p>
 
@@ -1894,25 +1882,25 @@ akeyless target update rabbitmq \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `--user`: RabbitMQ server user
+`--user`: RabbitMQ server user
 
- `--pwd`: RabbitMQ server password
+`--pwd`: RabbitMQ server password
 
- `--uri`: RabbitMQ server URI
+`--uri`: RabbitMQ server URI
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*salesforce*</p>
 
@@ -1933,43 +1921,43 @@ akeyless target update salesforce \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `-u, --tenant-url`: **Required**, Url of the Salesforce tenant
+`-u, --tenant-url`: **Required**, Url of the Salesforce tenant
 
- `-i, --client-id`: **Required**, Client ID of the oauth2 app to use for connecting to Salesforce
+`-i, --client-id`: **Required**, Client ID of the oauth2 app to use for connecting to Salesforce
 
- `-e, --email`: **Required**, The email of the user attached to the oauth2 app used for connecting to Salesforce
+`-e, --email`: **Required**, The email of the user attached to the oauth2 app used for connecting to Salesforce
 
- `-a, --auth-flow`: **Required**, type of the auth flow ('jwt' / 'user-password')
+`-a, --auth-flow`: **Required**, type of the auth flow ('jwt' / 'user-password')
 
- `-s, --client-secret`: Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow)
+`-s, --client-secret`: Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow)
 
- `-f, --app-private-key-file-name`: Name of the of file containing a PEM private key of the connected app (relevant for JWT auth only)
+`-f, --app-private-key-file-name`: Name of the of file containing a PEM private key of the connected app (relevant for JWT auth only)
 
- `--app-private-key-data`: Base64 encoded PEM of the connected app private key (relevant for JWT auth only)
+`--app-private-key-data`: Base64 encoded PEM of the connected app private key (relevant for JWT auth only)
 
- `-p, --password`: The password of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
+`-p, --password`: The password of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
 
- `-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
+`-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
 
- `--ca-cert-file-name`: Name of a file containing a PEM certificate to use when uploading new key to Salesforce
+`--ca-cert-file-name`: Name of a file containing a PEM certificate to use when uploading new key to Salesforce
 
- `--ca-cert-data`: Base64 encoded PEM cert to use when uploading a new key to Salesforce. Used if file name was not provided.
+`--ca-cert-data`: Base64 encoded PEM cert to use when uploading a new key to Salesforce. Used if file name was not provided.
 
- `--ca-cert-name`: name of the certificate in Salesforce tenant to use when uploading new key
+`--ca-cert-name`: name of the certificate in Salesforce tenant to use when uploading new key
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings 
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*sectigo*</p>
 
@@ -1993,29 +1981,29 @@ akeyless target create sectigo \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `-u, --username`: **Required**, Username of the Sectigo account  
+`-u, --username`: **Required**, Username of the Sectigo account
 
- `-p, --password`: **Required**, Password of the Sectigo account user                                                          
+`-p, --password`: **Required**, Password of the Sectigo account user
 
- `-c, --customer-uri`: **Required**, Customer Uri of the Sectigo account                                          
+`-c, --customer-uri`: **Required**, Customer Uri of the Sectigo account
 
- `-o, --organization-id`: **Required**, Organization ID of the Sectigo account                                                                             
+`-o, --organization-id`: **Required**, Organization ID of the Sectigo account
 
- `-i, --certificate-profile-id`: **Required**, Certificate Profile ID in Sectigo account                                            
+`-i, --certificate-profile-id`: **Required**, Certificate Profile ID in Sectigo account
 
- `-e, --external-requester`: **Required**, External Requester - a comma separated list of emails
+`-e, --external-requester`: **Required**, External Requester - a comma separated list of emails
 
- `--timeout[=5m]`: Timeout waiting for certificate validation
+`--timeout[=5m]`: Timeout waiting for certificate validation
 
 `--new-name`: New target name
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--description`: Target description 
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 #### <p style={{ color: "blue" }}>*ssh*</p>
 
@@ -2037,33 +2025,33 @@ akeyless target update ssh \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `--host`: SSH host name
+`--host`: SSH host name
 
- `--port[=22]`: SSH port
+`--port[=22]`: SSH port
 
- `--ssh-username`: SSH username
+`--ssh-username`: SSH username
 
- `--ssh-password`: SSH password to rotate
+`--ssh-password`: SSH password to rotate
 
- `--private-key-path`: SSH private key file path
+`--private-key-path`: SSH private key file path
 
- `--private-key`: SSH private key
+`--private-key`: SSH private key
 
- `--private-key-password`: SSH private key password
+`--private-key-password`: SSH private key password
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version                                                                 
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*web*</p>
 
@@ -2080,21 +2068,21 @@ akeyless target update web \
 
 ##### Flags
 
- `-n, --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `--description`: Target description
+`--description`: Target description
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
- `-u, --url`: Web target URL
+`-u, --url`: Web target URL
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used 
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
- `--keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings                              
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 #### <p style={{ color: "blue" }}>*windows*</p>
 
@@ -2113,29 +2101,29 @@ akeyless target update windows \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name for the Windows target
+`-n, --name`: **Required**, Name for the Windows target
 
- `--new-name`: New name for the Windows Target
+`--new-name`: New name for the Windows Target
 
- `-s, --hostname`: **Required**, Server hostname or IP Address
+`-s, --hostname`: **Required**, Server hostname or IP Address
 
- `-u, --username`: **Required**, Privileged username
+`-u, --username`: **Required**, Privileged username
 
- `-p, --password`: **Required**, Privileged user password
+`-p, --password`: **Required**, Privileged user password
 
- `-d, --domain`: User domain name
+`-d, --domain`: User domain name
 
- `-r, --port[=5986]`: Server WinRM port
+`-r, --port[=5986]`: Server WinRM port
 
- `--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS \[true/false]
+`--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS [true/false]
 
- `--certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
- ` --keep-prev-version`: Whether to keep previous version, options:\[true, false]. If not set, use default according to account settings
+` --keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
- `--description`: Description of the object
+`--description`: Description of the object
 
 #### <p style={{ color: "blue" }}>*zerossl*</p>
 
@@ -2156,26 +2144,26 @@ akeyless target update-zerossl-target \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name for the ZeroSSL target
+`-n, --name`: **Required**, Name for the ZeroSSL target
 
- `--api-key`: **Required**, ZeroSSL API Key, can be found under your ZeroSSL account in the Developer section
+`--api-key`: **Required**, ZeroSSL API Key, can be found under your ZeroSSL account in the Developer section
 
- `--imap-username`: **Required**, An email address of the user registered to the IMAP service
+`--imap-username`: **Required**, An email address of the user registered to the IMAP service
 
- `imap-password`: **Required**, IMAP APP-Password - for example, on Gmail Under Settings-> Security, click on 2-Step Verification and generate APP-Password (2-Step verification must be enabled)
+`imap-password`: **Required**, IMAP APP-Password - for example, on Gmail Under Settings-> Security, click on 2-Step Verification and generate APP-Password (2-Step verification must be enabled)
 
- `--imap-fqdn`: **(Mandatory)** IMAP FQDN, for example imap.gmail.com
+`--imap-fqdn`: **(Mandatory)** IMAP FQDN, for example imap.gmail.com
 
- `--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`, `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com`
+`--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`, `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com`
 
- `--imap-port[=993]`: Port of the IMAP service
+`--imap-port[=993]`: Port of the IMAP service
 
- `--new-name`: New target name
+`--new-name`: New target name
 
- `-k, --key`: Key name. The key will be used to encrypt the target secret value
+`-k, --key`: Key name. The key will be used to encrypt the target secret value
 
- `--keep-prev-version`: Whether to keep the previous version, options:\[true, false], If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep the previous version, options:[true, false], If not set, use default according to account settings
 
- `--description`: Description of the object
+`--description`: Description of the object
 
- `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
