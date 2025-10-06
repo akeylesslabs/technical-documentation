@@ -1,5 +1,5 @@
 ---
-title: Log Forwarding Configuration (COPY)
+title: 'Log Forwarding Configuration '
 excerpt: Docker Compose Gateway
 deprecated: false
 hidden: true
