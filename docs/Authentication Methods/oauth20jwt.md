@@ -53,8 +53,6 @@ You can find the complete list of additional parameters for this command in the 
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
-
 * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
 * **Unique Identifier :** A unique identifier is usually an email, username, or UPN. Whenever a user logs in with a token, OAuth2.0/JWT Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
