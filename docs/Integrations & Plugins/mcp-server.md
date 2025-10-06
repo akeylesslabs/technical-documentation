@@ -256,7 +256,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `cert` access type and `args.--key-file-name` or `args.--key-data` is not used)
       </td>
 
       <td>
@@ -274,7 +274,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `cert` access type and `args.--cert-file-name` is not used)
       </td>
 
       <td>
@@ -292,7 +292,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Yes* (if using the `cert` access type)
+        Yes* (if using the `cert` access type and `args.--cert-data` is not used)
       </td>
 
       <td>
@@ -423,7 +423,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `jwt` or `oidc` access type)
       </td>
 
       <td>
@@ -513,7 +513,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Yes* (if using the `cert` access type and `args.--key-file-data` is not used)
+        Yes* (if using the `cert` access type and `args.--key-file-name` or `args.--cert-challenge` is not used)
       </td>
 
       <td>
@@ -531,7 +531,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Yes* (if using the `cert` access type and `args.--key-file-name` is not used)
+        Yes* (if using the `cert` access type and `args.--key-data` or `args.--cert-challenge` is not used)
       </td>
 
       <td>
@@ -661,7 +661,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `oci` access type)
       </td>
 
       <td>
