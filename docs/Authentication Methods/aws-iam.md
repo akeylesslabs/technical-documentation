@@ -14,7 +14,7 @@ next:
 ---
 [AWS IAM](https://aws.amazon.com/iam/) authentication method provides an automated flow to retrieve an Akeyless token for IAM principals and AWS services or resources.
 
-<Image align="center" src="https://files.readme.io/c1f9c5b-Role_new_design.png" />
+<Image align="center" border={false} src="https://files.readme.io/c1f9c5b-Role_new_design.png" />
 
 # Create an AWS IAM Authentication Method from the CLI
 
@@ -38,7 +38,7 @@ You can find the complete list of additional parameters for this command in the 
 
 # Configure Akeyless CLI with the AWS IAM authentication method
 
-To configure your CLI to work with AWS IAM authentication, run the following command **from an AWS resource**: 
+To configure your CLI to work with AWS IAM authentication, run the following command **from an AWS resource**:
 
 ```shell Akeyless CLI
 akeyless configure --profile default --access-id <AccessID>  --access-type aws_iam 
@@ -63,7 +63,9 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`
 
 * **Bounded AWS Account IDs:** Enter a comma-separated list of AWS account IDs for which access is allowed.
 
