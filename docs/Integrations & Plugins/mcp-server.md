@@ -169,6 +169,15 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
         * `aws_iam`
         * `azure_ad`
         * `cert`
+        * `jwt`
+        * `k8s`
+        * `kerberos`
+        * `ldap`
+        * `oci`
+        * `oidc`
+        * `password`
+        * `saml`
+        * `universal_identity`
       </td>
 
       <td>
