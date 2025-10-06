@@ -16,21 +16,9 @@ Dynamic secrets are secrets that are generated every time they are accessed, usi
 
 You can create a dynamic secret using an existing [target ](https://docs.akeyless.io/docs/targets)or manually enter the connection settings.
 
-General Flags:
-
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
+<CLIGeneralFlags />
 
 `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
 `--description`: Description of the object
 
@@ -748,7 +736,7 @@ akeyless dynamic-secret create gke \
 
 `-a, --gke-account-email`: GKE service account email
 
-`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https\://\<DNS/IP>
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https://\<DNS/IP>
 
 `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
