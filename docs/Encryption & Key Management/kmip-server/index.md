@@ -14,7 +14,7 @@ next:
       slug: kmip-for-vsphere
       title: KMIP for Vsphere
 ---
-The [Akeyless Gateway](doc:api-gw) built-in KMIP server handles the lifecycle of KMIP-managed objects.
+The [Akeyless Gateway](doc:api-gw) built-in Key Management Interoperability Protocol (KMIP) server handles the lifecycle of KMIP-managed objects.
 
 > 👍 Note
 >
