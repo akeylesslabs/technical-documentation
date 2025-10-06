@@ -14,11 +14,13 @@ This section outlines the CLI commands relevant to KMIP.
 
 <CLIGeneralFlags />
 
-### <p style={{ color: "blue" }}>*client-delete-rule*</p>
+# Commands
+
+## `client-delete-rule`
 
 Delete an RBAC rule from a client
 
-##### Usage
+### Usage
 
 ```shell
 akeyless kmip-client-delete-rule \
@@ -28,7 +30,7 @@ akeyless kmip-client-delete-rule \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-##### Flags
+### Flags
 
 `-p, --path`: **Required**, Access path, e.g /* or /some-key
 
@@ -38,7 +40,7 @@ akeyless kmip-client-delete-rule \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*client-set-rule*</p>
+## `client-set-rule`
 
 Add a new RBAC rule to a client
 
@@ -54,7 +56,7 @@ Supported capabilities are:
 `REVOKE`
 `DESTROY`
 
-##### Usage
+### Usage
 
 ```shell
 akeyless kmip-client-set-rule \
@@ -65,7 +67,7 @@ akeyless kmip-client-set-rule \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-##### Flags
+### Flags
 
 `-p, --path`: **Required**, Access path, e.g /* or /some-key
 
@@ -77,11 +79,11 @@ akeyless kmip-client-set-rule \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*create-client*</p>
+## `create-client`
 
 Create a new KMIP client
 
-##### Ussage
+### Usage
 
 ```shell
 akeyless kmip-create-client \
@@ -90,7 +92,7 @@ akeyless kmip-create-client \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Client name
 
@@ -102,11 +104,11 @@ akeyless kmip-create-client \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*delete-client*</p>
+## `delete-client`
 
 Delete a KMIP client
 
-##### Flags
+### Flags
 
 `-n, --name`: KMIP client name (either name or id are required)
 
@@ -114,11 +116,11 @@ Delete a KMIP client
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*describe-client*</p>
+## `describe-client`
 
 Show KMIP client details
 
-##### Flags
+### Flags
 
 `-n, --name`: KMIP client name (either name or id are required)
 
@@ -126,27 +128,27 @@ Show KMIP client details
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*describe-server*</p>
+## `describe-server`
 
 Show KMIP environment details
 
-##### Flags
+### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-### <p style={{ color: "blue" }}>*list-clients*</p>
+## `list-clients`
 
 Show existing KMIP clients
 
-##### Flags
+### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-### <p style={{ color: "blue" }}> *renew-client-certificate*</p>
+## `renew-client-certificate`
 
 Renew KMIP client certificate
 
-##### Flags
+### Flags
 
 `-n, --name`: KMIP client name (either name or id are required)
 
@@ -156,27 +158,27 @@ Renew KMIP client certificate
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*renew-server-certificate*</p>
+## `renew-server-certificate`
 
 Renew KMIP server certificate
 
-##### Flags
+### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`:  API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*server-delete*</p>
+## `server-delete`
 
 Delete the kmip server (allowed only if it has no clients nor associated items)
 
-##### Flags
+### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-### <p style={{ color: "blue" }}> *server-setup*</p>
+## `server-setup`
 
 Create a new KMIP environment
 
-##### Usage
+### Usage
 
 ```shell
 akeyless kmip-server-setup \
@@ -186,7 +188,7 @@ akeyless kmip-server-setup \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-##### Flags
+### Flags
 
 `-n, --hostname`: **Required**, Hostname of this KMIP server
 
@@ -198,11 +200,11 @@ akeyless kmip-server-setup \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*server-move*</p>
+## `server-move`
 
 Move the root location of the kmip server and all associated items to a new root location
 
-##### Usage
+### Usage
 
 ```shell
 akeyless kmip-server-move \
@@ -210,17 +212,17 @@ akeyless kmip-server-move \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-##### Flags
+### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
 `-n, --new-root`: **Required**, New root for the kmip server
 
-### <p style={{ color: "blue" }}>*set-server-state*</p>
+## `set-server-state`
 
 Set the server state to enabled/disabled
 
-##### Usage
+### Usage
 
 ```shell
 akeyless kmip-set-server-state \ 
@@ -228,7 +230,7 @@ akeyless kmip-set-server-state \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-##### Flags
+### Flags
 
 `-s, --state`: **Required**, Make the server enabled or disabled [use 'enabled' or 'disabled']
 
@@ -239,5 +241,5 @@ akeyless kmip-set-server-state \
 > **Writing commands - generating secrets**
 >
 > The default Akeyless Vault behavior is that the write commands (generate secrets) are performed to the main region of Akeyless Vault, while the read commands (fetch secrets) are performed on the nearest region to you, in order to minimize latency.
-> If you wish to change that, in order to work only with the master region, please add
-> optimize_dns_disable=true in the settings file.
+> If you wish to change that, in order to work only with the main region, please add
+> `optimize_dns_disable=true` in the settings file.
