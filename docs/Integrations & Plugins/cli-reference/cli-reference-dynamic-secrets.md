@@ -1779,31 +1779,6 @@ akeyless gateway-create venafi \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style={{ color: "blue" }}>*openai*</p>
-
-Creates an OpenAI Dynamic Secret that generates temporary API keys
-
-##### Usage
-
-```shell
-akeyless dynamic-secret create openai \
---name <New Secret Name> \
---api-key-id <Admin API key ID> \
---api-key <Admin API key> \
---org-id <organization ID> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
-```
-
-##### Flags
-
-* `--api-key-id`: The **ID** of the Admin API Key.
-
-* `--api-key`: The Admin API Key that will be used in order to create the API Key.
-
-* `--org-id`: The organization ID.
-
-* `--open-ai-url`: The endpoint for the OpenAI API
-
 ## <p style={{ color: "blue" }}>*update*</p>
 
 `akeyless dynamic-secret update`
@@ -3280,29 +3255,6 @@ akeyless dynamic-secret update venafi  \
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
 `--user-ttl[=60h]`: User TTL in time.Duration format (60h / 9600m / etc...). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/)
-
-**Update OpenAI Dynamic Secret**
-
-##### Usage
-
-```shell
-akeyless dynamic-secret update openai \
---name <New Secret Name> \
---new-name <Dynamic Secret New name> \
---api-key-id <Admin API key ID> \
---api-key <Admin API key> \
---org-id <organization ID> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
-```
-
-##### Flags
-
-* `--new-name`: Dynamic Secret New name
-* `-n, --name`: **Required**, Dynamic Secret name
-* `--api-key-id`: The **ID** of the Admin API Key.
-* `--api-key`: The Admin API Key that will be used in order to create the API Key.
-* `--org-id`: The organization ID.
-* `--open-ai-url`: The endpoint for the OpenAI API
 
 ## Get
 
