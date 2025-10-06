@@ -1,5 +1,5 @@
 ---
-title: Google Workspace Dynamic Secret
+title: Google Workspace Dynamic Secrets
 excerpt: ''
 deprecated: false
 hidden: false
