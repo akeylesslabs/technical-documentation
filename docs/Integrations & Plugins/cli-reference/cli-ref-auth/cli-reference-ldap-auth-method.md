@@ -12,21 +12,9 @@ next:
 ---
 This section outlines the CLI commands relevant to LDAP authentication.
 
-General Flags:
+<CLIGeneralFlags />
 
-`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
-
-### <p style={{ color: "blue" }}>*create*</p>
+### `create`
 
 Creates a new Authentication Method object that will allow the user to authenticate using LDAP
 
@@ -66,7 +54,7 @@ akeyless auth-method create ldap \
 
 `--gen-key[=true]`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
 
-### <p style={{ color: "blue" }}>*update*</p>
+### `update`
 
 Update a new Auth Method that will be able to authenticate using LDAP
 
@@ -109,7 +97,7 @@ akeyless update-auth-method-ldap \
 
 `--gen-key`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
 
-#### <p style={{ color: "blue" }}>*gateway-update-ldap-auth-config*</p>
+#### `gateway-update-ldap-auth-config`
 
 Updates LDAP Auth config
 
@@ -162,7 +150,7 @@ akeyless gateway-update-ldap-auth-config \
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
-### <p style={{ color: "blue" }}>*get*</p>
+### `get`
 
 Gets Ldap Auth config from Gateway
 
