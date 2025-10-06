@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">*assoc-role-am*</p>
+### `assoc-role-am`
 
 Create an association between role and auth method
 
@@ -48,7 +48,7 @@ akeyless assoc-role-am \
 
  `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
-### <p style="color:blue">*create-role*</p>
+### `create-role`
 
 Creates a new role
 
@@ -82,7 +82,7 @@ akeyless create-role name <Role Name>
 
 `--delete-protection`: Protection from accidental deletion of this object, \[true/false]
 
-### <p style="color:blue">*delete-assoc*</p>
+### `delete-assoc`
 
 Delete an association between role and auth method
 
@@ -92,7 +92,7 @@ Delete an association between role and auth method
 akeyless delete-assoc --assoc-id <association ID to be deleted>
 ```
 
-### <p style="color:blue">*delete-role*</p>
+### `delete-role`
 
 Delete a role
 
@@ -102,7 +102,7 @@ Delete a role
 akeyless delete-role --name <Role Name>
 ```
 
-### <p style="color:blue">*delete-role-rule*</p>
+### `delete-role-rule`
 
 Delete a rule from a role
 
@@ -122,7 +122,7 @@ akeyelss delete-role-rule \
 
  `--rule-type[=item-rule]`: item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule.  \\nA type of the item for which permissions are deleted. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Role, auth-method-rule - for Authentication Methods. By default, permissions are deleted only for Items
 
-### <p style="color:blue">*delete-roles*</p>
+### `delete-roles`
 
 Delete multiple roles from a given path
 
@@ -132,7 +132,7 @@ Delete multiple roles from a given path
 akeyless delete-roles --path <Path/to/roles>
 ```
 
-### <p style="color:blue">*describe-permissions*</p>
+### `describe-permissions`
 
 See which authentication methods have access to a particular object
 
@@ -144,11 +144,11 @@ akeyless describe-permissions \
 --type <Type of object (item, am, role, target)>
 ```
 
-### <p style="color:blue">*describe-sub-claims*</p>
+### `describe-sub-claims`
 
 Get the sub-claims associated with the provided token or authentication profile
 
-### <p style="color:blue">*describe-role-am-assoc*</p>
+### `describe-role-am-assoc`
 
 Describe role association details
 
@@ -159,7 +159,7 @@ akeyless describe-role-am-assoc \
 --assoc-id <association-id>
 ```
 
-### <p style="color:blue">*get-role*</p>
+### `get-role`
 
 Get role details
 
@@ -169,7 +169,7 @@ Get role details
 akeyless get-role -n <Role Name>
 ```
 
-### <p style="color:blue">*list-roles*</p>
+### `list-roles`
 
 List of all roles in the account
 
@@ -179,7 +179,7 @@ List of all roles in the account
 
  `--pagination-token`: Next page reference
 
-### <p style="color:blue">*request-access*</p>
+### `request-access`
 
 Request a temporary access for an item, supporting Static Secret, and Targets
 
@@ -202,7 +202,7 @@ akeyless request-access \
 
  `--comment`: Optional, comment about the request.
 
-### <p style="color:blue">*reverse-rbac*</p>
+### `reverse-rbac`
 
 See which authentication methods have access to a particular object
 
@@ -220,7 +220,7 @@ akeyless reverse-rbac \
 
 `-t, --type`: **Required**, Type of object (item, am, role, target)
 
-### <p style="color:blue">*set-role-rule*</p>
+### `set-role-rule`
 
 Set a rule to a role
 
@@ -248,7 +248,7 @@ akeyless set-role-rule \
 
   `-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This  replaces the `capability`, `path` and `rule-type` 
 
-### <p style="color:blue">*update-assoc*</p>
+### `update-assoc`
 
 Update the sub-claims of an association between the role and the auth method.
 
@@ -266,7 +266,7 @@ akeyless update-assoc --assoc-id <association ID to be updated>
 
  `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive                 
 
-### <p style="color:blue">*update-role*</p>
+### `update-role`
 
 Update role details
 
