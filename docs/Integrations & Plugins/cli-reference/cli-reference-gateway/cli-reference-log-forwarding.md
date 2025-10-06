@@ -12,19 +12,7 @@ next:
 ---
 This section outlines the CLI commands relevant to the Gateway Log-Forwarding.
 
-General Flags:
-
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
+<CLIGeneralFlags />
 
 > 👍 Tip
 >
@@ -83,9 +71,9 @@ akeyless gateway update log-forwarding aws-s3 \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -95,7 +83,7 @@ akeyless gateway update log-forwarding aws-s3 \
 
 `--bucket-name`: AWS S3 bucket name
 
-`--auth-type`: AWS auth type \[\`access\_key\`/\`cloud\_id\`/\`assume\_role\`]
+`--auth-type`: AWS auth type [`access_key`/`cloud_id`/`assume_role`]
 
 `--access-id`: AWS access id relevant for `access_key` auth-type
 
@@ -123,9 +111,9 @@ akeyless gateway update log-forwarding azure-analytics \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -156,9 +144,9 @@ akeyless gateway update log-forwarding datadog \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -201,9 +189,9 @@ akeyless gateway update log-forwarding elasticsearch \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -211,13 +199,13 @@ akeyless gateway update log-forwarding elasticsearch \
 
 `--index`: Elasticsearch index
 
-`--server-type`: Elasticsearch server type \[\`nodes\`/\`cloud\`]
+`--server-type`: Elasticsearch server type [`nodes`/`cloud`]
 
 `--nodes`: Elasticsearch nodes relevant only for `nodes` server-type
 
 `--cloud-id`: Elasticsearch cloud id relevant only for `cloud` server-type
 
-`--auth-type`: Elasticsearch auth type \[\`api\_key\`/\`password\`]
+`--auth-type`: Elasticsearch auth type [`api_key`/`password`]
 
 `--api-key`: Elasticsearch api key relevant only for `api_key` auth-type
 
@@ -252,9 +240,9 @@ akeyless gateway update log-forwarding google-chronicle \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -266,7 +254,7 @@ akeyless gateway update log-forwarding google-chronicle \
 
 `--customer-id`: Google chronicle `customer id`
 
-`--region`: Google chronicle region \[\`eu\_multi\_region\`/\`london\`/\`us\_multi\_region\`/\`singapore\`/\`tel\_aviv\`]
+`--region`: Google chronicle region [`eu_multi_region`/`london`/`us_multi_region`/`singapore`/`tel_aviv`]
 
 `--log-type`: Google chronicle log type
 
@@ -291,9 +279,9 @@ akeyless gateway update log-forwarding logstash \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -301,7 +289,7 @@ akeyless gateway update log-forwarding logstash \
 
 `--dns`: Logstash dns
 
-`--protocol`: Logstash protocol \[\`tcp\`/\`udp\`]
+`--protocol`: Logstash protocol [`tcp`/`udp`]
 
 `--enable-tls`: Enable-tls
 
@@ -327,9 +315,9 @@ akeyless gateway update log-forwarding logz-io \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -337,7 +325,7 @@ akeyless gateway update log-forwarding logz-io \
 
 `--logz-io-token`: Logz-io token
 
-`--protocol`: Logz-io protocol \[tcp/https]
+`--protocol`: Logz-io protocol [tcp/https]
 
 ### `Splunk`
 
@@ -363,9 +351,9 @@ akeyless gateway update log-forwarding splunk \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -403,9 +391,9 @@ akeyless gateway update log-forwarding stdout \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -430,9 +418,9 @@ akeyless gateway update log-forwarding sumologic \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
@@ -467,21 +455,21 @@ akeyless gateway update log-forwarding syslog \
 
 ##### Flags
 
-`--enable[=true]`: Enable Log Forwarding \[\`true\`/\`false\`]
+`--enable[=true]`: Enable Log Forwarding [`true`/`false`]
 
-`--output-format[=text]`: Logs format \[\`text\`/\`json\`]
+`--output-format[=text]`: Logs format [`text`/`json`]
 
 `--pull-interval[=10]`: Pull interval in seconds
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--network`: Syslog network \[\`tcp\`/\`udp\`]
+`--network`: Syslog network [`tcp`/`udp`]
 
 `--host`: Syslog host
 
 `--target-tag[=use-existing]`: Syslog target tag
 
-`--formatter[=text]`: Syslog formatter \[\`text\`/\`cef\`]
+`--formatter[=text]`: Syslog formatter [`text`/`cef`]
 
 `--enable-tls`: Enable-tls
 
