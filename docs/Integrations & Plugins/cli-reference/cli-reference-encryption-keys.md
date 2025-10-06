@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">*assoc-target-item*</p>
+### `assoc-target-item`
 
 Create an association between a [Target](doc:targets) and a [Classic Key](doc:classic-keys) for [External KMS Integration](doc:external-kms) 
 
@@ -70,7 +70,7 @@ akeyless assoc-target-item \
 
  `--protection-level[=software]`: Protection level of the key \[software/hardware]. (Relevant only for Classic Key and target association, for gcp targets)
 
-### <p style="color:blue">*create-classic-key*</p>
+### `create-classic-key`
 
 Creates a new Classic Key in the current account
 
@@ -143,7 +143,7 @@ akeyless create-classic-key \
 
  `--delete-protection`: Protection from accidental deletion of this item, \[true/false]
 
-### <p style="color:blue">*create-dfc-key*</p>
+### `create-dfc-key`
 
 Creates a new DFC key in the current account
 
@@ -205,7 +205,7 @@ akeyless create-dfc-key \
 
  `--delete-protection`: Protection from accidental deletion of this item, \[true/false]                                                                               
 
-### <p style="color:blue">*decrypt*</p>
+### `decrypt`
 
 Decrypts ciphertext into plaintext by using an AES key
 
@@ -236,7 +236,7 @@ akeyless decrypt \
 
  `-F, --output-format`: If specified, the output will be formatted accordingly. options: \[base64]                                                             
 
-### <p style="color:blue">*decrypt-file*</p>
+### `decrypt-file`
 
 Decrypts a file by using an AES key
 
@@ -269,7 +269,7 @@ akeyless decrypt-file \
 
 `-v, --version`: key version (relevant only for classic key)
 
-### <p style="color:blue">*decrypt-gpg*</p>
+### `decrypt-gpg`
 
 Decrypts the given GPG message using an RSA key
 
@@ -302,7 +302,7 @@ akeyless decrypt-gpg \
 
  `-F, --output-format`: If specified, the output will be formatted accordingly. options: \[base64]
 
-### <p style="color:blue">*decrypt-pkcs1*</p>
+### `decrypt-pkcs1`
 
 Decrypts a plaintext using RSA and the padding scheme from PKCS#1 v1.5
 
@@ -328,7 +328,7 @@ akeyless decrypt-pkcs1 \
 
  `-F, --output-format`: If specified, the output will be formatted accordingly. options: \[base64]
 
-### <p style="color:blue">*encrypt*</p>
+### `encrypt`
 
 Encrypts plaintext into ciphertext by using an AES key
 
@@ -360,7 +360,7 @@ akeyless encrypt \
 
  `-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: \[base64]                                                                               
 
-### <p style="color:blue">*encrypt-file*</p>
+### `encrypt-file`
 
 Encrypts a file by using an AES key
 
@@ -390,7 +390,7 @@ akeyless encrypt-file \
 
  `-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
 
-### <p style="color:blue">*encrypt-gpg*</p>
+### `encrypt-gpg`
 
 Encrypts the given message with GPG using an RSA key
 
@@ -420,7 +420,7 @@ akeyless encrypt-gpg \
 
  `-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: \[base64] 
 
-### <p style="color:blue">*encrypt-pkcs1*</p>
+### `encrypt-pkcs1`
 
 Encrypts the given message with RSA and the padding scheme from PKCS#1 v1.5
 
@@ -444,7 +444,7 @@ akeyless encrypt-pkcs1 \
 
  `-p, --plaintext`: **Required**, Data to be encrypted 
 
-### <p style="color:blue">*export-classic-key*</p>
+### `export-classic-key`
 
 Returns the Classic Key material
 
@@ -471,7 +471,7 @@ akeyless export-classic-key \
 
  `--wrapping-key-name`: Classic key name to wrap the key material with. This feature enables users to specify the name of a Key Encryption Key (KEK) to encrypt a Data Encryption Key (DEK) during the export process.
 
-### <p style="color:blue">*gateway-download-customer-fragments*</p>
+### `gateway-download-customer-fragments`
 
 Download gateway customer fragments
 
@@ -483,7 +483,7 @@ akeyless gateway-download-customer-fragments \
 --gateway-url <API Gateway URL:8000>
 ```
 
-### <p style="color:blue">*gen-customer-fragment*</p>
+### `gen-customer-fragment`
 
 Generates Customer Fragment
 
@@ -505,7 +505,7 @@ akeyless gen-customer-fragment \
 
 `-k, --hsm-key-label`:  The label of the hsm key to use for customer fragment operations (relevant for `hsm_wrapped`/`hsm_secured` customer fragments)
 
-### <p style="color:blue">*get-rsa-public*</p>
+### `get-rsa-public`
 
 Obtain the public key from a specific RSA private key
 
@@ -519,7 +519,7 @@ akeyless get-rsa-public --name <Key name>
 
  `-n, --name`: **Required**, Name of RSA key to extract the public key from 
 
-### <p style="color:blue">*hmac*</p>
+### `hmac`
 
 Generates a hash-based message authentication code (HMAC) for a message, using an HMAC algorithm
 
@@ -550,7 +550,7 @@ akeyless hmac \
 
  `-F, --input-format`: Select the default assumed format for any plaintext input. Currently supported options: \[base64]
 
-### <p style="color:blue">*refresh-key*</p>
+### `refresh-key`
 
 Refresh a key in the current account
 
@@ -564,7 +564,7 @@ akeyless refresh-key --name <Key name>
 
  `-n, --name`: **Required**, Key name
 
-### <p style="color:blue">*rotate-key*</p>
+### `rotate-key`
 
 Rotates an existing key, by creating a new version of the key
 
@@ -585,7 +585,7 @@ akeyless rotate-key \
 
  `--new-key-data`: The new value of the key, base64 encoded. Relevant only for Classic Key provided by the user (BYOK). 
 
-### <p style="color:blue">*set-item-state*</p>
+### `set-item-state`
 
 Set an item's state (Enabled, Disabled)
 
@@ -605,7 +605,7 @@ akeyless set-item-state \
 
  `--version[=0]`: The specific version you want to update: 0=item level state (default)
 
-### <p style="color:blue">*sign-ecdsa*</p>
+###`sign-ecdsa`
 
 Calculates the signature of a given message using ECDSA and a sha hash algorithm matching the key size
 
@@ -633,7 +633,7 @@ akeyless sign-ecdsa \
 
 `-m, --message`: (**Mandatory**) The input message to sign in a base64 format
 
-### <p style="color:blue">*sign-gpg*</p>
+### `sign-gpg`
 
 Calculates the signature of a message using GPG from an RSA key
 
@@ -659,7 +659,7 @@ akeyless sign-gpg \
 
  `-p, --passphrase`: Passphrase to decrypt the message
 
-### <p style="color:blue">*sign-pkcs1*</p>
+### `sign-pkcs1`
 
 Calculates the signature of hashed using RSASSA-PKCS1-V1\_5-SIGN from RSA PKCS#1 v1.5
 
@@ -691,7 +691,7 @@ akeyless sign-pkcs1 \
 
  `-m, --message`: **Required**, The message to be signed
 
-### <p style="color:blue">*sign-rsassa-pss*</p>
+### `sign-rsassa-pss`
 
 Calculates the signature of a given message using rsassa-pss
 
@@ -721,7 +721,7 @@ akeyless sign-rsassa-pss \
 
  `--prehashed`: Markes that the message is already hashed
 
-### <p style="color:blue">*update-classic-key-certificate*</p>
+### `update-classic-key-certificate`
 
 Update the certificate for a classic key
 
@@ -747,7 +747,7 @@ akeyless update-classic-key-certificate \
 
  `--certificate-format`: The format of the returned certificate \[\`pem\`/\`der\`]
 
-### <p style="color:blue">*update-rotation-settings*</p>
+### `update-rotation-settings`
 
 Updates rotation settings of an existing key
 
@@ -769,7 +769,7 @@ akeyless update-rotation-settings \
 
 `--rotation-event-in `: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times:`--rotation-event-in 1 --rotation-event-in 5`
 
-### <p style="color:blue">*upload-pkcs12*</p>
+### `upload-pkcs12`
 
 Upload a PKCS#12 key and certificates
 
@@ -803,7 +803,7 @@ akeyless upload-pkcs12 \
 
  `--delete-protection[=false]`: Protection from accidental deletion of this item, \[true/false]                                                                                                           
 
-### <p style="color:blue">*upload-rsa*</p>
+###`upload-rsa`
 
 Upload RSA key
 
@@ -845,7 +845,7 @@ akeyless upload-rsa \
 
  `--delete-protection`: Protection from accidental deletion of this item, \[true/false]                                                                       
 
-### <p style="color:blue">*verify-ecdsa*</p>
+###`verify-ecdsa`
 
 Verifies an ECDSA signature using a sha hash algorithm matching the key size
 
@@ -872,7 +872,7 @@ akeyless verify-rsassa-pss \
 
  `-s, --signature`: (**Mandatory**) The message's signature     
 
-### <p style="color:blue">*verify-gpg*</p>
+###`verify-gpg`
 
 Verifies a GPG based on RSA signature
 
@@ -901,7 +901,7 @@ akeyless verify-gpg \
 
  `-p, --passphrase`: Passphrase to decrypt the message
 
-### <p style="color:blue">*verify-pkcs1*</p>
+###`verify-pkcs1`
 
 Verifies an RSA PKCS#1 v1.5 signature
 
@@ -928,7 +928,7 @@ akeyless verify-pkcs1 \
 
  `-s, --signature`: **Required**, The message's signature.     
 
-### <p style="color:blue">*verify-rsassa-pss*</p>
+###`verify-rsassa-pss`
 
 Verifies an rsassa-pss signature
 
@@ -959,7 +959,7 @@ akeyless verify-rsassa-pss \
 
 ## Tokenization
 
-### <p style="color:blue">*create-tokenizer*</p>
+### `create-tokenizer`
 
 Creates a new tokenizer
 
@@ -1010,7 +1010,7 @@ akeyless create-tokenizer \
 
  `--delete-protection`: Protection from accidental deletion of this item, \[true/false]           
 
-### <p style="color:blue">*detokenize*</p>
+###`detokenize`
 
 Decrypts text with a tokenizer
 
@@ -1031,7 +1031,7 @@ akeyless detokenize \
 
  `--tweak`: Base64 encoded tweak for vaultless encryption                                          
 
-### <p style="color:blue">*tokenize*</p>
+###`tokenize`
 
 Encrypts text with a tokenizer
 
