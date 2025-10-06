@@ -6,6 +6,7 @@
 - certificate-based-authentication
 - email
 - gcp-auth-method
+- kerberos
 - kubernetes-auth
 - oci-iam
 - ldap
@@ -13,5 +14,4 @@
 - openid
 - saml
 - universal-identity
-- kerberos
 - groups
