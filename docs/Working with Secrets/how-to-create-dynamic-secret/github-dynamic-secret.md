@@ -1,5 +1,5 @@
 ---
-title: GitHub Dynamic Secret
+title: GitHub Dynamic Secrets
 excerpt: ''
 deprecated: false
 hidden: false
