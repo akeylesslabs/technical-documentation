@@ -2,3 +2,4 @@
 - webhook-event-forwarder
 - servicenow-event-forwarder
 - slack-event-forwarder
+- teams-event-forwarder
