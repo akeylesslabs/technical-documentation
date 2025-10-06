@@ -12,7 +12,7 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless.
 ---
-When setting up your Akeyless account, you will assign it an email address and a password. This authentication method will allow you to invite your teammates to join your account and utilize the items and resources in it using their email addresses and setting up their own passwords.\
+When setting up your Akeyless account, you will assign it an email address and a password. This authentication method will allow you to invite your teammates to join your account and utilize the items and resources in it using their email addresses and setting up their own passwords.
 While this flow is simple and easy to use, we recommend you mainly use it for basic onboarding.
 
 # Creating an Email Authentication in the CLI
@@ -49,6 +49,8 @@ You can find the complete list of additional parameters for this command in the 
 * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
 * **Audit Log Sub-Claims:** Include the following sub-claims values in audit logs.
+
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `Web UI`.
 
 * **JWT TTL (in minutes):** The timespan from acceptance of the invitation to the JWT expiration.
 
