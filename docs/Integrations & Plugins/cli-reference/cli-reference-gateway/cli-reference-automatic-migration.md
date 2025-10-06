@@ -26,7 +26,7 @@ General Flags:
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### <p style="color:blue">*create*</p>
+### `create`
 
 Commands for creating and managing automatic migrations.
 
@@ -164,7 +164,7 @@ akeyless gateway-create-migration \
 
  `--si-rotation-hour`: The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration)                                                                                                                                                                                                                                                                                                                         
 
-### <p style="color:blue">*delete*</p>
+### `delete`
 
 Delete migration
 
@@ -176,7 +176,7 @@ akeyless gateway-delete-migration \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-### <p style="color:blue">*get*</p>
+### `get`
 
 Get migrations 
 
@@ -188,7 +188,7 @@ akeyless gateway-get-migration \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-### <p style="color:blue">*list*</p>
+### `list`
 
 List migrations
 
@@ -196,7 +196,7 @@ List migrations
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port) 
 
-### <p style="color:blue">*personal-items*</p>
+### `personal-items`
 
 Migrates personal items from external vault
 
@@ -234,7 +234,7 @@ akeyless gateway-migrate-personal-items \
 
  `--1password-vaults`: Optional list of 1Password vaults to migrate items from; can be used multiple times (--1password-vaults vault1 --1password-vaults vault2), If not provided, all non-private vaults will be migrated
 
-### <p style="color:blue">*status*</p>
+### `status`
 
 Gets migration Status
 
@@ -255,7 +255,7 @@ akeyless gateway-migration-status \
 
  `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### <p style="color:blue">*sync*</p>
+### `sync`
 
 Sync migration
 
@@ -276,7 +276,7 @@ Akeyless gateway-sync-migration \
 
  `--sync`: true, for starting synchronization, false for stopping 
 
-### <p style="color:blue">*update*</p>
+### `update`
 
 Update migration
 
