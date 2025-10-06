@@ -164,7 +164,7 @@ Renew KMIP server certificate
 
 ### Flags
 
-`-u, --gateway-url[=http://localhost:8000]`:  API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`:  Akeyless API Gateway URL (Configuration Management port)
 
 ## `kmip-server-delete`
 
