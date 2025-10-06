@@ -14,7 +14,7 @@ This section outlines the CLI commands relevant to Event Forwarder.
 
 <CLIGeneralFlags />
 
-# `event-forwarder` Commands
+# `event-forwarder`
 
 ## `event-forwarder create`
 
