@@ -44,15 +44,21 @@ akeyless dynamic-secret create openai \
 Where:
 
 * `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+
 * `target-name`: A name of the target that enables connection to the OpenAI account. The name can include the path to the virtual folder where this target resides.
+
 * `project-id`: The project in OpenAI where the API Ket will be created in.
+
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 ### Inline connection string
 
 * `api-key-id`: The **ID** of the Admin API Key.
+
 * `api-key`: The Admin API Key that will be used in order to create the API Key.
+
 * `org-id`: The organization ID.
+
 * `open-ai-url`: The endpoint for the OpenAI API
 
 # Create a Dynamic OpenAI Secret in the Akeyless Console
