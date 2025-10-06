@@ -360,8 +360,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 {
   "args": [
     "mcp",
-    "--access-type", "aws_iam",
-    "--cloud-id", "your-aws-role-arn"
+    "--access-type", "k8s",
+    "--k8s-auth-config-name", "your-config-object"
   ]
 }
 ```
@@ -519,6 +519,6 @@ x-frame-options: SAMEORIGIN
 
 [^1]: AWS <Anchor label="Amazon Resource Names (ARNs)" target="_blank" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</Anchor>  are used to uniquely identify resources across all AWS partitions, regions, and accounts. AWS <Anchor label="Identity and Access Management (IAM) roles" target="_blank" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">Identity and Access Management (IAM) roles</Anchor>  are one options for authenticating with AWS.
 
-[^2]: Azure Client IDs, also known as Application IDs, uniquely identity applications when they are registered in Microsoft Entra ID (formerly Azure Active Directory). Read more about [registering a client application in Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application) .
+[^2]: Azure Client IDs, also known as Application IDs, uniquely identity applications when they are registered in Microsoft Entra ID (formerly Azure Active Directory). Read more about [registering a client application in Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application)  .
 
-[^3]: [GCP service accounts](https://cloud.google.com/iam/docs/service-account-overview) are how applications uniquely authenticate to access GCP services.
+[^3]: [GCP service accounts](https://cloud.google.com/iam/docs/service-account-overview)  are how applications uniquely authenticate to access GCP services.
