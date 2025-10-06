@@ -14,10 +14,10 @@ next:
 
 # Configuration
 
-To authenticate **OCI** resources to Akeyless, the following configuration is required: 
+To authenticate **OCI** resources to Akeyless, the following configuration is required:
 
-* Create a [Dynamic Group](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm) for authenticating resources 
-* Create a [Group](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managinggroups.htm) to authenticate users 
+* Create a [Dynamic Group](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm) for authenticating resources
+* Create a [Group](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managinggroups.htm) to authenticate users
 
 Once the group is created, a policy needs to be added to it:
 
@@ -49,7 +49,7 @@ Where:
 
 * `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* `tenant-ocid`: An OCI tenant ID to authenticate to Akeyless using this authentication method. 
+* `tenant-ocid`: An OCI tenant ID to authenticate to Akeyless using this authentication method.
 
 * `group-ocid`: An OCI group ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one Group ID by repeating this parameter.
 
@@ -57,7 +57,7 @@ You can find the complete list of additional parameters for this command in the 
 
 # Configure Akeyless CLI with the OCI IAM authentication method
 
-To configure your CLI to work with OCI IAM authentication, run the following command **from an Oracle Cloud resource**: 
+To configure your CLI to work with OCI IAM authentication, run the following command **from an Oracle Cloud resource**:
 
 ```shell Akeyless CLI
 akeyless configure --profile default --access-id <AccessID> --access-type oci --oci-auth-type apikey 
@@ -65,7 +65,7 @@ akeyless configure --profile default --access-id <AccessID> --access-type oci --
 akeyless get-cloud-identity --oci-auth-type apikey 
 ```
 
-Where: 
+Where:
 
 * `oci-auth-type`: Represents the [OCI Authentication type  ](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm) , supporting `apikey`,`resource` and `instance`.
 
@@ -92,5 +92,7 @@ Where:
 * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
 
 4. Click **Finish**.
