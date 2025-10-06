@@ -32,7 +32,7 @@ General Flags:
 
 To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server using the CLI.
 
-## <p style="color:blue">*update*</p>
+## `update`
 
 Command to update log forwarding configuration
 
@@ -60,7 +60,7 @@ Command to update log forwarding configuration
 
 `syslog`
 
-### <p style="color:blue">*AWS S3*</p>
+### `AWS S3`
 
 Updates Log Forwarding config for aws-s3
 
@@ -105,7 +105,7 @@ akeyless gateway update log-forwarding aws-s3 \
 
 `--role-arn`: AWS role arn relevant for `assume_role` auth-type
 
-### <p style="color:blue">*Azure Log Analytics*</p>
+### `Azure Log Analytics`
 
 Updates Log Forwarding config for azure-analytics
 
@@ -135,7 +135,7 @@ akeyless gateway update log-forwarding azure-analytics \
 
 `--workspace-key`: Azure workspace key
 
-### <p style="color:blue">*Datadog*</p>
+### `Datadog`
 
 Updates Log Forwarding config for datadog
 
@@ -174,7 +174,7 @@ akeyless gateway update log-forwarding datadog \
 
 `--log-service[=use-existing]`: Datadog log service
 
-### <p style="color:blue">*ELK - Elasticsearch*</p>
+### `ELK - Elasticsearch`
 
 Updates Log Forwarding config for elasticsearch
 
@@ -231,7 +231,7 @@ akeyless gateway update log-forwarding elasticsearch \
 
 `--tls-certificate[=use-existing]`: Elasticsearch tls certificate (`PEM format`) in a Base64 format
 
-### <p style="color:blue">*Google Chronicle*</p>
+### `Google Chronicle`
 
 Updates Log Forwarding config for google-chronicle
 
@@ -270,7 +270,7 @@ akeyless gateway update log-forwarding google-chronicle \
 
 `--log-type`: Google chronicle log type
 
-### <p style="color:blue">*ELK - Logstash*</p>
+### `ELK - Logstash`
 
 Updates Log Forwarding config for logstash
 
@@ -309,7 +309,7 @@ akeyless gateway update log-forwarding logstash \
 
 `--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
 
-### <p style="color:blue">*Logz.io*</p>
+### `Logz.io`
 
 Updates Log Forwarding config for logz-io
 
@@ -339,7 +339,7 @@ akeyless gateway update log-forwarding logz-io \
 
 `--protocol`: Logz-io protocol \[tcp/https]
 
-### <p style="color:blue">*Splunk*</p>
+### `Splunk`
 
 Updates Log Forwarding config for splunk
 
@@ -387,7 +387,7 @@ akeyless gateway update log-forwarding splunk \
 
 `--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
 
-### <p style="color:blue">*STDOUT*</p>
+### `STDOUT`
 
 Updates Log Forwarding config for standard output
 
@@ -411,7 +411,7 @@ akeyless gateway update log-forwarding stdout \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-### <p style="color:blue">*Sumo Logic*</p>
+### `Sumo Logic`
 
 Updates Log Forwarding config for sumologic
 
@@ -444,7 +444,7 @@ akeyless gateway update log-forwarding sumologic \
 
 `--host[=use-existing]`: Sumologic host
 
-### <p style="color:blue">*Syslog*</p>
+### `Syslog`
 
 Updates Log Forwarding config for syslog
 
@@ -489,7 +489,7 @@ akeyless gateway update log-forwarding syslog \
 
 `--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
 
-### <p style="color:blue">*get*</p>
+### `get`
 
 Command to get log forwarding configuration
 
