@@ -12,21 +12,9 @@ next:
 ---
 This section outlines the CLI commands relevant to Universal Identity authentication.
 
-General Flags:
+<CLIGeneralFlags />
 
-`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
-
-### <p style={{ color: "blue" }}>*create*</p>
+### `create`
 
 Create a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
@@ -50,7 +38,7 @@ akeyless auth-method create universal-identity \
 
 `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
 
-`--delete-protection`: Protection from accidental deletion of this object, \[true/false\]
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
@@ -60,9 +48,9 @@ akeyless auth-method create universal-identity \
 
 `--deny-inheritance`: Deny from root to create children
 
-`--ttl[=60]`: Token TTL (has the value that configured in Akeyless console &gt; Authentication settings)
+`--ttl[=60]`: Token TTL (has the value that configured in Akeyless console > Authentication settings)
 
-### <p style={{ color: "blue" }}>*uid-create-child-token*</p>
+### `uid-create-child-token`
 
 Create a new child token using Akeyless Universal Identity
 
@@ -90,7 +78,7 @@ akeyless uid-create-child-token \
 
 `--uid-token`: The universal identity token. It is required only for universal_identity authentication
 
-### <p style={{ color: "blue" }}>*uid-generate-token*</p>
+### `uid-generate-token`
 
 Generate a new token using Akeyless Universal Identity
 
@@ -100,7 +88,7 @@ Generate a new token using Akeyless Universal Identity
 akeyless uid-generate-token --auth-method-name &lt;Auth method name&gt;
 ```
 
-### <p style={{ color: "blue" }}>*uid-list-children*</p>
+### `uid-list-children`
 
 List the token children ids of Akeyless Universal Identity
 
@@ -110,7 +98,7 @@ List the token children ids of Akeyless Universal Identity
 akeyless uid-list-children --auth-method-name &lt;UID Auth Method Name&gt;
 ```
 
-### <p style={{ color: "blue" }}>*uid-revoke-token*</p>
+### `uid-revoke-token`
 
 Revoke token using Akeyless Universal Identity
 
@@ -130,7 +118,7 @@ akeyless uid-revoke-token \
 
 `-n, --auth-method-name`: The universal identity auth method name
 
-### <p style={{ color: "blue" }}>*uid-rotate-token*</p>
+### `uid-rotate-token`
 
 Rotate Akeyless Universal Identity token
 
@@ -148,7 +136,7 @@ Rotate Akeyless Universal Identity token
 
 `-i, --input-file`: Path to the input file
 
-### <p style={{ color: "blue" }}>*update*</p>
+### `update`
 
 Update a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
@@ -178,7 +166,7 @@ akeyless auth-method update universal-identity \
 
 `--audit-logs-claims`: Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, \[true/false\]
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
@@ -186,4 +174,4 @@ akeyless auth-method update universal-identity \
 
 `--deny-inheritance`: Deny from root to create children
 
-`--ttl[=60]`: Token ttl (in minutes)
+`--ttl[=60]`: Token TTL (in minutes)
