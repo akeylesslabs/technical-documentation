@@ -1,7 +1,7 @@
 ---
 title: OpenAI Dynamic Secrets
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
