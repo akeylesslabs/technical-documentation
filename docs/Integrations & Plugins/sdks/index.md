@@ -19,7 +19,7 @@ Easily integrate your applications, libraries, or scripts with Akeyless using ou
 * [Python SDK](doc:python-sdk-1)
 * [Ruby SDK](doc:ruby-sdk)
 
-Akeyless is hosted in the following environments. Each environment has its base URL.
+Akeyless is hosted in the following environments. Each environment has a unique base URL.
 
 | Environment | Base URL                                                 |
 | :---------- | :------------------------------------------------------- |
