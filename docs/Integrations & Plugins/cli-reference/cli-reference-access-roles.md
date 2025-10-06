@@ -12,19 +12,7 @@ next:
 ---
 This section outlines the CLI commands relevant to Access Roles.
 
-General Flags:
-
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
+<CLIGeneralFlags />
 
 ### `assoc-role-am`
 
@@ -40,13 +28,13 @@ akeyless assoc-role-am \
 
 ##### Flags
 
- `-r, --role-name`: **Required**, The role to associate                  
+`-r, --role-name`: **Required**, The role to associate
 
- `-a, --am-name`: **Required**, The auth method to associate           
+`-a, --am-name`: **Required**, The auth method to associate
 
- `-s, --sub-claims`: key/val of sub claims, e.g group='admins','developers' 
+`-s, --sub-claims`: key/val of sub claims, e.g group='admins','developers'
 
- `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
+`-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
 ### `create-role`
 
@@ -60,27 +48,27 @@ akeyless create-role name <Role Name>
 
 ##### Flags
 
- `-n, --name`: **Required**, Role name                                                                                                                                                               
+`-n, --name`: **Required**, Role name
 
- `--audit-access`: Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods. 
+`--audit-access`: Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
 
- `--analytics-access`: Allow this role to view analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.     
+`--analytics-access`: Allow this role to view analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
 
- `--gw-analytics-access`: Allow this role to view gw analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.  
+`--gw-analytics-access`: Allow this role to view gw analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
 
- `--sra-reports-access`: Allow this role to view SRA Clusters. Currently only 'none', 'own' and 'all' values are supported.                                                                                      
+`--sra-reports-access`: Allow this role to view SRA Clusters. Currently only 'none', 'own' and 'all' values are supported.
 
- `--usage-reports-access`: Allow this role to view Usage reports. Currently only 'none' and 'all' values are supported.
+`--usage-reports-access`: Allow this role to view Usage reports. Currently only 'none' and 'all' values are supported.
 
- `--event-center-access`: Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported.
+`--event-center-access`: Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported.
 
- `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
+`--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
 
 `--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
 
- `description`: Description of the object
+`description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 ### `delete-assoc`
 
@@ -116,11 +104,11 @@ akeyelss delete-role-rule \
 
 ##### Flags
 
- `-r, --role-name`: **Required**, The role name to be updated
+`-r, --role-name`: **Required**, The role name to be updated
 
- `-p, --path`: **Required**, The path the rule refers to
+`-p, --path`: **Required**, The path the rule refers to
 
- `--rule-type[=item-rule]`: item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule.  \\nA type of the item for which permissions are deleted. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Role, auth-method-rule - for Authentication Methods. By default, permissions are deleted only for Items
+`--rule-type[=item-rule]`: item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule.  \nA type of the item for which permissions are deleted. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Role, auth-method-rule - for Authentication Methods. By default, permissions are deleted only for Items
 
 ### `delete-roles`
 
@@ -175,9 +163,9 @@ List of all roles in the account
 
 ##### Flags
 
- `filter`: Filter by role name or part of it 
+`filter`: Filter by role name or part of it
 
- `--pagination-token`: Next page reference
+`--pagination-token`: Next page reference
 
 ### `request-access`
 
@@ -194,13 +182,13 @@ akeyless request-access \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name of the item to which access is requested for                                              
+`-n, --name`: **Required**, Name of the item to which access is requested for
 
- `--type`: **Required**, The type of item to which access is requested. The supported types are: [StaticSecret, Target] 
+`--type`: **Required**, The type of item to which access is requested. The supported types are: [StaticSecret, Target]
 
- `-c, --capability`: **Required**, List of the required capabilities, options: \[read, update, delete]                             
+`-c, --capability`: **Required**, List of the required capabilities, options: [read, update, delete]
 
- `--comment`: Optional, comment about the request.
+`--comment`: Optional, comment about the request.
 
 ### `reverse-rbac`
 
@@ -236,17 +224,17 @@ akeyless set-role-rule \
 
 ##### Flags
 
-  `-r, --role-name`: **Required**, The role name to be updated
+`-r, --role-name`: **Required**, The role name to be updated
 
-  `-p, --path`: **(Mandatory if`-f, file` is not given)** The path the rule refers to
+`-p, --path`: **(Mandatory if`-f, file` is not given)** The path the rule refers to
 
-  `-c, --capability`: **(Mandatory if`-f, file` is not given)** List of the approved/denied capabilities in the path options: \[read, create, update, delete, list, deny]
+`-c, --capability`: **(Mandatory if`-f, file` is not given)** List of the approved/denied capabilities in the path options: [read, create, update, delete, list, deny]
 
-  `rule-type[=item-rule]`: item-rule, target-rule, role-rule, auth-method-rule.  \\nA type of the item for which permissions are defined. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Roles, auth-method-rule - for Authentication Methods. By default, permissions are set only for Items.
+`rule-type[=item-rule]`: item-rule, target-rule, role-rule, auth-method-rule.  \nA type of the item for which permissions are defined. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Roles, auth-method-rule - for Authentication Methods. By default, permissions are set only for Items.
 
-  `--ttl`: The time (in minutes) until the rule expires. If not used the rule will apply until manually removed
+`--ttl`: The time (in minutes) until the rule expires. If not used the rule will apply until manually removed
 
-  `-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This  replaces the `capability`, `path` and `rule-type` 
+`-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This  replaces the `capability`, `path` and `rule-type`
 
 ### `update-assoc`
 
@@ -260,11 +248,11 @@ akeyless update-assoc --assoc-id <association ID to be updated>
 
 ##### Flags
 
- `-a, --assoc-id`: **Required**, The association id to be updated   
+`-a, --assoc-id`: **Required**, The association id to be updated
 
- `-s, --sub-claims`: key/val of sub claims, e.g group=admins,developers 
+`-s, --sub-claims`: key/val of sub claims, e.g group=admins,developers
 
- `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive                 
+`-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
 ### `update-role`
 
@@ -279,26 +267,26 @@ akeyless update-role -n <Role name> \
 
 ##### Flags
 
- `-n, --name`: **Required**, Role name.                                                                                                                                                              
+`-n, --name`: **Required**, Role name.
 
- `--new-name`: New role name.                                                                                                                                                                          
+`--new-name`: New role name.
 
- `--audit-access`: Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods. 
+`--audit-access`: Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
 
- `--analytics-access`: Allow this role to view analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.     
+`--analytics-access`: Allow this role to view analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
 
- `--gw-analytics-access`: Allow this role to view gw analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.  
+`--gw-analytics-access`: Allow this role to view gw analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
 
- `--sra-reports-access`: Allow this role to view SRA Clusters. Currently only 'none', 'own' and 'all' values are supported.                                                                                      
+`--sra-reports-access`: Allow this role to view SRA Clusters. Currently only 'none', 'own' and 'all' values are supported.
 
- `--usage-reports-access`: Allow this role to view Usage reports. Currently only 'none' and 'all' values are supported.                                                                                            
+`--usage-reports-access`: Allow this role to view Usage reports. Currently only 'none' and 'all' values are supported.
 
- `--event-center-access`: Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported.
+`--event-center-access`: Allow this role to view Event Center. Currently only 'none', 'own' and 'all' values are supported.
 
- `--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
+`--event-forwarders-access`: Allow this role to manage Event Forwarders. Currently only 'none' and 'all' values are supported.
 
 `--reverse-rbac-access`: Allow this role to view Reverse RBAC. Supported values: '`own`', '`all`'.
 
- `--description`: Description of the object
+`--description`: Description of the object
 
-`--delete-protection`: Protection from accidental deletion of this object, \[true/false]
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
