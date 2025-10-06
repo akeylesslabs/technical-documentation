@@ -20,7 +20,7 @@ Depending on the Azure Identity type, enable the relevant [identity type](https:
 
 # Create an Azure AD Authentication Method from the CLI
 
-Let's create a new Azure AD authentication method using the Akeyless CLI.\
+Let's create a new Azure AD authentication method using the Akeyless CLI.
 (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad#create-an-azure-active-directory-authentication-method-in-the-akeyless-console).)
 
 To create an Azure AD authentication method from the CLI, run the following command:
@@ -62,11 +62,13 @@ akeyless get-cloud-identity --cloud-provider azure_ad
 
 * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
 
 * **Bound Tenant ID:** Enter a comma-separated list of Azure tenant IDs for which access is allowed.
 
-* **Custom Issuer URL:** The default value is `https://sts.windows.net/`&lt;bound-tenant-id&gt;.
+* **Custom Issuer URL:** The default value is `https://sts.windows.net/`\<bound-tenant-id>.
 
 * **Custom JWKS URL:** The URL to the JSON Web Key Set (JWKS) containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. Default value is `https://login.microsoftonline.com/common/discovery/keys`.
 
