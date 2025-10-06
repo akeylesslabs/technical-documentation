@@ -82,7 +82,7 @@ akeyless auth
 #### How to Use
 
 **Scan for Secrets**
-Press Ctrl+Shift+P and run “Akeyless: Scan for Hardcoded Secrets” or Click any configuration or save the project.
+Press Ctrl + Shift + P and run “Akeyless: Scan for Hardcoded Secrets”, or simply save the file (Cmd + S) to trigger a scan on the edited file.
 
 <Image border={false} src="https://files.readme.io/8c249761d389466aa3dcc9a5abfaee6740bc42ed689aa69d7d482c97db367187-Oct-06-2025_12-41-23.gif" />
 
