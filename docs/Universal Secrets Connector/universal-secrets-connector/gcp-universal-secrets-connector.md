@@ -105,8 +105,6 @@ The main parameters are:
 
 * `value`: The value of the secret you would like to create, plaintext or base64 encoded.
 
-In addition, for this USC type, it is possible to select the encryption key that will be used to encrypt that secret from the **remote** Secrets Management system using the `usc-encrpytion-key` parameter. This requires explicit permissions on the desired key on GCP.  If not provided, the default encryption key will be used.
-
 Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
 
 ## Updating an Existing USC secret
