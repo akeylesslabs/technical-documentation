@@ -62,7 +62,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 ## Code
 
 * Inline code: Use backticks (`command`). Use inline code for represent:
-  * A command in a sentence: Use `akeyless update` to update your Akeyless CLI version.
+  * Example: Use `akeyless update` to update your Akeyless CLI version.
 * Code blocks: Use triple backticks with language identifiers:
 
   ```bash
@@ -127,8 +127,13 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Dates: `YYYY-MM-DD` (ISO 8601).
 * Time: Use UTC when relevant (e.g., `14:00 UTC`).
 * Numbers: Use numerals for all numbers (e.g., "3 files," not "three files").
-* Units: Use SI units (e.g., "MB," "ms").
+* Units:
+  * Use SI units (e.g., "MB," "ms").
+  * Use a space between the value and unit (e.g., "10 GB", "12 ms").
+  * GB (gigabytes) is not the same abbreviation as Gb (gigabits). This applies with all SI prefixes with bytes and bits (e.g., KB/Kb, MB/Mb, TB/Tb).
 * File paths: Use `/` for paths (e.g., `/usr/local/bin`).
+* JSON: When representing JSON elements outside of a full JSON file, use a period to represent child elements.
+  * <br />
 
 # Accessibility
 
@@ -136,6 +141,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Provide alt-text for images.
 * Avoid color as the only means of conveying meaning.
 * Use descriptive link text instead of "click here."
+* Avoid text in diagrams presented as images. Instead, use Mermaid diagrams or move the text to a caption.
 
 # Review Process
 
