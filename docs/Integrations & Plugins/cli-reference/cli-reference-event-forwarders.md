@@ -12,39 +12,19 @@ next:
 ---
 This section outlines the CLI commands relevant to Event Forwarder.
 
-General Flags:
+<CLIGeneralFlags />
 
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
+# `event-forwarder` Commands
 
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
-
-## <p style={{color: 'blue'}}>*create*</p>
+## `event-forwarder create`
 
 Commands for managing the event forwarders.
 
-**Flags**
-
-`email`: Create a new Email Event Forwarder
-
-`servicenow`: Create a new ServiceNow Event Forwarder
-
-`slack`: Create a new Slack event Forwarder
-
-`webhook`: Create a new webhook Event Forwarder
-
-### <p style={{color: 'blue'}}>*create email*</p>
+### `event-forwarder create email`
 
 Create a new Email Event Forwarder
 
-**Usage**
+#### Usage
 
 ```shell
 akeyless event-forwarder create email \
@@ -61,7 +41,7 @@ akeyless event-forwarder create email \
 --every <1-24 hours>
 ```
 
-**Flags**:
+#### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -91,11 +71,11 @@ akeyless event-forwarder create email \
 
 `--description`: Description of the object
 
-### <p style={{color: 'blue'}}>*servicenow*</p>
+### `event-forwarder create servicenow`
 
 Create a new Service Now Event Forwarder
 
-**Usage**
+#### Usage
 
 ```shell
 akeyless event-forwarder create servicenow \
@@ -109,7 +89,7 @@ akeyless event-forwarder create servicenow \
 --event-types <event type>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -151,11 +131,11 @@ akeyless event-forwarder create servicenow \
 
 `--description`: Description of the object
 
-### <p style={{color: 'blue'}}>*slack*</p>
+### `event-forwarder create slack`
 
 Create a new Slack Event Forwarder
 
-**Usage**
+#### Usage
 
 ```shell
 akeyless event-forwarder create slack \
@@ -171,7 +151,7 @@ akeyless event-forwarder create slack \
 --every <1-24 hours>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -197,11 +177,11 @@ akeyless event-forwarder create slack \
 
 `--description`: Description of the object
 
-### <p style={{color: 'blue'}}>*webhook*</p>
+### `event-forwarder create webhook`
 
 Create a new Webhook Event Forwarder
 
-**Usage**
+#### Usage
 
 ```shell
 akeyless event-forwarder create webhook \
@@ -217,7 +197,7 @@ akeyless event-forwarder create webhook \
 --every <1-24 hours>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -263,18 +243,14 @@ akeyless event-forwarder create webhook \
 
 `--description`: Description of the object
 
-## Delete
+## `event-forwarder delete`
 
-`akeyless event-forwarder delete`
-
-**Flags**
+### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
-## Get
+## `event-forwarder get`
 
-`akeyless event-forwarder get`
-
-**Flags**
+### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
