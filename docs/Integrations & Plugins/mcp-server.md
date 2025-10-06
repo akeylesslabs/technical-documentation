@@ -459,7 +459,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        Yes* (if using the `k8s` access type)
       </td>
 
       <td>
