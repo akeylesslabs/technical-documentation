@@ -203,7 +203,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -221,7 +221,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -239,7 +239,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -257,7 +257,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -275,7 +275,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -369,7 +369,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -423,7 +423,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -441,7 +441,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -459,7 +459,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -477,7 +477,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -495,7 +495,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -513,7 +513,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -549,7 +549,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -567,7 +567,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -585,7 +585,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -603,7 +603,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -621,7 +621,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -657,7 +657,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -675,7 +675,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -711,7 +711,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -729,7 +729,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
 
@@ -747,7 +747,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-
+        (none)
       </td>
     </tr>
   </tbody>
@@ -820,7 +820,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   "args": [
     "mcp",
     "--access-type", "k8s",
-    "--k8s-auth-config-name", "your-config-object"
+    "--k8s-auth-config-name", "your-config-object",
+    "--k8s-service-account-token", "your-service-account-token"
   ]
 }
 ```
