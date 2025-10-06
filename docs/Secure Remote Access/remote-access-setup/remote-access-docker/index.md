@@ -28,7 +28,7 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 
 * Docker Installed (version 20.10 or later)
 * Docker Compose (version 1.29 or later)
-* [Gateway](https://docs.akeyless.io/docs/standalone-gateway-copy) deployed and Unified value is set to TRUE
+* [Gateway](https://docs.akeyless.io/docs/gateway-compose#/) deployed and Unified value is set to TRUE
   * Make sure to set the UNIFIED_GATEWAY=true in both Gateway & SRA env files.
 * Environment variables configured in .env files
 * [SSH Certificate Issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates) for CLI Access.
@@ -48,11 +48,11 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 
 The Docker Compose file defines the following services:
 
-| Service                                                                   | Description                                       | Ports                       |
-| :------------------------------------------------------------------------ | :------------------------------------------------ | :-------------------------- |
-| [Akeyless Gateway](https://docs.akeyless.io/docs/standalone-gateway-copy) | Central access control and authentication gateway | 8000 (API), 8080 (Health)   |
-| SRA Web                                                                   | Web-based Zero Trust portal for remote access     | As specified in YAML        |
-| SRA SSH Proxy                                                             | Secure SSH-based remote access                    | 2222 (SSH), 9900 (Internal) |
+| Service                                                             | Description                                       | Ports                       |
+| :------------------------------------------------------------------ | :------------------------------------------------ | :-------------------------- |
+| [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-compose#/) | Central access control and authentication gateway | 8000 (API), 8080 (Health)   |
+| SRA Web                                                             | Web-based Zero Trust portal for remote access     | As specified in YAML        |
+| SRA SSH Proxy                                                       | Secure SSH-based remote access                    | 2222 (SSH), 9900 (Internal) |
 
 Each service runs within an isolated Docker bridge network (internal-net), ensuring secure internal communication.
 
