@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-You can use Akeyless Dynamic Secrets to generate short-lived credentials that let you securely connect to OpenAI — no need to store or manage long-term API keys or worry about them being exposed.
+You can use Akeyless Dynamic Secrets to generate short-lived credentials that let you securely connect to [OpenAI](https://openai.com/) — no need to store or manage long-term API keys or worry about them being exposed.
 
 # Prerequisites
 
