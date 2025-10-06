@@ -96,3 +96,5 @@ Right-click a detected secret in your code and select “Save to Akeyless”.
 Click the Akeyless icon in the sidebar to browse, search, and copy secrets without leaving your editor.
 
 [Link to Akeyless Secrets Manager on open-vsx](https://open-vsx.org/extension/akeyless/akeyless-secrets-manager)
+
+[Link to Akeyless Secrets Manager on Visual-studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Akeyless.akeyless-secrets-manager)
