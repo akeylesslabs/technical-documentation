@@ -59,8 +59,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `Web UI`.
-
 4. Click **Next** and define the remaining parameters as follows:
 
 * Choose your preferred Identity Provider (IDP) metadata type by selecting one of the options:
