@@ -28,11 +28,6 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Consistency**: Use the same terminology for features, functions, and components throughout.
 * **Conciseness**: Avoid unnecessary words, filler phrases, or redundant explanations.
 * **Audience awareness**: Assume readers have basic technical knowledge but may not be experts.
-* **Avoid Idioms**: Idioms are untranslatable phrases that may only have meeting to a native speaker or speakers from a particular regions. Examples:
-  * "At heart, this product does a thing."
-  * “Under the hood, the library uses an event-driven architecture.”
-  * “As a rule of thumb, use HTTPS for all API calls.”
-  * “A pitfall of using floating-point numbers is precision loss.”
 
 # Tone
 
@@ -132,7 +127,7 @@ This guide defines standards for writing clear, consistent, and professional tec
   * Use a space between the value and unit (e.g., "10 GB", "12 ms").
   * GB (gigabytes) is not the same abbreviation as Gb (gigabits). This applies with all SI prefixes with bytes and bits (e.g., KB/Kb, MB/Mb, TB/Tb).
 * File paths: Use `/` for paths (e.g., `/usr/local/bin`).
-* JSON: When representing JSON elements outside of a full JSON file, use a period to represent child elements.
+* Data Structures: When representing child elements outside of a full object notation file, use a period to represent child elements in relation to their parents.
   * For example, represent `--access-type` from the below example as `args.--access-type`.
   * ```json
     {
@@ -144,6 +139,15 @@ This guide defines standards for writing clear, consistent, and professional tec
       ]
     }
     ```
+    ```yaml
+    args:
+      - mcp
+      - --access-type=cert
+      - --cert-file-name=/path/to/cert.pem
+      - --key-file-name=/path/to/key.pem
+    ```
+
+<br />
 
 # Accessibility
 
@@ -151,7 +155,19 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Provide alt-text for images.
 * Avoid color as the only means of conveying meaning.
 * Use descriptive link text instead of "click here."
-* Avoid text in diagrams presented as images. Instead, use Mermaid diagrams or move the text to a caption.
+
+## Localization and Translation
+
+* **Keep sentences simple and clear**: Short sentences are easier to translate and less likely to create ambiguity.
+* **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meeting to a native speaker or speakers from a particular regions. Examples:
+  * "At heart, this product does a thing."
+  * "Under the hood, the library uses an event-driven architecture.”
+  * “As a rule of thumb, use HTTPS for all API calls.”
+  * “A pitfall of using floating-point numbers is precision loss.”
+* **Use consistent terminology**: Reuse the same word or phrase for the same concept throughout the documentation to aid translation memory tools.
+* **Write numbers and units clearly**: Use commas as separators in large numbers (1,000).
+* **Avoid embedded text in images**: Avoid text in diagrams presented as images. Instead, use Mermaid diagrams or move the text to a caption. If labels or text must appear in graphics, provide separate source files for easy translation.
+* **Provide context for placeholders**: If using variables like `{username}` or `{path}`, describe their expected format so translation can adjust grammar as needed.
 
 # Review Process
 
