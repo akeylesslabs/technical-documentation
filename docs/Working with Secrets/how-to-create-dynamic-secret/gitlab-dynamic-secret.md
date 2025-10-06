@@ -1,5 +1,5 @@
 ---
-title: GitLab Dynamic Secret
+title: GitLab Dynamic Secrets
 excerpt: ''
 deprecated: false
 hidden: false
