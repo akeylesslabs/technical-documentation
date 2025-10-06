@@ -1055,7 +1055,7 @@ akeyless assoc-target-item \
 
 `--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
 
-## <p style={{ color: "blue" }}>*delete-assoc-target-item*</p>
+## `delete-assoc-target-item`
 
 Delete an association between target and item
 
@@ -1076,7 +1076,7 @@ akeyless delete-assoc-target-item \
 
 `-t, --target-name`: The target name with which association will be deleted
 
-## <p style={{ color: "blue" }}>*delete*</p>
+## `delete`
 
 Delete a target in the current account
 
@@ -1096,7 +1096,7 @@ akeyless target delete \
 
 `--force-deletion[=false]`: Delete target even if it has associated items
 
-## <p style={{ color: "blue" }}>*delete-targets*</p>
+## `delete-targets`
 
 Delete multiple targets from a given path
 
@@ -1113,7 +1113,7 @@ akeyless delete-targets \
 
 `--force-deletion[=false]`: Delete target even if it has associated items
 
-## <p style={{ color: "blue" }}>*get*</p>
+## `get`
 
 Get target in the current account
 
@@ -1129,7 +1129,7 @@ akeyless taregt get --name <Target name>
 
 `--show-versions[=false]`: Include all target versions in reply
 
-## <p style={{ color: "blue" }}>*get-details*</p>
+## `get-details`
 
 Get details of the specified target
 
@@ -1147,7 +1147,7 @@ akeyless target get-details --name <Target Name>
 
 `--show-versions[=false]`: Include all target versions in reply
 
-## <p style={{ color: "blue" }}>*list*</p>
+## `list`
 
 List of all targets in the account
 
@@ -1163,9 +1163,9 @@ List of all targets in the account
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
 
-## <p style={{ textDecoration: "underline" }}>update</p>
+## `update`
 
-#### <p style={{ color: "blue" }}>artifactory</p>
+#### `artifactory`
 
 updates an existing artifactory target in the current account
 
@@ -1203,7 +1203,7 @@ akeyless target update artifactory \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*aws*</p>
+#### `aws`
 
 Updates an existing aws target in the current account
 
@@ -1252,7 +1252,7 @@ akeyless target update aws \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style={{ color: "blue" }}>*azure*</p>
+#### `azure`
 
 Updates an existing azure target in the current account
 
@@ -1300,7 +1300,7 @@ akeyless taregt update azure \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*db*</p>
+#### `db`
 
 Update an existing db target in the current account
 
@@ -1370,9 +1370,9 @@ akeyless update-db-target \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*dockerhub*</p>
+#### `dockerhub`
 
-updates an existing dockerhub target in the current account
+updates an existing DockerHub target in the current account
 
 ##### Usage
 
@@ -1390,9 +1390,9 @@ akeyless target update dockerhub \
 
 `--new-name`: New target name
 
-`--dockerhub-username`: **Required**, Username for docker repository
+`--dockerhub-username`: **Required**, Username for Docker repository
 
-`--dockerhub-password`: **Required**, Password for docker repository
+`--dockerhub-password`: **Required**, Password for Docker repository
 
 `--description`: Target description
 
@@ -1404,9 +1404,9 @@ akeyless target update dockerhub \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*eks*</p>
+#### `eks`
 
-Updates an existing eks target in the current account
+Updates an existing Amazon EKS target in the current account
 
 #### Usage
 
@@ -1435,7 +1435,7 @@ akeyless target update eks \
 
 `-s, --eks-secret-access-key`: **Required**, EKS secret access key
 
-`-g, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-g, --use-gw-cloud-identity`: Use the Akeyless Gateway's Cloud IAM
 
 `--new-name`: New target name
 
@@ -1443,7 +1443,7 @@ akeyless target update eks \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-`--eks-region[=us-east-2]`: EKS region
+`--eks-region[=us-east-2]`: EKS cluster's region
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
@@ -1451,9 +1451,9 @@ akeyless target update eks \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*gcp*</p>
+#### `gcp`
 
-Update an existing gcp target in the current account
+Update an existing GCP target in the current account
 
 #### Usage
 
@@ -1481,7 +1481,7 @@ akeyless taregt update gcp \
 
 `--gcp-key`: Base64-encoded service account private key text
 
-`-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
+`-i, --use-gw-cloud-identity`: Use the Akeyless Gateway's Cloud IAM
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
@@ -1489,9 +1489,9 @@ akeyless taregt update gcp \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*github*</p>
+#### `github`
 
-updates a new github target in the current account
+updates a new GitHub target in the current account
 
 ##### Usage
 
@@ -1510,11 +1510,11 @@ akeyless target update github \
 
 `--new-name`: New target name
 
-`--github-app-id`: Github application id
+`--github-app-id`: GitHub application id
 
-`--github-app-private-key`: Github application private key (base64 encoded key)
+`--github-app-private-key`: GitHub application private key (base64 encoded key)
 
-`--github-base-url[=https://api.github.com/]`: Github base url
+`--github-base-url[=https://api.github.com/]`: GitHub base url
 
 `--description`: Target description
 
@@ -1526,9 +1526,9 @@ akeyless target update github \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*gke*</p>
+#### `gke`
 
-Updates an existing gke target in the current account
+Updates an existing GKE target in the current account
 
 #### Usage
 
@@ -1574,7 +1574,7 @@ akeyless target update gke \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*globalsign*</p>
+#### `globalsign`
 
 Update an existing GlobalSign Target in the current account
 
@@ -1623,7 +1623,7 @@ akeyless target update globalsign \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style={{ color: "blue" }}>*globalsign-atlas*</p>
+#### `globalsign-atlas`
 
 Updates an existing GlobalSignAtlas target in the current account
 
@@ -1662,9 +1662,9 @@ akeyless target update globalsign-atlas \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style={{ color: "blue" }}>*godaddy*</p>
+#### `godaddy`
 
-Creates a new Godaddy target
+Creates a new GoDaddy target
 
 ##### Usage
 
@@ -1707,9 +1707,9 @@ akeyless target update-godaddy-target \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style={{ color: "blue" }}>*hashi-vault*</p>
+#### `hashi-vault`
 
-Updates a new hashi-vault target
+Updates a new HashiCorp Vault target
 
 ##### Usage
 
@@ -1740,9 +1740,9 @@ akeyless target update hashi-vault \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-#### <p style={{ color: "blue" }}>*k8s*</p>
+#### `k8s`
 
-Updates an existing k8s target in the current account
+Updates an existing Kubernetes target in the current account
 
 ##### Usage
 
@@ -1792,7 +1792,7 @@ akeyless target update k8s \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*ldap*</p>
+#### `ldap`
 
 updates a new ldap target in the current account
 
@@ -1836,9 +1836,9 @@ akeyless target update ldap \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*linked*</p>
+#### `linked`
 
-Update an existing Liked Target in the current account
+Update an existing Linked Target in the current account
 
 ##### Usage
 
@@ -1864,9 +1864,9 @@ akeyless target update linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style={{ color: "blue" }}>*rabbitmq*</p>
+#### `rabbitmq`
 
-Update an existing new rabbitmq target in the current account
+Update an existing new RabbitMQ target in the current account
 
 ##### Usage
 
@@ -1902,7 +1902,7 @@ akeyless target update rabbitmq \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*salesforce*</p>
+#### `salesforce`
 
 Updates the Salesforce target in the current account
 
@@ -1959,9 +1959,9 @@ akeyless target update salesforce \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*sectigo*</p>
+#### `sectigo`
 
-Updates the sectigo target in the current account
+Updates the Sectigo target in the current account
 
 ##### Usage
 
@@ -2005,9 +2005,9 @@ akeyless target create sectigo \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### <p style={{ color: "blue" }}>*ssh*</p>
+#### `ssh`
 
-Update an existing ssh target in the current account
+Update an existing SSH target in the current account
 
 ##### Usage
 
@@ -2053,7 +2053,7 @@ akeyless target update ssh \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*web*</p>
+#### `web`
 
 Update an existing web target in the current account
 
@@ -2084,7 +2084,7 @@ akeyless target update web \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### <p style={{ color: "blue" }}>*windows*</p>
+#### `windows`
 
 Update an existing Windows Target in the current account
 
@@ -2125,7 +2125,7 @@ akeyless target update windows \
 
 `--description`: Description of the object
 
-#### <p style={{ color: "blue" }}>*zerossl*</p>
+#### `zerossl`
 
 Update an existing ZeroSSL Target in the current account
 
