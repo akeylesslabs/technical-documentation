@@ -12,23 +12,11 @@ next:
 ---
 This section outlines the CLI commands relevant to Encryption Keys.
 
-General Flags:
-
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal\_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
+<CLIGeneralFlags />
 
 ### `assoc-target-item`
 
-Create an association between a [Target](doc:targets) and a [Classic Key](doc:classic-keys) for [External KMS Integration](doc:external-kms) 
+Create an association between a [Target](doc:targets) and a [Classic Key](doc:classic-keys) for [External KMS Integration](doc:external-kms)
 
 ##### Usage
 
@@ -46,29 +34,29 @@ akeyless assoc-target-item \
 
 #### Flags
 
- `-t, --target-name`: **Required**, The target to associate                                                                                                                                                                 
+`-t, --target-name`: **Required**, The target to associate
 
- `-n, --name`: **Required**, The item to associate                                                                                                                                                                   
+`-n, --name`: **Required**, The item to associate
 
- `--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for azure targets)                                                                                              
+`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for azure targets)
 
- `--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for azure targets)                                                                            
+`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for azure targets)
 
- `--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)                                                                                             
+`--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
 
- `--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)                                                                                            
+`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
 
- `--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)                                                                                           
+`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
 
- `--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)                                                                                         
+`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
 
- `--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for gcp targets)                                                                                       
+`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for gcp targets)
 
- `--tenant-secret-type`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)                                                                                                         
+`--tenant-secret-type`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
 
- `--multi-region[=false]`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1 
+`--multi-region[=false]`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
 
- `--protection-level[=software]`: Protection level of the key \[software/hardware]. (Relevant only for Classic Key and target association, for gcp targets)
+`--protection-level[=software]`: Protection level of the key [software/hardware]. (Relevant only for Classic Key and target association, for gcp targets)
 
 ### `create-classic-key`
 
@@ -89,59 +77,59 @@ akeyless create-classic-key \
 
 ##### Flags
 
- `-n, --name`: **Required**,  Classic key name/path.                                                                                                  
+`-n, --name`: **Required**,  Classic key name/path.
 
- `-a, --alg `: **Required**, Key type; options: `[AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]` 
+`-a, --alg `: **Required**, Key type; options: `[AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]`
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                                          
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `-p, --key-file-path `: Path to file with the classic key value provided by user                                                                                 
+`-p, --key-file-path `: Path to file with the classic key value provided by user
 
- `--key-data`: Base64-encoded classic key value provided by user                                                                                        
+`--key-data`: Base64-encoded classic key value provided by user
 
- `-c, --cert`: Path to a file that contain the certificate in a PEM format.                                                                             
+`-c, --cert`: Path to a file that contain the certificate in a PEM format.
 
- `--cert-file-data`: PEM Certificate in a Base64 format.                                                                                                      
+`--cert-file-data`: PEM Certificate in a Base64 format.
 
- `--gpg-alg`: gpg alg: Relevant only if GPG key type selected; options: [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519]                                  
+`--gpg-alg`: gpg alg: Relevant only if GPG key type selected; options: [RSA1024, RSA2048, RSA3072, RSA4096, Ed25519]
 
- `-k, --protection-key-name`: The name of the key that protects the classic key value (if empty, the account default key will be used)                                 
+`-k, --protection-key-name`: The name of the key that protects the classic key value (if empty, the account default key will be used)
 
- `--generate-self-signed-certificate[=false]`: Whether to generate a self signed certificate with the key. If set, `--certificate-ttl` must be provided.                                
+`--generate-self-signed-certificate[=false]`: Whether to generate a self signed certificate with the key. If set, `--certificate-ttl` must be provided.
 
- `--certificate-ttl`: TTL in days for the generated certificate. Required only for generate-self-signed-certificate.                                           
+`--certificate-ttl`: TTL in days for the generated certificate. Required only for generate-self-signed-certificate.
 
- `--certificate-common-name`: Common name for the generated certificate. Relevant only for generate-self-signed-certificate.                                           
+`--certificate-common-name`: Common name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
 `--cerificate-format`: The format of the returned certificate can be `pem` or `der`
 
- `--certificate-organization`: Organization name for the generated certificate. Relevant only for generate-self-signed-certificate.                                     
+`--certificate-organization`: Organization name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
- `--certificate-country`: Country name for the generated certificate. Relevant only for generate-self-signed-certificate.                                          
+`--certificate-country`: Country name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
- `--certificate-locality`: Locality for the generated certificate. Relevant only for generate-self-signed-certificate.                                              
+`--certificate-locality`: Locality for the generated certificate. Relevant only for generate-self-signed-certificate.
 
- `--certificate-province`: Province name for the generated certificate. Relevant only for generate-self-signed-certificate.                                         
+`--certificate-province`: Province name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
- `--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] \(only for RSA and EC keys)
+`--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] (only for RSA and EC keys)
 
- `--conf-file-path`: Path to the configuration file that contains csr config data                                                                             
+`--conf-file-path`: Path to the configuration file that contains csr config data
 
- `--conf-file-data`: The csr config data in base64 encoding
+`--conf-file-data`: The csr config data in base64 encoding
 
 `--certificate-format` : The format of the returned certificate can be pem or der.
 
 `-e, --expiration-event-in` : How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1 --expiration-event-in 5`
 
-`--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation \[true/false]
+`--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
 
 `--rotation-interval`: The number of days to wait between every automatic rotation (1-365)
 
 `--rotation-event-in`: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
- `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2                          
+`-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
 
- `--delete-protection`: Protection from accidental deletion of this item, \[true/false]
+`--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
 ### `create-dfc-key`
 
@@ -161,49 +149,49 @@ akeyless create-dfc-key \
 
 ##### Flags
 
- `-n, --name`: **Required**,  DFCKey name                                                                                                                 
+`-n, --name`: **Required**,  DFCKey name
 
- `-a, --alg`: **Required**, DFCKey type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096] 
+`-a, --alg`: **Required**, DFCKey type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]
 
- `-t, --tag`: List of the tags attached to this DFC key. To specify multiple tags use the argument multiple times: -t Tag1 -t Tag2                         
+`-t, --tag`: List of the tags attached to this DFC key. To specify multiple tags use the argument multiple times: -t Tag1 -t Tag2
 
- `-s, --split-level[=3]`: The number of fragments that the item will be split into (not includes customer fragment)                                                    
+`-s, --split-level[=3]`: The number of fragments that the item will be split into (not includes customer fragment)
 
- `-f, --customer-frg-id`: The customer fragment ID that will be used to create the DFC key (if empty, the key will be created independently of a customer fragment)    
+`-f, --customer-frg-id`: The customer fragment ID that will be used to create the DFC key (if empty, the key will be created independently of a customer fragment)
 
- `--generate-self-signed-certificate[=false]`: Whether to generate a self signed certificate with the key. If set, `--certificate-ttl` must be provided.                                    
+`--generate-self-signed-certificate[=false]`: Whether to generate a self signed certificate with the key. If set, `--certificate-ttl` must be provided.
 
- `--certificate-ttl`: TTL in days for the generated certificate. Required only for generate-self-signed-certificate.                                               
+`--certificate-ttl`: TTL in days for the generated certificate. Required only for generate-self-signed-certificate.
 
- `--certificate-common-name`: Common name for the generated certificate. Relevant only for generate-self-signed-certificate.                                               
+`--certificate-common-name`: Common name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
 `--cerificate-format`: The format of the returned certificate can be `pem` or `der`
 
- `--certificate-organization`: Organization name for the generated certificate. Relevant only for generate-self-signed-certificate.                                         
+`--certificate-organization`: Organization name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
- `--certificate-country`: Country name for the generated certificate. Relevant only for generate-self-signed-certificate.                                              
+`--certificate-country`: Country name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
- `--certificate-locality`: Locality for the generated certificate. Relevant only for generate-self-signed-certificate.                                                  
+`--certificate-locality`: Locality for the generated certificate. Relevant only for generate-self-signed-certificate.
 
- `--certificate-province`: Province name for the generated certificate. Relevant only for generate-self-signed-certificate.          
+`--certificate-province`: Province name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
- `--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] \(only for **RSA** keys)
+`--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] (only for **RSA** keys)
 
- `--conf-file-path`: Path to the configuration file that contains csr config data                                                                                 
+`--conf-file-path`: Path to the configuration file that contains csr config data
 
- `--conf-file-data`: The csr config data in base64 encoding
+`--conf-file-data`: The csr config data in base64 encoding
 
 `--certificate-format` : The format of the returned certificate can be pem or der.
 
 `-e, --expiration-event-in` : How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1 --expiration-event-in 5`
 
-`--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation \[true/false]
+`--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
 
 `--rotation-interval`: The number of days to wait between every automatic rotation (1-365)
 
 `--rotation-event-in`: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
- `--delete-protection`: Protection from accidental deletion of this item, \[true/false]                                                                               
+`--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
 ### `decrypt`
 
@@ -220,21 +208,21 @@ akeyless decrypt \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the key to use in the decryption process.                                                                 
+`-k, --key-name`: **Required**, The name of the key to use in the decryption process.
 
- `-d, --display-id`: The display id of the key to use in the decryption process                                                                            
+`-d, --display-id`: The display id of the key to use in the decryption process
 
- `-I, --item-id`: The item id of the key to use in the decryption process                                                                               
+`-I, --item-id`: The item id of the key to use in the decryption process
 
- `-i, --in`: Path to the file to be decrypted (base64 encoded)                                                                                     
+`-i, --in`: Path to the file to be decrypted (base64 encoded)
 
- `-o, --out`: Path to the output file. If not provided, the output will be printed as text.                                                         
+`-o, --out`: Path to the output file. If not provided, the output will be printed as text.
 
- `-c, --ciphertext`: Ciphertext to be decrypted in base64 encoded format, if a file was not provided                                                       
+`-c, --ciphertext`: Ciphertext to be decrypted in base64 encoded format, if a file was not provided
 
- `-X, --encryption-context`: The encryption context. If this was specified in the encrypt command, it must be specified here or the decryption operation will fail 
+`-X, --encryption-context`: The encryption context. If this was specified in the encrypt command, it must be specified here or the decryption operation will fail
 
- `-F, --output-format`: If specified, the output will be formatted accordingly. options: \[base64]                                                             
+`-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
 ### `decrypt-file`
 
@@ -253,19 +241,19 @@ akeyless decrypt-file \
 
 ##### Flags
 
- `--key-name`: **Required**, The name of the key to use in the decryption process                                                                  
+`--key-name`: **Required**, The name of the key to use in the decryption process
 
- `-d, --display-id`: The display id of the key to use in the decryption process                                                                            
+`-d, --display-id`: The display id of the key to use in the decryption process
 
- `-I, --item-id`: The item id of the key to use in the decryption process                                                                               
+`-I, --item-id`: The item id of the key to use in the decryption process
 
- `-i, --in`: Path to the file to be decrypted. If not provided, the content will be taken from stdin                                               
+`-i, --in`: Path to the file to be decrypted. If not provided, the content will be taken from stdin
 
- `-o, --out`: Path to the output file. If not provided, the output will be sent to stdout                                                           
+`-o, --out`: Path to the output file. If not provided, the output will be sent to stdout
 
- `-F, --output-format[=base64]`: The output will be formatted accordingly. options: \[base64, raw]                                                                      
+`-F, --output-format[=base64]`: The output will be formatted accordingly. options: [base64, raw]
 
- `-X, --encryption-context`: The encryption context. If this was specified in the encrypt command, it must be specified here or the decryption operation will fail 
+`-X, --encryption-context`: The encryption context. If this was specified in the encrypt command, it must be specified here or the decryption operation will fail
 
 `-v, --version`: key version (relevant only for classic key)
 
@@ -284,23 +272,23 @@ akeyless decrypt-gpg \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the key to use in the decryption process.           
+`-k, --key-name`: **Required**, The name of the key to use in the decryption process.
 
- `-d, --display-id`: The display id of the key to use in the decryption process                      
+`-d, --display-id`: The display id of the key to use in the decryption process
 
- `-I, --item-id`: The item id of the key to use in the decryption process                         
+`-I, --item-id`: The item id of the key to use in the decryption process
 
- `-i, --in`: Path to the file to be decrypted (base64 encoded)                               
+`-i, --in`: Path to the file to be decrypted (base64 encoded)
 
- `-o, --out`: Path to the output file. If not provided, the output will be printed as text.   
+`-o, --out`: Path to the output file. If not provided, the output will be printed as text.
 
- `-c, --ciphertext`: Ciphertext to be decrypted in base64 encoded format, if a file was not provided 
+`-c, --ciphertext`: Ciphertext to be decrypted in base64 encoded format, if a file was not provided
 
- `-N, --input-format[=base64]`: Select default assumed format for the ciphertext. Currently supported options: \[base64,raw]
+`-N, --input-format[=base64]`: Select default assumed format for the ciphertext. Currently supported options: [base64,raw]
 
- `-p, --passphrase`: Passphrase to decrypt the message                                               
+`-p, --passphrase`: Passphrase to decrypt the message
 
- `-F, --output-format`: If specified, the output will be formatted accordingly. options: \[base64]
+`-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
 ### `decrypt-pkcs1`
 
@@ -318,15 +306,15 @@ akeyless decrypt-pkcs1 \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the key to use in the decryption process      
+`-k, --key-name`: **Required**, The name of the key to use in the decryption process
 
- `-d, --display-id`: The display id of the key to use in the decryption process                
+`-d, --display-id`: The display id of the key to use in the decryption process
 
- `-I, --item-id`: The item id of the key to use in the decryption process                   
+`-I, --item-id`: The item id of the key to use in the decryption process
 
- `-c, --ciphertext`: **Required**, Ciphertext to be decrypted in base64 encoded format       
+`-c, --ciphertext`: **Required**, Ciphertext to be decrypted in base64 encoded format
 
- `-F, --output-format`: If specified, the output will be formatted accordingly. options: \[base64]
+`-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
 ### `encrypt`
 
@@ -344,21 +332,21 @@ akeyless encrypt \
 
 ##### Flags
 
- `-k, --key-name`: The name of the key to use in the encryption process                                                                                                                                        
+`-k, --key-name`: The name of the key to use in the encryption process
 
- `-d, --display-id`: The display id of the key to use in the encryption process                                                                                                                                  
+`-d, --display-id`: The display id of the key to use in the encryption process
 
- `-I, --item-id`: The item id of the key to use in the encryption process                                                                                                                                     
+`-I, --item-id`: The item id of the key to use in the encryption process
 
- `-i, --in`: Path to the file to be encrypted in base64 format                                                                                                                                           
+`-i, --in`: Path to the file to be encrypted in base64 format
 
- `-o, --out`: Path to the output file. If not provided, the output will be printed as base64                                                                                                              
+`-o, --out`: Path to the output file. If not provided, the output will be printed as base64
 
- `-p, --plaintext`: Data to be encrypted, if a file was not provided                                                                                                                                            
+`-p, --plaintext`: Data to be encrypted, if a file was not provided
 
- `-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail 
+`-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
 
- `-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: \[base64]                                                                               
+`-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
 
 ### `encrypt-file`
 
@@ -376,19 +364,19 @@ akeyless encrypt-file \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the key to use in the encryption process                                                                                                                        
+`-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
- `-d, --display-id`: The display id of the key to use in the encryption process                                                                                                                                  
+`-d, --display-id`: The display id of the key to use in the encryption process
 
- `-I, --item-id`: The item id of the key to use in the encryption process                                                                                                                                     
+`-I, --item-id`: The item id of the key to use in the encryption process
 
- `-i, --in`: **Required**, Path to the file to be encrypted. If not provided, the content will be taken from stdin                                                                                     
+`-i, --in`: **Required**, Path to the file to be encrypted. If not provided, the content will be taken from stdin
 
- `-o, --out`: **Required**, Path to the output file. If not provided, the output will be sent to stdout                                                                                                 
+`-o, --out`: **Required**, Path to the output file. If not provided, the output will be sent to stdout
 
- `-F, --output-format[=base64]`: The output will be formatted accordingly. options: \[base64, raw]                                                                                                                            
+`-F, --output-format[=base64]`: The output will be formatted accordingly. options: [base64, raw]
 
- `-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
+`-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
 
 ### `encrypt-gpg`
 
@@ -406,19 +394,19 @@ akeyless encrypt-gpg \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the key to use in the encryption process                                          
+`-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
- `-d, --display-id`: The display id of the key to use in the encryption process                                                    
+`-d, --display-id`: The display id of the key to use in the encryption process
 
- `-I, --item-id`: The item id of the key to use in the encryption process                                                       
+`-I, --item-id`: The item id of the key to use in the encryption process
 
- `-i, --in`: Path to the file to be encrypted in base64 format                                                             
+`-i, --in`: Path to the file to be encrypted in base64 format
 
- `-o, --out`: Path to the output file. If not provided, the output will be printed as base64                                
+`-o, --out`: Path to the output file. If not provided, the output will be printed as base64
 
- `-p, --plaintext`: Data to be encrypted, if a file was not provided                                                              
+`-p, --plaintext`: Data to be encrypted, if a file was not provided
 
- `-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: \[base64] 
+`-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
 
 ### `encrypt-pkcs1`
 
@@ -436,13 +424,13 @@ akeyless encrypt-pkcs1 \
 
 ##### Flags
 
- `-k, --key-name`: **Required**,The name of the key to use in the encryption process                 
+`-k, --key-name`: **Required**,The name of the key to use in the encryption process
 
- `-d, --display-id`: The display id of the key to use in the encryption process                          
+`-d, --display-id`: The display id of the key to use in the encryption process
 
- `-I, --item-id`: The item id of the key to use in the encryption process                             
+`-I, --item-id`: The item id of the key to use in the encryption process
 
- `-p, --plaintext`: **Required**, Data to be encrypted 
+`-p, --plaintext`: **Required**, Data to be encrypted
 
 ### `export-classic-key`
 
@@ -459,17 +447,17 @@ akeyless export-classic-key \
 
 #### Flags
 
- `-n, --name`: **Required**, Classic key name                                                                                  
+`-n, --name`: **Required**, Classic key name
 
- `-v, --version`: Classic key version                                                                                               
+`-v, --version`: Classic key version
 
- `--export-public-key[=false]`: Export only the public key                                                                                        
+`--export-public-key[=false]`: Export only the public key
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)                                                                   
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI 
+`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI
 
- `--wrapping-key-name`: Classic key name to wrap the key material with. This feature enables users to specify the name of a Key Encryption Key (KEK) to encrypt a Data Encryption Key (DEK) during the export process.
+`--wrapping-key-name`: Classic key name to wrap the key material with. This feature enables users to specify the name of a Key Encryption Key (KEK) to encrypt a Data Encryption Key (DEK) during the export process.
 
 ### `gateway-download-customer-fragments`
 
@@ -501,7 +489,7 @@ akeyless gen-customer-fragment \
 
 `-n, --name`: Customer Fragment name
 
-`-t, --type[=standard]`: Customer fragment type \[\`standard\`/\`hsm\_wrapped\`/\`hsm\_secured\`]
+`-t, --type[=standard]`: Customer fragment type [`standard`/`hsm_wrapped`/`hsm_secured`]
 
 `-k, --hsm-key-label`:  The label of the hsm key to use for customer fragment operations (relevant for `hsm_wrapped`/`hsm_secured` customer fragments)
 
@@ -517,7 +505,7 @@ akeyless get-rsa-public --name <Key name>
 
 ##### Flags
 
- `-n, --name`: **Required**, Name of RSA key to extract the public key from 
+`-n, --name`: **Required**, Name of RSA key to extract the public key from
 
 ### `hmac`
 
@@ -534,21 +522,21 @@ akeyless hmac \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the key to use in the encryption process                             
+`-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
- `-d, --display-id`: The display id of the key to use in the encryption process                                       
+`-d, --display-id`: The display id of the key to use in the encryption process
 
- `-I, --item-id`: The item id of the key to use in the encryption process                                          
+`-I, --item-id`: The item id of the key to use in the encryption process
 
- `-i, --in`: Path to the input file                                                                           
+`-i, --in`: Path to the input file
 
- `-o, --out`: Path to the output file. If not provided, the output will be printed as base64                   
+`-o, --out`: Path to the output file. If not provided, the output will be printed as base64
 
- `-p, --plaintext`: Data to perform hmac on, if a file was not provided                                              
+`-p, --plaintext`: Data to perform hmac on, if a file was not provided
 
- `-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-512`                                                                  
+`-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-512`
 
- `-F, --input-format`: Select the default assumed format for any plaintext input. Currently supported options: \[base64]
+`-F, --input-format`: Select the default assumed format for any plaintext input. Currently supported options: [base64]
 
 ### `refresh-key`
 
@@ -562,7 +550,7 @@ akeyless refresh-key --name <Key name>
 
 #### Flags
 
- `-n, --name`: **Required**, Key name
+`-n, --name`: **Required**, Key name
 
 ### `rotate-key`
 
@@ -579,11 +567,11 @@ akeyless rotate-key \
 
 ##### Flags
 
- `-n, --name`: **Required**, Key name                                                                             
+`-n, --name`: **Required**, Key name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port). Relevant only for Classic Key.                      
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port). Relevant only for Classic Key.
 
- `--new-key-data`: The new value of the key, base64 encoded. Relevant only for Classic Key provided by the user (BYOK). 
+`--new-key-data`: The new value of the key, base64 encoded. Relevant only for Classic Key provided by the user (BYOK).
 
 ### `set-item-state`
 
@@ -599,13 +587,13 @@ akeyless set-item-state \
 
 ##### Flags
 
- `-n, --name`: **Required**, Current item name                                    
+`-n, --name`: **Required**, Current item name
 
- `-s, --desired-state`: **Required**, Desired item state [Enabled, Disabled]                
+`-s, --desired-state`: **Required**, Desired item state [Enabled, Disabled]
 
- `--version[=0]`: The specific version you want to update: 0=item level state (default)
+`--version[=0]`: The specific version you want to update: 0=item level state (default)
 
-###`sign-ecdsa`
+### `sign-ecdsa`
 
 Calculates the signature of a given message using ECDSA and a sha hash algorithm matching the key size
 
@@ -621,15 +609,15 @@ akeyless sign-ecdsa \
 
 ##### Flags
 
- `-k, --key-name`: The name of the EC key to use for the signing process        
+`-k, --key-name`: The name of the EC key to use for the signing process
 
- `-d, --display-id`: The display id of the EC key to use for the signing process  
+`-d, --display-id`: The display id of the EC key to use for the signing process
 
- `-I, --item-id`: The item id of the key EC to use for the signing process
+`-I, --item-id`: The item id of the key EC to use for the signing process
 
- `--version`: The version of the key to use for signing
+`--version`: The version of the key to use for signing
 
- `--prehashed`: Markes that the message is already hashed
+`--prehashed`: Markes that the message is already hashed
 
 `-m, --message`: (**Mandatory**) The input message to sign in a base64 format
 
@@ -649,19 +637,19 @@ akeyless sign-gpg \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the RSA key to use in the signing process 
+`-k, --key-name`: **Required**, The name of the RSA key to use in the signing process
 
- `-d, --display-id`: The display id of the key to use in the signing process               
+`-d, --display-id`: The display id of the key to use in the signing process
 
- `-I, --item-id`: The item id of the key to use in the signing process                  
+`-I, --item-id`: The item id of the key to use in the signing process
 
- `-m, --message`: **Required**, The message to be signed                              
+`-m, --message`: **Required**, The message to be signed
 
- `-p, --passphrase`: Passphrase to decrypt the message
+`-p, --passphrase`: Passphrase to decrypt the message
 
 ### `sign-pkcs1`
 
-Calculates the signature of hashed using RSASSA-PKCS1-V1\_5-SIGN from RSA PKCS#1 v1.5
+Calculates the signature of hashed using RSASSA-PKCS1-V1_5-SIGN from RSA PKCS#1 v1.5
 
 ##### Usage
 
@@ -675,21 +663,21 @@ akeyless sign-pkcs1 \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the RSA key to use in the signing process               
+`-k, --key-name`: **Required**, The name of the RSA key to use in the signing process
 
- `-d, --display-id`: The display id of the key to use in the signing process                             
+`-d, --display-id`: The display id of the key to use in the signing process
 
- `-I, --item-id`: The item id of the key to use in the signing process
+`-I, --item-id`: The item id of the key to use in the signing process
 
- `--version`: The version of the key to use for signing
+`--version`: The version of the key to use for signing
 
- `-f, --hash-function[=sha-256]`: Hash function \[sha-256,sha-384,sha-512]
+`-f, --hash-function[=sha-256]`: Hash function [sha-256,sha-384,sha-512]
 
- `--prehashed`: Markes that the message is already hashed
+`--prehashed`: Markes that the message is already hashed
 
- `-F, --input-format`: Select default assumed format for the message input. Currently supported options: \[base64]
+`-F, --input-format`: Select default assumed format for the message input. Currently supported options: [base64]
 
- `-m, --message`: **Required**, The message to be signed
+`-m, --message`: **Required**, The message to be signed
 
 ### `sign-rsassa-pss`
 
@@ -707,19 +695,19 @@ akeyless sign-rsassa-pss \
 
 ##### Flags
 
- `-k, --key-name`: The name of the RSA key to use for the signing process       
+`-k, --key-name`: The name of the RSA key to use for the signing process
 
- `-d, --display-id`: The display id of the RSA key to use for the signing process 
+`-d, --display-id`: The display id of the RSA key to use for the signing process
 
- `-I, --item-id`: The item id of the RSA key to use for the signing process    
+`-I, --item-id`: The item id of the RSA key to use for the signing process
 
- `--version`: The version of the key to use for signing 
+`--version`: The version of the key to use for signing
 
-`-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-384`,`sha-512`                       
+`-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-384`,`sha-512`
 
-`-m, --message`: (**Mandatory**) The input message to sign in a base64 format 
+`-m, --message`: (**Mandatory**) The input message to sign in a base64 format
 
- `--prehashed`: Markes that the message is already hashed
+`--prehashed`: Markes that the message is already hashed
 
 ### `update-classic-key-certificate`
 
@@ -737,15 +725,15 @@ akeyless update-classic-key-certificate \
 
 ##### Flags
 
- `-n, --name`: (**Mandatory**) Classic key name                             
+`-n, --name`: (**Mandatory**) Classic key name
 
- `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)              
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
- `-c, --cert-file-path`: Path to a file that contains the certificate in a PEM format 
+`-c, --cert-file-path`: Path to a file that contains the certificate in a PEM format
 
- `--cert-file-data`: PEM Certificate in a Base64 format                           
+`--cert-file-data`: PEM Certificate in a Base64 format
 
- `--certificate-format`: The format of the returned certificate \[\`pem\`/\`der\`]
+`--certificate-format`: The format of the returned certificate [`pem`/`der`]
 
 ### `update-rotation-settings`
 
@@ -761,11 +749,11 @@ akeyless update-rotation-settings \
 
 #### Flags
 
- `-n, --name`: **Required**, Key name                                                                                                                                        
+`-n, --name`: **Required**, Key name
 
- `-r, --auto-rotate[=false]`: **Required**, \[true/false] Sets automatic rotation to be enabled or disabled, if enabled rotation will be triggered periodically based on --rotation-interval 
+`-r, --auto-rotate[=false]`: **Required**, [true/false] Sets automatic rotation to be enabled or disabled, if enabled rotation will be triggered periodically based on --rotation-interval
 
- `--rotation-interval`: The number of days to wait between every automatic key rotation (7-365)  
+`--rotation-interval`: The number of days to wait between every automatic key rotation (7-365)
 
 `--rotation-event-in `: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times:`--rotation-event-in 1 --rotation-event-in 5`
 
@@ -785,25 +773,25 @@ akeyless upload-pkcs12 \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name of key to be created                                                                                                                                
+`-n, --name`: **Required**, Name of key to be created
 
- `-i, --in`: **Required**, PKCS#12 input file (private key and certificate only)                                                                                                    
+`-i, --in`: **Required**, PKCS#12 input file (private key and certificate only)
 
- `-p, --passphrase`: **Required**, Passphrase to unlock the pkcs#12 bundle                                                                                                                  
+`-p, --passphrase`: **Required**, Passphrase to unlock the pkcs#12 bundle
 
- `--description`: Key description                                                                                                                                                          
+`--description`: Key description
 
- `-t, --tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2                                                             
+`-t, --tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
 
- `-s, --split-level[=2]`: The number of fragments that the item will be split into                                                                                                                 
+`-s, --split-level[=2]`: The number of fragments that the item will be split into
 
- `-f, --customer-frg-id`: The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment)                                     
+`-f, --customer-frg-id`: The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment)
 
- `-c, --cert`: Path to a file that contain the certificate in a PEM format. If this  is not empty, the certificate will be taken from here and not from the PKCS#12 input file 
+`-c, --cert`: Path to a file that contain the certificate in a PEM format. If this  is not empty, the certificate will be taken from here and not from the PKCS#12 input file
 
- `--delete-protection[=false]`: Protection from accidental deletion of this item, \[true/false]                                                                                                           
+`--delete-protection[=false]`: Protection from accidental deletion of this item, [true/false]
 
-###`upload-rsa`
+### `upload-rsa`
 
 Upload RSA key
 
@@ -821,31 +809,31 @@ akeyless upload-rsa \
 
 ##### Flags
 
- `-n, --name`: **Required**, Name of key to be created                                                                                            
+`-n, --name`: **Required**, Name of key to be created
 
- `-a, --alg`: **Required**, Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096]                                                              
+`-a, --alg`: **Required**, Key type. options: [RSA1024, RSA2048, RSA3072, RSA4096]
 
- `-p, --rsa-key-file-path`: RSA private key file path.                                                                                                           
+`-p, --rsa-key-file-path`: RSA private key file path.
 
- `--rsa-key-data`: RSA private key data, base64 encoded                                                                                                 
+`--rsa-key-data`: RSA private key data, base64 encoded
 
- `-c, --cert`: Path to a file that contain the certificate in a PEM format                                                                          
+`-c, --cert`: Path to a file that contain the certificate in a PEM format
 
- `--cert-file-data`: PEM Certificate in a Base64 format                                                                                                   
+`--cert-file-data`: PEM Certificate in a Base64 format
 
- `--description`: Key description                                                                                                                      
+`--description`: Key description
 
- `-t, --tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2                         
+`-t, --tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
 
- `-s, --split-level[=2]`: The number of fragments that the item will be split into                                                                             
+`-s, --split-level[=2]`: The number of fragments that the item will be split into
 
- `-f, --customer-frg-id`: The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment) 
+`-f, --customer-frg-id`: The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment)
 
- `--overwrite[=false]`: When the overwrite flag is set, this command will only update an existing key. \[true, false]                                         
+`--overwrite[=false]`: When the overwrite flag is set, this command will only update an existing key. [true, false]
 
- `--delete-protection`: Protection from accidental deletion of this item, \[true/false]                                                                       
+`--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-###`verify-ecdsa`
+### `verify-ecdsa`
 
 Verifies an ECDSA signature using a sha hash algorithm matching the key size
 
@@ -862,17 +850,17 @@ akeyless verify-rsassa-pss \
 
 ##### Flags
 
- `-k, --key-name`: The name of the EC key to use for the verification process       
+`-k, --key-name`: The name of the EC key to use for the verification process
 
- `-d, --display-id`: The display id of the key EC to use for the verification process 
+`-d, --display-id`: The display id of the key EC to use for the verification process
 
- `-I, --item-id`: The item id of the EC key to use for the verification process    
+`-I, --item-id`: The item id of the EC key to use for the verification process
 
- `-m, --message`: (**Mandatory**) The input message to sign in a base64 format     
+`-m, --message`: (**Mandatory**) The input message to sign in a base64 format
 
- `-s, --signature`: (**Mandatory**) The message's signature     
+`-s, --signature`: (**Mandatory**) The message's signature
 
-###`verify-gpg`
+### `verify-gpg`
 
 Verifies a GPG based on RSA signature
 
@@ -889,19 +877,19 @@ akeyless verify-gpg \
 
 ##### Flags
 
- `-k, --key-name`: The name of the RSA key to use in the verification process   
+`-k, --key-name`: The name of the RSA key to use in the verification process
 
- `-d, --display-id`: The display id of the key to use in the verification process 
+`-d, --display-id`: The display id of the key to use in the verification process
 
- `-I, --item-id`: The item id of the key to use in the verification process    
+`-I, --item-id`: The item id of the key to use in the verification process
 
- `-m, --message`: **Required**, The message to be verified.                  
+`-m, --message`: **Required**, The message to be verified.
 
- `-s, --signature`: **Required**, The message's signature.                     
+`-s, --signature`: **Required**, The message's signature.
 
- `-p, --passphrase`: Passphrase to decrypt the message
+`-p, --passphrase`: Passphrase to decrypt the message
 
-###`verify-pkcs1`
+### `verify-pkcs1`
 
 Verifies an RSA PKCS#1 v1.5 signature
 
@@ -918,17 +906,17 @@ akeyless verify-pkcs1 \
 
 ##### Flags
 
- `-k, --key-name`: **Required**, The name of the RSA key to use in the verification process 
+`-k, --key-name`: **Required**, The name of the RSA key to use in the verification process
 
- `-d, --display-id`: The display id of the key to use in the verification process               
+`-d, --display-id`: The display id of the key to use in the verification process
 
- `-I, --item-id`: The item id of the key to use in the verification process                  
+`-I, --item-id`: The item id of the key to use in the verification process
 
- `-m, --message`: **Required**, The message to be verified.                                
+`-m, --message`: **Required**, The message to be verified.
 
- `-s, --signature`: **Required**, The message's signature.     
+`-s, --signature`: **Required**, The message's signature.
 
-###`verify-rsassa-pss`
+### `verify-rsassa-pss`
 
 Verifies an rsassa-pss signature
 
@@ -945,17 +933,17 @@ akeyless verify-rsassa-pss \
 
 ##### Flags
 
- `-k, --key-name`: The name of the RSA key to use for the verification process       
+`-k, --key-name`: The name of the RSA key to use for the verification process
 
- `-d, --display-id`: The display id of the RSA key to use for the verification process 
+`-d, --display-id`: The display id of the RSA key to use for the verification process
 
- `-I, --item-id`: The item id of the RSA key to use for the verification process    
+`-I, --item-id`: The item id of the RSA key to use for the verification process
 
- `-f, --hash-function[=sha-256]`: Hash function \[sha-256,sha-384,sha-512]                           
+`-f, --hash-function[=sha-256]`: Hash function [sha-256,sha-384,sha-512]
 
- `-m, --message`:(**Mandatory**) The input message to sign in a base64 format      
+`-m, --message`:(**Mandatory**) The input message to sign in a base64 format
 
- `-s, --signature`: (**Mandatory**) The message's signature
+`-s, --signature`: (**Mandatory**) The message's signature
 
 ## Tokenization
 
@@ -986,31 +974,31 @@ akeyless create-tokenizer \
 
 ##### Flags
 
- `-n, --name`: **Required**, Tokenizer name                                                                                     
+`-n, --name`: **Required**, Tokenizer name
 
- `-y, --tokenizer-type[=vaultless]`: **Required**, Tokenizer type(vaultless)                                                                          
+`-y, --tokenizer-type[=vaultless]`: **Required**, Tokenizer type(vaultless)
 
- `-T, --template-type`: **Required**, Which template type this tokenizer is used for [SSN,CreditCard,USPhoneNumber,Custom]               
+`-T, --template-type`: **Required**, Which template type this tokenizer is used for [SSN,CreditCard,USPhoneNumber,Custom]
 
- `--encryption-key-name`: AES key name to use in vaultless tokenization                                                                      
+`--encryption-key-name`: AES key name to use in vaultless tokenization
 
- `--tweak-type`: The tweak type to use in vaultless tokenization [Supplied, Generated, Internal, Masking]                           
+`--tweak-type`: The tweak type to use in vaultless tokenization [Supplied, Generated, Internal, Masking]
 
- `--alphabet`: Alphabet to use in custom vaultless tokenization, such as '0123456789' for credit cards.                           
+`--alphabet`: Alphabet to use in custom vaultless tokenization, such as '0123456789' for credit cards.
 
- `--pattern`: Pattern to use in custom vaultless tokenization                                                                    
+`--pattern`: Pattern to use in custom vaultless tokenization
 
- `--encoding-template`: The Encoding output template to use in custom vaultless tokenization                                               
+`--encoding-template`: The Encoding output template to use in custom vaultless tokenization
 
- `--decoding-template`: The Decoding output template to use in custom vaultless tokenization                                               
+`--decoding-template`: The Decoding output template to use in custom vaultless tokenization
 
- `--description`: Tokenizer description                                                                                              
+`--description`: Tokenizer description
 
- `--tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: --tag Tag1 --tag Tag2 
+`--tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: --tag Tag1 --tag Tag2
 
- `--delete-protection`: Protection from accidental deletion of this item, \[true/false]           
+`--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-###`detokenize`
+### `detokenize`
 
 Decrypts text with a tokenizer
 
@@ -1025,13 +1013,13 @@ akeyless detokenize \
 
 ##### Flags
 
- `-n, --tokenizer-name`: **Required**, The name of the tokenizer to use in the decryption process 
+`-n, --tokenizer-name`: **Required**, The name of the tokenizer to use in the decryption process
 
- `-c, --ciphertext`: **Required**, Data to be decrypted                                       
+`-c, --ciphertext`: **Required**, Data to be decrypted
 
- `--tweak`: Base64 encoded tweak for vaultless encryption                                          
+`--tweak`: Base64 encoded tweak for vaultless encryption
 
-###`tokenize`
+### `tokenize`
 
 Encrypts text with a tokenizer
 
@@ -1046,8 +1034,8 @@ akeyless tokenize \
 
 ##### Flags
 
- `-n, --tokenizer-name `: **Required**, The name of the tokenizer to use in the encryption process 
+`-n, --tokenizer-name `: **Required**, The name of the tokenizer to use in the encryption process
 
- `-p, --plaintext`: **Required**, Data to be encrypted                                       
+`-p, --plaintext`: **Required**, Data to be encrypted
 
- `--tweak`: Base64 encoded tweak for vaultless encryption
+`--tweak`: Base64 encoded tweak for vaultless encryption
