@@ -149,7 +149,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
       <td>
         Yes*
-        (if using the access_key access-type)
+        (if using the `access_key` access type)
       </td>
 
       <td>
@@ -163,7 +163,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        Authentication method
+        Authentication method. Acceptable values are:
+
+        * `access_key`
+        * `aws_iam`
+        * `cert`
       </td>
 
       <td>
@@ -172,6 +176,42 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
       <td>
         `access_key`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--cert-file-name`
+      </td>
+
+      <td>
+        Path to where the certificate file for certificate authentication is located
+      </td>
+
+      <td>
+        Yes* (if using the `cert` access type)
+      </td>
+
+      <td>
+        (none)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--cloud-id`
+      </td>
+
+      <td>
+        The ARN of your AWS IAM Role[^1].
+      </td>
+
+      <td>
+        Yes* (if using the `aws_iam` access type)
+      </td>
+
+      <td>
+        (none)
       </td>
     </tr>
 
@@ -190,6 +230,24 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
       <td>
         `https://api.akeyless.io`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `args.--key-file-name`
+      </td>
+
+      <td>
+        Path to where the key file for certificate authentication is located
+      </td>
+
+      <td>
+        Yes* (if using the `cert` access type)
+      </td>
+
+      <td>
+        (none)
       </td>
     </tr>
 
@@ -451,3 +509,7 @@ x-frame-options: SAMEORIGIN
 * Check file paths are correct
 * Verify command arguments
 * Review environment variables
+
+<AWSARNIAMRoleFootnote />
+
+<br />
