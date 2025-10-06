@@ -18,3 +18,4 @@
 - rdp-dynamic-secrets
 - snowflake-dynamic-secrets
 - custom-producer
+- openai-dynamic-secrets
