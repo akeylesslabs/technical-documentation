@@ -1,6 +1,6 @@
 ---
 title: Log Forwarding Configuration (COPY)
-excerpt: Standalone Gateway
+excerpt: Docker Compose Gateway
 deprecated: false
 hidden: true
 metadata:
