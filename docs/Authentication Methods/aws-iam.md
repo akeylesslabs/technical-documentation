@@ -65,8 +65,6 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`
-
 * **Bounded AWS Account IDs:** Enter a comma-separated list of AWS account IDs for which access is allowed.
 
 * **Bounded ARNs:** Enter a comma-separated list of full IAM role ARNs for which access is allowed. For example: `arn:aws:sts:{account-id}:assumed-role/{role-name}/{resource-id}, arn:aws:iam::{account-id}:user/{user-name}`. Or use wildcard characters like `*` or `?`  to grant multiple roles within a single ARN Role. For example,`arn:aws:sts:us-east-?:123456789012:*` would allow any IAM role in the AWS account to login to `us-east` regions. This parameter is optional. Leave it empty for unrestricted access.
