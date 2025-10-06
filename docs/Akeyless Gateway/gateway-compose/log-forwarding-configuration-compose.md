@@ -2,7 +2,7 @@
 title: 'Log Forwarding Configuration '
 excerpt: Docker Compose Gateway
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
