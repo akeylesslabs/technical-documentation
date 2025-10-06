@@ -9,8 +9,8 @@
 - kerberos
 - kubernetes-auth
 - ldap
-- oci-iam
 - oauth20jwt
+- oci-iam
 - openid
 - saml
 - universal-identity
