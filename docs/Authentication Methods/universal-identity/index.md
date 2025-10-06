@@ -18,7 +18,7 @@ The Akeyless Universal Identity (UID) authentication method enables you to ident
 
 The following diagram describes the flow of credentials when using UID tokens, demonstrating the elimination of the secret zero problem:
 
-![](https://files.readme.io/e362078-image_1.png "image (1).png")
+<Image border={false} src="https://files.readme.io/e362078-image_1.png" title="image (1).png" />
 
 While the process has an initiation phase where the Admin creates the original authentication method, the secret zero problem is avoided by repeatedly rotating the UID, to the point where the original credentials are unusable, and constant rotation protects any vulnerability.
 
@@ -90,13 +90,13 @@ curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 
 It is considered a best practice to rotate tokens often, and with tokens being a machine identity authentication method, you may set up an automated script that will rotate your token in pre-scheduled intervals.
 
-While you can write your own script, we have a compatible one-minute interval token rotation script in the <a href="https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/" target="_blank">Akeyless Downloads</a> folder.\
+While you can write your own script, we have a compatible one-minute interval token rotation script in the <a href="https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/" target="_blank">Akeyless Downloads</a> folder.
 This script is Linux/MacOS compatible, and has the following flow:
 
 1. Write the token to a path
 2. Take the token from path to perform commands
 3. Rotate token
-4. Replace the token in path\
+4. Replace the token in path
    After downloading the `.sh` file, execute it and select `init` and insert the token you generated to start the process. From this point on the script can be run automatically to rotate the token by itself.
 
 If you wish to write your own script, here are some useful parts you might want to include:
@@ -179,10 +179,12 @@ Universal Identity Details:
 
 * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).\
+* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).
   If empty, the Gateway's IP will be used in the logs.
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
 
 * Check **Deny Rotate** if you want to forbid token rotation.
 
@@ -194,7 +196,7 @@ Universal Identity Details:
 
 ## Generate a Token
 
-To generate a token in the Console, 
+To generate a token in the Console,
 
 1. Open the corresponding authentication method
 2. Go to **UID Tree** tab and then click**Generate**.
@@ -205,18 +207,18 @@ To generate a token in the Console,
 
 ## Revoke a Token
 
-To revoke a token in the Console, 
+To revoke a token in the Console,
 
-1. Open the corresponding authentication method 
+1. Open the corresponding authentication method
 2. Go to **UID Tree** tab.
 3. Right-click the node and click **Revoke token**.
 4. Select **Revoke self** if you want to revoke the selected node only or select **Revoke self and children** if you want to revoke the selected node and its children node/s. Click **Save**.
 
 ## Create a Child Token
 
-To create a child token in the Console, 
+To create a child token in the Console,
 
-1. Open the corresponding authentication method, 
+1. Open the corresponding authentication method,
 2. Go to **UID Tree** tab.
 3. Right-click the root node and click **Create child token**.
 4. Define the parameters as follows:
@@ -230,9 +232,9 @@ To create a child token in the Console,
 
 ## Get the Token Tree
 
-To get the token tree in the Console, 
+To get the token tree in the Console,
 
-1. Open the corresponding authentication method, 
+1. Open the corresponding authentication method,
 2. Go to **UID Tree** tab.
 
 > 📘 Note
