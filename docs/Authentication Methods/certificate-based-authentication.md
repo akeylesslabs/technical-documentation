@@ -22,17 +22,17 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 * **SDK** – In this mode, to verify the possession of the client on the private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge. Alternatively, you can perform the certificate verification challenge [manually](https://docs.akeyless.io/docs/certificate-based-authentication#manual-certificate-verification). Allowing you to avoid transmitting the private key to the Gateway.
 
-<Image align="center" src="https://files.readme.io/8191f2c-Cert_key_auth.png" />
+<Image align="center" border={false} src="https://files.readme.io/8191f2c-Cert_key_auth.png" />
 
 # Prerequisites
 
-* A **Chain of Trust** for siging a **Client** Certificate , If you don't have one, you can [build your chain of trust](doc:build-your-chain-of-trust) in Akeyless. 
+* A **Chain of Trust** for siging a **Client** Certificate , If you don't have one, you can [build your chain of trust](doc:build-your-chain-of-trust) in Akeyless.
 
 * A **Client** Certificate (signed by an Intermediate CA) with `clientauth` key usage, along with the corresponding Private Key, both in `PEM` format.
 
 ## Create a Certificate-based Authentication Method in the CLI
 
-To create a certificate-based authentication method, the user must provide a signed client certificate, and a `unique identifier` that could be a value of `common_name` or `organizational_unit` parameters from the certificate. 
+To create a certificate-based authentication method, the user must provide a signed client certificate, and a `unique identifier` that could be a value of `common_name` or `organizational_unit` parameters from the certificate.
 
 A `unique identifier` acts as a <a href="https://docs.akeyless.io/docs/sub-claims" target="_blank">sub-claim</a> helping to uniquely identify the authenticating Identity.
 
@@ -95,23 +95,25 @@ You can find the complete list of additional parameters for this command in the 
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
+
 * **CA Certificate:** Download the CA certificate in Base64 format.
 
-* **Bound Common Names:** Enter a list of names. At least one must exist in the Common Name of the certificate. Supports globbing. 
+* **Bound Common Names:** Enter a list of names. At least one must exist in the Common Name of the certificate. Supports globbing.
 
-* **Bound DNS SANs:** Enter a list of DNS names. At least one must exist in the SANs of the certificate. Supports globbing. 
+* **Bound DNS SANs:** Enter a list of DNS names. At least one must exist in the SANs of the certificate. Supports globbing.
 
-* **Bound Email SANs:** Enter a list of Email Addresses. At least one must exist in the SANs of the certificate. Supports globbing. 
+* **Bound Email SANs:** Enter a list of Email Addresses. At least one must exist in the SANs of the certificate. Supports globbing.
 
-* **Bound URI SANs:** Enter a list of URIs. At least one must exist in the SANs of the certificate. Supports globbing. 
+* **Bound URI SANs:** Enter a list of URIs. At least one must exist in the SANs of the certificate. Supports globbing.
 
-* **Bound Organizational Units:** Enter a list of Organizational Units' names. At least one must exist in the OU field of the certificate. 
+* **Bound Organizational Units:** Enter a list of Organizational Units' names. At least one must exist in the OU field of the certificate.
 
-* **Bound Extensions:** Enter a list of extensions formatted as `oid:value`. Expects the extension value to be some type of ASN1 encoded string. All values must exist in the certificate. Supports globbing on `value`. 
+* **Bound Extensions:** Enter a list of extensions formatted as `oid:value`. Expects the extension value to be some type of ASN1 encoded string. All values must exist in the certificate. Supports globbing on `value`.
 
 * **Revoked Cert Ids:** Enter a list of revoked certificate IDs. It can be used to revoke specific certificates or intermediate certificates.
 
-* **Allowed CORS Domains:** Comma-separated list of allowed CORS domains to be validated as part of the authentication flow. Relevant only when using UI, specify which CN\\domain to look in the key store.
+* **Allowed CORS Domains:** Comma-separated list of allowed CORS domains to be validated as part of the authentication flow. Relevant only when using UI, specify which CN\domain to look in the key store.
 
 * **Unique Identifier:** A unique identifier to distinguish different users, such as `common_name` or `organizational_unit`.
 
@@ -135,7 +137,7 @@ akeyless get-cert-challenge \
 --cert-data <cert data encoded in base64>
 ```
 
-Running the above will produce a unique value that must be signed by the corresponding private key in order to continue the authentication process. Note, this challenge is valid for 60 seconds only. 
+Running the above will produce a unique value that must be signed by the corresponding private key in order to continue the authentication process. Note, this challenge is valid for 60 seconds only.
 
 * Automated challenge generation and signing with the SDK:
 
