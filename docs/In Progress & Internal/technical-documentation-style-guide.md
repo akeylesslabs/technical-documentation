@@ -28,6 +28,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Consistency**: Use the same terminology for features, functions, and components throughout.
 * **Conciseness**: Avoid unnecessary words, filler phrases, or redundant explanations.
 * **Audience awareness**: Assume readers have basic technical knowledge but may not be experts.
+* **Simplicity**: Keep punctuation simple and avoid chained clauses.
 
 # Tone
 
@@ -118,7 +119,8 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 * Include working, tested examples.
 * Show expected input and output when relevant.
-* Use realistic values, not placeholders, unless security-sensitive.
+* Use realistic values wherever possible, not placeholders, unless security-sensitive.
+* When formatting inputs and output pairs, precede the input with a ">" and the output following on the next line.
 
 # CLI Reference Structure
 
@@ -168,6 +170,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 ## Localization and Translation
 
 * **Keep sentences simple and clear**: Short sentences are easier to translate and less likely to create ambiguity.
+* **Avoid fragments**: Sentence fragments are harder to translate; therefore, wherever possible, write in complete sentences.
 * **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meeting to a native speaker or speakers from a particular regions. Examples:
   * "At heart, this product does a thing."
   * "Under the hood, the library uses an event-driven architecture.”
@@ -183,6 +186,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * If possible, have Harrison ([harrison.s@akeyless.io](mailto:harrison.s@akeyless.io)) review all content.
 * Verify technical accuracy.
 * Run spell check and grammar review.
+* Utilize the ReadMe.com AI Linter.
 * Validate code snippets and commands.
 
 # Do’s and Don’ts
@@ -198,9 +202,5 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * Assume prior product knowledge.
 * Use unexplained jargon.
 * Overload with unnecessary detail.
-
-# Additional Resources
-
-* TODO
 
 ***
