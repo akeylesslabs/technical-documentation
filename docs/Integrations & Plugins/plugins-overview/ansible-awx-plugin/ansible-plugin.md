@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless official [plugin for Ansible](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/) provides modules and plugins to securely manage secrets, credentials, and sensitive data within playbooks. It helps maintain efficient and secure automation workflows, allowing teams to simplify secret management while protecting critical information. 
+The Akeyless official [plugin for Ansible](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/) provides modules and plugins to securely manage secrets, credentials, and sensitive data within playbooks. It helps maintain efficient and secure automation workflows, allowing teams to simplify secret management while protecting critical information.
 
 You can manage secrets and certificates with either [Modules](https://docs.ansible.com/ansible/latest/plugins/module.html) or [Lookup](https://docs.ansible.com/ansible/latest/plugins/lookup.html) plugins. In this guide, we will use Modules for simplicity. More information about the Lookup plugin can be found [here](https://docs.ansible.com/ansible/latest/plugins/lookup.html)
 
@@ -30,7 +30,7 @@ For more information, refer to the [Ansible Galaxy documentation](https://galaxy
 
 This plugin supports the following Authentication Methods:
 
-* [API Key](https://docs.akeyless.io/docs/api-key) 
+* [API Key](https://docs.akeyless.io/docs/api-key)
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 * [Azure AD](https://docs.akeyless.io/docs/azure-ad)
 * [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
@@ -129,7 +129,7 @@ login:
 login:
         akeyless_api_url: 'https://api.akeyless.io'
         access_id: '<Access ID>'
-        access_type: 'jwt'
+        access_type: 'saml'
         use_remote_browser: 'true | false'
         akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
 ```
@@ -139,7 +139,7 @@ login:
         access_id: '<Access ID>'
         access_type: 'universal_identity'
         use_remote_browser: 'true | false'
-        uid_token: '<uid_token>
+        uid_token: '<uid_token>'
 ```
 
 Where:
@@ -148,7 +148,7 @@ Where:
 
 * `access_id`: The `Access ID` of the Auth Method being used.
 
-* `access_type`: The type of the Auth Method being used.  
+* `access_type`: The type of the Auth Method being used.
 
 * `cloud_id`: The `cloud_id`, can be retrieved by running: `akeyless get-cloud-identity`
 
@@ -156,7 +156,7 @@ Where:
 
 # Usage
 
-This section provides examples of fetching secrets and certificates and creating a [Static Secret](https://docs.akeyless.io/docs/static-secrets). 
+This section provides examples of fetching secrets and certificates and creating a [Static Secret](https://docs.akeyless.io/docs/static-secrets).
 
 To create an **Ansible Playbook**, create a `yaml` file containing the configuration below.
 
@@ -193,9 +193,9 @@ Where:
 
 * `value`: the value of the Static Secret.
 
-* `type`: The Secret type \[\`generic\` or \`password\`].
+* `type`: The Secret type [`generic` or `password`].
 
-* `format`: The Secret format \[\`text\` | \`json\` | \`key-value\`].
+* `format`: The Secret format [`text` | `json` | `key-value`].
 
 Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
 
