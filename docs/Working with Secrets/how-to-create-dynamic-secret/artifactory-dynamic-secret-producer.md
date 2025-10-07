@@ -22,7 +22,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 >
 > We recommend using dynamic secrets with [a Target](doc:artifactory-targets) . While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Artifactory secret from the CLI using an existing [Artifactory Target](doc:artifactory-targets) , run the following command: 
+To create a dynamic Artifactory secret from the CLI using an existing [Artifactory Target](doc:artifactory-targets) , run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create artifactory \
@@ -33,10 +33,10 @@ akeyless dynamic-secret create artifactory \
 --artifactory-token-audience <Space-separated list of instances>
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell Akeyless CLI
-akeyless dynamic-secret create akeyless dynamic-secret get-valueartifactory \
+akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --artifactory-token-scope <Space-separated list of scopes> \
@@ -62,7 +62,7 @@ Where:
 
 If you don't have an [Artifactory Target](doc:artifactory-targets) yet, you can use the command with your Artifactory target server connection string:
 
-* `base-url`: The JFrog Artifactory REST URL, which must end with the `artifactory` postfix.\
+* `base-url`: The JFrog Artifactory REST URL, which must end with the `artifactory` postfix.
   For example, if you use your JFrog URL, this could be `http://myjfrog.acme.org/artifactory/`.
 
 * `artifactory-admin-name`: The Artifactory user with privileges to create JWT tokens.
@@ -73,7 +73,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic Artifactory Secret value from the CLI
 
-To fetch a dynamic Artifactory secret value from the CLI, run the following command: 
+To fetch a dynamic Artifactory secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
@@ -96,9 +96,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing [Artifactory Target](doc:artifactory-targets)  or specify details of the target Artifactory server explicitly.
 * **Token Scope:** Specify a scope (or a space-separated list of scopes) to assign to the temporary token.
-* **Token Audience:** Specify a space-separated list of other JFrog Artifactory instances or services that should accept this token. The default value is the JFrog Artifactory service ID instance that created this token. For example, to accept all JFrog Artifactory instances, type **jfrt@\***.
+* **Token Audience:** Specify a space-separated list of other JFrog Artifactory instances or services that should accept this token. The default value is the JFrog Artifactory service ID instance that created this token. For example, to accept all JFrog Artifactory instances, type **jfrt@***.
 * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token).\
+* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token).
   When TTL expires, the token becomes obsolete.
 * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
@@ -108,9 +108,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 6. Provide details of the target Artifactory server:
 
-* **Base URL:** Specify the JFrog Artifactory REST URL, which must end with the **artifactory** postfix. 
+* **Base URL:** Specify the JFrog Artifactory REST URL, which must end with the **artifactory** postfix.
 
-For example, if you use your JFrog URL, this could be **[\<https://myjfrog.acme.org/artifactory/>](https://myjfrog.acme.org/artifactory/)**. Or, if you use your JFrog Artifactory server hostname and port, this could be **https\://ARTIFACTORY\_SERVER\_HOSTNAME:8081/artifactory/**.
+For example, if you use your JFrog URL, this could be **[\<https://myjfrog.acme.org/artifactory/>](https://myjfrog.acme.org/artifactory/)**. Or, if you use your JFrog Artifactory server hostname and port, this could be **https://ARTIFACTORY_SERVER_HOSTNAME:8081/artifactory/**.
 
 * **Admin Username:** Provide the name of the Artifactory user with privileges to create JWT tokens.
 
