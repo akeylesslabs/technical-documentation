@@ -83,12 +83,18 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 # Terminology
 
-* Always use the product’s official names.
 * Capitalize proper nouns and feature names (e.g., Akeyless MCP Server).
 * When using abbreviations, unless they are widely known (e.g., "API," "URL"), always define them on first use.
   * For example, "Our API supports CRUD (Create, Read, Update, and Delete) operations."
 * Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
-* When referencing non-Akeyless products and features, consistently apply the capitalization and puncutation of the owning organization of the product referenced. Some examples are:
+
+## Akeyless Specific Terms
+
+* Always use the product’s official names.
+
+## Third-Party Terms
+
+* When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
   * GitLab (instead of Gitlab)
   * GitHub (instead of Github)
   * Docker Hub (instead of dockerhub)
@@ -98,13 +104,15 @@ This guide defines standards for writing clear, consistent, and professional tec
   * MSSQL (instead of mssql)
   * Amazon Redshift (instead of Redshift)
   * Amazon EKS (instead of EKS or AWS EKS)
-  * `kubectl` (instead of Kubectl)
+  * `kubectl` (instead of Kubectl)'
+
+## Command-Line Conventions
+
 * When referring to CLI commands use the proper terminology. Referring to this example: `akeyless target create godaddy -n "name-value" -p "password"`
   * `akeyless` is the command.
   * `target`, `create`, and `godaddy` are subcommands.
   * `-n` and `-p` are flags (also known as options).
   * `"name-value"` and `"password"` are flag values (or option values).
-
 
 # Examples
 
