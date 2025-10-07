@@ -36,7 +36,7 @@ The following table describes the main functionality of Akeyless microservices i
   <tbody>
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Console:**
+        Console
 
         [https://console.eu.akeyless.io](https://console.eu.akeyless.io)
       </td>
@@ -57,7 +57,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Vault:**
+        Vault
 
         [https://vault.eu.akeyless.io](https://vault.eu.akeyless.io)
         [https://vault-ro.eu.akeyless.io](https://vault-ro.eu.akeyless.io)
@@ -79,7 +79,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Auth:**
+        Auth
 
         [https://auth.eu.akeyless.io](https://auth.eu.akeyless.io)
         [https://auth-ro.eu.akeyless.io](https://auth-ro.eu.akeyless.io)
@@ -103,7 +103,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Certificate Auth:**
+        Certificate Auth
 
         [https://auth-cert.eu.akeyless.io](https://auth-cert.eu.akeyless.io)
       </td>
@@ -125,7 +125,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Audit:**
+        Audit
 
         [https://audit.eu.akeyless.io](https://audit.eu.akeyless.io)
         [https://audit-ro.eu.akeyless.io](https://audit-ro.eu.akeyless.io)
@@ -149,7 +149,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **BIS:**
+        BIS
 
         [https://bis.eu.akeyless.io](https://bis.eu.akeyless.io)
         [https://bis-ro.eu.akeyless.io](https://bis-ro.eu.akeyless.io)
@@ -171,7 +171,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Gator:**
+        Gator
 
         [https://gator.eu.akeyless.io](https://gator.eu.akeyless.io)
         [https://gator-ro.eu.akeyless.io](https://gator-ro.eu.akeyless.io)
@@ -195,7 +195,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **MQ:**
+        MQ
 
         amqps://mq.eu.akeyless.io
       </td>
@@ -210,13 +210,13 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Message queue between Akeyless micro-services
+        Message queue (MQ) between Akeyless micro-services
       </td>
     </tr>
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **KFM:**
+        KFM
 
         [https://kfm1.eu.akeyless.io](https://kfm1.eu.akeyless.io),
         [https://kfm1-ro.eu.akeyless.io](https://kfm1-ro.eu.akeyless.io),
@@ -246,7 +246,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Public Gateway:**
+        Public Gateway
 
         [https://rest.eu.akeyless.io](https://rest.eu.akeyless.io)
         [https://api.eu.akeyless.io](https://api.eu.akeyless.io)
@@ -262,13 +262,13 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Optional Public Gateway rest API v1\v2
+        Optional Public Gateway rest API v1/v2
       </td>
     </tr>
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Public HVP:**
+        Public HVP
 
         [https://hvp.eu.akeyless.io](https://hvp.eu.akeyless.io)
       </td>
@@ -289,7 +289,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Logs:**
+        Logs
 
         tcp://log.eu.akeyless.io:9997 tcp://log.eu.akeyless.io:9443
       </td>
@@ -303,7 +303,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        GW logs, mainly to be reflected during failure scenarios
+        Gateway logs, mainly to be reflected during failure scenarios
       </td>
     </tr>
 
@@ -339,7 +339,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        S3 bucket to download & update Akeyless official binaries. e.g. `Gateway`
+        S3 bucket to download & update Akeyless official binaries
       </td>
     </tr>
   </tbody>
