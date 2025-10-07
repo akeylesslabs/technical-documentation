@@ -87,7 +87,18 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Capitalize proper nouns and feature names (e.g., Akeyless MCP Server).
 * Avoid abbreviations unless widely known (e.g., "API," "URL").
 * Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
-* When referencing non-Akeyless products and features, consistently apply the capitalization and puncutation of the owning organization of the product referenced.
+* When referencing non-Akeyless products and features, consistently apply the capitalization and puncutation of the owning organization of the product referenced. Some examples are:
+  * GitLab (instead of Gitlab)
+  * DockerHub (instead of dockerhub)
+  * HashiCorp Vault (instead of Hashi-Vault)
+  * SAP HANA (instead of HANA DB)
+  * MySQL (instead of mysql)
+* When referring to CLI commands use the proper terminology. Referring to this example: `akeyless target create godaddy -n "name-value" -p "password"`
+  * `akeyless` is the command.
+  * `target`, `create`, and `godaddy` are subcommands.
+  * `-n` and `-p` are flags (also known as options).
+  * `"name-value"` and `"password"` are flag values (or option values).
+
 
 # Examples
 
