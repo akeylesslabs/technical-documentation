@@ -30,7 +30,7 @@ Inject and provision secrets into DevOps tools such as CI/CD and Configuration M
 
 Learn more about managing your secrets [here](doc:manage-your-secrets-overview).
 
-<Image align="center" border={false} src="https://files.readme.io/7814b0e-Customers_Applications.png" />
+<Image src="https://files.readme.io/7814b0e-Customers_Applications.png" />
 
 ## Universal Secret Connector
 
@@ -60,6 +60,6 @@ Enable your DevOps, Engineers, and IT teams to securely and seamlessly access re
 
 Also known as Zero-Trust Application Access, our solution uniquely combines the ability to interface with third-party **identity providers** for authentication with robust **role-based access control** for authorization, and the ability to provide **just-in-time access** to endpoint resources, using dynamic secrets as short-lived credentials and certificates.
 
-Privileged and non-privileged access is allowed via protocols such as SSH, RDP, SQL, Kubectl (and more), either from the Akeyless Remote Access Portal or the native CLI tools. Furthermore, maintain compliance with session auditing and recording capabilities. You can even revoke sessions in real-time if any suspicious activity is detected.
+Privileged and non-privileged access is allowed via protocols such as SSH, RDP, SQL, `kubectl` (and more), either from the Akeyless Remote Access Portal or the native CLI tools. Furthermore, maintain compliance with session auditing and recording capabilities. You can even revoke sessions in real-time if any suspicious activity is detected.
 
 Learn more about Secure Remote Access (SRA) [here](doc:secure-remote-access).
