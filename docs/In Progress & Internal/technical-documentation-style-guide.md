@@ -90,10 +90,15 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
 * When referencing non-Akeyless products and features, consistently apply the capitalization and puncutation of the owning organization of the product referenced. Some examples are:
   * GitLab (instead of Gitlab)
+  * GitHub (instead of Github)
   * Docker Hub (instead of dockerhub)
   * HashiCorp Vault (instead of Hashi-Vault)
-  * SAP HANA (instead of HANA DB)
+  * SAP HANA database (instead of HANA DB)
   * MySQL (instead of mysql)
+  * MSSQL (instead of mssql)
+  * Amazon Redshift (instead of Redshift)
+  * Amazon EKS (instead of EKS or AWS EKS)
+  * `kubectl` (instead of Kubectl)
 * When referring to CLI commands use the proper terminology. Referring to this example: `akeyless target create godaddy -n "name-value" -p "password"`
   * `akeyless` is the command.
   * `target`, `create`, and `godaddy` are subcommands.
@@ -107,28 +112,11 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Show expected input and output when relevant.
 * Use realistic values, not placeholders, unless security-sensitive.
 
-# Documentation Components
+# CLI Reference Structure
 
-## Introduction
+CLI References should document only one command or subcommand. Each CLI reference page should describe the command (or subcommand), provide a usage example, provide a description of all available flags, and can optionally have an additional notes section. Consequently, CLI Reference pages will feature a large amount of redundancy. To ease authoring, use ReadMe's Reusable Content feature.
 
-* Brief overview of purpose and scope.
-
-## Prerequisites
-
-* List required tools, knowledge, and dependencies.
-
-## Procedures
-
-* Step-by-step instructions with numbered lists.
-* Include screenshots or diagrams when beneficial.
-
-## Troubleshooting
-
-* Common errors and solutions.
-
-## References
-
-* Links to related guides, API docs, or specifications.
+Due to the nature of CLI help pages, their documentation uses many shortened words, abbreviations, and unclear descriptions. These issues should be resolved on a CLI Reference, rather than duplicated.
 
 # Style Conventions
 
