@@ -30,7 +30,7 @@ Inject and provision secrets into DevOps tools such as CI/CD and Configuration M
 
 Learn more about managing your secrets [here](doc:manage-your-secrets-overview).
 
-<Image align="center" src="https://files.readme.io/7814b0e-Customers_Applications.png" />
+<Image align="center" border={false} src="https://files.readme.io/7814b0e-Customers_Applications.png" />
 
 ## Universal Secret Connector
 
@@ -50,7 +50,7 @@ The Akeyless Platform combines the capabilities of an HSM and a KMS to provide e
 
 Easily integrate your applications, libraries, or scripts with Akeyless using our [SDKs](doc:sdks) and plugins.
 
-Leveraging Akeyless’ unique FIPS-certified Encryption Key Management technology, your encryption keys never exist as a whole. They are instead created as fragments in different regions and cloud providers and are NEVER combined, not even during the encryption/signing process itself. To make sure that you are the exclusive owner of your keys, one of the fragments is created on your side and cannot be accessed by Akeyless.
+Leveraging the unique FIPS-certified Encryption Key Management technology of Akeyless, your encryption keys never exist as a whole. They are instead created as fragments in different regions and cloud providers and are NEVER combined, not even during the encryption/signing process itself. To make sure that you are the exclusive owner of your keys, one of the fragments is created on your side and cannot be accessed by Akeyless.
 
 Learn more about encryption and key management [here](doc:encryption-key-management-overview).
 
