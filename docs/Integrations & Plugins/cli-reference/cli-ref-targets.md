@@ -972,7 +972,7 @@ akeyless target create zerossl \
 --imap-username <Username to access the IMAP service> \
 --imap-password <Password to access the IMAP service> \
 --imap-fqdn <FQDN of the IMAP service> \
---imap-validation-imap <Email address to send the validation email>
+--imap-validation-email <Email address to send the validation email>
 ```
 
 ##### Flags
@@ -2138,7 +2138,7 @@ akeyless target update-zerossl-target \
 --imap-username <Username to access the IMAP service> \
 --imap-password <Password to access the IMAP service> \
 --imap-fqdn <FQDN of the IMAP service> \
---imap-validation-imap <Email address to send the validation email> \
+--imap-validation-email <Email address to send the validation email> \
 --new-name <New Name>
 ```
 
