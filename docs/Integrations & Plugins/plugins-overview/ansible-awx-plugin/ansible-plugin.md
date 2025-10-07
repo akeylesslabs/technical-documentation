@@ -139,7 +139,7 @@ login:
         access_id: '<Access ID>'
         access_type: 'universal_identity'
         use_remote_browser: 'true | false'
-        uid_token: '<uid_token>
+        uid_token: '<uid_token>'
 ```
 
 Where:
