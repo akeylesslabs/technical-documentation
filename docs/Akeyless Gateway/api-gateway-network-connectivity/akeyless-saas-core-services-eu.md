@@ -36,13 +36,13 @@ The following table describes the main functionality of Akeyless microservices i
   <tbody>
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Console:**  
+        **Console:**
 
         [https://console.eu.akeyless.io](https://console.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        13.248.216.215,\
+        13.248.216.215,
         76.223.80.182
       </td>
 
@@ -57,14 +57,14 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Vault:**  
+        **Vault:**
 
-        [https://vault.eu.akeyless.io](https://vault.eu.akeyless.io)\
+        [https://vault.eu.akeyless.io](https://vault.eu.akeyless.io)
         [https://vault-ro.eu.akeyless.io](https://vault-ro.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        3.33.166.129,\
+        3.33.166.129,
         15.197.166.202
       </td>
 
@@ -73,22 +73,22 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        euer Account Management (UAM), managing euer accounts, items, and roles
+        User Account Management (UAM), managing user accounts, items, and roles
       </td>
     </tr>
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Auth:**  
+        **Auth:**
 
-        [https://auth.eu.akeyless.io](https://auth.eu.akeyless.io)\
+        [https://auth.eu.akeyless.io](https://auth.eu.akeyless.io)
         [https://auth-ro.eu.akeyless.io](https://auth-ro.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        3.33.166.129,\
-        15.197.166.202,\
-        13.248.216.215,\
+        3.33.166.129,
+        15.197.166.202,
+        13.248.216.215,
         76.223.80.182
       </td>
 
@@ -103,14 +103,14 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Certificate Auth:**  
+        **Certificate Auth:**
 
-         [https://auth-cert.eu.akeyless.io](https://auth-cert.eu.akeyless.io)
+        [https://auth-cert.eu.akeyless.io](https://auth-cert.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        18.158.96.32,\
-        3.68.125.9,\
+        18.158.96.32,
+        3.68.125.9,
         52.28.6.110
       </td>
 
@@ -125,16 +125,16 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Audit:**  
+        **Audit:**
 
-        [https://audit.eu.akeyless.io](https://audit.eu.akeyless.io)\
+        [https://audit.eu.akeyless.io](https://audit.eu.akeyless.io)
         [https://audit-ro.eu.akeyless.io](https://audit-ro.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        15.197.166.202,\
-        3.33.166.129,\
-        13.248.216.215,\
+        15.197.166.202,
+        3.33.166.129,
+        13.248.216.215,
         76.223.80.182
       </td>
 
@@ -149,14 +149,14 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **BIS:**  
+        **BIS:**
 
-        [https://bis.eu.akeyless.io](https://bis.eu.akeyless.io)\
+        [https://bis.eu.akeyless.io](https://bis.eu.akeyless.io)
         [https://bis-ro.eu.akeyless.io](https://bis-ro.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        15.197.166.202,\
+        15.197.166.202,
         3.33.166.129
       </td>
 
@@ -171,16 +171,16 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Gator:**  
+        **Gator:**
 
-        [https://gator.eu.akeyless.io](https://gator.eu.akeyless.io)\
+        [https://gator.eu.akeyless.io](https://gator.eu.akeyless.io)
         [https://gator-ro.eu.akeyless.io](https://gator-ro.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        3.33.166.129,\
-        15.197.166.202,\
-        76.223.80.182,\
+        3.33.166.129,
+        15.197.166.202,
+        76.223.80.182,
         13.248.216.215
       </td>
 
@@ -195,13 +195,13 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **MQ:**  
+        **MQ:**
 
-        amqps\://mq.eu.akeyless.io
+        amqps://mq.eu.akeyless.io
       </td>
 
       <td style={{ textAlign: "left" }}>
-        15.197.166.202,\
+        15.197.166.202,
         3.33.166.129
       </td>
 
@@ -216,22 +216,22 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **KFM:**  
+        **KFM:**
 
-        [https://kfm1.eu.akeyless.io](https://kfm1.eu.akeyless.io),\
-        [https://kfm1-ro.eu.akeyless.io](https://kfm1-ro.eu.akeyless.io),\
-        [https://kfm2.eu.akeyless.io](https://kfm2.eu.akeyless.io),\
-        [https://kfm2-ro.eu.akeyless.io](https://kfm2-ro.eu.akeyless.io),\
-        [https://kfm3.eu.akeyless.io](https://kfm3.eu.akeyless.io),\
-        [https://kfm3-ro.eu.akeyless.io](https://kfm3-ro.eu.akeyless.io),\
-        [https://kfm4.eu.akeyless.io](https://kfm4.eu.akeyless.io),\
+        [https://kfm1.eu.akeyless.io](https://kfm1.eu.akeyless.io),
+        [https://kfm1-ro.eu.akeyless.io](https://kfm1-ro.eu.akeyless.io),
+        [https://kfm2.eu.akeyless.io](https://kfm2.eu.akeyless.io),
+        [https://kfm2-ro.eu.akeyless.io](https://kfm2-ro.eu.akeyless.io),
+        [https://kfm3.eu.akeyless.io](https://kfm3.eu.akeyless.io),
+        [https://kfm3-ro.eu.akeyless.io](https://kfm3-ro.eu.akeyless.io),
+        [https://kfm4.eu.akeyless.io](https://kfm4.eu.akeyless.io),
         [https://kfm4-ro.eu.akeyless.io](https://kfm4-ro.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        3.33.166.129,\
-        15.197.166.202,\
-        76.223.80.182,\
+        3.33.166.129,
+        15.197.166.202,
+        76.223.80.182,
         13.248.216.215
       </td>
 
@@ -246,14 +246,14 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Public Gateway:**  
+        **Public Gateway:**
 
-        [https://rest.eu.akeyless.io](https://rest.eu.akeyless.io)\
+        [https://rest.eu.akeyless.io](https://rest.eu.akeyless.io)
         [https://api.eu.akeyless.io](https://api.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        3.33.196.150,\
+        3.33.196.150,
         15.197.225.215
       </td>
 
@@ -262,19 +262,19 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Optional Public Gateway rest API v1\\v2
+        Optional Public Gateway rest API v1\v2
       </td>
     </tr>
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Public HVP:**  
+        **Public HVP:**
 
         [https://hvp.eu.akeyless.io](https://hvp.eu.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-        3.33.196.150,\
+        3.33.196.150,
         15.197.225.215
       </td>
 
@@ -289,9 +289,9 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        **Logs:**  
+        **Logs:**
 
-        tcp\://log.eu.akeyless.io:9997 tcp\://log.eu.akeyless.io:9443
+        tcp://log.eu.akeyless.io:9997 tcp://log.eu.akeyless.io:9443
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -347,4 +347,4 @@ The following table describes the main functionality of Akeyless microservices i
 
 > 👍 Note
 >
-> When using proxy services, you can use **[https://sqs.eu-central-1.amazonaws.com](https://sqs.eu-central-1.amazonaws.com)** instead of classic MQ services. In case you are not working with proxy serivce, and still want to utilize SQS insted of classic MQ , set your **Gateway**  deployment with the `SQS_NO_PROXY="true"` environment variable.
+> When using proxy services, you can use **[https://sqs.eu-central-1.amazonaws.com](https://sqs.eu-central-1.amazonaws.com)** instead of classic MQ services. In case you are not working with proxy service, and still want to utilize SQS instead of classic MQ, set your **Gateway**  deployment with the `SQS_NO_PROXY="true"` environment variable.
