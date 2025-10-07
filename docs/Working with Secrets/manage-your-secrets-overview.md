@@ -16,7 +16,7 @@ Akeyless enables you to work with the following secret types:
 
 * **Dynamic Secrets**: Temporary credentials generated on-demand to provide a client with access to a resource for a limited period of time, with a limited set of permissions. See [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
-* **Rotated Secrets**: Passwords for privileged-user accounts that are periodically updated by resetting a password on a target machine. The Akeyless Platform stores the updated secret value to retrieve it when required. see [Rotated Secrets](doc:rotated-secrets).
+* **Rotated Secrets**: Passwords for privileged-user accounts that are periodically updated by resetting a password on a target machine. The Akeyless Platform stores the updated secret value to retrieve it when required. See [Rotated Secrets](doc:rotated-secrets).
 
 In addition, Akeyless enables you to work with:
 
