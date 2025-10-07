@@ -271,7 +271,7 @@ Creates a new Docker Hub target in the current account
 ```shell
 akeyless target create dockerhub \
 --name <Target name> \
---dockerhub-usernam <Username for docker repository> \
+--dockerhub-username <Username for docker repository> \
 --dockerhub-password <Password for docker repository> \
 --key <Key name>
 ```
@@ -985,7 +985,7 @@ akeyless target create zerossl \
 
 `--imap-password`: **Required**, IMAP APP-Password
 
-`imap-fqdn`: **Required** IMAP FQDN, for example: `imap.gmail.com`
+`--imap-fqdn`: **Required** IMAP FQDN, for example: `imap.gmail.com`
 
 `--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`,  `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com`
 
@@ -1120,7 +1120,7 @@ Get target in the current account
 ##### Usage
 
 ```shell
-akeyless taregt get --name <Target name>
+akeyless target get --name <Target name>
 ```
 
 ##### Flags
@@ -1259,7 +1259,7 @@ Updates an existing azure target in the current account
 ##### Usage
 
 ```shell
-akeyless taregt update azure \
+akeyless target update azure \
 --name <Target name> \
 --new-name <New target name> \
 --client-id <Azure client/application id> \
@@ -1458,7 +1458,7 @@ Update an existing GCP target in the current account
 #### Usage
 
 ```shell
-akeyless taregt update gcp \
+akeyless target update gcp \
 --name <Target Name> \
 --new-name <New target name> \
 --gcp-key-file-path <Path to file with the base64-encoded service account private key> \
