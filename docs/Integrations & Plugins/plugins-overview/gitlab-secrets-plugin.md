@@ -37,7 +37,7 @@ This plugin supports the following Authentication Methods:
 
 To utilized the plugin you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless.
 
-By default, when using `ID_TOKEN` the `akeyless_access_type` will be set to `jwt`.  Where the Auth Method `Access ID`  should be stored inside a GitLab **CI\CD** variable.
+By default, when using `ID_TOKEN` the `akeyless_access_type` will be set to `jwt`.  Where the Auth Method `Access ID`  should be stored inside a GitLab **CI/CD** variable.
 
 For example:
 
@@ -112,7 +112,7 @@ secrets:
         akeyless_token: '<t-token>'
 ```
 
-Where make sure to set the relevant `access_type` according to the Auth Method type you are using. for example the [API Key](doc:api-key) example demonstrates the use of **CI\CD** variable to store the Access Key. i.e. `access_key: $AKEYLESS_ACCESS_KEY`.
+Where make sure to set the relevant `access_type` according to the Auth Method type you are using. for example the [API Key](doc:api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. i.e. `access_key: $AKEYLESS_ACCESS_KEY`.
 
 <br />
 
@@ -128,7 +128,7 @@ Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.
 
 > 📘 Tip
 >
-> Working with GitLab Token payload can be used with Access Roles [path templates ](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier management of your CI\CD project access using the `sub (subject)` field from your token.
+> Working with GitLab Token payload can be used with Access Roles [path templates ](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier management of your CI/CD project access using the `sub (subject)` field from your token.
 
 ## Secret Example
 
