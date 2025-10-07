@@ -153,7 +153,7 @@ akeyless target create azure \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--client-id`: **Required**, Azure client/application id
 
@@ -271,7 +271,7 @@ Creates a new Docker Hub target in the current account
 ```shell
 akeyless target create dockerhub \
 --name <Target name> \
---dockerhub-usernam <Username for docker repository> \
+--dockerhub-username <Username for docker repository> \
 --dockerhub-password <Password for docker repository> \
 --key <Key name>
 ```
@@ -310,7 +310,7 @@ akeyless target create eks \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-e, --eks-cluster-name`: **Required**, EKS cluster name
 
@@ -349,7 +349,7 @@ akeyless target create gcp \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--gcp-key-file-path`: Path to file with the base64-encoded service account private key
 
@@ -413,7 +413,7 @@ akeyless target create gke \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-a, --gke-account-email`: GKE service account email
 
@@ -540,7 +540,7 @@ akeyless target create godaddy \
 
 `-u, --imap-username`: **Required**, Username to access the IMAP service
 
-`-u, --imap-password`:  **Required**, Password to access the IMAP service
+`-p, --imap-password`:  **Required**, Password to access the IMAP service
 
 `--imap-fqdn`: **Required**, FQDN of the IMAP service
 
@@ -572,7 +572,7 @@ akeyless target create hashi-vault \
 
 `-n, --name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash / separators. If the folder does not exist, it will be created together with the target.
 
-`--hashi-url`: HashiCorp Vault URL, e.g. https://vault-mgr01:8200.
+`--hashi-url`: HashiCorp Vault URL, e.g. [https://vault-mgr01:8200](https://vault-mgr01:8200).
 
 `--vault-token`: Vault access token with sufficient permissions.
 
@@ -602,7 +602,7 @@ akeyless target create k8s \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
@@ -745,7 +745,7 @@ akeyless target create rabbitmq \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--user`: **Required**, RabbitMQ server user
 
@@ -872,7 +872,7 @@ akeyless target create ssh \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--description`: Target description
 
@@ -911,7 +911,7 @@ akeyless target create web \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-u, --url`: **Required**, Web target URL
 
@@ -972,7 +972,7 @@ akeyless target create zerossl \
 --imap-username <Username to access the IMAP service> \
 --imap-password <Password to access the IMAP service> \
 --imap-fqdn <FQDN of the IMAP service> \
---imap-validation-imap <Email address to send the validation email>
+--imap-validation-email <Email address to send the validation email>
 ```
 
 ##### Flags
@@ -985,7 +985,7 @@ akeyless target create zerossl \
 
 `--imap-password`: **Required**, IMAP APP-Password
 
-`imap-fqdn`: **Required** IMAP FQDN, for example: `imap.gmail.com`
+`--imap-fqdn`: **Required** IMAP FQDN, for example: `imap.gmail.com`
 
 `--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`,  `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com`
 
@@ -1070,7 +1070,7 @@ akeyless delete-assoc-target-item \
 
 ##### Flags
 
-`-n , --name`: **Required**, Item name
+`-n, --name`: **Required**, Item name
 
 `--id, --assoc-id`: The association id to be deleted. Not required if target name specified
 
@@ -1090,7 +1090,7 @@ akeyless target delete \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-v, --target-version`: Target version
 
@@ -1120,12 +1120,12 @@ Get target in the current account
 ##### Usage
 
 ```shell
-akeyless taregt get --name <Target name>
+akeyless target get --name <Target name>
 ```
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--show-versions[=false]`: Include all target versions in reply
 
@@ -1141,7 +1141,7 @@ akeyless target get-details --name <Target Name>
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-v, --target-version`: Target version
 
@@ -1222,7 +1222,7 @@ akeyless target update aws \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--new-name`: New target name
 
@@ -1259,7 +1259,7 @@ Updates an existing azure target in the current account
 ##### Usage
 
 ```shell
-akeyless taregt update azure \
+akeyless target update azure \
 --name <Target name> \
 --new-name <New target name> \
 --client-id <Azure client/application id> \
@@ -1272,7 +1272,7 @@ akeyless taregt update azure \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--new-name`: New target name
 
@@ -1423,7 +1423,7 @@ akeyless target update eks \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-c, --eks-cluster-name`: **Required**, EKS cluster name
 
@@ -1458,7 +1458,7 @@ Update an existing GCP target in the current account
 #### Usage
 
 ```shell
-akeyless taregt update gcp \
+akeyless target update gcp \
 --name <Target Name> \
 --new-name <New target name> \
 --gcp-key-file-path <Path to file with the base64-encoded service account private key> \
@@ -1469,7 +1469,7 @@ akeyless taregt update gcp \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--new-name`: New target name
 
@@ -1693,7 +1693,7 @@ akeyless target update-godaddy-target \
 
 `-u, --imap-username`: **Required**, Username to access the IMAP service
 
-`-u, --imap-password`:  **Required**, Password to access the IMAP service
+`-p, --imap-password`:  **Required**, Password to access the IMAP service
 
 `--imap-fqdn`: **Required**, FQDN of the IMAP service
 
@@ -1728,7 +1728,7 @@ akeyless target update hashi-vault \
 
 `--new-name`: New target name
 
-`--hashi-url`: HashiCorp Vault URL, e.g. https://vault-mgr01:8200.
+`--hashi-url`: HashiCorp Vault URL, e.g. [https://vault-mgr01:8200](https://vault-mgr01:8200).
 
 `--vault-token`: Vault access token with sufficient permissions.
 
@@ -2138,7 +2138,7 @@ akeyless target update-zerossl-target \
 --imap-username <Username to access the IMAP service> \
 --imap-password <Password to access the IMAP service> \
 --imap-fqdn <FQDN of the IMAP service> \
---imap-validation-imap <Email address to send the validation email> \
+--imap-validation-email <Email address to send the validation email> \
 --new-name <New Name>
 ```
 
