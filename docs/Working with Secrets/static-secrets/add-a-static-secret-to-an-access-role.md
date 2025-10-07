@@ -14,7 +14,7 @@ next:
       slug: retrievestatic
       title: Retrieve and view static secrets
 ---
-Access roles provide clients with permission to work with secrets. When you add a secret to a role, you can specify exactly which **CRUD** operations clients can perform for that secret.
+Access roles provide clients with permission to work with secrets. When you add a secret to a role, you can specify exactly which **CRUD** (Create, Read, Update, and Delete) operations clients can perform for that secret.
 
 > 📘 Info
 >
@@ -73,7 +73,7 @@ Let’s add a static secret to a role from the Akeyless Console. If you’d pref
 
 3. Select the **Items**s tab, then select **Add**.
 
-4. In the **Add Rule for Items** dialog box, in the **Allow access to the following path\*** field, enter the full path to the static secret.
+4. In the **Add Rule for Items** dialog box, in the **Allow access to the following path*** field, enter the full path to the static secret.
 
 5. From the **Allow the following actions** options, select the **CRUD** operation(s) the client associated with the role that can perform for the secret.
 
