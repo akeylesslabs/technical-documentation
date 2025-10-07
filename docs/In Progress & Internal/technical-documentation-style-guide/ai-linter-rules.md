@@ -11,7 +11,7 @@ metadata:
 * There must be no conflicts between the information on a page or between pages.
 * There must be no errors in CLI commands or sample code.
 * There must be no misspellings.
-* There must be no custom HTML styling within pages. All styling must come from project-wide CSS.
+* There must be no custom HTML styling within pages. All styling must come from project-wide CSS. The image border attribute is excepted.
 * There must be no errors in Markdown syntax.
 * Do not use bolded text, when a heading is appropriate.
 * All file names, CLI commands, configuration keys, and code should be formatted as such with backticks or fenced code blocks.
@@ -28,13 +28,13 @@ metadata:
   * Amazon EKS (instead of EKS or AWS EKS)
   * `kubectl` (instead of Kubectl)'
 * When referring to CLI commands use the proper terminology. Referring to this example: `akeyless target create godaddy -n "name-value" -p "password"`
-    * `akeyless` is the command.
-    * `target`, `create`, and `godaddy` are subcommands.
-    * `-n` and `-p` are flags (also known as options).
-    * `"name-value"` and `"password"` are flag values (or option values).
+  * `akeyless` is the command.
+  * `target`, `create`, and `godaddy` are subcommands.
+  * `-n` and `-p` are flags (also known as options).
+  * `"name-value"` and `"password"` are flag values (or option values).
 * Provide alt-text for all images.
 * There must be no idioms, slang, or cultural references.
-* Use commas as separators for large numbers (1,000). 
+* Use commas as separators for large numbers (1,000).
 
 # Warnings
 
