@@ -16,11 +16,11 @@ Using Gitlab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens
 
 # Prerequisites
 
-* GitLab Version  **17.4** or higher.  
+* GitLab Version  **17.4** or higher.
 
 > 📘 Enable Akeyless CI Secret Plugin
 >
-> This plugin availabilty is currently controled by Gitlab Feature Flag, to enable this on your Gitlab envioremnt you might need to contact your Gitlab Account Manager
+> This plugin availability is currently controlled by GitLab Feature Flag, to enable this on your GitLab environment you might need to contact your GitLab Account Manager
 
 # Authentication
 
@@ -35,13 +35,13 @@ This plugin supports the following Authentication Methods:
 * [Access Key](https://docs.akeyless.io/docs/api-key)
 * [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
 
-To utilized the plugin you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless. 
+To utilized the plugin you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless.
 
-By default, when using `ID_TOKEN` the `akeyless_access_type` will be set to `jwt`.  Where the Auth Method `Access ID`  should be stored inside a Gitlab **CI\\CD** variable.
+By default, when using `ID_TOKEN` the `akeyless_access_type` will be set to `jwt`.  Where the Auth Method `Access ID`  should be stored inside a GitLab **CI\CD** variable.
 
-For example: 
+For example:
 
-* In your Gitlab project, navigate to **Settings > CI/CD > Variables** and click the **Add Variable** button.
+* In your GitLab project, navigate to **Settings > CI/CD > Variables** and click the **Add Variable** button.
 * Enter the Key for the variable, for example, `AKEYLESS_ACCESS_ID` with your Auth Method's **Access ID**.
 * Click **Add Variable**.
 
@@ -112,7 +112,7 @@ secrets:
         akeyless_token: '<t-token>'
 ```
 
-Where make sure to set the relevant `access_type` according to the Auth Method type you are using. for example the [API Key](doc:api-key) example demonstrates the use of **CI\\CD** variable to store the Access Key. i.e. `access_key: $AKEYLESS_ACCESS_KEY`.
+Where make sure to set the relevant `access_type` according to the Auth Method type you are using. for example the [API Key](doc:api-key) example demonstrates the use of **CI\CD** variable to store the Access Key. i.e. `access_key: $AKEYLESS_ACCESS_KEY`.
 
 <br />
 
@@ -120,15 +120,15 @@ Where make sure to set the relevant `access_type` according to the Auth Method t
 >
 > For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
 >
-> Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that Gitlab provides in the JWT.
+> Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that GitLab provides in the JWT.
 
 # Usage
 
-Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml`  and edit the Job according to your use case. All examples below will use the Gitlab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](doc:oauth20jwt) Auth method. 
+Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml`  and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](doc:oauth20jwt) Auth method.
 
 > 📘 Tip
 >
-> Working with Gitlab Token payload can be used with Access Roles [path templates ](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier managemnt of your CI\\CD project access using the `sub (subject)` field from your token.
+> Working with GitLab Token payload can be used with Access Roles [path templates ](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier management of your CI\CD project access using the `sub (subject)` field from your token.
 
 ## Secret Example
 
@@ -161,7 +161,7 @@ Where:
 
 > 📘 Working with Gateway
 >
-> To fetch **Dynamic** and **Rotated** Secrets, as well working with **Zero Knowledge**  make sure your **Gitlab Runner** has network access to the relevant Gateway.
+> To fetch **Dynamic** and **Rotated** Secrets, as well working with **Zero Knowledge**  make sure your **GitLab Runner** has network access to the relevant Gateway.
 
 ## JSON Example
 
