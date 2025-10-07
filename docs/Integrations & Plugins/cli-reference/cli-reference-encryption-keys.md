@@ -101,7 +101,7 @@ akeyless create-classic-key \
 
 `--certificate-common-name`: Common name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
-`--cerificate-format`: The format of the returned certificate can be `pem` or `der`
+`--certificate-format`: The format of the returned certificate can be `pem` or `der`
 
 `--certificate-organization`: Organization name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
@@ -165,7 +165,7 @@ akeyless create-dfc-key \
 
 `--certificate-common-name`: Common name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
-`--cerificate-format`: The format of the returned certificate can be `pem` or `der`
+`--certificate-format`: The format of the returned certificate can be `pem` or `der`
 
 `--certificate-organization`: Organization name for the generated certificate. Relevant only for generate-self-signed-certificate.
 
@@ -823,7 +823,7 @@ akeyless upload-rsa \
 
 `--description`: Key description
 
-`-t, --tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: -t Tag1 -t Tag2
+`-t, --tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: `-t Tag1 -t Tag2`
 
 `-s, --split-level[=2]`: The number of fragments that the item will be split into
 
@@ -835,12 +835,12 @@ akeyless upload-rsa \
 
 ### `verify-ecdsa`
 
-Verifies an ECDSA signature using a sha hash algorithm matching the key size
+Verifies an ECDSA signature using a SHA hash algorithm matching the key size
 
 ###### Usage
 
 ```shell
-akeyless verify-rsassa-pss \
+akeyless verify-ecdsa \
 --message <Input message> \
 --signature <messages signature> \
 --key-name <Key name> \
