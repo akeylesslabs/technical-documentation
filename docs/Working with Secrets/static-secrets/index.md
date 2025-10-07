@@ -24,9 +24,9 @@ The typical process for working with static secrets is:
 
 3. [Get a Static Secret Value](doc:retrievestatic): Get the value of a static secret when you need it.
 
-If required, you can update a static secret value or create multiple versions of a static secret. See [Update and Version Static Secrets](doc:staticversions).
-
 4. [Sharing Static Secrets](doc:sharing-static-secrets): Temporarily share with external users that are not part of your organization or who do not have general access permissions.
+
+If required, you can update a static secret value or create multiple versions of a static secret. See [Update and Version Static Secrets](doc:staticversions).
 
 When a static secret becomes obsolete, you can delete it.
 
