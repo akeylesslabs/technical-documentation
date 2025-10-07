@@ -68,7 +68,7 @@ akeyless dynamic-secret create redshift \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --redshift-statements "CREATE USER '{{username}}' WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO '{{username}}';" \
---ssl "<fales|true>" \
+--ssl "<false|true>" \
 --password-length 16
 ```
 ```shell MSSQL
