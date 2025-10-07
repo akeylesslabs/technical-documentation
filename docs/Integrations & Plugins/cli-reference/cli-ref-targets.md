@@ -540,7 +540,7 @@ akeyless target create godaddy \
 
 `-u, --imap-username`: **Required**, Username to access the IMAP service
 
-`-u, --imap-password`:  **Required**, Password to access the IMAP service
+`-p, --imap-password`:  **Required**, Password to access the IMAP service
 
 `--imap-fqdn`: **Required**, FQDN of the IMAP service
 
@@ -572,7 +572,7 @@ akeyless target create hashi-vault \
 
 `-n, --name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash / separators. If the folder does not exist, it will be created together with the target.
 
-`--hashi-url`: HashiCorp Vault URL, e.g. https://vault-mgr01:8200.
+`--hashi-url`: HashiCorp Vault URL, e.g. [https://vault-mgr01:8200](https://vault-mgr01:8200).
 
 `--vault-token`: Vault access token with sufficient permissions.
 
@@ -1693,7 +1693,7 @@ akeyless target update-godaddy-target \
 
 `-u, --imap-username`: **Required**, Username to access the IMAP service
 
-`-u, --imap-password`:  **Required**, Password to access the IMAP service
+`-p, --imap-password`:  **Required**, Password to access the IMAP service
 
 `--imap-fqdn`: **Required**, FQDN of the IMAP service
 
@@ -1728,7 +1728,7 @@ akeyless target update hashi-vault \
 
 `--new-name`: New target name
 
-`--hashi-url`: HashiCorp Vault URL, e.g. https://vault-mgr01:8200.
+`--hashi-url`: HashiCorp Vault URL, e.g. [https://vault-mgr01:8200](https://vault-mgr01:8200).
 
 `--vault-token`: Vault access token with sufficient permissions.
 
