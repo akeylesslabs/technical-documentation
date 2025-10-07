@@ -153,7 +153,7 @@ akeyless target create azure \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--client-id`: **Required**, Azure client/application id
 
@@ -310,7 +310,7 @@ akeyless target create eks \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-e, --eks-cluster-name`: **Required**, EKS cluster name
 
@@ -349,7 +349,7 @@ akeyless target create gcp \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--gcp-key-file-path`: Path to file with the base64-encoded service account private key
 
@@ -413,7 +413,7 @@ akeyless target create gke \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-a, --gke-account-email`: GKE service account email
 
@@ -602,7 +602,7 @@ akeyless target create k8s \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
@@ -745,7 +745,7 @@ akeyless target create rabbitmq \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--user`: **Required**, RabbitMQ server user
 
@@ -872,7 +872,7 @@ akeyless target create ssh \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--description`: Target description
 
@@ -911,7 +911,7 @@ akeyless target create web \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-u, --url`: **Required**, Web target URL
 
@@ -1070,7 +1070,7 @@ akeyless delete-assoc-target-item \
 
 ##### Flags
 
-`-n , --name`: **Required**, Item name
+`-n, --name`: **Required**, Item name
 
 `--id, --assoc-id`: The association id to be deleted. Not required if target name specified
 
@@ -1090,7 +1090,7 @@ akeyless target delete \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-v, --target-version`: Target version
 
@@ -1125,7 +1125,7 @@ akeyless taregt get --name <Target name>
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--show-versions[=false]`: Include all target versions in reply
 
@@ -1141,7 +1141,7 @@ akeyless target get-details --name <Target Name>
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-v, --target-version`: Target version
 
@@ -1222,7 +1222,7 @@ akeyless target update aws \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--new-name`: New target name
 
@@ -1272,7 +1272,7 @@ akeyless taregt update azure \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--new-name`: New target name
 
@@ -1423,7 +1423,7 @@ akeyless target update eks \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `-c, --eks-cluster-name`: **Required**, EKS cluster name
 
@@ -1469,7 +1469,7 @@ akeyless taregt update gcp \
 
 ##### Flags
 
-`-n , --name`: **Required**, Target name
+`-n, --name`: **Required**, Target name
 
 `--new-name`: New target name
 
