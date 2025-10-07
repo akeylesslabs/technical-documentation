@@ -87,6 +87,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Capitalize proper nouns and feature names (e.g., Akeyless MCP Server).
 * Avoid abbreviations unless widely known (e.g., "API," "URL").
 * Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
+* When referencing non-Akeyless products and features, consistently apply the capitalization and puncutation of the owning organization of the product referenced.
 
 # Examples
 
