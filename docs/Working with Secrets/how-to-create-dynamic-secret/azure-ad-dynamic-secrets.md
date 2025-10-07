@@ -39,7 +39,7 @@ To create a Service Account in your Azure AD, follow the guide on [how to create
 
 [Custom roles](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/custom-create?tabs=admin-center) in Entra ID allow you to define specific [permissions](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/custom-available-permissions) for users or groups. These roles help control access to resources and actions, ensuring users have only the permissions they need for their tasks.
 
-for example, the `microsoft.directory/applications/credentials/update` permission, Allows the ability to update the certificates and client secrets properties on single-tenant and multitenant applications.
+For example, the `microsoft.directory/applications/credentials/update` permission, Allows the ability to update the certificates and client secrets properties on single-tenant and multitenant applications.
 
 # Create a Dynamic Azure AD Secret from the CLI
 
