@@ -20,8 +20,8 @@ jobs:
             --verbose
             --no-progress
             --exclude-file .github/workflows/lychee-artifacts/.lycheeignore
-            --output .github/workflows/lychee-artifacts/lychee-out.md
             './**/*.md'
+          output: .github/workflows/lychee-artifacts/lychee-out.md
 
       - name: Upload report
         if: always()
