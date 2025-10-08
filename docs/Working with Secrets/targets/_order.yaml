@@ -15,6 +15,7 @@
 - kubernetes-targets
 - ldap-target
 - linked-target
+- openai-target
 - ping-target
 - rabbitmq-targets
 - salesforce-target
@@ -24,4 +25,3 @@
 - venafi-target
 - windows-target
 - zerossl-target
-- openai-target
