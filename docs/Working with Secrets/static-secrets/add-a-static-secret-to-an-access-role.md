@@ -26,7 +26,7 @@ Letâ€™s add a static secret to an existing role using the Akeyless CLI. If youâ€
 
 The CLI command to add a secret to a role is:
 
-```shell Akeyless CLI
+```shell Shell
 akeyless set-role-rule \
   --role-name <role name> \
   --path <secret name with path> \
