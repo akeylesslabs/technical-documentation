@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a Docker Hub Dynamic Secret to generate just-in-time personal access tokens for your Docker repository, Currently Docker Hub dynamic secrets are not supported when two-factor authentication (2FA) is enabled on the associated account.
+You can define a Docker Hub Dynamic Secret to generate just-in-time personal access tokens for your Docker repository, currently Docker Hub dynamic secrets are not supported when two-factor authentication (2FA) is enabled on the associated account.
 
 # Prerequisites
 

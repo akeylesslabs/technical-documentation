@@ -66,7 +66,7 @@ akeyless dynamic-secret create azure \
 Or using an inline connection string:
 
 ```shell Akeyless CLI
-akeyless dynamic-secret create akeyless dynamic-secret get-valueazure \
+akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --azure-user-portal-access <true|false> \

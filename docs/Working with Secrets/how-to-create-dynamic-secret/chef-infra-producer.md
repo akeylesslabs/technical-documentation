@@ -38,7 +38,7 @@ akeyless dynamic-secret create chef \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuechef \
+akeyless dynamic-secret create akeyless dynamic-secret get-value chef \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \

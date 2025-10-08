@@ -30,7 +30,7 @@ Inject and provision secrets into DevOps tools such as CI/CD and Configuration M
 
 Learn more about managing your secrets [here](doc:manage-your-secrets-overview).
 
-<Image align="center" src="https://files.readme.io/7814b0e-Customers_Applications.png" />
+<Image alt="The Akeyless platform stored encrypted secrets in the cloud. An Akeyless plugin then facilitates the download and decryption of a secret to multiple applications, such as an API token, a database password, and a TLS certificate." border={false} src="https://files.readme.io/7814b0e-Customers_Applications.png" />
 
 ## Universal Secret Connector
 
@@ -50,7 +50,7 @@ The Akeyless Platform combines the capabilities of an HSM and a KMS to provide e
 
 Easily integrate your applications, libraries, or scripts with Akeyless using our [SDKs](doc:sdks) and plugins.
 
-Leveraging Akeyless’ unique FIPS-certified Encryption Key Management technology, your encryption keys never exist as a whole. They are instead created as fragments in different regions and cloud providers and are NEVER combined, not even during the encryption/signing process itself. To make sure that you are the exclusive owner of your keys, one of the fragments is created on your side and cannot be accessed by Akeyless.
+Leveraging the unique FIPS-certified Encryption Key Management technology of Akeyless, your encryption keys never exist as a whole. They are instead created as fragments in different regions and cloud providers and are NEVER combined, not even during the encryption/signing process itself. To make sure that you are the exclusive owner of your keys, one of the fragments is created on your side and cannot be accessed by Akeyless.
 
 Learn more about encryption and key management [here](doc:encryption-key-management-overview).
 
@@ -60,6 +60,6 @@ Enable your DevOps, Engineers, and IT teams to securely and seamlessly access re
 
 Also known as Zero-Trust Application Access, our solution uniquely combines the ability to interface with third-party **identity providers** for authentication with robust **role-based access control** for authorization, and the ability to provide **just-in-time access** to endpoint resources, using dynamic secrets as short-lived credentials and certificates.
 
-Privileged and non-privileged access is allowed via protocols such as SSH, RDP, SQL, Kubectl (and more), either from the Akeyless Remote Access Portal or the native CLI tools. Furthermore, maintain compliance with session auditing and recording capabilities. You can even revoke sessions in real-time if any suspicious activity is detected.
+Privileged and non-privileged access is allowed via protocols such as SSH, RDP, SQL, `kubectl` (and more), either from the Akeyless Remote Access Portal or the native CLI tools. Furthermore, maintain compliance with session auditing and recording capabilities. You can even revoke sessions in real-time if any suspicious activity is detected.
 
 Learn more about Secure Remote Access (SRA) [here](doc:secure-remote-access).

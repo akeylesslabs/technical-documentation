@@ -12,13 +12,13 @@ next:
 ---
 ## Your key NEVER exists as a whole
 
-Our patented technology, Distributed Fragments Cryptography™ (DFC), enables us to perform cryptographic operations using fragments of an encryption key, without EVER combining the key fragments. As illustrated below, this technology allows Akeyless to store fragments of an encryption key in different regions on different cloud providers, and never combine those fragments.
+Our patented technology, Akeyless Distributed Fragments Cryptography™ (DFC), enables us to perform cryptographic operations using fragments of an encryption key, without EVER combining the key fragments. As illustrated below, this technology allows Akeyless to store fragments of an encryption key in different regions on different cloud providers, and never combine those fragments.
 
-<Image align="center" alt="1238" border={false} caption="Fragments of a single Encryption Key that are stored in different cloud providers and are NEVER combined" title="DFC.png" src="https://files.readme.io/0ef2ecb-DFC.png" width="80%" />
+<Image align="center" alt="An image of a physical key is split into three parts. Each part is associated with a cloud provider: Azure, GCP, and AWS." border={false} caption="Fragments of a single Encryption Key that are stored in different cloud providers and are NEVER combined" title="DFC.png" src="https://files.readme.io/0ef2ecb-DFC.png" width="80%" />
 
 _**Q: So you're basically using key-split? Shamir's secret sharing?**_
 
-* Answer: **NO. We're definitely not**. The known weakness of any split method is that whenever you wish to encrypt/decrypt any data, you MUST combine the fragments of the key. When you do so, a malicious attacker could potentially gain access to your constructed key, and then - your key is compromised. It's game over. This is why, using Akeyless DFC, the key is never constructed, not even during the encryption/decryption process, meaning, the key never exists as a whole.
+* Answer: **NO. We're definitely not**. The known weakness of any split method is that whenever you wish to encrypt/decrypt any data, you MUST combine the fragments of the key. When you do so, a malicious attacker could potentially gain access to your constructed key, and then your key is compromised. Your data and applications are now at risk. This is why, using Akeyless DFC, the key is never constructed, not even during the encryption/decryption process, meaning, the key never exists as a whole.
 
 ## Key Fragments are constantly refreshed
 
@@ -26,7 +26,7 @@ An encryption key is basically a very high numeric value. Let's say that fragmen
 
 ## We use Zero-Knowledge Encryption for your Keys and Secrets
 
-The missing piece of that puzzle is - who can access the key fragments? Some may say, that though DFC doesn't allow cloud providers to have access to the whole key, Akeyless itself has the ability to construct the key whenever it wishes, since it manages the key fragments infrastructure.
+The missing piece of that puzzle is - who can access the key fragments? Some may say, that though Akeyless DFC doesn't allow cloud providers to have access to the whole key, Akeyless itself has the ability to construct the key whenever it wishes, since it manages the key fragments infrastructure.
 
 Well, they're basically right, but, they can also be completely wrong.
 
