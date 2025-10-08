@@ -24,12 +24,12 @@ jobs:
             --verbose
             --no-progress
             --suggest
-            --exclude-path .github/workflows/lychee-artifacts/.lycheeignore
+            --exclude-path .github/lychee/.lycheeignore
             --exclude-link-local
             --exclude-loopback
             --include-mail
             './**/*.md'
-          output: .github/workflows/lychee-artifacts/lychee-out.md
+          output: .github/lychee/lychee-out.md
 
       - name: Commit report back to repo
         if: always() # run even if lychee fails
@@ -38,7 +38,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin ${{ github.ref }}
           git reset --soft FETCH_HEAD
-          git add .github/workflows/lychee-artifacts/lychee-out.md
+          git add .github/lychee/lychee-out.md
           git commit -m "chore: update lychee report [skip ci]" || echo "No changes to commit"
           git pull --rebase origin ${{ github.ref }} || true
           git push origin HEAD:${{ github.ref }}
