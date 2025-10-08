@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide describes how to run a Serverless Gateway on AWS based on [AWS Lambda Functions](https://aws.amazon.com/pm/lambda/?gclid=CjwKCAiAudG5BhAREiwAWMlSjCcu0SVmDSXTv2B4JNN2hmpAa_w0DedQG4CLVB66ZYibg2wcw1ny8xoCgVIQAvD_BwE\&trk=3da65280-58c3-4e9f-8d04-5402461fedce\&sc_channel=ps\&ef_id=CjwKCAiAudG5BhAREiwAWMlSjCcu0SVmDSXTv2B4JNN2hmpAa_w0DedQG4CLVB66ZYibg2wcw1ny8xoCgVIQAvD_BwE:G:s\&s_kwcid=AL!4422!3!651612444455!e!!g!!amazon%20lambda!19836376555!148728891764) using HashiCorp Terraform.
+This guide describes how to run an Akelyess Serverless Gateway on AWS using HashiCorp Terraform.
 
 # Prerequisites
 
