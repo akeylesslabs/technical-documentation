@@ -12,7 +12,7 @@ next:
 ---
 ## Introduction
 
-Automatic migration allows importing static secrets into Akeyless from other secrets management platforms. This feature is available as part of the [Akeyless Gateway](doc:api-gw) functionality. Additionally, it is possible to configure migration via the Console, where each Gateway has its dedicated directory for managing the migration process.
+Automatic migration allows importing static secrets into Akeyless from other identity security platforms. This feature is available as part of the [Akeyless Gateway](doc:api-gw) functionality. Additionally, it is possible to configure migration via the Console, where each Gateway has its dedicated directory for managing the migration process.
 
 ## Supported platforms
 
@@ -28,7 +28,7 @@ Currently, you can import static secrets from the following platforms:
 
 ## General configuration
 
-The following options are available when importing secrets from other secrets management platforms:
+The following options are available when importing secrets from other identity security platforms:
 
 * **Name:** This is an arbitrary name for the migration object.
 
