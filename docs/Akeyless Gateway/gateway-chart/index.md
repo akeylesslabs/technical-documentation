@@ -77,18 +77,20 @@ The following [Authentication Methods](doc:access-and-authentication-methods) ar
 
 ## API Key Authentication
 
-API Key Authentication Method requires a dedicated [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the corresponding `Access Key` where the key name of the secret has to be `gateway-access-key`.
+The API Key Authentication Method requires a dedicated [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the corresponding `Access Key` where the key name of the secret has to be `gateway-access-key`.
 
-Run the following command to create the K8s secret that stores the `Access Key`:
+### Create the Secret
+
+Run the following command to create a new Kubernetes secret to store the Access Key:
 
 ```shell
 kubectl create secret generic access-key \
   --from-literal=gateway-access-key=<plaintext-Access-Key>
 ```
 
-Or use k8s secret yaml with Base 64 encoded value on access key.
+Alternatively, use YAML to define the Kubernetes Secret with a Base64 encoded version of your Access Key:
 
-```yaml secret.yaml
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -96,10 +98,12 @@ metadata:
   namespace: akeyless  # Change this to your actual namespace
 type: Opaque
 data:
-  gateway-access-key: <Base 64 encoded value>
+  gateway-access-key: <Base64 encoded value>
 ```
 
-Once the secret is created, set the relevant `Access ID` as your `gatewayAccessId` and add the name of the **K8s Secret** that was created as the `gatewayCredentialsExistingSecret`:
+### Provide the Secret to the Gateway Conf
+
+Once the secret is created, set the relevant Access ID as your `gatewayAccessId` and add the name of the Kubernetes Secret that was created as the `gatewayCredentialsExistingSecret`:
 
 ```yaml values.yaml
 globalConfig:
@@ -113,7 +117,7 @@ Save the file and proceed with the [installation](doc:gateway-k8s#installation) 
 
 ## CSP IAM Authentication
 
-While running your K8s cluster inside your cloud environment, you can use [AWS IAM](doc:aws-iam), [GCP](doc:gcp-auth-method), or [Azure Active Directory](doc:azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [admin users](doc:gateway-k8s#gateway-admins) that will be able to manage your Gateway.
+While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](doc:aws-iam), [GCP](doc:gcp-auth-method), or [Azure Active Directory](doc:azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [admin users](doc:gateway-k8s#gateway-admins) that will be able to manage your Gateway.
 
 Set the `gatewayAccessId` with your IAM [Authentication Method](doc:access-and-authentication-methods) `Access ID`, where you can define a list of users that will be able to manage your Gateway settings via the  `allowedAccessPermissions` setting with any other `Access ID` of your  [SAML](doc:saml) ,[OIDC](doc:openid) or an [API Key](doc:api-key) as described [here](https://docs.akeyless.io/docs/gateway-k8s#access-permissions).
 
@@ -125,7 +129,7 @@ AWS IAM can be used in the following approaches:
 
 * Service Account IAM Role
 
-In both cases, provide your [AWS IAM](doc:aws-iam) Auth Method's `Access ID` as your `gatewayAccessId`, and at least one other `Access ID` in the `allowedAccessPermissions` section  to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-on-k8s-copy-1#access-permissions):
+In both cases, provide your [AWS IAM](doc:aws-iam) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section  to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-on-k8s-copy-1#access-permissions):
 
 ```yaml values.yaml
 globalConfig:
