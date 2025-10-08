@@ -22,7 +22,7 @@ The typical process for working with Static Secrets includes:
 
 2. [Add a Static Secret to an Access Role](doc:add-a-static-secret-to-an-access-role): Allow clients to access the Static Secret by adding it to a role with the appropriate permissions.
 
-3. [Get a Static Secret Value](doc:retrievestatic): Retrieve the value of a Static Secret when needed.
+3. [Retrieve a Static Secret Value](doc:retrievestatic): Get the value of a Static Secret when needed.
 
 4. [Sharing Static Secrets](doc:sharing-static-secrets): Temporarily share with external users who are not part of your organization or do not have general access permissions.
 
