@@ -58,28 +58,10 @@ akeyless target create globalsign \
 --external-requester <username of the requester>
 ```
 
-Where:
-
-* `name`: A unique name for the target. The name can include a path to the virtual folder where you want to create a new target using the slash /separators. The folder will be created with the target if it does not exist.
-
-* `username`: The username used to log in to Sectigo.
-
-* `password`: the password used to log in to Sectigo.
-
-* `customer-uri`: The Customer URI of the Sectigo account.
-
-* `organization-id`: Sectigo Organization ID.
-
-* `certificate-profile-id`: Sectigo Certificate Profile ID.
-
-* `external-requester`: Sectigo external requester username.
+For a complete list of parameters and their descriptions, visit the [CLI Reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsignp).
 
 Once the Sectigo Target is created, it can be used to generate a [public certificate](https://docs.akeyless.io/docs/public-ca).
 
-For the complete list of parameters for this command, visit the [CLI Reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsignp).
-
 <Callout icon="❗️">
-  # Sectigo Approval Workflow
-
-  Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval.
+  *The Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval.*
 </Callout>
