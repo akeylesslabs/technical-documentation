@@ -11,7 +11,9 @@ metadata:
 * There must be no conflicts between the information on a page or between pages.
 * There must be no errors in CLI commands or sample code.
 * There must be no misspellings.
-* There must be no custom HTML styling within pages. All styling must come from project-wide CSS. The image border attribute is excepted.
+* There must be no custom HTML styling within pages. All styling must come from project-wide CSS. The following elements are excepted:
+  * Align attributes of images.
+  * Border attributes of images.
 * There must be no errors in Markdown syntax.
 * Do not use bolded text, when a heading is appropriate.
 * All file names, CLI commands, configuration keys, and code should be formatted as such with backticks or fenced code blocks.
