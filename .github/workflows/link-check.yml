@@ -14,6 +14,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true # so we can push back
+          fetch-depth: 0
+          ref: ${{ github.ref }}
 
       - name: Install and Run lychee
         uses: lycheeverse/lychee-action@v2.0.2
@@ -22,7 +24,7 @@ jobs:
             --verbose
             --no-progress
             --suggest
-            --exclude-file .github/workflows/lychee-artifacts/.lycheeignore
+            --exclude-path .github/workflows/lychee-artifacts/.lycheeignore
             './**/*.md'
           output: .github/workflows/lychee-artifacts/lychee-out.md
 
@@ -31,6 +33,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin ${{ github.ref }}
+          git reset --soft FETCH_HEAD
           git add .github/workflows/lychee-artifacts/lychee-out.md
           git commit -m "chore: update lychee report [skip ci]" || echo "No changes to commit"
-          git push
+          git pull --rebase origin ${{ github.ref }} || true
+          git push origin HEAD:${{ github.ref }}
