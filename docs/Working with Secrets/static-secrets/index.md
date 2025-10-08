@@ -28,7 +28,7 @@ The typical process for working with Static Secrets includes:
 
 If necessary, a Static Secret value can be updated or have multiple versions. See [Update and Version Static Secrets](doc:staticversions).
 
-When a Static Secret becomes obsolete, you can delete it.
+When a Static Secret becomes obsolete, it can be deleted.
 
 # Tutorial
 
