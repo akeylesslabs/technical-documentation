@@ -2,8 +2,8 @@ name: Link Checker
 
 on:
   schedule:
-    # Runs every day at 2am UTC
-    - cron: "0 2 * * *"
+    # Runs Mondays at 2am UTC
+    - cron: "0 2 * * 1"
   workflow_dispatch: # allows manual runs
 
 jobs:
