@@ -19,7 +19,7 @@ Let’s update a static secret using the Akeyless CLI. If you’d prefer, see ho
 The CLI command to update a static secret is:
 
 ```shell Shell
-> akeyless update-secret-val --name <secret name> --value <new secret value>
+$ akeyless update-secret-val --name <secret name> --value <new secret value>
 
 The value of secret <secret name>  was successfully updated.
 ```
