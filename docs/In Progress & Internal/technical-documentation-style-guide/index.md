@@ -31,6 +31,12 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you").
 * **Simplicity**: Keep punctuation simple and avoid chained clauses.
 
+## Punctuation
+
+* Use the serial comma (also called the Oxford comma).
+  * With It: "At my court hearing there were two detectives, my wife, and my sister."
+  * Without It: "At my court hearing there were two detectives, my wife and my sister."
+
 # Tone
 
 * Professional yet approachable.
