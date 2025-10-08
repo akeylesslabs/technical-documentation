@@ -24,7 +24,7 @@ Each **Authentication Method object** is associated with an [Access Role](https:
 
 Let's see how this process works for a machine identity.
 
-<Image align="center" border={false} src="https://files.readme.io/6f94784-Screenshot_at_Dec_19_10-54-15.png" />
+<Image align="center" alt="The Akeyless platform begins with an authentication method creating an Identity. An Access Role is associated with the Identity. If the Identity is authorized, the secret data can be provided." border={false} src="https://files.readme.io/6f94784-Screenshot_at_Dec_19_10-54-15.png" />
 
 1. A container requires credentials to connect to the SQL server. It uses its AWS IAM Role as an **Authentication Method** to authenticate with Akeyless.
 
