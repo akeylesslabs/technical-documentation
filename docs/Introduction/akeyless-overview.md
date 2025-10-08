@@ -30,7 +30,7 @@ Inject and provision secrets into DevOps tools such as CI/CD and Configuration M
 
 Learn more about managing your secrets [here](doc:manage-your-secrets-overview).
 
-<Image alt="The Akeyless platform stored encrypted secrets in the cloud. An Akeyless plugin then faciliates the download and decryption of a secret to multiple applications, such as an API token, a database password, and a TLS certificate." border={false} src="https://files.readme.io/7814b0e-Customers_Applications.png" />
+<Image align="center" alt="The Akeyless platform stored encrypted secrets in the cloud. An Akeyless plugin then facilitates the download and decryption of a secret to multiple applications, such as an API token, a database password, and a TLS certificate." border={false} src="https://files.readme.io/7814b0e-Customers_Applications.png" />
 
 ## Universal Secret Connector
 
