@@ -21,15 +21,11 @@ next:
 >
 > The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-chart).
 
-The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Helm package manager.
-
-Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-api-gateway) to bootstrap the Akeyless Gateway deployment.
-
-In the case of K8s deployment, the configuration process takes place before the actual installation.
+The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Helm package manager. Akeyless provides a [Helm Chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-api-gateway) to bootstrap deployment. In the case of a Kubernetes deployment, configuration occurs before installation by modifying values in the Helm Chart.
 
 # Prerequisites
 
-* An [Authentication Method](doc:access-and-authentication-methods) with an [Access Role](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets)
+* An [Authentication Method](doc:access-and-authentication-methods) with an [Access Role](doc:rbac) to create and manage [Secrets, Keys,](doc:manage-your-secrets-overview) and [Targets](doc:targets)
 
 * [Helm](https://helm.sh/) Installed
 
