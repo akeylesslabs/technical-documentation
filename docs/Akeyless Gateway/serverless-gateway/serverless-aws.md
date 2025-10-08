@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide describes how to run an Akelyess Serverless Gateway on AWS using HashiCorp Terraform.
+This guide describes how to run an Akeyless Serverless Gateway on AWS using HashiCorp Terraform.
 
 # Prerequisites
 
