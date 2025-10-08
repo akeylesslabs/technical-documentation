@@ -18,14 +18,10 @@ Let’s update a static secret using the Akeyless CLI. If you’d prefer, see ho
 
 The CLI command to update a static secret is:
 
-```shell Akeyless CLI
-akeyless update-secret-val --name <secret name> --value <new secret value>
-```
+```shell Shell
+$ akeyless update-secret-val --name <secret name> --value <new secret value>
 
-The response should be like this:
-
-```shell
-The value of secret <secret name>  was successfully updated
+The value of secret <secret name>  was successfully updated.
 ```
 
 When you update a static secret, by default the latest version is updated. To keep the previous version of the secret stored in Akeyless, run the `--keep-prev-version=true`option.
@@ -36,7 +32,7 @@ When you update a static secret, by default the latest version is updated. To ke
 >
 > Changing the metadata of a secret does not change its version. To change the version and store the previous version, you must explicitly run `--keep-prev-version=true`.
 
-The rest of this section shows examples of how to manage secret versions directly from your CLI with different examples based on the assumption you've already created a secret called `/secret1` with `value1`. 
+The rest of this section shows examples of how to manage secret versions directly from your CLI with different examples based on the assumption you've already created a secret called `/secret1` with `value1`.
 
 Examples are as follows:
 
@@ -46,9 +42,9 @@ Examples are as follows:
 * Delete a specific version of the secret value
 * Roll back to a previous secret version
 
-### Create a new version of *secret1* with the new value *value2* and keep previous version:
+### Create a new version of _secret1_ with the new value _value2_ and keep previous version:
 
-```shell retrieve-and-view-from-the-ui
+```shell Shell
 $ akeyless update-secret-val -n /secret1 -v value2 --keep-prev-version=true
 The value of secret /secret1 was successfully updated
 ...

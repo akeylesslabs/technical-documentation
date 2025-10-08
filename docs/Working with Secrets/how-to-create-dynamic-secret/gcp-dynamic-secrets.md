@@ -12,7 +12,7 @@ next:
 ---
 You can use Akeyless dynamic secrets to generate programmatic access credentials for GCP (Google Cloud Platform) based on IAM policies that apply to Service Accounts. To do this, configure a dynamic secret with the details required for Akeyless to authenticate and communicate with GCP. This requires privileged account credentials.
 
-There are two GCP dynamic secret modes: 
+There are two GCP dynamic secret modes:
 
 * **Fixed Service Account**
 
@@ -20,11 +20,11 @@ There are two GCP dynamic secret modes:
 
 Fixed Service Accounts are existing GCP service accounts that Akeyless generates JIT tokens or keys and manage them. TTL in GCP is 1 hour by default, but this may be configured for up to 12 hours, as explained in GCP [documentation](https://cloud.google.com/iam/docs/create-short-lived-credentials-delegated#sa-credentials-oauth).
 
-Dynamic Service Accounts are generated and managed by Akeyless Platform, where you can bind a set of IAM roles predefined for that service account. Upon getting a dynamic secret request, Akeyless will generate a Just In time key, or token for this managed service account. 
+Dynamic Service Accounts are generated and managed by Akeyless Platform, where you can bind a set of IAM roles predefined for that service account. Upon getting a dynamic secret request, Akeyless will generate a Just In time key, or token for this managed service account.
 
-You can generate up to 10 service account keys at the same time. A generated key is revoked when the TTL defined for it expires. 
+You can generate up to 10 service account keys at the same time. A generated key is revoked when the TTL defined for it expires.
 
-Service Accounts role bindings define a list of resources and the associated IAM roles for that resource. To bind a set of roles to a Dynamic Service Account, you can provide them inline or as a JSON file using the following format: 
+Service Accounts role bindings define a list of resources and the associated IAM roles for that resource. To bind a set of roles to a Dynamic Service Account, you can provide them inline or as a JSON file using the following format:
 
 ```json
 {
@@ -32,9 +32,9 @@ Service Accounts role bindings define a list of resources and the associated IAM
 }
 ```
 
-Where `path/to/resource` should be in the following format according to GCP [Resource](https://cloud.google.com/apis/design/resource_names#full_resource_name) names guide. 
+Where `path/to/resource` should be in the following format according to GCP [Resource](https://cloud.google.com/apis/design/resource_names#full_resource_name) names guide.
 
-For example: 
+For example:
 
 ```json
 {
@@ -53,7 +53,7 @@ For example:
 
 * A [key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) of the privilege service account.
 
-Example list of GCP Service Account permissions: 
+Example list of GCP Service Account permissions:
 
 ```shell
 iam.serviceAccounts.create
@@ -73,7 +73,7 @@ iam.serviceAccountKeys.list
 >
 > We recommend using dynamic secrets with [Targets](doc:gcp-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gcp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic GCP secret from the CLI using an existing [GCP Targets](doc:gcp-targets), run the following command: 
+To create a dynamic GCP secret from the CLI using an existing [GCP Targets](doc:gcp-targets), run the following command:
 
 ```shell Fixed Service Account
 akeyless dynamic-secret create gcp \
@@ -97,7 +97,7 @@ akeyless dynamic-secret create gcp \
 --gcp-key-algo <Service Key Algorithm>
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create gcp \
@@ -119,11 +119,11 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `service-account-type`: `Fixed` or `Dynamic`type. By default set to **Fixed**. 
+* `service-account-type`: `Fixed` or `Dynamic`type. By default set to **Fixed**.
 
 * `role-binding`: A path to a JSON file that holds the relevant resource with roles to bind for the created Service Account. Relevant only for **Dynamic** type.
 
-* `gcp-sa-email`: The email of the Service Account to create JIT keys\\tokens. Relevant only for **Fixed** Service Account.
+* `gcp-sa-email`: The email of the Service Account to create JIT keys/tokens. Relevant only for **Fixed** Service Account.
 
 * `gcp-cred-type`: Credentials type. Available options are: `token`, `key`.
 
@@ -143,7 +143,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Fetch a Dynamic GCP Secret value from the CLI
 
-To fetch a dynamic GCP secret value from the CLI, run the following command: 
+To fetch a dynamic GCP secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
@@ -171,9 +171,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Check the **Explicitly specify target properties**  to provide details of the GCP target in the next step.
 
-* **Fixed:** A fixed Service Account. with **Service Account  Email** to create JIT Keys\\Tokens for.
+* **Fixed:** A fixed Service Account. with **Service Account  Email** to create JIT Keys/Tokens for.
 
-* **Dynamic:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account. 
+* **Dynamic:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
 
 * **Access Token:** Select this radio button to create a GCP access token as a dynamic secret.
 

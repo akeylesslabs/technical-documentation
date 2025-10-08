@@ -29,6 +29,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Conciseness**: Avoid unnecessary words, filler phrases, or redundant explanations.
 * **Audience awareness**: Assume readers have basic technical knowledge but may not be experts.
 * **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you").
+* **Simplicity**: Keep punctuation simple and avoid chained clauses.
 
 # Tone
 
@@ -84,53 +85,51 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 # Terminology
 
-* Always use the product’s official names.
 * Capitalize proper nouns and feature names (e.g., Akeyless MCP Server).
 * When using abbreviations, unless they are widely known (e.g., "API," "URL"), always define them on first use.
   * For example, "Our API supports CRUD (Create, Read, Update, and Delete) operations."
 * Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
-* Avoid having Akeyless become possible. For example, "Akeyless' technology does great things." Instead, reword the sentence to avoid that scenario (e.g, "The innovative technology of Akeyless does great things.")
-* When referencing non-Akeyless products and features, consistently apply the capitalization and puncutation of the owning organization of the product referenced. Some examples are:
+
+## Akeyless Specific Terms
+
+* Always use the product’s official names.
+* Avoid having Akeyless become possessive where possible. For example, "Akeyless' technology does great things." Instead, reword the sentence to avoid that scenario (e.g, "The innovative technology of Akeyless does great things.")
+* Akeyless is an "identity security platform". Previously it was acceptable to refer to it as a "secrets management platform". This is no longer the case.
+
+## Third-Party Terms
+
+* When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
   * GitLab (instead of Gitlab)
+  * GitHub (instead of Github)
   * Docker Hub (instead of dockerhub)
   * HashiCorp Vault (instead of Hashi-Vault)
-  * SAP HANA (instead of HANA DB)
+  * SAP HANA database (instead of HANA DB)
   * MySQL (instead of mysql)
+  * MSSQL (instead of mssql)
+  * Amazon Redshift (instead of Redshift)
+  * Amazon EKS (instead of EKS or AWS EKS)
+  * `kubectl` (instead of Kubectl)'
+
+## Command-Line Conventions
+
 * When referring to CLI commands use the proper terminology. Referring to this example: `akeyless target create godaddy -n "name-value" -p "password"`
   * `akeyless` is the command.
   * `target`, `create`, and `godaddy` are subcommands.
   * `-n` and `-p` are flags (also known as options).
   * `"name-value"` and `"password"` are flag values (or option values).
 
-
 # Examples
 
 * Include working, tested examples.
 * Show expected input and output when relevant.
-* Use realistic values, not placeholders, unless security-sensitive.
+* Use realistic values wherever possible, not placeholders, unless security-sensitive.
+* When formatting inputs and output pairs, precede the input with a ">" and the output following on the next line.
 
-# Documentation Components
+# CLI Reference Structure
 
-## Introduction
+CLI References should document only one command or subcommand. Each CLI reference page should describe the command (or subcommand), provide a usage example, provide a description of all available flags, and can optionally have an additional notes section. Consequently, CLI Reference pages will feature a large amount of redundancy. To ease authoring, use ReadMe's Reusable Content feature.
 
-* Brief overview of purpose and scope.
-
-## Prerequisites
-
-* List required tools, knowledge, and dependencies.
-
-## Procedures
-
-* Step-by-step instructions with numbered lists.
-* Include screenshots or diagrams when beneficial.
-
-## Troubleshooting
-
-* Common errors and solutions.
-
-## References
-
-* Links to related guides, API docs, or specifications.
+Due to the nature of CLI help pages, their documentation uses many shortened words, abbreviations, and unclear descriptions. These issues should be resolved on a CLI Reference, rather than duplicated.
 
 # Style Conventions
 
@@ -174,6 +173,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 ## Localization and Translation
 
 * **Keep sentences simple and clear**: Short sentences are easier to translate and less likely to create ambiguity.
+* **Avoid fragments**: Sentence fragments are harder to translate; therefore, wherever possible, write in complete sentences.
 * **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meeting to a native speaker or speakers from a particular regions. Examples:
   * "At heart, this product does a thing."
   * "Under the hood, the library uses an event-driven architecture.”
@@ -189,6 +189,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * If possible, have Harrison ([harrison.s@akeyless.io](mailto:harrison.s@akeyless.io)) review all content.
 * Verify technical accuracy.
 * Run spell check and grammar review.
+* Utilize the ReadMe.com AI Linter.
 * Validate code snippets and commands.
 
 # Do’s and Don’ts
@@ -204,9 +205,5 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Assume prior product knowledge.
 * Use unexplained jargon.
 * Overload with unnecessary detail.
-
-# Additional Resources
-
-* TODO
 
 ***

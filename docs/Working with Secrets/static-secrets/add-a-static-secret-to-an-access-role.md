@@ -26,7 +26,7 @@ Letâ€™s add a static secret to an existing role using the Akeyless CLI. If youâ€
 
 The CLI command to add a secret to a role is:
 
-```shell Akeyless CLI
+```shell Shell
 akeyless set-role-rule \
   --role-name <role name> \
   --path <secret name with path> \
@@ -36,17 +36,17 @@ akeyless set-role-rule \
 
 where:
 
-* `role-name`: The name of the role to which to add the static secret.
+* `--role-name`: The name of the role to which to add the static secret.
 
-* `path`: The full path to the static secret.
+* `--path`: The full path to the static secret.
 
-* `capability`: A CRUD operation clients associated with the role can perform for the secret. Each `capability` argument can include a single permission, either `Create`, `Read`, `Update`, `Delete`, `List`, or `Deny`. Use multiple `capability` arguments to assign multiple permissions.
+* `--capability`: A CRUD operation clients associated with the role can perform for the secret. Each `capability` argument can include a single permission, either `create`, `read`, `update`, `delete`, `list`, or `deny`. Use multiple `capability` arguments to assign multiple permissions.
 
-* `rule type`: `item-rule`.
+* `--rule type`: `item-rule`.
 
 For example, to add the **AdminCredentials** secret in the **Admin** folder to the **SystemAdmin** access role, also in the **Admin** folder, with **Read** and **List** permissions, type:
 
-```shell Akeyless CLI
+```shell Shell
 akeyless set-role-rule \
   --role-name /Admin/SystemAdmin \
   --path /Admin/AdminCredentials \
