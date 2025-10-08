@@ -25,6 +25,9 @@ jobs:
             --no-progress
             --suggest
             --exclude-path .github/workflows/lychee-artifacts/.lycheeignore
+            --exclude-link-local
+            --exclude-loopback
+            --include-mail
             './**/*.md'
           output: .github/workflows/lychee-artifacts/lychee-out.md
 
