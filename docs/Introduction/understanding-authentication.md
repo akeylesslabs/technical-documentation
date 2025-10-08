@@ -16,7 +16,7 @@ next:
 ---
 At heart, Akeyless is all about authenticating identities and authorizing them to access secrets.
 
-The platform serves two main types of identities: human and machine identities. "Machine", in this context, refers collectively to scripts, services, microservices, containers, VMs, and anything that is not run manually using a human identity.
+The platform serves two main types of identities: human and machine identities. "Machine" refers collectively to scripts, services, microservices, containers, VMs, and anything that is not run manually using a human identity.
 
 Each **identity** is represented by an [Authentication Method](doc:access-and-authentication-methods) object. Akeyless supports several types of authentication methods: [AWS IAM](doc:aws-iam), [Azure AD](doc:azure-ad), [GCP](doc:gcp-auth-method), [OCI IAM](doc:oci-iam), [API key](doc:api-key), [Kubernetes Auth](doc:kubernetes-auth), [SAML](doc:saml), [LDAP](doc:ldap), [OIDC](doc:openid), [OAuth2.0/JWT](doc:oauth20jwt), [Certificate](doc:certificate-based-authentication), and [Universal Identity (UID)](doc:universal-identity)™.
 
