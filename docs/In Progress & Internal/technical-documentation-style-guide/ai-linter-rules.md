@@ -43,6 +43,7 @@ metadata:
 * There should be no grammar issues.
 * There should be no incorrect capitalization or styling of Akeyless and external product/feature names.
 * There should only be third-person viewpoints. There should be no first-person or second-person language.
+* Where appropriate, the Oxford comma should be used.
 * Language should be simple and direct.
 * Language should use the active voice.
 * Use the same terminology for features, functions, and components throughout.
