@@ -14,7 +14,7 @@ next:
       slug: retrievestatic
       title: Retrieve and view static secrets
 ---
-Access roles provide clients with permission to work with secrets. When you add a secret to a role, you can specify exactly which **CRUD** (Create, Read, Update, and Delete) operations clients can perform for that secret.
+Access roles provide clients (users or machines) with permissions to work with secrets. When adding a secret to a role, exactly which **CRUD operations** (Create, Read, Update, and Delete) that a client can perform for that secret can be specified.
 
 > 📘 Info
 >
