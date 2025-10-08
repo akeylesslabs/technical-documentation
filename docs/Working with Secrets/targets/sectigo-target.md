@@ -23,7 +23,7 @@ Akeyless will store the issued certificates, manage them, and notify you of upco
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   For more information, [read here](doc:implement-zero-knowledge).
+   <Anchor label="Read more about Zero-Knowledge Encryption" target="_blank" href="doc:implement-zero-knowledge">Read more about Zero-Knowledge Encryption</Anchor>.
 
 4. Define the remaining parameters as follows:
 
@@ -62,6 +62,8 @@ For a complete list of parameters and their descriptions, visit the [CLI Referen
 
 Once the Sectigo Target is created, it can be used to generate a [public certificate](https://docs.akeyless.io/docs/public-ca).
 
-<Callout icon="❗️">
-  *The Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval.*
+<Callout icon="❗️" theme="error">
+  _The Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval._
 </Callout>
+
+<br />
