@@ -21,7 +21,7 @@ The CLI command to update a static secret is:
 ```shell Shell
 > akeyless update-secret-val --name <secret name> --value <new secret value>
 
-The value of secret <secret name>  was successfully updated
+The value of secret <secret name>  was successfully updated.
 ```
 
 ```shell
