@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true # so we can push back
 
       - name: Install and Run lychee
         uses: lycheeverse/lychee-action@v2.0.2
@@ -24,9 +26,11 @@ jobs:
             './**/*.md'
           output: .github/workflows/lychee-artifacts/lychee-out.md
 
-      - name: Upload report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: link-check-report
-          path: .github/workflows/lychee-artifacts/lychee-out.md
+      - name: Commit report back to repo
+        if: always() # run even if lychee fails
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/lychee-artifacts/lychee-out.md
+          git commit -m "chore: update lychee report [skip ci]" || echo "No changes to commit"
+          git push
