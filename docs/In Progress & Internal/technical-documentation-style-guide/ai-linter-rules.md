@@ -12,10 +12,9 @@ metadata:
 * There must be no errors in CLI commands or sample code.
 * There must be no misspellings.
 * There must be no custom HTML styling within pages. All styling must come from project-wide CSS. The following elements are excepted:
-  * Align attributes of images.
+  * Alignment attributes of images.
   * Border attributes of images.
 * There must be no errors in Markdown syntax.
-* Do not use bolded text, when a heading is appropriate.
 * All file names, CLI commands, configuration keys, and code should be formatted as such with backticks or fenced code blocks.
 * There should be no underlined text.
 * When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
@@ -77,3 +76,4 @@ metadata:
 * Avoid sentence fragments wherever reasonable.
 * If using variables like `{username}` or `{path}`, describe their expected format so translation can adjust grammar as needed.
 * Do not overload with unnecessary detail.
+* Do not use bolded text, when a heading is appropriate.
