@@ -15,7 +15,7 @@ metadata:
   * Alignment attributes of images.
   * Border attributes of images.
 * There must be no errors in Markdown syntax.
-* All file names, CLI commands, configuration keys, and code should be formatted as such with backticks or fenced code blocks.
+* All file names, CLI commands, configuration keys, and code should be formatted as such with backticks or fenced code blocks (triple backticks).
 * There should be no underlined text.
 * When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
   * GitLab (instead of Gitlab)
