@@ -19,6 +19,8 @@ jobs:
           args: >
             --verbose
             --no-progress
+            --dump
+            --suggest
             --exclude-file .github/workflows/lychee-artifacts/.lycheeignore
             './**/*.md'
           output: .github/workflows/lychee-artifacts/lychee-out.md
