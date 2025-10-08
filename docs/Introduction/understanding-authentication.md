@@ -22,7 +22,7 @@ Each **identity** is represented by an [Authentication Method](doc:access-and-au
 
 Each **Authentication Method object** is associated with an [Access Role](https://docs.akeyless.io/docs/rbac) that grants permission (including Create, Read, Update, Delete, List, and Deny) to this **identity** on Secrets, Targets, Roles, and Authentication Method objects stored inside the Akeyless SaaS solution.
 
-Let's see how this process works for a machine identity.
+An example process with a machine identity is explored here:
 
 <Image align="center" alt="The Akeyless platform begins with an authentication method creating an Identity. An Access Role is associated with the Identity. If the Identity is authorized, the secret data can be provided." border={false} src="https://files.readme.io/6f94784-Screenshot_at_Dec_19_10-54-15.png" />
 
