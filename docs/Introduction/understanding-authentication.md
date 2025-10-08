@@ -14,7 +14,7 @@ next:
       slug: rbac
       title: RBAC
 ---
-At heart, Akeyless is all about authenticating identities and authorizing them to access secrets.
+Akeyless is primarily about authenticating identities and authorizing them to access secrets.
 
 The platform serves two main types of identities: human and machine identities. "Machine" refers collectively to scripts, services, microservices, containers, VMs, and anything that is not run manually using a human identity.
 
