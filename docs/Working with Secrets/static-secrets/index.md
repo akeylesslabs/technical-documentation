@@ -26,7 +26,7 @@ The typical process for working with Static Secrets includes:
 
 4. [Sharing Static Secrets](doc:sharing-static-secrets): Temporarily share with external users who are not part of your organization or do not have general access permissions.
 
-If necessary, you can update a Static Secret value or create multiple versions of a Static Secret. See [Update and Version Static Secrets](doc:staticversions).
+If necessary, a Static Secret value can be updated or have multiple versions. See [Update and Version Static Secrets](doc:staticversions).
 
 When a Static Secret becomes obsolete, you can delete it.
 
