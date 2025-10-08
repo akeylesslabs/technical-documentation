@@ -28,6 +28,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Consistency**: Use the same terminology for features, functions, and components throughout.
 * **Conciseness**: Avoid unnecessary words, filler phrases, or redundant explanations.
 * **Audience awareness**: Assume readers have basic technical knowledge but may not be experts.
+* **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you").
 
 # Tone
 
@@ -88,6 +89,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * When using abbreviations, unless they are widely known (e.g., "API," "URL"), always define them on first use.
   * For example, "Our API supports CRUD (Create, Read, Update, and Delete) operations."
 * Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
+* Avoid having Akeyless become possible. For example, "Akeyless' technology does great things." Instead, reword the sentence to avoid that scenario (e.g, "The innovative technology of Akeyless does great things.")
 * When referencing non-Akeyless products and features, consistently apply the capitalization and puncutation of the owning organization of the product referenced. Some examples are:
   * GitLab (instead of Gitlab)
   * Docker Hub (instead of dockerhub)
