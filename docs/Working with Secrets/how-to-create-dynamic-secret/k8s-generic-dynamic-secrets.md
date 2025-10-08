@@ -18,11 +18,11 @@ To know what resources to generate with and supply to Akeyless, you will first n
 
 ### **Fixed Service Account**
 
-Fixed Service Accounts are existing Kubernetes Service Accounts that Akeyless generates JIT tokens or keys for, and manages them. To work in **Fixed Mode**, you must point Akeyless to the exact Service Account you want to generate tokens for. 
+Fixed Service Accounts are existing Kubernetes Service Accounts that Akeyless generates JIT tokens or keys for, and manages them. To work in **Fixed Mode**, you must point Akeyless to the exact Service Account you want to generate tokens for.
 
 ### **Dynamic Service Account**
 
-When working in **Dynamic Mode**, you may use a predefined role and only generate and bind the Service Account. Alternatively, you may use a `YAML` file that contains both new Role and Role Binding information for the new Service Account to be generated.
+When working in **Dynamic Mode**, you may use a predefined role and only generate and bind the Service Account. Alternatively, you may use a YAML file that contains both new Role and Role Binding information for the new Service Account to be generated.
 
 In addition, you must supply a list of Allowed Namespaces to exist within, to control where the Service Account will be created. If you select a pre-existing role (and not a cluster role) - it also must exist in the mentioned namespaces. It’s also possible to define the wildcard character `*` as the list of Allowed Namespaces to allow any namespace.
 
@@ -42,7 +42,7 @@ In addition, you must supply a list of Allowed Namespaces to exist within, to co
 
 # Authentication Strategies
 
-Akeyless supports several authentication strategies to interact with the K8s cluster using: 
+Akeyless supports several authentication strategies to interact with the K8s cluster using:
 
 * **The Akeyless Gateway Service Account**
 * **A dedicated Service Account's Bearer Token**
@@ -303,7 +303,7 @@ akeyless dynamic-secret create k8s \
 akeyless dynamic-secret create k8s \ 
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
 --k8s-service-account-type dynamic \
 --k8s-rolebinding-yaml-def <path/to/rolebinding/yml>
 --k8s-allowed-namespaces <namespace1, namespcae2>
@@ -311,7 +311,7 @@ akeyless dynamic-secret create k8s \
 
 Where:
 
-* `k8s-predefined-role-type`: The type of the pre-existing K8S role [`Role`/`ClusterRole`] \(For dynamic mode only).
+* `k8s-predefined-role-type`: The type of the pre-existing K8S role [`Role`/`ClusterRole`] (For dynamic mode only).
 
 * `k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (For dynamic mode only).
 
@@ -355,7 +355,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Using Dynamic Generic Kubernetes Secrets
 
-If the Akeyless CLI is installed on the same host as the `kubectl`, you can define a `kubeconfig` file to automatically run the `get-dynamic-secret-value` command and fetch new access tokens as required. 
+If the Akeyless CLI is installed on the same host as the `kubectl`, you can define a `kubeconfig` file to automatically run the `get-dynamic-secret-value` command and fetch new access tokens as required.
 
 Create the following `kubeconfig` file to run the `get-dynamic-secret-value` command and fetch new access tokens:
 
@@ -485,12 +485,12 @@ If you selected the **Explicitly specify target properties** mode, click **Next*
 
       * **Bearer Token:** Provide a JWT authentication token authorized to manage Service Account tokens, Roles, and Role Binding, depending on the working mode.
 
-      * **Cluster CA Certificate:**&#x50;rovide the k8s cluster CA certificate (PEM format)
+      * **Cluster CA Certificate:**Provide the k8s cluster CA certificate (PEM format)
 
       * **Cluster Endpoint URL:** Specify the URL of the cluster.
    2. **GW Service Account** to extract the connection settings from a  **Gateway** that runs on a **K8s** cluster, with a Service Account with permissions as described in the [prerequisits](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
    3. **Client Certificate**
-      * **Client Certificate:**&#x50;rovide the k8s client certificate (PEM format).
+      * **Client Certificate:**Provide the k8s client certificate (PEM format).
       * **Client Private Key :** Provide the K8s client private key (PEM format).
       * **Cluster CA Certificate:** Provide the k8s cluster CA certificate (PEM format).
       * **Cluster Endpoint URL:** Specify the URL of the cluster.
@@ -506,7 +506,7 @@ If you selected the **Explicitly specify target properties** mode, click **Next*
 
 # Example: Kubernetes Dashboard
 
-Let's see an example of how you could use dynamic generic Kubernetes secrets to get a token for the [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+Let's see an example of how you could use dynamic generic Kubernetes secrets to get a token for the [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 In this example, the **token-request-sa** service account will have permission to create tokens for the existing service account **kubernetes-dashboard** on the **kubernetes-dashboard** namespace.
 
@@ -550,19 +550,19 @@ subjects:
 
 1. Extract the service account token (secret) name by running:
 
-```shell kubectl
+```shell Shell
 TOKENNAME=`kubectl -n kubernetes-dashboard get serviceaccount/token-request-sa -o jsonpath='{.secrets[0].name}'`
 ```
 
 2. Extract the service account token by running:
 
-```shell kubectl
+```shell Shell
 TOKEN=`kubectl -n kubernetes-dashboard get secret $TOKENNAME -o jsonpath='{.data.token}'| base64 --decode`
 ```
 
 3. Create a Kubernetes generic dynamic secret called **k8s-dashboard-producer** by running:
 
-```shell Akeyless CLI
+```shell Shell
 akeyless dynamic-secret create k8s -n k8s-dashboard-producer \
 --gateway-url <http://YourGWURL:8000> \
 --k8s-cluster-endpoint <cluster DNS/IP address> \
