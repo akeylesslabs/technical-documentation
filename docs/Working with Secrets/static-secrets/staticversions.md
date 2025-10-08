@@ -44,7 +44,7 @@ Examples are as follows:
 
 ### Create a new version of _secret1_ with the new value _value2_ and keep previous version:
 
-```shell retrieve-and-view-from-the-ui
+```shell Shell
 $ akeyless update-secret-val -n /secret1 -v value2 --keep-prev-version=true
 The value of secret /secret1 was successfully updated
 ...
