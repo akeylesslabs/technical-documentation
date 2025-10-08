@@ -10,19 +10,15 @@ metadata:
 next:
   description: ''
 ---
-This guide describes how to run Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) on Azure [Container APP](https://azure.microsoft.com/en-us/products/container-apps). The official docker image to for this environment can be found at [Akeyless official docker](https://hub.docker.com/r/akeyless/gateway/tags) hub using the following image tag:
-
-```shell
-akeyless/gateway:<version>-container-app
-```
+This page describes how to run [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) on [Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps). The latest Docker image can be found at the [Akeyless Docker Hub](https://hub.docker.com/r/akeyless/gateway/tags) using the following image tag: `akeyless/gateway:latest-container-app`.
 
 # Prerequisites
 
 * Azure [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)
 * Azure [Container Apps environment](https://learn.microsoft.com/en-us/azure/container-apps/environment)
-* Azure [Container Registry](https://azure.microsoft.com/en-us/products/container-registry) 
+* Azure [Container Registry](https://azure.microsoft.com/en-us/products/container-registry)
 
-The steps below will demonstrate how to set the environment for deploying the Gateway.
+The steps below demonstrate how to configure an Azure Container Apps environment to deploy the Gateway.
 
 Log in to your Azure Account:
 
@@ -50,7 +46,7 @@ az acr create --resource-group akeyless-gw-rg \
 --sku Standard
 ```
 
-Create a [Container APPs Environment](https://learn.microsoft.com/en-us/azure/container-apps/environment) using the following command:
+Create a [Container Apps Environment](https://learn.microsoft.com/en-us/azure/container-apps/environment) using the following command:
 
 ```shell
 az containerapp env create \
@@ -63,13 +59,13 @@ With the configuration complete, we can now proceed to install the Gateway.
 
 # Container App Creation
 
-In case your **ACR** is private and requires authentication, run the following command while Docker is up and running on your host:
+If the **Azure Container Registry (ACR)** is private and requires authentication, run the following command while Docker is running on your host:
 
 ```shell
 az acr login --name akeylessgwacr
 ```
 
-Import the Image into the **Azure Container Registry**:
+Import the Image into ACR:
 
 ```shell
 az acr import \
@@ -158,7 +154,7 @@ Where:
 
 * `gateway_access_type` - The Auth Method type for the Gateway (In our case - `azure`).
 
-* `allowed_access_permissions` - A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components.\
+* `allowed_access_permissions` - A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components.
   **Required** when `admin_access_id_type` is `azure`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
 
 * `akeyless_url` - `https://vault.akeyless.io`.
