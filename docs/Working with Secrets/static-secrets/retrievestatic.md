@@ -20,21 +20,21 @@ You can retrieve a static secret value directly from the [Akeyless CLI](doc:retr
 
 Let’s retrieve a static secret value using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](doc:retrievestatic#retrieve-a-static-secret-value-from-the-akeyless-console) instead.
 
-The CLI command to retrieve a static secret value is:
+The CLI command to retrieve a Static Secret value is:
 
-```shell Akeyless CLI
+```shell Shell
 akeyless get-secret-value --name <secret name> --version <version number>
 ```
 
 where:
 
-* `name`: The name of the static secret whose value to retrieve.
+* `--name`: The name of the static secret whose value to retrieve.
 
-* `version`: Optional, the version number of the secret value to retrieve. If you do not include this argument, the latest version of the secret value will be retrieved.
+* `--version`: Optional, the version number of the secret value to retrieve. If you do not include this argument, the latest version of the secret value will be retrieved.
 
 For example, to retrieve the value of the **MyFirstSecret** static secret, type:
 
-```shell Akeyless CLI
+```shell Shell
 akeyless get-secret-value --name MyFirstSecret
 ```
 
