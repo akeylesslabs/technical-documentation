@@ -37,7 +37,7 @@ In the case of K8s deployment, the configuration process takes place before the 
 
 * Minimum 1 vCPU available with 2 GB RAM.
 
-* Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your cluster.
+* Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your cluster
 
 > 🚧 Warning
 >
