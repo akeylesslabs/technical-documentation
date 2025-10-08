@@ -596,22 +596,22 @@ The output is:
 
 4. Copy the **token** value, and use it for the Kubernetes Dashboard.
 
-# Single Kubeconfig Generation
+# Single `kubeconfig` Generation
 
-Generate **one kubeconfig** that aggregates **all your allowed Kubernetes Dynamic Secrets** (across one or more clusters) to a single file.
+Generate a single `kubeconfig` file that aggregates all of your allowed Kubernetes Dynamic Secrets (across one or more clusters).
 
-The CLI command is `akeyless kubeconfig-generate [OPTIONS]`
+The CLI command is `akeyless kubeconfig-generate`
 
 **Options**
 
 * `n, --name` - List of Dynamic Secret names (repeatable)
 * `t, --tag` - A single tag attached to Dynamic Secrets
-* `o, --out[=kubeconfig.json]` - Output path for the generated kubeconfig
+* `o, --out[=kubeconfig.json]` - Output path for the generated `kubeconfig` file
 * `-profile, --token` - Use a saved profile (`$HOME/.akeyless/profiles`) or a temporary access token
-* `-uid-token` - Universal Identity token (required only with `universal_identity` auth)
+* `-uid-token` - Universal Identity token (required only with the`universal_identity` Authentication Method)
 * `-json[=false]` - Return tool output in JSON
 * `-jq-expression` - JQ filter for JSON output
-* `-no-creds-cleanup[=false]` -  Do not clean local temporary expired creds
+* `-no-creds-cleanup[=false]` -  Do not clean local temporary expired credentials
 
 Remember to provide at least one selector:  `--name` (one or more secret names) or `--tag` (a single tag). When both are provided, the first provided selector is used.
 
