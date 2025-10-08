@@ -49,7 +49,7 @@ aws_auth_type_assume_role="" # Relevant for aws_auth_type_assume_role
 target_s3_aws_region=""
 ```
 
-<Callout icon="❗️">
+<Callout icon="❗️" theme="error">
   _**Warning:** Logs will be uploaded to an Amazon S3 bucket on ten minute intervals. Pods that terminate before this interval will not upload logs._
 </Callout>
 
@@ -161,6 +161,26 @@ target_splunk_enable_tls="true"
 target_splunk_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
+## STDOUT
+
+Setting log forwarding to stdout:
+
+```yaml
+enable="true"
+target_log_type="std_out"
+```
+
+## Sumo Logic
+
+Setting log forwarding to Sumo Logic system:
+
+```yaml
+target_log_type="sumo_logic"
+target_sumologic_endpoint_url="<sumo logic endpoint>"(required)
+target_sumologic_tags="<Tags associated with your logs in the form of tag1,tag2...>"(optional)
+target_sumologic_host="<Host associated with your logs>"(optional)
+```
+
 ## Syslog
 
 Set the following settings inside your local config file:
@@ -177,7 +197,7 @@ target_syslog_enable_tls="true"
 target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-<Callout icon="📘">
+<Callout icon="📘" theme="info">
   The message format conforms to the Syslog format and assumes that the Syslog server does not add its own formatting to the message.
 
   Default format: `<date > <time> <host name> <log level> <message>`.
@@ -186,25 +206,3 @@ target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
 </Callout>
 
 
-
-## STDOUT
-
-Setting log forwarding to stdout:
-
-```yaml
-enable="true"
-target_log_type="std_out"
-```
-
-````
-
-## Sumo Logic
-
-Setting log forwarding to Sumo Logic system:
-
-```yaml
-target_log_type="sumo_logic"
-target_sumologic_endpoint_url="<sumo logic endpoint>"(required)
-target_sumologic_tags="<Tags associated with your logs in the form of tag1,tag2...>"(optional)
-target_sumologic_host="<Host associated with your logs>"(optional)
-````
