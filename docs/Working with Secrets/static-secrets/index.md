@@ -14,7 +14,7 @@ next:
       title: Create a static secret
       type: basic
 ---
-Static Secrets are key/value pairs created and updated manually, such as passwords and API tokens. You can store any text-based items in their original format, including configuration files, `JSON` formatted data, and `YAML` formatted data.
+Static Secrets are key/value pairs created and updated manually, such as passwords and API tokens. Text-based items can be stored in their original format, including configuration files, `JSON` formatted data, and `YAML` formatted data.
 
 The typical process for working with Static Secrets includes:
 
