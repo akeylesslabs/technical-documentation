@@ -1,5 +1,5 @@
 ---
-title: Gateway on K8s
+title: Gateway on K8s (Legacy)
 excerpt: ''
 deprecated: false
 hidden: true
