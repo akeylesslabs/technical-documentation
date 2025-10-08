@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-This guide describes how to run a Serverless Gateway on **AWS** based on [Lambda Function](https://aws.amazon.com/pm/lambda/?gclid=CjwKCAiAudG5BhAREiwAWMlSjCcu0SVmDSXTv2B4JNN2hmpAa_w0DedQG4CLVB66ZYibg2wcw1ny8xoCgVIQAvD_BwE\&trk=3da65280-58c3-4e9f-8d04-5402461fedce\&sc_channel=ps\&ef_id=CjwKCAiAudG5BhAREiwAWMlSjCcu0SVmDSXTv2B4JNN2hmpAa_w0DedQG4CLVB66ZYibg2wcw1ny8xoCgVIQAvD_BwE:G:s\&s_kwcid=AL!4422!3!651612444455!e!!g!!amazon%20lambda!19836376555!148728891764) using **Terraform**.
+This guide describes how to run a Serverless Gateway on AWS based on [AWS Lambda Functions](https://aws.amazon.com/pm/lambda/?gclid=CjwKCAiAudG5BhAREiwAWMlSjCcu0SVmDSXTv2B4JNN2hmpAa_w0DedQG4CLVB66ZYibg2wcw1ny8xoCgVIQAvD_BwE\&trk=3da65280-58c3-4e9f-8d04-5402461fedce\&sc_channel=ps\&ef_id=CjwKCAiAudG5BhAREiwAWMlSjCcu0SVmDSXTv2B4JNN2hmpAa_w0DedQG4CLVB66ZYibg2wcw1ny8xoCgVIQAvD_BwE:G:s\&s_kwcid=AL!4422!3!651612444455!e!!g!!amazon%20lambda!19836376555!148728891764) using HashiCorp Terraform.
 
 # Prerequisites
 
-* [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) `>=1.0.0`
+* [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) (version 1.0.0 or later)
 
-* AWS account.
+* Amazon AWS account
 
-* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints: 
+* Network port `8000` on the cluster must be open _only for internal network access_. This allows access to the following service endpoints:
 
 | Service                                              | Endpoint   |
 | :--------------------------------------------------- | :--------- |
@@ -28,15 +28,15 @@ This guide describes how to run a Serverless Gateway on **AWS** based on [Lambda
 | Akeyless V2 REST API                                 | `/api/v2`  |
 | [KMIP Server](doc:kmip-server)                       | `5696`     |
 
-For example, to get to `/api/v2` endpoint, run: `https://your_serverless_gw_url.com/api/v2`
+For example, to get to the `/api/v2` service, use this endpoint: `https://<your_serverless_gateway_url>.com/api/v2`
 
-> 🚧 Warning
->
-> Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
+<Callout icon="❗️">
+  _**Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services._
+</Callout>
 
-# Gateway Configuration
+# Pre-Installation Configuration
 
-Clone the **Serverless Gateway** repository locally: 
+Clone the **Serverless Gateway** repository locally:
 
 ```shell Shell
 git clone https://github.com/akeyless-community/akeyless-serverless-gateway.git
@@ -46,14 +46,14 @@ Edit the `akeyless-serverless-gateway/terraform/AWS/serverless-gateway/lambda_en
 
 ## Authentication
 
-Set your Gateway with a default [Authentication Method](doc:access-and-authentication-methods) to control the level of access your Gateway will have inside your Akeyless account.
+Set your Akeyless Gateway with a default [Authentication Method](doc:access-and-authentication-methods) to control the level of access your Akeyless Gateway will have to your Akeyless account.
 
-The following Authentication Methods are supported for Serverless mode:
+The following Authentication Methods are supported for serverless mode:
 
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 * [API Key](https://docs.akeyless.io/docs/api-key)
 
-When using [AWS IAM](https://docs.akeyless.io/docs/aws-iam) as the `admin_access_id` of the Gateway, make sure to set in addition a list of users that will be able to manage your Gateway configuration using the `allowed_access_permissions` variable, for example:
+When using [AWS IAM](https://docs.akeyless.io/docs/aws-iam) as the `admin_access_id` of the Gateway, make sure to also set a list of users that are able to manage your Akeyless Gateway configuration using the `allowed_access_permissions` variable. For example:
 
 ```shell AWS_IAM
 variable "admin_access_id_type" {
@@ -111,7 +111,7 @@ Where:
 
 ## Customer Fragment
 
-To work with [Zero-Knowledge ](https://docs.akeyless.io/docs/implement-zero-knowledge)edit the `customer_fragments`  variable as follows:
+To work with [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments` variable:
 
 ```shell
 variable "customer_fragments"{
@@ -140,7 +140,7 @@ terraform init
 terraform apply
 ```
 
- Upon successful installation of the **Serverless Gateway**, the following output will be generated:
+Upon successful installation of the **Akeyless Serverless Gateway**, the following output will be generated:
 
 ```shell Shell
 Outputs:
@@ -151,16 +151,16 @@ aws_lambda_function = "arn:aws:lambda:<region>:<aws-acct-id>:function:<your-serv
 repository_url = "<aws-acct-id>.dkr.ecr.<region>.amazonaws.com/<your>-serverless-gateway-repo-for-lambda"
 ```
 
-**Note:**  If the Gateway settings need to be updated after installation, edit the relevant values in the [terraform files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway) and run `terraform apply`.
+**Note:**  If the Akeyless Serverless Gateway settings need to be updated after installation, edit the relevant values in the [Terraform files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway) and run `terraform apply`.
 
-# Initial Gateway Configuration
+# Additional Gateway Configuration
 
-To configure your Akeyless Gateway:
+To configure your Akeyless Serverless Gateway:
 
 1. On your browser, navigate to the URL in the first output above labeled: `akeyless_serverless_gateway_url`.
 2. Enter your credentials to log in.
 
-> 📘 Gateway URL
+> 📘 Akeyless Gateway URL
 >
 > The default value of the `akeyless_serverless_gateway_url` ends with `/default/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
 >
@@ -198,6 +198,10 @@ The **Serverless Gateway** will boot with the version you chose.
 
 # Limitations
 
-**Unavailable services:**
+The Akeyless Serverless Gateway does not support:
 
-[Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) / [LDAP](https://docs.akeyless.io/docs/ldap) Authentication, [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache), [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration), Event on Gateway status change, [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate).
+* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) and [LDAP](https://docs.akeyless.io/docs/ldap) Authentication Methods
+* [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
+* [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
+* Event on Gateway status change
+* [TLS Configuration](doc:tls-certificate)
