@@ -22,9 +22,7 @@ Access roles provide clients with permission to work with secrets. When you add 
 
 # Add a Static Secret to a Role from the Akeyless CLI
 
-Let’s add a static secret to an existing role using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](doc:add-a-static-secret-to-an-access-role#add-a-static-secret-to-a-role-from-the-akeyless-console) instead.
-
-The CLI command to add a secret to a role is:
+Static Secrets can be created with the Akeyless CLI:
 
 ```shell Shell
 akeyless set-role-rule \
