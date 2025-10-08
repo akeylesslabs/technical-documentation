@@ -84,7 +84,7 @@ Where:
 
 > 👍 Note
 >
-> The **eks-assume-role** parameter is required when the <code>aws-auth</code> configmap is configured to allow the provided AWS IAM user to connect through the <code>mapRoles</code> key.
+> The **eks-assume-role** parameter is required when the `aws-auth` configmap is configured to allow the provided AWS IAM user to connect through the `mapRoles` key.
 >
 > For more information, see [the Amazon EKS guide on user roles](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
 
