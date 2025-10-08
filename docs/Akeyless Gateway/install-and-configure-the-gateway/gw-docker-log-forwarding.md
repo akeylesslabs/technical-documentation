@@ -20,6 +20,39 @@ To start your Akeyless Gateway with this setting, please mount a local config fi
 docker run -d -p 8000:8000 -v {path-to}/log_forwarding_conf_file:/home/akeyless/.akeyless/logand.conf -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_ACCESS_KEY="<YourAccessKey" --name akeyless-gw  akeyless/base:latest-akeyless
 ```
 
+## Amazon S3
+
+The following permissions are required to forward the audit logs to an Amazon S3 bucket:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:<your_partition>:s3:::<bucket_name>/folder_name/*"
+    }
+  ]
+}
+```
+
+```yaml
+enable="true"
+target_log_type="aws_s3"
+target_s3_folder_prefix=""  # default value "akeyless-log"
+target_s3_bucket_name=""
+target_s3_aws_auth_type="" # aws_auth_type_access_key|aws_auth_type_cloud_id|aws_auth_type_assume_role
+target_s3_aws_access_id="" # aws_auth_type_access_key
+target_s3_aws_access_key="" # aws_auth_type_access_key
+aws_auth_type_assume_role="" # Relevant for aws_auth_type_assume_role
+target_s3_aws_region=""
+```
+
+<Callout icon="❗️">
+  _**Warning:** Logs will be uploaded to an Amazon S3 bucket on ten minute intervals. Pods that terminate before this interval will not upload logs._
+</Callout>
+
 ## Azure Log Analytics
 
 Logs will be sent to a given workspace according to provided ID.
@@ -35,7 +68,7 @@ azure_workspace_key="" # can be "Primary key" or "Secondary key"
 
 Setting log forwarding to DataDog system:
 
-```yaml
+````yaml
 enable="true"
 target_log_type="datadog"
 target_datadog_host="<datadog host e.g. datadoghq.com>" (required)
@@ -68,8 +101,7 @@ target_elasticsearch_index="<your_index>" (required)
 #TLS Optional
 target_elasticsearch_enable_tls="true"
 target_elasticsearch_tls_certificate="<Based64 PEM encoded Cert>"
-```
-
+````
 
 ## Google Chronicle
 
@@ -83,8 +115,6 @@ target_google_chronicle_customer_id="<Unique identifier for the Chronicle instan
 target_google_chronicle_region="<Region where the customer account is provisioned, possible value: "eu_multi_region", "london", "us_multi_region", "singapore", "tel_aviv">" (required)
 target_google_chronicle_log_type="<Log type>"(required)
 ```
-
-
 
 ## Logstash
 
@@ -147,53 +177,13 @@ target_syslog_enable_tls="true"
 target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-> 👍 Note
->
-> The message format conforms to the Syslog format and assumes that the Syslog server does not add its own formatting to the message.
->
-> Default format: `<date > <time> <host name> <log level> <message>`.
->
-> The variable `target_syslog_formatter` controls the output message format: either `text` or `cef`.
+<Callout icon="📘">
+  The message format conforms to the Syslog format and assumes that the Syslog server does not add its own formatting to the message.
 
+  Default format: `<date > <time> <host name> <log level> <message>`.
 
-
-
-
-
-
-
-## Amazon S3
-
-> 🚧 Warning
->
-> Logs will be uploaded to an Amazon S3 bucket on ten minute intervals. Pods that terminate before this interval will not upload logs.
-
-The following permissions are required to forward the audit logs to an Amazon S3 bucket:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "s3:PutObject",
-      "Resource": "arn:<your_partition>:s3:::<bucket_name>/folder_name/*"
-    }
-  ]
-}
-```
-
-```yaml
-enable="true"
-target_log_type="aws_s3"
-target_s3_folder_prefix=""  # default value "akeyless-log"
-target_s3_bucket_name=""
-target_s3_aws_auth_type="" # aws_auth_type_access_key|aws_auth_type_cloud_id|aws_auth_type_assume_role
-target_s3_aws_access_id="" # aws_auth_type_access_key
-target_s3_aws_access_key="" # aws_auth_type_access_key
-aws_auth_type_assume_role="" # Relevant for aws_auth_type_assume_role
-target_s3_aws_region=""
-```
+  The variable `target_syslog_formatter` controls the output message format: either `text` or `cef`.
+</Callout>
 
 
 
@@ -206,8 +196,7 @@ enable="true"
 target_log_type="std_out"
 ```
 
-
-```
+````
 
 ## Sumo Logic
 
@@ -218,5 +207,4 @@ target_log_type="sumo_logic"
 target_sumologic_endpoint_url="<sumo logic endpoint>"(required)
 target_sumologic_tags="<Tags associated with your logs in the form of tag1,tag2...>"(optional)
 target_sumologic_host="<Host associated with your logs>"(optional)
-```
-
+````
