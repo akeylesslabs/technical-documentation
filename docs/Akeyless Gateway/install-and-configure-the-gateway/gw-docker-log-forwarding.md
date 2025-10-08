@@ -12,71 +12,39 @@ next:
 ---
 # Log Forwarding
 
-To forward all your Akeyless audit logs directly from your Gateway, create a local config file with the relevant configuration for your target logs server as described below. 
+To forward all Akeyless audit logs directly from your Akeyless Gateway, create a local configuration file specifying a target logs server.
 
-To start your Gateway with this setting, please mount a local config file directly into the `/home/akeyless/.akeyless/logand.conf` of the Gateway docker image.
+To start your Akeyless Gateway with this setting, please mount a local config file at this path: `/home/akeyless/.akeyless/logand.conf`.
 
 ```shell
 docker run -d -p 8000:8000 -v {path-to}/log_forwarding_conf_file:/home/akeyless/.akeyless/logand.conf -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_ACCESS_KEY="<YourAccessKey" --name akeyless-gw  akeyless/base:latest-akeyless
 ```
 
-## Syslog
+## Azure Log Analytics
 
-Set the following settings inside your local config file:
-
-```yaml
-enable="true"
-target_syslog_tag="ssh-audit-export"
-target_log_type="syslog"
-target_syslog_network="udp"
-target_syslog_host="<host>:<port>"
-target_syslog_formatter="[default=text]|cef"
-#TLS Optional
-target_syslog_enable_tls="true"
-target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
-```
-
-> 👍 Note
->
-> The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
->
-> Default format: `<date > <time> <host name> <log level> <message>`.
->
-> The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF**  format.
-
-## Splunk
-
-Prerequisites: [Splunk HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector) 
+Logs will be sent to a given workspace according to provided ID.
 
 ```yaml
 enable="true"
-target_log_type="splunk"
-target_splunk_sourcetype="<your_sourcetype>"
-target_splunk_source="<your_source>"
-target_splunk_index="<your_index>"
-target_splunk_token="<your_token>"
-target_splunk_url="<your_splunk_host_address>"
-#TLS Optional
-target_splunk_enable_tls="true"
-target_splunk_tls_certificate="<Based64 PEM encoded Cert>"
+target_log_type="azure_log_analytics"
+azure_workspace_id=""
+azure_workspace_key="" # can be "Primary key" or "Secondary key"
 ```
 
-## ELK / Logstash
+## DataDog
+
+Setting log forwarding to DataDog system:
 
 ```yaml
 enable="true"
-target_log_type="logstash"
-target_logstash_dns="localhost:8911"
-target_logstash_protocol="tcp"
-#TLS Optional
-target_logstash_enable_tls="true"
-target_logstash_tls_certificate="<Based64 PEM encoded Cert>"
-```
+target_log_type="datadog"
+target_datadog_host="<datadog host e.g. datadoghq.com>" (required)
+target_datadog_api_key="<datadog api key>"(required)
+target_datadog_log_source="<The integration name associated with your log>" (optional. Default value: akeyless)
+target_datadog_log_tags="<Tags associated with your logs in the form of key:val,key:val... e.g. env:test,version:1>"(optional)
+target_datadog_log_service="<The name of the application or service generating the log events>"(optional. Default value: akeyless-gateway)
 
-Configure your Logstash to use the same port and protocol:\
-Add the following to the <code>logstash.conf</code> file:\ <code>input \{ tcp \{ port => 8911 codec => json } }</code>
-
-## ELK Elasticsearch
+## Elasticsearch
 
 ```yaml
 enable="true"
@@ -102,6 +70,37 @@ target_elasticsearch_enable_tls="true"
 target_elasticsearch_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
+
+## Google Chronicle
+
+Setting log forwarding to Google Chronicle system:
+
+```yaml
+target_log_type="google_chronicle"
+target_google_chronicle_service_account_key="<Base64 json service account key file content>" (required if "target_google_chronicle_service_account_key_file" is empty)
+target_google_chronicle_service_account_key_file="<Path to the json service account key file>" (required if "target_google_chronicle_service_account_key" is empty)
+target_google_chronicle_customer_id="<Unique identifier for the Chronicle instance>"(required)
+target_google_chronicle_region="<Region where the customer account is provisioned, possible value: "eu_multi_region", "london", "us_multi_region", "singapore", "tel_aviv">" (required)
+target_google_chronicle_log_type="<Log type>"(required)
+```
+
+
+
+## Logstash
+
+```yaml
+enable="true"
+target_log_type="logstash"
+target_logstash_dns="localhost:8911"
+target_logstash_protocol="tcp"
+#TLS Optional
+target_logstash_enable_tls="true"
+target_logstash_tls_certificate="<Based64 PEM encoded Cert>"
+```
+
+Configure your Logstash to use the same port and protocol:
+Add the following to the `logstash.conf` file:\ `input { tcp { port => 8911 codec => json } }`
+
 ## Logz.io
 
 ```yaml Shell
@@ -115,13 +114,61 @@ target_logz_io_protocol="https"
 
 For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/).
 
-## AWS S3
+## Splunk
+
+Prerequisites: [Splunk HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector)
+
+```yaml
+enable="true"
+target_log_type="splunk"
+target_splunk_sourcetype="<your_sourcetype>"
+target_splunk_source="<your_source>"
+target_splunk_index="<your_index>"
+target_splunk_token="<your_token>"
+target_splunk_url="<your_splunk_host_address>"
+#TLS Optional
+target_splunk_enable_tls="true"
+target_splunk_tls_certificate="<Based64 PEM encoded Cert>"
+```
+
+## Syslog
+
+Set the following settings inside your local config file:
+
+```yaml
+enable="true"
+target_syslog_tag="ssh-audit-export"
+target_log_type="syslog"
+target_syslog_network="udp"
+target_syslog_host="<host>:<port>"
+target_syslog_formatter="[default=text]|cef"
+#TLS Optional
+target_syslog_enable_tls="true"
+target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
+```
+
+> 👍 Note
+>
+> The message format conforms to the Syslog format and assumes that the Syslog server does not add its own formatting to the message.
+>
+> Default format: `<date > <time> <host name> <log level> <message>`.
+>
+> The variable `target_syslog_formatter` controls the output message format: either `text` or `cef`.
+
+
+
+
+
+
+
+
+## Amazon S3
 
 > 🚧 Warning
 >
-> Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
+> Logs will be uploaded to an Amazon S3 bucket on ten minute intervals. Pods that terminate before this interval will not upload logs.
 
-The following permissions are required to forward the audit logs to an S3 bucket:
+The following permissions are required to forward the audit logs to an Amazon S3 bucket:
 
 ```json
 {
@@ -130,7 +177,7 @@ The following permissions are required to forward the audit logs to an S3 bucket
     {
       "Effect": "Allow",
       "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::<bucket_name>/folder_name/*"
+      "Resource": "arn:<your_partition>:s3:::<bucket_name>/folder_name/*"
     }
   ]
 }
@@ -148,38 +195,18 @@ aws_auth_type_assume_role="" # Relevant for aws_auth_type_assume_role
 target_s3_aws_region=""
 ```
 
-## Azure Log Analytics
 
-Logs will be sent to a given workspace according to provided ID.
-
-```yaml
-enable="true"
-target_log_type="azure_log_analytics"
-azure_workspace_id=""
-azure_workspace_key="" # can be "Primary key" or "Secondary key"
-```
 
 ## STDOUT
 
-Setting log forwarding to stdout: 
+Setting log forwarding to stdout:
 
 ```yaml
 enable="true"
 target_log_type="std_out"
 ```
 
-## DataDog
 
-Setting log forwarding to DataDog system: 
-
-```yaml
-enable="true"
-target_log_type="datadog"
-target_datadog_host="<datadog host e.g. datadoghq.com>" (required)
-target_datadog_api_key="<datadog api key>"(required)
-target_datadog_log_source="<The integration name associated with your log>" (optional. Default value: akeyless)
-target_datadog_log_tags="<Tags associated with your logs in the form of key:val,key:val... e.g. env:test,version:1>"(optional)
-target_datadog_log_service="<The name of the application or service generating the log events>"(optional. Default value: akeyless-gateway)
 ```
 
 ## Sumo Logic
@@ -193,15 +220,3 @@ target_sumologic_tags="<Tags associated with your logs in the form of tag1,tag2.
 target_sumologic_host="<Host associated with your logs>"(optional)
 ```
 
-## Google Chronicle
-
-Setting log forwarding to Google Chronicle system:
-
-```yaml
-target_log_type="google_chronicle"
-target_google_chronicle_service_account_key="<Base64 json service account key file content>" (required if "target_google_chronicle_service_account_key_file" is empty)
-target_google_chronicle_service_account_key_file="<Path to the json service account key file>" (required if "target_google_chronicle_service_account_key" is empty)
-target_google_chronicle_customer_id="<Unique identifier for the Chronicle instance>"(required)
-target_google_chronicle_region="<Region where the customer account is provisioned, possible value: "eu_multi_region", "london", "us_multi_region", "singapore", "tel_aviv">" (required)
-target_google_chronicle_log_type="<Log type>"(required)
-```
