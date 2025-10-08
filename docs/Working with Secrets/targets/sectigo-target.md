@@ -68,7 +68,7 @@ Where:
 
 * `customer-uri`: The Customer URI of the Sectigo account.
 
-* `organization-id`: Sectigo Orgnaiztion ID.
+* `organization-id`: Sectigo Organization ID.
 
 * `certificate-profile-id`: Sectigo Certificate Profile ID.
 
