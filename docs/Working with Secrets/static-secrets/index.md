@@ -11,7 +11,7 @@ metadata:
 next:
   pages:
     - slug: create-secret
-      title: Create a static secret
+      title: Create a Static Secret
       type: basic
 ---
 Static Secrets are key/value pairs created and updated manually, such as passwords and API tokens. Text-based items can be stored in their original format, including configuration files, JSON formatted data, and YAML formatted data.
