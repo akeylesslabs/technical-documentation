@@ -19,7 +19,6 @@ jobs:
           args: >
             --verbose
             --no-progress
-            --dump
             --suggest
             --exclude-file .github/workflows/lychee-artifacts/.lycheeignore
             './**/*.md'
