@@ -20,13 +20,13 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 # Prerequisites
 
-* An [Authentication Method](doc:access-and-authentication-methods) with an [Access Role](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets).
+* An [Authentication Method](doc:access-and-authentication-methods) with an [Access Role](doc:rbac) to create and manage [Secrets, Keys,](doc:manage-your-secrets-overview) and [Targets](doc:targets)
 
 * [Helm](https://helm.sh/) Installed
 
-* K8s Installed with [K8s metrics server](https://github.com/kubernetes-sigs/metrics-server)
+* Kubernetes installed with the [Kubernetes metrics server](https://github.com/kubernetes-sigs/metrics-server)
 
-* Minimum 1 vCPU available with 2 GB RAM.
+* Minimum 1 vCPU available with 2 GB RAM
 
 * Network connection to [Akeyless SaaS Core Services](doc:api-gateway-network-connectivity) from your cluster.
 
@@ -42,42 +42,40 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 # Helm Chart configuration
 
-1. Add the following repository to your Helm repository list:
+1. Add the following repository to the Helm repository list:
 
 ```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-2. Fetch the `values.yaml` file from Akeyless repository:
+2. Fetch the `values.yaml` file from the Akeyless repository:
 
 ```shell
 helm show values akeyless/akeyless-gateway > values.yaml
 ```
 
-3. Use your favorite editor to set the relevant parameters in the `values.yaml` file:
-
-```shell
-vi values.yaml
-```
+3. Set the relevant parameters in the `values.yaml` file with a text editor or IDE.
 
 # Authentication
 
-To set your Gateway with a default [Authentication Methods](doc:access-and-authentication-methods) to control the level of access your Gateway instance will have inside your Akeyless account.
+Configure the Akeyless Gateway with a default [Authentication Method](doc:access-and-authentication-methods) to control the level of access your Gateway instance will have to your Akeyless account.
 
-The following [Authentication Methods](doc:access-and-authentication-methods) are supported for K8s deployments:
+The following [Authentication Methods](doc:access-and-authentication-methods) are supported for Kubernetes deployments:
 
 * [API Key](doc:api-key)
 
 * [AWS IAM](doc:aws-iam)
 
-* [GCP](doc:gcp-auth-method)
-
 * [Azure Active Directory](doc:azure-ad)
 
-* [Universal Identity](doc:universal-identity)
+*
+  [Certificates](doc:certificate-based-authentication)
 
-* [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)
+
+* [GCP](doc:gcp-auth-method)
+
+* [Universal Identity](doc:universal-identity)
 
 ## API Key Authentication
 
