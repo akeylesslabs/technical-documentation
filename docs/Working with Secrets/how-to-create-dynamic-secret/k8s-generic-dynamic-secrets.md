@@ -613,7 +613,7 @@ The CLI command is `akeyless kubeconfig-generate [OPTIONS]`
 * `-jq-expression` - JQ filter for JSON output
 * `-no-creds-cleanup[=false]` -  Do not clean local temporary expired creds
 
-Remember to provide at least one selector - `--name` (one or more secret names) **or** `--tag` (a single tag). When both are provided, the first appearing selector is prioritized.
+Remember to provide at least one selector:  `--name` (one or more secret names) or `--tag` (a single tag). When both are provided, the first provided selector is used.
 
 ## Conflict handling (duplicate cluster/context names)
 
@@ -621,7 +621,7 @@ When duplicate context names are detected during merge:
 
 * **Default behavior:** It keeps the **first** occurrence and **log a warning** about the conflict.
 * **Resolution message:** the CLI prints a clear notice in the terminal describing which context was kept and which was skipped or renamed.
-* **Auditability:** the same message is written to the log for later review.
+* **Auditable:** the same message is written to the log for later review.
 
 > Example terminal notice:
 >
