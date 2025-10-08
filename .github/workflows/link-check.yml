@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: link-check-report
-          path: .github/workflows/lychee-artifactslychee-out.md
+          path: .github/workflows/lychee-artifacts/lychee-out.md
