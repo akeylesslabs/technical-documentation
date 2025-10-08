@@ -69,9 +69,7 @@ The following [Authentication Methods](doc:access-and-authentication-methods) ar
 
 * [Azure Active Directory](doc:azure-ad)
 
-* *
-    [Certificates](doc:certificate-based-authentication)
-
+* [Certificates](doc:certificate-based-authentication)
 
 * [GCP](doc:gcp-auth-method)
 
