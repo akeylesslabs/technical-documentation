@@ -161,7 +161,7 @@ Where:
 
 > 📘 Working with Gateway
 >
-> To fetch **Dynamic** and **Rotated** Secrets, as well working with **Zero Knowledge**  make sure your **GitLab Runner** has network access to the relevant Gateway.
+> To fetch **Dynamic** and **Rotated** Secrets make sure your **GitLab Runner** has network access to the relevant Akeyless Gateway.
 
 ## JSON Example
 
