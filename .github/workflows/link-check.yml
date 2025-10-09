@@ -70,17 +70,13 @@ jobs:
 
           echo "LYCHEE_SUMMARY=$BROKEN broken links out of $TOTAL checked" >> $GITHUB_ENV
 
-      - name: Set timestamp
-        id: ts
-        run: echo "ts=$(date -u +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
-
       - name: Commit to branch
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          BRANCH="automation/link-check-${{ steps.ts.outputs.ts }}"
+          BRANCH="automation/link-check
           git fetch origin
           git checkout -B $BRANCH
 
@@ -89,11 +85,8 @@ jobs:
 
           git commit -m "chore: update link replacements, lychee report & log [skip ci]" || echo "No changes to commit"
 
-          # Make sure we are up to date with remote branch
-          git pull --rebase origin $BRANCH || true
-
           # Now push the updated branch
-          git push origin $BRANCH
+          git push origin $BRANCH --force
 
 
       - name: Create or update PR
@@ -101,9 +94,9 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: automation/link-check-${{ steps.ts.outputs.ts }}
+          branch: automation/link-check
           base: main
-          title: "chore: Link checker results (${{ steps.ts.outputs.ts }} UTC)"
+          title: "chore: Link checker results"
           body: |
             This PR updates:
             - Replaced `doc:` links with full URLs
