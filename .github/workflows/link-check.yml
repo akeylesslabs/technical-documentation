@@ -108,10 +108,10 @@ jobs:
           commit-message: "chore: update link replacements, lychee report & log [skip ci]"
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 
-      - name: Send Slack summary
-        if: always()
-        run: |
-          PR_URL="${{ steps.cpr.outputs.pull-request-url }}"
-          curl -X POST -H 'Content-type: application/json' \
-            --data "{\"text\":\":mag: *Link Check Summary* \n- Replacement: $REPLACER_SUMMARY\n- Lychee: $LYCHEE_SUMMARY\n- PR: <$PR_URL|Review here>\"}" \
-            ${{ secrets.SLACK_WEBHOOK_URL }}
+      #- name: Send Slack summary
+      #  if: always()
+      #  run: |
+      #    PR_URL="${{ steps.cpr.outputs.pull-request-url }}"
+      #    curl -X POST -H 'Content-type: application/json' \
+      #      --data "{\"text\":\":mag: *Link Check Summary* \n- Replacement: $REPLACER_SUMMARY\n- Lychee: $LYCHEE_SUMMARY\n- PR: <$PR_URL|Review here>\"}" \
+      #      ${{ secrets.SLACK_WEBHOOK_URL }}
