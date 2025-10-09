@@ -50,9 +50,9 @@ akeyless create-ssh-cert-issuer \
 
 `--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
-`--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. [https://my.bastion:9900](https://my.bastion:9900)
+`--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `https://my.bastion:9900`
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. E.g. my.bastion:22
+`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22`
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list
 
@@ -132,9 +132,9 @@ akeyless update-ssh-cert-issuer \
 
 `--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
-`--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. [https://my.bastion:9900](https://my.bastion:9900)
+`--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `https://my.bastion:9900`
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. E.g. my.bastion:22
+`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22`
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list
 
@@ -289,9 +289,9 @@ akeyless generate-csr \
 
 `--ip-addresses`: a comma-separated list of ip addresses alternative names
 
-`--uri-sans`: a comma-separated list of uri alternative names
+`--uri-sans`: a comma-separated list of URI alternative names
 
-`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL [http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL `http://Your-Akeyless-Gateway-URL:8000`
 
 `--description`: Description of the object
 
@@ -315,11 +315,11 @@ akeyless get-kube-exec-creds \
 
 `-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be use to extract the public key)
 
-`--key-data-base64`: pki key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
+`--key-data-base64`: PKI key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
 
 `--csr-file-path`: Path to Certificate Signing Request file to generate the certificate with
 
-`--csr-data-base64`: Certificate Signing Request contents encoded in base64 to generate the certificate with (if csr-file-path is provided this flag is ignored)
+`--csr-data-base64`: Certificate Signing Request contents encoded in Base64 to generate the certificate with (if `--csr-file-path` is provided this flag is ignored)
 
 `--common-name`: The common name to be included in the PKI certificate.
 
@@ -329,7 +329,7 @@ akeyless get-kube-exec-creds \
 
 `-t, --ttl`: Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)
 
-`-e, --extended-key-usage`: A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'.
+`-e, --extended-key-usage`: A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: `clientauth`, `serverauth`.
 
 `-o, --outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location of the provided public key with the -cert extension
 
@@ -354,11 +354,11 @@ akeyless get-pki-certificate \
 
 `-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be use to extract the public key). When using **CSR** with a **private** key, the provided key will be stored with the issued certificate.
 
-`--key-data-base64`: pki key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
+`--key-data-base64`: PKI key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
 
 `--csr-file-path`: Path to Certificate Signing Request file to generate the certificate with
 
-`--csr-data-base64`: Certificate Signing Request contents encoded in base64 to generate the certificate with (if csr-file-path is provided this flag is ignored)
+`--csr-data-base64`: Certificate Signing Request contents encoded in Base64 to generate the certificate with (if `--csr-file-path` is provided this flag is ignored)
 
 `--common-name`: The common name to be included in the PKI certificate
 
@@ -368,7 +368,7 @@ akeyless get-pki-certificate \
 
 `-t, --ttl`: Updated certificate lifetime (must be less than the Certificate Issuer default TTL). `Default` in seconds, supported formats are `s`,`m`,`h`,`d`
 
-`-e, --extended-key-usage`: A comma-separated list of extended key usage requests that will be used for certificate issuance. Supported values: 'clientauth', 'serverauth', If critical is present the extension will be marked as critical
+`-e, --extended-key-usage`: A comma-separated list of extended key usage requests that will be used for certificate issuance. Supported values: `clientauth`, `serverauth`, If critical is present the extension will be marked as critical
 
 `--extra-extensions`: A JSON string that defines the requested extra extensions for the certificate
 
@@ -385,7 +385,7 @@ Get a challenge for certificate authentication
 ```shell
 akeyless get-cert-challenge \
 --access-id <AccessID> \
---cert-data <'Certificate data encoded in base64'>
+--cert-data <'Certificate data encoded in Base64'>
 ```
 
 ### `renew-certificate`
@@ -528,7 +528,7 @@ akeyless create-certificate \
 
 `--certificate-data`: Content of the certificate PEM/CER/CRT/PFX/P12 in a Base64 format. It is mandatory to add this  **OR** the `--certificate`
 
-`--format[=pem]`: Certificate Format of the certificate and private key, possible values: cer,crt,pem,pfx,p12
+`--format[=pem]`: Certificate Format of the certificate and private key, possible values: `cer,crt,pem,pfx,p12`
 
 `--passphrase`: Passphrase to decrypt pkcs12/pks certificate data
 
@@ -628,11 +628,11 @@ akeyless update-certificate-value \
 
 `-n, --name`: **Required**, Certificate name
 
-`-c, --certificate`: Path to a file that contain the certificate. Supported formats are: pem,cer,crt,pfx,p12
+`-c, --certificate`: Path to a file that contain the certificate. Supported formats are: `pem,cer,crt,pfx,p12`
 
 `--certificate-data`: Content of the certificate PEM in a Base64 format. It is mandatory to add this  **OR** the `--certificate`
 
-`--format[=pem]`: Certificate Format of the certificate and private key, possible values: cer,crt,pem,pfx,p12
+`--format[=pem]`: Certificate Format of the certificate and private key, possible values: `cer,crt,pem,pfx,p12`
 
 `--passphrase`: Passphrase to decrypt pkcs12/pks certificate data
 
