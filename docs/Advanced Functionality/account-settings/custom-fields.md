@@ -79,14 +79,12 @@ Retrieves a list of all custom fields in the account:
 akeyless custom-field list --object items --object-type static-secret
 ```
 
-You can find the complete list of additional parameters for this command in the [link](section).
-
 # Manage Custom Field from Console
 
 To manage custom fields in the account, navigate to your **Account Settings -> Custom Fields**, click **Add**
 
 1. Provide the new custom field name
-2. Choose the Object type in Akeyless to which this custom field will be attached. for example, **Items->Static Secret**
+2. Choose the Object type in Akeyless to which this custom field will be attached. For example, **Items->Static Secret**
 3. Select if this new custom field will be mandatory or not.
 
 Once a custom field is created, it applies to all new objects of the selected type. If an existing object is updated, the defined custom field rules will also apply.
