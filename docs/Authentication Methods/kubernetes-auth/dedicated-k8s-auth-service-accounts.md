@@ -26,7 +26,7 @@ next:
 
 This flow describes the creation of a dedicated Kubernetes ServiceAccount which will work based on token projection.
 
-For a Rancher cluster, please create your [Rancher API Key](https://rancher.com/docs/rancher/v2.5/en/user-settings/api-keys/) and refer to [Extract Kubernetes Cluster CA Certificate](https://docs.akeyless.io/docs/kubernetes-auth#extract-k8s-cluster-ca-certificate) to extract your Rancher server CA certificate.
+For a Rancher cluster, please create your [Rancher API Key](https://ranchermanager.docs.rancher.com/reference-guides/user-settings/api-keys) and refer to [Extract Kubernetes Cluster CA Certificate](https://docs.akeyless.io/docs/kubernetes-auth#extract-k8s-cluster-ca-certificate) to extract your Rancher server CA certificate.
 
 > 👍 Note
 >
