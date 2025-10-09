@@ -230,25 +230,25 @@ akeyless target create db \
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
-`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `--snowflake-account`: Snowflake account name
 
-`--oracle-service-name`: oracle db service name
+`--oracle-service-name`: Oracle DB service name
 
 `--oracle-wallet-login-type`: Oracle Wallet login type (`password`/`mtls`)
 
 `--oracle-wallet-path`: Path to Oracle wallet (where `cwallet.sso` and `ewallet.p12` reside)
 
-`--oracle-wallet-sso-file-data`: Oracle wallet `sso` file data in base64
+`--oracle-wallet-sso-file-data`: Oracle wallet `sso` file data in Base64
 
-`--oracle-wallet-p12-file-data`: Oracle wallet `p12` file data in base64
+`--oracle-wallet-p12-file-data`: Oracle wallet `p12` file data in Base64
 
 `--mongodb-atlas`: Flag, set database type to "mongodb" and the flag to "true" to create Mongo Atlas target
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
-`--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
+`--mongodb-uri-options`: MongoDB server URI options (e.g. `replicaSet=mySet&authSource=authDB`)
 
 `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -1970,7 +1970,7 @@ akeyless target create sectigo \
 --name <Target name> \
 --username <Sectigo Username> \
 --password <Sectigo Password> \
---customer-uri <Sectigo Customer Uri > \
+--customer-uri <Sectigo Customer URI > \
 --organization-id <Sectigo Organization ID > \
 --certificate-profile-id <Sectigo Certificate Profile ID> \
 --external-requester <email1,emali2,email3> \
@@ -1987,7 +1987,7 @@ akeyless target create sectigo \
 
 `-p, --password`: **Required**, Password of the Sectigo account user
 
-`-c, --customer-uri`: **Required**, Customer Uri of the Sectigo account
+`-c, --customer-uri`: **Required**, Customer URI of the Sectigo account
 
 `-o, --organization-id`: **Required**, Organization ID of the Sectigo account
 
