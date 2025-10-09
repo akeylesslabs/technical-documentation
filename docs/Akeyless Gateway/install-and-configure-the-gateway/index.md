@@ -53,9 +53,9 @@ After executing the above command, a new container named **akeyless-gateway** sh
 
 To upgrade your current Gateway version, simply restart the container using the `docker restart <container name>` command.
 
-> 📘 Info
->
-> In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in will become the admin user on this Gateway.
+<Callout icon="📘" theme="info">
+  _**Info:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in will become the admin user on this Gateway._
+</Callout>
 
 For further installation options, visit the [Advanced Configuration](advance-gw-docker-configuration) page.
 
