@@ -122,7 +122,7 @@ Three types of authentication are available:
 
 For any Kubernetes authentication method, the following options are available:
 
-* **Cluster URL endpoint:** This is the URL of the Kubernetes API server (including schema and port, for example, [https://k8s-api.mycompany.com:6443](https://k8s-api.mycompany.com:6443)).
+* **Cluster URL endpoint:** This is the URL of the Kubernetes API server (including schema and port, for example, `https://<k8s-api.mycompany.com>:6443)`.
 
 * **Cluster CA Certificate:** Optional Certificate Authority data in case the server is accessed over HTTPS. This value can be found in your `~/.kube/config` file, under the **certificate-authority-data** property of the cluster with the existing secrets. There is no need to base64-decode this value. It should be used as-is. If no value is provided, an insecure connection is used, which is discouraged.
 
