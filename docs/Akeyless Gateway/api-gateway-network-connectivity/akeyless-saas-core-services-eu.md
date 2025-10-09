@@ -11,7 +11,7 @@ metadata:
 ---
 ## EU SaaS Core Services
 
-The table below outlines the primary functionalities of Akeyless microservices within the **EU** environment:
+The table below outlines the primary functionalities of Akeyless microservices in the **EU** environment:
 
 | **Service**       | **Endpoint**                                                                                                                                                                                                                                                       | **IP**                                                      | **Port**   | **Description**                                                           |
 | :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- | :--------- | :------------------------------------------------------------------------ |
