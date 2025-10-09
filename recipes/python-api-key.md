@@ -78,10 +78,10 @@ First, install the Akeyless package on the client machine, and then, import the 
 
 To install the package use the following command: 
 
-pip install akeyless
+`pip install akeyless`
 
-To import (from Python session) use: 
-"import akeyless"
+To import (from Python session) use:  
+`import akeyless`
 
 # Set variables
 
@@ -91,8 +91,8 @@ Set the following variables in order to generate token that will allow you to co
 
 "Access_Id", "Access_key", "DynamicSecretName" and "StaticSecretName" are optional variables (you can set it inside the code itself).
 
-"Access_Id" - The access ID of the AWS_IAM Auth method.
-"Access_Key" - The access Key of the AWS_IAM Auth method.
+"Access_Id" - The access ID of the AWS_IAM Auth method.  
+"Access_Key" - The access Key of the AWS_IAM Auth method.  
 "StaticSecretName" - Static Secret Name.  "DynamicSecretName" - Dynamic Secret Name.
 
 # API endpoint configuration
@@ -100,7 +100,7 @@ Set the following variables in order to generate token that will allow you to co
 <!-- python@9-10 -->
 
 Defining the host is optional and defaults to https://api.akeyless.io.
-use port 8081 in order to use a private API endpoint host = "https://gateway.company.com:8081"
+Use port 8081 in order to use a private API endpoint host = "https://<gateway.company>.com:8081"
 
 # Set up the Akeyless client
 
@@ -112,36 +112,36 @@ Configure the API client to work with Akeyless by creating an instance of the AP
 
 <!-- python@17-20 -->
 
-Generate a token using your Access ID, Access Type and the cloud_id. 
+Generate a token using your Access ID, Access Type and the cloud_id.  
 This token will allow the authentication to Akeyless.
 
 # Create a new Static Secret
 
 <!-- python@22-25 -->
 
-Create a new Static Secret using a token.
-name = The Static Secret name. 
+Create a new Static Secret using a token.  
+name = The Static Secret name.  
 value = The value of the secret.
 
 # Get a Static Secret
 
 <!-- python@27-30 -->
 
-get a Static Secret using a token.
+get a Static Secret using a token.  
 names = The Static secret name.
 
 # Get a Dynamic Secret
 
 <!-- python@32-35 -->
 
-Get a Dynamic Secret using a token.
+Get a Dynamic Secret using a token.  
 name = The Static Secret name.
 
 # Create and set a new role
 
 <!-- python@37-46 -->
 
-Create and set a new role using a token.
+Create and set a new role using a token.  
 This command will allow you to create a new access role and set the permissions for the access role.
 
 # Auth method creation
@@ -154,5 +154,5 @@ Create an Authentication method using a token.
 
 <!-- python@52-54 -->
 
-Associate a Role with an Authentication Method.
+Associate a Role with an Authentication Method.  
 This command allows you to associate an authentication method with an access role
