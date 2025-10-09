@@ -16,7 +16,7 @@ The following is a comparison between the [External Secrets Operator](https://ex
 
 A solution that injects secrets into pods at runtime without storing them in Kubernetes secrets. Containers within the pod can consume those secrets without interacting with Akeyless. The injector is a Kubernetes
 
-[MutatingAdmissionWebhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#admission-control-extension-points:~:text=the%20cluster%20administrator.-,Admission%20control%20extension%20points,-Within%20the%20full) controller that modifies annotated pods, delivering secrets as environment variables or files via an init container.  Updates can be handled automatically using rollout restart.
+[MutatingAdmissionWebhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#admission-control-extension-points) controller that modifies annotated pods, delivering secrets as environment variables or files via an init container.  Updates can be handled automatically using rollout restart.
 
 <Image align="center" border={false} src="https://files.readme.io/ae1f338b176b05b4ffb15eecb0bee9fdfd0d2f9bc3389569f9c6cdeb79a95368-k8s-injection.jpg" />
 
