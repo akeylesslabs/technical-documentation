@@ -568,7 +568,7 @@ akeyless auth-method create oidc \
 `--client-secret`: Client Secret
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
-`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-oidc](https://console.akeyless.io/login-oidc) to enable OIDC via Akeyless Console and [http://127.0.0.1:\*](http://127.0.0.1:*) to enable OIDC via akeyless CLI)
+`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-oidc` to enable OIDC via Akeyless Console and `http://127.0.0.1:*` to enable OIDC via the Akeyless CLI)
 
 `--require-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve
 
