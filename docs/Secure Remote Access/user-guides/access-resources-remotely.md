@@ -18,18 +18,18 @@ Depending on the [resource type](https://docs.akeyless.io/docs/supported-resourc
 
 # Prerequisites
 
-* [Secure Remote Access](https://dash.readme.com/project/akeyless/v1.0/docs/remote-access-setup-k8s) Installed. 
+* [Secure Remote Access](doc:remote-access-setup-k8s) Installed.
 
-* [SAML](https://docs.akeyless.io/docs/saml), [OIDC](https://docs.akeyless.io/docs/openid) , [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) or [LDAP](https://docs.akeyless.io/docs/ldap) Authentication method available. 
+* [SAML](https://docs.akeyless.io/docs/saml), [OIDC](https://docs.akeyless.io/docs/openid) , [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) or [LDAP](https://docs.akeyless.io/docs/ldap) Authentication method available.
 
-* **Optional** - [Web Access](https://docs.akeyless.io/docs/web-access-bastion) Installed. 
+* **Optional** - [Web Access](https://docs.akeyless.io/docs/web-access-bastion) Installed.
 
 # Connect from the Secure Remote Access Portal
 
-The default authentication method for logging in to the Secure Remote Access Portal is Security Assertion Markup Language (SAML). For details about integrating your SAML authentication with the Akeyless Platform, see [here](https://docs.akeyless.io/docs/saml). Alternatively, you can choose [OIDC](https://docs.akeyless.io/docs/openid) to set the default authentication method. 
+The default authentication method for logging in to the Secure Remote Access Portal is Security Assertion Markup Language (SAML). For details about integrating your SAML authentication with the Akeyless Platform, see [here](https://docs.akeyless.io/docs/saml). Alternatively, you can choose [OIDC](https://docs.akeyless.io/docs/openid) to set the default authentication method.
 
 1. Go to `https://zerotrust.akeyless.io`.
-2. In the **SAML Access ID** field, enter your SAML Access ID. or click the **OIDC** button to work with OpenID Connect. 
+2. In the **SAML Access ID** field, enter your SAML Access ID. or click the **OIDC** button to work with OpenID Connect.
 3. In the **Akeyless Gateway URL** field, enter your Akeyless Gateway URL on port 8000.
 
 > 📘 Reminder
@@ -38,10 +38,10 @@ The default authentication method for logging in to the Secure Remote Access Por
 
 4. If you are connecting to a database, SSH server, Windows Server, or RabbitMQ resources, in the **Web Client URL** field, enter the URL of your [Secure Remote Access](https://dash.readme.com/project/akeyless/v1.0/docs/remote-access-setup-k8s) (\<THIS URL IS BROKEN) with your `web-sra` cluster service port.
 5. (Optional) If you are connecting to applications using Web Access in Isolated mode, in the **Web Application Dispatcher** field, enter the URL of your Web Access with your `web-access-dispatcher` cluster service port, the default set to `9000`. If you are working with Secure Proxy, also set the **Web Proxy URL** with the `web-access-dispatcher` cluster service port, the default set to`19414`.
-6. Click **Sign in**.\
-   The portal shows all the [supported resource types](https://docs.akeyless.io/docs/supported-resource-types). The number of resources of a particular type that you are authorized to access appears in the top-right corner of the resource tile. 
+6. Click **Sign in**.
+   The portal shows all the [supported resource types](https://docs.akeyless.io/docs/supported-resource-types). The number of resources of a particular type that you are authorized to access appears in the top-right corner of the resource tile.
 
-<Image align="center" src="https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png" />
+<Image align="center" border={false} src="https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png" />
 
 > 👍 Note
 >
