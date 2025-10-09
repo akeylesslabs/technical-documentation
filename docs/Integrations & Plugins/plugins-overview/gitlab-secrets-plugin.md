@@ -165,7 +165,7 @@ Where:
 
 ## JSON Example
 
-The following examples fetch a static secret named `/JSON/Secret` with a value of `JSON` format with a JSON key named: `imp` :
+The following examples fetch a static secret named `/JSON/Secret` with a JSON key named: `imp` :
 
 ```yaml
 job:
@@ -183,7 +183,7 @@ job:
 
 ## JWT reuse
 
-When re-using the same token for multiple use the following format:
+When reusing the same token for multiple use the following format:
 
 ```yaml
 job:  # This job fetches the Akeyless Token  
