@@ -57,13 +57,13 @@ To upgrade your current Gateway version, simply restart the container using the 
 >
 > In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in will become the admin user on this Gateway.
 
-For further installation options, visit the [Advanced Configuration](advance-gw-docker-configuration) page.
+For further installation options, visit the [Advanced Configuration](doc:advance-gw-docker-configuration) page.
 
 ## Initial Configuration
 
 To configure your Akeyless Gateway:
 
-1. On your browser, navigate to [http://Your-Akeyless-Gateway-URL:8000/console](http://Your-Akeyless-Gateway-URL:8000/console) and log in.
+1. On your browser, navigate to `http://<Your-Akeyless-Gateway-URL>:8000/console` and log in.
 
 2. Navigate to **Gateways > Select Your Gateway > Manage Gateway**
 
