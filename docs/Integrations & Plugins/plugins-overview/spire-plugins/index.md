@@ -17,9 +17,9 @@ Systems that adopt SPIFFE can easily and reliably mutually authenticate wherever
 
 Akeyless provides four plugins that can be used with SPIRE:
 
-[SPIRE Key Manager](doc:spire-keymanager) plugin - responsible for generating, storing, and managing encryption keys inside Akeyless. Those private keys are being used to sign X.509-SVIDs and JWT-SVIDs
+[SPIRE Key Manager](https://docs.akeyless.io/docs/spire-keymanager) plugin - responsible for generating, storing, and managing encryption keys inside Akeyless. Those private keys are being used to sign X.509-SVIDs and JWT-SVIDs
 
-[SPIRE Secret Manager](doc:spire-secret-manager) plugin - stores workload X509-SVIDs inside Akeyless.
+[SPIRE Secret Manager](https://docs.akeyless.io/docs/spire-secret-manager) plugin - stores workload X509-SVIDs inside Akeyless.
 
 [SPIRE Upstream Authority](https://docs.akeyless.io/docs/spire-upstream-authority) plugin - Allows the SPIRE server to integrate with existing PKI systems, which means that it will be possible to use the Akeyless PKI Certificate Issuer in order to generate certificates.
 

@@ -18,13 +18,13 @@ Users can then access the GCP Portal from the Secure Remote Access Portal withou
 
 To enable secure remote access to the GCP Portal you need:
 
-* A [Static Secret](doc:static-secrets) that specifies the GCP login details, with **Web Access** selected.
+* A [Static Secret](https://docs.akeyless.io/docs/static-secrets) that specifies the GCP login details, with **Web Access** selected.
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
-* The [Akeyless Browser Extension](doc:browser-extensions).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
 
-* The [Zero Trust Web Access](doc:web-access-bastion).
+* The [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-bastion).
 
 * The GCP Portal site URL specified in the **values.yaml** file on the Web Access Bastion.
 

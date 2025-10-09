@@ -14,7 +14,7 @@ next:
       slug: add-a-rotated-secret-to-a-role
       title: Add a Rotated Secret to a Role
 ---
-You can create a Rotated Secret for an SSH password. Before you get started, ensure you have an [SSH Target](doc:ssh-target) that includes the hostname and connection settings, as well as credentials for a privileged user authorized to rotate credentials.
+You can create a Rotated Secret for an SSH password. Before you get started, ensure you have an [SSH Target](https://docs.akeyless.io/docs/ssh-target) that includes the hostname and connection settings, as well as credentials for a privileged user authorized to rotate credentials.
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the SSH server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target server.
 
@@ -49,20 +49,20 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [SSH Target](doc:ssh-target) with which the Rotated Secret should be associated.
+* `target-name`: The name of the [SSH Target](https://docs.akeyless.io/docs/ssh-target) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target server.
   * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [SSH Target](doc:ssh-target) item.
+  * `use-target-creds` - Use the credentials defined on the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
 
 > 👍 Note
 >
-> Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [SSH Target](doc:ssh-target) user is required to change the password on behalf of the Rotated Secret user.
+> Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [SSH Target](https://docs.akeyless.io/docs/ssh-target) user is required to change the password on behalf of the Rotated Secret user.
 
 * `password-length`: **Optional**, The user's password length.
-* `rotator-type`: The type of credentials to be rotated. For [SSH Targets](doc:ssh-target), choose:
+* `rotator-type`: The type of credentials to be rotated. For [SSH Targets](https://docs.akeyless.io/docs/ssh-target), choose:
   * `password` - to rotate the SSH user password specified in the Rotated Secret
-  * `target` - to rotate the password for the user specified in the [SSH Target](doc:ssh-target).
+  * `target` - to rotate the password for the user specified in the [SSH Target](https://docs.akeyless.io/docs/ssh-target).
 * `rotated-username`: The SSH user whose password should be rotated.
 * `rotated-password`: The password to rotate.
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
@@ -83,19 +83,19 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [SSH Target](doc:ssh-target) to be associated with the Rotated Secret.
+* **Target:** Defines the name of the [SSH Target](https://docs.akeyless.io/docs/ssh-target) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target server:
   * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [SSH Target](doc:ssh-target) item.
+  * **Target credentials:** Use the credentials defined inside the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
 
 > 👍 Note
 >
-> Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [SSH Target](doc:ssh-target) user, is required to change the password on behalf of the Rotated Secret user.
+> Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [SSH Target](https://docs.akeyless.io/docs/ssh-target) user, is required to change the password on behalf of the Rotated Secret user.
 
 * **Rotator type:** Determines the rotator type:
   * **Password**: Rotates the password defined inside the Rotated Secret item.
-  * **Target**: Rotates the password defined inside the [SSH Target](doc:ssh-target) item.
+  * **Target**: Rotates the password defined inside the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
 
 * **Username:** Defines the SSH username which password should be rotated.
 
@@ -103,15 +103,15 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> You can rotate the password for the [SSH Target](doc:ssh-target) too, by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
+> You can rotate the password for the [SSH Target](https://docs.akeyless.io/docs/ssh-target) too, by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
 
-* **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](doc:create-an-ssh-rotated-secret#custom-rotation-statement).
+* **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement).
 
 * **Password Length**: Set the user's password length.
 
 * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 * **Auto rotate:** Determines if automatic rotation is enabled.
 
@@ -125,13 +125,13 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Custom Rotation Statement
 
-Akeyless Rotated Secret for an [SSH Target](doc:ssh-target) supports a Custom Rotation Statement. This script or command will be executed on the target server after the secret rotation operation completes. You can specify any command you need.
+Akeyless Rotated Secret for an [SSH Target](https://docs.akeyless.io/docs/ssh-target) supports a Custom Rotation Statement. This script or command will be executed on the target server after the secret rotation operation completes. You can specify any command you need.
 
 For example, you can provide a command that will be executed instead of the default command to perform a secret rotation operation and specify three different arguments for it: **USERNAME, NEW_PASSWORD, OLD_PASSWORD**.
 
 Where:
 
-* `USERNAME`: The configured username within the [SSH Target](doc:ssh-target) or Rotated Secret which password should be rotated.
+* `USERNAME`: The configured username within the [SSH Target](https://docs.akeyless.io/docs/ssh-target) or Rotated Secret which password should be rotated.
 
 * `OLD_PASSWORD`: The username old password.
 

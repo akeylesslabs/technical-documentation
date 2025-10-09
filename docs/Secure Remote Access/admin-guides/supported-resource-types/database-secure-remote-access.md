@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to a database using a [Dynamic Secret](doc:how-to-create-dynamic-secret) item that generates ephemeral credentials for that database or using a [Rotated Secret](doc:rotated-secrets). Users can then access the database from the Secure Remote Access Portal either over the web (using Adminer) or using the native database CLI.
+You can enable secure remote access to a database using a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) item that generates ephemeral credentials for that database or using a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets). Users can then access the database from the Secure Remote Access Portal either over the web (using Adminer) or using the native database CLI.
 
 > 👍 Note
 >
@@ -30,7 +30,7 @@ In addition, for users to access the database using native CLI, you need:
 
 # Create a Database Secret
 
-If you don't already have a database secret, see the following docs to either create a [Dynamic Secret](doc:create-dynamic-secret-to-sql-db) or [Rotated Secret](https://docs.akeyless.io/docs/create-a-database-rotated-secret) that specifies the database details and access credentials.
+If you don't already have a database secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db) or [Rotated Secret](https://docs.akeyless.io/docs/create-a-database-rotated-secret) that specifies the database details and access credentials.
 
 If you already have a database secret, continue below.
 

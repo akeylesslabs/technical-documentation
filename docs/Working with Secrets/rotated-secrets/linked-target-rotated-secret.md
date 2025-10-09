@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-A Rotated Secret that is associated with a [Linked Target](doc:linked-target) offers an easier way to manage automated password rotation for Local users with the same login credentials across different servers simultaneously.
+A Rotated Secret that is associated with a [Linked Target](https://docs.akeyless.io/docs/linked-target) offers an easier way to manage automated password rotation for Local users with the same login credentials across different servers simultaneously.
 
 This type of Linked Target by default **Authenticates** using the **Parent** Target credentials, supporting only   **Rotator Types** of **Password** or **Target**.
 
-When using **Password** as the **Rotator Type**, the Rotated Secret's **username & password** will be rotated on all hosts that are listed inside the [Linked Target](doc:linked-target), where you can choose to either rotate those **Local** users to all have the **same** password or give each of them a **different** password to ensure the best practices of periodic rotation for users across different machines. In this mode, the **Parent Target** credentials will not be rotated as part of the **Linked Target** rotation. Those credentials should be rotated using a dedicated [Rotated Secret](doc:rotated-secrets) for that Target.
+When using **Password** as the **Rotator Type**, the Rotated Secret's **username & password** will be rotated on all hosts that are listed inside the [Linked Target](https://docs.akeyless.io/docs/linked-target), where you can choose to either rotate those **Local** users to all have the **same** password or give each of them a **different** password to ensure the best practices of periodic rotation for users across different machines. In this mode, the **Parent Target** credentials will not be rotated as part of the **Linked Target** rotation. Those credentials should be rotated using a dedicated [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) for that Target.
 
 When using **Target** as the **Rotator Type** the **Parent** credentials will be rotated, and **all** Local users will have the **same** password on all hosts. Therefore, the best practice in this mode is not to use the credentials of a **domain** user.
 
-When a new server is created in your environment, simply add the relevant hostname to your [Linked Target](doc:linked-target) to gain automated rotation for any new server.
+When a new server is created in your environment, simply add the relevant hostname to your [Linked Target](https://docs.akeyless.io/docs/linked-target) to gain automated rotation for any new server.
 
 > 📘 Info
 >
@@ -26,7 +26,7 @@ When a new server is created in your environment, simply add the relevant hostna
 
 # Rotator Type Password
 
-To rotate **Local users**  e.g. `ubuntu` or `administrator`, across your servers using a **privileged Domain user** which has access to all servers found in the [Linked Target](doc:linked-target), start by creating an [SSH](doc:ssh-target) or [Windows](doc:windows-target) Target to store your **Domain user** credentials: 
+To rotate **Local users**  e.g. `ubuntu` or `administrator`, across your servers using a **privileged Domain user** which has access to all servers found in the [Linked Target](https://docs.akeyless.io/docs/linked-target), start by creating an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target to store your **Domain user** credentials: 
 
 ```shell Windows Target
 akeyless create-windows-target \
@@ -51,7 +51,7 @@ akeyless create-ssh-target \
 >
 > To Rotate the **Domain user** password, best practice is to create a dedicated Rotated Secret for that Target.
 
-Create a [Linked Target](doc:linked-target)  with the relevant **hosts** to rotate your **Local users'** passwords :
+Create a [Linked Target](https://docs.akeyless.io/docs/linked-target)  with the relevant **hosts** to rotate your **Local users'** passwords :
 
 ```shell Windows Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <hosts>
@@ -60,7 +60,7 @@ akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <h
 akeyless create-linked-target -n <LinkedTargetName> -p <SSHTargetName> -s <hosts> 
 ```
 
-Create a [Rotated Secret](doc:rotated-secrets) with `rotator-type ` set to `password`: 
+Create a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) with `rotator-type ` set to `password`: 
 
 ```shell Windows
 akeyless rotated-secret create windows \
@@ -97,7 +97,7 @@ The **Local user**  will be rotated using the **Parent** Target credentials as w
 
 While working with **Local** users for a wide password rotation, all **Local** users must have the same password on all hosts. 
 
-Create an [SSH](doc:ssh-target) or [Windows](doc:windows-target) Target to store your **Local user** credentials:
+Create an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target to store your **Local user** credentials:
 
 ```shell Windows Target
 akeyless create-windows-target \
@@ -115,7 +115,7 @@ akeyless create-ssh-target \
 --ssh-password <SSH password>
 ```
 
-Create a [Linked Target](doc:linked-target)  with the relevant **hosts** to rotate your **local users'** passwords :
+Create a [Linked Target](https://docs.akeyless.io/docs/linked-target)  with the relevant **hosts** to rotate your **local users'** passwords :
 
 ```shell Windows Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <hosts>
@@ -124,7 +124,7 @@ akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <h
 akeyless create-linked-target -n <LinkedTargetName> -p <SSHTargetName> -s <hosts> 
 ```
 
-Create a [Rotated Secret](doc:rotated-secrets) with `rotator-type ` as `target-rotator` to rotate the **Parent** Target:
+Create a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) with `rotator-type ` as `target-rotator` to rotate the **Parent** Target:
 
 ```shell
 akeyless create-rotated-secret --name <secret name> \
@@ -188,7 +188,7 @@ akeyless get-rotated-secret-value -n <Rotated secret name> --host server02.examp
 
 # Rotation Policy
 
-Rotation across multiple hosts will work on a best-effort approach to rotate at least one host from the given hosts' list. After successful rotation across all hosts, the rotation status will be `RotationSucceeded`. Upon a failure in one or more hosts, the rotation status will be `RotationPartialSucceeded`. In case of failure on all hosts, the rotation status will be `RotationFailed`. Each of those results will trigger events in the [Event Center](doc:event-center).
+Rotation across multiple hosts will work on a best-effort approach to rotate at least one host from the given hosts' list. After successful rotation across all hosts, the rotation status will be `RotationSucceeded`. Upon a failure in one or more hosts, the rotation status will be `RotationPartialSucceeded`. In case of failure on all hosts, the rotation status will be `RotationFailed`. Each of those results will trigger events in the [Event Center](https://docs.akeyless.io/docs/event-center).
 
 In case of failure on one or more hosts, the Rotated Secret item will keep the old password on the hosts which ended with an error, when working with `rotator type target` the old password will be saved as an old version in the **Parent** Target. 
 

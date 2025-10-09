@@ -18,7 +18,7 @@ The lookup plugin uses these via the environment variables `VAULT_ADDR` and `VAU
 
 > 👍 Note
 >
-> Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](doc:hashicorp-vault-proxy)
+> Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
 ## Prepare AWX Environment
 
@@ -37,13 +37,13 @@ sudo ansible-playbook -i inventory install.yml
 
 ## Configure Akeyless Platfrom Settings
 
-On AWX UI, navigate to **Resources** and create new **Credentials**.  Select HashiCorp Vault Secret Lookup as your **Credentials Type** and set the **SERVER URL** to `https://hvp.akeyless.io` or work directly with your [Gateway](doc:api-gw) URL on port `8200`:
+On AWX UI, navigate to **Resources** and create new **Credentials**.  Select HashiCorp Vault Secret Lookup as your **Credentials Type** and set the **SERVER URL** to `https://hvp.akeyless.io` or work directly with your [Gateway](https://docs.akeyless.io/docs/api-gw) URL on port `8200`:
 
-You can either use Akelyess [API Key](doc:api-key) in the following format as your **Token**:
+You can either use Akelyess [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:
 
 A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter i.e.: `< Access ID >..< Access Key >`.
 
-Alternatively, to extract your authorization tokens directly using the [Akelyess CLI](doc:cli) `auth` command as part of your workflow variables : 
+Alternatively, to extract your authorization tokens directly using the [Akelyess CLI](https://docs.akeyless.io/docs/cli) `auth` command as part of your workflow variables : 
 
 ```shell
 VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}')

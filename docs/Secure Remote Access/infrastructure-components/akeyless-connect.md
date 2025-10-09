@@ -22,9 +22,9 @@ To use Akeyless Connect you need:
 
 * Akeyless CLI v1.42.0 or higher. 
 
-* An [SSH certificate issuer](doc:how-to-configure-ssh) for certificate authentication.
+* An [SSH certificate issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) for certificate authentication.
 
-* A [Secure Remote Access Bastion](doc:secure-remote-access-bastion).
+* A [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
 * OpenSSH v7.9  and OpenSSL 1.1.1 or higher on target servers.
 
@@ -39,7 +39,7 @@ To use Akeyless Connect you need:
 
 # Set Up Akeyless Connect
 
-1. Download the latest version of [Akeyless Command Line Interface (CLI)](doc:cli).
+1. Download the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli).
 
 2. Create a resource file called **\~/.akeyless-connect.rc** as follows: 
 
@@ -100,15 +100,15 @@ Edit the settings as follows:
 
 `IDENTITY_FILE` - Default is `~/.ssh/id_rsa`. Full path to the private key to be signed and used for the Zero Trust session.
 
-`CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](doc:ssh-and-pkitls-certificates) item. 
+`CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item. 
 
-`AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](doc:cli). By default, it's using the `default` profile of your Akeyless CLI.
+`AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI.
 
 `AKEYLESS_CLI` - Akeyless CLI binary (if needed).
 
-`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](doc:zero-knowledge) items and for internal network access.
+`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
-`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](doc:secure-remote-access-bastion) is configured with TLS.  
+`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) is configured with TLS.  
 
 `BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port. 
 
@@ -126,7 +126,7 @@ Where the URL will be set as follow:
 
 `SSH_EXTRA_ARGS` - Add any official SSH arguments.
 
-3. Use the `akeyless connect` command to connect to a resource through the [Secure Remote Access Bastion](doc:secure-remote-access-bastion):
+3. Use the `akeyless connect` command to connect to a resource through the [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion):
 
 ```shell General Template
 akeyless connect -t <[user@]target/hostname/ip[:port]> -v <sra-bastion-ssh-sra-service/ip[:port]>

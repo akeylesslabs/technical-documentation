@@ -53,7 +53,7 @@ To control who will be the relevant users that will be allowed to request access
 
 For RDP access that uses the **Fixed user** feature, rely on the username sub-claims to figure out **Windows** username to use. If you use a different sub-claim, it should be specified at deployment time using `USERNAME_SUB_CLAIM` environment variable. To use this mode, separately for either `SSH` or for `RDP` only, you can use instead `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM` correspondingly. 
 
-To provide just-in-time native CLI access for your users using [Keyless SSH](doc:how-to-configure-ssh) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](doc:how-to-configure-ssh)
+To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/how-to-configure-ssh) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh)
 
 > 📘 Info
 >
@@ -61,19 +61,19 @@ To provide just-in-time native CLI access for your users using [Keyless SSH](doc
 
 ## Authentication
 
-The following [Authentication Methods](doc:access-and-authentication-methods) are supported: 
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported: 
 
-* [API Key](doc:api-key) 
+* [API Key](https://docs.akeyless.io/docs/api-key) 
 
-* [AWS IAM](doc:aws-iam) 
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam) 
 
-* [GCP GCE](doc:gcp-auth-method)   
+* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method)   
 
-* [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
 
 ## API Key Authentication
 
-To set your Bastion default authentication based on [API Key](doc:api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY`  with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY`  with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -98,11 +98,11 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ## CSP IAM Authentication
 
-While running your Dockers inside your cloud environment, you can use [AWS IAM](doc:aws-iam), [GCP](doc:gcp-auth-method), or [Azure Active Directory](doc:azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
+While running your Dockers inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
 ## AWS IAM
 
-AWS IAM can be used for an instance with an IAM Role. While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](doc:aws-iam) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+AWS IAM can be used for an instance with an IAM Role. While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -125,8 +125,8 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ## GCP GCE
 
-Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](doc:gcp-auth-method) can be done using the GCP.\
-Set your [GCP GCE](doc:gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
+Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP.\
+Set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -150,7 +150,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ## Azure Active Directory
 
-Set your [Azure Active Directory](doc:azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with the matching service principal `azureobjectID', with a list of `ALLOWED\_ACCESS\_IDS\` that will be authorized to request access.
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with the matching service principal `azureobjectID', with a list of `ALLOWED\_ACCESS\_IDS\` that will be authorized to request access.
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -247,7 +247,7 @@ docker run --name web-bastion -d -p 8888:8888  \
 
 ## Log Forwarding
 
-To forward all your users session logs from the **ssh-bastion**, mount a local file which hold the setting of your target log server as described in [this](doc:ssh-log-forwarding) guide, for example: 
+To forward all your users session logs from the **ssh-bastion**, mount a local file which hold the setting of your target log server as described in [this](https://docs.akeyless.io/docs/ssh-log-forwarding) guide, for example: 
 
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \

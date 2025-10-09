@@ -14,13 +14,13 @@ You can create a PingFederate secret to allow users to dynamically receive short
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:ping-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/ping-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 # Working With Ping Dynamic Secrets from the CLI
 
 ## Create a Dynamic Ping Secret
 
-To create a dynamic Ping secret from the CLI using an existing [Ping Target](doc:ping-target), run the following command: 
+To create a dynamic Ping secret from the CLI using an existing [Ping Target](https://docs.akeyless.io/docs/ping-target), run the following command: 
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create ping \
@@ -80,7 +80,7 @@ akeyless dynamic-secret updateakeyless dynamic-secret get-value ping
 
 > 🚧 Warning
 >
-> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](doc:advance-gw-docker-configuration):
+> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration):
 >
 > `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
 
@@ -118,7 +118,7 @@ The output should look as follows:
 4. Define the remaining settings as follows:
 
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing [Ping Target](doc:ping-target) or specify details you would fill in the target creation.
+* **Target mode:** In this section, you can either select an existing [Ping Target](https://docs.akeyless.io/docs/ping-target) or specify details you would fill in the target creation.
 * **Client Authentication Type**: OAuth Client Authentication Type.
 * **Redirect URIs**: List URIs to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained.
 * **Grant Types** : The grant type (or list of types) given to the OAuth client.
@@ -127,7 +127,7 @@ The output should look as follows:
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties** mode, click **Next**.
 
@@ -149,7 +149,7 @@ The output should look as follows:
 
 > 🚧 Warning
 >
-> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](doc:advance-gw-docker-configuration):
+> To authorize the producer in your gateway, add the following environment parameter as described in [Advanced Gateway Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration):
 >
 > `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
 

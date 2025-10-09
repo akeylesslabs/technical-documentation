@@ -84,7 +84,7 @@ This command authenticates to Akeyless and saves the temporary token so that it 
 
 ### `create-auth-method`
 
-Create a new [API Key](doc:api-key) Auth Method in the current account
+Create a new [API Key](https://docs.akeyless.io/docs/api-key) Auth Method in the current account
 
 ##### Usage
 

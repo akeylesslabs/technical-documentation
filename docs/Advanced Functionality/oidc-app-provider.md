@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless is an OpenID Connect (OIDC) identity provider enabling client applications full support of the OIDC protocol to leverage all Akeyless supported [Authentication Methods](doc:access-and-authentication-methods) as a source of identity when authenticating end-users. Client applications can configure their authentication logic to talk to Akeyless. Once enabled, Akeyless will act as the bridge to other identity providers via its existing Authentication Methods.
+Akeyless is an OpenID Connect (OIDC) identity provider enabling client applications full support of the OIDC protocol to leverage all Akeyless supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) as a source of identity when authenticating end-users. Client applications can configure their authentication logic to talk to Akeyless. Once enabled, Akeyless will act as the bridge to other identity providers via its existing Authentication Methods.
 
 # Creating an OIDC App from the CLI
 
@@ -28,7 +28,7 @@ akeyless create-oidc-app \
 Where:
 
 * `name`: A unique name for the OIDC App. The name can include the path to the virtual folder where you want to create the new app, using slash `/` separators. If the folder does not exist, it will be created together with the OIDC app.
-* `access-permission-assignment`: A JSON string defining which Akeyless Authentication Methods are allowed to use this OIDC App. This is set using the `access_id` and `sub_claims` for that Authentication Method. In addition, you can use an Akeyless [Groups](doc:groups) using `group_id` and `sub-claims`.
+* `access-permission-assignment`: A JSON string defining which Akeyless Authentication Methods are allowed to use this OIDC App. This is set using the `access_id` and `sub_claims` for that Authentication Method. In addition, you can use an Akeyless [Groups](https://docs.akeyless.io/docs/groups) using `group_id` and `sub-claims`.
 * `permission-assignment-file`: Instead of a string, users can add this flag in order to pass a JSON file, using the same formatting, with a path to the file. Groups are allowed.
 * `redirect-uris`  (Optional): A list of URIs that the user will be directed back to after authenticating and consenting at the OIDC App.
 * `scopes` (Optional): A list of scopes that third-party applications are allowed to request. These scopes (excluding special scopes) will be copied from the `sub-claims` in Akeyless to the OIDC Token. Scopes can include Groups as well.
@@ -62,7 +62,7 @@ You will need this information for the next step in the process.
 
 Once you have created your OIDC App, you will need to authenticate agianst Akeyless using an Authentication Method  that was set as part of the  `access-permission-assignment`. 
 
-For example, if you assigned an [AWS IAM](doc:aws-iam) Authentication Method, authenticate to Akeyless using the `auth` command:
+For example, if you assigned an [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Authentication Method, authenticate to Akeyless using the `auth` command:
 
 ```shell Shell
 akeyless auth --access-type=aws_iam --access-id <Access ID>
@@ -113,7 +113,7 @@ Where:
 
 Optional:
 
-`scopes`, `audience`: A list of requested scopes and/or audiences (space separated) for this request. In a machine-to-machine use case, all scopes and audiences are automatically granted to the request, where scopes can include Akeyless [Groups](doc:groups) as well.
+`scopes`, `audience`: A list of requested scopes and/or audiences (space separated) for this request. In a machine-to-machine use case, all scopes and audiences are automatically granted to the request, where scopes can include Akeyless [Groups](https://docs.akeyless.io/docs/groups) as well.
 
 After running this **POST** request, you will receive an OIDC token back:
 

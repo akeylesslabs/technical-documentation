@@ -20,7 +20,7 @@ When you create a static secret, you need to name it and provide the secret valu
 
 # Create a Static Secret from the Akeyless CLI
 
-Let’s create a static secret using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](doc:create-secret#create-a-static-secret-from-the-akeyless-console) instead.
+Let’s create a static secret using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/create-secret#create-a-static-secret-from-the-akeyless-console) instead.
 
 The CLI command to create a static secret is:
 
@@ -50,11 +50,11 @@ $ A new secret named /Admin/AdminCredentials was successfully created
 >
 > For details about these CLI command options, see the [CLI Command Reference](https://docs.akeyless.io/docs/cli-reference-static-secrets).
 
-Next, assign the static secret to an access role that defines who can access the secret value, and with what permissions. For details, see [Add a Static Secret to an Access Role](doc:add-a-static-secret-to-an-access-role).
+Next, assign the static secret to an access role that defines who can access the secret value, and with what permissions. For details, see [Add a Static Secret to an Access Role](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role).
 
 # Create a Static Secret from the Akeyless Console
 
-Let’s create a static secret using the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](doc:create-secret#create-a-static-secret-from-the-akeyless-cli) instead.
+Let’s create a static secret using the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/create-secret#create-a-static-secret-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items > New > Static Secret**.
 

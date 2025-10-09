@@ -51,7 +51,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   For more information, [read about Zero-Knowledge Encryption](doc:implement-zero-knowledge).
+   For more information, [read about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Choose your preferred authentication mode by selecting one of the options:
 
@@ -127,7 +127,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   For more information, [read here](doc:implement-zero-knowledge).
+   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Choose your preferred authentication mode by selecting one of the options:
 
@@ -201,7 +201,7 @@ Where:
 
 * `k8s-client-key`: Kubernetes client private key (PEM format) in Base64, relevant only for **k8s-auth-type=certificate**
 
-Or using your [Gateway](doc:gateway-k8s) **Service Account**:
+Or using your [Gateway](https://docs.akeyless.io/docs/gateway-k8s) **Service Account**:
 
 ```shell Gateway Service Account
 akeyless target create k8s \
@@ -219,7 +219,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   For more information, [read here](doc:implement-zero-knowledge).
+   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows for any selected option:
 

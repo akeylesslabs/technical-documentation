@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-By default, a [Dynamic Secret](doc:how-to-create-dynamic-secret)  is generated using a randomly assigned username. This is well-suited for ephemeral access scenarios where short-lived, unique credentials are preferred.
+By default, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)  is generated using a randomly assigned username. This is well-suited for ephemeral access scenarios where short-lived, unique credentials are preferred.
 
 However, in cases where you need to use a **custom**  or **predefined** username, for example, to align with existing identities or to integrate with external systems that require consistent naming, you can define a [template](https://pkg.go.dev/text/template) using the supported Go functions listed below. 
 
@@ -60,7 +60,7 @@ By default, the following field values are available in your template using the 
 
 * `{{.DynamicSecretName}}`
 
-If the field is not recognized, the system will attempt to retrieve it from [Sub-Claims](doc:sub-claims) and fail if not found. You can use any other available sub-claims in your template
+If the field is not recognized, the system will attempt to retrieve it from [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) and fail if not found. You can use any other available sub-claims in your template
 
 # Examples
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-**Venafi** Target can be used with the Venafi Dynamic Secret as described under the [Venafi Integration](doc:venafi-integration) docs.
+**Venafi** Target can be used with the Venafi Dynamic Secret as described under the [Venafi Integration](https://docs.akeyless.io/docs/venafi-integration) docs.
 
 # Create a Venafi Target in the Console
 
@@ -19,7 +19,7 @@ next:
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using the slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-   For more information, [read here](doc:implement-zero-knowledge).
+   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Choose your preferred Venafi target type by selecting one of the options:
 

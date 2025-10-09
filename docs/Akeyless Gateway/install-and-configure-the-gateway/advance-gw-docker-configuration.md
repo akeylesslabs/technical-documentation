@@ -22,27 +22,27 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ENV_VARIABLE_1="value1" -e ENV_VARIA
 
 # Authentication
 
-To set your Gateway with a default [Authentication Methods](doc:access-and-authentication-methods) to control the level of access your Gateway instance will have inside your Akeyless account. 
+To set your Gateway with a default [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway instance will have inside your Akeyless account. 
 
-The following [Authentication Methods](doc:access-and-authentication-methods) are supported for Docker deployments: 
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported for Docker deployments: 
 
 * Email\\Password
 
-* [API Key](doc:api-key)
+* [API Key](https://docs.akeyless.io/docs/api-key)
 
-* [AWS IAM](doc:aws-iam) 
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam) 
 
-* [GCP](doc:gcp-auth-method)   
+* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)   
 
-* [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
 
-* [Certificates](doc:certificate-based-authentication) 
+* [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication) 
 
 > 👍 Note
 >
 > Your Gateway **Authentication Method**  should have permission to create and manage both Items along with Targets items **only**.
 
-While working with Cloud Service Providers [Authentication Methods](doc:access-and-authentication-methods) you can provide a list of allowed users that will be able to log in and manage your Gateway configuration.
+While working with Cloud Service Providers [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) you can provide a list of allowed users that will be able to log in and manage your Gateway configuration.
 
 ## Email Authentication
 
@@ -58,7 +58,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="email" -e ADMIN_PASS
 
 ## API Key Authentication
 
-To set your Gateway default authentication based on [API Key](doc:api-key) provide the relevant `Access ID` and `Access Key` using those variables:
+To set your Gateway default authentication based on [API Key](https://docs.akeyless.io/docs/api-key) provide the relevant `Access ID` and `Access Key` using those variables:
 
 `GATEWAY_ACCESS_ID="your-access-id"`,  ` GATEWAY_ACCESS_KEY="matching-access-key"`.
 
@@ -71,9 +71,9 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxx" -e ADMIN_A
 
 ## CSP IAM Authentication
 
-While running your Gateway instance inside your cloud environment, you can use [AWS IAM](doc:aws-iam), [GCP](doc:gcp-auth-method), or [Azure Active Directory](doc:azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed users that will be able to manage your Gateway configuration. 
+While running your Gateway instance inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed users that will be able to manage your Gateway configuration. 
 
-Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods ](doc:access-and-authentication-methods) `Access ID`, where you need to set a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](doc:access-and-authentication-methods) like [SAML](doc:saml) or [OIDC](doc:opened) or an [API Key](doc:api-key).
+Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods ](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you need to set a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/opened) or an [API Key](https://docs.akeyless.io/docs/api-key).
 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
@@ -94,11 +94,11 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_UID_TOKEN=<UID Token> -e UID_R
 
 ## Certificates Authentication
 
-To set your Gateway default authentication based on [Certificates](doc:certificate-based-authentication)  provide the relevant `Access ID`, `Certificate`, and `Certificate Key` using those variables:
+To set your Gateway default authentication based on [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)  provide the relevant `Access ID`, `Certificate`, and `Certificate Key` using those variables:
 
 `GATEWAY_ACCESS_ID="your-access-id"`,  `GATEWAY_CERTIFICATE="Certificate base64 encoded"` and `GATEWAY_CERTIFICATE_KEY="Certificate Key base64"`.
 
-With a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS`variable with any other [Authentication Method](doc:access-and-authentication-methods) like [SAML](doc:saml) or [OIDC](doc:opened) or an [API Key](doc:api-key).
+With a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS`variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/opened) or an [API Key](https://docs.akeyless.io/docs/api-key).
 
 ```shell CLI
 docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e GATEWAY_CERTIFICATE="base64-cert" -e GATEWAY_CERTIFICATE_KEY="base64-cert-key" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
@@ -118,7 +118,7 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -v $PWD/
 
 # Gateway Admins
 
-To support local management of your Gateway configuration, you can set a list of  `Access ID` that will be able to log in and manage your Gateway. This setting can also work with [Sub-Claims](doc:sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
+To support local management of your Gateway configuration, you can set a list of  `Access ID` that will be able to log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
 
 e.g.
 
@@ -141,24 +141,24 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLO
 docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n  {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]},  {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]'  --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-In this case, the above will create an **Access Permission** object named **Administrators**,  associated with an Auth method `p-yyyyyy` which for example is your [SAML](doc:saml) or [OIDC](doc:openid) `Access ID`, where a user that at least matches one [Sub-Claims](doc:sub-claims) attribute, will be authorized to access the Gateway with **Admin** permissions:
+In this case, the above will create an **Access Permission** object named **Administrators**,  associated with an Auth method `p-yyyyyy` which for example is your [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) `Access ID`, where a user that at least matches one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute, will be authorized to access the Gateway with **Admin** permissions:
 
 In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
 
 In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.\
 **If you don't specify the sub-claims, every user authenticated by this IdP will be able to log in to the Gateway with admin privileges.**
 
-To work with [API Key](doc:api-key) as an `ALLOWED_ACCESS_PERMISSIONS` simply provide your [API Key](doc:api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of permissions.
+To work with [API Key](https://docs.akeyless.io/docs/api-key) as an `ALLOWED_ACCESS_PERMISSIONS` simply provide your [API Key](https://docs.akeyless.io/docs/api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of permissions.
 
 ## Access Permissions
 
-To delegate the exact permissions users will have on your Gateway components you can explicitly grant permissions, for example, to grant permissions to a user to manage only your Gateway [Log Forwarding](doc:log-forwarding) settings:
+To delegate the exact permissions users will have on your Gateway components you can explicitly grant permissions, for example, to grant permissions to a user to manage only your Gateway [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings:
 
 ```shell CLI
 ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]},\\n  {"name": "LogForwarding", "access_id": "p-xxxxxx", "sub_claims": {"email": ["test03@testhost.com"]}, "permissions": ["log_forwarding"]}]'
 ```
 
-In the above example, your Gateway **Admins** are `test01@testhost.com,test01@testhost.com` or any user which is part of your `Devops` group in your **IdP**, where `test03@testhost.com` have permission to manage **only** your Gateway [Log Forwarding](doc:log-forwarding) settings.
+In the above example, your Gateway **Admins** are `test01@testhost.com,test01@testhost.com` or any user which is part of your `Devops` group in your **IdP**, where `test03@testhost.com` have permission to manage **only** your Gateway [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings.
 
 Full list of available permissions:
 
@@ -203,7 +203,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Classic Keys](doc:classic-keys)
+        Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys)
       </td>
     </tr>
 
@@ -213,7 +213,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of  [Dynamic Secrets](doc:how-to-create-dynamic-secret) settings
+        Management of  [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings
       </td>
     </tr>
 
@@ -223,7 +223,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Dynamic Secrets](doc:how-to-create-dynamic-secret)
+        Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
       </td>
     </tr>
 
@@ -233,7 +233,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Rotated Secrets](doc:rotated-secrets)
+        Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets)
       </td>
     </tr>
 
@@ -253,7 +253,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Log Forwarding](doc:log-forwarding) settings
+        Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings
       </td>
     </tr>
 
@@ -263,7 +263,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Zero-Knowledge](doc:zero-knowledge)
+        Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge)
       </td>
     </tr>
 
@@ -273,7 +273,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Gateway Cache](doc:configure-the-gateway-cache) settings
+        Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings
       </td>
     </tr>
 
@@ -283,7 +283,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Event](doc:event-center) Forwarding settings
+        Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings
       </td>
     </tr>
 
@@ -293,7 +293,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [LDAP](doc:ldap) Auth Gateway configuration. 
+        Management of [LDAP](https://docs.akeyless.io/docs/ldap) Auth Gateway configuration. 
       </td>
     </tr>
 
@@ -303,7 +303,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [Kubernetes](doc:kubernetes-auth) Auth Gateway configuration 
+        Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Gateway configuration 
       </td>
     </tr>
 
@@ -313,7 +313,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of [KMIP Servers](doc:kmip-server)
+        Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server)
       </td>
     </tr>
 
@@ -367,7 +367,7 @@ You can also provide a custom display name for the Gateway Instance using the <c
 # Encryption Key
 
 While the **Secret Encryption** section discusses the secrets created when using the Gateway, this section discusses the encryption of the configuration file.\
-To choose an [Encryption Key](doc:encryption-keys) to encrypt your Gateway configuration, you can choose an existing key using the following variable <code>CONFIG\_PROTECTION\_KEY\_NAME</code>
+To choose an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to encrypt your Gateway configuration, you can choose an existing key using the following variable <code>CONFIG\_PROTECTION\_KEY\_NAME</code>
 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
@@ -380,7 +380,7 @@ By default, the Gateway configuration is encrypted with your account's default e
 
 ## Customer Fragment
 
-If your [Encryption Key](doc:encryption-keys) works with [Zero Knowledge](doc:implement-zero-knowledge), provide the full path to a local JSON containing your Customer Fragment:
+If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), provide the full path to a local JSON containing your Customer Fragment:
 
 Note: When adding multiple Customer Fragments to the Gateway, make sure they are in the same JSON file. 
 
@@ -448,7 +448,7 @@ With the following attributes, you can mount the TLS certificate and the TLS Pri
 
 * <code>-v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key</code>
 
-It is also possible to [Set up TLS](doc:tls-certificate) in the Gateway Configuration Manager after the Gateway is installed.
+It is also possible to [Set up TLS](https://docs.akeyless.io/docs/tls-certificate) in the Gateway Configuration Manager after the Gateway is installed.
 
 # Cache Configuration
 
@@ -473,7 +473,7 @@ It is also possible to <a href="https://docs.akeyless.io/docs/configure-the-gate
 
 # Restrict Gateway Access
 
-To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](doc:zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `RESTRICT_SERVICE_TO_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`
+To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `RESTRICT_SERVICE_TO_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`
 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
@@ -509,7 +509,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_SECRET_LOCATION="path to rele
 
 # Setting a Default Login
 
-When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console`, a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML & OIDC](doc:gateway-authentication).\
+When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console`, a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML & OIDC](https://docs.akeyless.io/docs/gateway-authentication).\
 When configuring your gateway, you may supply a default value for either OIDC, SAML, or both, using the following parameters:
 
 * `-e DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`
@@ -522,7 +522,7 @@ In the following way:
 docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_SAML_ACCESS_ID="p-xxxxx"  --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-To work with [CBA](doc:certificate-based-authentication) flow for users' login, first set your users' DNS records with the cert authentication subdomain  `auth-cert.akeyless.io` to point to your Gateway IP address.
+To work with [CBA](https://docs.akeyless.io/docs/certificate-based-authentication) flow for users' login, first set your users' DNS records with the cert authentication subdomain  `auth-cert.akeyless.io` to point to your Gateway IP address.
 
 Set your deployment with the following parameters:
 

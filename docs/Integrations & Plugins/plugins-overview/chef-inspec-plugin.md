@@ -14,7 +14,7 @@ Chef InSpec is an open-source framework for testing and auditing your applicatio
 
 # Prerequsites
 
-An [SSH Cert Issuer](doc:how-to-configure-ssh)
+An [SSH Cert Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh)
 
 # Chef InSpec Plugin Configuration
 

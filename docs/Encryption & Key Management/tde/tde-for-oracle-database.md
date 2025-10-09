@@ -92,17 +92,17 @@ access_key="<Access Key>"
 
  Where:
 
-* `akeyless_url` is your [Akeyless Gateway](doc:api-gw) URL on API port `8081`.
+* `akeyless_url` is your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL on API port `8081`.
 
-* `base_item_path` - The destination path, to save all your TDE encryption keys inside the Akeyless Platform. Ensure your [Authentication Method](doc:access-and-authentication-methods) has permission to create and manage items under the desired path. 
+* `base_item_path` - The destination path, to save all your TDE encryption keys inside the Akeyless Platform. Ensure your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) has permission to create and manage items under the desired path. 
 
-* The `[auth]` section should be set with the relevant [Authentication Method](doc:access-and-authentication-methods) type and settings. Using the same structure as the Akeyless [CLI](doc:cli) profile setting file.
+* The `[auth]` section should be set with the relevant [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type and settings. Using the same structure as the Akeyless [CLI](https://docs.akeyless.io/docs/cli) profile setting file.
 
 * `default_aes_mechanism` - Set the type of **AES** encryption keys. Oracle supports only `CBC`.
 
 Optional:
 
-* `customer_fragment_id` - Relevant Customer Fragment ID for  [Zero-Knowledge Encryption](doc:zero-knowledge).
+* `customer_fragment_id` - Relevant Customer Fragment ID for  [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge).
 
 * `split_level` - Defines the requested split level. By default, split level set with `2`.
 

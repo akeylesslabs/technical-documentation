@@ -24,7 +24,7 @@ If you are working with Load Balancers or reverse proxies in front of your Gatew
 >
 > The use of HTTP protocol is considered insecure and discouraged; thus, remote Gateway configuration is not supported over HTTP. If you wish to configure your gateway remotely make sure you do it over HTTPS.
 
-To configure TLS, on your [Gateway Configuration Manager](doc:gateway-configuration-manager) under the **General** tab: 
+To configure TLS, on your [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) under the **General** tab: 
 
 1. Select the cloud icon next to **TLS Certificate**
 

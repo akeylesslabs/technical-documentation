@@ -12,19 +12,19 @@ next:
 ---
 ## Introduction
 
-Automatic migration allows importing static secrets into Akeyless from other identity security platforms. This feature is available as part of the [Akeyless Gateway](doc:api-gw) functionality. Additionally, it is possible to configure migration via the Console, where each Gateway has its dedicated directory for managing the migration process.
+Automatic migration allows importing static secrets into Akeyless from other identity security platforms. This feature is available as part of the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) functionality. Additionally, it is possible to configure migration via the Console, where each Gateway has its dedicated directory for managing the migration process.
 
 ## Supported platforms
 
 Currently, you can import static secrets from the following platforms:
 
-* [1Password](doc:automatic-migration#1password) - Deprecated from Gateway version `4.35.1`
-* [AWS Secrets Manager](doc:automatic-migration#aws-secrets-manager)
-* [Azure Key Vault](doc:automatic-migration#azure-key-vault)
-* [CSV import](doc:automatic-migration#csv-import), Relevant for Firefox, Chrome and LastPass
-* [GCP Secrets Manager](doc:automatic-migration#gcp-secrets-manager)
-* [HashiCorp Vault](doc:automatic-migration#hashicorp-vault)
-* [Kubernetes](doc:automatic-migration#kubernetes)
+* [1Password](https://docs.akeyless.io/docs/automatic-migration#1password) - Deprecated from Gateway version `4.35.1`
+* [AWS Secrets Manager](https://docs.akeyless.io/docs/automatic-migration#aws-secrets-manager)
+* [Azure Key Vault](https://docs.akeyless.io/docs/automatic-migration#azure-key-vault)
+* [CSV import](https://docs.akeyless.io/docs/automatic-migration#csv-import), Relevant for Firefox, Chrome and LastPass
+* [GCP Secrets Manager](https://docs.akeyless.io/docs/automatic-migration#gcp-secrets-manager)
+* [HashiCorp Vault](https://docs.akeyless.io/docs/automatic-migration#hashicorp-vault)
+* [Kubernetes](https://docs.akeyless.io/docs/automatic-migration#kubernetes)
 
 ## General configuration
 
@@ -38,7 +38,7 @@ For example, when importing secrets from Kubernetes, it may be a good idea to pu
 
 After the migration, new secrets will be available under the specified path. If the location is not provided, the secrets will be created in the root `/` folder of your account.
 
-* **Protect secrets with the following key:** This required field allows selecting the encryption key for the protection of imported secrets. This property will enable you to use [Zero-Knowledge Encryption](doc:zero-knowledge).
+* **Protect secrets with the following key:** This required field allows selecting the encryption key for the protection of imported secrets. This property will enable you to use [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge).
 
 > 👍 Note
 >

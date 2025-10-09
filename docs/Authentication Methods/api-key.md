@@ -12,7 +12,7 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless.
 ---
-API Key is a simple [Authentication Method](doc:access-and-authentication-methods) supported by the Akeyless Platform. API Keys are very popular primarily for testing or staging environments.
+API Key is a simple [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) supported by the Akeyless Platform. API Keys are very popular primarily for testing or staging environments.
 
 <Image align="center" border={false} src="https://files.readme.io/574347a-API_key_auth.png" />
 

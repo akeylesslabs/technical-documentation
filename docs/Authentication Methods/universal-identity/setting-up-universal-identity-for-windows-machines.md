@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-To use [Universal Identity](doc:universal-identity) tokens for a Windows machine, you need to set up the machine to accept and renew tokens (through the use of **PowerShell** and **Task Scheduler**).
+To use [Universal Identity](https://docs.akeyless.io/docs/universal-identity) tokens for a Windows machine, you need to set up the machine to accept and renew tokens (through the use of **PowerShell** and **Task Scheduler**).
 
 # Prerequisites
 
-* An Akeyless [Universal Identity](doc:universal-identity) Auth Method
+* An Akeyless [Universal Identity](https://docs.akeyless.io/docs/universal-identity) Auth Method
 
 # Steps
 

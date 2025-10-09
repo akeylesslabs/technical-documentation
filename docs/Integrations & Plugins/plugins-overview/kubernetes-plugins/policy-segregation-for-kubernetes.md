@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-When using Akeyless [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth), policy segregation of resources can be done based on Kubernetes attributes via Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) using the relevant [sub-claims](doc:sub-claims), such as `namespace` and `pod_name`.
+When using Akeyless [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth), policy segregation of resources can be done based on Kubernetes attributes via Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) using the relevant [sub-claims](https://docs.akeyless.io/docs/sub-claims), such as `namespace` and `pod_name`.
 
 The following guide will demonstrate the usage of namespace segregation.
 
@@ -22,13 +22,13 @@ Authorization in Kubernetes is intentionally high level, focused on coarse actio
 
 # Namespace and Pod Segregation
 
-To fully segregate your cluster workloads so that your cluster namespaces/pods have different authorizations for the Akeyless Platform, you can use Akeyless [Kubernetes Auth](doc:kubernetes-auth). 
+To fully segregate your cluster workloads so that your cluster namespaces/pods have different authorizations for the Akeyless Platform, you can use Akeyless [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth). 
 
 For each required policy: 
 
-1. Create an authentication method. For details about the authentication methods that are supported for K8s, see [Authentication Methods for K8s](doc:auth-meth-k8s). 
+1. Create an authentication method. For details about the authentication methods that are supported for K8s, see [Authentication Methods for K8s](https://docs.akeyless.io/docs/auth-meth-k8s). 
 
-The following example uses a pre-defined Kubernetes Auth method called K8s\_Auth in the K8s folder. Follow this guide to create a [Kubernetes Auth](doc:kubernetes-auth) method.
+The following example uses a pre-defined Kubernetes Auth method called K8s\_Auth in the K8s folder. Follow this guide to create a [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) method.
 
 > 👍 Note
 >

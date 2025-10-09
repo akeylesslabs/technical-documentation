@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Upon network outage, the Gateway cache can still handle requests for Secrets retrievals (read-only). The cache will start working only after the Gateway is successfully operated. Only users already authenticated can get service from the Gateway cache, where the following [Authentication Methods](doc:access-and-authentication-methods) can keep authenticating on offline modes: **K8s**, **email**, **API Key**, **LDAP**, **Certificate** and **JWT**.
+Upon network outage, the Gateway cache can still handle requests for Secrets retrievals (read-only). The cache will start working only after the Gateway is successfully operated. Only users already authenticated can get service from the Gateway cache, where the following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) can keep authenticating on offline modes: **K8s**, **email**, **API Key**, **LDAP**, **Certificate** and **JWT**.
 
 > 👍 Offline Authentciton Cache
 >

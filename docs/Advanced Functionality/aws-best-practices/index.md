@@ -30,7 +30,7 @@ When the **Gateway** is running on such a resource, it utilizes the existing ide
 
 ## How is this authentication implemented securely?
 
-Akeyless supports IAM-based authentication through its [AWS IAM](doc:aws-iam) Auth method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
+Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Auth method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
 
 1. The AWS resource retrieves temporary credentials from its IAM role.
 2. The resource sends these credentials to Akeyless using the auth API endpoint
@@ -40,9 +40,9 @@ Akeyless supports IAM-based authentication through its [AWS IAM](doc:aws-iam) Au
 
 # How Akeyless Target should be used
 
-All deployment patterns are working **without** any AWS long-lived credentials and should be set **only** using **AWS roles** leveraging the Akeyless [AWS Target](doc:aws-targets) via **cloud ID** option that uses the AWS role. 
+All deployment patterns are working **without** any AWS long-lived credentials and should be set **only** using **AWS roles** leveraging the Akeyless [AWS Target](https://docs.akeyless.io/docs/aws-targets) via **cloud ID** option that uses the AWS role. 
 
-When using an [AWS Target](doc:aws-targets)with the **Gateway Cloud ID** option, the Akeyless **Gateway** leverages the IAM role associated with the underlying compute service it’s running on, such as a service account role in EKS or an instance profile role attached to an EC2 instance. To extend access beyond the AWS account the Gateway is running on, the Target can be explicitly set with a **role ARN** with **External ID**, overriding the default identity behavior and allowing secure, cross-account operations. This means a single **Target** can be shared across multiple **Gateways**, with each **Gateway** operating under the permissions granted to its own associated AWS role.
+When using an [AWS Target](https://docs.akeyless.io/docs/aws-targets)with the **Gateway Cloud ID** option, the Akeyless **Gateway** leverages the IAM role associated with the underlying compute service it’s running on, such as a service account role in EKS or an instance profile role attached to an EC2 instance. To extend access beyond the AWS account the Gateway is running on, the Target can be explicitly set with a **role ARN** with **External ID**, overriding the default identity behavior and allowing secure, cross-account operations. This means a single **Target** can be shared across multiple **Gateways**, with each **Gateway** operating under the permissions granted to its own associated AWS role.
 
 > 📘 AWS Configuration and credential precedence
 >
@@ -62,5 +62,5 @@ As the Akelyess Gateway is a light, stateless application, it might be deployed 
 
 You can find a Terraform example with the required IAM roles for these deployments in the following links:
 
-* [AWS Roles for Centralized Gateway Using Terraform](doc:terraform-centralized-deployment)
-* [AWS Roles for Distributed Gateway Using Terraform](doc:terraform-distributed-deployment)
+* [AWS Roles for Centralized Gateway Using Terraform](https://docs.akeyless.io/docs/terraform-centralized-deployment)
+* [AWS Roles for Distributed Gateway Using Terraform](https://docs.akeyless.io/docs/terraform-distributed-deployment)

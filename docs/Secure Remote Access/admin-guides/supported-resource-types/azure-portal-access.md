@@ -16,9 +16,9 @@ You can enable secure remote access to Azure Portal with a Dynamic Secret that g
 
 To enable secure remote access to Azure Portal you need:
 
-* The [Secure Remote Access Bastion](doc:secure-remote-access-bastion) deployed.
+* The [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) deployed.
 
-* The [Akeyless Browser Extension](doc:browser-extensions).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
 
 In addition, for users to access the Azure Portal in Isolated mode, you need:
 
@@ -27,7 +27,7 @@ In addition, for users to access the Azure Portal in Isolated mode, you need:
 
 # Create an Azure Secret
 
-If you don't already have an Azure AD secret, see the following docs to either create a [Dynamic Secret](doc:azure-ad-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-azure-rotated-secret) that specifies the Azure AD account details and access credentials.
+If you don't already have an Azure AD secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-azure-rotated-secret) that specifies the Azure AD account details and access credentials.
 
 If you already have a relevant secret, continue below.
 

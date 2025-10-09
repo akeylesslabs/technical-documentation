@@ -16,7 +16,7 @@ next:
 
 The process of generating a certificate request from a K8s cluster to Akeyless is divided into three steps:
 
-* Generating **Authentication Token** either using an [API Key](doc:api-key) or using [Kubernetes](doc:kubernetes-auth) ServiceAccount token  -  This token will be used for authenticating to Akeyless. 
+* Generating **Authentication Token** either using an [API Key](https://docs.akeyless.io/docs/api-key) or using [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) ServiceAccount token  -  This token will be used for authenticating to Akeyless. 
 * Configuring an **Issuer** - A K8s resource that represents the Certificate Authority (CA).
 * Configuring the **Certificate Signing Request (CSR)** - A file that contains the data for the certificate
 

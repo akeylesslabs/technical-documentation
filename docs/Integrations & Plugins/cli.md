@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-There are multiple methods to interact with the Akeyless Platform for managing, creating, and fetching multiple types of supported [secrets](doc:manage-your-secrets-overview). One of them is our Command Line Interface (CLI).
+There are multiple methods to interact with the Akeyless Platform for managing, creating, and fetching multiple types of supported [secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview). One of them is our Command Line Interface (CLI).
 
 The Akeyless CLI has pre-compiled binary versions for **Linux, macOS, and Windows** which can be easily installed.
 
@@ -157,9 +157,9 @@ The CLI supports various types of [Authentication Methods](https://docs.akeyless
 4. [SAML](https://docs.akeyless.io/docs/saml) (`saml`)
 5. Password (`email/password`)
 6. [Certificate ](https://docs.akeyless.io/docs/certificate-based-authentication) (`certificate`)
-7. [OIDC](doc:openid) (`oidc`)
-8. [K8s](doc:kubernetes-auth) (`k8s`)
-9. [GCP](doc:gcp-auth-method) (`GCP`)
+7. [OIDC](https://docs.akeyless.io/docs/openid) (`oidc`)
+8. [K8s](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
+9. [GCP](https://docs.akeyless.io/docs/gcp-auth-method) (`GCP`)
 10. [OCI](https://docs.akeyless.io/docs/oci-iam) (`oci`)
 
 For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.

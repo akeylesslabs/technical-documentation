@@ -16,7 +16,7 @@ The Kubernetes (K8s) Auth Method uses K8s JWTs in order to authenticate the K8s 
 
 # Prerequisites
 
-* [Akeyless Gateway](doc:api-gw) with network access to the K8s cluster.
+* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the K8s cluster.
 
 * `K8s v1.21` or later.
 
@@ -176,7 +176,7 @@ Token: t-bb7b...3564a7c9
 
 # Available claims for K8s Auth
 
-The following list of claims can be configured within Akeyless [Access Roles (RBAC)](doc:rbac) to control and segregate the relevant policy for K8s. 
+The following list of claims can be configured within Akeyless [Access Roles (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for K8s. 
 
 ```yaml
 "service_account_name"

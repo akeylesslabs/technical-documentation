@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server using the [CLI](https://docs.akeyless.io/docs/cli) or directly from the [Gateway Configuration Manager](doc:gateway-configuration-manager).
+To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server using the [CLI](https://docs.akeyless.io/docs/cli) or directly from the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager).
 
 By default, the log format of all of the commands below is `text` and the pull interval is set to `10` seconds. 
 

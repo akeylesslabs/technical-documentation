@@ -69,7 +69,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Resource Name:** Provide the name of the relevant Resource.
 
-* **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](doc:implement-zero-knowledge).
+* **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. Click **Save**.
 
@@ -153,6 +153,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Service Account Key:** Provide a base64-encoded private key of the super-user service account.
 
-* **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](doc:implement-zero-knowledge).
+* **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. Click **Save**.

@@ -37,7 +37,7 @@ terraform {
 terraform init
 ```
 
-2. Select an Akeyless [Authentication Method](doc:access-and-authentication-methods) to use with the  Terraform Provider, such as an **API Key** or Cloud Identity (CSP IAM) like **AWS IAM**, **Azure AD**.
+2. Select an Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to use with the  Terraform Provider, such as an **API Key** or Cloud Identity (CSP IAM) like **AWS IAM**, **Azure AD**.
 
 # Usage Example
 

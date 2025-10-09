@@ -28,11 +28,11 @@ In addition, you must supply a list of Allowed Namespaces to exist within, to co
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * A [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) or the equivalent inline credentials
 
@@ -343,7 +343,7 @@ roleRef:
 >
 > While working with Role Binding using `yml` file, the `namespace` subjects are ignored and managed only via the `Allowed Namespaces` list
 
-If you don't have a configured [Kubernetes Targets](doc:kubernetes-targets) yet, you can use the command with your K8s Cluster connection strings inline:
+If you don't have a configured [Kubernetes Targets](https://docs.akeyless.io/docs/kubernetes-targets) yet, you can use the command with your K8s Cluster connection strings inline:
 
 * `k8s-cluster-endpoint`: The URL of the cluster.
 
@@ -447,7 +447,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
 * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [Kubernetes Target](doc:kubernetes-targets) or specify details of the endpoint specifically in the next section explicitly.
+* **Target mode:** In this section, you can either select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets) or specify details of the endpoint specifically in the next section explicitly.
 
 5. Select your Service Account mode, **Fixed** or **Dynamic**, and fill in the following parameters:
 
@@ -475,7 +475,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 If you selected the **Explicitly specify target properties** mode, click **Next**. Otherwise, select **Finish**.
 

@@ -19,8 +19,8 @@ You can create dynamic access credentials for AWS in two modes:
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
-* An [AWS Target](doc:aws-targets)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [AWS Target](https://docs.akeyless.io/docs/aws-targets)
 * If you are using `iam_user` mode, the minimum required policy for the user should include the following permissions:
 
 ```json
@@ -56,7 +56,7 @@ You can create dynamic access credentials for AWS in two modes:
 
 This role will grant the dynamic secret permissions to manage the lifecycle of the temporary IAM users' Access Keys, including creation and deletion. It will also support the setup of a temporary user with console login, adding users to groups, and utilizing AWS tags as well.
 
-**Note:** the `tmp.*` is the default template prefix of the temporary users akeyless will create. In case you are working with [custom username template](doc:dynamic-secrets-user-templating), make sure to adjust the allowed resource accordingly.
+**Note:** the `tmp.*` is the default template prefix of the temporary users akeyless will create. In case you are working with [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating), make sure to adjust the allowed resource accordingly.
 
 * If you are using `assumed_role` mode, grant the user **AssumeRole** permissions to the requested  IAM roles. For more information, see the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/" target="_blank">AWS Assume Role</a> documentation. The required policy for the user should include the following permissions:
 
@@ -83,7 +83,7 @@ where the `<RoleName>` should be replaced with the role that will be assumed.
 >
 > We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/aws-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/aws-targets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic AWS secret from the CLI using an existing [AWS Target](doc:aws-targets), run the following command:
+To create a dynamic AWS secret from the CLI using an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create aws \
@@ -131,7 +131,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have an [AWS Target](doc:aws-targets) yet, you can use the command with target AWS account connection settings:
+If you don't have an [AWS Target](https://docs.akeyless.io/docs/aws-targets) yet, you can use the command with target AWS account connection settings:
 
 * `aws-access-key-id`: The Access ID of the privileged user you created to authenticate Akeyless with AWS.
 
@@ -165,9 +165,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [AWS Target](doc:aws-targets) or specify details of the target AWS account explicitly.
+* **Target mode:** In this section, you can either select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) or specify details of the target AWS account explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](doc:aws-targets) .
+  * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) .
 
   * Check the **Explicitly specify target properties**  to provide details of the target AWS account in the next step.
 
@@ -199,7 +199,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties**, click **Next**.
 

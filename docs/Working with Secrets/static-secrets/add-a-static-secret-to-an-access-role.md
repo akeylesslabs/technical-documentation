@@ -63,7 +63,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 # Add a Static Secret to a Role from the Akeyless Console
 
-Let’s add a static secret to a role from the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](doc:add-a-static-secret-to-an-access-role#add-a-static-secret-to-a-role-from-the-akeyless-cli) instead.
+Let’s add a static secret to a role from the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role#add-a-static-secret-to-a-role-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Access Roles**.
 

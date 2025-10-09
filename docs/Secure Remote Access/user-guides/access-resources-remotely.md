@@ -10,23 +10,23 @@ metadata:
 next:
   description: ''
 ---
-Depending on the [resource type](doc:supported-resource-types), you can securely access resources in the following ways:
+Depending on the [resource type](https://docs.akeyless.io/docs/supported-resource-types), you can securely access resources in the following ways:
 
 * From the [Secure Remote Access Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal), access a resource over the web or using native CLI.
 
-* With the [Akeyless Connect](doc:akeyless-connect) command, access a resource using native CLI from any UNIX terminal.
+* With the [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command, access a resource using native CLI from any UNIX terminal.
 
 # Prerequisites
 
 * [Secure Remote Access](https://dash.readme.com/project/akeyless/v1.0/docs/remote-access-setup-k8s) Installed. 
 
-* [SAML](doc:saml), [OIDC](doc:openid) , [Certificate](doc:certificate-based-authentication) or [LDAP](doc:ldap) Authentication method available. 
+* [SAML](https://docs.akeyless.io/docs/saml), [OIDC](https://docs.akeyless.io/docs/openid) , [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) or [LDAP](https://docs.akeyless.io/docs/ldap) Authentication method available. 
 
-* **Optional** - [Web Access](doc:web-access-bastion) Installed. 
+* **Optional** - [Web Access](https://docs.akeyless.io/docs/web-access-bastion) Installed. 
 
 # Connect from the Secure Remote Access Portal
 
-The default authentication method for logging in to the Secure Remote Access Portal is Security Assertion Markup Language (SAML). For details about integrating your SAML authentication with the Akeyless Platform, see [here](https://docs.akeyless.io/docs/saml). Alternatively, you can choose [OIDC](doc:openid) to set the default authentication method. 
+The default authentication method for logging in to the Secure Remote Access Portal is Security Assertion Markup Language (SAML). For details about integrating your SAML authentication with the Akeyless Platform, see [here](https://docs.akeyless.io/docs/saml). Alternatively, you can choose [OIDC](https://docs.akeyless.io/docs/openid) to set the default authentication method. 
 
 1. Go to `https://zerotrust.akeyless.io`.
 2. In the **SAML Access ID** field, enter your SAML Access ID. or click the **OIDC** button to work with OpenID Connect. 

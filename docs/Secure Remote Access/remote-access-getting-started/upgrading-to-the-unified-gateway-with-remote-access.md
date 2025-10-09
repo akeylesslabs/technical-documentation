@@ -34,7 +34,7 @@ The latest version of the Gateway allows administrators to directly apply most o
 
 ### Access to Enhanced Features and Capabilities
 
-The unified edition introduces powerful new Remote Access functionalities that will only be available in this unified environment, such as [Session Management](doc:remote-access-session-management) capabilities, which enable managers and auditors to better control and monitor activities involving remote access, adding another layer of security and compliance.
+The unified edition introduces powerful new Remote Access functionalities that will only be available in this unified environment, such as [Session Management](https://docs.akeyless.io/docs/remote-access-session-management) capabilities, which enable managers and auditors to better control and monitor activities involving remote access, adding another layer of security and compliance.
 
 ## What Does the Unification Include?
 

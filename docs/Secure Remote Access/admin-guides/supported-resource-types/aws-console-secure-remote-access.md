@@ -22,11 +22,11 @@ To enable secure remote access to AWS you need:
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
-* The [Akeyless Browser Extension](doc:browser-extensions).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
 
 In addition, for users to access the AWS Console using the CLI, you need:
 
-* An [SSH Certificate](doc:ssh-certificates) for certificate authentication.
+* An [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
 # Create an AWS Secret
 
@@ -66,7 +66,7 @@ where:
 * **secure-access-certificate-issuer:** Optional, only required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
 * **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
-By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Web Access](doc:web-access-bastion) for session isolation or as a secure proxy entry point, please set **one** of the following:
+By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Web Access](https://docs.akeyless.io/docs/web-access-bastion) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
 * **secure-access-web-browsing:** Optional, secure browser via Akeyless Web Access Zero trust Web Access.
 
@@ -92,9 +92,9 @@ For **Web Access**, choose one of the following modes:
 
 * `Direct connection`: Default, using a direct connection to AWS portal via Akeyless Secure Remote Access.
 
-* `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Zero Trust Web Access](doc:web-access-bastion).
+* `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-bastion).
 
-* `Secure Web Proxy`: Optional, secure web proxy mode **available only with** [Zero Trust Web Access](doc:web-access-bastion).
+* `Secure Web Proxy`: Optional, secure web proxy mode **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-bastion).
 
 For **CLI Access**:
 
@@ -128,7 +128,7 @@ For **CLI Access**:
 
 # Access the AWS Console using Akeyless connect command
 
-[Akeyless Connect](doc:akeyless-connect) command enables application native CLI access:
+[Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command enables application native CLI access:
 
 ```shell
 akeyless connect -t <AWS Region> -g <your-gateway-ip[:port]> -n "/path/to/AWS-dynamic-secret"
