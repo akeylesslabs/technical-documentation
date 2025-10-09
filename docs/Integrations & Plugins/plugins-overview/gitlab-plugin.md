@@ -63,7 +63,7 @@ akeyless assoc-role-am --role-name /Dev/GitLabRole \
 
 > 🚧 Warning
 >
-> **Sub Claims** - It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the GitLab documentation](https://docs.gitlab.com/ee/ci/examples/authenticating-with-hashicorp-vault/) to prevent access of unauthorized users.
+> **Sub Claims** - It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the GitLab documentation](https://docs.gitlab.com/ci/secrets/hashicorp_vault_tutorial/) to prevent access of unauthorized users.
 
 Set `Read` and `List` permissions for **Items**:
 
