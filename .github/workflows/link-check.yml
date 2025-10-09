@@ -2,9 +2,8 @@ name: Link Checker
 
 on:
   schedule:
-    # Runs Mondays at 2am UTC
-    - cron: "0 2 * * 1"
-  workflow_dispatch: # allows manual runs
+    - cron: "0 2 * * 1" # Mondays at 2 AM UTC
+  workflow_dispatch: # allow manual runs
 
 jobs:
   link-check:
@@ -13,43 +12,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: true # so we can push back
           fetch-depth: 0
+          persist-credentials: true
 
-      - name: Replace ReadMe doc links
-        id: replacer
+      # 1. Replace ReadMe doc links
+      - name: Replace doc links
         run: |
-          LOGFILE=".github/lychee/readme-link-replacer.log"
-          mkdir -p .github/lychee
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          REPLACEMENTS=$(grep -rl "(doc:" . --include="*.md" | xargs -r sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g')
+          COUNT=$(grep -r "(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
+          echo "$TIMESTAMP - Replaced doc: links. Total replacements so far: $COUNT" >> .github/lychee/readme-link-replacer.log
+          echo "REPLACER_SUMMARY=$COUNT replacements across Markdown files" >> $GITHUB_ENV
 
-          echo "[$TIMESTAMP] Starting ReadMe link replacement" >> "$LOGFILE"
-
-          FILE_COUNT=0
-          REPLACE_COUNT=0
-
-          for file in $(git ls-files '*.md'); do
-            if grep -q "(doc:" "$file"; then
-              BEFORE=$(grep -o "(doc:[^)]*)" "$file" || true)
-              sed -i -E 's/\(doc:([^)]+)\)/(https:\/\/docs.akeyless.io\/docs\/\1)/g' "$file"
-              AFTER=$(grep -o "(https://docs.akeyless.io/docs/[^)]*)" "$file" || true)
-
-              FILE_COUNT=$((FILE_COUNT+1))
-              REPLACE_COUNT=$((REPLACE_COUNT + $(echo "$BEFORE" | wc -l)))
-
-              echo "[$TIMESTAMP] Updated $file" >> "$LOGFILE"
-              echo "    Before: $BEFORE" >> "$LOGFILE"
-              echo "    After:  $AFTER" >> "$LOGFILE"
-            fi
-          done
-
-          echo "[$TIMESTAMP] Completed ReadMe link replacement" >> "$LOGFILE"
-          echo "[$TIMESTAMP] Summary: $REPLACE_COUNT replacements across $FILE_COUNT files" >> "$LOGFILE"
-
-          echo "REPLACER_SUMMARY=$REPLACE_COUNT replacements across $FILE_COUNT files" >> $GITHUB_ENV
-
-
-      - name: Run lychee
+      # 2. Run Lychee link checker
+      - name: Run Lychee
+        id: lychee
         uses: lycheeverse/lychee-action@v2.0.2
         with:
           args: >
@@ -63,8 +40,14 @@ jobs:
             './**/*.md'
           output: .github/lychee/lychee-out.md
 
-      - name: Commit to branch
-        if: always()
+      - name: Capture Lychee summary
+        run: |
+          BROKEN=$(grep -c "❌" .github/lychee/lychee-out.md || true)
+          TOTAL=$(grep -cE "http[s]?://" .github/lychee/lychee-out.md || true)
+          echo "LYCHEE_SUMMARY=$TOTAL links checked, $BROKEN broken" >> $GITHUB_ENV
+
+      # 3. Commit changes to branch
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -77,13 +60,18 @@ jobs:
           git add .github/lychee/lychee-out.md .github/lychee/readme-link-replacer.log
 
           git commit -m "chore: update link replacements, lychee report & log [skip ci]" || echo "No changes to commit"
-
-          # Now push the updated branch
           git push origin $BRANCH --force
 
-
+      # 4. Create or update PR using GitHub CLI
       - name: Create or update PR
         run: |
+          BODY="Automated updates from link-checker workflow
+
+          **Replacement summary:** $REPLACER_SUMMARY  
+          **Lychee summary:** $LYCHEE_SUMMARY
+
+          See the committed log and report files for full details."
+
           # Check if a PR from this branch already exists
           if gh pr list --head automation/link-check --base main --json number --jq '.[0].number' | grep -q '[0-9]'; then
             echo "PR already exists, nothing to do."
@@ -92,7 +80,7 @@ jobs:
               --base main \
               --head automation/link-check \
               --title "chore: Link checker results" \
-              --body "Automated link replacement and Lychee report"
+              --body "$BODY"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
