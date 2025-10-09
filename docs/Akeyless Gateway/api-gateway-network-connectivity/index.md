@@ -234,7 +234,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td>
-        * *Optional** Public Gateway rest API v1\v2
+        * _Optional_* Public Gateway rest API v1\v2
       </td>
     </tr>
 
@@ -253,7 +253,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td>
-        * *Optional** Public HVP endpoint
+        * _Optional_* Public HVP endpoint
       </td>
     </tr>
 
@@ -277,11 +277,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-
-
         [https://akeyless-cli.s3.us-east-2.amazonaws.com](https://akeyless-cli.s3.us-east-2.amazonaws.com)
-
-
       </td>
 
       <td>
@@ -299,11 +295,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-
-
         [https://akeylessservices.s3.us-east-2.amazonaws.com](https://akeylessservices.s3.us-east-2.amazonaws.com)
-
-
       </td>
 
       <td>
@@ -321,11 +313,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-
-
         [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
-
-
       </td>
 
       <td>
@@ -337,7 +325,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td>
-        * *Optional** Akeyless official artifacts endpoint. Relevant when working with whitelisted IP range
+        * _Optional_* Akeyless official artifacts endpoint. Relevant when working with whitelisted IP range
       </td>
     </tr>
   </tbody>
@@ -345,7 +333,7 @@ The following table describes the main functionality of Akeyless microservices i
 
 > 👍 Note
 >
-> When using proxy services, you can use **[https://sqs.us-east-2.amazonaws.com](https://sqs.us-east-2.amazonaws.com)** instead of classic MQ services. In case you are not working with proxy serivce, and still want to utilize SQS insted of classic MQ , set your **Gateway**  deployment with the `SQS_NO_PROXY="true"` environment variable.
+> When using proxy services, you can use `https://sqs.us-east-2.amazonaws.com` instead of classic MQ services. In case you are not working with proxy serivce, and still want to utilize SQS insted of classic MQ , set your **Gateway**  deployment with the `SQS_NO_PROXY="true"` environment variable.
 
 # Working without MQ Connection
 
