@@ -44,7 +44,7 @@ akeyless gateway-create-migration \
 
 `-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
 
-`-U, --hashi-url`: HashiCorp Vault API URL, e.g. [https://vault-server:8200](https://vault-server:8200) (relevant only for HasiCorp Vault migration)
+`-U, --hashi-url`: HashiCorp Vault API URL, e.g. `https://<vault-server>:8200` (relevant only for HashiCorp Vault migration)
 
 `--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HasiCorp Vault migration)
 
@@ -297,7 +297,7 @@ akeyless gateway-update-migration \
 
 `-G, --gcp-key-data `: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration).
 
-`-U, --hashi-url`: HashiCorp Vault API URL, e.g. [https://vault-mgr01:8200](https://vault-mgr01:8200) (relevant only for HasiCorp Vault migration)
+`-U, --hashi-url`: HashiCorp Vault API URL, e.g. `https://vault-mgr01:8200` (relevant only for HashiCorp Vault migration)
 
 `--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HasiCorp Vault migration)
 
@@ -403,6 +403,6 @@ akeyless gateway-update-migration \
 
 `--si-rotation-hour`: The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration)
 
-`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
