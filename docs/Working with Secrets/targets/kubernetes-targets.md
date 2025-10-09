@@ -55,7 +55,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 4. Choose your preferred authentication mode by selecting one of the options:
 
-* Check the **Use Credentials** radio button to authenticate with the EKS admin user credentials.
+* Check the **Use Credentials** radio button to authenticate with the Amazon EKS admin user credentials.
 * Check the **Use Gateway's Cloud Identity** radio button to authenticate with the Gateway's Cloud IAM.
 
 > 👍 Note
