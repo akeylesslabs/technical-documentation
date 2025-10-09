@@ -34,7 +34,7 @@ You can create a Rotated Secret for a database user. Currently, Akeyless Rotated
 
 > 🚧 Warning
 >
-> Before you get started, ensure creating a [Database Target](doc:database-targets) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.
+> Before you get started, ensure creating a [Database Target](https://docs.akeyless.io/docs/database-targets) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the database server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target database.
 
@@ -63,20 +63,20 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [Database Target](doc:database-targets) with which the Rotated Secret should be associated.
+* `target-name`: The name of the [Database Target](https://docs.akeyless.io/docs/database-targets) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target database.
   * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [Database Target](doc:database-targets) item.
+  * `use-target-creds` - Use the credentials defined on the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
 
 > 👍 Note
 >
-> Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Database Target](doc:database-targets) user is required to change the password on behalf of the Rotated Secret user.
+> Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Database Target](https://docs.akeyless.io/docs/database-targets) user is required to change the password on behalf of the Rotated Secret user.
 
 * `password-length`: **Optional**, The user's password length.
-* `rotator-type`: The type of credentials to be rotated. For [Database Targets](doc:database-targets), choose:
+* `rotator-type`: The type of credentials to be rotated. For [Database Targets](https://docs.akeyless.io/docs/database-targets), choose:
   * `password` - to rotate the DB user password specified in the Rotated Secret
-  * `target` - to rotate the password for the user specified in the [Database Target](doc:database-targets).
+  * `target` - to rotate the password for the user specified in the [Database Target](https://docs.akeyless.io/docs/database-targets).
 * `rotated-username`: The DB user whose password should be rotated.
 * `rotated-password`: The password to rotate.
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`. Default `rotation-hour` is 14:00 UTC if not specified.
@@ -97,30 +97,30 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [Database Target](doc:database-targets) to be associated with the Rotated Secret.
+* **Target:** Defines the name of the [Database Target](https://docs.akeyless.io/docs/database-targets) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target database:
   * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [Database Target](doc:database-targets) item.
+  * **Target credentials:** Use the credentials defined inside the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
 
 > 👍 Note
 >
-> Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Database Target](doc:database-targets) user, is required to change the password on behalf of the Rotated Secret user.
+> Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Database Target](https://docs.akeyless.io/docs/database-targets) user, is required to change the password on behalf of the Rotated Secret user.
 
 * **Password-length**: Set the user's password length.
 * **Rotator type:** Determines the rotator type:
   * **Password**: Rotates the password defined inside the Rotated Secret item.
-  * **Target**: Rotates the password defined inside the [Database Target](doc:database-targets) item.
+  * **Target**: Rotates the password defined inside the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
 * **Username:** Defines the DB username which password should be rotated.
 * **Password:** Defines the password to rotate.
 
 > 👍 Note
 >
-> You can rotate the password for the [Database Target](doc:database-targets) too, by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
+> You can rotate the password for the [Database Target](https://docs.akeyless.io/docs/database-targets) too, by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
 
 * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 * **Auto rotate:** Determines if automatic rotation is enabled.
 

@@ -48,6 +48,6 @@ Once the certificate is revoked, it is added to the **Certificate Revocation Lis
 
 **Public CRL** at: `https://vault.akeyless.io/crl/<account-id>/<cert-issuer-display-id>`.
 
-**Private CRL** endpoint on the [Gateway](doc:api-gw) at `https://<gatewayURL:8000>/crl/<cert-issuer-display-id>`.
+**Private CRL** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL:8000>/crl/<cert-issuer-display-id>`.
 
 To view any existing **Certificate Revocation List** information on a **Certificate Item** click the  **View Certificate Details** and scroll down to **CRL Distribution points**, where the **CRL Endpoints** will be listed.

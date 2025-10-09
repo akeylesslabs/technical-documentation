@@ -39,7 +39,7 @@ You can also provide a custom display name for the Gateway Instance using the `i
 
 # Encryption Key
 
-To choose an existing [Encryption Key](doc:encryption-keys) to encrypt your Gateway configuration, you can provide the full path to your key using the following setting `configProtectionKeyName`.
+To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to encrypt your Gateway configuration, you can provide the full path to your key using the following setting `configProtectionKeyName`.
 
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
@@ -49,7 +49,7 @@ By default, the Gateway configuration is encrypted with your account's default e
 
 ## Customer fragment
 
-If your [Encryption Key](doc:encryption-keys) works with [Zero Knowledge](doc:implement-zero-knowledge), provide a JSON containing your Customer Fragment:
+If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), provide a JSON containing your Customer Fragment:
 
 ```yaml values.yaml
 akeylessUserAuth:
@@ -93,13 +93,13 @@ TLSConf:
 
 # Defaults Gateway Settings
 
-You can also configure the default settings using the [Gateway Configuration Manager](doc:gateway-configuration-manager) UI.
+You can also configure the default settings using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) UI.
 
-A default [SAML](doc:saml)  or [OIDC](doc:openid)  `Access ID`  can be set for the Gateway (using either `defaultSamlAccessId` or `defaultOidcAccessId` respectively) to automatically select the auth method for end-users logging in to the Gateway Console (port `18888`), upon clicking on the respective auth method.
+A default [SAML](https://docs.akeyless.io/docs/saml)  or [OIDC](https://docs.akeyless.io/docs/openid)  `Access ID`  can be set for the Gateway (using either `defaultSamlAccessId` or `defaultOidcAccessId` respectively) to automatically select the auth method for end-users logging in to the Gateway Console (port `18888`), upon clicking on the respective auth method.
 
 For OIDC, to leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IDP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IDP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
-Set the default [Encryption Key](doc:encryption-keys) that will encrypt all items created on this Gateway using the setting `defaultEncryptionKey` with the full path to your [Encryption Key](doc:encryption-keys) in Akeyless.
+Set the default [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) that will encrypt all items created on this Gateway using the setting `defaultEncryptionKey` with the full path to your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) in Akeyless.
 
 Set the default location secrets created by this Gateway will be stored within your Akeyless account using the`defaultSecretLocation` setting with a path to store your secrets. 
 
@@ -119,11 +119,11 @@ defaultsConf:
   defaultSecretLocation: "</Path/To/Save/Secrets>"
 ```
 
-To work with [CBA](doc:certificate-based-authentication) flow for users login, first set your users' DNS records with the cert authentication subdomain  `auth-cert.akeyless.io` to point to your Gateway IP address.
+To work with [CBA](https://docs.akeyless.io/docs/certificate-based-authentication) flow for users login, first set your users' DNS records with the cert authentication subdomain  `auth-cert.akeyless.io` to point to your Gateway IP address.
 
 And set your deployment with the following parameters: 
 
-Under `TLSConf` section, enable the `enableSniProxy` setting, and under the `defaultsConf` section provide your [Certificate](doc:certificate-based-authentication) auth method `accessID`:
+Under `TLSConf` section, enable the `enableSniProxy` setting, and under the `defaultsConf` section provide your [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) auth method `accessID`:
 
 ```yaml
 TLSConf:
@@ -201,7 +201,7 @@ To provide the settings of your Gateway deployment directly from your local k8s 
 
 # Restrict Gateway Access
 
-To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](doc:zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the <code>restrictServiceToAccessIds</code> setting with a comma-separated list of `AccessIDs`
+To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the <code>restrictServiceToAccessIds</code> setting with a comma-separated list of `AccessIDs`
 
 ```yaml
 akeylessUserAuth:

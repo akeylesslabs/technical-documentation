@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Via a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](doc:access-and-authentication-methods), while using existing Access Groups and Policies in your environment.
+Via a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods), while using existing Access Groups and Policies in your environment.
 
 <Image align="center" src="https://files.readme.io/d650059-SSH_Certificates.png" />
 
@@ -155,7 +155,7 @@ akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /
 >
 > You will also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable true` flag to your CLI command.
 >
-> It is also possible to enforce host restrictions for SSH connections to only those listed in the SSH Cert Issuer when using [Akeyless Connect](doc:akeyless-connect) by adding the `--secure-access-enforce-hosts-restriction true` flag when creating the Cert Issuer.
+> It is also possible to enforce host restrictions for SSH connections to only those listed in the SSH Cert Issuer when using [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) by adding the `--secure-access-enforce-hosts-restriction true` flag when creating the Cert Issuer.
 
 ## Issuing a Certificate
 

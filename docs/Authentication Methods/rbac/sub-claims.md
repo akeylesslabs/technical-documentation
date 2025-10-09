@@ -38,13 +38,13 @@ Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes
 > `?`: Replaces one character. For example, the string `1?1` will accept `121` but not `1231`.\
 > `*`: Replaces any amount of characters. For example, the string `*@example.com` will accept any address in that domain.
 
-You can set the relevant sub-claims to an existing role using the Akeyless [Command Line Interface (CLI)](doc:cli) 
+You can set the relevant sub-claims to an existing role using the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli) 
 
 ```shell
 akeyless assoc-role-am --role-name r1 --am-name Okta --sub-claims Groups=Engineering,Security  --sub-claims Email=james@example.com,linda@example.com
 ```
 
-Or directly from the Akeyless Console using the [Access Roles](doc:rbac) with [Authentication Methods](doc:access-and-authentication-methods) association.
+Or directly from the Akeyless Console using the [Access Roles](https://docs.akeyless.io/docs/rbac) with [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) association.
 
 # Logical Operators Syntax
 
@@ -102,15 +102,15 @@ This means that `Alice` will get `read` permissions under`/Engineering/Alice/*`,
 
 # View Sub-Claims
 
-To review the current Sub-Claims available for your [Authentication Method](doc:access-and-authentication-methods), from the Akeyless Console, simply click on your account logo and click on **Show Sub Claims**. 
+To review the current Sub-Claims available for your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), from the Akeyless Console, simply click on your account logo and click on **Show Sub Claims**. 
 
-To view the available Sub-Claims of your [Authentication Method](doc:access-and-authentication-methods) from the Akeyless [CLI](doc:cli) based on the CLI profile you are using, run the following command: 
+To view the available Sub-Claims of your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the Akeyless [CLI](https://docs.akeyless.io/docs/cli) based on the CLI profile you are using, run the following command: 
 
 ```shell
 akeyless describe-sub-claims
 ```
 
-Alternatively, to view a different [Authentication Method](doc:access-and-authentication-methods) available sub-claims you can specify the exact token or the relevant [CLI](doc:cli) profile name:
+Alternatively, to view a different [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) available sub-claims you can specify the exact token or the relevant [CLI](https://docs.akeyless.io/docs/cli) profile name:
 
 ```shell
 akeyless describe-sub-claims --profile <CLI profile>

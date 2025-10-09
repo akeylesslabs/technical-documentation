@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Below, please find an example of using Ansible AWX with Akeyless Platform for fetching credentials, utilizing Akeyless [Universal Identity](doc:universal-identity). 
+Below, please find an example of using Ansible AWX with Akeyless Platform for fetching credentials, utilizing Akeyless [Universal Identity](https://docs.akeyless.io/docs/universal-identity). 
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ The section refers to changes that should be done in the awx machine (awx-task c
 export VAULT_ADDR=https://hvp.akeyless.io
 ```
 
-2. You’ll need to configure the Akeyless temporary API token (this is the recommended and the more secure method). For token rotation, please [read more here](doc:universal-identity). The rotated token should be saved in this file `/var/lib/awx/.vault-token` 
+2. You’ll need to configure the Akeyless temporary API token (this is the recommended and the more secure method). For token rotation, please [read more here](https://docs.akeyless.io/docs/universal-identity). The rotated token should be saved in this file `/var/lib/awx/.vault-token` 
 
 ## Configuring AWX Plugin
 
@@ -39,4 +39,4 @@ After successful job launch you will see the following:
 
 ![1727](https://files.readme.io/fdcc990-image_1.png "image (1).png")
 
-For an additional ways to work with Ansible AWX, see [Ansible AWX Plugin - secret fetch via playbook](doc:ansible-awx-plugin-secret-fetch-via-playbook-1).
+For an additional ways to work with Ansible AWX, see [Ansible AWX Plugin - secret fetch via playbook](https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-via-playbook-1).

@@ -94,19 +94,19 @@ services:
 
 ## Authentication
 
-The following [Authentication Methods](doc:access-and-authentication-methods) are supported: 
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported: 
 
-* [API Key](doc:api-key) 
+* [API Key](https://docs.akeyless.io/docs/api-key) 
 
-* [AWS IAM](doc:aws-iam) 
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam) 
 
-* [Azure Active Directory](doc:azure-ad)
+* [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
 
-* [GCP GCE](doc:gcp-auth-method) 
+* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) 
 
 ## API Key Authentication
 
-To set your Bastion default authentication based on [API Key](doc:api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` as environment variables with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` as environment variables with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -131,7 +131,7 @@ services:
 
 ## CSP IAM Authentication
 
-While running your Docker inside your cloud environment, you can use [AWS IAM](doc:aws-iam), [GCP](doc:gcp-auth-method), or [Azure Active Directory](doc:azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
+While running your Docker inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
 ## AWS IAM
 
@@ -139,7 +139,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role 
 
-While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](doc:aws-iam) `Access ID`  as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -165,7 +165,7 @@ services:
 
 Azure AD authentication is provided with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-Set your [Azure Active Directory](doc:azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -189,8 +189,8 @@ services:
 
 ## GCP GCE
 
-Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](doc:gcp-auth-method) can be done using the GCP.\
- Set your [GCP GCE](doc:gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
+Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP.\
+ Set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
 
 ```yaml
 services:

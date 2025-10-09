@@ -16,7 +16,7 @@ When a client requests a dynamic secret value, the Akeyless Platform, through yo
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * SSH access is enabled on the target Windows host (see [Install OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui#install-openssh-for-windows))
 
@@ -26,9 +26,9 @@ When a client requests a dynamic secret value, the Akeyless Platform, through yo
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic RDP secret from the CLI using an existing [RDP Target](doc:ssh-target), run the following command:
+To create a dynamic RDP secret from the CLI using an existing [RDP Target](https://docs.akeyless.io/docs/ssh-target), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create rdp \
@@ -105,7 +105,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing [RDP Target](doc:ssh-target) or specify details of the target Windows server explicitly.
+* **Target mode:** In this section, you can either select an existing [RDP Target](https://docs.akeyless.io/docs/ssh-target) or specify details of the target Windows server explicitly.
 
   * Use the **Choose an existing target** drop-down list to select the existing SSH Target.
 
@@ -120,7 +120,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Temporary Password Length** Set the length of the temporary password
 * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** option, click **Next**.
 

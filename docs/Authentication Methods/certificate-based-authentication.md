@@ -26,7 +26,7 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 # Prerequisites
 
-* A **Chain of Trust** for siging a **Client** Certificate , If you don't have one, you can [build your chain of trust](doc:build-your-chain-of-trust) in Akeyless.
+* A **Chain of Trust** for siging a **Client** Certificate , If you don't have one, you can [build your chain of trust](https://docs.akeyless.io/docs/build-your-chain-of-trust) in Akeyless.
 
 * A **Client** Certificate (signed by an Intermediate CA) with `clientauth` key usage, along with the corresponding Private Key, both in `PEM` format.
 

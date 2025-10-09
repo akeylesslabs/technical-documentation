@@ -104,13 +104,13 @@ Where:
 
 * `akeyless_url` - Your Akeyless Gateway `API v2` endpoint `8000/api/v2 ` (or using your gateway url at port `8081`).,  if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`. 
 
-* `access_type` - The [Authentication Method](doc:access-and-authentication-methods) type, supporting:`access_key`,`aws_iam`,`gcp`,`azure_ad` `certificate`,`jwt` and `k8s`. 
+* `access_type` - The [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type, supporting:`access_key`,`aws_iam`,`gcp`,`azure_ad` `certificate`,`jwt` and `k8s`. 
 
 * `access_id` - The Auth method **Access ID**.  
 
-* `access_key` - Relevant only for  [API Key](doc:api-key) Auth method.
+* `access_key` - Relevant only for  [API Key](https://docs.akeyless.io/docs/api-key) Auth method.
 
-* `k8s_conf_name` - Relevant only for [Kubernetes](doc:kubernetes-auth) Auth method. 
+* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth method. 
 
 ## Create a Self-Signed Certificate
 
@@ -118,7 +118,7 @@ The Notary project specified the [requirements](https://github.com/notaryproject
 
 > 📘 Note
 >
-> It is possible to work with Akeyless  [PKI Issuer](doc:ssh-and-pkitls-certificates)  to generate the certificates, the PKI Issuer must be set with the `Code Signing` flag , and `Key Usage List` of `critical,DigitalSignature`.
+> It is possible to work with Akeyless  [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)  to generate the certificates, the PKI Issuer must be set with the `Code Signing` flag , and `Key Usage List` of `critical,DigitalSignature`.
 
 Akeyless Supports both **EC** and **RSA** algorithms, run the following commands to create a key with a self signed certificate.
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can create a Rotated Secret for a Windows user password. Before you get started, ensure that you create a [Windows Target](doc:windows-target) that includes the hostname and connection settings, as well as credentials for a privileged user authorized to rotate credentials.
+You can create a Rotated Secret for a Windows user password. Before you get started, ensure that you create a [Windows Target](https://docs.akeyless.io/docs/windows-target) that includes the hostname and connection settings, as well as credentials for a privileged user authorized to rotate credentials.
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the Windows server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target server.
 
@@ -40,20 +40,20 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [Windows Target](doc:windows-target) with which the Rotated Secret should be associated.
+* `target-name`: The name of the [Windows Target](https://docs.akeyless.io/docs/windows-target) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target server.
   * `use-user-creds` - Use the credentials defined on the Rotated Secret item. 
-  * `use-target-creds` - Use the credentials defined on the [Windows Target](doc:windows-target) item.
+  * `use-target-creds` - Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
 
 > 👍 Note
 >
-> Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](doc:windows-target) user is required to change the password on behalf of the Rotated Secret user.
+> Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](https://docs.akeyless.io/docs/windows-target) user is required to change the password on behalf of the Rotated Secret user.
 
 * `password-length`: **Optional**,  The user's password length.
-* `rotator-type`: The type of credentials to be rotated. For [Windows Target](doc:windows-target) , choose:
+* `rotator-type`: The type of credentials to be rotated. For [Windows Target](https://docs.akeyless.io/docs/windows-target) , choose:
   * `password` - to rotate the Windows user password specified in the Rotated Secret.
-  * `target` - to rotate the password for the user specified in the [Windows Target](doc:windows-target)
+  * `target` - to rotate the password for the user specified in the [Windows Target](https://docs.akeyless.io/docs/windows-target)
 * `rotated-username`: The Windows user whose password should be rotated.
 * `rotated-password`: The password to rotate.
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
@@ -74,24 +74,24 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** The name of the [Windows Target](doc:windows-target) with which the Rotated Secret should be associated.
+* **Target:** The name of the [Windows Target](https://docs.akeyless.io/docs/windows-target) with which the Rotated Secret should be associated.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target server:
   * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:**  Use the credentials defined on the [Windows Target](doc:windows-target) item.
+  * **Target credentials:**  Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
 
 > 👍 Note
 >
-> Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](doc:windows-target) user is required to change the password on behalf of the Rotated Secret user.
+> Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](https://docs.akeyless.io/docs/windows-target) user is required to change the password on behalf of the Rotated Secret user.
 
 * **Password length**: **Optional**, Set the user's password length.
 * **Rotator type:** Determines the rotator type:
   * **Password**: Rotates the password defined inside the Rotated Secret item.
-  * **Target**: Rotate the password for the user specified in the [Windows Target](doc:windows-target)
+  * **Target**: Rotate the password for the user specified in the [Windows Target](https://docs.akeyless.io/docs/windows-target)
 * **Username:** Defines the Windows username which password should be rotated.
 * **Password:** Defines the password to rotate.
 * **Gateway:** Select the Gateway through which the secret will be rotated.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 * **Auto rotate:** Determines if automatic rotation is enabled.
 * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic password rotations when **Auto Rotate** is enabled.
 * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.

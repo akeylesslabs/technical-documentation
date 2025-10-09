@@ -58,7 +58,7 @@ where:
 * **secure-access-api:** Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
 * **secure-access-ssh:** Secure Access SSH server. e.g. `my.sra-server:22`.
 * **secure-access-ssh-creds-user:** SSH username to connect to a target server, based on the `Allowed Users`list.
-* **host-provider:**  Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](doc:linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
+* **host-provider:**  Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
 > 👍 Note
 >
@@ -80,7 +80,7 @@ Let's set up remote access to an SSH server from the Akeyless Console.
 
 * Choose the right mode to work with either:
   * `Explicit Hosts`:  The hostnames (or IP addresses) of your SSH target servers.
-  * `Target`: Select a [Linked Target](doc:linked-target) that stores the relevant hosts, multiple Targets can be selected.
+  * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
 * `Secure Access API`: Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
 * `Secure Access SSH`: Secure Access SSH server. e.g. `my.sra-server:22`.
 * `Username`: SSH username to connect to the target server, based on the 'Allowed Users' list.

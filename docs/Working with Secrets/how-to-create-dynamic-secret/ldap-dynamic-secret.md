@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-You can define a dynamic LDAP secret to dynamically generate LDAP access credentials. When a client requests the dynamic secret value, the [Akeyless Gateway](doc:api-gw) connects to your LDAP server and generates a temporary set of restricted access credentials.
+You can define a dynamic LDAP secret to dynamically generate LDAP access credentials. When a client requests the dynamic secret value, the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) connects to your LDAP server and generates a temporary set of restricted access credentials.
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw) with network access to the LDAP server.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the LDAP server.
 
 * LDAP server with a privileged LDAP User.
 
@@ -22,9 +22,9 @@ You can define a dynamic LDAP secret to dynamically generate LDAP access credent
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/ldap-dynamic-secret#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/ldap-dynamic-secret#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic LDAP secret from the CLI using an existing [LDAP Target](doc:ldap-target), run the following command: 
+To create a dynamic LDAP secret from the CLI using an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target), run the following command: 
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create ldap \
@@ -66,7 +66,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have [LDAP Target](doc:ldap-target) yet, you can use the command with your LDAP target server connection string:
+If you don't have [LDAP Target](https://docs.akeyless.io/docs/ldap-target) yet, you can use the command with your LDAP target server connection string:
 
 * `ldap-url`: The LDAP server URL.
 
@@ -101,9 +101,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing [LDAP Target](doc:ldap-target) or specify details of the target LDAP server explicitly.
+* **Target mode:** In this section, you can either select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) or specify details of the target LDAP server explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](doc:ldap-target).
+  * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
   * Check the **Explicitly specify target properties**  to provide details of the target LDAP Server in the next step.
 * **User Base DN:** Specify user base DN settings.
@@ -116,7 +116,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Temporary Password Length** Set the length of the temporary password.
 * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties**, click **Next**.
 
@@ -146,4 +146,4 @@ To control the temporary username policy, you can add to your Gateway deployment
 
 * `LDAP_USERNAME_LEN`
 
-Or using the [Custom Username template for Dynamic Secrets](doc:dynamic-secrets-user-templating) mechanism
+Or using the [Custom Username template for Dynamic Secrets](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) mechanism

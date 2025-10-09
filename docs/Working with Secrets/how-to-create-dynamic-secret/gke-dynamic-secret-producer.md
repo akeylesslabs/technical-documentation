@@ -14,7 +14,7 @@ You can create a dynamic Google Kubernetes Engine (GKE) secret to allow users re
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * GKE Service Account
 
@@ -24,9 +24,9 @@ To use a dynamic GKE secret, your GCP administrator needs to create a GCP IAM se
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:kubernetes-targets#gke). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gke-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-targets#gke). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gke-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic GKE secret from the CLI using an existing [GKE Target](doc:kubernetes-targets#gke), run the following command:
+To create a dynamic GKE secret from the CLI using an existing [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke), run the following command:
 
 ```shell
 akeyless dynamic-secret create gke \
@@ -52,13 +52,13 @@ Where:
 
 * `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: A name of the [GKE Target](doc:kubernetes-targets#gke) that enables connection to the GKE cluster.
+* `target-name`: A name of the [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke) that enables connection to the GKE cluster.
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 ### Inline connection strings
 
-If you don't have a [GKE Target](doc:kubernetes-targets#gke) yet, you can use the command with your GKE connection string:
+If you don't have a [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke) yet, you can use the command with your GKE connection string:
 
 * `gke-cluster-name`: The name of the GKE cluster you want to connect to.
 

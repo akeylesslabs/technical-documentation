@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The **Sectigo Target** enables you to use **Sectigo** as a Public Certificate Authority (CA) with Akeyless [PKI Issuer](doc:ssh-and-pkitls-certificates).
+The **Sectigo Target** enables you to use **Sectigo** as a Public Certificate Authority (CA) with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
-With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless will programmatically validate the certificate signing request by contacting Sectigo through the [Akeyless Gateway](doc:api-gw) using the domain owner's account details
+With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless will programmatically validate the certificate signing request by contacting Sectigo through the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) using the domain owner's account details
 
 Akeyless will store the issued certificates, manage them, and notify you of upcoming expiration events.
 

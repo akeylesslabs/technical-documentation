@@ -35,7 +35,7 @@ env:
 
 # Encryption Key
 
-To choose an existing [Encryption Key](doc:encryption-keys) to encrypt your Gateway configuration, you can provide the full path to your key using the following setting `configProtectionKeyName`.
+To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to encrypt your Gateway configuration, you can provide the full path to your key using the following setting `configProtectionKeyName`.
 
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
@@ -45,7 +45,7 @@ By default, the Gateway configuration is encrypted with your account's default e
 
 ## Customer fragment
 
-If your [Encryption Key](doc:encryption-keys) works with [Zero Knowledge](doc:implement-zero-knowledge), create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a `base64-encoded JSON` that includes your **Customer Fragment**.
+If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a `base64-encoded JSON` that includes your **Customer Fragment**.
 
 ```shell values.yaml
 kubectl create secret generic customer-fragment \
@@ -107,11 +107,11 @@ globalConfig:
       value: "true"
 ```
 
-Once the Gateway is running, you can set the matching AccessID as your OIDC default login using the [Gateway Configuration Manager](doc:gateway-configuration-manager)
+Once the Gateway is running, you can set the matching AccessID as your OIDC default login using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager)
 
 # Cache Configuration
 
-To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](doc:configure-the-gateway-cache) using the console or directly via **API**. 
+To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly via **API**. 
 
 To set an internal TLS between the Gateway and cache service, set the `enableTls: true` option:
 

@@ -14,7 +14,7 @@ You can create a dynamic Amazon Elastic Kubernetes Service (EKS) secret to allow
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * AWS IAM principal (role or user)
 
@@ -45,9 +45,9 @@ For more information about Kubernetes RBAC, see [the Kubernetes documentation](h
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:kubernetes-targets#eks). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/eks-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-targets#eks). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/eks-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create an Amazon EKS Dynamic Secret from the CLI using an existing [Target](doc:kubernetes-targets#eks), run the following command:
+To create an Amazon EKS Dynamic Secret from the CLI using an existing [Target](https://docs.akeyless.io/docs/kubernetes-targets#eks), run the following command:
 
 ```shell
 akeyless dynamic-secret create eks \
@@ -90,7 +90,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have a configured [Amazon EKS Target](doc:kubernetes-targets#eks) yet, you can use the command with an inline connection string:
+If you don't have a configured [Amazon EKS Target](https://docs.akeyless.io/docs/kubernetes-targets#eks) yet, you can use the command with an inline connection string:
 
 * `eks-access-key-id`: The access key ID of the AWS IAM user to be used to connect to the Amazon EKS target.
 

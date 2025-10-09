@@ -16,16 +16,16 @@ next:
 ---
 # Overview
 
-The Akeyless K8s Secrets Injector plugin enables K8s applications and workloads to use [Static](doc:static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](doc:how-to-create-dynamic-secret) secrets as well as [Certificates](doc:certificate-storage)  and [USC](doc:universal-secrets-connector) sourced from the Akeyless Platform.
+The Akeyless K8s Secrets Injector plugin enables K8s applications and workloads to use [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-storage)  and [USC](https://docs.akeyless.io/docs/universal-secrets-connector) sourced from the Akeyless Platform.
 
 This injector leverages the K8s `MutatingAdmissionWebhook` to intercept and augment specifically annotated pod configurations for secrets injection. By doing so, the user benefits as the applications remain ״Akeyless unaware״ as the secrets are stored either as an **environment variable** or as a file at a **filesystem path** in their container.
 
-Before the application starts, the injector deploys an **init** container to fetch and inject secrets at pod start-up, after which the init-container shuts down. To apply an automatic [rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/) to your deployments upon **any** change to your secrets, you can use the Injector with restart-rollout mode, which can track any changes of [Static](doc:static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and  [Certificates](doc:certificate-storage).
+Before the application starts, the injector deploys an **init** container to fetch and inject secrets at pod start-up, after which the init-container shuts down. To apply an automatic [rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/) to your deployments upon **any** change to your secrets, you can use the Injector with restart-rollout mode, which can track any changes of [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and  [Certificates](https://docs.akeyless.io/docs/certificate-storage).
 
 If the application consumes secrets which regularly change, an annotation can be used to deploy an additional **Sidecar** container which runs alongside the application to monitor changes in secrets. The **Sidecar** tracks and updates secrets within injected files inside the pods, according to specifically annotated pod configurations, and will remain up for the entire application lifecycle. Relevant for cases where the app can watch for live changes in files.
 
-Although authorization in K8s is intentionally high level, you can configure the injector to support full and flexible segregation using K8s policies together with the Akeyless Platform's [Role-based Access Control (RBAC)](doc:rbac).\
-For details, see [Policy Segregation for Kubernetes](doc:policy-segregation-for-kubernetes).
+Although authorization in K8s is intentionally high level, you can configure the injector to support full and flexible segregation using K8s policies together with the Akeyless Platform's [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).\
+For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/docs/policy-segregation-for-kubernetes).
 
 <Image align="center" src="https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png" />
 
@@ -61,11 +61,11 @@ akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234"
 
 > 👍 Note
 >
-> The following example uses a pre-defined [K8s Auth](doc:kubernetes-auth) called **K8s\_Auth** in **K8s** folder i.e. `K8s/K8s_Auth`
+> The following example uses a pre-defined [K8s Auth](https://docs.akeyless.io/docs/kubernetes-auth) called **K8s\_Auth** in **K8s** folder i.e. `K8s/K8s_Auth`
 
 ## Create an Access Role
 
-Create an [Access Role](doc:rbac) associate the role with an **Auth Method** and grant access to the secret.\
+Create an [Access Role](https://docs.akeyless.io/docs/rbac) associate the role with an **Auth Method** and grant access to the secret.\
 For example, the following command creates **K8s\_role** role, the role is associated to **K8s\_Auth** Auth Method, and grant **read** and **list** access to all the secrets in **K8s** folder
 
 ```shell Akeyless CLI
@@ -93,7 +93,7 @@ Modify the following values under the `env` section as follows:
 
 * Set `AKEYLESS_ACCESS_ID` to the Access ID of the Auth Method with access to the secret.
 
-* Set `AKEYLESS_ACCESS_TYPE` to `k8s`. Or with any other supported [Authentication Methods for Kubernetes](doc:auth-meth-k8s).
+* Set `AKEYLESS_ACCESS_TYPE` to `k8s`. Or with any other supported [Authentication Methods for Kubernetes](https://docs.akeyless.io/docs/auth-meth-k8s).
 
 * Set `AKEYLESS_K8S_AUTH_CONF_NAME` with your Gateway Kubernetes Auth name. Relevant **only** for Access type of `k8s`.
 

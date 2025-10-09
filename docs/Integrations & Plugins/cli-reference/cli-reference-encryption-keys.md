@@ -16,7 +16,7 @@ This section outlines the CLI commands relevant to Encryption Keys.
 
 ### `assoc-target-item`
 
-Create an association between a [Target](doc:targets) and a [Classic Key](doc:classic-keys) for [External KMS Integration](doc:external-kms)
+Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms)
 
 ##### Usage
 

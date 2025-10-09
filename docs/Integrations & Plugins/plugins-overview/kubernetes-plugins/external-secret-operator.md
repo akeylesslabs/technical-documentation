@@ -259,7 +259,7 @@ kubectl get secret akeyless-secret-to-create-json -o jsonpath='{.data}'
 
 ## Working with Certificates
 
-Another example is when working with Akeyless [Certificate](doc:certificate-storage), the certificate item contains two separate `PEM` blocks, the actual `Certificate` and the `Private Key`, to split them into different keys you can configure the resource accordingly:
+Another example is when working with Akeyless [Certificate](https://docs.akeyless.io/docs/certificate-storage), the certificate item contains two separate `PEM` blocks, the actual `Certificate` and the `Private Key`, to split them into different keys you can configure the resource accordingly:
 
 ```yaml externalsecret.yaml
 apiVersion: external-secrets.io/v1

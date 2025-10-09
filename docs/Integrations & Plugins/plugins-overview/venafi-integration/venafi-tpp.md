@@ -14,7 +14,7 @@ To work with Venafi TPP, you can choose either to work with Venafi as your certi
 
 ## Prerequisites
 
-* Akeyless [Gateway](doc:api-gw).
+* Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw).
 
 * Venafi TPP.
 

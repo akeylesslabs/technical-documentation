@@ -42,4 +42,4 @@ job:
       aud: https://gitlab.com
 ```
 
-set the `VAULT_AUTH_ROLE` with your Akeyless [Authentication Method](doc:access-and-authentication-methods)  `Access ID`  and the `VAULT_AUTH_PATH` with `jwt`. In general, the Vault role should be set with your `Aceess ID`.
+set the `VAULT_AUTH_ROLE` with your Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods)  `Access ID`  and the `VAULT_AUTH_PATH` with `jwt`. In general, the Vault role should be set with your `Aceess ID`.

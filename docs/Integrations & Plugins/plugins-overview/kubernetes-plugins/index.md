@@ -14,7 +14,7 @@ next:
       slug: how-to-provision-secret-to-your-k8s
       title: Akeyless K8s Secrets Injector
 ---
-The Akeyless Kubernetes plugins enable containerized applications to use [Static](doc:static-secrets), [Dynamic](doc:how-to-create-dynamic-secret), and [Rotated](doc:rotated-secrets) secrets as well as [Certificates](doc:certificate-based-authentication) sourced from the Akeyless Platform. 
+The Akeyless Kubernetes plugins enable containerized applications to use [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication) sourced from the Akeyless Platform. 
 
 The following plugins are available for K8s: 
 

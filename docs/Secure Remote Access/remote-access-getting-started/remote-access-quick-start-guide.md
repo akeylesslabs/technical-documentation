@@ -30,7 +30,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 | Service                                                            | Port |
 | :----------------------------------------------------------------- | :--- |
-| [Gateway Configuration Manager](doc:gateway-configuration-manager) | 8000 |
+| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
 | SSH Access                                                         | 22   |
 
 > 📘 First things first
@@ -141,7 +141,7 @@ akeylessGatewayAuth:
 authorizedAccessIDs: <authorized_access_id>
 ```
 
-`gatewayAccessId`: For this quick start, we will use the [API Key](doc:api-key) authentication method. Add your API Key's `Access ID`.
+`gatewayAccessId`: For this quick start, we will use the [API Key](https://docs.akeyless.io/docs/api-key) authentication method. Add your API Key's `Access ID`.
 
 `gatewayAccessType`: This is already set to `access_key` for API Key authentication.
 

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-This page discusses the creation of Azure [Universal Secrets Connectors](doc:external-secrets-manager). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, which has varying parameters.
+This page discusses the creation of Azure [Universal Secrets Connectors](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, which has varying parameters.
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)  with **Read** permission on the target associated with the **USC**.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)  with **Read** permission on the target associated with the **USC**.
 * Azure [Registered Application](https://learn.microsoft.com/en-us/security/zero-trust/develop/app-registration) with the [Key Vault Secrets Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role assigned. If you wish to work with Certificates, assign the [Certificate Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role.
 
 # Working With Universal Secrets Connector from the Console
@@ -33,11 +33,11 @@ The main parameters are:
 
 * `name`: Name for the Universal Secrets Connector. You may specify the location by adding a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
 
-* `target-to-associate`: An existing [Target](doc:targets) that points to your desired endpoint.
+* `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
 * `azure-kv-name`: The name of an existing Azure key vault. 
 
-Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
 ## Listing USC Objects
 
@@ -85,7 +85,7 @@ The main parameters are:
 
 * `object-type[=secret]` Either secret or certificate, the default is set to secret.
 
-Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
 The output should look as follows:
 
@@ -117,7 +117,7 @@ The main parameters are:
 
 * `object-type[=secret]`: Either `secret` or `certificate`, when set to `certificate` -  Provide a Base64-encoded certificate file that includes the private key.
 
-Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
 ## Updating an Existing USC secret
 
@@ -127,7 +127,7 @@ To update an existing secret in your USC, use the following command:
 akelyess usc update --usc-name <usc name> --secret-name <new secret name> --value <secret value>
 ```
 
-Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
 ## Deleting an Existing USC secret
 
@@ -137,7 +137,7 @@ To delete an existing secret in your USC, use the following command:
 akelyess usc delete --usc-name <usc name> --secret-name < secret name>
 ```
 
-Additional parameters can be found in the [CLI Reference](doc:cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
 # Creating a Universal Secrets Connector from the Console
 

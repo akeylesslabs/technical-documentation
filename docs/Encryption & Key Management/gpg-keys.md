@@ -12,7 +12,7 @@ next:
 ---
 # What is GPG?
 
-GPG stands for GNU Privacy Guard, an implementation of public key cryptography, which can be used both for the more standard operations of encryption keys (encrypt/decrypt), and for message verification via signature. In Akeyless, it is expressed as an additional type for the creation of [Classic Keys](doc:classic-keys), enabling the user to leverage GPG's functionality while keeping it doubly secure under the Akeyless platform.
+GPG stands for GNU Privacy Guard, an implementation of public key cryptography, which can be used both for the more standard operations of encryption keys (encrypt/decrypt), and for message verification via signature. In Akeyless, it is expressed as an additional type for the creation of [Classic Keys](https://docs.akeyless.io/docs/classic-keys), enabling the user to leverage GPG's functionality while keeping it doubly secure under the Akeyless platform.
 
 # Working with GPG from the CLI
 

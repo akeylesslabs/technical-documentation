@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to fetch [Secrets](doc:manage-your-secrets-overview) into [CircleCI](https://circleci.com/docs/pipelines/) pipelines, either integrating the native CircleCI short-lived [OIDC](doc:openid) authentication tokens, or using any other [Authentication Methods](doc:access-and-authentication-methods) with Akeyless native [RBAC](doc:rbac).
+The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to fetch [Secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview) into [CircleCI](https://circleci.com/docs/pipelines/) pipelines, either integrating the native CircleCI short-lived [OIDC](https://docs.akeyless.io/docs/openid) authentication tokens, or using any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with Akeyless native [RBAC](https://docs.akeyless.io/docs/rbac).
 
 # Prerequisites
 
@@ -26,9 +26,9 @@ In CircleCI jobs that use at least one context, the OpenID Connect ID token is a
 
 You can find your CircleCI organization ID by navigating to **Organization Settings > Overview** on the CircleCI web app.
 
-The OpenID Connect ID tokens issued by CircleCI have a fixed audience which is also the organization ID. A full list of available claims can be found [here](https://circleci.com/docs/openid-connect-tokens#format-of-the-openid-connect-id-token), and can be later used for the [Access Roles](doc:rbac) setup.
+The OpenID Connect ID tokens issued by CircleCI have a fixed audience which is also the organization ID. A full list of available claims can be found [here](https://circleci.com/docs/openid-connect-tokens#format-of-the-openid-connect-id-token), and can be later used for the [Access Roles](https://docs.akeyless.io/docs/rbac) setup.
 
-In Akeyless Platform, create a new [OAuth2.0/JWT](doc:oauth20jwt) Authentication Method with the following settings:
+In Akeyless Platform, create a new [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Authentication Method with the following settings:
 
 ```shell Shell
 akeyless create-auth-method-oauth2 --name /Dev/CI/CircleCIAuth \ 
@@ -43,7 +43,7 @@ Where:
 
 * `--unique-identifier` - A unique claim name that contains details uniquely identifying the request. In the following example, we will use the **CircleCI** OIDC  `iss` claim.
 
-* `--force-sub-claims` - Enforce [Sub-Claims](doc:sub-claims) on role association.
+* `--force-sub-claims` - Enforce [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) on role association.
 
 Create a dedicated Access Role. Please note that you will assign it the necessary permissions in a later stage of this guide:
 
@@ -73,13 +73,13 @@ akeyless set-role-rule --role-name /Dev/CI/CircleCIRole \
 
 # CircleCI Global Configuration
 
-Instead of checking your Auth Method `access Id`, or your [Gateway](doc:api-gw) `URL` into version control, we can store them securely in CircleCI environment variables.
+Instead of checking your Auth Method `access Id`, or your [Gateway](https://docs.akeyless.io/docs/api-gw) `URL` into version control, we can store them securely in CircleCI environment variables.
 
 Go to **Project Settings** > **Environment variables** > **Add Environment Variable**
 
 Create an environment variable in CircleCI called `ACCESS_ID` and store your Auth Method's `access-id` in it.
 
-While working with [Zero Knowledge](doc:implement-zero-knowledge) encryption based on your fragment, store your Akeyless Gateway Restful API URL (i.e. port `8080`) in an environment variable named `AKEYLESS_GATEWAY_URL`.
+While working with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) encryption based on your fragment, store your Akeyless Gateway Restful API URL (i.e. port `8080`) in an environment variable named `AKEYLESS_GATEWAY_URL`.
 
 > 👍 Note
 >

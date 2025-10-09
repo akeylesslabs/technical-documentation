@@ -116,7 +116,7 @@ To store local recordings inside your Bastion server, set the `KeepLocalRecordin
 
 # Session Management
 
-To revoke an existing session from your [Akeyless Gateway Overview](doc:api-gw) or your IdP like Okta, or Keycloak, enable the `sessionTermination` and set the `apiURL` to your Gateway, or to your IdP URL.
+To revoke an existing session from your [Akeyless Gateway Overview](https://docs.akeyless.io/docs/api-gw) or your IdP like Okta, or Keycloak, enable the `sessionTermination` and set the `apiURL` to your Gateway, or to your IdP URL.
 
 ```yaml
 sessionTermination:

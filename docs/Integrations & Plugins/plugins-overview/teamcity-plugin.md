@@ -14,23 +14,23 @@ When performing integration tests and deployments, build scripts need credential
 
 > 👍 Note
 >
-> Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](doc:hashicorp-vault-proxy)
+> Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
 # Prerequisites
 
 1. A TeamCity server with an authorized BuildAgent. 
 
-2. An [Authentication Methods](doc:access-and-authentication-methods) configured in the Akeyless Platform with access to secrets that will be used by the build agent.
+2. An [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) configured in the Akeyless Platform with access to secrets that will be used by the build agent.
 
 > 📘 Info
 >
 > Currently, TeamCity plugin supports three authentication methods:
 >
-> * [AWS IAM](doc:aws-iam)
-> * [LDAP](doc:ldap)
-> * Akeyless [API Key](doc:api-key)
+> * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+> * [LDAP](https://docs.akeyless.io/docs/ldap)
+> * Akeyless [API Key](https://docs.akeyless.io/docs/api-key)
 >
-> Ensure that your [Authentication Methods](doc:access-and-authentication-methods) is associated with an [access role](https://docs.akeyless.io/docs/rbac) that has sufficient permissions to access the required secrets.
+> Ensure that your [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is associated with an [access role](https://docs.akeyless.io/docs/rbac) that has sufficient permissions to access the required secrets.
 
 # Configure The TeamCity Plugin
 
@@ -68,11 +68,11 @@ Where:
 
 * **Authentication method:** Select the authentication method to use when authenticating with Akeyless. 
 
-Available options: AWS IAM, LDAP, or Akeyless [API Key](doc:api-key) (Vault AppRole).
+Available options: AWS IAM, LDAP, or Akeyless [API Key](https://docs.akeyless.io/docs/api-key) (Vault AppRole).
 
-For example, to use [API Key](doc:api-key) set the following:
+For example, to use [API Key](https://docs.akeyless.io/docs/api-key) set the following:
 
-* **AppRole Role ID:** Your [API Key](doc:api-key) `Access ID` .
+* **AppRole Role ID:** Your [API Key](https://docs.akeyless.io/docs/api-key) `Access ID` .
 
 * **AppRole Secret ID**: `Access Key` of the provided `Access ID`.
 

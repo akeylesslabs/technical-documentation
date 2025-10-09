@@ -22,7 +22,7 @@ To set up Akeyless KMS Integration with AWS KMS, follow these steps:
 >
 > Remember to give the AWS Target's credentials permissions to manage keys in AWS KMS regions.
 
-2. Create a [Classic Encryption Key](doc:classic-keys) in Akeyless. You can do it either from the Akeyless CLI or in the Akeyless console. Alternatively, You can also use an existing Classic Key if it fits the target's accepted algorithm types.
+2. Create a [Classic Encryption Key](https://docs.akeyless.io/docs/classic-keys) in Akeyless. You can do it either from the Akeyless CLI or in the Akeyless console. Alternatively, You can also use an existing Classic Key if it fits the target's accepted algorithm types.
 
 AWS targets only support **AES256GCM** type keys.
 
@@ -36,7 +36,7 @@ AWS targets only support **AES256GCM** type keys.
 >
 > When you associate a key with AWS, make sure to reference the **alias** when using the key in AWS. Otherwise, the association will break when you rotate the key.
 
-You can export the key into multi-regions within AWS KMS, where the default region will be based on the [AWS Target](doc:aws-targets) region, for later replication you can set the option without specifying the extra regions for later use, for example:
+You can export the key into multi-regions within AWS KMS, where the default region will be based on the [AWS Target](https://docs.akeyless.io/docs/aws-targets) region, for later replication you can set the option without specifying the extra regions for later use, for example:
 
 ```shell Multi region
 akeyless assoc-target-item --target-name <target-name> --name <classic key name> --multi-region="true" --regions us-east-1 --regions us-west-1

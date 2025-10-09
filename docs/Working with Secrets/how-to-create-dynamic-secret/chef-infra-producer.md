@@ -14,7 +14,7 @@ You can define a Chef Infra dynamic secret to allow users to dynamically generat
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * Chef privileged user
 
@@ -22,9 +22,9 @@ You can define a Chef Infra dynamic secret to allow users to dynamically generat
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/chef-infra-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/chef-infra-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Chef Infra secret from the CLI using an existing [Chef Infra Target](doc:chef-infra-targets)the , run the following command:
+To create a dynamic Chef Infra secret from the CLI using an existing [Chef Infra Target](https://docs.akeyless.io/docs/chef-infra-targets)the , run the following command:
 
 ```shell
 akeyless dynamic-secret create chef \
@@ -63,7 +63,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have [Chef Infra Target](doc:chef-infra-targets) yet, you can use the command with your Chef connection string:
+If you don't have [Chef Infra Target](https://docs.akeyless.io/docs/chef-infra-targets) yet, you can use the command with your Chef connection string:
 
 * `chef-server-username`: The username of the privileged user for connecting to the Chef Infra server to generate credentials.
 
@@ -108,7 +108,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Temporary Password Length** Set the length of the temporary password.
 * **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties** option, click **Next**.
 

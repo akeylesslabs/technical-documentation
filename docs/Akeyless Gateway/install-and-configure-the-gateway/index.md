@@ -19,7 +19,7 @@ next:
 ---
 # Prerequisites
 
-* An [Authentication Method](doc:access-and-authentication-methods). Make sure it has the right [access permission](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets).
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) & [Targets](https://docs.akeyless.io/docs/targets).
 
 <Callout icon="👍" theme="okay">
   _**Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Using the account owner's email and password which has superuser privileges on the account._
@@ -31,11 +31,11 @@ next:
 
 | Service                                              | Endpoint   |
 | :--------------------------------------------------- | :--------- |
-| [Gateway Console](doc:gateway-configuration-manager) | `/console` |
-| [HashiCorp Vault Proxy](doc:hashicorp-vault-proxy)   | `/hvp`     |
+| [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
 | Akeyless V1 REST API                                 | `/api/v1`  |
 | Akeyless V2 REST API                                 | `/api/v2`  |
-| [KMIP Server](doc:kmip-server)                       | `5696`     |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
 
 > 🚧 Warning
 >
@@ -57,7 +57,7 @@ To upgrade your current Gateway version, simply restart the container using the 
   _**Info:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in will become the admin user on this Gateway._
 </Callout>
 
-For further installation options, visit the [Advanced Configuration](doc:advance-gw-docker-configuration) page.
+For further installation options, visit the [Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
 
 ## Initial Configuration
 
