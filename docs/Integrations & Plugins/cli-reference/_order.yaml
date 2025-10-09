@@ -1,8 +1,8 @@
 - cli-ref-auth
 - cli-reference-access-roles
+- cli-reference-dynamic-secrets
 - cli-reference-gateway
 - cli-reference-static-secrets
-- cli-reference-dynamic-secrets
 - cli-reference-rotated-secrets
 - cli-ref-targets
 - cli-reference-certificates
