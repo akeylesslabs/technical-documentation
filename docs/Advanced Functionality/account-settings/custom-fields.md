@@ -19,15 +19,15 @@ For example:
 
 Administrators can define which fields are available for each object type in Akeyless and whether those fields are required or optional.
 
-> 📘 Supported Objects
->
-> Currently Custom Fields supports only **Items**
+<Callout icon="📘" theme="info">
+  Currently Custom Fields supports only **Items**
+</Callout>
 
 # Manage Custom Field
 
 ## Create a custom field
 
-Run the following CLI command to create a new custom field in the account: 
+Run the following CLI command to create a new custom field in the account:
 
 ```shell
 akeyless custom-field create \
@@ -36,7 +36,7 @@ akeyless custom-field create \
 --required=`[false]`
 ```
 
-Where: 
+Where:
 
 `object`: The object to create the custom field
 
@@ -83,10 +83,10 @@ You can find the complete list of additional parameters for this command in the 
 
 # Manage Custom Field from Console
 
-To manage custom fields in the account, navigate to your **Account Settings -> Custom Fields**, click **Add** 
+To manage custom fields in the account, navigate to your **Account Settings -> Custom Fields**, click **Add**
 
 1. Provide the new custom field name
-2. Choose the Object type in Akeyless to which this custom field will be attached. for example, **Items->Static Secret**  
-3. Select if this new custom field will be mandatory or not. 
+2. Choose the Object type in Akeyless to which this custom field will be attached. for example, **Items->Static Secret**
+3. Select if this new custom field will be mandatory or not.
 
 Once a custom field is created, it applies to all new objects of the selected type. If an existing object is updated, the defined custom field rules will also apply.
