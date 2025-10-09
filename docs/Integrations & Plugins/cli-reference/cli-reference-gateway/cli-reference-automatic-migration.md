@@ -32,7 +32,7 @@ akeyless gateway-create-migration \
 
 `-n, --name`: **Required**, Migration name for display
 
-`-t, --type `: **Required**, Migration type (hashi/aws/gcp/k8s/azure_kv/1password/active_directory)
+`-t, --type `: **Required**, Migration type (`hashi/aws/gcp/k8s/azure_kv/1password/active_directory`)
 
 `-l, --target-location`: **Required**, Target location in Akeyless for imported secrets
 
@@ -321,21 +321,21 @@ akeyless gateway-update-migration \
 
 `--k8s-namespace`: Kubernetes Namespace, Use this field to import secrets from a particular namespace only. By default, the secrets are imported from all namespaces (relevant only for Kubernetes migration)
 
-`--k8s-url`: K8s API Server URL, e.g. `https://<k8s-api-endpoint>.mycompany.com:6443` (relevant only for Kubernetes migration)
+`--k8s-url`: Kubernetes API Server URL, e.g. `https://<k8s-api-endpoint>.mycompany.com:6443` (relevant only for Kubernetes migration)
 
-`--k8s-skip-system`: K8s Skip Control Plane Secrets, This option allows to avoid importing secrets from system namespaces (relevant only for K8s migration)
+`--k8s-skip-system`: Kubernetes Skip Control Plane Secrets, This option allows to avoid importing secrets from system namespaces (relevant only for Kubernetes migration)
 
-`--k8s-ca-certificate`: K8s Cluster CA certificate (relevant only for K8s migration with Certificate Authentication method)
+`--k8s-ca-certificate`: Kubernetes Cluster CA certificate (relevant only for Kubernetes migration with Certificate Authentication method)
 
-`--k8s-client-cert`: K8s Client certificate with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Certificate Authentication method)
+`--k8s-client-cert`: Kubernetes Client certificate with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Certificate Authentication Method)
 
-`--k8s-client-key`: K8s Client key (relevant only for K8s migration with Certificate Authentication method)
+`--k8s-client-key`: Kubernetes Client key (relevant only for Kubernetes migration with Certificate Authentication Method)
 
-`--k8s-username`: K8s Client username with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Password Authentication method)
+`--k8s-username`: Kubernetes Client username with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Password Authentication Method)
 
-`--k8s-password`: K8s Client password (relevant only for K8s migration with Password Authentication method)
+`--k8s-password`: Kubernetes Client password (relevant only for Kubernetes migration with Password Authentication Method)
 
-`--k8s-token`: K8s Bearer Token with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for K8s migration with Token Authentication method)
+`--k8s-token`: Kubernetes Bearer Token with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Token Authentication Method)
 
 `--ad-target-name`: Active Directory LDAP Target Name. Server type should be Active Directory (Relevant only for Active Directory migration)
 
