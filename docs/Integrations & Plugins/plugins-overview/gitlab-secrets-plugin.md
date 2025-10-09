@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless [Official plugin](https://docs.gitlab.com/ee/ci/secrets/akeyless.html) for GitLab securely and easily fetches secrets into GitLab pipelines.
+The Akeyless <Anchor label="Official plugin" target="_blank" href="https://archives.docs.gitlab.com/18.0/ci/secrets/akeyless/">Official plugin</Anchor> for GitLab securely and easily fetches secrets into GitLab pipelines.
 
-Using Gitlab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a [JSON Web Token (JWT)](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens) as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
+Using Gitlab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab.com/ci/yaml/#id_tokens">ID tokens</Anchor> when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a <Anchor label="JSON Web Token (JWT)" target="_blank" href="https://docs.gitlab.com/ci/secrets/id_token_authentication/#id-tokens">JSON Web Token (JWT)</Anchor> as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
 
 # Prerequisites
 
@@ -155,7 +155,7 @@ Where:
 
 * `name`: The full name of the secret in Akeyless e.g. `/MyFirstSecret`
 
-* `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint i.e.`<https://Your_GW_URL:8080/v2>`, by default works with the public API: [https://api.akeyless.io](https://api.akeyless.io) .
+* `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint i.e.`<https://Your_GW_URL:8080/v2>`, by default works with the public API: `https://api.akeyless.io`.
 
 * `gateway_ca_certificate`: **Optional**, Gateway CA Certificate when your Gateway TLS is set with **Private CA** .
 
