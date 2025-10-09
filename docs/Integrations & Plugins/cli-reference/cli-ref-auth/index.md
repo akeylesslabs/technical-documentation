@@ -981,7 +981,7 @@ akeyless auth-method update oauth2 \
 
 `--audience`: The audience in the JWT
 
-`--gateway-url`: API Gateway URL [http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)
+`--gateway-url`: API Gateway URL `http://<Your-Akeyless-Gateway-URL>:8000`
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
