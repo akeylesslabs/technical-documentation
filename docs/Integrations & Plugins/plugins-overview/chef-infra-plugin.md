@@ -20,7 +20,7 @@ next:
 
 # Chef Infra Plugin Configuration
 
-1. Download the following Chef Infra cookbook from [here](https://github.com/exospheredata/secrets_management) 
+1. Download the following Chef Infra cookbook from [here](https://github.com/exospheredata/secrets_management)
 
 2. Add the following recipe to your cookbook:
 
@@ -43,7 +43,7 @@ file '/tmp/hello_from_akeyless' do
 end
 ```
 
-3. Upload the cookbook to your Chef Infra Server 
+3. Upload the cookbook to your Chef Infra Server
 4. Create the following Data Bag:
 
 ```json
@@ -112,4 +112,4 @@ Secret is: my chef secret value!
 
 > 📘 Info
 >
-> **Chef Plugin repo** - [https://github.com/exospheredata/secrets\_management](https://github.com/exospheredata/secrets_management)
+> [Chef Plugin GitHub Repository](https://github.com/exospheredata/secrets_management)
