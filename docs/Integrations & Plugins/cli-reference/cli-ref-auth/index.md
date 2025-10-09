@@ -620,7 +620,7 @@ akeyless auth-method create saml \
 
 `--idp-metadata-url`: IDP metadata url
 
-`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-saml` to enable SAML via Akeyless Console and  `http://127.0.0.1:*` to enable SAML via akeyless CLI)
+`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-saml` to enable SAML via Akeyless Console and  `http://127.0.0.1:*` to enable SAML via the Akeyless CLI)
 
 `--idp-metadata-xml-file-path`: IDP metadata xml file path
 
@@ -1078,7 +1078,7 @@ akeyless auth-method update oidc \
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
-`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-oidc` to enable OIDC via Akeyless Console and `http://127.0.0.1:*` to enable OIDC via akeyless CLI)
+`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-oidc` to enable OIDC via Akeyless Console and `http://127.0.0.1:*` to enable OIDC via the Akeyless CLI)
 
 `--required-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve
 `--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the oidc server (for example, azures` Application ID URI)
@@ -1128,9 +1128,11 @@ akeyless auth-method update saml \
 
 `--idp-metadata-url`: IDP metadata url
 
-`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-saml](https://console.akeyless.io/login-saml) to enable SAML via Akeyless Console and  [http://127.0.0.1:\*](http://127.0.0.1:*) to enable SAML via akeyless CLI)
+`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-saml` to enable SAML via Akeyless Console and  `http://127.0.0.1:*` to enable SAML via the Akeyless CLI)
+
 `--idp-metadata-xml-file-path`: IDP metadata xml file path
-`--idp-metadata-xml-data`: IDP metadata as xml encoded in base64
+
+`--idp-metadata-xml-data`: IDP metadata as xml encoded in Base64
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
