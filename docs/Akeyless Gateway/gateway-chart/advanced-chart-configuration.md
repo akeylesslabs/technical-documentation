@@ -45,7 +45,7 @@ By default, the Gateway configuration is encrypted with your account's default e
 
 ## Customer fragment
 
-If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a `base64-encoded JSON` that includes your **Customer Fragment**.
+If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a <Anchor label="Kubernetes Secret" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">Kubernetes Secret</Anchor> with a Base64-encoded JSON that includes your **Customer Fragment**.
 
 ```shell values.yaml
 kubectl create secret generic customer-fragment \
@@ -63,7 +63,7 @@ customerFragmentsExistingSecret: customer-fragment
 
 # TLS Configuration
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.\
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
 Please note that when you're enabling TLS, you must provide a `TLS certificate` and a corresponding `TLS Private Key`.
 
 To set the TLS settings, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) includes your **TLS certificate** in `base64 encoded` format where the `key` of the secret has to be `tls-certificate`:
@@ -111,7 +111,7 @@ Once the Gateway is running, you can set the matching AccessID as your OIDC defa
 
 # Cache Configuration
 
-To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly via **API**. 
+To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly via **API**.
 
 To set an internal TLS between the Gateway and cache service, set the `enableTls: true` option:
 
@@ -127,7 +127,7 @@ kubectl create secret generic cache-configuration \
   --from-literal=cluster-cache-encryption-key=<base64-encoded-cluster-cache-encryption-key>
 ```
 
-And add to the `values.yaml` file the K8s secret name: 
+And add to the `values.yaml` file the K8s secret name:
 
 ```yaml values.yaml
   clusterCache:
@@ -152,7 +152,7 @@ kubectl create secret generic cache-configuration \
   --from-literal=cluster-cache-encryption-key=<base64-encoded-cluster-cache-encryption-key>
 ```
 
-Set your [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, for example: 
+Set your [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, for example:
 
 ```yaml AWS
 apiVersion: storage.k8s.io/v1
@@ -342,7 +342,7 @@ env:
 
 The Gateway application supports uploading Self-Signed and Private Certificates to establish trust between Akeyless and the relevant endpoint. However, for some cases, a custom Certificate Authority for closed environments might be required to ensure the related service is trusted **before** the Gateway application starts, for example, a proxy server in front of the public Internet.
 
-To support those cases, you'll have to provide and maintain your own CA bundle file using a persistence volume, for example: 
+To support those cases, you'll have to provide and maintain your own CA bundle file using a persistence volume, for example:
 
 ```yaml customCA
   customCA:
