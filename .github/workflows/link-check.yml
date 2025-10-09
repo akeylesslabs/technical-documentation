@@ -63,13 +63,6 @@ jobs:
             './**/*.md'
           output: .github/lychee/lychee-out.md
 
-      - name: Parse Lychee summary
-        run: |
-          BROKEN=$(grep -E "📝 Summary:" -A2 .github/lychee/lychee-out.md | grep "✗" | awk '{print $2}' || echo "0")
-          TOTAL=$(grep -E "📝 Summary:" -A2 .github/lychee/lychee-out.md | grep "Total" | awk '{print $2}' || echo "0")
-
-          echo "LYCHEE_SUMMARY=$BROKEN broken links out of $TOTAL checked" >> $GITHUB_ENV
-
       - name: Commit to branch
         if: always()
         run: |
