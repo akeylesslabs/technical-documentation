@@ -12,13 +12,13 @@ next:
 ---
 The following is a comparison between the [External Secrets Operator](https://external-secrets.io/latest/) and the [Akeyless Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s). Both solutions manage secrets in Kubernetes, but they differ in approach, storage, and security model.
 
-# Akeyless K8s Secrets Injector
+# Akeyless Kubernetes Secrets Injector
 
-A solution that injects secrets into pods at runtime without storing them in Kubernetes secrets. Containers within the pod can consume those secrets without interacting with Akeyless. The injector is a Kubernetes 
+A solution that injects secrets into pods at runtime without storing them in Kubernetes secrets. Containers within the pod can consume those secrets without interacting with Akeyless. The injector is a Kubernetes
 
 [MutatingAdmissionWebhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#admission-control-extension-points:~:text=the%20cluster%20administrator.-,Admission%20control%20extension%20points,-Within%20the%20full) controller that modifies annotated pods, delivering secrets as environment variables or files via an init container.  Updates can be handled automatically using rollout restart.
 
-<Image align="center" src="https://files.readme.io/ae1f338b176b05b4ffb15eecb0bee9fdfd0d2f9bc3389569f9c6cdeb79a95368-k8s-injection.jpg" />
+<Image align="center" border={false} src="https://files.readme.io/ae1f338b176b05b4ffb15eecb0bee9fdfd0d2f9bc3389569f9c6cdeb79a95368-k8s-injection.jpg" />
 
 # External Secrets Operator (ESO)
 
@@ -26,7 +26,7 @@ An open-source Kubernetes operator that integrates external secret managers like
 
 # Akeyless Injector vs. External Secrets Operator
 
-<Image align="center" src="https://files.readme.io/143d329a383df21e1e4481289a4d1be018652093b525d21d77e2b6d758efa807-External_Secrets_Operator_1.jpg" />
+<Image align="center" border={false} src="https://files.readme.io/143d329a383df21e1e4481289a4d1be018652093b525d21d77e2b6d758efa807-External_Secrets_Operator_1.jpg" />
 
 The following table compares key aspects of the Akeyless Kubernetes Injector and the External Secrets Operator (ESO), focusing on how each solution handles secret management within Kubernetes environments.
 
@@ -54,18 +54,18 @@ The following table compares key aspects of the Akeyless Kubernetes Injector and
       </td>
 
       <td>
-        [Static](https://docs.akeyless.io/docs/static-secrets)\
-        [Rotated](https://docs.akeyless.io/docs/rotated-secrets)\
-        [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)\
-        [Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management)\
-        [USC](https://docs.akeyless.io/docs/universal-secrets-connector)
+        [Static](https://docs.akeyless.io/docs/static-secrets)
+        [Rotated](https://docs.akeyless.io/docs/rotated-secrets)
+        [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
+        [Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management)
+        [Universal Secrets Connector](https://docs.akeyless.io/docs/universal-secrets-connector)
       </td>
 
       <td>
-        [Static](https://docs.akeyless.io/docs/static-secrets)\
-        [Rotated](https://docs.akeyless.io/docs/rotated-secrets)\
-        [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)\
-        [Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management) 
+        [Static](https://docs.akeyless.io/docs/static-secrets)
+        [Rotated](https://docs.akeyless.io/docs/rotated-secrets)
+        [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
+        [Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management)
       </td>
     </tr>
 
@@ -75,19 +75,19 @@ The following table compares key aspects of the Akeyless Kubernetes Injector and
       </td>
 
       <td>
-        [K8s](https://docs.akeyless.io/docs/kubernetes-auth)\
-        [API Key](https://docs.akeyless.io/docs/api-key)\
-        [Azure AD](https://docs.akeyless.io/docs/azure-ad)\
-        [AWS\_IAM](https://docs.akeyless.io/docs/aws-iam)\
+        [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
+        [API Key](https://docs.akeyless.io/docs/api-key)
+        [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+        [AWS\_IAM](https://docs.akeyless.io/docs/aws-iam)
         [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
       </td>
 
       <td>
-        [K8s](https://docs.akeyless.io/docs/kubernetes-auth)\
-        [API Key](https://docs.akeyless.io/docs/api-key)\
-        [Azure AD](https://docs.akeyless.io/docs/azure-ad)\
-        [AWS\_IAM](https://docs.akeyless.io/docs/aws-iam)\
-        [GCP](https://docs.akeyless.io/docs/gcp-auth-method)  
+        [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
+        [API Key](https://docs.akeyless.io/docs/api-key)
+        [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+        [AWS\_IAM](https://docs.akeyless.io/docs/aws-iam)
+        [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
       </td>
     </tr>
 
@@ -97,11 +97,11 @@ The following table compares key aspects of the Akeyless Kubernetes Injector and
       </td>
 
       <td>
-        Secrets are injected into pods at runtime, and each pod requests the relevant secret it needs 
+        Secrets are injected into pods at runtime, and each pod requests the relevant secret it needs
       </td>
 
       <td>
-        Secrets are synced from external systems into [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) resources using a dedicated external secret resource per secret. All requests are done via the controller
+        Secrets are synced from external systems into [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) resources using a dedicated external secret resource per secret. All requests are done via the controller
       </td>
     </tr>
 
@@ -115,7 +115,7 @@ The following table compares key aspects of the Akeyless Kubernetes Injector and
       </td>
 
       <td>
-        Access control is done on Akeyless and on K8s itself, as it creates K8s secrets. In addition, due to the architecture of a single requestor, only the SA reference can be used in addition to limit access via Akeyless RBAC.
+        Access control is done on Akeyless and on Kubernetes itself, as it creates Kubernetes secrets. In addition, due to the architecture of a single requestor, only the SA reference can be used in addition to limit access via Akeyless RBAC.
       </td>
     </tr>
 
@@ -135,15 +135,15 @@ The following table compares key aspects of the Akeyless Kubernetes Injector and
 
     <tr>
       <td>
-        K8s Integration type
+        Kubernetes Integration type
       </td>
 
       <td>
-        Seamless as K8s admission controller
+        Seamless as Kubernetes admission controller
       </td>
 
       <td>
-        Uses a controller that interacts with K8s secret
+        Uses a controller that interacts with Kubernetes secret
       </td>
     </tr>
 
@@ -167,11 +167,11 @@ The following table compares key aspects of the Akeyless Kubernetes Injector and
       </td>
 
       <td>
-        Support of [rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/) upon any change of a secret, without periodic checks 
+        Support of [rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/) upon any change of a secret, without periodic checks
       </td>
 
       <td>
-        [Periodic checks](https://external-secrets.io/latest/api/externalsecret/#:~:text=%23%20other%20fields...-,Periodic,-With%20refreshPolicy%3A%20Periodic) for secret changes (many requests) without auto detection. 
+        [Periodic checks](https://external-secrets.io/latest/api/externalsecret/#:~:text=%23%20other%20fields...-,Periodic,-With%20refreshPolicy%3A%20Periodic) for secret changes (many requests) without auto detection.
       </td>
     </tr>
 
@@ -199,7 +199,7 @@ The following table compares key aspects of the Akeyless Kubernetes Injector and
       </td>
 
       <td>
-        All secrets access are logged in the Akelyess audit logs. ESO sends out K8s events when it syncs secrets, runs into errors while fetching them, or updates the status of an ExternalSecret.
+        All secrets access are logged in the Akelyess audit logs. ESO sends out Kubernetes events when it syncs secrets, runs into errors while fetching them, or updates the status of an ExternalSecret.
       </td>
     </tr>
 
@@ -213,8 +213,8 @@ The following table compares key aspects of the Akeyless Kubernetes Injector and
       </td>
 
       <td>
-        Deployed via a Helm chart.\
-        Uses K8s resources like [ExternalSecret](https://external-secrets.io/v0.5.1/api-externalsecret/), [SecretStore](https://external-secrets.io/v0.5.1/api-secretstore/), etc, to manage and settings.  
+        Deployed via a Helm chart.
+        Uses Kubernetes resources like [ExternalSecret](https://external-secrets.io/v0.5.1/api-externalsecret/), [SecretStore](https://external-secrets.io/v0.5.1/api-secretstore/), etc, to manage and settings.
       </td>
     </tr>
   </tbody>
