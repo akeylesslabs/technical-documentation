@@ -1,14 +1,13 @@
 ---
 title: Akeyless SaaS Core Services
-excerpt: ''
 deprecated: false
 hidden: false
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
 ---
 The Akeyless Gateway is a stateless Docker container, provided as a standalone or as a cluster. To function correctly, it requires public network connectivity to the Akeyless SaaS core services (see the table below).
 
@@ -22,21 +21,21 @@ A basic Gateway deployment requires a server with a Docker engine installed. You
 
 The following table describes the main functionality of Akeyless microservices in the global environment:
 
-<Table align={["left","left","left","left"]}>
+<Table align={["left","left","left","left","left"]}>
   <thead>
     <tr>
       <th>
         Service
       </th>
-
+      <th>
+        URLs
+      </th>
       <th>
         IP
       </th>
-
       <th>
         Port
       </th>
-
       <th>
         Description
       </th>
@@ -46,17 +45,17 @@ The following table describes the main functionality of Akeyless microservices i
   <tbody>
     <tr>
       <td>
-        * **Console**:  [https://console.akeyless.io](https://console.akeyless.io)
+        **Console**
       </td>
-
+      <td>
+        [https://console.akeyless.io](https://console.akeyless.io)
+      </td>
       <td>
         52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128
       </td>
-
       <td>
         443
       </td>
-
       <td>
         Akeyless SaaS platform
       </td>
@@ -64,37 +63,37 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **Vault** : [https://vault.akeyless.io](https://vault.akeyless.io)
-          [https://vault-ro.akeyless.io](https://vault-ro.akeyless.io)
+        **Vault**
       </td>
-
+      <td>
+        [https://vault.akeyless.io](https://vault.akeyless.io)  
+        [https://vault-ro.akeyless.io](https://vault-ro.akeyless.io)
+      </td>
       <td>
         52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128
       </td>
-
       <td>
         443
       </td>
-
       <td>
-        User Account Management (UAM), managing user accounts,  items, and roles
+        User Account Management (UAM), managing user accounts, items, and roles
       </td>
     </tr>
 
     <tr>
       <td>
-        * **Auth** : [https://auth.akeyless.io](https://auth.akeyless.io)
-          [https://auth-ro.akeyless.io](https://auth-ro.akeyless.io)
+        **Auth**
       </td>
-
+      <td>
+        [https://auth.akeyless.io](https://auth.akeyless.io)  
+        [https://auth-ro.akeyless.io](https://auth-ro.akeyless.io)
+      </td>
       <td>
         52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128
       </td>
-
       <td>
         443
       </td>
-
       <td>
         Akeyless Authentication service
       </td>
@@ -102,17 +101,17 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **Certificate Auth** [https://auth-cert.akeyless.io](https://auth-cert.akeyless.io)
+        **Certificate Auth**
       </td>
-
+      <td>
+        [https://auth-cert.akeyless.io](https://auth-cert.akeyless.io)
+      </td>
       <td>
         18.189.176.104
       </td>
-
       <td>
         443
       </td>
-
       <td>
         Relevant only for Certificate Based Auth
       </td>
@@ -120,18 +119,18 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **Audit** : [https://audit.akeyless.io](https://audit.akeyless.io)
-          [https://audit-ro.akeyless.io](https://audit-ro.akeyless.io)
+        **Audit**
       </td>
-
+      <td>
+        [https://audit.akeyless.io](https://audit.akeyless.io)  
+        [https://audit-ro.akeyless.io](https://audit-ro.akeyless.io)
+      </td>
       <td>
         52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128
       </td>
-
       <td>
         443
       </td>
-
       <td>
         Audit log main service, enables log forwarding from GW & Bastion
       </td>
@@ -139,18 +138,18 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **BIS** : [https://bis.akeyless.io](https://bis.akeyless.io)
-          [https://bis-ro.akeyless.io](https://bis-ro.akeyless.io)
+        **BIS**
       </td>
-
+      <td>
+        [https://bis.akeyless.io](https://bis.akeyless.io)  
+        [https://bis-ro.akeyless.io](https://bis-ro.akeyless.io)
+      </td>
       <td>
         52.223.11.194, 35.71.185.167
       </td>
-
       <td>
         443
       </td>
-
       <td>
         Billing Infrastructure Service (BIS)
       </td>
@@ -158,18 +157,18 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **Gator** : [https://gator.akeyless.io](https://gator.akeyless.io)
-          [https://gator-ro.akeyless.io](https://gator-ro.akeyless.io)
+        **Gator**
       </td>
-
+      <td>
+        [https://gator.akeyless.io](https://gator.akeyless.io)  
+        [https://gator-ro.akeyless.io](https://gator-ro.akeyless.io)
+      </td>
       <td>
         52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128
       </td>
-
       <td>
         443
       </td>
-
       <td>
         Main service to sync gateways instances, and connections with Akeyless SaaS
       </td>
@@ -177,17 +176,17 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **MQ** : amqps://mq.akeyless.io
+        **MQ**
       </td>
-
+      <td>
+        amqps://mq.akeyless.io
+      </td>
       <td>
         52.223.11.194, 35.71.185.167
       </td>
-
       <td>
         5671
       </td>
-
       <td>
         Message queue between Akeyless micro-services
       </td>
@@ -195,24 +194,24 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **KFM**: [https://kfm1.akeyless.io](https://kfm1.akeyless.io),
-          [https://kfm1-ro.akeyless.io](https://kfm1-ro.akeyless.io),
-          [https://kfm2.akeyless.io](https://kfm2.akeyless.io),
-          [https://kfm2-ro.akeyless.io](https://kfm2-ro.akeyless.io),
-          [https://kfm3.akeyless.io](https://kfm3.akeyless.io),
-          [https://kfm3-ro.akeyless.io](https://kfm3-ro.akeyless.io),
-          [https://kfm4.akeyless.io](https://kfm4.akeyless.io),
-          [https://kfm4-ro.akeyless.io](https://kfm4-ro.akeyless.io)
+        **KFM**
       </td>
-
+      <td>
+        [https://kfm1.akeyless.io](https://kfm1.akeyless.io),  
+        [https://kfm1-ro.akeyless.io](https://kfm1-ro.akeyless.io),
+        [https://kfm2.akeyless.io](https://kfm2.akeyless.io),  
+        [https://kfm2-ro.akeyless.io](https://kfm2-ro.akeyless.io),
+        [https://kfm3.akeyless.io](https://kfm3.akeyless.io),  
+        [https://kfm3-ro.akeyless.io](https://kfm3-ro.akeyless.io),
+        [https://kfm4.akeyless.io](https://kfm4.akeyless.io),  
+        [https://kfm4-ro.akeyless.io](https://kfm4-ro.akeyless.io)
+      </td>
       <td>
         52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128, 34.120.160.242
       </td>
-
       <td>
         443
       </td>
-
       <td>
         Key Fragments Services, enabling full DFC encryption
       </td>
@@ -220,19 +219,18 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **Public Gateway**:
-          [https://rest.akeyless.io](https://rest.akeyless.io)
-          [https://api.akeyless.io](https://api.akeyless.io)
+        **Public Gateway**
       </td>
-
+      <td>
+        [https://rest.akeyless.io](https://rest.akeyless.io)  
+        [https://api.akeyless.io](https://api.akeyless.io)
+      </td>
       <td>
         15.197.223.248, 3.33.244.138
       </td>
-
       <td>
         443
       </td>
-
       <td>
         * _Optional_* Public Gateway rest API v1\v2
       </td>
@@ -240,18 +238,17 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **Public HVP**:
-          [https://hvp.akeyless.io](https://hvp.akeyless.io)
+        **Public HVP**
       </td>
-
+      <td>
+        [https://hvp.akeyless.io](https://hvp.akeyless.io)
+      </td>
       <td>
         15.197.223.248, 3.33.244.138
       </td>
-
       <td>
         443
       </td>
-
       <td>
         * _Optional_* Public HVP endpoint
       </td>
@@ -259,17 +256,18 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
-        * **Logs** : tcp://log.akeyless.io:9997 tcp://log.akeyless.io:9443
+        **Logs**
       </td>
-
+      <td>
+        tcp://log.akeyless.io:9997  
+        tcp://log.akeyless.io:9443
+      </td>
       <td>
         35.192.171.171
       </td>
-
       <td>
         9997, 9443
       </td>
-
       <td>
         GW logs, mainly to be reflected during failure scenarios
       </td>
@@ -277,17 +275,17 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
+        **CLI S3 Bucket**
+      </td>
+      <td>
         [https://akeyless-cli.s3.us-east-2.amazonaws.com](https://akeyless-cli.s3.us-east-2.amazonaws.com)
       </td>
-
       <td>
         N\A
       </td>
-
       <td>
         443
       </td>
-
       <td>
         S3 bucket to download & update Akeyless CLI versions
       </td>
@@ -295,17 +293,17 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
+        **Services S3 Bucket**
+      </td>
+      <td>
         [https://akeylessservices.s3.us-east-2.amazonaws.com](https://akeylessservices.s3.us-east-2.amazonaws.com)
       </td>
-
       <td>
         N\A
       </td>
-
       <td>
         443
       </td>
-
       <td>
         S3 bucket to download & update Akeyless official binaries. e.g. `Gateway`
       </td>
@@ -313,17 +311,17 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td>
+        **Artifacts Endpoint**
+      </td>
+      <td>
         [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
       </td>
-
       <td>
         34.149.100.205
       </td>
-
       <td>
         443
       </td>
-
       <td>
         * _Optional_* Akeyless official artifacts endpoint. Relevant when working with whitelisted IP range
       </td>
