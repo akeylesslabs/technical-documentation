@@ -185,4 +185,4 @@ Admins can receive notifications when a new access request record is created, wh
 
 These notifications can be configured based on specific actions, such as when a new record is added or when a record is updated by an admin user of the ServiceNow instance.
 
-[Refer to the ServiceNow documentation on push notifications.](https://docs.servicenow.com/bundle/xanadu-platform-administration/page/administer/notification/reference/r_PushMessageArchitecture.html)
+[Refer to the ServiceNow documentation on push notifications.](https://www.servicenow.com/docs/bundle/xanadu-platform-administration/page/administer/notification/reference/r_PushMessageArchitecture.html)
