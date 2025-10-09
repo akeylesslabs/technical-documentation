@@ -3,10 +3,10 @@
 - cli-reference-certificates
 - cli-reference-dynamic-secrets
 - cli-reference-encryption-keys
+- cli-reference-event-forwarders
 - cli-reference-gateway
 - cli-reference-akeyless-kmip-server
 - cli-reference-rotated-secrets
 - cli-reference-static-secrets
 - cli-ref-targets
 - cli-reference-universal-secrets-connector
-- cli-reference-event-forwarders
