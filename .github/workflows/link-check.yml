@@ -46,7 +46,7 @@ jobs:
             --verbose
             --no-progress
             --suggest
-            --exclude-path .github/lychee/.lycheeignore
+            --exclude-path ".github"
             --exclude-link-local
             --exclude-loopback
             --include-mail
