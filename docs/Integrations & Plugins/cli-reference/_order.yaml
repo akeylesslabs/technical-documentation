@@ -4,9 +4,9 @@
 - cli-reference-dynamic-secrets
 - cli-reference-encryption-keys
 - cli-reference-gateway
+- cli-reference-akeyless-kmip-server
 - cli-reference-rotated-secrets
 - cli-reference-static-secrets
 - cli-ref-targets
-- cli-reference-akeyless-kmip-server
 - cli-reference-universal-secrets-connector
 - cli-reference-event-forwarders
