@@ -47,7 +47,7 @@ Before using the task in your pipelines, you need to configure a [Service Connec
 5. Search for and select the Akeyless service connection type.
 6. Click Next.
 7. Configure the service connection parameters:
-   1. Server URL (Base Path): Enter the base URL of your Akeyless Gateway or Akeyless SaaS API (e.g., [https://api.akeyless.io](https://api.akeyless.io), [https://my.gw/api/v2](https://my.gw/api/v2)).
+   1. Server URL (Base Path): Enter the base URL of your Akeyless Gateway or Akeyless SaaS API (e.g., `https://api.akeyless.io`, `https://my.gw/api/v2`).
    2. Access ID: Your Akeyless Access ID.
    3. Service connection name: Give your connection a descriptive name (e.g., 'my-akeyless-vault,' 'mge_prod'). This name will be used in your pipeline YAML.
    4. Description: (Optional) Provide a brief description.
