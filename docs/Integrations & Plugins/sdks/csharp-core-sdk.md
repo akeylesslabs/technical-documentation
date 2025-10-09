@@ -46,11 +46,11 @@ To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set the `clien
 
 # Authentication
 
-The Akeyless **C#** SDK supports multiple [Authentication Methods](doc:access-and-authentication-methods).
+The Akeyless **C#** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
 ## API Key
 
-To use an [API Key](doc:api-key) for authentication set the following:
+To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
 
 ```csharp csharp
 var authBody = new Auth(accessId: "<Access ID>", accessKey: "<Access Key>");

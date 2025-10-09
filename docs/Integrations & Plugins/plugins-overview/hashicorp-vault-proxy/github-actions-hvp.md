@@ -14,11 +14,11 @@ The GitHub Actions plugin enables you to automate workflows for your GitHub-host
 
 To work with the GitHub Actions plugin:
 
-1. [Create a GitHub Repository](doc:github-actions-hvp#create-a-github-repository) 
-2. [Set Up Akeyless Authentication Credentials for the Repository](doc:github-actions-hvp#set-up-akeyless-authentication-credentials-for-the-repository) 
-3. [Set Up a GitHub Self-Hosted Runner](doc:github-actions-hvp#set-up-a-github-self-hosted-runner)
-4. [Define a Workflow for the GitHub Action](doc:github-actions-hvp#define-a-workflow-for-the-github-action)
-5. [Trigger the GitHub Runner](doc:github-actions-hvp#trigger-the-github-runner) 
+1. [Create a GitHub Repository](https://docs.akeyless.io/docs/github-actions-hvp#create-a-github-repository) 
+2. [Set Up Akeyless Authentication Credentials for the Repository](https://docs.akeyless.io/docs/github-actions-hvp#set-up-akeyless-authentication-credentials-for-the-repository) 
+3. [Set Up a GitHub Self-Hosted Runner](https://docs.akeyless.io/docs/github-actions-hvp#set-up-a-github-self-hosted-runner)
+4. [Define a Workflow for the GitHub Action](https://docs.akeyless.io/docs/github-actions-hvp#define-a-workflow-for-the-github-action)
+5. [Trigger the GitHub Runner](https://docs.akeyless.io/docs/github-actions-hvp#trigger-the-github-runner) 
 
 # Create a GitHub Repository
 

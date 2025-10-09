@@ -14,7 +14,7 @@ To work with the Venafi Cloud platform, you can choose either to work with Venaf
 
 ## Prerequisites
 
-* Akeyless [Gateway](doc:api-gw)
+* Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * Venafi Cloud
 

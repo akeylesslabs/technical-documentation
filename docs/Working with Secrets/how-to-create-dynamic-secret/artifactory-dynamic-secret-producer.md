@@ -20,9 +20,9 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [a Target](doc:artifactory-targets) . While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [a Target](https://docs.akeyless.io/docs/artifactory-targets) . While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Artifactory secret from the CLI using an existing [Artifactory Target](doc:artifactory-targets) , run the following command:
+To create a dynamic Artifactory secret from the CLI using an existing [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets) , run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create artifactory \
@@ -60,7 +60,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have an [Artifactory Target](doc:artifactory-targets) yet, you can use the command with your Artifactory target server connection string:
+If you don't have an [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets) yet, you can use the command with your Artifactory target server connection string:
 
 * `base-url`: The JFrog Artifactory REST URL, which must end with the `artifactory` postfix.
   For example, if you use your JFrog URL, this could be `http://myjfrog.acme.org/artifactory/`.
@@ -94,7 +94,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining settings as follows:
 
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing [Artifactory Target](doc:artifactory-targets)  or specify details of the target Artifactory server explicitly.
+* **Target mode:** In this section, you can either select an existing [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets)  or specify details of the target Artifactory server explicitly.
 * **Token Scope:** Specify a scope (or a space-separated list of scopes) to assign to the temporary token.
 * **Token Audience:** Specify a space-separated list of other JFrog Artifactory instances or services that should accept this token. The default value is the JFrog Artifactory service ID instance that created this token. For example, to accept all JFrog Artifactory instances, type **jfrt@***.
 * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
@@ -102,7 +102,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
   When TTL expires, the token becomes obsolete.
 * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties** mode, click **Next**.
 

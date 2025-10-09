@@ -22,9 +22,9 @@ Custom Rotated Secret implementations are completely stateless. Akeyless provide
 
 # Set Up a Custom Rotated Secret Implementation
 
-First, you must create a [Web Target](doc:web-targets) in Akeyless. This target holds the target endpoint of your application (e.g., `https://my.web.server/rotate` endpoint).
+First, you must create a [Web Target](https://docs.akeyless.io/docs/web-targets) in Akeyless. This target holds the target endpoint of your application (e.g., `https://my.web.server/rotate` endpoint).
 
-To create a [Web Target](doc:web-targets) using the Akeyless CLI, run the following command:
+To create a [Web Target](https://docs.akeyless.io/docs/web-targets) using the Akeyless CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless create-web-target -n &lt;your web target name&gt; \
@@ -79,12 +79,12 @@ Where:
 
 - `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- `target-name`: The name of the [Web Target](doc:web-targets) with which the custom Rotated Secret should be associated.
+- `target-name`: The name of the [Web Target](https://docs.akeyless.io/docs/web-targets) with which the custom Rotated Secret should be associated.
 
 - `authentication-credentials`: Determines how to connect to the target.
   - `use-user-creds`: Use the credentials defined on the Rotated Secret item.
 
-- `rotator-type`: The type of credentials to be rotated. For [Web Target](doc:web-targets), should be `custom`.
+- `rotator-type`: The type of credentials to be rotated. For [Web Target](https://docs.akeyless.io/docs/web-targets), should be `custom`.
 
 - `custom-payload`: A secret payload to be sent with a rotation request.
 

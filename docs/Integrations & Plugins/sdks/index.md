@@ -15,12 +15,12 @@ Integrate your applications, libraries, or scripts with Akeyless using our softw
 
 We currently support the following SDKs:
 
-* [C# .NET Core SDK](doc:csharp-core-sdk)
-* [Go SDK](doc:go)
-* [Java SDK](doc:java-sdk-1)
-* [JavaScript SDK](doc:javascript-sdk)
-* [Python SDK](doc:python-sdk-1)
-* [Ruby SDK](doc:ruby-sdk)
+* [C# .NET Core SDK](https://docs.akeyless.io/docs/csharp-core-sdk)
+* [Go SDK](https://docs.akeyless.io/docs/go)
+* [Java SDK](https://docs.akeyless.io/docs/java-sdk-1)
+* [JavaScript SDK](https://docs.akeyless.io/docs/javascript-sdk)
+* [Python SDK](https://docs.akeyless.io/docs/python-sdk-1)
+* [Ruby SDK](https://docs.akeyless.io/docs/ruby-sdk)
 
 # Available Environments
 

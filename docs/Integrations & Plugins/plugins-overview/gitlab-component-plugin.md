@@ -24,7 +24,7 @@ Each job has a [JSON Web Token (JWT)](https://docs.gitlab.com/ee/ci/secrets/id_t
 
 The token is valid only while the pipeline job is running. After the job finishes, you can’t use the token anymore.
 
-In this guide, we will use [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Auth Method** to work with the plugin but you can use any [Authentication Method](doc:access-and-authentication-methods) that is listed in the **Usage** section below.
+In this guide, we will use [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Auth Method** to work with the plugin but you can use any [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) that is listed in the **Usage** section below.
 
 ## OAuth 2.0 / JWT
 
@@ -218,7 +218,7 @@ use_secret:
     - echo "Fetching Secrets From Akeyless"
 ```
 
-In this example, we demonstrated using both [Static](doc:static-secrets), [Dynamic](doc:how-to-create-dynamic-secret), and [Rotated Secrets](doc:rotated-secrets) while using the [JWT](doc:oauth20jwt) auth method which we created earlier.
+In this example, we demonstrated using both [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) while using the [JWT](https://docs.akeyless.io/docs/oauth20jwt) auth method which we created earlier.
 
 > 👍 Tip
 >

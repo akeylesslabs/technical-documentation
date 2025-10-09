@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to a Windows machine with a [Dynamic Secret](doc:rdp-dynamic-secrets) that generates ephemeral credentials for the machine or a [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret). Users can access the Windows machine from the Secure Remote Access Portal over the web.
+You can enable secure remote access to a Windows machine with a [Dynamic Secret](https://docs.akeyless.io/docs/rdp-dynamic-secrets) that generates ephemeral credentials for the machine or a [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret). Users can access the Windows machine from the Secure Remote Access Portal over the web.
 
 # Prerequisites
 
@@ -98,7 +98,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 While working with fixed users, Secure Remote Access can automatically inject your **own** password if stored under your **[personal folder](https://docs.akeyless.io/docs/password-manager#personal-folder)**.
 
-Create a new [Static Secret](doc:static-secrets) under your **personal** folder with the exact full name of the relevant [Dynamic Secret](doc:how-to-create-dynamic-secret).
+Create a new [Static Secret](https://docs.akeyless.io/docs/static-secrets) under your **personal** folder with the exact full name of the relevant [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
 # Download & Upload Files
 

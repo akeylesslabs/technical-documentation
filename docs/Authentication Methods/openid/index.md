@@ -32,7 +32,7 @@ Where:
 
 * `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* `issuer`: The Identity Provider URL (for more information check the [Okta](doc:okta) example).
+* `issuer`: The Identity Provider URL (for more information check the [Okta](https://docs.akeyless.io/docs/okta) example).
 
 * `client-id`: The Client ID (application ID).
 
@@ -65,7 +65,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Issuer URL:** The Identity Provider URL (for more information, check the [Okta](doc:okta) example).
+* **Issuer URL:** The Identity Provider URL (for more information, check the [Okta](https://docs.akeyless.io/docs/okta) example).
 
 * **Client ID:** The Client ID (application ID).
 

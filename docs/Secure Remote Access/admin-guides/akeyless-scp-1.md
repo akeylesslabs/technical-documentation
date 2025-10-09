@@ -95,11 +95,11 @@ Edit the settings as follows:
 
 `CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-certificates) item. 
 
-`AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](doc:cli). By default, it's using the `default` profile of your Akeyless CLI.
+`AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI.
 
 `AKEYLESS_CLI` - Akeyless CLI binary (if needed).
 
-`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](doc:zero-knowledge) items and for internal network access.
+`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
 `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS.  
 
@@ -144,7 +144,7 @@ akeyless-scp user@destination-server -v <sra-bastion-ssh-service> --local-file /
 
 ## Working With SSH Keys
 
-When the remote host doesn’t support SSH Certificates, you can still work with **Akeyless SCP** utilizing SSH Keys where the relevant private key is stored as a [Static Secret](doc:static-secrets) within Akeyless, where the connection from the client to the Akeyless Bastion is established over short-lived SSH certificate, and from the Akeyless Bastion, the connection is established over SSH using keys, for example: 
+When the remote host doesn’t support SSH Certificates, you can still work with **Akeyless SCP** utilizing SSH Keys where the relevant private key is stored as a [Static Secret](https://docs.akeyless.io/docs/static-secrets) within Akeyless, where the connection from the client to the Akeyless Bastion is established over short-lived SSH certificate, and from the Akeyless Bastion, the connection is established over SSH using keys, for example: 
 
 ```shell
 akeyless-scp <username>@<target-host> -v <sra-bastion-ssh-service> --local-file demo_file --remote-file /home/ubuntu/demo_file --name "/path/to/static-secret-of-ssh_private_key"

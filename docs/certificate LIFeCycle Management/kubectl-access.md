@@ -26,7 +26,7 @@ akeyless upload-rsa --name myK8SCA --alg RSA2048 --rsa-key-file-path ~/.minikube
 akeyless create-pki-cert-issuer --name myK8SCertIssuer --signer-key-name myK8SCA --ttl 300 --allowed-domains minikube-user --organizations system:masters
 ```
 
-To read more about PKI Certificate Issuers, follow this [link.](doc:ssh-and-pkitls-certificates) 
+To read more about PKI Certificate Issuers, follow this [link.](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) 
 
 In this case, we created an Issuer that will issue a certificate with an expiration time of up to 5 minutes with `system:masters` access permissions. For further reading, check [this page](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in the Kubernetes documentation.
 

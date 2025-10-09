@@ -14,7 +14,7 @@ next:
       slug: create-an-ssh-rotated-secret
       title: Create an SSH Rotated Secret
 ---
-You can define an SSH target that will be used with an [SSH Rotated Secret](doc:create-an-ssh-rotated-secret) or [RDP Dynamic Secrets](doc:rdp-dynamic-secrets)
+You can define an SSH target that will be used with an [SSH Rotated Secret](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret) or [RDP Dynamic Secrets](https://docs.akeyless.io/docs/rdp-dynamic-secrets)
 
 # Create an SSH Target in the CLI
 
@@ -50,7 +50,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-   For more information, [read here](doc:implement-zero-knowledge).
+   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 

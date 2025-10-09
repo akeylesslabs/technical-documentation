@@ -18,7 +18,7 @@ We call classic keys distributed to cloud KMS providers - "managed keys".
 
 > 👍 Note
 >
-> Only [classic keys](doc:classic-keys) can be distributed to cloud KMS providers.
+> Only [classic keys](https://docs.akeyless.io/docs/classic-keys) can be distributed to cloud KMS providers.
 
 ### Create a managed key
 

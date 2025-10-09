@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-Akeyless [Access Roles](doc:rbac) control all user access levels for items, analytics, and usage reports.
+Akeyless [Access Roles](https://docs.akeyless.io/docs/rbac) control all user access levels for items, analytics, and usage reports.
 
-In parallel with [Gateway](doc:api-gw) administrative operations, you can set the exact level of access your [Gateway administrative users](https://docs.akeyless.io/docs/advance-gw-docker-configuration#gateway-admins) will have, from the management of just [Dynamic](doc:how-to-create-dynamic-secret) or [Rotated](doc:rotated-secrets) Secrets, up to, and including, complete admin rights.
+In parallel with [Gateway](https://docs.akeyless.io/docs/api-gw) administrative operations, you can set the exact level of access your [Gateway administrative users](https://docs.akeyless.io/docs/advance-gw-docker-configuration#gateway-admins) will have, from the management of just [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) or [Rotated](https://docs.akeyless.io/docs/rotated-secrets) Secrets, up to, and including, complete admin rights.
 
 > 📘 Info
 >
@@ -24,13 +24,13 @@ In parallel with [Gateway](doc:api-gw) administrative operations, you can set th
 >
 > Only Gateway **Admin** users can access and manage the Access Permissions settings.
 
-To configure **Access Permissions** in your [Gateway Configuration Manager](doc:gateway-configuration-manager), under the **Access Permissions** tab:
+To configure **Access Permissions** in your [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager), under the **Access Permissions** tab:
 
 1. Click **New**
 
 2. Define a meaningful **Name**  for the item. e.g., **Dynamic Secrets Admin**
 
-3. From the **Auth Method** drop-down menu, choose the relevant [Authentication Method](doc:access-and-authentication-methods)  and set the exact [Sub-Claims](doc:sub-claims) identifying your users,  and click **Next**
+3. From the **Auth Method** drop-down menu, choose the relevant [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods)  and set the exact [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) identifying your users,  and click **Next**
 
 4. In **Permission Settings**, select **Admin**  or **Custom**
 

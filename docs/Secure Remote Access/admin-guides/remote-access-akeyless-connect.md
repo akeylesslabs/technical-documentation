@@ -20,7 +20,7 @@ To use Akeyless Connect  you need:
 
 * An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
-* An [Akeyless Gateway](doc:api-gw) with Remote Access enabled.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with Remote Access enabled.
 
 * OpenSSH v7.2 or higher on target servers.
 
@@ -33,7 +33,7 @@ To use Akeyless Connect  you need:
 
 # Set Up Akeyless Connect
 
-Install the latest version of [Akeyless Command Line Interface (CLI)](doc:cli). Or run `akeyless update` to ensure you're using the latest version.
+Install the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). Or run `akeyless update` to ensure you're using the latest version.
 
 **Optional**: Download the `akeyless-connect.rc` file from [here](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs. If you prefer to get started without this, go straight to the Usage section below.
 
@@ -104,13 +104,13 @@ Edit the settings as follows:
 
 `CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-certificates) item. 
 
-`AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](doc:cli). By default, it's using the `default` profile of your Akeyless CLI.
+`AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI.
 
 `AKEYLESS_CLI` - Akeyless CLI binary (if needed).
 
 `AKEYLESS_GW_SSH_URL` - Set your Akeyless Gateway URL for the SSH service on port `8000`. The K8s service name will start with `ssh-`.
 
-`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](doc:zero-knowledge) items and for internal network access.
+`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
 `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS.  
 

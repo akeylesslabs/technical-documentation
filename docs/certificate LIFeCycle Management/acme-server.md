@@ -73,7 +73,7 @@ Where:
 
 * `conf-file-path`: Path to the configuration file that contains CSR config data.
 
-Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** for our [PKI Cert Issuer](doc:ssh-and-pkitls-certificates). 
+Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** for our [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). 
 
 ## Create a PKI Cert Issuer
 

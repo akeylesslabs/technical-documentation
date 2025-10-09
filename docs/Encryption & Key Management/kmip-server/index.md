@@ -14,9 +14,9 @@ next:
       slug: kmip-for-vsphere
       title: KMIP for Vsphere
 ---
-The [Akeyless Gateway](doc:api-gw) built-in Key Management Interoperability Protocol (KMIP) server handles the lifecycle of KMIP-managed objects.
+The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) built-in Key Management Interoperability Protocol (KMIP) server handles the lifecycle of KMIP-managed objects.
 
-Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](doc:api-gw) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
+Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
 
 > 📘 Note
 >
@@ -60,7 +60,7 @@ MIIDCTCC...jOVHG8Og==
 Note that this will automatically create 2 items under the `/kmip/default` path in Akeyless:
 
 1. `ca.key` (the CA certificate that was the output of the kmip-server-setup)
-2. A [PKI Cert Issuer](doc:ssh-and-pkitls-certificates) named **server**
+2. A [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) named **server**
 
 # KMIP client configuration
 
@@ -173,7 +173,7 @@ Where:
 
 * `kmipClientCertificateFile` is the file with both private key and certificate that were created during the `kmip-create-client` step. Simply `cat key-file cert-file > mongodb.pem` and use the resulting file to connect.
 
-To use an existing key for encryption, please upload the key to Akeyless as a new [Classic Keys](doc:classic-keys) and pass it as a value of the `kmipKeyIdentifier` parameter. If not provided, MongoDB will create a new encryption key in Akeyless and use it for encryption.
+To use an existing key for encryption, please upload the key to Akeyless as a new [Classic Keys](https://docs.akeyless.io/docs/classic-keys) and pass it as a value of the `kmipKeyIdentifier` parameter. If not provided, MongoDB will create a new encryption key in Akeyless and use it for encryption.
 
 The command output shows the created KMIP key ID:
 

@@ -12,7 +12,7 @@ next:
 ---
 # Introduction
 
-The Akeyless Platform combines the capabilities of an HSM and a KMS to provide enhanced key-life cycle management, including cryptographic key generation, protection, versioning/rotation (more on this subject on the key rotation guide [Key Rotation](doc:key-rotation)), and using keys with Encryption-as-a-Service and Digital Signing functions.
+The Akeyless Platform combines the capabilities of an HSM and a KMS to provide enhanced key-life cycle management, including cryptographic key generation, protection, versioning/rotation (more on this subject on the key rotation guide [Key Rotation](https://docs.akeyless.io/docs/key-rotation)), and using keys with Encryption-as-a-Service and Digital Signing functions.
 
 ## Key Types
 

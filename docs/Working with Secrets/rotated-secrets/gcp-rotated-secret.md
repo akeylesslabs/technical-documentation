@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can create a Rotated Secret for GCP Service Account. Before you start, create a [GCP Target](doc:gcp-targets) that includes the relevant information with a privileged service account assigned with the GCP service account key admin role.
+You can create a Rotated Secret for GCP Service Account. Before you start, create a [GCP Target](https://docs.akeyless.io/docs/gcp-targets) that includes the relevant information with a privileged service account assigned with the GCP service account key admin role.
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the GCP Cloud through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the service account key.
 
@@ -42,19 +42,19 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [Target](doc:gcp-targets) with which the Rotated Secret should be associated.
+* `target-name`: The name of the [Target](https://docs.akeyless.io/docs/gcp-targets) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target GCP account.
   * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [GCP Target](doc:gcp-targets) item.
+  * `use-target-creds` - Use the credentials defined on the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
 
 > 👍 Note
 >
-> Select `use-target-creds` if the Rotated Secret Service Account is not authorized to change their Key, and a privileged user, like the [GCP Target](doc:gcp-targets) service account, is required to change the Service Account Key on behalf of the Rotated Secret service account.
+> Select `use-target-creds` if the Rotated Secret Service Account is not authorized to change their Key, and a privileged user, like the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) service account, is required to change the Service Account Key on behalf of the Rotated Secret service account.
 
-* `rotator-type`: The type of credentials to be rotated. For [GCP Targets](doc:gcp-targets), choose:
+* `rotator-type`: The type of credentials to be rotated. For [GCP Targets](https://docs.akeyless.io/docs/gcp-targets), choose:
   * `service-account-rotator` - to rotate the GCP Service Account Key specified in the Rotated Secret.
-  * `target` - to rotate the Access Key for the user specified in the [GCP Target](doc:gcp-targets).
+  * `target` - to rotate the Access Key for the user specified in the [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
 * `gcp-key-file-path`: A path to the GCP Service account credentials file of the GCP Service Account whose Key should be rotated.
 
@@ -79,24 +79,24 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [GCP Target](doc:gcp-targets) to be associated with the Rotated Secret.
+* **Target:** Defines the name of the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) to be associated with the Rotated Secret.
 
 * **Rotator type:** Determines the rotator type:
   * **Service Account**: Rotates the Key defined inside the Rotated Secret item.
-  * **Target**: Rotates the Key defined inside the [GCP Target](doc:gcp-targets) item.
+  * **Target**: Rotates the Key defined inside the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target GCP account:
   * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [GCP Target](doc:gcp-targets) item.
+  * **Target credentials:** Use the credentials defined inside the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
 
 > 👍 Note
 >
-> Select **Target credentials** if the Rotated Secret Service Account is not authorized to change their own Key, and a privileged user, like the [GCP Target](doc:gcp-targets) Service Account, is required to change the Key on behalf of the Rotated Secret user.
+> Select **Target credentials** if the Rotated Secret Service Account is not authorized to change their own Key, and a privileged user, like the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) Service Account, is required to change the Key on behalf of the Rotated Secret user.
 
 * **SA Credentials:** Relevant only for Service Account Rotator Type, provide the exact Key to rotate.
 * **SA Details:** Relevant only for Service Account Rotator Type, provide the Service Account details in order to rotate the Service Account Key, **SA Email** , and  **SA Key ID**.  **Note** When **Key ID**  is not provided, upon successful creation, a new Key will be automatically created for the relevant Service Account, and upon deletion of the Rotated Secret, the Service Account Key will be deleted from GCP as well.
 * **Gateway:** Select the Gateway through which the secret will be rotated.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 * **Graceful Rotation:**  When enabled, a graceful mode of rotation will be conducted, where only the older Service Account Key will be rotated. When there is only one Key, a new version will be created to maintain 2 keys at the same time.
 * **Auto rotate:** Determines if automatic rotation is enabled.
 * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic Access Key rotations when **Auto Rotate** is enabled.

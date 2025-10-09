@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can create a Rotated Secret for Docker Hub that will rotate privileged user credentials. Before you get started, make sure you have created a [Docker Hub Target](doc:docker-hub-target).
+You can create a Rotated Secret for Docker Hub that will rotate privileged user credentials. Before you get started, make sure you have created a [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target).
 
 # Create a Rotated Docker Hub Secret from the CLI
 
@@ -34,7 +34,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [Docker Hub Target](doc:docker-hub-target) with which the Rotated Secret should be associated.
+* `target-name`: The name of the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) with which the Rotated Secret should be associated.
 
 * `password-length`: **Optional**, The user's password length.
 
@@ -46,7 +46,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 🚧 Warning
 >
-> Rotating the [Target](doc:targets) credentials (i.e., changing your Docker Hub password) will invalidate all existing personal access tokens.
+> Rotating the [Target](https://docs.akeyless.io/docs/targets) credentials (i.e., changing your Docker Hub password) will invalidate all existing personal access tokens.
 
 # Create a Rotated Docker Hub Secret in the Akeyless Console.
 
@@ -62,12 +62,12 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [Docker Hub Target](doc:docker-hub-target) to be associated with the Rotated Secret. 
+* **Target:** Defines the name of the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) to be associated with the Rotated Secret. 
 
 * **Password Length**: Set the length of the user's password
 
 * **Rotator type:** Determines the rotator type:
-  * **Target**: Rotates the privileged user credentials defined inside the [Docker Hub Target](doc:docker-hub-target) item.
+  * **Target**: Rotates the privileged user credentials defined inside the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) item.
 
 > 👍 Note
 >
@@ -75,7 +75,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 * **Auto rotate:** Determines if automatic rotation is enabled.
 

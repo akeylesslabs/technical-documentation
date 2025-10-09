@@ -16,9 +16,9 @@ You can enable secure remote access to a K8s cluster based on the dynamic secret
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
-* A running K8s dynamic Secret [EKS](https://docs.akeyless.io/docs/eks-dynamic-secret-producer) , [GKE](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [K8s Generic](doc:k8s-generic-dynamic-secrets) .
+* A running K8s dynamic Secret [EKS](https://docs.akeyless.io/docs/eks-dynamic-secret-producer) , [GKE](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [K8s Generic](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) .
 
-* [Akeyless Connect](doc:akeyless-connect) 
+* [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) 
 
 * An  [SSH Certificate Issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates).
 
@@ -43,7 +43,7 @@ where:
 * **secure-access-cluster-endpoint:**  The K8s cluster endpoint URL.
 * **secure-access-allow-port-forwading:** Optional, allows running non-interactive kubectl commands, such as: exec / port-forward / etc. Also allows using the --watch flag (-w), for example.
 
-For [Kubernetes Generic Dynamic Secrets](doc:k8s-generic-dynamic-secrets) you can have secure remote access for your K8s dashboard URL: 
+For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) you can have secure remote access for your K8s dashboard URL: 
 
 * **secure-access-dashboard-url:** The K8s dashboard URL available only for Generic K8s. 
 * **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
@@ -58,13 +58,13 @@ Let's set up remote access to a K8s cluster from the Akeyless Console. If you'd 
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-For [GKE Dynamic Secrets](doc:gke-dynamic-secret-producer) or [EKS Dynamic Secrets](doc:eks-dynamic-secret-producer):
+For [GKE Dynamic Secrets](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [EKS Dynamic Secrets](https://docs.akeyless.io/docs/eks-dynamic-secret-producer):
 
 * `Cluster Endpoint URL`: Required, your K8s cluster URL. 
 * `certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
 * `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / etc. Also allows using the `--watch` flag (`-w`), for example.
 
-For [Kubernetes Generic Dynamic Secrets](doc:k8s-generic-dynamic-secrets):
+For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets):
 
 * `Cluster Endpoint URL`: Required, your K8s cluster URL. 
 
@@ -80,7 +80,7 @@ For **CLI Access**:
 
 * `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / etc. Also allows using the `--watch` flag (`-w`), for example.
 
-From any terminal which has [Akeyless Connect](doc:akeyless-connect) configured, you can run the following command: 
+From any terminal which has [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) configured, you can run the following command: 
 
 ```shell
 akeyless connect -t <namespace>@<cluster endpoint without https:// > -n <dynamic-secret-name> -v <sra-bastion-ssh-service-address:port>

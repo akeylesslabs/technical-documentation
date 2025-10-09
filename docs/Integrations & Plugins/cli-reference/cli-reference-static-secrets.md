@@ -110,7 +110,7 @@ akeyless describe-item \
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-See [Commands for all items and objects](doc:cli-reference#commands-for-all-items-and-objects) and also [Updating and versioning static secrets](doc:staticversions) for details.
+See [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects) and also [Updating and versioning static secrets](https://docs.akeyless.io/docs/staticversions) for details.
 
 ### `get-secret-value`
 
@@ -275,7 +275,7 @@ akeyless update-secret-val \
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-For other data, such as description or tags, use `update-item` as described in [Commands for all items and objects](doc:cli-reference#commands-for-all-items-and-objects).
+For other data, such as description or tags, use `update-item` as described in [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects).
 
 ### `static-secret-sync`
 

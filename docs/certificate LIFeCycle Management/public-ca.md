@@ -14,11 +14,11 @@ Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.glob
 
 The public certificate authority will sign and issue the certificate, while Akeyless will store and manage the certificate lifecycle.
 
-The issuance flow utilizes a Public CA Target with Akeyless [PKI Issuer](doc:ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](doc:event-center) to manage the lifecycle of your certificates.
+The issuance flow utilizes a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw) to interact with the Public Certificate Authority.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) to interact with the Public Certificate Authority.
 * Target of the public CA.
 
 ## PKI Cert issuer with a Target
@@ -48,7 +48,7 @@ Where:
 
 * `allowed-domains`: A list of domains that will be allowed to issue certificates for using this item.
 
-* `destination-path`:  A path in Akeyless for [Certificate Storage](doc:certificate-storage), the issued certificate will be stored under this folder.
+* `destination-path`:  A path in Akeyless for [Certificate Storage](https://docs.akeyless.io/docs/certificate-storage), the issued certificate will be stored under this folder.
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use the argument multiple times: `expiration-event-in 10` `expiration-event-in 15`.
 
@@ -73,7 +73,7 @@ akeyless generate-csr \
 
 Where:
 
-* `name`:  Full name of a new [Classic Key](doc:classic-keys) that will be generated.
+* `name`:  Full name of a new [Classic Key](https://docs.akeyless.io/docs/classic-keys) that will be generated.
 
 * `generate-key`: Use this flag to generate a new classic key with the CSR.
 
@@ -87,7 +87,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> The `Common Name` field (e.g., server FQDN) - Should be listed under the `allowed-domains` as configured in the [PKI Issuer](doc:ssh-and-pkitls-certificates) item.
+> The `Common Name` field (e.g., server FQDN) - Should be listed under the `allowed-domains` as configured in the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item.
 
 To issue a new certificate, run the following command:
 
@@ -113,6 +113,6 @@ akeyless get-certificate-value \
 
 You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-certificate-valuep) section.
 
-Once the certificate issue request is processed, a validation email will be sent to the email address listed in the Target, and it will be processed automatically by the [Akeyless Gateway](doc:api-gw)
+Once the certificate issue request is processed, a validation email will be sent to the email address listed in the Target, and it will be processed automatically by the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
-The issued [Certificate item](doc:certificate-storage)  should be created under the `destination-path` storage folder inside Akeyless.
+The issued [Certificate item](https://docs.akeyless.io/docs/certificate-storage)  should be created under the `destination-path` storage folder inside Akeyless.

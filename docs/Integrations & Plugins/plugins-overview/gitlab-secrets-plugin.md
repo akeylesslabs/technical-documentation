@@ -112,7 +112,7 @@ secrets:
         akeyless_token: '<t-token>'
 ```
 
-Where make sure to set the relevant `access_type` according to the Auth Method type you are using. for example the [API Key](doc:api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. i.e. `access_key: $AKEYLESS_ACCESS_KEY`.
+Where make sure to set the relevant `access_type` according to the Auth Method type you are using. for example the [API Key](https://docs.akeyless.io/docs/api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. i.e. `access_key: $AKEYLESS_ACCESS_KEY`.
 
 <br />
 
@@ -124,7 +124,7 @@ Where make sure to set the relevant `access_type` according to the Auth Method t
 
 # Usage
 
-Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml`  and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](doc:oauth20jwt) Auth method.
+Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml`  and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Auth method.
 
 > 📘 Tip
 >
@@ -132,7 +132,7 @@ Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.
 
 ## Secret Example
 
-In the following example, we will fetch a [Static Secret](https://docs.akeyless.io/docs/static-secrets), this example will also work with [Rotated](doc:rotated-secrets) or [Dynamic](doc:how-to-create-dynamic-secret) Secrets:
+In the following example, we will fetch a [Static Secret](https://docs.akeyless.io/docs/static-secrets), this example will also work with [Rotated](https://docs.akeyless.io/docs/rotated-secrets) or [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) Secrets:
 
 ```yaml .gitlab-ci.yml
 job:

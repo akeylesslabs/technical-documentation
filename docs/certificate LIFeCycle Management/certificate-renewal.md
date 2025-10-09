@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Akeyless provides a simple flow for certificates renewals, without the need to manually regenerate a **CSR**, while maintaining the certificate metadata including any [provisioning](doc:certificate-provisioning) settings. 
+Akeyless provides a simple flow for certificates renewals, without the need to manually regenerate a **CSR**, while maintaining the certificate metadata including any [provisioning](https://docs.akeyless.io/docs/certificate-provisioning) settings. 
 
 As part of the renewal, the user can choose either to renew the certificate using a **new key and CSR**, which is considered best practice, or **using the existing key** when the private key is stored in the certificate item. In both modes, all fields will be automatically populated from the expired certificate.
 
-Upon successful renewal, in case [provisioning](doc:certificate-provisioning) settings exists, the certificate will be provisioned automatically.
+Upon successful renewal, in case [provisioning](https://docs.akeyless.io/docs/certificate-provisioning) settings exists, the certificate will be provisioned automatically.
 
 # Renew a certificate using the Akeyless CLI
 

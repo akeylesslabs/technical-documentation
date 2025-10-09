@@ -14,9 +14,9 @@ next:
       slug: public-ca
       title: Public CA
 ---
-**ZeroSSL** Target enables you to use ZeroSSL as a Public CA with Akeyless [PKI Issuer](doc:ssh-and-pkitls-certificates). 
+**ZeroSSL** Target enables you to use ZeroSSL as a Public CA with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). 
 
-With Public CA, Akeyless cannot access the private key that signs the certificates. Hence, Akeyless will programmatically contact ZeroSSL through the [Gateway](doc:api-gw) using IMAP user credentials to validate the certificate request. Akeyless will store and manage the issued certificates and notify you of upcoming expiration events. 
+With Public CA, Akeyless cannot access the private key that signs the certificates. Hence, Akeyless will programmatically contact ZeroSSL through the [Gateway](https://docs.akeyless.io/docs/api-gw) using IMAP user credentials to validate the certificate request. Akeyless will store and manage the issued certificates and notify you of upcoming expiration events. 
 
 # Create a ZeroSSL Target in the CLI
 
@@ -57,7 +57,7 @@ You can find the complete list of parameters for this command in the [CLI refere
 2. Define a **Name** of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-   For more information, [read here](doc:implement-zero-knowledge).
+   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 

@@ -14,7 +14,7 @@ Akeyless offers the creation of a private certificate authority, in which you ca
 
 The certificate chain includes the following components: 
 
-* **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](doc:encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
+* **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
 
 * **Intermediate CA**: Signed by the **Root CA**, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has authorized the Intermediate CA.
 
@@ -26,7 +26,7 @@ The certificate chain includes the following components:
 
 Given the critical role of the Root CA in validating end-user certificates, it's strongly recommended to store both the Root PKI Cert Issuer and the Root CA key in a secure location accessible only to authorized users.
 
-Using a [DFC Key](doc:encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key adds an extra level of protection.
+Using a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key adds an extra level of protection.
 
 > 👍 Note
 >
@@ -86,7 +86,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
 
-Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** of our top chain [PKI Certificate Issuer](doc:ssh-and-pkitls-certificates). This issuer will be used to issue the Intermediate layer of PKI Issuers in our chain of trust. 
+Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** of our top chain [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). This issuer will be used to issue the Intermediate layer of PKI Issuers in our chain of trust. 
 
 ## Creating a Root PKI Issuer
 
@@ -184,7 +184,7 @@ Where **only** certificate with the domain`myexample.com`  will be accepted and 
 
 Now that we have our **Intermediate PKI Cert Issuer** we can start issuing leaf certificates. 
 
-Run the following command to create a CSR with a [Classic Keys](doc:classic-keys) pair:
+Run the following command to create a CSR with a [Classic Keys](https://docs.akeyless.io/docs/classic-keys) pair:
 
 ```shell
 akeyless generate-csr \

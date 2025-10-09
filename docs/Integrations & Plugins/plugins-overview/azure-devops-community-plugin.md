@@ -49,7 +49,7 @@ Where:
 
 * `--jwks-uri` - The URL to the `JWKS` that contains the public keys that would be used for JWT verification.
 
-* `--unique identifier` - For the unique identifier, you can use the Azure service principal's `tenantid`, or `appid`. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](doc:sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization. You can find your `appid` in your Azure DevOps account in "Project settings" -> "Service connections" -> Click on your connection -> "Manage App registration".
+* `--unique identifier` - For the unique identifier, you can use the Azure service principal's `tenantid`, or `appid`. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](https://docs.akeyless.io/docs/sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization. You can find your `appid` in your Azure DevOps account in "Project settings" -> "Service connections" -> Click on your connection -> "Manage App registration".
 
 * `--force-sub-claims` -  Enforce role association to include sub-claims.
 

@@ -44,7 +44,7 @@ When you share a key with one of the supported cloud KMS providers, a copy of th
 
 > 👍 Note
 >
-> Only [classic keys](doc:classic-keys) can be distributed to cloud KMS providers.
+> Only [classic keys](https://docs.akeyless.io/docs/classic-keys) can be distributed to cloud KMS providers.
 
 ## Supported Cloud KMS Providers
 

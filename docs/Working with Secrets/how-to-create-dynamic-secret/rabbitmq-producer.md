@@ -16,7 +16,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * A RabbitMQ privileged user
 
@@ -26,9 +26,9 @@ Before creating a dynamic RabbitMQ secret, ensure that the RabbitMQ user has suf
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rabbitmq-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rabbitmq-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic RabbitMQ secret from the CLI using an existing [RabbitMQ Target](doc:rabbitmq-targets) , run the following command:
+To create a dynamic RabbitMQ secret from the CLI using an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) , run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create rabbitmq \
@@ -74,7 +74,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have [RabbitMQ Target](doc:rabbitmq-targets) yet, you can use the command with your RabbitMQ target server connection settings:
+If you don't have [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) yet, you can use the command with your RabbitMQ target server connection settings:
 
 * `rabbitmq-server-uri`: URI of the RabbitMQ server.
 
@@ -108,9 +108,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [RabbitMQ Target](doc:rabbitmq-targets) or specify details of the target RabbitMQ server explicitly.
+* **Target mode:** In this section, you can either select an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) or specify details of the target RabbitMQ server explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing [RabbitMQ Target](doc:rabbitmq-targets).
+  * Use the **Choose an existing target** drop-down list to select the existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets).
 
   * Select the **Explicitly specify target properties**  to provide details of the target RabbitMQ server in the next step.
 
@@ -134,7 +134,7 @@ RabbitMQ distinguishes between `configure`, `write`, and `read` operations on a 
 
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties**  option, click **Next**.
 

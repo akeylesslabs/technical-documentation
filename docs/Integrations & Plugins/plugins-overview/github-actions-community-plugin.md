@@ -55,7 +55,7 @@ Where:
 
 * `--jwks-uri` - The URL to the `JWKS` that contains the public keys that would be used for JWT verification.
 
-* `--unique identifier`, A unique ID, usually a value such as `email`, `username` or `upn` for example. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](doc:sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization.
+* `--unique identifier`, A unique ID, usually a value such as `email`, `username` or `upn` for example. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](https://docs.akeyless.io/docs/sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization.
 
 * `--force-sub-claims` -  Enforce role association to include sub-claims.
 
