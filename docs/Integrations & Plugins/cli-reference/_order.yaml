@@ -1,11 +1,11 @@
 - cli-ref-auth
 - cli-reference-access-roles
+- cli-reference-certificates
 - cli-reference-dynamic-secrets
 - cli-reference-gateway
 - cli-reference-rotated-secrets
 - cli-reference-static-secrets
 - cli-ref-targets
-- cli-reference-certificates
 - cli-reference-encryption-keys
 - cli-reference-akeyless-kmip-server
 - cli-reference-universal-secrets-connector
