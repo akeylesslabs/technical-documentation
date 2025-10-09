@@ -92,11 +92,11 @@ jobs:
 
       - name: Create or update PR
         id: cpr
-        if: always()
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: automation/link-check-${{ steps.ts.outputs.ts }}
+          base: main
           title: "chore: Link checker results (${{ steps.ts.outputs.ts }} UTC)"
           body: |
             This PR updates:
@@ -107,6 +107,7 @@ jobs:
             Please review and merge if everything looks correct.
           commit-message: "chore: update link replacements, lychee report & log [skip ci]"
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 
       #- name: Send Slack summary
       #  if: always()
