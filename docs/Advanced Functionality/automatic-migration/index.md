@@ -18,13 +18,13 @@ Automatic migration allows importing static secrets into Akeyless from other ide
 
 Currently, you can import static secrets from the following platforms:
 
-* [Kubernetes](doc:automatic-migration#kubernetes)
+* [1Password](doc:automatic-migration#1password) - Deprecated from Gateway version `4.35.1`
 * [AWS Secrets Manager](doc:automatic-migration#aws-secrets-manager)
 * [Azure Key Vault](doc:automatic-migration#azure-key-vault)
+* [CSV import](doc:automatic-migration#csv-import), Relevant for Firefox, Chrome and LastPass
 * [GCP Secrets Manager](doc:automatic-migration#gcp-secrets-manager)
 * [HashiCorp Vault](doc:automatic-migration#hashicorp-vault)
-* [1Password](doc:automatic-migration#1password) - Deprecated from Gateway version `4.35.1`
-* [CSV import](doc:automatic-migration#csv-import), Relevant for Firefox, Chrome and LastPass
+* [Kubernetes](doc:automatic-migration#kubernetes)
 
 ## General configuration
 
@@ -112,7 +112,7 @@ For all supported engines the following prefix structure will be used: `<vault-n
 >
 > Due to internal security restrictions this migration is deprecated starting from Gateway version `4.35.1`.
 
-To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company_name.1password.com” with a privileged email and password with your 1Password Secret Key\`.
+To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company_name.1password.com” with a privileged email and password with your 1Password Secret Key`.
 
 You can choose the relevant `Vaults` you would like to migrate items from. comma separated, if left empty all non-private Vaults will be migrated.
 
