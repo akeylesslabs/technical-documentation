@@ -14,7 +14,7 @@ This section outlines the CLI commands relevant to [Dynamic Secrets](https://doc
 
 Dynamic secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a temporary period with a defined set of permissions.
 
-You can create a dynamic secret using an existing [target ](https://docs.akeyless.io/docs/targets)or manually enter the connection settings.
+You can create a dynamic secret using an existing [target](https://docs.akeyless.io/docs/targets) or manually enter the connection settings.
 
 <CLIGeneralFlags />
 
