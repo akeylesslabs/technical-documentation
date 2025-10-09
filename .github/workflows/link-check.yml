@@ -24,6 +24,10 @@ jobs:
           find . -type f -name "*.md" -print0 | \
             xargs -0 sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g'
 
+          # Show the changes this run
+          echo "==== GIT DIFF (replacements made) ===="
+          git diff --color
+
           # Count literal replacements using grep -F (fixed string)
           COUNT=$(grep -roF "(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
 
@@ -70,26 +74,3 @@ jobs:
 
           git commit -m "chore: update link replacements, lychee report & log [skip ci]" || echo "No changes to commit"
           git push origin $BRANCH --force
-
-      # 4. Create or update PR using GitHub CLI
-      - name: Create or update PR
-        run: |
-          BODY="Automated updates from link-checker workflow
-
-          **Replacement summary:** $REPLACER_SUMMARY  
-          **Lychee summary:** $LYCHEE_SUMMARY
-
-          See the committed log and report files for full details."
-
-          # Check if a PR from this branch already exists
-          if gh pr list --head automation/link-check --base main --json number --jq '.[0].number' | grep -q '[0-9]'; then
-            echo "PR already exists, nothing to do."
-          else
-            gh pr create \
-              --base main \
-              --head automation/link-check \
-              --title "chore: Link checker results" \
-              --body "$BODY"
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
