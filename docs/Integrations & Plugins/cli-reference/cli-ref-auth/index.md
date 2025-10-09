@@ -12,19 +12,7 @@ next:
 ---
 This section outlines the CLI commands relevant to authentication.
 
-General Flags:
-
-`--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
-
-`--uid-token`: The universal identity token, Required only for universal_identity authentication
-
-`-h, --help`: Display help information
-
-`--json[=false]`: Set output format to JSON
-
-`--jq-expression`: JQ expression to filter result output
-
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
+<CLIGeneralFlags />
 
 ## `auth`
 
