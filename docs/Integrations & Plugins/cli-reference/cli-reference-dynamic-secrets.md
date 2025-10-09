@@ -1020,7 +1020,7 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})
 
-`--mongodb-server-uri`: MongoDB server URI (e.g. mongodb://user:[password@my.mongo.db](mailto:password@my.mongo.db):707/admin?replicaSet=mySet)
+`--mongodb-server-uri`: MongoDB server URI (e.g. `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
 
 `--mongodb-username`: MongoDB server username
 
@@ -2627,7 +2627,7 @@ akeyless dynamic-secret update mongodb \
 
 `--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})
 
-`--mongodb-server-uri`: MongoDB server URI (e.g. mongodb://user:[password@my.mongo.db](mailto:password@my.mongo.db):707/admin?replicaSet=mySet)
+`--mongodb-server-uri`: MongoDB server URI (e.g. `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
 
 `--mongodb-username`: MongoDB server username
 
