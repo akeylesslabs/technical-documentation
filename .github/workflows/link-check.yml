@@ -88,7 +88,13 @@ jobs:
           git add .github/lychee/lychee-out.md .github/lychee/readme-link-replacer.log
 
           git commit -m "chore: update link replacements, lychee report & log [skip ci]" || echo "No changes to commit"
+
+          # Make sure we are up to date with remote branch
+          git pull --rebase origin $BRANCH || true
+
+          # Now push the updated branch
           git push origin $BRANCH
+
 
       - name: Create or update PR
         id: cpr
