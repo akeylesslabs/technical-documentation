@@ -43,7 +43,7 @@ akeyless create-secret \
 
 `-u, --username`: The username value (relevant for "password manager" only)
 
-`-c, --custom-field`: Additional custom fields to associate with the item, to specify multiple fields repeat the argument: --custom-field fieldName1=value1 -c fieldName2=value2 (only relevant for type 'password')
+`-c, --custom-field`: Additional custom fields to associate with the item, to specify multiple fields repeat the argument: `--custom-field fieldName1=value1 -c fieldName2=value2` (only relevant for type 'password')
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
@@ -261,7 +261,7 @@ akeyless update-secret-val \
 
 `-u, --username`: The username value (relevant for "password manager" only)
 
-`-c, --custom-field`: Additional custom fields to associate with the item, to specify multiple fields repeat the argument: --custom-field fieldName1=value1 -c fieldName2=value2 (only relevant for type 'password')
+`-c, --custom-field`: Additional custom fields to associate with the item, to specify multiple fields repeat the argument: `--custom-field fieldName1=value1 -c fieldName2=value2` (only relevant for type 'password')
 
 `-k, --key`: The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
 
