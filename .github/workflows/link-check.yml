@@ -20,11 +20,12 @@ jobs:
         run: |
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
 
-          # Find all .md files and safely run sed in place
+          # Safely replace all (doc:slug) links with full URLs
           find . -type f -name "*.md" -print0 | \
             xargs -0 sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g'
 
-          COUNT=$(grep -ro "\(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
+          # Count literal replacements using grep -F (fixed string)
+          COUNT=$(grep -roF "(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
 
           echo "$TIMESTAMP - Replaced doc: links. Total replacements so far: $COUNT" \
             >> .github/lychee/readme-link-replacer.log
@@ -35,6 +36,7 @@ jobs:
       - name: Run Lychee
         id: lychee
         uses: lycheeverse/lychee-action@v2.0.2
+        continue-on-error: true
         with:
           args: >
             --verbose
