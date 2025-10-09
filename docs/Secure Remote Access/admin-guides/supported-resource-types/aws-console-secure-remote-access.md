@@ -26,7 +26,7 @@ To enable secure remote access to AWS you need:
 
 In addition, for users to access the AWS Console using the CLI, you need:
 
-* An [SSH certificate issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates) for certificate authentication.
+* An [SSH Certificate](doc:ssh-certificates) for certificate authentication.
 
 # Create an AWS Secret
 
