@@ -15,9 +15,41 @@ jobs:
         with:
           persist-credentials: true # so we can push back
           fetch-depth: 0
-          ref: ${{ github.ref }}
 
-      - name: Install and Run lychee
+      - name: Replace ReadMe doc links
+        id: replacer
+        run: |
+          LOGFILE=".github/lychee/readme-link-replacer.log"
+          mkdir -p .github/lychee
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
+          echo "[$TIMESTAMP] Starting ReadMe link replacement" >> "$LOGFILE"
+
+          FILE_COUNT=0
+          REPLACE_COUNT=0
+
+          for file in $(git ls-files '*.md'); do
+            if grep -q "(doc:" "$file"; then
+              BEFORE=$(grep -o "(doc:[^)]*)" "$file" || true)
+              sed -i -E 's/\(doc:([^)]+)\)/(https:\/\/docs.akeyless.io\/docs\/\1)/g' "$file"
+              AFTER=$(grep -o "(https://docs.akeyless.io/docs/[^)]*)" "$file" || true)
+
+              FILE_COUNT=$((FILE_COUNT+1))
+              REPLACE_COUNT=$((REPLACE_COUNT + $(echo "$BEFORE" | wc -l)))
+
+              echo "[$TIMESTAMP] Updated $file" >> "$LOGFILE"
+              echo "    Before: $BEFORE" >> "$LOGFILE"
+              echo "    After:  $AFTER" >> "$LOGFILE"
+            fi
+          done
+
+          echo "[$TIMESTAMP] Completed ReadMe link replacement" >> "$LOGFILE"
+          echo "[$TIMESTAMP] Summary: $REPLACE_COUNT replacements across $FILE_COUNT files" >> "$LOGFILE"
+
+          echo "REPLACER_SUMMARY=$REPLACE_COUNT replacements across $FILE_COUNT files" >> $GITHUB_ENV
+
+
+      - name: Run lychee
         uses: lycheeverse/lychee-action@v2.0.2
         with:
           args: >
@@ -31,14 +63,55 @@ jobs:
             './**/*.md'
           output: .github/lychee/lychee-out.md
 
-      - name: Commit report back to repo
-        if: always() # run even if lychee fails
+      - name: Parse Lychee summary
+        run: |
+          BROKEN=$(grep -E "📝 Summary:" -A2 .github/lychee/lychee-out.md | grep "✗" | awk '{print $2}' || echo "0")
+          TOTAL=$(grep -E "📝 Summary:" -A2 .github/lychee/lychee-out.md | grep "Total" | awk '{print $2}' || echo "0")
+
+          echo "LYCHEE_SUMMARY=$BROKEN broken links out of $TOTAL checked" >> $GITHUB_ENV
+
+      - name: Set timestamp
+        id: ts
+        run: echo "ts=$(date -u +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
+
+      - name: Commit to branch
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin ${{ github.ref }}
-          git reset --soft FETCH_HEAD
-          git add .github/lychee/lychee-out.md
-          git commit -m "chore: update lychee report [skip ci]" || echo "No changes to commit"
-          git pull --rebase origin ${{ github.ref }} || true
-          git push origin HEAD:${{ github.ref }}
+
+          BRANCH="automation/link-check-${{ steps.ts.outputs.ts }}"
+          git fetch origin
+          git checkout -B $BRANCH
+
+          git add '*.md'
+          git add .github/lychee/lychee-out.md .github/lychee/readme-link-replacer.log
+
+          git commit -m "chore: update link replacements, lychee report & log [skip ci]" || echo "No changes to commit"
+          git push origin $BRANCH
+
+      - name: Create or update PR
+        id: cpr
+        if: always()
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/link-check-${{ steps.ts.outputs.ts }}
+          title: "chore: Link checker results (${{ steps.ts.outputs.ts }} UTC)"
+          body: |
+            This PR updates:
+            - Replaced `doc:` links with full URLs
+            - Lychee link check report
+            - Replacement log
+
+            Please review and merge if everything looks correct.
+          commit-message: "chore: update link replacements, lychee report & log [skip ci]"
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+
+      - name: Send Slack summary
+        if: always()
+        run: |
+          PR_URL="${{ steps.cpr.outputs.pull-request-url }}"
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{\"text\":\":mag: *Link Check Summary* \n- Replacement: $REPLACER_SUMMARY\n- Lychee: $LYCHEE_SUMMARY\n- PR: <$PR_URL|Review here>\"}" \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
