@@ -417,9 +417,9 @@ akeyless target create gke \
 
 `-a, --gke-account-email`: GKE service account email
 
-`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https://\<DNS/IP>
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI `https://<DNS/IP>`
 
-`-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
+`-c, --gke-cluster-ca-cert`: GKE Base64 encoded cluster certificate
 
 `--gke-account-key-file-path`: File path to GKE service account key
 
@@ -820,7 +820,7 @@ akeyless target create sectigo \
 --name <Target name> \
 --username <Sectigo Username> \
 --password <Sectigo Password> \
---customer-uri <Sectigo Customer Uri > \
+--customer-uri <Sectigo Customer URI > \
 --organization-id <Sectigo Organization ID > \
 --certificate-profile-id <Sectigo Certificate Profile ID> \
 --external-requester <email1,emali2,email3> \
@@ -836,7 +836,7 @@ akeyless target create sectigo \
 
 `-p, --password`: **Required**, Password of the Sectigo account user
 
-`-c, --customer-uri`: **Required**, Customer Uri of the Sectigo account
+`-c, --customer-uri`: **Required**, Customer URI of the Sectigo account
 
 `-o, --organization-id`: **Required**, Organization ID of the Sectigo account
 
@@ -1340,17 +1340,17 @@ akeyless update-db-target \
 
 `--db-name`: Database name
 
-`--db-server-certificates`: Set of root certificate authorities in base64 encoding used by clients to verify server certificates
+`--db-server-certificates`: Set of root certificate authorities in Base64 encoding used by clients to verify server certificates
 
 `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
 `--snowflake-account`: Snowflake account name
 
-`--mongodb-atlas`: Flag, set database type to "mongodb" and the flag to "true" to create Mongo Atlas target
+`--mongodb-atlas`: Flag, set database type to `mongodb` and the flag to `true` to create Mongo Atlas target
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
-`--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
+`--mongodb-uri-options`: MongoDB server URI options (e.g. `replicaSet=mySet&authSource=authDB`)
 
 `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -1362,7 +1362,7 @@ akeyless update-db-target \
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
-`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
