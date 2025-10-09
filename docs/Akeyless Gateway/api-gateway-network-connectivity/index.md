@@ -185,7 +185,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        `https://gator.akeyless.io`, 
+        `https://gator.akeyless.io`,
         `https://gator-ro.akeyless.io`
       </td>
 
@@ -208,7 +208,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        amqps://mq.akeyless.io
+        `amqps://mq.akeyless.io`
       </td>
 
       <td style={{ textAlign: "left" }}>
