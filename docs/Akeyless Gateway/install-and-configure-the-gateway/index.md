@@ -21,13 +21,13 @@ next:
 
 * An [Authentication Method](doc:access-and-authentication-methods). Make sure it has the right [access permission](doc:rbac) to create and manage [Secrets, Keys](doc:manage-your-secrets-overview) & [Targets](doc:targets).
 
-> 👍 Note
->
-> The following example uses the account default [Authentication Method.](https://docs.akeyless.io/docs/access-and-authentication-methods) Using the account owner's email and password which has superuser privileges on the account.
+<Callout icon="👍" theme="okay">
+  _**Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Using the account owner's email and password which has superuser privileges on the account._
+</Callout>
 
 * A Linux or a Windows machine with [Docker engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2GB RAM.
 
-* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints: 
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
 | Service                                              | Endpoint   |
 | :--------------------------------------------------- | :--------- |
