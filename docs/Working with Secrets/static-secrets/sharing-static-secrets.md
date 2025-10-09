@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can securely share copies of static secret items saved in Akeyless with anyone, even if they don’t use Akeyless or are part of your organization based on a well-defined TTL. When you share an item, you can choose either to share it via email or to wrap the value of the secret with a temporary token. Upon item sharing, a temporary [Access Role](doc:rbac) will be created automatically, so as a break glass solution, this can be revoked immediately. Upon access to the shared secret, a log entry will be recorded with the relevant details.
+You can securely share copies of static secret items saved in Akeyless with anyone, even if they don’t use Akeyless or are part of your organization based on a well-defined TTL. When you share an item, you can choose either to share it via email or to wrap the value of the secret with a temporary token. Upon item sharing, a temporary [Access Role](https://docs.akeyless.io/docs/rbac) will be created automatically, so as a break glass solution, this can be revoked immediately. Upon access to the shared secret, a log entry will be recorded with the relevant details.
 
 When sharing via **emails** you’ll get a unique link you need to share with those users, choose when the share expires and who are the specific users that will be able to access it. When sharing using **wrapping tokens**, you'll get a temporary token that can be shared on the wire without exposing the real secret.
 

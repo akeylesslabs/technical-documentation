@@ -36,7 +36,7 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypto-provider/release/latest/AkeylessEkmProviderInstaller.msi --output AkeylessEkmProviderInstaller.msi
 ```
 
-Follow the wizard installation steps - enter your Akeyless [Gateway](doc:api-gw) URL using the `/api/v2` endpoint (previously port  `8081`), and choose a path in the Akeyless platform to store the keys.
+Follow the wizard installation steps - enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL using the `/api/v2` endpoint (previously port  `8081`), and choose a path in the Akeyless platform to store the keys.
 
 Choose the OS installation path and save it for later. This will copy the `dll`  files, and also creates a configuration file that can be edited later. 
 
@@ -47,7 +47,7 @@ Choose the OS installation path and save it for later. This will copy the `dll` 
 > base\_item\_path=" /path/to/keys"\
 > use\_classic\_keys=true
 
-**Notice:** It is optional to configure TDE to create & leverage Akeyless [Classic Keys](doc:classic-keys), the default is otherwise using a DFC key.
+**Notice:** It is optional to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys), the default is otherwise using a DFC key.
 
 * To work with Classic Keys, make sure you work against your own Gateway (on the API v2 endpoint)
 
@@ -77,7 +77,7 @@ CREATE CRYPTOGRAPHIC PROVIDER Akeyless
 FROM FILE = 'C:\Program Files\Akeyless\Akeyless Ekm Provider\AkeylessEkm.dll'
 ```
 
-3. Create a SQL `CREDENTIAL` that will be used by the system administrators to access Akeyless from the SQL server, for example using an [API Key](doc:api-key) which is stored inside a SQL `CREDENTIAL` named `akeyless_tde`
+3. Create a SQL `CREDENTIAL` that will be used by the system administrators to access Akeyless from the SQL server, for example using an [API Key](https://docs.akeyless.io/docs/api-key) which is stored inside a SQL `CREDENTIAL` named `akeyless_tde`
 
 ```sql
 CREATE CREDENTIAL akeyless_tde
@@ -96,7 +96,7 @@ GO
 
   The API Key (or other Auth Method) used in **`akeyless_tde`** **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
 
-  When working **Classic Keys**, make sure you also  grant the Auth Method the appropriate Gateway “[Access Permissions](doc:gateway-access-permissions)” to manage “**Classic Keys**”
+  When working **Classic Keys**, make sure you also  grant the Auth Method the appropriate Gateway “[Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions)” to manage “**Classic Keys**”
 </Callout>
 
 4. Add the credential to a privileged user, in the following example replace the [`DOMAIN\login`] with your privileged username format and add the SQL `CREDENTIAL`:

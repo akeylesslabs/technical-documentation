@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Resource Discovery enables importing and managing all domain and local Users into [Rotated Secrets](doc:rotated-secrets) in Akeyless Platform, while domain Servers will be imported as [SSH](doc:ssh-target) or [Windows](doc:windows-target) Targets in Akeyless based on the Migration **Target Type** setting.
+Akeyless Resource Discovery enables importing and managing all domain and local Users into [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) in Akeyless Platform, while domain Servers will be imported as [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Targets in Akeyless based on the Migration **Target Type** setting.
 
-The discovery process will search for domain Users and migrate them as [LDAP Rotated Secret](doc:create-an-ldap-rotated-secret), from the given [LDAP Target](doc:ldap-target), i.e., Active Directory, based on the `User Base DN`, `Domain Name`, and  `Privileged Users Groups`.
+The discovery process will search for domain Users and migrate them as [LDAP Rotated Secret](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret), from the given [LDAP Target](https://docs.akeyless.io/docs/ldap-target), i.e., Active Directory, based on the `User Base DN`, `Domain Name`, and  `Privileged Users Groups`.
 
-The [LDAP Target](doc:ldap-target) should contain a **Privilege Domain User** that has permission to perform the following:
+The [LDAP Target](https://docs.akeyless.io/docs/ldap-target) should contain a **Privilege Domain User** that has permission to perform the following:
 
 * Run LDAP search query
 
@@ -22,11 +22,11 @@ The [LDAP Target](doc:ldap-target) should contain a **Privilege Domain User** th
 
 * Connecting to Windows and Linux domain servers (through NTLM, SSH)
 
-* Installing OpenSSH.Server via Windows features, **relevant** only for [SSH Targets](doc:ssh-target).
+* Installing OpenSSH.Server via Windows features, **relevant** only for [SSH Targets](https://docs.akeyless.io/docs/ssh-target).
 
 * Search for local users and change their password 
 
-When working with [SSH Target](doc:ssh-target), the migration process will try to install the `OpenSSH.Server` windows feature on Windows servers where SSH is not installed, for domain servers using WinRM over `https`or `http` using NTLM for authentication over port `5986` or `5985` correspondingly. 
+When working with [SSH Target](https://docs.akeyless.io/docs/ssh-target), the migration process will try to install the `OpenSSH.Server` windows feature on Windows servers where SSH is not installed, for domain servers using WinRM over `https`or `http` using NTLM for authentication over port `5986` or `5985` correspondingly. 
 
 > 🚧 Warning
 >
@@ -45,11 +45,11 @@ To create the migration from your Active Directory, login to your Gateway on por
 
 * **Name:** A unique name for the migration object. 
 
-* **Target:** Select an existing [LDAP Target](doc:ldap-target) in Akeyless, where the `Server type` should be `Active Directory`.
+* **Target:** Select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) in Akeyless, where the `Server type` should be `Active Directory`.
 
 * **Discovery Type** : Set the desired discovery mode. Supported options are **Domain Users**, **Local Users**, and **Computers**. 
 
-* **Destination Folder:** Destination folder path inside the Akeyless Platform for the migrated items. Make sure your Gateway has enough permissions to create items under this location. All migrated items, both [Targets ](https://docs.akeyless.io/docs/targets)and [Rotated Secrets](doc:rotated-secrets) of your Domain Servers and domain\\local Users will be saved under this folder.
+* **Destination Folder:** Destination folder path inside the Akeyless Platform for the migrated items. Make sure your Gateway has enough permissions to create items under this location. All migrated items, both [Targets ](https://docs.akeyless.io/docs/targets)and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) of your Domain Servers and domain\\local Users will be saved under this folder.
 
 * **Domain Name:** Active Directory Domain Name.
 
@@ -70,7 +70,7 @@ To create the migration from your Active Directory, login to your Gateway on por
 
 * **Computer Base DN:** Distinguished Name of Computer (server) objects to search in Active Directory, e.g. `CN=Computers`,`DC=example`,`DC=com`.
 
-* **Target Name Template:** A template for the created items, where the imported Domain Servers will be saved as [SSH Targets](doc:ssh-target) inside the Akeyless Platform, i.e: `/Servers/{{COMPUTER_NAME}}`. This path includes the prefix of the Destination Folder.
+* **Target Name Template:** A template for the created items, where the imported Domain Servers will be saved as [SSH Targets](https://docs.akeyless.io/docs/ssh-target) inside the Akeyless Platform, i.e: `/Servers/{{COMPUTER_NAME}}`. This path includes the prefix of the Destination Folder.
 
 * **Local User Name Template:** A template for the created items, where the imported Local Users will be saved as Rotated Secrets ) inside the Akeyless Platform, i.e: `/LocalUsers/{{COMPUTER_NAME}}/{{USERNAME}}`,  This path includes the prefix of the Destination Folder.
 
@@ -84,6 +84,6 @@ To create the migration from your Active Directory, login to your Gateway on por
 
 * **Enable SRA:** Enable/Disable RDP Secure Remote Access setup for the migrated local users via the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
 
-* **Target Format:** Relevant only for  **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](doc:linked-target)  for Secure Remote Access. 
+* **Target Format:** Relevant only for  **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](https://docs.akeyless.io/docs/linked-target)  for Secure Remote Access. 
 
 * **Auto Rotate:** Enable/Disable automatic/recurrent rotation for the migrated secrets. Default is Disabled. Only manual rotation is allowed for migrated secrets. If Enabled, this should be set with rotation-interval and rotation-hour settings.

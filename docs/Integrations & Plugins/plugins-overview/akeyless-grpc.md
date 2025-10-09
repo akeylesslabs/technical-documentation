@@ -12,7 +12,7 @@ next:
 ---
 **gRPC** is a modern open-source high-performance Remote Procedure Call (RPC) framework that can run in any environment. Akeyless provides **gRPC** client libraries for Akeyless API core functionality.
 
-To work with **gRPC** clients  make sure your [Gateway](doc:api-gw) runs on version `4.14` or higher. The **gRPC** runs  on Gateway port `8085`.
+To work with **gRPC** clients  make sure your [Gateway](https://docs.akeyless.io/docs/api-gw) runs on version `4.14` or higher. The **gRPC** runs  on Gateway port `8085`.
 
 > 👍 Enabling gRPC
 >
@@ -38,7 +38,7 @@ go get github.com/akeylesslabs/akeyless-grpc-go
 
 # Example
 
-This example demonstrates the uses of [API Key](doc:api-key) for authentication, make sure to set the following:
+This example demonstrates the uses of [API Key](https://docs.akeyless.io/docs/api-key) for authentication, make sure to set the following:
 
 Your  `AccessId` and `AccessKey`, as well as your Gateway URL on port `8085`.
 

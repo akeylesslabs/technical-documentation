@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless officially integrates with **Cert Manager**, and this guide demonstrates the integration based on Venafi Dynamic Secret, for a direct integration with Akeyless, follow the main [Cert Manager](doc:kubernetes-cert-manager) guide.
+Akeyless officially integrates with **Cert Manager**, and this guide demonstrates the integration based on Venafi Dynamic Secret, for a direct integration with Akeyless, follow the main [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) guide.
 
 ## Using cert-manager with Akeyless and Veanfi Dynamic Secret
 

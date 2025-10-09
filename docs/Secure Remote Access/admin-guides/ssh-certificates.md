@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Via a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](doc:access-and-authentication-methods), while using existing Access Groups and Policies in your environment.
+Via a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods), while using existing Access Groups and Policies in your environment.
 
 Instead of issuing a public and private SSH key pair, Akeyless provides ephemeral SSH certificates to allow access over the standard SSH protocol while eliminating the need for public SSH keys on the server side.
 
@@ -146,7 +146,7 @@ The following command will create a new SSH Cert Issuer in the Akeyless Platform
 
 * `signer-key-name`: The private key to be used for certificate signing 
 
-* `allowed-users`: Users allowed to use the certificate (supports wildcard) for explicitly provided list, or extracting the relevant username from an existing [Sub-Claim](doc:sub-claims)
+* `allowed-users`: Users allowed to use the certificate (supports wildcard) for explicitly provided list, or extracting the relevant username from an existing [Sub-Claim](https://docs.akeyless.io/docs/sub-claims)
 
 * `ttl`: The time (in seconds) to the expiration of the certificate
 

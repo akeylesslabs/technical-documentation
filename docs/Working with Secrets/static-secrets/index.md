@@ -18,15 +18,15 @@ Static Secrets are key/value pairs created and updated manually, such as passwor
 
 The typical process for working with Static Secrets includes:
 
-1. [Create a Static Secret](doc:create-secret): Start by defining the name and value of the Static Secret.
+1. [Create a Static Secret](https://docs.akeyless.io/docs/create-secret): Start by defining the name and value of the Static Secret.
 
-2. [Add a Static Secret to an Access Role](doc:add-a-static-secret-to-an-access-role): Allow clients to access the Static Secret by adding it to a role with the appropriate permissions.
+2. [Add a Static Secret to an Access Role](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role): Allow clients to access the Static Secret by adding it to a role with the appropriate permissions.
 
-3. [Retrieve a Static Secret Value](doc:retrievestatic): Get the value of a Static Secret when needed.
+3. [Retrieve a Static Secret Value](https://docs.akeyless.io/docs/retrievestatic): Get the value of a Static Secret when needed.
 
-4. [Sharing Static Secrets](doc:sharing-static-secrets): Temporarily share with external users who are not part of your organization or do not have general access permissions.
+4. [Sharing Static Secrets](https://docs.akeyless.io/docs/sharing-static-secrets): Temporarily share with external users who are not part of your organization or do not have general access permissions.
 
-If necessary, a Static Secret value can be updated or have multiple versions. See [Update and Version Static Secrets](doc:staticversions).
+If necessary, a Static Secret value can be updated or have multiple versions. See [Update and Version Static Secrets](https://docs.akeyless.io/docs/staticversions).
 
 When a Static Secret becomes obsolete, it can be deleted.
 

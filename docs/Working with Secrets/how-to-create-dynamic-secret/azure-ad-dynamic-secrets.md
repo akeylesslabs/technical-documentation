@@ -18,7 +18,7 @@ You can define an Azure AD dynamic secret to dynamically generate access credent
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * Azure AD Service Account
 
@@ -45,9 +45,9 @@ For example, the `microsoft.directory/applications/credentials/update` permissio
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:azure-targets). It both saves time for multiple secret-level configurations (by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/azure-targets#create-an-azure-target-from-the-cli) each time), and it's also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/azure-targets). It both saves time for multiple secret-level configurations (by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/azure-targets#create-an-azure-target-from-the-cli) each time), and it's also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Azure AD secret from the CLI using an existing [Azure Target](doc:azure-targets), run the following command:
+To create a dynamic Azure AD secret from the CLI using an existing [Azure Target](https://docs.akeyless.io/docs/azure-targets), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create azure \
@@ -104,7 +104,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have an [Azure AD Target](doc:azure-targets) yet, you can use the command with your Azure AD connection settings:
+If you don't have an [Azure AD Target](https://docs.akeyless.io/docs/azure-targets) yet, you can use the command with your Azure AD connection settings:
 
 * `azure-tenant-id`: Azure Tenant ID.
 
@@ -172,7 +172,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
 

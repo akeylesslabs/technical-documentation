@@ -19,7 +19,7 @@ next:
 ---
 ## Network & Security
 
-* [Akeyless Gateway (GW)](doc:api-gw) cluster should not be reachable from the external network, i.e., ingress traffic should be blocked, while egress traffic should be able to reach the required services. A list of the required endpoints that should be reachable from your GW can be found [here](https://docs.akeyless.io/docs/api-gateway-network-connectivity). 
+* [Akeyless Gateway (GW)](https://docs.akeyless.io/docs/api-gw) cluster should not be reachable from the external network, i.e., ingress traffic should be blocked, while egress traffic should be able to reach the required services. A list of the required endpoints that should be reachable from your GW can be found [here](https://docs.akeyless.io/docs/api-gateway-network-connectivity). 
 
 * **Gateway Authentication method** - Should be used with a dedicated authentication method, stored under a path that only your admin users can access. When creating items associated with the Gateway, the Gateway's authentication method needs to have the following permissions:
 

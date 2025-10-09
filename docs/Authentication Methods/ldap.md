@@ -12,13 +12,13 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
 ---
-The LDAP [Authentication Method](doc:access-and-authentication-methods) uses an existing LDAP server in order to authenticate your users without sharing their credentials directly with Akeyless or any other third party. The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) interacts directly with your LDAP server inside your internal network, acting as an internal trusted server, to ensure safe communication.
+The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) uses an existing LDAP server in order to authenticate your users without sharing their credentials directly with Akeyless or any other third party. The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) interacts directly with your LDAP server inside your internal network, acting as an internal trusted server, to ensure safe communication.
 
 # Prerequisites
 
-* [Akeyless Gateway](doc:api-gw) with network access to an LDAP server.
+* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to an LDAP server.
 
-* An [Access Role](doc:rbac) with permissions to create an Authentication Method.
+* An [Access Role](https://docs.akeyless.io/docs/rbac) with permissions to create an Authentication Method.
 
 * A privileged LDAP User.
 
@@ -37,7 +37,7 @@ The LDAP [Authentication Method](doc:access-and-authentication-methods) uses an 
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Require Sub Claim on role association:** select to force [Sub-Claims](doc:sub-claims) during [Role](doc:rbac) association.
+* **Require Sub Claim on role association:** select to force [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) during [Role](https://docs.akeyless.io/docs/rbac) association.
 
 * **Unique Identifier:** A unique identifier is usually one of the following keys `email`, `username`, or `UPN`. Identity Providers issue sub-claims containing details that uniquely identify the user whenever a user logs in.
   A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.

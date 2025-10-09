@@ -16,7 +16,7 @@ next:
 ---
 # Introduction
 
-Akeyless can act as a Certificate Authority (CA) for the internal environment. This page focuses on PKI Cert Issuer, if you wish to see how to create and work with SSH certificates, please follow this [link](doc:how-to-configure-ssh).
+Akeyless can act as a Certificate Authority (CA) for the internal environment. This page focuses on PKI Cert Issuer, if you wish to see how to create and work with SSH certificates, please follow this [link](https://docs.akeyless.io/docs/how-to-configure-ssh).
 
 To start building your chain of trust using Akeyless PKI Issuer, you can either bring your own CA certificate with the signing RSA key or simply generate your CA certificate as part of the signing key creation. 
 
@@ -98,7 +98,7 @@ Where:
 
 * `create-public-crl`: Optional, to maintain a public CRL at: `https://vault.akeyless.io/crl/<account-id>/<cert-issuer-display-id>`.
 
-* `create-private-crl`  Optional, creates the CRL endpoint on the [Gateway](doc:api-gw) at: `https://<gatewayURL>/crl/<cert-issuer-display-id>`.
+* `create-private-crl`  Optional, creates the CRL endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at: `https://<gatewayURL>/crl/<cert-issuer-display-id>`.
 
 * `gw-cluster-url`  Akeyless Gateway Configuration Manager URL (port 8000). Required for **private CRL**.
 
@@ -132,7 +132,7 @@ akeyless generate-csr \
 
 Where:
 
-* `name`:  Full name of a new [Classic Key](doc:classic-keys) or DFC Key that will be generated. 
+* `name`:  Full name of a new [Classic Key](https://docs.akeyless.io/docs/classic-keys) or DFC Key that will be generated. 
 
 * `generate-key`: Use this flag to generate a new classic key or dfc key with the CSR.
 

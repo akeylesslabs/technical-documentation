@@ -14,7 +14,7 @@ You can define a GitHub Dynamic Secret to generate just-in-time installation acc
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * A GitHub application with permissions you would like to grant to the temporary tokens. Then, you need to install this app and select the repositories you want to allow access to.
 
@@ -24,7 +24,7 @@ For more information on how to use installation access tokens in GitHub, see the
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic GitHub secret from the CLI using an existing GitHub target, run the following command:
 
@@ -64,7 +64,7 @@ Where:
 
 ### Inline connection string
 
-If you don't have [GitHub Target](doc:github-target) yet, you can use the command with your GitHub connection string:
+If you don't have [GitHub Target](https://docs.akeyless.io/docs/github-target) yet, you can use the command with your GitHub connection string:
 
 * `github-app-id`: Your GitHub application ID.
 
@@ -108,7 +108,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
 

@@ -17,7 +17,7 @@ next:
 
 # Prerequisites
 
-* An [Akeyless Gateway](doc:api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * `ext_email`Subclaim exists in your IdP
 
@@ -52,7 +52,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](doc:targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a Target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used. Using inline will force you to change the credentials in each individual item instead of just the Target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a Target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used. Using inline will force you to change the credentials in each individual item instead of just the Target.
 
 To create a dynamic Google Workspace secret from the CLI using an existing GCP target, run the following command:
 
@@ -153,7 +153,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **User TTL**: Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Time Unit**: Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway**: Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 # Fetch a Dynamic Google Workspace Secret value from the Akeyless Console
 

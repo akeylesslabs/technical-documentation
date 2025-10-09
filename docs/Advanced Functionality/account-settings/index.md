@@ -22,7 +22,7 @@ To view `Account Settings` options from the CLI, use the following command:
 akeyless update-account-settings -h
 ```
 
-You can find all the available commands in the [CLI Reference](doc:cli-reference#p-stylecolorblueupdate-account-settingsp).
+You can find all the available commands in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueupdate-account-settingsp).
 
 ## Update Account Settings from the Akeyless Console
 
@@ -44,11 +44,11 @@ Users can update the name of their company by clicking the pencil next to that f
 
 **Account Alias**
 
-Option to set an alias for the account, this requires **Akeyless Customer Success** help, to provide end users an option to sign in to akeyless using a human-friendly string, with an [Auth Method](doc:access-and-authentication-methods) full name instead of Access IDs.
+Option to set an alias for the account, this requires **Akeyless Customer Success** help, to provide end users an option to sign in to akeyless using a human-friendly string, with an [Auth Method](https://docs.akeyless.io/docs/access-and-authentication-methods) full name instead of Access IDs.
 
 **Password expiration policy**
 
-Set user passwords to expire after a number of days, relevant for the Account Owner and any [Email](doc:email) authentication method.
+Set user passwords to expire after a number of days, relevant for the Account Owner and any [Email](https://docs.akeyless.io/docs/email) authentication method.
 
 **Change Password**
 
@@ -85,7 +85,7 @@ Users can choose a default Encryption Key to protect all of their items. If you 
 
 **Request Access**
 
-This allows users to request temporary access or to elevate their current permissions for specific items using a built-in approval workflow which requires approval from the system admin. See the [Request Access](doc:request-access) page for more info.
+This allows users to request temporary access or to elevate their current permissions for specific items using a built-in approval workflow which requires approval from the system admin. See the [Request Access](https://docs.akeyless.io/docs/request-access) page for more info.
 
 **Password Generation Policy**
 

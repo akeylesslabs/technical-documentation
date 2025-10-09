@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a HashiCorp Vault target to be used with [HashiCorp Vault Universal Secrets Connector](doc:aws-universal-secrets-connector-copy)
+You can define a HashiCorp Vault target to be used with [HashiCorp Vault Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector-copy)
 
 # Create a HashiCorp Vault Target in the CLI
 
@@ -43,7 +43,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   For more information, [read here](doc:implement-zero-knowledge).
+   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Set the maximum versions for the target.
 

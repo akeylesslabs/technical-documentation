@@ -253,11 +253,11 @@ The following table describes the main functionality of Akeyless micro-services:
 
 ## Command Line Interface (CLI)
 
-There are a handful of ways to interact with Akeyless Vault for managing, creating, and fetching multiple types of supported [secrets](doc:manage-your-secrets-overview). One of them is our Command Line Interface (CLI), which is purpose-built to serve your custom automation scripts (usually within a CI/CD pipeline or backup process), as well as human DevOps/Software engineers.
+There are a handful of ways to interact with Akeyless Vault for managing, creating, and fetching multiple types of supported [secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview). One of them is our Command Line Interface (CLI), which is purpose-built to serve your custom automation scripts (usually within a CI/CD pipeline or backup process), as well as human DevOps/Software engineers.
 
 > 👍 Info
 >
-> For a full list of the available CLI command, see the [CLI reference](doc:cli-reference).
+> For a full list of the available CLI command, see the [CLI reference](https://docs.akeyless.io/docs/cli-reference).
 
 Akeyless Vault CLI has a pre-compiled binary version for Linux, macOS, and Windows which can be easily installed via an installation script.
 
@@ -300,14 +300,14 @@ You can configure different types of authentication methods from the CLI:
 4. [SAML](https://docs.akeyless.io/docs/saml) (`saml`)
 5. [LDAP](https://docs.akeyless.io/docs/ldap) (`ldap`)
 6. Password (`email/password`)
-7. [OIDC](doc:openid) (`oidc`)
-8. [K8s](doc:kubernetes-auth) (`k8s`)
-9. [GCP](doc:gcp-auth-method) (`GCP`)
+7. [OIDC](https://docs.akeyless.io/docs/openid) (`oidc`)
+8. [K8s](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
+9. [GCP](https://docs.akeyless.io/docs/gcp-auth-method) (`GCP`)
 
 Use the authentication mode that you also used when you signed up and signed in to the UI, use your username and password credentials, or use the API key Akeyless assigned to you when you signed in for the first time.
 
 If you're not sure what authentication method to use, consult your administrator.\
-For more information about authentication methods, see [Authentication Methods](doc:access-and-authentication-methods).
+For more information about authentication methods, see [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
 In the following example, you'll find both the API-key and the LDAP authentication methods: API-Key and LDAP.
 

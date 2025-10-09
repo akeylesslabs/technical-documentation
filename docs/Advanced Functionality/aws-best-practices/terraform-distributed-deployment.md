@@ -26,15 +26,15 @@ For Organization integration, ensure you have an existing AWS environment with A
 
 3. [Terraform](https://developer.hashicorp.com/terraform) Installed.
 
-4. An [AWS IAM](doc:aws-iam) authentication method & [Access Role](doc:rbac) on your Akeyless account, this [Authentication Method](doc:access-and-authentication-methods) can support many AWS accounts. Alternatively, you can create a dedicated auth method per account, ending with a unique access ID per account. In both cases, the [RBAC](doc:rbac) in Akeyless can isolate the access permissions inside Akeyless per account. 
+4. An [AWS IAM](https://docs.akeyless.io/docs/aws-iam) authentication method & [Access Role](https://docs.akeyless.io/docs/rbac) on your Akeyless account, this [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) can support many AWS accounts. Alternatively, you can create a dedicated auth method per account, ending with a unique access ID per account. In both cases, the [RBAC](https://docs.akeyless.io/docs/rbac) in Akeyless can isolate the access permissions inside Akeyless per account. 
 
 # Create the required IAM roles
 
 In this step, you will connect to your AWS management account to apply using a Terraform template that will create the IAM role that enables the **Akeyless Gateway** to:
 
-* Create and manage [AWS Dynamic Secrets](doc:aws-producer)
-* Rotate existing IAM credentials using [AWS Rotated Secret](doc:create-an-aws-rotated-secret)
-* Operate the [AWS Universal Secrets Connector](doc:aws-universal-secrets-connector)
+* Create and manage [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer)
+* Rotate existing IAM credentials using [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret)
+* Operate the [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector)
 
 ## Provide the parameters to identify your AWS Organization
 
@@ -185,5 +185,5 @@ resource "aws_iam_role_policy_attachment" "attach" {
 ## Run the Deployment
 
 1. Run `terraform init && terraform apply`.  
-2. Create an [AWS Target](doc:aws-targets) in Akeyless using the **Gateway Cloud ID** option.  
+2. Create an [AWS Target](https://docs.akeyless.io/docs/aws-targets) in Akeyless using the **Gateway Cloud ID** option.  
 3. Use that target whenever you create a **Dynamic Secret**, **Rotated Secret**, or **USC** .

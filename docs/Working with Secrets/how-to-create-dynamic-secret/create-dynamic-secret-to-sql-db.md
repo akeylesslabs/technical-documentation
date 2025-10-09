@@ -42,7 +42,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 # Create a Dynamic Database Secret from the CLI
 
-To create a dynamic database secret from the CLI using an existing [Target](doc:targets), run the following command:
+To create a dynamic database secret from the CLI using an existing [Target](https://docs.akeyless.io/docs/targets), run the following command:
 
 ```shell MySQL/MariaDB
 akeyless dynamic-secret create mysql \
@@ -293,7 +293,7 @@ Where:
 
 * `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-* `target-name`: Full path of the [Target](doc:targets) item that stores the connection settings to your database server.
+* `target-name`: Full path of the [Target](https://docs.akeyless.io/docs/targets) item that stores the connection settings to your database server.
 
 * `gateway-url`: Akeyless Gateway URL.
 
@@ -335,7 +335,7 @@ The following is an example revocation statement for Postgres:
 
 ### Inline connection string
 
-If you don't have a [Database Target](doc:database-targets), you can use the command with your database target server connection string inline:
+If you don't have a [Database Target](https://docs.akeyless.io/docs/database-targets), you can use the command with your database target server connection string inline:
 
 Depending on your database type, provide a **privileged username** that has enough permission to create and revoke users on your database with the relevant connection settings. And set the relevant creation and revocation statements to control and manage the level of access and roles of your temporary credentials.
 
@@ -361,7 +361,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [Database Target](doc:database-targets) or specify details of the DB Server explicitly.
+* **Target mode:** In this section, you can either select an existing [Database Target](https://docs.akeyless.io/docs/database-targets) or specify details of the DB Server explicitly.
 
 * **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
 
@@ -373,7 +373,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 If you selected the **Explicitly specify target properties** mode, click **Next**.
 

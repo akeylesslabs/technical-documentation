@@ -31,7 +31,7 @@ Where:
 
 * `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* `idp-metadata-url`: The Identity Provider URL (for more information check the [Okta](doc:okta) example).
+* `idp-metadata-url`: The Identity Provider URL (for more information check the [Okta](https://docs.akeyless.io/docs/okta) example).
 
 * `unique-identifier`: A unique identifier is usually one of the following **keys** `email`, `username`, or `UPN`. Whenever a user logs in with a token, SAML Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 

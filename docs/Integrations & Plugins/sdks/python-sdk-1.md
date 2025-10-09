@@ -44,11 +44,11 @@ To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set `host` wit
 
 # Authentication
 
-The Akeyless **Python** SDK supports multiple [Authentication Methods](doc:access-and-authentication-methods).
+The Akeyless **Python** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
 ## API Key
 
-To use an [API Key](doc:api-key) for authentication set the following:
+To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
 
 ```python
 body = akeyless.Auth(access_id='Access ID', access_key='Access Key')

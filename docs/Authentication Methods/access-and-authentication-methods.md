@@ -10,30 +10,30 @@ metadata:
 next:
   description: ''
 ---
-In [Authentication & Authorization](doc:understanding-authentication) we saw that Authentication Methods represent machine identities or human identities.
+In [Authentication & Authorization](https://docs.akeyless.io/docs/understanding-authentication) we saw that Authentication Methods represent machine identities or human identities.
 
 Instead of authenticating identities itself, in most cases, Akeyless integrates with 3rd party identity providers that provide tokens of authentication.
 
 For **machine** access, Akeyless supports:
 
-* Cloud identities (CSP IAM) such as [AWS IAM](doc:aws-iam), [Azure AD](doc:azure-ad), [GCP IAM](doc:gcp-auth-method), and [OCI IAM](doc:oci-iam)
-* On-prem machines using [Universal Identity™](doc:universal-identity)
-* [Kubernetes](doc:kubernetes-auth)
-* [Certificate](doc:certificate-based-authentication)
-* [OAuth2.0/JWT](doc:oauth20jwt)
-* [API Keys](doc:api-key)
-* [Kerberos](doc:kerberos)
+* Cloud identities (CSP IAM) such as [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [Azure AD](https://docs.akeyless.io/docs/azure-ad), [GCP IAM](https://docs.akeyless.io/docs/gcp-auth-method), and [OCI IAM](https://docs.akeyless.io/docs/oci-iam)
+* On-prem machines using [Universal Identity™](https://docs.akeyless.io/docs/universal-identity)
+* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
+* [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
+* [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt)
+* [API Keys](https://docs.akeyless.io/docs/api-key)
+* [Kerberos](https://docs.akeyless.io/docs/kerberos)
 
 For **human** access, Akeyless supports:
 
-* [LDAP](doc:ldap)
-* [SAML](doc:saml)
+* [LDAP](https://docs.akeyless.io/docs/ldap)
+* [SAML](https://docs.akeyless.io/docs/saml)
 * [OIDC](https://docs.akeyless.io/docs/openid)
-* [OAuth2.0/JWT](doc:oauth20jwt)
+* [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt)
 * [Email](https://docs.akeyless.io/docs/email)
-* [API Keys](doc:api-key)
+* [API Keys](https://docs.akeyless.io/docs/api-key)
 
-which are used by known identity providers such as [Okta](doc:okta), [Azure AD](doc:azure-ad-saml-authentication), and others.
+which are used by known identity providers such as [Okta](https://docs.akeyless.io/docs/okta), [Azure AD](https://docs.akeyless.io/docs/azure-ad-saml-authentication), and others.
 
 # Authentication Settings
 
@@ -46,7 +46,7 @@ The default setting of your token TTL will affect all your authentication method
 > 👍 Note
 >
 > For an authentication method to have the necessary permissions to perform actions, you will need to attach it to a matching role.
-> To learn more about this, please go to [Role-based Access Control (RBAC)](doc:rbac).
+> To learn more about this, please go to [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).
 
 ## Product Type
 
@@ -56,9 +56,9 @@ Accounts with multiple products can label **each** of their Authentication metho
 
 MFA is a process in which users are prompted during the sign-in process for an additional form of identification, such as a code on their email, or using any authenticator application.
 
-If you only use an [Email](doc:email) and password to authenticate to Akeyless, either using your Account email or any users who were invited using the [Email Auth](doc:email) it leaves an insecure vector for attack. Those Auth methods can be set with MFA by default.
+If you only use an [Email](https://docs.akeyless.io/docs/email) and password to authenticate to Akeyless, either using your Account email or any users who were invited using the [Email Auth](https://docs.akeyless.io/docs/email) it leaves an insecure vector for attack. Those Auth methods can be set with MFA by default.
 
-To enable MFA on your email, navigate to the Account Settings page and choose the right flow you'd like to receive those temporary tokens, either over email, or using an authenticator app. Once enabled, any time you'll log in using your email, you'll have to provide this one-time password to log in to Akeyless services such as our [Command Line Interface (CLI)](doc:cli), Web applications, and our [Browser Extension](doc:browser-extensions).
+To enable MFA on your email, navigate to the Account Settings page and choose the right flow you'd like to receive those temporary tokens, either over email, or using an authenticator app. Once enabled, any time you'll log in using your email, you'll have to provide this one-time password to log in to Akeyless services such as our [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), Web applications, and our [Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
 
 # Tutorial
 

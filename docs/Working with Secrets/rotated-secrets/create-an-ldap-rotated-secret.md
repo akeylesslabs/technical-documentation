@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can create a Rotated Secret for an LDAP user. Before you get started, ensure creating an [LDAP Target](doc:ldap-target) that includes the LDAP server information, as well as credentials for a privileged user authorized to rotate credentials.
+You can create a Rotated Secret for an LDAP user. Before you get started, ensure creating an [LDAP Target](https://docs.akeyless.io/docs/ldap-target) that includes the LDAP server information, as well as credentials for a privileged user authorized to rotate credentials.
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the LDAP server through your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target server.
 
@@ -40,15 +40,15 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [LDAP Target](doc:ldap-target) with which the Rotated Secret should be associated.
+* `target-name`: The name of the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target server.
-  * `use-target-creds` - Use the credentials defined on the [LDAP Target](doc:ldap-target) item. For LDAP targets, this is the only available option.
+  * `use-target-creds` - Use the credentials defined on the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) item. For LDAP targets, this is the only available option.
 
 * `password-length`: **Optional**, the user's password length.
 
-* `rotator-type`: The type of credentials to be rotated. For [LDAP Target](doc:ldap-target), choose:
-  * `ldap` - to rotate the password for the user specified in the [LDAP Target](doc:ldap-target).
+* `rotator-type`: The type of credentials to be rotated. For [LDAP Target](https://docs.akeyless.io/docs/ldap-target), choose:
+  * `ldap` - to rotate the password for the user specified in the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
 * `rotated-username`: The LDAP user whose password should be rotated.
 
@@ -72,15 +72,15 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [LDAP Target](doc:ldap-target) to be associated with the Rotated Secret.
+* **Target:** Defines the name of the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target server:
-  * **Target credentials:** Use the credentials defined inside the [LDAP Target](doc:ldap-target) item. For LDAP targets, this is the only available option.
+  * **Target credentials:** Use the credentials defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) item. For LDAP targets, this is the only available option.
 
 * **Password Length**: Set the user's password length.
 
 * **Rotator type:** Determines the rotator type:
-  * **LDAP**: Rotates the password defined inside the [LDAP Target](doc:ldap-target).
+  * **LDAP**: Rotates the password defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
 * **Username:** Defines the LDAP username which password should be rotated.
 
@@ -92,7 +92,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 * **Auto rotate:** Determines if automatic rotation is enabled.
 

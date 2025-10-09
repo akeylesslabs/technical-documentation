@@ -14,7 +14,7 @@ Akeyless offers the creation of a private certificate authority, in which you ca
 
 The certificate chain includes the following components: 
 
-* **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](doc:encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
+* **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
 
 * **Intermediate CA**: Signed by the **Root CA**, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has authorized the Intermediate CA.
 

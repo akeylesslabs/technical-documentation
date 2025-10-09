@@ -22,11 +22,11 @@ This page describes how to run an Akeyless Serverless Gateway on AWS using Hashi
 
 | Service                                              | Endpoint   |
 | :--------------------------------------------------- | :--------- |
-| [Gateway Console](doc:gateway-configuration-manager) | `/console` |
-| [HashiCorp Vault Proxy](doc:hashicorp-vault-proxy)   | `/hvp`     |
+| [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
 | Akeyless V1 REST API                                 | `/api/v1`  |
 | Akeyless V2 REST API                                 | `/api/v2`  |
-| [KMIP Server](doc:kmip-server)                       | `5696`     |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
 
 For example, to get to the `/api/v2` service, use this endpoint: `https://<your_serverless_gateway_url>.com/api/v2`
 
@@ -46,7 +46,7 @@ Edit the `akeyless-serverless-gateway/terraform/AWS/serverless-gateway/lambda_en
 
 ## Authentication
 
-Set your Akeyless Gateway with a default [Authentication Method](doc:access-and-authentication-methods) to control the level of access your Akeyless Gateway will have to your Akeyless account.
+Set your Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Akeyless Gateway will have to your Akeyless account.
 
 The following Authentication Methods are supported for serverless mode:
 
@@ -107,7 +107,7 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`:  A list of allowed **Access IDs**, to delegate [permissions](doc:gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](doc:saml), etc.
+* `allowed_access_permissions`:  A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
 
 ## Customer Fragment
 
@@ -204,4 +204,4 @@ The Akeyless Serverless Gateway does not support:
 * [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway status change
-* [TLS Configuration](doc:tls-certificate)
+* [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate)

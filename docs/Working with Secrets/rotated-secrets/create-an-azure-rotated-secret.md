@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can create Rotated Secrets for Azure Apps and Azure Storage Account. Before you get started, ensure you have a [Target](doc:azure-targets) for your [Azure App](https://docs.akeyless.io/docs/create-an-azure-ad-app-service-account) or for your [Azure Storage Account](doc:azure-targets).
+You can create Rotated Secrets for Azure Apps and Azure Storage Account. Before you get started, ensure you have a [Target](https://docs.akeyless.io/docs/azure-targets) for your [Azure App](https://docs.akeyless.io/docs/create-an-azure-ad-app-service-account) or for your [Azure Storage Account](https://docs.akeyless.io/docs/azure-targets).
 
 The target must include the Azure tenant ID and client ID, as well as a client secret for a privileged App authorized to rotate credentials.
 
@@ -62,19 +62,19 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [Azure Target](doc:azure-targets) with which the Rotated Secret should be associated.
+* `target-name`: The name of the [Azure Target](https://docs.akeyless.io/docs/azure-targets) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target Azure App.
   * `use-user-creds` - Use credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use credentials of the privileged Azure App defined inside the [Azure Target](doc:azure-targets) item.
+  * `use-target-creds` - Use credentials of the privileged Azure App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
 
 > 👍 Note
 >
-> Select `use-target-creds` if the Rotated Secret target App is not authorized to change its own client secret, and the privileged [Azure Target](doc:azure-targets) App is required to change the client secret on behalf of the Rotated Secret target App.
+> Select `use-target-creds` if the Rotated Secret target App is not authorized to change its own client secret, and the privileged [Azure Target](https://docs.akeyless.io/docs/azure-targets) App is required to change the client secret on behalf of the Rotated Secret target App.
 
-* `rotator_type`: The type of credentials to be rotated. For [Azure Target](doc:azure-targets), choose:
+* `rotator_type`: The type of credentials to be rotated. For [Azure Target](https://docs.akeyless.io/docs/azure-targets), choose:
   * `api-key` - to rotate the client secret specified in the Rotated Secret
-  * `target` - to rotate the client secret of the privileged App specified in the [Azure Target](doc:azure-targets)
+  * `target` - to rotate the client secret of the privileged App specified in the [Azure Target](https://docs.akeyless.io/docs/azure-targets)
   * `password` - to rotate a user password in Azure Entra
   * `azure-storage-account` - to rotate Azure Storage Account Key
 
@@ -112,7 +112,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 3. Define the remaining settings as follows:
 
 * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
-* **Target:** Defines the name of the [Azure Target](doc:azure-targets) to be associated with the Rotated Secret.
+* **Target:** Defines the name of the [Azure Target](https://docs.akeyless.io/docs/azure-targets) to be associated with the Rotated Secret.
 
 > 👍 Note
 >
@@ -121,17 +121,17 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Authenticate with the following credentials:** Determines how to connect to the target Azure App:
 
   * **User credentials:** Use credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use credentials of the privileged App defined inside the [Azure Target](doc:azure-targets) item.
+  * **Target credentials:** Use credentials of the privileged App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
 
 > 👍 Note
 >
-> Select **Target credentials** if the Rotated Secret target App is not authorized to change its own client secret, and the privileged [Azure Target](doc:azure-targets) App is required to change the client secret on behalf of the Rotated Secret target App.
+> Select **Target credentials** if the Rotated Secret target App is not authorized to change its own client secret, and the privileged [Azure Target](https://docs.akeyless.io/docs/azure-targets) App is required to change the client secret on behalf of the Rotated Secret target App.
 
 * **Rotator type:** Determines the rotator type:
   * **API Key**: Rotates the client secret defined inside the Rotated Secret item.
-  * **Target**: Rotates the client secret of the privileged App defined inside the [Azure Target](doc:azure-targets) item.
+  * **Target**: Rotates the client secret of the privileged App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
   * **Password**: To rotate a user password in Azure Entra.
-  * **Azure Storage Account**: To rotate a storage account based on the [Azure Target](doc:azure-targets) details or provide them explicitly.
+  * **Azure Storage Account**: To rotate a storage account based on the [Azure Target](https://docs.akeyless.io/docs/azure-targets) details or provide them explicitly.
 
 * **Access Key ID:** Defines the client secret ID of the Azure App for which the Access Key should be rotated.
 
@@ -147,11 +147,11 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> You can rotate the client secret for the [Azure Target](doc:azure-targets) too by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
+> You can rotate the client secret for the [Azure Target](https://docs.akeyless.io/docs/azure-targets) too by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
 
 * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](doc:implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 * **Graceful Rotation:**  When enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created to maintain 2 values at the same time.  Relevant only for **Client Secret**.
 
