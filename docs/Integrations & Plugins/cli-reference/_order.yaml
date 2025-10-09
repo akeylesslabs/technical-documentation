@@ -1,5 +1,6 @@
 - cli-ref-auth
 - cli-reference-access-roles
+- cli-reference-gateway
 - cli-reference-static-secrets
 - cli-reference-dynamic-secrets
 - cli-reference-rotated-secrets
@@ -9,4 +10,3 @@
 - cli-reference-akeyless-kmip-server
 - cli-reference-universal-secrets-connector
 - cli-reference-event-forwarders
-- cli-reference-gateway
