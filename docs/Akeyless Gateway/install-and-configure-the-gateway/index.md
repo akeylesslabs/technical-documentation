@@ -57,7 +57,7 @@ To upgrade your current Gateway version, simply restart the container using the 
   _**Info:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in will become the admin user on this Gateway._
 </Callout>
 
-For further installation options, visit the [Advanced Configuration](advance-gw-docker-configuration) page.
+For further installation options, visit the [Advanced Configuration](doc:advance-gw-docker-configuration) page.
 
 ## Initial Configuration
 
