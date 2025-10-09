@@ -22,7 +22,7 @@ Ensure the following conditions are met before proceeding with the configuration
     * Azure SQL Managed Databases or Managed Instances (only support Azure Key Vault, not external KMS options).
   * However, SQL Virtual Machine (VM) in Azure is supported, as it behaves similarly to running SQL Server on a VM.
 * Ensure you have Administrator privileges on the Windows Server and MSSQL.
-* Install the required .NET Framework to avoid issues with the sqlcrypt.conf file generation.
+* Install the required .NET Framework to avoid issues with the `sqlcrypt.conf` file generation.
 
 ### Install the Akeyless EKM Provider
 
@@ -37,17 +37,19 @@ curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypt
   * Choose the path in Akeyless to store the keys.
   * Choose the OS installation path and save it for later reference. This process will:
     * Copy the .dll files.
-    * Create the configuration file (sqlcrypt.conf), which can be edited later.
+    * Create the configuration file (`sqlcrypt.conf`), which can be edited later.
 
-The location of the sqlcrypt.conf file is depended on the installation path, Default location is:
+The location of the `sqlcrypt.conf` file is depended on the installation path, Default location is:
 
-"C:\\Program Files\\Akeyless\\Akeyless Ekm Provider\\sqlcrypt.conf"
+`C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf`
 
 The format of the file should look like this:
 
-log\_level="error"\
-akeyless\_url="[https://api.akeyless.io"](https://api.akeyless.io") \<---- api v2 (8081 or 8000/api/v2)\
-base\_item\_path="/sqlcrypt" \<--- base path for the keys to be created
+```Text sqlcrypt.conf
+log_level="error"
+akeyless_url="https://api.akeyless.io" \<---- api v2 (8081 or 8000/api/v2)
+base_item_path="/sqlcrypt" \<--- base path for the keys to be created
+```
 
 > 📘 Note
 >
@@ -89,7 +91,7 @@ GO
 
 > 📘 Note
 >
-> Make sure to replace \<ACCESS\_ID> and \<ACCESS\_KEY> with your actual API Key credentials from Akeyless.
+> Make sure to replace \<ACCESS_ID> and \<ACCESS_KEY> with your actual API Key credentials from Akeyless.
 
 * Assign the SQL CREDENTIAL to a privileged user (replace [DOMAIN\login] with your privileged user format):
 
@@ -99,7 +101,7 @@ ADD CREDENTIAL akeyless_tde;
 GO
 ```
 
-* Create an asymmetric key for the EKM provider. This creates a key in Akeyless called SQL\_Server\_Key. To work with an existing key, add `CREATION_DISPOSITION = OPEN_EXISTING`. Supported algorithms: `RSA_2048`, `RSA_3072`, ` RSA_4096`
+* Create an asymmetric key for the EKM provider. This creates a key in Akeyless called SQL_Server_Key. To work with an existing key, add `CREATION_DISPOSITION = OPEN_EXISTING`. Supported algorithms: `RSA_2048`, `RSA_3072`, ` RSA_4096`
 
 ```curl SQL
 CREATE ASYMMETRIC KEY akls_ekm_login_key
@@ -182,17 +184,17 @@ WHERE db.name = 'TestDB'; -- Replace with your actual database name
 
 For example, the result should look similar to:
 
-![](https://files.readme.io/5082a1e3f8881e26ac52f47aff100ade7464fc810f55e4800b557a386bc64514-Screenshot_2024-10-16_at_17.04.33.png)
+<Image border={false} src="https://files.readme.io/5082a1e3f8881e26ac52f47aff100ade7464fc810f55e4800b557a386bc64514-Screenshot_2024-10-16_at_17.04.33.png" />
 
 ### Troubleshooting
 
 If you encounter issues during the installation or configuration, follow these steps:
 
-* Missing sqlcrypt.conf File:
+* Missing `sqlcrypt.conf` File:
   * If the `sqlcrypt.conf` file was not created during installation, it could be due to a .NET Framework issue. The file is generated using a C# utility, so ensure that the correct version of .NET Framework is installed.
 * Check Windows Event Viewer Logs:
   * All errors encountered during installation and configuration will be logged in the **Windows Event Viewer Logs.** This is useful for diagnosing the issue.
 * Default Configuration Values:
-  * If the sqlcrypt.conf file is missing, the system defaults to using the **Akeyless public gateway** ([https://api.akeyless.io](https://api.akeyless.io)) and the default **root base path** (/).
+  * If the `sqlcrypt.conf` file is missing, the system defaults to using the **Akeyless public gateway** `https://api.akeyless.io` and the default **root base path** (/).
 * Configuration Changes:
-  * Any changes made to the sqlcrypt.conf file after it is created **require a restart of the “SQL Server (MSSQLSERVER)**” service for the changes to take effect.
+  * Any changes made to the `sqlcrypt.conf `file after it is created **require a restart of the “SQL Server (MSSQLSERVER)**” service for the changes to take effect.
