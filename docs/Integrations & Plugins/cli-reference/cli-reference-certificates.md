@@ -126,9 +126,9 @@ akeyless update-ssh-cert-issuer \
 
 `-m, --metadata`: A metadata about the issuer
 
-`--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use argument multiple times: --add-tag Tag1 --add-tag Tag2
+`--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use argument multiple times: `--add-tag Tag1 --add-tag Tag2`
 
-`--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use argument multiple times: --rm-tag Tag1 --rm-tag Tag2
+`--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use argument multiple times: `--rm-tag Tag1 --rm-tag Tag2`
 
 `--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
@@ -239,7 +239,7 @@ akeyless create-pki-cert-issuer \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-`--tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: --tag Tag1 --tag Tag2
+`--tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: `--tag Tag1 --tag Tag2`
 
 ### `generate-csr`
 
@@ -504,7 +504,7 @@ akeyless update-pki-cert-issuer \
 
 `--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use the argument multiple times: `--add-tag Tag1` `--add-tag Tag2`
 
-`--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: --rm-tag Tag1 --rm-tag Tag2
+`--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1 --rm-tag Tag2`
 
 ## Certificate Storage
 
@@ -542,7 +542,7 @@ akeyless create-certificate \
 
 `-m, --metadata`: Metadata about the certificate
 
-`-t, --tag`: List of the tags attached to this certificate. To specify multiple tags use argument multiple times: --tag Tag1 -t Tag2
+`-t, --tag`: List of the tags attached to this certificate. To specify multiple tags use argument multiple times: `--tag Tag1 -t Tag2`
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
@@ -646,7 +646,7 @@ akeyless update-certificate-value \
 
 `-m, --metadata`: Metadata about the certificate
 
-`-t, --tag`: List of the tags attached to this certificate. To specify multiple tags use argument multiple times: --tag Tag1 -t Tag2
+`-t, --tag`: List of the tags attached to this certificate. To specify multiple tags use argument multiple times: `--tag Tag1 -t Tag2`
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
