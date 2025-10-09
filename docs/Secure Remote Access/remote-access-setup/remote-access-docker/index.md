@@ -31,7 +31,7 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 * [Gateway](https://docs.akeyless.io/docs/gateway-compose#/) deployed and Unified value is set to TRUE
   * Make sure to set the UNIFIED_GATEWAY=true in both Gateway & SRA env files.
 * Environment variables configured in .env files
-* [SSH Certificate Issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates) for CLI Access.
+* [SSH Certificate Issuer](doc:ssh-certificates) for CLI Access.
 * At least 1 vCPU available with 1GB RAM per Docker container.
 
 <Callout icon="🌐" theme="default">
@@ -72,7 +72,7 @@ The deployment uses number of environment files for configuration:
 # Akeyless Gateway + SRA (.env)
 # Notes:
 # - Keep URLs reachable only within your network/cluster.
-# - Keep service names aligned with your Compose/K8s services.
+# - Keep service names aligned with your Docker Compose/Kubernetes services.
 #############################################
 
 ## ── Modes & Feature Toggles ───────────────────────────────────────────────────
