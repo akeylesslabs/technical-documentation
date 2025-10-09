@@ -48,6 +48,68 @@ After the migration, new secrets will be available under the specified path. If 
 >
 > Before getting started, ensure that the platform where the secrets are stored is accessible over the network from the Akeyless Gateway server. Depending on the deployment, it might require adding an Akeyless Gateway IP address to a security group or a firewall.
 
+## 1Password
+
+> 🚧 Deprecation Note
+>
+> Due to internal security restrictions this migration is deprecated starting from Gateway version `4.35.1`.
+
+To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company_name.1password.com” with a privileged email and password with your 1Password Secret Key`.
+
+You can choose the relevant `Vaults` you would like to migrate items from. comma separated, if left empty all non-private Vaults will be migrated.
+
+To import the private vaults of your users into Akeyless Personal folder space, each user will have to run its own process using the Akeyless CLI command `gateway-migrate-personal-items`.
+
+## AWS Secrets Manager
+
+To import secrets from AWS Secrets Manager, you need to provide access credentials of a user with sufficient permissions to get all secrets. The required configuration includes AWS Access Key ID, AWS Secret Access Key, and an AWS region.
+
+## Azure Key Vault
+
+To import secrets from Azure Key Vault, you need to create an [Azure AD app with a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). Access credentials and the unique Key Vault name must be provided in the configuration dialog.
+
+## CSV Import
+
+To upload a CSV file containing passwords into your Akeyless, you will need to run the following command in the Akeyless CLI:
+
+```shell
+akeyless import-passwords --import-path &lt;path to file&gt; --format &lt;source format&gt;
+```
+
+The main parameters for this command are:
+
+* `import-path`: Path to the CSV file that contains the passwords downloaded from the relevant service. This is a mandatory parameter.
+
+* `format`: Password source format. The default is `LastPass`, the other options are `Chrome` or `Firefox`.
+
+* `accessibility`: The folder you wish the passwords to be imported into. The default is to the personal folder.
+
+* `target-folder`: Target folder for the imported passwords in your Akeyless directory. The default is in the main folder.
+
+* `skip`: Ignores any existing passwords with the same name as those in the import file. This is useful to add new passwords and avoid accidentally duplicating or overwriting existing ones.
+
+* `update`: Replacing any existing passwords with the same name as those in the import file. This ensures that existing passwords are updated with the latest information from the import file, it can potentially overwrite any changes made on the system since the last import.
+
+## GCP Secrets Manager
+
+To import secrets from GCP Secrets Manager, you need to provide a GCP Service Account Key in the JSON format with sufficient permissions to get all secrets.
+
+> 👍 Tip
+>
+> GCP Service Account is a type of Google account intended to interact with non-human users. Authentication with this account is required to fetch information over Google APIs.
+>
+> The minimum required permissions to access the secret payload can be acquired from the Secret Manager Secret Accessor role (roles/secretmanager.secretAccessor).
+
+## HashiCorp Vault
+
+To import secrets from HashiCorp Vault into Akeyless, you need to create a new access token or use the existing one with sufficient permissions. You also need to provide a full URL of the HashiCorp Vault API server.
+
+For migration from HashiCorp Vault Enterprise, the configuration of namespaces is available. A comma-separated list of namespaces must be imported into Akeyless. For every provided namespace, all its child namespaces are imported as well.
+
+Akeyless supports migration from the `kv` storage engine of versions 1 and 2. For v2 migrations, all versions of the secret are migrated over.
+
+For all supported engines the following prefix structure will be used: `<vault-namespace>/<vault secret engine name>`
+
 ## Kubernetes
 
 Akeyless supports secrets migration from Kubernetes Secrets using Kubernetes API.
@@ -76,69 +138,7 @@ For any Kubernetes authentication method, the following options are available:
 
 **Certificate authentication:** For servers that use client certificates for authentication, use Certificate authentication method when creating a new migration.
 
-**Password authentication:** For servers that allow username/password authentication, use Password authentication method.
-
-## AWS Secrets Manager
-
-To import secrets from AWS Secrets Manager, you need to provide access credentials of a user with sufficient permissions to get all secrets. The required configuration includes AWS Access Key ID, AWS Secret Access Key, and an AWS region.
-
-## Azure Key Vault
-
-To import secrets from Azure Key Vault, you need to create an [Azure AD app with a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). Access credentials and the unique Key Vault name must be provided in the configuration dialog.
-
-## GCP Secrets Manager
-
-To import secrets from GCP Secrets Manager, you need to provide a GCP Service Account Key in the JSON format with sufficient permissions to get all secrets.
-
-> 👍 Tip
->
-> GCP Service Account is a type of Google account intended to interact with non-human users. Authentication with this account is required to fetch information over Google APIs.
->
-> The minimum required permissions to access the secret payload can be acquired from the Secret Manager Secret Accessor role (roles/secretmanager.secretAccessor).
-
-## HashiCorp Vault
-
-To import secrets from HashiCorp Vault into Akeyless, you need to create a new access token or use the existing one with sufficient permissions. You also need to provide a full URL of the HashiCorp Vault API server.
-
-For migration from HashiCorp Vault Enterprise, the configuration of namespaces is available. A comma-separated list of namespaces must be imported into Akeyless. For every provided namespace, all its child namespaces are imported as well.
-
-Akeyless supports migration from the `kv` storage engine of versions 1 and 2. For v2 migrations, all versions of the secret are migrated over.
-
-For all supported engines the following prefix structure will be used: `<vault-namespace>/<vault secret engine name>`
-
-## 1Password
-
-> 🚧 Deprecation Note
->
-> Due to internal security restrictions this migration is deprecated starting from Gateway version `4.35.1`.
-
-To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company_name.1password.com” with a privileged email and password with your 1Password Secret Key`.
-
-You can choose the relevant `Vaults` you would like to migrate items from. comma separated, if left empty all non-private Vaults will be migrated.
-
-To import the private vaults of your users into Akeyless Personal folder space, each user will have to run its own process using the Akeyless CLI command `gateway-migrate-personal-items`.
-
-## CSV Import
-
-To upload a CSV file containing passwords into your Akeyless, you will need to run the following command in the Akeyless CLI:
-
-```shell
-akeyless import-passwords --import-path &lt;path to file&gt; --format &lt;source format&gt;
-```
-
-The main parameters for this command are:
-
-* `import-path`: Path to the CSV file that contains the passwords downloaded from the relevant service. This is a mandatory parameter.
-
-* `format`: Password source format. The default is `LastPass`, the other options are `Chrome` or `Firefox`.
-
-* `accessibility`: The folder you wish the passwords to be imported into. The default is to the personal folder.
-
-* `target-folder`: Target folder for the imported passwords in your Akeyless directory. The default is in the main folder.
-
-* `skip`: Ignores any existing passwords with the same name as those in the import file. This is useful to add new passwords and avoid accidentally duplicating or overwriting existing ones.
-
-* `update`: Replacing any existing passwords with the same name as those in the import file. This ensures that existing passwords are updated with the latest information from the import file, it can potentially overwrite any changes made on the system since the last import.
+**Password authentication:** For servers that allow username/password authentication, use Password authentication method
 
 Full parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-migrations).
 
