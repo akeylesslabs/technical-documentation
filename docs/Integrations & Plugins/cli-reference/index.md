@@ -248,7 +248,7 @@ akeyless update
 
 `-s, --show-changelog`: Show the changelog between the current version and the latest version
 
-`-r, --artifact-repository`: Alternative CLI repository url, for example, [https://artifacts.site2.akeyless.io](https://artifacts.site2.akeyless.io)
+`-r, --artifact-repository`: Alternative CLI repository url, for example, `https://artifacts.site2.akeyless.io`
 
 ## `update-account-settings`
 
@@ -369,17 +369,17 @@ block:Flags]
 
 `--description[=default_metadata]`: Description of the object
 
-`--add-tag`: List of the new tags that will be attached to this item.  \nTo specify multiple tags use argument multiple times: `--add-tag` Tag1 --`add-tag` Tag2
+`--add-tag`: List of the new tags that will be attached to this item.  \nTo specify multiple tags use argument multiple times: `--add-tag Tag1 --add-tag Tag2`
 
-`--rm-tag`: List of the existent tags that will be removed from this item.  \nTo specify multiple tags use argument multiple times: `--rm-tag` Tag1 `--rm-tag` Tag2
+`--rm-tag`: List of the existent tags that will be removed from this item.  \nTo specify multiple tags use argument multiple times: `--rm-tag Tag1 --rm-tag Tag2`
 
 `--secure-access-enable`: Enable/Disable secure remote access, "0-1": "__(M
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-bastion-api`: Bastion's SSH control API endpoint. E.g. [https://my.bastion:9900](https://my.bastion:9900)  \n(relevant only for ssh cert issuer)
+`--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `my.bastion:9900` (relevant only for ssh cert issuer)
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. E.g. my.bastion:22  \n(relevant only for ssh cert issuer)
+`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22`  \n(relevant only for ssh cert issuer)
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list (relevant only for ssh cert issuer)
 
