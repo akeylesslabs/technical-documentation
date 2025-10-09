@@ -19,9 +19,16 @@ jobs:
       - name: Replace doc links
         run: |
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          REPLACEMENTS=$(grep -rl "(doc:" . --include="*.md" | xargs -r sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g')
-          COUNT=$(grep -r "(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
-          echo "$TIMESTAMP - Replaced doc: links. Total replacements so far: $COUNT" >> .github/lychee/readme-link-replacer.log
+
+          # Find all .md files and safely run sed in place
+          find . -type f -name "*.md" -print0 | \
+            xargs -0 sed -i -E 's|\(doc:([^)]+)\)|\(https://docs.akeyless.io/docs/\1\)|g'
+
+          COUNT=$(grep -ro "\(https://docs.akeyless.io/docs/" . --include="*.md" | wc -l)
+
+          echo "$TIMESTAMP - Replaced doc: links. Total replacements so far: $COUNT" \
+            >> .github/lychee/readme-link-replacer.log
+
           echo "REPLACER_SUMMARY=$COUNT replacements across Markdown files" >> $GITHUB_ENV
 
       # 2. Run Lychee link checker
