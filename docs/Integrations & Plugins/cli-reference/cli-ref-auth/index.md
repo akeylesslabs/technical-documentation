@@ -620,7 +620,7 @@ akeyless auth-method create saml \
 
 `--idp-metadata-url`: IDP metadata url
 
-`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is [https://console.akeyless.io/login-saml](https://console.akeyless.io/login-saml) to enable SAML via Akeyless Console and  [http://127.0.0.1:\*](http://127.0.0.1:*) to enable SAML via akeyless CLI)
+`--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-saml` to enable SAML via Akeyless Console and  `http://127.0.0.1:*` to enable SAML via akeyless CLI)
 
 `--idp-metadata-xml-file-path`: IDP metadata xml file path
 
