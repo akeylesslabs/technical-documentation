@@ -90,28 +90,16 @@ jobs:
 
 
       - name: Create or update PR
-        id: cpr
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: automation/link-check
-          base: main
-          title: "chore: Link checker results"
-          body: |
-            This PR updates:
-            - Replaced `doc:` links with full URLs
-            - Lychee link check report
-            - Replacement log
-
-            Please review and merge if everything looks correct.
-          commit-message: "chore: update link replacements, lychee report & log [skip ci]"
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-
-      #- name: Send Slack summary
-      #  if: always()
-      #  run: |
-      #    PR_URL="${{ steps.cpr.outputs.pull-request-url }}"
-      #    curl -X POST -H 'Content-type: application/json' \
-      #      --data "{\"text\":\":mag: *Link Check Summary* \n- Replacement: $REPLACER_SUMMARY\n- Lychee: $LYCHEE_SUMMARY\n- PR: <$PR_URL|Review here>\"}" \
-      #      ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          # Check if a PR from this branch already exists
+          if gh pr list --head automation/link-check --base main --json number --jq '.[0].number' | grep -q '[0-9]'; then
+            echo "PR already exists, nothing to do."
+          else
+            gh pr create \
+              --base main \
+              --head automation/link-check \
+              --title "chore: Link checker results" \
+              --body "Automated link replacement and Lychee report"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
