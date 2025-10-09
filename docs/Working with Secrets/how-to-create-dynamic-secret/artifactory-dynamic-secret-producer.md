@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-You can create an Artifactory dynamic secret to allow users to dynamically receive short-lived access tokens to interact with a JFrog Artifactory server (`v5.0.0` or later) via its [API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API).
+You can create an Artifactory dynamic secret to allow users to dynamically receive short-lived access tokens to interact with a JFrog Artifactory server (`v5.0.0` or later) via its <Anchor label="API" target="_blank" href="https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis">API</Anchor>.
 
-For more information on how to use access tokens in Artifactory, see the [JFrog Artifactory documentation](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens).
+For more information on how to use access tokens in Artifactory, see the <Anchor label="JFrog Artifactory documentation" target="_blank" href="https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens">JFrog Artifactory documentation</Anchor>.
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the Artifactory through your [Gateway](https://docs.akeyless.io/docs/api-gw) and generates a temporary access token.
 
@@ -96,13 +96,13 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets)  or specify details of the target Artifactory server explicitly.
 * **Token Scope:** Specify a scope (or a space-separated list of scopes) to assign to the temporary token.
-* **Token Audience:** Specify a space-separated list of other JFrog Artifactory instances or services that should accept this token. The default value is the JFrog Artifactory service ID instance that created this token. For example, to accept all JFrog Artifactory instances, type **jfrt@***.
+* **Token Audience:** Specify a space-separated list of other JFrog Artifactory instances or services that should accept this token. The default value is the JFrog Artifactory service ID instance that created this token. For example, to accept all JFrog Artifactory instances, type `jfrt@*`.
 * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token).
   When TTL expires, the token becomes obsolete.
 * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. Read more about [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties** mode, click **Next**.
 
@@ -110,7 +110,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Base URL:** Specify the JFrog Artifactory REST URL, which must end with the **artifactory** postfix.
 
-For example, if you use your JFrog URL, this could be **[\<https://myjfrog.acme.org/artifactory/>](https://myjfrog.acme.org/artifactory/)**. Or, if you use your JFrog Artifactory server hostname and port, this could be **https://ARTIFACTORY_SERVER_HOSTNAME:8081/artifactory/**.
+For example, if you use your JFrog URL, this could be `<https://myjfrog.acme.org/artifactory/>`. Or, if you use your JFrog Artifactory server hostname and port, this could be `https://<ARTIFACTORY_SERVER_HOSTNAME>:8081/artifactory/`.
 
 * **Admin Username:** Provide the name of the Artifactory user with privileges to create JWT tokens.
 
