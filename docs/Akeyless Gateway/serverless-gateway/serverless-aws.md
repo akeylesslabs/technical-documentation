@@ -14,23 +14,23 @@ This page describes how to run an Akeyless Serverless Gateway on AWS using Hashi
 
 # Prerequisites
 
-* [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) (version 1.0.0 or later)
+* [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (version 1.0.0 or later)
 
 * Amazon AWS account
 
 * Network port `8000` on the cluster must be open _only for internal network access_. This allows access to the following service endpoints:
 
-| Service                                              | Endpoint   |
-| :--------------------------------------------------- | :--------- |
+| Service                                                                        | Endpoint   |
+| :----------------------------------------------------------------------------- | :--------- |
 | [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
 | [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
-| Akeyless V1 REST API                                 | `/api/v1`  |
-| Akeyless V2 REST API                                 | `/api/v2`  |
+| Akeyless V1 REST API                                                           | `/api/v1`  |
+| Akeyless V2 REST API                                                           | `/api/v2`  |
 | [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
 
 For example, to get to the `/api/v2` service, use this endpoint: `https://<your_serverless_gateway_url>.com/api/v2`
 
-<Callout icon="❗️">
+<Callout icon="❗️" theme="error">
   _**Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services._
 </Callout>
 
