@@ -20,7 +20,7 @@ You can enable secure remote access to a Kubernetes cluster based on the dynamic
 
 * [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect)
 
-* An  [SSH Certificate Issuer](doc:ssh-certificates).
+* An  [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
 
 ## Set Up Remote Access to a Kubernetes cluster from the Akeyless CLI
 
