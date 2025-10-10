@@ -12,7 +12,7 @@ next:
 ---
 When updating a static secret, you can update the current version, create a new version, or roll back to the previous version of a secret (for example, if the most recent version was configured incorrectly).
 
-Let’s update a static secret using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/oc:staticversions#updates-and-versions-from-the-ui) instead.
+Let’s update a static secret using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/staticversions?isFramePreview=true#updates-and-versions-from-the-ui) instead.
 
 ## Update a Static Secret from the CLI
 
