@@ -17,14 +17,14 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 <Callout icon="📒" theme="default">
   ### **Platform prerequisites**
 
-  *The TDE for MSSQL workflow documented above has been tested**only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”).*  
+  _The TDE for MSSQL workflow documented above has been tested**only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”)._
 
-  **Not supported**\
-  • MSSQL in Docker containers (Microsoft does not support TDE in containers)\
-  • Azure SQL Managed DB / Managed Instance (they only expose Azure Key Vault for external keys)  
+  **Not supported**
+  • MSSQL in Docker containers (Microsoft does not support TDE in containers)
+  • Azure SQL Managed DB / Managed Instance (they only expose Azure Key Vault for external keys)
 
-  **Supported**\
-  • Traditional Windows Server + SQL Server\
+  **Supported**
+  • Traditional Windows Server + SQL Server
   • Azure “SQL VM” (a standard VM running SQL Server)
 </Callout>
 
@@ -38,14 +38,14 @@ curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypt
 
 Follow the wizard installation steps - enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL using the `/api/v2` endpoint (previously port  `8081`), and choose a path in the Akeyless platform to store the keys.
 
-Choose the OS installation path and save it for later. This will copy the `dll`  files, and also creates a configuration file that can be edited later. 
+Choose the OS installation path and save it for later. This will copy the `dll`  files, and also creates a configuration file that can be edited later.
 
 > 📘 The file should be formatted as follows:
 >
-> log\_level="debug"\
-> akeyless\_url="https\://Your-GW-URL/api/v2"\
-> base\_item\_path=" /path/to/keys"\
-> use\_classic\_keys=true
+> log_level="debug"
+> akeyless_url="https://Your-GW-URL/api/v2"
+> base_item_path=" /path/to/keys"
+> use_classic_keys=true
 
 **Notice:** It is optional to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys), the default is otherwise using a DFC key.
 
@@ -70,7 +70,7 @@ RECONFIGURE
 GO
 ```
 
-2. Create the **EKM** provider named Akeyless using the `dll` file from the installation folder: 
+2. Create the **EKM** provider named Akeyless using the `dll` file from the installation folder:
 
 ```sql
 CREATE CRYPTOGRAPHIC PROVIDER Akeyless
@@ -86,7 +86,7 @@ FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
 GO
 ```
 
-* For instance, if you wish to utilize`'azure ad authentication'`you will need to modify the configuration file located in the installation directory at`'C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf'` Specifically, add the following lines:\
+* For instance, if you wish to utilize`'azure ad authentication'`you will need to modify the configuration file located in the installation directory at`'C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf'` Specifically, add the following lines:
   `[auth]
   access_type="azure_ad"
   object_id="..." # optional`
@@ -119,7 +119,7 @@ GO
 
 > 📘 Working on Cluster
 >
-> When working with cluster, the above command should be executed only on the Primary server, on all other servers run the following statement: 
+> When working with cluster, the above command should be executed only on the Primary server, on all other servers run the following statement:
 >
 > `CREATE ASYMMETRIC KEY akls_ekm_login_key
 > FROM PROVIDER Akeyless WITH PROVIDER_KEY_NAME = 'SQL_Server_Key' , CREATION_DISPOSITION=OPEN_EXISTING;`
@@ -145,7 +145,7 @@ ADD CREDENTIAL akls_ekm_tde_cred ;
 GO  
 ```
 
-8. Create the database encryption key that will be used for **TDE**.  In the following example `AdventureWorks` is a placeholder for the database name. Supported algorithms are `AES_128` or `AES_256`. 
+8. Create the database encryption key that will be used for **TDE**.  In the following example `AdventureWorks` is a placeholder for the database name. Supported algorithms are `AES_128` or `AES_256`.
 
 ```sql
 USE [AdventureWorks] ;
@@ -172,7 +172,7 @@ If you're running into issues getting TDE with Akeyless set up on MSSQL, here ar
 
 * If you're looking for logs about the setup, you can find them in the **Windows Event Viewer** — most EKM-related errors are recorded there and are very helpful for debugging.
 * After you first run the installer, any future changes to the configuration file (which by default will be located under: `C:\\Program Files\\Akeyless\\Akeyless Ekm Provider\\sqlcrypt.conf`) will only take effect after restarting the `SQL Server (MSSQLSERVER)` Windows service.
-* If no config file is found, the setup will default to using [https://api.akeyless.io](https://api.akeyless.io) as the Akeyless Gateway URL and the root path / for key creation.
+* If no config file is found, the setup will default to using `https://api.akeyless.io` as the Akeyless Gateway URL and the root path / for key creation.
 * Make sure the key was created at the specified path in Akeyless. If not:
   * Confirm that the TDE auth method you created has an Access Role permitting access to that path.
   * If you are using Classic Keys (instead of DFC), ensure the auth method also has Gateway Access Permissions to manage Classic Keys.
