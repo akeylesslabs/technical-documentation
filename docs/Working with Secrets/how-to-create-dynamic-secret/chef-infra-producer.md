@@ -87,7 +87,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/artifactory-dynamic-secrets#create-a-dynamic-artifactory-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway
+> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/update/docs/chef-infra-producer?isFramePreview=true#create-a-dynamic-artifactory-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway
 
 1. Log in to the Akeyless Console, and go to **Dynamic Secrets > New > Chef Infra**.
 
