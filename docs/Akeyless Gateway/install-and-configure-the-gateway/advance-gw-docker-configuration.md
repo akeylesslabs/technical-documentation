@@ -98,7 +98,7 @@ To set your Gateway default authentication based on [Certificates](https://docs.
 
 `GATEWAY_ACCESS_ID="your-access-id"`,  `GATEWAY_CERTIFICATE="Certificate base64 encoded"` and `GATEWAY_CERTIFICATE_KEY="Certificate Key base64"`.
 
-With a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS`variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/opened) or an [API Key](https://docs.akeyless.io/docs/api-key).
+With a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS`variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) or an [API Key](https://docs.akeyless.io/docs/api-key).
 
 ```shell CLI
 docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e GATEWAY_CERTIFICATE="base64-cert" -e GATEWAY_CERTIFICATE_KEY="base64-cert-key" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
