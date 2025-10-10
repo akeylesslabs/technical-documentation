@@ -20,7 +20,7 @@ You can create a PingFederate secret to allow users to dynamically receive short
 
 ## Create a Dynamic Ping Secret
 
-To create a dynamic Ping secret from the CLI using an existing [Ping Target](https://docs.akeyless.io/docs/ping-target), run the following command: 
+To create a dynamic Ping secret from the CLI using an existing [Ping Target](https://docs.akeyless.io/docs/ping-target), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create ping \
@@ -40,7 +40,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `ping-client-authentication-type`: OAuth Client Authentication Type, this can be either `CLIENT_SECRET`, `PRIVATE_KEY_JWT` or `CLIENT_TLS_CERTIFICATE`, with `CLIENT_SECRET` being the default. Each of these selections has its own set of related parameters, which are elaborated upon in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-akeyless-producers#p-stylecolorbluegateway-create-producer-pingp).
+* `ping-client-authentication-type`: OAuth Client Authentication Type, this can be either `CLIENT_SECRET`, `PRIVATE_KEY_JWT` or `CLIENT_TLS_CERTIFICATE`, with `CLIENT_SECRET` being the default. Each of these selections has its own set of related parameters, which are elaborated upon in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/ping).
 
 * `ping-grant-types`: The grant type (or types) given to the OAuth client. This can be either `IMPLICIT`, `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`, `TOKEN_EXCHANGE`, `REFRESH_TOKEN`, `ASSERTION_GRANTS`, `PASSWORD`, or `RESOURCE_OWNER_CREDENTIALS`, with `AUTHORIZATION_CODE` being the default. This flag can be added multiple times for multiple grant types. Some of these selections have their own set of related parameters, which are elaborated upon in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-akeyless-producers#p-stylecolorbluegateway-create-producer-pingp).
 
@@ -60,7 +60,7 @@ akeyless dynamic-secret create ping \
 --ping-redirect-uris 'https://<Your_Redirect_URL>'
 ```
 
-Where: 
+Where:
 
 * `ping-url`: A URL address related to the Ping service.
 
@@ -84,7 +84,7 @@ akeyless dynamic-secret updateakeyless dynamic-secret get-value ping
 >
 > `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
 
-To fetch a dynamic Ping secret value from the CLI, run the following command: 
+To fetch a dynamic Ping secret value from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
