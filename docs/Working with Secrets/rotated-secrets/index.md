@@ -43,9 +43,7 @@ The typical flow for working with rotated secrets is:
 
 4. [Retrieve a Rotated Secret Value](https://docs.akeyless.io/docs/retrieve-a-rotated-secret-value): Get the value of a rotated secret when you need it.
 
-If required, you can manually rotate a secret. See [Manually Rotate a Secret](https://docs.akeyless.io/docs/manually-rotate-a-secret).
-
-When a rotated secret becomes obsolete, you can delete it.
+If required, you can manually rotate a secret. When a rotated secret becomes obsolete, you can delete it.
 
 # Tutorial
 
