@@ -86,6 +86,6 @@ Akeyless' Remote Access solution supports connections to the following resource 
 
 # Web Access
 
-In addition, you can define Remote Access to external SaaS systems using the [Web Access Application](doc:web-access-on-k8s) as a separate deployment, not connected to the Gateway. This enables you to remotely access web-based applications in Isolated mode, which restricts user access to only the websites you determine, either while connected to a SaaS system or using a secure proxy mode to enable access for an internal resource from the external network.
+In addition, you can define Remote Access to external SaaS systems using the [Web Access Application](https://docs.akeyless.io/docs/web-access-on-k8s) as a separate deployment, not connected to the Gateway. This enables you to remotely access web-based applications in Isolated mode, which restricts user access to only the websites you determine, either while connected to a SaaS system or using a secure proxy mode to enable access for an internal resource from the external network.
 
 For details about the various Remote Access components, see [Overview Section](https://docs.akeyless.io/docs/remote-access-setup-overview).

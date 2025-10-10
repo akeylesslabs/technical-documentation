@@ -36,7 +36,7 @@ Secure Remote Access is enabled by the [Secure Remote Access Bastion](https://do
 
 For details about these components, see [Infrastructure Components](https://docs.akeyless.io/docs/infrastructure-components).
 
-When a user needs to connect to a resource, the [Secure Remote Access Bastion](doc:secure-remote-access-bastion) interfaces with the Akeyless Platform for user authentication and authorization. It then retrieves the required credentials from the Akeyless Platform and automatically injects them into the resource to give the user access.
+When a user needs to connect to a resource, the [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) interfaces with the Akeyless Platform for user authentication and authorization. It then retrieves the required credentials from the Akeyless Platform and automatically injects them into the resource to give the user access.
 
 In this way, our Secure Remote Access solution uniquely combines the ability to interface with 3rd-party **identity providers** for authentication with granular **role-based access control** for authorization and the ability to provide **just-in-time access** to endpoint resources, using dynamic secrets as short-lived credentials and certificates.
 
