@@ -18,7 +18,7 @@ Depending on the [resource type](https://docs.akeyless.io/docs/supported-resourc
 
 # Prerequisites
 
-* [Secure Remote Access](doc:remote-access-setup-k8s) Installed.
+* [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) Installed.
 
 * [SAML](https://docs.akeyless.io/docs/saml), [OIDC](https://docs.akeyless.io/docs/openid) , [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) or [LDAP](https://docs.akeyless.io/docs/ldap) Authentication method available.
 
