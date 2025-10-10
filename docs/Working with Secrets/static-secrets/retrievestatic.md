@@ -14,7 +14,7 @@ You can retrieve a static secret value directly from the [Akeyless CLI](https://
 
 > 👍 Note
 >
-> You can also retrieve secret values directly from within a context you choose, such as from Kubernetes, Jenkins, Azure, or another of our integrations, or with the help of any of our SDKs. For details, see [Akeyless Plugins](https://docs.akeyless.io/docs/plugins) and [SDKs](https://docs.akeyless.io/docs/sdks).
+> You can also retrieve secret values directly from within a context you choose, such as from Kubernetes, Jenkins, Azure, or another of our integrations, or with the help of any of our SDKs. For details, see [Akeyless Plugins](https://docs.akeyless.io/docs/plugins-overview) and [SDKs](https://docs.akeyless.io/docs/sdks).
 
 # Retrieve a Static Secret Value from the Akeyless CLI
 
