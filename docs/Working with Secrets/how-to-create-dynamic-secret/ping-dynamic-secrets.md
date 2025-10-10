@@ -14,7 +14,7 @@ You can create a PingFederate secret to allow users to dynamically receive short
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/ping-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/ping-target). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 # Working With Ping Dynamic Secrets from the CLI
 
