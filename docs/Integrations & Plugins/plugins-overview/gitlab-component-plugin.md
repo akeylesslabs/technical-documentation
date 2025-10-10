@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-[GitLab](https://www.gitlab.com) is a web-based DevOps lifecycle tool that provides a Git-repository manager including a wiki, issue-tracking, and continuous integration and deployment pipeline features. 
+[GitLab](https://www.gitlab.com) is a web-based DevOps lifecycle tool that provides a Git-repository manager including a wiki, issue-tracking, and continuous integration and deployment pipeline features.
 
 The Akeyless plugin for GitLab Component enables a secure, easy, and intuitive way to fetch Secrets and certificates into GitLab pipelines using a [GitLab CI/CD component](https://docs.gitlab.com/ee/ci/components/) .
 
@@ -61,7 +61,7 @@ akeyless assoc-role-am --role-name /Dev/GitLabRole \
 
 > 🚧 Warning
 >
-> **Sub Claims** - It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the available [GitLab claims ](https://docs.gitlab.com/ee/ci/examples/authenticating-with-hashicorp-vault/) to prevent access of unauthorized users.
+> **Sub Claims** - It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the available [GitLab claims ](https://docs.gitlab.com/ci/secrets/hashicorp_vault/) to prevent access of unauthorized users.
 
 Set `Read` and `List`  permissions for **Items**:
 
@@ -75,7 +75,7 @@ We can now continue with configuring a **GitLab project** to fetch **secrets** a
 
 # Usage
 
-Open your project and create a folder named `templates`, under this folder create a file named `fetch-secret.yml` and add the following content to the file: 
+Open your project and create a folder named `templates`, under this folder create a file named `fetch-secret.yml` and add the following content to the file:
 
 ```yaml fetch-secret.yml
 spec:
@@ -182,9 +182,9 @@ Your secrets are stored either in `akeyless.env` or `akeyless.json` accordingly,
 
 # Examples
 
-In the following example, we will use the `env-file` mode. where the secrets will be stored in environment variables. Additionally, upon a successful authentication, the value of the **Akeyless Token**   will be saved automatically into the `AKEYLESS_TOKEN` environment variable, so it can be reused. 
+In the following example, we will use the `env-file` mode. where the secrets will be stored in environment variables. Additionally, upon a successful authentication, the value of the **Akeyless Token**   will be saved automatically into the `AKEYLESS_TOKEN` environment variable, so it can be reused.
 
-Create a file named `.gitlab-ci.yml`, as follows: 
+Create a file named `.gitlab-ci.yml`, as follows:
 
 ```yaml .gitlab-ci.yml
 stages:
@@ -294,7 +294,7 @@ Where:
 
 * `csr-data`: **Base64 Encoded CSR**  for issuing the certificate. **Relevant only for PKI Certificate**, alternatively you can use `public-key-data` instead.
 
-* `public-key-data`**public key** for issuing a certificate, only for **PKI Certificate** must be in a **Base64** format 
+* `public-key-data`**public key** for issuing a certificate, only for **PKI Certificate** must be in a **Base64** format
 
 * `cert-user-name`: Users who will be allowed to use the certificate. **Relevant only for SSH Certificate**.
 
