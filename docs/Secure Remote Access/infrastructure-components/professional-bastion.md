@@ -28,9 +28,9 @@ To spin Akeyless Professional-Bastion using docker please refer to the last sect
 
 * Helm Installed.
 
-* K8s Installed.
+* Kubernetes Installed.
 
-* [SSH Certificate](https://docs.akeyless.io/docs/how-to-configure-ssh).
+* [SSH Certificate](https://docs.akeyless.io/docs/how-to-configure-ssh)
 
 ****Storage****
 
