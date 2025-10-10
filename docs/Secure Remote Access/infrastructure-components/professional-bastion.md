@@ -16,7 +16,7 @@ next:
 ---
 > ❗️ Note
 >
-> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion)
+> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
 
 Akeyless Professional Bastion provides SSH connections with short lived signed certificate authentication, together with session recording.
 
