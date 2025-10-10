@@ -26,8 +26,8 @@ We currently support the following SDKs:
 
 Akeyless is available in the following environments, each with a unique base URL:
 
-| Environment | Base URL                                                 |
-| :---------- | :------------------------------------------------------- |
-| **Global**  | [https://api.akeyless.io](https://api.akeyless.io)       |
-| **US**      | [https://api.us.akeyless.io](https://api.us.akeyless.io) |
-| **EU**      | [https://api.eu.akeyless.io](https://api.eu.akeyless.io) |
+| Environment | Base URL                     |
+| :---------- | :--------------------------- |
+| **Global**  | `https://api.akeyless.io`    |
+| **US**      | `https://api.us.akeyless.io` |
+| **EU**      | `https://api.eu.akeyless.io` |
