@@ -39,7 +39,7 @@ The typical flow for working with rotated secrets is:
 
 2. [Create an SSH Rotated Secret](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret) or [Create an AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret): When you create a rotated secret, you need to name it and define the secret settings, such as how often the secret should be rotated, and the secret target. All secret values are encrypted using patented Akeyless Distributed Fragment Cryptography (DFC) technology.
 
-3. [Add a Rotated Secret to a Role](https://docs.akeyless.io/docs/add-a-rotated-secret-to-a-role):  Enable clients to access the rotated secret by adding it to a role, with the appropriate permissions.
+3. [Add a Rotated Secret to a Role](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role):  Enable clients to access the rotated secret by adding it to a role, with the appropriate permissions.
 
 4. [Retrieve a Rotated Secret Value](https://docs.akeyless.io/update/docs/retrievestatic): Get the value of a rotated secret when you need it.
 
