@@ -8,14 +8,13 @@ metadata:
   description: ''
   robots: index
 next:
-  description: ''
   pages:
-    - type: basic
-      slug: install-and-configure-the-gateway
+    - slug: install-and-configure-the-gateway
       title: Standalone Gateway
-    - type: basic
-      slug: gateway-k8s
-      title: Gateway on K8s
+      type: basic
+    - slug: gateway-chart
+      title: Gateway on Kubernetes
+      type: basic
 ---
 Akeyless offers a unique Gateway, which adds an extra level of protection between your **private network** and the cloud.
 
