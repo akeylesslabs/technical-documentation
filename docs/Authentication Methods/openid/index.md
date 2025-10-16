@@ -65,6 +65,12 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
+* **Allowed Client Type**: Specifies which clients can use this Authentication Method, available options:
+  * **CLI/SDK**
+  * **Web UI**
+  * **Mobile App**
+  * **Browser Extension**
+
 * **Issuer URL:** The Identity Provider URL (for more information, check the [Okta](https://docs.akeyless.io/docs/okta) example).
 
 * **Client ID:** The Client ID (application ID).
