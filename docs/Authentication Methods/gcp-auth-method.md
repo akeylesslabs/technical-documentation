@@ -86,6 +86,10 @@ akeyless get-cloud-identity --cloud-provider gcp
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
+* **Allowed Client Type**: Specifies which clients can use this Authentication Method, available options:
+  * **CLI/SDK**
+  * **Gateway Admin Console**
+
 * **GCP Type:** Select the type of GCP authentication method to create, either `IAM` or `GCE`.
 
 * **Bound Projects:** Enter a comma-separated list of GCP project IDs. The client must belong to one of these projects to authenticate. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
