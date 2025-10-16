@@ -184,6 +184,12 @@ Universal Identity Details:
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
+* **Allowed Client Type**: Specifies which clients can use this Authentication Method, available options:
+  * **CLI/SDK**
+  * **Web UI**
+  * **Mobile App**
+  * **Browser Extension**
+
 * Check **Deny Rotate** if you want to forbid token rotation.
 
 * Check **Deny Inheritance** if you want to forbid creating child tokens.
