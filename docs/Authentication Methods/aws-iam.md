@@ -67,10 +67,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 * **Allowed Client Type**: Specifies which clients can use this Authentication Method, available options:
   * **CLI/SDK**
-  * **Web UI**
   * **Gateway Admin Console**
-  * **Mobile App**
-  * **Browser Extension**
 
 * **Bounded AWS Account IDs:** Enter a comma-separated list of AWS account IDs for which access is allowed.
 
