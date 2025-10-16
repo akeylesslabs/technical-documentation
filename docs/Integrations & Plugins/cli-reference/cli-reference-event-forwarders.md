@@ -243,6 +243,54 @@ akeyless event-forwarder create webhook \
 
 `--description`: Description of the object
 
+### `event-forwarder create teams`
+
+Create a new teams Event Forwarder
+
+#### Usage
+
+```shell
+akeyless event-forwarder create teams \
+--name <Event Forwarder name> \
+--url <teams Webhook URL>
+--gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--items-event-source-locations </Secrets/*> \
+--targets-event-source-locations </Targets/*> \
+--auth-methods-event-source-locations </Auth-Methods/*> \
+--gateways-event-source-locations <https://<Your-Akeyless-GW-URL:8000>
+--event-types <event type>
+--runner-type[=immediate] <immediate / periodic> \
+--every <1-24 hours>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Event Forwarder name
+
+`--runner-type[=immediate]`: **Required**, Event Forwarder runner type [`immediate`, `periodic`]
+
+`url`: **Required**, Slack Webhook URL
+
+`--items-event-source-locations`: Items event sources to forward events about, for example: /`Secrets`/*
+
+`--targets-event-source-locations`: Targets event sources to forward events about, for example: /`Targets`/*
+
+`--auth-methods-event-source-locations`: Auth Methods event sources to forward events about, for example: /`Auth-Methods`
+
+`--gateways-event-source-locations`: Gateways event sources to forward events about, for example the relevant Gateways cluster URLs,: `https://<Your-Akeyless-GW-URL:8000`
+
+`--event-types`: [Full list of available events](https://docs.akeyless.io/docs/event-center#event-types)
+
+`-k, --key`: Key name. The key will be used to encrypt the Event Forwarder secret value. If the key name is not specified, the account default protection key is used
+
+`--every`: Rate of periodic runner repetition in hours
+
+`-u, --gateway-url[=https://<Your-Akeyless-GW-URL:8000]`: API Gateway URL (Configuration Management port)
+
+`--description`: Description of the object
+
+###
+
 ## `event-forwarder delete`
 
 ### Flags
