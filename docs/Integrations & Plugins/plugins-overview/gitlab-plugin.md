@@ -87,7 +87,7 @@ Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.
 
 ```yaml .gitlab-ci.yml
 variables: 
-  ACCESS_ID: &lt;access_id&gt;
+  ACCESS_ID: <AccessID>
 
 akeyless:
   image: 
@@ -103,7 +103,7 @@ akeyless:
 
 ```yaml v16_gitlab-ci.yml
 variables:
-  ACCESS_ID: &lt;access-id&gt;
+  ACCESS_ID: <AccessID>
 
 akeyless:
   id_tokens:
