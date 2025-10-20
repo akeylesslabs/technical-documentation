@@ -74,7 +74,7 @@ jobs:
           git commit -m "chore: update link replacements, lychee report & log [skip ci]" || echo "No changes to commit"
           git push origin $BRANCH --force
 
-      # 4. Capture latest commit URL on the automation branch
+      # 4. Get commit URL
       - name: Get commit URL
         id: commiturl
         run: |
@@ -82,7 +82,7 @@ jobs:
           echo "sha=${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
           echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
 
-      # 5. Create Jira issue with run details
+      # 5. Create Jira issue (ADF description)
       - name: Create Jira issue
         id: jira
         continue-on-error: true
@@ -102,33 +102,67 @@ jobs:
           TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
           SUMMARY="Link check ${TS} – $GITHUB_REPOSITORY@$BRANCH_NAME"
 
-          # Build description (keep markdown simple for Jira)
-          DESC="*Automated link-checker run*\n\n"\
-          "*Replacement summary:* ${REPLACER_SUMMARY}\n"\
-          "*Lychee summary:* ${LYCHEE_SUMMARY}\n\n"\
-          "*Workflow run:* ${RUN_URL}\n"\
-          "*Branch:* ${BRANCH_NAME}\n"\
-          "*Commit:* ${COMMIT_URL}\n\n"\
-          "*Files written:*\n"\
-          "- .github/lychee/lychee-out.md\n"\
-          "- .github/lychee/readme-link-replacer.log\n\n"\
-          "This ticket was created automatically by GitHub Actions."
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+
+          # Build ADF (Atlassian Document Format) description via jq
+          ADF_DESC=$(jq -n \
+            --arg repl  "$REPLACER_SUMMARY" \
+            --arg lyc   "$LYCHEE_SUMMARY" \
+            --arg run   "$RUN_URL" \
+            --arg br    "$BRANCH_NAME" \
+            --arg commit "$COMMIT_URL" \
+            '{
+              type: "doc", version: 1,
+              content: [
+                { "type":"paragraph", "content":[{ "type":"text", "text":"Automated link-checker run" }] },
+                { "type":"paragraph", "content":[
+                    { "type":"text", "text":"Replacement summary: " },
+                    { "type":"text", "text":$repl, "marks":[{"type":"strong"}] }
+                  ]
+                },
+                { "type":"paragraph", "content":[
+                    { "type":"text", "text":"Lychee summary: " },
+                    { "type":"text", "text":$lyc, "marks":[{"type":"strong"}] }
+                  ]
+                },
+                { "type":"paragraph", "content":[
+                    { "type":"text", "text":"Workflow run: " },
+                    { "type":"text", "text":$run, "marks":[{"type":"link","attrs":{"href":$run}}] }
+                  ]
+                },
+                { "type":"paragraph", "content":[
+                    { "type":"text", "text":"Branch: " },
+                    { "type":"text", "text":$br }
+                  ]
+                },
+                { "type":"paragraph", "content":[
+                    { "type":"text", "text":"Commit: " },
+                    { "type":"text", "text":$commit, "marks":[{"type":"link","attrs":{"href":$commit}}] }
+                  ]
+                },
+                { "type":"paragraph", "content":[{ "type":"text", "text":"Files written:" }] },
+                { "type":"bulletList", "content":[
+                    { "type":"listItem", "content":[{ "type":"paragraph","content":[{ "type":"text","text":".github/lychee/lychee-out.md" }]}]},
+                    { "type":"listItem", "content":[{ "type":"paragraph","content":[{ "type":"text","text":".github/lychee/readme-link-replacer.log" }]}]}
+                  ]
+                },
+                { "type":"paragraph", "content":[{ "type":"text", "text":"This ticket was created automatically by GitHub Actions." }] }
+              ]
+            }')
 
           PAYLOAD=$(jq -n \
             --arg proj "$JIRA_PROJECT_KEY" \
             --arg summary "$SUMMARY" \
-            --arg desc "$DESC" \
+            --argjson adf "$ADF_DESC" \
             '{
               fields: {
                 project: { key: $proj },
                 summary: $summary,
-                description: $desc,
+                description: $adf,
                 issuetype: { name: "Task" },
                 labels: ["link-checker","automation","documentation"]
               }
             }')
-
-          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
 
           RESP=$(curl -sS -X POST \
             -H "$AUTH_HEADER" \
@@ -149,7 +183,7 @@ jobs:
           echo "issue_id=$ISSUE_ID" >> "$GITHUB_OUTPUT"
           echo "Created Jira issue: $ISSUE_KEY"
 
-      # 6. Attach Lychee report (and log) to the Jira issue
+      # 6. Attach artifacts to Jira issue
       - name: Attach artifacts to Jira issue
         if: always() && steps.jira.outputs.issue_key != ''
         continue-on-error: true
@@ -178,5 +212,3 @@ jobs:
 
           attach_file ".github/lychee/lychee-out.md"
           attach_file ".github/lychee/readme-link-replacer.log"
-
-
