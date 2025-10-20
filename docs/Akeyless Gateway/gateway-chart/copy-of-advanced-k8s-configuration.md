@@ -229,23 +229,21 @@ You can also enable **TLS for Redis** by setting `tls.secretName` to the Kuberne
 Additionally, you can improve resilience and availability by configuring these settings:
 
 ```yaml Cache HA
- podDisruptionBudget: {}
+podDisruptionBudget: {}
 
-  hardAntiAffinity: false
+hardAntiAffinity: false
 
-  persistentVolume:
-    enabled: true
-    
+persistentVolume:
+  enabled: true
+  storageClass: ~
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+  annotations: {}
+  labels: {}
 
-    storageClass: ~
-    accessModes:
-      - ReadWriteOnce
-    size: 10Gi
-    annotations: {}
-    labels: {}
-
-  topologySpreadConstraints:
-    enabled: false
+topologySpreadConstraints:
+  enabled: false
 ```
 
 These configurations help ensure Redis remains stable, highly available, and resilient to node failures or maintenance operations.
