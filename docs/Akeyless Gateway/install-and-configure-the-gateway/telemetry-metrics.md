@@ -106,9 +106,9 @@ Once done, check your Prometheus server for the ingested metrics.
 
 You can visualize Akeyless metrics in the Grafana Dashboard when using Prometheus as a data source.
 
-Import the Akeykess GW dashboard for your Grafana instance using [this](https://grafana.com/grafana/dashboards/16927) link.
+Import the Akeyless GW dashboard for your Grafana instance using [this](https://grafana.com/grafana/dashboards/16927) link.
 
-<Image align="center" alt="A sample screenshot of a Grafana dashboard showing metrics and charts." border={false} title="Screen Shot 2022-07-31 at 10.44.18.png" src="https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png" />
+<Image align="center" alt="A sample screenshot of a Grafana dashboard showing metrics and charts." border={false} src="https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png" title="Screen Shot 2022-07-31 at 10.44.18.png" />
 
 # Gateway Application Log Forwarding
 
