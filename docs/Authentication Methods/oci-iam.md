@@ -93,7 +93,6 @@ Where:
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Allowed Client Type**: Specifies which clients can use this Authentication Method, available options:
-  * **CLI/SDK**
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`.
 
 4. Click **Finish**.
