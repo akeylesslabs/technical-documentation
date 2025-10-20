@@ -33,7 +33,7 @@ The following Metrics are currently available:
 | `akeyless.gw.system.request_count`               | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status         |
 | `akeyless.gw.system.healthcheck.status`          | Monitors container health check status                                                                             |
 
-In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/gw-docker-log-forwarding) the Gateway application logs using **OTEL**. 
+In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/gw-docker-log-forwarding) the Gateway application logs using **OTEL**.
 
 # Datadog
 
@@ -57,7 +57,7 @@ Set the relevant `API Key` of your **Datadog** server, and set the relevant site
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-Alternatively, you can use an environment variable `METRICS_CONFIG_BASE64` to provide those settings in base64, for example:  `base64 -w 0 otel-config.yaml`. 
+Alternatively, you can use an environment variable `METRICS_CONFIG_BASE64` to provide those settings in base64, for example:  `base64 -w 0 otel-config.yaml`.
 
 **Dashboard Setup:**
 
@@ -94,13 +94,13 @@ scrape_configs:
       - targets: ['localhost:8889'] # for docker on macOS use['host.docker.internal:8889']
 ```
 
-Run the Gateway installation command: 
+Run the Gateway installation command:
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-Once done, check your Prometheus server for the ingested metrics. 
+Once done, check your Prometheus server for the ingested metrics.
 
 **Grafana Dashboard**
 
@@ -108,7 +108,7 @@ You can visualize Akeyless metrics in the Grafana Dashboard when using Prometheu
 
 Import the Akeykess GW dashboard for your Grafana instance using [this](https://grafana.com/grafana/dashboards/16927) link.
 
-![](https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png "Screen Shot 2022-07-31 at 10.44.18.png")
+<Image align="center" alt="A sample screenshot of a Grafana dashboard showing metrics and charts." border={false} title="Screen Shot 2022-07-31 at 10.44.18.png" src="https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png" />
 
 # Gateway Application Log Forwarding
 
@@ -144,7 +144,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 -e ADMIN_ACCESS_ID="Access-
 
 **Application Logs** from all instances of this gateway will be forwarded using this format: `<date> <time> <gw-clustername-instance-id> <log>`.
 
-After starting the Docker container, you can utilize [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
+After starting the container, you can utilize [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
 
 * In Grafana, navigate to Data Sources and add a new [Loki Data Source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/)
 
