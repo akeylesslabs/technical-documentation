@@ -32,9 +32,9 @@ You can create a Rotated Secret for a database user. Currently, Akeyless Rotated
 
 * Snowflake
 
-> 🚧 Warning
->
-> Before you get started, ensure creating a [Database Target](https://docs.akeyless.io/docs/database-targets) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.
+<Callout icon="🚧" theme="warn">
+  **_Warning_**: Before you get started, ensure creating a [Database Target](https://docs.akeyless.io/docs/database-targets) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.
+</Callout>
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the database server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target database.
 
