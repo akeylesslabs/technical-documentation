@@ -40,7 +40,7 @@ helm install external-secrets external-secrets/external-secrets
 
 # Authentication
 
-Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/) support the following Auth Methods:
+Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/) support the following Authentication Methods:
 
 * [API Key](https://docs.akeyless.io/docs/api-key)
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
@@ -50,9 +50,9 @@ Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/
 
 > 👍 Note
 >
-> This guide demonstrates authentication using API Key and K8s Auth Methods. However, for security purposes, it’s highly recommended to avoid using API Keys in production.
+> This guide demonstrates authentication using API Key and Kubernetes Authentication Methods. However, for security purposes, it’s highly recommended to avoid using API Keys in production.
 
-To set an auth method for the external secret operator, first create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with the relevant settings, for example:
+To set an Authentication Method for the external secret operator, first create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with the relevant settings, for example:
 
 ```yaml API Auth
 apiVersion: v1
@@ -81,9 +81,9 @@ Where:
 
 * `name`: A name for the Kubernetes secret to store the Authentication details.
 
-* `accessId`: The Auth Method `Access ID`.
+* `accessId`: The Authentication Method `Access ID`.
 
-* `accessType`: The Auth method type.
+* `accessType`: The Authentication Method type.
 
 * `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **K8s**. For more options, check the official [provider ](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
 
@@ -137,7 +137,7 @@ kubectl apply -f secretstore.yaml
 
 ## Explicit Secret Store
 
-Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` Kubernetes secret through the [SecretStore](https://docs.akeyless.io/docs/external-secret-operator-copy#secretstore). Alternatively, you can authenticate directly using your Kubernetes Auth settings.
+Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` Kubernetes secret through the [SecretStore](https://docs.akeyless.io/docs/external-secret-operator-copy#secretstore). Alternatively, you can authenticate directly using your Kubernetes Authentication settings.
 
 Using an explicit secret store provides key benefits for access control and security. By segregating secrets based on service accounts, you can ensure that each service account only has access to the secrets it needs.
 
@@ -160,7 +160,7 @@ spec:
 
 Where:
 
-* `accessId`: The Kubernetes Auth Method `Access ID`.
+* `accessId`: The Kubernetes Authentication Method `Access ID`.
 
 * `k8sConfName`: The name of the **K8s Conf** on the Gateway.
 
