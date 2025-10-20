@@ -222,7 +222,7 @@ cacheHA:
     certValidityDays: 1825
 ```
 
-To set **Authentication**, set `auth` to `true`, which requires a password stored in a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/)—specified by `existingSecret` for the secret name and `authKey` for the key containing the password (default: `redis-password`).
+To set **Authentication**,  `auth` must be set to `true`, which requires a password stored in a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/)—specified by `existingSecret` for the secret name and `authKey` for the key containing the password (default: `redis-password`).
 
 You can also enable **TLS for Redis** by setting `tls.secretName` to the Kubernetes Secret that contains the TLS certificate and key (`tls.crt`, `tls.key`, and `ca.crt`), which are automatically generated during Gateway deployment under the Secret name `{{ .Release.Name }}-cluster-cache-ha-tls`.
 
