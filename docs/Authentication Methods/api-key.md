@@ -60,17 +60,7 @@ akeyless configure --profile default --access-id <AccessID>  --access-key < API 
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Allowed Client Type:** Specifies which clients can use this Authentication Method, available options:
-
-  * **CLI/SDK**
-
-  * **Web UI**
-
-  * **Gateway Admin Console**
-
-  * **Mobile App**
-
-  * **Browser Extension**
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`, `Web UI`, `Gateway Admin`, `Mobile`, `Extension`.
 
 4. Click **Finish**.
 
