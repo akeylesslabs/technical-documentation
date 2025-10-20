@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-[External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/) is a Kubernetes (K8s) operator that integrates with external secret management systems like Akeyless. The operator reads information from Akeyless APIs and automatically injects the values into a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
+[External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/) is a Kubernetes (K8s) operator that integrates with external secret management systems like Akeyless. The operator reads information from Akeyless APIs and automatically injects the values into a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
 
-The goal of the ESO is to synchronize secrets from Akeyless into K8s. ESO is a collection of custom API resources - `ExternalSecret`, `SecretStore`, and `ClusterSecretStore` that provides a user-friendly abstraction for the external API that stores and manages the lifecycle of the secrets for you.
+The goal of the ESO is to synchronize secrets from Akeyless into Kubernetes. ESO is a collection of custom API resources - `ExternalSecret`, `SecretStore`, and `ClusterSecretStore` that provides a user-friendly abstraction for the external API that stores and manages the lifecycle of the secrets for you.
 
-The ESO runs within your K8s cluster as a `deployment` resource. It utilizes `CustomResourceDefinitions` to configure access to secret providers through `SecretStore` resources and manages K8s secret resources with `ExternalSecret` resources.
+The ESO runs within your Kubernetes cluster as a `deployment` resource. It utilizes `CustomResourceDefinitions` to configure access to secret providers through `SecretStore` resources and manages Kubernetes secret resources with `ExternalSecret` resources.
 
 You can use two types of resources to fetch secrets from Akeyless:
 
@@ -22,7 +22,7 @@ You can use two types of resources to fetch secrets from Akeyless:
 
 * [ClusterSecretStore](http://external-secrets.io/v0.5.5/api-clustersecretstore/): Defines how to access secrets from Akeyless across the entire Kubernetes cluster.
 
-In addition to retrieving secrets from Akeyless to your K8s cluster, you can use the `PushSecret` resource to push a local K8s secret from your cluster to Akeyless.
+In addition to retrieving secrets from Akeyless to your Kubernetes cluster, you can use the `PushSecret` resource to push a local Kubernetes secret from your cluster to Akeyless.
 
 # Prerequisites
 
@@ -52,7 +52,7 @@ Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/
 >
 > This guide demonstrates authentication using API Key and K8s Auth Methods. However, for security purposes, it’s highly recommended to avoid using API Keys in production.
 
-To set an auth method for the external secret operator, first create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with the relevant settings, for example: 
+To set an auth method for the external secret operator, first create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with the relevant settings, for example:
 
 ```yaml API Auth
 apiVersion: v1
@@ -79,11 +79,11 @@ stringData:
 
 Where:
 
-* `name`: A name for the k8s secret to store the Authentication details. 
+* `name`: A name for the Kubernetes secret to store the Authentication details.
 
 * `accessId`: The Auth Method `Access ID`.
 
-* `accessType`: The Auth method type. 
+* `accessType`: The Auth method type.
 
 * `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **K8s**. For more options, check the official [provider ](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
 
@@ -121,15 +121,15 @@ spec:
             key: accessTypeParam
 ```
 
-Where: 
+Where:
 
 * `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`. (or using your gateway url at port `8081`)
 
-* `authSecretRef`: References a K8s Secret `akeyless-secret-creds` containing authentication credentials.
+* `authSecretRef`: References a Kubernetes Secret `akeyless-secret-creds` containing authentication credentials.
 
-* `secretRef`: Refers to a K8s Secret named `akeyless-secret-creds`, which contains values for `accessID`, `accessType`, and `accessTypeParam`. 
+* `secretRef`: Refers to a Kubernetes Secret named `akeyless-secret-creds`, which contains values for `accessID`, `accessType`, and `accessTypeParam`.
 
-Apply the configuration: 
+Apply the configuration:
 
 ```shell shell
 kubectl apply -f secretstore.yaml
@@ -137,9 +137,9 @@ kubectl apply -f secretstore.yaml
 
 ## Explicit Secret Store
 
-Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` K8s secret through the [SecretStore](https://docs.akeyless.io/docs/external-secret-operator-copy#secretstore). Alternatively, you can authenticate directly using your k8s Auth settings.
+Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` Kubernetes secret through the [SecretStore](https://docs.akeyless.io/docs/external-secret-operator-copy#secretstore). Alternatively, you can authenticate directly using your Kubernetes Auth settings.
 
-Using an explicit secret store provides key benefits for access control and security. By segregating secrets based on service accounts, you can ensure that each service account only has access to the secrets it needs. 
+Using an explicit secret store provides key benefits for access control and security. By segregating secrets based on service accounts, you can ensure that each service account only has access to the secrets it needs.
 
 ```yaml secretstore.yaml
 apiVersion: external-secrets.io/v1
@@ -160,15 +160,15 @@ spec:
 
 Where:
 
-* `accessId`: The K8s Auth Method `Access ID`.
+* `accessId`: The Kubernetes Auth Method `Access ID`.
 
 * `k8sConfName`: The name of the **K8s Conf** on the Gateway.
 
-* `serviceAccountRef`: The name of the K8s service account used to fetch secrets from Akeyless. Only secrets defined in a role associated with that service account under claim `service_account_name` can be accessed.
+* `serviceAccountRef`: The name of the Kubernetes service account used to fetch secrets from Akeyless. Only secrets defined in a role associated with that service account under claim `service_account_name` can be accessed.
 
 # ExternalSecret
 
-To retrieve a secret from Akeyless and store it as a [K8s secret](https://kubernetes.io/docs/concepts/configuration/secret/) in your cluster, create an [ExternalSecret](https://external-secrets.io/latest/api/externalsecret/) resource that specifies which secret to fetch:
+To retrieve a secret from Akeyless and store it as a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/) in your cluster, create an [ExternalSecret](https://external-secrets.io/latest/api/externalsecret/) resource that specifies which secret to fetch:
 
 ```yaml externalsecret.yaml
 apiVersion: external-secrets.io/v1
@@ -194,23 +194,23 @@ spec:
 
 Where:
 
-* `refreshInterval`: The amount of time before the values are read again 
+* `refreshInterval`: The amount of time before the values are read again
 
 * `secretStoreRef`: Reference to the `SecretStore`  that was created earlier, in case of `ClusterSecretStore`  set the `Kind`  to `ClusterSecretStore`
 
-* `target`: Name of the K8s secret to create.
+* `target`: Name of the Kubernetes secret to create.
 
-* `secretKey`: The key of the secret that will be created locally in the k8s cluster.
+* `secretKey`: The key of the secret that will be created locally in the Kubernetes cluster.
 
 * `key`: Full path to the secret in Akeyless
 
-Apply the configuration: 
+Apply the configuration:
 
 ```text CLI
 kubectl apply -f externalsecret.yaml
 ```
 
-Getting the K8s secret:
+Getting the Kubernetes secret:
 
 ```shell CLI
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.secretKey}' | base64 -d
@@ -218,7 +218,7 @@ kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.secretKey}' | b
 
 # Using DataFrom
 
-DataFrom can be used to get a secret as a `JSON` string and attempt to parse it, where each key will be used as the secret key in the [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/):
+DataFrom can be used to get a secret as a `JSON` string and attempt to parse it, where each key will be used as the secret key in the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/):
 
 ```yaml datafrom.yaml
 apiVersion: external-secrets.io/v1
@@ -243,15 +243,15 @@ spec:
 
 Where:
 
-* `refreshInterval`: The amount of time before the values are read again 
+* `refreshInterval`: The amount of time before the values are read again
 
 * `secretStoreRef`: Reference to the `SecretStore`.
 
-* `target`: Name of the K8s secret to create.
+* `target`: Name of the Kubernetes secret to create.
 
 * `key`: Full path to the secret in Akeyless
 
-Getting the K8s secret:
+Getting the Kubernetes secret:
 
 ```yaml shell
 kubectl get secret akeyless-secret-to-create-json -o jsonpath='{.data}'
@@ -291,11 +291,11 @@ spec:
 
 Where:
 
-* `refreshInterval`: The amount of time before the values are read again 
+* `refreshInterval`: The amount of time before the values are read again
 
 * `secretStoreRef`: Reference to the `SecretStore`.
 
-* `target`: Name of the K8s secret to create.
+* `target`: Name of the Kubernetes secret to create.
 
 * `secretKey`: The Secret keys that will be created.
 
@@ -303,13 +303,13 @@ Where:
 
 * `Property`: The existing keys of the secret as stored in Akeyless.
 
-Apply the configuration: 
+Apply the configuration:
 
 ```shell CLI
 kubectl apply -f externalsecret.yaml
 ```
 
-Getting the K8s secret:
+Getting the Kubernetes secret:
 
 ```shell Certificate
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.crt}' | base64 -d 
@@ -357,7 +357,7 @@ Where:
 
 * `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`  (or using your gateway url at port `8081`).
 
-* `authSecretRef`: Reference to the  [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that holds the authentication details, in our example  `akeyless-secret-creds`.
+* `authSecretRef`: Reference to the  [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that holds the authentication details, in our example  `akeyless-secret-creds`.
 
 Run the following command to create the **ClusterSecretStore** resource:
 
@@ -367,17 +367,17 @@ kubectl apply -f clustersecretstore.yaml
 
 # Push Secret
 
-The [PushSecret](https://external-secrets.io/latest/api/pushsecret/) resource is namespaced and is used to push secrets from your K8s Cluster to Akeyless.
+The [PushSecret](https://external-secrets.io/latest/api/pushsecret/) resource is namespaced and is used to push secrets from your Kubernetes Cluster to Akeyless.
 
-Let's create a local K8s secret in the cluster, which will then be pushed to Akeyless:
+Let's create a local Kubernetes secret in the cluster, which will then be pushed to Akeyless:
 
 ```shell
 kubectl create secret generic --from-literal=cache-pass=mypassword k8s-created-secret
 ```
 
-Upon successful secret creation, a K8s secret named `k8s-created-secret` will be created in your cluster.
+Upon successful secret creation, a Kubernetes secret named `k8s-created-secret` will be created in your cluster.
 
-Next, we will create the `PushSecret` resource, which will be used to push the `k8s-created-secret` K8s Secret, to Akeyless:
+Next, we will create the `PushSecret` resource, which will be used to push the `k8s-created-secret` Kubernetes Secret, to Akeyless:
 
 ```yaml pushsecret.yaml
 apiVersion: external-secrets.io/v1alpha1
@@ -402,7 +402,7 @@ spec:
 
 Where:
 
-* `refreshInterval`: The amount of time before the values are read again 
+* `refreshInterval`: The amount of time before the values are read again
 
 * `secretStoreRef`: Reference to the `SecretStore`
 
@@ -418,8 +418,8 @@ Apply the configuration:
 kubectl apply -f pushsecret.yaml
 ```
 
-Upon successful execution, a secret named `k8s-created-secret` will be created in Akeyless, with the value of `cache-pass=mypassword` 
+Upon successful execution, a secret named `k8s-created-secret` will be created in Akeyless, with the value of `cache-pass=mypassword`
 
 # Tutorial
 
-Check out our tutorial video on [Sync Secrets to K8s with External Secrets Operator (ESO)](https://tutorials.akeyless.io/docs/sync-secrets-to-k8s-with-external-secrets-operator).
+Check out our tutorial video on [Sync Secrets to Kubernetes with External Secrets Operator (ESO)](https://tutorials.akeyless.io/docs/sync-secrets-to-k8s-with-external-secrets-operator).
