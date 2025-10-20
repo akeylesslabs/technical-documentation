@@ -45,7 +45,6 @@ jobs:
           args: >
             --verbose
             --no-progress
-            --suggest
             --exclude-path ".github"
             --exclude-link-local
             --exclude-loopback
