@@ -230,18 +230,13 @@ Additionally, you can improve resilience and availability by configuring these s
 
 ```yaml Cache HA
  podDisruptionBudget: {}
-    # Use only one of the two
-    # maxUnavailable: 1
-    # minAvailable: 1
 
-  # prevent cache-ha pods scheduling on the same node by setting hardAntiAffinity to true
   hardAntiAffinity: false
 
   persistentVolume:
     enabled: true
-    ## cacheHA data Persistent Volume Storage Class
-    ## If defined, storageClassName: <storageClass>
-    ## If undefined, the default storage class will be used.
+    
+
     storageClass: ~
     accessModes:
       - ReadWriteOnce
@@ -251,9 +246,6 @@ Additionally, you can improve resilience and availability by configuring these s
 
   topologySpreadConstraints:
     enabled: false
-    # maxSkew: "1"
-    # topologyKey: "topology.kubernetes.io/zone"
-    # whenUnsatisfiable: "ScheduleAn
 ```
 
 These configurations help ensure Redis remains stable, highly available, and resilient to node failures or maintenance operations.
