@@ -220,33 +220,15 @@ cacheHA:
     keyFile: tls.key
     caCertFile: ca.crt
     certValidityDays: 1825
+    
+   hardAntiAffinity: false
 ```
 
 To set **Authentication**,  `auth` must be set to `true`, which requires a password stored in a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) specified by `existingSecret` for the secret name and `authKey` for the key containing the password, In our example: `redis-password`.
 
-You can also enable **TLS for Redis** by setting `tls.secretName` to the Kubernetes Secret that contains the TLS certificate and key (`tls.crt`, `tls.key`, and `ca.crt`), which are automatically generated during Gateway deployment under the Secret name `{{ .Release.Name }}-cluster-cache-ha-tls`.
+When **TLS** is enabled, the Gateway deployment automatically generates a K8s Secret containing the TLS certificate and key, `tls.crt`, `tls.key`, and `ca.crt`. 
 
-Additionally, you can improve resilience and availability by configuring these settings:
-
-```yaml Cache HA
-podDisruptionBudget: {}
-
-hardAntiAffinity: false
-
-persistentVolume:
-  enabled: true
-  storageClass: ~
-  accessModes:
-    - ReadWriteOnce
-  size: 10Gi
-  annotations: {}
-  labels: {}
-
-topologySpreadConstraints:
-  enabled: false
-```
-
-These configurations help ensure Redis remains stable, highly available, and resilient to node failures or maintenance operations.
+Additionally, you can add topology spread constraints settings to control how Pods are spread across your cluster in the event of failures. The full configuration settings can be found in this [link](https://github.com/DandyDeveloper/charts/blob/master/charts/redis-ha/values.yaml).
 
 To control the cache settings, you should [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the Gateway Configuration Manager.
 
