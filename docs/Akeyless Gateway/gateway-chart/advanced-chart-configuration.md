@@ -226,7 +226,7 @@ cacheHA:
     caCertFile: ca.crt
     certValidityDays: 1825
     
-   hardAntiAffinity: false
+  hardAntiAffinity: false
 ```
 
 To set **Authentication**,  `auth` must be set to `true`, which requires a password stored in a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) specified by `existingSecret` for the secret name and `authKey` for the key containing the password. In our example: `redis-password`.
