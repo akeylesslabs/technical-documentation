@@ -198,18 +198,4 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * Utilize the ReadMe.com AI Linter.
 * Validate code snippets and commands.
 
-# Do’s and Don’ts
-
-## ✅ Do
-
-* Write short, clear sentences.
-* Provide context before diving into details.
-* Use consistent formatting.
-
-## ❌ Don’t
-
-* Assume prior product knowledge.
-* Use unexplained jargon.
-* Overload with unnecessary detail.
-
 ***
