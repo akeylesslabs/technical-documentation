@@ -37,9 +37,7 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Allowed Client Type**: Specifies which clients can use this Authentication Method, available options:
-  * **Web UI**
-  * **Mobile App**
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `Web UI`, `Mobile`.
 
 * **Require Sub Claim on role association:** select to force [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) during [Role](https://docs.akeyless.io/docs/rbac) association.
 
