@@ -19,7 +19,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 # Prerequisites
 
-* Review the [Brand Book](https://drive.google.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view?usp=sharing) .
+* Review the [Brand Book](https://drive.google.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view?usp=sharing).
 
 # Writing Style
 
@@ -200,13 +200,13 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 
 # Do’s and Don’ts
 
-# ✅ Do
+## ✅ Do
 
 * Write short, clear sentences.
 * Provide context before diving into details.
 * Use consistent formatting.
 
-# ❌ Don’t
+## ❌ Don’t
 
 * Assume prior product knowledge.
 * Use unexplained jargon.
