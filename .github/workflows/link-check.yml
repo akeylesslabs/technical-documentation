@@ -116,7 +116,7 @@ jobs:
               content: [
                 { "type":"paragraph", "content":[{ "type":"text", "text":"Automated link-checker run" }] },
                 { "type":"paragraph", "content":[
-                    { "type":"text", "text":"Replacement summary: " },
+                    { "type":"text", "text":"Replacement summary (all time): " },
                     { "type":"text", "text":$repl, "marks":[{"type":"strong"}] }
                   ]
                 },
