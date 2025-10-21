@@ -574,3 +574,7 @@
 - verifypkcs1
 - verifypkicertwithclassickey
 - verifyrsassapss
+- dynamicsecretcreateopenai
+- dynamicsecretupdateopenai
+- eventforwardercreateteams
+- eventforwarderupdateteams
