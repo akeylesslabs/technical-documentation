@@ -95,7 +95,9 @@ usc create \
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
-`-pfx-password`: Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
+`--pfx-password`: Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)
+
+`--usc-encryption-key`: Optional, The name of the remote key that used to encrypt the secret value (if empty, the default key will be used). Relevant only for **AWS** and **GCP**
 
 `-v, --value`:**Required**,Value of the external secret item, either text or base64 encoded binary
 
