@@ -237,7 +237,7 @@ For production environment, set the `hardAntiAffinity` option to ensure that Gat
 
 Additionally, you can add topology spread constraint settings to control how pods are spread across your cluster in the event of failures. The full configuration settings can be found in this [link](https://github.com/DandyDeveloper/charts/blob/master/charts/redis-ha/values.yaml).
 
-To control the cache settings, you should [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the Gateway Configuration Manager.
+To control the cache settings, you should [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache#/) using the Gateway Configuration Manager.
 
 # Working With K8s Secrets
 
