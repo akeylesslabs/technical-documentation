@@ -1,7 +1,7 @@
 ---
 title: Teams Event Forwarder
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
