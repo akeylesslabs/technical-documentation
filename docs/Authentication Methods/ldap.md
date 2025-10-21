@@ -37,8 +37,6 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `Web UI`, `Mobile`.
-
 * **Require Sub Claim on role association:** select to force [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) during [Role](https://docs.akeyless.io/docs/rbac) association.
 
 * **Unique Identifier:** A unique identifier is usually one of the following keys `email`, `username`, or `UPN`. Identity Providers issue sub-claims containing details that uniquely identify the user whenever a user logs in.
