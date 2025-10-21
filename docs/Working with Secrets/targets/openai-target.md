@@ -16,8 +16,8 @@ akeyless target create openai \
 --name <target name> \
 --api-key-id <Admin API key ID> \
 --api-key <Admin API key> \
---org-id <organization ID> \
---open-ai-url[=https://api.openai.com/v1] <The endpoint for the OpenAI API>     
+--organization-id <organization ID> \
+--openai-url[=https://api.openai.com/v1] <The endpoint for the OpenAI API>     
 ```
 
 Where:
