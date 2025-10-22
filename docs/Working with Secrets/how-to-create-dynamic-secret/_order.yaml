@@ -13,9 +13,9 @@
 - google-workspace-secret
 - k8s-generic-dynamic-secrets
 - ldap-dynamic-secret
+- openai-dynamic-secrets
 - ping-dynamic-secrets
 - rabbitmq-producer
 - rdp-dynamic-secrets
 - snowflake-dynamic-secrets
 - custom-producer
-- openai-dynamic-secrets
