@@ -21,7 +21,7 @@
 - salesforce-target
 - sectigo-target
 - ssh-target
-- web-targets
 - venafi-target
+- web-targets
 - windows-target
 - zerossl-target
