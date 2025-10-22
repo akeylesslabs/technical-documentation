@@ -8,8 +8,8 @@
 - github-target
 - gitlab-target
 - cloud-targets
-- globalsign-target
 - globalsign-atlas
+- globalsign-target
 - godaddy-target
 - hashicorp-vault-target
 - kubernetes-targets
