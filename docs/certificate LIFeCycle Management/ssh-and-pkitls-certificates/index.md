@@ -18,9 +18,9 @@ next:
 
 Akeyless can act as a Certificate Authority (CA) for the internal environment. This page focuses on PKI Cert Issuer, if you wish to see how to create and work with SSH certificates, please follow this [link](https://docs.akeyless.io/docs/how-to-configure-ssh).
 
-To start building your chain of trust using Akeyless PKI Issuer, you can either bring your own CA certificate with the signing RSA key or simply generate your CA certificate as part of the signing key creation. 
+To start building your chain of trust using Akeyless PKI Issuer, you can either bring your own CA certificate with the signing RSA key or simply generate your CA certificate as part of the signing key creation.
 
-Using the PKI Issuer templates alongside the defined constraints enables maximum security with common PKI use cases, for example, limiting a PKI Issuer to accept issuance requests of specific key types and algorithms for example **RSA4096**  for specific **Allowed Domains** while templating the resulted certificate to use a specific list of **Key Usage** with a well defined **Location** settings. 
+Using the PKI Issuer templates alongside the defined constraints enables maximum security with common PKI use cases, for example, limiting a PKI Issuer to accept issuance requests of specific key types and algorithms for example **RSA4096**  for specific **Allowed Domains** while templating the resulted certificate to use a specific list of **Key Usage** with a well defined **Location** settings.
 
 In case you want to use your existing key, upload your RSA private key with the matching certificate for signing intermediate CA or leaf certificates based on your chain of trust, using the following command:
 
@@ -51,7 +51,7 @@ keyUsage=critical, keyCertSign, digitalSignature, cRLSign
 EOF
 ```
 
-2. Create the **Signer Key**: 
+2. Create the **Signer Key**:
 
 ```shell Create-Key-In-Akeyless
 akeyless create-dfc-key \
@@ -90,11 +90,11 @@ Where:
 
 * `name`: A unique name for the PKI issuer item. The name can include a path to the virtual folder where you want to create a new PKI cert issuer using the slash / separators. If the folder does not exist, it will be created together with the item.
 
-* `signer-key-name`: The CA private key which contains the root certificate to be used for certificate signing. 
+* `signer-key-name`: The CA private key which contains the root certificate to be used for certificate signing.
 
 * `ttl`: The time to live of the issued certificates supported units are `s,m,h,d`.
 
-* `destination-path`:  A path in Akeyless to save generated certificates using the issued certs under this path, to work with advanced features and events. Required for **CRL**. 
+* `destination-path`:  A path in Akeyless to save generated certificates using the issued certs under this path, to work with advanced features and events. Required for **CRL**.
 
 * `create-public-crl`: Optional, to maintain a public CRL at: `https://vault.akeyless.io/crl/<account-id>/<cert-issuer-display-id>`.
 
@@ -110,7 +110,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> **Automatically store & renew certificate**\
+> **Automatically store & renew certificate**  
 > Set the PKI Issuer item to automatically store & renew any issued certificate with default expiration events to gain full automation of your PKI environments.
 
 ## Creating a Certificate Signing Request
@@ -132,7 +132,7 @@ akeyless generate-csr \
 
 Where:
 
-* `name`:  Full name of a new [Classic Key](https://docs.akeyless.io/docs/classic-keys) or DFC Key that will be generated. 
+* `name`:  Full name of a new [Classic Key](https://docs.akeyless.io/docs/classic-keys) or DFC Key that will be generated.
 
 * `generate-key`: Use this flag to generate a new classic key or dfc key with the CSR.
 
@@ -141,6 +141,10 @@ Where:
 * `common-name`: Certificate common name.
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`). to generate the classic key/dfc key, relevant only when using `generate-key` option.
+
+> 📘 Note
+>
+> When using a wildcard certificate, if the `*` character is used in the name, it is automatically replaced with `~` in the Akeyless Console when the `--destination-path` is specified (i.e., when the certificate is stored in Akeyless).
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp) section.
 
