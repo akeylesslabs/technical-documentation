@@ -21,6 +21,147 @@
   },
   "host": "api.akeyless.io",
   "paths": {
+    "/account-custom-field-create": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "summary": "Create a new custom field.",
+        "operationId": "accountCustomFieldCreate",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/accountCustomFieldCreate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/accountCustomFieldCreateResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/account-custom-field-delete": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "summary": "Delete a custom field.",
+        "operationId": "accountCustomFieldDelete",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/accountCustomFieldDelete"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/accountCustomFieldDeleteResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/account-custom-field-get": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "summary": "Get an account custom field by ID.",
+        "operationId": "accountCustomFieldGet",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/accountCustomFieldGet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/accountCustomFieldGetResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/account-custom-field-list": {
+      "post": {
+        "description": "Returns a list of all custom fields configured for the account, optionally filtered by object and object type.",
+        "tags": [
+          "v2"
+        ],
+        "summary": "List all account custom fields.",
+        "operationId": "accountCustomFieldList",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/accountCustomFieldList"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/accountCustomFieldListResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/account-custom-field-update": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "summary": "Update a custom field.",
+        "operationId": "accountCustomFieldUpdate",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/accountCustomFieldUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/accountCustomFieldUpdateResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/alias-details": {
       "post": {
         "tags": [
@@ -15907,6 +16048,73 @@
       "title": "Access rules type.",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "AccountCustomFieldCreateOutput": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Id"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "AccountCustomFieldDeleteOutput": {
+      "type": "object",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "AccountCustomFieldGetOutput": {
+      "type": "object",
+      "properties": {
+        "account_id": {
+          "type": "string",
+          "x-go-name": "AccountID"
+        },
+        "creation_date": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreationDate"
+        },
+        "deletion_date": {
+          "$ref": "#/definitions/NullTime"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "modification_date": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "ModificationDate"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "object": {
+          "type": "string",
+          "x-go-name": "Object"
+        },
+        "object_type": {
+          "type": "string",
+          "x-go-name": "ObjectType"
+        },
+        "required": {
+          "type": "boolean",
+          "x-go-name": "Required"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "AccountCustomFieldListOutput": {
+      "type": "object",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "AccountCustomFieldUpdateOutput": {
+      "type": "object",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "AccountGeneralSettings": {
       "description": "AccountGeneralSettings describes general settings for an account",
       "type": "object",
@@ -15921,6 +16129,9 @@
           "description": "AccountDefaultKeyName is the name of the DFC key item configured as the default key\nThis is here simply for the response to include the item name in addition to the display ID so the\nclient can properly show this to the user.\nIt will not be saved to the DB, only the AccountDefaultKeyItemID will.",
           "type": "string",
           "x-go-name": "AccountDefaultKeyName"
+        },
+        "ai_insights": {
+          "$ref": "#/definitions/AiInsightsSetting"
         },
         "allowed_clients_ips": {
           "$ref": "#/definitions/AllowedIpSettings"
@@ -16166,11 +16377,47 @@
       "format": "int64",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
     },
+    "AiInsightsConfigPart": {
+      "type": "object",
+      "properties": {
+        "enable": {
+          "type": "boolean",
+          "x-go-name": "Enable"
+        },
+        "model": {
+          "type": "string",
+          "x-go-name": "Model"
+        },
+        "target_id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "TargetId"
+        },
+        "target_name": {
+          "type": "string",
+          "x-go-name": "TargetName"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
+    },
+    "AiInsightsSetting": {
+      "type": "object",
+      "properties": {
+        "enable": {
+          "type": "boolean",
+          "x-go-name": "Enable"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "AkeylessGatewayConfig": {
       "type": "object",
       "properties": {
         "admins": {
           "$ref": "#/definitions/AdminsConfigPart"
+        },
+        "ai_insights": {
+          "$ref": "#/definitions/AiInsightsConfigPart"
         },
         "ca_certificates": {
           "$ref": "#/definitions/CaCertificatesConfigPart"
@@ -18308,6 +18555,10 @@
           "type": "string",
           "x-go-name": "Admins"
         },
+        "ai_insights": {
+          "type": "string",
+          "x-go-name": "AiInsights"
+        },
         "cache": {
           "type": "string",
           "x-go-name": "Cache"
@@ -18610,6 +18861,14 @@
           "default": "SHA256",
           "x-go-name": "CertificateHashAlgorithm"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -18713,11 +18972,6 @@
           "description": "Description of the External Secrets Manager",
           "type": "string",
           "x-go-name": "Description"
-        },
-        "gcp-project-id": {
-          "description": "GCP Project ID (Relevant only for GCP targets)",
-          "type": "string",
-          "x-go-name": "GcpProjectId"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -18938,6 +19192,14 @@
           "description": "If set, the basic constraints extension will be added to certificate",
           "type": "boolean",
           "x-go-name": "IsCA"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -19221,10 +19483,13 @@
           "type": "string",
           "x-go-name": "Description"
         },
-        "gcp-project-id": {
-          "description": "GCP Project ID (Relevant only for GCP targets)",
-          "type": "string",
-          "x-go-name": "GcpProjectId"
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -19962,6 +20227,13 @@
           "description": "relevant for CLIENT_TLS_CERTIFICATE client authentication type",
           "type": "string",
           "x-go-name": "Issuer"
+        },
+        "item_custom_fields_details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemCustomFieldsDetails"
+          },
+          "x-go-name": "ItemCustomFieldsDetails"
         },
         "item_targets_assoc": {
           "type": "array",
@@ -21842,10 +22114,6 @@
         "gemini_url": {
           "type": "string",
           "x-go-name": "BaseURL"
-        },
-        "model": {
-          "type": "string",
-          "x-go-name": "Model"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -22911,6 +23179,13 @@
         "item_accessibility": {
           "$ref": "#/definitions/ItemAccessibility"
         },
+        "item_custom_fields_details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemCustomFieldsDetails"
+          },
+          "x-go-name": "ItemCustomFieldsDetails"
+        },
         "item_general_info": {
           "$ref": "#/definitions/ItemGeneralInfo"
         },
@@ -23030,6 +23305,35 @@
       "type": "integer",
       "format": "int64",
       "title": "ItemAccessibility defines types supported by AKEYLESS.",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "ItemCustomFieldsDetails": {
+      "description": "ItemCustomFieldsDetails includes details of item custom field configuration and value",
+      "type": "object",
+      "properties": {
+        "field_id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "FieldID"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "required": {
+          "type": "boolean",
+          "x-go-name": "Required"
+        },
+        "value": {
+          "type": "string",
+          "x-go-name": "Value"
+        }
+      },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
     "ItemGeneralInfo": {
@@ -25063,6 +25367,21 @@
       "properties": {
         "String": {
           "type": "string"
+        },
+        "Valid": {
+          "type": "boolean"
+        }
+      },
+      "x-go-package": "database/sql"
+    },
+    "NullTime": {
+      "description": "NullTime implements the [Scanner] interface so\nit can be used as a scan destination, similar to [NullString].",
+      "type": "object",
+      "title": "NullTime represents a [time.Time] that may be null.",
+      "properties": {
+        "Time": {
+          "type": "string",
+          "format": "date-time"
         },
         "Valid": {
           "type": "boolean"
@@ -27238,6 +27557,14 @@
     "SharingPolicyInfo": {
       "type": "object",
       "properties": {
+        "allowed_email_domains": {
+          "description": "AllowedEmailDomains limits email sharing to these domains. By default all domains are allowed.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedEmailDomains"
+        },
         "default_share_link_ttl": {
           "type": "integer",
           "format": "int64",
@@ -28392,6 +28719,14 @@
           "type": "boolean",
           "x-go-name": "IsCA"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -29002,6 +29337,196 @@
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "accountCustomFieldCreate": {
+      "description": "accountCustomFieldCreate is a command that creates a new custom field in the account settings",
+      "type": "object",
+      "required": [
+        "object",
+        "object-type",
+        "name"
+      ],
+      "properties": {
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "The name of the custom field",
+          "type": "string",
+          "x-go-name": "FieldName"
+        },
+        "object": {
+          "description": "The object to create the custom field",
+          "type": "string",
+          "default": "ITEM",
+          "x-go-name": "Object"
+        },
+        "object-type": {
+          "description": "The object type to create the custom field [e.g. STATIC_SECRET,DYNAMIC_SECRET,ROTATED_SECRET]",
+          "type": "string",
+          "x-go-name": "ObjectType"
+        },
+        "required": {
+          "description": "Specify whether the custom field is mandatory",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Required"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "accountCustomFieldDelete": {
+      "description": "accountCustomFieldDelete is a command that deletes an account custom field",
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "The custom field id",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "accountCustomFieldGet": {
+      "description": "accountCustomFieldGet is a command that retrieves an account custom field",
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "The custom field id",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "accountCustomFieldList": {
+      "description": "accountCustomFieldList is a command that retrieves the account custom fields",
+      "type": "object",
+      "properties": {
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "object": {
+          "description": "The object to filter by the custom fields\nin: body",
+          "type": "string",
+          "x-go-name": "Object"
+        },
+        "object-type": {
+          "description": "The object type to filter by the custom fields\nin: body",
+          "type": "string",
+          "x-go-name": "ObjectType"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "accountCustomFieldUpdate": {
+      "description": "accountCustomFieldUpdate is a command to update an account custom field",
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "The custom field id",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "The new name of the custom field",
+          "type": "string",
+          "x-go-name": "FieldName"
+        },
+        "required": {
+          "description": "Specify whether the custom field is mandatory",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Required"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
     "addGatewayAllowedAccessId": {
       "description": "Responses:\n\ndefault: errorResponse\n200: addGatewayAllowedAccessIdResponse",
@@ -36234,6 +36759,14 @@
           "type": "string",
           "x-go-name": "CertificateFormat"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -36593,6 +37126,14 @@
           "type": "string",
           "default": "SHA256",
           "x-go-name": "CertificateHashAlgorithm"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -38220,6 +38761,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -38902,6 +39451,14 @@
           "type": "string",
           "x-go-name": "HostProviderType"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -39289,6 +39846,14 @@
           },
           "x-go-name": "Websites"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -39459,6 +40024,14 @@
           "description": "AES key name to use in vaultless tokenization",
           "type": "string",
           "x-go-name": "EncryptionKeyName"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -40987,6 +41560,12 @@
           "default": false,
           "x-go-name": "WithGatewayDetails"
         },
+        "item-custom-fields-details": {
+          "description": "Include all item custom fields details",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "WithItemCustomFieldsDetails"
+        },
         "item-id": {
           "description": "Item id of the item",
           "type": "integer",
@@ -41209,6 +41788,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -41336,6 +41923,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "AutomaticAdminCredsRotation"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -41514,6 +42109,14 @@
           "default": false,
           "x-go-name": "FixedUserOnly"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -41670,6 +42273,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -41776,6 +42387,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -41870,6 +42489,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "EnableAdminRotationV2"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -41967,6 +42594,14 @@
           "description": "DockerhubUsername is the name of the user in dockerhub",
           "type": "string",
           "x-go-name": "DockerhubUsername"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -42068,6 +42703,14 @@
           "description": "Secret Access Key",
           "type": "string",
           "x-go-name": "AccessKey"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -42190,11 +42833,6 @@
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
-        "gcp-project-id": {
-          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
-          "type": "string",
-          "x-go-name": "GcpProjectId"
-        },
         "gcp-sa-email": {
           "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
           "type": "string",
@@ -42204,6 +42842,14 @@
           "description": "Access token scopes list, e.g. scope1,scope2",
           "type": "string",
           "x-go-name": "TokenScopes"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -42313,6 +42959,14 @@
           "description": "Optional, mutually exclusive with installation id, GitHub repository '<owner>/<repo-name>'",
           "type": "string",
           "x-go-name": "Repository"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -42433,6 +43087,14 @@
           "type": "string",
           "x-go-name": "ProjectName"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -42516,6 +43178,14 @@
           "description": "GKE service account email",
           "type": "string",
           "x-go-name": "ServiceAccountEmail"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -42647,6 +43317,14 @@
         },
         "group-role": {
           "$ref": "#/definitions/GWSGroupRoleType"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -42791,6 +43469,14 @@
           "type": "string",
           "x-go-name": "DBUsername"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -42904,6 +43590,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -43129,6 +43823,14 @@
           "type": "string",
           "x-go-name": "HostProviderType"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -43275,6 +43977,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -43452,6 +44162,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -43619,6 +44337,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -43782,6 +44508,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -43866,6 +44600,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -44012,6 +44754,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -44181,6 +44931,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -44333,6 +45091,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -44494,6 +45260,14 @@
           "type": "string",
           "default": "false",
           "x-go-name": "FixedUserOnly"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -44663,6 +45437,14 @@
           "default": "127.0.0.1",
           "x-go-name": "Host"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -44769,6 +45551,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -44917,6 +45707,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -45035,6 +45833,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "AutomaticAdminCredsRotation"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -45472,6 +46278,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -45604,6 +46418,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "AutomaticAdminCredsRotation"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -45787,6 +46609,14 @@
           "default": false,
           "x-go-name": "FixedUserOnly"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -45948,6 +46778,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -46059,6 +46897,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -46158,6 +47004,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "EnableAdminRotationV2"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -46260,6 +47114,14 @@
           "description": "DockerhubUsername is the name of the user in dockerhub",
           "type": "string",
           "x-go-name": "DockerhubUsername"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -46366,6 +47228,14 @@
           "description": "Secret Access Key",
           "type": "string",
           "x-go-name": "AccessKey"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -46493,11 +47363,6 @@
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
-        "gcp-project-id": {
-          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
-          "type": "string",
-          "x-go-name": "GcpProjectId"
-        },
         "gcp-sa-email": {
           "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
           "type": "string",
@@ -46507,6 +47372,14 @@
           "description": "Access token scopes list, e.g. scope1,scope2",
           "type": "string",
           "x-go-name": "TokenScopes"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -46621,6 +47494,14 @@
           "description": "Optional, mutually exclusive with installation id, GitHub repository '<owner>/<repo-name>'",
           "type": "string",
           "x-go-name": "Repository"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -46746,6 +47627,14 @@
           "type": "string",
           "x-go-name": "ProjectName"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -46834,6 +47723,14 @@
           "description": "GKE service account email",
           "type": "string",
           "x-go-name": "ServiceAccountEmail"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -46970,6 +47867,14 @@
         },
         "group-role": {
           "$ref": "#/definitions/GWSGroupRoleType"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -47119,6 +48024,14 @@
           "type": "string",
           "x-go-name": "DBUsername"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -47237,6 +48150,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -47467,6 +48388,14 @@
           "type": "string",
           "x-go-name": "HostProviderType"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -47618,6 +48547,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -47800,6 +48737,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -47972,6 +48917,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -48140,6 +49093,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -48229,6 +49190,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -48380,6 +49349,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -48554,6 +49531,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -48711,6 +49696,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -48877,6 +49870,14 @@
           "type": "string",
           "default": "false",
           "x-go-name": "FixedUserOnly"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -49051,6 +50052,14 @@
           "default": "127.0.0.1",
           "x-go-name": "Host"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -49162,6 +50171,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -49315,6 +50332,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -49438,6 +50463,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "AutomaticAdminCredsRotation"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -51912,6 +52945,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -52043,6 +53084,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "AutomaticAdminCredsRotation"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -52225,6 +53274,14 @@
           "default": false,
           "x-go-name": "FixedUserOnly"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -52385,6 +53442,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -52495,6 +53560,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -52593,6 +53666,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "EnableAdminRotationV2"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -52694,6 +53775,14 @@
           "description": "DockerhubUsername is the name of the user in dockerhub",
           "type": "string",
           "x-go-name": "DockerhubUsername"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -52799,6 +53888,14 @@
           "description": "Secret Access Key",
           "type": "string",
           "x-go-name": "AccessKey"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -52925,11 +54022,6 @@
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
-        "gcp-project-id": {
-          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
-          "type": "string",
-          "x-go-name": "GcpProjectId"
-        },
         "gcp-sa-email": {
           "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
           "type": "string",
@@ -52939,6 +54031,14 @@
           "description": "Access token scopes list, e.g. scope1,scope2",
           "type": "string",
           "x-go-name": "TokenScopes"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -53053,6 +54153,14 @@
           "type": "string",
           "x-go-name": "Repository"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -53157,6 +54265,14 @@
           "description": "GKE service account email",
           "type": "string",
           "x-go-name": "ServiceAccountEmail"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -53315,6 +54431,14 @@
           "type": "string",
           "x-go-name": "DBUsername"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -53468,6 +54592,14 @@
           "type": "string",
           "x-go-name": "HostProviderType"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -53618,6 +54750,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -53779,6 +54919,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -53970,6 +55118,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -54136,6 +55292,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -54340,6 +55504,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -54480,6 +55652,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -54653,6 +55833,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -54809,6 +55997,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -54974,6 +56170,14 @@
           "type": "string",
           "default": "false",
           "x-go-name": "FixedUserOnly"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -55147,6 +56351,14 @@
           "default": "127.0.0.1",
           "x-go-name": "Host"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -55257,6 +56469,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -55409,6 +56629,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -55531,6 +56759,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "AutomaticAdminCredsRotation"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -58339,6 +59575,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -58475,6 +59719,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "AutomaticAdminCredsRotation"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -58662,6 +59914,14 @@
           "default": false,
           "x-go-name": "FixedUserOnly"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -58827,6 +60087,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -58942,6 +60210,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -59045,6 +60321,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "EnableAdminRotationV2"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -59151,6 +60435,14 @@
           "description": "DockerhubUsername is the name of the user in dockerhub",
           "type": "string",
           "x-go-name": "DockerhubUsername"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -59261,6 +60553,14 @@
           "description": "Secret Access Key",
           "type": "string",
           "x-go-name": "AccessKey"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -59392,11 +60692,6 @@
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
-        "gcp-project-id": {
-          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
-          "type": "string",
-          "x-go-name": "GcpProjectId"
-        },
         "gcp-sa-email": {
           "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
           "type": "string",
@@ -59406,6 +60701,14 @@
           "description": "Access token scopes list, e.g. scope1,scope2",
           "type": "string",
           "x-go-name": "TokenScopes"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -59525,6 +60828,14 @@
           "type": "string",
           "x-go-name": "Repository"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -59634,6 +60945,14 @@
           "description": "GKE service account email",
           "type": "string",
           "x-go-name": "ServiceAccountEmail"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -59787,6 +61106,14 @@
           "description": "HanaDb Username",
           "type": "string",
           "x-go-name": "DBUsername"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -59946,6 +61273,14 @@
           "type": "string",
           "x-go-name": "HostProviderType"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -60101,6 +61436,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -60267,6 +61610,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -60463,6 +61814,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -60634,6 +61993,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -60843,6 +62210,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -60988,6 +62363,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -61166,6 +62549,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -61327,6 +62718,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -61497,6 +62896,14 @@
           "type": "string",
           "default": "false",
           "x-go-name": "FixedUserOnly"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -61675,6 +63082,14 @@
           "default": "127.0.0.1",
           "x-go-name": "Host"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -61790,6 +63205,14 @@
           "description": "Protection from accidental deletion of this object [true/false]",
           "type": "string",
           "x-go-name": "ObjectProtected"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -61947,6 +63370,14 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -62074,6 +63505,14 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "AutomaticAdminCredsRotation"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -65722,6 +67161,14 @@
           "type": "string",
           "x-go-name": "GraceRotationInterval"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -65896,6 +67343,14 @@
           "type": "string",
           "x-go-name": "GraceRotationInterval"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -66061,6 +67516,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -66185,6 +67648,14 @@
           "description": "Enable password policy",
           "type": "string",
           "x-go-name": "EnablePasswordPolicy"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -66386,6 +67857,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -66518,6 +67997,14 @@
           "type": "string",
           "x-go-name": "GraceRotationInterval"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -66623,6 +68110,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -66747,6 +68242,14 @@
           "description": "Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret",
           "type": "string",
           "x-go-name": "HostProviderType"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -66940,6 +68443,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -67095,6 +68606,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -67257,6 +68776,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -67413,6 +68940,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -67568,6 +69103,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -67730,6 +69273,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -67845,6 +69396,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -67986,6 +69545,14 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -68111,6 +69678,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -68293,6 +69868,14 @@
           "description": "Description of the object",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -68700,6 +70283,14 @@
           "type": "string",
           "x-go-name": "GraceRotationInterval"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -68881,6 +70472,14 @@
           "type": "string",
           "x-go-name": "GraceRotationInterval"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -69053,6 +70652,14 @@
           "default": "default_metadata",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -69185,6 +70792,14 @@
           "description": "Enable password policy",
           "type": "string",
           "x-go-name": "EnablePasswordPolicy"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -69398,6 +71013,14 @@
           "default": "default_metadata",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -69543,6 +71166,14 @@
           "type": "string",
           "x-go-name": "GraceRotationInterval"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -69660,6 +71291,14 @@
           "type": "string",
           "default": "default_metadata",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -69791,6 +71430,14 @@
           "description": "Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret",
           "type": "string",
           "x-go-name": "HostProviderType"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -69991,6 +71638,14 @@
           "default": "default_metadata",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -70153,6 +71808,14 @@
           "type": "string",
           "default": "default_metadata",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -70322,6 +71985,14 @@
           "default": "default_metadata",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -70485,6 +72156,14 @@
           "default": "default_metadata",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -70647,6 +72326,14 @@
           "type": "string",
           "default": "default_metadata",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -70816,6 +72503,14 @@
           "default": "default_metadata",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -70938,6 +72633,14 @@
           "type": "string",
           "default": "default_metadata",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -71086,6 +72789,14 @@
           "default": "default_metadata",
           "x-go-name": "Description"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -71219,6 +72930,14 @@
           "type": "string",
           "default": "default_metadata",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -71414,6 +73133,14 @@
           "type": "string",
           "default": "default_metadata",
           "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -73091,11 +74818,6 @@
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
           "x-go-name": "MaxVersions"
-        },
-        "model": {
-          "description": "Default model to use with Gemini",
-          "type": "string",
-          "x-go-name": "Model"
         },
         "name": {
           "description": "Target name",
@@ -75487,11 +77209,6 @@
           "type": "string",
           "x-go-name": "MaxVersions"
         },
-        "model": {
-          "description": "Default model to use with Gemini",
-          "type": "string",
-          "x-go-name": "Model"
-        },
         "name": {
           "description": "Target name",
           "type": "string",
@@ -77731,6 +79448,14 @@
           "type": "string",
           "x-go-name": "Address"
         },
+        "allowed-email-domains": {
+          "description": "Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedEmailDomainsInput"
+        },
         "bound-ips": {
           "description": "A default list of comma-separated CIDR block that are allowed to authenticate.",
           "type": "array",
@@ -77792,6 +79517,11 @@
           "description": "Set a maximum ttl for dynamic secrets [true/false]",
           "type": "string",
           "x-go-name": "DynamicMaxTtlEnable"
+        },
+        "enable-ai-insights": {
+          "description": "Enable AI insights [true/false]",
+          "type": "string",
+          "x-go-name": "EnableAiInsights"
         },
         "enable-default-certificate-expiration-event": {
           "description": "How many days before the expiration of the certificate would you like to be notified. [true/false]",
@@ -81758,6 +83488,14 @@
           "type": "string",
           "x-go-name": "HostProviderType"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -83260,6 +84998,14 @@
           "type": "string",
           "x-go-name": "HostProviderType"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -84279,6 +86025,14 @@
           "type": "string",
           "x-go-name": "PKCS12File"
         },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -84375,6 +86129,14 @@
             "type": "string"
           },
           "x-go-name": "ExpirationEventsInDays"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -85251,6 +87013,36 @@
       "description": "UpdateClassicKeyCertificateResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/UpdateClassicKeyCertificateOutput"
+      }
+    },
+    "accountCustomFieldCreateResponse": {
+      "description": "accountCustomFieldCreateResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/AccountCustomFieldCreateOutput"
+      }
+    },
+    "accountCustomFieldDeleteResponse": {
+      "description": "accountCustomFieldDeleteResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/AccountCustomFieldDeleteOutput"
+      }
+    },
+    "accountCustomFieldGetResponse": {
+      "description": "accountCustomFieldGetResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/AccountCustomFieldGetOutput"
+      }
+    },
+    "accountCustomFieldListResponse": {
+      "description": "accountCustomFieldListResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/AccountCustomFieldListOutput"
+      }
+    },
+    "accountCustomFieldUpdateResponse": {
+      "description": "accountCustomFieldUpdateResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/AccountCustomFieldUpdateOutput"
       }
     },
     "addGatewayAllowedAccessIdResponse": {
