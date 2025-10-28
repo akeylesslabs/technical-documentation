@@ -51,7 +51,7 @@ Once a custom field is created, it applies to all new objects of the selected ty
 Delete a custom field from the account:
 
 ```shell
-akeyless custom-field delete --id <custom field ID>
+akeyless account-custom-field delete --id <custom field ID>
 ```
 
 ## Update a custom field
@@ -59,7 +59,7 @@ akeyless custom-field delete --id <custom field ID>
 Updates an existing custom field in the account:
 
 ```shell
-akeyless custom-field update \
+akeyless account-custom-field update \
 --id <custom field ID> \
 --name <new name> \
 --required=`[false]`
@@ -70,13 +70,13 @@ akeyless custom-field update \
 Retrieves a custom field:
 
 ```shell
-akeyless custom-field get --id <custom field ID>
+akeyless account-custom-field get --id <custom field ID>
 ```
 
 Retrieves a list of all custom fields in the account:
 
 ```shell
-akeyless custom-field list --object items --object-type static-secret
+akeyless account-custom-field list --object item --object-type static-secret
 ```
 
 # Manage Custom Field from Console
