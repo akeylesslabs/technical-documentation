@@ -14,9 +14,11 @@ You can securely share copies of static secret items saved in Akeyless with anyo
 
 When sharing via **emails** you’ll get a unique link you need to share with those users, choose when the share expires and who are the specific users that will be able to access it. When sharing using **wrapping tokens**, you'll get a temporary token that can be shared on the wire without exposing the real secret.
 
+You can define a list of allowed email domains in the **Global Settings**. Secrets can only be shared with users whose email addresses belong to these domains. By default, sharing is allowed with all domains.
+
 > 🚧 Note
 >
-> For security purposes, when workin with share based on emails, only the users you've specified their **email** will be able to access the item using this link
+> You can define a list of allowed email domains in the Global Settings. Secrets can only be shared with users whose email addresses belong to these domains. For security purposes, when working with email-based sharing, only users whose email addresses you’ve specified will be able to access the item using the shared link. By default, sharing is allowed with all domains.
 
 # Sharing Static Secret from the Akeyless Console
 
