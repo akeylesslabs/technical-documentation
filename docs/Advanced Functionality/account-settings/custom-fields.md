@@ -31,7 +31,6 @@ Run the following CLI command to create a new custom field in the account:
 
 ```shell
 akeyless account-custom-field \
---object[=ITEM] \
 --object-type STATIC_SECRET \
 --name <custom field name> \
 --required[=false] <True/False> 
