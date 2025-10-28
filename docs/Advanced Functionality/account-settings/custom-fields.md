@@ -30,10 +30,11 @@ Administrators can define which fields are available for each object type in Ake
 Run the following CLI command to create a new custom field in the account:
 
 ```shell
-akeyless custom-field create \
---object=`[items]` \
---object-type static-secret \
---required=`[false]`
+akeyless account-custom-field \
+--object[=ITEM] \
+--object-type STATIC_SECRET \
+--name <custom field name> \
+--required[=false] <True/False> 
 ```
 
 Where:
@@ -42,7 +43,7 @@ Where:
 
 `object-type`: The object type to create the custom field, e.g., `static-secret`, `rotated-secret`, `encryption-keys`, etc.
 
-`required=[false]`: Mark the custom field, as required or optional.
+`required=[false]`: Mark the custom field as required or optional.
 
 Once a custom field is created, it applies to all new objects of the selected type. If an existing object is updated, the defined custom field rules will also apply.
 
