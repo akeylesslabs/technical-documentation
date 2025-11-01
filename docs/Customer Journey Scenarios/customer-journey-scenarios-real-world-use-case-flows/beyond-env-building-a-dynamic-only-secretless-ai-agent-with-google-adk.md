@@ -94,5 +94,9 @@ This function is our workhorse for static secrets, like the Gemini key:
 <br />
 
 ```python Phyton
-???
+def fetch_api_key_from_akeyless():
+    """Fetch Google API key from Akeyless CLI - no local storage"""
+    return fetch_secret_from_akeyless('/Gemini_API_Key-V2')
 ```
+
+<br />
