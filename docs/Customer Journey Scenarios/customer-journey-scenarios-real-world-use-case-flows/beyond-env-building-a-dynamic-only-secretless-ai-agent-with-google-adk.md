@@ -29,3 +29,15 @@ This architecture fundamentally changes how an app accesses resources.
 6. Ephemeral Use: The agent connects, runs its query, and disconnects. Minutes later, the database credentials it used automatically expire and are deleted.
 
 The result: The agent's database credentials only exist for the few seconds they are needed. An attacker scanning the environment would find nothing to steal.
+
+<br />
+
+Code Deep Dive: The Secretless Engine
+
+Let's break down the Python code that makes this possible.
+
+Part 1: The Resilient Authentication Core
+
+Before we can fetch any secret, we need a token. But that token can expire. This function, fetch_secret_from_akeyless, is a resilient engine that can get any static secret. It first tries optimistically, and if it fails, it performs a full re-authentication using its GCP identity.
+
+<br />
