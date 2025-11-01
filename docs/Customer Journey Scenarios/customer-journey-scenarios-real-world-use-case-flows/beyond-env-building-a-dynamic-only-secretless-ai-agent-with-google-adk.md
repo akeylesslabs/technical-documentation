@@ -250,3 +250,13 @@ def create_agent():
     ...
 
 ```
+
+Example: The Agent in Action
+
+With the secretless_agent now running, it can use the tools defined in its create_agent function. These tools, like list_mongodb_collections, transparently use the dynamic, in-memory MongoDB credentials that were fetched during initialization.
+
+Here is an example of that exact interaction:
+
+<Image border={false} src="https://files.readme.io/823f5394e1c484e67422caa038a06011ee7db9c2a24d70cda7486c715bb612a5-ba532c6c-403e-4f73-8425-313c6f7f7439.png" />
+
+<br />
