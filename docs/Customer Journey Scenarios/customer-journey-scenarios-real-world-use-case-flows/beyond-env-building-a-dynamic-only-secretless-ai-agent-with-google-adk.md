@@ -212,3 +212,41 @@ def initialize_credentials():
         print(f"Error during credential initialization: {e}")
         return False
 ```
+
+<br />
+
+This code initializes an AI agent's credentials securely by fetching them directly from Akeyless at runtime, rather than storing them in files.
+
+When the agent starts, the initialize_credentials function is called. It:
+
+1. Fetches the Gemini API key and immediately configures the Google AI library with it using genai.configure(api_key=...).
+2. Fetches dynamic, just-in-time MongoDB credentials and stores them in a global variable named mongodb_credentials.
+
+The result is that no secrets ever touch the disk. The API key and database credentials exist only in the application's memory, where they are used directly by the agent's tools. This "secretless" approach significantly enhances security by eliminating static, stored credentials.
+
+```python Phyton
+def create_agent():
+    """Create the agent with proper credential handling"""
+    try:
+        # Call the ignition sequence
+        if not initialize_credentials():
+            print("Failed to initialize credentials.")
+        
+        root_agent = Agent(
+            model='gemini-2.5-flash',
+            name='secretless_agent',
+            instruction="""You are a helpful assistant...
+            All credentials are fetched dynamically from Akeyless CLI.
+            MongoDB credentials are from dynamic secrets (preferred).""",
+            tools=[
+                get_current_time, 
+                query_mongodb_database, # Uses the dynamic creds
+                list_mongodb_collections, # Uses the dynamic creds
+                refresh_mongodb_credentials # Flushes and gets NEW dynamic creds
+            ],
+        )
+        print("Agent created successfully!")
+        return root_agent
+    ...
+
+```
