@@ -159,3 +159,56 @@ def fetch_mongodb_credentials_from_akeyless() -> Optional[Dict[str, str]]:
     return None
 
 ```
+
+Part 3: Bootstrapping the "Secretless" Agent
+
+Finally, we wrap this logic into an initialization function that the Google ADK agent calls when it's created.
+
+```python Phyton
+import os
+import json
+import subprocess
+import google.generativeai as genai  
+from typing import Optional, Dict
+from akeyless_adk_module.akeyless_fetch import (  
+    fetch_api_key_from_akeyless, 
+    fetch_mongodb_credentials_from_akeyless
+)
+
+# Credentials only exist as global variables in memory
+api_key = None
+mongodb_credentials = None
+
+def initialize_credentials():
+    """Initialize credentials when the agent is actually used"""
+    global api_key, mongodb_credentials
+    
+    try:
+        # 1. Fetch and configure the Gemini API Key
+        if api_key is None:
+            print("Initializing API key from Akeyless...")
+            api_key = fetch_api_key_from_akeyless()  # Sets the global variable
+            if not api_key:
+                print("Failed to fetch Gemini API key.")
+                return False
+            
+            # 2. Load it directly into the Google client configuration
+            #    This avoids using an environment variable.
+            genai.configure(api_key=api_key)
+            print(f"Google AI client configured in memory: {api_key[:20]}...")
+        
+        # 3. Fetch the DYNAMIC MongoDB credentials
+        if mongodb_credentials is None:
+            print("Initializing MongoDB credentials from Akeyless...")
+            mongodb_credentials = fetch_mongodb_credentials_from_akeyless()
+            if mongodb_credentials:
+                print("MongoDB credentials loaded in memory")
+            else:
+                # Note: MongoDB features will be disabled
+                print("MongoDB dynamic secret not available - MongoDB features disabled")
+        
+        return True
+    except Exception as e:
+        print(f"Error during credential initialization: {e}")
+        return False
+```
