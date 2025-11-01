@@ -41,5 +41,52 @@ Part 1: The Resilient Authentication Core
 Before we can fetch any secret, we need a token. But that token can expire. This function, fetch_secret_from_akeyless, is a resilient engine that can get any static secret. It first tries optimistically, and if it fails, it performs a full re-authentication using its GCP identity.
 
 ```python Phyton
-docker run -d -p 8000:8000 -p 8200:8200 -p 18888:18888 -p 8080:8080 -p 8081:8081 -p 5696:5696 --name akeyless-gateway akeyless/base:latest-akeyless
+def fetch_secret_from_akeyless(secret_name: str) -> Optional[str]:
+    """Fetch any secret from Akeyless CLI - no local storage"""
+    try:
+        print(f"Fetching {secret_name} from Akeyless CLI...")
+        
+        # First, try with any existing authentication
+        result = subprocess.run([
+            'akeyless', 'get-secret-value',
+            '--name', secret_name
+        ], capture_output=True, text=True, timeout=30)
+
+        if result.returncode == 0:
+            #... success ...
+            return result.stdout.strip()
+        
+        # If that failed, auth has expired. Get a fresh token.
+        print(f"Authentication expired, getting fresh token for {secret_name}...")
+        
+        # 1. Get the machine's GCP cloud identity
+        cloud_id_result = subprocess.run([
+            'akeyless', 'get-cloud-identity', '--cloud-provider', 'gcp'
+        ], capture_output=True, text=True, timeout=30, env={**os.environ, 'GOOGLE_APPLICATION_CREDENTIALS': '/tmp/gcp-service-account.json'})
+        
+        cloud_id = cloud_id_result.stdout.strip()
+        
+        # 2. Use that identity to authenticate to Akeyless
+        auth_result = subprocess.run([
+            'akeyless', 'auth', '--access-type=gcp', '--access-id=p-example-id', f'--cloud-id={cloud_id}'
+        ], capture_output=True, text=True, timeout=30)
+        
+        # 3. Extract the new, short-lived token
+        token_line = [line for line in auth_result.stdout.split('\n') if 'Token:' in line]
+        token = token_line[0].split('Token:')[1].strip()
+        
+        # 4. Retry fetching the secret with the new token
+        result = subprocess.run([
+            'akeyless', 'get-secret-value', '--name', secret_name, f'--token={token}'
+        ], capture_output=True, text=True, timeout=30)
+        
+        if result.returncode == 0:
+            return result.stdout.strip()
+
+    except Exception as e:
+        print(f"Unexpected error fetching {secret_name}: {e}")
+        return None
+
 ```
+
+<br />
