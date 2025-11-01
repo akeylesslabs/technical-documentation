@@ -91,8 +91,6 @@ def fetch_secret_from_akeyless(secret_name: str) -> Optional[str]:
 
 This function is our workhorse for static secrets, like the Gemini key:
 
-<br />
-
 ```python Phyton
 def fetch_api_key_from_akeyless():
     """Fetch Google API key from Akeyless CLI - no local storage"""
@@ -100,3 +98,64 @@ def fetch_api_key_from_akeyless():
 ```
 
 <br />
+
+Part 2: The "Dynamic-Only" Database Access
+
+This is the most critical part of the new code. This function's job is to get MongoDB credentials. It does not look for static connection strings. It only attempts to fetch dynamic, just-in-time credentials. If it can't, it fails which is exactly the behavior we want.
+
+```python Phyton
+def fetch_mongodb_credentials_from_akeyless() -> Optional[Dict[str, str]]:
+    """Fetch MongoDB credentials from Akeyless CLI dynamic secret - no local storage"""
+    
+    dynamic_secret_names = [
+        '/MongoDB_Dynamic_Secret',
+        '/MongoDB_Dynamic_Credentials',
+        '/MongoDB_User_Password'
+    ]
+    
+    for secret_name in dynamic_secret_names:
+        try:
+            print(f"Fetching dynamic secret {secret_name}...")
+            
+            # Note the different command: 'dynamic-secret get-value'
+            # This COMMANDS Akeyless to CREATE credentials
+            result = subprocess.run([
+                'akeyless', 'dynamic-secret', 'get-value',
+                '--name', secret_name
+            ], capture_output=True, text=True, timeout=30)
+
+            if result.returncode == 0:
+                # Akeyless returns JSON with the new username and password
+                secret_data = json.loads(result.stdout.strip())
+                print(f"Found MongoDB dynamic secret in {secret_name}")
+                
+                username = secret_data.get('username', secret_data.get('user'))
+                password = secret_data.get('password', secret_data.get('pass'))
+                
+                if not username or not password:
+                    continue # Malformed secret, try the next name
+
+                # Build the connection string IN MEMORY.
+                # This credential never touches disk.
+                connection_string = f"mongodb+srv://{username}:{password}@cluster0.tqb6hbu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+                
+                return {
+                    "connection_string": connection_string, 
+                    "secret_name": secret_name,
+                    "username": username,
+                    "is_dynamic": True
+                }
+            
+            # If it failed, it attempts the same GCP IAM re-auth flow
+            # (Re-auth logic omitted for brevity, it's the same as Part 1)
+            ...
+            
+        except Exception as e:
+            print(f"Error fetching dynamic secret {secret_name}: {e}")
+            continue
+    
+    # If the loop finishes without returning, no dynamic secret was found.
+    print("No MongoDB dynamic secrets found in Akeyless")
+    return None
+
+```
