@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-<br />
-
 Introduction
 
 In AI development, we're obsessed with agent capabilities. But what about their security? An AI agent is a high-value target, holding keys to models (like Gemini) and, more critically, your data (like a MongoDB database).
