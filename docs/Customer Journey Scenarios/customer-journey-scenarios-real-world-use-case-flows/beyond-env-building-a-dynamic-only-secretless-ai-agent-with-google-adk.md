@@ -89,4 +89,10 @@ def fetch_secret_from_akeyless(secret_name: str) -> Optional[str]:
 
 ```
 
+This function is our workhorse for static secrets, like the Gemini key:
+
 <br />
+
+```python Phyton
+???
+```
