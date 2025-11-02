@@ -235,11 +235,11 @@ akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---azure-user-portal-access <truefalse> \
---azure-user-programmatic-access <truefalse> \
+--azure-user-portal-access '< true / false >' \
+--azure-user-programmatic-access '< true false >' \
 --azure-app-obj-id <Azure App Object ID> \
 --azure-user-principal-name <Azure User Principal Name> \
---fixed-user-only <truefalse> \
+--fixed-user-only '< true / false >' \
 --fixed-user-claim-keyname <Key name of the IdP claim>
 ```
 ```shell Inline connection
@@ -1600,7 +1600,7 @@ akeyless dynamic-secret create redshift \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --redshift-statements CREATE USER '{{username}}' WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO '{{username}}'; \
---ssl <falestrue>
+--ssl '< true / false >'
 ```
 ```shell Inline connection
 akeyless dynamic-secret create redshift \
@@ -1983,11 +1983,11 @@ akeyless dynamic-secret update azure \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---azure-user-portal-access <truefalse> \
---azure-user-programmatic-access <truefalse> \
+--azure-user-portal-access '< true / false >' \
+--azure-user-programmatic-access '< true / false >' \
 --azure-app-obj-id <Azure App Object ID> \
 --azure-user-principal-name <Azure User Principal Name> \
---fixed-user-only <truefalse> \
+--fixed-user-only '< true / false >' \
 --fixed-user-claim-keyname <Key name of the IdP claim>
 ```
 
@@ -3118,7 +3118,7 @@ akeyless dynamic-secret update redshift \
 --redshift-host <Redshift host name (Default = 127.0.0.1)> \
 --redshift-port <Redshift port (Default = 5439)> \
 --redshift-statements CREATE USER '{{username}}' WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO '{{username}}';
---ssl <falestrue>
+--ssl '< true / false >'
 ```
 
 ##### Flags
