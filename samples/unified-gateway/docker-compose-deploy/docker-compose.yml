@@ -1,0 +1,195 @@
+#For usage instructions please refer to the Akeyless documentation:
+#https://docs.akeyless.io/docs
+#This Compose file contains examples of Akeyless services:
+#  - akeyless-gateway
+#  - akeyless-web and akeyless-ssh (SRA)
+#  - redis-cache (for caching, optional)
+#  - prometheus and grafana (for metrics, optional)
+
+# Docker Compose supports the 'profiles' key to conditionally include services.
+#
+# For example, in this file we have profiles:
+#   - gateway
+#   - sra
+#   - metrics
+#
+# To start services belonging to the 'gateway' and 'SRA' profiles:
+#   docker compose --profile sra --profile gateway up -d
+#
+# To start Prometheus and Grafana from the 'metrics' profile:
+#   docker compose --profile metrics up -d
+#
+# You can combine profiles or omit some, depending on your use case.
+
+# Make sure to fill out gateway.env and sra.env with your specific
+# credentials, tokens, or environment variables before running any
+# docker-compose commands.
+
+services:
+  akeyless-gateway:
+    profiles:
+      - gateway
+      - sra
+    depends_on:
+      redis-cache:
+        condition: service_started
+    image: docker.registry-2.akeyless.io/base:latest
+    container_name: 'akeyless-gateway'
+    restart: always
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+      - "8889:8889"   # Used only if the `metrics` profile is enabled
+    env_file:
+      - gateway.env
+    environment:
+      REDIS_PASS: ${REDIS_PASS}
+    platform: linux/amd64
+    links:
+      - "redis-cache"
+    volumes:
+      - ./metrics/otel-config.yaml:/akeyless/otel-config.yaml  # metrics config yaml if metrics is enabled
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+      start_interval: 5s
+    networks:
+      - internal-net
+      - internal-metrics  # Used only if the `metrics` profile is enabled
+
+  ## SRA Section
+  ## Refer to the documentation for Remote Access configuration:
+  ## https://docs.akeyless.io/docs/remote-access-docker
+  akeyless-web:
+    profiles:
+      - sra
+    depends_on:
+      redis-cache:
+        condition: service_started
+      akeyless-gateway:
+        condition: service_healthy
+    image: akeyless/zero-trust-bastion:latest
+    container_name: 'akeyless-sra-web'
+    restart: always
+    ports:
+      - "8888:8888"
+    env_file:
+      - sra.env
+      - gateway.env
+    environment:
+      REMOTE_ACCESS_TYPE: "web"
+      DEBUG: true
+    platform: linux/amd64
+    links:
+      - "redis-cache"
+    networks:
+      - internal-net
+
+  akeyless-ssh:
+    profiles:
+      - sra
+    depends_on:
+      redis-cache:
+        condition: service_started
+      akeyless-gateway:
+        condition: service_healthy
+    image: akeyless/zero-trust-bastion:latest
+    privileged: true 
+    container_name: 'akeyless-sra-ssh'
+    restart: always
+    ports:
+      - "2222:22"
+      - "9900:9900"
+    env_file:
+      - sra.env
+      - gateway.env
+    environment:
+      REMOTE_ACCESS_TYPE: "ssh-proxy"
+      REDIS_PASS: ${REDIS_PASS}
+      DEBUG: true
+    volumes:
+      # To mount your ca.pub file to /var/akeyless/creds path, provide a local directory (For example: "ssh-config") which contains your ca.pub
+      #      - /path/to/your/ca/directory:/var/akeyless/creds  # optional
+      - ./ssh-config/:/var/akeyless/creds/
+    platform: linux/amd64
+    links:
+      - "redis-cache"
+    networks:
+      - internal-net
+
+  ## For advanced Remote Access configuration documentation refer to:
+  ## https://docs.akeyless.io/docs/remote-access-advanced-configuration-docker
+  ## Enable redis docker to enable cache
+  ## We highly recommend to run this as a non root user: CURRENT_UID=$(id -u):$(id -g) docker-compose up
+  ## Example - CURRENT_UID=1001:1001 docker-compose up
+  redis-cache:
+    profiles:
+      - gateway
+      - sra
+    container_name: "redis-cache"
+    image: bitnami/redis:latest  # Use latest Redis image
+    #command: ["sh", "-c", "redis-server --requirepass $(cat /run/secrets/redis_password) --save '' --appendonly 'no'"] ### --aclfile /opt/bitnami/redis/etc/redis.conf"]  # Prevent dump.rdb
+    command: ["sh", "-c", "redis-server --requirepass $REDIS_PASS --save '' --appendonly 'no'"] 
+    secrets:
+      - redis_password
+    networks:
+      - internal-net  # Restrict access to other containers
+    security_opt:
+      - no-new-privileges:true  # Prevent privilege escalation
+    cap_drop:
+      - ALL
+    user: "65534:65534"  # Run Redis as a non-root user (nobody)
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6379:6379"
+      #volumes:
+      #- ./redis-acl.conf:/opt/bitnami/redis/etc/redis.conf:ro
+
+# This is an example for standalone Promethus demo only -
+# The customer could use it's own Prometheus settings
+# as long as it can reach the gateway with http://<gateway-url>:8889/metrics
+# The same for the Grafana service.
+  prometheus:
+    profiles:
+      - metrics
+    container_name: "prometheus"
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./metrics/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - internal-metrics
+
+  grafana:
+    profiles:
+      - metrics
+    container_name: "grafana"
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - internal-metrics
+
+secrets:
+  redis_password:
+    file: ./secrets/redis_password
+
+networks:
+  internal-net:
+    driver: bridge
+  internal-metrics:
+    driver: bridge
+
+volumes:
+  grafana_data:
+  prometheus_data:
