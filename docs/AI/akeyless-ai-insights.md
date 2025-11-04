@@ -97,7 +97,7 @@ akeyless target-create-openai \
 
 Option B — Gemini Target
 
-Command\
+Command
 
 ```shell
 akeyless target-create-gemini \
@@ -159,4 +159,59 @@ curl -X PUT "http://localhost:8000/config/ai-insights" \
 
 ```
 
-<br />
+To disable:
+
+```shell
+"ai_insights": { "enable": false }
+```
+
+### Verification
+
+Verify Account Setting
+
+```shell
+akeyless get-account-settings
+```
+
+Verify Target
+
+```shell
+akeyless get-target --name my-openai-target
+```
+
+Verify Gateway Config
+
+```shell
+curl -X GET http://localhost:8000/config/ai-insights
+```
+
+Test in UI
+
+1. Open Akeyless Web UI
+2. Navigate to AI Insights
+3. Start a chat
+4. Ask a natural language question
+
+Troubleshooting
+
+| Issue                  | Resolution                          |
+| ---------------------- | ----------------------------------- |
+| `AI Insights disabled` | Enable at account level             |
+| `Gateway disabled`     | Update gateway config               |
+| Invalid model          | Must use `gpt-` or `gemini-` prefix |
+| Invalid target         | Must be OpenAI or Gemini            |
+| Target not found       | Validate target name/ID             |
+| Authentication failure | Re-auth with `akeyless auth`        |
+| Gateway unreachable    | Check port 8000 + firewall          |
+| API key errors         | Check validity + base URLs          |
+
+Configuration Checklist
+
+| Step                  | Status |
+| --------------------- | ------ |
+| Enable AI Insights    | ☐      |
+| Create Target         | ☐      |
+| Store Target ID       | ☐      |
+| Configure Gateway     | ☐      |
+| Verify Gateway Config | ☐      |
+| Test in UI            | ☐      |
