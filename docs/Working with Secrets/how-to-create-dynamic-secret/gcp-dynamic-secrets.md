@@ -174,6 +174,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Fixed:** A fixed Service Account. with **Service Account  Email** to create JIT Keys/Tokens for.
 
 * **Dynamic:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
+  * **Project ID:** A comma-separated list of Project ID's where the Service Account will be created in, During secret usage, a Project ID defined in the list can be chosen for Service Account creation (Relevant only for **Dynamic Secret mode**.
 
 * **Access Token:** Select this radio button to create a GCP access token as a dynamic secret.
 
