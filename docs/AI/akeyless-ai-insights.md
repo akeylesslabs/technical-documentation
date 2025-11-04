@@ -45,4 +45,6 @@ Before you begin, ensure you have:
 
 <br />
 
+Step 1 — Enable AI Insights (Account Level)
+
 <br />
