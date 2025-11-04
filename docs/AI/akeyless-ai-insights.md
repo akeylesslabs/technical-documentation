@@ -128,3 +128,10 @@ Model Rules
 | -------- | ------------ |
 | OpenAI   | `gpt-`       |
 | Gemini   | `gemini-`    |
+
+Examples:
+
+* gpt-4, gpt-3.5-turbo, gemini-pro
+* gpt4, gemini
+
+<br />
