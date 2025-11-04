@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** or **Prometheus**. You can find a full list of supported endpoints on the official page of the Open Telemetry [project](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
+Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** or **Prometheus**. You can find a full list of supported endpoints on the official page of the [OpenTelemetry project](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
 
 The Telemetry Metrics are based on time series telemetry data metrics from the application and the runtime environment, storing them in a unique database or index, and analyzing data trends over time.
 
@@ -66,7 +66,7 @@ Akeyless is an official Datadog Partner and our dashboard can be found inside th
 
 # Prometheus
 
-To enable Telemetry Metrics on your Gateway for Prometheus, edit the chart `values.yaml ` file under the `metrics` section and set your metrics backend configuration: 
+To enable Telemetry Metrics on your Gateway for Prometheus, edit the chart `values.yaml ` file under the `metrics` section and set your metrics backend configuration:
 
 expose the port `8889` (or any other port) for **Prometheus Exporter** and the **Prometheus Scraping** as described below:
 
@@ -99,7 +99,7 @@ scrape_configs:
       - targets: ['localhost:8889'] 
 ```
 
-Once done, check your Prometheus server for the ingested metrics. 
+Once done, check your Prometheus server for the ingested metrics.
 
 **Grafana Dashboard**
 
@@ -107,7 +107,7 @@ You can visualize Akeyless metrics in Grafana Dashboard when using Prometheus as
 
 Import the Akeykess GW dashboard for your Grafana instance using [this](https://grafana.com/grafana/dashboards/16927) link.
 
-![](https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png "Screen Shot 2022-07-31 at 10.44.18.png")
+<Image border={false} src="https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png" title="Screen Shot 2022-07-31 at 10.44.18.png" />
 
 # Using K8s Secret
 
@@ -196,7 +196,7 @@ env:
 
 Where the new **Loki**  `endpoint`  is set with a new `service` for logs, using `filelog` as the `reciver` and `loki` as the `exporter`.
 
-To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_APP_LOG="true"` environment variable. 
+To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_APP_LOG="true"` environment variable.
 
 **Application Logs** from all instances of this gateway will be forwarded in this format: `<date> <time> <gw-clustername-instance-id> <log>`.
 
