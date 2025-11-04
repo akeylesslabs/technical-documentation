@@ -16,9 +16,6 @@ To operate, AI Insights must be configured at:
 Supported LLM Providers
 
 * OpenAI (GPT models)
-* Google Gemini
-
-<br />
 
 ### Prerequisites
 
@@ -27,7 +24,6 @@ Before you begin, ensure you have:
 * Akeyless CLI installed & authenticated (admin access)\
 * LLM Provider account + API Key
   * OpenAI — [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-  * Gemini — [https://makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)
 * Akeyless Gateway running
 * Ability to create and manage Targets in Akeyless
 * Protection key available (for encrypting API credentials)
@@ -37,7 +33,7 @@ Before you begin, ensure you have:
 | Step | Description                         | Tool     |
 | ---- | ----------------------------------- | -------- |
 | 1    | Enable AI Insights at account level | CLI      |
-| 2    | Create OpenAI/Gemini Target         | CLI      |
+| 2    | Create OpenAI Target                | CLI      |
 | 3    | Configure Gateway for AI Insights   | REST API |
 | 4    | Validate configuration & test       | CLI / UI |
 
@@ -93,27 +89,6 @@ akeyless target-create-openai \
   --model gpt-4
 ```
 
-Option B — Gemini Target
-
-Command
-
-```shell
-akeyless target-create-gemini \
-  --name <target-name> \
-  --api-key <gemini-api-key> \
-  [--gemini-url <base-url>] \
-  [--key <protection-key>]
-
-```
-
-Example:
-
-```shell
-akeyless target-create-gemini \
-  --name my-gemini-target \
-  --api-key AIzaSyXXXX
-```
-
 Find Target ID
 
 ```shell
@@ -125,12 +100,11 @@ Model Rules
 | Provider | Valid Prefix |
 | -------- | ------------ |
 | OpenAI   | `gpt-`       |
-| Gemini   | `gemini-`    |
 
 Examples:
 
-* gpt-4, gpt-3.5-turbo, gemini-pro
-* gpt4, gemini
+* gpt-4, gpt-3.5-turbo
+* gpt4
 
 Step 3 - Configure Gateway
 
@@ -192,16 +166,16 @@ Test in UI
 
 Troubleshooting
 
-| Issue                  | Resolution                          |
-| ---------------------- | ----------------------------------- |
-| `AI Insights disabled` | Enable at account level             |
-| `Gateway disabled`     | Update gateway config               |
-| Invalid model          | Must use `gpt-` or `gemini-` prefix |
-| Invalid target         | Must be OpenAI or Gemini            |
-| Target not found       | Validate target name/ID             |
-| Authentication failure | Re-auth with `akeyless auth`        |
-| Gateway unreachable    | Check port 8000 + firewall          |
-| API key errors         | Check validity + base URLs          |
+| Issue                  | Resolution                   |
+| ---------------------- | ---------------------------- |
+| `AI Insights disabled` | Enable at account level      |
+| `Gateway disabled`     | Update gateway config        |
+| Invalid model          | Must use `gpt-`              |
+| Invalid target         | Must be OpenAI               |
+| Target not found       | Validate target name/ID      |
+| Authentication failure | Re-auth with `akeyless auth` |
+| Gateway unreachable    | Check port 8000 + firewall   |
+| API key errors         | Check validity + base URLs   |
 
 Configuration Checklist
 
