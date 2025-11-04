@@ -1,6 +1,6 @@
 ---
-title: Telemetry Metrics on K8s
-excerpt: For K8s Environment
+title: Telemetry Metrics on Kubernetes
+excerpt: For Kubernetes Environments
 deprecated: false
 hidden: false
 metadata:
