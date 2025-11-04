@@ -13,8 +13,7 @@ You can organize your secrets and other items in the Akeyless Console by creatin
 2. Click the **New Folder** button.
 3. In the dialog that appears:
 
-* Name your new folder clearly to reflect its purpose or contents.
-* Specify the Location by entering the full path to where you want this folder to reside. Use / as a separator for nested folders (for example, prod/app-config), If any part of the path doesn’t exist yet, Akeyless will automatically create the necessary parent folders along with your new folder.
+* Define a Name for the folder, and specify the Location as a path to the virtual folder where you want to create the new folder, using slash (/) separators. If the specified path does not exist, it will be automatically created along with the new folder.
 
 Once created, the folder will immediately appear in your Items list, ready for you to start adding secrets, keys, or additional subfolders.
 
