@@ -36,4 +36,13 @@ Before you begin, ensure you have:
 
 ### High-Level Steps
 
+| Step | Description                         | Tool     |
+| ---- | ----------------------------------- | -------- |
+| 1    | Enable AI Insights at account level | CLI      |
+| 2    | Create OpenAI/Gemini Target         | CLI      |
+| 3    | Configure Gateway for AI Insights   | REST API |
+| 4    | Validate configuration & test       | CLI / UI |
+
+<br />
+
 <br />
