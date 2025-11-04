@@ -68,6 +68,10 @@ Step 2 - Create LLM Target
 
 Option A - OpenAI Target
 
+<Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
+
+<br />
+
 Command
 
 ```shell
@@ -107,6 +111,10 @@ Examples:
 * gpt4
 
 Step 3 - Configure Gateway
+
+<Image border={false} src="https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png" />
+
+<br />
 
 Configuration uses the Gateway API.
 
@@ -158,6 +166,10 @@ curl -X GET http://localhost:8000/config/ai-insights
 ```
 
 Test in UI
+
+<Image border={false} src="https://files.readme.io/9214bc7c65691ab90764917b7da86d69a6be792b3c494b6289b338aabf90f851-chatInteraction.png" />
+
+<br />
 
 1. Open Akeyless Web UI
 2. Navigate to AI Insights
