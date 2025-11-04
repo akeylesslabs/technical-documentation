@@ -134,4 +134,29 @@ Examples:
 * gpt-4, gpt-3.5-turbo, gemini-pro
 * gpt4, gemini
 
+Step 3 - Configure Gateway
+
+Configuration uses the Gateway API.
+
+```shell
+TOKEN=$(akeyless auth | grep token | awk '{print $2}')
+
+curl -X PUT "http://localhost:8000/config/ai-insights" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d '{
+    "cluster_identity": {
+      "account_id": "a-1234567890",
+      "access_id": "p-1234567890",
+      "cluster_name": "my-gateway"
+    },
+    "ai_insights": {
+      "enable": true,
+      "target_name": "my-openai-target",
+      "model": "gpt-4"
+    }
+  }'
+
+```
+
 <br />
