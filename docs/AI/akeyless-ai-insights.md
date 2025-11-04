@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-<br />
-
 ### Overview
 
 Akeyless AI Insights enables natural-language interaction with the Akeyless platform using Large Language Models (LLMs).
