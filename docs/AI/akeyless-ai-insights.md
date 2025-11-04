@@ -45,6 +45,65 @@ Before you begin, ensure you have:
 
 <br />
 
-Step 1 — Enable AI Insights (Account Level)
+Step 1 - Enable AI Insights (Account Level)
 
-<br />
+```shell
+akeyless update-account-settings \
+  --enable-ai-insights true
+```
+
+To verify:
+
+```shell
+akeyless get-account-settings
+```
+
+Expected result contains:
+
+```shell
+"ai_insights": { "enable": true }
+```
+
+To disable:
+
+```shell
+akeyless update-account-settings --enable-ai-insights false
+```
+
+Step 2 - Create LLM Target
+
+Option A - OpenAI Target
+
+Command
+
+```shell
+akeyless target-create-openai \
+  --name <target-name> \
+  --api-key <openai-api-key> \
+  [--openai-url <base-url>] \
+  [--model <default-model>] \
+  [--organization-id <org-id>] \
+  [--key <protection-key>]
+```
+
+Example
+
+```shell
+akeyless target-create-openai \
+  --name my-openai-target \
+  --api-key sk-xxxx \
+  --model gpt-4
+```
+
+Option B — Gemini Target
+
+Command\
+
+```shell
+akeyless target-create-gemini \
+  --name <target-name> \
+  --api-key <gemini-api-key> \
+  [--gemini-url <base-url>] \
+  [--key <protection-key>]
+
+```
