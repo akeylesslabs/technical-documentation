@@ -19,3 +19,21 @@ Supported LLM Providers
 
 * OpenAI (GPT models)
 * Google Gemini
+
+<br />
+
+### Prerequisites
+
+Before you begin, ensure you have:
+
+* Akeyless CLI installed & authenticated (admin access)\
+* LLM Provider account + API Key
+  * OpenAI — [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+  * Gemini — [https://makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)
+* Akeyless Gateway running
+* Ability to create and manage Targets in Akeyless
+* Protection key available (for encrypting API credentials)
+
+### High-Level Steps
+
+<br />
