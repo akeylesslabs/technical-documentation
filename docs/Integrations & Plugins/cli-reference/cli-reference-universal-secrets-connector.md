@@ -50,6 +50,8 @@ akeyless create-usc \
 
 `--use-prefix-as-filter[=true]`: Filter the USC secret list by the usc-prefix [`true`/`false`]
 
+`--gcp-project-id`: GCP Project ID (Relevant only for GCP targets)
+
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
 `--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
