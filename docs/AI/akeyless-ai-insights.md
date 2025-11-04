@@ -107,3 +107,13 @@ akeyless target-create-gemini \
   [--key <protection-key>]
 
 ```
+
+Example:
+
+```shell
+akeyless target-create-gemini \
+  --name my-gemini-target \
+  --api-key AIzaSyXXXX
+```
+
+<br />
