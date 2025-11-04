@@ -116,4 +116,15 @@ akeyless target-create-gemini \
   --api-key AIzaSyXXXX
 ```
 
-<br />
+Find Target ID
+
+```shell
+akeyless get-target --name <target-name>
+```
+
+Model Rules
+
+| Provider | Valid Prefix |
+| -------- | ------------ |
+| OpenAI   | `gpt-`       |
+| Gemini   | `gemini-`    |
