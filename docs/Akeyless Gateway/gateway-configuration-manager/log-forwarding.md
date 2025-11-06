@@ -237,6 +237,36 @@ input {
 
 10. Select **Save Changes**.
 
+# STDOUT
+
+1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
+
+2. Select the **Enable** checkbox.
+
+3. Choose the log format - `Text` or `JSON`.
+
+4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
+
+5. From the **Log Service** dropdown list, select  `Standard Output`.
+
+# Sumo Logic
+
+1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
+
+2. Select the **Enable** checkbox.
+
+3. Choose the log format - `Text` or `JSON`.
+
+4. Audit Log Server insert: `https://audit.akeyless.io/`.
+
+5. From the **Log Service** dropdown list, select  `Sumo Logic`.
+
+6. Insert the [Endpoint address ](https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/).
+
+7. Optional - Define **Tags** - `tag1`,`tag2`.
+
+8. Optional - Define **Host** of your choice.
+
 # Syslog
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
@@ -260,35 +290,3 @@ input {
 10. Optional, check **TLS** and upload the **TLS Certificate** of your log server.
 
 11. Select **Save Changes**.
-
-# Sumo Logic
-
-1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
-
-2. Select the **Enable** checkbox.
-
-3. Choose the log format - `Text` or `JSON`.
-
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
-
-5. From the **Log Service** dropdown list, select  `Sumo Logic`.
-
-6. Insert the [Endpoint address ](https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/).
-
-7. Optional - Define **Tags** - `tag1`,`tag2`.
-
-8. Optional - Define **Host** of your choice.
-
-# STDOUT
-
-1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
-
-2. Select the **Enable** checkbox.
-
-3. Choose the log format - `Text` or `JSON`.
-
-4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
-
-5. From the **Log Service** dropdown list, select  `Standard Output`.
-
-<br />
