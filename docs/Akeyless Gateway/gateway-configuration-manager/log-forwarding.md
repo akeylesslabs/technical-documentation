@@ -28,6 +28,8 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 
 * [Splunk](https://docs.akeyless.io/docs/log-forwarding#splunk)
 
+* [STDOUT](https://docs.akeyless.io/docs/log-forwarding#stdout)
+
 * [Sumo Logic ](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
 
 * [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
@@ -276,3 +278,17 @@ input {
 8. **Region** - The region where your customer account is provisioned.
 
 9. **Log Type** - A log type to identify the log entries
+
+# STDOUT
+
+1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
+
+2. Select the **Enable** checkbox.
+
+3. Choose the log format - `Text` or `JSON`.
+
+4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
+
+5. From the **Log Service** dropdown list, select  `Standard Output`.
+
+<br />
