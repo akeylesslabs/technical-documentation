@@ -2290,6 +2290,8 @@ akeyless dynamic-secret update gcp \
 
 `--role-binding`: Role binding definitions in json format
 
+`--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account , by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
+
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
 `--user-ttl[=60m]`: User TTL, Default = 60m
