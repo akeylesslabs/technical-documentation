@@ -439,7 +439,7 @@ block:Flags]
 
 `--accessibility  \"data\":` In case of an item in a user's personal folder
 
-## `folder`
+## `folder management`
 
 Commands for managing folders in the account
 
