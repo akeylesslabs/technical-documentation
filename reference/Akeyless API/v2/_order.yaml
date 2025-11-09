@@ -583,3 +583,7 @@
 - accountcustomfieldget
 - accountcustomfieldlist
 - accountcustomfieldupdate
+- foldercreate
+- folderdelete
+- folderget
+- folderupdate
