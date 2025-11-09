@@ -438,3 +438,61 @@ block:Flags]
 `--certificate-format`: The format of the returned certificate [`pem`/`der`]
 
 `--accessibility  \"data\":` In case of an item in a user's personal folder
+
+## `folder management`
+
+Commands for managing folders in the account
+
+### `folder create`
+
+Creates a new folder
+
+#### Usage
+
+```shell
+akeyless folder create \
+--name <Folder Name> \
+--type[=items] <Folder Type> \
+--accessibility[=regular] <[regular/personal]>
+```
+
+### `folder update`
+
+Updates a new folder
+
+#### Usage
+
+```shell
+akeyless folder update \
+--name <Folder Name> \
+--type[=items] <Folder Type> \
+--accessibility[=regular] <[regular/personal]>
+```
+
+### `folder get`
+
+Get information of a folder
+
+#### Usage
+
+```shell
+akeyless folder get \
+--name <Folder Name> \
+--type[=items] <Folder Type> \
+--accessibility[=regular] <[regular/personal]>
+```
+
+### `folder delete`
+
+Deletes a new folder
+
+#### Usage
+
+```shell
+akeyless folder delete \
+--name <Folder Name> \
+--type[=items] <Folder Type> \
+--accessibility[=regular] <[regular/personal]>
+```
+
+<br />
