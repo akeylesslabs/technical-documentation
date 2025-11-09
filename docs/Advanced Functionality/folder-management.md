@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-You can organize your secrets and other items in the Akeyless Console by creating folders—even if they’re initially empty.
+You can organize your secrets and other items in the Akeyless Console by creating folders even if they’re initially empty.
 
 # Create a folder from the CLI
 
