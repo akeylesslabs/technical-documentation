@@ -145,7 +145,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 * **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/cloud-targets#gcp).
 
-* **Project ID:** Add the Project ID where the relevant secret manager is, if left empty, the Project ID from the GCP Target will be used. 
+* **Project ID:** Optional, The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](doc:gcp-targets) .
 
 * **Gateway:** Select the desired corresponding Gateway.
 
