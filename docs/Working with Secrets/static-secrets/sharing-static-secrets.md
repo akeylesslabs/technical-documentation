@@ -1,5 +1,5 @@
 ---
-title: Sharing Secrets
+title: Secret Sharing
 excerpt: ''
 deprecated: false
 hidden: false
