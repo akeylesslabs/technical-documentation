@@ -146,11 +146,13 @@ In the **Event Rules** tab of the Access Role, enable the **Manage Event Forward
 You can set the allowed names in two ways:
 
 * **Explicit name**:
+
   * Specify an exact Event Forwarder name that users can use.
 
 Example: `Demo-Event-Forwarder` — allows users to create or use an Event Forwarder with this exact name.
 
 * **Template-based name**:
+
   * Use templates to define allowed names dynamically, based on user claims.
 
 Example: `{{username}}-*` — uses the value of the username claim.
