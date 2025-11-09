@@ -137,28 +137,6 @@ Example:
 
 If **Audit Log** is set to **Own**, the user will see only logs related to themselves. If it is set to **All**, the user will see logs related to all users in the account.
 
-# Event Center Rules
-
-You can define which Event Forwarders users are allowed to create or use based on the Event Forwarder name.
-
-In the **Event Rules** tab of the Access Role, enable the **Manage Event Forwarders** option. Once enabled, you can add the Event Forwarders that users will be allowed to create or manage.
-
-You can set the allowed names in two ways:
-
-* **Explicit name**:
-
-  * Specify an exact Event Forwarder name that users can use.
-
-Example: `Demo-Event-Forwarder` — allows users to create or use an Event Forwarder with this exact name.
-
-* **Template-based name**:
-
-  * Use templates to define allowed names dynamically, based on user claims.
-
-Example: `\{\{username\}\}-*` — uses the value of the username claim.
-
-If the claim value is `user`, the user will be allowed to create or use Event Forwarders with names like `user-*`.
-
 # Access Roles Syntax
 
 In general, you can set an Access Role to a specific item only:
