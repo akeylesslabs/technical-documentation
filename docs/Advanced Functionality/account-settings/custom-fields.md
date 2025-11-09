@@ -2,7 +2,7 @@
 title: Custom Fields
 excerpt: ''
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
@@ -31,7 +31,6 @@ Run the following CLI command to create a new custom field in the account:
 
 ```shell
 akeyless account-custom-field \
---object[=ITEM] \
 --object-type STATIC_SECRET \
 --name <custom field name> \
 --required[=false] <True/False> 
@@ -39,9 +38,9 @@ akeyless account-custom-field \
 
 Where:
 
-`object`: The object to create the custom field
-
 `object-type`: The object type to create the custom field, e.g., `static-secret`, `rotated-secret`, `encryption-keys`, etc.
+
+`name`: The name of the custom field. 
 
 `required=[false]`: Mark the custom field as required or optional.
 
@@ -52,7 +51,7 @@ Once a custom field is created, it applies to all new objects of the selected ty
 Delete a custom field from the account:
 
 ```shell
-akeyless custom-field delete --id <custom field ID>
+akeyless account-custom-field delete --id <custom field ID>
 ```
 
 ## Update a custom field
@@ -60,7 +59,7 @@ akeyless custom-field delete --id <custom field ID>
 Updates an existing custom field in the account:
 
 ```shell
-akeyless custom-field update \
+akeyless account-custom-field update \
 --id <custom field ID> \
 --name <new name> \
 --required=`[false]`
@@ -71,13 +70,13 @@ akeyless custom-field update \
 Retrieves a custom field:
 
 ```shell
-akeyless custom-field get --id <custom field ID>
+akeyless account-custom-field get --id <custom field ID>
 ```
 
 Retrieves a list of all custom fields in the account:
 
 ```shell
-akeyless custom-field list --object items --object-type static-secret
+akeyless account-custom-field list --object item --object-type static-secret
 ```
 
 # Manage Custom Field from Console

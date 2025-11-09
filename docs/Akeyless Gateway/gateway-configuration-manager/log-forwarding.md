@@ -28,6 +28,8 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 
 * [Splunk](https://docs.akeyless.io/docs/log-forwarding#splunk)
 
+* [STDOUT](https://docs.akeyless.io/docs/log-forwarding#stdout)
+
 * [Sumo Logic ](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
 
 * [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
@@ -100,6 +102,28 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 9. Select **Save Changes**.
 
+# Datadog
+
+1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
+
+2. Select the **Enable** checkbox.
+
+3. Choose the log format - `Text` or `JSON`.
+
+4. Audit Log Server insert: `https://audit.akeyless.io/`.
+
+5. From the **Log Service** dropdown list, select `Datadog`.
+
+6. Define the **Datadog host**.
+
+7. Define the **Datadog API Key**.
+
+8. Optional - Define **Log Source**. Default value `akeyless`.
+
+9. Optional - Define **Log Tags** - using `key`:`value` format.
+
+10. Optional - Define **Log Service** , default value `akeyless-gateway`.
+
 # Elasticsearch
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
@@ -121,6 +145,26 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 9. Optional, check **TLS** and upload the **TLS Certificate** of your log server.
 
 10. Select **Save Changes**.
+
+# Google Chronicle
+
+1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
+
+2. Select the **Enable** checkbox.
+
+3. Choose the log format - `Text` or `JSON`.
+
+4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
+
+5. From the **Log Service** dropdown list, select  `Google Chronicle`.
+
+6. **Service Account Key** - A JSON file holding service account credentials.
+
+7. **Customer ID** - Unique identifier for the Chronicle instance.
+
+8. **Region** - The region where your customer account is provisioned.
+
+9. **Log Type** - A log type to identify the log entries
 
 # Logstash
 
@@ -193,6 +237,36 @@ input {
 
 10. Select **Save Changes**.
 
+# STDOUT
+
+1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
+
+2. Select the **Enable** checkbox.
+
+3. Choose the log format - `Text` or `JSON`.
+
+4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
+
+5. From the **Log Service** dropdown list, select  `Standard Output`.
+
+# Sumo Logic
+
+1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
+
+2. Select the **Enable** checkbox.
+
+3. Choose the log format - `Text` or `JSON`.
+
+4. Audit Log Server insert: `https://audit.akeyless.io/`.
+
+5. From the **Log Service** dropdown list, select  `Sumo Logic`.
+
+6. Insert the [Endpoint address ](https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/).
+
+7. Optional - Define **Tags** - `tag1`,`tag2`.
+
+8. Optional - Define **Host** of your choice.
+
 # Syslog
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
@@ -216,63 +290,3 @@ input {
 10. Optional, check **TLS** and upload the **TLS Certificate** of your log server.
 
 11. Select **Save Changes**.
-
-# Datadog
-
-1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
-
-2. Select the **Enable** checkbox.
-
-3. Choose the log format - `Text` or `JSON`.
-
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
-
-5. From the **Log Service** dropdown list, select `Datadog`.
-
-6. Define the **Datadog host**.
-
-7. Define the **Datadog API Key**.
-
-8. Optional - Define **Log Source**. Default value `akeyless`.
-
-9. Optional - Define **Log Tags** - using `key`:`value` format.
-
-10. Optional - Define **Log Service** , default value `akeyless-gateway`.
-
-# Sumo Logic
-
-1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
-
-2. Select the **Enable** checkbox.
-
-3. Choose the log format - `Text` or `JSON`.
-
-4. Audit Log Server insert: `https://audit.akeyless.io/`.
-
-5. From the **Log Service** dropdown list, select  `Sumo Logic`.
-
-6. Insert the [Endpoint address ](https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/).
-
-7. Optional - Define **Tags** - `tag1`,`tag2`.
-
-8. Optional - Define **Host** of your choice.
-
-# Google Chronicle
-
-1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
-
-2. Select the **Enable** checkbox.
-
-3. Choose the log format - `Text` or `JSON`.
-
-4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
-
-5. From the **Log Service** dropdown list, select  `Google Chronicle`.
-
-6. **Service Account Key** - A JSON file holding service account credentials.
-
-7. **Customer ID** - Unique identifier for the Chronicle instance.
-
-8. **Region** - The region where your customer account is provisioned.
-
-9. **Log Type** - A log type to identify the log entries

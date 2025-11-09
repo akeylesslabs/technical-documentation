@@ -1,6 +1,6 @@
 ---
-title: Telemetry Metrics on K8s
-excerpt: For K8s Environment
+title: Telemetry Metrics on Kubernetes
+excerpt: For Kubernetes Environments
 deprecated: false
 hidden: false
 metadata:
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** or **Prometheus**. You can find a full list of supported endpoints on the official page of the Open Telemetry [project](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
+Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** or **Prometheus**. You can find a full list of supported endpoints on the official page of the [OpenTelemetry project](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
 
 The Telemetry Metrics are based on time series telemetry data metrics from the application and the runtime environment, storing them in a unique database or index, and analyzing data trends over time.
 
@@ -66,7 +66,7 @@ Akeyless is an official Datadog Partner and our dashboard can be found inside th
 
 # Prometheus
 
-To enable Telemetry Metrics on your Gateway for Prometheus, edit the chart `values.yaml ` file under the `metrics` section and set your metrics backend configuration: 
+To enable Telemetry Metrics on your Gateway for Prometheus, edit the chart `values.yaml ` file under the `metrics` section and set your metrics backend configuration:
 
 expose the port `8889` (or any other port) for **Prometheus Exporter** and the **Prometheus Scraping** as described below:
 
@@ -99,7 +99,7 @@ scrape_configs:
       - targets: ['localhost:8889'] 
 ```
 
-Once done, check your Prometheus server for the ingested metrics. 
+Once done, check your Prometheus server for the ingested metrics.
 
 **Grafana Dashboard**
 
@@ -107,11 +107,11 @@ You can visualize Akeyless metrics in Grafana Dashboard when using Prometheus as
 
 Import the Akeykess GW dashboard for your Grafana instance using [this](https://grafana.com/grafana/dashboards/16927) link.
 
-![](https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png "Screen Shot 2022-07-31 at 10.44.18.png")
+<Image border={false} src="https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png" title="Screen Shot 2022-07-31 at 10.44.18.png" />
 
-# Using K8s Secret
+# Using Kubernetes Secret
 
-Create a K8s secret with the relevant settings of your target metric server and save it to a file `config-secret.yaml`:
+Create a Kubernetes secret with the relevant settings of your target metric server and save it to a file `config-secret.yaml`:
 
 ```yaml Datadog
 exporters:
@@ -139,7 +139,7 @@ Encode the file to `base64`:
 base64 --input=config-secret.yaml
 ```
 
-Create a K8s secret using the encoded value and place it in the `data.otel-config.yaml` section:
+Create a Kubernetes secret using the encoded value and place it in the `data.otel-config.yaml` section:
 
 ```yaml
 apiVersion: v1
@@ -149,16 +149,16 @@ metadata:
   namespace: <your-namespace>
 type: Opaque
 data:
-  otel-config.yaml: <Base64 K8s Secret value>
+  otel-config.yaml: <Base64 Kubernetes Secret value>
 ```
 
-Deploy the secret on your `k8s` cluster, and make sure to deploy the secret to the correct namespace:
+Deploy the secret on your Kubernetes cluster, and make sure to deploy the secret to the correct namespace:
 
 ```shell
 kubectl apply -f secret.yaml -n <your-namespace>
 ```
 
-Set your `k8s` secret name on the `metrics.existingSecretName` field in the Gateway chart `values.yaml` file:
+Set your Kubernetes secret name on the `metrics.existingSecretName` field in the Gateway chart `values.yaml` file:
 
 ```yaml
 metrics:
@@ -196,7 +196,7 @@ env:
 
 Where the new **Loki**  `endpoint`  is set with a new `service` for logs, using `filelog` as the `reciver` and `loki` as the `exporter`.
 
-To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_APP_LOG="true"` environment variable. 
+To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_APP_LOG="true"` environment variable.
 
 **Application Logs** from all instances of this gateway will be forwarded in this format: `<date> <time> <gw-clustername-instance-id> <log>`.
 
@@ -210,4 +210,6 @@ After starting the Docker container, you can utilize [Loki Grafana](https://graf
 
 This will enable you to monitor and analyze your application logs seamlessly.
 
-alternatively, you can store a K8s secret to store the relevant `otel-config.yaml` as described in the [Using K8s Secret](https://docs.akeyless.io/docs/telemetry-metrics-k8s#using-k8s-secret).
+Alternatively, you can store a Kubernetes secret to store the relevant `otel-config.yaml` as described in the [Using Kubernetes Secret](https://docs.akeyless.io/docs/telemetry-metrics-k8s#using-k8s-secret).
+
+<br />

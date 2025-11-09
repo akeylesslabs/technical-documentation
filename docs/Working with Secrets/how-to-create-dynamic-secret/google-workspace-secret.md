@@ -111,7 +111,7 @@ Where:
 
 * `gcp-key`: Base64-encoded service account private key text (relevant only when not using a Target)
 
-You can find the complete list of parameters for this command in the CLI Reference - Dynamic Secrets section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/google-workspace) section.
 
 # Fetch a Dynamic Google Workspace Secret value from the CLI
 
