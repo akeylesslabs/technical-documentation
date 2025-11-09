@@ -125,8 +125,6 @@ The following **Administrative Rules** can be set:
 
 * `Secure Remote Access`
 
-* `Event Center`
-
 * `Reverse RBAC`
 
 * `Manage Event Forwarders`
@@ -139,23 +137,28 @@ If **Audit Log** is set to **Own**, the user will see only logs related to thems
 
 # Event Center Rules
 
-You can define which **Event Forwarders** users are allowed to create or use based on the Event Forwarder name, and control what events users can see in the **Event Center** — either events from **All** items in the account or only from the items they have `Read` permissions on (**Own**).
+You can define which events users are allowed to view based on their account permissions.
+Users can either:
 
-You can set the allowed names in two ways:
+* View **All** events in the account
+* View only events related to objects for which they have `Read` permissions, by using the **Own** option.
 
-* **Explicit name**:
+In addition, you can control which Event Forwarders users are allowed to manage.
+Users can either:
 
-  * Specify an exact Event Forwarder name that users can use.
+* Manage **All** Event Forwarders in the account, or
+* Be restricted to managing specific forwarders
 
-Example: `Demo-Event-Forwarder` — allows users to create or use an Event Forwarder with this exact name.
+You can set the allowed Forwarder names in two ways:
 
-* **Template-based name**:
+* **Explicit name**: Specify an exact Event Forwarders name that users can manage, for example: `Demo-Event-Forwarder`:  allows users to create or manage an Event Forwarder with this exact name.
+* **Template-based name**: Use templates to define allowed names dynamically, based on user claims. for example: `{{username\}}-*`: uses the value of the username claim. If the claim value is `bob`, the user will be allowed to create or use Event Forwarders with names like `bob-*`.
 
-  * Use templates to define allowed names dynamically, based on user claims.
+<Callout icon="📘" theme="info">
+  **Gateway Access Permissions** 
 
-Example: `{{username\}}-*` — uses the value of the username claim.
-
-If the claim value is `user`, the user will be allowed to create or use Event Forwarders with names like `user-*`.
+  Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/) 
+</Callout>
 
 # Access Roles Syntax
 
