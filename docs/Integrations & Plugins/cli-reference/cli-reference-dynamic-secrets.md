@@ -608,7 +608,7 @@ akeyless dynamic-secret create gcp \
 
 `--role-binding`: Role binding definitions in json format
 
-`--gcp-project-id`: GCP Project ID override for dynamic secret operations (tmp service accounts) (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
+`--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account , by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
