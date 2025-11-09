@@ -14,11 +14,11 @@ Akeyless Role-based Access Control (RBAC) follows the least privilege principle 
 
 We associate specific clients with a certain Authentication Method to an Access Role to increase operational flexibility. The user can define any number of roles with permissions per each role.
 
-![](https://files.readme.io/54c7a41-RBAC.JPG "RBAC.JPG")
+<Image border={false} src="https://files.readme.io/54c7a41-RBAC.JPG" title="RBAC.JPG" />
 
 Access Roles can be configured to grant permissions on Secrets & Encryption Keys, Targets, Authentication methods and Access Roles, you can also control user access to audit logs, analytics, Gateways settings and Secure Remote Access (SRA) information.
 
-To set permission for a user to work with any item in the Platform, an appropriate Access Role must be assigned to the Authentication Method that represents this user. By default, users don't have any permissions in Akeyless unless explicitly granted. 
+To set permission for a user to work with any item in the Platform, an appropriate Access Role must be assigned to the Authentication Method that represents this user. By default, users don't have any permissions in Akeyless unless explicitly granted.
 
 To Associate an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/api-key):
 
@@ -26,7 +26,7 @@ To Associate an [Authentication Methods](https://docs.akeyless.io/docs/access-an
 akeyless auth-method create api-key --name client1
 ```
 
-Create a new access role: 
+Create a new access role:
 
 ```shell CLI
 akeyless create-role --name role1
@@ -137,6 +137,26 @@ Example:
 
 If **Audit Log** is set to **Own**, the user will see only logs related to themselves. If it is set to **All**, the user will see logs related to all users in the account.
 
+# Event Center Rules
+
+You can define which Event Forwarders users are allowed to create or use based on the Event Forwarder name.
+
+In the **Event Rules** tab of the Access Role, enable the **Manage Event Forwarders** option. Once enabled, you can add the Event Forwarders that users will be allowed to create or manage.
+
+You can set the allowed names in two ways:
+
+* **Explicit name**:
+  * Specify an exact Event Forwarder name that users can use.
+
+Example: `Demo-Event-Forwarder` — allows users to create or use an Event Forwarder with this exact name.
+
+* **Template-based name**:
+  * Use templates to define allowed names dynamically, based on user claims.
+
+Example: `{{username}}-*` — uses the value of the username claim.
+
+If the claim value is `user`, the user will be allowed to create or use Event Forwarders with names like `user-*`.
+
 # Access Roles Syntax
 
 In general, you can set an Access Role to a specific item only:
@@ -147,7 +167,7 @@ In this example we will create a role that grants `read` permission to `mysecret
 akeyless set-role-rule --role-name role1 --path "/foo/mysecret" --capability read
 ```
 
-To provide access to all secrets with a well-defined prefix: 
+To provide access to all secrets with a well-defined prefix:
 
 In this example, we will create a role that grants `read` permission to all secrets or any items under a folder that starts with `devops-` prefix, which are located under `/foo` folder:
 
@@ -161,8 +181,8 @@ In addition, a `+` can be used to denote any number of characters bounded within
 akeyless set-role-rule --role-name role1 --path "foo/+/+/bar/*" --capability read
 ```
 
- This Access Role will permit reading secrets under those folders path:\
- `foo/any/folder/bar/*`, `foo/other/folder/bar/*`, etc.
+This Access Role will permit reading secrets under those folders path:  
+`foo/any/folder/bar/*`, `foo/other/folder/bar/*`, etc.
 
 # Multiple rules
 
@@ -197,8 +217,8 @@ Where the relevant Akeyless paths, e.g `secret/foo` and `secret/bar` correlate w
 
 # View As
 
-To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.\
-Click on your account logo on the top right corner of your console, and select **Impersonate As**.\
+To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.  
+Click on your account logo on the top right corner of your console, and select **Impersonate As**.  
 On the dialog, choose from the drop-down menu and existing [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
 
 # Tutorial
