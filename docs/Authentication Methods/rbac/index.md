@@ -139,9 +139,7 @@ If **Audit Log** is set to **Own**, the user will see only logs related to thems
 
 # Event Center Rules
 
-You can define which Event Forwarders users are allowed to create or use based on the Event Forwarder name.
-
-In the **Event Rules** tab of the Access Role, enable the **Manage Event Forwarders** option. Once enabled, you can add the Event Forwarders that users will be allowed to create or manage.
+You can define which **Event Forwarders** users are allowed to create or use based on the Event Forwarder name, and control what events users can see in the **Event Center** — either events from **All** items in the account or only from the items they have `Read` permissions on (**Own**).
 
 You can set the allowed names in two ways:
 
