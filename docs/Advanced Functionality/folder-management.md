@@ -18,7 +18,7 @@ akeyless folder create \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-You can find the complete list of commands for managing folders in the CLI Reference.
+You can find the complete list of commands for managing folders in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#/folder-management).
 
 # Create a folder in the Akeyless Console
 
