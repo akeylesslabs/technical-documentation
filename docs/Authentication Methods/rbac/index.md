@@ -155,7 +155,7 @@ Example: `Demo-Event-Forwarder` — allows users to create or use an Event Forwa
 
   * Use templates to define allowed names dynamically, based on user claims.
 
-Example: `{{username}}-*` — uses the value of the username claim.
+Example: ``{{username}}-*`` — uses the value of the username claim.
 
 If the claim value is `user`, the user will be allowed to create or use Event Forwarders with names like `user-*`.
 
