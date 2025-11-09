@@ -1,5 +1,5 @@
 ---
-title: Akeyless AI Insight
+title: Akeyless AI Insights
 deprecated: false
 hidden: false
 metadata:
