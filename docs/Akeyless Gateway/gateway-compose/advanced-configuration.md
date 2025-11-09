@@ -98,6 +98,7 @@ PROACTIVE_CACHE_ENABLE="true"
 USE_CLUSTER_CACHE="true"
 GATEWAY_CLUSTER_CACHE="enable"
 ```
+I think you should mention this as well, when cache is enabled. See what I wrote in the readme regarding Redis password when cache is enabled.
 
 It is also possible to [configure cache](https://docs.akeyless.io/docs/configure-the-gateway-cache)  in the Gateway Configuration Manager after the Gateway is installed.
 
