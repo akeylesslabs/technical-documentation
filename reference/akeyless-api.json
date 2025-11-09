@@ -5786,6 +5786,114 @@
         }
       }
     },
+    "/folder-create": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "folderCreate",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/folderCreate"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/folderCreateResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/folder-delete": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "folderDelete",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/folderDelete"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/folderDeleteResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/folder-get": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "folderGet",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/folderGet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/folderGetResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/folder-update": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "folderUpdate",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/folderUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/folderUpdateResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/gateway-create-allowed-access": {
       "post": {
         "tags": [
@@ -18973,6 +19081,11 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "gcp-project-id": {
+          "description": "GCP Project ID (Relevant only for GCP targets)",
+          "type": "string",
+          "x-go-name": "GcpProjectId"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -19482,6 +19595,11 @@
           "description": "Description of the Universal Secrets Connector",
           "type": "string",
           "x-go-name": "Description"
+        },
+        "gcp-project-id": {
+          "description": "GCP Project ID (Relevant only for GCP targets)",
+          "type": "string",
+          "x-go-name": "GcpProjectId"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -21544,6 +21662,10 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "FolderType": {
+      "type": "string",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "GCPAccessRules": {
       "type": "object",
       "title": "GCPAccessRules contains access rules specific to GCP IAM or GCE authentication.",
@@ -22397,6 +22519,59 @@
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "GetFolderOutput": {
+      "description": "GetFolderOutput is the result of the getFolder operation",
+      "type": "object",
+      "properties": {
+        "access_date": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "AccessDate"
+        },
+        "access_date_display": {
+          "type": "string",
+          "x-go-name": "AccessDateDisplay"
+        },
+        "accessibility": {
+          "$ref": "#/definitions/ItemAccessibility"
+        },
+        "creation_date": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "CreationDate"
+        },
+        "delete_protection": {
+          "type": "boolean",
+          "x-go-name": "DeleteProtection"
+        },
+        "folder_id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "FolderID"
+        },
+        "folder_name": {
+          "type": "string",
+          "x-go-name": "FolderName"
+        },
+        "metadata": {
+          "type": "string",
+          "x-go-name": "Metadata"
+        },
+        "modification_date": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "ModificationDate"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Tags"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
     "GetGroupOutput": {
       "type": "object",
@@ -39047,6 +39222,14 @@
           "type": "string",
           "x-go-name": "EventForwardersAccess"
         },
+        "event-forwarders-name": {
+          "description": "Allow this role to manage the following Event Forwarders.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "EventForwardersName"
+        },
         "gw-analytics-access": {
           "description": "Allow this role to view gw analytics. Currently only 'none', 'own', 'all'\nvalues are supported, allowing associated auth methods to view reports\nproduced by the same auth methods.",
           "type": "string",
@@ -40818,6 +41001,12 @@
           "description": "The name of the key to use in the encryption process",
           "type": "string",
           "x-go-name": "DisplayId"
+        },
+        "ignore-cache": {
+          "description": "Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI",
+          "type": "string",
+          "default": "false",
+          "x-go-name": "IgnoreCache"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -42832,6 +43021,11 @@
           "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024",
           "type": "string",
           "x-go-name": "KeyAlgorithm"
+        },
+        "gcp-project-id": {
+          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
+          "type": "string",
+          "x-go-name": "GcpProjectId"
         },
         "gcp-sa-email": {
           "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
@@ -47363,6 +47557,11 @@
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
+        "gcp-project-id": {
+          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
+          "type": "string",
+          "x-go-name": "GcpProjectId"
+        },
         "gcp-sa-email": {
           "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
           "type": "string",
@@ -50800,6 +50999,12 @@
           "type": "string",
           "x-go-name": "DisplayId"
         },
+        "ignore-cache": {
+          "description": "Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI",
+          "type": "string",
+          "default": "false",
+          "x-go-name": "IgnoreCache"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -52366,6 +52571,238 @@
           "x-go-name": "Username"
         }
       },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "folderCreate": {
+      "description": "folderCreate is a command that creates folder",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "accessibility": {
+          "description": "for personal password manager",
+          "type": "string",
+          "default": "regular",
+          "x-go-name": "ItemAccessibilityString"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "Folder name",
+          "type": "string",
+          "x-go-name": "FolderName"
+        },
+        "tags": {
+          "description": "Add tags attached to this object",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Tags"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "type": {
+          "$ref": "#/definitions/FolderType"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "folderCreateOutput": {
+      "type": "object",
+      "properties": {
+        "folder_id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "FolderID"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "folderDelete": {
+      "description": "folderDelete is a command that delete folder",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "accessibility": {
+          "description": "for personal password manager",
+          "type": "string",
+          "default": "regular",
+          "x-go-name": "ItemAccessibilityString"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "Folder name",
+          "type": "string",
+          "x-go-name": "FolderName"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "type": {
+          "$ref": "#/definitions/FolderType"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "folderDeleteOutput": {
+      "type": "object",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "folderGet": {
+      "description": "folderGet is a command that get folder",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "accessibility": {
+          "description": "for personal password manager",
+          "type": "string",
+          "default": "regular",
+          "x-go-name": "ItemAccessibilityString"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "Folder name",
+          "type": "string",
+          "x-go-name": "FolderName"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "type": {
+          "$ref": "#/definitions/FolderType"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "folderGetOutput": {
+      "type": "object",
+      "properties": {
+        "folder": {
+          "$ref": "#/definitions/GetFolderOutput"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "folderUpdate": {
+      "description": "folderUpdate is a command that updates folder",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "accessibility": {
+          "description": "for personal password manager",
+          "type": "string",
+          "default": "regular",
+          "x-go-name": "ItemAccessibilityString"
+        },
+        "add-tag": {
+          "description": "List of the new tags that will be attached to this folder",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AddTags"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "name": {
+          "description": "Folder name",
+          "type": "string",
+          "x-go-name": "FolderName"
+        },
+        "rm-tag": {
+          "description": "List of the existent tags that will be removed from this folder",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "RemoveTags"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "type": {
+          "$ref": "#/definitions/FolderType"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "folderUpdateOutput": {
+      "type": "object",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
     "gatewayCreateAllowedAccess": {
@@ -54021,6 +54458,11 @@
           "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024",
           "type": "string",
           "x-go-name": "KeyAlgorithm"
+        },
+        "gcp-project-id": {
+          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
+          "type": "string",
+          "x-go-name": "GcpProjectId"
         },
         "gcp-sa-email": {
           "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
@@ -60691,6 +61133,11 @@
           "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024",
           "type": "string",
           "x-go-name": "KeyAlgorithm"
+        },
+        "gcp-project-id": {
+          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
+          "type": "string",
+          "x-go-name": "GcpProjectId"
         },
         "gcp-sa-email": {
           "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
@@ -88273,6 +88720,30 @@
       "description": "eventForwarderUpdateWebhookResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/eventForwarderCreateUpdateOutput"
+      }
+    },
+    "folderCreateResponse": {
+      "description": "folderCreateResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/folderCreateOutput"
+      }
+    },
+    "folderDeleteResponse": {
+      "description": "folderDeleteResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/folderDeleteOutput"
+      }
+    },
+    "folderGetResponse": {
+      "description": "folderGetResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/folderGetOutput"
+      }
+    },
+    "folderUpdateResponse": {
+      "description": "folderUpdateResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/folderUpdateOutput"
       }
     },
     "gatewayCreateAllowedAccessResponse": {
