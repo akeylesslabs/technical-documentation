@@ -46,6 +46,7 @@ Once you have cloned the repository into your environment, you will see the foll
 * `docker-compose.yaml` - defines the Akeyless services and their setup.
 * `gateway.env` - stores environment variables for configuring the Gateway.
 * `sra.env` - stores environment variables for Secure Remote Access.
+* `cache.env` - stores Redis password (required when cache is enabled)
 
 # Authentication
 
