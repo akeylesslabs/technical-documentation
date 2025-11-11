@@ -235,4 +235,12 @@ will map to ServiceNow username = alice, password = secret.
 * Logging:
   * Resolver logs go through Commons Logging. Check the MID Server logs for entries containing “Akeyless resolver”.
 
-<br />
+### Local/dev testing (optional)
+
+You can run unit tests locally:
+
+```json
+mvn test
+```
+
+To quickly sanity-check end-to-end against Akeyless, set environment variables and create a Discovery credential that points to a known secret path. For cloud-based auth types, run the MID on a host with a valid cloud identity.
