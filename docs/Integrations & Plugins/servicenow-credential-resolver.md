@@ -44,7 +44,6 @@ mvn -Drevision=1.0.0 clean package
 
 ### Install the resolver on the MID Server
 
-
 1. Upload the JAR to the MID Server via the instance UI
    * Navigate: MID Server → JAR files → New
    * Set a descriptive Name (e.g., akeyless-servicenow-credential-resolver)
@@ -82,3 +81,17 @@ Environment/system property alternatives
   * AKEYLESS_ACCESS_KEY (when using access_key)
 * As a fallback for any ext.cred.* property, an environment variable with the uppercased name and dots replaced by underscores is also read (e.g., EXT_CRED_AKEYLESS_GW_URL).
 * Precedence: MID properties override environment/system variables.
+
+### Configure MID config.xml (secure local parameters)
+
+
+Add sensitive Akeyless credentials in the MID’s config.xml.
+
+Edit the file on each MID host:
+
+* Linux: /opt/agent/config.xml
+* Windows: C:\ServiceNow\agent\config.xml
+
+Insert your parameters inside the `<parameters> `block:
+
+<br />
