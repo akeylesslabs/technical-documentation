@@ -59,7 +59,6 @@ mvn -Drevision=1.0.0 clean package
 
 ### Configure MID properties (Akeyless parameters)
 
-
 Set the following MID properties on your instance (System Properties or MID Properties). Property names are case-sensitive.
 
 * ext.cred.akeyless.gw_url (string): Akeyless Gateway. Default: [https://api.akeyless.io](https://api.akeyless.io)
@@ -74,4 +73,12 @@ Optional field mapping overrides for JSON secrets (see Mapping section below):
 * ext.cred.akeyless.map.private_key (default: private_key)
 * ext.cred.akeyless.map.passphrase (default: passphrase)
 
-<br />
+Environment/system property alternatives
+
+* The resolver also supports the following system properties or environment variables:
+  * AKEYLESS_GW_URL
+  * AKEYLESS_ACCESS_TYPE
+  * AKEYLESS_ACCESS_ID (required)
+  * AKEYLESS_ACCESS_KEY (when using access_key)
+* As a fallback for any ext.cred.* property, an environment variable with the uppercased name and dots replaced by underscores is also read (e.g., EXT_CRED_AKEYLESS_GW_URL).
+* Precedence: MID properties override environment/system variables.
