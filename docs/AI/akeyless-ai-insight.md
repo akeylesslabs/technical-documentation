@@ -75,7 +75,7 @@ Option A - OpenAI Target
 Command
 
 ```shell
-akeyless target-create-openai \
+akeyless target create openai \
   --name <target-name> \
   --api-key <openai-api-key> \
   [--openai-url <base-url>] \
@@ -87,7 +87,7 @@ akeyless target-create-openai \
 Example
 
 ```shell
-akeyless target-create-openai \
+akeyless target create openai \
   --name my-openai-target \
   --api-key sk-xxxx \
   --model gpt-4
