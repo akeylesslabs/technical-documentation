@@ -56,3 +56,13 @@ mvn -Drevision=1.0.0 clean package
 * If not picked up, restart the MID service to force a sync.
 
 <br />
+
+### Configure MID properties (Akeyless parameters)
+
+
+Set the following MID properties on your instance (System Properties or MID Properties). Property names are case-sensitive.
+
+* ext.cred.akeyless.gw_url (string): Akeyless Gateway. Default: [https://api.akeyless.io](https://api.akeyless.io)
+* ext.cred.akeyless.access_type (string): One of access_key, aws_iam, azure_ad, gcp. Default: access_key
+* ext.cred.akeyless.access_id (string): Your Akeyless Access ID (required)
+* ext.cred.akeyless.access_key (string): Your Akeyless Access Key (required for access_key only)
