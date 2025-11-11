@@ -134,3 +134,20 @@ net start mid
    * Credential ID: The Akeyless secret path (e.g., /prod/app/db) to fetch
 2. Save and test
    * Click “Test credential”, select a MID Server and a target if required by the type.
+
+<br />
+
+### What to store in Akeyless and how it’s mapped
+
+
+The resolver accepts either:
+
+* A plain string secret → mapped as a password/token
+* A JSON object → fields are mapped to ServiceNow credential fields as per the credential Type
+
+Default mapping (can be overridden via ext.cred.akeyless.map.*):
+
+* Username field: username
+* Password field: password
+* Private key field: private_key
+* Passphrase field: passphrase
