@@ -94,7 +94,7 @@ Edit the file on each MID host:
 
 Insert your parameters inside the `<parameters> `block:
 
-```shell
+```json
 <parameters>
     ...
     <!-- Akeyless secure credentials -->
@@ -165,3 +165,15 @@ Per-Type mapping summary
   * Best-effort: username and password if present
 
 <br />
+
+Examples
+
+Basic / Windows / SSH Password (JSON in Akeyless):
+
+<br />
+
+SSH Private Key:
+
+<br />
+
+SNMPv3:
