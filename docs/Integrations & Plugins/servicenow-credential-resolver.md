@@ -170,10 +170,31 @@ Examples
 
 Basic / Windows / SSH Password (JSON in Akeyless):
 
-<br />
+```json
+{
+  "username": "alice",
+  "password": "secret"
+}
+```
 
 SSH Private Key:
 
-<br />
+```json
+{
+  "username": "ssh-user",
+  "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n",
+  "passphrase": "optional"
+}
+```
 
 SNMPv3:
+
+```json
+{
+  "username": "snmpu",
+  "auth_protocol": "SHA",
+  "auth_key": "authKeyHere",
+  "privacy_protocol": "AES",
+  "privacy_key": "privacyKeyHere"
+}
+```
