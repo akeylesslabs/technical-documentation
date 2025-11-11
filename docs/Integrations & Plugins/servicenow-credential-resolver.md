@@ -33,7 +33,7 @@ For cloud-based methods, the resolver detects CloudID using the cloud environmen
 
 This is a Maven project. Build a versioned JAR so the filename is stable in MID:
 
-```shell Get-Dynamic-Secret
+```shell
 mvn -Drevision=1.0.0 clean package
 ```
 
@@ -93,5 +93,22 @@ Edit the file on each MID host:
 * Windows: C:\ServiceNow\agent\config.xml
 
 Insert your parameters inside the `<parameters> `block:
+
+```shell
+<parameters>
+    ...
+    <!-- Akeyless secure credentials -->
+    <parameter name="ext.cred.akeyless.gw_url" value="https://api.akeyless.io" />
+    <parameter name="ext.cred.akeyless.access_type" value="access_key" />
+    <parameter name="ext.cred.akeyless.access_id" value="AKEYLESS_ACCESS_ID" />
+    <parameter name="ext.cred.akeyless.access_key" value="AKEYLESS_SECRET_KEY" secure="true" />
+
+    <!-- Optional JSON mapping overrides -->
+    <parameter name="ext.cred.akeyless.map.username" value="username" />
+    <parameter name="ext.cred.akeyless.map.password" value="password" />
+    <parameter name="ext.cred.akeyless.map.private_key" value="private_key" />
+    <parameter name="ext.cred.akeyless.map.passphrase" value="passphrase" />
+</parameters>
+```
 
 <br />
