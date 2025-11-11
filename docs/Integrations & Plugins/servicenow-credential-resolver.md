@@ -66,3 +66,12 @@ Set the following MID properties on your instance (System Properties or MID Prop
 * ext.cred.akeyless.access_type (string): One of access_key, aws_iam, azure_ad, gcp. Default: access_key
 * ext.cred.akeyless.access_id (string): Your Akeyless Access ID (required)
 * ext.cred.akeyless.access_key (string): Your Akeyless Access Key (required for access_key only)
+
+Optional field mapping overrides for JSON secrets (see Mapping section below):
+
+* ext.cred.akeyless.map.username (default: username)
+* ext.cred.akeyless.map.password (default: password)
+* ext.cred.akeyless.map.private_key (default: private_key)
+* ext.cred.akeyless.map.passphrase (default: passphrase)
+
+<br />
