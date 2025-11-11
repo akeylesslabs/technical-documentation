@@ -37,4 +37,7 @@ This is a Maven project. Build a versioned JAR so the filename is stable in MID:
 mvn -Drevision=1.0.0 clean package
 ```
 
-<br />
+**Artifacts:**
+
+* With -Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar
+* Without a revision property, Maven will produce akeyless-servicenow-credential-resolver-null.jar.
