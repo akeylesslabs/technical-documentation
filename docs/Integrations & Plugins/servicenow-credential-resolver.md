@@ -41,3 +41,18 @@ mvn -Drevision=1.0.0 clean package
 
 * With -Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar
 * Without a revision property, Maven will produce akeyless-servicenow-credential-resolver-null.jar.
+
+### Install the resolver on the MID Server
+
+
+1. Upload the JAR to the MID Server via the instance UI
+   * Navigate: MID Server → JAR files → New
+   * Set a descriptive Name (e.g., akeyless-servicenow-credential-resolver)
+   * Manage Attachments → upload the built JAR from target/
+   * Submit
+2. Ensure the MID downloads the JAR
+
+* The MID will sync and place the JAR in its agent lib cache.
+* If not picked up, restart the MID service to force a sync.
+
+<br />
