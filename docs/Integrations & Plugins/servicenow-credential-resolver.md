@@ -223,4 +223,16 @@ will map to ServiceNow username = alice, password = secret.
 * Ensure the MID Server host is running in the target cloud with the appropriate identity, or that cloud SDK environment is present to retrieve a CloudID.
 * Do not set access_key when using CloudID-based methods.
 
+### Troubleshooting
+
+
+* HTTP 400 “Missing required parameter - timestamp” on /auth:
+  * Usually indicates the wrong auth flow or missing parameters. Verify access_type is set correctly. For CloudID flows, do not set an access_key. For access_key flows, ensure both access_id and access_key are set.
+* HTTP 404 from /v2/* endpoints:
+  * The resolver automatically falls back to the non-/v2 endpoints. If both fail, verify the gateway URL and network reachability.
+* “Secret value not found for name …”:
+  * Confirm the Credential ID (secret path) is correct and the Akeyless identity has permission to read it.
+* Logging:
+  * Resolver logs go through Commons Logging. Check the MID Server logs for entries containing “Akeyless resolver”.
+
 <br />
