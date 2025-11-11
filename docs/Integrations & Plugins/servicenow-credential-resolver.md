@@ -215,4 +215,12 @@ Then a JSON like:
 }
 ```
 
+will map to ServiceNow username = alice, password = secret.
+
+### CloudID notes (aws_iam / azure_ad / gcp)
+
+* When ext.cred.akeyless.access_type (or AKEYLESS_ACCESS_TYPE) is aws_iam, azure_ad, or gcp, the resolver fetches a CloudID and sends it to Akeyless during auth.
+* Ensure the MID Server host is running in the target cloud with the appropriate identity, or that cloud SDK environment is present to retrieve a CloudID.
+* Do not set access_key when using CloudID-based methods.
+
 <br />
