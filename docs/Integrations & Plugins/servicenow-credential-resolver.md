@@ -198,3 +198,21 @@ SNMPv3:
   "privacy_key": "privacyKeyHere"
 }
 ```
+
+<br />
+
+Custom field names via mapping overrides (example):
+
+* Set ext.cred.akeyless.map.username = user_name
+* Set ext.cred.akeyless.map.password = pwd
+
+Then a JSON like:
+
+```json
+{
+  "user_name": "alice",
+  "pwd": "secret"
+}
+```
+
+<br />
