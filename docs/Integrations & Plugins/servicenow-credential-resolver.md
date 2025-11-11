@@ -32,3 +32,9 @@ For cloud-based methods, the resolver detects CloudID using the cloud environmen
 ### Build the JAR
 
 This is a Maven project. Build a versioned JAR so the filename is stable in MID:
+
+```shell Get-Dynamic-Secret
+mvn -Drevision=1.0.0 clean package
+```
+
+<br />
