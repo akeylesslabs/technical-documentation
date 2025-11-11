@@ -124,4 +124,13 @@ net stop mid
 net start mid
 ```
 
-<br />
+### Configure a Discovery Credential to use this resolver
+
+1. Create a new credential
+   * Navigate: Discovery → Credentials → New
+   * Choose a credential Type (e.g., Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
+   * Select “External credential store”
+   * Fully Qualified Class Name (FQCN): com.snc.discovery.CredentialResolver
+   * Credential ID: The Akeyless secret path (e.g., /prod/app/db) to fetch
+2. Save and test
+   * Click “Test credential”, select a MID Server and a target if required by the type.
