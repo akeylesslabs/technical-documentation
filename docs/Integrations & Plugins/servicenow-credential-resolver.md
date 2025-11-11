@@ -111,4 +111,17 @@ Insert your parameters inside the `<parameters> `block:
 </parameters>
 ```
 
+Then restart the MID service:
+
+```shell
+sudo service mid restart
+```
+
+Or on Windows (from an elevated Command Prompt):
+
+```shell
+net stop mid
+net start mid
+```
+
 <br />
