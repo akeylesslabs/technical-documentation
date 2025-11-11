@@ -151,3 +151,17 @@ Default mapping (can be overridden via ext.cred.akeyless.map.*):
 * Password field: password
 * Private key field: private_key
 * Passphrase field: passphrase
+
+Per-Type mapping summary
+
+* Windows, Basic, SSH Password, VMware, JDBC, JMS:
+  * Uses JSON fields: username, password (or your overridden names)
+* SSH Private Key:
+  * Uses JSON fields: username, private_key, passphrase
+* SNMPv3:
+  * Uses JSON fields: username, auth_protocol, auth_key, privacy_protocol, privacy_key
+  * Mapped to ServiceNow fields: username, auth-protocol, auth-key, privacy-protocol, privacy-key
+* Any other type:
+  * Best-effort: username and password if present
+
+<br />
