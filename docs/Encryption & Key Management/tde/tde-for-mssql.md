@@ -17,7 +17,7 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 <Callout icon="📒" theme="default">
   ### **Platform prerequisites**
 
-  _The TDE for MSSQL workflow documented above has been tested**only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”)._
+  _The TDE for MSSQL workflow documented above has been tested **only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”)._
 
   **Not supported**
   • MSSQL in Docker containers (Microsoft does not support TDE in containers)
@@ -40,16 +40,16 @@ Follow the wizard installation steps - enter your Akeyless [Gateway](https://doc
 
 Choose the OS installation path and save it for later. This will copy the `dll`  files, and also creates a configuration file that can be edited later.
 
-> 📘 The file should be formatted as follows:
->
-> log_level="debug"
-> akeyless_url="https://Your-GW-URL/api/v2"
-> base_item_path=" /path/to/keys"
-> use_classic_keys=true
+The file should be formatted as follows:
 
-**Notice:** It is optional to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys), the default is otherwise using a DFC key.
+```toml
+log_level="debug"
+akeyless_url="https://Your-GW-URL/api/v2"
+base_item_path="/path/to/keys"
+use_classic_keys=true
+```
 
-* To work with Classic Keys, make sure you work against your own Gateway (on the API v2 endpoint)
+**Notice:** It is optional to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) by setting `use_classic_keys=true`. The default is otherwise using a DFC key. To work with Classic Keys, make sure you work against your own Gateway (on the `/api/v2` endpoint).
 
 # Configure the Akeyless EKM provider
 
@@ -86,10 +86,24 @@ FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
 GO
 ```
 
-* For instance, if you wish to utilize`'azure ad authentication'`you will need to modify the configuration file located in the installation directory at`'C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf'` Specifically, add the following lines:
-  `[auth]
-  access_type="azure_ad"
-  object_id="..." # optional`
+If you wish to utilize [Azure AD authentication](https://docs.akeyless.io/docs/azure-ad) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any dummy value:
+
+```sql
+CREATE CREDENTIAL akeyless_tde
+WITH IDENTITY = '<AZURE_AD_ACCESS_ID>', SECRET = 'dummy'
+FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
+GO
+```
+
+And modify the TOML-formatted configuration file located in the installation directory at `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` setting `access_type="azure_ad"`:
+
+```toml
+[auth]
+access_type="azure_ad"
+object_id="..." # optional`
+```
+
+The `object_id` configuration should only be set in cases when the Azure AD authentication method used has multiple managed identities associated to it. [See Azure documentation](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) for more information.
 
 <Callout icon="📒" theme="default">
   ### Access-Role Reminder
@@ -107,7 +121,7 @@ ADD CREDENTIAL akeyless_tde;
 GO
 ```
 
-5. Create an asymmetric key for the **EKM** provider.  This will create a key in Akeyless named `SQL_Server_Key`. To work with an existing key add the`CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`:
+5. Create an asymmetric key for the **EKM** provider.  This will create a key in Akeyless named `SQL_Server_Key` in the path defined in the configuration file `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` parameter `base_item_path` (e.g. `/path/to/keys/SQL_Server_Key`. To work with an existing key add the `CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`:
 
 ```sql
 CREATE ASYMMETRIC KEY akls_ekm_login_key
