@@ -135,4 +135,18 @@ Notes
 jarsigner -verify tika-app-signed.jar
 ```
 
-<br />
+#### Android APK Signing
+
+##### Sign APK (v1 Signature)
+
+```shell
+jarsigner -debug -verbose \
+  -keystore NONE \
+  -storetype PKCS11 \
+  -providerClass sun.security.pkcs11.SunPKCS11 \
+  -providerArg /work/pkcs11.cnf \
+  -tsa http://timestamp.digicert.com \
+  -signedjar app-signed-v1.apk \
+  app-release-unsigned.apk \
+  /jarsign/gadikey-cert
+```
