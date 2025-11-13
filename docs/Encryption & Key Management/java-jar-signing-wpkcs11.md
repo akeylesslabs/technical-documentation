@@ -191,3 +191,25 @@ Verify:
 java -Djava.security.properties=/work/java.security.additions \
   -XshowSettings:security -version 2>&1 | grep SunPKCS11
 ```
+
+##### Align APK
+
+```shell
+cd /work
+$ANDROID_SDK_ROOT/build-tools/35.0.0/zipalign -p 4 app-release-unsigned.apk app-aligned.apk
+```
+
+##### Sign APK (v2/v3 Signature)
+
+```shell
+java -Djava.security.properties=/work/java.security.additions \
+  -jar "$ANDROID_SDK_ROOT/build-tools/35.0.0/lib/apksigner.jar" sign \
+  --ks-type PKCS11 \
+  --ks-provider-name SunPKCS11-Akeyless \
+  --ks NONE \
+  --ks-key-alias "/jarsign/gadikey-cert" \
+  --v2-signing-enabled true \
+  --v3-signing-enabled true \
+  --out app-signed-v2v3.apk \
+  app-aligned.apk
+```
