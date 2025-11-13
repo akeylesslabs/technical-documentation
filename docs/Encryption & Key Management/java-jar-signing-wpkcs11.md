@@ -93,4 +93,18 @@ library = /work/libakeyless.so
 slotListIndex = 0
 ```
 
-/work/pkcs11.conf
+`/work/pkcs11.conf`
+
+```text ini
+akeyless_url = "http://host.docker.internal:8080/v2"
+base_item_path = "/jarsign"
+log_level = "debug"
+key_item = "/jarsign/gadikey"
+cert_item = "/jarsign/gadicert"
+
+[auth]
+access_type = "access_key"
+access_id = "p-t4l0patwex6tal"
+access_key = "***********************************"
+
+```
