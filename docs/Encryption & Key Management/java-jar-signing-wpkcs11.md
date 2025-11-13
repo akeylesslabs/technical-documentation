@@ -15,12 +15,70 @@ It covers both compilation steps and signing workflows for JAR and Android APK f
 
 <br />
 
-### Overview
+#### Overview
 
 * Purpose: Build a portable shared library (libakeyless.so) compatible with Oracle TDE and Java PKCS#11 integrations.
 * Minimum Oracle version supported: Oracle 21c (21.3.0) this is the oldest version customers should have.
 * Target platform: Linux (amd64) compiled on Oracle Linux 7 for maximum compatibility.
 
-### Build the Library (Go → C Shared Library)
+#### Build the Library (Go → C Shared Library)
+
+```shell
+docker run --rm -it --platform=linux/amd64 \
+  -v "$PWD":/src -w /src oraclelinux:7-slim /bin/bash -lc '
+    set -euo pipefail
+
+    # Install toolchain
+    yum -y install gzip curl tar gcc make glibc-devel
+
+    # Install Go 1.22.5
+    curl -fsSL https://go.dev/dl/go1.22.5.linux-amd64.tar.gz | tar -C /usr/local -xz
+    export PATH=/usr/local/go/bin:$PATH
+
+    # Clean previous build
+    rm -f libakeyless.so libakeyless.h
+
+    # Build shared library
+    CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC=gcc \
+      go build -buildmode=c-shared \
+      -ldflags "-linkmode external -extldflags -Wl,-rpath,\$ORIGIN" \
+      -o libakeyless.so .
+
+    # Validate dependencies
+    echo "== ldd (should have no: not found) =="
+    ldd libakeyless.so || true
+
+    echo "== highest required GLIBC symbol (should be <= GLIBC_2.17) =="
+    strings -a libakeyless.so | grep -E GLIBC_ | sort -V | tail -1
+'
+
+```
+
+#### Validate Library Compatibility
+
+| **Build Environment** | **Validation Environment** | **Result** | **Notes**             |
+| --------------------- | -------------------------- | ---------- | --------------------- |
+| OracleLinux 7 (2014)  | Ubuntu 22 (2022)           | Pass       | Compatible            |
+| Ubuntu 22 (2022)      | OracleLinux 7 (2014)       | Fail       | Requires GLIBC ≥ 2.32 |
+
+Example of failed validation:
+
+```shell
+/lib64/libc.so.6: version `GLIBC_2.32' not found
+/lib64/libc.so.6: version `GLIBC_2.34' not found
+```
+
+Always compile on OracleLinux 7 (2014) or equivalent to maintain backward compatibility.
+
+#### Oracle TDE Integration Setup
+
+In your Akeyless account, create the following items under Secret Management:
+
+| **Item Type** | **Path**            | **Description**         |
+| ------------- | ------------------- | ----------------------- |
+| Key           | `/jarsign/gadikey`  | Private key for signing |
+| Certificate   | `/jarsign/gadicert` | Associated certificate  |
+
+Copy both items into the same local directory (e.g. /work).
 
 <br />
