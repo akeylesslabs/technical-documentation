@@ -213,3 +213,14 @@ java -Djava.security.properties=/work/java.security.additions \
   --out app-signed-v2v3.apk \
   app-aligned.apk
 ```
+
+##### Verify Signed APK
+
+```shell
+$ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner verify \
+  --verbose \
+  --print-certs \
+  app-signed-v2v3.apk
+```
+
+<br />
