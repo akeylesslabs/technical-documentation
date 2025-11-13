@@ -172,4 +172,17 @@ export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platfor
 
 ##### Verify Tool Installation
 
+```shell
+$ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner --version
+$ANDROID_SDK_ROOT/build-tools/35.0.0/zipalign -h
+```
+
+##### Add PKCS#11 as Java Security Provider
+
+Create `/work/java.security.additions:`
+
+```text ini
+security.provider.13=SunPKCS11 /work/pkcs11.cnf
+```
+
 <br />
