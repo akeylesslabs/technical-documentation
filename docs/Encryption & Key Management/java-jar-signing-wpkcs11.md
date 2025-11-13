@@ -108,3 +108,25 @@ access_id = "p-t4l0patwex6tal"
 access_key = "***********************************"
 
 ```
+
+#### Run JAR Signing
+
+```shell
+jarsigner -debug -verbose \
+  -keystore NONE \
+  -storetype PKCS11 \
+  -providerClass sun.security.pkcs11.SunPKCS11 \
+  -providerArg /work/pkcs11.cnf \
+  -tsa http://timestamp.digicert.com \
+  -signedjar tika-app-signed.jar \
+  tika-app-4.0.0-SNAPSHOT.jar \
+  /jarsign/gadikey-cert
+```
+
+Notes
+
+* The alias must match the private key name, suffixed with `-cert`.
+* Use `-signedjar` to output a separate signed file (otherwise the input JAR is modified).
+* The `-tsa` parameter adds a trusted timestamp to the signature.
+
+<br />
