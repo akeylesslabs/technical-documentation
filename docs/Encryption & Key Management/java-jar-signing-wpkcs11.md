@@ -185,4 +185,9 @@ Create `/work/java.security.additions:`
 security.provider.13=SunPKCS11 /work/pkcs11.cnf
 ```
 
-<br />
+Verify:
+
+```shell
+java -Djava.security.properties=/work/java.security.additions \
+  -XshowSettings:security -version 2>&1 | grep SunPKCS11
+```
