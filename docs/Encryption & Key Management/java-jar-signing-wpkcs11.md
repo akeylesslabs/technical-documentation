@@ -129,4 +129,10 @@ Notes
 * Use `-signedjar` to output a separate signed file (otherwise the input JAR is modified).
 * The `-tsa` parameter adds a trusted timestamp to the signature.
 
+#### Validate Signed JAR
+
+```shell
+jarsigner -verify tika-app-signed.jar
+```
+
 <br />
