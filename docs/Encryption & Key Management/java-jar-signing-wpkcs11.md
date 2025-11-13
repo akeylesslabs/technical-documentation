@@ -81,4 +81,16 @@ In your Akeyless account, create the following items under Secret Management:
 
 Copy both items into the same local directory (e.g. /work).
 
-<br />
+#### Environment Setup for JAR Signing
+
+##### Define PKCS#11 Configuration Files
+
+`/work/pkcs11.cnf`
+
+```text ini
+name = Akeyless
+library = /work/libakeyless.so
+slotListIndex = 0
+```
+
+/work/pkcs11.conf
