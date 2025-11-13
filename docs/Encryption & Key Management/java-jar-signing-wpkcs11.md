@@ -150,3 +150,26 @@ jarsigner -debug -verbose \
   app-release-unsigned.apk \
   /jarsign/gadikey-cert
 ```
+
+#### Install Android SDK and Tools
+
+```shell
+apt-get update && apt-get install -y openjdk-17-jdk unzip wget
+
+cd /work
+wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
+unzip cmdline-tools.zip -d android-sdk
+mkdir -p android-sdk/cmdline-tools/latest
+mv android-sdk/cmdline-tools/* android-sdk/cmdline-tools/latest/
+```
+
+##### Environment Variables
+
+```shell
+export ANDROID_SDK_ROOT=/work/android-sdk
+export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$PATH
+```
+
+##### Verify Tool Installation
+
+<br />
