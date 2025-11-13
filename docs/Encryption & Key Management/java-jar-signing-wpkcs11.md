@@ -20,3 +20,7 @@ It covers both compilation steps and signing workflows for JAR and Android APK f
 * Purpose: Build a portable shared library (libakeyless.so) compatible with Oracle TDE and Java PKCS#11 integrations.
 * Minimum Oracle version supported: Oracle 21c (21.3.0) this is the oldest version customers should have.
 * Target platform: Linux (amd64) compiled on Oracle Linux 7 for maximum compatibility.
+
+### Build the Library (Go → C Shared Library)
+
+<br />
