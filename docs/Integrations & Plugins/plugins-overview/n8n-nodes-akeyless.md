@@ -89,4 +89,11 @@ Then restart your n8n instance.
 
 Use Case: Retrieve API keys, database passwords, or other static secrets.
 
-<br />
+2. Get Rotated Secret Value
+   Retrieves a rotated secret (automatically rotated by Akeyless).
+   Configuration:
+   * Secret Name: The full path to your rotated secret
+   * Ignore Cache: Set to true to bypass cache
+
+Output: Returns the current rotated secret value.
+Use Case: Retrieve database credentials that rotate automatically.
