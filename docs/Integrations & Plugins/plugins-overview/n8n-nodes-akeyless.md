@@ -71,4 +71,22 @@ Then restart your n8n instance.
 4. Choose your credential from the dropdown
 5. Select an operation
 
+### Available Operations
+
+1. Get Static Secret Value
+   Retrieves a static secret from Akeyless.
+   Configuration:
+   * Secret Name: The full path to your secret (e.g., /production/api-key)
+   * Accessibility: Choose regular or personal
+   * Ignore Cache: Set to true to bypass cache
+   Output Example:
+
+```text
+{
+  "/production/api-key": "your-secret-value-here"
+}
+```
+
+Use Case: Retrieve API keys, database passwords, or other static secrets.
+
 <br />
