@@ -97,3 +97,31 @@ Use Case: Retrieve API keys, database passwords, or other static secrets.
 
 Output: Returns the current rotated secret value.
 Use Case: Retrieve database credentials that rotate automatically.
+
+3. Get Dynamic Secret Value
+   Retrieves a dynamic secret (generated on-demand).
+   Configuration:
+   * Secret Name: The full path to your dynamic secret
+   * Timeout: Maximum seconds to wait for secret generation (default: 15)
+
+Output: Returns the dynamically generated secret value.
+Use Case: Generate temporary database access credentials or API tokens.
+
+4. Create Secret
+   Creates a new secret in Akeyless.
+   Configuration:
+   * Secret Name: Full path where the secret will be stored
+   * Type: Choose Generic or Password
+   * Format: Choose Text or JSON
+   * Accessibility: Choose regular or personal
+   For Generic Secrets:
+   * Secret Value: The value to store
+   For Password Secrets:
+   * Username: The username
+   * Password: The password
+   Additional Options:
+   * Secure Access Web Browsing: Enable if needed
+   * Secure Access Web Proxy: Enable if needed
+   Use Case: Store new API keys, create database credentials, or save configuration values.
+
+<br />
