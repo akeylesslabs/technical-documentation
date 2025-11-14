@@ -37,4 +37,12 @@ npm install n8n-nodes-akeyless
 
 Then restart your n8n instance.
 
-<br />
+### Getting Started
+
+
+#### Step 1: Configure Credentials
+
+
+1. In n8n, go to Credentials → Add Credential
+2. Select Akeyless Security
+3. Choose an authentication method:
