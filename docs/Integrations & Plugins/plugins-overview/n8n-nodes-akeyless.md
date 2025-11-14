@@ -161,3 +161,15 @@ In the Authorization header, u
 ```text
 {{$node["Akeyless"].json["/myapp/api-key"]}}
 ```
+
+#### Method 2: Using Set Node (Recommended for Complex Workflows)
+
+
+Extract the secret value first for cleaner, reusable workflows:
+
+1. Akeyless → Set → HTTP Request
+2. Configure Set Node:
+   * Add Field: apiKey
+   * `Value: ={{$json["/myapp/api-key"]}}`
+3. Configure HTTP Request:
+   * Header: `X-API-Key: {{$json.apiKey}}`
