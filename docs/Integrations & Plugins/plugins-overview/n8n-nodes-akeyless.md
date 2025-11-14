@@ -123,5 +123,8 @@ Use Case: Generate temporary database access credentials or API tokens.
    * Secure Access Web Browsing: Enable if needed
    * Secure Access Web Proxy: Enable if needed
    Use Case: Store new API keys, create database credentials, or save configuration values.
-
-<br />
+5. Delete Items
+   Deletes one or more items from Akeyless.
+   Configuration:
+   * Path: The path/name of the item(s) to delete (supports wildcards)
+   Use Case: Remove old secrets or clean up unused items.
