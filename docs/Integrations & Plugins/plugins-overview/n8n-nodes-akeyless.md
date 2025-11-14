@@ -1,7 +1,7 @@
 ---
 title: n8n nodes akeyless
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
