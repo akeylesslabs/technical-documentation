@@ -54,17 +54,21 @@ Then restart your n8n instance.
 * Access ID: Your Akeyless Access ID (starts with p-)
 * Access Key: Your Base64 encoded Access Key
 * Ignore SSL Issues: Leave unchecked unless using self-signed certificates
-* <br />
 
 #### Method B: Token (t-token)
 
 
-API Base URL: [https://api.akeyless.io](https://api.akeyless.io)
-Token: Your Akeyless token (starts with t-)
-Ignore SSL Issues: Leave unchecked unless using self-signed certificates
-Step 2: Add the Akeyless Node
-In your workflow, click Add Node
-Search for "Akeyless"
-Select the Akeyless node
-Choose your credential from the dropdown
-Select an operation
+* API Base URL: [https://api.akeyless.io](https://api.akeyless.io)
+* Token: Your Akeyless token (starts with t-)
+* Ignore SSL Issues: Leave unchecked unless using self-signed certificates
+
+#### Step 2: Add the Akeyless Node
+
+
+1. In your workflow, click Add Node
+2. Search for "Akeyless"
+3. Select the Akeyless node
+4. Choose your credential from the dropdown
+5. Select an operation
+
+<br />
