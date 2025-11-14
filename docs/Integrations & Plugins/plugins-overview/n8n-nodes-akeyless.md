@@ -128,3 +128,9 @@ Use Case: Generate temporary database access credentials or API tokens.
    Configuration:
    * Path: The path/name of the item(s) to delete (supports wildcards)
    Use Case: Remove old secrets or clean up unused items.
+6. Create Folder
+   Creates a new folder in Akeyless.
+   Configuration:
+   * Folder Name: The name/path of the folder to create
+   * Accessibility: Choose regular or personal
+   Use Case: Organize secrets into folders (e.g., /production/, /staging/).
