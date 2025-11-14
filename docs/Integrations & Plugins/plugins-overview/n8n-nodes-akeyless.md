@@ -173,3 +173,9 @@ Extract the secret value first for cleaner, reusable workflows:
    * `Value: ={{$json["/myapp/api-key"]}}`
 3. Configure HTTP Request:
    * Header: `X-API-Key: {{$json.apiKey}}`
+
+#### Resources
+
+n8n Documentation: [https://docs.n8n.io/](https://docs.n8n.io/)
+Package on npm: [https://www.npmjs.com/package/n8n-nodes-akeyless](https://www.npmjs.com/package/n8n-nodes-akeyless)
+GitHub Repository: [https://github.com/akeyless-community/N8N_PlugIn](https://github.com/akeyless-community/N8N_PlugIn)
