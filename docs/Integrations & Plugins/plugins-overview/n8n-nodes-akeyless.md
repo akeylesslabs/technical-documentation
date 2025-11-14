@@ -140,3 +140,24 @@ Use Case: Generate temporary database access credentials or API tokens.
    * Folder Name: The name/path of the folder to delete
    * Accessibility: Choose regular or personal
    Use Case: Remove empty or unused folders.
+
+### Using Secrets in Your Workflows
+
+
+#### Method 1: Direct Expression (Simple Cases)
+
+
+When the Akeyless node returns a secret, access it directly in the next node:
+Example: Get API Key and Use in HTTP Request
+**Add Akeyless node:**
+
+* Operation: Get Static Secret Value
+* Secret Name: /myapp/api-key
+
+**Add HTTP Request node:**
+
+In the Authorization header, u
+
+```text
+{{$node["Akeyless"].json["/myapp/api-key"]}}
+```
