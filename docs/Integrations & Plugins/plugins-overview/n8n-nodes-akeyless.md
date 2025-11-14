@@ -37,15 +37,31 @@ npm install n8n-nodes-akeyless
 
 Then restart your n8n instance.
 
+Or via N8N UI
+
+<Image border={false} src="https://files.readme.io/cd5f24f76a688db6459d6e059de4612e5fa70b8182a816d915c81922c8f70213-Screenshot_2025-11-14_at_16.44.43.png" />
+
+<br />
+
 ### Getting Started
 
 
 #### Step 1: Configure Credentials
 
 
-1. In n8n, go to Credentials → Add Credential
-2. Select Akeyless Security
-3. Choose an authentication method:
+In n8n, go to Credentials → Add Credential
+
+Select Akeyless Security
+
+<Image border={false} src="https://files.readme.io/ccc9b3bfe271d41087a408b69547c7f8234bd6354fb286c270fdb60a008c5139-Screenshot_2025-11-14_at_16.45.51.png" />
+
+<br />
+
+Choose an authentication method:
+
+<Image border={false} src="https://files.readme.io/dcc5daf735c4ccb0ad56e536160375dd50b98613d3a368f532fd4c7c38e25afc-Screenshot_2025-11-14_at_16.48.16.png" />
+
+<br />
 
 #### Method A: Access ID + Access Key (Recommended)
 
