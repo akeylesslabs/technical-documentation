@@ -28,7 +28,6 @@ The Akeyless node for n8n integrates with Akeyless Vaultless Secrets Management.
 
 #### For Self-Hosted n8n
 
-
 Install via npm in your n8n installation directory:
 
 ```shell
@@ -45,9 +44,7 @@ Or via N8N UI
 
 ### Getting Started
 
-
 #### Step 1: Configure Credentials
-
 
 In n8n, go to Credentials → Add Credential
 
@@ -65,7 +62,6 @@ Choose an authentication method:
 
 #### Method A: Access ID + Access Key (Recommended)
 
-
 * API Base URL: [https://api.akeyless.io](https://api.akeyless.io) (or your Akeyless instance URL)
 * Access ID: Your Akeyless Access ID (starts with p-)
 * Access Key: Your Base64 encoded Access Key
@@ -73,13 +69,11 @@ Choose an authentication method:
 
 #### Method B: Token (t-token)
 
-
 * API Base URL: [https://api.akeyless.io](https://api.akeyless.io)
 * Token: Your Akeyless token (starts with t-)
 * Ignore SSL Issues: Leave unchecked unless using self-signed certificates
 
 #### Step 2: Add the Akeyless Node
-
 
 1. In your workflow, click Add Node
 2. Search for "Akeyless"
@@ -95,11 +89,11 @@ Choose an authentication method:
    * Secret Name: The full path to your secret (e.g., /production/api-key)
    * Accessibility: Choose regular or personal
    * Ignore Cache: Set to true to bypass cache
-   Output Example:
+     Output Example:
 
 ```text
 {
-  "/production/api-key": "your-secret-value-here"
+  "/production/api-key": "your-secret-value"
 }
 ```
 
@@ -130,38 +124,36 @@ Use Case: Generate temporary database access credentials or API tokens.
    * Type: Choose Generic or Password
    * Format: Choose Text or JSON
    * Accessibility: Choose regular or personal
-   For Generic Secrets:
+     For Generic Secrets:
    * Secret Value: The value to store
-   For Password Secrets:
+     For Password Secrets:
    * Username: The username
    * Password: The password
-   Additional Options:
+     Additional Options:
    * Secure Access Web Browsing: Enable if needed
    * Secure Access Web Proxy: Enable if needed
-   Use Case: Store new API keys, create database credentials, or save configuration values.
+     Use Case: Store new API keys, create database credentials, or save configuration values.
 5. Delete Items
    Deletes one or more items from Akeyless.
    Configuration:
    * Path: The path/name of the item(s) to delete (supports wildcards)
-   Use Case: Remove old secrets or clean up unused items.
+     Use Case: Remove old secrets or clean up unused items.
 6. Create Folder
    Creates a new folder in Akeyless.
    Configuration:
    * Folder Name: The name/path of the folder to create
    * Accessibility: Choose regular or personal
-   Use Case: Organize secrets into folders (e.g., /production/, /staging/).
+     Use Case: Organize secrets into folders (e.g., /production/, /staging/).
 7. Delete Folder
    Deletes a folder from Akeyless.
    Configuration:
    * Folder Name: The name/path of the folder to delete
    * Accessibility: Choose regular or personal
-   Use Case: Remove empty or unused folders.
+     Use Case: Remove empty or unused folders.
 
 ### Using Secrets in Your Workflows
 
-
 #### Method 1: Direct Expression (Simple Cases)
-
 
 When the Akeyless node returns a secret, access it directly in the next node:
 Example: Get API Key and Use in HTTP Request
@@ -180,7 +172,6 @@ In the Authorization header, u
 
 #### Method 2: Using Set Node (Recommended for Complex Workflows)
 
-
 Extract the secret value first for cleaner, reusable workflows:
 
 1. Akeyless → Set → HTTP Request
@@ -192,6 +183,8 @@ Extract the secret value first for cleaner, reusable workflows:
 
 #### Resources
 
-n8n Documentation: [https://docs.n8n.io/](https://docs.n8n.io/)
-Package on npm: [https://www.npmjs.com/package/n8n-nodes-akeyless](https://www.npmjs.com/package/n8n-nodes-akeyless)
-GitHub Repository: [https://github.com/akeyless-community/N8N_PlugIn](https://github.com/akeyless-community/N8N_PlugIn)
+* n8n Documentation: [https://docs.n8n.io/](https://docs.n8n.io/)
+* Package on npm: [https://www.npmjs.com/package/n8n-nodes-akeyless](https://www.npmjs.com/package/n8n-nodes-akeyless)
+* GitHub Repository: [https://github.com/akeyless-community/N8N_PlugIn](https://github.com/akeyless-community/N8N_PlugIn)
+
+<br />
