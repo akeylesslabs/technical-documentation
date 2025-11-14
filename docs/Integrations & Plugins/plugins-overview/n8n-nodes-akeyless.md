@@ -134,3 +134,9 @@ Use Case: Generate temporary database access credentials or API tokens.
    * Folder Name: The name/path of the folder to create
    * Accessibility: Choose regular or personal
    Use Case: Organize secrets into folders (e.g., /production/, /staging/).
+7. Delete Folder
+   Deletes a folder from Akeyless.
+   Configuration:
+   * Folder Name: The name/path of the folder to delete
+   * Accessibility: Choose regular or personal
+   Use Case: Remove empty or unused folders.
