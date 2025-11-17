@@ -61,7 +61,7 @@ Select Akeyless Security
 
 Choose an authentication method:
 
-<Image border={false} src="https://files.readme.io/dcc5daf735c4ccb0ad56e536160375dd50b98613d3a368f532fd4c7c38e25afc-Screenshot_2025-11-14_at_16.48.16.png" />
+<Image border={false} src="https://files.readme.io/0cb8dee191ebe3c1562733b78e71d9f3c6cf7d0f798953dfb4608119027853c7-Screenshot_2025-11-17_at_19.22.46.png" />
 
 <br />
 
