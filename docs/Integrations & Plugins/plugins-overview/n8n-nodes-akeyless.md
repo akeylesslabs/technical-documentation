@@ -23,8 +23,17 @@ The Akeyless node for n8n integrates with Akeyless Vaultless Secrets Management.
 2. Open your n8n instance
 3. Go to Settings → Community Nodes
 4. Search for @akeylesslabs/n8n-nodes-akeyless
+
+<Image border={false} src="https://files.readme.io/7f6ee734fa1faa3631f18b22535d539c1a1a61dcf16766b41324334f2dc223c3-Screenshot_2025-11-17_at_19.14.55.png" />
+
+<br />
+
 5. Click Install
 6. Refresh your workflow editor
+
+<Image border={false} src="https://files.readme.io/e04ed312248f961e0a21a972c61fb43a7af87df983bd0149a7b9db46352dab55-Screenshot_2025-11-17_at_19.15.11.png" />
+
+<br />
 
 #### For Self-Hosted n8n
 
@@ -37,10 +46,6 @@ npm install @akeylesslabs/n8n-nodes-akeyless
 Then restart your n8n instance.
 
 Or via N8N UI
-
-<Image border={false} src="https://files.readme.io/cd5f24f76a688db6459d6e059de4612e5fa70b8182a816d915c81922c8f70213-Screenshot_2025-11-14_at_16.44.43.png" />
-
-<br />
 
 ### Getting Started
 
