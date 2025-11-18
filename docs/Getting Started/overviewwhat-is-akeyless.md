@@ -40,7 +40,7 @@ These components operate within a unified workflow to securely create, issue, an
 
 ## Primary Capabilities
 
-Akeyless supports several categories of machine identity workloads:
+Akeyless supports several categories of identity workloads:
 
 ### Secrets Management
 
@@ -77,8 +77,8 @@ Akeyless provides consistent machine identity operations across:
 * Public cloud environments
 * Hybrid cloud deployments
 * On-premises infrastructure
-* Kubernetes clusters
-* Containerized or serverless environments
+* Kubernetes clusters and other containerized environments
+* Serverless environments
 
 ## Benefits
 
