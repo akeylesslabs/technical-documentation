@@ -1,4 +1,5 @@
 - cli
+- copy-of-cli
 - cli-reference
 - plugins-overview
 - sdks
@@ -6,4 +7,3 @@
 - powershell-usage
 - servicenow-integration
 - servicenow-credential-resolver
-- copy-of-cli
