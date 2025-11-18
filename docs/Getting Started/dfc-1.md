@@ -60,8 +60,6 @@ graph TD
     K2 --> G
     K3 --> G
     CF --> G
-    G --> KD[One-time Derived Key]
-    KD --> O[Crypto Operation]
 
 ```
 
