@@ -20,7 +20,7 @@ Access Roles can be configured to grant permissions on Secrets & Encryption Keys
 
 To set permission for a user to work with any item in the Platform, an appropriate Access Role must be assigned to the Authentication Method that represents this user. By default, users don't have any permissions in Akeyless unless explicitly granted.
 
-To Associate an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/api-key):
+To associate an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/api-key):
 
 ```shell CLI
 akeyless auth-method create api-key --name client1
@@ -155,9 +155,9 @@ You can set the allowed Forwarder names in two ways:
 * **Template-based name**: Use templates to define allowed names dynamically, based on user claims. for example: `{{username\}}-*`: uses the value of the username claim. If the claim value is `bob`, the user will be allowed to create or use Event Forwarders with names like `bob-*`.
 
 <Callout icon="📘" theme="info">
-  **Gateway Access Permissions** 
+  **Gateway Access Permissions**
 
-  Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/) 
+  Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/)
 </Callout>
 
 # Access Roles Syntax
