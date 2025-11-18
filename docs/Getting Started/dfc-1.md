@@ -46,6 +46,8 @@ Organizations may hold one of the key fragments in their own environment. When u
 
 This enforces separation of duties and supports regulated environments requiring customer-held key material.
 
+## DFC Diagram
+
 ```mermaid
 graph TD
     C[Client] --> G[Gateway]
