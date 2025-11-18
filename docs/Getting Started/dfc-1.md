@@ -14,7 +14,7 @@ Distributed Fragments Cryptography (DFC) is the cryptographic framework that ena
 
 DFC supports the Vaultless architecture by ensuring that no complete encryption key exists on any server, at any point.
 
-## Core Concept
+## Core Concepts
 
 DFC splits an encryption key into multiple mathematical fragments. These fragments:
 
