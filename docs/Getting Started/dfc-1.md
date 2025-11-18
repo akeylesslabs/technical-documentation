@@ -51,7 +51,7 @@ This enforces separation of duties and supports regulated environments requiring
 ```mermaid
 graph TD
     C[Client] --> G[Gateway]
-    G --> U[Unified Access Manager (UAM)]
+    G --> U[Unified Access Manager]
     U --> K1[AWS]
     U --> K2[Azure]
     U --> K3[GCP]
