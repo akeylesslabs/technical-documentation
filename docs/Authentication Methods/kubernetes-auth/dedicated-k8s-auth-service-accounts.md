@@ -220,7 +220,7 @@ When the cluster access type is **Rancher**, add the following parameters:
 (in addition to the relevant parameters above)
 
 * `cluster-api-type`: Cluster access type, we will write `rancher` (default is `native_k8s`).
-* `rancher-api-key`: Rancher **Bearer token**, based on the created Rancher [API Key](https://rancher.com/docs/rancher/v2.5/en/user-settings/api-keys/).
+* `rancher-api-key`: Rancher **Bearer token**, based on the created Rancher [API Key](https://ranchermanager.docs.rancher.com/reference-guides/user-settings/api-keys).
 * `rancher-cluster-id`: Rancher Cluster ID, i.e., your Rancher API Key Scope.
 
 # Authenticate from a pod in your Kubernetes cluster
