@@ -147,7 +147,7 @@ yum install -y akeyless
 dnf install -y akeyless
 ```
 
-# Installation
+# Configuration
 
 Running the CLI for the first time by default, prompts you to configure the basic settings.
 
