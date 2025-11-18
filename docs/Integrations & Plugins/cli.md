@@ -88,10 +88,6 @@ dnf clean all && dnf makecache && dnf install -y akeyless
 
 To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
 
-```shell
-akeyless --version
-```
-
 # Configuration
 
 Running the CLI for the first time by default, prompts you to configure the basic settings.
