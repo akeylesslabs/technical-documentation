@@ -25,7 +25,7 @@ It means that changing the  **Privilege Access ID** or the **Cluster Name** of y
 
 It is recommended to set a meaningful Cluster Name for your Bastion cluster from the very beginning. By default, your cluster name is **defaultCluster**.
 
-To do that, you can set the <code>clusterName="meaningful-cluster-name"</code> field as part of the Bastion deployment.
+To do that, you can set the `clusterName="meaningful-cluster-name"`field as part of the Bastion deployment.
 
 # SSH Legacy Algorithm
 

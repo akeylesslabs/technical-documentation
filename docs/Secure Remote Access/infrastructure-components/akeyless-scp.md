@@ -14,13 +14,13 @@ Akeyless SCP enables secure copy via [Secure Remote Access Bastion](https://docs
 
 > 👍 Note
 >
-> Akeyless SCP currently supports only UNIX-like OS.
+> Akeyless SCP currently supports only UNIX-like operating systems.
 
 ## Prerequisite
 
 * Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
-* [SSH Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh).
+* [SSH Issuer](https://docs.akeyless.io/docs/ssh-certificates).
 
 * OpenSSH V7.3 or higher on target servers.
 

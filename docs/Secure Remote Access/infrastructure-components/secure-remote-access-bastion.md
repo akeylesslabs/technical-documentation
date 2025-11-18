@@ -24,7 +24,7 @@ This chart bootstraps the Secure Remote Access Bastion deployment on a Kubernete
 
 * Kubernetes Installed
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) for CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 

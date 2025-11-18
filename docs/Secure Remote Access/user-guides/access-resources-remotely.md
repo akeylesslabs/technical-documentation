@@ -36,7 +36,7 @@ The default authentication method for logging in to the Secure Remote Access Por
 >
 > The unified Gateway with Remote Access has simplified access to the various components by creating [internal mapping of the endpoints](https://docs.akeyless.io/docs/upgrading-to-the-unified-gateway-with-remote-access#what-does-the-unification-include).
 
-4. If you are connecting to a database, SSH server, Windows Server, or RabbitMQ resources, in the **Web Client URL** field, enter the URL of your [Secure Remote Access](https://dash.readme.com/project/akeyless/v1.0/docs/remote-access-setup-k8s) (\<THIS URL IS BROKEN) with your `web-sra` cluster service port.
+4. If you are connecting to a database, SSH server, Windows Server, or RabbitMQ resources, in the **Web Client URL** field, enter the URL of your [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) with your `web-sra` cluster service port.
 5. (Optional) If you are connecting to applications using Web Access in Isolated mode, in the **Web Application Dispatcher** field, enter the URL of your Web Access with your `web-access-dispatcher` cluster service port, the default set to `9000`. If you are working with Secure Proxy, also set the **Web Proxy URL** with the `web-access-dispatcher` cluster service port, the default set to`19414`.
 6. Click **Sign in**.
    The portal shows all the [supported resource types](https://docs.akeyless.io/docs/supported-resource-types). The number of resources of a particular type that you are authorized to access appears in the top-right corner of the resource tile.

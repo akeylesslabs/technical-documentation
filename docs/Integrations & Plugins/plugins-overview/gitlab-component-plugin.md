@@ -224,7 +224,7 @@ In this example, we demonstrated using both [Static](https://docs.akeyless.io/do
 >
 > Use [GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/#for-a-project) to store your **Access ID** for easier future reference.
 
-In this example, we will use the `json` mode by setting the `env-file` setting to `false`  in order to fetch [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or [SSH](https://docs.akeyless.io/docs/how-to-configure-ssh#issuing-a-certificate) certificates:
+In this example, we will use the `json` mode by setting the `env-file` setting to `false`  in order to fetch [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or [SSH](https://docs.akeyless.io/docs/ssh-certificates#issuing-a-certificate) certificates:
 
 ```yaml PKI
 stages:
