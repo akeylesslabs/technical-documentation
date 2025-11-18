@@ -125,7 +125,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/github-dynamic-secrets#create-a-dynamic-github-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/github-dynamic-secret#create-a-dynamic-secret-for-github-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
