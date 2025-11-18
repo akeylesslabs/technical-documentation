@@ -15,14 +15,14 @@ The architecture is designed to ensure that no complete secret or private key is
 
 Traditional vault systems maintain an encrypted database that stores secrets or private keys. Akeyless replaces this model with an execution-based approach that relies on Distributed Fragments Cryptography (DFC). Instead of retrieving stored material, the platform performs cryptographic operations on demand using distributed fragments that never combine into a full key.
 
-Core architectural characteristics:
+**Core architectural characteristics:**
 
 * No backend storage of secrets, private keys, or credential material.
 * No replication, synchronization, or database maintenance.
 * No persistence of cryptographic fragments in any single location.
 * Optional customer-held fragment prevents unilateral access.
 
-All operations—such as signing, encryption, decryption, rotation, or secret generation—are executed without reconstructing full private key material inside any system component.
+All operations (such as signing, encryption, decryption, rotation, or secret generation) are executed without reconstructing full private key material inside any system component.
 
 ## Cryptographic Workflow
 
@@ -58,7 +58,7 @@ This changes the threat model: attackers cannot exfiltrate stored secrets becaus
 
 The Akeyless Gateway is used to access private networks or environments that cannot connect directly to the Akeyless service. The gateway does not store secrets or cryptographic fragments.
 
-Technical characteristics:
+**Characteristics:**
 
 * Stateless operation.
 * No caching or persistence of sensitive material.
@@ -89,18 +89,6 @@ Key security properties of the Vaultless architecture:
 * **Isolation**: A compromise of any single fragment does not reveal usable key material.
 
 These properties reduce the exposure surface associated with secret storage and retrieval systems.
-
-## Supported Use Cases
-
-The Vaultless model supports:
-
-* Secret retrieval workflows where no stored material is needed.
-* On-demand generation of short-lived credentials.
-* Encryption, decryption, and signing operations completed via distributed cryptography.
-* Certificate issuance workflows where private keys are generated and used without centralized storage.
-* SSH certificate workflows where signing keys never exist in complete form.
-
-This architecture is suitable for distributed environments in which credential storage creates operational or security constraints.
 
 ## Summary
 
