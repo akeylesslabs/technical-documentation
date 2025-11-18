@@ -42,94 +42,24 @@ chmod +x akeyless
 curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-windows-amd64.exe
 .\akeyless.exe
 ```
-
-Or using the Homebrew package manager for **macOS (or Linux)**:
-
-```shell Brew
+```shell Homebrew
 brew install akeylesslabs/tap/akeyless
 ```
-```shell Ubuntu
-apt-get update && apt-get install -y curl gnupg
+
+Or using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
+
+```shell Ubuntu / Demian
+apt-get update && apt-get install -y curl gnupg && \
 curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \
-  gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
+  gpg --dearmor -o /usr/share/keyrings/akeyless.gpg && \
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
-  tee /etc/apt/sources.list.d/akeyless.list
+  tee /etc/apt/sources.list.d/akeyless.list && \
+apt-get update && \
 apt-get install -y akeyless
 ```
-
-To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
-
-### Package Managers
-
-It is also supported to download and install the Akeyless CLI using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
-
-### Debian/Ubuntu
-
-First, install the required tools:
-
-```shell
-apt-get update
-apt-get install -y curl gnupg
-```
-
-Import the Akeyless GPG key:
-
-```shell
-curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \
-  gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
-```
-
-AAdd the Akeyless repository:
-
-```shell AMD64
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
-  tee /etc/apt/sources.list.d/akeyless.list
-```
-```shell ARM64
-echo "deb [arch=arm64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
-  tee /etc/apt/sources.list.d/akeyless.list
-```
-
-Update the package list:
-
-```shell
-apt-get update
-```
-
-Install the Akeyless CLI:
-
-```shell
-apt-get install -y akeyless
-```
-
-Verify the installation:
-
-```shell
-akeyless --version
-```
-
-### Red Hat/CentOS/Rocky Linux
-
-Install the required tools:
-
 ```shell RHEL/CentOS 7-8
-yum install -y curl gnupg2
-```
-```shell RHEL/CentOS 9+ / Rocky Linux 9+
-dnf install -y curl gnupg2
-```
-
-Import the Akeyless GPG key:
-
-```shell
-curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public -o /tmp/akeyless-gpg.key
-rpm --import /tmp/akeyless-gpg.key
-rm -f /tmp/akeyless-gpg.key
-```
-
-Add the Akeyless repository:
-
-```shell Shell
+yum install -y curl gnupg2 && \
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | rpm --import - && \
 cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
 [akeyless]
 name=Akeyless CLI Repository
@@ -139,29 +69,24 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public
 EOF
-```
-
-Update the package cache:
-
-```shell RHEL/CentOS 7-8
-yum clean all
-yum makecache
+yum clean all && yum makecache && yum install -y akeyless
 ```
 ```shell RHEL/CentOS 9+ / Rocky Linux 9+
-dnf clean all
-dnf makecache
+dnf install -y curl gnupg2 && \
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | rpm --import - && \
+cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
+[akeyless]
+name=Akeyless CLI Repository
+baseurl=https://akeyless.jfrog.io/artifactory/akeyless-cli-rpm
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public
+EOF
+dnf clean all && dnf makecache && dnf install -y akeyless
 ```
 
-Install the Akeyless CLI:
-
-```shell RHEL/CentOS 7-8
-yum install -y akeyless
-```
-```shell RHEL/CentOS 9+ / Rocky Linux 9+
-dnf install -y akeyless
-```
-
-Verify the installation:
+To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
 
 ```shell
 akeyless --version
