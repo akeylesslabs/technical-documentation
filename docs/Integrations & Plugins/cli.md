@@ -51,6 +51,8 @@ brew install akeylesslabs/tap/akeyless
 
 To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
 
+### Package Managers
+
 It is also supported to download and install the Akeyless CLI using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
 
 ### Debian/Ubuntu
