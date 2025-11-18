@@ -1,7 +1,7 @@
 ---
 title: 'Part 1: Akeyless Overview'
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 link:
   new_tab: false
 metadata:
