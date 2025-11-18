@@ -42,11 +42,8 @@ chmod +x akeyless
 curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-windows-amd64.exe
 .\akeyless.exe
 ```
-```shell Homebrew
-brew install akeylesslabs/tap/akeyless
-```
 
-Or using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
+Or using `apt`(Debian/Ubuntu) or `yum` (Red Hat/CentOS/Rocky Linux) or `homebrew`:
 
 ```shell Ubuntu / Demian
 apt-get update && apt-get install -y curl gnupg && \
@@ -84,6 +81,9 @@ repo_gpgcheck=1
 gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public
 EOF
 dnf clean all && dnf makecache && dnf install -y akeyless
+```
+```shell Homebrew
+brew install akeylesslabs/tap/akeyless
 ```
 
 To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
