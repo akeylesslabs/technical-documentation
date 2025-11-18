@@ -49,7 +49,7 @@ To download the latest version of the CLI, please make sure that the `https://ak
 
 ## Using Package Manager
 
-You can also install the Akeyless CLI using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
+You can also download the Akeyless CLI using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
 
 ### Debian/Ubuntu
 
@@ -86,7 +86,7 @@ apt-get update
 
 ### Red Hat/CentOS/Rocky Linux
 
-Install the following tools: 
+Install the following tools:
 
 ```shell RHEL/CentOS 7-8
 yum install -y curl gnupg2
