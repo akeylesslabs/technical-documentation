@@ -2,7 +2,7 @@
 title: Copy of CLI
 excerpt: Command Line Interface (CLI)
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
