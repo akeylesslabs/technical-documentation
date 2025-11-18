@@ -57,21 +57,21 @@ It is also supported to download and install the Akeyless CLI using **APT** (Deb
 
 ### Debian/Ubuntu
 
-Install the following tools:
+First, install the required tools:
 
 ```shell
 apt-get update
 apt-get install -y curl gnupg
 ```
 
-Import GPG Key:
+Import the Akeyless GPG key:
 
 ```shell
 curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \
   gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
 ```
 
-Add the repository:
+AAdd the Akeyless repository:
 
 ```shell AMD64
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
@@ -102,7 +102,7 @@ akeyless --version
 
 ### Red Hat/CentOS/Rocky Linux
 
-Install the following tools:
+Install the required tools:
 
 ```shell RHEL/CentOS 7-8
 yum install -y curl gnupg2
@@ -111,7 +111,7 @@ yum install -y curl gnupg2
 dnf install -y curl gnupg2
 ```
 
-Import GPG Key:
+Import the Akeyless GPG key:
 
 ```shell
 curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public -o /tmp/akeyless-gpg.key
@@ -119,7 +119,7 @@ rpm --import /tmp/akeyless-gpg.key
 rm -f /tmp/akeyless-gpg.key
 ```
 
-Add the repository:
+Add the Akeyless repository:
 
 ```shell Shell
 cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
@@ -133,7 +133,7 @@ gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_r
 EOF
 ```
 
-Update Package Cache:
+Update the package cache:
 
 ```shell RHEL/CentOS 7-8
 yum clean all
@@ -151,6 +151,12 @@ yum install -y akeyless
 ```
 ```shell RHEL/CentOS 9+ / Rocky Linux 9+
 dnf install -y akeyless
+```
+
+Verify the installation:
+
+```shell
+akeyless --version
 ```
 
 # Configuration
