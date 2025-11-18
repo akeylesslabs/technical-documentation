@@ -48,6 +48,14 @@ Or using the Homebrew package manager for **macOS (or Linux)**:
 ```shell Brew
 brew install akeylesslabs/tap/akeyless
 ```
+```shell Ubuntu
+apt-get update && apt-get install -y curl gnupg
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \
+  gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
+  tee /etc/apt/sources.list.d/akeyless.list
+apt-get install -y akeyless
+```
 
 To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
 
@@ -67,19 +75,19 @@ apt-get install -y curl gnupg
 Import the Akeyless GPG key:
 
 ```shell
-curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \ 
-gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \
+  gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
 ```
 
 AAdd the Akeyless repository:
 
 ```shell AMD64
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
-tee /etc/apt/sources.list.d/akeyless.list
+  tee /etc/apt/sources.list.d/akeyless.list
 ```
 ```shell ARM64
 echo "deb [arch=arm64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
-tee /etc/apt/sources.list.d/akeyless.list
+  tee /etc/apt/sources.list.d/akeyless.list
 ```
 
 Update the package list:
