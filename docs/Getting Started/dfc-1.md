@@ -55,10 +55,6 @@ graph TD
     U --> K2[Azure]
     U --> K3[GCP]
     U --> CF[Customer Fragment]
-    K1 --> G
-    K2 --> G
-    K3 --> G
-    CF --> G
 
 ```
 
