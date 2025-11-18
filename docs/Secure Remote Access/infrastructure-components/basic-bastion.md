@@ -22,13 +22,13 @@ next:
 ---
 > ❗️ Note
 >
-> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion)
+> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
 
 The Akeyless Basic Bastion provides Secure Remote Access to resources using Akeyless Just In Time credentials (dynamic secrets and SSH certificates).
 
 This chart bootstraps an Akeyless Basic Bastion deployment on a Kubernetes cluster using the Helm package manager.
 
-To spin an Akeyless Basic Bastion using docker please refer to the last section on this page. 
+To spin an Akeyless Basic Bastion using docker please refer to the last section on this page.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ To spin an Akeyless Basic Bastion using docker please refer to the last section 
 
 * K8s Installed
 
-****Network****\
+****Network****  
 Currently, when using DB application (mysql, mongodb.mssql) via the Basic Bastion, it'll only work properly when using load balancer with "sticky" session:
 
 * Ingress - Make sure to use sticky session annotation, for example nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
@@ -58,7 +58,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The values.yaml file holds default values, copy the file from: 
+The values.yaml file holds default values, copy the file from:
 
 [https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion)
 
@@ -70,7 +70,7 @@ helm show values akeyless/akeyless-zero-trust-bastion > values.yaml
 
 And replace the values with the ones from your environment where needed.
 
-The following parameters are mandatory: 
+The following parameters are mandatory:
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -128,7 +128,7 @@ The following parameters are mandatory:
       </td>
 
       <td>
-        Optional credentials for zero-trust access: if provided, it is possible for end users to have only "list" permissions on Akeyless item.\
+        Optional credentials for zero-trust access: if provided, it is possible for end users to have only "list" permissions on Akeyless item.  
         Currently supported AWS IAM.
       </td>
     </tr>
@@ -143,14 +143,14 @@ The following parameters are mandatory:
       </td>
 
       <td>
-        Limit access to privileged items only for these end user access ID.\
+        Limit access to privileged items only for these end user access ID.  
         If left empty, all access Id are allowed
       </td>
     </tr>
   </tbody>
 </Table>
 
-Install the chart: 
+Install the chart:
 
 ```shell
 helm install <RELEASE NAME> akeyless/akeyless-zero-trust-bastion -f values.yaml
@@ -160,7 +160,7 @@ Verify that the Basic Bastion pod is up and running.
 
 ## Installing Basic Bastion via Docker
 
-Akeyless Basic bastion can be deployed via docker: 
+Akeyless Basic bastion can be deployed via docker:
 
 ```shell
 docker run -d -p 8888:8888 \
