@@ -11,17 +11,6 @@ This document provides a detailed technical explanation of how Distributed Fragm
 
 DFC is a distributed key management framework that ensures no complete private key ever exists on any server, at any time. All operations rely on cryptographic derivation across independent fragments.
 
-<br />
-
-<br />
-
-```mermaid
-flowchart LR 
- A --- B[fa:fa-spinner B] 
- B --> C[fa:fa-check C] 
- B --> D[fa:fa-ban D]
-```
-
 ```mermaid
 sequenceDiagram
     autonumber
