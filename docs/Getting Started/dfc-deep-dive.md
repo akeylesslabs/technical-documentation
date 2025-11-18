@@ -11,54 +11,6 @@ This document provides a detailed technical explanation of how Distributed Fragm
 
 DFC is a distributed key management framework that ensures no complete private key ever exists on any server, at any time. All operations rely on cryptographic derivation across independent fragments.
 
-```mermaid
-sequenceDiagram
-    autonumber
-
-    participant C as Client
-    participant G as Gateway
-    participant U as UAM
-    participant K1 as KFM A
-    participant K2 as KFM B
-    participant K3 as KFM C
-    participant CF as Customer Fragment
-
-    Note over C,G: Client requests crypto operation (encrypt, decrypt, sign)
-    C->>G: Request (operation + key ID)
-    G->>U: Forward request with identity/context
-
-    Note over U: Authorization and routing
-    U->>U: Authorize request
-    U->>K1: Derivation request for fragment A
-    U->>K2: Derivation request for fragment B
-    U->>K3: Derivation request for fragment C
-
-    Note over K1,K2,K3: Local fragment derivation (fragments never leave KFMs)
-    K1-->>U: dA
-    K2-->>U: dB
-    K3-->>U: dC
-
-    U-->>G: Return derivations {dA, dB, dC}
-
-    alt Customer Fragment enabled
-        Note over G,CF: CF derivation performed on customer side
-        G->>CF: Request CF derivation
-        CF-->>G: dCF
-    else No Customer Fragment
-        Note over G: No CF derivation
-    end
-
-    Note over G: Combine derivations into one-time derived key
-    G->>G: Compute K_derived
-
-    Note over G: Execute crypto operation using K_derived
-    G->>C: Return operation result
-    G->>G: Discard K_derived
-
-```
-
-***
-
 ## 1. Cryptographic Foundations
 
 DFC uses standard, NIST-approved primitives:
