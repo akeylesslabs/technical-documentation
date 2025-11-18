@@ -43,9 +43,9 @@ curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/
 .\akeyless.exe
 ```
 
-Alternatively, you can install it using a package manager, such as: **Homebrew**,  `apt`  `yum` or `dnf` :
+Alternatively, you can install it using a package manager, such as: `brew`,  `apt`  `yum` or `dnf` :
 
-```shell Homebrew
+```shell brew
 brew install akeylesslabs/tap/akeyless
 ```
 ```shell apt
