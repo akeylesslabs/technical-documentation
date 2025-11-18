@@ -11,7 +11,60 @@ This document provides a detailed technical explanation of how Distributed Fragm
 
 DFC is a distributed key management framework that ensures no complete private key ever exists on any server, at any time. All operations rely on cryptographic derivation across independent fragments.
 
----
+<br />
+
+<br />
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant C as Client
+    participant G as Akeyless Gateway<br/>(Customer Env)
+    participant U as UAM<br/>(Unified Access Manager)
+    participant K1 as KFM A<br/>(Fragment A)
+    participant K2 as KFM B<br/>(Fragment B)
+    participant K3 as KFM C<br/>(Fragment C)
+    participant CF as Customer Fragment<br/>(CF Store)
+
+    Note over C,G: 1. Client requests crypto operation<br/>(e.g., encrypt, decrypt, sign)
+    C->>G: Authenticated request<br/>(operation + key ID)
+    G->>U: Forward request<br/>(with client identity/context)
+
+    Note over U: 2. Authorization and routing
+    U->>U: Authorize request<br/>(policies, roles, attributes)
+    U->>K1: Operation request for key ID<br/>(derive fragment value)
+    U->>K2: Operation request for key ID<br/>(derive fragment value)
+    U->>K3: Operation request for key ID<br/>(derive fragment value)
+
+    Note over K1,K2,K3: 3. Local fragment derivation<br/>(no fragment leaves KFM)
+    K1-->>U: Partial derivation dA
+    K2-->>U: Partial derivation dB
+    K3-->>U: Partial derivation dC
+
+    Note over U,G: 4. UAM returns derivations<br/>without fragment values
+    U-->>G: {dA, dB, dC}
+
+    alt Customer Fragment enabled
+        Note over G,CF: 5. CF derivation in customer environment
+        G->>CF: Request CF derivation for key ID
+        CF-->>G: dCF
+    else No Customer Fragment
+        Note over G: 5. No CF; use platform-only fragments
+    end
+
+    Note over G: 6. Local combination into one-time derived key<br/>K_derived = f(dA, dB, dC, [dCF])
+    G->>G: Compute K_derived<br/>(ephemeral, not stored)
+
+    Note over G: 7. Execute crypto operation with K_derived
+    G->>G: Perform encrypt/decrypt/sign using K_derived
+    G->>C: Return operation result
+    G->>G: Discard K_derived
+
+    Note over K1,K2,K3,CF: Fragments remain stored only<br/>in their isolated locations<br/>and are never exposed or combined
+
+```
+
+***
 
 ## 1. Cryptographic Foundations
 
@@ -24,7 +77,7 @@ DFC uses standard, NIST-approved primitives:
 
 DFC does not introduce new encryption algorithms; it introduces a new key-handling and fragmentation model.
 
----
+***
 
 ## 2. System Components
 
@@ -65,7 +118,7 @@ The Gateway:
 * Caches non-sensitive metadata for performance.
 * Remains stateless for sensitive data; no fragment material is persisted.
 
----
+***
 
 ## 3. Key Generation Process
 
@@ -89,7 +142,7 @@ where `f()` is a one-way mathematical relationship established by KDF operations
 * Not replicated or synchronized.
 * Not transmitted during operation flows.
 
----
+***
 
 ## 4. Cryptographic Operation Flow
 
@@ -99,13 +152,13 @@ This applies to operations such as encryption, decryption, signing, HMAC, or sec
 
 1. **Client authenticates** to Akeyless.
 2. **UAM authorizes** the operation.
-3. **Parallel fragment derivation:**  
-   * Each KFM applies a KDF to its local fragment.  
+3. **Parallel fragment derivation:**
+   * Each KFM applies a KDF to its local fragment.
    * If present, the customer environment applies KDF to the Customer Fragment.
-4. **Derivation aggregation:**  
-   * Partial derivations are returned.  
+4. **Derivation aggregation:**
+   * Partial derivations are returned.
    * The client (or Gateway) combines them into a **one-time derived key**.
-5. **Operation execution:**  
+5. **Operation execution:**
    * The derived key is used once for the requested operation and then discarded.
 
 ### Key Properties
@@ -115,7 +168,7 @@ This applies to operations such as encryption, decryption, signing, HMAC, or sec
 * Derived keys cannot be reused.
 * No fragment leaves its environment.
 
----
+***
 
 ## 5. Fragment Refreshing
 
@@ -134,12 +187,12 @@ Each KFM:
 
 An attacker must compromise all fragments **within the same refresh interval** to have any chance of deriving a key—an infeasible requirement due to:
 
-* geographic distribution  
-* multi-cloud isolation  
-* independent refresh timing  
-* separate operational domains  
+* geographic distribution
+* multi-cloud isolation
+* independent refresh timing
+* separate operational domains
 
----
+***
 
 ## 6. Zero-Knowledge Architecture
 
@@ -150,18 +203,18 @@ DFC enables a zero-knowledge model:
 * Customer Fragment prevents unilateral operations.
 * Compromise of a single component yields no meaningful key information.
 
----
+***
 
 ## 7. Post-Quantum Protections
 
 DFC uses hybrid TLS 1.3 with:
 
-* **ML-KEM768** (NIST PQC KEM)  
+* **ML-KEM768** (NIST PQC KEM)
 * **X25519** (classical elliptic curve)
 
 This provides protection against future quantum attacks on captured traffic.
 
----
+***
 
 ## 8. Operational Considerations
 
@@ -170,21 +223,21 @@ This provides protection against future quantum attacks on captured traffic.
 * No backups or replication are required for fragments.
 * Fragment refreshing replaces the need for secret rotation at storage level.
 
----
+***
 
 ## 9. Supported Operation Types
 
 DFC supports:
 
-* Encryption and decryption  
-* Signing and verification  
-* HMAC  
-* Certificate signing (PKI)  
-* SSH key signing  
-* Dynamic secret derivation  
-* Token generation  
+* Encryption and decryption
+* Signing and verification
+* HMAC
+* Certificate signing (PKI)
+* SSH key signing
+* Dynamic secret derivation
+* Token generation
 
----
+***
 
 ## Summary
 
