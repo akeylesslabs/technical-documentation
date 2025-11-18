@@ -18,49 +18,46 @@ DFC is a distributed key management framework that ensures no complete private k
 ```mermaid
 sequenceDiagram
     autonumber
+
     participant C as Client
-    participant G as Akeyless Gateway<br/>(Customer Env)
-    participant U as UAM<br/>(Unified Access Manager)
-    participant K1 as KFM A<br/>(Fragment A)
-    participant K2 as KFM B<br/>(Fragment B)
-    participant K3 as KFM C<br/>(Fragment C)
-    participant CF as Customer Fragment<br/>(CF Store)
+    participant G as Gateway
+    participant U as UAM
+    participant K1 as KFM A
+    participant K2 as KFM B
+    participant K3 as KFM C
+    participant CF as Customer Fragment
 
-    Note over C,G: 1. Client requests crypto operation<br/>(e.g., encrypt, decrypt, sign)
-    C->>G: Authenticated request<br/>(operation + key ID)
-    G->>U: Forward request<br/>(with client identity/context)
+    Note over C,G: Client requests crypto operation (encrypt, decrypt, sign)
+    C->>G: Request (operation + key ID)
+    G->>U: Forward request with identity/context
 
-    Note over U: 2. Authorization and routing
-    U->>U: Authorize request<br/>(policies, roles, attributes)
-    U->>K1: Operation request for key ID<br/>(derive fragment value)
-    U->>K2: Operation request for key ID<br/>(derive fragment value)
-    U->>K3: Operation request for key ID<br/>(derive fragment value)
+    Note over U: Authorization and routing
+    U->>U: Authorize request
+    U->>K1: Derivation request for fragment A
+    U->>K2: Derivation request for fragment B
+    U->>K3: Derivation request for fragment C
 
-    Note over K1,K2,K3: 3. Local fragment derivation<br/>(no fragment leaves KFM)
-    K1-->>U: Partial derivation dA
-    K2-->>U: Partial derivation dB
-    K3-->>U: Partial derivation dC
+    Note over K1,K2,K3: Local fragment derivation (fragments never leave KFMs)
+    K1-->>U: dA
+    K2-->>U: dB
+    K3-->>U: dC
 
-    Note over U,G: 4. UAM returns derivations<br/>without fragment values
-    U-->>G: {dA, dB, dC}
+    U-->>G: Return derivations {dA, dB, dC}
 
     alt Customer Fragment enabled
-        Note over G,CF: 5. CF derivation in customer environment
-        G->>CF: Request CF derivation for key ID
+        Note over G,CF: CF derivation performed on customer side
+        G->>CF: Request CF derivation
         CF-->>G: dCF
     else No Customer Fragment
-        Note over G: 5. No CF; use platform-only fragments
+        Note over G: No CF derivation
     end
 
-    Note over G: 6. Local combination into one-time derived key<br/>K_derived = f(dA, dB, dC, [dCF])
-    G->>G: Compute K_derived<br/>(ephemeral, not stored)
+    Note over G: Combine derivations into one-time derived key
+    G->>G: Compute K_derived
 
-    Note over G: 7. Execute crypto operation with K_derived
-    G->>G: Perform encrypt/decrypt/sign using K_derived
+    Note over G: Execute crypto operation using K_derived
     G->>C: Return operation result
     G->>G: Discard K_derived
-
-    Note over K1,K2,K3,CF: Fragments remain stored only<br/>in their isolated locations<br/>and are never exposed or combined
 
 ```
 
