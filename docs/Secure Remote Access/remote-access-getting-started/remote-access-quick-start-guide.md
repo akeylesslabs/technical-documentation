@@ -28,10 +28,10 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 * Minimum 1 vCPU available with 2GB RAM per resource
 * The following ports need to be open on the cluster:
 
-| Service                                                            | Port |
-| :----------------------------------------------------------------- | :--- |
+| Service                                                                                      | Port |
+| :------------------------------------------------------------------------------------------- | :--- |
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
-| SSH Access                                                         | 22   |
+| SSH Access                                                                                   | 22   |
 
 > 📘 First things first
 >
@@ -48,7 +48,7 @@ To create your API Key follow the below CLI commands:
 1. Create an API Key authentication method from the CLI, run the following command:
 
 ```shell
-akeyless auth-method create api-key -name MyFirstAPIKey
+akeyless auth-method create api-key --name MyFirstAPIKey
 ```
 
 2. Configure your CLI to work with the API Key by running the following command:
@@ -196,7 +196,7 @@ Run `kubectl get pods -w` to check that your pods are in `Running` state and tha
 
 Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`.
 
-<Image align="center" src="https://files.readme.io/cbcf9b1-Screenshot_2024-08-06_at_10.42.34.png" />
+<Image align="center" border={false} src="https://files.readme.io/cbcf9b1-Screenshot_2024-08-06_at_10.42.34.png" />
 
 Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (i.e. `http://<Your-Akeyless-GW-URL:8000/console>`). If you get the login page, you have successfully deployed the Gateway!
 
@@ -206,7 +206,7 @@ For the Gateway, you can access the following:
 
 * The Gateway's Internal Console is located at `http://<Your-Akeyless-GW-URL:8000/console>`. The internal console means you are working from inside the Gateway and talking directly with the SaaS. If you are using [https://console.akeyless.io](https://console.akeyless.io), you will not be able to interact with this Gateway as it is not secured with TLS.
 
-  <Image align="center" src="https://files.readme.io/8532daf-Screenshot_2024-08-06_at_11.11.57.png" />
+  <Image align="center" border={false} src="https://files.readme.io/8532daf-Screenshot_2024-08-06_at_11.11.57.png" />
 
 ### Remote Access URLs
 
@@ -214,7 +214,7 @@ For Remote Access, you can access the following:
 
 * The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
 
-  <Image align="center" src="https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png" />
+  <Image align="center" border={false} src="https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png" />
 * Remote Access can also be accessed using our public URL: [https://zerotrust.akeyless.io](https://zerotrust.akeyless.io). If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/web-client`
 
 # Testing Out Remote Access
@@ -244,10 +244,10 @@ akeyless set-role-rule --role-name MySamlRole --path "/\*" --rule-type sra-rule 
 akeyless assoc-role-am --role-name MySamlRole --am-name MySamlAuth
 ```
 
-5. Next, open your browser and go to your Remote Access internal endpoint: http\://\<Your-Akeyless-GW-URL:8000>>/sra/portal
+5. Next, open your browser and go to your Remote Access internal endpoint: http://\<Your-Akeyless-GW-URL:8000>>/sra/portal
 6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that it will redirect you to a page with the various types of resources you can set at a later time (see below image). Congrats!
 
-<Image align="center" src="https://files.readme.io/e0af62a-sra.png" />
+<Image align="center" border={false} src="https://files.readme.io/e0af62a-sra.png" />
 
 # Next Steps
 
