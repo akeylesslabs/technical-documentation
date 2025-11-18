@@ -43,9 +43,12 @@ curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/
 .\akeyless.exe
 ```
 
-Alternatively, you can install it using a package manager, such as: `apt` for **Debian**/**Ubuntu**, `yum` for **Red Hat**/**CentOS**/**Rocky Linux**, or `brew` for **Homebrew**:
+Alternatively, you can install it using a package manager, such as: **Homebrew**,  `apt`  `yum` or `dnf` :
 
-```shell Ubuntu / Demian
+```shell Homebrew
+brew install akeylesslabs/tap/akeyless
+```
+```shell apt
 apt-get update && apt-get install -y curl gnupg && \
 curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \
   gpg --dearmor -o /usr/share/keyrings/akeyless.gpg && \
@@ -54,7 +57,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyle
 apt-get update && \
 apt-get install -y akeyless
 ```
-```shell RHEL/CentOS 7-8
+```shell yum
 yum install -y curl gnupg2 && \
 curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | rpm --import - && \
 cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
@@ -68,7 +71,7 @@ gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_r
 EOF
 yum clean all && yum makecache && yum install -y akeyless
 ```
-```shell RHEL/CentOS 9+ / Rocky Linux 9+
+```shell dn
 dnf install -y curl gnupg2 && \
 curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | rpm --import - && \
 cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
@@ -81,9 +84,6 @@ repo_gpgcheck=1
 gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public
 EOF
 dnf clean all && dnf makecache && dnf install -y akeyless
-```
-```shell Homebrew
-brew install akeylesslabs/tap/akeyless
 ```
 
 To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
