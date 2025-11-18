@@ -10,104 +10,65 @@ next:
       title: DFC Deep Dive
       type: basic
 ---
-Distributed Fragments Cryptography (DFC) is the core cryptographic mechanism used by Akeyless to ensure that private key material and sensitive secret data are never stored, reconstructed, or exposed in complete form. DFC enables the platform to perform signing, encryption, decryption, and secret generation operations without holding a full private key at any stage.
+# Distributed Fragments Cryptography (DFC)
 
-DFC operates by dividing cryptographic material into independent fragments that are distributed across multiple isolated locations. Each fragment performs its portion of an operation, and the combined output is returned to the requesting client without any system ever assembling the full private key.
+Distributed Fragments Cryptography (DFC) is the cryptographic framework that enables Akeyless to perform secret, key, and certificate operations without ever storing or reconstructing complete private key material. Instead of placing full keys in a vault or database, DFC divides key material into multiple fragments and performs cryptographic operations directly across those fragments.
 
-## Purpose of DFC
+DFC supports the Vaultless architecture by ensuring that no complete encryption key exists on any server, at any point.
 
-The primary purpose of DFC is to remove the need for centralized secret storage and to prevent unilateral access to sensitive key material. By ensuring that no single system or operator can access or reconstruct a complete private key, DFC provides strong separation of duties and minimizes risk from infrastructure compromise, insider threats, and privileged access.
+## Core Concept
 
-DFC also enables Akeyless to deliver a Vaultless architecture, because private material does not need to be saved in a persistent store and is never available in full form.
+DFC splits an encryption key into multiple mathematical fragments. These fragments:
 
-## Fragment Distribution Model
+* Are created independently across isolated environments.
+* Never combine into a full key, including during key generation or use.
+* Can optionally include a Customer Fragment (CF), held exclusively by the customer.
+* Are processed independently using standard, NIST-approved cryptographic primitives.
 
-DFC divides key material into multiple independent fragments. These fragments have the following properties:
+The complete key is never assembled. Instead, cryptographic operations are completed by combining mathematical derivations from each fragment, resulting in a short-lived, derived key used only for a single operation.
 
-* Each fragment is stored and used in isolation.
-* No fragment contains enough information to derive the full key.
-* Fragments never leave their assigned location.
-* Fragments do not require synchronization, replication, or backup.
-* One fragment may be optionally held and controlled by the customer.
+## How Operations Work
 
-When a customer chooses to control a fragment, the platform cannot perform cryptographic operations unless the customer fragment participates. This enforces distributed control across trust boundaries.
+At a high level:
 
-## Cryptographic Operation Flow
+1. A client requests an operation such as encryption, decryption, signing, or key-based secret generation.
+2. Each fragment holder computes a partial derivation using its fragment.
+3. These derivations are combined into a one-time-use derived key on the client side (or on the customer's Gateway when using a Customer Fragment).
+4. The derived key is used for the requested operation and then discarded.
 
-When a client initiates a cryptographic operation (such as signing, encryption, or dynamic secret generation), the following occurs:
+At no point is the original key constructed or exposed.
 
-1. **Client authentication and authorization** is performed by the Akeyless control plane.
-2. The control plane determines which fragments must participate in the operation.
-3. Each fragment holder performs its partial computation using its local fragment.
-4. Partial results are returned to the control plane.
-5. The control plane combines partial results into the final output _without reconstructing the private key_.
-6. The result is returned to the requesting client.
+## Customer Fragment (CF)
 
-Throughout this process:
+Organizations may hold one of the key fragments in their own environment. When used:
 
-* Full private key material never exists at rest or in memory on any system.
-* Fragments are never transmitted across the network.
-* No intermediate artifacts can be used to derive the complete key.
+* The platform cannot perform operations unless the CF participates.
+* The customer maintains exclusive control over key usage.
+* No entity—including Akeyless—can derive or reconstruct the key without the CF.
 
-## Customer-Controlled Fragment
+This enforces separation of duties and supports regulated environments requiring customer-held key material.
 
-Customers may choose to operate one of the DFC fragments in their own environment. In this configuration:
+## Fragment Refreshing
 
-* Akeyless cannot complete cryptographic operations without customer participation.
-* Customers maintain guaranteed unilateral control of key usage.
-* Compromise of the Akeyless service alone is insufficient to expose private material.
-* The customer's fragment remains under their governance, keys, and lifecycle controls.
+DFC includes built-in fragment refreshing:
 
-This configuration is typically deployed when organizations require full enforcement of separation-of-duties or must satisfy regulatory requirements related to key custody.
+* Fragment values are periodically updated.
+* The mathematical relationship between fragments remains constant.
+* No downtime or operational changes are required.
 
-## Security Properties
+This refresh mechanism makes long-term exposure of a fragment insufficient to compromise the key.
 
-DFC provides several well-defined security guarantees:
+## Cryptographic Foundations
 
-* **Non-reconstruction**: Full private keys are never assembled or exposed during any operation.
-* **Distributed trust**: Multiple components must cooperate to complete a cryptographic operation.
-* **Boundary isolation**: A compromise of any fragment holder yields no useful key information.
-* **Optional customer custody**: Customers can enforce independent control of key usage.
-* **No storage requirement**: No system stores private key material, eliminating traditional vault retrieval risks.
+DFC relies on standard, NIST-approved algorithms:
 
-These properties hold regardless of the operation type, workload environment, or deployment model.
+* AES for symmetric encryption
+* HMAC for integrity
+* KDFs for fragment derivation
+* Hybrid TLS 1.3 with ML-KEM768 and X25519 for post-quantum protection (communication layer)
 
-## Key Lifecycle
-
-DFC supports the creation, rotation, and deactivation of cryptographic keys without reconstructing full key material. Lifecycle operations follow the same distributed flow:
-
-* **Key creation** generates fragments independently across fragment holders.
-* **Rotation** triggers creation of new fragments and retirement of old ones.
-* **Revocation** disables the ability to perform future operations using a fragment set.
-
-No single system ever has access to the full key during any lifecycle stage.
-
-## Operational Considerations
-
-DFC's distributed model affects system operations in several ways:
-
-* Fragment holders do not require shared storage or synchronization.
-* No backups, snapshots, or replication processes are needed for private material.
-* Fragment holders must be reachable for cryptographic operations to complete.
-* If a customer-controlled fragment is used, customer-side availability directly affects operation availability.
-* Fragment compromise alone does not expose any sensitive key data.
-
-Performance is primarily influenced by network latency between fragment holders rather than storage I/O.
-
-## Supported Operations
-
-DFC supports a broad set of operations used throughout the Akeyless platform:
-
-* Secret generation and retrieval workflows
-* Key-based signing and verification
-* Encryption and decryption operations
-* Certificate signing for PKI workflows
-* SSH certificate issuance
-* Dynamic secret generation
-* Token issuance for identity-based access
-
-In all cases, the same distributed principles apply.
+No proprietary encryption algorithms are introduced; only the key-handling model is unique.
 
 ## Summary
 
-Distributed Fragments Cryptography (DFC) ensures that sensitive key material is never stored, reconstructed, or exposed in complete form. By splitting cryptographic material across isolated fragment holders—optionally including a customer-controlled fragment—DFC provides strong separation of duties and supports the Vaultless architecture used by Akeyless for secret, key, and certificate operations.
+DFC provides the foundation for Akeyless’s Vaultless architecture by ensuring that complete key material never exists on any server. By performing cryptographic operations directly on independent fragments, including optionally a Customer Fragment, Akeyless enforces strict separation of duties, reduces exposure, and removes the need for sensitive data storage.
