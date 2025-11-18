@@ -43,7 +43,7 @@ curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/
 .\akeyless.exe
 ```
 
-Or using `apt`(Debian/Ubuntu) or `yum` (Red Hat/CentOS/Rocky Linux) or `homebrew`:
+Alternatively, you can install it using a package manager, such as: `apt` for **Debian**/**Ubuntu**, `yum` for **Red Hat**/**CentOS**/**Rocky Linux**, or `brew` for **Homebrew**:
 
 ```shell Ubuntu / Demian
 apt-get update && apt-get install -y curl gnupg && \
