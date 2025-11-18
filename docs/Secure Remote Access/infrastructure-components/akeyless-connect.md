@@ -22,7 +22,7 @@ To use Akeyless Connect you need:
 
 * Akeyless CLI v1.42.0 or higher. 
 
-* An [SSH certificate issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) for certificate authentication.
+* An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
 * A [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 

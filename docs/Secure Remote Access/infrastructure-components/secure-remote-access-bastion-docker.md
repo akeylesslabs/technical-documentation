@@ -22,9 +22,9 @@ The Akeyless Secure Remote Access Bastion provides secure remote access to resou
 
 * Docker Installed
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) for CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
 
-* At least 1 vCPU available with 1GB RAM per Docker container. 
+* At least 1 vCPU available with 1 GB RAM per Docker container. 
 
 \***\*Network\*\***
 
@@ -32,7 +32,7 @@ The Akeyless Secure Remote Access Bastion provides secure remote access to resou
 
 * Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
 
-When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited.
+When using SSH sessions behind a load balancer such as AWS ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited.
 
 e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
@@ -53,7 +53,7 @@ To control who will be the relevant users that will be allowed to request access
 
 For RDP access that uses the **Fixed user** feature, rely on the username sub-claims to figure out **Windows** username to use. If you use a different sub-claim, it should be specified at deployment time using `USERNAME_SUB_CLAIM` environment variable. To use this mode, separately for either `SSH` or for `RDP` only, you can use instead `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM` correspondingly. 
 
-To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/how-to-configure-ssh) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh)
+To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 
 > 📘 Info
 >

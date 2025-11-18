@@ -16,7 +16,7 @@ next:
 ---
 # Introduction
 
-Akeyless can act as a Certificate Authority (CA) for the internal environment. This page focuses on PKI Cert Issuer, if you wish to see how to create and work with SSH certificates, please follow this [link](https://docs.akeyless.io/docs/how-to-configure-ssh).
+Akeyless can act as a Certificate Authority (CA) for the internal environment. This page focuses on PKI Cert Issuer, if you wish to see how to create and work with SSH certificates, please follow this [link](https://docs.akeyless.io/docs/ssh-certificates).
 
 To start building your chain of trust using Akeyless PKI Issuer, you can either bring your own CA certificate with the signing RSA key or simply generate your CA certificate as part of the signing key creation.
 

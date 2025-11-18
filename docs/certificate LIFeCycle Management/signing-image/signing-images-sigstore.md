@@ -14,7 +14,7 @@ Signing container images is a process that ensures their authenticity and integr
 
 [Sigstore ](https://docs.sigstore.dev/about/overview/)is an open-source project for improving software supply chain security. The Sigstore framework and tooling empower software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more.
 
-To sign software artifacts and verify signatures using Sigstore, you need to install [Cosign](https://docs.sigstore.dev/system_config/installation/), which is a command line utility that can sign and verify software artifacts, such as container images and blobs.
+To sign software artifacts and verify signatures using Sigstore, you need to install [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/), which is a command line utility that can sign and verify software artifacts, such as container images and blobs.
 
 The following registries are compatible with the Sigstore signature specification and its implementation in **Cosign**:
 
@@ -27,7 +27,7 @@ The following registries are compatible with the Sigstore signature specificatio
 
 # Install Cosign CLI
 
-To install **Cosign CLI**, follow the relevant doc according to your environment OS as described in the Cosign [official docs](https://docs.sigstore.dev/system_config/installation/). In the following example for simplicity, we will use **Homebrew** package manager.
+To install **Cosign CLI**, follow the relevant doc according to your environment OS as described in the Cosign [official docs](https://docs.sigstore.dev/cosign/system_config/installation/). In the following example for simplicity, we will use **Homebrew** package manager.
 
 ```shell
 brew install cosign

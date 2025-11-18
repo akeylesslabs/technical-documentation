@@ -495,7 +495,7 @@ For additional details on Oracle TDE and auto-login keystore, please refer to th
 
 ## TDE Key Rotation
 
-[Oracle - Setting or Rotating the TDE Master Encryption Key in the Keystore](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/asoag/managing-keystore-and-tde-master-encryption-key.html#GUID-FDA3856D-5B88-42FD-A666-BC965C92689C)  and [Frequently Asked Questions About Transparent Data Encryption](https://docs.oracle.com/en/database/oracle/oracle-database/23/asoag/faq-tde.html) provides instructions on how to perform key rotations, including the necessary SQL commands and best practices to ensure a smooth transition to a new key.
+[Oracle - Setting or Rotating the TDE Master Encryption Key in the Keystore](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/asoag/managing-keystore-and-tde-master-encryption-key.html#GUID-FDA3856D-5B88-42FD-A666-BC965C92689C)  and [Frequently Asked Questions About Transparent Data Encryption](https://docs.oracle.com/en/database/oracle/oracle-database/26/dbtde/faq-tde.html) provides instructions on how to perform key rotations, including the necessary SQL commands and best practices to ensure a smooth transition to a new key.
 
 ## Restoring RMAN Backup with New TDE Key
 
