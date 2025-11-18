@@ -71,7 +71,7 @@ gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_r
 EOF
 yum clean all && yum makecache && yum install -y akeyless
 ```
-```shell dn
+```shell dnf
 dnf install -y curl gnupg2 && \
 curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | rpm --import - && \
 cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
