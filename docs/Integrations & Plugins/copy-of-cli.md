@@ -105,18 +105,7 @@ rm -f /tmp/akeyless-gpg.key
 
 Add the repository:
 
-```shell RHEL/CentOS 7-8
-cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
-[akeyless]
-name=Akeyless CLI Repository
-baseurl=https://akeyless.jfrog.io/artifactory/akeyless-cli-rpm
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public
-EOF
-```
-```shell RHEL/CentOS 9+ / Rocky Linux 9+
+```shell Shell
 cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
 [akeyless]
 name=Akeyless CLI Repository
@@ -191,20 +180,11 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ## Package Manager
 
-In order to install the Akeyless CLI for **Debian** / **Ubuntu**:
+In order to install the Akeyless CLI:
 
-```shell
+```shell Ubuntu / Debian
 apt-get install -y akeyless
 ```
-
-Verify the installation:
-
-```shell
-akeyless --version
-```
-
-In order to install the Akeyless CLI for **Red Hat** / **CentOS** / **Rocky Linux**:
-
 ```shell RHEL/CentOS 7-8
 yum install -y akeyless
 ```
@@ -215,12 +195,8 @@ dnf install -y akeyless
 Verify the installation:
 
 ```shell
-akeyless version
+akeyless --version
 ```
-
-<br />
-
-<br />
 
 ## Windows
 
