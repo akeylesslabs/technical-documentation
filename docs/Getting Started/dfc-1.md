@@ -4,6 +4,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: dfc-deep-dive
+      title: DFC Deep Dive
+      type: basic
 ---
 Distributed Fragments Cryptography (DFC) is the core cryptographic mechanism used by Akeyless to ensure that private key material and sensitive secret data are never stored, reconstructed, or exposed in complete form. DFC enables the platform to perform signing, encryption, decryption, and secret generation operations without holding a full private key at any stage.
 
