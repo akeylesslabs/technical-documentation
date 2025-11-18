@@ -49,7 +49,7 @@ To download the latest version of the CLI, please make sure that the `https://ak
 
 ## Using Package Manager
 
-You can also download the Akeyless CLI using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
+You can also download and install the Akeyless CLI using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
 
 ### Debian/Ubuntu
 
@@ -82,6 +82,18 @@ Update the package list:
 
 ```shell
 apt-get update
+```
+
+Install the Akeyless CLI:
+
+```shell
+apt-get install -y akeyless
+```
+
+Verify the installation:
+
+```shell
+akeyless --version
 ```
 
 ### Red Hat/CentOS/Rocky Linux
@@ -126,6 +138,15 @@ yum makecache
 ```shell RHEL/CentOS 9+ / Rocky Linux 9+
 dnf clean all
 dnf makecache
+```
+
+Install the Akeyless CLI:
+
+```shell RHEL/CentOS 7-8
+yum install -y akeyless
+```
+```shell RHEL/CentOS 9+ / Rocky Linux 9+
+dnf install -y akeyless
 ```
 
 # Installation
@@ -176,26 +197,6 @@ Try running the `create-secret`command to test your installation:
 
 ```shell
 akeyless create-secret --name MySecret1 --value MySecretPassword
-```
-
-## Package Manager
-
-In order to install the Akeyless CLI:
-
-```shell Ubuntu / Debian
-apt-get install -y akeyless
-```
-```shell RHEL/CentOS 7-8
-yum install -y akeyless
-```
-```shell RHEL/CentOS 9+ / Rocky Linux 9+
-dnf install -y akeyless
-```
-
-Verify the installation:
-
-```shell
-akeyless --version
 ```
 
 ## Windows
