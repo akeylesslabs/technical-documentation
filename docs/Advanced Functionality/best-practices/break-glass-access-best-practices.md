@@ -24,6 +24,6 @@ For heightened security, consider using a **User and Password** Auth Method comb
 
 This setup requires collaboration between at least two parties to authenticate successfully, reducing the risk of insider threats or unauthorized access.
 
-Implementing these practices ensures that break-glass access remains a secure, last-resort option while aligning with compliance requirements such as least privilege and auditability. For configuration details, refer to the [Authentication Methods](doc:understanding-authentication) section. If you encounter specific use cases, contact Akeyless support for tailored guidance.
+Implementing these practices ensures that break-glass access remains a secure, last-resort option while aligning with compliance requirements such as least privilege and auditability. For configuration details, refer to the [Authentication Methods](https://docs.akeyless.io/docs/understanding-authentication) section. If you encounter specific use cases, contact Akeyless support for tailored guidance.
 
 <br />
