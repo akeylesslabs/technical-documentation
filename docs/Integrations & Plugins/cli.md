@@ -251,7 +251,7 @@ Where:
 
 * `default_location_prefix`:  A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder.
 
-* `cert_issuer_name`: The default name of an [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh#/) to use.
+* `cert_issuer_name`: The default name of an [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) to use.
 
 * `cert_username`:  The username the SSH certificate Issuer will issue the certificate for, e.g `ubuntu`.
 
