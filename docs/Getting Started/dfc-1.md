@@ -50,12 +50,11 @@ This enforces separation of duties and supports regulated environments requiring
 
 ```mermaid
 graph TD
-    C[Client] --> G[Gateway]
-    G --> U[Unified Access Manager]
+    C[Client] --> U[Akeyless]
     U --> K1[AWS]
     U --> K2[Azure]
     U --> K3[GCP]
-    G --> CF[Customer Fragment]
+    U --> CF[Customer Fragment]
     K1 --> G
     K2 --> G
     K3 --> G
