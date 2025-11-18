@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Official [GitHub Actions](https://github.com/marketplace/actions/akeyless-authentication-and-fetching-secrets) plugin enables you to automate workflows for your GitHub-hosted repositories. With the GitHub Actions plugin, you can fetch secrets directly from Akeyless into your workflows. This guide describes how to use our various [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to fetch [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [SSH](https://docs.akeyless.io/docs/how-to-configure-ssh) and [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) certificates, from Akeyless.
+Akeyless Official [GitHub Actions](https://github.com/marketplace/actions/akeyless-authentication-and-fetching-secrets) plugin enables you to automate workflows for your GitHub-hosted repositories. With the GitHub Actions plugin, you can fetch secrets directly from Akeyless into your workflows. This guide describes how to use our various [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to fetch [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [SSH](https://docs.akeyless.io/docs/ssh-certificates) and [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) certificates, from Akeyless.
 
 # Prerequisites
 
