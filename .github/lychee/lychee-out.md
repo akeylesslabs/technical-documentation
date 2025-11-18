@@ -12,43 +12,6 @@
 
 ## Errors per input
 
-### Errors in docs/Authentication Methods/kubernetes-auth/dedicated-k8s-auth-service-accounts.md
-
-* [404] [https://rancher.com/docs/rancher/v2.5/en/user-settings/api-keys/](https://rancher.com/docs/rancher/v2.5/en/user-settings/api-keys/) | Failed: Network error: Not Found
-
-### Errors in docs/Integrations & Plugins/plugins-overview/akeyless-grpc.md
-
-* [404] [https://github.com/akeylesslabs/akeyless-grpc-dotnet](https://github.com/akeylesslabs/akeyless-grpc-dotnet) | Failed: Network error: Not Found
-* [404] [https://github.com/akeylesslabs/akeyless-grpc-java](https://github.com/akeylesslabs/akeyless-grpc-java) | Failed: Network error: Not Found
-
-### Errors in docs/In Progress & Internal/technical-documentation-style-guide/index.md
-
-* [401] [https://drive.google.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view?usp=sharing](https://drive.google.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view?usp=sharing) | Failed: Network error: Unauthorized
-
-### Errors in docs/Integrations & Plugins/plugins-overview/gitlab-secrets-plugin.md
-
-* [500] [https://docs.akeyless.io/docs/how-to-configure-ssh](https://docs.akeyless.io/docs/how-to-configure-ssh) | Cached: Error (cached)
-
-### Errors in docs/Working with Secrets/how-to-create-dynamic-secret/gitlab-dynamic-secret.md
-
-* [404] [https://docs.akeyless.io/docs/github-dynamic-secrets#create-a-dynamic-github-secret-in-the-akeyless-console](https://docs.akeyless.io/docs/github-dynamic-secrets#create-a-dynamic-github-secret-in-the-akeyless-console) | Failed: Network error: Not Found
-
-### Errors in docs/Akeyless Gateway/gateway-compose/index.md
-
-* [404] [https://docs.akeyless.io/docs/opened](https://docs.akeyless.io/docs/opened) | Failed: Network error: Not Found
-* [404] [https://docs.akeyless.io/docs/standalone-gateway-copy#gateway-admins](https://docs.akeyless.io/docs/standalone-gateway-copy#gateway-admins) | Failed: Network error: Not Found
-
-### Errors in docs/Secure Remote Access/user-guides/remote-access-desktop-application-beta.md
-
-* [401] [https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates) | Failed: Network error: Unauthorized
-
-### Errors in docs/Customer Journey Scenarios/customer-journey-scenarios-real-world-use-case-flows/customer-use-case-automating-employee-onboarding-and-role-based-access-control-in-servicenow/custom-action-in-servicenow-for-saml-auth-copy.md
-
-* [405] [https://api.akeyless.io/assoc-role-am](https://api.akeyless.io/assoc-role-am) | Failed: Network error: Method Not Allowed
-* [405] [https://api.akeyless.io/auth](https://api.akeyless.io/auth) | Failed: Network error: Method Not Allowed
-* [405] [https://api.akeyless.io/create-auth-method-email'](https://api.akeyless.io/create-auth-method-email') | Failed: Network error: Method Not Allowed
-* [405] [https://api.akeyless.io/create-auth-method-email](https://api.akeyless.io/create-auth-method-email) | Failed: Network error: Method Not Allowed
-
 ### Errors in docs/Working with Secrets/manage-your-secrets-overview.md
 
 * [500] [https://docs.akeyless.io/docs/how-to-configure-ssh](https://docs.akeyless.io/docs/how-to-configure-ssh) | Cached: Error (cached)
@@ -56,14 +19,6 @@
 ### Errors in docs/Working with Secrets/how-to-create-dynamic-secret/google-workspace-secret.md
 
 * [404] [https://docs.akeyless.io/docs/github-dynamic-secrets#create-a-dynamic-github-secret-in-the-akeyless-console](https://docs.akeyless.io/docs/github-dynamic-secrets#create-a-dynamic-github-secret-in-the-akeyless-console) | Failed: Network error: Not Found
-
-### Errors in docs/Integrations & Plugins/servicenow-credential-resolver.md
-
-* [405] [https://api.akeyless.io/](https://api.akeyless.io/) | Failed: Network error: Method Not Allowed
-
-### Errors in docs/Holding for Later Delete?/cli-reference-authentication.md
-
-* [ERROR] [file:///home/runner/work/technical-documentation/technical-documentation/docs/Holding%20for%20Later%20Delete%3F/http:/127.0.0.1:*](file:///home/runner/work/technical-documentation/technical-documentation/docs/Holding%20for%20Later%20Delete%3F/http:/127.0.0.1:*) | Failed: Cannot find file
 
 ### Errors in docs/Integrations & Plugins/cli.md
 
@@ -90,17 +45,9 @@
 
 * [404] [https://docs.akeyless.io/docs/rabbitmq-dynamic-secrets#create-a-dynamic-rabbitmq-secret-in-the-akeyless-console](https://docs.akeyless.io/docs/rabbitmq-dynamic-secrets#create-a-dynamic-rabbitmq-secret-in-the-akeyless-console) | Failed: Network error: Not Found
 
-### Errors in docs/Integrations & Plugins/sdks/python-sdk-1.md
-
-* [404] [https://github.com/akeylesslabs/akeyless-python-cloud-id](https://github.com/akeylesslabs/akeyless-python-cloud-id) | Failed: Network error: Not Found
-
 ### Errors in docs/Secure Remote Access/infrastructure-components/basic-bastion.md
 
 * [404] [https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion) | Failed: Network error: Not Found
-
-### Errors in docs/Akeyless Gateway/gateway-k8s/log-forwarding-2.md
-
-* [403] [https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector) | Failed: Network error: Forbidden
 
 ### Errors in docs/Secure Remote Access/infrastructure-components/secure-remote-access-bastion.md
 
@@ -114,17 +61,9 @@
 
 * [401] [https://dash.readme.com/project/akeyless/v1.0/docs/remote-access-setup-k8s](https://dash.readme.com/project/akeyless/v1.0/docs/remote-access-setup-k8s) | Failed: Network error: Unauthorized
 
-### Errors in docs/Working with Secrets/targets/openai-target.md
-
-* [403] [https://openai.com/](https://openai.com/) | Cached: Error (cached)
-
 ### Errors in docs/certificate LIFeCycle Management/ssh-and-pkitls-certificates/index.md
 
 * [500] [https://docs.akeyless.io/docs/how-to-configure-ssh](https://docs.akeyless.io/docs/how-to-configure-ssh) | Cached: Error (cached)
-
-### Errors in docs/AI/akeyless-ai-insight.md
-
-* [403] [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys) | Failed: Network error: Forbidden
 
 ### Errors in docs/Integrations & Plugins/plugins-overview/gitlab-component-plugin.md
 
@@ -142,10 +81,6 @@
 ### Errors in docs/certificate LIFeCycle Management/signing-image/signing-images-sigstore.md
 
 * [404] [https://docs.sigstore.dev/system_config/installation/](https://docs.sigstore.dev/system_config/installation/) | Failed: Network error: Not Found
-
-### Errors in docs/Integrations & Plugins/servicenow-integration.md
-
-* [TIMEOUT] [https://www.servicenow.com/docs/bundle/xanadu-platform-administration/page/administer/notification/reference/r_PushMessageArchitecture.html](https://www.servicenow.com/docs/bundle/xanadu-platform-administration/page/administer/notification/reference/r_PushMessageArchitecture.html) | Timeout
 
 ### Errors in docs/Customer Journey Scenarios/customer-journey-scenarios-real-world-use-case-flows/customer-use-case-automating-employee-onboarding-and-role-based-access-control-in-servicenow/custom-action-in-servicenow.md
 
