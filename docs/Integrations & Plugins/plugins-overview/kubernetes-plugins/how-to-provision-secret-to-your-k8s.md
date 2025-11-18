@@ -1,5 +1,5 @@
 ---
-title: Akeyless K8s Secrets Injector
+title: Akeyless Kubernetes Secrets Injector
 excerpt: ''
 deprecated: false
 hidden: false
@@ -16,18 +16,18 @@ next:
 ---
 # Overview
 
-The Akeyless K8s Secrets Injector plugin enables K8s applications and workloads to use [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-storage)  and [USC](https://docs.akeyless.io/docs/universal-secrets-connector) sourced from the Akeyless Platform.
+The Akeyless Kubernetes Secrets Injector plugin enables Kubernetes applications and workloads to use [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-storage)  and [USC](https://docs.akeyless.io/docs/universal-secrets-connector) sourced from the Akeyless Platform.
 
-This injector leverages the K8s `MutatingAdmissionWebhook` to intercept and augment specifically annotated pod configurations for secrets injection. By doing so, the user benefits as the applications remain ״Akeyless unaware״ as the secrets are stored either as an **environment variable** or as a file at a **filesystem path** in their container.
+This injector leverages the Kubernetes `MutatingAdmissionWebhook` to intercept and augment specifically annotated pod configurations for secrets injection. By doing so, the user benefits as the applications remain ״Akeyless unaware״ as the secrets are stored either as an **environment variable** or as a file at a **filesystem path** in their container.
 
 Before the application starts, the injector deploys an **init** container to fetch and inject secrets at pod start-up, after which the init-container shuts down. To apply an automatic [rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/) to your deployments upon **any** change to your secrets, you can use the Injector with restart-rollout mode, which can track any changes of [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and  [Certificates](https://docs.akeyless.io/docs/certificate-storage).
 
 If the application consumes secrets which regularly change, an annotation can be used to deploy an additional **Sidecar** container which runs alongside the application to monitor changes in secrets. The **Sidecar** tracks and updates secrets within injected files inside the pods, according to specifically annotated pod configurations, and will remain up for the entire application lifecycle. Relevant for cases where the app can watch for live changes in files.
 
-Although authorization in K8s is intentionally high level, you can configure the injector to support full and flexible segregation using K8s policies together with the Akeyless Platform's [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).\
+Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together with the Akeyless Platform's [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).  
 For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/docs/policy-segregation-for-kubernetes).
 
-<Image align="center" src="https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png" />
+<Image align="center" border={false} src="https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png" />
 
 > 👍 Note
 >
@@ -37,9 +37,9 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 
 * Helm Installed.
 
-* **K8s Auth** or one of the supported [Authentication Methods for Kubernetes](https://docs.akeyless.io/docs/auth-meth-k8s).
+* **Kubernetes Auth** or one of the supported [Authentication Methods for Kubernetes](https://docs.akeyless.io/docs/auth-meth-k8s).
 
-* `K8s v1.19` and above.
+* Kubernetes v1.19 and above.
 
 * For Azure Kubernetes Service (AKS), **managed-identity** is enabled on your AKS cluster.
 
@@ -47,13 +47,13 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 
 ## Create a Secret in Akeyless
 
-For example, the following command creates a static secret called **my\_k8s\_secret** inside  **K8s** folder.
+For example, the following command creates a static secret called **my_k8s_secret** inside  **K8s** folder.
 
 ```shell Akeyless CLI
 akeyless create-secret --name /K8s/my_k8s_secret --value myPassword
 ```
 
-Alternatively, a secret can contain `JSON` structured data, for example: 
+Alternatively, a secret can contain `JSON` structured data, for example:
 
 ```shell Akeyless CLI
 akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234","aws_key_id":"abcd"}'
@@ -61,12 +61,12 @@ akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234"
 
 > 👍 Note
 >
-> The following example uses a pre-defined [K8s Auth](https://docs.akeyless.io/docs/kubernetes-auth) called **K8s\_Auth** in **K8s** folder i.e. `K8s/K8s_Auth`
+> The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) called **K8s_Auth** in **K8s** folder i.e. `K8s/K8s_Auth`
 
 ## Create an Access Role
 
-Create an [Access Role](https://docs.akeyless.io/docs/rbac) associate the role with an **Auth Method** and grant access to the secret.\
-For example, the following command creates **K8s\_role** role, the role is associated to **K8s\_Auth** Auth Method, and grant **read** and **list** access to all the secrets in **K8s** folder
+Create an [Access Role](https://docs.akeyless.io/docs/rbac) associate the role with an **Auth Method** and grant access to the secret.  
+For example, the following command creates **K8s_role** role, the role is associated to **K8s_Auth** Auth Method, and grant **read** and **list** access to all the secrets in **K8s** folder
 
 ```shell Akeyless CLI
 akeyless create-role --name /K8s/K8s_Role
@@ -76,7 +76,7 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
 # Install the Injector
 
-1. Add the Akelyess K8s Injector Helm repository from [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-k8s-secrets-injection) and update your Helm repositories.
+1. Add the Akelyess Kubernetes Injector Helm repository from [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-k8s-secrets-injection) and update your Helm repositories.
 
 ```shell CLI
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
@@ -101,11 +101,11 @@ Modify the following values under the `env` section as follows:
 
 * Optional  `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list).
 
-* Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`.  To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level. 
+* Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`.  To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
 
-* `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically ](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically)the docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public**  registry.  
+* `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically ](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically)the docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public**  registry.
 
-* Optional `AKEYLESS_IGNORE_CACHE`:  to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)  
+* Optional `AKEYLESS_IGNORE_CACHE`:  to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
 
 * Optional `INIT_RUN_AS_USER`: To apply a [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to your init container, set the following environment variable,  `INIT_RUN_AS_USER: "id=65534"`.
 
@@ -182,11 +182,11 @@ replicaset.apps/injector-akeyless-secrets-injection-77c857d496   2          2   
 
 # Launch an Application
 
-The Akeyless Injector supports the following modes of operations, using **Environment Variables**, **File Injection**, and **SideCar** mode which can work only with File Injection. 
+The Akeyless Injector supports the following modes of operations, using **Environment Variables**, **File Injection**, and **SideCar** mode which can work only with File Injection.
 
 ## Environment Variable
 
-Set the following annotations in your deployment `YAML` files: 
+Set the following annotations in your deployment `YAML` files:
 
 Enable the plugin under the `annotations` section, in your app deployment file:
 
@@ -227,7 +227,7 @@ spec:
           value: akeyless:/K8s/my_k8s_secret
 ```
 
-Apply: 
+Apply:
 
 ```shell
 kubectl apply -f env.yaml
@@ -370,7 +370,7 @@ spec:
           claimName: wp-pv-claim
 ```
 
-Apply: 
+Apply:
 
 ```shell
 kubectl apply -f MySQLWordPress.yaml
@@ -384,7 +384,7 @@ Another example demonstrates fetching secret specific versions for example `vers
   value: 'akeyless:/K8s/my_k8s_secret|decode=base64|version=2'
 ```
 
- Or to extract a specific key from a secret that contains a `JSON` structured data:
+Or to extract a specific key from a secret that contains a `JSON` structured data:
 
 ```yaml
 - name:  MY_JSON_SECRET
@@ -408,7 +408,7 @@ To create the environment variables without the prefix you can use the `parse_js
 
 ### Inject Secret via ConfigMap
 
-For existing environments that currently use ConfigMaps with K8s secrets, you can modify your config maps to fetch the relevant secrets from Akeyless, instead of updating all your deployment manifest files, for example:
+For existing environments that currently use ConfigMaps with Kubernetes secrets, you can modify your config maps to fetch the relevant secrets from Akeyless, instead of updating all your deployment manifest files, for example:
 
 ```yaml ConfigMap
 kind: ConfigMap
@@ -471,7 +471,7 @@ The injector can be set with credentials of your **private** registry using a se
 
 this secret can be set globally on the deployment using this variable `AKEYLESS_REGISTRY_CREDS = /Path/to/secret` or explicitly on the pod level using this annotation: `akeyless/registry_creds: /Path/to/secret`.
 
-Once this secret is provided the manual command is not required, and the Injector will override the entrypoint automatically. 
+Once this secret is provided the manual command is not required, and the Injector will override the entrypoint automatically.
 
 In AWS and GCP environments the node IAM role on EKS and GKE respectively can be utilized automatically to fetch private images from AWS ECR and GCP GAR respectively, hence no secret reference is required.
 
@@ -487,11 +487,11 @@ Enable the plugin under the `annotations` section, in your app deployment file:
 akeyless/enabled: "true"
 ```
 
-The default location of the Akeyless secrets folder inside your pod file system is **/akeyless/secrets/**. 
+The default location of the Akeyless secrets folder inside your pod file system is **/akeyless/secrets/**.
 
 To explicitly set a different location you can override this by adding `|location=<path>` after your secret name within the annotation.
 
-For example, `/K8s/my_k8s_secret` and `/K8s/my_k8s_secret2` will be saved inside your pod filesystem under the **/tmp/** folder as `secret1` and `secret2` respectively. 
+For example, `/K8s/my_k8s_secret` and `/K8s/my_k8s_secret2` will be saved inside your pod filesystem under the **/tmp/** folder as `secret1` and `secret2` respectively.
 
 ```yaml
 akeyless/inject_file: "/K8s/my_k8s_secret|location=/tmp/secret1,/K8s/my_k8s_secret2|location=/tmp/secret2"
@@ -513,7 +513,7 @@ To inject an entire folder of secrets from Akeyless, for example, all secrets un
 akeyless/inject_folder: "/K8s/my-secrets-folder/|location=/tmp/secrets/"
 ```
 
-To inject only the secrets from the source folder without the full folders structure from Akeyless, for example all secrets under `/K8s/my-secret-folder` use the following pipe command with the annotation: 
+To inject only the secrets from the source folder without the full folders structure from Akeyless, for example all secrets under `/K8s/my-secret-folder` use the following pipe command with the annotation:
 
 ```yaml
 akeyless/inject_folder: "/K8s/my-secrets-folder/|folder_location=/tmp/secrets/"
@@ -554,7 +554,7 @@ spec:
           - "cat /akeyless/secrets/K8s/my_k8s_secret && echo going to sleep... && sleep 10000"
 ```
 
-Apply: 
+Apply:
 
 ```shell
 kubectl apply -f Injectfile.yaml
@@ -562,7 +562,7 @@ kubectl apply -f Injectfile.yaml
 
 ## Sidecar Mode
 
-To keep track of secret changes while reflecting them into your pods during their lifetime, you can use the **Sidecar** mode, for example, while working with **Dynamic** or **Rotated** secrets. 
+To keep track of secret changes while reflecting them into your pods during their lifetime, you can use the **Sidecar** mode, for example, while working with **Dynamic** or **Rotated** secrets.
 
 Enable the plugin under the `annotations` section, in your app deployment file and enable the sidecar mode  by adding the following annotations:
 
@@ -615,7 +615,7 @@ spec:
           - "while true; do [ ! -f /secrets/timestamp ] || [ /secrets/secretsVersion.json -nt /secrets/timestamp ] && touch /secrets/timestamp && cat /secrets/secretsVersion.json && echo ''; sleep 15; done"
 ```
 
-Apply: 
+Apply:
 
 ```shell
 kubectl apply -f Akeyless_sidecar.yaml
@@ -623,7 +623,7 @@ kubectl apply -f Akeyless_sidecar.yaml
 
 # Annotations List
 
-The following table lists the available annotations:  
+The following table lists the available annotations:
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -653,7 +653,7 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Enable the K8s plugin
+        Enable the Kubernetes plugin
       </td>
     </tr>
 
@@ -667,7 +667,7 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Set the K8s plugin to work in sidecar mode
+        Set the Kubernetes plugin to work in sidecar mode
       </td>
     </tr>
 
@@ -691,8 +691,8 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        `Int` followed by\
-         `"s"`, `"m"`or `"h"` units
+        `Int` followed by  
+        `"s"`, `"m"`or `"h"` units
       </td>
 
       <td>
@@ -716,7 +716,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless/inject_file: "/mysecret/\|location=/path to save secret name"`
+        `akeyless/inject_file: "/mysecret/|location=/path to save secret name"`
       </td>
 
       <td>
@@ -724,7 +724,7 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Set the location for your secrets to be saved within your pod file system.  
+        Set the location for your secrets to be saved within your pod file system.
 
         Note: Available for files only
       </td>
@@ -732,7 +732,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless/inject_file: "/mysecret\|permission=0644"`
+        `akeyless/inject_file: "/mysecret|permission=0644"`
       </td>
 
       <td>
@@ -740,9 +740,9 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Set the permission of the file that contains your secret value  
+        Set the permission of the file that contains your secret value
 
-        Default is `0644`  
+        Default is `0644`
 
         Note: Available for files only
       </td>
@@ -750,7 +750,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless/inject_file: "/mysecret\|version=1"`
+        `akeyless/inject_file: "/mysecret|version=1"`
       </td>
 
       <td>
@@ -758,9 +758,9 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Fetch a specific version of your secret  
+        Fetch a specific version of your secret
 
-        The default value is set to the latest version  
+        The default value is set to the latest version
 
         Note: Available for Environment variables as well
       </td>
@@ -768,7 +768,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless/inject_file: "/mysecret\|decode=base64"`
+        `akeyless/inject_file: "/mysecret|decode=base64"`
       </td>
 
       <td>
@@ -776,9 +776,9 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Set the decoding for your encoded secret values  
+        Set the decoding for your encoded secret values
 
-        Default is `none`  
+        Default is `none`
 
         Note: Available for Environment variables as well
       </td>
@@ -786,7 +786,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless/inject_file: "/mysecret\|jq={jq-expresion}"`
+        `akeyless/inject_file: "/mysecret|jq={jq-expresion}"`
       </td>
 
       <td>
@@ -800,7 +800,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless/inject_folder: "/prod/my-secrets-folder/\|permission=0644"`
+        `akeyless/inject_folder: "/prod/my-secrets-folder/|permission=0644"`
       </td>
 
       <td>
@@ -808,9 +808,9 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Set the permission of the folder that contains your secret value  
+        Set the permission of the folder that contains your secret value
 
-        Default is `0644`  
+        Default is `0644`
 
         Note: Available for files only
       </td>
@@ -818,7 +818,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless/inject_folder: "/prod/my-secrets-folder/\|location=/tmp/secrets/\|track-folder-changes=true"`
+        `akeyless/inject_folder: "/prod/my-secrets-folder/|location=/tmp/secrets/|track-folder-changes=true"`
       </td>
 
       <td>
@@ -836,19 +836,19 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Volume name 
+        Volume name
       </td>
 
       <td>
-        To work with a custom volume. `MountPath` should also be set in the prefix of the injected secret location. Volume required permissions: `read/write` 
+        To work with a custom volume. `MountPath` should also be set in the prefix of the injected secret location. Volume required permissions: `read/write`
       </td>
     </tr>
 
     <tr>
       <td>
-        `akeyless/post_inject_script: \|`\
-          `#!/bin/bash`\
-             `echo Hello > /akeyless/secrets/hello.txt`
+        `akeyless/post_inject_script: |`  
+        `#!/bin/bash`  
+        `echo Hello > /akeyless/secrets/hello.txt`
       </td>
 
       <td>
@@ -856,14 +856,14 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Note:\
+        Note:  
         the execution occurs in the init container and at the sidecar container if set.
       </td>
     </tr>
 
     <tr>
       <td>
-        `akeyless:/<usc name>\|usc_remote_secret_name=<remote name>`
+        `akeyless:/<usc name>|usc_remote_secret_name=<remote name>`
       </td>
 
       <td>
@@ -877,7 +877,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless:/<usc name>\|usc_remote_secret_name=<remote name>\|usc_remote_secret_version=1`
+        `akeyless:/<usc name>|usc_remote_secret_name=<remote name>|usc_remote_secret_version=1`
       </td>
 
       <td>
@@ -891,7 +891,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless:/<usc name>\|usc_remote_secret_name=<remote name>\|usc_remote_secret_namespace=default`
+        `akeyless:/<usc name>|usc_remote_secret_name=<remote name>|usc_remote_secret_namespace=default`
       </td>
 
       <td>
@@ -913,7 +913,7 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Can be controlled globally for all deployments, or explicitly. 
+        Can be controlled globally for all deployments, or explicitly.
       </td>
     </tr>
 
@@ -937,11 +937,11 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Path to a secret for Docker registry creds, relevant for environment variable mode 
+        Path to a secret for Docker registry creds, relevant for environment variable mode
       </td>
 
       <td>
-        Can be used to override the entrypoint automatically 
+        Can be used to override the entrypoint automatically
       </td>
     </tr>
 
@@ -955,8 +955,8 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Limit of CPU usage\
-        e.g. `600m`\
+        Limit of CPU usage  
+        e.g. `600m`  
         where the unit suffix `m` stands for core thousandth (miliCPU)
       </td>
     </tr>
@@ -971,8 +971,8 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Limit of CPU request\
-         e.g. `250m`\
+        Limit of CPU request  
+        e.g. `250m`  
         where the unit suffix `m` stands for core thousandth (miliCPU)
       </td>
     </tr>
@@ -1038,7 +1038,7 @@ injector-akeyless-secrets-injection-scrape-pods
 
 The `podmonitor` automatically discovers and collects metrics from pods running in a Kubernetes cluster, ensuring seamless integration with Prometheus for dynamic monitoring.
 
-Now, [inject a secret](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#launch-an-application) into your k8s cluster.
+Now, [inject a secret](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#launch-an-application) into your Kubernetes cluster.
 
 Once done, the following metrics will be shown:
 
