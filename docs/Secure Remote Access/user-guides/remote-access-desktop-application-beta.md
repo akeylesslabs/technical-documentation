@@ -71,7 +71,7 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 
 > 🚧 Important
 >
-> 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://dash.readme.com/project/akeyless/v1.0/docs/ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
+> 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
 > 2. You will also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable` `true` flag to your CLI command
 > 3. Ensure that `akeyless` user is added to the list of `Allowed User(s)` in the SSH-CERT-Issuer item. Otherwise, the desktop application won't be able to establish connection.
 
