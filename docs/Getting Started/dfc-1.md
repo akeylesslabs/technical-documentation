@@ -52,9 +52,9 @@ This enforces separation of duties and supports regulated environments requiring
 graph TD
     C[Client] --> G[Gateway]
     G --> U[UAM]
-    U --> K1[KFM A]
-    U --> K2[KFM B]
-    U --> K3[KFM C]
+    U --> K1[AWS]
+    U --> K2[Azure]
+    U --> K3[GCP]
     G --> CF[Customer Fragment]
     K1 --> G
     K2 --> G
