@@ -27,7 +27,7 @@ In addition to retrieving secrets from Akeyless to your Kubernetes cluster, you 
 # Prerequisites
 
 * [Helm ](https://helm.sh/) installed
-* `K8s v1.16` or higher
+* Kubernetes v1.16 or higher
 
 # Installing with Helm
 
@@ -46,7 +46,7 @@ Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 * [Azure AD](https://docs.akeyless.io/docs/azure-ad)
 * [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
+* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
 
 > 👍 Note
 >
@@ -65,7 +65,7 @@ stringData:
   accessType: api_key
   accessTypeParam: <Access Key>
 ```
-```yaml K8s Auth
+```yaml Kubernetes Auth
 apiVersion: v1
 kind: Secret
 metadata:
@@ -85,7 +85,7 @@ Where:
 
 * `accessType`: The Authentication Method type.
 
-* `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **K8s**. For more options, check the official [provider ](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
+* `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **Kubernetes**. For more options, check the official [provider ](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
 
 Apply the configuration:
 
@@ -162,7 +162,7 @@ Where:
 
 * `accessId`: The Kubernetes Authentication Method `Access ID`.
 
-* `k8sConfName`: The name of the **K8s Conf** on the Gateway.
+* `k8sConfName`: The name of the **Kubernetes Conf** on the Gateway.
 
 * `serviceAccountRef`: The name of the Kubernetes service account used to fetch secrets from Akeyless. Only secrets defined in a role associated with that service account under claim `service_account_name` can be accessed.
 
