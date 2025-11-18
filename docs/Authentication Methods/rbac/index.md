@@ -20,7 +20,7 @@ Access Roles can be configured to grant permissions on Secrets & Encryption Keys
 
 To set permission for a user to work with any item in the Platform, an appropriate Access Role must be assigned to the Authentication Method that represents this user. By default, users don't have any permissions in Akeyless unless explicitly granted.
 
-To associate an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/api-key):
+To associate an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/api-key):
 
 ```shell CLI
 akeyless auth-method create api-key --name client1
