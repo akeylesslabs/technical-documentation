@@ -46,27 +46,6 @@ Organizations may hold one of the key fragments in their own environment. When u
 
 This enforces separation of duties and supports regulated environments requiring customer-held key material.
 
-## Fragment Refreshing
-
-DFC includes built-in fragment refreshing:
-
-* Fragment values are periodically updated.
-* The mathematical relationship between fragments remains constant.
-* No downtime or operational changes are required.
-
-This refresh mechanism makes long-term exposure of a fragment insufficient to compromise the key.
-
-## Cryptographic Foundations
-
-DFC relies on standard, NIST-approved algorithms:
-
-* AES for symmetric encryption
-* HMAC for integrity
-* KDFs for fragment derivation
-* Hybrid TLS 1.3 with ML-KEM768 and X25519 for post-quantum protection (communication layer)
-
-No proprietary encryption algorithms are introduced; only the key-handling model is unique.
-
 ## Summary
 
 DFC provides the foundation for Akeyless’s Vaultless architecture by ensuring that complete key material never exists on any server. By performing cryptographic operations directly on independent fragments, including optionally a Customer Fragment, Akeyless enforces strict separation of duties, reduces exposure, and removes the need for sensitive data storage.
