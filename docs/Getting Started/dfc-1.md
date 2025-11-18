@@ -5,8 +5,6 @@ hidden: false
 metadata:
   robots: index
 ---
-# Distributed Fragments Cryptography (DFC)
-
 Distributed Fragments Cryptography (DFC) is the core cryptographic mechanism used by Akeyless to ensure that private key material and sensitive secret data are never stored, reconstructed, or exposed in complete form. DFC enables the platform to perform signing, encryption, decryption, and secret generation operations without holding a full private key at any stage.
 
 DFC operates by dividing cryptographic material into independent fragments that are distributed across multiple isolated locations. Each fragment performs its portion of an operation, and the combined output is returned to the requesting client without any system ever assembling the full private key.
@@ -37,7 +35,7 @@ When a client initiates a cryptographic operation (such as signing, encryption, 
 2. The control plane determines which fragments must participate in the operation.
 3. Each fragment holder performs its partial computation using its local fragment.
 4. Partial results are returned to the control plane.
-5. The control plane combines partial results into the final output *without reconstructing the private key*.
+5. The control plane combines partial results into the final output _without reconstructing the private key_.
 6. The result is returned to the requesting client.
 
 Throughout this process:
