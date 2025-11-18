@@ -14,23 +14,6 @@ Distributed Fragments Cryptography (DFC) is the cryptographic framework that ena
 
 DFC supports the Vaultless architecture by ensuring that no complete encryption key exists on any server, at any point.
 
-```mermaid
-graph TD
-    C[Client] --> G[Gateway]
-    G --> U[UAM]
-    U --> K1[KFM A]
-    U --> K2[KFM B]
-    U --> K3[KFM C]
-    G --> CF[Customer Fragment]
-    K1 --> G
-    K2 --> G
-    K3 --> G
-    CF --> G
-    G --> KD[One-time Derived Key]
-    KD --> O[Crypto Operation]
-
-```
-
 ## Core Concepts
 
 DFC splits an encryption key into multiple mathematical fragments. These fragments:
@@ -62,6 +45,23 @@ Organizations may hold one of the key fragments in their own environment. When u
 * No entity, including Akeyless, can derive or reconstruct the key without the Customer Fragment.
 
 This enforces separation of duties and supports regulated environments requiring customer-held key material.
+
+```mermaid
+graph TD
+    C[Client] --> G[Gateway]
+    G --> U[UAM]
+    U --> K1[KFM A]
+    U --> K2[KFM B]
+    U --> K3[KFM C]
+    G --> CF[Customer Fragment]
+    K1 --> G
+    K2 --> G
+    K3 --> G
+    CF --> G
+    G --> KD[One-time Derived Key]
+    KD --> O[Crypto Operation]
+
+```
 
 ## Summary
 
