@@ -51,7 +51,107 @@ brew install akeylesslabs/tap/akeyless
 
 To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
 
-# Installation
+It is also supported to download and install the Akeyless CLI using **APT** (Debian/Ubuntu) or **YUM** (Red Hat/CentOS/Rocky Linux):
+
+### Debian/Ubuntu
+
+Install the following tools:
+
+```shell
+apt-get update
+apt-get install -y curl gnupg
+```
+
+Import GPG Key:
+
+```shell
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \
+  gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
+```
+
+Add the repository:
+
+```shell AMD64
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
+  tee /etc/apt/sources.list.d/akeyless.list
+```
+```shell ARM64
+echo "deb [arch=arm64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
+  tee /etc/apt/sources.list.d/akeyless.list
+```
+
+Update the package list:
+
+```shell
+apt-get update
+```
+
+Install the Akeyless CLI:
+
+```shell
+apt-get install -y akeyless
+```
+
+Verify the installation:
+
+```shell
+akeyless --version
+```
+
+### Red Hat/CentOS/Rocky Linux
+
+Install the following tools:
+
+```shell RHEL/CentOS 7-8
+yum install -y curl gnupg2
+```
+```shell RHEL/CentOS 9+ / Rocky Linux 9+
+dnf install -y curl gnupg2
+```
+
+Import GPG Key:
+
+```shell
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public -o /tmp/akeyless-gpg.key
+rpm --import /tmp/akeyless-gpg.key
+rm -f /tmp/akeyless-gpg.key
+```
+
+Add the repository:
+
+```shell Shell
+cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
+[akeyless]
+name=Akeyless CLI Repository
+baseurl=https://akeyless.jfrog.io/artifactory/akeyless-cli-rpm
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public
+EOF
+```
+
+Update Package Cache:
+
+```shell RHEL/CentOS 7-8
+yum clean all
+yum makecache
+```
+```shell RHEL/CentOS 9+ / Rocky Linux 9+
+dnf clean all
+dnf makecache
+```
+
+Install the Akeyless CLI:
+
+```shell RHEL/CentOS 7-8
+yum install -y akeyless
+```
+```shell RHEL/CentOS 9+ / Rocky Linux 9+
+dnf install -y akeyless
+```
+
+# Configuration
 
 Running the CLI for the first time by default, prompts you to configure the basic settings.
 
