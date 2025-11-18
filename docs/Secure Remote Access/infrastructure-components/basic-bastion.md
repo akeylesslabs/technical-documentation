@@ -22,7 +22,7 @@ next:
 ---
 > ❗️ Note
 >
-> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion)
+> This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
 
 The Akeyless Basic Bastion provides Secure Remote Access to resources using Akeyless Just In Time credentials (dynamic secrets and SSH certificates).
 
@@ -58,9 +58,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The values.yaml file holds default values, copy the file from: 
-
-[https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion)
+The values.yaml file holds default values, copy the file from: (not available).
 
 Or run the following helm command to generate the values file:
 
