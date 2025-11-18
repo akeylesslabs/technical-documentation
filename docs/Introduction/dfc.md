@@ -1,8 +1,8 @@
 ---
 title: 'Part 3: Encryption Technology'
 excerpt: ''
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
