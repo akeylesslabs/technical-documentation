@@ -67,7 +67,8 @@ apt-get install -y curl gnupg
 Import the Akeyless GPG key:
 
 ```shell
-curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \ gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \ 
+gpg --dearmor -o /usr/share/keyrings/akeyless.gpg
 ```
 
 AAdd the Akeyless repository:
