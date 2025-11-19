@@ -29,7 +29,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Consistency**: Use the same terminology for features, functions, and components throughout.
 * **Conciseness**: Avoid unnecessary words, filler phrases, or redundant explanations.
 * **Audience awareness**: Assume readers have basic technical knowledge but may not be experts.
-* **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you").
+* **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you"). Quickstarts are exempted from this.
 * **Simplicity**: Keep punctuation simple and avoid chained clauses.
 
 ## Punctuation
@@ -91,16 +91,15 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
 <details>
   <summary>Learn more about the `<details>` tag.</summary>
 
-    Here is an example usage of the `<details>` tag:
-    ```html
-    I am text that should be displayed.
-    <details>
-    <summary>I am the text to display as the title of collapsed text (a summary)</summary>
-    I am text that should be hidden by default.
-    </details>
-    ```
+  Here is an example usage of the `<details>` tag:
 
-
+  ```html
+  I am text that should be displayed.
+  <details>
+  <summary>I am the text to display as the title of collapsed text (a summary)</summary>
+  I am text that should be hidden by default.
+  </details>
+  ```
 </details>
 
 # Formatting
