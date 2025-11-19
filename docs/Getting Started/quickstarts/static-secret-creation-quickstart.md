@@ -20,10 +20,9 @@ If you do not yet have an account, complete the **Creating an Akeyless Account Q
 
 1. Open the Akeyless Console:  
    <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="https://console.akeyless.io" target="_blank" href="https://console.akeyless.io">https://console.akeyless.io</Anchor></Anchor>
-2. Enter your email address and password.
-3. Select **Sign In**.
+2. Sign in to your existing Akeyless account.
 
-You will be taken to the Console homepage.
+You will be taken to the Akeyless Console homepage.
 
 ## Step 2: Open the Secrets Page
 
