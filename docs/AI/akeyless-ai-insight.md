@@ -56,6 +56,8 @@ The output should contain:
 "ai_insights": { "enable": true }
 ```
 
+Text.
+
 <Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
 
 <Callout icon="📘" theme="info">
@@ -63,8 +65,6 @@ The output should contain:
 
   `akeyless update-account-settings --enable-ai-insights false`
 </Callout>
-
-
 
 ### Step 2: Create an OpenAI Target
 
