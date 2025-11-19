@@ -37,7 +37,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 * Use the serial comma (also called the Oxford comma).
   * With It: "At my court hearing there were two detectives, my wife, and my sister."
   * Without It: "At my court hearing there were two detectives, my wife and my sister."
-* Avoid using of ampersands (&) and slashes (/) in sentences. Ampersands are acceptable in headings.
+* Avoid using ampersands (&) and slashes (/) in sentences. Ampersands are acceptable in headings.
 
 ## Tone
 
