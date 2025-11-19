@@ -1,4 +1,4 @@
 - account-quickstart
 - static-secret-creation-quickstart
 - gateway-k8s-quickstart
-- getting-a-secret-with-a-container-in-kubernetes-quickstart
+- secret-retrieval-k8s-quickstart
