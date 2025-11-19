@@ -48,8 +48,12 @@ The details of your Static Secret should be open in the right half of your brows
 1. In the **General** tab of your Static Secret, scroll to the bottom and look for the **Value** field.
 2. Select the eye symbol to retrieve and decrypt the value of **Quick Secret**.
 
+<EyeIcon />
+
+<br />
+
 **Super Secret** should be displayed.
 
 ***
 
-*You have successfully created a Static Secret in the Akeyless Console.*
+_You have successfully created a Static Secret in the Akeyless Console._
