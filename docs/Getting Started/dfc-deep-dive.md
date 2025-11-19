@@ -24,6 +24,53 @@ DFC does not introduce new encryption algorithms; it introduces a new key-handli
 
 ## System Components
 
+<br />
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    participant C as Client
+    participant G as Gateway
+    participant U as UAM
+    participant K1 as KFM A
+    participant K2 as KFM B
+    participant K3 as KFM C
+    participant CF as Customer Fragment
+
+    %% 1. Client authenticates
+    C ->> G: Authenticate and request operation
+
+    %% 2. UAM authorizes
+    G ->> U: Forward request
+    U ->> U: Authorization check
+
+    %% 3. Parallel fragment derivation
+    U ->> K1: Derivation request
+    U ->> K2: Derivation request
+    U ->> K3: Derivation request
+
+    K1 -->> U: dA
+    K2 -->> U: dB
+    K3 -->> U: dC
+
+    alt Customer Fragment present
+        G ->> CF: Request CF derivation
+        CF -->> G: dCF
+    else No Customer Fragment
+        Note over G: No CF derivation
+    end
+
+    %% 4. Derivation aggregation
+    U -->> G: Return {dA, dB, dC}
+    G ->> G: Combine derivations\ninto one-time derived key
+
+    %% 5. Operation execution
+    G ->> C: Return operation result
+    G ->> G: Discard derived key
+
+```
+
 ### Key Fragment Managers (KFMs)
 
 KFMs are isolated microservices distributed across independent cloud providers and regions. Each KFM:
