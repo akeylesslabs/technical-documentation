@@ -52,12 +52,11 @@ Once your email is verified, your account becomes active.
 
 <details>
   <summary>Password Requirements</summary>
-
-  1. At least 12 characters
-  2. At least 1 upper case letter (A-Z)
-  3. At least 1 lower case letter (a-z)
-  4. At least 1 number (0-9)
-  5. At least 1 special character
+  * At least 12 characters
+  * At least 1 upper case letter (A-Z)
+  * At least 1 lower case letter (a-z)
+  * At least 1 number (0-9)
+  * At least 1 special character
 </details>
 
 2. Select **Let's Get Started**.
