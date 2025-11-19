@@ -110,7 +110,47 @@ OpenAI models must use the `gpt-` prefix. The following are valid examples:
 * gpt-4
 * gpt-3.5-turbo
 
-### Step 3 - Configure Gateway
+### Step 3: Configure the Gateway
+
+This section describes how to configure the gateway to use AI Insights.
+
+The gateway configuration uses the Akeyless Gateway API. First, obtain an authentication token, then use the token to configure the gateway.
+
+#### Obtain an Authentication Token
+
+```shell
+TOKEN=$(akeyless auth | grep token | awk '{print $2}')
+```
+
+#### Configure AI Insights on the Gateway
+
+Use the following command to configure AI Insights on the gateway:
+
+```shell
+curl -X PUT "http://localhost:8000/config/ai-insights" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d '{
+    "cluster_identity": {
+      "account_id": "<a-1234567890>",
+      "access_id": "<p-1234567890>",
+      "cluster_name": "<my-gateway>"
+    },
+    "ai_insights": {
+      "enable": true,
+      "target_name": "<my-openai-target>",
+      "model": "<gpt-4>"
+    }
+  }'
+```
+
+#### Disable AI Insights on the Gateway
+
+To disable AI Insights on the gateway, set the enable field to false:
+
+```shell
+"ai_insights": { "enable": false }
+```
 
 <Image border={false} src="https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png" />
 
