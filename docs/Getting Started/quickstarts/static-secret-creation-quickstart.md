@@ -24,7 +24,7 @@ If you do not yet have an account, complete the **Creating an Akeyless Account Q
 
 You will be taken to the Akeyless Console homepage.
 
-## Step 2: Open the Secrets Page
+## Step 2: Open the Items Page
 
 1. In the left navigation menu, select **Items**.
 2. Select **+ New**.
@@ -32,8 +32,9 @@ You will be taken to the Akeyless Console homepage.
 
 This opens the **Create Static Secret** form.
 
-## Step 3: Choose a Secret Type and Path
+## Step 3: Configure the Static Secret
 
-1. In the **Type** field, select **Static Secret**.
-2. In the **Path** field, enter a unique path where the secret will be stored.  
-   Examples:
+1. In the **Name** field, type **Quick Secret**.
+2. In the **Value** field (toward the bottom of the form), type **Super Secret**.
+3. Leave all other fields as their default values.
+4. Select **Finish**.
