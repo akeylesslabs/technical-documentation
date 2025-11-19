@@ -33,7 +33,7 @@ The result is an architecture where cryptographic operations occur without persi
 
 All identity operations—such as signing, encryption, decryption, or generating short-lived credentials—are completed without assembling full private key material at any stage of the workflow.
 
-## Cryptographic Workflow (High-Level)
+## Cryptographic Workflow
 
 When a client requests an operation (e.g., retrieving a secret, generating a dynamic credential, or performing a signing operation):
 
