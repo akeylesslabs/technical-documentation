@@ -44,18 +44,6 @@ To enable AI Insights, run the following command:
 akeyless update-account-settings --enable-ai-insights true
 ```
 
-To verify that AI Insights is enabled, run the following command:
-
-```shell
-akeyless get-account-settings
-```
-
-The output should contain:
-
-```shell
-"ai_insights": { "enable": true }
-```
-
 AI Insights can also be enabled at the account level using the GUI.
 
 <Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
@@ -157,6 +145,33 @@ The Gateway can also be configured with the GUI.
 <Image border={false} src="https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png" />
 
 ## Verification
+
+This section describes how to verify that AI Insights is properly configured.
+
+### Verify the Account Setting
+
+To verify that AI Insights is enabled at the account level, run the following command:
+
+```shell
+akeyless get-account-settings
+```
+
+
+Verify the Target
+To verify that the OpenAI target is configured correctly, run the following command:
+
+akeyless get-target --name my-openai-target
+Verify the Gateway Configuration
+To verify that the gateway is configured for AI Insights, run the following command:
+
+curl -X GET [http://localhost:8000/config/ai-insights](http://localhost:8000/config/ai-insights)
+Test in the Web UI
+To test AI Insights in the Akeyless Web UI, follow these steps:
+
+Open the Akeyless Web UI.
+Navigate to AI Insights.
+Start a chat session.
+Ask a natural language question.
 
 Verify Account Setting
 
