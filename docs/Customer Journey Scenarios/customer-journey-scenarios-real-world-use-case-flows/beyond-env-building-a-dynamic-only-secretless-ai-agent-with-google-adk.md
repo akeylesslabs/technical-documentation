@@ -1,5 +1,5 @@
 ---
-title: Akeyless Secretless AI Agent with Google ADK
+title: 'Google ADK with Akeyless Secretless AI '
 deprecated: false
 hidden: false
 metadata:
