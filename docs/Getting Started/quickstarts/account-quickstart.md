@@ -21,7 +21,7 @@ No prior Akeyless account or configuration is required.
 
 1. Navigate to the Akeyless signup page:  
    **<Anchor label="https://console.akeyless.io/registration" target="_blank" href="https://console.akeyless.io/registration">https://console.akeyless.io/registration</Anchor>**
-2. Enter your email address.
+2. Enter your email address (or select a social sign-in option).
 3. Choose a password that meets the displayed password requirements.
 4. Select **Sign Up**.
 
