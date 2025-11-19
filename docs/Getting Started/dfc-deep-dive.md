@@ -7,11 +7,9 @@ metadata:
     - distributed fragment cryptography
   robots: index
 ---
-This document provides a detailed technical explanation of how Distributed Fragments Cryptography (DFC) works, including key generation, fragment storage, operation flows, fragment refreshing, cryptographic foundations, and component responsibilities.
+Distributed Fragments Cryptography (DFC) is a distributed key management framework that ensures no complete private key ever exists on any server, at any time. All operations rely on cryptographic derivation across independent fragments. This document provides a detailed technical explanation of how DFC works, including key generation, fragment storage, operation flows, fragment refreshing, cryptographic foundations, and component responsibilities.
 
-DFC is a distributed key management framework that ensures no complete private key ever exists on any server, at any time. All operations rely on cryptographic derivation across independent fragments.
-
-## 1. Cryptographic Foundations
+## Cryptographic Foundations
 
 DFC uses standard, NIST-approved primitives:
 
@@ -24,9 +22,9 @@ DFC does not introduce new encryption algorithms; it introduces a new key-handli
 
 ***
 
-## 2. System Components
+## System Components
 
-### 2.1 Key Fragment Managers (KFMs)
+### Key Fragment Managers (KFMs)
 
 KFMs are isolated microservices distributed across independent cloud providers and regions. Each KFM:
 
@@ -36,7 +34,7 @@ KFMs are isolated microservices distributed across independent cloud providers a
 * Operates independently without communicating with other KFMs.
 * Periodically refreshes its fragment value.
 
-### 2.2 Unified Access Manager (UAM)
+### Unified Access Manager (UAM)
 
 The UAM:
 
@@ -45,33 +43,33 @@ The UAM:
 * Does **not** store or access fragment values.
 * Never participates in fragment derivation.
 
-### 2.3 Customer Fragment (CF)
+### Customer Fragment (CF)
 
 If enabled:
 
-* A 256-bit fragment is generated client-side.
-* It remains exclusively in the customer environment (e.g., HSM, on-prem, or private cloud).
+* A 256-bit key fragment is generated client-side.
+* It remains exclusively in the customer environment.
 * It is never transmitted to Akeyless.
 * Operations cannot complete without CF participation.
 
-### 2.4 Akeyless Gateway
+### Akeyless Gateway
 
 The Gateway:
 
 * Manages the Customer Fragment when applicable.
 * Performs client-side assembly of derived keys.
-* Caches non-sensitive metadata for performance.
+* Caches non-sensitive metadata for performance optimization.
 * Remains stateless for sensitive data; no fragment material is persisted.
 
 ***
 
-## 3. Key Generation Process
+## Key Generation Process
 
-### 3.1 Distributed Fragment Creation
+### Distributed Fragment Creation
 
 When a key is created:
 
-1. Each KFM independently generates a fragment using secure randomness.
+1. Each KFM independently generates a fragment using a cryptographically secure random number generator.
 2. Fragments are stored only in their local encrypted datastore.
 3. No KFM sees another KFM’s fragment.
 4. No system ever holds or computes the full key.
@@ -80,7 +78,7 @@ Result:
 `Key = f(Fragment_A, Fragment_B, Fragment_C, [Customer Fragment])`  
 where `f()` is a one-way mathematical relationship established by KDF operations.
 
-### 3.2 Fragment Storage Characteristics
+### Fragment Storage Characteristics
 
 * Stored only at the KFM that generated it.
 * Encrypted at disk and application level.
@@ -89,7 +87,7 @@ where `f()` is a one-way mathematical relationship established by KDF operations
 
 ***
 
-## 4. Cryptographic Operation Flow
+## Cryptographic Operation Flow
 
 This applies to operations such as encryption, decryption, signing, HMAC, or secret generation.
 
@@ -115,7 +113,7 @@ This applies to operations such as encryption, decryption, signing, HMAC, or sec
 
 ***
 
-## 5. Fragment Refreshing
+## Fragment Refreshing
 
 DFC includes continuous fragment refreshing to reduce exposure duration.
 
@@ -123,14 +121,14 @@ DFC includes continuous fragment refreshing to reduce exposure duration.
 
 Each KFM:
 
-1. Computes a new fragment value `Fragment'`.
+1. Computes a new fragment value.
 2. Ensures the new fragment set still resolves mathematically to the original key.
 3. Updates the fragment in its encrypted datastore.
-4. Operates independently—no coordination with other KFMs.
+4. Operates independently (no coordination with other KFMs).
 
 ### Security Impact
 
-An attacker must compromise all fragments **within the same refresh interval** to have any chance of deriving a key—an infeasible requirement due to:
+An attacker must compromise all fragments **within the same refresh interval** to have any chance of deriving a key. This is not a feasible requirement due to:
 
 * geographic distribution
 * multi-cloud isolation
@@ -139,29 +137,29 @@ An attacker must compromise all fragments **within the same refresh interval** t
 
 ***
 
-## 6. Zero-Knowledge Architecture
+## Zero-Knowledge Architecture
 
 DFC enables a zero-knowledge model:
 
 * Akeyless cannot decrypt customer data.
 * Cloud providers hosting KFMs cannot reconstruct the key.
-* Customer Fragment prevents unilateral operations.
+* An optional Customer Fragment can prevent unilateral operations.
 * Compromise of a single component yields no meaningful key information.
 
 ***
 
-## 7. Post-Quantum Protections
+## Post-Quantum Protections
 
 DFC uses hybrid TLS 1.3 with:
 
 * **ML-KEM768** (NIST PQC KEM)
 * **X25519** (classical elliptic curve)
 
-This provides protection against future quantum attacks on captured traffic.
+These provide protection against potential future quantum attacks on captured traffic.
 
 ***
 
-## 8. Operational Considerations
+## Operational Considerations
 
 * Fragment holders must be reachable for operations.
 * Gateway availability is required for CF-based operations.
@@ -170,7 +168,7 @@ This provides protection against future quantum attacks on captured traffic.
 
 ***
 
-## 9. Supported Operation Types
+## Supported Operation Types
 
 DFC supports:
 
@@ -186,4 +184,4 @@ DFC supports:
 
 ## Summary
 
-The DFC deep-dive model shows how Akeyless performs distributed, non-reconstructive cryptographic operations using independent fragments, optional customer participation, continuous refresh cycles, and NIST-approved primitives. Keys are never stored or reconstructed, enabling secure and verifiable operations across distributed environments.
+This page shows how Akeyless performs distributed, non-reconstructive cryptographic operations using independent fragments, optional customer participation, continuous refresh cycles, and NIST-approved primitives. Keys are never stored or reconstructed, enabling secure and verifiable operations across distributed environments.
