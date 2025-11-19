@@ -17,6 +17,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 # Prerequisites
 
+* [Authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods#/) with permissions to create items in the platform.
 * A K8s Cluster
 * [Helm](https://helm.sh/) Installed
 * [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
@@ -28,59 +29,21 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
 | SSH Access                                                                                   | 22   |
 
-> 📘 First things first
->
-> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/quick-start-guide#remote-access-section) section.
+# Configuration
 
-# Create Your Authentication Method
+The following steps will be used to prepare the environment.
 
-> 👍 Authentication note
->
-> For the purposes of this guide, we are using an API Key. However, for security reasons, it is advised to use a more secure [authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods).
+## Create an API Key
 
-To create your API Key follow the below CLI commands:
+In this guide, for simplicity, we will use an API Key for the authentication, however, you can use each of the following [auth methods](https://docs.akeyless.io/docs/gateway-chart#/).
 
-1. Create an API Key authentication method from the CLI, run the following command:
+To create an API Key, run the following command:
 
 ```shell
-akeyless auth-method create api-key --name MyFirstAPIKey
+akeyless auth-method create api-key --name MyFirstKey
 ```
 
-2. Configure your CLI to work with the API Key by running the following command:
-
-```shell
-akeyless configure --profile default --access-id <Your API Key Auth AccessID>  --access-key <Your API Key>
-```
-
-# Create Your Access Role
-
-Follow this tutorial to create an Access Role and associate your Authentication Method. Or you can follow the below CLI commands:
-
-1. Create a new access role:
-
-```shell
-akeyless create-role --name MyFirstRole
-```
-
-2. Set the role with access to all Items under /path/to/folder/ with Read and List permissions:
-
-```shell
-akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --capability read --capability list
-```
-
-3. Also, set the role with access to Targets:
-
-```shell
-akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --rule-type target-rule --capability read --capability list
-```
-
-4. Associate the Authentication Method with the Role:
-
-```shell
-akeyless assoc-role-am --role-name MyFirstRole --am-name MyFirstAPIKey
-```
-
-Now you have an Authentication Method with the right access to deploy the Gateway.
+<br />
 
 # Create Your SSH Certificate Issuer
 
