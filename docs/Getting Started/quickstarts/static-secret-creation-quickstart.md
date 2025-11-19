@@ -12,14 +12,14 @@ This Quickstart guides you through creating a Static Secret in Akeyless. A Stati
 You will need:
 
 * An active Akeyless account
-* Access to the Akeyless Console at <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
+* Access to the Akeyless Console at <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="https://console.akeyless.io" target="_blank" href="https://console.akeyless.io">https://console.akeyless.io</Anchor></Anchor>
 
 If you do not yet have an account, complete the **Creating an Akeyless Account Quickstart** first.
 
 ## Step 1: Sign In to the Akeyless Console
 
 1. Open the Akeyless Console:  
-   <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
+   <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="https://console.akeyless.io" target="_blank" href="https://console.akeyless.io">https://console.akeyless.io</Anchor></Anchor>
 2. Enter your email address and password.
 3. Select **Sign In**.
 
