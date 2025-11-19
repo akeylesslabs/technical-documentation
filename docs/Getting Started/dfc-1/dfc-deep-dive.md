@@ -24,8 +24,6 @@ DFC does not introduce new encryption algorithms; it introduces a new key-handli
 
 ## System Components
 
-<br />
-
 ### Key Fragment Managers (KFMs)
 
 KFMs are isolated microservices distributed across independent cloud providers and regions. Each KFM:
