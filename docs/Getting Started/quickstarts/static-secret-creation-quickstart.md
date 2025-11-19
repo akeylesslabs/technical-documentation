@@ -5,21 +5,21 @@ hidden: false
 metadata:
   robots: index
 ---
-This Quickstart guides you through creating a static secret in Akeyless. A static secret is a user-defined value, such as an API key or password, that you store and retrieve as needed. This is the most basic operation in Akeyless and is often the first step before integrating secrets with applications or automation.
+This Quickstart guides you through creating a Static Secret in Akeyless. A Static Secret is a user-defined value, such as an API key or password, that you store and retrieve as needed. This is the most basic operation in Akeyless and is often the first step before integrating secrets with applications or automation.
 
 ## Prerequisites
 
 You will need:
 
-* An active Akeyless account  
-* Access to the Akeyless Console at <Anchor label="https://console.akeyless.io" href="https://console.akeyless.io" target="_blank">https://console.akeyless.io</Anchor>
+* An active Akeyless account
+* Access to the Akeyless Console at <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
 
-If you do not yet have an account, complete the **Creating an Akeyless Account** Quickstart first.
+If you do not yet have an account, complete the **Creating an Akeyless Account Quickstart** first.
 
 ## Step 1: Sign In to the Akeyless Console
 
 1. Open the Akeyless Console:  
-   <Anchor label="https://console.akeyless.io" href="https://console.akeyless.io" target="_blank">https://console.akeyless.io</Anchor>
+   <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
 2. Enter your email address and password.
 3. Select **Sign In**.
 
@@ -36,4 +36,4 @@ This opens the secret creation form.
 
 1. In the **Type** field, select **Static Secret**.
 2. In the **Path** field, enter a unique path where the secret will be stored.  
-   Examples:  
+   Examples:
