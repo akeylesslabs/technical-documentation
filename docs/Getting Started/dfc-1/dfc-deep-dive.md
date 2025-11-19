@@ -1,7 +1,7 @@
 ---
 title: DFC Deep Dive
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   keywords:
     - distributed fragment cryptography
