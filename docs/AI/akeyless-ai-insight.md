@@ -196,13 +196,13 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 | Gateway unreachable    | Check that port 8000 is open and firewall rules allow access |
 | API key errors         | Verify the API key is valid and check the base URL           |
 
-Configuration Checklist
+## Configuration Checklist
 
-| Step                  | Status |
-| --------------------- | ------ |
-| Enable AI Insights    | ☐      |
-| Create Target         | ☐      |
-| Store Target ID       | ☐      |
-| Configure Gateway     | ☐      |
-| Verify Gateway Config | ☐      |
-| Test in UI            | ☐      |
+* [ ] Enable AI Insights
+* [ ] Create OpenAI target
+* [ ] Store target ID
+* [ ] Configure gateway
+* [ ] Verify the Gateway configuration
+* [ ] Test in the Web UI
+
+<br />
