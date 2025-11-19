@@ -86,7 +86,15 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 ## `<details>`
 
-Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoided. 
+Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoided, but the `<details>` tag is a good use of custom HTML.
+
+<details>
+
+<summary>Learn more about the `<details>` tag.</summary>
+
+Not summary text.
+
+</details>
 
 # Formatting
 
