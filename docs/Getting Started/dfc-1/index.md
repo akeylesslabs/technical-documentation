@@ -6,6 +6,9 @@ metadata:
   robots: index
 next:
   pages:
+    - slug: components
+      title: Platform Components Overview
+      type: basic
     - slug: dfc-deep-dive
       title: DFC Deep Dive
       type: basic
