@@ -4,6 +4,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: quickstarts
+      title: Quickstarts
+      type: basic
 ---
 The Akeyless platform is composed of several components that work together to provide identity security services without storing or reconstructing full private keys or long-lived secrets. This page describes each component’s role at a high level.
 
