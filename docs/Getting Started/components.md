@@ -102,10 +102,10 @@ When a CF is used, the Gateway manages CF access and combines CF-derived values 
 
 ## Connectors and Targets
 
-Connectors and targets define how Akeyless interacts with external systems. They support:
+Connectors and Targets define how Akeyless interacts with external systems. They support:
 
-* Dynamic secrets (e.g., cloud IAM credentials, database credentials)
-* Secrets rotation (e.g., rotating passwords, tokens, or access keys)
+* Dynamic secrets (for example, cloud IAM credentials, database credentials)
+* Secrets rotation (for example, rotating passwords, tokens, or access keys)
 * Use of Akeyless-managed encryption keys in external services
 
 Examples include:
@@ -134,7 +134,7 @@ Clients may communicate directly with the Akeyless Platform or through the Gatew
 
 ***
 
-## Logical Flow Between Components (High-Level)
+## Logical Flow Between Components
 
 A typical cryptographic or secret-management request works as follows:
 
