@@ -5,129 +5,153 @@ hidden: false
 metadata:
   robots: index
 ---
-At a high level, the Akeyless platform consists of:
+The Akeyless platform is composed of several components that work together to provide identity security services without storing or reconstructing full private keys or long-lived secrets. This page describes each component’s role at a high level.
 
-* The **Akeyless Platform** (SaaS control plane)
+## High-Level Components
+
+* **Akeyless Platform** (SaaS control plane)
 * Internal **Key Fragment Managers (KFMs)** and the **Unified Access Manager (UAM)**
-* The **Akeyless Gateway** (deployed in customer environments)
-* **Connectors** and **Targets** for external systems
-* **Client tools** (CLI, SDKs, and APIs)
-* An optional **Customer Fragment (CF)** component in the customer environment
+* **Akeyless Gateway** (customer-deployed)
+* **Connectors** and **Targets**
+* **Client Tools** (CLI, SDKs, API)
+* Optional **Customer Fragment (CF)** in the customer environment
 
-Distributed Fragments Cryptography (DFC) and the Vaultless architecture are implemented across these components.
+Distributed Fragments Cryptography (DFC) and the Vaultless architecture are implemented across these components but are described in detail on their dedicated pages.
+
+---
 
 ## Akeyless Platform (SaaS Control Plane)
 
-The Akeyless Platform is a multi-tenant, cloud-hosted control plane operated by Akeyless. It is responsible for:
+The Akeyless Platform is the cloud-hosted control plane that coordinates identity operations. It is responsible for:
 
-* Authenticating users, services, and workloads
-* Evaluating authorization policies (RBAC and ABAC)
-* Managing metadata for keys, secrets, and certificates
-* Orchestrating cryptographic operations using DFC
-* Providing administration interfaces (UI, API) and audit visibility
+* Authenticating users, services, and workloads  
+* Evaluating authorization policies (RBAC and ABAC)  
+* Managing metadata for keys, secrets, and certificates  
+* Orchestrating cryptographic operations using DFC  
+* Providing administrative interfaces (UI, API)  
+* Recording audit events and operational metrics  
 
-Key responsibilities:
+Key characteristics:
 
-* Receive requests from client tools or gateways
-* Validate identity and permissions
-* Route cryptographic operations to internal components (KFMs)
-* Record relevant audit events and metrics
+* The platform never stores complete private keys or full secrets in a retrievable form.  
+* It routes cryptographic operations but does not perform fragment-level derivation.  
+* All sensitive key material stays within KFMs or customer-controlled environments.  
 
-The Akeyless Platform does **not** store complete private keys or full secret values in a retrievable form. Key material is managed through DFC and fragments held in KFMs and, optionally, customer-owned environments.
+---
 
 ## Unified Access Manager (UAM)
 
-The Unified Access Manager is an internal service within the Akeyless Platform that coordinates access and operations. UAM:
+The Unified Access Manager coordinates authorization and routing for cryptographic operations.
 
-* Holds logical information about keys, secrets, and configurations (IDs, metadata, policies)
-* Makes authorization decisions based on configured policies
-* Routes operation requests to the appropriate Key Fragment Managers
-* Does not hold or process fragment values
+UAM:
 
-UAM knows _which_ fragments are required for a given operation, not _what_ those fragments are.
+* Maintains logical metadata for keys, roles, and policies  
+* Authorizes operations based on identity, policy, and context  
+* Dispatches derivation requests to the appropriate KFMs  
+* Does **not** hold fragment values or perform fragment-level computation  
+
+UAM knows *which fragments* participate in an operation, not *the fragment data itself*.
+
+---
 
 ## Key Fragment Managers (KFMs)
 
-Key Fragment Managers are internal microservices that implement Distributed Fragments Cryptography. Each KFM:
+KFMs are internal services responsible for holding and processing key fragments.
 
-* Holds a single encrypted fragment of a key in its own isolated datastore
-* Runs in a separate cloud region or provider to maintain isolation
-* Performs local fragment derivation when requested by UAM
-* Never exposes its fragment value or communicates with other KFMs
-* Periodically refreshes its fragment values to reduce long-term exposure
+Each KFM:
 
-KFMs are not directly accessible to customers. All interaction is mediated by the Akeyless Platform.
+* Stores one encrypted key fragment in its own isolated datastore  
+* Runs in an independent region or cloud provider to ensure environmental separation  
+* Performs fragment-specific derivation operations when requested  
+* Never shares fragment values or communicates with other KFMs  
+* Refreshes its fragment values periodically  
+
+KFMs are not customer-facing. All access is mediated through the Akeyless Platform.
+
+---
 
 ## Akeyless Gateway
 
-The Akeyless Gateway is a lightweight component deployed in the customer’s environment (for example, in a VPC, data center, or Kubernetes cluster). It is used when:
+The Akeyless Gateway is an optional, lightweight component deployed within the customer environment. It is commonly used for:
 
-* Accessing resources that are not reachable from the public internet
-* Integrating with private databases, services, or infrastructure
-* Using an optional Customer Fragment (CF) for zero-knowledge configurations
-* Reducing latency by keeping some logic closer to workloads
+* Accessing private networks or internal systems  
+* Integrating with on-premises databases, directories, or services  
+* Participating in operations that use a Customer Fragment  
+* Reducing latency by keeping derivation and request handling close to workloads  
 
-The Gateway:
+Gateway characteristics:
 
-* Accepts requests from local clients or applications
-* Forwards authenticated and authorized operations to the Akeyless Platform
-* Optionally manages the Customer Fragment and performs local derivation of one-time keys
-* Caches **non-sensitive** metadata for performance, but does not persist secrets, full keys, or cryptographic fragments
+* Performs local combination of fragment derivations when a CF is present  
+* Caches **non-sensitive** metadata to improve performance  
+* Does **not** store secrets, private keys, or cryptographic fragments  
+* Can run in constrained or air-gapped environments  
 
-The Gateway extends reach and performance but does not hold full secret or key material and does not break the Vaultless design.
+---
 
 ## Customer Fragment (CF) (Optional)
 
-When zero-knowledge and customer-controlled key custody are required, a Customer Fragment can be enabled:
+A Customer Fragment can be enabled when organizations require customer-controlled key custody.
 
-* The CF is generated and stored in the customer environment (for example, HSM, private cloud, or on-premises infrastructure).
-* It is never sent to Akeyless.
-* Akeyless cannot complete cryptographic operations that depend on that key without the CF.
+The CF:
 
-In typical deployments, the Gateway coordinates access to the CF, deriving values that are combined with derivations from KFMs to produce a one-time derived key used for a single operation.
+* Is generated and stored entirely within the customer environment  
+* Is never transmitted to Akeyless  
+* Must participate in any operation involving its associated key  
+
+When a CF is used, the Gateway typically manages CF access and combines CF-derived values with derivations from KFMs.
+
+---
 
 ## Connectors and Targets
 
-Connectors and targets are configuration objects that define how Akeyless interacts with external systems. They are used for:
+Connectors and targets define how Akeyless interacts with external systems. They support:
 
-* Dynamic secrets (e.g., database credentials, cloud IAM credentials)
-* Secrets rotation (e.g., rotating passwords in databases or cloud services)
-* Encryption key usage for external storage or services
+* Dynamic secrets (e.g., cloud IAM credentials, database credentials)  
+* Secrets rotation (e.g., rotating passwords, tokens, or access keys)  
+* Use of Akeyless-managed encryption keys in external services  
 
-Common examples:
+Examples include:
 
-* Database targets (PostgreSQL, MySQL, MSSQL, etc.)
-* Cloud provider targets (AWS, Azure, GCP)
-* Directory or identity provider targets (LDAP, Active Directory)
-* Other application or service targets
+* Cloud provider targets (AWS, Azure, GCP)  
+* Database targets (PostgreSQL, MySQL, MSSQL)  
+* Directory services (LDAP, Active Directory)  
+* Application or service-specific integrations  
 
-Connectors use credentials or identities configured by the customer. Akeyless uses these configurations to perform operations on the customer’s behalf, without exposing underlying secrets to callers.
+Connectors rely on customer-supplied identities or credentials. These identities are used only by the connector; callers never receive them directly.
+
+---
 
 ## Client Tools
 
-Client tools are how users and workloads interact with Akeyless. They include:
+Client tools are used by applications, automation systems, and administrators to interact with Akeyless services.
 
-* **Web Console**: Browser-based UI for administration, configuration, and monitoring.
-* **CLI**: A command-line interface for scripting, local development, and operational tasks.
-* **SDKs**: Language-specific SDKs (for example, Go, Python, Java, JavaScript) used by applications and automation.
-* **REST API**: The core HTTP API used by tools, SDKs, and integrations.
+Available tools include:
 
-Clients can connect directly to the Akeyless Platform or, in some environments, to the Gateway, which then forwards requests.
+* **Web Console** — UI for configuration, access control, and monitoring  
+* **CLI** — Command-line interface for administrative and operational tasks  
+* **SDKs** — Language clients (Go, Python, Java, JavaScript, etc.)  
+* **REST API** — Core entry point for programmatic access  
 
-## Logical Flow Between Components
+Clients may communicate directly with the Akeyless Platform or through the Gateway.
 
-A typical operation such as “encrypt data with a key” involves:
+---
 
-1. A client (CLI, SDK, or application) sends a request to the Akeyless Platform or Gateway.
-2. The Platform (via UAM) authenticates the caller and checks policies.
-3. UAM dispatches derivation requests to KFMs holding relevant key fragments.
-4. KFMs perform local derivations and return partial results.
-5. If configured, the Gateway or customer-side component uses the Customer Fragment to derive an additional value.
-6. The Gateway or client combines derivations to compute a one-time derived key and performs the cryptographic operation.
-7. The derived key is discarded, and the result (for example, ciphertext or signature) is returned to the client.
+## Logical Flow Between Components (High-Level)
 
-Throughout this process, full key material never exists on any single component.
+A typical cryptographic or secret-management request works as follows:
+
+1. A client sends a request to the Akeyless Platform or through the Gateway.  
+2. UAM authenticates the caller and evaluates authorization policies.  
+3. UAM dispatches fragment-derivation requests to relevant KFMs.  
+4. KFMs return fragment-derived values.  
+5. If a Customer Fragment is configured, the Gateway derives a customer-side value.  
+6. The Gateway or client assembles a one-time derived key and completes the requested operation.  
+7. Derived key material is discarded immediately after use.  
+
+This workflow maintains the Vaultless and non-reconstructive guarantees of the platform.
+
+---
 
 ## Summary
 
-The Akeyless platform is composed of a cloud-hosted control plane, internal cryptographic services, and optional customer-deployed components such as the Gateway and Customer Fragment. Together, these components implement the Vaultless architecture and Distributed Fragments Cryptography, allowing secrets, keys, and certificates to be used without storing or reconstructing complete key material.
+The Akeyless platform consists of cloud-hosted control-plane services, internal fragment managers, and optional customer-deployed components. Each component has a clearly defined role, and none of them—individually or collectively—store or reconstruct full private keys. Together, they implement the Vaultless model and Distributed Fragments Cryptography used for secure, scalable identity operations.
