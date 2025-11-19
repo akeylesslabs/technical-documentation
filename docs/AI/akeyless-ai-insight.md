@@ -185,16 +185,16 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 
 ## Troubleshooting
 
-| Issue                  | Resolution                   |
-| ---------------------- | ---------------------------- |
-| `AI Insights disabled` | Enable at account level      |
-| `Gateway disabled`     | Update gateway config        |
-| Invalid model          | Must use `gpt-`              |
-| Invalid target         | Must be OpenAI               |
-| Target not found       | Validate target name/ID      |
-| Authentication failure | Re-auth with `akeyless auth` |
-| Gateway unreachable    | Check port 8000 + firewall   |
-| API key errors         | Check validity + base URLs   |
+| Issue                  | Resolution                                                   |
+| ---------------------- | ------------------------------------------------------------ |
+| AI Insights disabled   | Enable AI Insights at the account level                      |
+| Gateway disabled       | Update gateway configuration                                 |
+| Invalid model          | Ensure the model value uses the `gpt-` prefix                |
+| Invalid target         | Ensure the target is an OpenAI target                        |
+| Target not found       | Validate the target name and ID                              |
+| Authentication failure | Re-authenticate by running `akeyless auth`                   |
+| Gateway unreachable    | Check that port 8000 is open and firewall rules allow access |
+| API key errors         | Verify the API key is valid and check the base URL           |
 
 Configuration Checklist
 
