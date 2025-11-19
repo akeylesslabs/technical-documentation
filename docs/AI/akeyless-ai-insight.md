@@ -56,15 +56,15 @@ The output should contain:
 "ai_insights": { "enable": true }
 ```
 
+<Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
+
 <Callout icon="📘" theme="info">
   To disable AI Insights, run the following command:
 
   `akeyless update-account-settings --enable-ai-insights false`
 </Callout>
 
-Text.
 
-<Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
 
 ### Step 2: Create an OpenAI Target
 
