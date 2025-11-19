@@ -4,6 +4,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: account-quickstart
+      title: Creating an Akeyless Account Quickstart
+      type: basic
 ---
 Quick starts are short, task-focused guides that help you complete common Akeyless workflows end to end. They are designed to be followed in order if you are new to the platform, but each guide can also be used independently.
 
