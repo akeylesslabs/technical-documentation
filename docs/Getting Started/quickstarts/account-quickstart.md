@@ -28,22 +28,25 @@ No prior Akeyless account or configuration is required.
   You do _not_ need to change the **Environment** drop-down menu's value.
 </Callout>
 
-3. Access the corresponding email inbox, wait for the verification email to arrive, open it, and select **Activate your account**.
-
 ## Step 2: Verify Your Email Address
 
 1. Open the verification email sent by Akeyless.
-2. Select the **Verify Email** link inside the message.
+2. Select the **Activate your account** link inside the message.
 
 If you do not receive the verification email:
 
 * Check spam or junk folders.
 * Confirm the email address was entered correctly.
-* Request another verification email from the signup screen.
+* Request another verification email from the registration screen.
 
 Once your email is verified, your account becomes active.
 
-## Step 3: Sign In to the Akeyless Console
+## Step 3: Create a Password
+
+1. Create a password for your account.
+2. Text.
+
+## Step 4: Sign In to the Akeyless Console
 
 1. Go to: **[https://console.akeyless.io/](https://console.akeyless.io/)**
 2. Enter your email and password.
@@ -51,7 +54,7 @@ Once your email is verified, your account becomes active.
 
 You are now logged in to the Akeyless Console.
 
-## Step 4: Complete Initial Console Setup
+## Step 5: Complete Initial Console Setup
 
 When signing in for the first time, you may be prompted to:
 
