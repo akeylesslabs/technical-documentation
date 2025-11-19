@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-### Overview
+## Overview
 
 Akeyless AI Insights enables natural-language interaction with the Akeyless platform using Large Language Models (LLMs).
 To operate, AI Insights must be configured at:
@@ -17,7 +17,7 @@ Supported LLM Providers
 
 * OpenAI (GPT models)
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have:
 
@@ -28,7 +28,7 @@ Before you begin, ensure you have:
 * Ability to create and manage Targets in Akeyless
 * Protection key available (for encrypting API credentials)
 
-### High-Level Steps
+## High-Level Steps
 
 | Step | Description                         | Tool     |
 | ---- | ----------------------------------- | -------- |
@@ -145,7 +145,7 @@ To disable:
 "ai_insights": { "enable": false }
 ```
 
-### Verification
+## Verification
 
 Verify Account Setting
 
