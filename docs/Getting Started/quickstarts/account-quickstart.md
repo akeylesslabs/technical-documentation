@@ -28,7 +28,7 @@ No prior Akeyless account or configuration is required.
 After submitting the form, Akeyless sends a verification email to the address you provided.
 
 <Callout icon="📘" theme="info">
-  You do **not** need to change the **Environment** drop-down menu's value.
+  You do *not* need to change the **Environment** drop-down menu's value.
 </Callout>
 
 ## Step 2: Verify Your Email Address
