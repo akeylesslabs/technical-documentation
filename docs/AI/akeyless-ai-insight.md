@@ -70,7 +70,7 @@ AI Insights can also be enabled at the account level using the GUI.
 
 This section describes how to create an OpenAI target for use with AI Insights.
 
-### Command Syntax
+#### Command Syntax
 
 Use the following command to create an OpenAI target:
 
@@ -84,7 +84,7 @@ akeyless target create openai \
   [--key <protection-key>]
 ```
 
-#### Example
+##### Example
 
 The following example creates an OpenAI target named `my-openai-target` with the GPT-4 model:
 
@@ -95,7 +95,7 @@ akeyless target create openai \
   --model gpt-4
 ```
 
-### Find the Target ID
+#### Find the Target ID
 
 To retrieve the target ID, run the following command:
 
@@ -103,14 +103,14 @@ To retrieve the target ID, run the following command:
 akeyless get-target --name <target-name>
 ```
 
-### Model Requirements
+#### Model Requirements
 
 OpenAI models must use the `gpt-` prefix. The following are valid examples:
 
 * gpt-4
 * gpt-3.5-turbo
 
-Step 3 - Configure Gateway
+### Step 3 - Configure Gateway
 
 <Image border={false} src="https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png" />
 
