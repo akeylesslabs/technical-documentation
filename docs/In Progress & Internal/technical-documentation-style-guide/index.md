@@ -89,10 +89,17 @@ This guide defines standards for writing clear, consistent, and professional tec
 Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoided, but the `<details>` tag is a good use of custom HTML.
 
 <details>
+  <summary>Learn more about the `<details>` tag.</summary>
 
-<summary>Learn more about the `<details>` tag.</summary>
+    Here is an example usage of the `<details>` tag:
+    ```html
+    I am text that should be displayed.
+    <details>
+    <summary>I am the text to display as the title of collapsed text (a summary)</summary>
+    I am text that should be hidden by default.
+    </details>
+    ```
 
-Not summary text.
 
 </details>
 
