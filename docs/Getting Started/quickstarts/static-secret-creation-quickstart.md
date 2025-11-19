@@ -49,3 +49,7 @@ The details of your Static Secret should be open in the right half of your brows
 2. Select the eye symbol to retrieve and decrypt the value of **Quick Secret**.
 
 **Super Secret** should be displayed.
+
+***
+
+*You have successfully created a Static Secret in the Akeyless Console.*
