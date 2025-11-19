@@ -95,8 +95,6 @@ This applies to operations such as encryption, decryption, signing, HMAC, or sec
 
 ### Step-by-Step
 
-<br />
-
 ```mermaid
 sequenceDiagram
     autonumber
