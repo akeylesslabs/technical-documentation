@@ -78,3 +78,4 @@ metadata:
 * If using variables like `{username}` or `{path}`, describe their expected format so translation can adjust grammar as needed.
 * Do not overload with unnecessary detail.
 * Do not use bolded text, when a heading is appropriate.
+* Latin phrases are abbreviations should be avoided.
