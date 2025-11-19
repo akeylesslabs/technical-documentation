@@ -26,10 +26,11 @@ You will be taken to the Akeyless Console homepage.
 
 ## Step 2: Open the Secrets Page
 
-1. In the left navigation menu, select **Secrets**.
-2. Select **Create Secret**.
+1. In the left navigation menu, select **Items**.
+2. Select **+ New**.
+3. Select **Static Secret** from the presented menu.
 
-This opens the secret creation form.
+This opens the **Create Static Secret** form.
 
 ## Step 3: Choose a Secret Type and Path
 
