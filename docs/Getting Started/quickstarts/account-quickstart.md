@@ -28,6 +28,8 @@ No prior Akeyless account or configuration is required.
   You do *not* need to change the **Environment** drop-down menu's value.
 </Callout>
 
+3. Text.
+
 ## Step 2: Verify Your Email Address
 
 1. Open the verification email sent by Akeyless.
