@@ -6,7 +6,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: dfc-1
+    - slug: dfc-overview
       title: Distributed Fragments Cryptography (DFC)
       type: basic
 ---
