@@ -84,6 +84,10 @@ This guide defines standards for writing clear, consistent, and professional tec
   Java Code
   ```
 
+## `<details>`
+
+Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoided. 
+
 # Formatting
 
 * **Bold**: For UI elements, important notes, or emphasis.
