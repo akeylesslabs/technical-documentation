@@ -7,68 +7,108 @@ metadata:
 ---
 ## Overview
 
-Akeyless AI Insights enables natural-language interaction with the Akeyless platform using Large Language Models (LLMs).
-To operate, AI Insights must be configured at:
+Akeyless AI Insights enables natural-language interaction with the Akeyless platform using Large Language Models (LLMs). To use AI Insights, it must be configured at:
 
-1. Account level - feature enablement
-2. Gateway level - specify LLM target + model
+1. **Account level** — Enable the feature
+2. **Gateway level** — Specify the LLM target and model
 
-Supported LLM Providers
+### Supported LLM Providers
 
 * OpenAI (GPT models)
 
 ## Prerequisites
 
-Before you begin, ensure you have:
+Before you begin, ensure you have the following:
 
-* Akeyless CLI installed & authenticated (admin access)\
-* LLM Provider account + API Key
+* Akeyless CLI installed and authenticated with admin access
+* LLM Provider account and API Key
   * OpenAI — [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 * Akeyless Gateway running
 * Ability to create and manage Targets in Akeyless
-* Protection key available (for encrypting API credentials)
+* Protection key available for encrypting API credentials
 
-## High-Level Steps
+## High-Level Setup Steps
 
-| Step | Description                         | Tool     |
-| ---- | ----------------------------------- | -------- |
-| 1    | Enable AI Insights at account level | CLI      |
-| 2    | Create OpenAI Target                | CLI      |
-| 3    | Configure Gateway for AI Insights   | REST API |
-| 4    | Validate configuration & test       | CLI / UI |
+| Step | Description                                    | Tool       |
+| ---- | ---------------------------------------------- | ---------- |
+| 1    | Enable AI Insights at the account level        | CLI        |
+| 2    | Create an OpenAI Target                        | CLI        |
+| 3    | Configure the Akeyless Gateway for AI Insights | REST API   |
+| 4    | Validate the configuration and test            | CLI or GUI |
 
-<br />
+### Step 1: Enable AI Insights at the Account Level
 
-Step 1 - Enable AI Insights (Account Level)
+To enable AI Insights, run the following command:
 
 ```shell
-akeyless update-account-settings \
-  --enable-ai-insights true
+akeyless update-account-settings --enable-ai-insights true
 ```
 
-To verify:
+To verify that AI Insights is enabled, run the following command:
 
 ```shell
 akeyless get-account-settings
 ```
 
-Expected result contains:
+The output should contain:
 
 ```shell
 "ai_insights": { "enable": true }
 ```
 
-To disable:
+<Callout icon="📘" theme="info">
+  To disable AI Insights, run the following command:
 
-```shell
-akeyless update-account-settings --enable-ai-insights false
-```
-
-Step 2 - Create LLM Target
-
-Option A - OpenAI Target
+  `akeyless update-account-settings --enable-ai-insights false`
+</Callout>
 
 <Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
+
+### Step 2: Create an OpenAI Target
+
+This section describes how to create an OpenAI target for use with AI Insights.
+
+### Command Syntax
+
+Use the following command to create an OpenAI target:
+
+```shell
+akeyless target create openai \
+  --name <target-name> \
+  --api-key <openai-api-key> \
+  [--openai-url <base-url>] \
+  [--model <default-model>] \
+  [--organization-id <org-id>] \
+  [--key <protection-key>]
+```
+
+#### Example
+
+The following example creates an OpenAI target named `my-openai-target` with the GPT-4 model:
+
+```shell
+akeyless target create openai \
+  --name my-openai-target \
+  --api-key sk-xxxx \
+  --model gpt-4
+```
+
+### Find the Target ID
+
+To retrieve the target ID, run the following command:
+
+```shell
+akeyless get-target --name <target-name>
+```
+
+### Model Requirements
+
+OpenAI models must use the `gpt-` prefix. The following are valid examples:
+
+* gpt-4
+* gpt-3.5-turbo
+
+Option A - OpenAI Target
 
 <br />
 
