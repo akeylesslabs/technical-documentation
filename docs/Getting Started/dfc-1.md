@@ -16,11 +16,11 @@ DFC supports the Vaultless architecture by ensuring that no complete encryption 
 
 ```mermaid
 graph TD
-    C[Client] --> U[Akeyless]
-    U --> K1[AWS]
-    U --> K2[Azure]
-    U --> K3[GCP]
-    U --> CF[Customer Fragment]
+    C[Client] <--> U[Akeyless]
+    U <--> K1[AWS]
+    U <--> K2[Azure]
+    U <--> K3[GCP]
+    U <--> CF[Customer Fragment]
 
 ```
 
