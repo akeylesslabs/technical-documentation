@@ -28,7 +28,7 @@ No prior Akeyless account or configuration is required.
   You do _not_ need to change the **Environment** drop-down menu's value.
 </Callout>
 
-3. Access the corresponding email inbox.
+3. Access the corresponding email inbox, wait for the verification email to arrive, open it, and select **Activate your account**.
 
 ## Step 2: Verify Your Email Address
 
