@@ -107,7 +107,7 @@ sequenceDiagram
     participant K1 as KFM A
     participant K2 as KFM B
     participant K3 as KFM C
-    participant CF as Customer Fragment
+    participant CF as Customer Fragment Store
 
     %% 1. Client authenticates
     C ->> G: Authenticate and request operation
@@ -121,20 +121,20 @@ sequenceDiagram
     U ->> K2: Derivation request
     U ->> K3: Derivation request
 
-    K1 -->> U: dA
-    K2 -->> U: dB
-    K3 -->> U: dC
+    K1 -->> U: derivation A
+    K2 -->> U: derivation B
+    K3 -->> U: derivation C
 
-    alt Customer Fragment present
+    alt If Customer Fragment present
         G ->> CF: Request CF derivation
-        CF -->> G: dCF
+        CF -->> G: derivation CF
     else No Customer Fragment
         Note over G: No CF derivation
     end
 
     %% 4. Derivation aggregation
-    U -->> G: Return {dA, dB, dC}
-    G ->> G: Combine derivations\ninto one-time derived key
+    U -->> G: Return derivations
+    G ->> G: Combine derivations into one-time derived key
 
     %% 5. Operation execution
     G ->> C: Return operation result
