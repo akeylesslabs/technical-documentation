@@ -10,8 +10,6 @@ next:
       title: Distributed Fragments Cryptography (DFC)
       type: basic
 ---
-# Vaultless Architecture
-
 Akeyless uses a Vaultless architecture to perform secret, key, and certificate operations without storing sensitive material in a retrievable form. This model removes the storage layer that traditional vault systems depend on and instead relies on distributed cryptographic operations to process identity-related workflows.
 
 The architecture is designed to ensure that no complete secret or private key is ever present at rest within the platform.
