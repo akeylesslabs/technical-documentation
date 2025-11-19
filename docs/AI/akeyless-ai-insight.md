@@ -152,9 +152,9 @@ To disable AI Insights on the gateway, set the enable field to `false`:
 "ai_insights": { "enable": false }
 ```
 
-<Image border={false} src="https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png" />
+The Gateway can also be configured with the GUI.
 
-<br />
+<Image border={false} src="https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png" />
 
 ## Verification
 
