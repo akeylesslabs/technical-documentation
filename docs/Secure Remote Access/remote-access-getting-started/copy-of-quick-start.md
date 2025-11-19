@@ -101,7 +101,12 @@ akeylessGatewayAuth:
 
 `gatewayAccessType`: The access type, for API Key use `access_key`.
 
-`gatewayCredentialsExistingSecret`: A [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains the value of the `AccessKey` of the API Key, for more information, click [here](https://docs.akeyless.io/docs/gateway-chart#/api-key-authentication).
+`gatewayCredentialsExistingSecret`: A [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains the value of the `AccessKey` of the API Key, in order to create the K8s secret, run the following command:
+
+```shell
+kubectl create secret generic access-key \
+  --from-literal=gateway-access-key=<plaintext-Access-Key>
+```
 
 ### Remote Access Section
 
@@ -124,7 +129,11 @@ To configure Remote Access, follow these steps:
 
 `sra`: Set the `enabled` field to `true`. Note that the Remote Access deployment creates two more pods in the cluster, one for **Web** and one for **SSH**.
 
-`CAPublicKey`: For this to work properly, you are also required to provide the matching public key of the key you used to create the SSH Certificate Issuer in Akeyless. More info can be found [here](https://docs.akeyless.io/docs/ssh-certificates). Add the `ssh-rsa` value.
+`CAPublicKey`: For this to work properly, you are also required to provide the matching public key of the key you used to create the SSH Certificate Issuer in Akeyless. Run the following command for getting the value:
+
+```shell
+akeyless get-rsa-public -n MyRSAKey
+```
 
 # Installation
 
