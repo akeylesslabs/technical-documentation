@@ -56,7 +56,7 @@ The output should contain:
 "ai_insights": { "enable": true }
 ```
 
-Text.
+AI Insights can also be enabled at the account level using the GUI.
 
 <Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
 
@@ -109,48 +109,6 @@ OpenAI models must use the `gpt-` prefix. The following are valid examples:
 
 * gpt-4
 * gpt-3.5-turbo
-
-Option A - OpenAI Target
-
-<br />
-
-Command
-
-```shell
-akeyless target create openai \
-  --name <target-name> \
-  --api-key <openai-api-key> \
-  [--openai-url <base-url>] \
-  [--model <default-model>] \
-  [--organization-id <org-id>] \
-  [--key <protection-key>]
-```
-
-Example
-
-```shell
-akeyless target create openai \
-  --name my-openai-target \
-  --api-key sk-xxxx \
-  --model gpt-4
-```
-
-Find Target ID
-
-```shell
-akeyless get-target --name <target-name>
-```
-
-Model Rules
-
-| Provider | Valid Prefix |
-| -------- | ------------ |
-| OpenAI   | `gpt-`       |
-
-Examples:
-
-* gpt-4, gpt-3.5-turbo
-* gpt4
 
 Step 3 - Configure Gateway
 
