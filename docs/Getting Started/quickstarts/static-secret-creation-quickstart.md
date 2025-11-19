@@ -38,3 +38,9 @@ This opens the **Create Static Secret** form.
 2. In the **Value** field (toward the bottom of the form), type **Super Secret**.
 3. Leave all other fields as their default values.
 4. Select **Finish**.
+
+Your Static Secret has been created.
+
+## Step 4: Verify your Secret
+
+<br />
