@@ -12,14 +12,14 @@ This Quickstart guides you through creating a Static Secret in Akeyless. A Stati
 You will need:
 
 * An active Akeyless account
-* Access to the Akeyless Console at <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="https://console.akeyless.io" target="_blank" href="https://console.akeyless.io">https://console.akeyless.io</Anchor></Anchor>
+* Access to the Akeyless Console at <Anchor label="[[https://console.akeyless.io](https://console.akeyless.io)](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor></Anchor>
 
 If you do not yet have an account, complete the **Creating an Akeyless Account Quickstart** first.
 
 ## Step 1: Sign In to the Akeyless Console
 
 1. Open the Akeyless Console:  
-   <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="https://console.akeyless.io" target="_blank" href="https://console.akeyless.io">https://console.akeyless.io</Anchor></Anchor>
+   <Anchor label="[[https://console.akeyless.io](https://console.akeyless.io)](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor></Anchor>
 2. Sign in to your existing Akeyless account.
 
 You will be taken to the Akeyless Console homepage.
@@ -43,4 +43,9 @@ Your Static Secret has been created.
 
 ## Step 4: Verify your Secret
 
-<br />
+The details of your Static Secret should be open in the right half of your browser. If not, select the **Quick Secret** item.
+
+1. In the **General** tab of your Static Secret, scroll to the bottom and look for the **Value** field.
+2. Select the eye symbol to retrieve and decrypt the value of **Quick Secret**.
+
+**Super Secret** should be displayed.
