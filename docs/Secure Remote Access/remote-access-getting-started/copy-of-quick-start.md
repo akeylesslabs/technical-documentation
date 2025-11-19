@@ -43,7 +43,7 @@ To create an API Key, run the following command:
 akeyless auth-method create api-key --name MyFirstKey
 ```
 
-The output will print the `AccessID` and `AccessKey` of the **API Key**. 
+The output will print the `AccessID` and `AccessKey` of the **API Key**.
 
 ## Create an SSH Certificate Issuer
 
@@ -97,11 +97,11 @@ akeylessGatewayAuth:
   gatewayCredentialsExistingSecret: access-key
 ```
 
-`gatewayAccessId`: The `AccessID` of the [API Key](https://docs.akeyless.io/docs/api-key) that was created earlier. 
+`gatewayAccessId`: The `AccessID` of the [API Key](https://docs.akeyless.io/docs/api-key) that was created earlier.
 
 `gatewayAccessType`: The access type, for API Key use `access_key`.
 
-`gatewayCredentialsExistingSecret`: A [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains the value of the `AccessKey` of the API Key, for more information, click [here](https://docs.akeyless.io/docs/gateway-chart#/api-key-authentication). 
+`gatewayCredentialsExistingSecret`: A [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains the value of the `AccessKey` of the API Key, for more information, click [here](https://docs.akeyless.io/docs/gateway-chart#/api-key-authentication).
 
 ### Remote Access Section
 
@@ -155,8 +155,6 @@ For the Gateway, you can access the following:
 For Remote Access, you can access the following:
 
 * The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
-
-  <Image align="center" border={false} src="https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png" />
 * Remote Access can also be accessed using our public URL: [https://zerotrust.akeyless.io](https://zerotrust.akeyless.io). If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/web-client`
 
 # Testing Out Remote Access
