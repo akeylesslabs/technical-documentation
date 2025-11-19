@@ -14,7 +14,7 @@ At a high level, the Akeyless platform consists of:
 * **Client tools** (CLI, SDKs, and APIs)
 * An optional **Customer Fragment (CF)** component in the customer environment
 
-DFT (Distributed Fragments Cryptography) and the Vaultless architecture are implemented across these components. This page focuses on roles and boundaries rather than cryptographic details.
+Distributed Fragments Cryptography (DFC) and the Vaultless architecture are implemented across these components. This page focuses on roles and boundaries rather than cryptographic details.
 
 ## Akeyless Platform (SaaS Control Plane)
 
