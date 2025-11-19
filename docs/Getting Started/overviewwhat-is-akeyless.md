@@ -10,81 +10,72 @@ next:
       title: Vaultless SaaS Architecture
       type: basic
 ---
-Akeyless is an **identity security platform** that safeguards the credentials, keys, and certificates that modern systems use to authenticate and authorize access. The platform centralizes machine identity management and reinforces security across distributed environments by ensuring that secrets, encryption keys, and certificates remain protected throughout their lifecycle.
+Akeyless is an **identity security platform** that protects the credentials, keys, and certificates that modern applications and systems use to authenticate and authorize access. The platform centralizes identity management for both human and machine users and applies consistent controls across distributed environments.
 
-Akeyless provides a single cloud-based control plane that supports a wide range of use cases, including application-to-application authentication, certificate issuance, privileged access, and secure automation in hybrid and multi-cloud environments. It applies consistent security controls to identities across systems, workloads, and networks.
+Akeyless provides a single cloud-based control plane that supports application-to-application authentication, certificate issuance, privileged access, and automated identity workflows in hybrid and multi-cloud environments.
 
 ## Core Purpose
 
-Akeyless enables organizations to control human and machine identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. Managing these identities is critical for maintaining secure connections between applications, services, and infrastructure.
+Akeyless enables organizations to control human and machine identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, and automated workloads.
 
-The platform reduces operational complexity by providing a unified workflow for creating, retrieving, storing, issuing, rotating, and enforcing policies on machine identities.
+The platform provides a unified workflow for creating, retrieving, issuing, rotating, and enforcing policies on these identities, reducing the operational challenges of managing identity material across distributed systems.
 
 ## Vaultless Architecture
 
-Akeyless uses a Vaultless architecture to eliminate the risk of centralized credential storage. Traditional vaults hold sensitive material in a storage backend, which increases exposure if the storage layer is compromised. Akeyless uses a different approach that avoids storing encryption keys or secrets in a retrievable form.
+Akeyless uses a Vaultless architecture, which avoids storing sensitive key material or secrets in a retrievable form. Unlike traditional vault systems that rely on encrypted storage backends, Akeyless performs operations without persisting complete private keys or long-lived secrets. This design removes the storage layer as an attack surface and reduces the operational overhead associated with maintaining vault servers.
 
-This architecture increases resilience, reduces operational overhead, and allows organizations to scale machine identity operations without maintaining their own vault infrastructure.
+A deeper explanation of the architecture and its security properties is available in the **Vaultless Architecture** section.
 
 ## Distributed Fragments Cryptography (DFC)
 
-Distributed Fragments Cryptography (DFC) is the patented approach that protects the private material used to encrypt, decrypt, or authenticate workloads. DFC splits cryptographic fragments across multiple independent locations. No single location ever holds complete key material. One of the fragments can optionally be held and controlled by the customer, ensuring that even Akeyless cannot access or reconstruct the full key material.
-
-This approach enforces separation of duties, prevents unilateral access, and ensures that attackers cannot retrieve sensitive material, even if they compromise a subsystem. DFC is fundamental to how Akeyless operates without storing or exposing the complete private key during any part of the process.
+Distributed Fragments Cryptography (DFC) is the cryptographic framework that enables the Vaultless architecture. Instead of storing full encryption keys, DFC divides key material into multiple independent fragments. No single system ever holds the complete key, and an optional customer-held fragment allows organizations to retain exclusive control over critical operations.
 
 ## Platform Components
 
-Akeyless consists of the following major components:
+Akeyless consists of several cooperating components:
 
-* **Akeyless Platform**: The cloud-hosted control plane that manages authentication, authorization, policy enforcement, and distributed cryptographic operations.
-* **Akeyless Gateway**: A lightweight component deployed in customer environments to enable secure communication with private networks or isolated infrastructure.
-* **Connectors**: Integrations that allow the platform to rotate secrets, issue dynamic credentials, and interact with cloud providers or databases.
-* **Client Tools**: CLI tools, SDKs, and APIs used to retrieve or generate secrets, certificates, and keys.
+* **Akeyless Platform** — The SaaS control plane that manages authentication, authorization, policy evaluation, and orchestration of identity operations.
+* **Akeyless Gateway** — A lightweight component deployed in customer environments to access private networks, integrate with on-premises systems, and optionally handle customer-controlled key fragments.
+* **Connectors** — Integrations that support dynamic credentials, rotation workflows, and communication with cloud providers, databases, and other external targets.
+* **Client Tools** — The CLI, SDKs, and REST API used by applications and administrators to request identity operations.
 
-These components operate within a unified workflow to securely create, issue, and manage machine identities.
+These components work together to enforce identity security with no requirement to store or reconstruct complete secrets or private keys.
 
 ## Primary Capabilities
 
 Akeyless supports several categories of identity workloads:
 
 ### Secrets Management
-
-A centralized interface for generating, storing, retrieving, and rotating secrets. Supports static secrets, rotated secrets, and dynamic credentials.
+Manage static secrets, rotated secrets, and dynamic credentials through a centralized interface.
 
 ### Certificate Authority & PKI Services
-
-A built-in certificate authority that issues X.509 certificates through APIs and automation platforms such as cert-manager, with full lifecycle support.
+Issue short-lived X.509 certificates through APIs and automation frameworks such as cert-manager.
 
 ### SSH Certificate Issuance
-
-Just-in-time SSH certificates help eliminate long-lived SSH keys and simplify privileged access workflows.
+Replace long-lived SSH keys with short-lived just-in-time certificates.
 
 ### Encryption & Key Management
-
-Key creation, rotation, and cryptographic operations occur without exposing complete key material. Integrates with multi-cloud KMS workflows.
+Perform encryption, decryption, signing, and key lifecycle operations without exposing full private keys.
 
 ### Secure Remote Access
-
-Zero-trust access workflows provide administrators and engineers access to internal systems without distributing long-lived credentials.
+Provide zero-trust privileged access to internal systems without distributing long-lived credentials.
 
 ### AI & ML Workload Security
-
-Akeyless secures the identities used by AI and ML systems, including model-serving pipelines, automation agents, and data processing workloads. The platform issues short-lived credentials for AI services, protects the secrets used by LLM-based systems, and supports secretless retrieval patterns that reduce model and data exposure. These capabilities help prevent unauthorized access, privilege escalation, and data leakage within AI-driven environments.
+Provide short-lived credentials and secure retrieval patterns for AI pipelines, automated agents, and model-serving systems.
 
 ### Leaked Secret Detection & Response
-
-Akeyless helps identify and mitigate leaked or exposed credentials through centralized audit visibility, policy-driven alerts, and the use of short-lived or dynamic credentials that limit the impact of potential exposure. When a secret is suspected to be compromised, automated rotation workflows and emergency remediation procedures allow teams to rapidly contain risk and restore security.
+Detect potential exposures through audit visibility and respond with automated or emergency rotation.
 
 ## Supported Environments
 
-Akeyless provides consistent machine identity operations across:
+Akeyless operates consistently across:
 
 * Public cloud environments
-* Hybrid cloud deployments
+* Hybrid and multi-cloud deployments
 * On-premises infrastructure
-* Kubernetes clusters and other containerized environments
+* Kubernetes and other container platforms
 * Serverless environments
 
 ## Summary
 
-Akeyless provides a unified identity security platform that eliminates the risks of traditional vaults and simplifies machine identity management. Its distributed cryptographic model, SaaS delivery, and broad integration ecosystem enable secure, scalable operations across modern infrastructure.
+Akeyless is a unified identity security platform built to protect the credentials, keys, and certificates used across modern infrastructure. Its Vaultless and distributed-cryptography design eliminates reliance on stored secrets, enabling secure, scalable identity operations across diverse environments.
