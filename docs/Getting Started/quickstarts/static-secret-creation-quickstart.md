@@ -5,3 +5,35 @@ hidden: false
 metadata:
   robots: index
 ---
+This Quickstart guides you through creating a static secret in Akeyless. A static secret is a user-defined value, such as an API key or password, that you store and retrieve as needed. This is the most basic operation in Akeyless and is often the first step before integrating secrets with applications or automation.
+
+## Prerequisites
+
+You will need:
+
+* An active Akeyless account  
+* Access to the Akeyless Console at <Anchor label="https://console.akeyless.io" href="https://console.akeyless.io" target="_blank">https://console.akeyless.io</Anchor>
+
+If you do not yet have an account, complete the **Creating an Akeyless Account** Quickstart first.
+
+## Step 1: Sign In to the Akeyless Console
+
+1. Open the Akeyless Console:  
+   <Anchor label="https://console.akeyless.io" href="https://console.akeyless.io" target="_blank">https://console.akeyless.io</Anchor>
+2. Enter your email address and password.
+3. Select **Sign In**.
+
+You will be taken to the Console homepage.
+
+## Step 2: Open the Secrets Page
+
+1. In the left navigation menu, select **Secrets**.
+2. Select **Create Secret**.
+
+This opens the secret creation form.
+
+## Step 3: Choose a Secret Type and Path
+
+1. In the **Type** field, select **Static Secret**.
+2. In the **Path** field, enter a unique path where the secret will be stored.  
+   Examples:  
