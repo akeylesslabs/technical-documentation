@@ -9,6 +9,9 @@ next:
     - slug: vaultless-architecture
       title: Vaultless SaaS Architecture
       type: basic
+    - slug: quickstarts
+      title: Quickstarts
+      type: basic
 ---
 Akeyless is an **identity security platform** that protects the credentials, keys, and certificates that modern applications and systems use to authenticate and authorize access. The platform centralizes identity management for both human and machine users and applies consistent controls across distributed environments.
 
