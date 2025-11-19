@@ -29,7 +29,7 @@ No prior Akeyless account or configuration is required.
 2. Enter your email address, accept the <Anchor label="End User License Agreement" target="_blank" href="https://www.akeyless.io/end-user-license-agreement/">End User License Agreement</Anchor> & <Anchor label="Privacy Policy" target="_blank" href="https://www.akeyless.io/terms-of-service/">Privacy Policy</Anchor>,  and select **Let's Get Started** (or select a social sign-in option).
    1. You may also have to complete a reCAPTCHA.
 
-<Callout icon="📘">
+<Callout icon="📘" theme="info">
   You do _not_ need to change the **Environment** drop-down menu's value.
 </Callout>
 
@@ -65,3 +65,7 @@ Once your email is verified, your account becomes active.
 4. Select **Create Account**.
 
 After completing these steps, you are taken to the Akeyless Console homepage.
+
+***
+
+*You have successfully created an account with Akeyless.*
