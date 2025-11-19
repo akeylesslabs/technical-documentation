@@ -107,7 +107,7 @@ sequenceDiagram
     participant K1 as KFM A
     participant K2 as KFM B
     participant K3 as KFM C
-    participant CF as Customer Fragment Store
+    participant CF as CF
 
     %% 1. Client authenticates
     C ->> G: Authenticate and request operation
