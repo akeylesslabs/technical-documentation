@@ -20,7 +20,7 @@ graph TD
     U <--> K1[AWS]
     U <--> K2[Azure]
     U <--> K3[GCP]
-    U <-|Optional|-> CF[Customer Fragment]
+    U <--|Optional|--> CF[Customer Fragment]
 
 ```
 
