@@ -86,9 +86,9 @@ Gateway characteristics:
 
 ***
 
-## Customer Fragment (CF) (Optional)
+## Customer Fragment (CF)
 
-A Customer Fragment can be enabled when organizations require customer-controlled key custody.
+Optionally, a Customer Fragment can be enabled when organizations require customer-controlled key custody.
 
 The CF:
 
@@ -96,7 +96,7 @@ The CF:
 * Is never transmitted to Akeyless
 * Must participate in any operation involving its associated key
 
-When a CF is used, the Gateway typically manages CF access and combines CF-derived values with derivations from KFMs.
+When a CF is used, the Gateway manages CF access and combines CF-derived values with derivations from KFMs.
 
 ***
 
