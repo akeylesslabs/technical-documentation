@@ -46,12 +46,8 @@ Your Static Secret has been created.
 The details of your Static Secret should be open in the right half of your browser. If not, select the **Quick Secret** item.
 
 1. In the **General** tab of your Static Secret, scroll to the bottom and look for the **Value** field.
-2. Select the eye symbol to retrieve and decrypt the value of **Quick Secret**:
-<svg width="16" height="16" viewBox="0 0 24 24" aria-label="Show value" role="img" style={{ verticalAlign: "text-bottom" }}>
-  <path d="M 12 4.5 C 7 4.5 2.73 7.61 1 12 c 1.73 4.39 6 7.5 11 7.5 s 9.27 -3.11 11 -7.5 c -1.73 -4.39 -6 -7.5 -11 -7.5 Z M 12 17 c -2.76 0 -5 -2.24 -5 -5 s 2.24 -5 5 -5 s 5 2.24 5 5 s -2.24 5 -5 5 Z m 0 -8 c -1.66 0 -3 1.34 -3 3 s 1.34 3 3 3 s 3 -1.34 3 -3 s -1.34 -3 -3 -3 Z" />
-</svg>
+2. Select the <svg width="16" height="16" viewBox="0 0 24 24" aria-label="Show value" role="img"><path d="M 12 4.5 C 7 4.5 2.73 7.61 1 12 c 1.73 4.39 6 7.5 11 7.5 s 9.27 -3.11 11 -7.5 c -1.73 -4.39 -6 -7.5 -11 -7.5 Z M 12 17 c -2.76 0 -5 -2.24 -5 -5 s 2.24 -5 5 -5 s 5 2.24 5 5 s -2.24 5 -5 5 Z m 0 -8 c -1.66 0 -3 1.34 -3 3 s 1.34 3 3 3 s 3 -1.34 3 -3 s -1.34 -3 -3 -3 Z" /></svg> icon next to **Value** to retrieve and decrypt the value of **Quick Secret**.
 
-<br />
 
 **Super Secret** should be displayed.
 
