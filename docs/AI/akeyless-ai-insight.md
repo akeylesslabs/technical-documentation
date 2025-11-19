@@ -29,12 +29,12 @@ Before you begin, ensure you have the following:
 
 ## High-Level Setup Steps
 
-| Step | Description                                    | Tool       |
-| ---- | ---------------------------------------------- | ---------- |
-| 1    | Enable AI Insights at the account level        | CLI        |
-| 2    | Create an OpenAI Target                        | CLI        |
-| 3    | Configure the Akeyless Gateway for AI Insights | REST API   |
-| 4    | Validate the configuration and test            | CLI or GUI |
+| Step | Description                                    | Tool          |
+| ---- | ---------------------------------------------- | ------------- |
+| 1    | Enable AI Insights at the account level        | CLI           |
+| 2    | Create an OpenAI Target                        | CLI           |
+| 3    | Configure the Akeyless Gateway for AI Insights | REST API      |
+| 4    | Validate the configuration and test            | CLI or Web UI |
 
 ### Step 1: Enable AI Insights at the Account Level
 
@@ -44,7 +44,7 @@ To enable AI Insights, run the following command:
 akeyless update-account-settings --enable-ai-insights true
 ```
 
-AI Insights can also be enabled at the account level using the GUI.
+AI Insights can also be enabled at the account level using the Web UI.
 
 <Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
 
@@ -140,7 +140,7 @@ To disable AI Insights on the gateway, set the enable field to `false`:
 "ai_insights": { "enable": false }
 ```
 
-The Gateway can also be configured with the GUI.
+The Gateway can also be configured with the Web UI.
 
 <Image border={false} src="https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png" />
 
@@ -156,53 +156,34 @@ To verify that AI Insights is enabled at the account level, run the following co
 akeyless get-account-settings
 ```
 
+#### Verify the Target
 
-Verify the Target
 To verify that the OpenAI target is configured correctly, run the following command:
 
+```shell
 akeyless get-target --name my-openai-target
-Verify the Gateway Configuration
+```
+
+#### Verify the Gateway Configuration
+
 To verify that the gateway is configured for AI Insights, run the following command:
 
-curl -X GET [http://localhost:8000/config/ai-insights](http://localhost:8000/config/ai-insights)
-Test in the Web UI
-To test AI Insights in the Akeyless Web UI, follow these steps:
-
-Open the Akeyless Web UI.
-Navigate to AI Insights.
-Start a chat session.
-Ask a natural language question.
-
-Verify Account Setting
-
-```shell
-akeyless get-account-settings
 ```
-
-Verify Target
-
-```shell
-akeyless get-target --name my-openai-target
-```
-
-Verify Gateway Config
-
-```shell
 curl -X GET http://localhost:8000/config/ai-insights
 ```
 
-Test in UI
+#### Test in the Web UI
+
+To test AI Insights in the Akeyless Web UI, follow these steps:
+
+1. Open the Akeyless Web UI.
+2. Navigate to AI Insights.
+3. Start a chat session
+4. Ask a natural language question.
 
 <Image border={false} src="https://files.readme.io/9214bc7c65691ab90764917b7da86d69a6be792b3c494b6289b338aabf90f851-chatInteraction.png" />
 
-<br />
-
-1. Open Akeyless Web UI
-2. Navigate to AI Insights
-3. Start a chat
-4. Ask a natural language question
-
-Troubleshooting
+## Troubleshooting
 
 | Issue                  | Resolution                   |
 | ---------------------- | ---------------------------- |
