@@ -7,18 +7,16 @@ metadata:
 ---
 This Quickstart guides you through creating a new Akeyless account, verifying your email address, and signing in to the Akeyless Console for the first time. Completing this setup is required before you can create secrets, configure an Akeyless Gateway, or integrate Akeyless with applications.
 
-<details>
-## Prerequisites
 
-You will need:
+  ## Prerequisites
 
-* A modern web browser
-* An email address you can access
-* Internet connectivity
+  You will need:
 
-No prior Akeyless account or configuration is required.
+  * A modern web browser
+  * An email address you can access
+  * Internet connectivity
 
-</details>
+  No prior Akeyless account or configuration is required.
 
 ## Step 1: Open the Akeyless Signup Page
 
