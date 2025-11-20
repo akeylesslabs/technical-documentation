@@ -24,7 +24,7 @@ To upload certificates to your gateway using the CLI, run the following command:
 akeyless gateway update certificate-store \
 --name <Certificate Display name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---certificate <path/to/certificate/file> \
+--certificate-path <path/to/certificate/file> \
 --certificate-data <certificate data in base64 format>
 ```
 
