@@ -15,6 +15,7 @@ You will need:
 * A running Kubernetes cluster (v1.21 or later recommended)
 * `kubectl` configured
 * An Akeyless Gateway reachable from the cluster
+* An 
 * A Static Secret in Akeyless
 
 ## Part A: Installing the Akeyless Kubernetes Secrets Injector
@@ -30,13 +31,75 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
+_Sample Output:_
+
+```
+"akeyless" has been added to your repositories
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "akeyless" chart repository
+Update Complete. ⎈Happy Helming!⎈
+```
+
 2. Run the following command to save the default configuration values of the Akeyless Kubernetes Secrets Injector Helm chart to your current directory as a new file called `values.yaml`:
 
 ```shell
 helm show values akeyless/akeyless-secrets-injection --version 1.17.5 > values.yaml
 ```
 
-2. helm show values akeyless/akeyless-secrets-injection > values.yaml
+There should be no command output.
+
+3. Using your text editor of choice, edit the `values.yaml` file.
+   1. Under the `env` key:
+      1. Set `AKEYLESS_ACCESS_ID` to the Access ID of your API Key.
+   2. Set AKEYLESS_ACCESS_TYPE to k8s. Or with any other supported Authentication Methods for Kubernetes.
+   3. Set AKEYLESS_K8S_AUTH_CONF_NAME with your Gateway Kubernetes Auth name. Relevant only for Access type of k8s.
+   4. Set AKEYLESS_API_GW_URL with the URL of your Gateway API v1 endpoint: /8000/api/v1 or port 8080.
+   5. Optional AKEYLESS_CRASH_POD_ON_ERROR Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated annotation.
+   6. Optional restartRollout: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: Deployment, DaemonSet or StatefulSet. To control which deployments are not effected by the restart-rollout, you can use a dedicated annotation to disable this on the deployment level.
+   7. AKEYLESS_REGISTRY_CREDS: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a private container registry, to override automatically the docker entrypoint, can be utilized at the deployment level using a dedicated annotation. not required for public registry.
+   8. Optional AKEYLESS_IGNORE_CACHE: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is disabled by default. can be utilized at the deployment level using a dedicated annotation
+   9. Optional INIT_RUN_AS_USER: To apply a Security Context to your init container, set the following environment variable, INIT_RUN_AS_USER: "id=65534".
+4. Save the file.
+
+## Step 6: Install the Gateway
+
+Run the following command to deploy the Akeyless Gateway Helm chart using the `values.yaml` file that you edited:
+
+```shell
+helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --version 1.13.1
+```
+
+_Sample Output:_
+
+```
+NAME: gw
+LAST DEPLOYED: Thu Nov 20 13:52:33 2025
+NAMESPACE: akeyless
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+```
+
+## Step 7: Verify Pods
+
+1. Wait for the Akeyless Gateway's pods to start. This may take up to ten minutes.
+2. Run the following command to check that the pods are ready:
+
+```shell
+kubectl get pods -n akeyless
+```
+
+_Sample Output:_
+
+```
+NAME                                           READY   STATUS    RESTARTS   AGE
+gw-akeyless-gateway-cache-7bc7c7556b-rdwzx     1/1     Running   0          7m44s
+unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44s
+unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44s
+```
+
+##
 
 ### Step A1: Create a Kubernetes Auth Method in Akeyless
 
