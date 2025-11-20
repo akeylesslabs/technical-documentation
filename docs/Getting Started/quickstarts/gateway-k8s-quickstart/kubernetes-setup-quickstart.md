@@ -130,7 +130,7 @@ pod/curl-test created
 
 2. Check the container's logs for a valid HTTP response by running the following command:
 
-```bash
+```shell
 kubectl logs curl-test
 ```
 
@@ -168,7 +168,7 @@ accept-ranges: bytes
 
 3. Delete the pod:
 
-```bash
+```shell
 kubectl delete pod curl-test
 ```
 
