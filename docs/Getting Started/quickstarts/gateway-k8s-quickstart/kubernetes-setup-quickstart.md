@@ -41,22 +41,36 @@ You will need:
 ## Step 2: Verify kubectl and Context
 
 1. Launch a Terminal or Command Prompt.
-2. Docker Desktop should install the corresponding version of `kubectl` for you. Ensure `kubectl` is installed:
+2. Docker Desktop should install the corresponding version of `kubectl` for you. It should match the version of your Kubernetes cluster. Ensure `kubectl` is installed:
 
-```bash
+```shell
 kubectl version --client
 ```
 
-2. Verify that your current context points to the Docker Desktop cluster:
+_Sample Output:_
 
-```bash
+```
+Client Version: v1.34.1
+Kustomize Version: v5.7.1
+```
+
+3. A `kubectl` context for Docker Desktop should have been created for you. Verify that your current context points to the Docker Desktop cluster:
+
+```shell
 kubectl config get-contexts
 kubectl config use-context docker-desktop
 ```
 
+_Sample Output:_
+
+```
+CURRENT   NAME             CLUSTER          AUTHINFO         NAMESPACE
+*         docker-desktop   docker-desktop   docker-desktop   
+```
+
 Check that the cluster responds:
 
-```bash
+```shell
 kubectl get nodes
 ```
 
