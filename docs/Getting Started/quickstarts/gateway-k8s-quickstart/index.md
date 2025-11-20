@@ -19,30 +19,57 @@ You will need:
 
 * An active Akeyless account
 * A Kubernetes cluster (v1.21 or later)
-* `kubectl` configured
+* `kubectl` installed and configured
 * Helm installed
-* Network connectivity from cluster to Akeyless SaaS
-* Kubernetes Metrics Server (required by the chart)
+* Network connectivity from the Kubernetes cluster to Akeyless
+* Kubernetes Metrics Server installed and working
 * 1 vCPU and 2 GB RAM free in the cluster
-* An Akeyless API Key Authentication Method (Access ID + Access Key)
+* An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 
 ## Step 1: Create Namespace
 
-```bash
+Run the following command to create a new namespace in the Kubernetes cluster:
+
+```shell
 kubectl create namespace akeyless
+```
+
+_Sample Output:_
+
+```
+namespace/akeyless created
 ```
 
 ## Step 2: Add Helm Repo
 
-```bash
+Run the following commands to add the official Akeyless Helm repository to your local Helm environment:
+
+```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
-helm repo update
+helm repo update 
+```
+
+_Sample Output:_
+
+```
+"akeyless" has been added to your repositories
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "akeyless" chart repository
+Update Complete. ⎈Happy Helming!⎈
 ```
 
 ## Step 3: Fetch values.yaml
 
-```bash
+Run the following command to save 
+
+```shell
 helm show values akeyless/akeyless-gateway > values.yaml
+```
+
+_Sample Output:_
+
+```
+level=WARN msg="unable to find exact version; falling back to closest available version" chart=akeyless-gateway requested="" selected=1.13.1
 ```
 
 ## Step 4: Create Secret for Access Key
