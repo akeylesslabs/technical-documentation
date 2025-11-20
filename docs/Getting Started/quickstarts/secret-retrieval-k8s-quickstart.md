@@ -18,23 +18,21 @@ You will need:
 * An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 * A Static Secret in Akeyless
 
-## Part A: Installing the Akeyless Kubernetes Secrets Injector
+## Step 1: Install the Injector
 
 Before injecting secrets into containers, you must install and configure the **Akeyless Kubernetes Secrets Injector**. This component authenticates workloads to Akeyless and writes secrets into the container filesystem.
 
-### Step A1: Install the Injector
-
-1. Run the following commands to add the official Akeyless Helm repository to your local Helm environment:
+1. Run the following commands to update the Helm repositories in your local Helm environment:
 
 ```shell
-helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
+
+You previously should have already added the official Akeyless Helm chart repository in order to install the Akeyless Gateway.
 
 _Sample Output:_
 
 ```
-"akeyless" has been added to your repositories
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "akeyless" chart repository
 Update Complete. ⎈Happy Helming!⎈
@@ -56,13 +54,13 @@ There should be no command output.
 5. Run the following command to install the Akeyless Kubernetes Secrets Injector Helm chart using the `values.yaml` file that you edited:
 
 ```shell
-helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --version 1.13.1
+helm install secret-injector akeyless/akeyless-secrets-injection --version 1.17.5 --namespace akeyless -f values.yaml
 ```
 
 _Sample Output:_
 
 ```
-NAME: gw
+NAME: secret-injector
 LAST DEPLOYED: Thu Nov 20 13:52:33 2025
 NAMESPACE: akeyless
 STATUS: deployed
