@@ -10,21 +10,21 @@ This Quickstart guides you through deploying the Akeyless Gateway on a Kubernete
 
 By the end, you will have:
 
-- A running Gateway deployment on Kubernetes  
-- The Gateway connected to your Akeyless account using API Key authentication 
+* A running Gateway deployment on Kubernetes
+* The Gateway connected to your Akeyless account using API Key authentication
 
 ## Prerequisites
 
 You will need:
 
-- An active Akeyless account
-- A Kubernetes cluster (v1.21 or later)
-- `kubectl` configured
-- Helm installed
-- Network connectivity from cluster to Akeyless SaaS
-- Kubernetes Metrics Server (required by the chart)
-- 1 vCPU and 2 GB RAM free in the cluster
-- An Akeyless API Key Authentication Method (Access ID + Access Key)
+* An active Akeyless account
+* A Kubernetes cluster (v1.21 or later)
+* `kubectl` configured
+* Helm installed
+* Network connectivity from cluster to Akeyless SaaS
+* Kubernetes Metrics Server (required by the chart)
+* 1 vCPU and 2 GB RAM free in the cluster
+* An Akeyless API Key Authentication Method (Access ID + Access Key)
 
 ## Step 1: Create Namespace
 
@@ -98,6 +98,6 @@ Gateway Console:
 http://<gateway-ip>:8000/console
 ```
 
-## Summary
+***
 
-You deployed the Akeyless Gateway on Kubernetes using Helm and authenticated it using an API Key.
+_You have now deployed the Akeyless Gateway on Kubernetes using Helm and authenticated it using an API Key._
