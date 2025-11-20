@@ -1,6 +1,6 @@
 ---
 title: Getting a Secret within a Kubernetes Cluster Quickstart
-excerpt: Harrison needs to review all of this still.
+excerpt: Under construction.
 deprecated: false
 hidden: false
 metadata:
