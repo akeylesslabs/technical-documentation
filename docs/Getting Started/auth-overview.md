@@ -32,7 +32,7 @@ Authentication verifies the identity of the user, service, workload, or machine 
 
 * **Access Keys** — Programmatic identities for automation and applications.
 * **JWT-Based Authentication** — Trust established via externally issued, signed JSON Web Tokens (JWTs).
-* **Kubernetes Authentication** — Pod identity validation using Kubernetes ServiceAccount tokens.
+* **Kubernetes Authentication** — Pod identity validation using Kubernetes `ServiceAccount` tokens.
 * **Cloud Provider Identity**
   * **AWS IAM**
   * **Azure AD Workload Identities**
