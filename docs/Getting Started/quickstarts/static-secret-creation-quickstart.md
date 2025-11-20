@@ -4,6 +4,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: api-key-creation-quickstart
+      title: Creating an API Key Quickstart
+      type: basic
 ---
 This Quickstart guides you through creating a Static Secret in Akeyless. A Static Secret is a user-defined value, such as an API key or password, that you store and retrieve as needed. This is the most basic operation in Akeyless and is often the first step before integrating secrets with applications or automation.
 
