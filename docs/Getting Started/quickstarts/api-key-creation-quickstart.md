@@ -37,13 +37,12 @@ If you do not yet have an account, complete the **Creating an Akeyless Account Q
 
 You will be taken to the Akeyless Console homepage.
 
-## Step 2: Open the Authentication Methods Page
+## Step 2: Open the Create Authentication Method Form
 
-1. In the left navigation menu, select **Access Management**.
-2. Select **Auth Methods**.
-3. Select **+ New**.
+1. In the left navigation menu, select **Users & Auth Methods**.
+2. Select **+ New**.
 
-This opens the **Create Auth Method** form.
+This opens the **Create Authentication Method** form.
 
 ## Step 3: Create an API Key Authentication Method
 
