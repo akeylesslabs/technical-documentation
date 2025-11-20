@@ -54,6 +54,32 @@ There should be no command output.
 
 In all of these instances, you should leave the quotation marks in place (`"`).
 
+_Sample File Section_:
+
+```yaml
+env:
+  AKEYLESS_URL: "https://vault.akeyless.io"
+  AKEYLESS_ACCESS_ID: "p-h8kyauyqvow2am" 
+  AKEYLESS_ACCESS_TYPE: "api_key"  # azure_ad/aws_iam/api_key/k8s
+  
+ # AKEYLESS_API_GW_URL: "https://api-gw-url"
+ # AKEYLESS_POD_ACCESS_PATH: "<location-to-access-secrets-per-pod-name>"
+ # AKEYLESS_NAMESPACE_ACCESS_PATH: "<location-to-access-secrets-per-namespace>"
+ # AKEYLESS_SECRET_DIR_NAME: "<path>"
+  AKEYLESS_API_KEY: "GCz5fLEgc0tJftA/7W1WnywbgorEc30V92xQ3dOGNME="
+ # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
+ # AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_conf_name"
+ 
+ # the gw base64 certificate file e.g: 'cat my-gw.crt | base64'
+ # AKEYLESS_GW_CERTIFICATE: 
+
+
+  AKEYLESS_AGENT_LIMITS_CPU: "500m"
+  AKEYLESS_AGENT_REQUESTS_CPU: "250m"
+  AKEYLESS_AGENT_LIMITS_MEM: "128Mi"
+  AKEYLESS_AGENT_REQUESTS_MEM: "64Mi"
+```
+
 3. Save the file.
 4. Run the following command to install the Akeyless Kubernetes Secrets Injector Helm chart using the `values.yaml` file that you edited:
 
