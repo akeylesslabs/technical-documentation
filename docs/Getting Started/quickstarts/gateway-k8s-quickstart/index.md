@@ -144,6 +144,9 @@ TEST SUITE: None
 
 ## Step 7: Verify Pods
 
+1. Wait for the Akeyless Gateway's pods to start. This may take up to ten minutes.
+2. Run the following command to check that the pods are ready:
+
 ```shell
 kubectl get pods -n akeyless
 ```
@@ -157,7 +160,11 @@ unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44
 unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44s
 ```
 
-## Step 8: (Optional) Access Gateway Console
+## Step 8: View the Gateway in the Akeyless Console
+
+<br />
+
+## Step 9a: (Optional) Access Gateway Console
 
 ```shell
 kubectl get svc -n akeyless
