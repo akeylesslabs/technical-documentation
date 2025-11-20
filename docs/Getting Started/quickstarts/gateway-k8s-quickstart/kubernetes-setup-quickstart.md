@@ -74,6 +74,13 @@ Check that the cluster responds:
 kubectl get nodes
 ```
 
+_Sample Output:_
+
+```
+NAME             STATUS   ROLES           AGE   VERSION
+docker-desktop   Ready    control-plane   51d   v1.34.1
+```
+
 ## Step 3: Install and Verify Helm
 
 Verify Helm:
