@@ -105,22 +105,6 @@ globalConfig:
   A Helm warning of `level=WARN msg="unable to find exact version; falling back to closest available version" chart=akeyless-gateway requested="" selected=1.13.1` is acceptable when running any Helm commands in a development environment. When a chart version is not specified, Helm defaults to the latest version, but shows this expected warning.
 </Callout>
 
-### Step 5a: (Optional) Configure Admin Access
-
-<Callout icon="🚧" theme="warn">
-  I'm debating removing this step.
-</Callout>
-
-If you want local access to the Gateway's Console, you'll need to also edit the values below. This is not required and users do not need open this interface for normal operations.
-
-```yaml
-allowedAccessPermissions:
-  - name: Administrators
-    access_id: <Admin Access ID>
-    permissions:
-      - admin
-```
-
 ## Step 6: Install the Gateway
 
 Run the following command to deploy the Akeyless Gateway Helm chart using the `values.yaml` file that you edited:
@@ -162,19 +146,19 @@ unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44
 
 ## Step 8: View the Gateway in the Akeyless Console
 
-<br />
+1. Open the Akeyless Console:  
+   <Anchor label="[[https://console.akeyless.io](https://console.akeyless.io)](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor></Anchor>
+2. Sign in to your existing Akeyless account.
 
-## Step 9a: (Optional) Access Gateway Console
+You will be taken to the Akeyless Console homepage.
 
-```shell
-kubectl get svc -n akeyless
-```
+3. In the left navigation menu, select **Gateways**.
 
-Gateway Console:
+You should see `Quickstart Gateway` available with a **Status** of `Healthy`.
 
-```
-http://<gateway-ip>:8000/console
-```
+<Callout icon="📘" theme="info">
+  We did not configure access to the Akeyless Gateway's local console in the Quickstart and attempts to access it are expected to fail.
+</Callout>
 
 ***
 
