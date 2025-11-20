@@ -17,13 +17,11 @@ You will need:
 * An Akeyless Gateway reachable from the cluster
 * A Static Secret in Akeyless
 
-# Installing the Akeyless Kubernetes Secrets Injector (Required)
+## Part A: Installing the Akeyless Kubernetes Secrets Injector
 
 Before injecting secrets into containers, you must install and configure the **Akeyless Kubernetes Secrets Injector**. This component authenticates workloads to Akeyless and writes secrets into the container filesystem.
 
----
-
-## Step A1: Create a Kubernetes Auth Method in Akeyless
+### Step A1: Create a Kubernetes Auth Method in Akeyless
 
 1. In the Akeyless Console, go to **Access Management → Auth Methods**.
 2. Select **+ New** and choose **Kubernetes Auth Method**.
@@ -44,9 +42,7 @@ Upload `k8s-ca.crt` when creating the Kubernetes Auth Method.
 
 Record the **Access ID** for later use.
 
----
-
-## Step A2: Create a Role That Grants Access to Your Secret
+### Step A2: Create a Role That Grants Access to Your Secret
 
 1. In the Akeyless Console, navigate to **Access Management → Roles**.
 2. Create a new Role named **K8sInjectorRole**.
@@ -61,9 +57,7 @@ Actions: read, list
 
 This gives the Injector permission to retrieve secrets on behalf of your pods.
 
----
-
-## Step A3: Install the Akeyless Kubernetes Secrets Injector via Helm
+### Step A3: Install the Akeyless Kubernetes Secrets Injector via Helm
 
 Add the Akeyless Helm repository:
 
@@ -95,9 +89,7 @@ Install the injector:
 helm install akeyless-injector akeyless/k8s-secrets-injection   --namespace akeyless   --create-namespace   -f injector-values.yaml
 ```
 
----
-
-## Step A4: Confirm the Injector Is Running
+### Step A4: Confirm the Injector Is Running
 
 ```bash
 kubectl get pods -n akeyless
@@ -115,9 +107,7 @@ If not running:
 kubectl logs -n akeyless deploy/akeyless-injector
 ```
 
----
-
-## Step A5: Label Namespaces That Should Receive Secrets
+### Step A5: Label Namespaces That Should Receive Secrets
 
 Label your target namespace so the injector processes its pods:
 
@@ -125,30 +115,22 @@ Label your target namespace so the injector processes its pods:
 kubectl label namespace akeyless-demo name=akeyless
 ```
 
----
+## Part B:
 
-After completing these steps, continue with the main Quickstart at:  
-**“## Step 1: Confirm the Akeyless Secrets Injector is Running”**
+<br />
 
-
-## Step 1: Confirm the Akeyless Secrets Injector is Running
-
-```bash
-kubectl get pods -n akeyless
-```
-
-## Step 2: Create a Namespace for the Demo
+### Step B1: Create a Namespace for the Demo
 
 ```bash
 kubectl create namespace akeyless-demo
 kubectl label namespace akeyless-demo name=akeyless
 ```
 
-## Step 3: Verify the Secret Exists in Akeyless
+### Step B2: Verify the Secret Exists in Akeyless
 
 Ensure a static secret exists at `/QuickStart/QuickSecret`.
 
-## Step 4: Create a Demo Deployment
+### Step B3: Create a Demo Deployment
 
 Create `akeyless-secret-demo.yaml`:
 
@@ -189,7 +171,7 @@ Apply it:
 kubectl apply -f akeyless-secret-demo.yaml
 ```
 
-## Step 5: Verify the Pod Started
+### Step B4: Verify the Pod Started
 
 ```bash
 kubectl get pods -n akeyless-demo
@@ -202,7 +184,7 @@ kubectl describe pod -n akeyless-demo <pod-name>
 kubectl logs -n akeyless-demo <pod-name> -c akeyless-init
 ```
 
-## Step 6: Read the Secret from the Container
+### Step B5: Read the Secret from the Container
 
 ```bash
 kubectl logs -n akeyless-demo deploy/akeyless-secret-demo
@@ -216,7 +198,7 @@ kubectl exec -it -n akeyless-demo "$POD_NAME" -- sh
 cat /akeyless/secrets/QuickStart/QuickSecret
 ```
 
-## Step 7: Clean Up
+### Step B6: Clean Up
 
 ```bash
 kubectl delete -f akeyless-secret-demo.yaml
