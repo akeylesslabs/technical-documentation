@@ -6,7 +6,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This Quickstart shows how to **inject a secret from Akeyless into a Kubernetes container** using the **Akeyless Kubernetes Secrets Injector**. Your application will read the secret from a file inside the container’s filesystem; the injector handles authentication and secret retrieval.
+This Quickstart shows how to inject a secret from Akeyless into a Kubernetes container using the **Akeyless Kubernetes Secrets Injector**. Your application will read the secret from a file inside the container’s filesystem; the injector handles authentication and secret retrieval.
 
 ## Prerequisites
 
@@ -15,8 +15,9 @@ You will need:
 * A running Kubernetes cluster (v1.21 or later recommended)
 * `kubectl` configured
 * An Akeyless Gateway reachable from the cluster
-* A Static Secret in Akeyless (e.g., `/QuickStart/QuickSecret`)
-* The Akeyless Kubernetes Secrets Injector installed and configured
+* A Static Secret in Akeyless
+
+<br />
 
 ## Step 1: Confirm the Akeyless Secrets Injector is Running
 
