@@ -13,8 +13,6 @@ next:
       title: DFC Deep Dive
       type: basic
 ---
-# Distributed Fragments Cryptography (DFC)
-
 Distributed Fragments Cryptography (DFC) is the cryptographic framework that enables Akeyless to perform secret, key, and certificate operations without ever storing or reconstructing complete private key material. Instead of placing full keys in a vault or database, DFC divides key material into multiple independent fragments and performs cryptographic operations directly across those fragments.
 
 DFC underpins the Vaultless architecture by ensuring that a complete encryption key never exists on any server.
@@ -28,6 +26,8 @@ graph TD
     U --> CF[Customer Fragment]
 ```
 
+***
+
 ## Core Concepts
 
 DFC represents a cryptographic key as multiple mathematical fragments. These fragments:
@@ -38,6 +38,8 @@ DFC represents a cryptographic key as multiple mathematical fragments. These fra
 * Participate only through fragment-specific, NIST-approved derivation operations.
 
 The platform relies on fragment-derived values rather than reconstructing a complete key. Cryptographic operations use a short-lived, operation-specific derived key created from these independent derivations.
+
+***
 
 ## How Operations Work
 
@@ -50,6 +52,8 @@ At a high level:
 
 The original key is never reconstructed, transmitted, or stored.
 
+***
+
 ## Customer Fragment
 
 Optionally, organizations may choose to hold one of the fragments themselves. When a Customer Fragment (CF) is used:
@@ -59,6 +63,8 @@ Optionally, organizations may choose to hold one of the fragments themselves. Wh
 * No party, including Akeyless, can derive or reconstruct the key without the CF.
 
 This model enforces separation of duties and supports environments that require customer-held key custody.
+
+***
 
 ## Summary
 
