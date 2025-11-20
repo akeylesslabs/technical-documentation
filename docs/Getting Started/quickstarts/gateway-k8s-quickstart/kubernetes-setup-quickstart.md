@@ -205,11 +205,18 @@ apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io create
 
 1. Check the Metric Server deployment object:
 
-```bash
+```shell
 kubectl get deployment metrics-server -n kube-system
 ```
 
-Wait for the `metrics-server` deployment to show `1/1` ready.
+Wait for the `metrics-server` deployment to show `1/1` ready. This should take about two minutes.
+
+_Sample Output:_
+
+```
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+metrics-server   1/1     1            1           2m
+```
 
 <Callout icon="📘" theme="info">
   `kubectl` supports a built-in watch function with `-w` flag.
@@ -224,7 +231,7 @@ Wait for the `metrics-server` deployment to show `1/1` ready.
 
 2. Check some Metrics for your cluster to test functionality. Here is a command to check the Metrics for your cluster's nodes:
 
-```bash
+```shell
 kubectl top nodes
 ```
 
