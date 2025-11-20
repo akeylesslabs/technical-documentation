@@ -10,6 +10,15 @@ next:
     - slug: gateway-k8s-quickstart
       title: Akeyless Gateway with Kubernetes Quickstart
       type: basic
+    - title: Learn More about Docker Desktop
+      type: link
+      url: https://docs.docker.com/desktop/
+    - title: Learn More about Kubernetes
+      type: link
+      url: https://kubernetes.io/docs/home/
+    - title: Learn More about Helm
+      type: link
+      url: https://helm.sh/docs/
 ---
 This Quickstart helps you prepare a local Kubernetes environment using **Docker Desktop** so that you can deploy the Akeyless Gateway with the main Akeyless Gateway with Kubernetes Quickstart.
 
@@ -83,7 +92,7 @@ docker-desktop   Ready    control-plane   51d   v1.34.1
 
 ## Step 3: Install and Verify Helm
 
-1. <Anchor label="Install Helm." target="_blank" href="https://helm.sh/docs/intro/install/">Install Helm.</Anchor>
+1. <Anchor label="Install Helm following official documentation." target="_blank" href="https://helm.sh/docs/intro/install/">Install Helm following official documentation.</Anchor>
 2. Verify Helm:
 
 ```shell
@@ -94,12 +103,6 @@ _Sample Output:_
 
 ```
 version.BuildInfo{Version:"v4.0.0", GitCommit:"99cd1964357c793351be481d55abbe21c6b2f4ec", GitTreeState:"clean", GoVersion:"go1.25.4", KubeClientVersion:"v1.34"}
-```
-
-List repos:
-
-```bash
-helm repo list
 ```
 
 ## Step 4: Configure Docker Desktop Resources
