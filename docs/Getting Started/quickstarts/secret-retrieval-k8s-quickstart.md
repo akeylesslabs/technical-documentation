@@ -51,19 +51,9 @@ There should be no command output.
 3. Using your text editor of choice, edit the `values.yaml` file.
    1. Under the `env` key:
       1. Set `AKEYLESS_ACCESS_ID` to the Access ID of your API Key.
-   2. Set AKEYLESS_ACCESS_TYPE to k8s. Or with any other supported Authentication Methods for Kubernetes.
-   3. Set AKEYLESS_K8S_AUTH_CONF_NAME with your Gateway Kubernetes Auth name. Relevant only for Access type of k8s.
-   4. Set AKEYLESS_API_GW_URL with the URL of your Gateway API v1 endpoint: /8000/api/v1 or port 8080.
-   5. Optional AKEYLESS_CRASH_POD_ON_ERROR Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated annotation.
-   6. Optional restartRollout: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: Deployment, DaemonSet or StatefulSet. To control which deployments are not effected by the restart-rollout, you can use a dedicated annotation to disable this on the deployment level.
-   7. AKEYLESS_REGISTRY_CREDS: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a private container registry, to override automatically the docker entrypoint, can be utilized at the deployment level using a dedicated annotation. not required for public registry.
-   8. Optional AKEYLESS_IGNORE_CACHE: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is disabled by default. can be utilized at the deployment level using a dedicated annotation
-   9. Optional INIT_RUN_AS_USER: To apply a Security Context to your init container, set the following environment variable, INIT_RUN_AS_USER: "id=65534".
+      2. Set `AKEYLESS_ACCESS_TYPE` to `api_key`.
 4. Save the file.
-
-## Step 6: Install the Gateway
-
-Run the following command to deploy the Akeyless Gateway Helm chart using the `values.yaml` file that you edited:
+5. Run the following command to install the Akeyless Kubernetes Secrets Injector Helm chart using the `values.yaml` file that you edited:
 
 ```shell
 helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --version 1.13.1
