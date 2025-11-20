@@ -6,37 +6,36 @@ hidden: false
 metadata:
   robots: index
 ---
-# Quickstart: Creating an Akeyless API Key
-
 This Quickstart walks you through creating an **Akeyless API Key**, which is required for programmatic access, automation, and for authenticating Akeyless Gateways or applications.
 
 By the end of this guide, you will have:
-- An Akeyless **Access ID**
-- An Akeyless **Access Key**
-- An Authentication Method configured to use that API Key
 
----
+* An Akeyless **Access ID**
+* An Akeyless **Access Key**
+* An Authentication Method configured to use that API Key
+
+***
 
 ## Prerequisites
 
 You will need:
 
-- An active Akeyless account  
-- Access to the Akeyless Console  
-  <Anchor label="https://console.akeyless.io" href="https://console.akeyless.io" target="_blank">https://console.akeyless.io</Anchor>
+* An active Akeyless account
+* Access to the Akeyless Console  
+  <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
 
 If you do not yet have an account, complete the **Creating an Akeyless Account Quickstart** first.
 
----
+***
 
 ## Step 1: Sign In to the Akeyless Console
 
 1. Open:  
-   <Anchor label="https://console.akeyless.io" href="https://console.akeyless.io" target="_blank">https://console.akeyless.io</Anchor>
+   <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
 2. Enter your email and password.
 3. Select **Sign In**.
 
----
+***
 
 ## Step 2: Open the Authentication Methods Page
 
@@ -46,7 +45,7 @@ If you do not yet have an account, complete the **Creating an Akeyless Account Q
 
 This opens the **Create Auth Method** form.
 
----
+***
 
 ## Step 3: Create an API Key Authentication Method
 
@@ -56,32 +55,32 @@ This opens the **Create Auth Method** form.
 
 Select **Next** to continue.
 
----
+***
 
 ## Step 4: Configure the API Key
 
 1. Set an expiration value, or leave it as **Never Expire** if desired.
 2. (Optional) Restrict by:
-   - Allowed CIDRs
-   - Allowed environments
-   - Time-based access settings  
-   These restrictions can help secure the key.
+   * Allowed CIDRs
+   * Allowed environments
+   * Time-based access settings  
+     These restrictions can help secure the key.
 
 Select **Finish**.
 
 You will now see the new API Key displayed with two critical values:
 
-- **Access ID**
-- **Access Key**
+* **Access ID**
+* **Access Key**
 
----
+***
 
 ## Step 5: Copy and Save the Access Credentials
 
 After the API Key is created:
 
-- Copy the **Access ID**
-- Copy the **Access Key**
+* Copy the **Access ID**
+* Copy the **Access Key**
 
 Store these values securely.
 
@@ -90,7 +89,7 @@ Store these values securely.
   If you lose it, you must create a new API Key.
 </Callout>
 
----
+***
 
 ## Step 6: Assign Permissions (Required)
 
@@ -100,13 +99,13 @@ The API Key must be associated with **Roles** to control what it can access.
 2. Navigate to the **Roles** tab.
 3. Select **Assign Roles**.
 4. Choose one or more roles, such as:
-   - **Admin**
-   - **Reader**
-   - Custom-defined roles
+   * **Admin**
+   * **Reader**
+   * Custom-defined roles
 
 Permissions can be adjusted later as needed.
 
----
+***
 
 ## Step 7: Test the API Key (Optional)
 
@@ -126,22 +125,22 @@ akeyless list-items
 
 If authentication succeeds, the API Key is functioning.
 
----
+***
 
 ## Summary
 
 You have now created an Akeyless API Key consisting of:
 
-- **Access ID**
-- **Access Key**
-- Assigned **Roles** that determine allowed operations
+* **Access ID**
+* **Access Key**
+* Assigned **Roles** that determine allowed operations
 
 This API Key can now be used by:
 
-- Automation tools  
-- Applications  
-- CI/CD pipelines  
-- Akeyless Gateways  
-- Scripts and infrastructure components
+* Automation tools
+* Applications
+* CI/CD pipelines
+* Akeyless Gateways
+* Scripts and infrastructure components
 
 Your API Key is now ready for use in your Akeyless environment.
