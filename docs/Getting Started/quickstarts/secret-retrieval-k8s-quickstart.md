@@ -50,6 +50,7 @@ There should be no command output.
    1. Under the `env` key:
       1. Set `AKEYLESS_ACCESS_ID` to the Access ID of your API Key.
       2. Set `AKEYLESS_ACCESS_TYPE` to `api_key`.
+      3. Uncomment `AKEYLESS_API_KEY` (by removing the `#` and one space) and the value to the Access Key of your API Key
 4. Save the file.
 5. Run the following command to install the Akeyless Kubernetes Secrets Injector Helm chart using the `values.yaml` file that you edited:
 
