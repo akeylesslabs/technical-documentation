@@ -8,12 +8,12 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: quickstarts
-      title: Quickstarts
-      type: basic
     - title: Pricing
       type: link
       url: ''
+    - slug: quickstarts
+      title: Quickstarts
+      type: basic
 ---
 Akeyless uses a two-stage model to control access to secrets, keys, certificates, and other identity workflows: **authentication** and **authorization**. These stages determine _who_ is making the request and _what_ that identity is allowed to do.
 
