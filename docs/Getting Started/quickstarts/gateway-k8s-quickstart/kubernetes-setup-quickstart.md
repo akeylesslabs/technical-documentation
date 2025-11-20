@@ -40,8 +40,8 @@ You will need:
 
 ## Step 2: Verify kubectl and Context
 
-1. <br />
-2. Ensure `kubectl` is installed:
+1. Launch a Terminal or Command Prompt.
+2. Docker Desktop should install the corresponding version of `kubectl` for you. Ensure `kubectl` is installed:
 
 ```bash
 kubectl version --client
