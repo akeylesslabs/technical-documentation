@@ -21,25 +21,28 @@ Akeyless uses a two-stage model to control access to secrets, keys, certificates
 Authentication verifies the identity of the user, service, workload, or machine attempting to access Akeyless. Akeyless supports several authentication methods designed for human users, applications, and infrastructure services operating across cloud and on-premises environments.
 
 ### Human Authentication
-- **Username and Password** — Console login for administrators and basic users.
-- **Single Sign-On (SSO)** — Authentication through enterprise identity providers using:
-  - SAML 2.0
-  - OpenID Connect (OIDC)
-  - OAuth 2.0 authorization flows
+
+* **Username and Password** — Console login for administrators and basic users.
+* **Single Sign-On (SSO)** — Authentication through enterprise identity providers using:
+  * SAML 2.0
+  * OpenID Connect (OIDC)
+  * OAuth 2.0 authorization flows
 
 ### Machine and Workload Authentication
-- **Access Keys** — Programmatic identities for automation and applications.
-- **JWT-Based Authentication** — Trust established via externally issued, signed JWTs.
-- **Kubernetes Authentication** — Pod identity validation using Kubernetes ServiceAccount tokens.
-- **Cloud Provider Identity**
-  - **AWS IAM**
-  - **Azure AD Workload Identities**
-  - **Google Cloud Workload Identity**
-  - **Oracle OCI IAM** (Oracle Cloud Infrastructure Identity and Access Management)
+
+* **Access Keys** — Programmatic identities for automation and applications.
+* **JWT-Based Authentication** — Trust established via externally issued, signed JSON Web Tokens (JWTs).
+* **Kubernetes Authentication** — Pod identity validation using Kubernetes ServiceAccount tokens.
+* **Cloud Provider Identity**
+  * **AWS IAM**
+  * **Azure AD Workload Identities**
+  * **Google Cloud Workload Identity**
+  * **Oracle OCI IAM** (Oracle Cloud Infrastructure Identity and Access Management)
 
 ### Directory and Legacy System Authentication
-- **LDAP Authentication** — Integration with enterprise identity directories.
-- **Kerberos Authentication** — Authentication in environments using Kerberos realms.
+
+* **LDAP Authentication** — Integration with enterprise identity directories.
+* **Kerberos Authentication** — Authentication in environments using Kerberos realms.
 
 These methods allow Akeyless to interoperate with traditional enterprise identity systems or hybrid deployments.
 
@@ -47,13 +50,11 @@ These methods allow Akeyless to interoperate with traditional enterprise identit
 
 **Universal Identity** is Akeyless’s identity abstraction layer that allows multiple authentication methods—such as JWTs, cloud identities, OIDC tokens, and access keys—to map into a single logical identity. This enables:
 
-- Cross-environment identity portability  
-- Migration between auth methods without reconfiguring permissions  
-- Simplified governance across cloud, on-premises, and hybrid deployments  
+* Cross-environment identity portability
+* Migration between auth methods without reconfiguring permissions
+* Simplified governance across cloud, on-premises, and hybrid deployments
 
 Universal Identity is especially useful for large organizations standardizing identity strategy across multiple platforms.
-
-
 
 ***
 
