@@ -109,20 +109,6 @@ akeyless list-items
 
 If authentication succeeds, the API Key is functioning.
 
-## Summary
+***
 
-You have now created an Akeyless API Key consisting of:
-
-* **Access ID**
-* **Access Key**
-* Assigned **Roles** that determine allowed operations
-
-This API Key can now be used by:
-
-* Automation tools
-* Applications
-* CI/CD pipelines
-* Akeyless Gateways
-* Scripts and infrastructure components
-
-Your API Key is now ready for use in your Akeyless environment.
+_Your API Key is now ready for use in your Akeyless environment._
