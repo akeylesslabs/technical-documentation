@@ -18,7 +18,7 @@ Akeyless uses a two-stage model to control access to secrets, keys, certificates
 
 ## Authentication
 
-Authentication verifies the identity of the user, service, workload, or machine attempting to access Akeyless. Akeyless supports several authentication methods designed for human users, applications, and infrastructure services operating across cloud and on-premises environments.
+Authentication is _who_ is making a request: the identity of the user, service, workload, or machine attempting to access Akeyless. Akeyless supports several authentication methods designed for human users, applications, and infrastructure services operating across cloud and on-premises environments.
 
 ### Human Authentication
 
@@ -51,7 +51,7 @@ Universal Identity is especially useful for large organizations standardizing id
 
 ## Authorization
 
-Authorization determines _what an identity is allowed to do_ after it has been authenticated. In Akeyless, authorization is based on **roles and policies**.
+Authorization determines _what_ an identity is allowed to do after it has been authenticated. In Akeyless, authorization is based on **roles and policies**.
 
 ### Role-Based Access Control (RBAC)
 
