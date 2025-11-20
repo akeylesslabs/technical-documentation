@@ -11,6 +11,9 @@ next:
     - title: Pricing
       type: link
       url: ''
+    - title: SLAs & Support Tiers
+      type: link
+      url: ''
     - slug: quickstarts
       title: Quickstarts
       type: basic
