@@ -219,7 +219,7 @@ metrics-server   1/1     1            1           2m
 ```
 
 <Callout icon="📘" theme="info">
-  `kubectl` supports a built-in watch function with `-w` flag.
+  `kubectl` supports a built-in watch function with `-w` flag if you want to avoid entering the command repeatedly.
 </Callout>
 
 <Callout icon="❗️">
