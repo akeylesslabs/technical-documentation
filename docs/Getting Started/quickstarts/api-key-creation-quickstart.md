@@ -5,6 +5,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: gateway-k8s-quickstart
+      title: Akeyless Gateway with Kubernetes Quickstart
+      type: basic
 ---
 This Quickstart walks you through creating an **Akeyless API Key**, which can be used for programmatic access, automation, and for authenticating Akeyless Gateways or applications.
 
