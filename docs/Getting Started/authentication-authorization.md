@@ -10,8 +10,6 @@ next:
       title: Quickstarts
       type: basic
 ---
-# Authentication and Authorization Overview
-
 Akeyless uses a two-stage model to control access to secrets, keys, certificates, and other identity workflows: **authentication** and **authorization**. These stages determine *who* is making the request and *what* that identity is allowed to do.
 
 This page provides a brief overview of how these concepts work within Akeyless.
