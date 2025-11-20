@@ -101,7 +101,11 @@ globalConfig:
 
 ### Step 5a: (Optional) Configure Admin Access
 
-If you want local access to the Gateway's Console, you'll need to also edit the values below. This is not required and users do not need open this UI for normal operations.
+<Callout icon="🚧">
+  I'm debating removing this step.
+</Callout>
+
+If you want local access to the Gateway's Console, you'll need to also edit the values below. This is not required and users do not need open this interface for normal operations.
 
 ```yaml
 allowedAccessPermissions:
