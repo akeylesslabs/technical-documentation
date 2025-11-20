@@ -69,7 +69,7 @@ Update Complete. ⎈Happy Helming!⎈
 
 ## Step 3: Fetch `values.yaml`
 
-Run the following command to save the default configuration values of the Akeyless Helm chart to your current directory as a new file called `values.yaml`:
+Run the following command to save the default configuration values of the Akeyless Gateway Helm chart to your current directory as a new file called `values.yaml`:
 
 ```shell
 helm show values akeyless/akeyless-gateway --version 1.13.1 > values.yaml
