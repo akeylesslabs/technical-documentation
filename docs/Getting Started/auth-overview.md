@@ -33,11 +33,7 @@ Authentication verifies the identity of the user, service, workload, or machine 
 * **Access Keys**: Programmatic identities for automation and applications.
 * **JWT-Based Authentication**: Trust established via externally issued, signed JSON Web Tokens (JWTs).
 * **Kubernetes Authentication**: Pod identity validation using Kubernetes `ServiceAccount` tokens.
-* **Cloud Provider Identities**:
-  * **AWS IAM**
-  * **Azure AD Workload Identities**
-  * **Google Cloud Workload Identity**
-  * **Oracle OCI IAM**
+* **Cloud Provider Identities**: Supported cloud providers include Amazon Web Services, Google Cloud Platform, Microsoft Azure, and Oracle Cloud.
 
 ### Directory and Legacy System Authentication
 
