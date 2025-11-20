@@ -14,8 +14,6 @@ By the end of this guide, you will have:
 * An Akeyless **Access Key**
 * An Authentication Method configured to use that API Key
 
-***
-
 ## Prerequisites
 
 You will need:
@@ -26,16 +24,12 @@ You will need:
 
 If you do not yet have an account, complete the **Creating an Akeyless Account Quickstart** first.
 
-***
-
 ## Step 1: Sign In to the Akeyless Console
 
 1. Open:  
    <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
 2. Enter your email and password.
 3. Select **Sign In**.
-
-***
 
 ## Step 2: Open the Authentication Methods Page
 
@@ -45,8 +39,6 @@ If you do not yet have an account, complete the **Creating an Akeyless Account Q
 
 This opens the **Create Auth Method** form.
 
-***
-
 ## Step 3: Create an API Key Authentication Method
 
 1. In the **Type** dropdown, select **API Key**.
@@ -54,8 +46,6 @@ This opens the **Create Auth Method** form.
 3. (Optional) Add a description or tags.
 
 Select **Next** to continue.
-
-***
 
 ## Step 4: Configure the API Key
 
@@ -73,8 +63,6 @@ You will now see the new API Key displayed with two critical values:
 * **Access ID**
 * **Access Key**
 
-***
-
 ## Step 5: Copy and Save the Access Credentials
 
 After the API Key is created:
@@ -89,9 +77,7 @@ Store these values securely.
   If you lose it, you must create a new API Key.
 </Callout>
 
-***
-
-## Step 6: Assign Permissions (Required)
+## Step 6: Assign Permissions
 
 The API Key must be associated with **Roles** to control what it can access.
 
@@ -104,8 +90,6 @@ The API Key must be associated with **Roles** to control what it can access.
    * Custom-defined roles
 
 Permissions can be adjusted later as needed.
-
-***
 
 ## Step 7: Test the API Key (Optional)
 
@@ -124,8 +108,6 @@ akeyless list-items
 ```
 
 If authentication succeeds, the API Key is functioning.
-
-***
 
 ## Summary
 
