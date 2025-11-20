@@ -33,7 +33,7 @@ helm repo update
 2. Run the following command to save the default configuration values of the Akeyless Kubernetes Secrets Injector Helm chart to your current directory as a new file called `values.yaml`:
 
 ```shell
-helm show values akeyless/akeyless-secrets-injection > values.yaml
+helm show values akeyless/akeyless-secrets-injection --version 1.17.5 > values.yaml
 ```
 
 2. helm show values akeyless/akeyless-secrets-injection > values.yaml
