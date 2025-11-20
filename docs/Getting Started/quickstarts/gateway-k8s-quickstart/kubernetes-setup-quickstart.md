@@ -5,6 +5,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: gateway-k8s-quickstart
+      title: Akeyless Gateway with Kubernetes Quickstart
+      type: basic
 ---
 This Quickstart helps you prepare a local Kubernetes environment using **Docker Desktop** so that you can deploy the Akeyless Gateway with the main Akeyless Gateway with Kubernetes Quickstart.
 
