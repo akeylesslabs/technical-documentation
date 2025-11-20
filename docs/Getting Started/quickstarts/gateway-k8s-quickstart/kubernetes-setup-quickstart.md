@@ -116,7 +116,7 @@ version.BuildInfo{Version:"v4.0.0", GitCommit:"99cd1964357c793351be481d55abbe21c
 
 ## Step 5: Verify Network Connectivity to Akeyless
 
-1. Run the following command to create a container to check network connectivity:
+1. Run the following command to create a pod with one container to check network connectivity:
 
 ```shell
 kubectl run curl-test --image=curlimages/curl --restart=Never --command --   curl -I https://console.akeyless.io
@@ -128,7 +128,7 @@ _Sample Output:_
 pod/curl-test created
 ```
 
-2. Check the container's logs for a valid HTTP response by running the following command:
+2. Review the container's logs for a valid HTTP response by running the following command:
 
 ```shell
 kubectl logs curl-test
@@ -166,10 +166,16 @@ accept-ranges: bytes
   * `curl: (60) SSL certificate problem`
 </Callout>
 
-3. Delete the pod:
+3. Delete the pod as it is no longer useful:
 
 ```shell
 kubectl delete pod curl-test
+```
+
+_Sample Output_:
+
+```
+pod "curl-test" deleted from default namespace
 ```
 
 ## Step 6: Install Kubernetes Metrics Server
