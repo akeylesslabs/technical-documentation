@@ -1,6 +1,6 @@
 ---
 title: Setup Kubernetes Quickstart
-excerpt: Harrison to test this out. I've fact-checked up to Step 2.
+excerpt: Harrison to test this out. I've fact-checked up to Step 3.
 deprecated: false
 hidden: false
 metadata:
@@ -40,14 +40,23 @@ You will need:
 * Permissions to change Docker Desktop settings
 * Internet access from your machine
 
-## Step 1: Enable Kubernetes in Docker Desktop
+## Step 1: Configure Docker Desktop Resources
+
+Configure Docker Desktop with at least:
+
+* 2 CPUs
+* 4 GB RAM
+
+Adjust these in **Settings → Resources**.
+
+## Step 2: Enable Kubernetes in Docker Desktop
 
 1. Open **Docker Desktop**.
 2. Open Docker Desktop's setting, select the **Kubernetes** options, and **Enable Kubernetes**. This guide was tested with the `Kubeadm` setting.
 3. Apply the change and allow Docker Desktop to install or restart Kubernetes if prompted.
 4. Wait until Docker Desktop shows that **Kubernetes** is running.
 
-## Step 2: Verify kubectl and Context
+## Step 3: Verify kubectl and Context
 
 1. Launch a Terminal or Command Prompt.
 2. Docker Desktop should install the corresponding version of `kubectl` for you. It should match the version of your Kubernetes cluster. Ensure `kubectl` is installed:
@@ -90,7 +99,7 @@ NAME             STATUS   ROLES           AGE   VERSION
 docker-desktop   Ready    control-plane   51d   v1.34.1
 ```
 
-## Step 3: Install and Verify Helm
+## Step 4: Install and Verify Helm
 
 1. <Anchor label="Install Helm following official documentation." target="_blank" href="https://helm.sh/docs/intro/install/">Install Helm following official documentation.</Anchor>
 2. Verify Helm:
@@ -105,14 +114,7 @@ _Sample Output:_
 version.BuildInfo{Version:"v4.0.0", GitCommit:"99cd1964357c793351be481d55abbe21c6b2f4ec", GitTreeState:"clean", GoVersion:"go1.25.4", KubeClientVersion:"v1.34"}
 ```
 
-## Step 4: Configure Docker Desktop Resources
-
-Configure Docker Desktop with at least:
-
-* 2 CPUs
-* 4 GB RAM
-
-Adjust these in **Settings → Resources**.
+<br />
 
 ## Step 5: Verify Network Connectivity to Akeyless
 
