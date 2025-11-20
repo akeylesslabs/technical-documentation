@@ -23,7 +23,7 @@ Before injecting secrets into containers, you must install and configure the **A
 
 ### Step A1: Install the Injector
 
-1. Install the Akeyless Kubernetes Secret Injector:
+1. Run the following commands to add the official Akeyless Helm repository to your local Helm environment:
 
 ```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
@@ -31,6 +31,7 @@ helm repo update
 ```
 
 1. Text.
+2. helm show values akeyless/akeyless-secrets-injection > values.yaml
 
 ### Step A1: Create a Kubernetes Auth Method in Akeyless
 
