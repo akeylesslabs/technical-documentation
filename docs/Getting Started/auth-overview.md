@@ -23,10 +23,7 @@ Authentication verifies the identity of the user, service, workload, or machine 
 ### Human Authentication
 
 * **Username and Password**: Console login for administrators and basic users.
-* **Single Sign-On (SSO)**: Authentication through enterprise identity providers using:
-  * SAML 2.0
-  * OpenID Connect (OIDC)
-  * OAuth 2.0 authorization flows
+* **Single Sign-On (SSO)**: Authentication through enterprise identity providers using OAuth 2.0 authorization flows, OpenID Connect (OIDC), and SAML 2.0.
 
 ### Machine and Workload Authentication
 
