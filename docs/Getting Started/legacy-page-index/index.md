@@ -1,5 +1,5 @@
 ---
-title: Legacy Page Index
+title: Legacy Pages
 deprecated: true
 hidden: true
 metadata:
