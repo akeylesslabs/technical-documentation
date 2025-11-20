@@ -28,7 +28,8 @@ You will need:
 
 ## Step 1: Create Namespace
 
-Run the following command to create a new namespace in the Kubernetes cluster:
+1. Launch a Terminal or Command Prompt.
+2. Run the following command to create a new namespace in the Kubernetes cluster:
 
 ```shell
 kubectl create namespace akeyless
@@ -58,9 +59,9 @@ Hang tight while we grab the latest from your chart repositories...
 Update Complete. ⎈Happy Helming!⎈
 ```
 
-## Step 3: Fetch values.yaml
+## Step 3: Fetch `values.yaml`
 
-Run the following command to save 
+Run the following command to save the default configuration values of the Akeyless Helm chart to your current directory as a new file called `values.yaml`:
 
 ```shell
 helm show values akeyless/akeyless-gateway > values.yaml
@@ -74,11 +75,16 @@ level=WARN msg="unable to find exact version; falling back to closest available 
 
 ## Step 4: Create Secret for Access Key
 
-```bash
+1. Replace `<Access-Key>` in the command below with the Access Key value of your API Key.
+2. Run the command to create a new Secret object in your Kubernetes cluster:
+
+```shell
 kubectl create secret generic access-key   --namespace akeyless   --from-literal=gateway-access-key=<Access-Key>
 ```
 
 ## Step 5: Edit values.yaml
+
+Using your text editor of choice, edit the `values.yaml` file you created earlier. Below we show the path to and the values that need to be added (`gatewayAccessId`, `gatewayAccessType`, `gatewayCredentialsExistingSecret`, `clusterName`, and `initialClusterDisplayName`).
 
 ```yaml
 globalConfig:
