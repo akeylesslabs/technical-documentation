@@ -27,30 +27,27 @@ This environment is intended for **development and testing only**, not productio
 
 You will need:
 
-* Docker Desktop installed (Windows or macOS)
+* Docker Desktop installed ([Windows](https://docs.docker.com/desktop/setup/install/windows-install/), <Anchor label="macOS" target="_blank" href="https://docs.docker.com/desktop/setup/install/mac-install/">macOS</Anchor>, or <Anchor label="Linux" target="_blank" href="https://docs.docker.com/desktop/setup/install/linux/">Linux</Anchor>)
 * Permissions to change Docker Desktop settings
 * Internet access from your machine
-
-If you do not yet have Docker Desktop, install it from the official Docker site before continuing.
 
 ## Step 1: Enable Kubernetes in Docker Desktop
 
 1. Open **Docker Desktop**.
-2. Open the **Kubernetes** area.
-3. Enable Kubernetes.
-4. Apply the change and allow Docker Desktop to restart Kubernetes if prompted.
-
-Wait until Docker Desktop shows that both **Docker** and **Kubernetes** are running.
+2. Open Docker Desktop's setting, select the **Kubernetes** options, and **Enable Kubernetes**. This guide was tested with the `Kubeadm` setting.
+3. Apply the change and allow Docker Desktop to install or restart Kubernetes if prompted.
+4. Wait until Docker Desktop shows that **Kubernetes** is running.
 
 ## Step 2: Verify kubectl and Context
 
-Ensure `kubectl` is installed:
+1. <br />
+2. Ensure `kubectl` is installed:
 
 ```bash
 kubectl version --client
 ```
 
-Verify that your current context points to the Docker Desktop cluster:
+2. Verify that your current context points to the Docker Desktop cluster:
 
 ```bash
 kubectl config get-contexts
