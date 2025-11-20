@@ -1,5 +1,5 @@
 ---
-title: Getting a Secret with a Kubernetes Container Quickstart
+title: Getting a Secret within a Kubernetes Cluster Quickstart
 excerpt: Harrison needs to review all of this still.
 deprecated: false
 hidden: false
@@ -115,9 +115,7 @@ Label your target namespace so the injector processes its pods:
 kubectl label namespace akeyless-demo name=akeyless
 ```
 
-## Part B:
-
-<br />
+## Part B: Retrieve a Secret within a Container
 
 ### Step B1: Create a Namespace for the Demo
 
