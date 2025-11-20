@@ -107,6 +107,8 @@ You should expect to see `Authentication succeeded.` in response to your command
 akeyless list-items
 ```
 
+The output of this command should be a JSON-formatted list of all Items in your Akeyless account.
+
 ***
 
 _Your API Key is now ready for use in your Akeyless environment._
