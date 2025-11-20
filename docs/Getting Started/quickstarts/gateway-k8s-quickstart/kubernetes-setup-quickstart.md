@@ -128,6 +128,6 @@ Check metrics:
 kubectl top nodes
 ```
 
-## Summary
+***
 
-You have now prepared a Docker Desktop Kubernetes environment suitable for deploying the Akeyless Gateway.
+_You have now prepared a Docker Desktop Kubernetes environment suitable for deploying the Akeyless Gateway._
