@@ -72,14 +72,10 @@ Update Complete. ⎈Happy Helming!⎈
 Run the following command to save the default configuration values of the Akeyless Helm chart to your current directory as a new file called `values.yaml`:
 
 ```shell
-helm show values akeyless/akeyless-gateway > values.yaml
+helm show values akeyless/akeyless-gateway --version 1.13.1 > values.yaml
 ```
 
-_Sample Output:_
-
-```
-level=WARN msg="unable to find exact version; falling back to closest available version" chart=akeyless-gateway requested="" selected=1.13.1
-```
+There should be no command output.
 
 ## Step 4: Create Secret for Access Key
 
@@ -107,22 +103,17 @@ globalConfig:
 
 2. Save the file.
 
-<Callout icon="📘" theme="info">
-  A Helm warning of `level=WARN msg="unable to find exact version; falling back to closest available version" chart=akeyless-gateway requested="" selected=1.13.1` is acceptable when running any Helm commands in a development environment. When a chart version is not specified, Helm defaults to the latest version, but shows this expected warning.
-</Callout>
-
 ## Step 6: Install the Gateway
 
 Run the following command to deploy the Akeyless Gateway Helm chart using the `values.yaml` file that you edited:
 
 ```shell
-helm install gw akeyless/akeyless-gateway   --namespace akeyless   -f values.yaml
+helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --version 1.13.1
 ```
 
 _Sample Output:_
 
 ```
-level=WARN msg="unable to find exact version; falling back to closest available version" chart=akeyless-gateway requested="" selected=1.13.1
 NAME: gw
 LAST DEPLOYED: Thu Nov 20 13:52:33 2025
 NAMESPACE: akeyless
