@@ -17,7 +17,119 @@ You will need:
 * An Akeyless Gateway reachable from the cluster
 * A Static Secret in Akeyless
 
-<br />
+# Installing the Akeyless Kubernetes Secrets Injector (Required)
+
+Before injecting secrets into containers, you must install and configure the **Akeyless Kubernetes Secrets Injector**. This component authenticates workloads to Akeyless and writes secrets into the container filesystem.
+
+---
+
+## Step A1: Create a Kubernetes Auth Method in Akeyless
+
+1. In the Akeyless Console, go to **Access Management → Auth Methods**.
+2. Select **+ New** and choose **Kubernetes Auth Method**.
+3. Give it a name such as **K8s-Injector-Auth**.
+4. Enter your cluster’s **Issuer URL** (for example:  
+   `https://kubernetes.default.svc.cluster.local`)
+5. Upload the **CA certificate** for your cluster’s API server  
+   (retrieved in the next step).
+6. Select **Next**, then finish creation.
+
+Retrieve the cluster CA for the Auth Method:
+
+```bash
+kubectl config view --raw -o jsonpath='{.clusters[0].cluster.certificate-authority-data}'   | base64 --decode > k8s-ca.crt
+```
+
+Upload `k8s-ca.crt` when creating the Kubernetes Auth Method.
+
+Record the **Access ID** for later use.
+
+---
+
+## Step A2: Create a Role That Grants Access to Your Secret
+
+1. In the Akeyless Console, navigate to **Access Management → Roles**.
+2. Create a new Role named **K8sInjectorRole**.
+3. Add permissions for the secret path you want to allow, for example:
+
+```
+Path: /QuickStart/QuickSecret
+Actions: read, list
+```
+
+4. Assign the Role to the Kubernetes Auth Method created in Step A1.
+
+This gives the Injector permission to retrieve secrets on behalf of your pods.
+
+---
+
+## Step A3: Install the Akeyless Kubernetes Secrets Injector via Helm
+
+Add the Akeyless Helm repository:
+
+```bash
+helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+helm repo update
+```
+
+Fetch default values:
+
+```bash
+helm show values akeyless/k8s-secrets-injection > injector-values.yaml
+```
+
+Edit `injector-values.yaml`:
+
+```yaml
+authMethodAccessId: "<YOUR-K8S-AUTH-METHOD-ACCESS-ID>"
+gatewayAddress: "<YOUR-GATEWAY-URL>"
+
+namespaceSelector:
+  matchLabels:
+    name: akeyless
+```
+
+Install the injector:
+
+```bash
+helm install akeyless-injector akeyless/k8s-secrets-injection   --namespace akeyless   --create-namespace   -f injector-values.yaml
+```
+
+---
+
+## Step A4: Confirm the Injector Is Running
+
+```bash
+kubectl get pods -n akeyless
+```
+
+Expected output:
+
+```text
+akeyless-injector-7cd9d4b78f-zxs2p   1/1   Running   0   ...
+```
+
+If not running:
+
+```bash
+kubectl logs -n akeyless deploy/akeyless-injector
+```
+
+---
+
+## Step A5: Label Namespaces That Should Receive Secrets
+
+Label your target namespace so the injector processes its pods:
+
+```bash
+kubectl label namespace akeyless-demo name=akeyless
+```
+
+---
+
+After completing these steps, continue with the main Quickstart at:  
+**“## Step 1: Confirm the Akeyless Secrets Injector is Running”**
+
 
 ## Step 1: Confirm the Akeyless Secrets Injector is Running
 
