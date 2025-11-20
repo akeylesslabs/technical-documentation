@@ -114,23 +114,59 @@ _Sample Output:_
 version.BuildInfo{Version:"v4.0.0", GitCommit:"99cd1964357c793351be481d55abbe21c6b2f4ec", GitTreeState:"clean", GoVersion:"go1.25.4", KubeClientVersion:"v1.34"}
 ```
 
-<br />
-
 ## Step 5: Verify Network Connectivity to Akeyless
 
-Run:
+1. Run the following command to create a container to check network connectivity:
 
-```bash
+```shell
 kubectl run curl-test --image=curlimages/curl --restart=Never --command --   curl -I https://console.akeyless.io
 ```
 
-Check logs:
+_Sample Output:_
+
+```
+pod/curl-test created
+```
+
+2. Check the container's logs for a valid HTTP response by running the following command:
 
 ```bash
 kubectl logs curl-test
 ```
 
-Delete the pod:
+_Sample Output:_
+
+```
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+HTTP/2 200 
+  0  3321   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+date: Thu, 20 Nov 2025 19:51:48 GMT
+content-type: text/html
+content-length: 3321
+server: nginx
+last-modified: Sun, 09 Nov 2025 10:08:40 GMT
+etag: "69106828-cf9"
+content-security-policy: frame-ancestors 'none'
+cache-control: no-cache, no-store, must-revalidate, private
+pragma: no-cache
+expires: 0
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+accept-ranges: bytes
+
+```
+
+<Callout icon="📘" theme="info">
+  The sample output above shows a valid HTTP response with a 200 response code and several HTTP headers. Any 200 or 300 status codes are fine. Failing outputs could be:
+
+  * `curl: (6) Could not resolve host: console.akeyless.io`
+  * `curl: (7) Failed to connect to console.akeyless.io port 443: Connection timed out`
+  * `curl: (60) SSL certificate problem`
+</Callout>
+
+3. Delete the pod:
 
 ```bash
 kubectl delete pod curl-test
