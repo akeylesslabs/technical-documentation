@@ -1,5 +1,5 @@
 ---
-title: Platform Components Overview
+title: Platform Components
 deprecated: false
 hidden: false
 metadata:
