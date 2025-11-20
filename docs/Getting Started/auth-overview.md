@@ -41,14 +41,12 @@ Authentication verifies the identity of the user, service, workload, or machine 
 
 ### Directory and Legacy System Authentication
 
-* **LDAP Authentication** — Integration with enterprise identity directories.
-* **Kerberos Authentication** — Authentication in environments using Kerberos realms.
-
-These methods allow Akeyless to interoperate with traditional enterprise identity systems or hybrid deployments.
+* **LDAP Authentication**: Integration with enterprise identity directories.
+* **Kerberos Authentication**: Authentication in environments using Kerberos realms.
 
 ### Universal Identity
 
-**Universal Identity** is Akeyless’s identity abstraction layer that allows multiple authentication methods—such as JWTs, cloud identities, OIDC tokens, and access keys—to map into a single logical identity. This enables:
+**Universal Identity** is Akeyless’s identity abstraction layer that allows multiple authentication methods (such as JWTs, cloud identities, OIDC tokens, and access keys) to map into a single logical identity. This enables:
 
 * Cross-environment identity portability
 * Migration between auth methods without reconfiguring permissions
