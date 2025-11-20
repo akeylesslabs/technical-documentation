@@ -46,22 +46,10 @@ This opens the **Create Authentication Method** form.
 
 ## Step 3: Create an API Key Authentication Method
 
-1. In the **Type** dropdown, select **API Key**.
-2. Enter a descriptive name, such as **Gateway API Key**.
-3. (Optional) Add a description or tags.
-
-Select **Next** to continue.
-
-## Step 4: Configure the API Key
-
-1. Set an expiration value, or leave it as **Never Expire** if desired.
-2. (Optional) Restrict by:
-   * Allowed CIDRs
-   * Allowed environments
-   * Time-based access settings  
-     These restrictions can help secure the key.
-
-Select **Finish**.
+1. On the **Type** selection screen, select **API Key**.
+2. Select **Next →**.
+3. Enter `My API Key` in the **Name** field.
+4. Select **Finish** to continue.
 
 You will now see the new API Key displayed with two critical values:
 
@@ -86,15 +74,17 @@ Store these values securely.
 
 The API Key must be associated with **Roles** to control what it can access.
 
-1. Open the API Key Auth Method you just created.
-2. Navigate to the **Roles** tab.
-3. Select **Assign Roles**.
-4. Choose one or more roles, such as:
-   * **Admin**
-   * **Reader**
-   * Custom-defined roles
+1. In the left navigation menu, select **Access Roles**.
+2. Select the pre-made **admin** role to open the **Edit Role** window.
+3. In the **Edit Role** window, the **General** tab is selected by default.
+4. Select **+ Associate**.
+5. In the **Auth Method** drop-down menu, select **/My API Key**.
 
-Permissions can be adjusted later as needed.
+<Callout icon="📘" theme="info">
+  The `/` added in this drop-down menu indicates that **My API Key** 
+</Callout>
+
+You can associate **My API Key** with a custom role later if desired.
 
 ## Step 7: Test the API Key (Optional)
 
