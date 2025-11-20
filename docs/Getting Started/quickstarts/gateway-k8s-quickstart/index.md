@@ -1,6 +1,8 @@
 ---
 title: Akeyless Gateway with Kubernetes Quickstart
-excerpt: Harrison to test this out. Next step to stress test is Step 7.
+excerpt: >-
+  Harrison to test this out. Next step to stress test is Step 7. Go back to look
+  at step 5a.
 deprecated: false
 hidden: false
 metadata:
