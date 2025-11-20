@@ -115,19 +115,19 @@ allowedAccessPermissions:
       - admin
 ```
 
-## Step 7: Install the Gateway
+## Step 6: Install the Gateway
 
 ```bash
 helm install gw akeyless/akeyless-gateway   --namespace akeyless   -f values.yaml
 ```
 
-## Step 8: Verify Pods
+## Step 7: Verify Pods
 
 ```bash
 kubectl get pods -n akeyless
 ```
 
-## Step 9: (Optional) Access Gateway Console
+## Step 8: (Optional) Access Gateway Console
 
 ```bash
 kubectl get svc -n akeyless
