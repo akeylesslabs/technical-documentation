@@ -1,5 +1,5 @@
 - account-quickstart
 - static-secret-creation-quickstart
+- api-key-creation-quickstart
 - gateway-k8s-quickstart
 - secret-retrieval-k8s-quickstart
-- api-key-creation-quickstart
