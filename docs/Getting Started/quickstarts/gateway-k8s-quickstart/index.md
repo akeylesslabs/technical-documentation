@@ -107,7 +107,7 @@ globalConfig:
 
 ### Step 5a: (Optional) Configure Admin Access
 
-<Callout icon="🚧">
+<Callout icon="🚧" theme="warn">
   I'm debating removing this step.
 </Callout>
 
@@ -146,6 +146,15 @@ TEST SUITE: None
 
 ```shell
 kubectl get pods -n akeyless
+```
+
+_Sample Output:_
+
+```
+NAME                                           READY   STATUS    RESTARTS   AGE
+gw-akeyless-gateway-cache-7bc7c7556b-rdwzx     1/1     Running   0          7m44s
+unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44s
+unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44s
 ```
 
 ## Step 8: (Optional) Access Gateway Console
