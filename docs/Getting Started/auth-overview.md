@@ -53,9 +53,9 @@ Universal Identity is especially useful for large organizations standardizing id
 
 Authorization determines _what_ an identity is allowed to do after it has been authenticated. In Akeyless, authorization is based on **roles and policies**.
 
-### Role-Based Access Control (RBAC)
+### Role-Based Access Control
 
-RBAC assigns permissions through **roles**. A role can specify:
+Role-Based Access Control (RBAC) assigns permissions through **roles**. A role can specify:
 
 * Which secrets, keys, or other items are accessible
 * Which actions are permitted (read, write, list, rotate, delete)
@@ -63,9 +63,9 @@ RBAC assigns permissions through **roles**. A role can specify:
 
 RBAC is the simplest and most common authorization model in Akeyless.
 
-### Attribute-Based Access Control (ABAC)
+### Attribute-Based Access Control
 
-ABAC evaluates **contextual attributes**, such as:
+Attribute-Based Access Control (ABAC) evaluates **contextual attributes**, such as:
 
 * Source IP address
 * Time of day
@@ -88,15 +88,7 @@ This layered approach provides strong access governance.
 
 ## Policy Enforcement
 
-Policy enforcement happens at the **control plane**, but cryptographic operations (like signatures or decryptions) are only performed when both authentication and authorization succeed. Authorization applies to:
-
-* Secrets and static values
-* Dynamic and rotated credentials
-* Certificates and SSH keys
-* Encryption, decryption, and signing operations
-* Gateway-proxied operations
-
-All successful requests generate _audit events_ that can be viewed in the console or forwarded to SIEM systems.
+Policy enforcement happens at the **control plane**, but cryptographic operations (like signatures or decryptions) are only performed when both authentication and authorization succeed. All successful requests generate **audit events** that can be viewed in the console or forwarded to SIEM systems.
 
 ***
 
