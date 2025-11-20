@@ -84,12 +84,12 @@ kubectl create secret generic access-key   --namespace akeyless   --from-literal
 
 ## Step 5: Edit values.yaml
 
-Using your text editor of choice, edit the `values.yaml` file you created earlier. Below we show the path to and the values that need to be added (`gatewayAccessId`, `gatewayAccessType`, `gatewayCredentialsExistingSecret`, `clusterName`, and `initialClusterDisplayName`).
+1. Using your text editor of choice, edit the `values.yaml` file you created earlier. Below we show the path to and the values that need to be added (`gatewayAccessId`, `gatewayAccessType`, `gatewayCredentialsExistingSecret`, `clusterName`, and `initialClusterDisplayName`).
 
 ```yaml
 globalConfig:
   gatewayAuth:
-    gatewayAccessId: <Access ID>
+    gatewayAccessId: <Access ID of your API Key>
     gatewayAccessType: access_key
     gatewayCredentialsExistingSecret: access-key
 
@@ -97,7 +97,11 @@ globalConfig:
   initialClusterDisplayName: Quickstart Gateway
 ```
 
-## Step 6: (Optional) Configure Admin Access
+2. Save the file.
+
+### Step 5a: (Optional) Configure Admin Access
+
+If you want local access to the Gateway's Console, you'll need to also edit the values below. This is not required and users do not need open this UI for normal operations.
 
 ```yaml
 allowedAccessPermissions:
