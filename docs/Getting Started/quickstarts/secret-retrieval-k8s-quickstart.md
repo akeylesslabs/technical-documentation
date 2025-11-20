@@ -21,16 +21,30 @@ You will need:
 
 Before injecting secrets into containers, you must install and configure the **Akeyless Kubernetes Secrets Injector**. This component authenticates workloads to Akeyless and writes secrets into the container filesystem.
 
+### Step A1: Install the Injector
+
+1. Install the Akeyless Kubernetes Secret Injector:
+
+```shell
+helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+helm repo update
+```
+
+1. Text.
+
 ### Step A1: Create a Kubernetes Auth Method in Akeyless
 
-1. In the Akeyless Console, go to **Access Management → Auth Methods**.
-2. Select **+ New** and choose **Kubernetes Auth Method**.
-3. Give it a name such as **K8s-Injector-Auth**.
-4. Enter your cluster’s **Issuer URL** (for example:  
-   `https://kubernetes.default.svc.cluster.local`)
-5. Upload the **CA certificate** for your cluster’s API server  
-   (retrieved in the next step).
-6. Select **Next**, then finish creation.
+1. Open the Akeyless Console:  
+   <Anchor label="[[https://console.akeyless.io](https://console.akeyless.io)](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor></Anchor>
+2. Sign in to your existing Akeyless account.
+
+You will be taken to the Akeyless Console homepage.
+
+3. In the left navigation menu, select **Users & Auth Methods**.
+4. Select **+ New** and choose **Kubernetes**.
+5. Select **Next →**.
+6. Give it the name `K8s-Injector-Auth` and select **Next →** again.
+7. <br />
 
 Retrieve the cluster CA for the Auth Method:
 
