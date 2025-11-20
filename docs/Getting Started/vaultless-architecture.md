@@ -33,6 +33,8 @@ The result is an architecture where cryptographic operations occur without persi
 
 All identity operations—such as signing, encryption, decryption, or generating short-lived credentials—are completed without assembling full private key material at any stage of the workflow.
 
+***
+
 ## Cryptographic Workflow
 
 When a client requests an operation (e.g., retrieving a secret, generating a dynamic credential, or performing a signing operation):
@@ -44,6 +46,8 @@ When a client requests an operation (e.g., retrieving a secret, generating a dyn
 5. No reconstructed secret or private key is written to disk or retained after the operation.
 
 If a Customer Fragment (CF) is configured, Akeyless cannot complete cryptographic operations without the customer's involvement.
+
+***
 
 ## Comparison to Storage-Based Vault Systems
 
@@ -63,6 +67,8 @@ Under the Vaultless model:
 
 This changes the threat model: compromising the storage layer yields no useful data because none is kept there.
 
+***
+
 ## Gateway Role
 
 The Akeyless Gateway provides access to private networks, closed environments, and on-premises infrastructure. Its role is limited to communication and optional customer-fragment participation. The Gateway:
@@ -73,6 +79,8 @@ The Akeyless Gateway provides access to private networks, closed environments, a
 * Can be deployed in restricted, air-gapped, or isolated environments.
 
 The Gateway does not alter the Vaultless architecture; it only extends access to networks not reachable by the SaaS control plane.
+
+***
 
 ## Operational Considerations
 
@@ -85,6 +93,8 @@ Removing the storage layer eliminates several operational concerns:
 
 Capacity planning focuses on request throughput rather than storage performance.
 
+***
+
 ## Security Properties
 
 Key security properties of the Vaultless architecture include:
@@ -96,6 +106,8 @@ Key security properties of the Vaultless architecture include:
 * **Compartmentalization** — Compromise of any single component yields no usable key information.
 
 These properties reduce the exposure surface associated with stored-secret systems.
+
+***
 
 ## Summary
 
