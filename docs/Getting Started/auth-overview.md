@@ -14,8 +14,6 @@ next:
 ---
 Akeyless uses a two-stage model to control access to secrets, keys, certificates, and other identity workflows: **authentication** and **authorization**. These stages determine _who_ is making the request and _what_ that identity is allowed to do.
 
-***
-
 ## Authentication
 
 Authentication is _who_ is making a request: the identity of the user, service, workload, or machine attempting to access Akeyless. Akeyless supports several authentication methods designed for human users, applications, and infrastructure services operating across cloud and on-premises environments.
