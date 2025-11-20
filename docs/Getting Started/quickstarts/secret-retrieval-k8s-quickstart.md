@@ -99,7 +99,7 @@ DESCRIPTION: Install complete
 TEST SUITE: None
 ```
 
-## Step 7: Verify Pods
+## Step 2: Verify Pods for the Secret Injector
 
 1. Wait for the Akeyless Kubernetes Secret Injector pods to be ready. This will likely take about one minute.
 2. Run the following command to check that the pods are ready:
@@ -111,10 +111,12 @@ kubectl get pods -n akeyless
 _Sample Output:_
 
 ```
-NAME                                           READY   STATUS    RESTARTS   AGE
-gw-akeyless-gateway-cache-7bc7c7556b-rdwzx     1/1     Running   0          7m44s
-unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44s
-unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44s
+NAME                                                          READY   STATUS    RESTARTS   AGE
+gw-akeyless-gateway-cache-7bc7c7556b-rdwzx                    1/1     Running   0          155m
+secret-injector-akeyless-secrets-injection-8464b9f585-p9r5x   1/1     Running   0          111s
+secret-injector-akeyless-secrets-injection-8464b9f585-x882c   1/1     Running   0          111s
+unified-gw-akeyless-gateway-695dbb7f67-bflsz                  1/1     Running   0          155m
+unified-gw-akeyless-gateway-695dbb7f67-n6kbx                  1/1     Running   0          155m
 ```
 
 ##
