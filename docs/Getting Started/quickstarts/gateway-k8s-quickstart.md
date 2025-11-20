@@ -5,9 +5,12 @@ hidden: false
 metadata:
   robots: index
 ---
-# Quickstart: Installing the Akeyless Gateway on Kubernetes
+This Quickstart guides you through deploying the Akeyless Gateway on a Kubernetes cluster using the official Helm chart and configuring it to authenticate to your Akeyless account with an API Key.
 
-(This version has been reviewed for accuracy against the official Helm chart documentation and Gateway deployment requirements.)
+By the end, you will have:
+
+- A running Gateway deployment on Kubernetes  
+- The Gateway connected to your Akeyless account using API Key authentication 
 
 ## Prerequisites
 
