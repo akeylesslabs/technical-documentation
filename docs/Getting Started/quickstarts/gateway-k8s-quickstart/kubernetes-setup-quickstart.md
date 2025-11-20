@@ -6,17 +6,15 @@ hidden: false
 metadata:
   robots: index
 ---
-# Quickstart Prerequisite: Local Kubernetes with Docker Desktop
-
-This Quickstart helps you prepare a local Kubernetes environment using **Docker Desktop** so that you can deploy the Akeyless Gateway with the main Kubernetes Gateway Quickstart.
+This Quickstart helps you prepare a local Kubernetes environment using **Docker Desktop** so that you can deploy the Akeyless Gateway with the main Akeyless Gateway with Kubernetes Quickstart.
 
 By the end of this guide, you will have:
 
-- Kubernetes enabled in Docker Desktop  
-- `kubectl` pointing at the Docker Desktop cluster  
-- Helm installed and working  
-- Kubernetes Metrics Server installed  
-- Basic resource and network checks completed
+* Kubernetes enabled in Docker Desktop
+* `kubectl` pointing at the Docker Desktop cluster
+* Helm installed and working
+* Kubernetes Metrics Server installed
+* Basic resource and network checks completed
 
 This environment is intended for **development and testing only**, not production use.
 
@@ -24,9 +22,9 @@ This environment is intended for **development and testing only**, not productio
 
 You will need:
 
-- Docker Desktop installed (Windows or macOS)
-- Permissions to change Docker Desktop settings
-- Internet access from your machine
+* Docker Desktop installed (Windows or macOS)
+* Permissions to change Docker Desktop settings
+* Internet access from your machine
 
 If you do not yet have Docker Desktop, install it from the official Docker site before continuing.
 
@@ -78,8 +76,8 @@ helm repo list
 
 Configure Docker Desktop with at least:
 
-- 2 CPUs  
-- 4 GB RAM  
+* 2 CPUs
+* 4 GB RAM
 
 Adjust these in **Settings → Resources**.
 
