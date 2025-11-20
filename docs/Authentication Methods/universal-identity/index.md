@@ -68,7 +68,7 @@ curl https://<Gateway-URL>:8080 -d "cmd=list-items&&uid-token=u-XXXXX"
 To disable the permissions of a certain token, use the following command:
 
 ```shell CLI
-akeyless uid-revoke-token --uid-token u-XXXX --revoke-token u-XXXX --revoke-type revokeSelf
+akeyless uid-revoke-token --revoke-token <u-XXXX>a u --revoke-type revokeSelf
 ```
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#p-stylecolorblueuid-revoke-tokenp) section.
