@@ -78,13 +78,13 @@ The API Key must be associated with **Roles** to control what it can access.
 2. Select the pre-made **admin** role to open the **Edit Role** window.
 3. In the **Edit Role** window, the **General** tab is selected by default.
 4. Select **+ Associate**.
-5. In the **Auth Method** drop-down menu, select **/My API Key**.
+5. In the **Auth Method** drop-down menu, select `/My API Key`.
 
 <Callout icon="📘" theme="info">
-  The `/` added in this drop-down menu indicates that **My API Key** 
+  The `/` added in this drop-down menu indicates that `My API Key` was created at the root of the Items directory in your Akeyless account. You can create subdirectories to organize your Items.
 </Callout>
 
-You can associate **My API Key** with a custom role later if desired.
+You can associate `My API Key` with a custom role later if desired.
 
 ## Step 7: Test the API Key (Optional)
 
