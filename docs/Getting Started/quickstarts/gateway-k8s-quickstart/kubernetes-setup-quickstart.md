@@ -1,6 +1,5 @@
 ---
 title: Setup Kubernetes Quickstart
-excerpt: Harrison to test this out. I've fact-checked up to Step 3.
 deprecated: false
 hidden: false
 metadata:
