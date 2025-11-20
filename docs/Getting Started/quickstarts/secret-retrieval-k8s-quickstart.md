@@ -15,7 +15,7 @@ You will need:
 * A running Kubernetes cluster (v1.21 or later recommended)
 * `kubectl` configured
 * An Akeyless Gateway reachable from the cluster
-* An 
+* An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 * A Static Secret in Akeyless
 
 ## Part A: Installing the Akeyless Kubernetes Secrets Injector
