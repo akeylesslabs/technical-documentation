@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Setup Quickstart
+title: Setup Kubernetes Quickstart
 deprecated: false
 hidden: false
 metadata:
