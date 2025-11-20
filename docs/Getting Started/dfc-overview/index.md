@@ -26,8 +26,6 @@ graph TD
     U --> CF[Customer Fragment]
 ```
 
-***
-
 ## Core Concepts
 
 DFC represents a cryptographic key as multiple mathematical fragments. These fragments:
