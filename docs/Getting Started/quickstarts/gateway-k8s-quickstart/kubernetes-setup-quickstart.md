@@ -83,6 +83,9 @@ docker-desktop   Ready    control-plane   51d   v1.34.1
 
 ## Step 3: Install and Verify Helm
 
+1. <Anchor label="Install Helm." target="_blank" href="https://helm.sh/docs/intro/install/">Install Helm.</Anchor>
+2. <br />
+
 Verify Helm:
 
 ```bash
