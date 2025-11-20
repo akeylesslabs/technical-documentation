@@ -7,6 +7,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: secret-retrieval-k8s-quickstart
+      title: Getting a Secret with a Kubernetes Container Quickstart
+      type: basic
 ---
 This Quickstart guides you through deploying the Akeyless Gateway on a Kubernetes cluster using the official Helm chart and configuring it to authenticate to your Akeyless account with an API Key.
 
