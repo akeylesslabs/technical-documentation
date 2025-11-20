@@ -91,20 +91,22 @@ You can associate `My API Key` with a custom role later if desired.
 
 You can test the API Key with the Akeyless CLI:
 
-1. <Anchor label="Download and Install the Akeyless CLI." target="_blank" href="https://docs.akeyless.io/docs/cli#download">Download and Install the Akeyless CLI.</Anchor>
-2. Authenticate with the Access ID and Access Key:
+1. <Anchor label="Download the Akeyless CLI" target="_blank" href="https://docs.akeyless.io/docs/cli#download">Download the Akeyless CLI</Anchor> with a Terminal or Command Prompt.
+2. For Akeyless CLI Configuration:
+   1. Type `n` to skip configuring a profile. You can change this later.
+   2. Choose if you want to move the Akeyless CLI binary and if you want to create a user `PATH` environment variable.
+3. Close and relaunch your Terminal or Command Prompt.
+4. Authenticate with the Access ID and Access Key:
 
-```bash
+```shell
 akeyless auth --access-id <ACCESS-ID> --access-key <ACCESS-KEY>
 ```
 
-2. List available items:
+You should expect to see `Authentication succeeded.` in response to your command. You can test your access further by listing available items:
 
-```bash
+```shell
 akeyless list-items
 ```
-
-If authentication succeeds, the API Key is functioning.
 
 ***
 
