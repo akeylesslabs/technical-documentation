@@ -22,22 +22,22 @@ Authentication verifies the identity of the user, service, workload, or machine 
 
 ### Human Authentication
 
-* **Username and Password** — Console login for administrators and basic users.
-* **Single Sign-On (SSO)** — Authentication through enterprise identity providers using:
+* **Username and Password**: Console login for administrators and basic users.
+* **Single Sign-On (SSO)**: Authentication through enterprise identity providers using:
   * SAML 2.0
   * OpenID Connect (OIDC)
   * OAuth 2.0 authorization flows
 
 ### Machine and Workload Authentication
 
-* **Access Keys** — Programmatic identities for automation and applications.
-* **JWT-Based Authentication** — Trust established via externally issued, signed JSON Web Tokens (JWTs).
-* **Kubernetes Authentication** — Pod identity validation using Kubernetes `ServiceAccount` tokens.
-* **Cloud Provider Identity**
+* **Access Keys**: Programmatic identities for automation and applications.
+* **JWT-Based Authentication**: Trust established via externally issued, signed JSON Web Tokens (JWTs).
+* **Kubernetes Authentication**: Pod identity validation using Kubernetes `ServiceAccount` tokens.
+* **Cloud Provider Identities**:
   * **AWS IAM**
   * **Azure AD Workload Identities**
   * **Google Cloud Workload Identity**
-  * **Oracle OCI IAM** (Oracle Cloud Infrastructure Identity and Access Management)
+  * **Oracle OCI IAM**
 
 ### Directory and Legacy System Authentication
 
