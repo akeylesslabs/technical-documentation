@@ -6,7 +6,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This Quickstart walks you through creating an **Akeyless API Key**, which is required for programmatic access, automation, and for authenticating Akeyless Gateways or applications.
+This Quickstart walks you through creating an **Akeyless API Key**, which can be used for programmatic access, automation, and for authenticating Akeyless Gateways or applications.
 
 By the end of this guide, you will have:
 
