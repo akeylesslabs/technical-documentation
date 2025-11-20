@@ -79,6 +79,7 @@ The API Key must be associated with **Roles** to control what it can access.
 3. In the **Edit Role** window, the **General** tab is selected by default.
 4. Select **+ Associate**.
 5. In the **Auth Method** drop-down menu, select `/My API Key`.
+6. Select **Save**.
 
 <Callout icon="📘" theme="info">
   The `/` added in this drop-down menu indicates that `My API Key` was created at the root of the Items directory in your Akeyless account. You can create subdirectories to organize your Items.
@@ -90,10 +91,11 @@ You can associate `My API Key` with a custom role later if desired.
 
 You can test the API Key with the Akeyless CLI:
 
-1. Log in with Access ID and Access Key:
+1. <Anchor label="Download and Install the Akeyless CLI." target="_blank" href="https://docs.akeyless.io/docs/cli#download">Download and Install the Akeyless CLI.</Anchor>
+2. Authenticate with the Access ID and Access Key:
 
 ```bash
-akeyless login --access-id <ACCESS-ID> --access-key <ACCESS-KEY>
+akeyless auth --access-id <ACCESS-ID> --access-key <ACCESS-KEY>
 ```
 
 2. List available items:
