@@ -50,7 +50,7 @@ There should be no command output.
    1. Under the `env` key:
       1. Set `AKEYLESS_ACCESS_ID` to the Access ID of your API Key.
       2. Set `AKEYLESS_ACCESS_TYPE` to `api_key`.
-      3. Uncomment `AKEYLESS_API_KEY` (by replace the `#` with one space) and replace `<api-key` with the value to the Access Key of your API Key.
+      3. Uncomment `AKEYLESS_API_KEY` (by removing the `#`) and replace `<api-key` with the value to the Access Key of your API Key.
 
 In all of these instances, you should leave the quotation marks in place (`"`).
 
