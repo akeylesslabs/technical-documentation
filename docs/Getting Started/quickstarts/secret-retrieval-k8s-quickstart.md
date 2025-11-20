@@ -101,7 +101,7 @@ TEST SUITE: None
 
 ## Step 7: Verify Pods
 
-1. Wait for the Akeyless Kubernetes Secret Injector pods to be ready. This will likely take about two minutes.
+1. Wait for the Akeyless Kubernetes Secret Injector pods to be ready. This will likely take about one minute.
 2. Run the following command to check that the pods are ready:
 
 ```shell
