@@ -20,27 +20,23 @@ Akeyless uses a two-stage model to control access to secrets, keys, certificates
 
 Authentication verifies the identity of the user, service, workload, or machine attempting to access Akeyless. Akeyless supports several authentication methods that cover human identities, automated systems, and infrastructure components.
 
-Common authentication methods include:
-
 ### Human Authentication
 
-* **Username and Password** — Basic console access for administrators and users.
-* **Single Sign-On (SSO)** — Authentication through identity providers using:
+* **Username and Password**: Basic console access for administrators and users.
+* **Single Sign-On (SSO)**: Authentication through identity providers using:
   * SAML 2.0
   * OpenID Connect (OIDC)
   * OAuth-based identity flows
 
 ### Machine and Workload Authentication
 
-* **Access Keys** — Programmatic identities for automations and applications.
-* **JWT-Based Authentication** — Trust established through external identity providers or platforms issuing signed tokens.
-* **Kubernetes Authentication** — Pod identity validation through Kubernetes ServiceAccount tokens.
+* **Access Keys**: Programmatic identities for automations and applications.
+* **JWT-Based Authentication**: Trust established through external identity providers or platforms issuing signed tokens.
+* **Kubernetes Authentication**: Pod identity validation through Kubernetes ServiceAccount tokens.
 * **Cloud Provider Authentication**
   * AWS IAM
   * Azure AD Workload Identities
   * Google Cloud Workload Identity
-
-Akeyless does not require long-lived secrets for authentication when using native cloud or identity provider integrations.
 
 ***
 
