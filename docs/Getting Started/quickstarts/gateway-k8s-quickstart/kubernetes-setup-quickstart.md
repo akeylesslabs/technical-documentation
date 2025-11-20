@@ -84,12 +84,16 @@ docker-desktop   Ready    control-plane   51d   v1.34.1
 ## Step 3: Install and Verify Helm
 
 1. <Anchor label="Install Helm." target="_blank" href="https://helm.sh/docs/intro/install/">Install Helm.</Anchor>
-2. <br />
+2. Verify Helm:
 
-Verify Helm:
-
-```bash
+```shell
 helm version
+```
+
+_Sample Output:_
+
+```
+version.BuildInfo{Version:"v4.0.0", GitCommit:"99cd1964357c793351be481d55abbe21c6b2f4ec", GitTreeState:"clean", GoVersion:"go1.25.4", KubeClientVersion:"v1.34"}
 ```
 
 List repos:
