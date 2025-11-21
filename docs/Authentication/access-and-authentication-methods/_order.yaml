@@ -7,3 +7,4 @@
 - kerberos
 - kubernetes-auth
 - ldap
+- oauth20jwt
