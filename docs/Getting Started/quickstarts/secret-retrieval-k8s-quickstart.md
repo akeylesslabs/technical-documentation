@@ -217,9 +217,8 @@ going to sleep...
 
 ## Step 8: Clean Up
 
-```bash
+```shell
 kubectl delete -f akeyless-secret-quickstart.yaml
-kubectl delete namespace akeyless
 ```
 
 ***
