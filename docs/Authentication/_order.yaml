@@ -1,6 +1,6 @@
 - access-and-authentication-methods
-- rbac
 - azure-ad
+- rbac
 - certificate-based-authentication
 - email
 - gcp-auth-method
