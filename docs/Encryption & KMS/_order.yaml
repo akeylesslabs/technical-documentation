@@ -5,9 +5,9 @@
 - external-kms
 - fips
 - gpg-keys
+- java-jar-signing-wpkcs11
 - key-rotation
 - kmip-server
 - passkey-1
 - tde
 - tokenization
-- java-jar-signing-wpkcs11
