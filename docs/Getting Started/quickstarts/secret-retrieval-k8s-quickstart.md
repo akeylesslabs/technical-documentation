@@ -143,7 +143,7 @@ namespace/akeyless-quickstart labeled
 
 If you have not yet, create a Static Secret named `/Quick Secret`.
 
-## Step 6: Create a Deployment
+## Step 6: Create a Kubernetes Deployment
 
 Create `akeyless-secret-quickstart.yaml`:
 
