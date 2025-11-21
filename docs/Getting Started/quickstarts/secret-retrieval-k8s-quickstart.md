@@ -1,6 +1,6 @@
 ---
 title: Getting a Secret within a Kubernetes Cluster Quickstart
-excerpt: Under construction. Steps 1 & 2 verified.
+excerpt: Under construction. Steps 1 through 7 verified.
 deprecated: false
 hidden: false
 metadata:
@@ -198,17 +198,10 @@ Wait about one minute to verify the Quickstart pod is created:
 kubectl get pods -n akeyless-quickstart
 ```
 
-If issues arise:
-
-```shell
-kubectl describe pod -n akeyless-demo <pod-name>
-kubectl logs -n akeyless-demo <pod-name> -c akeyless-init
-```
-
 ## Step 8: Read the Secret from the Container
 
 ```bash
-kubectl logs -n akeyless-demo deploy/akeyless-secret-demo
+kubectl logs -n akeyless-quickstart deploy/akeyless-secret-quickstart
 ```
 
 Or exec:
