@@ -1,6 +1,5 @@
 - access-and-authentication-methods
 - rbac
-- api-key
 - aws-iam
 - azure-ad
 - certificate-based-authentication
