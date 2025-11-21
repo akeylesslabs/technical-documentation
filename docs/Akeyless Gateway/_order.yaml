@@ -3,8 +3,8 @@
 - gateway-compose
 - gateway-k8s
 - gateway-chart
-- serverless-gateway
 - gateway-on-azure-container-app
+- serverless-gateway
 - gateway-configuration-manager
 - configure-the-gateway-cache
 - implement-zero-knowledge
