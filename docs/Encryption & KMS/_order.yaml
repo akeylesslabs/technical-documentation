@@ -7,7 +7,7 @@
 - gpg-keys
 - key-rotation
 - kmip-server
+- passkey-1
 - tde
 - tokenization
-- passkey-1
 - java-jar-signing-wpkcs11
