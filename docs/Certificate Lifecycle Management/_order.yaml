@@ -1,9 +1,9 @@
 - certificate-lifecycle-management
-- ssh-and-pkitls-certificates
 - certificate-storage
 - certificate-provisioning
 - certificate-renewal
 - certificate-revocation-list
+- ssh-and-pkitls-certificates
 - public-ca
 - acme-server
 - kubectl-access
