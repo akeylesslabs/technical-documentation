@@ -243,4 +243,4 @@ docker-desktop   130m         0%       1550Mi          20%
 
 ***
 
-_You have now prepared a Docker Desktop Kubernetes environment suitable for deploying the Akeyless Gateway._
+_You have now prepared a Docker Desktop Kubernetes cluster suitable for deploying the Akeyless Gateway._
