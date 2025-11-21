@@ -200,8 +200,19 @@ kubectl get pods -n akeyless
 
 ## Step 7: Read the Secret from the Container
 
+Run the following command to see your Static Secret be retrieved:
+
 ```shell
 kubectl logs -n akeyless deploy/akeyless-secret-quickstart
+```
+
+_Sample Output_:
+
+```
+Defaulted container "quickstart" out of: quickstart, akeyless-init (init)
+2025/11/21 01:36:31 [INFO] Secret /QuickSecret was successfully written to: /akeyless/secrets//QuickSecret
+Super Secret
+going to sleep...
 ```
 
 ## Step 8: Clean Up
