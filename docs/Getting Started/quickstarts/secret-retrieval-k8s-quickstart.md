@@ -215,6 +215,10 @@ Super Secret
 going to sleep...
 ```
 
+<Callout icon="📘" theme="info">
+  In this example, we have injected the Static Secret's value as both a file _and_ and an environment variable to illustrate your options. In a production environment, injecting the secret value as a file is the preferred method.
+</Callout>
+
 ## Step 8: Clean Up
 
 ```shell
