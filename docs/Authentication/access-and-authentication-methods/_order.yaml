@@ -4,3 +4,4 @@
 - certificate-based-authentication
 - email
 - gcp-auth-method
+- kerberos

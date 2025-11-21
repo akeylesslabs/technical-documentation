@@ -1,5 +1,4 @@
 - access-and-authentication-methods
-- kerberos
 - kubernetes-auth
 - ldap
 - oauth20jwt
