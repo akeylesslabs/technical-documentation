@@ -3,3 +3,4 @@
 - azure-ad
 - certificate-based-authentication
 - email
+- gcp-auth-method
