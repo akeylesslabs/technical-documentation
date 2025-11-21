@@ -1,3 +1,4 @@
+- account-settings
 - analytics
 - audit-logs
 - automatic-migration
@@ -11,7 +12,6 @@
 - item-deletion
 - oidc-app-provider
 - request-access
-- account-settings
 - multiple-accounts
 - monitor-akeyless
 - dynamic-secrets-user-templating
