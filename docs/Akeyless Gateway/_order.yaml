@@ -1,9 +1,9 @@
 - api-gw
 - install-and-configure-the-gateway
 - gateway-compose
+- gateway-on-azure-container-app
 - gateway-k8s
 - gateway-chart
-- gateway-on-azure-container-app
 - serverless-gateway
 - gateway-configuration-manager
 - configure-the-gateway-cache
