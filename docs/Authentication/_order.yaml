@@ -1,5 +1,4 @@
 - access-and-authentication-methods
-- rbac
 - email
 - gcp-auth-method
 - kerberos
@@ -10,4 +9,5 @@
 - openid
 - saml
 - universal-identity
+- rbac
 - groups
