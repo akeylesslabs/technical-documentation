@@ -151,30 +151,30 @@ Create `akeyless-secret-quickstart.yaml`:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: akeyless-secret-demo
-  namespace: akeyless-demo
+  name: akeyless-secret-quickstart
+  namespace: akeyless-quickstart
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: akeyless-secret-demo
+      app: akeyless-secret-quickstart
   template:
     metadata:
       labels:
-        app: akeyless-secret-demo
+        app: akeyless-secret-quickstart
       annotations:
         akeyless/enabled: "true"
-        akeyless/inject_file: "/QuickStart/QuickSecret"
+        akeyless/inject_file: "/QuickSecret"
     spec:
       containers:
-      - name: demo
+      - name: quickstart
         image: alpine:3.19
         command:
           - "sh"
           - "-c"
           - |
             echo "Reading secret from file..."
-            cat /akeyless/secrets/QuickStart/QuickSecret || echo "Secret file not found"
+            cat /akeyless/secrets/QuickSecret || echo "Secret file not found"
             sleep 3600
 ```
 
