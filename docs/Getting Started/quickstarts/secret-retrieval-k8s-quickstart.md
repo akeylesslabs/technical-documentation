@@ -130,6 +130,8 @@ kubectl create namespace akeyless-quickstart
 kubectl label namespace akeyless-quickstart name=akeyless
 ```
 
+The `kubectl label` commands adds a key-value label to the `akeyless-quickstart` of `name=akeyless`.
+
 _Sample Output:_
 
 ```
@@ -139,7 +141,7 @@ namespace/akeyless-quickstart labeled
 
 ## Step 5: Verify the Secret Exists in Akeyless
 
-Ensure a static secret exists at `/QuickStart/QuickSecret`.
+If you have not yet, create a Static Secret named `/Quick Secret`.
 
 ## Step 6: Create a Demo Deployment
 
