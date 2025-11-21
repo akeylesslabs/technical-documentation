@@ -192,6 +192,8 @@ deployment.apps/akeyless-secret-quickstart created
 
 ## Step 7: Verify the Pod Started
 
+Wait about one minute to verify the Quickstart pod is created:
+
 ```shell
 kubectl get pods -n akeyless-quickstart
 ```
