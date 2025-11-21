@@ -1,5 +1,5 @@
 ---
-title: Akeyless MCP Server
+title: CLI Reference - MCP Server
 excerpt: ''
 deprecated: false
 hidden: false
