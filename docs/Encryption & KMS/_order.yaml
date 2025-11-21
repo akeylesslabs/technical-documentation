@@ -3,11 +3,11 @@
 - classic-keys
 - encryption-keys
 - external-kms
+- fips
 - key-rotation
 - kmip-server
 - tde
 - tokenization
-- fips
 - gpg-keys
 - passkey-1
 - java-jar-signing-wpkcs11
