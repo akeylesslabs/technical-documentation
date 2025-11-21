@@ -145,7 +145,7 @@ If you have not yet, create a Static Secret named `/QuickSecret`.
 
 ## Step 6: Create a Kubernetes Deployment
 
-Create `akeyless-secret-quickstart.yaml`:
+Create a new file called `akeyless-secret-quickstart.yaml` that define our Deployment:
 
 ```yaml
 apiVersion: apps/v1
