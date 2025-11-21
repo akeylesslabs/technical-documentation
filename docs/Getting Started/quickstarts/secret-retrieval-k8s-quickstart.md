@@ -141,7 +141,7 @@ namespace/akeyless-quickstart labeled
 
 ## Step 5: Verify the Secret
 
-If you have not yet, create a Static Secret named `/Quick Secret`.
+If you have not yet, create a Static Secret named `/QuickSecret`.
 
 ## Step 6: Create a Kubernetes Deployment
 
