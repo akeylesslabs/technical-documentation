@@ -225,11 +225,18 @@ going to sleep...
 kubectl delete -f akeyless-secret-quickstart.yaml
 ```
 
+_Sample Output:_
+
+```
+deployment.apps "akeyless-secret-quickstart" deleted from akeyless namespace
+```
+
 ***
 
 _You have successfully:_
 
 1. _Installed the Akeyless Kubernetes Secrets Injector_
-2. _Enabled secret injection with the Akeyless Kubernetes Secrets Injector_
-3. _Created a demo deployment using annotation-based secret retrieval_
-4. _Retrieved an Akeyless secret directly inside a container_
+2. _Created a demo deployment using annotation-based secret retrieval_
+3. _Retrieved an Akeyless secret value directly inside a container_
+
+<br />
