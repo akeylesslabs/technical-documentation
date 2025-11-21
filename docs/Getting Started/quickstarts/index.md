@@ -27,4 +27,4 @@ Each Quickstart lists its own prerequisites in more detail.
 
 ## Choosing Where to Start
 
-If you are completely new to Akeyless, start with **Creating an Akeyless Account**, then continue with **Creating a Static Secret**.
+If you are completely new to Akeyless, we recommend performing each Quickstart in the order in which they appear in the left-side navigation menu.
