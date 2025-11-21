@@ -1,5 +1,5 @@
 ---
-title: Walmart Setup
+title: WMT Setup
 excerpt: ''
 deprecated: false
 hidden: true
@@ -12,8 +12,8 @@ next:
 ---
 The Akeyless Gateway is a stateless docker container, provided as a standalone or cluster. In order for the Akeyless Gateway to function properly, it requires public network connectivity to the Akeyless SaaS CORE.
 
-**Docker**\
-A basic deployment would preferably require a Linux Server (VM) with a docker engine installed.\
+**Docker**  
+A basic deployment would preferably require a Linux Server (VM) with a docker engine installed.  
 You may download the latest docker engine on [Docker website](https://docs.docker.com/get-docker/).
 
 **Network connectivity**
@@ -21,7 +21,7 @@ You may download the latest docker engine on [Docker website](https://docs.docke
 1. Network access to pull a docker image from: [https://hub.docker.com](https://hub.docker.com)
 2. Outgoing network access to Akeyless SaaS Core Services via the following URLs:
 
-```http Walmart tenant network
+```http WMT tenant network
 https://console.wmt.akeyless.io
 https://zerotrust.wmt.akeyless.io
 https://vault.wmt.akeyless.io
@@ -44,7 +44,7 @@ tcp://log.wmt.akeyless.io:9997
 tcp://log.wmt.akeyless.io:9443
 ```
 
-Outgoing network access to Akeyless Walmart SaaS Core Services via the following IP's:
+Outgoing network access to Akeyless WMT SaaS Core Services via the following IP's:
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -70,7 +70,7 @@ Outgoing network access to Akeyless Walmart SaaS Core Services via the following
       </td>
 
       <td>
-        Akeyless Walmart SaaS Gateway.
+        Akeyless WMT SaaS Gateway.
       </td>
 
       <td>
@@ -98,12 +98,12 @@ Outgoing network access to Akeyless Walmart SaaS Core Services via the following
       </td>
 
       <td>
-        Read-only multi-region Ingress.\
+        Read-only multi-region Ingress.  
         The same IP address will serve future Regions.
       </td>
 
       <td>
-        `us-central1`\
+        `us-central1`  
         `us-west1`
       </td>
     </tr>
@@ -144,7 +144,7 @@ The following table describes the main functionality of Akeyless micro-services:
   <tbody>
     <tr>
       <td>
-        * \*Console\*\*: [https://console.wmt.akeyless.io](https://console.wmt.akeyless.io)
+        * *Console**: [https://console.wmt.akeyless.io](https://console.wmt.akeyless.io)
       </td>
 
       <td>
@@ -164,7 +164,7 @@ The following table describes the main functionality of Akeyless micro-services:
 
     <tr>
       <td>
-        * \*Vault\*\*: [https://vault.wmt.akeyless.io](https://vault.wmt.akeyless.io)
+        * *Vault**: [https://vault.wmt.akeyless.io](https://vault.wmt.akeyless.io)
       </td>
 
       <td>
@@ -174,7 +174,7 @@ The following table describes the main functionality of Akeyless micro-services:
 
     <tr>
       <td>
-        * \*Auth\*\*: [https://auth.wmt.akeyless.io](https://auth.wmt.akeyless.io)
+        * *Auth**: [https://auth.wmt.akeyless.io](https://auth.wmt.akeyless.io)
       </td>
 
       <td>
@@ -184,7 +184,7 @@ The following table describes the main functionality of Akeyless micro-services:
 
     <tr>
       <td>
-        * \*Audit\*\* : [https://audit.wmt.akeyless.io](https://audit.wmt.akeyless.io)
+        * *Audit** : [https://audit.wmt.akeyless.io](https://audit.wmt.akeyless.io)
       </td>
 
       <td>
@@ -194,7 +194,7 @@ The following table describes the main functionality of Akeyless micro-services:
 
     <tr>
       <td>
-        * \*BIS\*\*: [https://bis.wmt.akeyless.io](https://bis.wmt.akeyless.io)
+        * *BIS**: [https://bis.wmt.akeyless.io](https://bis.wmt.akeyless.io)
       </td>
 
       <td>
@@ -204,7 +204,7 @@ The following table describes the main functionality of Akeyless micro-services:
 
     <tr>
       <td>
-        * \*Gator\*\*: [https://gator.wmt.akeyless.io](https://gator.wmt.akeyless.io)
+        * *Gator**: [https://gator.wmt.akeyless.io](https://gator.wmt.akeyless.io)
       </td>
 
       <td>
@@ -214,7 +214,7 @@ The following table describes the main functionality of Akeyless micro-services:
 
     <tr>
       <td>
-        * \*MQ\*\*: amqps\://mq.wmt.akeyless.io
+        * *MQ**: amqps://mq.wmt.akeyless.io
       </td>
 
       <td>
@@ -224,11 +224,10 @@ The following table describes the main functionality of Akeyless micro-services:
 
     <tr>
       <td>
-        * \*KFM\*\*:\
+        * *KFM**:  
           [https://kfm1.wmt.akeyless.io](https://kfm1.wmt.akeyless.io),\
-            
 
-        [https://kfm2.wmt.akeyless.io](https://kfm2.wmt.akeyless.io),  
+        [https://kfm2.wmt.akeyless.io](https://kfm2.wmt.akeyless.io),
 
         [https://kfm3.wmt.akeyless.io](https://kfm3.wmt.akeyless.io)
       </td>
@@ -240,8 +239,8 @@ The following table describes the main functionality of Akeyless micro-services:
 
     <tr>
       <td>
-        * \*Logs\*\*:\
-          tcp\://log.wmt.akeyless.io:9997 tcp\://log.wmt.akeyless.io:9443
+        * *Logs**:  
+          tcp://log.wmt.akeyless.io:9997 tcp://log.wmt.akeyless.io:9443
       </td>
 
       <td>
@@ -263,7 +262,7 @@ Akeyless Vault CLI has a pre-compiled binary version for Linux, macOS, and Windo
 
 ## Download and Install
 
-Run the following command with Admin privileges to download and install the CLI binary. 
+Run the following command with Admin privileges to download and install the CLI binary.
 
 ```shell Linux
 curl -o akeyless https://storage.googleapis.com/akeyless-cli/cli/latest/cli-linux-amd64
@@ -306,7 +305,7 @@ You can configure different types of authentication methods from the CLI:
 
 Use the authentication mode that you also used when you signed up and signed in to the UI, use your username and password credentials, or use the API key Akeyless assigned to you when you signed in for the first time.
 
-If you're not sure what authentication method to use, consult your administrator.\
+If you're not sure what authentication method to use, consult your administrator.  
 For more information about authentication methods, see [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
 In the following example, you'll find both the API-key and the LDAP authentication methods: API-Key and LDAP.
@@ -326,12 +325,12 @@ Profile ldap successfully configured
 
 > 🚧 Warning
 >
-> **No validation of credentials**\
+> **No validation of credentials**  
 > If you don’t enter the correct credentials, the CLI will not give you an error message, and it will just tell you that everything is configured. You will only receive an error message when you attempt to run commands.
 
-At the prompt `Would you like to add AKEYLESS-CLI to PATH (...)? (Y/n)` line, type `Y`. 
+At the prompt `Would you like to add AKEYLESS-CLI to PATH (...)? (Y/n)` line, type `Y`.
 
-You are now ready to use the CLI. 
+You are now ready to use the CLI.
 
 ## Install Akeyless Gateway
 
