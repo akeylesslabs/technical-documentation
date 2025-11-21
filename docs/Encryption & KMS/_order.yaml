@@ -3,8 +3,8 @@
 - encryption-keys
 - external-kms
 - key-rotation
-- zero-knowledge
 - kmip-server
+- zero-knowledge
 - tokenization
 - tde
 - fips
