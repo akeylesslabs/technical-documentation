@@ -10,7 +10,7 @@ next:
       title: Creating an Akeyless Account Quickstart
       type: basic
 ---
-Quick starts are short, task-focused guides that help you complete common Akeyless workflows end to end. They are designed to be followed in order if you are new to the platform, but each guide can also be used independently.
+Quick starts are short, task-focused guides that help you complete common Akeyless workflows end to end. They are designed to be followed in order if you are new to the platform, but each guide can also be used independently. They are _not_ designed to instruct you in every aspect of the process.
 
 ## Before You Begin
 
