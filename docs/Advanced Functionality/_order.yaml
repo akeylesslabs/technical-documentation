@@ -16,4 +16,5 @@
 - multiple-accounts
 - monitor-akeyless
 - dynamic-secrets-user-templating
+- akeyless-mcp-model-context-protocol-command
 - aws-best-practices
