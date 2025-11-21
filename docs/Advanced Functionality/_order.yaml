@@ -5,6 +5,7 @@
 - best-practices
 - billing
 - bulk-operations
+- dynamic-secrets-user-templating
 - event-center
 - fips-mode
 - folder-management
@@ -14,5 +15,4 @@
 - monitor-akeyless
 - multiple-accounts
 - request-access
-- dynamic-secrets-user-templating
 - usage-report
