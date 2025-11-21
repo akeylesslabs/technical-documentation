@@ -200,23 +200,15 @@ kubectl get pods -n akeyless-quickstart
 
 ## Step 8: Read the Secret from the Container
 
-```bash
+```shell
 kubectl logs -n akeyless-quickstart deploy/akeyless-secret-quickstart
-```
-
-Or exec:
-
-```bash
-POD_NAME=$(kubectl get pods -n akeyless-demo -l app=akeyless-secret-demo -o jsonpath='{.items[0].metadata.name}')
-kubectl exec -it -n akeyless-demo "$POD_NAME" -- sh
-cat /akeyless/secrets/QuickStart/QuickSecret
 ```
 
 ## Step 9: Clean Up
 
 ```bash
-kubectl delete -f akeyless-secret-demo.yaml
-kubectl delete namespace akeyless-demo
+kubectl delete -f akeyless-secret-quickstart.yaml
+kubectl delete namespace akeyless-quickstart
 ```
 
 ***
