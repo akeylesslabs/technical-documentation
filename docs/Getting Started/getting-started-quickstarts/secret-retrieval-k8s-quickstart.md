@@ -1,6 +1,5 @@
 ---
 title: Getting a Secret within a Kubernetes Cluster Quickstart
-excerpt: Under construction. Steps 1 through 7 verified.
 deprecated: false
 hidden: false
 metadata:
