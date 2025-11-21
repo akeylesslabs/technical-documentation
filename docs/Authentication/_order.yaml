@@ -1,6 +1,6 @@
 - access-and-authentication-methods
-- rbac
 - certificate-based-authentication
+- rbac
 - email
 - gcp-auth-method
 - kerberos
