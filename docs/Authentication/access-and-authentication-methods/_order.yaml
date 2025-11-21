@@ -8,3 +8,4 @@
 - kubernetes-auth
 - ldap
 - oauth20jwt
+- oci-iam
