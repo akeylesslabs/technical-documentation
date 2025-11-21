@@ -1,7 +1,7 @@
 - encryption-key-management-overview
+- classic-keys
 - encryption-keys
 - key-rotation
-- classic-keys
 - external-kms
 - zero-knowledge
 - kmip-server
