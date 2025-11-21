@@ -1,5 +1,5 @@
 ---
-title: Authentication Methods Introduction
+title: Authentication Methods
 excerpt: ''
 deprecated: false
 hidden: false
