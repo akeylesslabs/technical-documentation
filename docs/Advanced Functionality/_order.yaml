@@ -2,12 +2,12 @@
 - audit-logs
 - automatic-migration
 - best-practices
+- billing
 - bulk-operations
 - fips-mode
 - folder-management
 - freeze-or-delete-an-account
 - item-deletion
-- billing
 - event-center
 - request-access
 - oidc-app-provider
