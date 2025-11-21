@@ -1,6 +1,5 @@
 - access-and-authentication-methods
 - rbac
-- aws-iam
 - azure-ad
 - certificate-based-authentication
 - email
