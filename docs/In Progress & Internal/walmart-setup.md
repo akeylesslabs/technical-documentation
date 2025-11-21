@@ -126,7 +126,7 @@ Outgoing network access to Akeyless WMT SaaS Core Services via the following IP'
 
 **Akeyless Services Description**
 
-The following table describes the main functionality of Akeyless micro-services:
+The following table describes the main functionality of Akeyless microservices:
 
 <Table align={["left","left"]}>
   <thead>
