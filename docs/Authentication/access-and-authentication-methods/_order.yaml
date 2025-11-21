@@ -5,3 +5,4 @@
 - email
 - gcp-auth-method
 - kerberos
+- kubernetes-auth
