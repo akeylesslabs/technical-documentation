@@ -19,9 +19,9 @@ Depending on which Quickstart you follow, you may need:
 * A modern web browser and internet access
 * Access to an email account to receive Akeyless signup and verification messages
 * Basic familiarity with command-line tools
-* Access to a Kubernetes cluster and permissions to create namespaces, deployments, and secrets (for the Kubernetes Quickstarts)
+* Access to install command-line tools and applications
 
-Each Quickstart lists its own prerequisites in more detail.
+[Each]() Quickstart lists its own prerequisites in more detail.
 
 ***
 
