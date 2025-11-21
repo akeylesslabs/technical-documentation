@@ -72,7 +72,7 @@ Update Complete. ⎈Happy Helming!⎈
 Run the following command to save the default configuration values of the Akeyless Gateway Helm chart to your current directory as a new file called `values.yaml`:
 
 ```shell
-helm show values akeyless/akeyless-gateway --version 1.13.1 > values.yaml
+helm show values akeyless/akeyless-gateway --version "1.13.1" > values.yaml
 ```
 
 There should be no command output.
@@ -108,7 +108,7 @@ globalConfig:
 Run the following command to install the Akeyless Gateway Helm chart using the `values.yaml` file that you edited:
 
 ```shell
-helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --version 1.13.1
+helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --version "1.13.1"
 ```
 
 _Sample Output:_
