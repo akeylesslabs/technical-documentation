@@ -1,5 +1,5 @@
 ---
-title: Look & Feel Sample [Page Title]
+title: Markdown Look & Feel Sample [Page Title]
 excerpt: I am a page description
 deprecated: false
 hidden: true
