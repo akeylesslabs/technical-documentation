@@ -1,5 +1,4 @@
 - access-and-authentication-methods
-- kubernetes-auth
 - ldap
 - oauth20jwt
 - oci-iam
