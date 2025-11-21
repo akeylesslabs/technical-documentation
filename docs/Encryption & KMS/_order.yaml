@@ -1,8 +1,8 @@
 - encryption-key-management-overview
 - classic-keys
 - encryption-keys
-- key-rotation
 - external-kms
+- key-rotation
 - zero-knowledge
 - kmip-server
 - tokenization
