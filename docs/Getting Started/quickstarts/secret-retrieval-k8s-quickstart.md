@@ -139,7 +139,7 @@ namespace/akeyless-quickstart created
 namespace/akeyless-quickstart labeled
 ```
 
-## Step 5: Verify the Secret Exists in Akeyless
+## Step 5: Verify the Secret
 
 If you have not yet, create a Static Secret named `/Quick Secret`.
 
