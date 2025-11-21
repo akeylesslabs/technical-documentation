@@ -190,7 +190,7 @@ _Sample Output:_
 deployment.apps/akeyless-secret-quickstart created
 ```
 
-## Step 7: Verify the Pod Started
+## Step 6: Verify the Pod Started
 
 Wait about one minute to verify the Quickstart pod is created:
 
@@ -198,13 +198,13 @@ Wait about one minute to verify the Quickstart pod is created:
 kubectl get pods -n akeyless
 ```
 
-## Step 8: Read the Secret from the Container
+## Step 7: Read the Secret from the Container
 
 ```shell
 kubectl logs -n akeyless deploy/akeyless-secret-quickstart
 ```
 
-## Step 9: Clean Up
+## Step 8: Clean Up
 
 ```bash
 kubectl delete -f akeyless-secret-quickstart.yaml
