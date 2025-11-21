@@ -5,10 +5,10 @@
 - billing
 - bulk-operations
 - fips-mode
+- event-center
 - folder-management
 - freeze-or-delete-an-account
 - item-deletion
-- event-center
 - request-access
 - oidc-app-provider
 - account-settings
