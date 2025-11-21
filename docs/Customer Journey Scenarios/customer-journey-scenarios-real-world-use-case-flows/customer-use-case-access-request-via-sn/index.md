@@ -1,5 +1,5 @@
 ---
-title: 'Customer Use Case: Access Request via ServiceNow'
+title: Access Request via ServiceNow
 excerpt: >-
   Integrating Akeyless API with ServiceNow to enable direct approval or
   rejection of access requests through the ServiceNow platform.
