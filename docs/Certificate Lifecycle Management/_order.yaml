@@ -1,10 +1,10 @@
 - certificate-lifecycle-management
 - ssh-and-pkitls-certificates
-- public-ca
 - certificate-storage
 - certificate-provisioning
 - certificate-renewal
 - certificate-revocation-list
+- public-ca
 - acme-server
 - kubectl-access
 - signing-image
