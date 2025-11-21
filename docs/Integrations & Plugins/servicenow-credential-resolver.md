@@ -7,20 +7,18 @@ link:
 metadata:
   robots: index
 ---
-<br />
-
-### Overview
+## Overview
 
 This project provides a ServiceNow MID external credential resolver that retrieves secrets from Akeyless and maps them to ServiceNow Discovery credential fields. The resolver class is com.snc.discovery.CredentialResolver.
 
-### Prerequisites
+## Prerequisites
 
 * ServiceNow instance (Quebec+ recommended) with Discovery and External Credentials enabled.
 * MID Server installed and connected to your instance.
 * Network access from the MID Server host to the Akeyless Gateway (default [https://api.akeyless.io](https://api.akeyless.io), or your private gateway URL).
 * An Akeyless Access ID and one of the supported authentication methods listed below.
 
-### Supported Akeyless authentication methods
+## Supported Akeyless authentication methods
 
 * access_key: Access ID + Access Key
 * aws_iam: CloudID from AWS
@@ -29,7 +27,7 @@ This project provides a ServiceNow MID external credential resolver that retriev
 
 For cloud-based methods, the resolver detects CloudID using the cloud environment. Ensure the MID Server is running where a CloudID can be obtained (e.g., EC2 with an instance profile, Azure VM with a managed identity, GCP VM with default credentials). For local/dev use, prefer access_key.
 
-### Build the JAR
+## Build the JAR
 
 This is a Maven project. Build a versioned JAR so the filename is stable in MID:
 
@@ -42,7 +40,7 @@ mvn -Drevision=1.0.0 clean package
 * With -Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar
 * Without a revision property, Maven will produce akeyless-servicenow-credential-resolver-null.jar.
 
-### Install the resolver on the MID Server
+## Install the resolver on the MID Server
 
 1. Upload the JAR to the MID Server via the instance UI
    * Navigate: MID Server → JAR files → New
@@ -54,9 +52,7 @@ mvn -Drevision=1.0.0 clean package
 * The MID will sync and place the JAR in its agent lib cache.
 * If not picked up, restart the MID service to force a sync.
 
-<br />
-
-### Configure MID properties (Akeyless parameters)
+## Configure MID properties (Akeyless parameters)
 
 Set the following MID properties on your instance (System Properties or MID Properties). Property names are case-sensitive.
 
@@ -82,8 +78,7 @@ Environment/system property alternatives
 * As a fallback for any ext.cred.* property, an environment variable with the uppercased name and dots replaced by underscores is also read (e.g., EXT_CRED_AKEYLESS_GW_URL).
 * Precedence: MID properties override environment/system variables.
 
-### Configure MID config.xml (secure local parameters)
-
+## Configure MID config.xml (secure local parameters)
 
 Add sensitive Akeyless credentials in the MID’s config.xml.
 
@@ -124,7 +119,7 @@ net stop mid
 net start mid
 ```
 
-### Configure a Discovery Credential to use this resolver
+## Configure a Discovery Credential to use this resolver
 
 1. Create a new credential
    * Navigate: Discovery → Credentials → New
@@ -135,10 +130,7 @@ net start mid
 2. Save and test
    * Click “Test credential”, select a MID Server and a target if required by the type.
 
-<br />
-
-### What to store in Akeyless and how it’s mapped
-
+## What to store in Akeyless and how it’s mapped
 
 The resolver accepts either:
 
@@ -163,8 +155,6 @@ Per-Type mapping summary
   * Mapped to ServiceNow fields: username, auth-protocol, auth-key, privacy-protocol, privacy-key
 * Any other type:
   * Best-effort: username and password if present
-
-<br />
 
 Examples
 
@@ -199,8 +189,6 @@ SNMPv3:
 }
 ```
 
-<br />
-
 Custom field names via mapping overrides (example):
 
 * Set ext.cred.akeyless.map.username = user_name
@@ -217,14 +205,13 @@ Then a JSON like:
 
 will map to ServiceNow username = alice, password = secret.
 
-### CloudID notes (aws_iam / azure_ad / gcp)
+## CloudID notes (aws_iam / azure_ad / gcp)
 
 * When ext.cred.akeyless.access_type (or AKEYLESS_ACCESS_TYPE) is aws_iam, azure_ad, or gcp, the resolver fetches a CloudID and sends it to Akeyless during auth.
 * Ensure the MID Server host is running in the target cloud with the appropriate identity, or that cloud SDK environment is present to retrieve a CloudID.
 * Do not set access_key when using CloudID-based methods.
 
-### Troubleshooting
-
+## Troubleshooting
 
 * HTTP 400 “Missing required parameter - timestamp” on /auth:
   * Usually indicates the wrong auth flow or missing parameters. Verify access_type is set correctly. For CloudID flows, do not set an access_key. For access_key flows, ensure both access_id and access_key are set.
@@ -235,7 +222,7 @@ will map to ServiceNow username = alice, password = secret.
 * Logging:
   * Resolver logs go through Commons Logging. Check the MID Server logs for entries containing “Akeyless resolver”.
 
-### Local/dev testing (optional)
+## Local/dev testing (optional)
 
 You can run unit tests locally:
 
