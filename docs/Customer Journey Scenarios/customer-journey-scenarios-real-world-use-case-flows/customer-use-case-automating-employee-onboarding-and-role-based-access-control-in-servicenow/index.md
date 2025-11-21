@@ -1,5 +1,5 @@
 ---
-title: 'Customer Use Case: Automated Onboarding'
+title: Automated Onboarding
 excerpt: Automating Employee Onboarding and Role-Based Access Control in ServiceNow
 deprecated: false
 hidden: false
