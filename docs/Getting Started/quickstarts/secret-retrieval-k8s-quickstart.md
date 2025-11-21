@@ -143,9 +143,9 @@ namespace/akeyless-quickstart labeled
 
 If you have not yet, create a Static Secret named `/Quick Secret`.
 
-## Step 6: Create a Demo Deployment
+## Step 6: Create a Deployment
 
-Create `akeyless-secret-demo.yaml`:
+Create `akeyless-secret-quickstart.yaml`:
 
 ```yaml
 apiVersion: apps/v1
