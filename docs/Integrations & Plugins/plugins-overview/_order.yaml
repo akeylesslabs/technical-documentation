@@ -22,6 +22,7 @@
 - hashicorp-vault-proxy
 - jenkins
 - keycloack-plugin
+- n8n-nodes-akeyless
 - puppet-plugin
 - openshift
 - slack-plugin
@@ -29,4 +30,3 @@
 - steampipe-plugin
 - teamcity-plugin
 - venafi-integration
-- n8n-nodes-akeyless
