@@ -5,8 +5,8 @@
 - external-kms
 - key-rotation
 - kmip-server
-- tokenization
 - tde
+- tokenization
 - fips
 - gpg-keys
 - passkey-1
