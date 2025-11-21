@@ -2,6 +2,6 @@
 - static-secrets
 - how-to-create-dynamic-secret
 - rotated-secrets
-- targets
 - secret-versions
+- targets
 - sharing-static-secrets
