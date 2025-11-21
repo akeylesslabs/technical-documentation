@@ -121,19 +121,20 @@ unified-gw-akeyless-gateway-695dbb7f67-n6kbx                  1/1     Running   
 
 Note that the Akeyless Gateway pods are also included in the sample output.
 
-## Step 3: Label Namespaces That Should Receive Secrets
+## Step 3: Create a Namespace and Label
 
-Label your target namespace so the injector processes its pods:
+Run these commands to create a namespace and label for our pods:
 
-```bash
-kubectl label namespace akeyless-demo name=akeyless
+```shell
+kubectl create namespace akeyless-quickstart
+kubectl label namespace akeyless-quickstart name=akeyless
 ```
 
-## Step 4: Create a Namespace for the Demo
+_Sample Output:_
 
-```bash
-kubectl create namespace akeyless-demo
-kubectl label namespace akeyless-demo name=akeyless
+```
+namespace/akeyless-quickstart created
+namespace/akeyless-quickstart labeled
 ```
 
 ## Step 5: Verify the Secret Exists in Akeyless
