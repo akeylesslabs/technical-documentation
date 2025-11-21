@@ -210,7 +210,7 @@ _Sample Output_:
 
 ```
 Defaulted container "quickstart" out of: quickstart, akeyless-init (init)
-2025/11/21 01:36:31 [INFO] Secret /QuickSecret was successfully written to: /akeyless/secrets//QuickSecret
+2025/11/21 01:50:44 [INFO] Secret QuickSecret was successfully written to: /akeyless/secrets/QuickSecret
 Super Secret
 going to sleep...
 ```
