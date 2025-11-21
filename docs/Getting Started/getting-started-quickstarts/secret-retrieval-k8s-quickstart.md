@@ -40,7 +40,7 @@ Update Complete. ⎈Happy Helming!⎈
 2. Run the following command to save the default configuration values of the Akeyless Kubernetes Secrets Injector Helm chart to your current directory as a new file called `values.yaml`:
 
 ```shell
-helm show values akeyless/akeyless-secrets-injection --version 1.17.5 > values.yaml
+helm show values akeyless/akeyless-secrets-injection --version "1.17.5" > values.yaml
 ```
 
 There should be no command output.
@@ -83,7 +83,7 @@ env:
 4. Run the following command to install the Akeyless Kubernetes Secrets Injector Helm chart using the `values.yaml` file that you edited:
 
 ```shell
-helm install secret-injector akeyless/akeyless-secrets-injection --version 1.17.5 --namespace akeyless -f values.yaml
+helm install secret-injector akeyless/akeyless-secrets-injection --version "1.17.5" --namespace akeyless -f values.yaml
 ```
 
 _Sample Output:_
