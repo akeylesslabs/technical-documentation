@@ -1,5 +1,4 @@
 - access-and-authentication-methods
-- email
 - gcp-auth-method
 - kerberos
 - kubernetes-auth
