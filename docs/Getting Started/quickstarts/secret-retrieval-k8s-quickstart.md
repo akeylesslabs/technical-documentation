@@ -14,29 +14,11 @@ You will need:
 
 * A running Kubernetes cluster (v1.21 or later recommended)
 * `kubectl` configured
-* An Akeyless Gateway reachable from the cluster
+* An Akeyless Gateway reachable from the cluster within a namespace titled `akeyless`
 * An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 * A Static Secret in Akeyless
 
-## Step 1: Create a Namespace and Label
-
-Run these commands to create a namespace and label for our pods:
-
-```shell
-kubectl create namespace akeyless
-kubectl label namespace akeyless name=akeyless
-```
-
-The `kubectl label` commands adds a key-value label to the namespace`akeyless` of `name=akeyless`.
-
-_Sample Output:_
-
-```
-namespace/akeyless created
-namespace/akeyless labeled
-```
-
-## Step 2: Install the Injector
+## Step 1: Install the Injector
 
 Before injecting secrets into containers, you must install and configure the **Akeyless Kubernetes Secrets Injector**. This component authenticates workloads to Akeyless and writes secrets into the container filesystem.
 
@@ -117,7 +99,7 @@ DESCRIPTION: Install complete
 TEST SUITE: None
 ```
 
-## Step 3: Verify Pods for the Secret Injector
+## Step 2: Verify Pods for the Secret Injector
 
 1. Wait for the Akeyless Kubernetes Secret Injector pods to be ready. This will likely take about one minute.
 2. Run the following command to check that the pods are ready:
@@ -139,11 +121,11 @@ unified-gw-akeyless-gateway-695dbb7f67-n6kbx                  1/1     Running   
 
 Note that the Akeyless Gateway pods are also included in the sample output.
 
-## Step 4: Verify the Secret
+## Step 3: Verify the Secret
 
 If you have not yet, create a Static Secret named `/QuickSecret` and ensure your API Key's associated Role has access to retrieve its value.
 
-## Step 5: Create a Kubernetes Deployment
+## Step 4: Create a Kubernetes Deployment
 
 1. Create a new manifest file called `akeyless-secret-quickstart.yaml` that defines our Deployment:
 
@@ -190,7 +172,7 @@ _Sample Output:_
 deployment.apps/akeyless-secret-quickstart created
 ```
 
-## Step 6: Verify the Pod Started
+## Step 5: Verify the Pod Started
 
 Wait about one minute to verify the Quickstart pod is created:
 
@@ -198,7 +180,7 @@ Wait about one minute to verify the Quickstart pod is created:
 kubectl get pods -n akeyless
 ```
 
-## Step 7: Read the Secret from the Container
+## Step 6: Read the Secret from the Container
 
 Run the following command to see your Static Secret be retrieved:
 
@@ -219,7 +201,7 @@ going to sleep...
   In this example, we have injected the Static Secret's value as both a file _and_ and an environment variable to illustrate your options. In a production environment, injecting the secret value as a file is the preferred method.
 </Callout>
 
-## Step 8: Clean Up
+## Step 7: Clean Up
 
 ```shell
 kubectl delete -f akeyless-secret-quickstart.yaml
