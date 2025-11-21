@@ -4,10 +4,10 @@
 - encryption-keys
 - external-kms
 - fips
+- gpg-keys
 - key-rotation
 - kmip-server
 - tde
 - tokenization
-- gpg-keys
 - passkey-1
 - java-jar-signing-wpkcs11
