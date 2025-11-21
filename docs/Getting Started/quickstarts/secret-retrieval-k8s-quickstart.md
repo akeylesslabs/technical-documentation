@@ -164,7 +164,7 @@ spec:
         app: akeyless-secret-quickstart
       annotations:
         akeyless/enabled: "true"
-        akeyless/inject_file: "/QuickSecret"
+        akeyless/inject_file: "QuickSecret"
     spec:
       containers:
         - name: quickstart
@@ -175,7 +175,7 @@ spec:
             - "echo $MY_SECRET && echo going to sleep... && sleep 10000"
           env:
             - name: MY_SECRET
-              value: akeyless:/QuickSecret
+              value: akeyless:QuickSecret
 ```
 
 2. Apply the manifest file and create the Deployment:
