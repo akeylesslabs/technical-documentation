@@ -1,5 +1,4 @@
 - access-and-authentication-methods
-- gcp-auth-method
 - kerberos
 - kubernetes-auth
 - ldap
