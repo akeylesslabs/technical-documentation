@@ -180,19 +180,25 @@ spec:
 
 2. Apply the manifest file and create the Deployment:
 
-```bash
+```shell
 kubectl apply -f akeyless-secret-quickstart.yaml
+```
+
+_Sample Output:_
+
+```
+deployment.apps/akeyless-secret-quickstart created
 ```
 
 ## Step 7: Verify the Pod Started
 
-```bash
+```shell
 kubectl get pods -n akeyless-quickstart
 ```
 
 If issues arise:
 
-```bash
+```shell
 kubectl describe pod -n akeyless-demo <pod-name>
 kubectl logs -n akeyless-demo <pod-name> -c akeyless-init
 ```
