@@ -4,7 +4,7 @@
 - certificate-provisioning
 - certificate-renewal
 - certificate-revocation-list
+- kubectl-access
 - ssh-and-pkitls-certificates
 - public-ca
-- kubectl-access
 - signing-image
