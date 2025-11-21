@@ -167,15 +167,15 @@ spec:
         akeyless/inject_file: "/QuickSecret"
     spec:
       containers:
-      - name: quickstart
-        image: alpine:3.19
-        command:
-          - "sh"
-          - "-c"
-          - |
-            echo "Reading secret from file..."
-            cat /akeyless/secrets/QuickSecret || echo "Secret file not found"
-            sleep 3600
+        - name: quickstart
+          image: alpine:3.19
+          command:
+            - "sh"
+            - "-c"
+            - "echo $MY_SECRET && echo going to sleep... && sleep 10000"
+          env:
+            - name: MY_SECRET
+              value: akeyless:/QuickSecret
 ```
 
 2. Apply the manifest file and create the Deployment:
