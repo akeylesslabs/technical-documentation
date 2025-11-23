@@ -1,7 +1,7 @@
 ---
 title: Copy of System Requirements
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
