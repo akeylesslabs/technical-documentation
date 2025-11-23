@@ -1,5 +1,5 @@
 ---
-title: Starting with Remote Access
+title: SRA Quick Start
 deprecated: false
 hidden: true
 metadata:
