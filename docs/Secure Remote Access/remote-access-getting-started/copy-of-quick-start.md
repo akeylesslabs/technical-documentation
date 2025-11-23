@@ -1,5 +1,5 @@
 ---
-title: 'Deploying SRA '
+title: Starting with Remote Access
 deprecated: false
 hidden: true
 metadata:
@@ -12,7 +12,7 @@ In this guide, we will deploy the gateway using a K8s cluster.
 # Prerequisites
 
 * An Akeyless Gateway - Either [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
-* SSH Certificate Issuer - With `session_*` allowed user.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/) - With `session_*` allowed user.
 * [Helm](https://helm.sh/) installed - Relevant only for K8s.
 
 # Deployment
