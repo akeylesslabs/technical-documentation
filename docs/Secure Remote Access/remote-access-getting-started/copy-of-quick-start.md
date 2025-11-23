@@ -99,7 +99,15 @@ kubectl get pods
 
 Upon successful installation, you will see the **Gateway** pods as well as the **Remote Access** pods, which include the `web` and `ssh` components.
 
-Log in to the Gateway using your browser `http://Your-Akeyless-Gateway-URL:8000` with your Gateway admin credentials, If you get the login page, you have successfully deployed the Gateway.
+In order to get the address of your gateway, run: 
+
+```shell
+kubectl get svc
+```
+
+You will see the service name as: `gw-akeyless-gateway`, the **External-IP** will be used to reach to the gateway from your browse.
+
+Log in to the Gateway using your browser `http://External-IP:8000` with your Gateway admin credentials, If you get the login page, you have successfully deployed the Gateway.
 
 # Working With SRA
 
