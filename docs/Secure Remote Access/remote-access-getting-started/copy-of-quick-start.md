@@ -48,7 +48,9 @@ akeylessGatewayAuth:
 Where
 
 * `gatewayAccessId`: The `AccessID` of the auth method.
+
 * `gatewayAccessType`: The `AccessType` of the  auth method.
+
 * `gatewayCredentialsExistingSecret`: [K8s secret](https://kubernetes.io/docs/concepts/configuration/secret/) that stores sensitive information.
 
 ```shell
@@ -74,6 +76,7 @@ sra:
 Where:
 
 * `sra`: set to `enable` in order to deploy the remote access functionality.
+
 * `CAPublicKey`: The Public Key set on the SSH Certificate Issuer.
 
 # Installation
