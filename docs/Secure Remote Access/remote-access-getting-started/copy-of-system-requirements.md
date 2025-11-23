@@ -5,28 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-Akeyless Secure Remote Access offers two types of solutions, each providing distinct capabilities as follows:
-
-# Remote Access
-
-This provides secure access to resources using just-in-time dynamic secrets, rotated secrets, or SSH certificates.
-
-It can be deployed on Docker Compose or Kubernetes and creates two types of deployments:
-
-## Web-SRA
-
-The `web-sra` component allows access to `RDP`/`SSH`/`DB` target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`.
-
-## SSH-SRA
-
-The `ssh-sra` component enables end-users to connect to targets that support CLI access (over SSH) from their own native `Terminal`/`CLI` tool with the [`akeyless connect`](https://docs.akeyless.io/docs/remote-access-akeyless-connect) command.
-
-<Callout icon="📘" theme="info">
-  ## Note
-
-  This guide will be focusing on K8s deployment.
-</Callout>
-
 # Zero-Trust Web-Access (ZTWA)
 
 This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets via the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions), which opens a browser session and injects credentials into the browser for the user.
