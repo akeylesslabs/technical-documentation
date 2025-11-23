@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-<br />
-
 # System Architecture
 
 Akeyless Secure Remote Access offers two types of solutions, each providing distinct capabilities as follows:
@@ -25,7 +23,7 @@ The `web-sra` component allows access to `RDP`/`SSH`/`DB` target hosts from the 
 
 The `ssh-sra` component enables end-users to connect to targets that support CLI access (over SSH) from their own native `Terminal`/`CLI` tool with the [`akeyless connect`](https://docs.akeyless.io/docs/remote-access-akeyless-connect) command.
 
-<Callout icon="📘">
+<Callout icon="📘" theme="info">
   ## Note
 
   This guide will be focusing on K8s deployment.
