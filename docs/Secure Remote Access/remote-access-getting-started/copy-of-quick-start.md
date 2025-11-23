@@ -99,7 +99,7 @@ kubectl get pods
 
 Upon successful installation, you will see the **Gateway** pods as well as the **Remote Access** pods, which include the `web` and `ssh` components.
 
-In order to get the address of your gateway, run: 
+In order to get the address of your gateway, run:
 
 ```shell
 kubectl get svc
@@ -113,7 +113,7 @@ Log in to the Gateway using your browser `http://External-IP:8000` with your Gat
 
 To start working with SRA, open your browser and log in using the following URL:
 
-* `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
+* `http://External-IP:8000/sra/portal`
 
 You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC](https://docs.akeyless.io/docs/openid#/) or a [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication#/) authentication method.
 
