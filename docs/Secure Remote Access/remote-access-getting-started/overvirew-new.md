@@ -11,6 +11,8 @@ The Akeyless Platform’s Secure Remote Access (SRA) solution offers a modern ap
 
 Users can connect securely to resources through the Gateway's internal SRA Portal, the public [SRA Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal), a desktop application, or via the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI command. Akeyless supports a variety of protocols, including `SSH`, `RDP`, `SQL`, and more.
 
+**SRA** can be deployed using either a [K8s cluster](https://kubernetes.io/docs/concepts/architecture/) or [Docker Compose](https://docs.docker.com/compose/) 
+
 ## How it works
 
 SRA is deployed alongside the Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a **Web** application and **SSH** application, each has a separate pod in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
