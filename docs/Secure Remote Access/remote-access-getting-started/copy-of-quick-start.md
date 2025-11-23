@@ -17,7 +17,13 @@ In this guide, we will deploy the gateway using a K8s cluster.
 
 # Deployment
 
-The following steps including the Gateway deployment, if you already have a running gateway, you can go to the [Remote Access](https://docs.akeyless.io/docs/copy-of-quick-start#/remote-access-configuration) section:
+The following steps including the Gateway deployment, if you already have a running gateway, you can go to the [Remote Access](https://docs.akeyless.io/docs/copy-of-quick-start#/remote-access-configuration) section.
+
+<Callout icon="📘" theme="info">
+  # Note
+
+  If using an existing gateway, make sure the Admin Access ID has **Read** permission on the item you wish to with using the SRA. 
+</Callout>
 
 ## Helm Chart Configuration
 
