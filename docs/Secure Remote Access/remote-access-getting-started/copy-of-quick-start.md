@@ -5,19 +5,19 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be deployed either by using an existing gateway or by creating a new one. 
+This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be deployed either by using an existing gateway or by creating a new one.
 
 In this guide, we will deploy the gateway using a K8s cluster.
 
 # Prerequisites
 
-*  An Akeyless Gateway - Either [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/). 
-* SSH Certificate Issuer - With `session_*` allowed user. 
+* An Akeyless Gateway - Either [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
+* SSH Certificate Issuer - With `session_*` allowed user.
 * [Helm](https://helm.sh/) installed - Relevant only for K8s.
 
 # Deployment
 
-The following steps including the Gateway deployment, if you already have a running gateway, you can go to the Remote Access section:
+The following steps including the Gateway deployment, if you already have a running gateway, you can go to the [Remote Access](https://docs.akeyless.io/docs/copy-of-quick-start#/remote-access-configuration) section:
 
 ## Helm Chart Configuration
 
@@ -48,14 +48,14 @@ akeylessGatewayAuth:
 Where
 
 * `gatewayAccessId`: The `AccessID` of the auth method.
-* `gatewayAccessType`: The `AccessType` of the  auth method. 
-* `gatewayCredentialsExistingSecret`: K8s secret that stores sensitive information. 
+* `gatewayAccessType`: The `AccessType` of the  auth method.
+* `gatewayCredentialsExistingSecret`: K8s secret that stores sensitive information.
 
 ## Remote Access Configuration
 
 In order to set your gateway with **Remote Access**, add the following to your deployment:
 
-```
+```shell
 sra:
   # Enable secure-remote-access. Valid values: true/false.
   enabled: true
@@ -69,8 +69,8 @@ sra:
 
 Where:
 
-* `sra`: set to `enable` in order to deploy the remote access functionality. 
-* `CAPublicKey`: The Public Key set on the SSH Certificate Issuer. 
+* `sra`: set to `enable` in order to deploy the remote access functionality.
+* `CAPublicKey`: The Public Key set on the SSH Certificate Issuer.
 
 # Installation
 
