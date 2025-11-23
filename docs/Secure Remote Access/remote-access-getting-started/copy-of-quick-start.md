@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be deployed either by using an existing gateway or by creating a new one.
+This guide explains how to deploy the SRA using the most basic configuration. SRA can be deployed either by using an existing gateway or by creating a new one.
 
 In this guide, we will deploy the gateway using a K8s cluster.
 
@@ -100,8 +100,8 @@ To start working with SRA, open your browser and log in using the following URL:
 
 * `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
 
-You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC](https://docs.akeyless.io/docs/openid#/) or a [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication#/) authentication method. 
+You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC](https://docs.akeyless.io/docs/openid#/) or a [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication#/) authentication method.
 
-Once logged in, you will see the Dynamic Secrets that has the **Secure Remote Access** option enabled, and you will be able to log in to those resources in a secure way using Just In Time credentials. 
+Once logged in, you will see the Dynamic Secrets that has the **Secure Remote Access** option enabled, and you will be able to log in to those resources in a secure way using Just In Time credentials.
 
 <br />
