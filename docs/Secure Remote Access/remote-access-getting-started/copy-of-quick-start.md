@@ -111,6 +111,6 @@ To start working with SRA, open your browser and log in using the following URL:
 
 You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC](https://docs.akeyless.io/docs/openid#/) or a [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication#/) authentication method.
 
-Once logged in, you will see the Dynamic Secrets that has the **Secure Remote Access** option enabled, and you will be able to log in to those resources in a secure way using Just In Time credentials.
+Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) that have **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the **web** interface or via an **SSH** connection.
 
 <br />
