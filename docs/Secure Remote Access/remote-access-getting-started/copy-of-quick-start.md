@@ -7,7 +7,7 @@ metadata:
 ---
 This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be deployed either by using an existing gateway or by creating a new one. 
 
-In this doc, we will use K8s deployment. 
+In this guide, we will deploy the gateway using a K8s cluster.
 
 # Prerequisites
 
