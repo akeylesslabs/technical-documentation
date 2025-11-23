@@ -42,7 +42,7 @@ helm show values akeyless/akeyless-gateway > values.yaml
 
 ## Gateway Configuration
 
-Set the Authentication Method (for this example, we will use an [API Key](https://docs.akeyless.io/docs/api-key#/)):
+Set the Authentication Method (in this example, we will use an [API Key](https://docs.akeyless.io/docs/api-key#/)):
 
 ```shell
 akeylessGatewayAuth:
@@ -71,9 +71,6 @@ In order to set your gateway with **Remote Access**, add the following to your d
 ```shell
 sra:
   enabled: true
-  
-    sshConfig:
-    replicaCount: 1
 
     config:
       CAPublicKey: "<PublicKey>"
