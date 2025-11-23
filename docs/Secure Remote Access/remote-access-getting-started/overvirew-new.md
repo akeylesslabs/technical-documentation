@@ -16,6 +16,7 @@ Users can connect securely to resources through the Gateway's internal SRA Porta
 SRA is deployed alongside the Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a **Web** application and **SSH** application, each has a separate pod in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
 
 * **Web**: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
+
 * **SSH**: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any UNIX-supporting resource.
 
 ## Key Features
@@ -23,10 +24,15 @@ SRA is deployed alongside the Akeyless [Gateway](https://docs.akeyless.io/docs/a
 Akeyless Secure Remote Access provides a robust set of features designed to support secure, efficient access for teams. Here are some of the key capabilities:
 
 * **Just-in-time Access**: With SRA, just-in-time secrets can be created and injected into a remote resource, such as a database, on the fly.
+
 * **Rotated Secret Access**: Privileged secrets can be used to access remote resources with the ability to automatically rotate the credentials once the session ends.
+
 * **Request for Access**: Admins have the ability to enable an option for users to request access for a specific resource on-demand.
+
 * **Audit and Session Management**: Akeyless provides full session management with auditing and recording capabilities to keep you compliant. Session recordings and transcripts can be automatically exported to remote storage systems for long-term retention.
+
 * **Granular RBAC**: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need (Users are restricted from accessing anything beyond their defined scope). Users only need SRA permissions to initiate connections—without requiring any  `read` access to the underlying secrets.
+
 * **Native SSO integrations**: SRA supports authentication via SSO protocols such as **OIDC**, **SAML**, and **LDAP**.
 
 ## Supported Resource Types
