@@ -7,7 +7,7 @@ metadata:
 ---
 # What is Secure Remote Access?
 
-The Akeyless Platform’s Secure Remote Access (SRA) solution offers a modern approach to Privileged Access Management (PAM), enabling users to securely connect to **servers**, **databases**, **internal applications**, and **web apps** across any environment—whether cloud hosted or on-premise, private or public—by leveraging Just-in-Time, Zero-Trust access with full audibility.
+The Akeyless Platform’s Secure Remote Access (SRA) solution offers a modern approach to Privileged Access Management (PAM), enabling users to securely connect to **servers**, **databases**, **internal applications**, and **web apps** across any environment, whether cloud hosted or on-premise, private or public, by leveraging Just-in-Time, Zero-Trust access with full audibility.
 
 Users can connect securely to resources through the Gateway's internal SRA Portal, the public [SRA Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal), a desktop application, or via the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI command. Akeyless supports a variety of protocols, including `SSH`, `RDP`, `SQL`, and more.
 
