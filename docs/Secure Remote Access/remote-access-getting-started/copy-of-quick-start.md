@@ -5,11 +5,9 @@ hidden: true
 metadata:
   robots: index
 ---
-This quick start guide is intended to get you started with deploying a Gateway (with Remote Access) using the most basic, required parameters and a clean Kubernetes cluster. Within just a few minutes you will see how easy it is to complete the Gateway deployment and secure your user and machine access. You will also be able to use just-in-time credentials with remote access to log into your various applications and services.
+This guide will demonstrate the most basic steps required to set up a Gateway with an SRA deployment using K8s.
 
-Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed on Docker using docker-compose, but this guide will focus on K8s.
-
-Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In K8s deployments, the configuration process takes place before the actual installation.
+However, if you already have an existing gateway, you can use it to deploy the SRA by setting the settings in the Remote Access Section.
 
 > 🚧 Security
 >
@@ -17,49 +15,11 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 # Prerequisites
 
-* [Authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods#/) with permissions to create items in the platform.
-* A K8s Cluster
+* [Authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods#/) with permissions to create items in the account.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/) with `session_*` allowed user.
 * [Helm](https://helm.sh/) Installed
 * [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
 * Minimum 1 vCPU available with 2GB RAM per resource
-* The following ports need to be open on the cluster:
-
-| Service                                                                                      | Port |
-| :------------------------------------------------------------------------------------------- | :--- |
-| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
-| SSH Access                                                                                   | 22   |
-
-# Configuration
-
-The following steps will be used to prepare the environment.
-
-## Create an API Key
-
-In this guide, for simplicity, we will use an [API Key](https://docs.akeyless.io/docs/api-key#/) for the authentication, however, you can use each of the following [auth methods](https://docs.akeyless.io/docs/gateway-chart#/).
-
-To create an API Key, run the following command:
-
-```shell
-akeyless auth-method create api-key --name MyFirstKey
-```
-
-The output will print the `AccessID` and `AccessKey` of the **API Key**.
-
-## Create an SSH Certificate Issuer
-
-Next, we will create an SSH Certificate Issuer that will be used for SSH access to your resources:
-
-* Create a new [DFC Key](https://docs.akeyless.io/docs/encryption-keys#/):
-
-```shell
-akeyless create-dfc-key -n MyRSAKey -a RSA2048
-```
-
-2. Create the **SSH Certificate Issuer**:
-
-```shell
-akeyless create-ssh-cert-issuer --name MySSHIssuer --signer-key-name MyRSAKey --allowed-users 'ubuntu' --ttl 300
-```
 
 > 👍 SSH connection note
 >
@@ -67,7 +27,9 @@ akeyless create-ssh-cert-issuer --name MySSHIssuer --signer-key-name MyRSAKey --
 
 # Gateway Deployment
 
-The following steps will be used in order to deploy the K8s gateway with the Secret Remote Access to resources in your account.
+The following steps will be used in order to deploy the K8s gateway with the **Secret Remote Access**.
+
+For simplicity, we will use an [API Key](https://docs.akeyless.io/docs/api-key#/) auth method. 
 
 ## Helm Chart Configuration
 
@@ -97,11 +59,11 @@ akeylessGatewayAuth:
   gatewayCredentialsExistingSecret: access-key
 ```
 
-`gatewayAccessId`: The `AccessID` of the [API Key](https://docs.akeyless.io/docs/api-key) that was created earlier.
+Where:
 
-`gatewayAccessType`: The access type, for API Key use `access_key`.
-
-`gatewayCredentialsExistingSecret`: A [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains the value of the `AccessKey` of the API Key, in order to create the K8s secret, run the following command:
+* `gatewayAccessId`: The `AccessID` of the auth method with permissions. -- to be fixed by Avi
+* `gatewayAccessType`: The **Access Type** of the auth method, in our case, `access_key`
+* `gatewayCredentialsExistingSecret`: A [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains the value of the `AccessKey` of the API Key, in order to create the K8s secret, run the following command:
 
 ```shell
 kubectl create secret generic access-key \
@@ -122,18 +84,13 @@ sra:
     replicaCount: 1
 
     config:
-      CAPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAPzDVmeABzsGd0lEl9m2fdgmCzOLVmEGcLxNkn..."
+      CAPublicKey: "PublicKey"
 ```
 
-To configure Remote Access, follow these steps:
+Where:
 
-`sra`: Set the `enabled` field to `true`. Note that the Remote Access deployment creates two more pods in the cluster, one for **Web** and one for **SSH**.
-
-`CAPublicKey`: For this to work properly, you are also required to provide the matching public key of the key you used to create the SSH Certificate Issuer in Akeyless. Run the following command for getting the value:
-
-```shell
-akeyless get-rsa-public -n MyRSAKey
-```
+* `sra`: Set the `enabled` field to `true`. Note that the Remote Access deployment creates two more pods in the cluster, one for **Web** and one for **SSH**.
+* `CAPublicKey`: Public key of the Encryption key you used to create the SSH Certificate Issuer in Akeyless. 
 
 # Installation
 
@@ -148,8 +105,6 @@ helm install gw akeyless/akeyless-gateway -f values.yaml
 Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.
 
 Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `gw`.
-
-<Image align="center" border={false} src="https://files.readme.io/cbcf9b1-Screenshot_2024-08-06_at_10.42.34.png" />
 
 Copy the `EXTERNAL-IP` and paste that into your browser with port `8000/console` (i.e. `http://<Your-Akeyless-GW-URL:8000/console>`). If you get the login page, you have successfully deployed the Gateway.
 
