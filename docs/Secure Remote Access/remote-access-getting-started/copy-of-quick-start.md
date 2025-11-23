@@ -49,14 +49,12 @@ Where
 
 * `gatewayAccessId`: The `AccessID` of the auth method.
 * `gatewayAccessType`: The `AccessType` of the  auth method.
-* `gatewayCredentialsExistingSecret`: K8s secret that stores sensitive information.
+* `gatewayCredentialsExistingSecret`: [K8s secret](https://kubernetes.io/docs/concepts/configuration/secret/) that stores sensitive information.
 
 ```shell
 kubectl create secret generic access-key \
   --from-literal=gateway-access-key=<plaintext-Access-Key>
 ```
-
-<br />
 
 ## Remote Access Configuration
 
@@ -64,7 +62,6 @@ In order to set your gateway with **Remote Access**, add the following to your d
 
 ```shell
 sra:
-  # Enable secure-remote-access. Valid values: true/false.
   enabled: true
   
     sshConfig:
@@ -95,4 +92,14 @@ kubectl get pods
 
 Upon successful installation, you will see the **Gateway** pods as well as the **Remote Access** pods, which include the `web` and `ssh` components.
 
-Log in to the Gateway using your browser ([http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)) with your Gateway admin credentials.
+Log in to the Gateway using your browser ([http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)) with your Gateway admin credentials, If you get the login page, you have successfully deployed the Gateway.
+
+# Working With SRA
+
+To start working with SRA, open your browser and log in using the following URL:
+
+* `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
+
+<br />
+
+<br />
