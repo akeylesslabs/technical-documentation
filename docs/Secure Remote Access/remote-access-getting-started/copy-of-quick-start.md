@@ -47,11 +47,11 @@ akeylessGatewayAuth:
 
 Where
 
-* `gatewayAccessId`: The `AccessID` of the auth method.
+* `gatewayAccessId`: The `AccessID` of the API Key. 
 
-* `gatewayAccessType`: The `AccessType` of the  auth method.
+* `gatewayAccessType`: The `AccessType` of the API Key.
 
-* `gatewayCredentialsExistingSecret`: [K8s secret](https://kubernetes.io/docs/concepts/configuration/secret/) that stores sensitive information.
+* `gatewayCredentialsExistingSecret`: [K8s secret](https://kubernetes.io/docs/concepts/configuration/secret/) that stores sensitive information (in our case, the `AccessKey`).
 
 ```shell
 kubectl create secret generic access-key \
