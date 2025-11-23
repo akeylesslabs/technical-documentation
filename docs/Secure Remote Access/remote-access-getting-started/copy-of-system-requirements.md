@@ -1,5 +1,5 @@
 ---
-title: Copy of System Requirements
+title: System Requirments - K8s
 deprecated: false
 hidden: true
 metadata:
