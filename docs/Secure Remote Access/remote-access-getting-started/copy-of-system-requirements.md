@@ -5,6 +5,8 @@ hidden: true
 metadata:
   robots: index
 ---
+In this guide, you will find the system requirements and general information about the SRA deployment.  
+
 # Zero-Trust Web-Access (ZTWA)
 
 This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets via the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions), which opens a browser session and injects credentials into the browser for the user.
