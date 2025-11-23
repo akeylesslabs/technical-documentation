@@ -51,6 +51,13 @@ Where
 * `gatewayAccessType`: The `AccessType` of the  auth method.
 * `gatewayCredentialsExistingSecret`: K8s secret that stores sensitive information.
 
+```shell
+kubectl create secret generic access-key \
+  --from-literal=gateway-access-key=<plaintext-Access-Key>
+```
+
+<br />
+
 ## Remote Access Configuration
 
 In order to set your gateway with **Remote Access**, add the following to your deployment:
