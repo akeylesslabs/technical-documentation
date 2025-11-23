@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-SRA can 
-
 # Prerequisites
 
 * An Akeyless [Gateway](https://docs.akeyless.io/docs/gateway-chart#/).
