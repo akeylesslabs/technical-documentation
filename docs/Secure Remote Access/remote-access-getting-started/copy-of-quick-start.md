@@ -22,7 +22,7 @@ The following steps including the Gateway deployment, if you already have a runn
 <Callout icon="📘" theme="info">
   # Note
 
-  If using an existing gateway, make sure the Admin auth method has **Read** permission on the item you wish to with using the SRA.
+  If using an existing gateway, make sure the Admin auth method has **Read** permission on the items you wish to with using the SRA.
 </Callout>
 
 ## Helm Chart Configuration
