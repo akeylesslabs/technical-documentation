@@ -36,7 +36,7 @@ helm show values akeyless/akeyless-gateway > values.yaml
 
 ## Gateway Configuration
 
-Set the Authentication Method (for this example, we will use an API Key):
+Set the Authentication Method (for this example, we will use an [API Key](https://docs.akeyless.io/docs/api-key#/)):
 
 ```shell
 akeylessGatewayAuth:
