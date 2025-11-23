@@ -47,7 +47,7 @@ akeylessGatewayAuth:
 
 Where
 
-* `gatewayAccessId`: The `AccessID` of the API Key. 
+* `gatewayAccessId`: The `AccessID` of the API Key.
 
 * `gatewayAccessType`: The `AccessType` of the API Key.
 
@@ -95,7 +95,7 @@ kubectl get pods
 
 Upon successful installation, you will see the **Gateway** pods as well as the **Remote Access** pods, which include the `web` and `ssh` components.
 
-Log in to the Gateway using your browser ([http://Your-Akeyless-Gateway-URL:8000](http://Your-Akeyless-Gateway-URL:8000)) with your Gateway admin credentials, If you get the login page, you have successfully deployed the Gateway.
+Log in to the Gateway using your browser `http://Your-Akeyless-Gateway-URL:8000` with your Gateway admin credentials, If you get the login page, you have successfully deployed the Gateway.
 
 # Working With SRA
 
