@@ -1,1 +1,10 @@
 .github/**
+^https?://api\.akeyless\.io/
+^https?://hvp\.akeyless\.io/
+^https?://(www\.)?openai\.com/
+^https?://platform\.openai\.com/
+^https?://docs\.splunk\.com/Documentation/Splunk/8\.0\.4/Data/UsetheHTTPEventCollector$
+^https?://www\.npmjs\.com/package/@akeylesslabs/n8n-nodes-akeyless$
+^https?://(www\.)?godaddy\.com/?$
+^https?://www\.servicenow\.com/docs/bundle/xanadu-platform-administration/page/administer/notification/reference/r_PushMessageArchitecture\.html$
+^https?://sqs\.eu-central-1\.amazonaws\.com/
