@@ -47,9 +47,9 @@ akeyless uid-generate-token --auth-method-name <UID Name>
 
 ## Using Universal Identity Tokens
 
-In order to use a Universal Identity token, it must be assocated with a Role.
+In order to use a Universal Identity token, it must be associated with a Role.
 
-In order to use the token you generated, add it to your Akeyless commands in one of the following ways:
+To use it with the Akeyless CLI, add it to your Akeyless commands in one of the following ways:
 
 ```shell CLI
 akeyless list-items --uid-token u-XXXXXXXX
@@ -65,7 +65,7 @@ curl https://<Gateway-URL>:8080 -d "cmd=list-items&&uid-token=u-XXXXX"
 To disable the permissions of a certain token, use the following command:
 
 ```shell CLI
-akeyless uid-revoke-token --revoke-token <u-XXXX>a u --revoke-type revokeSelf
+akeyless uid-revoke-token --revoke-token <u-XXXX> --revoke-type revokeSelf --auth-method-name <UID Name>
 ```
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#p-stylecolorblueuid-revoke-tokenp) section.
