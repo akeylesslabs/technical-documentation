@@ -40,7 +40,7 @@ Where:
 >
 > By default, Windows targets are working with TLS. When using a self-signed certificate, you can either load the certificate to your Target, or mount the relevant certificate into your Gateway filesystem under `etc/ssl/certs`
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-reference-akeyless-targets#p-stylecolorblue-create-windows-targetp) section.
+You can find the complete list of parameters for this command at the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets/) page.
 
 # Create a Windows Target in the Console
 
