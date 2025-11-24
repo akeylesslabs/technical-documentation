@@ -239,7 +239,7 @@ To get the token tree in the Console,
 >
 > When your Token Tree becomes complex, you can use your mouse and **zoom in** to see specific Token better or **zoom out** to see the whole Token Tree
 
-# Best practice
+# Best Practices
 
 A UID token is initially used to authenticate a client with Akeyless. The UID token includes essential authentication information, ensuring that the client's identity has been verified.
 
