@@ -92,7 +92,7 @@ To allow selecting a KMS encryption key for the secret, add the following permis
 }
 ```
 
-Note, `kms:ListKeys` and `kms:ListAliases` is AWS KMS operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view)
+Note, `kms:ListKeys` and `kms:ListAliases` is AWS KMS operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
 
 # Working With Universal Secrets Connector from the CLI
 
