@@ -37,7 +37,7 @@ Where:
 
 * **name:** A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* **ttl:** (Optional) The root token time-to-live in minutes. The TTL is renewed with every rotation.
+* **ttl:** (Optional) The root token time-to-live in minutes. The TTL is renewed with every rotation. The default value is 60 minutes.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity) section.
 
