@@ -102,7 +102,7 @@ ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method 
 
 ## Certificates Authentication
 
-To set your Gateway default authentication based on [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)  provide the relevant `Access ID`, `Certificate`, and `Certificate Key`, where you need to set a list of users that will be able to [manage your Gateway](https://docs.akeyless.io/docs/standalone-gateway-copy#gateway-admins) configuration using `ALLOWED_ACCESS_PERMISSIONS`variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/opened) or an [API Key](https://docs.akeyless.io/docs/api-key).
+To set your Gateway default authentication based on [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)  provide the relevant `Access ID`, `Certificate`, and `Certificate Key`, where you need to set a list of users that will be able to [manage your Gateway](https://docs.akeyless.io/docs/standalone-gateway-copy#gateway-admins) configuration using `ALLOWED_ACCESS_PERMISSIONS`variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) or an [API Key](https://docs.akeyless.io/docs/api-key).
 
 ```shell gateway.env
 GATEWAY_ACCESS_ID=<AccessID>
