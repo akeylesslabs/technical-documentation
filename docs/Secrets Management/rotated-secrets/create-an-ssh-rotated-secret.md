@@ -14,9 +14,9 @@ next:
       slug: add-a-rotated-secret-to-a-role
       title: Add a Rotated Secret to a Role
 ---
-You can create a Rotated Secret for an SSH password. Before you get started, ensure you have an [SSH Target](https://docs.akeyless.io/docs/ssh-target) that includes the hostname and connection settings, as well as credentials for a privileged user authorized to rotate credentials.
+You can create a Rotated Secret for either SSH password or key. Before you get started, ensure you have an [SSH Target](https://docs.akeyless.io/docs/ssh-target) that includes the hostname and connection settings, as well as credentials for a privileged user authorized to rotate credentials.
 
-When a client requests a Rotated Secret value, the Akeyless Platform connects to the SSH server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target server.
+When a client requests a Rotated Secret value, the Akeyless Platform connects to the SSH server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the relevant credential on your target server.
 
 > 👍 Note
 >
@@ -35,7 +35,7 @@ akeyless rotated-secret create ssh \
 --target-name <target name> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --password-length 16 \
---rotator-type <password|target> \
+--rotator-type <password|target|key> \
 --rotated-username <username> \
 --rotated-password <password> \
 --auto-rotate <true|false> \
