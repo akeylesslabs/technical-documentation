@@ -7,10 +7,6 @@ metadata:
   title: Universal Identity
   description: ''
   robots: index
-next:
-  description: >-
-    Make sure to associate your new Authentication Method with an Access Role to
-    grant the relevant permissions within Akeyless
 ---
 # Introduction
 
@@ -28,9 +24,9 @@ Let's create a new Universal Identity authentication method using the Akeyless C
 
 To create a new Universal Identity authentication method from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless auth-method create universal-identity \
---name <Auth Method Name>
+--name <UID Name>
 ```
 
 Where:
@@ -45,8 +41,8 @@ You can find the complete list of additional parameters for this command in the 
 
 The UID authentication functions via tokens that can be used to access the assigned permissions. To generate a new token, use the following command:
 
-```shell CLI
-akeyless uid-generate-token --auth-method-name uidAuth --profile adminProfile
+```shell
+akeyless uid-generate-token --auth-method-name <UID Name>
 ```
 
 ## Using Universal Identity Tokens
