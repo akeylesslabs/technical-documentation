@@ -18,7 +18,7 @@ next:
 
 # Create an AWS IAM Authentication Method from the CLI
 
-Let's create a new AWS IAM authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueaws-iamp).)
+Let's create a new AWS IAM authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/cli-ref-auth#aws-iam).)
 
 To create an AWS IAM authentication method from the CLI, run the following command:
 
