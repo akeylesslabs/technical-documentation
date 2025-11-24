@@ -12,10 +12,6 @@
 
 ## Errors per input
 
-### Errors in recipes/python-api-key.md
-
-* [405] [https://api.akeyless.io/](https://api.akeyless.io/) | Cached: Error (cached)
-
 ### Errors in docs/Authentication & Authorization/access-and-authentication-methods/aws-iam.md
 
 * [404] [https://docs.akeyless.io/docs/cli-reference-authentication#p-stylecolorbluecreate-auth-method-aws-iamp](https://docs.akeyless.io/docs/cli-reference-authentication#p-stylecolorbluecreate-auth-method-aws-iamp) | Failed: Network error: Not Found
@@ -23,14 +19,6 @@
 ### Errors in docs/Secure Remote Access/infrastructure-components/secure-remote-access-bastion.md
 
 * [500] [https://docs.akeyless.io/docs/how-to-configure-ssh](https://docs.akeyless.io/docs/how-to-configure-ssh) | Cached: Error (cached)
-
-### Errors in docs/Secure Remote Access/infrastructure-components/ssh-log-forwarding.md
-
-* [403] [https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector) | Cached: Error (cached)
-
-### Errors in docs/Integrations & Plugins/sdks/python-sdk-1.md
-
-* [404] [https://github.com/akeylesslabs/akeyless-python-cloud-id](https://github.com/akeylesslabs/akeyless-python-cloud-id) | Failed: Network error: Not Found
 
 ### Errors in docs/Akeyless Gateway/gateway-compose/index.md
 
@@ -40,17 +28,6 @@
 ### Errors in docs/Secure Remote Access/infrastructure-components/secure-remote-access-bastion-docker.md
 
 * [500] [https://docs.akeyless.io/docs/how-to-configure-ssh](https://docs.akeyless.io/docs/how-to-configure-ssh) | Cached: Error (cached)
-
-### Errors in docs/Akeyless Gateway/gateway-chart/log-forwarding-configuration.md
-
-* [403] [https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector) | Failed: Network error: Forbidden
-
-### Errors in docs/Customer Journey Scenarios/customer-journey-scenarios-real-world-use-case-flows/customer-use-case-automating-employee-onboarding-and-role-based-access-control-in-servicenow/custom-action-in-servicenow.md
-
-* [405] [https://api.akeyless.io/auth](https://api.akeyless.io/auth) | Failed: Network error: Method Not Allowed
-* [405] [https://api.akeyless.io/create-auth-method-saml'](https://api.akeyless.io/create-auth-method-saml') | Failed: Network error: Method Not Allowed
-* [405] [https://api.akeyless.io/create-auth-method-saml](https://api.akeyless.io/create-auth-method-saml) | Failed: Network error: Method Not Allowed
-* [405] [https://api.akeyless.io/assoc-role-am](https://api.akeyless.io/assoc-role-am) | Failed: Network error: Method Not Allowed
 
 ### Errors in docs/Secrets Management/targets/cloud-targets.md
 
