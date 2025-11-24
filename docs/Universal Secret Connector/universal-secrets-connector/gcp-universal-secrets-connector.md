@@ -15,7 +15,7 @@ This page discusses the creation of GCP [Universal Secrets Connectors](https://d
 # Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)  with **Read** permission on the target associated with the **USC**.
-* [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned.
+* [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned, to allow selecting a KMS encryption key for the secret, add the following roles: **Cloud KMS Viewer** and **Cloud KMS CryptoKey Encrypter/Decrypter**.
 
 # Working With Universal Secrets Connector from the Console
 
