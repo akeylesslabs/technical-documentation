@@ -47,6 +47,8 @@ akeyless uid-generate-token --auth-method-name <UID Name>
 
 ## Using Universal Identity Tokens
 
+In order to use a Universal Identity token, it must be assocated with a Role.
+
 In order to use the token you generated, add it to your Akeyless commands in one of the following ways:
 
 ```shell CLI
