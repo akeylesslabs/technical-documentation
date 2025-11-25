@@ -38,9 +38,9 @@ akeyless rotated-secret create ssh \
 --rotator-type <password|target|key> \
 --rotated-username <username> \
 --rotated-password <password> \
---public-key-path                                 
---key-file-path                                
---key-data-base64                              
+--public-key-path ~/.ssh/authorized_keys
+--key-file-path </path/to/PRV-Key>                                
+--key-data-base64 <base-64 format PRV Key>                             
 --auto-rotate <true|false> \
 --rotation-interval <1-365> \
 --rotation-hour <hour in UTC> 
@@ -68,7 +68,7 @@ Where:
   * `target` - to rotate the password for the user specified in the [SSH Target](https://docs.akeyless.io/docs/ssh-target).
 * `rotated-username`: The SSH user whose password should be rotated.
 * `rotated-password`: The password to rotate.
-* `public-key-path`: The path of the public key on the server.
+* `public-key-path`: The path of the public key that will be rotated on the server.
 * `key-file-path`: The path to the private key that will be rotated.
 * `key-data-base64`: The private key encoded in Base64 format.
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
@@ -101,12 +101,12 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Rotator type:** Determines the rotator type:
   * **Password**: Rotates the password defined inside the Rotated Secret item.
-  * **Key**: Rotates the private key defined inside the Rotated Secret item.
+  * **Key**: Rotates the private key defined inside the Rotated Secret item .
   * **Target**: Rotates the password defined inside the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
 
-* **Username:** Defines the SSH username which password should be rotated.
+* **Username:** Defines the SSH username which password should be rotated (Relevant only for **Password** mode).
 
-* **Password:** Defines the password to rotate.
+* **Password:** Defines the password to rotate (Relevant only for **Password** mode).
 
 > 👍 Note
 >
@@ -114,6 +114,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ***
 
+* **Public Key Remote Path:** the path to the public key that will be rotated on the server.  By Default: `~/.ssh/authorized_keys` (Relevant only for **Key** mode).
+* **Private Key:** The private key that will be rotated (Relevant only for **Key** mode).
 * **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement).
 * **Password Length**: Set the user's password length.
 * **Gateway:** Select the Gateway through which the secret will be rotated.
