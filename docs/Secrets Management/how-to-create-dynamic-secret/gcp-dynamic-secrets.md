@@ -12,7 +12,7 @@ next:
 ---
 You can use Akeyless dynamic secrets to generate programmatic access credentials for GCP (Google Cloud Platform) based on IAM policies that apply to Service Accounts. To do this, configure a dynamic secret with the details required for Akeyless to authenticate and communicate with GCP. This requires privileged account credentials.
 
-There are two GCP dynamic secret modes:
+There are three GCP dynamic secret modes:
 
 * **Fixed Service Account**
 
