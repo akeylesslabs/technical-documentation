@@ -1,5 +1,5 @@
 ---
-title: SLAs
+title: Service Level Agreements (SLAs)
 deprecated: false
 hidden: false
 link:
