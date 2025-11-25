@@ -11,10 +11,13 @@ next:
     - title: Pricing
       type: link
       url: ''
-    - title: SLAs & Support Tiers
+    - title: SLAs
       type: link
-      url: ''
-    - slug: quickstarts
+      url: https://www.akeyless.io/service-level-agreement/
+    - title: Support Tiers & Plan Limits
+      type: link
+      url: https://www.akeyless.io/sla-support-tiers-and-plans-limits/
+    - slug: getting-started-quickstarts
       title: Quickstarts
       type: basic
 ---
