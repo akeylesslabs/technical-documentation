@@ -9,7 +9,7 @@ next:
     - slug: vaultless-architecture
       title: Vaultless SaaS Architecture
       type: basic
-    - slug: quickstarts
+    - slug: getting-started-quickstarts
       title: Quickstarts
       type: basic
 ---
