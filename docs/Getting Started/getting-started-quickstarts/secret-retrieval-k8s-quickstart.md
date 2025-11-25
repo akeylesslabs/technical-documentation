@@ -219,5 +219,3 @@ _You have successfully:_
 1. _Installed the Akeyless Kubernetes Secrets Injector_
 2. _Created a demo deployment using annotation-based secret retrieval_
 3. _Retrieved an Akeyless secret value directly inside a container_
-
-<br />
