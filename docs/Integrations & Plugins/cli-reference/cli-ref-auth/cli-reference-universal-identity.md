@@ -116,7 +116,7 @@ akeyless uid-revoke-token \
 
 `-t, --revoke-token`: **Required**, the universal identity token/token-id to revoke
 
-`-n, --auth-method-name`: The universal identity auth method name
+`-n, --auth-method-name`: **Required**, the universal identity auth method name
 
 ### `uid-rotate-token`
 
