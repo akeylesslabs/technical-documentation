@@ -23,15 +23,14 @@ By the end of this guide, you will have:
 You will need:
 
 * An active Akeyless account
-* Access to the Akeyless Console  
-  <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
+* Access to the Internet
 
 If you do not yet have an account, complete the **Creating an Akeyless Account Quickstart** first.
 
 ## Step 1: Sign In to the Akeyless Console
 
 1. Open the Akeyless Console:  
-   <Anchor label="[[https://console.akeyless.io](https://console.akeyless.io)](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor></Anchor>
+   <Anchor label="[[https://console.akeyless.io](https://console.akeyless.io)](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="https://console.akeyless.io" target="_blank" href="https://console.akeyless.io">https://console.akeyless.io</Anchor></Anchor></Anchor>
 2. Sign in to your existing Akeyless account.
 
 You will be taken to the Akeyless Console homepage.
