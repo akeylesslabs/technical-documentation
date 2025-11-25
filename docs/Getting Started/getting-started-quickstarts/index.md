@@ -21,7 +21,7 @@ Depending on which Quickstart you follow, you may need:
 * Basic familiarity with command-line tools
 * Access to install command-line tools and applications
 
-[Each]() Quickstart lists its own prerequisites in more detail.
+Each Quickstart lists its own prerequisites in more detail.
 
 ***
 
