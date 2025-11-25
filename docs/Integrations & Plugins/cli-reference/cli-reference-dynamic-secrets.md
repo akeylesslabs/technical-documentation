@@ -1024,6 +1024,8 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})
 
+`--mongodb-scopes`: Restrict the user so it can only access the specified MongoDB Atlas cluster(s).
+
 `--mongodb-server-uri`: MongoDB server URI (e.g. `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
 
 `--mongodb-username`: MongoDB server username
