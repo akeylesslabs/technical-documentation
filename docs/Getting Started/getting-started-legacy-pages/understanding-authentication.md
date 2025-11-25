@@ -1,8 +1,8 @@
 ---
 title: 'Part 2: Authentication & Authorization'
 excerpt: ''
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''

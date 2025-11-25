@@ -42,7 +42,7 @@ metadata:
 * There should be no inconsistent styling within the same page.
 * There should be no grammar issues.
 * There should be no incorrect capitalization or styling of Akeyless and external product/feature names.
-* There should only be third-person viewpoints. There should be no first-person or second-person language.
+* There should only be third-person viewpoints. There should be no first-person or second-person language. Quickstart pages are exempted from this rule.
 * Where appropriate, the Oxford comma should be used.
 * Language should be simple and direct.
 * Language should use the active voice.
@@ -78,3 +78,4 @@ metadata:
 * If using variables like `{username}` or `{path}`, describe their expected format so translation can adjust grammar as needed.
 * Do not overload with unnecessary detail.
 * Do not use bolded text, when a heading is appropriate.
+* Latin phrases are abbreviations should be avoided.
