@@ -19,7 +19,7 @@ You will need:
 * An active Akeyless account
 * Access to the Akeyless Console
 
-If you do not yet have an account, complete the **Creating an Akeyless Account Quickstart** first.
+If you do not yet have an account, complete the [Creating an Akeyless Account Quickstart](doc:account-quickstart).
 
 ## Step 1: Sign In to the Akeyless Console
 
