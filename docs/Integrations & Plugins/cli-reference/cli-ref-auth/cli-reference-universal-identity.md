@@ -114,7 +114,7 @@ akeyless uid-revoke-token \
 
 `-r, --revoke-type`: **Required**, revokeSelf/revokeAll (delete only this token/this token and his children)
 
-`-t, --revoke-token`: **Required**, the universal identity token to revoke
+`-t, --revoke-token`: **Required**, the universal identity token ID to revoke
 
 `-n, --auth-method-name`: **Required**, the universal identity auth method name
 
