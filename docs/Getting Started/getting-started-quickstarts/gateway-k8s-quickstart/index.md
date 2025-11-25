@@ -31,7 +31,7 @@ You will need:
 * An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 
 <Callout icon="📘" theme="info">
-  We have created a [Setup Kubernetes Quickstart](doc:kubernetes-setup-quickstart) to assist you if you're unfamiliar with setting up a Kubernetes cluster.
+  We have created a [Setup K to assist you if you're unfamiliar with setting up a Kubernetes cluster.
 </Callout>
 
 ## Step 1: Create Namespace
@@ -143,8 +143,8 @@ unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44
 
 ## Step 8: View the Gateway in the Akeyless Console
 
-1. Open the Akeyless Console:  
-   <Anchor label="[[https://console.akeyless.io](https://console.akeyless.io)](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor></Anchor>
+1. Open the Akeyless Console: 
+   <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io">[https://console.akeyless.io](https://console.akeyless.io)</Anchor>
 2. Sign in to your existing Akeyless account.
 
 You will be taken to the Akeyless Console homepage.
