@@ -35,7 +35,7 @@ This environment is intended for **development and testing only**, not productio
 
 You will need:
 
-* Docker Desktop installed ([Windows](https://docs.docker.com/desktop/setup/install/windows-install/), <Anchor label="macOS" target="_blank" href="https://docs.docker.com/desktop/setup/install/mac-install/">macOS</Anchor>, or <Anchor label="Linux" target="_blank" href="https://docs.docker.com/desktop/setup/install/linux/">Linux</Anchor>)
+* Docker Desktop installed (<Anchor label="Windows" target="_blank" href="https://docs.docker.com/desktop/setup/install/windows-install/">Windows</Anchor>, <Anchor label="macOS" target="_blank" href="https://docs.docker.com/desktop/setup/install/mac-install/">macOS</Anchor>, or <Anchor label="Linux" target="_blank" href="https://docs.docker.com/desktop/setup/install/linux/">Linux</Anchor>)
 * Permissions to change Docker Desktop settings
 * Internet access from your machine
 
