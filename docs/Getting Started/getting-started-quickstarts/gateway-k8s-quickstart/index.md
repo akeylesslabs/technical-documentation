@@ -144,7 +144,7 @@ unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44
 ## Step 8: View the Gateway in the Akeyless Console
 
 1. Open the Akeyless Console:
-   <Anchor label="[https://console.akeyless.io](https://console.akeyless.io)" target="_blank" href="https://console.akeyless.io"><Anchor label="https://console.akeyless.io" target="_blank" href="https://console.akeyless.io">https://console.akeyless.io</Anchor></Anchor>.
+   <Anchor label="https://console.akeyless.io" target="_blank" href="https://console.akeyless.io">https://console.akeyless.io</Anchor>.
 2. Sign in to your existing Akeyless account.
 
 You will be taken to the Akeyless Console homepage.
