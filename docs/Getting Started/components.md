@@ -6,7 +6,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: authentication-authorization
+    - slug: auth-overview
       title: Authentication & Authorization
       type: basic
 ---
