@@ -106,8 +106,9 @@ Revoke token using Akeyless Universal Identity
 
 ```shell
 akeyless uid-revoke-token \
---revoke-type &lt;revokeSelf/revokeAll&gt; \
---revoke-token &lt;UID Token ID&gt;
+--revoke-type <revokeSelf/revokeAll> \
+--revoke-token <UID Token ID> \
+--auth-method-name <UID Name>
 ```
 
 ##### Flags
