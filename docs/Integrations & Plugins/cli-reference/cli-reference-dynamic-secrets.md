@@ -3342,6 +3342,8 @@ akeyless dynamic-secret get-value \
 
 `args`: Optional arguments as `key`=`value` pairs or JSON strings, e.g - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
 
+ `--mssql-dbname`: Override MSSQL DB name, this should be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**).
+
 `--timeout[=15]`: Timeout in seconds
 
 ## List
