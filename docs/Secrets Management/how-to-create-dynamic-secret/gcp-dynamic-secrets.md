@@ -45,7 +45,7 @@ For example:
 }
 ```
 
-**Fixed User** enables you to assign an existing role to a user, based on the user's sub-claim.
+**Fixed User** enables you to assign a role temporary to an existing user, based on the user's sub-claim.
 
 # Prerequisites
 
@@ -146,9 +146,9 @@ Where:
 
 * `access-type[=sa]`: Either generate a service account or assign an existing role to a user, to assign a role, set to `external`.
 
-* `role-name`: The role to assign to the user (Relevant only for **External** access type). 
+* `role-name`: The role to assign to the user (Relevant only for **External** access type).
 
-* `fixed-user-claim-keyname[=ext_email]`: The claim the value of the user will be taken from. 
+* `fixed-user-claim-keyname[=ext_email]`: For externally provided users, denotes the key-name of IdP claim to extract the username from.
 
 ### Inline connection string
 
@@ -205,7 +205,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Key Algorithm:** Key algorithm. Available options: `KEY_ALG_UNSPECIFIED`, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`. (If **Service Account Key** is selected.)
 
-* **Sub Claim Name:** The sub-claim that contains the user used for assigning the role. (Relevant only for **Fixed** mode).
+* **Sub Claim Name:** From which Sub Claim configured on your IDP to extract the user, where the default value is `ext_email`
 
 * **Role:** The role that will be assigned to the user (Relevant only for **Fixed** mode).
 
