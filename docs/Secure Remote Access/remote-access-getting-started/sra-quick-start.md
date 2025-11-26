@@ -67,48 +67,6 @@ For it to work correctly, the Kubernetes metrics server must be installed in the
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
-# Deployment
-
-The following steps include the Gateway deployment. If you already have a running gateway, you can proceed to the [Remote Access](https://docs.akeyless.io/docs/copy-of-quick-start#/remote-access-configuration) section.
-
-## Helm Chart Configuration
-
-1. Add the following repository to the Helm repository list:
-
-```shell
-helm repo add akeyless https://akeylesslabs.github.io/helm-charts
-helm repo update
-```
-
-2. Fetch the `values.yaml` file from the Akeyless repository:
-
-```shell
-helm show values akeyless/akeyless-gateway > values.yaml
-```
-
-## Gateway Configuration
-
-Set the Authentication Method (in this example, we will use an [API Key](https://docs.akeyless.io/docs/api-key#/)):
-
-```shell
-akeylessGatewayAuth:
-  gatewayAccessId: <AccessID>
-  gatewayAccessType: access_key
-  gatewayCredentialsExistingSecret: access-key
-```
-
-Where
-
-* `gatewayAccessId`: The `AccessID` of the API Key.
-
-* `gatewayAccessType`: The `AccessType` of the API Key.
-
-* `gatewayCredentialsExistingSecret`: [K8s secret](https://kubernetes.io/docs/concepts/configuration/secret/) that stores sensitive information (in our case, the `AccessKey`).
-
-```shell
-kubectl create secret generic access-key \
-  --from-literal=gateway-access-key=<plaintext-Access-Key>
-```
 
 ## Remote Access Configuration
 
