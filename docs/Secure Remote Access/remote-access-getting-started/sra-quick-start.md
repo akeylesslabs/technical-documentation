@@ -19,11 +19,15 @@ In this guide, we will use an existing Gateway deployed on a K8s cluster. If you
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 
-* Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set requests values.
+* Optional: If **Horizontal Pod Autoscaler (HPA)** usage is desired, you must set requests values.
+
+# Additional Configuration
+
+The settings below are optional and can be applied to further customize your deployment.
 
 ## Network
 
-* **Ingress** - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
+* **Ingress** - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in **Nginx**.
 
 * **Cloud Provider Load Balancer** - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
 
