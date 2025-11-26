@@ -27,11 +27,11 @@ Akeyless Secure Remote Access provides a robust set of features designed to supp
 
 * **Rotated Secret Access**: Privileged secrets can be used to access remote resources with the ability to automatically rotate the credentials once the session ends.
 
-* **Request for Access**: Admins have the ability to enable an option for users to request access for a specific resource on-demand.
+* **Request for Access**: Admins have the ability to enable an option for users to request access for a specific resource on demand.
 
 * **Audit and Session Management**: Akeyless provides full session management with auditing and recording capabilities to keep you compliant. Session recordings and transcripts can be automatically exported to remote storage systems for long-term retention.
 
-* **Granular RBAC**: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need (Users are restricted from accessing anything beyond their defined scope). Users only need SRA permissions to initiate connections—without requiring any  `read` access to the underlying secrets.
+* **Granular RBAC**: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need. Users only need SRA permissions to initiate connections, without requiring any  `read` access to the underlying secrets.
 
 * **Native SSO integrations**: SRA supports authentication via SSO protocols such as **OIDC**, **SAML**, and **LDAP**.
 
