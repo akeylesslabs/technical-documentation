@@ -11,11 +11,57 @@ In this guide, we will deploy the gateway using a K8s cluster.
 
 # Prerequisites
 
-* An Akeyless Gateway - [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
-* An **authentication method** with **Read** permission for Just-In-Time access via **SRA**.
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/) with `session_*` allowed user.
-* [Helm](https://helm.sh/) installed - Relevant only for K8s.
-* [Kubectl](https://kubernetes.io/docs/tasks/tools/) installed - Relevant only for K8s.
+* Helm Installed
+
+* Kubernetes Installed
+
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
+
+* Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
+
+* Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set requests values.
+
+_**Network**_
+
+* Ingress - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
+
+* Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
+
+When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited.
+
+e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
+
+_**Storage**_
+
+To be able to make more than 1 SSH-bastion pod work, the chart requires a persistent storage, with the `ReadWriteMany` access mode.
+
+Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with <code>persistentVolumeReclaimPolicy: retain</code> and reference those PVs in the chart `values` file
+
+```yaml
+persistence: 
+  shareStorageVolume:
+    name: share-storage
+    storageClassName: "efs-sc"
+    accessModes:
+      - ReadWriteMany
+    persistentVolumeReclaimPolicy: Retain
+    annotations: {}
+    mountOptions:
+      - dir_mode=0650
+      - file_mode=0650
+    size: 2Gi
+```
+
+e.g., when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
+
+_**Horizontal Auto-Scaling**_
+
+Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.
+For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` Statefulset (HPA can not support multiple pods without defining a shared persistent storage volume).
+
+> 🚧 Warning
+>
+> To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
 # Deployment
 
