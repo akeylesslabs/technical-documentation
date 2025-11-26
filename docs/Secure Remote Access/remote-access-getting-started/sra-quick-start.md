@@ -23,9 +23,9 @@ In this guide, we will deploy the gateway using a K8s cluster.
 
 _**Network**_
 
-* Ingress - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
+* **Ingress** - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
 
-* Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
+* **Cloud Provider Load Balancer** - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
 
 When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited.
 
