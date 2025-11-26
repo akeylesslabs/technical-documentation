@@ -5,26 +5,21 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the SRA using the most basic configuration. SRA can be deployed either by using an existing gateway or by creating a new one.
+This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be enabled either by using an existing gateway or by deploying a new one.
 
 In this guide, we will deploy the gateway using a K8s cluster.
 
 # Prerequisites
 
-* An Akeyless Gateway - Either deployed with [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
+* An Akeyless Gateway - [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
+* An **authentication method** with **Read** permission for Just-In-Time access via **SRA**.
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/) with `session_*` allowed user.
 * [Helm](https://helm.sh/) installed - Relevant only for K8s.
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/) installed - Relevant only for K8s.
 
 # Deployment
 
-The following steps including the Gateway deployment, if you already have a running gateway, you can go to the [Remote Access](https://docs.akeyless.io/docs/copy-of-quick-start#/remote-access-configuration) section.
-
-<Callout icon="📘" theme="info">
-  ## Note
-
-  When using an existing gateway, verify that the Admin auth method is granted **Read** permission on all items intended for use with SRA.
-</Callout>
+The following steps include the Gateway deployment. If you already have a running gateway, you can proceed to the [Remote Access](https://docs.akeyless.io/docs/copy-of-quick-start#/remote-access-configuration) section.
 
 ## Helm Chart Configuration
 
@@ -81,11 +76,11 @@ Where:
 
 * `sra`: set to `enable` in order to deploy the remote access functionality.
 
-* `CAPublicKey`: The Public Key set on the SSH Certificate Issuer.
+* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration).
 
 # Installation
 
-To install the Gateway using the edited `values.yaml` file, run the following command:
+To install the Gateway, run the following command:
 
 ```shell
 helm install gw akeyless/akeyless-gateway -f values.yaml
@@ -97,26 +92,28 @@ Once installed, check if the pods are running:
 kubectl get pods
 ```
 
-Upon successful installation, you will see the **Gateway** pods as well as the **Remote Access** pods, which include the `web` and `ssh` components.
+Upon successful installation, you will see the Gateway pods as well as the Remote Access pods, which include the `web` and `ssh` components.
 
-In order to get the address of your gateway, run:
+In order to get the external IP address of your Gateway, run:
 
 ```shell
 kubectl get svc
 ```
 
-You will see the service name as: `gw-akeyless-gateway`, the **External-IP** will be used to reach to the gateway from your browse.
+You will see the service name as `gw-akeyless-gateway`. The **External-IP** will be used to reach the Gateway from your browser.
 
-Log in to the Gateway using your browser `http://External-IP:8000` with your Gateway admin credentials, If you get the login page, you have successfully deployed the Gateway.
+Log in to the Gateway using your browser at `https://<External-IP>:8000` with your Gateway admin credentials.
+
+If you see the login page, you have successfully deployed the Gateway.
 
 # Working With SRA
 
 To start working with SRA, open your browser and log in using the following URL:
 
-* `http://External-IP:8000/sra/portal`
+* `https://External-IP:8000/sra/portal`
 
 You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC](https://docs.akeyless.io/docs/openid#/) or a [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication#/) authentication method.
 
-Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) that have **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the **web** interface or via an **SSH** connection.
+Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or via an SSH connection.
 
 <br />
