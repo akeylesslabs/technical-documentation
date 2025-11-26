@@ -21,7 +21,7 @@ In this guide, we will deploy the gateway using a K8s cluster.
 
 * Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set requests values.
 
-_**Network**_
+## Network
 
 * **Ingress** - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
 
@@ -31,7 +31,7 @@ When using SSH sessions behind a load balancer such as ELB, the session can be c
 
 e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-_**Storage**_
+## Storage
 
 To be able to make more than 1 SSH-bastion pod work, the chart requires a persistent storage, with the `ReadWriteMany` access mode.
 
