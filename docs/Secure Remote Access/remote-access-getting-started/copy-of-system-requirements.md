@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-In this guide, you will find the system requirements and general information about the SRA deployment.  
+In this guide, you will find the system requirements and general information about the SRA deployment.
 
 # Zero-Trust Web-Access (ZTWA)
 
