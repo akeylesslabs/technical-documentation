@@ -7,7 +7,7 @@ metadata:
 ---
 This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be enabled either by using an existing gateway or by deploying a new one.
 
-In this guide, we will deploy the gateway using a K8s cluster.
+In this guide, we will use an existing Gateway deployed on a K8s cluster. If you don’t have one, please install a Gateway by following [this](https://docs.akeyless.io/docs/gateway-chart#/) guide.
 
 # Prerequisites
 
@@ -57,7 +57,7 @@ e.g., when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/user
 ## Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object.
-For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the sshConfig` Statefulset `(HPA can not support multiple pods without defining a shared persistent storage volume).
+For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the sshConfig`Statefulset`(HPA can not support multiple pods without defining a shared persistent storage volume).
 
 > 🚧 Warning
 >
