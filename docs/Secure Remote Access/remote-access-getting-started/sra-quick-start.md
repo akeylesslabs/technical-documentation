@@ -18,7 +18,7 @@ In this guide, we will use an existing Gateway deployed on a K8s cluster. If you
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 * Optional: If **Horizontal Pod Autoscaler (HPA)** usage is desired, you must set requests values.
 
-# Additional Configuration
+# Optional Deployment Settings
 
 The settings below are optional and can be applied to further customize your deployment.
 
