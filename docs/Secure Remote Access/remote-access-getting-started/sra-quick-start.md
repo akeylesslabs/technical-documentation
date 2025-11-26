@@ -1,5 +1,5 @@
 ---
-title: SRA Quick Start
+title: SRA Deployment
 deprecated: false
 hidden: true
 metadata:
