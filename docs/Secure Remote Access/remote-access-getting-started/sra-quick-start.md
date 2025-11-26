@@ -24,9 +24,11 @@ The settings below are optional and can be applied to further customize your dep
 
 ## Network
 
-* **Ingress** - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in **Nginx**.
+Network configuration ensures proper traffic routing and session management for SRA components. Choose between Ingress controllers or cloud provider load balancers based on your k8s setup.
 
-* **Cloud Provider Load Balancer** - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
+* **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
+
+* **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
 
 When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited.
 
@@ -34,7 +36,7 @@ e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbala
 
 ## Storage
 
-To be able to make more than 1 SSH-bastion pod work, the chart requires a persistent storage, with the `ReadWriteMany` access mode.
+Persistent storage with `ReadWriteMany` access mode is required when running multiple SSH-bastion pods.
 
 Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with <code>persistentVolumeReclaimPolicy: retain</code> and reference those PVs in the chart `values` file
 
