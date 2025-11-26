@@ -99,7 +99,9 @@ Once installed, check if the pods are running:
 kubectl get pods
 ```
 
-Upon successful installation, you will see the Gateway pods as well as the Remote Access pods, which include the `web` and `ssh` components.
+In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`.
+
+# Working With SRA
 
 In order to get the external IP address of your Gateway, run:
 
@@ -107,9 +109,7 @@ In order to get the external IP address of your Gateway, run:
 kubectl get svc
 ```
 
-You will see the service name as `gw-akeyless-gateway`. The **External-IP** will be used to reach the Gateway from your browser.
-
-# Working With SRA
+You will see the service name as `<release-name>-akeyless-gateway`. The **External-IP** will be used to reach the Gateway from your browser.
 
 To start working with SRA, open your browser and log in using the following URL:
 
