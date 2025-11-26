@@ -67,10 +67,9 @@ For it to work correctly, the Kubernetes metrics server must be installed in the
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
-
 ## Remote Access Configuration
 
-In order to set your gateway with **Remote Access**, add the following to your deployment:
+In order to set your gateway with **Remote Access**, add the following to your deployment by editing the `values.yaml` file:
 
 ```shell
 sra:
@@ -86,12 +85,12 @@ Where:
 
 * `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration).
 
-# Installation
+# Updating the deployment
 
-To install the Gateway, run the following command:
+To update the existing gateway deployment with the SRA configuration, run the following command:
 
 ```shell
-helm install gw akeyless/akeyless-gateway -f values.yaml
+helm upgrade --install gw akeyless/akeyless-gateway -f values.yaml
 ```
 
 Once installed, check if the pods are running:
@@ -109,10 +108,6 @@ kubectl get svc
 ```
 
 You will see the service name as `gw-akeyless-gateway`. The **External-IP** will be used to reach the Gateway from your browser.
-
-Log in to the Gateway using your browser at `https://<External-IP>:8000` with your Gateway admin credentials.
-
-If you see the login page, you have successfully deployed the Gateway.
 
 # Working With SRA
 
