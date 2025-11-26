@@ -5,20 +5,17 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be enabled either by using an existing gateway or by deploying a new one.
+This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be enabled either by using an existing gateway or during the deployment of a new one.
 
 In this guide, we will use an existing Gateway deployed on a K8s cluster. If you don’t have one, please install a Gateway by following [this](https://docs.akeyless.io/docs/gateway-chart#/) guide.
 
 # Prerequisites
 
-* Helm Installed
-
-* Kubernetes Installed
-
+* Akeyless Gateway deployed on either [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/)  or [K8s](https://docs.akeyless.io/docs/gateway-chart#/) .
+* Helm Installed.
+* Kubernetes Installed.
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
-
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
-
 * Optional: If **Horizontal Pod Autoscaler (HPA)** usage is desired, you must set requests values.
 
 # Additional Configuration
