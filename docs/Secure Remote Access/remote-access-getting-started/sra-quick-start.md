@@ -80,7 +80,7 @@ Where:
 
 * `sra`: set to `enable` in order to deploy the remote access functionality.
 
-* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration).
+* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration) (`ssh-rsa AAA`).
 
 # Updating the deployment
 
