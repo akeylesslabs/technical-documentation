@@ -53,8 +53,6 @@ persistence:
     size: 2Gi
 ```
 
-e.g., when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
-
 ## Horizontal Pod Autoscaler
 
 Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object.
