@@ -36,7 +36,7 @@ When using SSH sessions behind a load balancer such as ELB, the session can be c
 
 Persistent storage with `ReadWriteMany` access mode is required when running multiple SSH-bastion pods.
 
-Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with <code>persistentVolumeReclaimPolicy: retain</code> and reference those PVs in the chart `values` file
+Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with <code>persistentVolumeReclaimPolicy: retain</code> and reference those PVs in the chart `values.yaml` file:
 
 ```yaml
 persistence: 
