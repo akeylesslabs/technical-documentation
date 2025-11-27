@@ -73,14 +73,14 @@ sra:
   enabled: true
 
     config:
-      CAPublicKey: "<PublicKey>"
+      CAPublicKey: "<ssh-rsa AAAAB3Nza>"
 ```
 
 Where:
 
 * `sra`: set to `enable` in order to deploy the remote access functionality.
 
-* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration) (`ssh-rsa AAAAB3Nza...`).
+* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration).
 
 # Updating the deployment
 
