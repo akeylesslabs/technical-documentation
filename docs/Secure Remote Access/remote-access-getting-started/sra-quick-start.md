@@ -55,6 +55,8 @@ persistence:
 
 ## Horizontal Pod Autoscaler
 
+The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
+
 Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object.
 For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the sshConfig`Statefulset`(HPA can not support multiple pods without defining a shared persistent storage volume).
 
