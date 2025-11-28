@@ -117,7 +117,12 @@ To set an internal TLS between the Gateway and cache service, set the `enableTls
 
 ```yaml
   clusterCache:
+    enabled: true
     enableTls: false
+```
+```
+  clusterCache:
+    enabled: true
 ```
 
 To set the cache on your gateway with a default encryption key to support full offline mode, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` base64 encoded :
@@ -133,6 +138,46 @@ And add to the `values.yaml` file the K8s secret name:
   clusterCache:
     encryptionKeyExistingSecret: "cache-configuration"
     enableTls: false
+```
+
+To force the Cache to write only to memory without writing to the file system, you can use  `extraArgs`:
+
+```yaml values.yaml
+  clusterCache:
+    enabled: true
+    enableTls: false
+    persistence:
+     extraArgs:
+       - --save
+       - ""
+       - --appendonly
+       - "no"
+```
+
+To set a persistence volume you can set this with your [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, or using `emptyDir`: 
+
+```yaml values.yaml
+  clusterCache:
+    enabled: true
+    enableTls: false
+    persistence:
+      enabled: false
+       existingClaim: ""
+       accessMode: "ReadWriteOnce"
+       storageClass: ""
+       size: 10Gi
+```
+```yaml empty dir
+  clusterCache:
+    enabled: true
+    persistence:
+     extraVolumes:
+       - name: cache-data
+         emptyDir: {}
+
+     extraVolumesMounts:
+       - name: cache-data
+         mountPath: /data
 ```
 
 To control the cache settings, you can [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the Gateway Configuration Manager.
