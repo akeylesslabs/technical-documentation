@@ -58,8 +58,10 @@ apt-get update && \
 apt-get install -y akeyless
 ```
 ```shell yum
-yum install -y curl gnupg2 && \
-curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | rpm --import - && \
+yum install -y curl gnupg2 ֿ 
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public -o /tmp/akeyless-gpg.key
+rpm --import /tmp/akeyless-gpg.key
+rm -f /tmp/akeyless-gpg.key
 cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
 [akeyless]
 name=Akeyless CLI Repository
@@ -69,11 +71,16 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public
 EOF
-yum clean all && yum makecache && yum install -y akeyless
+yum clean all
+yum makecache
+yum install -y akeyless
 ```
 ```shell dnf
-dnf install -y curl gnupg2 && \
-curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | rpm --import - && \
+dnf install -y curl gnupg2 
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public -o /tmp/akeyless-gpg.key
+rpm --import /tmp/akeyless-gpg.key
+rm -f /tmp/akeyless-gpg.key
+
 cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
 [akeyless]
 name=Akeyless CLI Repository
