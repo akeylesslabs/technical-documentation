@@ -64,7 +64,7 @@ For it to work correctly, the K8s [metrics server](https://github.com/kubernetes
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
-# Remote Access Configuration
+# Basic Configuration
 
 In order to set your gateway with **Remote Access**, add the following to your deployment by editing the `values.yaml` file:
 
