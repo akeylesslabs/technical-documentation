@@ -82,7 +82,7 @@ Where:
 
 * `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration).
 
-# Updating the deployment
+# Deployment Update
 
 To update the existing gateway deployment with the SRA configuration, run the following command:
 
@@ -98,7 +98,7 @@ kubectl get pods
 
 In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`.
 
-# Working With SRA
+# SRA Access
 
 In order to get the external IP address of your Gateway, run:
 
