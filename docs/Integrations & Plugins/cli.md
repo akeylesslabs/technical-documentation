@@ -49,12 +49,16 @@ Alternatively, you can install it using a package manager, such as: `brew`,  `ap
 brew install akeylesslabs/tap/akeyless
 ```
 ```shell apt
-apt-get update && apt-get install -y curl gnupg && \
-curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | \
-  gpg --dearmor -o /usr/share/keyrings/akeyless.gpg && \
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | \
-  tee /etc/apt/sources.list.d/akeyless.list && \
-apt-get update && \
+apt-get update && apt-get install -y curl gnupg 
+
+curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public | 
+gpg --dearmor -o /usr/share/keyrings/akeyless.gpg 
+
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/akeyless.gpg] https://akeyless.jfrog.io/artifactory/akeyless-cli-debian stable main" | 
+
+tee /etc/apt/sources.list.d/akeyless.list 
+
+apt-get update 
 apt-get install -y akeyless
 ```
 ```shell yum
@@ -80,6 +84,7 @@ yum install -y akeyless
 ```
 ```shell dnf
 dnf install -y curl gnupg2 
+
 curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public -o /tmp/akeyless-gpg.key
 rpm --import /tmp/akeyless-gpg.key
 rm -f /tmp/akeyless-gpg.key
@@ -93,6 +98,7 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_cli_repo/public
 EOF
+
 dnf clean all && dnf makecache && dnf install -y akeyless
 ```
 
