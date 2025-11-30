@@ -40,7 +40,7 @@ Since a storage class is more environment-specific, you will need to provide one
 
 ```yaml
 persistence: 
-  shareStorageVolume:
+  volumes:
     name: share-storage
     storageClassName: "efs-sc"
     accessModes:
