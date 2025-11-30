@@ -1,5 +1,5 @@
 ---
-title: Copy of SRA Advanced Configuration
+title: SRA Advanced Configuration
 excerpt: Secure Remote Access Bastion
 deprecated: false
 hidden: true
