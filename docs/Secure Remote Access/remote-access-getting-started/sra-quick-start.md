@@ -1,5 +1,5 @@
 ---
-title: SRA Deployment
+title: SRA Basic Deployment
 deprecated: false
 hidden: true
 metadata:
