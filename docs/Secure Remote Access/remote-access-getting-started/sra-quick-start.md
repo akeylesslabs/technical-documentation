@@ -72,8 +72,8 @@ In order to set your gateway with **Remote Access**, add the following to your d
 sra:
   enabled: true
 
-    config:
-      CAPublicKey: "<ssh-rsa AAAAB3Nza>"
+sshConfig:
+  CAPublicKey: <"ssh-rsa AAAAB...">
 ```
 
 Where:
