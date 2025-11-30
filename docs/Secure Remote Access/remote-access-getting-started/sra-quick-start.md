@@ -14,7 +14,7 @@ In this guide, we will use an existing Gateway deployed on a K8s cluster. If you
 * Akeyless Gateway deployed on either [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/)  or [K8s](https://docs.akeyless.io/docs/gateway-chart#/) .
 * Helm Installed.
 * Kubernetes Installed.
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access, with `session_` allowed username.
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 * Optional: If **Horizontal Pod Autoscaler (HPA)** usage is desired, you must set requests values.
 
@@ -36,7 +36,7 @@ When using SSH sessions behind a load balancer such as ELB, the session can be c
 
 Persistent storage with `ReadWriteMany` access mode is required when running multiple SSH-bastion pods.
 
-Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with <code>persistentVolumeReclaimPolicy: retain</code> and reference those PVs in the chart `values.yaml` file:
+Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart `values.yaml` file:
 
 ```yaml
 persistence: 
@@ -80,7 +80,7 @@ Where:
 
 * `sra`: set to `enable` in order to deploy the remote access functionality.
 
-* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration) with `session_` allowed username.
+* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration).
 
 # Updating the deployment
 
