@@ -11,7 +11,7 @@ In this guide, we will use an existing Gateway deployed on a **K8s cluster**. If
 
 # Prerequisites
 
-* Akeyless Gateway deployed on either [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/)  or [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
+* Akeyless Gateway deployed on either [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
 
 * Helm Installed.
 
