@@ -17,24 +17,13 @@ In this guide, we will use an existing Gateway deployed on a **K8s cluster**. If
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access, with `session_` allowed username.
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 * Optional: If **Horizontal Pod Autoscaler (HPA)** usage is desired, you must set requests values.
-
-# Optional Deployment Settings
-
-The settings below are optional and can be applied to further customize your deployment.
-
-## Network
-
-Network configuration ensures proper traffic routing and session management for SRA components. Choose between Ingress controllers or cloud provider load balancers based on your k8s setup.
-
+* Network configuration ensures proper traffic routing and session management for SRA components. Choose between Ingress controllers or cloud provider load balancers based on your k8s setup.
 * **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
-
 * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html).
 
 When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited, for more information, click [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
-## Storage
-
-Persistent storage with `ReadWriteMany` access mode is required when running multiple SSH-bastion pods.
+*  Persistent storage with `ReadWriteMany` access mode is required when running multiple SSH-bastion pods.
 
 Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart `values.yaml` file:
 
