@@ -106,7 +106,7 @@ In order to get the external IP address of your Gateway, run:
 kubectl get svc
 ```
 
-You will see the service name as `<release-name>-akeyless-gateway`. The **External-IP** will be used to reach the Gateway from your browser.
+You will see the service name as `gw-akeyless-gateway`. The **External-IP** will be used to reach the Gateway from your browser.
 
 To start working with SRA, open your browser and log in using the following URL:
 
