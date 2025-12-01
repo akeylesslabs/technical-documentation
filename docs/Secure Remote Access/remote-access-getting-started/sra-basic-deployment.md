@@ -15,7 +15,7 @@ In this guide, we will use an existing Gateway deployed on a K8s cluster, If you
 
 * Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access, with `session_` allowed username.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 
@@ -78,7 +78,13 @@ Where:
 
 * `sra`: set to `enable` in order to deploy the remote access functionality.
 
-* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration).
+* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration) 
+
+<Callout icon="📘" theme="info">
+  ## Allowed Username
+
+  The `session_`  username need to be allowed on the SSH Issuer to grant CLI access.
+</Callout>
 
 # Deployment Update
 
