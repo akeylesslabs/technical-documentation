@@ -134,6 +134,4 @@ akeyless agent start
 
 The command above will start the agent.
 
-You can also run `akeyless agent stop` to stop the agent, and `akeyless agent status` to get the agent status.
-
-<br />
+You can find the complete list of parameters for this command in the CLI Reference - CLI Agent section.
