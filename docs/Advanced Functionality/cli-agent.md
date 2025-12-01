@@ -10,7 +10,7 @@ The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) lets you set up an Agent
 The required configuration is:
 
 * **Authentication Method** - To authenticate to your Akeyless account.
-* **Secrets** - The secrets that will be delivered to the folders in your operating systems.
+* **Secrets** - The secrets that will be delivered to the specified paths in your operating systems.
 
 The above are configured in a single `agent.toml` file. Once it's configured, the Agent handles authentication on its own, so you don’t need to manually authenticate for the agent to deliver the secrets.
 
