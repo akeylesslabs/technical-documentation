@@ -134,4 +134,4 @@ akeyless agent start
 
 The command above will start the agent.
 
-You can find the complete list of parameters for this command in the CLI Reference - CLI Agent section.
+You can find the complete list of parameters for this command in the [CLI Reference - CLI Agent](https://docs.akeyless.io/docs/cli-reference-agent#/) section.
