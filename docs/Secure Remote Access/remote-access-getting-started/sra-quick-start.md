@@ -7,23 +7,13 @@ metadata:
 ---
 This guide explains how to deploy the SRA using the most basic configuration. SRA can be deployed either by using an existing gateway or during the deployment of a new one.
 
-In this guide, we will use an existing Gateway deployed on a K8s cluster. The SRA utility can also be deployed on Docker using docker compose. If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
+In this guide, we will use an existing Gateway deployed on a K8s cluster, note that the SRA utility can also be deployed on Docker using [docker compose](https://docs.akeyless.io/update/docs/remote-access-docker#/).
 
-<Callout icon="📘" theme="info">
-  ## Docker Compose
-
-  The SRA utility can also be deployed on Docker using [docker-compose](https://docs.akeyless.io/update/docs/remote-access-docker#/).
-</Callout>
-
-<br />
+If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
 
 # Prerequisites
 
-* Akeyless Gateway deployed on either [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
-
-* K8s Cluster.
-
-* Helm Installed.
+* Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access, with `session_` allowed username.
 
