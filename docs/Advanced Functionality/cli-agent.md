@@ -12,7 +12,7 @@ The minimum required configuration is:
 * **Authentication Method:** To authenticate to your account.
 * **Secrets:** The secrets that will be fetched to your local environment
 
-The above are configured in a single `agent.toml` file. Once it's configured, the Agent handles authentication on its own, so you don’t need to manually authenticate for the agent to deliver the secrets.
+The above are defined in a single `agent.toml` file. Once it's set, the Agent handles authentication on its own, so you don’t need to manually authenticate for the agent to deliver the secrets.
 
 The supported items that can be fetched using the Agent are:
 
@@ -27,7 +27,7 @@ The supported items that can be fetched using the Agent are:
 
 # Agent Configuration
 
-In order to work with the Agent, configure the following `agent.toml` file:
+In order to work with the Agent, configure the following `/Users/<username>/.akeyless/profiles/agent.toml` file:
 
 ```toml agent.toml
 access_type = "<AccessType>"
