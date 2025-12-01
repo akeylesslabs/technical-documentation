@@ -2,6 +2,7 @@
 - analytics
 - audit-logs
 - automatic-migration
+- cli-ai-agent
 - best-practices
 - aws-best-practices
 - billing
@@ -17,4 +18,3 @@
 - oidc-app-provider
 - request-access
 - usage-report
-- cli-ai-agent
