@@ -354,9 +354,9 @@ Note that reverse migration from an HSM to a file-based wallet may not be suppor
 Reference:  
 [Oracle 19c Advanced Security Guide ​](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/managing-keystores-encryption-keys-in-united-mode.html#GUID-02343C2C-160B-4950-A191-48317B20C507)
 
-#### For Oracle 23ai:
+#### For Oracle 23ai
 
-##### Explanation:
+##### Explanation
 
 Some parameters, such as ENCRYPTION_WALLET_LOCATION, are deprecated in 23ai. Always consult the latest Oracle documentation for current key management practices.
 
@@ -365,7 +365,7 @@ Reference:
 
 ### Explanation of ENCRYPTION_WALLET Status
 
-##### Explanation:
+##### Explanation
 
 * If you see OPEN_NO_MASTER_KEY in the output of V$ENCRYPTION_WALLET, it means that while the keystore is open, the master encryption key has not been created yet. This can also occur if the wallet location is configured for an SSL wallet (created with orapki) rather than a TDE wallet.
 * Reference:  
@@ -373,34 +373,34 @@ Reference:
 
 ### Summary and Final Checks
 
-#### Final Checklist & Explanation:
+#### Final Checklist & Explanation
 
-##### Environment Preparation:
+##### Environment Preparation
 
 * Confirm Oracle Database is installed and running on your system.
 * Verify you are using the correct Oracle version and architecture.
 * Ensure all required libraries and configuration files are in place with proper permissions.  
   Explanation: This minimizes the risk of errors during the TDE configuration process.
 
-##### Initial HSM Wallet Configuration:
+##### Initial HSM Wallet Configuration
 
 * Configure and open the HSM-based keystore.
 * Set the TDE master encryption key.  
   Explanation: These steps secure the database encryption process by integrating the HSM library and initializing the keystore.
 
-##### Auto-Login Enablement:
+##### Auto-Login Enablement
 
 * Transition from the HSM wallet to a file-based wallet.
 * Create an auto-login keystore so that the wallet opens automatically at startup.  
   Explanation: Auto-login keystores remove the need for manual intervention during database startup, which is critical for production environments.
 
-##### Verification:
+##### Verification
 
 * Restart the database.
 * Verify the wallet status using `SELECT * FROM V$ENCRYPTION_WALLET;`.  
   Explanation: This confirms that the configuration changes are applied correctly and the keystore is accessible.
 
-##### Version Considerations:
+##### Version Considerations
 
 * Adjust settings as needed and consult the latest documentation, since configuration parameters may differ across Oracle versions.
 * Explanation: Ensuring that your configuration complies with the current Oracle guidelines is essential for security and stability.
