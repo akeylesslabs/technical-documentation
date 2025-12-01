@@ -135,7 +135,7 @@ password={{ .Data.Password }}
 
 # Start the Agent
 
-In order to start the Agent to provision the secrets you have defined in the `agent.toml` file, run the following command:
+In order to start the Agent to provision the secrets you have defined in the `/Users/<username>/.akeyless/profiles/agent.toml` file, run the following command:
 
 ```shell
 akeyless agent start
