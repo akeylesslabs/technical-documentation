@@ -27,7 +27,9 @@ The supported items that can be fetched using the Agent are:
 
 # Agent Configuration
 
-In order to work with the Agent, configure the following `/Users/<username>/.akeyless/profiles/agent.toml` file:
+The Agent is configured using the `agent.toml` file, which can be located anywhere in your operating system, as the command includes a flag that specifies the location of the file.
+
+The following is an example for the `agent.toml` configuration file:
 
 ```toml agent.toml
 access_type = "<AccessType>"
@@ -138,9 +140,10 @@ password={{ .Data.Password }}
 In order to start the Agent to provision the secrets you have defined in the `/Users/<username>/.akeyless/profiles/agent.toml` file, run the following command:
 
 ```shell
-akeyless agent start
+akeyless agent start \
+--config-file-path "$HOME/agent/agent.toml"
 ```
 
-The command above will start the agent.
+The command above will start the agent using the `agent.toml` configuration file located in `$HOME/agent/`.
 
 You can find the complete list of parameters for this command in the [CLI Reference - CLI Agent](https://docs.akeyless.io/docs/cli-reference-agent#/) section.
