@@ -5,9 +5,9 @@ hidden: true
 metadata:
   robots: index
 ---
-The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) supports configuring an AI Agent that automatically delivers secrets from your Akeyless account into specific locations in your operating system.
+The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) supports configuring an Agent that automatically delivers secrets from your Akeyless account into specific locations in your operating system.
 
-The supported items that can be provisioned with the AI Agent are:
+The supported items that can be provisioned with the Agent are:
 
 * [Static Secrets](https://docs.akeyless.io/docs/static-secrets#/)
 * [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets#/)
@@ -20,7 +20,7 @@ The supported items that can be provisioned with the AI Agent are:
 
 # Agent Configuration
 
-In order to work with the AI Agent, configure the following `agent.toml` file:
+In order to work with the Agent, configure the following `agent.toml` file:
 
 ```toml agent.toml
 access_type = "<AccessType>"
@@ -126,13 +126,13 @@ To provision a PKI Certificate using a CSR, set the following template:
 
 # Start the Agent
 
-In order to start the AI Agent to provision the secrets you have defined in the `agent.toml` file, run the following command:
+In order to start the Agent to provision the secrets you have defined in the `agent.toml` file, run the following command:
 
 ```shell
 akeyless agent start
 ```
 
-The command above will start the agent. 
+The command above will start the agent.
 
 You can also run `akeyless agent stop` to stop the agent, and `akeyless agent status` to get the agent status.
 
