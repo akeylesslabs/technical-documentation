@@ -29,4 +29,4 @@ Each Quickstart lists its own prerequisites in more detail.
 
 If you are completely new to Akeyless, we recommend performing each Quickstart in the order in which they appear in the left-side navigation menu.
 
-The first is [Creating an Akeyless Account Quickstart](doc:account-quickstart).
+The first is [Creating an Akeyless Account Quickstart](https://docs.akeyless.io/docs/account-quickstart).
