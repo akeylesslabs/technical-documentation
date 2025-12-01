@@ -7,9 +7,9 @@ metadata:
 ---
 This guide explains how to deploy the SRA using the most basic configuration. SRA can be deployed either by using an existing gateway or during the deployment of a new one.
 
-In this guide, we will use an existing Gateway deployed on a K8s cluster, note that the SRA utility can also be deployed on Docker using [docker compose](https://docs.akeyless.io/update/docs/remote-access-docker#/).
+In this guide, we will use an existing Gateway deployed on a K8s cluster, If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
 
-If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
+**Note**: The SRA utility can also be deployed on Docker using [docker compose](https://docs.akeyless.io/update/docs/remote-access-docker#/).
 
 # Prerequisites
 
