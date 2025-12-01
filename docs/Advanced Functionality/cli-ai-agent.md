@@ -124,4 +124,16 @@ To provision a PKI Certificate using a CSR, set the following template:
 {{- end -}}
 ```
 
+# Start the Agent
+
+In order to start the AI Agent to provision the secrets you have defined in the `agent.toml` file, run the following command:
+
+```shell
+akeyless agent start
+```
+
+The command above will start the agent. 
+
+You can also run `akeyless agent stop` to stop the agent, and `akeyless agent status` to get the agent status.
+
 <br />
