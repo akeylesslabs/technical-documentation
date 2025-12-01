@@ -68,7 +68,7 @@ curl -fsSL https://akeyless.jfrog.io/artifactory/api/security/keypair/akeyless_c
 rpm --import /tmp/akeyless-gpg.key
 rm -f /tmp/akeyless-gpg.key
 
-cat <<'EOF' | /etc/yum.repos.d/akeyless.repo > /dev/null
+cat > /etc/yum.repos.d/akeyless.repo <<'EOF'
 [akeyless]
 name=Akeyless CLI Repository
 baseurl=https://akeyless.jfrog.io/artifactory/akeyless-cli-rpm
