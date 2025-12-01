@@ -7,9 +7,7 @@ metadata:
 ---
 The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) supports configuring an Agent that automatically delivers secrets from your Akeyless account into specific locations in your operating system (**Linux** / **Windows**).
 
-The authentication method and the secrets you wish to fetch will be set on configuration file named: `agent.toml`.
-
-Due to the above, the authentication will be automatically, and there is no need to manually authenticate in order to fetch the secrets.
+The authentication method and the secrets you wish to fetch are defined in a configuration file named `agent.toml`, enabling automatic authentication with no need for manual login to retrieve secrets.
 
 The supported items that can be provisioned with the Agent are:
 
