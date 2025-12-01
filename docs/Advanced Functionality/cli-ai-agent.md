@@ -7,7 +7,7 @@ metadata:
 ---
 The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) supports configuring an AI Agent that automatically delivers secrets from your Akeyless account into specific locations in your operating system.
 
-The supported items that can be fetched with the AI Agent are:
+The supported items that can be provisioned with the AI Agent are:
 
 * [Static Secrets](https://docs.akeyless.io/docs/static-secrets#/)
 * [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets#/)
@@ -70,11 +70,48 @@ Where:
 * `log_format`: Can be `text` or `json`.
 * `log_level`: The log level, by default set to `debug`, can be set to `info/warn/error`.
 * `log_file_max_size_mb`: The maximum size of a log file in `megabytes`, by default set to `10`.
-* `render_interval`: The interval for fetching the secrets, by default set to `15m`, the minimum is `1s`
+* `render_interval`: The interval for provisioning the secrets, by default set to `15m`, the minimum is `1s`
 * `allow_missing_keys_in_template`: If one secret (or more) fails to be provisioned, continue with provision the rest, by default set to `true`.
 
-# Example
+# Template Examples
 
-<br />
+To provision a Static Secret, set the following template:
+
+```shell static.tmpl
+{{ with secret "/my_secret" }}Value: {{ .Data.Value }}{{ end -}}
+```
+
+To provision a Rotated Secret, set the following template:
+
+```shell rotated.tmpl
+{{- with rotatedSecret "/my_rotator" -}}
+username={{ .Data.Username }}
+password={{ .Data.Password }}
+{{- end -}}
+```
+
+To provision an SSH Certificate, set the following template:
+
+```shell ssh_cert.tmpl
+{{- with sshCertificate "/certificates/ssh_cert_issuer" "ubuntu" "--pub-key-file-path=path_to/ssh_key.pub"-}}
+{{ .Data }}
+{{- end -}}
+```
+
+To provision a PKI Certificate using a Public Key, set the following template:
+
+```shell pki_cert_with_key.tmpl
+{{- with pkiCertificate "/certificate/pki_cert_issuer" "--key-file-path=path_to/rsa_key.pub" "--ttl=3600" -}}
+{{ .Data }}
+{{- end -}}
+```
+
+To provision a PKI Certificate using a CSR, set the following template:
+
+```shell pki_cert_with_csr.tmpl
+{{- with pkiCertificate "/certificate/pki_cert_issuer" "--csr-file-path=path_to/test.csr" "--ttl=3600" -}}
+{{ .Data }}
+{{- end -}}
+```
 
 <br />
