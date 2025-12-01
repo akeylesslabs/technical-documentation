@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) supports configuring an Agent that automatically delivers secrets from your Akeyless account into specific locations in your operating system (Linux / Windows).
+The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) supports configuring an Agent that automatically delivers secrets from your Akeyless account into specific locations in your operating system (**Linux** / **Windows**).
 
 The authentication method and the secrets you wish to fetch will be set on configuration file named: `agent.toml`.
 
