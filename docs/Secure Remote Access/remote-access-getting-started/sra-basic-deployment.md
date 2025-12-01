@@ -78,11 +78,9 @@ Where:
 
 * `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration)
 
-<Callout icon="📘" theme="info">
-  ## Allowed Username
-
-  The `session_`  username need to be allowed on the SSH Issuer to grant CLI access.
-</Callout>
+> 📘 Allowed Username
+>
+> The `session_`  username need to be allowed on the SSH Issuer to grant CLI access.
 
 # Deployment Update
 
