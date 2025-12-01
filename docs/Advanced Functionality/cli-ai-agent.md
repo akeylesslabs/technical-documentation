@@ -1,5 +1,5 @@
 ---
-title: CLI AI Agent
+title: CLI Agent
 deprecated: false
 hidden: true
 metadata:
