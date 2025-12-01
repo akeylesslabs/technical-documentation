@@ -33,7 +33,7 @@ gateway_url = "http://localhost:8080"
 log_file_path = "path_to/agent.log"     
 log_format = "text"                     
 log_level = "debug"                     
-log_file_max_size_mb = 1               
+log_file_max_size_mb = 10               
 
 render_interval = "15m"                 
 allow_missing_keys_in_template = true   
@@ -62,15 +62,25 @@ destination = "path_to/pki_cert_with_csr.txt"
 Where:
 
 * `access_type`: The **Access Type** of the auth method that is being used to authenticate.
+
 * `access_id`: The **Access ID** of the auth method that is being used to authenticate.
+
 * `access_key`: The **Access Key** of the auth method that is being used to authenticate.
-* `log_file_path`: The path to the `agent.log` file, defaults are: 
+
+* `log_file_path`: The path to the `agent.log` file, defaults are:
+
   * `"/var/log/akeyless"` for Linux.
+
   * `"programdata/akeyless"` for Windows.
+
 * `log_format`: Can be `text` or `json`.
+
 * `log_level`: The log level, by default set to `debug`, can be set to `info/warn/error`.
+
 * `log_file_max_size_mb`: The maximum size of a log file in `megabytes`, by default set to `10`.
-* `render_interval`: The interval for provisioning the secrets, by default set to `15m`, the minimum is `1s`
+
+* `render_interval`: The interval for provisioning the secrets, by default set to `15m`, the minimum is `1s`.
+
 * `allow_missing_keys_in_template`: If one secret (or more) fails to be provisioned, continue with provision the rest, by default set to `true`.
 
 # Template Examples
