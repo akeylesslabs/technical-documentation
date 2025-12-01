@@ -14,7 +14,7 @@ The minimum required configuration is:
 
 The above are configured in a single `agent.toml` file. Once it's configured, the Agent handles authentication on its own, so you don’t need to manually authenticate for the agent to deliver the secrets.
 
-The supported items that can be provisioned with the Agent are:
+The supported items that can be fetched using the Agent are:
 
 * [Static Secrets](https://docs.akeyless.io/docs/static-secrets#/)
 * [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets#/)
