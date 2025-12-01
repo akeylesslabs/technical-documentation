@@ -13,9 +13,9 @@ In this guide, we will use an existing Gateway deployed on a **K8s cluster**. If
 
 * Akeyless Gateway deployed on either [K8s](https://docs.akeyless.io/docs/gateway-chart#/) or [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
 
-* Helm Installed.
+* K8s Cluster.
 
-* Kubernetes Installed.
+* Helm Installed.
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access, with `session_` allowed username.
 
