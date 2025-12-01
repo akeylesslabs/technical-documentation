@@ -92,13 +92,15 @@ Where:
 
 # Template Examples
 
-To provision a Static Secret, set the following template:
+This section describe how to fetch each item.
+
+**Static Secret**:
 
 ```shell static.tmpl
 {{ with secret "/my_secret" }}Value: {{ .Data.Value }}{{ end -}}
 ```
 
-To provision a Rotated Secret, set the following template:
+**Rotated Secret**:
 
 ```shell rotated.tmpl
 {{- with rotatedSecret "/my_rotator" -}}
@@ -107,7 +109,7 @@ password={{ .Data.Password }}
 {{- end -}}
 ```
 
-To provision an SSH Certificate, set the following template:
+**SSH Certificate**:
 
 ```shell ssh_cert.tmpl
 {{- with sshCertificate "/certificates/ssh_cert_issuer" "ubuntu" "--pub-key-file-path=path_to/ssh_key.pub"-}}
@@ -115,7 +117,7 @@ To provision an SSH Certificate, set the following template:
 {{- end -}}
 ```
 
-To provision a PKI Certificate using a Public Key, set the following template:
+**PKI Certificate using a Public Key**:
 
 ```shell pki_cert_with_key.tmpl
 {{- with pkiCertificate "/certificate/pki_cert_issuer" "--key-file-path=path_to/rsa_key.pub" "--ttl=3600" -}}
@@ -123,7 +125,7 @@ To provision a PKI Certificate using a Public Key, set the following template:
 {{- end -}}
 ```
 
-To provision a PKI Certificate using a CSR, set the following template:
+**PKI Certificate using a CSR**:
 
 ```shell pki_cert_with_csr.tmpl
 {{- with pkiCertificate "/certificate/pki_cert_issuer" "--csr-file-path=path_to/test.csr" "--ttl=3600" -}}
