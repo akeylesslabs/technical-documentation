@@ -5,7 +5,11 @@ hidden: true
 metadata:
   robots: index
 ---
-The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) supports configuring an Agent that automatically delivers secrets from your Akeyless account into specific locations in your operating system.
+The Akeyless [CLI](https://docs.akeyless.io/docs/cli#/) supports configuring an Agent that automatically delivers secrets from your Akeyless account into specific locations in your operating system (Linux / Windows).
+
+The authentication method and the secrets you wish to fetch will be set on configuration file named: `agent.toml`. 
+
+Due to the above, the authentication will be automatically, and there is no need to manually authenticate in order to fetch the secrets.
 
 The supported items that can be provisioned with the Agent are:
 
@@ -14,9 +18,11 @@ The supported items that can be provisioned with the Agent are:
 * [SSH Certificates](https://docs.akeyless.io/docs/ssh-certificates#/)
 * [PKI Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management#/)
 
-# Prerequisites
+<Callout icon="📘" theme="info">
+   CLI Version
 
-* Akeyless CLI version X and above
+  The CLI Agent is available starting from CLI version `1.134.0`.
+</Callout>
 
 # Agent Configuration
 
