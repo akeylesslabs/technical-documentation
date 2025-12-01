@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the **SRA** using the most basic configuration. SRA can be enabled either by using an existing gateway or during the deployment of a new one.
+This guide explains how to deploy the SRA using the most basic configuration. SRA can be deployed either by using an existing gateway or during the deployment of a new one.
 
 In this guide, we will use an existing Gateway deployed on a **K8s cluster**. If you don’t have one, please install a Gateway by following [this](https://docs.akeyless.io/docs/gateway-chart#/) guide.
 
