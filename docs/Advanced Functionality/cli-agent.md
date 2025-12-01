@@ -23,7 +23,7 @@ The supported items that can be provisioned with the Agent are:
 
 > 📘 CLI Version
 >
-> The CLI Agent is available starting from CLI version `1.134.0`.
+> The CLI Agent is available starting from version `1.134.0`
 
 # Agent Configuration
 
