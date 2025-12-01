@@ -18,11 +18,9 @@ The supported items that can be provisioned with the Agent are:
 * [SSH Certificates](https://docs.akeyless.io/docs/ssh-certificates#/)
 * [PKI Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management#/)
 
-<Callout icon="📘" theme="info">
-  # CLI Version
-
-  The CLI Agent is available starting from CLI version `1.134.0`.
-</Callout>
+> 📘 CLI Version
+>
+> The CLI Agent is available starting from CLI version `1.134.0`.
 
 # Agent Configuration
 
