@@ -26,13 +26,13 @@ In this guide, we will use an existing Gateway deployed on a K8s cluster, If you
   * **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
   * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html).
 
-    When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited, for more information, click [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
+  When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited, for more information, click [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
 * Storage Settings:
 
-Persistent storage with `ReadWriteMany` access mode is required when running multiple SSH-bastion pods.
+  Persistent storage with `ReadWriteMany` access mode is required when running multiple SSH-bastion pods.
 
-Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart `values.yaml` file:
+  Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart `values.yaml` file:
 
 ```yaml
 persistence: 
