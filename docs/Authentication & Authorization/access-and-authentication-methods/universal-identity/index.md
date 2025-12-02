@@ -185,7 +185,7 @@ Universal Identity Details:
 
 * Check **Deny Inheritance** if you want to forbid creating child tokens.
 
-* **TTL (minutes):** Specify token TTL (between 1min to 43200min).
+* **TTL (minutes):** Specify token TTL.
 
 4. Click **Finish**.
 
