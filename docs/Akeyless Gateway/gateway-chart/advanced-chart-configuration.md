@@ -145,7 +145,6 @@ To force the Cache to write only to memory without writing to the file system, y
 ```yaml values.yaml
   clusterCache:
     enabled: true
-    enableTls: false
     persistence:
      extraArgs:
        - --save
@@ -154,12 +153,11 @@ To force the Cache to write only to memory without writing to the file system, y
        - "no"
 ```
 
-To set a persistence volume you can set this with your [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, or using `emptyDir`: 
+To set a persistence volume you can set this with your [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, or using `emptyDir`:
 
 ```yaml values.yaml
   clusterCache:
     enabled: true
-    enableTls: false
     persistence:
       enabled: false
        existingClaim: ""
