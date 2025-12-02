@@ -496,11 +496,8 @@ akeyless folder delete \
 ```
 
 <br />
+
 ## CLI Agent
-
-This section outlines the CLI commands relevant to CLI Agent.
-
-<CLIGeneralFlags />
 
 ### `agent start`
 
