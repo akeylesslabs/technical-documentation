@@ -495,5 +495,37 @@ akeyless folder delete \
 --accessibility[=regular] <[regular/personal]>
 ```
 
+## CLI Agent
+
+### `agent start`
+
+Start Akeyless Agent
+
+##### Usage
+
+```shell
+akeyless agent start
+```
+
+### `agent status`
+
+Get Akeyless Agent status
+
+##### Usage
+
+```shell
+akeyless agent status
+```
+
+### `agent stop`
+
+Stop Akeyless Agent
+
+##### Usage
+
+```shell
+akeyless agent stop
+```
+
 <br />
 

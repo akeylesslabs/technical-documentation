@@ -1024,6 +1024,8 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})
 
+`--mongodb-scopes`: Restrict the user so it can only access the specified MongoDB Atlas cluster(s).
+
 `--mongodb-server-uri`: MongoDB server URI (e.g. `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
 
 `--mongodb-username`: MongoDB server username
@@ -3339,6 +3341,8 @@ akeyless dynamic-secret get-value \
 `target`: Target Name
 
 `args`: Optional arguments as `key`=`value` pairs or JSON strings, e.g - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
+
+ `--mssql-dbname`: Override MSSQL DB name, this should be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**).
 
 `--timeout[=15]`: Timeout in seconds
 
