@@ -495,8 +495,6 @@ akeyless folder delete \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-<br />
-
 ## CLI Agent
 
 ### `agent start`
