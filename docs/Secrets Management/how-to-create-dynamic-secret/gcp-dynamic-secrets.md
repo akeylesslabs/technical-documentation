@@ -12,15 +12,17 @@ next:
 ---
 You can use Akeyless dynamic secrets to generate programmatic access credentials for GCP (Google Cloud Platform) based on IAM policies that apply to Service Accounts. To do this, configure a dynamic secret with the details required for Akeyless to authenticate and communicate with GCP. This requires privileged account credentials.
 
-There are two GCP dynamic secret modes:
+There are three GCP dynamic secret modes:
 
 * **Fixed Service Account**
 
 * **Dynamic Service Account**
 
-Fixed Service Accounts are existing GCP service accounts that Akeyless generates JIT tokens or keys and manage them. TTL in GCP is 1 hour by default, but this may be configured for up to 12 hours, as explained in GCP [documentation](https://cloud.google.com/iam/docs/create-short-lived-credentials-delegated#sa-credentials-oauth).
+* **Fixed User**
 
-Dynamic Service Accounts are generated and managed by Akeyless Platform, where you can bind a set of IAM roles predefined for that service account. Upon getting a dynamic secret request, Akeyless will generate a Just In time key, or token for this managed service account.
+**Fixed Service Accounts** are existing GCP service accounts that Akeyless generates JIT tokens or keys and manage them. TTL in GCP is 1 hour by default, but this may be configured for up to 12 hours, as explained in GCP [documentation](https://cloud.google.com/iam/docs/create-short-lived-credentials-delegated#sa-credentials-oauth).
+
+**Dynamic Service Accounts** are generated and managed by Akeyless Platform, where you can bind a set of IAM roles predefined for that service account. Upon getting a dynamic secret request, Akeyless will generate a Just In time key, or token for this managed service account.
 
 You can generate up to 10 service account keys at the same time. A generated key is revoked when the TTL defined for it expires.
 
@@ -42,6 +44,8 @@ For example:
   "buckets/<Bucket Name>": ["roles/storage.objectCreator"]
 }
 ```
+
+**Fixed User** enables you to assign a role temporary to an existing user, based on the user's sub-claim.
 
 # Prerequisites
 
@@ -96,6 +100,15 @@ akeyless dynamic-secret create gcp \
 --gcp-token-scopes <Token Scopes> \
 --gcp-key-algo <Service Key Algorithm>
 ```
+```shell Fixed User
+akeyless dynamic-secret create gcp \
+--name <Dynamic Secret Name> \
+--target-name <Target Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--access-type[=sa] external \
+--role-name <role1, role2> \
+--fixed-user-claim-keyname[=ext_email] <Sub-Claim Name>
+```
 
 Or using an inline connection string:
 
@@ -119,7 +132,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `service-account-type`: `Fixed` or `Dynamic`type. By default set to **Fixed**.
+* `service-account-type`: `Fixed` , `Dynamic`type. By default set to **Fixed**.
 
 * `role-binding`: A path to a JSON file that holds the relevant resource with roles to bind for the created Service Account. Relevant only for **Dynamic** type.
 
@@ -129,7 +142,13 @@ Where:
 
 * `gcp-token-scopes`:  Access token scopes list.
 
-* `gcp-key-algo`: Service account key algorithm, e.g. `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`
+* `gcp-key-algo`: Service account key algorithm, e.g. `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`.
+
+* `access-type[=sa]`: Either generate a service account or assign an existing role to a user, to assign a role, set to `external`.
+
+* `role-name`: The role to assign to the user (Relevant only for **External** access type).
+
+* `fixed-user-claim-keyname[=ext_email]`: For externally provided users, denotes the key-name of IdP claim to extract the username from.
 
 ### Inline connection string
 
@@ -171,10 +190,12 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Check the **Explicitly specify target properties**  to provide details of the GCP target in the next step.
 
-* **Fixed:** A fixed Service Account. with **Service Account  Email** to create JIT Keys/Tokens for.
+* **Fixed SA:** A fixed Service Account. with **Service Account  Email** to create JIT Keys/Tokens for.
 
-* **Dynamic:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
+* **Dynamic SA:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
   * **Project ID:** Optional, The GCP Project ID to create the Just In Time Service Account , by default the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used . (Relevant only for **Dynamic SA** mode).
+
+* **Fixed:** Assigns a role to a user based on the user's sub-claim.
 
 * **Access Token:** Select this radio button to create a GCP access token as a dynamic secret.
 
@@ -183,6 +204,10 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Token Scopes:** Provide a comma-separated list of [GCP access token scopes](https://developers.google.com/identity/protocols/oauth2/scopes). (If **Access Token** is selected.)
 
 * **Key Algorithm:** Key algorithm. Available options: `KEY_ALG_UNSPECIFIED`, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`. (If **Service Account Key** is selected.)
+
+* **Sub Claim Name:** From which Sub Claim configured on your IDP to extract the user, where the default value is `ext_email`
+
+* **Role:** The role that will be assigned to the user (Relevant only for **Fixed** mode).
 
 * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only for **Dynamic Secret** mode).
 

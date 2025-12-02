@@ -140,6 +140,8 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
@@ -178,6 +180,8 @@ akeyless auth-method create aws-iam \
 `--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -232,6 +236,8 @@ akeyless auth-method create azure-ad \
 `--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -296,6 +302,8 @@ akeyless auth-method create cert \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false
@@ -352,6 +360,8 @@ akeyless auth-method create email \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
@@ -391,6 +401,8 @@ akeyless auth-method create gcp \
 `--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
 ` --audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -508,6 +520,8 @@ akeyless auth-method create oci \
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
@@ -546,6 +560,8 @@ akeyless auth-method create oidc \
 `--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -599,6 +615,8 @@ akeyless auth-method create saml \
 `--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
 `--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+
+`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
 `--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
