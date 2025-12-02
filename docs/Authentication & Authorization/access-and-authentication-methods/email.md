@@ -52,8 +52,6 @@ You can find the complete list of additional parameters for this command in the 
 
 * **JWT TTL (in minutes):** The timespan from acceptance of the invitation to the JWT expiration.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`, `Web UI`, `Gateway Admin`, `Mobile`, `Extension`.
-
 On the **Email Configuration** step define the following:
 
 * **Email:** The email address of the invite recipient.
