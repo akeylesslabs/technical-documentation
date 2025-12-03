@@ -11,7 +11,7 @@ It covers:
 
 * Installing ESO with Helm
 * Configuring authentication from Kubernetes to Akeyless (API Key, Kubernetes Auth, Azure AD, and other cloud identities)
-* Using `<Anchor label="SecretStore" target="_blank" href="https://external-secrets.io/latest/api/secretstore/">SecretStore</Anchor>`, `<Anchor label="ClusterSecretStore" target="_blank" href="https://external-secrets.io/latest/api/clustersecretstore/">ClusterSecretStore</Anchor>`, and `<Anchor label="ExternalSecret" target="_blank" href="https://external-secrets.io/latest/api/externalsecret/">ExternalSecret</Anchor>` to fetch secrets
+* Using `(SecretStore)[https://external-secrets.io/latest/api/secretstore/]`, `<Anchor label="ClusterSecretStore" target="_blank" href="https://external-secrets.io/latest/api/clustersecretstore/">ClusterSecretStore</Anchor>`, and `<Anchor label="ExternalSecret" target="_blank" href="https://external-secrets.io/latest/api/externalsecret/">ExternalSecret</Anchor>` to fetch secrets
 * Using `<Anchor label="PushSecret" target="_blank" href="https://external-secrets.io/latest/api/pushsecret/">PushSecret</Anchor>` to push Kubernetes secrets back to Akeyless
 * Example usage
 
