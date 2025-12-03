@@ -7,3 +7,4 @@
 - kubernetes-external-kms
 - external-secret-operator
 - k8s-external-secrets
+- eso-and-aks-workload-identity
