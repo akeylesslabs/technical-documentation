@@ -1,5 +1,5 @@
 ---
-title: External Secrets Operator
+title: 'Legacy: External Secrets Operator'
 deprecated: false
 hidden: false
 metadata:
