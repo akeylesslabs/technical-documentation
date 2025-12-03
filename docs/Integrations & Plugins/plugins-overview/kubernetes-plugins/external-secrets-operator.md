@@ -100,7 +100,7 @@ ESO’s Akeyless provider supports the following **access types**:
 * `aws_iam`
 * `gcp`
 
-<Callout icon="❗️">
+<Callout icon="❗️" theme="error">
   OIDC is not supported as an **access type** at this time.
 </Callout>
 
@@ -109,6 +109,7 @@ Each Authentication Method in Akeyless exposes an **Access ID**, and for some me
 * **API Key** → `accessTypeParam`: Akeyless Access Key
 * **Kubernetes Auth** → `accessTypeParam`: Kubernetes Auth config name
 * **Azure AD** → `accessTypeParam`: Azure Object ID (optional)
+  * See [ESO and AKS Workload Identity](doc:eso-and-aks-workload-identity) for more information.
 * **GCP** → `accessTypeParam`: GCP audience
 * **AWS IAM** → `accessTypeParam`: not required
 
@@ -185,6 +186,10 @@ stringData:
 ```
 
 This Secret is suitable when using Azure AD Managed Identity with sub-claim enforcement.
+
+<Callout icon="📘" theme="info">
+  ESO does not implement Azure Workload Identity flows internally. When `accessType: azure_ad` is used, ESO relies entirely on the Azure AD token available in the pod’s environment. This is typically projected via AKS Workload Identity. Therefore, the identity ESO uses depends on the `ServiceAccount` the `ExternalSecret` runs under, not on the `SecretStore`.
+</Callout>
 
 ### `SecretStore`: Namespaced Secret Provider
 
