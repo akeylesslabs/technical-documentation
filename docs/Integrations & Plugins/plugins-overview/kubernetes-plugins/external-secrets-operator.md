@@ -23,7 +23,7 @@ For Akeyless, ESO uses the following custom resources:
 
 * **`SecretStore`**: namespaced definition of how to connect and authenticate to Akeyless.
 * **`ClusterSecretStore`**: cluster-wide variant of `SecretStore`.
-* **`ExternalSecret`**: defines which Akeyless items to sync into which Kubernetes Secret.
+* **`ExternalSecret`**: defines which Akeyless items to sync into which Kubernetes Secret object.
 * **`PushSecret`**: pushes a Kubernetes Secret from the cluster into Akeyless.
 
 At a high level:
@@ -41,7 +41,7 @@ At a high level:
 
 * The ESO controller runs as a Kubernetes **Deployment**.
 * It watches custom resources: `ExternalSecret`, `SecretStore`, `ClusterSecretStore`, and `PushSecret`.
-* It reconciles the desired state by calling Akeyless APIs and creating/updating Kubernetes Secrets.
+* It reconciles the desired state by calling Akeyless APIs to create and update Kubernetes Secret objects.
 
 **Akeyless side:**
 
@@ -62,11 +62,6 @@ Before you start, you will need:
   * An **Access Role** that grants read/write permissions to the relevant secrets.
 * For Kubernetes Auth or private/hybrid deployments:
   * An **Akeyless Gateway** with network access to your Kubernetes API server.
-
-Optional but recommended:
-
-* A dedicated Kubernetes namespace for ESO (for example `external-secrets`).
-* Role-based separation of Akeyless roles per team or application.
 
 ***
 
