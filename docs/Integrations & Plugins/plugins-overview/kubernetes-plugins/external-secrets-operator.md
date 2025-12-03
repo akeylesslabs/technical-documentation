@@ -69,14 +69,14 @@ Before you start, you will need:
 
 1. Add the official ESO Helm repository:
 
-```bash
+```shell
 helm repo add external-secrets https://charts.external-secrets.io
 helm repo update
 ```
 
 2. Install ESO (default configuration):
 
-```bash
+```shell
 helm install external-secrets external-secrets/external-secrets   --namespace external-secrets --create-namespace
 ```
 
@@ -121,7 +121,7 @@ type: Opaque
 stringData:
   accessId: "p-XXXX"                 # Access ID of the Akeyless Auth Method
   accessType: "api_key"              # api_key / k8s / azure_ad / aws_iam / gcp
-  accessTypeParam: "<access-key>"    # See examples below
+  accessTypeParam: "<access-key>"
 ```
 
 #### 1.1 API Key Example (NOT Recommended for Production)
@@ -134,12 +134,12 @@ metadata:
   namespace: akeyless-demo
 type: Opaque
 stringData:
-  accessId: "p-xxxxxxxxxxxxxxxx"
+  accessId: "<p-xxxxxxxxxxxxxxxx>"
   accessType: "api_key"
-  accessTypeParam: "YOUR-ACCESS-KEY-HERE"
+  accessTypeParam: "<YOUR-ACCESS-KEY-HERE>"
 ```
 
-Use this for quick demos or POCs. For production, prefer **workload identities** (Kubernetes Auth, Azure AD, AWS IAM, GCP).
+Use `api_key` for quick demos or POCs. For production, prefer **workload identities** (Kubernetes Auth, Azure AD, AWS IAM, GCP).
 
 #### 1.2 Kubernetes Auth Example
 
@@ -151,13 +151,13 @@ metadata:
   namespace: akeyless-demo
 type: Opaque
 stringData:
-  accessId: "p-k8saccessid"
+  accessId: "<p-k8saccessid>"
   accessType: "k8s"
-  accessTypeParam: "my-k8s-auth-config-name"
+  accessTypeParam: "<my-k8s-auth-config-name>"
 ```
 
-* `accessId` – Access ID for the **Kubernetes Auth** method.
-* `accessTypeParam` – Name of the Kubernetes Auth config for your cluster.
+* `accessId`: Access ID for the **Kubernetes Auth** method.
+* `accessTypeParam`: Name of the Kubernetes Auth config for your cluster.
 
 #### 1.3 Azure AD Example (Managed Identity or Service Principal)
 
@@ -169,7 +169,7 @@ metadata:
   namespace: akeyless-demo
 type: Opaque
 stringData:
-  accessId: "p-uybgf7wgbi5dzm"
+  accessId: "<p-uybgf7wgbi5dzm>"
   accessType: "azure_ad"
   accessTypeParam: ""              # Optional: Azure Object ID; can be left empty if using sub-claims such as xms_mirid
 ```
@@ -178,9 +178,11 @@ This Secret is suitable when using Azure AD / Managed Identity with sub-claim en
 
 ***
 
-### 2. SecretStore (Using a Credentials Secret)
+### 2. `SecretStore`
 
-A `SecretStore` resource defines how ESO connects to Akeyless within a single namespace.
+#### 2.1 SecretStore (Using a Credentials Secret)
+
+Create a `SecretStore` resource which defines how ESO connects to Akeyless within a single namespace.
 
 ```yaml
 apiVersion: external-secrets.io/v1
@@ -214,15 +216,7 @@ If you are using a **private Akeyless Gateway** (for example in a zero-knowledge
 
 You may also configure custom CAs via `caBundle` or `caProvider` if your gateway uses a private CA.
 
-Apply the configuration:
-
-```bash
-kubectl apply -f secretstore.yaml
-```
-
-***
-
-### 3. SecretStore (Direct Kubernetes Auth)
+#### 2.2. SecretStore (Direct Kubernetes Auth)
 
 Alternatively, you can configure Kubernetes Auth directly in the `SecretStore` without a generic credentials Secret.
 
