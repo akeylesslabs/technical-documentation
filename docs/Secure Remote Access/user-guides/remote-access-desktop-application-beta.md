@@ -20,7 +20,9 @@ Who Should benefit from using this application?
 * Security Professionals
 * Developers & Engineers
 
-NOTE: currently in its Beta phase
+> 📘 Note  
+>
+> The Desktop App is currently in its Beta phase
 
 # Pre-Requisite
 
