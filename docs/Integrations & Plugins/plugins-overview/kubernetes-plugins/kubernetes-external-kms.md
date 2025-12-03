@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Kubernetes (K8s) External KMS allows you to use external secret management systems to add secrets in K8s securely. 
+Kubernetes (K8s) External KMS allows you to use external secret management systems to add secrets in Kubernetes securely.
 
 By default, Secrets are not encrypted at rest and are open to attack, either via the `etcd` server or via backups of `etcd` data. To mitigate this risk, the Akeyless Platform acts as an external secret management system with a KMS plugin to encrypt Secrets stored in `etcd`.
 
@@ -28,7 +28,7 @@ By default, Secrets are not encrypted at rest and are open to attack, either via
 
 ## Usage
 
-K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) or a standalone docker container both methods require direct access to the K8s master nodes on the control plane where the `kube-apiserver` is running:  
+K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) or a standalone docker container both methods require direct access to the K8s master nodes on the control plane where the `kube-apiserver` is running:
 
 > 👍 Note
 >
@@ -60,7 +60,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
       </td>
 
       <td>
-        URL of the Akeyless RestAPI Gateway\
+        URL of the Akeyless RestAPI Gateway  
         (port 8081)
       </td>
 
@@ -89,12 +89,12 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
       </td>
 
       <td>
-        The key used for encryption\
+        The key used for encryption  
         (decryption is handled automatically)
       </td>
 
       <td>
-        N\\A
+        N\A
       </td>
     </tr>
 
@@ -118,7 +118,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
       </td>
 
       <td>
-        Access Key if access\_key auth method is used
+        Access Key if access_key auth method is used
       </td>
 
       <td>
@@ -132,7 +132,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
       </td>
 
       <td>
-        Azure Object ID if azure\_ad auth method is used
+        Azure Object ID if azure_ad auth method is used
       </td>
 
       <td>
@@ -160,7 +160,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
       </td>
 
       <td>
-        Universal Identity init token if universal\_identity auth method is used
+        Universal Identity init token if universal_identity auth method is used
       </td>
 
       <td>
@@ -199,7 +199,7 @@ $ docker logs akeyless-kms-plugin
 
 ## Static Pod
 
-Update the below Static Pod template and run it **on the same machine as the`kube-apiserver`** 
+Update the below Static Pod template and run it **on the same machine as the`kube-apiserver`**
 
 ```yaml
 apiVersion: v1
@@ -232,7 +232,7 @@ apiVersion: v1
         type: DirectoryOrCreate
 ```
 
-  Check the pod logs to validate the plugin runs successfully:
+Check the pod logs to validate the plugin runs successfully:
 
 ```shell
 $ CONTAINER=$(kubectl get pods -n kube-system | grep akeyless-kms-plugin | head -n 1 | awk '{print $1}')
@@ -249,11 +249,11 @@ $ kubectl logs $CONTAINER
 
 ## Configure kube-apiserver
 
-Once the plugin is up and running, the next step is to \[configure kube-apiserver] \([https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider))
+Once the plugin is up and running, the next step is to [configure kube-apiserver] ([https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider))
 
 To do this you will need to use the below `encryption_provider_config.yaml` file.
 
-If you want to change the location of the UNIX socket make sure to update the plugin as well as 
+If you want to change the location of the UNIX socket make sure to update the plugin as well as
 
 the `encryption_provider_config.yaml`.
 

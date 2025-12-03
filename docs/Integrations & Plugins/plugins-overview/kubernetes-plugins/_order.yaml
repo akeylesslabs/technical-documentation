@@ -1,9 +1,9 @@
-- how-to-provision-secret-to-your-k8s
 - auth-meth-k8s
 - policy-segregation-for-kubernetes
-- external-secret-operator
+- how-to-provision-secret-to-your-k8s
+- external-secrets-operator
 - kubernetes-secrets-store-csi-provider
 - kubernetes-cert-manager
-- injector-and-external-secrets-operator-comparison
 - kubernetes-external-kms
+- external-secret-operator
 - k8s-external-secrets
