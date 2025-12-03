@@ -23,6 +23,17 @@ It is recommended to set a meaningful Cluster Name for your Bastion cluster from
 
 To do that, you can set the `clusterName="meaningful-cluster-name"`field as part of the Bastion deployment.
 
+# Zero-Trust Web-Access (ZTWA)
+
+This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets via the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions), which opens a browser session and injects credentials into the browser for the user.
+
+These targets are accessed using one of three methods: [Secure Web Browsing](https://docs.akeyless.io/docs/web-applications-secure-remote-access), [Secure Web Proxy](https://docs.akeyless.io/docs/web-applications-secure-remote-access), or [Direct Connections](https://docs.akeyless.io/docs/web-applications-secure-remote-access). This solution creates two types of applications as well:
+
+* **Web Dispatcher**: Acts as a load balancer service that dispatches requests to _web-workers_ to take on secure web-browsing sessions. It enables secure web browsing by launching a Firefox browser inside the pod.
+* **Web Workers**: These containers host the isolated browser sessions (for "secure web browsing") and each such container supports a single isolated browser session.
+
+The [Akeyless SRA Browser Extension](https://docs.akeyless.io/docs/installation-of-akeyless-web-extension) is installed locally on the user's browser (Chrome, Firefox, or Edge). It provides password management capabilities and supports the SRA by managing and adapting seamless configuration to the browser.
+
 # SSH Legacy Algorithm
 
 ```yaml
@@ -36,7 +47,7 @@ As both classic SSH and RDP access are based on SSH certificates, to support leg
 
 # RDP User Acces
 
-Set the `usernameSubClaim` with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username. 
+Set the `usernameSubClaim` with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
 
 ```yaml
 ############
@@ -49,7 +60,7 @@ RDPusernameSubClaim:
 SSHusernameSubClaim:
 ```
 
-This will take effect on all SSH-based sessions, both for RDP and Linux-based systems. To split the use case when to extract the `usernameSubClaim` you can set instead a dedicated setting for each type. 
+This will take effect on all SSH-based sessions, both for RDP and Linux-based systems. To split the use case when to extract the `usernameSubClaim` you can set instead a dedicated setting for each type.
 
 # Proxy
 
@@ -69,7 +80,7 @@ SRA supports the recording of RDP, SSH, DB & K8s sessions.
 
 CLI-based sessions of **SSH**, **DB** & **K8s** connections provide a full transcript of Input commands and Output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, ElasticSearch, or just using Syslog) - for more information, see: [https://docs.akeyless.io/docs/ssh-log-forwarding](https://docs.akeyless.io/docs/ssh-log-forwarding)
 
-**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob storage:  
+**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob storage:
 
 ```yaml AWS S3
 config:
@@ -106,7 +117,7 @@ config:
       existingSecret: ""
 ```
 
-To authenticate using an explicit **AWS Key**  provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **K8s Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**. 
+To authenticate using an explicit **AWS Key**  provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **K8s Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
 
 To store local recordings inside your Bastion server, set the `KeepLocalRecording` with `true`, session recordings will be stored inside the bastion under `/home/akeyless/recordings`.
 
@@ -128,7 +139,7 @@ To enable log forwarding to an existing log management system, please find a lis
 
 # Redirect to Bastion URLs
 
-To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**: 
+To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**:
 
 ```yaml
 ztbConfig:
@@ -149,7 +160,7 @@ sshConfig:
 
 # SSH Fingerprint
 
-To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.\
+To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.  
 Note, please  ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
 
 ```yaml
