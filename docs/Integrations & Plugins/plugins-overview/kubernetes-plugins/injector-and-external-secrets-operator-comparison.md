@@ -1,8 +1,8 @@
 ---
 title: Akeyless Injector Vs External Secrets Operator
 excerpt: ''
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
