@@ -498,7 +498,7 @@ Below is a truncated example of an Azure AD Auth Method with **role associations
       "role_name": "devops/devops-api-role",
       "auth_method_sub_claims": {
         "xms_mirid": [
-          "/subscriptions/.../resourcegroups/.../providers/Microsoft.ManagedIdentity/userAssignedIdentities/cg-lab-aks-agentpool"
+          "/subscriptions/.../resourcegroups/.../providers/Microsoft.ManagedIdentity/userAssignedIdentities/identities"
         ]
       }
     },
@@ -515,7 +515,7 @@ Below is a truncated example of an Azure AD Auth Method with **role associations
       "auth_method_sub_claims": {
         "xms_mirid": [
           "/subscriptions/.../userAssignedIdentities/UserAkeylessGWManagedID",
-          "/subscriptions/.../userAssignedIdentities/cg-lab-aks-agentpool"
+          "/subscriptions/.../userAssignedIdentities/identities"
         ]
       }
     }
