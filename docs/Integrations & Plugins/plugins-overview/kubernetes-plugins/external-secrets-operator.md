@@ -610,12 +610,8 @@ This pattern ties together:
 
 ***
 
-## Tutorial and Further Reading
+## Tutorial
 
-For a hands-on walkthrough, see:
+For a hands-on walkthrough, check out our tutorial video on [Sync Secrets to Kubernetes with External Secrets Operator (ESO)](https://tutorials.akeyless.io/docs/sync-secrets-to-k8s-with-external-secrets-operator).
 
-* **Video tutorial:** _Sync Secrets to Kubernetes with External Secrets Operator (ESO)_
-* **Official Akeyless docs:** Akeyless + ESO provider guide, Kubernetes plugins overview, Kubernetes Auth and other authentication methods.
-* **External Secrets Operator docs:** Akeyless provider documentation and API specification.
-
-These resources provide additional examples, best practices, and troubleshooting tips for running ESO with Akeyless in production environments.
+*
