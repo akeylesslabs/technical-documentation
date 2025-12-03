@@ -47,9 +47,9 @@ This enables very fine-grained identity binding between AKS workloads and Akeyle
 
 ## Required Components
 
-### 1. Kubernetes ServiceAccount with Workload Identity Annotation
+### 1. Kubernetes `ServiceAccount` with Workload Identity Annotation
 
-This ServiceAccount determines _which_ Managed Identity ESO will use.
+This `ServiceAccount` determines _which_ Managed Identity ESO will use.
 
 ```yaml
 apiVersion: v1
