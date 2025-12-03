@@ -21,8 +21,8 @@ Azure’s Workload Identity system automatically mounts a projected OIDC token i
 
 ESO:
 
-1. Runs under a Kubernetes ServiceAccount
-2. Receives the projected OIDC token for that ServiceAccount
+1. Runs under a Kubernetes `ServiceAccount`
+2. Receives the projected OIDC token for that `ServiceAccount`
 3. Has Azure’s Workload Identity webhook exchange that token for an Azure AD access token
 4. Sends that Azure token to Akeyless to authenticate to an Azure AD Auth Method
 
