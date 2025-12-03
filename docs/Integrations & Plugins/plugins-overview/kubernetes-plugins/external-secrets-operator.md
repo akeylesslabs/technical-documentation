@@ -287,11 +287,9 @@ spec:
 * `data[*].secretKey`: Key name inside the Kubernetes Secret.
 * `data[*].remoteRef.key`: Full path of the item in Akeyless.
 
-Apply and retrieve values:
+Retrieve values:
 
 ```bash
-kubectl apply -f externalsecret.yaml
-
 kubectl get secret app-config-secret   -o jsonpath='{.data.api-key}' | base64 -d
 ```
 
