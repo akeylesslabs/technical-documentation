@@ -1,7 +1,7 @@
 ---
 title: 'Legacy: External Secrets Operator'
-deprecated: false
-hidden: false
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
