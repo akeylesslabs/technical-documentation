@@ -23,10 +23,10 @@ The following plugins are available for Kubernetes:
 * [Kubernetes Secrets Store Container Storage Interface (CSI)](https://docs.akeyless.io/docs/kubernetes-secrets-store-csi-provider)
 * [Kubernetes Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager)
 
-> 👍 Note
->
-> The documentation, configuration and examples for Akeyless Kubernetes plugins are also applicable to Red Hat OpenShift environment.
+<Callout icon="📘">
+  _Note:_ The documentation, configuration and examples for Akeyless Kubernetes plugins are also applicable to Red Hat OpenShift environment.
+</Callout>
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Injecting Secrets into a Kubernetes Cluster](https://tutorials.akeyless.io/docs/injecting-secrets-into-a-kubernetes-cluster).
