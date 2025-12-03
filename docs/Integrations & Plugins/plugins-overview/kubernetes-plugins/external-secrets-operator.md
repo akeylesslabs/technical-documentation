@@ -303,7 +303,7 @@ kubectl get secret app-config-secret -n akeyless-demo -o jsonpath='{.data.api-ke
 
 ***
 
-### 2. Using `dataFrom` to Extract JSON
+### Using `dataFrom` to Extract JSON
 
 If an Akeyless secret contains JSON, you can use `dataFrom.extract` to split that JSON into multiple keys in the Kubernetes Secret.
 
@@ -348,7 +348,7 @@ kubectl get secret app-config-json -o jsonpath='{.data}'
 
 ***
 
-### 3. Certificates: Splitting Certificate and Private Key
+### Certificates: Splitting Certificate and Private Key
 
 Akeyless certificate items typically contain separate PEM blocks for the certificate and private key. You can map them to `tls.crt` and `tls.key` in a Kubernetes TLS Secret.
 
@@ -434,13 +434,13 @@ Remember that any namespace using this `ClusterSecretStore` must be authorized i
 
 `PushSecret` is used to **push** local Kubernetes Secrets into Akeyless, enabling a GitOps-friendly workflow where Kubernetes becomes the source of truth for some secrets.
 
-### 1. Create a Local Kubernetes Secret
+### Create a Local Kubernetes Secret
 
 ```bash
 kubectl create secret generic   --from-literal=cache-pass=mypassword   k8s-created-secret   -n akeyless-demo
 ```
 
-### 2. Define the `PushSecret` Resource
+### Define the `PushSecret` Resource
 
 ```yaml
 apiVersion: external-secrets.io/v1alpha1
@@ -482,7 +482,7 @@ Applying this manifest will create an Akeyless secret named `eso-created/my-secr
 
 This section illustrates how to use **Azure AD Managed Identity** on AKS in combination with an Akeyless **Azure AD Authentication Method** that enforces **sub-claims**, such as `xms_mirid` (Managed Identity resource ID) and `oid` (user/object ID).
 
-### 1. Example: Akeyless Azure AD Auth Method with Sub-Claims
+### Example: Akeyless Azure AD Auth Method with Sub-Claims
 
 Below is a truncated example of an Azure AD Auth Method with **role associations** and **sub-claims** that bind the role to specific identities:
 
@@ -537,7 +537,7 @@ In this configuration:
 
 The associated role `devops/devops-api-role` typically grants `read`, `list`, `create`, `update`, and `delete` capabilities on paths such as `/devops/` and `/SPIRE/`.
 
-### 2. Kubernetes Manifests for ESO Using Azure AD Auth
+### Kubernetes Manifests for ESO Using Azure AD Auth
 
 The following manifests show how to use the above Auth Method from an AKS cluster with ESO.
 
