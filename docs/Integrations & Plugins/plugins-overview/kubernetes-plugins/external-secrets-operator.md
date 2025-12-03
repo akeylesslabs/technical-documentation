@@ -538,7 +538,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: akeyless-azure-creds
-  namespace: kroger-test
+  namespace: app-test
 type: Opaque
 stringData:
   accessId: "p-uybgf7wgbi5dzm"
@@ -553,14 +553,14 @@ apiVersion: external-secrets.io/v1
 kind: SecretStore
 metadata:
   name: akeyless-store
-  namespace: kroger-test
+  namespace: app-test
 spec:
   provider:
     akeyless:
       akeylessGWApiURL: "https://api.akeyless.io"
       # Optional: use a specific ServiceAccount for ESO controller in this namespace
       serviceAccountRef:
-        name: kroger-testsa
+        name: app-test
       authSecretRef:
         secretRef:
           accessID:
@@ -580,15 +580,15 @@ spec:
 apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
-  name: kroger-api-secret
-  namespace: kroger-test
+  name: app-api-secret
+  namespace: app-test
 spec:
   refreshInterval: 1h
   secretStoreRef:
     name: akeyless-store
     kind: SecretStore
   target:
-    name: kroger-api-secret
+    name: app-api-secret
     creationPolicy: Owner
   data:
     - secretKey: api-key
@@ -599,7 +599,7 @@ spec:
 **Retrieving the synced secret:**
 
 ```bash
-kubectl -n kroger-test get secret kroger-api-secret   -o jsonpath="{.data.api-key}" | base64 -d
+kubectl -n app-test get secret app-api-secret   -o jsonpath="{.data.api-key}" | base64 -d
 ```
 
 This pattern ties together:
