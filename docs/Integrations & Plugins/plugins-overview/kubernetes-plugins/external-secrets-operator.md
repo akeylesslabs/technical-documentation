@@ -176,8 +176,6 @@ stringData:
 
 This Secret is suitable when using Azure AD / Managed Identity with sub-claim enforcement, described later in the **Azure AD + Managed Identity** section.
 
-***
-
 ### `SecretStore`
 
 #### `SecretStore` (Using a Credentials Secret)
