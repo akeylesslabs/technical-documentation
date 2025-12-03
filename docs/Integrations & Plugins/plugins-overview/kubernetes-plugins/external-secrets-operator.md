@@ -281,11 +281,11 @@ spec:
         key: /path/to/your/secret/db-password
 ```
 
-* `refreshInterval` – How often ESO refreshes values from Akeyless.
-* `secretStoreRef` – Which `SecretStore` / `ClusterSecretStore` to use.
-* `target.name` – Name of the Kubernetes Secret created.
-* `data[*].secretKey` – Key name inside the Kubernetes Secret.
-* `data[*].remoteRef.key` – Full path of the item in Akeyless.
+* `refreshInterval`: How often ESO refreshes values from Akeyless.
+* `secretStoreRef`: Which `SecretStore` or `ClusterSecretStore` to use.
+* `target.name`: Name of the Kubernetes Secret created.
+* `data[*].secretKey`: Key name inside the Kubernetes Secret.
+* `data[*].remoteRef.key`: Full path of the item in Akeyless.
 
 Apply and retrieve values:
 
