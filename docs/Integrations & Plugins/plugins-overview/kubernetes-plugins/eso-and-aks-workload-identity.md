@@ -14,14 +14,12 @@ Unlike the Azure Key Vault ESO provider, the Akeyless provider does not require 
 
 Instead, it relies entirely on the **native Azure Workload Identity token exchange flow** handled by AKS and Microsoft Entra ID.
 
-***
-
 ## How the Akeyless ESO Provider Uses Workload Identity
 
 When `accessType: azure_ad` is used, ESO does **not** fetch or exchange Azure tokens itself.  
-Azure’s Workload Identity system automatically mounts a projected OIDC token into any pod running under a ServiceAccount that is federated with an Azure Managed Identity or Service Principal.
+Azure’s Workload Identity system automatically mounts a projected OIDC token into any pod running under a `ServiceAccount` that is federated with an Azure Managed Identity or Service Principal.
 
-ESO simply:
+ESO:
 
 1. Runs under a Kubernetes ServiceAccount
 2. Receives the projected OIDC token for that ServiceAccount
@@ -61,7 +59,7 @@ metadata:
   namespace: akeyless-demo
   annotations:
     azure.workload.identity/client-id: "<UAMI-client-id>"
-````
+```
 
 ### 2. Azure Federated Identity Credential
 
