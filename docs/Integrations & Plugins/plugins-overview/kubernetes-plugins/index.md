@@ -27,6 +27,10 @@ The following plugins are available for Kubernetes:
   _Note:_ The documentation, configuration and examples for Akeyless Kubernetes plugins are also applicable to Red Hat OpenShift environment.
 </Callout>
 
+## Feature Compatibility Matrix
+
+<br />
+
 ## Tutorial
 
 Check out our tutorial video on [Injecting Secrets into a Kubernetes Cluster](https://tutorials.akeyless.io/docs/injecting-secrets-into-a-kubernetes-cluster).
