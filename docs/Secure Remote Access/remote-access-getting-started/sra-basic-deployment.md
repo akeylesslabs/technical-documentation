@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the SRA using the most basic configuration. SRA can be deployed either using [K8s Cluster](https://docs.akeyless.io/docs/remote-access-setup-k8s#/) or [Docker Compose](https://docs.akeyless.io/docs/remote-access-docker#/).
+This guide explains how to deploy the SRA using the most basic configuration. 
 
 In this guide, we will use an existing Gateway deployed on a K8s cluster. If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
 
