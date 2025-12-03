@@ -16241,6 +16241,9 @@
         "ai_insights": {
           "$ref": "#/definitions/AiInsightsSetting"
         },
+        "allowed_client_types": {
+          "$ref": "#/definitions/AllowedClientType"
+        },
         "allowed_clients_ips": {
           "$ref": "#/definitions/AllowedIpSettings"
         },
@@ -16387,6 +16390,10 @@
         "computer_base_dn": {
           "type": "string",
           "x-go-name": "ComputerBaseDN"
+        },
+        "discover_iis_apps": {
+          "type": "boolean",
+          "x-go-name": "DiscoverIISApps"
         },
         "discover_local_users": {
           "description": "Deprecated",
@@ -16765,6 +16772,23 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
     },
+    "AllowedClientType": {
+      "type": "object",
+      "properties": {
+        "client_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ClientTypes"
+        },
+        "lock": {
+          "type": "boolean",
+          "x-go-name": "Lock"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "AllowedExtraExtensions": {
       "type": "object",
       "additionalProperties": {
@@ -17107,6 +17131,13 @@
           "description": "for accounts where AccessId holds encrypted email this field will hold generated AccessId,\nfor accounts based on regular AccessId it will be equal to accessId itself",
           "type": "string",
           "x-go-name": "AccessIdAlias"
+        },
+        "allowed_client_type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "api_key_access_rules": {
           "$ref": "#/definitions/APIKeyAccessRules"
@@ -17619,6 +17650,15 @@
           },
           "x-go-name": "AllowedBastionUrls"
         },
+        "allowed_ssh_url": {
+          "type": "string",
+          "x-go-name": "AllowedSSHURL"
+        },
+        "default_session_ttl_minutes": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "DefaultSessionTTLMinutes"
+        },
         "legacy_signing_alg": {
           "type": "boolean",
           "x-go-name": "LegacySigningAlg"
@@ -17629,7 +17669,7 @@
         },
         "ssh_username_sub_claim": {
           "type": "string",
-          "x-go-name": "SshUsernameSubClaim"
+          "x-go-name": "SSHUsernameSubClaim"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
@@ -19252,10 +19292,18 @@
           "type": "boolean",
           "x-go-name": "CreatePrivateCrl"
         },
+        "create-private-ocsp": {
+          "type": "boolean",
+          "x-go-name": "CreatePrivateOcsp"
+        },
         "create-public-crl": {
           "description": "Set this to allow the cert issuer will expose a public CRL endpoint",
           "type": "boolean",
           "x-go-name": "CreatePublicCrl"
+        },
+        "create-public-ocsp": {
+          "type": "boolean",
+          "x-go-name": "CreatePublicOcsp"
         },
         "critical-key-usage": {
           "description": "Mark key usage as critical [true/false]",
@@ -19357,6 +19405,10 @@
           "description": "If set, clients can request certificates without a CN",
           "type": "boolean",
           "x-go-name": "NotRequireCN"
+        },
+        "ocsp-ttl": {
+          "type": "string",
+          "x-go-name": "OcspNextUpdate"
         },
         "organizational-units": {
           "description": "A comma-separated list of organizational units (OU) that will be set in\nthe issued certificate",
@@ -20120,6 +20172,13 @@
           "type": "string",
           "x-go-name": "FixedUserOnly"
         },
+        "gcp_access_type": {
+          "$ref": "#/definitions/GCPAccessType"
+        },
+        "gcp_fixed_user_claim_keyname": {
+          "type": "string",
+          "x-go-name": "GCPFixedUserClaimKeyName"
+        },
         "gcp_key_algo": {
           "type": "string",
           "x-go-name": "GCPKeyAlgorithm"
@@ -20137,6 +20196,10 @@
             }
           },
           "x-go-name": "GCPRoleBindings"
+        },
+        "gcp_role_names": {
+          "type": "string",
+          "x-go-name": "GCPRoleNames"
         },
         "gcp_service_account_email": {
           "description": "GCPServiceAccountEmail overrides the deprecated field from the target",
@@ -20527,6 +20590,10 @@
           "type": "string",
           "x-go-name": "MongoDBRoles"
         },
+        "mongodb_scopes": {
+          "type": "string",
+          "x-go-name": "MongoDBScopes"
+        },
         "mongodb_uri_connection": {
           "description": "mongodb fields",
           "type": "string",
@@ -20539,6 +20606,11 @@
         "mongodb_username": {
           "type": "string",
           "x-go-name": "MongoDBUsername"
+        },
+        "mssql_allowed_db_names": {
+          "description": "Comma-separated list of allowed DB names for runtime selection when fetching the secret value.\nEmpty string => use target DB name only (no override allowed)\n\"*\" => any DB name is allowed\nOne or more names => user must select one of the provided names",
+          "type": "string",
+          "x-go-name": "MSSQLAllowedDbNames"
         },
         "mssql_creation_statements": {
           "type": "string",
@@ -21735,6 +21807,10 @@
     "GCPAccessRulesType": {
       "type": "string",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "GCPAccessType": {
+      "type": "string",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/producer/config"
     },
     "GCPCredentialsType": {
       "type": "string",
@@ -25527,6 +25603,35 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "NotiForwarderDetailsInput": {
+      "type": "object",
+      "properties": {
+        "app_private_key_pem_base64": {
+          "type": "string",
+          "x-go-name": "AppPrivateKeyPEMBase64"
+        },
+        "client_secret": {
+          "description": "Auth - JWT",
+          "type": "string",
+          "x-go-name": "ClientSecret"
+        },
+        "password": {
+          "description": "Auth - User Password",
+          "type": "string",
+          "x-go-name": "AdminPwd"
+        },
+        "slack_noti_forwarder_details": {
+          "$ref": "#/definitions/SlackNotiForwarderDetails"
+        },
+        "teams_noti_forwarder_details": {
+          "$ref": "#/definitions/TeamsNotiForwarderDetails"
+        },
+        "webhook_noti_forwarder_details": {
+          "$ref": "#/definitions/WebhookNotiForwarderDetails"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "NotiForwarderRunnerType": {
       "type": "string",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -25973,9 +26078,19 @@
           "type": "boolean",
           "x-go-name": "CreatePrivateCrl"
         },
+        "create_private_ocsp": {
+          "description": "CreatePrivateOcsp enables exposing an OCSP endpoint on the Gateway and\nembedding its URL in the AIA extension of issued certificates.",
+          "type": "boolean",
+          "x-go-name": "CreatePrivateOcsp"
+        },
         "create_public_crl": {
           "type": "boolean",
           "x-go-name": "CreatePublicCrl"
+        },
+        "create_public_ocsp": {
+          "description": "CreatePublicOcsp enables exposing a public OCSP endpoint on the Gateway and\nembedding its URL in the AIA extension of issued certificates.",
+          "type": "boolean",
+          "x-go-name": "CreatePublicOcsp"
         },
         "destination_path": {
           "description": "DestinationPath is the destination to save generated certificates",
@@ -26046,6 +26161,12 @@
         },
         "not_before_duration": {
           "$ref": "#/definitions/Duration"
+        },
+        "ocsp_next_update": {
+          "description": "OcspNextUpdate defines the desired NextUpdate window for OCSP responses.\nValue is in seconds; 0 means not set. Minimum enforced is 10 minutes.",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "OcspNextUpdate"
         },
         "organization_list": {
           "type": "array",
@@ -26898,6 +27019,13 @@
           "format": "int64",
           "x-go-name": "GWClusterID"
         },
+        "iis_apps_details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WindowsService"
+          },
+          "x-go-name": "IisAppsDetails"
+        },
         "last_rotation_error": {
           "type": "string",
           "x-go-name": "LastRotatorError"
@@ -26918,6 +27046,10 @@
           "type": "integer",
           "format": "int32",
           "x-go-name": "NumberOfVersionsToSave"
+        },
+        "public_key_remote_path": {
+          "type": "string",
+          "x-go-name": "PublicKeyRemotePath"
         },
         "rotation_hour": {
           "type": "integer",
@@ -27782,6 +27914,16 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "SlackNotiForwarderDetails": {
+      "type": "object",
+      "properties": {
+        "endpoint_url": {
+          "type": "string",
+          "x-go-name": "EndpointURL"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "SlackNotiForwarderPublicDetails": {
       "type": "object",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -28517,6 +28659,16 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "TeamsNotiForwarderDetails": {
+      "type": "object",
+      "properties": {
+        "webhook_url": {
+          "type": "string",
+          "x-go-name": "WebhookURL"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "TeamsNotiForwarderPublicDetails": {
       "type": "object",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -28840,10 +28992,18 @@
           "type": "boolean",
           "x-go-name": "CreatePrivateCrl"
         },
+        "create-private-ocsp": {
+          "type": "boolean",
+          "x-go-name": "CreatePrivateOcsp"
+        },
         "create-public-crl": {
           "description": "Set this to allow the cert issuer will expose a public CRL endpoint",
           "type": "boolean",
           "x-go-name": "CreatePublicCrl"
+        },
+        "create-public-ocsp": {
+          "type": "boolean",
+          "x-go-name": "CreatePublicOcsp"
         },
         "critical-key-usage": {
           "description": "Mark key usage as critical [true/false]",
@@ -28950,6 +29110,10 @@
           "description": "If set, clients can request certificates without a CN",
           "type": "boolean",
           "x-go-name": "NotRequireCN"
+        },
+        "ocsp-ttl": {
+          "type": "string",
+          "x-go-name": "OcspNextUpdate"
         },
         "organizational-units": {
           "description": "A comma-separated list of organizational units (OU) that will be set in\nthe issued certificate",
@@ -29405,6 +29569,35 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "WebhookNotiForwarderDetails": {
+      "type": "object",
+      "properties": {
+        "certificate": {
+          "description": "Auth type - Certificate",
+          "type": "string",
+          "x-go-name": "Certificate"
+        },
+        "password": {
+          "description": "Auth type - User Password",
+          "type": "string",
+          "x-go-name": "Password"
+        },
+        "private_key": {
+          "type": "string",
+          "x-go-name": "PrivateKey"
+        },
+        "server_certificate": {
+          "type": "string",
+          "x-go-name": "ServerCertificate"
+        },
+        "token": {
+          "description": "Auth type - Token",
+          "type": "string",
+          "x-go-name": "Token"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "WindowsService": {
       "type": "object",
       "title": "WindowsService defines types supported by AKEYLESS.",
@@ -29430,9 +29623,19 @@
           "type": "string",
           "x-go-name": "ConnectionType"
         },
+        "iis_app_pool": {
+          "description": "IISAppPool marks this entry as an IIS Application Pool rather than a Windows Service",
+          "type": "boolean",
+          "x-go-name": "IISAppPool"
+        },
         "port": {
           "type": "string",
           "x-go-name": "Port"
+        },
+        "skip_restart": {
+          "description": "SkipRestart allows skipping recycle/start of the IIS App Pool after credential update",
+          "type": "boolean",
+          "x-go-name": "SkipRestart"
         },
         "use_tls": {
           "type": "boolean",
@@ -29995,6 +30198,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -30095,6 +30305,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -30263,6 +30480,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "Deprecated\n(Deprecated) The audience in the JWT",
@@ -30457,6 +30681,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-cors": {
           "description": "Comma separated list of allowed CORS domains to be validated as part of the authentication flow.",
           "type": "string",
@@ -30629,6 +30860,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -30746,6 +30984,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "The audience to verify in the JWT received by the client",
@@ -30908,6 +31153,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audience": {
           "description": "The audience in the Kubernetes JWT that the access is restricted to",
           "type": "string",
@@ -31047,6 +31299,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -31217,6 +31476,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -31336,6 +31602,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -31449,6 +31722,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "allowed-redirect-uri": {
           "description": "Allowed redirect URIs after the authentication",
@@ -31604,6 +31884,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "The audience in the JWT",
@@ -31784,6 +32071,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-redirect-uri": {
           "description": "Allowed redirect URIs after the authentication",
           "type": "array",
@@ -31914,6 +32208,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -32145,6 +32446,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -32250,6 +32558,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -32423,6 +32738,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "Deprecated\n(Deprecated) The audience in the JWT",
@@ -32622,6 +32944,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-cors": {
           "description": "Comma separated list of allowed CORS domains to be validated as part of the authentication flow.",
           "type": "string",
@@ -32798,6 +33127,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -32915,6 +33251,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "The audience to verify in the JWT received by the client",
@@ -33082,6 +33425,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audience": {
           "description": "The audience in the Kubernetes JWT that the access is restricted to",
           "type": "string",
@@ -33225,6 +33575,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -33399,6 +33756,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -33522,6 +33886,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -33640,6 +34011,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "allowed-redirect-uri": {
           "description": "Allowed redirect URIs after the authentication",
@@ -33800,6 +34178,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "The audience in the JWT",
@@ -33977,6 +34362,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-redirect-uri": {
           "description": "Allowed redirect URIs after the authentication",
           "type": "array",
@@ -34112,6 +34504,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -34654,6 +35053,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -34754,6 +35160,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -34932,6 +35345,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "Deprecated\n(Deprecated) The audience in the JWT",
@@ -35136,6 +35556,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-cors": {
           "description": "Comma separated list of allowed CORS domains to be validated as part of the authentication flow.",
           "type": "string",
@@ -35318,6 +35745,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -35445,6 +35879,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "The audience to verify in the JWT received by the client",
@@ -35617,6 +36058,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -35781,6 +36229,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audience": {
           "description": "The audience in the Kubernetes JWT that the access is restricted to",
           "type": "string",
@@ -35935,6 +36390,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -36066,6 +36528,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "The audience in the JWT",
@@ -36235,6 +36704,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -36358,6 +36834,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "allowed-redirect-uri": {
           "description": "Allowed redirect URIs after the authentication",
@@ -36542,6 +37025,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-redirect-uri": {
           "description": "Allowed redirect URIs after the authentication",
           "type": "array",
@@ -36682,6 +37172,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -42990,10 +43487,12 @@
       "description": "dynamicSecretCreateGcp is a command that creates a GCP dynamic secret",
       "type": "object",
       "required": [
-        "name",
-        "service-account-type"
+        "name"
       ],
       "properties": {
+        "access-type": {
+          "$ref": "#/definitions/GCPAccessType"
+        },
         "custom-username-template": {
           "description": "Customize how temporary usernames are generated using go template",
           "type": "string",
@@ -43009,6 +43508,12 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "fixed-user-claim-keyname": {
+          "description": "For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type=external)",
+          "type": "string",
+          "default": "ext_email",
+          "x-go-name": "FixedUserClaimKeyName"
+        },
         "gcp-cred-type": {
           "$ref": "#/definitions/GCPCredentialsType"
         },
@@ -43018,22 +43523,22 @@
           "x-go-name": "ServiceAccountKey"
         },
         "gcp-key-algo": {
-          "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024",
+          "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024 (Relevant only when --access-type=sa and --gcp-cred-type=key)",
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
         "gcp-project-id": {
-          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
+          "description": "GCP Project ID override for dynamic secret operations",
           "type": "string",
           "x-go-name": "GcpProjectId"
         },
         "gcp-sa-email": {
-          "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
+          "description": "The email of the fixed service account to generate keys or tokens for (Relevant only when --access-type=sa and --service-account-type=fixed)",
           "type": "string",
           "x-go-name": "ServiceAccountEmail"
         },
         "gcp-token-scopes": {
-          "description": "Access token scopes list, e.g. scope1,scope2",
+          "description": "Access token scopes list, e.g. scope1,scope2 (Relevant only when --access-type=sa; required when --gcp-cred-type=token)",
           "type": "string",
           "x-go-name": "TokenScopes"
         },
@@ -43062,12 +43567,45 @@
           "x-go-name": "ProducerEncryptionKey"
         },
         "role-binding": {
-          "description": "Role binding definitions in json format",
+          "description": "Role binding definitions in JSON format (Relevant only when --access-type=sa and --service-account-type=dynamic)",
           "type": "string",
           "x-go-name": "RoleBindingJson"
         },
+        "role-names": {
+          "description": "Comma-separated list of GCP roles to assign to the user (Relevant only when --access-type=external)",
+          "type": "string",
+          "x-go-name": "RoleNames"
+        },
+        "secure-access-delay": {
+          "description": "The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ConnectionDelaySeconds"
+        },
+        "secure-access-enable": {
+          "description": "Enable/Disable secure remote access [true/false]",
+          "type": "string",
+          "x-go-name": "SecureAccessEnabled"
+        },
+        "secure-access-url": {
+          "description": "Destination URL to inject secrets",
+          "type": "string",
+          "x-go-name": "SecureAccessURL"
+        },
+        "secure-access-web-browsing": {
+          "description": "Secure browser via Akeyless's Secure Remote Access (SRA)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "SecureAccessIsolated"
+        },
+        "secure-access-web-proxy": {
+          "description": "Web-Proxy via Akeyless's Secure Remote Access (SRA)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "SecureAccessWebProxy"
+        },
         "service-account-type": {
-          "description": "The type of the gcp dynamic secret. Options[fixed, dynamic]",
+          "description": "The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type=sa)",
           "type": "string",
           "default": "fixed",
           "x-go-name": "ServiceAccountType"
@@ -43543,6 +44081,12 @@
         },
         "role-scope": {
           "$ref": "#/definitions/GWSRoleScope"
+        },
+        "secure-access-delay": {
+          "description": "The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ConnectionDelaySeconds"
         },
         "secure-access-enable": {
           "description": "Enable/Disable secure remote access [true/false]",
@@ -44232,6 +44776,11 @@
           "default": "[]",
           "x-go-name": "Roles"
         },
+        "mongodb-scopes": {
+          "description": "MongoDB Scopes (Atlas only)",
+          "type": "string",
+          "x-go-name": "MongoScopes"
+        },
         "mongodb-server-uri": {
           "description": "MongoDB server URI",
           "type": "string",
@@ -44369,6 +44918,11 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "Json"
+        },
+        "mssql-allowed-db-names": {
+          "description": "CSV of allowed DB names for runtime selection when getting the secret value.\nEmpty => use target DB only; \"*\" => any DB allowed; One or more names => user must choose from this list",
+          "type": "string",
+          "x-go-name": "MssqlAllowedDbNames"
         },
         "mssql-create-statements": {
           "description": "MSSQL Creation statements",
@@ -46227,6 +46781,11 @@
           },
           "x-go-name": "Arguments"
         },
+        "dbname": {
+          "description": "DBName: Optional override DB name (works only if DS allows it. only relevant for MSSQL)",
+          "type": "string",
+          "x-go-name": "DBName"
+        },
         "host": {
           "description": "Host",
           "type": "string",
@@ -47525,10 +48084,12 @@
       "description": "dynamicSecretUpdateGcp is a command that updates a GCP dynamic secret",
       "type": "object",
       "required": [
-        "name",
-        "service-account-type"
+        "name"
       ],
       "properties": {
+        "access-type": {
+          "$ref": "#/definitions/GCPAccessType"
+        },
         "custom-username-template": {
           "description": "Customize how temporary usernames are generated using go template",
           "type": "string",
@@ -47544,6 +48105,12 @@
           "type": "string",
           "x-go-name": "Description"
         },
+        "fixed-user-claim-keyname": {
+          "description": "For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type=external)",
+          "type": "string",
+          "default": "ext_email",
+          "x-go-name": "FixedUserClaimKeyName"
+        },
         "gcp-cred-type": {
           "$ref": "#/definitions/GCPCredentialsType"
         },
@@ -47553,22 +48120,22 @@
           "x-go-name": "ServiceAccountKey"
         },
         "gcp-key-algo": {
-          "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024",
+          "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024 (Relevant only when --access-type=sa and --gcp-cred-type=key)",
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
         "gcp-project-id": {
-          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
+          "description": "GCP Project ID override for dynamic secret operations",
           "type": "string",
           "x-go-name": "GcpProjectId"
         },
         "gcp-sa-email": {
-          "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
+          "description": "The email of the fixed service account to generate keys or tokens for (Relevant only when --access-type=sa and --service-account-type=fixed)",
           "type": "string",
           "x-go-name": "ServiceAccountEmail"
         },
         "gcp-token-scopes": {
-          "description": "Access token scopes list, e.g. scope1,scope2",
+          "description": "Access token scopes list, e.g. scope1,scope2 (Relevant only when --access-type=sa; required when --gcp-cred-type=token)",
           "type": "string",
           "x-go-name": "TokenScopes"
         },
@@ -47602,12 +48169,45 @@
           "x-go-name": "ProducerEncryptionKey"
         },
         "role-binding": {
-          "description": "Role binding definitions in json format",
+          "description": "Role binding definitions in JSON format (Relevant only when --access-type=sa and --service-account-type=dynamic)",
           "type": "string",
           "x-go-name": "RoleBindingJson"
         },
+        "role-names": {
+          "description": "Comma-separated list of GCP roles to assign to the user (Relevant only when --access-type=external)",
+          "type": "string",
+          "x-go-name": "RoleNames"
+        },
+        "secure-access-delay": {
+          "description": "The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ConnectionDelaySeconds"
+        },
+        "secure-access-enable": {
+          "description": "Enable/Disable secure remote access [true/false]",
+          "type": "string",
+          "x-go-name": "SecureAccessEnabled"
+        },
+        "secure-access-url": {
+          "description": "Destination URL to inject secrets",
+          "type": "string",
+          "x-go-name": "SecureAccessURL"
+        },
+        "secure-access-web-browsing": {
+          "description": "Secure browser via Akeyless's Secure Remote Access (SRA)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "SecureAccessIsolated"
+        },
+        "secure-access-web-proxy": {
+          "description": "Web-Proxy via Akeyless's Secure Remote Access (SRA)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "SecureAccessWebProxy"
+        },
         "service-account-type": {
-          "description": "The type of the gcp dynamic secret. Options[fixed, dynamic]",
+          "description": "The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type=sa)",
           "type": "string",
           "default": "fixed",
           "x-go-name": "ServiceAccountType"
@@ -48103,6 +48703,12 @@
         },
         "role-scope": {
           "$ref": "#/definitions/GWSRoleScope"
+        },
+        "secure-access-delay": {
+          "description": "The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ConnectionDelaySeconds"
         },
         "secure-access-enable": {
           "description": "Enable/Disable secure remote access [true/false]",
@@ -48807,6 +49413,11 @@
           "default": "[]",
           "x-go-name": "Roles"
         },
+        "mongodb-scopes": {
+          "description": "MongoDB Scopes (Atlas only)",
+          "type": "string",
+          "x-go-name": "MongoScopes"
+        },
         "mongodb-server-uri": {
           "description": "MongoDB server URI",
           "type": "string",
@@ -48949,6 +49560,11 @@
           "type": "boolean",
           "default": false,
           "x-go-name": "Json"
+        },
+        "mssql-allowed-db-names": {
+          "description": "CSV of allowed DB names for runtime selection when getting the secret value.\nEmpty => use target DB only; \"*\" => any DB allowed; One or more names => user must choose from this list",
+          "type": "string",
+          "x-go-name": "MssqlAllowedDbNames"
         },
         "mssql-create-statements": {
           "description": "MSSQL Creation statements",
@@ -51970,6 +52586,9 @@
       "properties": {
         "event_forwarder": {
           "$ref": "#/definitions/NotiForwarder"
+        },
+        "event_forwarder_details": {
+          "$ref": "#/definitions/NotiForwarderDetailsInput"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -53022,6 +53641,12 @@
           "description": "Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN=Computers,DC=example,DC=com (Relevant only for Active Directory migration)",
           "type": "string",
           "x-go-name": "AdComputerBaseDNV2"
+        },
+        "ad-discover-iis-app": {
+          "description": "Enable/Disable discovery of IIS application from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)",
+          "type": "string",
+          "default": "false",
+          "x-go-name": "AdDiscoverIISApp"
         },
         "ad-discover-services": {
           "description": "Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)",
@@ -54432,10 +55057,12 @@
       "description": "gatewayCreateProducerGcp is a command that creates a GCP producer [Deprecated: Use dynamic-secret-create-gcp command]",
       "type": "object",
       "required": [
-        "name",
-        "service-account-type"
+        "name"
       ],
       "properties": {
+        "access-type": {
+          "$ref": "#/definitions/GCPAccessType"
+        },
         "custom-username-template": {
           "description": "Customize how temporary usernames are generated using go template",
           "type": "string",
@@ -54446,6 +55073,12 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "fixed-user-claim-keyname": {
+          "description": "For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type=external)",
+          "type": "string",
+          "default": "ext_email",
+          "x-go-name": "FixedUserClaimKeyName"
+        },
         "gcp-cred-type": {
           "$ref": "#/definitions/GCPCredentialsType"
         },
@@ -54455,22 +55088,22 @@
           "x-go-name": "ServiceAccountKey"
         },
         "gcp-key-algo": {
-          "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024",
+          "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024 (Relevant only when --access-type=sa and --gcp-cred-type=key)",
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
         "gcp-project-id": {
-          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
+          "description": "GCP Project ID override for dynamic secret operations",
           "type": "string",
           "x-go-name": "GcpProjectId"
         },
         "gcp-sa-email": {
-          "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
+          "description": "The email of the fixed service account to generate keys or tokens for (Relevant only when --access-type=sa and --service-account-type=fixed)",
           "type": "string",
           "x-go-name": "ServiceAccountEmail"
         },
         "gcp-token-scopes": {
-          "description": "Access token scopes list, e.g. scope1,scope2",
+          "description": "Access token scopes list, e.g. scope1,scope2 (Relevant only when --access-type=sa; required when --gcp-cred-type=token)",
           "type": "string",
           "x-go-name": "TokenScopes"
         },
@@ -54499,12 +55132,45 @@
           "x-go-name": "ProducerEncryptionKey"
         },
         "role-binding": {
-          "description": "Role binding definitions in json format",
+          "description": "Role binding definitions in JSON format (Relevant only when --access-type=sa and --service-account-type=dynamic)",
           "type": "string",
           "x-go-name": "RoleBindingJson"
         },
+        "role-names": {
+          "description": "Comma-separated list of GCP roles to assign to the user (Relevant only when --access-type=external)",
+          "type": "string",
+          "x-go-name": "RoleNames"
+        },
+        "secure-access-delay": {
+          "description": "The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ConnectionDelaySeconds"
+        },
+        "secure-access-enable": {
+          "description": "Enable/Disable secure remote access [true/false]",
+          "type": "string",
+          "x-go-name": "SecureAccessEnabled"
+        },
+        "secure-access-url": {
+          "description": "Destination URL to inject secrets",
+          "type": "string",
+          "x-go-name": "SecureAccessURL"
+        },
+        "secure-access-web-browsing": {
+          "description": "Secure browser via Akeyless's Secure Remote Access (SRA)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "SecureAccessIsolated"
+        },
+        "secure-access-web-proxy": {
+          "description": "Web-Proxy via Akeyless's Secure Remote Access (SRA)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "SecureAccessWebProxy"
+        },
         "service-account-type": {
-          "description": "The type of the gcp dynamic secret. Options[fixed, dynamic]",
+          "description": "The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type=sa)",
           "type": "string",
           "default": "fixed",
           "x-go-name": "ServiceAccountType"
@@ -55207,6 +55873,11 @@
           "default": false,
           "x-go-name": "Json"
         },
+        "mssql-allowed-db-names": {
+          "description": "CSV of allowed DB names for runtime selection when getting the secret value.\nEmpty => use target DB only; \"*\" => any DB allowed; One or more names => user must choose from this list",
+          "type": "string",
+          "x-go-name": "MssqlAllowedDbNames"
+        },
         "mssql-create-statements": {
           "description": "MSSQL Creation statements",
           "type": "string",
@@ -55421,6 +56092,11 @@
           "type": "string",
           "default": "[]",
           "x-go-name": "Roles"
+        },
+        "mongodb-scopes": {
+          "description": "MongoDB Scopes (Atlas only)",
+          "type": "string",
+          "x-go-name": "MongoScopes"
         },
         "mongodb-server-uri": {
           "description": "MongoDB server URI",
@@ -59643,6 +60319,12 @@
           "type": "string",
           "x-go-name": "AdComputerBaseDNV2"
         },
+        "ad-discover-iis-app": {
+          "description": "Enable/Disable discovery of IIS application from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)",
+          "type": "string",
+          "default": "false",
+          "x-go-name": "AdDiscoverIISApp"
+        },
         "ad-discover-services": {
           "description": "Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)",
           "type": "string",
@@ -61107,10 +61789,12 @@
       "description": "gatewayUpdateProducerGcp is a command that updates a GCP producer [Deprecated: Use dynamic-secret-update-gcp command]",
       "type": "object",
       "required": [
-        "name",
-        "service-account-type"
+        "name"
       ],
       "properties": {
+        "access-type": {
+          "$ref": "#/definitions/GCPAccessType"
+        },
         "custom-username-template": {
           "description": "Customize how temporary usernames are generated using go template",
           "type": "string",
@@ -61121,6 +61805,12 @@
           "type": "string",
           "x-go-name": "ObjectProtected"
         },
+        "fixed-user-claim-keyname": {
+          "description": "For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type=external)",
+          "type": "string",
+          "default": "ext_email",
+          "x-go-name": "FixedUserClaimKeyName"
+        },
         "gcp-cred-type": {
           "$ref": "#/definitions/GCPCredentialsType"
         },
@@ -61130,22 +61820,22 @@
           "x-go-name": "ServiceAccountKey"
         },
         "gcp-key-algo": {
-          "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024",
+          "description": "Service account key algorithm, e.g. KEY_ALG_RSA_1024 (Relevant only when --access-type=sa and --gcp-cred-type=key)",
           "type": "string",
           "x-go-name": "KeyAlgorithm"
         },
         "gcp-project-id": {
-          "description": "GCP Project ID override for dynamic secret operations (tmp service accounts)",
+          "description": "GCP Project ID override for dynamic secret operations",
           "type": "string",
           "x-go-name": "GcpProjectId"
         },
         "gcp-sa-email": {
-          "description": "The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)",
+          "description": "The email of the fixed service account to generate keys or tokens for (Relevant only when --access-type=sa and --service-account-type=fixed)",
           "type": "string",
           "x-go-name": "ServiceAccountEmail"
         },
         "gcp-token-scopes": {
-          "description": "Access token scopes list, e.g. scope1,scope2",
+          "description": "Access token scopes list, e.g. scope1,scope2 (Relevant only when --access-type=sa; required when --gcp-cred-type=token)",
           "type": "string",
           "x-go-name": "TokenScopes"
         },
@@ -61179,12 +61869,45 @@
           "x-go-name": "ProducerEncryptionKey"
         },
         "role-binding": {
-          "description": "Role binding definitions in json format",
+          "description": "Role binding definitions in JSON format (Relevant only when --access-type=sa and --service-account-type=dynamic)",
           "type": "string",
           "x-go-name": "RoleBindingJson"
         },
+        "role-names": {
+          "description": "Comma-separated list of GCP roles to assign to the user (Relevant only when --access-type=external)",
+          "type": "string",
+          "x-go-name": "RoleNames"
+        },
+        "secure-access-delay": {
+          "description": "The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ConnectionDelaySeconds"
+        },
+        "secure-access-enable": {
+          "description": "Enable/Disable secure remote access [true/false]",
+          "type": "string",
+          "x-go-name": "SecureAccessEnabled"
+        },
+        "secure-access-url": {
+          "description": "Destination URL to inject secrets",
+          "type": "string",
+          "x-go-name": "SecureAccessURL"
+        },
+        "secure-access-web-browsing": {
+          "description": "Secure browser via Akeyless's Secure Remote Access (SRA)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "SecureAccessIsolated"
+        },
+        "secure-access-web-proxy": {
+          "description": "Web-Proxy via Akeyless's Secure Remote Access (SRA)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "SecureAccessWebProxy"
+        },
         "service-account-type": {
-          "description": "The type of the gcp dynamic secret. Options[fixed, dynamic]",
+          "description": "The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type=sa)",
           "type": "string",
           "default": "fixed",
           "x-go-name": "ServiceAccountType"
@@ -61898,6 +62621,11 @@
           "default": false,
           "x-go-name": "Json"
         },
+        "mssql-allowed-db-names": {
+          "description": "CSV of allowed DB names for runtime selection when getting the secret value.\nEmpty => use target DB only; \"*\" => any DB allowed; One or more names => user must choose from this list",
+          "type": "string",
+          "x-go-name": "MssqlAllowedDbNames"
+        },
         "mssql-create-statements": {
           "description": "MSSQL Creation statements",
           "type": "string",
@@ -62117,6 +62845,11 @@
           "type": "string",
           "default": "[]",
           "x-go-name": "Roles"
+        },
+        "mongodb-scopes": {
+          "description": "MongoDB Scopes (Atlas only)",
+          "type": "string",
+          "x-go-name": "MongoScopes"
         },
         "mongodb-server-uri": {
           "description": "MongoDB server URI",
@@ -64083,11 +64816,23 @@
       "description": "gatewayUpdateRemoteAccess is a command that update remote access config",
       "type": "object",
       "properties": {
+        "allowed-ssh-url": {
+          "description": "Specify a valid SSH-URL to tunnel to SSH session",
+          "type": "string",
+          "default": "use-existing",
+          "x-go-name": "AllowedSSHURL"
+        },
         "allowed-urls": {
           "description": "List of valid URLs to redirect from the Portal back to the remote access server (in a comma-delimited list)",
           "type": "string",
           "default": "use-existing",
           "x-go-name": "AllowedBastionUrls"
+        },
+        "default-session-ttl-minutes": {
+          "description": "Default session TTL in minutes",
+          "type": "string",
+          "default": "use-existing",
+          "x-go-name": "DefaultSessionTTLMinutes"
         },
         "hide-session-recording": {
           "description": "Specifies whether to show/hide if the session is currently recorded [true/false]",
@@ -64689,6 +65434,11 @@
             "type": "string"
           },
           "x-go-name": "Arguments"
+        },
+        "dbname": {
+          "description": "DBName: Optional override DB name (works only if DS allows it. only relevant for MSSQL)",
+          "type": "string",
+          "x-go-name": "DBName"
         },
         "host": {
           "description": "Host",
@@ -70145,6 +70895,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "key-data-base64": {
+          "description": "Private key file contents encoded using base64",
+          "type": "string",
+          "x-go-name": "KeyDataBase64"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -70159,6 +70914,11 @@
           "description": "The length of the password to be generated",
           "type": "string",
           "x-go-name": "PasswordLengthInput"
+        },
+        "public-key-remote-path": {
+          "description": "The path to the public key that will be rotated on the server",
+          "type": "string",
+          "x-go-name": "PublicKeyRemotePath"
         },
         "rotate-after-disconnect": {
           "description": "Rotate the value of the secret after SRA session ends [true/false]",
@@ -70516,6 +71276,11 @@
           "description": "Rotated secret name",
           "type": "string",
           "x-go-name": "RsName"
+        },
+        "remote-secret-name": {
+          "description": "Remote Secret Name to disambiguate when multiple syncs exist under the same USC",
+          "type": "string",
+          "x-go-name": "RemoteSecretName"
         },
         "token": {
           "description": "Authentication token (see `/auth` and `/configure`)",
@@ -73402,6 +74167,11 @@
           "type": "string",
           "x-go-name": "ProtectionKey"
         },
+        "key-data-base64": {
+          "description": "Private key file contents encoded using base64",
+          "type": "string",
+          "x-go-name": "KeyDataBase64"
+        },
         "max-versions": {
           "description": "Set the maximum number of versions, limited by the account settings defaults.",
           "type": "string",
@@ -73421,6 +74191,11 @@
           "description": "The length of the password to be generated",
           "type": "string",
           "x-go-name": "PasswordLengthInput"
+        },
+        "public-key-remote-path": {
+          "description": "The path to the public key that will be rotated on the server",
+          "type": "string",
+          "x-go-name": "PublicKeyRemotePath"
         },
         "rm-tag": {
           "description": "List of the existent tags that will be removed from this item",
@@ -74529,6 +75304,11 @@
           "description": "Static secret name",
           "type": "string",
           "x-go-name": "StaticSecretName"
+        },
+        "remote-secret-name": {
+          "description": "Remote Secret Name to disambiguate when multiple syncs exist under the same USC",
+          "type": "string",
+          "x-go-name": "RemoteSecretName"
         },
         "token": {
           "description": "Authentication token (see `/auth` and `/configure`)",
@@ -79895,6 +80675,13 @@
           "type": "string",
           "x-go-name": "Address"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-email-domains": {
           "description": "Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed.",
           "type": "array",
@@ -80045,6 +80832,10 @@
           "type": "integer",
           "format": "int64",
           "x-go-name": "JwtTtlMin"
+        },
+        "lock-allowed-client-type": {
+          "type": "string",
+          "x-go-name": "AllowedClientTypeLock"
         },
         "lock-bound-ips": {
           "description": "Lock bound-ips setting globally in the account.",
@@ -80320,6 +81111,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -80425,6 +81223,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
@@ -80602,6 +81407,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "Deprecated\n(Deprecated) The audience in the JWT",
@@ -80805,6 +81617,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-cors": {
           "description": "Comma separated list of allowed CORS domains to be validated as part of the authentication flow.",
           "type": "string",
@@ -80993,6 +81812,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audience": {
           "description": "The audience to verify in the JWT received by the client",
           "type": "string",
@@ -81163,6 +81989,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audience": {
           "description": "The audience in the Kubernetes JWT that the access is restricted to",
           "type": "string",
@@ -81317,6 +82150,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -81448,6 +82288,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audience": {
           "description": "The audience in the JWT",
@@ -81616,6 +82463,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
           "type": "array",
@@ -81744,6 +82598,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "allowed-redirect-uri": {
           "description": "Allowed redirect URIs after the authentication",
@@ -81919,6 +82780,13 @@
           "default": 0,
           "x-go-name": "AccessExpires"
         },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
+        },
         "allowed-redirect-uri": {
           "description": "Allowed redirect URIs after the authentication",
           "type": "array",
@@ -82058,6 +82926,13 @@
           "format": "int64",
           "default": 0,
           "x-go-name": "AccessExpires"
+        },
+        "allowed-client-type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedClientTypes"
         },
         "audit-logs-claims": {
           "description": "Subclaims to include in audit logs, e.g \"--audit-logs-claims email --audit-logs-claims username\"",
