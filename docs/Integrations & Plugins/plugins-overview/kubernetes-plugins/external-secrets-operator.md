@@ -253,7 +253,7 @@ spec:
 
 To fetch an Akeyless secret and store it as a Kubernetes Secret, define an `ExternalSecret` resource.
 
-### 1. Basic `ExternalSecret` (Single Values)
+### Basic `ExternalSecret` (Single Values)
 
 ```yaml
 apiVersion: external-secrets.io/v1
