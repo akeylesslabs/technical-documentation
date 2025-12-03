@@ -5,21 +5,38 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the SRA using the most basic configuration on a K8s cluster.
+This guide explains how to deploy the SRA using the most basic configuration on a K8s cluster. In this guide, we will use an existing Gateway. If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
 
-In this guide, we will use an existing Gateway, If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
+You can get the `values.yaml` file that will be used on this guide by running the following commands:
 
-# Prerequisites
+* Add the following repository to the Helm repository list:
+
+```shell
+helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+helm repo update
+```
+
+* Fetch the `values.yaml` file from the Akeyless repository:
+
+```shell
+helm show values akeyless/akeyless-gateway > values.yaml
+```
 
 * Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
+
+> 📘 Allowed Username
+>
+> The `session_`  username need to be allowed on the SSH Issuer to grant CLI access.
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your cluster.
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
+
+# Prerequisites
 
 | Service                                                                        | Endpoint   |
 | :----------------------------------------------------------------------------- | :--------- |
@@ -73,7 +90,7 @@ For it to work correctly, the K8s [metrics server](https://github.com/kubernetes
 
 # Basic Configuration
 
-In order to set your gateway with **Remote Access**, add the following to your deployment by editing the `values.yaml` file:
+In order to set your gateway with **Remote Access**, set the `sra` section to `true` and add the public key which is set on the SSH certificate Issuer as follows: 
 
 ```shell
 sra:
@@ -82,16 +99,6 @@ sra:
 sshConfig:
   CAPublicKey: <"ssh-rsa AAAAB...">
 ```
-
-Where:
-
-* `sra`: set to `enable` in order to deploy the remote access functionality.
-
-* `CAPublicKey`: The public key set on the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates#/configuration)
-
-> 📘 Allowed Username
->
-> The `session_`  username need to be allowed on the SSH Issuer to grant CLI access.
 
 # Deployment Update
 
