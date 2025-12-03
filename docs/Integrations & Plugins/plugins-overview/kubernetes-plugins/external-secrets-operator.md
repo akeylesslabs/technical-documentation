@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide shows how to integrate the **Akeyless Platform** with the **External Secrets Operator (ESO)** to synchronize secrets between Akeyless and Kubernetes.
+This guide shows how to integrate the **Akeyless Platform** with the **<Anchor label="External Secrets Operator (ESO)" target="_blank" href="https://external-secrets.io/latest/provider/akeyless/">External Secrets Operator (ESO)</Anchor>** to synchronize secrets between Akeyless and Kubernetes.
 
 It covers:
 
