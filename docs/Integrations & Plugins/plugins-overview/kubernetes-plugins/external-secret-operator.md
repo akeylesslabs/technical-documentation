@@ -1,8 +1,7 @@
 ---
-title: External Secret Operator
-excerpt: External Secrets Operator (ESO)
-deprecated: false
-hidden: false
+title: 'Legacy: External Secrets Operator'
+deprecated: true
+hidden: true
 metadata:
   title: ''
   description: ''
@@ -10,6 +9,10 @@ metadata:
 next:
   description: ''
 ---
+<Callout icon="🚧" theme="warn">
+  This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator/)
+</Callout>
+
 [External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/) is a Kubernetes (K8s) operator that integrates with external secret management systems like Akeyless. The operator reads information from Akeyless APIs and automatically injects the values into a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 The goal of the ESO is to synchronize secrets from Akeyless into Kubernetes. ESO is a collection of custom API resources - `ExternalSecret`, `SecretStore`, and `ClusterSecretStore` that provides a user-friendly abstraction for the external API that stores and manages the lifecycle of the secrets for you.

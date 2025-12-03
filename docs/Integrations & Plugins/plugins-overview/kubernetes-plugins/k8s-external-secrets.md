@@ -1,7 +1,7 @@
 ---
 title: K8s External Secrets
 excerpt: Kubernetes (K8s) External Secrets
-deprecated: false
+deprecated: true
 hidden: true
 metadata:
   title: ''
