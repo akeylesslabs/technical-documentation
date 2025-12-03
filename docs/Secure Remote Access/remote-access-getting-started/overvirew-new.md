@@ -33,7 +33,7 @@ Akeyless Secure Remote Access provides a robust set of features designed to supp
 
 * **Granular RBAC**: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need. Users only need SRA permissions to initiate connections, without requiring any  `read` access to the underlying secrets.
 
-* **Native SSO integrations**: SRA supports authentication via SSO protocols such as **OIDC**, **SAML**, and **LDAP**.
+* **Native SSO integrations**: SRA supports authentication via SSO protocols such as [OIDC](https://docs.akeyless.io/docs/openid#/), [SAML](https://docs.akeyless.io/docs/saml#/), and [LDAP](https://docs.akeyless.io/docs/ldap#/).
 
 ## Supported Resource Types
 
