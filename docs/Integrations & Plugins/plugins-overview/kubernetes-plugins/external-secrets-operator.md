@@ -97,6 +97,7 @@ ESO’s Akeyless provider supports the following **access types**:
 * `api_key`
 * `k8s`
 * `azure_ad`
+  * For AKS Workload Identity, use the Azure AD Authentication Method (accessType: azure_ad).
 * `aws_iam`
 * `gcp`
 
