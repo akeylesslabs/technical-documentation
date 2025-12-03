@@ -15,11 +15,9 @@ It covers:
 * Using `PushSecret` to push Kubernetes secrets back to Akeyless
 * An example of Azure AD and Managed Identity with sub-claims
 
-***
-
 ## How ESO Works with Akeyless
 
-**External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates native **Kubernetes Secrets** in your cluster.
+The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates native **Kubernetes Secrets** in your cluster.
 
 For Akeyless, ESO uses the following custom resources:
 
