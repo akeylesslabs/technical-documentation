@@ -5,3 +5,635 @@ hidden: false
 metadata:
   robots: index
 ---
+This guide shows how to integrate the **Akeyless Platform** with the **External Secrets Operator (ESO)** to synchronize secrets between Akeyless and Kubernetes.
+
+It covers:
+
+- Installing ESO with Helm  
+- Configuring authentication from Kubernetes to Akeyless (API Key, Kubernetes Auth, Azure AD, and other cloud identities)  
+- Using `SecretStore` / `ClusterSecretStore` and `ExternalSecret` to fetch secrets  
+- Using `PushSecret` to push Kubernetes secrets back to Akeyless  
+- An example of Azure AD + Managed Identity with sub-claims  
+- A feature compatibility matrix comparing Akeyless Kubernetes plugins
+
+---
+
+## How ESO Works with Akeyless
+
+**External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates native **Kubernetes Secrets** in your cluster.
+
+For Akeyless, ESO uses the following custom resources:
+
+- **`SecretStore`** – namespaced definition of how to connect and authenticate to Akeyless.
+- **`ClusterSecretStore`** – cluster-wide variant of `SecretStore`.
+- **`ExternalSecret`** – defines which Akeyless items to sync into which Kubernetes Secret.
+- **`PushSecret`** – pushes a Kubernetes Secret from the cluster into Akeyless.
+
+At a high level:
+
+1. ESO authenticates to Akeyless using the method specified in `SecretStore` / `ClusterSecretStore`.  
+2. ESO fetches secrets from Akeyless.  
+3. ESO writes those values into Kubernetes Secrets (or pushes them back to Akeyless in the case of `PushSecret`).  
+4. ESO periodically refreshes secrets according to the `refreshInterval` on each `ExternalSecret` or `PushSecret`.
+
+---
+
+## Architecture & Resources
+
+**In-cluster components:**
+
+- The ESO controller runs as a Kubernetes **Deployment**.  
+- It watches custom resources: `ExternalSecret`, `SecretStore`, `ClusterSecretStore`, and `PushSecret`.  
+- It reconciles the desired state by calling Akeyless APIs and creating/updating Kubernetes Secrets.
+
+**Akeyless side:**
+
+- Akeyless **Authentication Methods** define how Kubernetes workloads authenticate (e.g., API Key, Kubernetes Auth, Azure AD, AWS IAM, GCP).  
+- **Access Roles** control which Akeyless items (paths) a given authentication identity may access.  
+- ESO uses an **Access ID** (and additional auth parameters) to obtain a token and read/write secrets.
+
+---
+
+## Prerequisites
+
+Before you start, you will need:
+
+- A running Kubernetes cluster, **v1.16+** (ESO requirement).  
+- **Helm** installed locally.  
+- An Akeyless tenant with:  
+  - At least one **Authentication Method** (API Key, Kubernetes Auth, Azure AD, AWS IAM, or GCP).  
+  - An **Access Role** that grants read/write permissions to the relevant secrets.  
+- For Kubernetes Auth or private/hybrid deployments:  
+  - An **Akeyless Gateway** with network access to your Kubernetes API server.
+
+Optional but recommended:
+
+- A dedicated Kubernetes namespace for ESO (for example `external-secrets`).  
+- Role-based separation of Akeyless roles per team or application.
+
+---
+
+## Installing External Secrets Operator with Helm
+
+1. Add the official ESO Helm repository:
+
+```bash
+helm repo add external-secrets https://charts.external-secrets.io
+helm repo update
+```
+
+2. Install ESO (default configuration):
+
+```bash
+helm install external-secrets external-secrets/external-secrets   --namespace external-secrets --create-namespace
+```
+
+You should now see the ESO controller pods running in the `external-secrets` namespace.
+
+---
+
+## Authentication with Akeyless
+
+ESO’s Akeyless provider supports the following **access types**:
+
+- `api_key`
+- `k8s`
+- `azure_ad`
+- `aws_iam`
+- `gcp`
+
+Each Authentication Method in Akeyless exposes an **Access ID**, and for some methods an additional parameter (`accessTypeParam`) such as:
+
+- **API Key** → `accessTypeParam`: Akeyless Access Key  
+- **Kubernetes Auth** → `accessTypeParam`: Kubernetes Auth config name  
+- **Azure AD** → `accessTypeParam`: Azure Object ID (optional)  
+- **GCP** → `accessTypeParam`: GCP audience  
+- **AWS IAM** → `accessTypeParam`: not required
+
+You can configure ESO to authenticate in two main ways:
+
+1. Using a **credentials Secret** (generic pattern, works for all supported access types).  
+2. Using **Kubernetes Auth-specific fields** (directly referencing a Kubernetes ServiceAccount and/or JWT).
+
+### 1. Creating the Credentials Secret
+
+Create a Kubernetes Secret with the Akeyless credentials ESO should use:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: akeyless-secret-creds
+  namespace: akeyless-demo
+type: Opaque
+stringData:
+  accessId: "p-XXXX"                 # Access ID of the Akeyless Auth Method
+  accessType: "api_key"              # api_key / k8s / azure_ad / aws_iam / gcp
+  accessTypeParam: "<access-key>"    # See examples below
+```
+
+#### 1.1 API Key Example (NOT Recommended for Production)
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: akeyless-api-creds
+  namespace: akeyless-demo
+type: Opaque
+stringData:
+  accessId: "p-xxxxxxxxxxxxxxxx"
+  accessType: "api_key"
+  accessTypeParam: "YOUR-ACCESS-KEY-HERE"
+```
+
+Use this for quick demos or POCs. For production, prefer **workload identities** (Kubernetes Auth, Azure AD, AWS IAM, GCP).
+
+#### 1.2 Kubernetes Auth Example
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: akeyless-k8s-creds
+  namespace: akeyless-demo
+type: Opaque
+stringData:
+  accessId: "p-k8saccessid"
+  accessType: "k8s"
+  accessTypeParam: "my-k8s-auth-config-name"
+```
+
+- `accessId` – Access ID for the **Kubernetes Auth** method.  
+- `accessTypeParam` – Name of the Kubernetes Auth config for your cluster.
+
+#### 1.3 Azure AD Example (Managed Identity or Service Principal)
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: akeyless-azure-creds
+  namespace: akeyless-demo
+type: Opaque
+stringData:
+  accessId: "p-uybgf7wgbi5dzm"
+  accessType: "azure_ad"
+  accessTypeParam: ""              # Optional: Azure Object ID; can be left empty if using sub-claims such as xms_mirid
+```
+
+This Secret is suitable when using Azure AD / Managed Identity with sub-claim enforcement, described later in the **Azure AD + Managed Identity** section.
+
+---
+
+### 2. SecretStore (Using a Credentials Secret)
+
+A `SecretStore` resource defines how ESO connects to Akeyless within a single namespace.
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: SecretStore
+metadata:
+  name: akeyless-secret-store
+  namespace: akeyless-demo
+spec:
+  provider:
+    akeyless:
+      # Public SaaS API
+      akeylessGWApiURL: "https://api.akeyless.io"
+      authSecretRef:
+        secretRef:
+          accessID:
+            name: akeyless-secret-creds
+            key: accessId
+          accessType:
+            name: akeyless-secret-creds
+            key: accessType
+          accessTypeParam:
+            name: akeyless-secret-creds
+            key: accessTypeParam
+```
+
+If you are using a **private Akeyless Gateway** (for example in a zero-knowledge or hybrid deployment), set:
+
+```yaml
+      akeylessGWApiURL: "https://your.akeyless.gw:8080/v2"
+```
+
+You may also configure custom CAs via `caBundle` or `caProvider` if your gateway uses a private CA.
+
+Apply the configuration:
+
+```bash
+kubectl apply -f secretstore.yaml
+```
+
+---
+
+### 3. SecretStore (Direct Kubernetes Auth)
+
+Alternatively, you can configure Kubernetes Auth directly in the `SecretStore` without a generic credentials Secret.
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: SecretStore
+metadata:
+  name: akeyless-k8s-secret-store
+  namespace: akeyless-demo
+spec:
+  provider:
+    akeyless:
+      akeylessGWApiURL: "https://api.akeyless.io"
+      authSecretRef:
+        kubernetesAuth:
+          accessID: "p-k8saccessid"
+          k8sConfName: "my-k8s-auth-config-name"
+          serviceAccountRef:
+            name: "akeyless-demo-sa"
+          # Optional: Use a specific Secret containing a ServiceAccount JWT
+          secretRef:
+            name: "akeyless-demo-sa-token"
+            key: "token"
+```
+
+**Key fields:**
+
+- `accessID` – Access ID of the Kubernetes Auth method.  
+- `k8sConfName` – Kubernetes Auth config name attached to your cluster.  
+- `serviceAccountRef` – ServiceAccount that ESO uses to request and project tokens.  
+- `secretRef` – Optional; explicit Secret containing a SA token ESO should use.
+
+---
+
+## ExternalSecret: Syncing Akeyless Secrets into Kubernetes
+
+To fetch an Akeyless secret and store it as a Kubernetes Secret, define an `ExternalSecret` resource.
+
+### 1. Basic ExternalSecret (Single Values)
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: akeyless-external-secret
+  namespace: akeyless-demo
+spec:
+  refreshInterval: 1h
+
+  secretStoreRef:
+    kind: SecretStore
+    name: akeyless-secret-store
+
+  target:
+    name: app-config-secret
+    creationPolicy: Owner
+
+  data:
+    - secretKey: api-key
+      remoteRef:
+        key: /path/to/your/secret/api-key
+    - secretKey: db-password
+      remoteRef:
+        key: /path/to/your/secret/db-password
+```
+
+- `refreshInterval` – How often ESO refreshes values from Akeyless.  
+- `secretStoreRef` – Which `SecretStore` / `ClusterSecretStore` to use.  
+- `target.name` – Name of the Kubernetes Secret created.  
+- `data[*].secretKey` – Key name inside the Kubernetes Secret.  
+- `data[*].remoteRef.key` – Full path of the item in Akeyless.
+
+Apply and retrieve values:
+
+```bash
+kubectl apply -f externalsecret.yaml
+
+kubectl get secret app-config-secret   -o jsonpath='{.data.api-key}' | base64 -d
+```
+
+---
+
+### 2. Using `dataFrom` to Extract JSON
+
+If an Akeyless secret contains JSON, you can use `dataFrom.extract` to split that JSON into multiple keys in the Kubernetes Secret.
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: akeyless-external-secret-json
+  namespace: akeyless-demo
+spec:
+  refreshInterval: 1h
+
+  secretStoreRef:
+    kind: SecretStore
+    name: akeyless-secret-store
+
+  target:
+    name: app-config-json
+    creationPolicy: Owner
+
+  dataFrom:
+    - extract:
+        key: /path/to/your/json-secret
+```
+
+If the JSON value in Akeyless is:
+
+```json
+{
+  "username": "demo",
+  "password": "s3cr3t"
+}
+```
+
+Then the resulting Kubernetes Secret `app-config-json` will contain two keys: `username` and `password`.
+
+To inspect all keys:
+
+```bash
+kubectl get secret app-config-json -o jsonpath='{.data}'
+```
+
+---
+
+### 3. Certificates: Splitting Certificate and Private Key
+
+Akeyless certificate items typically contain separate PEM blocks for the certificate and private key. You can map them to `tls.crt` and `tls.key` in a Kubernetes TLS Secret.
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: akeyless-tls-secret
+  namespace: akeyless-demo
+spec:
+  refreshInterval: 1h
+
+  secretStoreRef:
+    kind: SecretStore
+    name: akeyless-secret-store
+
+  target:
+    name: my-tls-secret
+    creationPolicy: Owner
+    template:
+      type: kubernetes.io/tls
+
+  data:
+    - secretKey: tls.crt
+      remoteRef:
+        key: /path/to/your/certificate-item
+        property: certificate_pem
+
+    - secretKey: tls.key
+      remoteRef:
+        key: /path/to/your/certificate-item
+        property: private_key_pem
+```
+
+You can then use `my-tls-secret` with Kubernetes `Ingress` or other resources expecting a TLS Secret.
+
+---
+
+## ClusterSecretStore: Cluster-Wide Secret Provider
+
+A `ClusterSecretStore` is a cluster-scoped provider configuration that can be used by `ExternalSecret` resources in any namespace.
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: ClusterSecretStore
+metadata:
+  name: akeyless-cluster-secret-store
+spec:
+  provider:
+    akeyless:
+      akeylessGWApiURL: "https://api.akeyless.io"
+      authSecretRef:
+        secretRef:
+          accessID:
+            name: akeyless-secret-creds
+            key: accessId
+            namespace: akeyless-demo
+          accessType:
+            name: akeyless-secret-creds
+            key: accessType
+            namespace: akeyless-demo
+          accessTypeParam:
+            name: akeyless-secret-creds
+            key: accessTypeParam
+            namespace: akeyless-demo
+```
+
+When using `ClusterSecretStore`, the referencing `ExternalSecret` must set:
+
+```yaml
+secretStoreRef:
+  kind: ClusterSecretStore
+  name: akeyless-cluster-secret-store
+```
+
+Remember that any namespace using this `ClusterSecretStore` must be authorized at the Akeyless side via appropriate roles and claims.
+
+---
+
+## PushSecret: Push Kubernetes Secrets into Akeyless
+
+`PushSecret` is used to **push** local Kubernetes Secrets into Akeyless, enabling a GitOps-friendly workflow where Kubernetes becomes the source of truth for some secrets.
+
+### 1. Create a Local Kubernetes Secret
+
+```bash
+kubectl create secret generic   --from-literal=cache-pass=mypassword   k8s-created-secret   -n akeyless-demo
+```
+
+### 2. Define the PushSecret Resource
+
+```yaml
+apiVersion: external-secrets.io/v1alpha1
+kind: PushSecret
+metadata:
+  name: push-secret
+  namespace: akeyless-demo
+spec:
+  refreshInterval: 5s
+  updatePolicy: Replace
+  deletionPolicy: Delete
+
+  secretStoreRefs:
+    - name: akeyless-secret-store
+      kind: SecretStore
+
+  selector:
+    secret:
+      name: k8s-created-secret
+
+  data:
+    - match:
+        remoteRef:
+          remoteKey: eso-created/my-secret
+```
+
+**Key fields:**
+
+- `refreshInterval` – How often ESO checks for changes in the Kubernetes Secret.  
+- `updatePolicy` – Whether to replace or merge when updating the provider secret.  
+- `deletionPolicy` – Whether to delete the provider secret when the `PushSecret` resource is deleted.  
+- `remoteKey` – Path where the secret will be stored in Akeyless.
+
+Applying this manifest will create an Akeyless secret named `eso-created/my-secret` whose value is derived from `k8s-created-secret` (for example `{"cache-pass":"mypassword"}`).
+
+---
+
+## Azure AD + Managed Identity: Sub-Claim Example
+
+This section illustrates how to use **Azure AD Managed Identity** on AKS in combination with an Akeyless **Azure AD Authentication Method** that enforces **sub-claims**, such as `xms_mirid` (Managed Identity resource ID) and `oid` (user/object ID).
+
+### 1. Example: Akeyless Azure AD Auth Method with Sub-Claims
+
+Below is a truncated example of an Azure AD Auth Method with **role associations** and **sub-claims** that bind the role to specific identities:
+
+```json
+{
+  "name": "devops/azure/akeyless-azure-ad-auth",
+  "auth_method_access_id": "p-uybgf7wgbi5dzm",
+  "access_info": {
+    "rules_type": "azure_ad",
+    "force_sub_claims": true,
+    "azure_ad_access_rules": {
+      "issuer": "https://sts.windows.net/<tenant-id>/",
+      "jwks_uri": "https://login.microsoftonline.com/common/discovery/keys",
+      "bound_tenant_id": "<tenant-id>"
+    }
+  },
+  "auth_method_roles_assoc": [
+    {
+      "role_name": "devops/devops-api-role",
+      "auth_method_sub_claims": {
+        "xms_mirid": [
+          "/subscriptions/.../resourcegroups/.../providers/Microsoft.ManagedIdentity/userAssignedIdentities/cg-lab-aks-agentpool"
+        ]
+      }
+    },
+    {
+      "role_name": "devops/devops-api-role",
+      "auth_method_sub_claims": {
+        "oid": [
+          "34808008-6501-4dae-84e1-fe137212ccc6"
+        ]
+      }
+    },
+    {
+      "role_name": "devops/devops-api-role",
+      "auth_method_sub_claims": {
+        "xms_mirid": [
+          "/subscriptions/.../userAssignedIdentities/WayneZAkeylessGWManagedID",
+          "/subscriptions/.../userAssignedIdentities/cg-lab-aks-agentpool"
+        ]
+      }
+    }
+  ]
+}
+```
+
+In this configuration:
+
+- `force_sub_claims: true` requires that **at least one sub-claim match** for access to be granted.  
+- `auth_method_sub_claims.xms_mirid` binds access to specific **user-assigned Managed Identities**.  
+- `auth_method_sub_claims.oid` can bind access to specific Azure AD identities (for example, human users or service principals).
+
+The associated role `devops/devops-api-role` typically grants `read`, `list`, `create`, `update`, and `delete` capabilities on paths such as `/devops/` and `/SPIRE/`.
+
+### 2. Kubernetes Manifests for ESO Using Azure AD Auth
+
+The following manifests show how to use the above Auth Method from an AKS cluster with ESO.
+
+**Credentials Secret (Azure AD):**
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: akeyless-azure-creds
+  namespace: kroger-test
+type: Opaque
+stringData:
+  accessId: "p-uybgf7wgbi5dzm"
+  accessType: "azure_ad"   # Use Azure AD Auth Method
+  accessTypeParam: ""      # Required field; can be empty when binding via sub-claims
+```
+
+**SecretStore referencing the Azure AD credentials:**
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: SecretStore
+metadata:
+  name: akeyless-store
+  namespace: kroger-test
+spec:
+  provider:
+    akeyless:
+      akeylessGWApiURL: "https://api.akeyless.io"
+      # Optional: use a specific ServiceAccount for ESO controller in this namespace
+      serviceAccountRef:
+        name: kroger-testsa
+      authSecretRef:
+        secretRef:
+          accessID:
+            name: akeyless-azure-creds
+            key: accessId
+          accessType:
+            name: akeyless-azure-creds
+            key: accessType
+          accessTypeParam:
+            name: akeyless-azure-creds
+            key: accessTypeParam
+```
+
+**ExternalSecret consuming a secret via this SecretStore:**
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: kroger-api-secret
+  namespace: kroger-test
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: akeyless-store
+    kind: SecretStore
+  target:
+    name: kroger-api-secret
+    creationPolicy: Owner
+  data:
+    - secretKey: api-key
+      remoteRef:
+        key: /devops/static_secret_1
+```
+
+**Retrieving the synced secret:**
+
+```bash
+kubectl -n kroger-test get secret kroger-api-secret   -o jsonpath="{.data.api-key}" | base64 -d
+```
+
+This pattern ties together:
+
+- AKS nodes or workloads using **Managed Identity**,  
+- An Akeyless **Azure AD Auth Method** with sub-claim constraints, and  
+- ESO as the consumer that syncs secrets into Kubernetes.
+
+---
+
+## Tutorial and Further Reading
+
+For a hands-on walkthrough, see:
+
+- **Video tutorial:** *Sync Secrets to Kubernetes with External Secrets Operator (ESO)*  
+- **Official Akeyless docs:** Akeyless + ESO provider guide, Kubernetes plugins overview, Kubernetes Auth and other authentication methods.  
+- **External Secrets Operator docs:** Akeyless provider documentation and API specification.
+
+These resources provide additional examples, best practices, and troubleshooting tips for running ESO with Akeyless in production environments.
