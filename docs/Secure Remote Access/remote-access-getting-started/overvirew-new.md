@@ -1,5 +1,5 @@
 ---
-title: About SRA
+title: SRA Overview
 deprecated: false
 hidden: true
 metadata:
