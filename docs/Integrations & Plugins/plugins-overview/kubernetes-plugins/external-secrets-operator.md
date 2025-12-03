@@ -613,5 +613,3 @@ This pattern ties together:
 ## Tutorial
 
 For a hands-on walkthrough, check out our tutorial video on [Sync Secrets to Kubernetes with External Secrets Operator (ESO)](https://tutorials.akeyless.io/docs/sync-secrets-to-k8s-with-external-secrets-operator).
-
-*
