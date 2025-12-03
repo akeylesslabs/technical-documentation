@@ -22,7 +22,7 @@ It can be deployed on Docker Compose or Kubernetes and creates two types of depl
 
 ### Web-SRA
 
-The web-sra component allows access to RDP/SSH/DB target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`.
+The web-sra component allows access to `RDP`/`SSH`/`DB` target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`.
 
 ### SSH-SRA
 
@@ -93,6 +93,7 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 * **High Availability**: For production environments, it is recommended to deploy the Akeyless SRA solution in a high-availability configuration, utilizing multiple nodes and load balancers to distribute the traffic.
 
 * **Scaling**: As the number of users and connections grows, additional resources may be required. The Kubernetes infrastructure should be monitored regularly, and autoscaling policies should be implemented to automatically adjust the number of pods based on demand.
+
 * **Security**: Ensure that the Kubernetes cluster is secured following best practices, including network segmentation, pod security policies, and regular security audits.
 
 * **Network**  
