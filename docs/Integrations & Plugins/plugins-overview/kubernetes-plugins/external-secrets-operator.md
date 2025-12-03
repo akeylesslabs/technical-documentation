@@ -28,7 +28,7 @@ For Akeyless, ESO uses the following custom resources:
 
 At a high level:
 
-1. ESO authenticates to Akeyless using the method specified in `SecretStore` / `ClusterSecretStore`.
+1. ESO authenticates to Akeyless using the method specified in `SecretStore` or `ClusterSecretStore`.
 2. ESO fetches secrets from Akeyless.
 3. ESO writes those values into Kubernetes Secrets (or pushes them back to Akeyless in the case of `PushSecret`).
 4. ESO periodically refreshes secrets according to the `refreshInterval` on each `ExternalSecret` or `PushSecret`.
@@ -47,7 +47,7 @@ At a high level:
 
 * Akeyless **Authentication Methods** define how Kubernetes workloads authenticate (e.g., API Key, Kubernetes Auth, Azure AD, AWS IAM, GCP).
 * **Access Roles** control which Akeyless items (paths) a given authentication identity may access.
-* ESO uses an **Access ID** (and additional auth parameters) to obtain a token and read/write secrets.
+* ESO uses an **Access ID** (and additional auth parameters) to obtain a token and read or write secrets.
 
 ***
 
@@ -59,7 +59,7 @@ Before you start, you will need:
 * **Helm** installed locally.
 * An Akeyless tenant with:
   * At least one **Authentication Method** (API Key, Kubernetes Auth, Azure AD, AWS IAM, or GCP).
-  * An **Access Role** that grants read/write permissions to the relevant secrets.
+  * An **Access Role** that grants read or write permissions to the relevant secrets.
 * For Kubernetes Auth, private deployments, or hybrid deployments:
   * An **Akeyless Gateway** with network access to your Kubernetes API server.
 
@@ -169,12 +169,12 @@ metadata:
   namespace: akeyless-demo
 type: Opaque
 stringData:
-  accessId: "<p-uybgf7wgbi5dzm>"
+  accessId: "<p-xxxxx>"
   accessType: "azure_ad"
   accessTypeParam: ""              # Optional: Azure Object ID; can be left empty if using sub-claims such as xms_mirid
 ```
 
-This Secret is suitable when using Azure AD / Managed Identity with sub-claim enforcement, described later in the **Azure AD + Managed Identity** section.
+This Secret is suitable when using Azure AD Managed Identity with sub-claim enforcement.
 
 ### `SecretStore`
 
@@ -379,7 +379,7 @@ You can then use `my-tls-secret` with Kubernetes `Ingress` or other resources ex
 
 ***
 
-## ClusterSecretStore: Cluster-Wide Secret Provider
+## `ClusterSecretStore`: Cluster-Wide Secret Provider
 
 A `ClusterSecretStore` is a cluster-scoped provider configuration that can be used by `ExternalSecret` resources in any namespace.
 
@@ -420,7 +420,7 @@ Remember that any namespace using this `ClusterSecretStore` must be authorized a
 
 ***
 
-## PushSecret: Push Kubernetes Secrets into Akeyless
+## `PushSecret`: Push Kubernetes Secrets into Akeyless
 
 `PushSecret` is used to **push** local Kubernetes Secrets into Akeyless, enabling a GitOps-friendly workflow where Kubernetes becomes the source of truth for some secrets.
 
@@ -430,7 +430,7 @@ Remember that any namespace using this `ClusterSecretStore` must be authorized a
 kubectl create secret generic   --from-literal=cache-pass=mypassword   k8s-created-secret   -n akeyless-demo
 ```
 
-### 2. Define the PushSecret Resource
+### 2. Define the `PushSecret` Resource
 
 ```yaml
 apiVersion: external-secrets.io/v1alpha1
@@ -468,7 +468,7 @@ Applying this manifest will create an Akeyless secret named `eso-created/my-secr
 
 ***
 
-## Azure AD + Managed Identity: Sub-Claim Example
+## Azure AD Managed Identity: Sub-Claim Example
 
 This section illustrates how to use **Azure AD Managed Identity** on AKS in combination with an Akeyless **Azure AD Authentication Method** that enforces **sub-claims**, such as `xms_mirid` (Managed Identity resource ID) and `oid` (user/object ID).
 
@@ -479,7 +479,7 @@ Below is a truncated example of an Azure AD Auth Method with **role associations
 ```json
 {
   "name": "devops/azure/akeyless-azure-ad-auth",
-  "auth_method_access_id": "p-uybgf7wgbi5dzm",
+  "auth_method_access_id": "p-xxxxx",
   "access_info": {
     "rules_type": "azure_ad",
     "force_sub_claims": true,
@@ -502,7 +502,7 @@ Below is a truncated example of an Azure AD Auth Method with **role associations
       "role_name": "devops/devops-api-role",
       "auth_method_sub_claims": {
         "oid": [
-          "34808008-6501-4dae-84e1-fe137212ccc6"
+          "11108008-9999-abcd-1234-ab123456abc1"
         ]
       }
     },
@@ -510,7 +510,7 @@ Below is a truncated example of an Azure AD Auth Method with **role associations
       "role_name": "devops/devops-api-role",
       "auth_method_sub_claims": {
         "xms_mirid": [
-          "/subscriptions/.../userAssignedIdentities/WayneZAkeylessGWManagedID",
+          "/subscriptions/.../userAssignedIdentities/UserAkeylessGWManagedID",
           "/subscriptions/.../userAssignedIdentities/cg-lab-aks-agentpool"
         ]
       }
@@ -541,7 +541,7 @@ metadata:
   namespace: app-test
 type: Opaque
 stringData:
-  accessId: "p-uybgf7wgbi5dzm"
+  accessId: "p-xxxxx"
   accessType: "azure_ad"   # Use Azure AD Auth Method
   accessTypeParam: ""      # Required field; can be empty when binding via sub-claims
 ```
