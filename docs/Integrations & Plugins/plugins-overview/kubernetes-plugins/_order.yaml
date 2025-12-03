@@ -1,5 +1,5 @@
-- how-to-provision-secret-to-your-k8s
 - auth-meth-k8s
+- how-to-provision-secret-to-your-k8s
 - policy-segregation-for-kubernetes
 - external-secrets-operator
 - kubernetes-secrets-store-csi-provider
