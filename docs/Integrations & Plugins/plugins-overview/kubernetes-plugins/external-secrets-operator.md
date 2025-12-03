@@ -60,7 +60,7 @@ Before you start, you will need:
 * An Akeyless tenant with:
   * At least one **Authentication Method** (API Key, Kubernetes Auth, Azure AD, AWS IAM, or GCP).
   * An **Access Role** that grants read/write permissions to the relevant secrets.
-* For Kubernetes Auth or private/hybrid deployments:
+* For Kubernetes Auth, private deployments, or hybrid deployments:
   * An **Akeyless Gateway** with network access to your Kubernetes API server.
 
 ***
