@@ -22,6 +22,8 @@ helm repo update
 helm show values akeyless/akeyless-gateway > values.yaml
 ```
 
+# Prerequisites
+
 * Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
@@ -35,8 +37,6 @@ helm show values akeyless/akeyless-gateway > values.yaml
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your cluster.
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
-
-# Prerequisites
 
 | Service                                                                        | Endpoint   |
 | :----------------------------------------------------------------------------- | :--------- |
