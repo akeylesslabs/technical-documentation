@@ -4,6 +4,12 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - title: ESO API Specification
+      type: link
+      url: >-
+        https://external-secrets.io/latest/api/spec/#external-secrets.io/v1.AkeylessAuthSecretRef
 ---
 This guide shows how to integrate the **Akeyless Platform** with the **<Anchor label="External Secrets Operator (ESO)" target="_blank" href="https://external-secrets.io/latest/provider/akeyless/">External Secrets Operator (ESO)</Anchor>** to synchronize secrets between Akeyless and Kubernetes.
 
@@ -211,7 +217,7 @@ spec:
 If you are using a **private Akeyless Gateway** (for example in a zero-knowledge or hybrid deployment), set:
 
 ```yaml
-      akeylessGWApiURL: "https://your.akeyless.gw:8080/v2"
+      akeylessGWApiURL: "https://<your.akeyless.gw:8080>/v2"
 ```
 
 You may also configure custom CAs via `caBundle` or `caProvider` if your gateway uses a private CA.
@@ -410,7 +416,9 @@ spec:
             namespace: akeyless-demo
 ```
 
-When using `ClusterSecretStore`, the referencing `ExternalSecret` must set:
+For a `ClusterSecretStore` object, the namespace fields are required for `secretRef.accessID`, `secretRef.accessType`, and `secretRef.accessTypeParam` (and for any `serviceAccountRef` or `secretRef` when using the Kubernetes authentication method).
+
+When using `ClusterSecretStore`, the referencing `ExternalSecret` must set `secretStoreRef` to use the `ClusterSecretStore` as opposed to a `SecretStore`:
 
 ```yaml
 secretStoreRef:
@@ -418,7 +426,7 @@ secretStoreRef:
   name: akeyless-cluster-secret-store
 ```
 
-Remember that any namespace using this `ClusterSecretStore` must be authorized at the Akeyless side via appropriate roles and claims.
+Remember that any namespace using this `ClusterSecretStore` must be authorized in the Akeyless platform with appropriate roles and claims.
 
 ***
 
