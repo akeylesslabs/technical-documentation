@@ -182,11 +182,7 @@ To verify that the pod is receiving the correct Azure AD identity token:
 
 1. Enter a pod running under the same ServiceAccount as your ExternalSecret:
    * `kubectl exec -it <pod> -- sh`
-2. Run:
-
-```
-akeyless get-cloud-identity
-```
+2. Run: `akeyless get-cloud-identity`
 
 Expected result:
 
