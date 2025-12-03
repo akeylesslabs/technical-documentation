@@ -2,9 +2,9 @@
 - policy-segregation-for-kubernetes
 - how-to-provision-secret-to-your-k8s
 - external-secrets-operator
+- eso-and-aks-workload-identity
 - kubernetes-secrets-store-csi-provider
 - kubernetes-cert-manager
 - kubernetes-external-kms
 - external-secret-operator
 - k8s-external-secrets
-- eso-and-aks-workload-identity
