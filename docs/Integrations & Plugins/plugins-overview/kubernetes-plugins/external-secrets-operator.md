@@ -23,7 +23,7 @@ It covers:
 
 ## How ESO Works with Akeyless
 
-The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates <Anchor label="standard Kubernetes Secret objects" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">standard Kubernetes Secret objects</Anchor> in your cluster.
+The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates <Anchor label="standard Kubernetes Secret objects" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">standard Kubernetes Secret objects</Anchor> in a Kubernetes cluster.
 
 For Akeyless, ESO uses the following custom resources:
 
@@ -61,15 +61,13 @@ At a high level:
 
 ## Prerequisites
 
-Before you start, you will need:
-
 * A running Kubernetes cluster, **v1.16+** (ESO requirement).
 * **Helm** installed locally.
 * An Akeyless tenant with:
   * At least one **Authentication Method** (API Key, Kubernetes Auth, Azure AD, AWS IAM, or GCP).
   * An **Access Role** that grants read or write permissions to the relevant secrets.
 * For Kubernetes Auth, private deployments, or hybrid deployments:
-  * An **Akeyless Gateway** with network access to your Kubernetes API server.
+  * An **Akeyless Gateway** with network access to the Kubernetes API server.
 
 ***
 
@@ -88,7 +86,7 @@ helm repo update
 helm install external-secrets external-secrets/external-secrets   --namespace external-secrets --create-namespace
 ```
 
-You should now see the ESO controller pods running in the `external-secrets` namespace.
+The ESO controller pods running in the `external-secrets` namespace should now be running.
 
 ***
 
@@ -110,7 +108,7 @@ Each Authentication Method in Akeyless exposes an **Access ID**, and for some me
 * **GCP** → `accessTypeParam`: GCP audience
 * **AWS IAM** → `accessTypeParam`: not required
 
-You can configure ESO to authenticate in two ways:
+ESO can authenticate in one of two ways:
 
 1. Using a **credentials Secret** (generic pattern, works for all supported access types).
 2. Using **Kubernetes Auth-specific fields** (directly referencing a Kubernetes ServiceAccount and/or JWT).
@@ -165,7 +163,7 @@ stringData:
 ```
 
 * `accessId`: Access ID for the **Kubernetes Auth** method.
-* `accessTypeParam`: Name of the Kubernetes Auth config for your cluster.
+* `accessTypeParam`: Name of the Kubernetes Auth config for the cluster.
 
 #### Azure AD Example (Managed Identity or Service Principal)
 
@@ -214,17 +212,17 @@ spec:
             key: accessTypeParam
 ```
 
-If you are using a **private Akeyless Gateway** (for example in a zero-knowledge or hybrid deployment), set:
+If using a **private Akeyless Gateway** (for example in a zero-knowledge or hybrid deployment), set:
 
 ```yaml
-      akeylessGWApiURL: "https://<your.akeyless.gw:8080>/v2"
+      akeylessGWApiURL: "https://<the.akeyless.gw:8080>/v2"
 ```
 
-You may also configure custom CAs via `caBundle` or `caProvider` if your gateway uses a private CA.
+Custom CAs can be configured via `caBundle` or `caProvider` if the Akeyless gateway uses a private CA.
 
 #### `SecretStore` (Direct Kubernetes Auth)
 
-Alternatively, you can configure Kubernetes Auth directly in the `SecretStore` without a generic credentials Secret.
+Alternatively, Kubernetes Auth can be configured directly in the `SecretStore` without a generic credentials Secret.
 
 ```yaml
 apiVersion: external-secrets.io/v1
@@ -251,7 +249,7 @@ spec:
 **Key fields:**
 
 * `accessID`: Access ID of the Kubernetes Auth method.
-* `k8sConfName`: Kubernetes Auth config name attached to your cluster.
+* `k8sConfName`: Kubernetes Auth config name attached to the cluster.
 * `serviceAccountRef`: `ServiceAccount` that ESO uses to request and project tokens.
 * `secretRef`: Optional; explicit Secret containing a SA token ESO should use.
 
@@ -324,10 +322,10 @@ spec:
   data:
     - secretKey: api-key
       remoteRef:
-        key: /path/to/your/secret/api-key
+        key: /path/to/the/secret/api-key
     - secretKey: db-password
       remoteRef:
-        key: /path/to/your/secret/db-password
+        key: /path/to/the/secret/db-password
 ```
 
 * `refreshInterval`: How often ESO refreshes values from Akeyless.
@@ -344,7 +342,7 @@ kubectl get secret app-config-secret -n akeyless-demo -o jsonpath='{.data.api-ke
 
 ### Using `dataFrom` to Extract JSON
 
-If an Akeyless secret contains JSON, you can use `dataFrom.extract` to split that JSON into multiple keys in the Kubernetes Secret.
+If an Akeyless secret contains JSON,`dataFrom.extract` can be used to split that JSON into multiple keys in the Kubernetes Secret.
 
 ```yaml
 apiVersion: external-secrets.io/v1
@@ -365,7 +363,7 @@ spec:
 
   dataFrom:
     - extract:
-        key: /path/to/your/json-secret
+        key: /path/to/the/json-secret
 ```
 
 If the JSON value in Akeyless is:
@@ -387,7 +385,7 @@ kubectl get secret app-config-json -o jsonpath='{.data}'
 
 ### Certificates: Splitting Certificate and Private Key
 
-Akeyless certificate items typically contain separate PEM blocks for the certificate and private key. You can map them to `tls.crt` and `tls.key` in a Kubernetes TLS Secret.
+Akeyless certificate items typically contain separate PEM blocks for the certificate and private key. They can be mapped to `tls.crt` and `tls.key` in a Kubernetes TLS Secret.
 
 ```yaml
 apiVersion: external-secrets.io/v1
@@ -411,16 +409,16 @@ spec:
   data:
     - secretKey: tls.crt
       remoteRef:
-        key: /path/to/your/certificate-item
+        key: /path/to/the/certificate-item
         property: certificate_pem
 
     - secretKey: tls.key
       remoteRef:
-        key: /path/to/your/certificate-item
+        key: /path/to/the/certificate-item
         property: private_key_pem
 ```
 
-You can then use `my-tls-secret` with Kubernetes `Ingress` or other resources expecting a TLS Secret.
+Now `my-tls-secret` can be used with a Kubernetes `Ingress` or other resource expecting a TLS Secret.
 
 ***
 
