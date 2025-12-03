@@ -20,8 +20,6 @@ authType: WorkloadIdentity
 
 Instead, it relies on Azure’s **native workload identity token flow**, which is handled transparently by AKS and Microsoft’s token exchange system.
 
-***
-
 ## Does the Akeyless ESO Provider Support AKS Workload Identity?
 
 **Yes.**  
