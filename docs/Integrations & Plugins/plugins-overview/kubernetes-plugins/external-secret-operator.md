@@ -9,8 +9,8 @@ metadata:
 next:
   description: ''
 ---
-<Callout icon="🚧">
-  This page has been superseded. [Please view the updated version instead.]()
+<Callout icon="🚧" theme="warn">
+  This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator/)
 </Callout>
 
 [External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/) is a Kubernetes (K8s) operator that integrates with external secret management systems like Akeyless. The operator reads information from Akeyless APIs and automatically injects the values into a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
