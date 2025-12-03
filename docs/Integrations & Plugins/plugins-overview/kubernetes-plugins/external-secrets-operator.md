@@ -338,7 +338,7 @@ spec:
 
 Retrieve values:
 
-```bash
+```shell
 kubectl get secret app-config-secret -n akeyless-demo -o jsonpath='{.data.api-key}' | base64 -d
 ```
 
@@ -424,18 +424,14 @@ You can then use `my-tls-secret` with Kubernetes `Ingress` or other resources ex
 
 ***
 
-<br />
-
-***
-
 ## `PushSecret`: Push Kubernetes Secrets into Akeyless
 
 `PushSecret` is used to **push** local Kubernetes Secrets into Akeyless, enabling a GitOps-friendly workflow where Kubernetes becomes the source of truth for some secrets.
 
 ### Create a Local Kubernetes Secret
 
-```bash
-kubectl create secret generic   --from-literal=cache-pass=mypassword   k8s-created-secret   -n akeyless-demo
+```shell
+kubectl create secret generic --from-literal=cache-pass=mypassword k8s-created-secret -n akeyless-demo
 ```
 
 ### Define the `PushSecret` Resource
@@ -467,10 +463,10 @@ spec:
 
 **Key fields:**
 
-* `refreshInterval` – How often ESO checks for changes in the Kubernetes Secret.
-* `updatePolicy` – Whether to replace or merge when updating the provider secret.
-* `deletionPolicy` – Whether to delete the provider secret when the `PushSecret` resource is deleted.
-* `remoteKey` – Path where the secret will be stored in Akeyless.
+* `refreshInterval`: How often ESO checks for changes in the Kubernetes Secret.
+* `updatePolicy`: Whether to replace or merge when updating the provider secret.
+* `deletionPolicy`: Whether to delete the provider secret when the `PushSecret` resource is deleted.
+* `remoteKey`: Path where the secret will be stored in Akeyless.
 
 Applying this manifest will create an Akeyless secret named `eso-created/my-secret` whose value is derived from `k8s-created-secret` (for example `{"cache-pass":"mypassword"}`).
 
