@@ -110,14 +110,14 @@ Each Authentication Method in Akeyless exposes an **Access ID**, and for some me
 * **GCP** → `accessTypeParam`: GCP audience
 * **AWS IAM** → `accessTypeParam`: not required
 
-You can configure ESO to authenticate in two main ways:
+You can configure ESO to authenticate in two ways:
 
 1. Using a **credentials Secret** (generic pattern, works for all supported access types).
 2. Using **Kubernetes Auth-specific fields** (directly referencing a Kubernetes ServiceAccount and/or JWT).
 
 ### Creating a Credentials Secret
 
-Create a Kubernetes Secret with the Akeyless credentials ESO should use:
+Store the Akeyless credentials that ESO should use within a Kubernetes Secret:
 
 ```yaml
 apiVersion: v1
