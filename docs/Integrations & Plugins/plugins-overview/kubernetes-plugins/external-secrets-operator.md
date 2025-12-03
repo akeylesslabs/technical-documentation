@@ -603,7 +603,7 @@ spec:
 **Retrieving the synced secret:**
 
 ```bash
-kubectl -n app-test get secret app-api-secret   -o jsonpath="{.data.api-key}" | base64 -d
+kubectl -n app-test get secret app-api-secret -o jsonpath="{.data.api-key}" | base64 -d
 ```
 
 This pattern ties together:
