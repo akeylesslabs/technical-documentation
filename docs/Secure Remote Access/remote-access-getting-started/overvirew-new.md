@@ -13,7 +13,7 @@ Users can connect securely to resources through the Gateway's internal SRA Porta
 
 ## How it works
 
-SRA is deployed alongside the Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a **Web** application and **SSH** application, each has a separate pod in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
+SRA is deployed along side the Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a **Web** application and **SSH** application, each has a separate pod in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
 
 * **Web**: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
 
