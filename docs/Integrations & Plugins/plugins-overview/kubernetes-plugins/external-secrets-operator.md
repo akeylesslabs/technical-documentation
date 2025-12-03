@@ -98,9 +98,9 @@ ESO’s Akeyless provider supports the following **access types**:
 * `k8s`
 * `azure_ad`
   <Callout icon="📘" theme="info">
-    For AKS Workload Identity, use the Azure AD Authentication Method (accessType: azure_ad).
+    For AKS Workload Identity, use the Azure AD Authentication Method (`accessType: azure_ad`).
 
-    When using accessType: azure_ad, ESO relies on the identity of the Kubernetes ServiceAccount that runs the ExternalSecret. Identity is not selected through the SecretStore. For full guidance, see the “ESO and AKS Workload Identity” page.
+    When using `accessType: azure_ad`, ESO relies on the identity of the Kubernetes `ServiceAccount` that runs the `ExternalSecret`. Identity is not selected through the `SecretStore`. For full guidance, see [ESO and AKS Workload Identity](doc:eso-and-aks-workload-identity).
   </Callout>
 * `aws_iam`
 * `gcp`
