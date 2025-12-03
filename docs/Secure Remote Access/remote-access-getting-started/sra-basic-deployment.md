@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the SRA using the most basic configuration on a K8s cluster. In this guide, we will use an existing Gateway. If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
+This guide explains how to deploy the SRA using the most basic configuration on a K8s cluster. using an existing gateway. If you do not have a Gateway, please [install](https://docs.akeyless.io/update/docs/gateway-chart#/) one.
 
 You can get the `values.yaml` file that will be used on this guide by running the following commands:
 
@@ -90,7 +90,7 @@ For it to work correctly, the K8s [metrics server](https://github.com/kubernetes
 
 # Basic Configuration
 
-In order to set your gateway with **Remote Access**, set the `sra` section to `true` and add the public key which is set on the SSH certificate Issuer as follows: 
+In order to set your gateway with **Remote Access**, set the `sra` section to `true` and add the public key which is set on the SSH certificate Issuer as follows:
 
 ```shell
 sra:
