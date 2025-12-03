@@ -11,7 +11,6 @@ metadata:
 This guide explains how the Akeyless External Secrets Operator (ESO) integrates with **Azure AD Workload Identity** on AKS, how authentication works when using `accessType: azure_ad` and what configuration is required both in Kubernetes and Azure.
 
 Unlike the Azure Key Vault ESO provider, the Akeyless provider does not require or expose any dedicated value such as `authType: WorkloadIdentity`.
-```
 
 Instead, it relies entirely on the **native Azure Workload Identity token exchange flow** handled by AKS and Microsoft Entra ID.
 
@@ -62,7 +61,7 @@ metadata:
   namespace: akeyless-demo
   annotations:
     azure.workload.identity/client-id: "<UAMI-client-id>"
-```
+````
 
 ### 2. Azure Federated Identity Credential
 
