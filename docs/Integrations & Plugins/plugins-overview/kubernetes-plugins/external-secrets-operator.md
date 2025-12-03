@@ -290,7 +290,7 @@ spec:
 Retrieve values:
 
 ```bash
-kubectl get secret app-config-secret   -o jsonpath='{.data.api-key}' | base64 -d
+kubectl get secret app-config-secret -n akeyless-demo -o jsonpath='{.data.api-key}' | base64 -d
 ```
 
 ***
