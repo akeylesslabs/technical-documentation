@@ -26,10 +26,7 @@ Who Should benefit from using this application?
 
 # Prerequisites
 
-## Supported OS:
-
-* Windows
-* macOS Ventura / Monterey / Big Sur
+* Windows / macOS Ventura / Monterey / Big Sur Operating System.
 
 ## Permissions
 
