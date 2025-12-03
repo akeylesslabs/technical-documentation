@@ -19,7 +19,9 @@ These minimum resource allocations are designed to optimize performance and ensu
 # Connection Handling Capabilities
 
 * **Web-SRA and SSH-SRA Pods**: These are capable of handling between 70 to 100 simultaneous connections with a mix of SSH, DB, and other applications under the recommended resource allocation.
+
 * **Web Dispatcher Pods**: The Web Dispatcher enables proxy protocol support and can handle hundreds of simultaneous connections, efficiently distributing the load.
+
 * **Web Worker Pods**: Each 'web-worker' pod is designed to handle one secure web connection. For multiple secure web connections, additional 'web-worker' pods are required (e.g., 5 simultaneous secure web connections require 5 web-worker pods).
 
 The number of pods and replication is managed with the values file during Helm installation. Multiple `ssh-sra` pods previously required a dedicated persistent volume, but it is now replaced with a local Redis deployment. This will simplify the solution and reduce the dependency on a persistent volume.
