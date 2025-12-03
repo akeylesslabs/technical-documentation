@@ -107,7 +107,7 @@ You can configure ESO to authenticate in two main ways:
 1. Using a **credentials Secret** (generic pattern, works for all supported access types).
 2. Using **Kubernetes Auth-specific fields** (directly referencing a Kubernetes ServiceAccount and/or JWT).
 
-### 1. Creating the Credentials Secret
+### Creating a Credentials Secret
 
 Create a Kubernetes Secret with the Akeyless credentials ESO should use:
 
@@ -124,7 +124,7 @@ stringData:
   accessTypeParam: "<access-key>"
 ```
 
-#### 1.1 API Key Example (NOT Recommended for Production)
+#### API Key Example (NOT Recommended for Production)
 
 ```yaml
 apiVersion: v1
@@ -141,7 +141,7 @@ stringData:
 
 Use `api_key` for quick demos or POCs. For production, prefer **workload identities** (Kubernetes Auth, Azure AD, AWS IAM, GCP).
 
-#### 1.2 Kubernetes Auth Example
+#### Kubernetes Auth Example
 
 ```yaml
 apiVersion: v1
@@ -159,7 +159,7 @@ stringData:
 * `accessId`: Access ID for the **Kubernetes Auth** method.
 * `accessTypeParam`: Name of the Kubernetes Auth config for your cluster.
 
-#### 1.3 Azure AD Example (Managed Identity or Service Principal)
+#### Azure AD Example (Managed Identity or Service Principal)
 
 ```yaml
 apiVersion: v1
@@ -178,9 +178,9 @@ This Secret is suitable when using Azure AD / Managed Identity with sub-claim en
 
 ***
 
-### 2. `SecretStore`
+### `SecretStore`
 
-#### 2.1 SecretStore (Using a Credentials Secret)
+#### `SecretStore` (Using a Credentials Secret)
 
 Create a `SecretStore` resource which defines how ESO connects to Akeyless within a single namespace.
 
@@ -216,7 +216,7 @@ If you are using a **private Akeyless Gateway** (for example in a zero-knowledge
 
 You may also configure custom CAs via `caBundle` or `caProvider` if your gateway uses a private CA.
 
-#### 2.2. SecretStore (Direct Kubernetes Auth)
+#### `SecretStore` (Direct Kubernetes Auth)
 
 Alternatively, you can configure Kubernetes Auth directly in the `SecretStore` without a generic credentials Secret.
 
@@ -244,18 +244,18 @@ spec:
 
 **Key fields:**
 
-* `accessID` – Access ID of the Kubernetes Auth method.
-* `k8sConfName` – Kubernetes Auth config name attached to your cluster.
-* `serviceAccountRef` – ServiceAccount that ESO uses to request and project tokens.
-* `secretRef` – Optional; explicit Secret containing a SA token ESO should use.
+* `accessID`: Access ID of the Kubernetes Auth method.
+* `k8sConfName`: Kubernetes Auth config name attached to your cluster.
+* `serviceAccountRef`: `ServiceAccount` that ESO uses to request and project tokens.
+* `secretRef`: Optional; explicit Secret containing a SA token ESO should use.
 
 ***
 
-## ExternalSecret: Syncing Akeyless Secrets into Kubernetes
+## `ExternalSecret`: Syncing Akeyless Secrets into Kubernetes
 
 To fetch an Akeyless secret and store it as a Kubernetes Secret, define an `ExternalSecret` resource.
 
-### 1. Basic ExternalSecret (Single Values)
+### 1. Basic `ExternalSecret` (Single Values)
 
 ```yaml
 apiVersion: external-secrets.io/v1
