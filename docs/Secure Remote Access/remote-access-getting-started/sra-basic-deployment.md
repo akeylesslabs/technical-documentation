@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the SRA using the most basic configuration on a K8s cluster. using an existing gateway. If you do not have a Gateway, please [install](https://docs.akeyless.io/update/docs/gateway-chart#/) one.
+This guide explains how to deploy the SRA using the most basic configuration on a K8s cluster with an existing gateway. If you do not have a Gateway, please [install](https://docs.akeyless.io/update/docs/gateway-chart#/) one.
 
 You can get the `values.yaml` file that will be used on this guide by running the following commands:
 
