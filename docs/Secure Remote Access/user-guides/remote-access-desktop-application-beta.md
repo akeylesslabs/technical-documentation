@@ -38,15 +38,15 @@ Download the respective Desktop Application installation file from [here](https:
 
 ## Windows Installation
 
-1. Open Windows command line as an Administrator and generate Private & Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This will create an .ssh folder with the respective `id_rsa` and `id_rsa.pub` files.
+1. Open Windows command line as an Administrator and generate Private & Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This will create an `.ssh` folder with the respective `id_rsa` and `id_rsa.pub` files.
 
-2. Run the .exe file and follow the setup wizard.
+2. Run the `.exe` file and follow the setup wizard.
 
 3. Grant necessary permissions if prompted
 
 The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\Akeyless-desktop`
 
-4. Launch the application
+4. Open the app and sign in with your Akeyless credentials.
 
 ## macOS Installation
 
@@ -58,7 +58,7 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 
 4. Open the app and sign in with your Akeyless credentials.
 
-> 📘 Info
+> 📘 Installation Folder
 >
 > The installation folder contains the following:
 >
@@ -67,7 +67,7 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 
 # How it works?
 
-1. The Desktop Application retrieves connection details from the target item (e.g., MY-MSSQL-connection) and initiates a connection.
+1. The Desktop Application retrieves connection details from the target item (e.g., `MY-MSSQL-connection`) and initiates a connection.
 2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window
 
 > 🚧 Important
