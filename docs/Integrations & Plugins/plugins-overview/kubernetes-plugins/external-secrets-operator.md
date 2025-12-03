@@ -184,7 +184,7 @@ stringData:
 
 This Secret is suitable when using Azure AD Managed Identity with sub-claim enforcement.
 
-### `SecretStore`
+### `SecretStore`: Namespaced Secret Provider
 
 #### `SecretStore` (Using a Credentials Secret)
 
@@ -255,6 +255,47 @@ spec:
 * `serviceAccountRef`: `ServiceAccount` that ESO uses to request and project tokens.
 * `secretRef`: Optional; explicit Secret containing a SA token ESO should use.
 
+### `ClusterSecretStore`: Cluster-Wide Secret Provider
+
+A `ClusterSecretStore` is a cluster-scoped provider configuration that can be used by `ExternalSecret` resources in any namespace.
+
+```yaml
+apiVersion: external-secrets.io/v1
+kind: ClusterSecretStore
+metadata:
+  name: akeyless-cluster-secret-store
+spec:
+  provider:
+    akeyless:
+      akeylessGWApiURL: "https://api.akeyless.io"
+      authSecretRef:
+        secretRef:
+          accessID:
+            name: akeyless-secret-creds
+            key: accessId
+            namespace: akeyless-demo
+          accessType:
+            name: akeyless-secret-creds
+            key: accessType
+            namespace: akeyless-demo
+          accessTypeParam:
+            name: akeyless-secret-creds
+            key: accessTypeParam
+            namespace: akeyless-demo
+```
+
+For a `ClusterSecretStore` object, the namespace fields are required for `secretRef.accessID`, `secretRef.accessType`, and `secretRef.accessTypeParam` (and for any `serviceAccountRef` or `secretRef` when using the Kubernetes authentication method).
+
+When using `ClusterSecretStore`, the referencing `ExternalSecret` must set `secretStoreRef` to use the `ClusterSecretStore` as opposed to a `SecretStore`:
+
+```yaml
+secretStoreRef:
+  kind: ClusterSecretStore
+  name: akeyless-cluster-secret-store
+```
+
+Remember that any namespace using this `ClusterSecretStore` must be authorized in the Akeyless platform with appropriate roles and claims.
+
 ***
 
 ## `ExternalSecret`: Syncing Akeyless Secrets into Kubernetes
@@ -301,8 +342,6 @@ Retrieve values:
 kubectl get secret app-config-secret -n akeyless-demo -o jsonpath='{.data.api-key}' | base64 -d
 ```
 
-***
-
 ### Using `dataFrom` to Extract JSON
 
 If an Akeyless secret contains JSON, you can use `dataFrom.extract` to split that JSON into multiple keys in the Kubernetes Secret.
@@ -346,8 +385,6 @@ To inspect all keys:
 kubectl get secret app-config-json -o jsonpath='{.data}'
 ```
 
-***
-
 ### Certificates: Splitting Certificate and Private Key
 
 Akeyless certificate items typically contain separate PEM blocks for the certificate and private key. You can map them to `tls.crt` and `tls.key` in a Kubernetes TLS Secret.
@@ -387,46 +424,7 @@ You can then use `my-tls-secret` with Kubernetes `Ingress` or other resources ex
 
 ***
 
-## `ClusterSecretStore`: Cluster-Wide Secret Provider
-
-A `ClusterSecretStore` is a cluster-scoped provider configuration that can be used by `ExternalSecret` resources in any namespace.
-
-```yaml
-apiVersion: external-secrets.io/v1
-kind: ClusterSecretStore
-metadata:
-  name: akeyless-cluster-secret-store
-spec:
-  provider:
-    akeyless:
-      akeylessGWApiURL: "https://api.akeyless.io"
-      authSecretRef:
-        secretRef:
-          accessID:
-            name: akeyless-secret-creds
-            key: accessId
-            namespace: akeyless-demo
-          accessType:
-            name: akeyless-secret-creds
-            key: accessType
-            namespace: akeyless-demo
-          accessTypeParam:
-            name: akeyless-secret-creds
-            key: accessTypeParam
-            namespace: akeyless-demo
-```
-
-For a `ClusterSecretStore` object, the namespace fields are required for `secretRef.accessID`, `secretRef.accessType`, and `secretRef.accessTypeParam` (and for any `serviceAccountRef` or `secretRef` when using the Kubernetes authentication method).
-
-When using `ClusterSecretStore`, the referencing `ExternalSecret` must set `secretStoreRef` to use the `ClusterSecretStore` as opposed to a `SecretStore`:
-
-```yaml
-secretStoreRef:
-  kind: ClusterSecretStore
-  name: akeyless-cluster-secret-store
-```
-
-Remember that any namespace using this `ClusterSecretStore` must be authorized in the Akeyless platform with appropriate roles and claims.
+<br />
 
 ***
 
