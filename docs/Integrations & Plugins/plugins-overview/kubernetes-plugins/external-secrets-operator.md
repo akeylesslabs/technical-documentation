@@ -578,7 +578,7 @@ spec:
             key: accessTypeParam
 ```
 
-**ExternalSecret consuming a secret via this SecretStore:**
+**ExternalSecret consuming a Secret via the SecretStore:**
 
 ```yaml
 apiVersion: external-secrets.io/v1
