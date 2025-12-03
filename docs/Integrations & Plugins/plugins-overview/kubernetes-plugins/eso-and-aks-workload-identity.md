@@ -8,13 +8,7 @@ link:
 metadata:
   robots: index
 ---
-This guide explains how the Akeyless External Secrets Operator (ESO) integrates with **Azure AD Workload Identity** on AKS, how authentication works when using:
-
-```
-accessType: azure_ad
-```
-
-and what configuration is required both in Kubernetes and Azure.
+This guide explains how the Akeyless External Secrets Operator (ESO) integrates with **Azure AD Workload Identity** on AKS, how authentication works when using `accessType: azure_ad` and what configuration is required both in Kubernetes and Azure.
 
 Unlike the Azure Key Vault ESO provider, the Akeyless provider does not require or expose any dedicated value such as:
 
@@ -24,7 +18,7 @@ authType: WorkloadIdentity
 
 Instead, it relies entirely on the **native Azure Workload Identity token exchange flow** handled by AKS and Microsoft Entra ID.
 
----
+***
 
 ## How the Akeyless ESO Provider Uses Workload Identity
 
@@ -40,28 +34,28 @@ ESO simply:
 
 **ESO never performs Azure token exchange internally.** It only uses the token provided by the pod’s environment.
 
----
+***
 
 ## What Makes Workload Identity Work with Akeyless
 
 When an Azure AD Auth Method is configured in Akeyless, it validates Azure tokens based on:
 
-- Issuer (`https://sts.windows.net/<tenant-id>/`)
-- JWKS validation via the Microsoft discovery endpoint
-- Tenant ID
-- Optional sub‑claims such as:
-  - `xms_mirid` (Managed Identity resource ID)
-  - `oid` (Azure object ID for MI / SPN / user accounts)
+* Issuer (`https://sts.windows.net/<tenant-id>/`)
+* JWKS validation via the Microsoft discovery endpoint
+* Tenant ID
+* Optional sub‑claims such as:
+  * `xms_mirid` (Managed Identity resource ID)
+  * `oid` (Azure object ID for MI / SPN / user accounts)
 
 This enables very fine-grained identity binding between AKS workloads and Akeyless roles.
 
----
+***
 
 ## Required Components
 
 ### 1. Kubernetes ServiceAccount with Workload Identity Annotation
 
-This ServiceAccount determines *which* Managed Identity ESO will use.
+This ServiceAccount determines _which_ Managed Identity ESO will use.
 
 ```yaml
 apiVersion: v1
@@ -77,9 +71,9 @@ metadata:
 
 In Azure, the federated credential must trust:
 
-- The AKS OIDC issuer  
-- The exact ServiceAccount identity:
-  - `system:serviceaccount:<namespace>:<sa-name>`
+* The AKS OIDC issuer
+* The exact ServiceAccount identity:
+  * `system:serviceaccount:<namespace>:<sa-name>`
 
 This is what enables Azure to issue the correct identity token to ESO.
 
@@ -87,13 +81,13 @@ This is what enables Azure to issue the correct identity token to ESO.
 
 You must configure an Azure AD Auth Method in Akeyless using:
 
-- Your Azure tenant
-- JWKS endpoint
-- Optional sub-claims for identity restrictions
+* Your Azure tenant
+* JWKS endpoint
+* Optional sub-claims for identity restrictions
 
 Akeyless will provide an **Access ID** (e.g. `p-xxxxx`).
 
----
+***
 
 ## Minimal Authentication Configuration in Kubernetes
 
@@ -141,7 +135,7 @@ spec:
 Do **not** use `serviceAccountRef` in the SecretStore when using `accessType: azure_ad`.  
 Identity selection happens only through the `ServiceAccount` set on the `ExternalSecret`.
 
----
+***
 
 ## Running ExternalSecrets Under the Right Identity
 
@@ -168,7 +162,7 @@ spec:
 
 The identity used to authenticate to Akeyless will be the **Managed Identity** associated with `eso-akeyless-sa`.
 
----
+***
 
 ## Using Sub‑Claims for Identity Enforcement
 
@@ -186,41 +180,43 @@ Akeyless Azure AD Auth Methods may require sub‑claims to match. Example:
 
 This ensures only workloads using the specific Managed Identity are allowed to access secrets.
 
----
+***
 
 ## Troubleshooting Workload Identity
 
 To verify that the pod is receiving the correct Azure AD identity token:
 
 1. Enter a pod running under the same ServiceAccount as your ExternalSecret:
-   - `kubectl exec -it <pod> -- sh`
+   * `kubectl exec -it <pod> -- sh`
 2. Run:
 
 ```
 akeyless get-cloud-identity
 ```
 
-Expected result:  
-- Output includes the correct `xms_mirid` or `oid` matching your Managed Identity.
+Expected result:
+
+* Output includes the correct `xms_mirid` or `oid` matching your Managed Identity.
 
 If it fails:
-- The pod is not being issued a correct Azure token.
-- Re-check:
-  - Federated credential settings
-  - ServiceAccount annotations
-  - AKS OIDC issuer
-  - Namespace/name used in federation
 
----
+* The pod is not being issued a correct Azure token.
+* Re-check:
+  * Federated credential settings
+  * ServiceAccount annotations
+  * AKS OIDC issuer
+  * Namespace/name used in federation
+
+***
 
 ## Summary
 
-- ESO fully supports AKS Workload Identity using `accessType: azure_ad`.
-- ESO does not implement Azure token exchange; it consumes the identity projected by the pod's environment.
-- `serviceAccountName` on `ExternalSecret` determines which identity is used.
-- `serviceAccountRef` in the SecretStore is **not** used for Azure AD auth.
-- Identity restrictions are enforced through Akeyless sub-claims.
+* ESO fully supports AKS Workload Identity using `accessType: azure_ad`.
+* ESO does not implement Azure token exchange; it consumes the identity projected by the pod's environment.
+* `serviceAccountName` on `ExternalSecret` determines which identity is used.
+* `serviceAccountRef` in the SecretStore is **not** used for Azure AD auth.
+* Identity restrictions are enforced through Akeyless sub-claims.
 
----
+***
 
 If you'd like, I can also generate a version with diagrams or add ready-to-copy YAML bundles.
