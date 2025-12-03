@@ -100,6 +100,10 @@ ESO’s Akeyless provider supports the following **access types**:
 * `aws_iam`
 * `gcp`
 
+<Callout icon="❗️">
+  OIDC is not supported as an **access type** at this time.
+</Callout>
+
 Each Authentication Method in Akeyless exposes an **Access ID**, and for some methods an additional parameter (`accessTypeParam`) such as:
 
 * **API Key** → `accessTypeParam`: Akeyless Access Key
