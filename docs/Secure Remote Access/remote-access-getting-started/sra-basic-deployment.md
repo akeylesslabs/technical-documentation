@@ -1,5 +1,5 @@
 ---
-title: SRA Basic Deployment
+title: SRA On K8s
 deprecated: false
 hidden: true
 metadata:
