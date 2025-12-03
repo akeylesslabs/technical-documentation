@@ -1,6 +1,5 @@
 ---
-title: External Secret Operator
-excerpt: External Secrets Operator (ESO)
+title: External Secrets Operator
 deprecated: false
 hidden: false
 metadata:
