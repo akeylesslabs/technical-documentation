@@ -5,9 +5,9 @@ hidden: true
 metadata:
   robots: index
 ---
-This guide explains how to deploy the SRA using the most basic configuration. 
+This guide explains how to deploy the SRA using the most basic configuration on a K8s cluster.
 
-In this guide, we will use an existing Gateway deployed on a K8s cluster. If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
+In this guide, we will use an existing Gateway, If you do not have a Gateway, please install one by following [this](https://docs.akeyless.io/update/docs/gateway-chart#/) guide.
 
 # Prerequisites
 
@@ -16,6 +16,18 @@ In this guide, we will use an existing Gateway deployed on a K8s cluster. If you
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
+
+* Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your cluster.
+
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
+
+| Service                                                                        | Endpoint   |
+| :----------------------------------------------------------------------------- | :--------- |
+| [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
+| Akeyless V1 REST API                                                           | `/api/v1`  |
+| Akeyless V2 REST API                                                           | `/api/v2`  |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
 
 * Network Settings:
 
