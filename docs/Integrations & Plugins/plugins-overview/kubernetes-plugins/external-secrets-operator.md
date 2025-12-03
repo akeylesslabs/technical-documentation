@@ -17,7 +17,7 @@ It covers:
 
 ## How ESO Works with Akeyless
 
-The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates standard Kubernetes Secret objects in your cluster.
+The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates <Anchor label="standard Kubernetes Secret objects" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">standard Kubernetes Secret objects</Anchor> in your cluster.
 
 For Akeyless, ESO uses the following custom resources:
 
