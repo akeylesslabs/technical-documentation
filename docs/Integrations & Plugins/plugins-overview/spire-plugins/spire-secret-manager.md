@@ -17,7 +17,7 @@ next:
 
 ## Authentication
 
-The following Authentication Methods can be used: 
+The following Authentication Methods can be used:
 
 * [API Key](https://docs.akeyless.io/docs/api-key)
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
@@ -70,6 +70,7 @@ Next, [download](https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plu
 curl -o AkeylessSecretManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-sm-amd64-linux-v0.0.6
 chmod +x AkeylessSecretManager
 ```
+
 ```shell ARM64
 curl -o AkeylessSecretManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-sm-arm64-linux-v0.0.6
 chmod +x AkeylessSecretManager
@@ -112,7 +113,7 @@ Where:
 
 * `target_folder` - A path to save all items inside Akeyless where the generated `SVIDs` will be stored
 
-For **K8s**,**GCP** or **AzureAD** Auth method set the following settings as well: 
+For **K8s**,**GCP** or **AzureAD** Auth method set the following settings as well:
 
 * `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
 
@@ -137,7 +138,7 @@ Token: <token_string>
 
 Make a note of the token, you will need it in the next step to attest the agent on initial startup.
 
-### Attest the SPIRE Agent to the SPIRE Server:
+### Attest the SPIRE Agent to the SPIRE Server
 
 ```shell
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &

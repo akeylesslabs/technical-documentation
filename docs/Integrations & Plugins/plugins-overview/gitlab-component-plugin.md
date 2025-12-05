@@ -61,7 +61,7 @@ akeyless assoc-role-am --role-name /Dev/GitLabRole \
 
 > 🚧 Warning
 >
-> **Sub Claims** - It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the available [GitLab claims ](https://docs.gitlab.com/ci/secrets/hashicorp_vault/) to prevent access of unauthorized users.
+> **Sub Claims** - It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the available [GitLab claims](https://docs.gitlab.com/ci/secrets/hashicorp_vault/) to prevent access of unauthorized users.
 
 Set `Read` and `List`  permissions for **Items**:
 
@@ -257,6 +257,7 @@ use_secret:
   script:    
     - echo "Fetching certificates from Akeyless" 
 ```
+
 ```yaml SSH
 stages:
   - get-akeyless-secret

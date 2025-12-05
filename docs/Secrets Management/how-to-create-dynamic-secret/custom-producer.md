@@ -139,7 +139,6 @@ Where:
 </table>
 `}</HTMLBlock>
 
-
 ### POST /Sync/revoke Input
 
 This endpoint is called every time credentials need to be revoked. This can happen either when the **TTL** defined for the custom dynamic secret expires, or if an administrator explicitly requests that particular credentials are revoked.
@@ -186,7 +185,6 @@ Where:
 </tbody>
 </table>
 `}</HTMLBlock>
-
 
 ### POST /Sync/revoke Output
 
@@ -241,7 +239,6 @@ Where:
 </table>
 `}</HTMLBlock>
 
-
 ### POST /Sync/rotate Output
 
 ```curl
@@ -277,7 +274,7 @@ Where:
 `}</HTMLBlock>
 
 > 👍 Note
-> 
+>
 > Payload rotation is performed on a best-effort basis. The rotation process could fail, and even after a successful `/sync/rotate` request the dynamic secret could still use the old payload. For these cases, the custom dynamic secret implementation should support both the old payload and the new payload until there is at least one `/sync/create` or `/sync/revoke` request that uses the old payload.
 
 ### Authentication
@@ -313,9 +310,9 @@ This ID is sent to the `POST /sync/revoke` endpoint, which should also be config
 
 ## Create a Custom Dynamic Secret from the CLI
 
-Once you have a custom dynamic implementation that follows these specifications, create a new custom dynamic secret from the Akeyless CLI. 
+Once you have a custom dynamic implementation that follows these specifications, create a new custom dynamic secret from the Akeyless CLI.
 
-To create a custom dynamic secret from the CLI, run the following command: 
+To create a custom dynamic secret from the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create \
@@ -332,7 +329,7 @@ Where:
 
 - **gateway-url:** Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- **create-sync-url:** The URL of an endpoint that implements the /sync/create method. 
+- **create-sync-url:** The URL of an endpoint that implements the /sync/create method.
 
 - **revoke-sync-url:** The URL of an endpoint that implements the /sync/revoke method.
 
@@ -341,11 +338,11 @@ Where:
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluecustomp) section.
 
 > 👍 Note
-> 
+>
 > To start working with dynamic secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 ## Usage Examples
 
-You can find examples of custom dynamic secret implementations in this <a href="https://github.com/akeylesslabs/custom-producer" target="_blank">GitHub Repository</a>. 
+You can find examples of custom dynamic secret implementations in this <a href="https://github.com/akeylesslabs/custom-producer" target="_blank">GitHub Repository</a>.
 
 The repository includes sample authentication code, deployment examples (using a docker image, or [AWS Lambda function](https://github.com/akeylesslabs/custom-producer/tree/master/go/echoserver#setting-up-aws-lambda), or similar) and actual dynamic secret implementations, such as [Let’s Encrypt](https://github.com/akeylesslabs/custom-producer/tree/master/go/letsencrypt).

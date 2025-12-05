@@ -27,7 +27,7 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 ## Supported Authentication Methods
 
 * [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM ](https://docs.akeyless.io/docs/aws-iam)
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 * [Azure AD](https://docs.akeyless.io/docs/azure-ad)
 * [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
 * [Google Cloud Platform (GCP)](https://docs.akeyless.io/docs/gcp-auth-method)
@@ -37,7 +37,7 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 
 ## Configuration
 
-### To Configure the Akeyless Plugin in Jenkins:
+### To Configure the Akeyless Plugin in Jenkins
 
 1. From the Jenkins Dashboard, press New Item, choose Freestyle Project, give it a name and press ok.
 2. Scroll down to Environment and check Akeyless Plugin
@@ -45,7 +45,9 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 4. Add a new Access Mode:
 
 * Under Vault Credential, press Add > Jenkins.
-* #### Choose the Authentication Method from the Kind drop-down:
+
+* #### Choose the Authentication Method from the Kind drop-down
+
   * Username with password - Email Authentication Method.
   * Akeyless Access Key Credentials - API Key Authentication Method.
   * Akeyless Certificate Credentials - Certificate Authentication Method.
@@ -100,7 +102,7 @@ The following configuration will fetch a static secret to your pipeline. This ex
 
 ![](https://files.readme.io/9f31c3fcbc87a157d318e00535237be8fb2ac2f7ba8d7b003375341fb4478eff-image.png)
 
-### Fetching a Rotated Secret With Specific Keys:
+### Fetching a Rotated Secret With Specific Keys
 
 The following example will only fetch the username of the rotated secret value, and will store it into User environment variable:
 

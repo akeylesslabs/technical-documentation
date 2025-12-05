@@ -70,6 +70,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
             - name: "/akeyless-github-action/github-static-secret-json"
               output-name: "my_first_secret"
 ```
+
 ```yaml AWS IAM
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
@@ -79,6 +80,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
               output-name: "my_first_secret"
               key: "imp"
 ```
+
 ```yaml Azure
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
@@ -88,6 +90,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
               output-name: "my_first_secret"
               key: "imp"
 ```
+
 ```yaml GCP
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
@@ -98,6 +101,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
               output-name: "my_first_secret"
               key: "imp"
 ```
+
 ```yaml K8s
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
@@ -109,6 +113,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
               output-name: "my_first_secret"
               key: "imp"
 ```
+
 ```yaml Universal Identity
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
@@ -119,6 +124,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
               output-name: "my_first_secret"
               key: "imp" 
 ```
+
 ```yaml Access Key
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
@@ -129,6 +135,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
               output-name: "my_first_secret"
               key: "imp"
 ```
+
 ```yaml TLS Certificate
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}

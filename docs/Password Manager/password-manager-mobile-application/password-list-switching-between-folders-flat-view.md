@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports both folder and flat views for secrets and keys. 
+Akeyless supports both folder and flat views for secrets and keys.
 
 By default, Akeyless is in folder view.
 

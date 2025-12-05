@@ -33,7 +33,7 @@ To start on your Akeyless journey using your iOS/Android device, follow these st
 
 * Install Akeyless App: Download and install the Akeyless app from the [Apple App Store or Google Play Store](https://docs.akeyless.io/docs/installation-of-akeyless-mobile-application). Search for "Akeyless" and tap the "Get" button to install the app on your iOS device.
 * Launch Akeyless App: Once the installation is complete, launch the Akeyless app by tapping on its icon on your iOS/Android device's home screen.
-* Initiate Setup Process: Upon opening the Akeyless app, you will be prompted to initiate the setup process. 
+* Initiate Setup Process: Upon opening the Akeyless app, you will be prompted to initiate the setup process.
 * Enter Your Credentials: Enter your Akeyless account credentials, which will include the Access ID you've received from your administrator.
 * Authenticate and Complete Setup: Follow the on-screen instructions to authenticate your identity and complete the setup process, which will include allowing the Akeyless app to be the autofill service.
 

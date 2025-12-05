@@ -103,5 +103,3 @@ Where:
 * **Organization ID:** The Organization where that API Key will be created.
 
 * **OpenAI URL:** The endpoint for the OpenAI API
-
-<br />

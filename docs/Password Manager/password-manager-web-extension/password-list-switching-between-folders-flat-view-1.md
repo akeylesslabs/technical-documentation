@@ -26,6 +26,6 @@ The folder view displays your passwords and secrets in a hierarchical structure,
 
 To switch between the flat and folder views, follow these steps:
 
-1. Navigate to the Flat View / Folder View icon located near the search field. 
-2. Click on the Flat view option to reveal all passwords within the folders and show the flat view. 
+1. Navigate to the Flat View / Folder View icon located near the search field.
+2. Click on the Flat view option to reveal all passwords within the folders and show the flat view.
 3. Click on the Folder list to show the folder structure.

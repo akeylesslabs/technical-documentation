@@ -32,7 +32,7 @@ akeyless gateway-create-migration \
 
 `-n, --name`: **Required**, Migration name for display
 
-`-t, --type `: **Required**, Migration type (`hashi/aws/gcp/k8s/azure_kv/1password/active_directory`)
+`-t, --type`: **Required**, Migration type (`hashi/aws/gcp/k8s/azure_kv/1password/active_directory`)
 
 `-l, --target-location`: **Required**, Target location in Akeyless for imported secrets
 
@@ -60,9 +60,9 @@ akeyless gateway-create-migration \
 
 `-v, --azure-kv-name`: Azure Key Vault Name (relevant only for Azure Key Vault migration)
 
-` -a, --azure-tenant-id`: Azure Key Vault Access tenant ID (relevant only for Azure Key Vault migration)
+`-a, --azure-tenant-id`: Azure Key Vault Access tenant ID (relevant only for Azure Key Vault migration)
 
-`-c, --azure-client-id `: Azure Key Vault Access client ID, should be Azure AD App with a service principal (relevant only for Azure Key Vault migration)
+`-c, --azure-client-id`: Azure Key Vault Access client ID, should be Azure AD App with a service principal (relevant only for Azure Key Vault migration)
 
 `-s, --azure-secret`: Azure Key Vault secret (relevant only for Azure Key Vault migration)
 
@@ -76,11 +76,11 @@ akeyless gateway-create-migration \
 
 `--k8s-client-cert`: Kubernetes Client certificate with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Certificate Authentication method)
 
-`--k8s-client-key `: Kubernetes Client key (relevant only for Kubernetes migration with Certificate Authentication method)
+`--k8s-client-key`: Kubernetes Client key (relevant only for Kubernetes migration with Certificate Authentication method)
 
 `--k8s-username`: Kubernetes Client username with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Password Authentication method)
 
-` --k8s-password`: Kubernetes Client password (relevant only for Kubernetes migration with Password Authentication method)
+`--k8s-password`: Kubernetes Client password (relevant only for Kubernetes migration with Password Authentication method)
 
 `--k8s-token`: Kubernetes Bearer Token with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Token Authentication method)
 
@@ -258,7 +258,7 @@ Akeyless gateway-sync-migration \
 
 ##### Flags
 
-`-n, --name `: **Required**, Migration name
+`-n, --name`: **Required**, Migration name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -295,7 +295,7 @@ akeyless gateway-update-migration \
 
 `-g, --gcp-key-file-path`: Path to file with the base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
 
-`-G, --gcp-key-data `: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration).
+`-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration).
 
 `-U, --hashi-url`: HashiCorp Vault API URL, e.g. `https://vault-mgr01:8200` (relevant only for HashiCorp Vault migration)
 
@@ -307,7 +307,7 @@ akeyless gateway-update-migration \
 
 `-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, e.g. 'arn:aws:secretsmanager:[Region]:[AccountId]: secret:[/path/to/secrets/*]' (relevant only for AWS migration)
 
-` -K, --aws-key`: AWS Secret Access Key (relevant only for AWS migration)
+`-K, --aws-key`: AWS Secret Access Key (relevant only for AWS migration)
 
 `--aws-region[=us-east-2]`: AWS region of the required Secrets Manager (relevant only for AWS migration)
 

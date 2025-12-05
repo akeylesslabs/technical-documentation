@@ -102,6 +102,7 @@ akeyless dynamic-secret create artifactory  \
 --target-name <Target Name> \
 --gateway-url <Artifactory REST URL:8000 must end with artifactory postfix) 
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
@@ -153,6 +154,7 @@ akeyless dynamic-secret create aws \
 --aws-user-groups <UserGroup name> \
 --aws-role-arns <AWS Role ARNs>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create aws \
 --name <Dynamic Secret Name> \
@@ -190,7 +192,7 @@ akeyless dynamic-secret create aws \
 
 `--aws-external-id`: The AWS External ID associated with the AWS role, relevant only for Assumed role
 
-`--aws-user-console-access=[false] `: Enable AWS User console access, Default = false
+`--aws-user-console-access=[false]`: Enable AWS User console access, Default = false
 
 `--aws-user-programmatic-access[=true]`: Enable AWS User programmatic access, Default = true
 
@@ -242,6 +244,7 @@ akeyless dynamic-secret create azure \
 --fixed-user-only '< true / false >' \
 --fixed-user-claim-keyname <Key name of the IdP claim>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
@@ -279,7 +282,7 @@ akeyless dynamic-secret create azure \
 
 `--azure-user-principal-name`: Azure AD User Principal Name (required if selected Portal access)
 
-`--azure-user-group-obj-id `: Azure AD User Group Object ID (required if selected Portal access)
+`--azure-user-group-obj-id`: Azure AD User Group Object ID (required if selected Portal access)
 
 `--azure-administrative-unit`: Azure AD administrative unit (relevant only when `azure-user-portal-access`=`true`)
 
@@ -291,7 +294,7 @@ akeyless dynamic-secret create azure \
 
 `--fixed-user-claim-keyname`: For externally provided users, denotes the key-name of IdP claim to extract username from
 
-`--user-ttl[=60m] `: User TTL
+`--user-ttl[=60m]`: User TTL
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -318,6 +321,7 @@ akeyless dynamic-secret create cassandra  \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --cassandra-statements CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create cassandra  \
 --name <Dynamic Secret Name> \
@@ -343,7 +347,7 @@ akeyless dynamic-secret create cassandra  \
 
 `--cassandra-port[=904]`: Cassandra port
 
-`-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--cassandra-statements[=CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';]`: Cassandra Creation Statements
 
@@ -372,6 +376,7 @@ akeyless dynamic-secret create chef \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --chef-orgs <Chef organizations>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create chef \
 --name <Dynamic Secret Name> \
@@ -404,7 +409,7 @@ akeyless dynamic-secret create chef \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--user-ttl[=60m] `: User TTL
+`--user-ttl[=60m]`: User TTL
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -461,6 +466,7 @@ akeyless dynamic-secret create dockerhub \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read'
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create dockerhub \
 --name *<Dynamic Secret Name> \
@@ -480,11 +486,11 @@ akeyless dynamic-secret create dockerhub \
 
 `--dockerhub-password`: password for docker repository
 
-`--dockerhub-token-scopes `: Comma-separated access token scopes list to give the created dynamic secret. Valid options are in 'repo:admin', 'repo:write', 'repo:read', 'repo:public_read'
+`--dockerhub-token-scopes`: Comma-separated access token scopes list to give the created dynamic secret. Valid options are in 'repo:admin', 'repo:write', 'repo:read', 'repo:public_read'
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--user-ttl[=60m] `: User TTL (\<=60m for access token)
+`--user-ttl[=60m]`: User TTL (\<=60m for access token)
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
@@ -501,6 +507,7 @@ akeyless dynamic-secret create eks \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --eks-assume-role <Role ARN>
 ```
+
 ```shell inline connection
 akeyless dynamic-secret create eks \
 --name <Dynamic Secret Name> \
@@ -528,7 +535,7 @@ akeyless dynamic-secret create eks \
 
 `--eks-access-key-id`: EKS Access Key ID
 
-`--eks-secret-access-key `: EKS Secret Access Key
+`--eks-secret-access-key`: EKS Secret Access Key
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -567,6 +574,7 @@ akeyless dynamic-secret create gcp \
 --gcp-token-scopes <Token Scopes> \
 --gcp-key-algo <Service Key Algorithm>
 ```
+
 ```shell Inline Connection
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
@@ -590,11 +598,11 @@ akeyless dynamic-secret create gcp \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--gcp-key-file-path `: Path to file with the Base64-encoded service account private key
+`--gcp-key-file-path`: Path to file with the Base64-encoded service account private key
 
 `--gcp-key`: Base64-encoded service account private key text
 
-` --gcp-token-scopes`: Access token scopes list, e.g. scope,scope
+`--gcp-token-scopes`: Access token scopes list, e.g. scope,scope
 
 `--gcp-key-algo`: Service account key algorithm, e.g. KEY_ALG_RSA_04
 
@@ -673,6 +681,7 @@ akeyless dynamic-secret create github \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --installation-id <Your GitHub Installation ID>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create github \
 --name <Dynamic Secret Name> \
@@ -691,7 +700,7 @@ akeyless dynamic-secret create github \
 
 `--installation-organization`: Optional, instead of installation id, set a GitHub organization name
 
-`--installation-repository `: Optional, instead of installation id, set a GitHub repository \<`owner`>/\<`repo-name`>
+`--installation-repository`: Optional, instead of installation id, set a GitHub repository \<`owner`>/\<`repo-name`>
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
@@ -721,6 +730,7 @@ akeyless dynamic-secret create gke \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
@@ -760,7 +770,7 @@ akeyless dynamic-secret create gke \
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
-`--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -778,6 +788,7 @@ akeyless dynamic-secret create hanadb \
 --hanadb-creation-statements CREATE USER {{name}} PASSWORD '{{password}}';GRANT 'MONITOR ADMIN' TO {{name}}; \
 --hanadb-revocation-statements DROP USER {{name}};
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create hanadb \
 --name <Dynamic Secret Name> \
@@ -813,7 +824,7 @@ akeyless dynamic-secret create hanadb \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--user-ttl[=60m]`: User TTL
 
@@ -823,7 +834,7 @@ akeyless dynamic-secret create hanadb \
 
 `--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
-`--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
 `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
 
@@ -844,6 +855,7 @@ akeyless dynamic-secret create k8s \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --k8s-service-account <service account>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create k8s \ 
 --name <Dynamic Secret name> \
@@ -894,7 +906,7 @@ akeyless dynamic-secret create k8s \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--user-ttl[=60m] `: User TTL
+`--user-ttl[=60m]`: User TTL
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -927,6 +939,7 @@ akeyless dynamic-secret create ldap \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --user-dn <User Base DN>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create ldap \
 --name <Dynamic Secret Name> \
@@ -940,7 +953,7 @@ akeyless dynamic-secret create ldap \
 
 ##### Flags
 
-` -n, --name`: **Required**, Dynamic Secret name
+`-n, --name`: **Required**, Dynamic Secret name
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
@@ -960,7 +973,7 @@ akeyless dynamic-secret create ldap \
 
 `--bind-dn-password`: Password for LDAP Bind DN
 
-` --external-username[=false]`: Externally provided username
+`--external-username[=false]`: Externally provided username
 
 `--fixed-user-claim-keyname[=ext_username]`: For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username=true)
 
@@ -968,7 +981,7 @@ akeyless dynamic-secret create ldap \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--user-ttl[=60m] `: User TTL
+`--user-ttl[=60m]`: User TTL
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -999,6 +1012,7 @@ akeyless dynamic-secret create mongodb \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --mongodb-roles <New User Role>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create mongodb \
 --name <Dynamic Secret Name> \
@@ -1014,7 +1028,7 @@ akeyless dynamic-secret create mongodb \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`--target-name `: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -1038,7 +1052,7 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
 
-` --mongodb-atlas-project-id`: MongoDB Atlas project ID
+`--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
 `--mongodb-atlas-api-public-key`: MongoDB Atlas public key
 
@@ -1074,6 +1088,7 @@ akeyless dynamic-secret create mssql \
 --mssql-creation-statements CREATE LOGIN {{name}} WITH PASSWORD = '{{password}}'; \
 --mssql-revocation-statements DROP LOGIN '{{name}}';
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create mssql \
 --name *<Dynamic Secret Name> \
@@ -1091,7 +1106,7 @@ akeyless dynamic-secret create mssql \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`--target-name `: Name of existing target to use in Dynamic Secret creation
+`--target-name`: Name of existing target to use in Dynamic Secret creation
 
 `-d, --mssql-dbname`: MSSQL Server DB Name
 
@@ -1140,6 +1155,7 @@ akeyless dynamic-secret create mysql \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --mysql-statements CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON *.* TO '{{name}}'@'%';
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create mysql \
 --name <Dynamic Secret Name> \
@@ -1186,13 +1202,13 @@ akeyless dynamic-secret create mysql \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-`-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--password-length`: The length of the password to be generated
 
 `--secure-access-enable`: Enable/Disable secure remote access, [true/false]
 
-`--secure-access-bastion-issuer `: Path to the SSH Certificate Issuer for your Akeyless Bastion
+`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
 `--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts)
 
@@ -1211,6 +1227,7 @@ akeyless dynamic-secret create oracledb \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \ 
 --oracle-statements 'CREATE USER {{username}} IDENTIFIED BY {{password}}; GRANT CONNECT TO {{username}}; GRANT CREATE SESSION TO {{username}};'
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create oracledb \
 --name <Dynamic Secret Name> \
@@ -1282,6 +1299,7 @@ akeyless dynamic-secret create ping \
 --ping-grant-types AUTHORIZATION_CODES \
 --ping-redirect-uris <https://your-server.com/api/callback>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create ping \
 --name <Dynamic Secret Name> \
@@ -1352,6 +1370,7 @@ akeyless dynamic-secret create postgresql \
 --postgresql-statements 'CREATE USER {{name}} WITH PASSWORD {{password}}; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{name}}; GRANT CONNECT ON DATABASE postgres TO {{name}}; GRANT USAGE ON SCHEMA public TO {{name}};' \
 --postgresql-revoke-statement 'REASSIGN OWNED BY {{name}} TO {{userHost}}; DROP OWNED BY {{name}}; SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = {{name}}; DROP USER {{name}};'
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create postgresql \
 --name <Dynamic Secret Name> \
@@ -1393,7 +1412,7 @@ akeyless dynamic-secret create postgresql \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-`-u, --gateway-url[=http://localhost:8000] `: API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--password-length`: The length of the password to be generated
 
@@ -1422,6 +1441,7 @@ akeyless dynamic-secret create rabbitmq \
 --rabbitmq-user-write-permission <User write permission> \
 --rabbitmq-user-read-permission <User read permission>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create rabbitmq \
 --name <Dynamic Secret Name> \
@@ -1488,6 +1508,7 @@ akeyless dynamic-secret create rdp \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --rdp-user-groups <Group Name>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create rdp \
 --name <Dynamic Secret Name> \
@@ -1505,7 +1526,7 @@ akeyless dynamic-secret create rdp \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-g, --rdp-user-groups `: RDP UserGroup name(s). Multiple values should be separated by a comma
+`-g, --rdp-user-groups`: RDP UserGroup name(s). Multiple values should be separated by a comma
 
 `-r, --rdp-host-name`: RDP Hostname
 
@@ -1606,6 +1627,7 @@ akeyless dynamic-secret create redshift \
 --redshift-statements CREATE USER '{{username}}' WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO '{{username}}'; \
 --ssl '< true / false >'
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create redshift \
 --name <Dynamic Secret Name> \
@@ -1664,6 +1686,7 @@ akeyless dynamic-secret create snowflake \
 --role <New User Role> \
 --warehouse <Wahehouse Name>
 ```
+
 ```shell Inline connection
 akeyless dynamic-secret create snowflake \
 --name <Dynamic Secret Name> \
@@ -2793,7 +2816,7 @@ akeyless dynamic-secret update mysql \
 
 `--mysql-statements`: MySQL Creation Statements
 
-` --mysql-revocation-statements`: MySQL Revocation Statements
+`--mysql-revocation-statements`: MySQL Revocation Statements
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 

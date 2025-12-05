@@ -62,11 +62,11 @@ Exert granular control over your team's access to Akeyless by leveraging compreh
 
 ### Unified Akeyless Experience Across Devices
 
-Maintain a consistent and secure experience for your team by enforcing regular updates to the Akeyless [browser extension ](https://docs.akeyless.io/docs/password-manager-web-extension)and [mobile application](https://docs.akeyless.io/docs/password-manager-mobile-application) across all devices. This ensures that your team always has access to the latest security features and protection.
+Maintain a consistent and secure experience for your team by enforcing regular updates to the Akeyless [browser extension](https://docs.akeyless.io/docs/password-manager-web-extension) and [mobile application](https://docs.akeyless.io/docs/password-manager-mobile-application) across all devices. This ensures that your team always has access to the latest security features and protection.
 
 ### Securely Share Secrets With Anyone, Anytime
 
-Akeyless empowers you to securely [share static secrets ](https://docs.akeyless.io/docs/sharing-static-secrets)with anyone, even if they're not Akeyless users or part of your organization. Define a well-defined time-to-live (TTL) for each shared secret, ensuring that access expires after the specified period.
+Akeyless empowers you to securely [share static secrets](https://docs.akeyless.io/docs/sharing-static-secrets) with anyone, even if they're not Akeyless users or part of your organization. Define a well-defined time-to-live (TTL) for each shared secret, ensuring that access expires after the specified period.
 
 ### Add an Sub-administrator
 

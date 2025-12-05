@@ -16,7 +16,7 @@ Azure DevOps is a set of tools and services that help DevOps teams provision and
 
 With [this](https://github.com/LanceMcCarthy/akeyless-extension-azdo/) **community** plugin, you can fetch secrets directly from the Akeyless Platform into your workflows.
 
-This guide will demonstrate the use of an [ OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** to fetch both [Static ](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
+This guide will demonstrate the use of an [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ akeyless assoc-role-am --role-name /Dev/AzureRole \
 --sub-claims appid=<appid-string>
 ```
 
-Set `Read` permissions for **Items** for the **Access Role**:     
+Set `Read` permissions for **Items** for the **Access Role**:
 
 ```shell
 akeyless set-role-rule --role-name /Dev/AzureRole \

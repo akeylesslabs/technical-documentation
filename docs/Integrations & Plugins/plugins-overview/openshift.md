@@ -14,6 +14,6 @@ next:
       slug: kubernetes
       title: Kubernetes Plugin
 ---
-Red Hat OpenShift is an enterprise-ready Kubernetes container platform with full-stack automated operations to manage hybrid cloud, multi-cloud, and edge deployments. 
+Red Hat OpenShift is an enterprise-ready Kubernetes container platform with full-stack automated operations to manage hybrid cloud, multi-cloud, and edge deployments.
 
 Akeyless official [Kubernetes Plugins](https://docs.akeyless.io/docs/kubernetes-plugins) fully supports Red Had OpenShift and can be deployed on OpenShift platform.

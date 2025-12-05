@@ -81,6 +81,7 @@ akeyless gateway-create-k8s-auth-config \
 --k8s-ca-cert <CA_CERT> \
 --k8s-issuer <K8S_ISSUER>
 ```
+
 ```shell Rancher
 akeyless gateway-create-k8s-auth-config  --name k8s-conf-rancher \
 --gateway-url <https://Your-GW-URL>:8000 \
@@ -93,6 +94,7 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf-rancher \
 --rancher-api-key <API_KEY> \
 --rancher-cluster-id <CLUSTER_ID> \
 ```
+
 ```shell Gateway Service Account
 akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 --gateway-url <API Gateway URL:8000> \
@@ -115,7 +117,7 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 
 `--cluster-api-type[=native_k8s]`: Cluster access type. options: `native_k8s`, `rancher`
 
-` --k8s-host`: The URL of the kubernetes API server
+`--k8s-host`: The URL of the kubernetes API server
 
 `--k8s-ca-cert`: The CA Certificate (base64 encoded) to use to call into the kubernetes API server
 
@@ -245,7 +247,7 @@ akeyless gateway-update-k8s-auth-config \
 
 `--config-encryption-key-name`: Encrypt K8S Auth config with following key
 
-` -u, --gateway-url=[http://localhost:8000]`: API Gateway URL (Configuration Management port)
+`-u, --gateway-url=[http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--new-name`: **Required**, K8S Auth config new-name
 

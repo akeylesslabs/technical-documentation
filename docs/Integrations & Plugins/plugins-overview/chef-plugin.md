@@ -17,6 +17,6 @@ next:
       slug: chef-infra-plugin
       title: Chef Infra Plugin
 ---
-One common challenge organizations face when integrating Akeyless into their infrastructure is how to fetch secrets from Akeyless using a configuration management tool. 
+One common challenge organizations face when integrating Akeyless into their infrastructure is how to fetch secrets from Akeyless using a configuration management tool.
 
 Akeyless supports a few techniques for retrieving secrets using [Chef Infra Plugin](https://docs.akeyless.io/docs/chef-infra-plugin) and [Chef InSpec Plugin](https://docs.akeyless.io/docs/chef-inspec-plugin)

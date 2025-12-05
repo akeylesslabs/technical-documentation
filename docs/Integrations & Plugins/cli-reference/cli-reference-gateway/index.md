@@ -178,7 +178,7 @@ akeyless gateway-update-tls-cert \
 
 `--key-data`: TLS Private Key (base64 encoded), this flag is ignored if `--key-file-name` is supplied
 
-` --key-file-name`: Path to the file containing the TLS Private Key, this flag is ignored if `--key-data` is supplied
+`--key-file-name`: Path to the file containing the TLS Private Key, this flag is ignored if `--key-data` is supplied
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

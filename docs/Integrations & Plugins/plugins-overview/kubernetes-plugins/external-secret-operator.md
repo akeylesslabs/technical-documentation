@@ -29,7 +29,7 @@ In addition to retrieving secrets from Akeyless to your Kubernetes cluster, you 
 
 ## Prerequisites
 
-* [Helm ](https://helm.sh/) installed
+* [Helm](https://helm.sh/) installed
 * Kubernetes v1.16 or higher
 
 ## Installing With Helm
@@ -68,6 +68,7 @@ stringData:
   accessType: api_key
   accessTypeParam: <Access Key>
 ```
+
 ```yaml Kubernetes Auth
 apiVersion: v1
 kind: Secret
@@ -88,7 +89,7 @@ Where:
 
 * `accessType`: The Authentication Method type.
 
-* `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **Kubernetes**. For more options, check the official [provider ](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
+* `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **Kubernetes**. For more options, check the official [provider](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
 
 Apply the configuration:
 
@@ -317,6 +318,7 @@ Getting the Kubernetes secret:
 ```shell Certificate
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.crt}' | base64 -d 
 ```
+
 ```shell Private Key
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.key}' | base64 -d 
 ```

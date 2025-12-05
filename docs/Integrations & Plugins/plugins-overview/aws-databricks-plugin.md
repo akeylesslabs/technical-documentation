@@ -23,7 +23,7 @@ Akeyless helps avoid secret scattering across AWS Secrets Manager, Databricks se
 
 ### Supported Languages in Databricks
 
-#### Databricks Supports:
+#### Databricks Supports
 
 * Python (natively supported by Akeyless SDK)
 * Scala & R (via spark.conf or dbutils)

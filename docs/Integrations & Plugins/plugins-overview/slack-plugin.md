@@ -14,9 +14,9 @@ A **One-time Password** (OTP), also known as a one-time PIN, is a password valid
 
 ## Configuration
 
-Slack [Slash Commands](https://api.slack.com/interactivity/slash-commands) allows users to invoke the Akelyess app by typing a `/akeyless` into the message composer box. By enabling Slash Commands, the Akelyess app can be summoned by users from any conversation in Slack. 
+Slack [Slash Commands](https://api.slack.com/interactivity/slash-commands) allows users to invoke the Akelyess app by typing a `/akeyless` into the message composer box. By enabling Slash Commands, the Akelyess app can be summoned by users from any conversation in Slack.
 
-To Set the Slash command a workspace admin shall perform the following configuration: 
+To Set the Slash command a workspace admin shall perform the following configuration:
 
 **Command** - the name of the command, set to `/akeyless`
 
@@ -30,7 +30,7 @@ Short Description - exactly what it sounds like, a short description of what you
 
 ## Using AKEYLESS OTP Via Slack
 
-Type `/akeyless` in Slack and select the **OTP** option: 
+Type `/akeyless` in Slack and select the **OTP** option:
 
 ![](https://files.readme.io/e318cfb-image.png)
 

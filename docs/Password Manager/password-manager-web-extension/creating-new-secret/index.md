@@ -33,6 +33,6 @@ In the "Var" field, enter a unique combination of letters, symbols, and numbers.
 
 <Image align="right" width="200px" src="https://files.readme.io/774a6f9-Screenshot_2024-02-22_at_14.23.19.png" />
 
-Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password. 
+Optionally, you can specify the "Password Location" using the drop-down menu. to choose between "Corporate" and "Personal" areas to store the password.
 
 If you want to store the password in a folder, you can create a new folder by providing the name in the location field.

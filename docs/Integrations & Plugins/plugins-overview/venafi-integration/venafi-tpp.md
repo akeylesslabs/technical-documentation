@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To work with Venafi TPP, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer. 
+To work with Venafi TPP, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ To work with Venafi TPP, you can choose either to work with Venafi as your certi
 
 ## Usage
 
-**Venafi Issuer** 
+**Venafi Issuer**
 
 The following command creates a Venafi Dynamic Secret using Venafi as the **certificate issuer**:
 
@@ -41,7 +41,7 @@ Where:
 
 `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-`venafi-use-tpp`: Required when working with TPP. 
+`venafi-use-tpp`: Required when working with TPP.
 
 `venafi-access-token`: Venafi Access Token to use to access the TPP environment (Relevant when using TPP).
 
@@ -55,7 +55,7 @@ Where:
 
 The following commands create a Venafi Dynamic Secret using Akeyless as the **certificate issuer**.
 
-When using Akeyless as the issuer, first, you need to create an RSA key with a **self-signed certificate** attached: 
+When using Akeyless as the issuer, first, you need to create an RSA key with a **self-signed certificate** attached:
 
 ```shell
 akeyless create-dfc-key \
@@ -80,9 +80,9 @@ Where:
 
 **Note: Once the key is created, it will be uploaded automatically to Akeyless.**
 
-The certificate attached to the private key must have at least a **Common Name (CN)** with it. 
+The certificate attached to the private key must have at least a **Common Name (CN)** with it.
 
-Create the Venafi Dynamic Secret in Akeyless gateway: 
+Create the Venafi Dynamic Secret in Akeyless gateway:
 
 ```shell
 akeyless dynamic-secret create venafi \
@@ -130,7 +130,7 @@ Once your Venafi Dynamic Secret has been successfully created, you can request a
 
 **Certificate request**:
 
-Certificate request using **Common Name (CN)**: 
+Certificate request using **Common Name (CN)**:
 
 ```shell
 akeyless get-dynamic-secret-value \
@@ -142,7 +142,7 @@ Certificate request via **Certificate Signing Request (CSR)**:
 
 To fetch a new certificate via **CSR**, you need to create your **CSR** and send it to the Akeyless gateway in base64 encoding.
 
-Create a **CSR**: 
+Create a **CSR**:
 
 ```shell
 CSR=$(akeyless generate-csr \
@@ -153,7 +153,7 @@ CSR=$(akeyless generate-csr \
 --common-name marketing.newyork.company.com | base64)
 ```
 
-Get the Dynamic Secret using the **Certificate request:** 
+Get the Dynamic Secret using the **Certificate request:**
 
 ```shell
 akeyless get-dynamic-secret-value \
@@ -163,6 +163,6 @@ akeyless get-dynamic-secret-value \
 
 In the response, you’ll see the relevant information and artifacts for the request including the `certificate`, `serial number`, `common name` and `expiration`.
 
- Depending on your flow you may also see the `certificate chain`, `issuing ca`, `ca chain`, and `private key`. 
+ Depending on your flow you may also see the `certificate chain`, `issuing ca`, `ca chain`, and `private key`.
 
 The artifacts `certificate`, `certificate chain` and `private key` can also be found as static secrets under the Artifacts Folder defined in the dynamic secret's settings.

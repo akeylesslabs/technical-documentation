@@ -49,7 +49,7 @@ While Databricks supports SQL, most SQL queries don’t require secrets — henc
 
 ### Language Support
 
-#### Databricks Supports:
+#### Databricks Supports
 
 * Python ✅ (fully supported by Akeyless SDK)
 * Scala / R ✅ (via Spark config or Databricks utilities)
@@ -72,7 +72,7 @@ println(s"Retrieved API Key: $apiKey")
 
 This notebook retrieves a secret (API key), fetches data from a public API, and saves it into a Databricks table.
 
-#### Step-by-Step Notebook:
+#### Step-by-Step Notebook
 
 ```shell Python
 # Install Akeyless packages

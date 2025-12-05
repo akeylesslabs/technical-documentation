@@ -46,9 +46,9 @@ with the relevant flags according to the `access-type` being used.
 
 `--ldap_proxy_url`: Address URL for LDAP proxy (relevant only for access-type=`ldap`)
 
-`--username `: LDAP username (relevant only for access-type=`ldap`)
+`--username`: LDAP username (relevant only for access-type=`ldap`)
 
-`--password `: LDAP password (relevant only for access-type=`ldap`)
+`--password`: LDAP password (relevant only for access-type=`ldap`)
 
 `--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for access-type=`gcp`)
 
@@ -326,7 +326,7 @@ akeyless auth-method create cert \
 
 `--revoked-cert-ids`: A list of revoked cert ids
 
-` -u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
+`-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
 ### `Email`
 
@@ -400,7 +400,7 @@ akeyless auth-method create gcp \
 
 `--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-` --audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 

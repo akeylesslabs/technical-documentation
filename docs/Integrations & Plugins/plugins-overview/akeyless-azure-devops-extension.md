@@ -95,7 +95,7 @@ steps:
   displayName: 'Initialize agent with Fetched Secrets'
 ```
 
-#### Key Points:
+#### Key Points
 
 * The `secretsPaths` input accepts a comma-separated list of key/value pairs where the key is the name of the output Azure DevOps Pipeline variable and the value is secret path.
 * Secrets are automatically marked as secret variables in the pipeline, meaning their values will be masked in logs.
@@ -208,7 +208,7 @@ steps:
   displayName: 'Connect to PostgreSQL with Dynamic Credentials'
 ```
 
-#### Key Points:
+#### Key Points
 
 * Dynamic secrets generate credentials on-demand and are typically time-limited.
 * The `target` parameter specifies the type of dynamic secret (e.g., 'postgresql', 'mysql', 'aws')

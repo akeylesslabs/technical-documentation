@@ -49,6 +49,7 @@ akeyless dynamic-secret create snowflake \
 --password <Snowflake password> \
 --db-name <Database to which the generated credentials are restricted>
 ```
+
 ```shell RSA Private Key Login
 akeyless dynamic-secret create akeyless dynamic-secret get-valuesnowflake \
 --name <Secret Name> \

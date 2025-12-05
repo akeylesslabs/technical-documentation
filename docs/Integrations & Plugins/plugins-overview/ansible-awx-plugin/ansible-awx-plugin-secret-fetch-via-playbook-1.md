@@ -12,7 +12,7 @@ next:
 ---
 This article uses the **Vault Secret Lookup** plugin for Ansible AWX.
 
-There are two main parameters used to configure the connection to Akeyless - the **URL**, and a **Token** for access. 
+There are two main parameters used to configure the connection to Akeyless - the **URL**, and a **Token** for access.
 
 The lookup plugin uses these via the environment variables `VAULT_ADDR` and `VAULT_TOKEN`.
 
@@ -22,13 +22,13 @@ The lookup plugin uses these via the environment variables `VAULT_ADDR` and `VAU
 
 ## Prepare AWX Environment
 
-Clone the latest stable version of the project and check all the dependencies as mentioned in the [getting started ](https://github.com/ansible/awx/blob/17.0.1/INSTALL.md#getting-started)section: 
+Clone the latest stable version of the project and check all the dependencies as mentioned in the [getting started](https://github.com/ansible/awx/blob/17.0.1/INSTALL.md#getting-started) section:
 
 ```shell
 git clone -b <x.y.z> https://github.com/ansible/awx.git
 ```
 
-Choose the desired [deployment platform](https://github.com/ansible/awx/blob/17.0.1/INSTALL.md#docker-compose), the following guide will describe the use of Docker Compose: 
+Choose the desired [deployment platform](https://github.com/ansible/awx/blob/17.0.1/INSTALL.md#docker-compose), the following guide will describe the use of Docker Compose:
 
 ```shell
 sudo mkdir /root/.awx/awxcompose
@@ -43,7 +43,7 @@ You can either use Akelyess [API Key](https://docs.akeyless.io/docs/api-key) in 
 
 A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter i.e.: `< Access ID >..< Access Key >`.
 
-Alternatively, to extract your authorization tokens directly using the [Akelyess CLI](https://docs.akeyless.io/docs/cli) `auth` command as part of your workflow variables : 
+Alternatively, to extract your authorization tokens directly using the [Akelyess CLI](https://docs.akeyless.io/docs/cli) `auth` command as part of your workflow variables :
 
 ```shell
 VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}')
@@ -61,9 +61,9 @@ You can now select to populate the Username and Password fields from an external
 
 ## Static Secrets
 
-To work with Static secrets, the Path to Secret should be in this format for **KV 1**: 
+To work with Static secrets, the Path to Secret should be in this format for **KV 1**:
 
-`secret/data/<Full Secret Name>`, where the Key Name in the returned JSON name is `data`. 
+`secret/data/<Full Secret Name>`, where the Key Name in the returned JSON name is `data`.
 
 For example, let's create a secret:
 
@@ -83,11 +83,11 @@ In case the secret value itself is a JSON-structured object, the **Path** must b
 akeyless create-secret -n /DevOps/AnsibleJson -v '{"username":"john","password":"secret"}'
 ```
 
-The **Key names** can be: `username` and `password` where the **Path** is `secret/DevOps/AnsibleJson` 
+The **Key names** can be: `username` and `password` where the **Path** is `secret/DevOps/AnsibleJson`
 
 ![](https://files.readme.io/4ce297c-Ansible6.png "Ansible6.png")
 
-To work with **KV 2** use the following format: 
+To work with **KV 2** use the following format:
 
 To fetch the secret **/DevOps/Ansible** :
 
@@ -97,15 +97,15 @@ To fetch the secret **/DevOps/Ansible** :
 
 For example, to fetch the secret **/DevOps/AnsibleJson** :
 
-The **Path** should be `secret/DevOps/AnsibleJson`, and the **Key name** should be set with the relevant JSON keys. 
+The **Path** should be `secret/DevOps/AnsibleJson`, and the **Key name** should be set with the relevant JSON keys.
 
 ## Dynamic Secrets
 
-To use your Ansible Plugin to fetch Dynamic Secrets: 
+To use your Ansible Plugin to fetch Dynamic Secrets:
 
 The **Path** should be in the following format: `<Dynamic Secret type>/creds/<Full Secret Name>`
 
-The returned JSON object will have keys named `password` and `username`.e.g. 
+The returned JSON object will have keys named `password` and `username`.e.g.
 
 ```json
 {
@@ -114,6 +114,6 @@ The returned JSON object will have keys named `password` and `username`.e.g.
 }
 ```
 
-In this example, we are fetching a dynamic secret named **/databases/Mysql** using [MySQL Dynamic Secrets](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db). 
+In this example, we are fetching a dynamic secret named **/databases/Mysql** using [MySQL Dynamic Secrets](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db).
 
 ![](https://files.readme.io/c79f90c-AnsibleDynamicSecret.png "AnsibleDynamicSecret.png")

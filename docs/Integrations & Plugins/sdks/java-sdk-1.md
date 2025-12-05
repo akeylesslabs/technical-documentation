@@ -112,7 +112,7 @@ To work with a Cloud-based Auth,  Add the Akeyless [Cloud ID library](https://ak
 
 Make sure to set the relevant `CloudId` package version.
 
-Import the [Cloud ID library ](https://akeyless.jfrog.io/ui/native/akeyless-java/io/akeyless/cloudid)into your project:
+Import the [Cloud ID library](https://akeyless.jfrog.io/ui/native/akeyless-java/io/akeyless/cloudid) into your project:
 
 ```java
 import io.akeyless.client.ApiException;
