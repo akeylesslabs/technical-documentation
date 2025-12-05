@@ -19,11 +19,11 @@ Some types of items or deletion flows have special rules for their deletion:
 
 * If the item is a key that encrypts a different item in the system (Static Secret, Dynamic Secret, Certificate Issuer, etc.), it cannot be deleted until items that are encrypted with it are also deleted.
 
-* If you have a key that is pending deletion but has not yet been deleted, you may cancel this deletion with the [Set Item State](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueset-item-statep) command.
+* If you have a key that is pending deletion but has not yet been deleted, you may cancel this deletion with the [Set Item State](https://docs.akeyless.io/docs/cli-reference-encryption-keys#/set-item-state) command.
 
 * You may replace the `delete-item` command with `delete-items` to delete all items in a specific path, or to delete multiple items explicitly, however, this only supports immediate deletion.
 
-* [Targets](https://docs.akeyless.io/docs/cli-reference-akeyless-targets#p-stylecolorbluedelete-targetp) and [Event Forwarders](https://docs.akeyless.io/docs/cli-reference#p-stylecolorbluedelete-event-forwarderp) are deleted with a separate command, and not with the standard `delete-item` / `delete-items`
+* [Targets](https://docs.akeyless.io/docs/cli-reference-event-forwarders#/event-forwarder-delete) and [Event Forwarders](https://docs.akeyless.io/docs/cli-reference-event-forwarders#/event-forwarder-delete) are deleted with a separate command, and not with the standard `delete-item` / `delete-items`
 
 # Deleting an Item in the CLI
 

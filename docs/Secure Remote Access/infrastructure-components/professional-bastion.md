@@ -30,7 +30,7 @@ To spin Akeyless Professional-Bastion using docker please refer to the last sect
 
 * Kubernetes Installed.
 
-* [SSH Certificate](https://docs.akeyless.io/docs/how-to-configure-ssh)
+* [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates)
 
 ****Storage****
 
@@ -65,7 +65,7 @@ helm repo update
 
 The values.yaml file holds default values, replace the values with the ones from your environment where needed.
 
-[https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-ssh-bastion](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-ssh-bastion)
+https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-ssh-bastion
 
 If you don't have an SSH certificate ready, please follow this guide on how to create [SSH Cert issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) with Akeyless vault and set your CA Public key in the values.yaml file.
 

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-# Azure
+## Azure
 
 You can define an Azure AD target to be used with [Azure AD dynamic secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD rotated secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret).
 
-# Create an Azure AD Target from the CLI
+### Create an Azure AD Target from the CLI
 
 To create an Azure AD target from the CLI, run the following command:
 
@@ -36,9 +36,9 @@ Where:
 
 * **tenant-id:** Your Azure Tenant ID.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-reference-akeyless-targets#p-stylecolorbluecreate-azure-target-p) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Targets](https://docs.akeyless.io/docs/cli-ref-targets#/azure) section.
 
-# Create an Azure AD Target in the Akeyless Console
+### Create an Azure AD Target in the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Cloud Targets > Azure**.
 
@@ -73,7 +73,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 5. Click **Save**.
 
-# Create an Azure Storage Account Target from the CLI
+### Create an Azure Storage Account Target from the CLI
 
 To create a new Azure Target for an Azure Storage Account, run the following command in the CLI:
 
@@ -104,11 +104,11 @@ Where:
 
 * **resource-name:** The name of the Azure Storage account.
 
-# GCP
+## GCP
 
 You can define a GCP target to be used with [GCP dynamic secrets](https://docs.akeyless.io/docs/gcp-dynamic-secrets).
 
-# Create a GCP Target from the CLI
+### Create a GCP Target from the CLI
 
 To create a GCP target from the CLI, run the following command:
 
@@ -127,9 +127,9 @@ Where:
 
 * **gcp-sa-email:** The GCP service account email.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-reference-akeyless-targets#p-stylecolorbluecreate-gcp-targetp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Targets](https://docs.akeyless.io/docs/cli-ref-targets#/gcp) section.
 
-# Create a GCP Target in the Akeyless Console
+### Create a GCP Target in the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Cloud Targets > GCP**.
 

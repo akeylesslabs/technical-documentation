@@ -57,7 +57,7 @@ To provide just-in-time native CLI access for your users using [Keyless SSH](htt
 
 > 📘 Info
 >
-> If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) with Akeyless Platform and set your CA.
+> If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA.
 
 ## Authentication
 

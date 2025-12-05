@@ -66,7 +66,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 >
 > The Credential Kind you select determines which authentication backend will be used. If you wish to use another [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), see the different [Credential Types supported using the Vault plugin](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-plugin-usage).
 >
-> Keep in mind you can always use any of the Akeyless authentication methods via the [Vault Token File Credential](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-vault-token-file-credential) where the temporary token is read from a file on your Jenkins host. You can use this in combination with a script (using the `akeyless auth` [CLI command](https://docs.akeyless.io/docs/cli-reference-auth) for example) to output a periodically refreshing **temporary access token** into the file in question.
+> Keep in mind you can always use any of the Akeyless authentication methods via the [Vault Token File Credential](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-vault-token-file-credential) where the temporary token is read from a file on your Jenkins host. You can use this in combination with a script (using the `akeyless auth` [CLI command](https://docs.akeyless.io/docs/cli-ref-auth) for example) to output a periodically refreshing **temporary access token** into the file in question.
 
 7. In the **Build Environment** tab, from the **Vault Credential** dropdown list, select the new credential, then select **Advanced**.
 
