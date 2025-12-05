@@ -31,7 +31,7 @@ p-XXXXX..AccessKey
 vault read {producer-type}/creds/{full/path/to/producer-name}
 ```
 
-Supported producer types: 
+Supported producer types:
 
 ```shell
 "*"
@@ -105,7 +105,7 @@ To delete a secret from Akeyless:
 
 > 📘 Info
 >
-> An optional flag: `-versions` , a list of specific versions you would like to delete from Akeyless , for example: 
+> An optional flag: `-versions` , a list of specific versions you would like to delete from Akeyless , for example:
 >
 > `vault kv delete -versions=2,6,15 secret/{secret-name}`
 >

@@ -17,7 +17,7 @@ next:
 
 ## Authentication
 
-The following Authentication Methods can be used: 
+The following Authentication Methods can be used:
 
 * [API Key](https://docs.akeyless.io/docs/api-key)
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
@@ -60,7 +60,7 @@ akeyless set-role-rule --role-name /Dev/Spire-Server-Role \
 
 Log into the console using a Gateway admin account, navigate to the **Gateways** tab, and choose the relevant **Gateway**.
 
-Click on **Access Permissions** and click on  **New**: 
+Click on **Access Permissions** and click on  **New**:
 
 Give it a meaningful **Name**, choose the **Auth Method**, and click next.
 
@@ -84,6 +84,7 @@ Next, [download](https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plu
 curl -o AkeylessKeyManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms-amd64-linux-v0.0.8
 chmod +x AkeylessKeyManager
 ```
+
 ```shell ARM64
 curl -o AkeylessKeyManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms-arm64-linux-v0.0.6
 chmod +x AkeylessKeyManager
@@ -121,15 +122,15 @@ Where:
 
 * `akeyless_gateway_url` -  Akeyless Gateway URL API v2 endpoint.
 
-* `access_id` - The **Auth Method** `AccessID` 
+* `access_id` - The **Auth Method** `AccessID`
 
-* `access_key` - Optional, The `AccessKey`. Relevant only for **API Key**. 
+* `access_key` - Optional, The `AccessKey`. Relevant only for **API Key**.
 
 * `key_metadata_file` - A file path location where information about generated keys will be persisted
 
 * `target_folder` - A path to save all items inside Akeyless where the generated `KEY-ID` will be stored using the following form `/SPIRE/Keys/{TRUST_DOMAIN}/{SERVER_ID}/{KEY_ID}`
 
-For **K8s**,**GCP** or **AzureAD** Auth methods set the following settings as well: 
+For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as well:
 
 * `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
 

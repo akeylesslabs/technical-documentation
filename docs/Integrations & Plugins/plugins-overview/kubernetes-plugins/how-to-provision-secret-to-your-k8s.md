@@ -103,7 +103,7 @@ Modify the following values under the `env` section as follows:
 
 * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`.  To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
 
-* `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically ](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically)the docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public**  registry.
+* `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public**  registry.
 
 * Optional `AKEYLESS_IGNORE_CACHE`:  to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
 
@@ -301,6 +301,7 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pv-claim
 ```
+
 ```yaml Wordpress.yaml
 apiVersion: v1
 kind: Service
@@ -463,6 +464,7 @@ The injector can be set with credentials of your **private** registry using a se
   "password": ""
 }
 ```
+
 ```json Token
 {
   "token": "<value>"

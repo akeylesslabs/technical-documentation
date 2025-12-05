@@ -55,6 +55,7 @@ To use it with the Akeyless CLI, add it to your Akeyless commands in one of the 
 akeyless list-items --uid-token u-XXXXXXXX
 akeyless get-secret-value -n MyFirstSecret --uid-token u-XXXXXXXX
 ```
+
 ```curl
 curl https://<Gateway-URL>:8080 -d "cmd=get-secret-value&name=MyFirstSecret&&uid-token=u-XXXXX"
 curl https://<Gateway-URL>:8080 -d "cmd=list-items&&uid-token=u-XXXXX"
@@ -79,6 +80,7 @@ To rotate a token use the following command:
 ```shell CLI
 akeyless uid-rotate-token --uid-token u-XXXXXXXX
 ```
+
 ```curl CURL
 curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 ```
@@ -110,6 +112,7 @@ To rotate a token with backward compatibility:
 ```shell CLI
 akeyless rotate-token --token u-XXXXXXXX
 ```
+
 ```curl
 curl https://<Gateway-URL>:8080 -d "cmd=rotate-token&&token=u-XXXXX"
 ```
@@ -139,6 +142,7 @@ If you use child tokens and want to see the structure of your token tree, use th
 ```shell CLI
 akeyless uid-list-children --uid-token u-XXXXXXXX
 ```
+
 ```shell Result
 akeyless uid-list-children --uid-token u-XXXXXXXX
 Universal Identity Details:

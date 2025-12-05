@@ -23,21 +23,25 @@ curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/prod
 chmod +x akeyless
 ./akeyless
 ```
+
 ```shell Linux ARM
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-arm64
 chmod +x akeyless
 ./akeyless
 ```
+
 ```shell macOS Intel
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-darwin-amd64
 chmod +x akeyless
 ./akeyless
 ```
+
 ```shell macOS Apple Silicon
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-darwin-arm64
 chmod +x akeyless
 ./akeyless
 ```
+
 ```powershell Windows
 curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-windows-amd64.exe
 .\akeyless.exe
@@ -48,6 +52,7 @@ Alternatively, you can install it using a package manager, such as: `brew`,  `ap
 ```shell brew
 brew install akeylesslabs/tap/akeyless
 ```
+
 ```shell apt
 apt-get update && apt-get install -y curl gnupg 
 
@@ -61,6 +66,7 @@ tee /etc/apt/sources.list.d/akeyless.list
 apt-get update 
 apt-get install -y akeyless
 ```
+
 ```shell yum
 yum install -y curl gnupg2
 
@@ -82,6 +88,7 @@ yum clean all
 yum makecache
 yum install -y akeyless
 ```
+
 ```shell dnf
 dnf install -y curl gnupg2 
 
@@ -209,7 +216,7 @@ The CLI supports various types of [Authentication Methods](https://docs.akeyless
 3. [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) (`azure_ad`)
 4. [SAML](https://docs.akeyless.io/docs/saml) (`saml`)
 5. Password (`email/password`)
-6. [Certificate ](https://docs.akeyless.io/docs/certificate-based-authentication) (`certificate`)
+6. [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) (`certificate`)
 7. [OIDC](https://docs.akeyless.io/docs/openid) (`oidc`)
 8. [K8s](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
 9. [GCP](https://docs.akeyless.io/docs/gcp-auth-method) (`GCP`)
@@ -282,6 +289,7 @@ To re-route the entire traffic directly via your [Gateway](https://docs.akeyless
 ```shell Linux
 export AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8000/api/v1> 
 ```
+
 ```shell Windows
 set AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8080>
 ```

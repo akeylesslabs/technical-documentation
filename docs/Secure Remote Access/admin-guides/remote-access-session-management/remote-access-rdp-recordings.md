@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-RDP Session Recording is managed entirely through your Gateway's console under the "Remote Access" section in the Gateway settings. These sessions generate video recordings that can be uploaded to either AWS S3 or Azure Blob Storage for secure storage or can be saved locally. 
+RDP Session Recording is managed entirely through your Gateway's console under the "Remote Access" section in the Gateway settings. These sessions generate video recordings that can be uploaded to either AWS S3 or Azure Blob Storage for secure storage or can be saved locally.
 
 ## Session Recording
 
@@ -20,7 +20,7 @@ SRA supports the recording of RDP sessions. You can choose to store RDP Session 
 
 ### Compression & Encryption
 
-SRA supports compressing and encrypting RDP session recordings to optimize storage and protect sensitive content. The feature is available for both legacy Helm charts and the latest unified charts via the Console. 
+SRA supports compressing and encrypting RDP session recordings to optimize storage and protect sensitive content. The feature is available for both legacy Helm charts and the latest unified charts via the Console.
 
 #### Quality (Resolution)
 
@@ -51,7 +51,7 @@ The final file name indicates which operations were applied:
 
 #### How Encoding Runs
 
-Encoding is executed via a **[decrypt file command](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluedecrypt-filep)**. 
+Encoding is executed via a **[decrypt file command](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluedecrypt-filep)**.
 
 #### Where to Configure
 
@@ -124,6 +124,7 @@ akeyless gateway update remote-access-rdp-recording \
 --aws-storage-access-key-id <optional-explicit-key-id> \
 --aws-storage-secret-access-key <optional-explicit-access-key>
 ```
+
 ```shell Azure Blob
 akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \
@@ -135,6 +136,7 @@ akeyless gateway update remote-access-rdp-recording \
 --azure-storage-client-secret <optional-client-secret> \
 --azure-storage-tenant-id <optional-tenant-id> \
 ```
+
 ```shell Local
 akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \

@@ -16,10 +16,10 @@ The Akeyless browser extension seamlessly integrates with your favorite web brow
 
 > 📘 Installing Akeyless Extensions with SRA Support
 >
-> * To install the web extension for Akeyless Password Manager, please search for "**Akeyless Password Manager (PM only)**" in your browser's extension store. 
+> * To install the web extension for Akeyless Password Manager, please search for "**Akeyless Password Manager (PM only)**" in your browser's extension store.
 > * If you require the web extension that supports SRA, search for "**Akeyless Password Manager**" instead.
 
-### Akeyless Password Manager Firefox Installation:
+### Akeyless Password Manager Firefox Installation
 
 Supported Firefox: desktop version 91.1.0 or later.
 
@@ -51,7 +51,7 @@ To embark on a journey of effortless password management on Firefox, follow thes
 >
 > * The toggle switch should be turned on for this permission.
 
-### Akeyless Password Manager Google Chrome Installation:
+### Akeyless Password Manager Google Chrome Installation
 
 <Image align="center" width="300px" src="https://files.readme.io/3d3d29c-Screenshot_2024-05-07_at_16.02.38.png" />
 
@@ -65,7 +65,7 @@ Supported Google Chrome: Version 88+
 4. Review and Confirm Installation: Review the extension's requested permissions and click on the "Add extension" button to proceed.
 5. Pin Extension for Easy Access: For convenient access, right-click on the Akeyless icon in the toolbar and select "Pin" to keep it permanently visible.
 
-### Akeyless Password Manager Microsoft Edge Installation:
+### Akeyless Password Manager Microsoft Edge Installation
 
 Supported Microsoft Edge: Version 88+
 

@@ -30,9 +30,9 @@ Where:
 
 * `ldap-url`: The URL of your LDAP server (e.g., `ldap[s]://<hostname>:<port>`)
 
-* `bind-dn`: The Bind DN of your LDAP user, will be used for connection setup. 
+* `bind-dn`: The Bind DN of your LDAP user, will be used for connection setup.
 
-* `bind-dn-password`: The password of the LDAP user. 
+* `bind-dn-password`: The password of the LDAP user.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueldapp) section.
 

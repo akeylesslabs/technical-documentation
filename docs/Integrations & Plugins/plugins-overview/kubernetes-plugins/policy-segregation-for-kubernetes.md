@@ -22,11 +22,11 @@ Authorization in Kubernetes is intentionally high level, focused on coarse actio
 
 ## Namespace and Pod Segregation
 
-To fully segregate your cluster workloads so that your cluster namespaces/pods have different authorizations for the Akeyless Platform, you can use Akeyless [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth). 
+To fully segregate your cluster workloads so that your cluster namespaces/pods have different authorizations for the Akeyless Platform, you can use Akeyless [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth).
 
-For each required policy: 
+For each required policy:
 
-1. Create an authentication method. For details about the authentication methods that are supported for K8s, see [Authentication Methods for K8s](https://docs.akeyless.io/docs/auth-meth-k8s). 
+1. Create an authentication method. For details about the authentication methods that are supported for K8s, see [Authentication Methods for K8s](https://docs.akeyless.io/docs/auth-meth-k8s).
 
 The following example uses a pre-defined Kubernetes Auth method called K8s\_Auth in the K8s folder. Follow this guide to create a [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) method.
 

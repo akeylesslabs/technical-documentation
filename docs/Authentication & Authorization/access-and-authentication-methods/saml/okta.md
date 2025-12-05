@@ -16,7 +16,7 @@ To use Okta as an IdP to authenticate to the Akeyless Platform, follow the steps
 
 The following configuration will enable users to authenticate using Okta SAML-based Single Sign-On.
 
-1. Go to **Applications** in the left sidebar. Create a new app integration type **SAML 2.0** in your Okta account. 
+1. Go to **Applications** in the left sidebar. Create a new app integration type **SAML 2.0** in your Okta account.
 
 ![](https://files.readme.io/a915ffc-1.png "1.png")
 
@@ -78,7 +78,7 @@ Alternatively, you can create this Auth method from the Akeyless console.
 
 ## Authenticate Using SAML
 
-To log in using SAML from Akeyless CLI: 
+To log in using SAML from Akeyless CLI:
 
 1. You should configure a new profile with your Access-ID from the previous step and SAML type (if no profile name is provided, the default will be configured):
 

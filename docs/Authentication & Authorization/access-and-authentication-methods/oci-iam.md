@@ -25,6 +25,7 @@ Once the group is created, a policy needs to be added to it:
 allow dynamic-group <Dynamic-Group-Name> to {AUTHENTICATION_INSPECT} in tenancy
 allow dynamic-group <Dynamic-Group-Name> to {GROUP_MEMBERSHIP_INSPECT} in tenancy
 ```
+
 ```shell Group
 allow group <Group-Name> to {AUTHENTICATION_INSPECT} in tenancy
 allow group <Group-Name> to {GROUP_MEMBERSHIP_INSPECT} in tenancy
@@ -67,7 +68,7 @@ akeyless get-cloud-identity --oci-auth-type apikey
 
 Where:
 
-* `oci-auth-type`: Represents the [OCI Authentication type  ](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm) , supporting `apikey`,`resource` and `instance`.
+* `oci-auth-type`: Represents the [OCI Authentication type](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm), supporting `apikey`,`resource` and `instance`.
 
 > 📘 Note:
 >

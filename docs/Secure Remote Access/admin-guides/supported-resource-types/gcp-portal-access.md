@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to GCP Portal on a dedicated static secret that stores the credentials for GCP. 
+You can enable secure remote access to GCP Portal on a dedicated static secret that stores the credentials for GCP.
 
 Users can then access the GCP Portal from the Secure Remote Access Portal without being exposed to your GCP credentials in Isolated mode.
 
@@ -48,7 +48,7 @@ To enable secure remote access to the GCP Portal you need:
 
 **Secure Web Browsing (Isolated)**
 
-All secrets which have **Secure Web Browsing** option enabled are marked with a badge in the Akeyless Secure Remote Access Portal. 
+All secrets which have **Secure Web Browsing** option enabled are marked with a badge in the Akeyless Secure Remote Access Portal.
 
 > 👍 Note
 >

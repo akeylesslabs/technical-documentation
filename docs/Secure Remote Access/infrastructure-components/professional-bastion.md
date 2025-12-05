@@ -113,6 +113,7 @@ docker run --name ssh_bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900 \
        -v </path/to/akeyless_config_file/>:/var/akeyless/creds \
        --cap-add=SYS_ADMIN akeyless/ssh-proxy:latest
 ```
+
 ```text Ubuntu
 docker run --name ssh_bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900 \
        -v </path/to/akeyless_config_file/>:/var/akeyless/creds \

@@ -26,7 +26,7 @@ Akeyless SCP enables secure copy via [Remote Access](https://docs.akeyless.io/do
 
 ## Usage
 
-1. Download Akeyless SCP script: 
+1. Download Akeyless SCP script:
 
 ```curl Akeyless SCP
 curl -o akeyless-scp https://download.akeyless.io/Akeyless_Artifacts/Linux/SSH/akeyless-scp
@@ -87,9 +87,9 @@ SSH_EXTRA_ARGS=""
 SSH_EXTERNAL_CLIENT="ssh"
 ```
 
-The latest version of this file can be found in [Akeyless official artifacts](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/). 
+The latest version of this file can be found in [Akeyless official artifacts](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/).
 
-Edit the settings as follows: 
+Edit the settings as follows:
 
 `IDENTITY_FILE` - Default is `~/.ssh/id_rsa`. Full path to the private key to be signed and used for the Zero Trust session.
 
@@ -103,17 +103,17 @@ Edit the settings as follows:
 
 `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS.  
 
-`BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port. 
+`BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
 
-`BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra`  cluster service port. 
+`BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra`  cluster service port.
 
-**Optional** when working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port: 
+**Optional** when working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
 
 `BASTION_API_PREFIX` - Set your path prefix as your load balancer settings.
 
 `BASTION_API_PATH` - Set your path as your load balancer settings.
 
-Where the URL will be set as follow: 
+Where the URL will be set as follow:
 
 `${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}`
 
@@ -144,7 +144,7 @@ akeyless-scp user@destination-server -v <sra-bastion-ssh-service> --local-file /
 
 ## Working With SSH Keys
 
-When the remote host doesn’t support SSH Certificates, you can still work with **Akeyless SCP** utilizing SSH Keys where the relevant private key is stored as a [Static Secret](https://docs.akeyless.io/docs/static-secrets) within Akeyless, where the connection from the client to the Akeyless Bastion is established over short-lived SSH certificate, and from the Akeyless Bastion, the connection is established over SSH using keys, for example: 
+When the remote host doesn’t support SSH Certificates, you can still work with **Akeyless SCP** utilizing SSH Keys where the relevant private key is stored as a [Static Secret](https://docs.akeyless.io/docs/static-secrets) within Akeyless, where the connection from the client to the Akeyless Bastion is established over short-lived SSH certificate, and from the Akeyless Bastion, the connection is established over SSH using keys, for example:
 
 ```shell
 akeyless-scp <username>@<target-host> -v <sra-bastion-ssh-service> --local-file demo_file --remote-file /home/ubuntu/demo_file --name "/path/to/static-secret-of-ssh_private_key"

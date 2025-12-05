@@ -50,7 +50,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> **Use Gateway's Cloud Identity** is relevant for cases where your Gateway uses a GCP service account to authenticate against Akeyless. 
+> **Use Gateway's Cloud Identity** is relevant for cases where your Gateway uses a GCP service account to authenticate against Akeyless.
 >
 > For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/gcp-dynamic-secrets) for GCP, the target can be used for the temporary GCP service account key creation.
 

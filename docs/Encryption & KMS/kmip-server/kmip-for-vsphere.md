@@ -24,7 +24,7 @@ akeyless kmip-server-setup --hostname <akeyless.gateway.hostname> --gateway-url 
 akeyless kmip-create-client --name myVCenter --gateway-url <Your_Akeyless_GW_URL>
 ```
 
-This returns the `client ID`, `private key` and `certificate`: 
+This returns the `client ID`, `private key` and `certificate`:
 
 ```shell
 $ New client successfully created.
@@ -53,7 +53,7 @@ akeyless kmip-client-set-rule --gateway-url <Your_Akeyless_GW_URL> --client-id <
   --capability ACTIVATE
 ```
 
-## vCenter Server Setup:
+## vCenter Server Setup
 
 1. Log in to the vCenter Server system with the vSphere Web Client.
 

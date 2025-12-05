@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to RabbitMQ on the dynamic secret that generates ephemeral credentials for the RabbitMQ. Users can then access the RabbitMQ console from the Secure Remote Access Portal either over the web. 
+You can enable secure remote access to RabbitMQ on the dynamic secret that generates ephemeral credentials for the RabbitMQ. Users can then access the RabbitMQ console from the Secure Remote Access Portal either over the web.
 
 ### Prerequisite
 
@@ -40,7 +40,7 @@ akeyless dynamic-secret update rabbitmq \
 
 where:
 
-* **secure-access-url:** The RabbitMQ URL to inject credentials. 
+* **secure-access-url:** The RabbitMQ URL to inject credentials.
 * **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 ## Set Up Remote Access to RabbitMQ from the Akeyless Console
@@ -53,7 +53,7 @@ Let's set up remote access to RabbitMQ from the Akeyless Console. If you'd prefe
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-* `Injection URL`: Required, a RabbitMQ URL to inject credentials. 
+* `Injection URL`: Required, a RabbitMQ URL to inject credentials.
 * `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.

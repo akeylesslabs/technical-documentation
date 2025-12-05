@@ -16,7 +16,7 @@ The akeyless mcp command starts an MCP server that enables AI assistants such as
 
 Model Context Protocol (MCP) is an open standard that allows AI assistants to securely access external data sources and tools.
 
-### With MCP, You Can:
+### With MCP, You Can
 
 * Safely authenticate AI assistants with Akeyless
 * Interact with Akeyless secrets, targets, and other resources

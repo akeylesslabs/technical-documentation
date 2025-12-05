@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-**GoDaddy** Target enables you to use GoDaddy as a Public CA with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). 
+**GoDaddy** Target enables you to use GoDaddy as a Public CA with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
-With Public CA, Akeyless cannot access the private key that signs the certificates. Hence, Akeyless will programmatically contact GoDaddy through the [Gateway](https://docs.akeyless.io/docs/api-gw) using IMAP user credentials to validate the certificate request. Akeyless will store and manage the issued certificates and notify you of upcoming expiration events. 
+With Public CA, Akeyless cannot access the private key that signs the certificates. Hence, Akeyless will programmatically contact GoDaddy through the [Gateway](https://docs.akeyless.io/docs/api-gw) using IMAP user credentials to validate the certificate request. Akeyless will store and manage the issued certificates and notify you of upcoming expiration events.
 
 ## Create a GoDaddy Target in the CLI
 
@@ -67,7 +67,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **API Secret:** **GoDaddy API Key Secret**.
 
-* **Customer ID:**  **GoDaddy Customer ID**, required for certificate renewals. 
+* **Customer ID:**  **GoDaddy Customer ID**, required for certificate renewals.
 
 * **IMAP Username:** An email address of the user registered to the IMAP service
 

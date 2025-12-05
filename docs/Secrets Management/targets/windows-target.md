@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a Windows target to be used with an RDP [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets). Akeyless Windows Targets use WinRM by default over TLS. While Windows Secrets Rotation also supports SSH targets, for legacy environments, you can work with Akeyless Windows Targets instead. 
+You can define a Windows target to be used with an RDP [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets). Akeyless Windows Targets use WinRM by default over TLS. While Windows Secrets Rotation also supports SSH targets, for legacy environments, you can work with Akeyless Windows Targets instead.
 
 ## Create a Windows Target in the CLI
 
@@ -32,7 +32,7 @@ Where:
 
 * `username`: A local or domain Windows priviledge username.
 
-* `password`: The password of the Windows user. 
+* `password`: The password of the Windows user.
 
 > 👍 Note
 >
@@ -53,7 +53,7 @@ You can find the complete list of parameters for this command at the [CLI Refere
 
 4. Define the remaining parameters as follows:
 
-* **Hostname** ,**Port** , **Username**  and **Domain** to set up the connection. 
+* **Hostname** ,**Port** , **Username**  and **Domain** to set up the connection.
 
 * **TLS:** Check to work with TLS and load your CA certificate.
 
@@ -92,7 +92,7 @@ Ensure that the firewall on the target machine allows WinRM traffic. You can use
 Get-NetFirewallRule | Where-Object { $_.DisplayName -like "*WinRM*" }
 ```
 
-**Check Windows Event Logs**: 
+**Check Windows Event Logs**:
 
 Inspect the Windows Event Logs for WinRM-related events that might provide additional information about any issues:
 

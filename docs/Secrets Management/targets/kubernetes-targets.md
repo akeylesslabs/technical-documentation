@@ -116,7 +116,7 @@ Where:
 >
 > Use this command to extract the private key value from your file:
 >
-> ` jq -r '.private_key | gsub("\\\\n"; "\\n")' /path/to/your/file.json`
+> `jq -r '.private_key | gsub("\\\\n"; "\\n")' /path/to/your/file.json`
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluegkep) section.
 
@@ -175,6 +175,7 @@ akeyless target create k8s \
 --k8s-cluster-ca-cert <Kubernetes Cluster certificate> \
 --k8s-cluster-token <Kubernetes Cluster authentication token>
 ```
+
 ```shell Inline connection with certificate
 akeyless target create k8s \
 --name <Target name> \

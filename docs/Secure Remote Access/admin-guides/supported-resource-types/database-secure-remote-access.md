@@ -49,6 +49,7 @@ akeyless dynamic-secret update <mongodb/mssql/mysql/oracledb/postgresql/redshift
 --secure-access-db-schema <schema-name> \
 --secure-access-certificate-issuer </Path/to/SSH/Cert/Issuer>
 ```
+
 ```shell Rotated Secret
 akeyless rotated-secret update <mongodb/mssql/mysql/oracledb/postgresql/redshift/snowflake> \
 --name <rotated secret name> \
@@ -82,12 +83,12 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 * `Host(s)`:  The hostname (or IP address) and port for accessing the database as defined in the dynamic secret.
 * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
-For **Web Access**, define the following fields: 
+For **Web Access**, define the following fields:
 
 * `DB Name`:  The name of the database as defined in the dynamic secret.
 * `Schema`: Optional, only supported for MSSQL and PostgreSQL database dynamic secrets.
 
-For **CLI Access**, define the following field: 
+For **CLI Access**, define the following field:
 
 * `SSH Cert Issuer`: The path to the SSH Certificate Issuer that should be used for certificate authentication.
 

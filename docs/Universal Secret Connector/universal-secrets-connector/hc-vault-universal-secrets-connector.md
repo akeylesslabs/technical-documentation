@@ -21,7 +21,7 @@ This page discusses the creation of Hashicorp Vault [Universal Secrets Connector
 This section will discuss the different commands necessary to handle USCs. While the initial creation command is a regular Akeyless command, management of USCs is done through a set of sub-commands, which all have the prefix `usc` added to them, as will be shown later in this section. If the prefix is not added to these sub-commands, they will not work.
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
-* [Hashicorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target) which holds an access token with permissions to `create`, `delete`, `update`, `read` and `list` secrets. 
+* [Hashicorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target) which holds an access token with permissions to `create`, `delete`, `update`, `read` and `list` secrets.
 
 ### Creating a USC
 

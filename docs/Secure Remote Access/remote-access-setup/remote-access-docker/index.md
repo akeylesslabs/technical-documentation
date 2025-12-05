@@ -113,7 +113,7 @@ SSH_HOST_KEYS_PATH=""
 
 > 🚧 Restricting User Access
 >
-> To enable only specific users to use Secure Remote Access, make sure to add the relevant `GATEWAY_AUTHORIZED_ACCESS_ID` in the `sra.env `file.
+> To enable only specific users to use Secure Remote Access, make sure to add the relevant `GATEWAY_AUTHORIZED_ACCESS_ID` in the `sra.env` file.
 >
 > A comma-separated list can be used for multiple IDs. While this is not mandatory, it is a good security practice to limit user access. If not configured, a Warning message will appear.
 
@@ -140,7 +140,7 @@ The above command will deploy SRA (if Gateway is not deployed, it will deploy th
 
 > 📘 Verify Deployment
 >
-> Check that the deployed containers are running with `docker ps `
+> Check that the deployed containers are running with `docker ps`
 
 To stop and remove all services, run:
 

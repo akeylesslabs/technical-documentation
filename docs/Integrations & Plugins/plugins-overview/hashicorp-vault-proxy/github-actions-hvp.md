@@ -64,7 +64,7 @@ git push -u origin main
 
 4. Select **Add secret**.
 
-The GitHub repository is now configured with an access token for Akeyless. 
+The GitHub repository is now configured with an access token for Akeyless.
 
 ## Set Up a GitHub Self-Hosted Runner
 
@@ -113,7 +113,7 @@ jobs:
 
 Note that the token used to authenticate is set to the **VAULT\_TOKEN** secret you defined in the GitHub repository.
 
-where **secret/data** is a required prefix, followed by the secret path.  In this example, the secret <code>actions</code> in the Akeyless Platform is stored in the <code>/ci/Gitsecret/</code> folder. Therefore, the secret path is <code>/ci/Gitsecret/actions</code>, the selector is `ci/Gitsecret/actions`, and `action` is an environment variable that can be used in the workflow. 
+where **secret/data** is a required prefix, followed by the secret path.  In this example, the secret <code>actions</code> in the Akeyless Platform is stored in the <code>/ci/Gitsecret/</code> folder. Therefore, the secret path is <code>/ci/Gitsecret/actions</code>, the selector is `ci/Gitsecret/actions`, and `action` is an environment variable that can be used in the workflow.
 
 > 🚧 Warning
 >
@@ -131,7 +131,7 @@ secrets: |
   secret/data/ci/Gitsecret app_secret | secret_app ;
 ```
 
-<code>app\_secret</code> is the key name and <code>secret\_app</code> is the environment variable to store the secret value within your flow. 
+<code>app\_secret</code> is the key name and <code>secret\_app</code> is the environment variable to store the secret value within your flow.
 
 ## Trigger the GitHub Runner
 

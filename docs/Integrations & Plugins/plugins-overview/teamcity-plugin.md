@@ -18,7 +18,7 @@ When performing integration tests and deployments, build scripts need credential
 
 ## Prerequisites
 
-1. A TeamCity server with an authorized BuildAgent. 
+1. A TeamCity server with an authorized BuildAgent.
 
 2. An [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) configured in the Akeyless Platform with access to secrets that will be used by the build agent.
 
@@ -66,7 +66,7 @@ Where:
 
 * **Vault URL:** Specify your Gateway URL with the HVP port: `https://<Your-Gateway-URL>:8200` or use the public endpoint of Akeyless HVP: `https://hvp.akeyless.io`.
 
-* **Authentication method:** Select the authentication method to use when authenticating with Akeyless. 
+* **Authentication method:** Select the authentication method to use when authenticating with Akeyless.
 
 Available options: AWS IAM, LDAP, or Akeyless [API Key](https://docs.akeyless.io/docs/api-key) (Vault AppRole).
 
@@ -96,13 +96,13 @@ After that, you need to create an environment variable in your TeamCity project 
 
 Where:
 
-* **Name:** Specify your parameter name (without any prefixes). 
+* **Name:** Specify your parameter name (without any prefixes).
 
 * **Kind:** Select the **Environment variable (env.)** parameter type. This will add an **env.** prefix to the parameter name, but later in the build script, you should specify the name without a prefix.
 
 * **Value:** Provide the full path to your secret in Akeyless using the following format:
 
-Syntax: 
+Syntax:
 
 `%vault:secret/PATH!KEY%` where **PATH** is the secret full name, and **KEY** is the specific value inside.
 
@@ -126,19 +126,19 @@ In the Audit Logs screen, you'll see that the script requested and successfully 
 
 Where:
 
-* **Name:** Specify your parameter name (without any prefixes). 
+* **Name:** Specify your parameter name (without any prefixes).
 
 * **Kind:** Select the **Environment variable (env.)** parameter type. This will add an **env.** prefix to the parameter name, but later in the build script, you should specify the name without a prefix.
 
 * **Value:** Provide the full path to your secret in Akeyless using the following format:
 
-Syntax: 
+Syntax:
 
 `%vault:/<dynamic-secret-type>/creds/<path/to/secretname>!/<JSON Entry>%`
 
 In our example: `%vault:/mysql/creds/hvp/mysql!/username%` and `%vault:/mysql/creds/hvp/mysql!/password%` where the dynamic secret name is `/mysql`.
 
-Another example: 
+Another example:
 
 `%vault:azure/creds/<path/to/secretname>!/user.password%`\
 `%vault:azure/creds/<path/to/secretname>!/user.userPrincipalName%`

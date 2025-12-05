@@ -40,7 +40,7 @@ As both classic SSH and RDP access are based on SSH certificates, to support leg
 
 ## RDP User Acces
 
-Set the `usernameSubClaim` with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username. 
+Set the `usernameSubClaim` with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
 
 ```yaml
 ############
@@ -53,7 +53,7 @@ RDPusernameSubClaim:
 SSHusernameSubClaim:
 ```
 
-This will take effect on all SSH-based sessions, both for RDP and Linux-based systems. To split the use case when to extract the `usernameSubClaim` you can set instead a dedicated setting for each type. 
+This will take effect on all SSH-based sessions, both for RDP and Linux-based systems. To split the use case when to extract the `usernameSubClaim` you can set instead a dedicated setting for each type.
 
 ## Proxy
 
@@ -92,6 +92,7 @@ config:
       # Specifies an existing secret to be used for bastion, management AWS credentials
       existingSecret: ""
 ```
+
 ```yaml Azure Blob
 config:
     rdpRecord:
@@ -110,7 +111,7 @@ config:
       existingSecret: ""
 ```
 
-To authenticate using an explicit **AWS Key**  provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **K8s Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**. 
+To authenticate using an explicit **AWS Key**  provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **K8s Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
 
 To store local recordings inside your Bastion server, set the `KeepLocalRecording` with `true`, session recordings will be stored inside the bastion under `/home/akeyless/recordings`.
 
@@ -132,7 +133,7 @@ To enable log forwarding to an existing log management system, please find a lis
 
 ## Redirect to Bastion URLs
 
-To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**: 
+To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**:
 
 ```yaml
 ztbConfig:
@@ -203,6 +204,7 @@ ztbConfig:
     - name: KEYBOARD_LAYOUT
       value: fr-fr-azerty # Other options can be found below
 ```
+
 ```yaml Layout Options
 value: da-dk-qwerty # Danish (Qwerty)
 value: de-ch-qwertz # Swiss German (Qwertz)

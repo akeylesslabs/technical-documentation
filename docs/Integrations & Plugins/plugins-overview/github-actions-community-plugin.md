@@ -12,11 +12,11 @@ next:
 ---
 ## Overview
 
-GitHub Actions enables you to automate workflows for your GitHub-hosted repositories. 
+GitHub Actions enables you to automate workflows for your GitHub-hosted repositories.
 
 With [this](https://github.com/LanceMcCarthy/akeyless-action) **community** plugin, you can fetch secrets directly from the Akeyless Platform into your workflows.
 
-This guide will demonstrate the uses of [ OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) and [AWS IAM](https://docs.akeyless.io/docs/aws-iam) **Authentication Methods** to fetch both [Static ](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
+This guide will demonstrate the uses of [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) and [AWS IAM](https://docs.akeyless.io/docs/aws-iam) **Authentication Methods** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ akeyless assoc-role-am --role-name /Dev/GitHubRole \
 --sub-claims repository=<octo-org/octo-repo>
 ```
 
-Set `Read` permissions for **Items** for the **Access Role**:     
+Set `Read` permissions for **Items** for the **Access Role**:
 
 ```shell
 akeyless set-role-rule --role-name /Dev/GitHubRole \
@@ -97,7 +97,7 @@ akeyless create-auth-method-aws-iam \
 --bound-aws-account-id <AWS Account ID>
 ```
 
-Create an  [Access Role ](https://docs.akeyless.io/docs/rbac):
+Create an  [Access Role](https://docs.akeyless.io/docs/rbac):
 
 ```shell
 akeyless create-role --name /Dev/AWSRole
@@ -110,7 +110,7 @@ akeyless assoc-role-am --role-name /Dev/AWSRole \
 --am-name /Dev/AWSAuth
 ```
 
-Set `Read` permissions for **Items** for the **Access Role**:     
+Set `Read` permissions for **Items** for the **Access Role**:
 
 ```shell
 akeyless set-role-rule --role-name /Dev/AWSRole \
@@ -149,7 +149,7 @@ Create a static secret using the following command:
 akeyless create-secret --name /GitHub/MyGitSecret --value <Secret value>
 ```
 
-Example of fetching a static secret using OAuth 2.0 / JWT and AWS\_IAM Authentication Methods :
+Example of fetching a static secret using OAuth 2.0 / JWT and AWS IAM Authentication Methods:
 
 ```yaml JWT
 name: 'Static-Secret'
@@ -177,6 +177,7 @@ jobs:
         echo "Environment Variables"
         echo "MY_SECRET: ${{ env.MY_SECRET }}"
 ```
+
 ```yaml AWS_IAM
 name: 'Static-Secret'
 on: push
@@ -240,6 +241,7 @@ jobs:
         echo "secret_access_key: ${{ env.JWT_secret_access_key }}"
         echo "type: ${{ env.JWT_type }}"
 ```
+
 ```yaml Parsed
 name: 'MyDynamicSecret'
 on: push
