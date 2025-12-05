@@ -32,6 +32,7 @@ jobs:
         run: |
           set -euo pipefail
 
+          # 1. Set up ignoring files
           ignore_file() {
             local file="$1"
             # strip leading ./ for comparison
@@ -47,6 +48,7 @@ jobs:
             return 1
           }
 
+          # 2. Set up report
           mkdir -p .github/heading-audit
           REPORT=".github/heading-audit/heading-report.md"
 
@@ -57,16 +59,17 @@ jobs:
 
           FOUND_ISSUES=0
 
+          # 3. Detect any usage of Heading 1 in Markdown.
           echo "## Files using Heading 1 (#)" >> "$REPORT"
           echo "" >> "$REPORT"
 
-          # 1. Detect any usage of Heading 1 in Markdown.
-          #    Match lines starting with a single `#` and a space, but not `##`.
           while IFS= read -r -d '' FILE; do
             # Skip ignored files
             if ignore_file "$FILE"; then
               continue
             fi
+
+            # Match lines starting with a single `#` and a space, but not `##`.
             if grep -qE '^[[:space:]]*#[[:space:]]*[^#]' "$FILE"; then
               FOUND_ISSUES=$((FOUND_ISSUES+1))
               echo "- $FILE" >> "$REPORT"
@@ -74,15 +77,17 @@ jobs:
           done < <(find . -type f -name "*.md" -print0)
 
           echo "" >> "$REPORT"
+          
+          # 4. Detect pages that don't use Heading 2 but use other headings.
           echo "## Files that use headings but have no Heading 2 (##)" >> "$REPORT"
           echo "" >> "$REPORT"
 
-          # 2. Detect pages that don't use Heading 2 but use other headings.
           while IFS= read -r -d '' FILE; do
             # Skip ignored files
             if ignore_file "$FILE"; then
               continue
             fi
+
             # Does the file have ANY markdown headings (#..######)?
             if grep -qE '^[[:space:]]*#{1,6}[[:space:]]+' "$FILE"; then
               # Does the file have a Heading 2?
@@ -90,6 +95,44 @@ jobs:
                 FOUND_ISSUES=$((FOUND_ISSUES+1))
                 echo "- $FILE" >> "$REPORT"
               fi
+            fi
+          done < <(find . -type f -name "*.md" -print0)
+
+          echo "" >> "$REPORT"
+
+          # 5. Detect out-of-sequence heading jumps (e.g., H2 -> H4 with no H3)
+          echo "## Files with out-of-sequence heading levels" >> "$REPORT"
+          echo "" >> "$REPORT"
+
+          while IFS= read -r -d '' FILE; do
+            # Skip ignored files
+            if ignore_file "$FILE"; then
+              continue
+            fi
+
+            # Detect out-of-sequence headings
+            prev_level=0
+            bad=""
+            # Read file line by line to track heading levels
+            while IFS= read -r line; do
+              # Match markdown heading: leading #'s + space
+              if [[ "$line" =~ ^[[:space:]]*(#+)[[:space:]]+ ]]; then
+                hashes="${BASH_REMATCH[1]}"
+                level=${#hashes}
+
+                # Only flag if we jump UP by more than 1 (e.g., H2 -> H4).
+                if (( prev_level > 0 && level > prev_level + 1 )); then
+                  bad="H${prev_level} -> H${level}"
+                  break
+                fi
+
+                prev_level=$level
+              fi
+            done < "$FILE"
+
+            if [[ -n "$bad" ]]; then
+              FOUND_ISSUES=$((FOUND_ISSUES+1))
+              echo "- $FILE (${bad})" >> "$REPORT"
             fi
           done < <(find . -type f -name "*.md" -print0)
 
