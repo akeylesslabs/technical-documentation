@@ -1,7 +1,7 @@
 ---
 name: CLIGeneralFlags
 ---
-# General Flags
+## General Flags
 
 `--profile, --token`:  Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temporary access token
 
