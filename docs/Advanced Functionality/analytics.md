@@ -23,8 +23,6 @@ The user can change the timeframe for which the data is presented.
 
 <Image align="center" src="https://files.readme.io/7469f53-Screenshot_at_Nov_23_14-36-38.png" />
 
-<br />
-
 Navigate to the **Certificates** tab to get an immediate overview of your certificate's status with additional details on future expiration.
 
 <Image align="center" src="https://files.readme.io/f7946c8-Screenshot_at_Nov_23_15-02-11.png" />
@@ -39,4 +37,4 @@ akeyless get-analytics-data
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports" target="_blank" style={{ color: "#00e" }}>Audit Logs, Analytics, and Usage Reports</a>.
+Check out our tutorial video on [Audit Logs, Analytics, and Usage Reports](https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports).

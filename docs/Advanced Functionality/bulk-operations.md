@@ -228,11 +228,11 @@ Only objects visible to the user making the action will be moved. However, the o
 
 In the case of a duplicate as a result of running the operation, the operation will fail on a `409`.
 
-For example the CLI command use: 
+For example the CLI command use:
 
 * `objects-type` - The object type you like to move ( `item/auth_method/target/role` ), the default is `item`
 * `source` - Path to the folder to move
-* `target` - Path to the new/existing folder 
+* `target` - Path to the new/existing folder
 
 Examples of prerequisites - `/folder/src` is created with 2 items:
 

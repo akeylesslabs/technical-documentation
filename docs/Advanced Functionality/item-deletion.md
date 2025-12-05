@@ -91,7 +91,7 @@ akeyless delete-item -n key1 --version=1 --delete-in-days=30
 Item key1 version 1 set to be deleted on 2020-01-30 08:10:00 +0000 UTC
 ```
 
-Example 5 - Deleting multiple items: 
+Example 5 - Deleting multiple items:
 
 ```shell
 # Delete an entire folder 

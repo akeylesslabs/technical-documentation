@@ -37,6 +37,7 @@ akeyless event-forwarder create servicenow \
 --runner-type[=immediate] <immediate, periodic> \
 --every <1-24 hours> \
 ```
+
 ```shell User-Pass
 akeyless event-forwarder create servicenow \
 --name MyForwarder \
@@ -49,7 +50,7 @@ akeyless event-forwarder create servicenow \
 --admin-pwd <Admin password>
 ```
 
-The main parameters for the command are as follows: 
+The main parameters for the command are as follows:
 
 * `name`: **Event Forwarder** name
 
@@ -97,7 +98,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Name**: The **ServiceNow** event forwarder name
 * **ServiceNow URL**: The **URL** which will receive the notifications from Akeyless
 
-Choose Authentication Type (**Password /  JWT**) 
+Choose Authentication Type (**Password /  JWT**)
 
 * For **Password**:
 

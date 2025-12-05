@@ -54,4 +54,4 @@ The logs will show up as a line of text, from which you will be able to read the
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports" target="_blank" style={{ color: "#00e" }}>Audit Logs, Analytics, and Usage Reports</a>.
+Check out our tutorial video on [Audit Logs, Analytics, and Usage Reports](https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports).

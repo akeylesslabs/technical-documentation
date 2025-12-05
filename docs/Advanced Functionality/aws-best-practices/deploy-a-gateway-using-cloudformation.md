@@ -51,7 +51,7 @@ In addition, to create an authentication methods that support user login, for si
 
 4. Click **Add** to define permissions:
 
-   * **Type**: **Items** and **Targets** 
+   * **Type**: **Items** and **Targets**
 
    * **Access Path**: Apply recursively
 
@@ -257,6 +257,7 @@ Outputs:
     Value: !GetAtt DockerInstanceRole.Arn
 
 ```
+
 ```yaml Gateway With Exmaples
 AWSTemplateFormatVersion: '2010-09-09'
 

@@ -32,6 +32,7 @@ akeyless event-forwarder create webhook \
 --runner-type[=immediate] <immediate, periodic> \
 --every <1-24 hours> \
 ```
+
 ```shell Token
 akeyless event-forwarder create webhook \
 --name MyForwarder \
@@ -45,6 +46,7 @@ akeyless event-forwarder create webhook \
 --runner-type[=immediate] <immediate, periodic> \
 --every <1-24 hours> \
 ```
+
 ```shell Certificate
 akeyless event-forwarder create webhook \
 --name MyForwarder \
@@ -62,7 +64,7 @@ akeyless event-forwarder create webhook \
 --every <1-24 hours> \
 ```
 
-The main parameters for the command are as follows: 
+The main parameters for the command are as follows:
 
 * `name`: **Event Forwarder** name
 
@@ -112,11 +114,11 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Webhook URL**: The **URL** which will receive the notifications from Akeyless
 * **Server Certificate**: **PEM certificate** of the **Webhook**
 
-Choose Authentication Type (**Password / Token / Certificate**) 
+Choose Authentication Type (**Password / Token / Certificate**)
 
 * For **Password**:
 
-  * Provide: **Username** and a **Password** 
+  * Provide: **Username** and a **Password**
 
 * For **Token**:
 
@@ -124,7 +126,7 @@ Choose Authentication Type (**Password / Token / Certificate**)
 
 * For **Certificate**:
 
-  * Provide: **PEM Certificate** and a **PEM Private Key** 
+  * Provide: **PEM Certificate** and a **PEM Private Key**
 
 * **Gateway**: Choose a gateway from the list
 

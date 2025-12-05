@@ -26,7 +26,7 @@ For Organization integration, ensure you have an existing AWS environment with A
 
 3. [Terraform](https://developer.hashicorp.com/terraform) Installed.
 
-4. An [AWS IAM](https://docs.akeyless.io/docs/aws-iam) authentication method & [Access Role](https://docs.akeyless.io/docs/rbac) on your Akeyless account, this [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) can support many AWS accounts. Alternatively, you can create a dedicated auth method per account, ending with a unique access ID per account. In both cases, the [RBAC](https://docs.akeyless.io/docs/rbac) in Akeyless can isolate the access permissions inside Akeyless per account. 
+4. An [AWS IAM](https://docs.akeyless.io/docs/aws-iam) authentication method & [Access Role](https://docs.akeyless.io/docs/rbac) on your Akeyless account, this [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) can support many AWS accounts. Alternatively, you can create a dedicated auth method per account, ending with a unique access ID per account. In both cases, the [RBAC](https://docs.akeyless.io/docs/rbac) in Akeyless can isolate the access permissions inside Akeyless per account.
 
 ## Create the Required IAM Roles
 
@@ -54,7 +54,7 @@ Provision **one IAM role per AWS account** , each tied to a **unique External 
 
 1. **Create an AWS Target in Akeyless** for **each account** using the **Gateway Cloud ID** option. Leave **Role ARN** blank for now or with the default ARN.  Check the **External ID** option and copy the random value.
 2. **Run Terraform in each account**, supplying:  
-   * `trusted_principal`The IAM role ARN the **Gateway** runs under (in the management account). 
+   * `trusted_principal`The IAM role ARN the **Gateway** runs under (in the management account).
    * `external_id`The string you copied from the Akeyless **AWS Target**.
 3. After `terraform apply`, copy the role’s **ARN** back into the same **AWS Target** and save.
 4. Repeat for every AWS account you want to manage.
@@ -219,6 +219,7 @@ output "role_arn" {
   description = "Created IAM Role ARN"
 }
 ```
+
 ```yaml env-vars.tf
 variable "management_account" {
   description = "AWS Management Account ID"
@@ -431,6 +432,7 @@ output "role_arn" {
 }
 
 ```
+
 ```yaml env-vars.tf
 variable "role_name" {
   description = "IAM role name for Destination Account (the one being created)"
