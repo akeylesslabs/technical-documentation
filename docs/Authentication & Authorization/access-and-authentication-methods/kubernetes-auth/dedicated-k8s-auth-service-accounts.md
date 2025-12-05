@@ -120,6 +120,7 @@ To extract the Kubernetes cluster CA cert used to talk to Kubernetes API run the
 CA_CERT=$(kubectl config view --raw --minify --flatten  \
     --output 'jsonpath={.clusters[].cluster.certificate-authority-data}')
 ```
+
 ```shell Rancher
 CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/ p' | base64)
 ```
@@ -183,6 +184,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf \
 --k8s-ca-cert $CA_CERT \
 --k8s-issuer $K8S_ISSUER
 ```
+
 ```shell Rancher
 akeyless gateway-create-k8s-auth-config --name k8s-conf-rancher \
 --gateway-url https://<Your_Akeyless_GW_URL:8000> \
@@ -214,7 +216,7 @@ Where:
 
 * `k8s-ca-cert`: The certificate to use to validate the Kubernetes cluster.
 
-* `k8s-issuer`: Optional, the[ Kubernetes JWT issuer name](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) (default is `kubernetes/serviceaccount`).
+* `k8s-issuer`: Optional, the [Kubernetes JWT issuer name](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) (default is `kubernetes/serviceaccount`).
 
 When the cluster access type is **Rancher**, add the following parameters:
 (in addition to the relevant parameters above)

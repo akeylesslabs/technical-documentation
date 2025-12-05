@@ -18,17 +18,17 @@ next:
 
 > 📘 Info
 >
-> To set K8s Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the K8s Auth. 
+> To set K8s Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the K8s Auth.
 >
 > Notice: K8s Client certificate authentication is **not supported by EKS**.
 
 ## Client Certificate Authentication
 
-Client certificate-based authentication using a dedicated K8s user, instead of the bearer token flow, enables receiving notifications in advance of certificate expiration. This approach also follows K8s best practices for auth strategies since no token is being exchanged as part of the flow directly with your cluster. 
+Client certificate-based authentication using a dedicated K8s user, instead of the bearer token flow, enables receiving notifications in advance of certificate expiration. This approach also follows K8s best practices for auth strategies since no token is being exchanged as part of the flow directly with your cluster.
 
 ### K8s Client Creation
 
-Create a client key using a Certificate Signing Request (CSR): 
+Create a client key using a Certificate Signing Request (CSR):
 
 ```shell
 export USER_NAME="AkeylessK8sAuth";
@@ -96,6 +96,7 @@ To extract the K8s cluster CA cert. used to talk to the K8s API, run the followi
 CA_CERT=$(kubectl config view --raw --minify --flatten  \
     --output 'jsonpath={.clusters[].cluster.certificate-authority-data}')
 ```
+
 ```shell Rancher
 CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/ p' | base64)
 ```
@@ -141,13 +142,13 @@ Extract the issuer:
 K8S_ISSUER=$(curl -s http://localhost:8001/k8s-api/.well-known/openid-configuration | jq -r .issuer)
 ```
 
-Or extract the issuer directly from your pod token: 
+Or extract the issuer directly from your pod token:
 
 ```shell Issuer Discovery
 K8S_ISSUER=$(jq -R 'split(".") | .[1] | @base64d | fromjson |.iss' <<< $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) -r)
 ```
 
-Use the Akeyless CLI to create the K8s auth config using the Client Certificate. 
+Use the Akeyless CLI to create the K8s auth config using the Client Certificate.
 
 ```shell Native K8s
 akeyless gateway-create-k8s-auth-config 
@@ -178,15 +179,15 @@ Where:
 
 * `k8s-host`: The URL of your **K8s Cluster**.
 
-* `k8s-client-certificate`: The client's certificate in `PEM` format and `base64` encoding. 
+* `k8s-client-certificate`: The client's certificate in `PEM` format and `base64` encoding.
 
 * `k8s-client-key`: The client's private key in `PEM` format and `base64` encoding.
 
 * `k8s-ca-cert`: The certificate to validate the K8s cluster.
 
-* `k8s-issuer`: Optional ,the[ Kubernetes JWT issuer name](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) (default is `kubernetes/serviceaccount`).
+* `k8s-issuer`: Optional ,the [Kubernetes JWT issuer name](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) (default is `kubernetes/serviceaccount`).
 
-Upon successful creation, the response: 
+Upon successful creation, the response:
 
 ```shell
 K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
@@ -252,7 +253,7 @@ Token: t-bb7b...3564a7c9
 
 ## Available Claims for K8s Auth
 
-The following list of claims can be configured within Akeyless [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for K8s. 
+The following list of claims can be configured within Akeyless [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for K8s.
 
 ```yaml
 "service_account_name"
@@ -268,9 +269,9 @@ Each claim can be enforced as part of your role association to enforce the right
 
 ## Enable Token Request Projection on Minikube
 
-To enable token request projection on a managed K8s cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide. 
+To enable token request projection on a managed K8s cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide.
 
-To get this to work with Minikube you can start your cluster with the following configuration. 
+To get this to work with Minikube you can start your cluster with the following configuration.
 
 ```shell CLI
 minikube start \

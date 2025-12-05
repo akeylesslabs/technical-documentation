@@ -171,7 +171,7 @@ Allow the Kubernetes service account to impersonate the IAM service account by a
 
 Replace the following:
 `PROJECT_ID`: your Google Cloud project ID.
-`GSA_NAME `: the name of your IAM service account.
+`GSA_NAME`: the name of your IAM service account.
 `GSA_PROJECT`: the project ID of the Google Cloud project of your IAM service account.
 `KSA_NAME`: the name of your new Kubernetes service account.
 `NAMESPACE`: the name of the Kubernetes namespace for the service account.

@@ -12,7 +12,7 @@ next:
 ---
 By default, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)  is generated using a randomly assigned username. This is well-suited for ephemeral access scenarios where short-lived, unique credentials are preferred.
 
-However, in cases where you need to use a **custom**  or **predefined** username, for example, to align with existing identities or to integrate with external systems that require consistent naming, you can define a [template](https://pkg.go.dev/text/template) using the supported Go functions listed below. 
+However, in cases where you need to use a **custom**  or **predefined** username, for example, to align with existing identities or to integrate with external systems that require consistent naming, you can define a [template](https://pkg.go.dev/text/template) using the supported Go functions listed below.
 
 > 👍 Note
 >
@@ -24,7 +24,7 @@ You can use the following built-in functions to construct custom usernames dynam
 
 **String/Character manipulation**:
 
-* `uppercase / lowercase` – Converts input to upper or lower case. 
+* `uppercase / lowercase` – Converts input to upper or lower case.
 
 * `replace` – Replaces a portion of a string with another value.
 

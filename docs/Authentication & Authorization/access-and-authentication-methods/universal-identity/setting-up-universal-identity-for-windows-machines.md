@@ -23,7 +23,7 @@ To use [Universal Identity](https://docs.akeyless.io/docs/universal-identity) to
 
 > 👍 Tip
 >
-> If the `gwURL` parameter is not set to `https://<Your-Akeyless-GW-URL:8000/api/v1>`, it will default to` https://rest.akeyless.io`
+> If the `gwURL` parameter is not set to `https://<Your-Akeyless-GW-URL:8000/api/v1>`, it will default to `https://rest.akeyless.io`
 
 Create the PowerShell script:
 

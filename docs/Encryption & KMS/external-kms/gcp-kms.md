@@ -16,7 +16,7 @@ next:
 ---
 To set up Akeyless KMS Integration with GCP KMS, follow these steps:
 
-1. Create a new [GCP Target ](https://docs.akeyless.io/docs/gcp-targets)in the Akeyless Platform. You can do it either from the [Akeyless CLI](https://docs.akeyless.io/docs/cloud-targets#create-a-gcp-target-from-the-cli) or in the Akeyless Console. Make sure you have a GCP Keyring to target.
+1. Create a new [GCP Target](https://docs.akeyless.io/docs/gcp-targets) in the Akeyless Platform. You can do it either from the [Akeyless CLI](https://docs.akeyless.io/docs/cloud-targets#create-a-gcp-target-from-the-cli) or in the Akeyless Console. Make sure you have a GCP Keyring to target.
 
 > 👍 Note
 >

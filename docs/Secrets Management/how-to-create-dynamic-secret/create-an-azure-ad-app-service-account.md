@@ -12,7 +12,7 @@ next:
 ---
 **Application Registration in Active Directory:**
 
-1. On Azure Portal -> Azure Active directory -> App Registration: 
+1. On Azure Portal -> Azure Active directory -> App Registration:
 
 ![1024](https://files.readme.io/407e4bf-image-20210204-103119.png "image-20210204-103119.png")
 
@@ -104,7 +104,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 **Certificate & Secrets:**
 
-1. Navigate to **Certificate & Secrets** on the left pane, create a **New Client Secret**. 
+1. Navigate to **Certificate & Secrets** on the left pane, create a **New Client Secret**.
 
 ![1024](https://files.readme.io/43eaafe-image-20210204-103441.png "image-20210204-103441.png")
 

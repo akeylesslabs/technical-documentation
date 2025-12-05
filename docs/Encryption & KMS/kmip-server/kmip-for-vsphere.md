@@ -12,7 +12,7 @@ next:
 ---
 ## Create a KMIP Client on Akeyless Gateway
 
-1. From Akeyless CLI - enable the KMIP server: 
+1. From Akeyless CLI - enable the KMIP server:
 
 ```shell Akeyless CLI
 akeyless kmip-server-setup --hostname <akeyless.gateway.hostname> --gateway-url <Your_Akeyless_GW_URL> --root /kmip/default

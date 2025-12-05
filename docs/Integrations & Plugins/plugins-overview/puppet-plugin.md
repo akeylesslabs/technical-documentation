@@ -53,10 +53,10 @@ file { '/tmp/secret.txt':
 
 Where:
 
-* `secret/<path/to/secret_name>`: A full secret name, with `secret` prefix. 
+* `secret/<path/to/secret_name>`: A full secret name, with `secret` prefix.
 * `vault-addr`: either the public `/8000/hvp` endpoint, or your Gateway URL on port `8200`.
 * `role_id`: Set with your [API Key](https://docs.akeyless.io/docs/api-key) auth method AccessID.
-* `secret_id`: Set with the matching API Key value. 
+* `secret_id`: Set with the matching API Key value.
 
 The following logic will create a `txt` file with the secret value, where for the sake of simplicity we are running `cat` command to print the value, this should not be used as is in a production environment.
 

@@ -43,12 +43,15 @@ To set the role with access for additional items type like **Targets**, **Auth M
 ```shell Targets
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type target-rule --capability read --capability create --capability update
 ```
+
 ```shell Auth Methods
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type auth-method-rule --capability read --capability create --capability update
 ```
+
 ```shell Access Roles
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type role-rule --capability read --capability create --capability update
 ```
+
 ```shell Secure Remote Access
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type sra-rule --capability allow_access # other options '--capability justify_access_only' '--capability request_access'
 ```

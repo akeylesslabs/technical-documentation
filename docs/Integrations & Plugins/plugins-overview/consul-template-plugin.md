@@ -30,7 +30,7 @@ export VAULT_ADDR=https://hvp.akeyless.io
 You can either use Akelyess [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:\
 A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter: `< Access ID >..< Access Key >`, For example:`p-xxxxx..accessKey`
 
-Alternatively, to extract your authorization tokens directly using the [Akelyess CLI](https://docs.akeyless.io/docs/cli) `auth` command : 
+Alternatively, to extract your authorization tokens directly using the [Akelyess CLI](https://docs.akeyless.io/docs/cli) `auth` command :
 
 ```shell
 akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}'>> ~/.vault-token
@@ -56,7 +56,7 @@ Consul Template's powerful abstraction and templating language are perfect for c
 {{ end }}
 ```
 
-This example combines the existing functionality of watching a key in Consul and the new function that queries Akeyless Platform for a secret. Consul Template transparently handles the authentication, retrieval, and renewal of secrets. 
+This example combines the existing functionality of watching a key in Consul and the new function that queries Akeyless Platform for a secret. Consul Template transparently handles the authentication, retrieval, and renewal of secrets.
 
 3. Execute the template
 

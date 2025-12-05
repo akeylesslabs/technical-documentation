@@ -48,7 +48,7 @@ To enable and configure the Gateway Cache:
 
 ## Proactive Gateway Cache
 
-The Proactive Cache fetches all secrets from the Akeyless Cloud and stores them in the Gateway Cache upon successful authentication (based on the user access policy). To manage each user's access policy, the [Gateway's default Auth Method ](https://docs.akeyless.io/docs/gateway-k8s#authentication) must have **List** permissions for **Auth-Methods** and **Roles**, as well as **Read** permission for the secret intended to be saved in the cache.
+The Proactive Cache fetches all secrets from the Akeyless Cloud and stores them in the Gateway Cache upon successful authentication (based on the user access policy). To manage each user's access policy, the [Gateway's default Auth Method](https://docs.akeyless.io/docs/gateway-k8s#authentication) must have **List** permissions for **Auth-Methods** and **Roles**, as well as **Read** permission for the secret intended to be saved in the cache.
 
 The Gateway utilizes a proactive caching model with a delta-based update process to avoid the resource-intensive task of re-fetching all secrets periodically. This is managed by two parallel background processes:
 
