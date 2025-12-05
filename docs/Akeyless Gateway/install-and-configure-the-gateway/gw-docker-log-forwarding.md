@@ -146,7 +146,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 
 ## Splunk
 
-Prerequisites: [Splunk HTTP Event Collector](https://docs.splunk.com/Documentation/Splunk/8.0.4/Data/UsetheHTTPEventCollector)
+Prerequisites: [Splunk HTTP Event Collector](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/9.4/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web)
 
 ```yaml
 enable="true"

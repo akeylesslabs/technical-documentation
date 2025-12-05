@@ -119,7 +119,7 @@ privilegedAccess:
   allowedAccessIDs: []
 ```
 
-To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/how-to-configure-ssh) set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/how-to-configure-ssh).
+To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CAPublicKey` field with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
 
 ```yaml
 #############################################
@@ -134,7 +134,7 @@ sshConfig:
 
 > 📘 Info
 >
-> If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/how-to-configure-ssh) with Akeyless Platform and set your CA Public key in the chart `values`.
+> If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA Public key in the chart `values`.
 >
 > You will also need to enable Secure Remote Access on the SSH Cert Issuer.
 
