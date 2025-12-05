@@ -7,11 +7,11 @@ link:
 metadata:
   robots: index
 ---
-# Overview
+## Overview
 
 The Akeyless Model Context Protocol (MCP) Server is a robust integration that enables AI systems to securely interact with your Akeyless Identity Security Platform. It provides a standardized interface for AI models to access, manage, and manipulate secrets, keys, certificates, and other sensitive data stored in Akeyless.
 
-# What is the MCP?
+## What Is the MCP?
 
 The Model Context Protocol is a standardized protocol that allows AI systems to connect to external data sources and services. It provides a secure, authenticated method for AI models to:
 
@@ -22,7 +22,7 @@ The Model Context Protocol is a standardized protocol that allows AI systems to 
 
 Read more about the <Anchor label="Model Context Protocol" target="_blank" href="https://modelcontextprotocol.io/">Model Context Protocol</Anchor>.
 
-# Akeyless MCP Server Features
+## Akeyless MCP Server Features
 
 The Akeyless MCP Server provides comprehensive access to Akeyless functionality, including:
 
@@ -44,20 +44,20 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 * Retrieve analytics data
 * Handle targets and associations
 
-# Configuration
+## Configuration
 
-## Prerequisites
+### Prerequisites
 
 * The Akeyless CLI must be successfully installed and **updated to version 1.130.0** or newer.
   * Read more about the <Anchor label="Akeyless CLI" target="_blank" href="https://docs.akeyless.io/update/docs/cli">Akeyless CLI</Anchor>.
   * Learn about <Anchor label="updating the Akeyless CLI" target="_blank" href="https://docs.akeyless.io/docs/cli-reference#/update">updating the Akeyless CLI</Anchor>.
 * An Akeyless account must be created and a corresponding profile configured with the Akeyless CLI.
 
-## Configuration and Setup
+### Configuration and Setup
 
 Access to the Akeyless MCP server is setup for a MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of some available MCP clients is available <Anchor label="here" target="_blank" href="https://modelcontextprotocol.io/clients">here</Anchor>.
 
-### Sample Configuration Structure
+#### Sample Configuration Structure
 
 ```json JSON
 {
@@ -77,7 +77,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 }
 ```
 
-### Configuration Parameters
+#### Configuration Parameters
 
 <Table align={["left","left","left","left"]}>
   <thead>
@@ -798,11 +798,11 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
   </tbody>
 </Table>
 
-### Example Authentication Method Configurations
+#### Example Authentication Method Configurations
 
 The Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor>:
 
-#### Access Key Authentication (Default)
+##### Access Key Authentication (Default)
 
 ```json JSON
 {
@@ -815,7 +815,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 }
 ```
 
-#### Certificate Authentication
+##### Certificate Authentication
 
 ```json
 {
@@ -828,7 +828,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 }
 ```
 
-#### Cloud Provider Authentication
+##### Cloud Provider Authentication
 
 ```json AWS
 {
@@ -858,7 +858,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 }
 ```
 
-#### Kubernetes Authentication
+##### Kubernetes Authentication
 
 ```json JSON
 {
@@ -871,7 +871,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 }
 ```
 
-#### LDAP Authentication
+##### LDAP Authentication
 
 ```json
 {
@@ -885,7 +885,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 }
 ```
 
-#### OIDC/JWT Authentication
+##### OIDC/JWT Authentication
 
 ```json JSON
 {
@@ -898,7 +898,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 }
 ```
 
-#### Password Authentication
+##### Password Authentication
 
 ```json JSON
 {
@@ -911,7 +911,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 }
 ```
 
-#### SAML Authentication
+##### SAML Authentication
 
 ```json JSON
 {
@@ -923,9 +923,9 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 }
 ```
 
-# Best Practices
+## Best Practices
 
-## Security Best Practices
+### Security Best Practices
 
 * Use Environment Variables: Store sensitive credentials in environment variables rather than hardcoding them
 * Principle of Least Privilege: Create dedicated access keys with minimal required permissions
@@ -933,32 +933,32 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 * Secure Storage: Use secure credential storage solutions
 * Network Security: Use HTTPS endpoints and consider VPN access
 
-## Configuration Management
+### Configuration Management
 
 * Version Control: Keep MCP configuration files in version control (excluding secrets)
 * Environment Separation: Use separate configurations for different environments
 * Documentation: Document your configuration choices and rationale
 * Testing: Test configurations in development before deploying to production
 
-## Monitoring and Logging
+### Monitoring and Logging
 
 * Enable Debug Mode: Use the `--debug` flag for troubleshooting
 * Monitor Access: Regularly review access logs and analytics
 * Set Up Alerts: Configure alerts for unusual access patterns
 * Audit Trail: Maintain audit trails for compliance requirements
 
-## Performance Optimization
+### Performance Optimization
 
 * Connection Pooling: Reuse connections when possible
 * Caching: Implement appropriate caching strategies
 * Batch Operations: Use batch operations for multiple items
 * Resource Limits: Set appropriate resource limits
 
-# Troubleshooting: Common Issues and Solutions
+## Troubleshooting: Common Issues and Solutions
 
-## Authentication Failures
+### Authentication Failures
 
-### Akeyless MCP Server fails to authenticate
+#### Akeyless MCP Server Fails to Authenticate
 
 1. Verify access ID and access key are correct
 2. Check if credentials have expired
@@ -970,9 +970,9 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 akeyless auth --access-id "your-access-id" --access-key "your-access-key"
 ```
 
-## Connection Issues
+### Connection Issues
 
-### Cannot connect to the Akeyless Gateway
+#### Cannot Connect to the Akeyless Gateway
 
 * Check network connectivity
 * Verify gateway URL format
@@ -1002,18 +1002,18 @@ x-content-type-options: nosniff
 x-frame-options: SAMEORIGIN
 ```
 
-## Permission Errors
+### Permission Errors
 
-### Insufficient permissions for operations
+#### Insufficient Permissions for Operations
 
 * Review role assignments
 * Check item-level permissions
 * Verify authentication method permissions
 * Contact administrator for access
 
-## Configuration Errors
+### Configuration Errors
 
-### MCP server fails to start
+#### MCP Server Fails to Start
 
 * Validate JSON configuration syntax
 * Check file paths are correct

@@ -12,7 +12,7 @@ next:
 ---
 The Akeyless [C# .NET SDK](https://github.com/akeylesslabs/akeyless-csharp-netcore) makes it easy to integrate your **.NET** applications, libraries, or scripts with the Akeyless. The following guide shows a typical integration.
 
-# Installation
+## Installation
 
 To add the Akeyless **C# .NET** SDK to your project, add the Akeyless pacakge:
 
@@ -24,7 +24,7 @@ dotnet add package akeyless --version <package-version>
 >
 > For a full list of the existing versions & dependencies, see [here](https://www.nuget.org/packages/akeyless).
 
-# Configuration
+## Configuration
 
 Import the following libraries:
 
@@ -44,11 +44,11 @@ var instance = new V2Api(config);
 
 To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set the `client.BasePath` with your Gateway API endpoint on port `8081`.
 
-# Authentication
+## Authentication
 
 The Akeyless **C#** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
-## API Key
+### API Key
 
 To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
 
@@ -60,7 +60,7 @@ String token = authResult.Token;
 
 Make sure to set your `Access Id` and `Access Key` in the relevant places. The received token should be provided for every request that requires authentication.
 
-## Using cloud ID
+### Using Cloud ID
 
 To work with a Cloud-based Auth,  Add the Akeyless [Cloud ID package](https://github.com/akeylesslabs/akeyless-netcore-cloud-id) for **C#** :
 
@@ -74,7 +74,7 @@ Import the package:
 using akeyless.Cloudid;
 ```
 
-### Authenticate using cloud ID
+#### Authenticate Using Cloud ID
 
 Set the relevant `accessType` based on your cloud provide, the following example uses `aws_iam`:
 
@@ -96,16 +96,16 @@ string token = result.Token;
 
 Make sure to set your `Access Id` in the relevant place.
 
-# Examples
+## Examples
 
-## Create a Secret
+### Create a Secret
 
 ```csharp csharp
 var createSecretBody = new CreateSecret(name: "netcore", value: "value", token: token);
 CreateSecretOutput createSecretResult = instance.CreateSecret(createSecretBody);
 ```
 
-## Retrieve a Secret
+### Retrieve a Secret
 
 ```csharp csharp
 List<String> secrets = new List<String>();
@@ -115,13 +115,13 @@ Dictionary<string, string> getSecretValueResult = instance.GetSecretValue(getSec
 Console.WriteLine(getSecretValueResult["netcore"]);
 ```
 
-## Delete a Secret
+### Delete a Secret
 
 ```csharp csharp
 var deleteItemBody = new DeleteItem(name: "netcore", deleteImmediately: true, deleteInDays: -1, token: token);
 DeleteItemOutput deleteItemResult = instance.DeleteItem(deleteItemBody);
 ```
 
-# API Reference
+## API Reference
 
 For a detailed API reference, see [here](https://github.com/akeylesslabs/akeyless-csharp-netcore).

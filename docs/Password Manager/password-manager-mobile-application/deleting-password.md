@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## To delete a password from Akeyless Password Manager:
+## To Delete a Password from Akeyless Password Manager:
 
 1. Open the Akeyless Password Manager application.
 2. Find the password you want to delete in the list of passwords.
@@ -19,7 +19,7 @@ next:
 
 <Image align="center" width="150px" src="https://files.readme.io/59645e5-Screenshot_2024-01-10_at_16.25.29.png" />
 
-## Alternatively, you can delete a password from the password details screen:
+## Alternatively, You Can Delete a Password from the Password Details Screen:
 
 1. Open the Akeyless Password Manager application.
 2. Find the password you want to delete in the list of passwords.

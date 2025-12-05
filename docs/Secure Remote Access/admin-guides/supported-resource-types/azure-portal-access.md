@@ -12,7 +12,7 @@ next:
 ---
 You can enable secure remote access to Azure Portal with a Dynamic Secret that generates ephemeral credentials for Azure AD or using a Rotated Secret. Users can then access the Azure Portal from the Secure Remote Access Portal.
 
-# Prerequisites
+## Prerequisites
 
 To enable secure remote access to Azure Portal you need:
 
@@ -25,13 +25,13 @@ In addition, for users to access the Azure Portal in Isolated mode, you need:
 * The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 * The Azure Portal site URL is specified as part of the `policies` section in the **values.yaml** file on the Web Access Bastion.
 
-# Create an Azure Secret
+## Create an Azure Secret
 
 If you don't already have an Azure AD secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-azure-rotated-secret) that specifies the Azure AD account details and access credentials.
 
 If you already have a relevant secret, continue below.
 
-# Set Up Remote Access to the Azure Portal from the Akeyless CLI
+## Set Up Remote Access to the Azure Portal from the Akeyless CLI
 
 Let's set up remote access to the Azure Portal using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/azure-portal-access#set-up-remote-access-to-the-azure-portal-from-the-akeyless-console) instead.
 
@@ -65,7 +65,7 @@ Alternatively, in case you prefer to work with the Akeyless bastions as a proxy 
 * **rotate-after-disconnect:** Optional for Rotated Secret. You can enable an automatic secret rotation after a session ends.
 * **secure-access-delay:** The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
-# Set Up Remote Access to the Azure Portal from the Akeyless Console
+## Set Up Remote Access to the Azure Portal from the Akeyless Console
 
 Let's set up remote access to the Azure Portal from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/azure-portal-access#set-up-remote-access-to-the-azure-portal-from-the-akeyless-cli) instead.
 
@@ -93,7 +93,7 @@ Let's set up remote access to the Azure Portal from the Akeyless Console. If you
 >
 > You can specify a custom delay, measured in seconds \[0 - 120], before a newly generated dynamic secret becomes usable. This additional wait time helps target systems complete their sync process with the updated credentials
 
-# Access the Azure Portal from the Secure Remote Access Portal
+## Access the Azure Portal from the Secure Remote Access Portal
 
 1. Log in to the Secure Remote Access Portal and select Azure Portal.
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Introduction
+## Introduction
 
 Item deletion is pretty similar, using the same command formats, with a default of immediate deletion. Items can be set for a scheduled deletion instead.\
 Some types of items or deletion flows have special rules for their deletion:
@@ -25,7 +25,7 @@ Some types of items or deletion flows have special rules for their deletion:
 
 * [Targets](https://docs.akeyless.io/docs/cli-reference-event-forwarders#/event-forwarder-delete) and [Event Forwarders](https://docs.akeyless.io/docs/cli-reference-event-forwarders#/event-forwarder-delete) are deleted with a separate command, and not with the standard `delete-item` / `delete-items`
 
-# Deleting an Item in the CLI
+## Deleting an Item in the CLI
 
 When deleting an item from the CLI, there are two main things to consider, which item to delete and when.
 
@@ -45,7 +45,7 @@ The relevant parameters are:
 
 * `delete-immediately`: When trying to delete a key immediately with `delete-in-days=-1`, this flag must be supplied as well
 
-## Usage Examples
+### Usage Examples
 
 Example 1 - Deleting key1:
 
@@ -103,7 +103,7 @@ akelyess delete-items --path /Path/To/Folder
 akeyless delete-items --item /Path/To/ItemA --item /Path/To/ItemB --item /Different/Path/ItemC
 ```
 
-# Deleting an Item in the Console
+## Deleting an Item in the Console
 
 1. Go to the containing folder and select the item you want to delete.
 

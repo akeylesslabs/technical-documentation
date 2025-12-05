@@ -16,12 +16,12 @@ The public certificate authority will sign and issue the certificate, while Akey
 
 The issuance flow utilizes a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) to interact with the Public Certificate Authority.
 * Target of the public CA.
 
-## PKI Cert issuer with a Target
+### PKI Cert Issuer With a Target
 
 Run the following command to create a PKI Certificate Issuer with a Public CA Target:
 
@@ -58,7 +58,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 >
 > Due to the nature of some Public CAs e.g. GoDaddy, **CN** might be sent with the classic `www.` prefix, it is recommended to check this in advance for future automated renewal.
 
-## Issuing a certificate
+### Issuing a Certificate
 
 Run the following command to create a new Certificate Signing Request (CSR):
 

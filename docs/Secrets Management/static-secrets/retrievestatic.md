@@ -16,7 +16,7 @@ You can retrieve a static secret value directly from the [Akeyless CLI](https://
 >
 > You can also retrieve secret values directly from within a context you choose, such as from Kubernetes, Jenkins, Azure, or another of our integrations, or with the help of any of our SDKs. For details, see [Akeyless Plugins](https://docs.akeyless.io/docs/plugins-overview) and [SDKs](https://docs.akeyless.io/docs/sdks).
 
-# Retrieve a Static Secret Value from the Akeyless CLI
+## Retrieve a Static Secret Value from the Akeyless CLI
 
 Let’s retrieve a static secret value using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/retrievestatic#retrieve-a-static-secret-value-from-the-akeyless-console) instead.
 
@@ -38,7 +38,7 @@ For example, to retrieve the value of the **MyFirstSecret** static secret, type:
 akeyless get-secret-value --name MyFirstSecret
 ```
 
-# Retrieve a Static Secret Value from the Akeyless Console
+## Retrieve a Static Secret Value from the Akeyless Console
 
 Let’s retrieve a static secret value from the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/retrievestatic#retrieve-a-static-secret-value-from-the-akeyless-cli) instead.
 

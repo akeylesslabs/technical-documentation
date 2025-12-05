@@ -16,11 +16,11 @@ Akeyless communicates with custom Rotated Secret implementations over `HTTP` and
 
 Once you have set up a custom Rotated Secret implementation, you can create a custom Rotated Secret that calls the implementation to rotate credentials.
 
-# Inputs
+## Inputs
 
 Custom Rotated Secret implementations are completely stateless. Akeyless provides encrypted storage for any user credentials, API keys, or other secret data required by a particular implementation and provides them to the custom Rotated Secret implementation with every request.
 
-# Set Up a Custom Rotated Secret Implementation
+## Set Up a Custom Rotated Secret Implementation
 
 First, you must create a [Web Target](https://docs.akeyless.io/docs/web-targets) in Akeyless. This target holds the target endpoint of your application (e.g., `https://my.web.server/rotate` endpoint).
 
@@ -31,7 +31,7 @@ akeyless create-web-target -n &lt;your web target name&gt; \
 -u https://my.web.server/rotate
 ```
 
-## Authentication
+### Authentication
 
 > 👍 Note
 >
@@ -56,7 +56,7 @@ Where:
 | expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`              |
 | expected_item_name | (Optional) The item name of the custom Rotated Secret. This can be helpful if a single Akeyless Gateway runs multiple custom Rotated Secrets, and the custom Rotated Secret implementation should only respond to one of them. | `"/custom-rotated-foo"` |
 
-## Create a Custom Rotated Secret from the CLI
+### Create a Custom Rotated Secret from the CLI
 
 To create a custom Rotated Secret from the CLI, run the following command:
 

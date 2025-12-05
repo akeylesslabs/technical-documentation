@@ -12,12 +12,12 @@ next:
 ---
 Steampipe is an open source tool to instantly query cloud services with SQL. This integration enables users to query the Akeyless API to view their Akeyless account information in table format using the CLI.
 
-# Prerequisites
+## Prerequisites
 
 * [Steampipe](https://steampipe.io/) installed
 * A supported Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
-# Installation
+## Installation
 
 Download and install the latest Akeyless plugin from your terminal. Installing the plugin will create a configuration file at `~/.steampipe/config/akeyless.spc`.
 
@@ -25,7 +25,7 @@ Download and install the latest Akeyless plugin from your terminal. Installing t
 steampipe plugin install akeyless-community/akeyless
 ```
 
-# Authentication
+## Authentication
 
 The Steampipe plugin supports the following Authentication Methods:
 
@@ -115,13 +115,13 @@ connection "akeyless" {
   access_key = "<your-api-key-access-key>"
 ```
 
-## Working with Gateway
+### Working With Gateway
 
 For every Authentication Method, you have the option to work directly through your Gateway. To do this, set the `api_url` variable with your Gateway's Rest API V2 endpoint `https://Your-Akeyless-GW-URL:8000/api/v2`. (or use your gateway URL at port `8081`)
 
 When working with a self-signed certificate, you can provide your `gateway_ca_certificate` as well.
 
-# Testing
+## Testing
 
 Run a quick test to ensure the plugin is working. From your terminal run the following:
 
@@ -137,11 +137,11 @@ You can also run `steampipe query` which will open the query shell where you can
 >
 > A query will output only the information your Authentication Method has access to based on its Access Role.
 
-## Examples
+### Examples
 
 You can find more examples on our Steampipe Hub page [here](https://hub.steampipe.io/plugins/akeyless-community/akeyless/tables).
 
-# Tables
+## Tables
 
 The following tables are available for querying.
 

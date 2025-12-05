@@ -16,7 +16,7 @@ The target must include the Azure tenant ID and client ID, as well as a client s
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the Azure App through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the Key of the target Azure App.
 
-# Prerequisites
+## Prerequisites
 
 [Azure AD App](https://docs.akeyless.io/docs/create-an-azure-ad-app-service-account) or an [Azure AD Storage Account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys)
 
@@ -40,7 +40,7 @@ Where:
 
 For more information, see the Microsoft Graph [permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference).
 
-# Create a Rotated Azure Secret from the CLI
+## Create a Rotated Azure Secret from the CLI
 
 To create a Rotated Azure Secret using the Akeyless CLI, run the following command:
 
@@ -99,7 +99,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueazurep) section.
 
-# Create a Rotated Azure Secret in the Akeyless Console.
+## Create a Rotated Azure Secret in the Akeyless Console.
 
 > 👍 Note
 >

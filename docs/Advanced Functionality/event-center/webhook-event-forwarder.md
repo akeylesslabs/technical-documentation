@@ -14,7 +14,7 @@ Event forwarders are tools you can configure through the Event Center in order t
 
 **Webhook Event Forwarder** enables you to forward event notifications to **Endpoint URLs** based on your configuration. These include notifications about **Items, Auth Methods, Targets, and Gateways**, which can be configured to be sent immediately or every 1 to 24 hours.
 
-# Create a Webhook Event Forwarder using the CLI
+## Create a Webhook Event Forwarder Using the CLI
 
 To set up a **Webhook** Event Forwarder, use the following command:
 
@@ -102,7 +102,7 @@ The main parameters for the command are as follows:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Webhook Event forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-webhookp)
 
-# Create a Webhook event forwarder using the Console
+## Create a Webhook Event Forwarder Using the Console
 
 1. Log in to the Akeyless Console and open the [Event Center](https://docs.akeyless.io/docs/event-center), select **Manage Forwarders**. If this is your first Forwarder, it appears as Add Forwarder, click it and choose: **Webhook**
 

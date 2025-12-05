@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to LDAP authentication.
 
 <CLIGeneralFlags />
 
-### `create`
+### `Create`
 
 Creates a new Authentication Method object that will allow the user to authenticate using LDAP
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create ldap \
@@ -54,11 +54,11 @@ akeyless auth-method create ldap \
 
 `--gen-key[=true]`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
 
-### `update`
+### `Update`
 
 Update a new Auth Method that will be able to authenticate using LDAP
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless update-auth-method-ldap \
@@ -97,7 +97,7 @@ akeyless update-auth-method-ldap \
 
 `--gen-key`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
 
-#### `gateway-update-ldap-auth-config`
+#### `Gateway-update-ldap-auth-config`
 
 Updates LDAP Auth config
 
@@ -150,11 +150,11 @@ akeyless gateway-update-ldap-auth-config \
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
-### `get`
+### `Get`
 
 Gets Ldap Auth config from Gateway
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-get-ldap-auth-config \

@@ -20,7 +20,7 @@ When managing environments across multiple AWS accounts, the key requirement is 
 >
 > Akeyless is an [official AWS partner](https://partners.amazonaws.com/partners/0018a00001orv7AAAQ/) recognized with the Security ISV Competency.
 
-# How Akeyless Gateway authenticates using IAM
+## How Akeyless Gateway Authenticates Using IAM
 
 AWS compute resources can authenticate directly to Akeyless using supported identity mechanisms. These include:\
 EC2 instances, Lambda functions, ECS (Elastic Container Service) tasks, EKS (Elastic Kubernetes Service) pods (if using IAM roles for service accounts)\
@@ -28,7 +28,7 @@ These resources use AWS IAM roles to obtain temporary credentials, which Akeyles
 
 When the **Gateway** is running on such a resource, it utilizes the existing identity to authenticate to Akeyless SaaS services. 
 
-## How is this authentication implemented securely?
+### How Is This Authentication Implemented Securely?
 
 Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Auth method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
 
@@ -38,7 +38,7 @@ Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.ak
 
 ![](https://files.readme.io/f8e683e1aaa94a88ebda40de04504f4c56c8126bec5760a3289ba9a97f958444-image.png)
 
-# How Akeyless Target should be used
+## How Akeyless Target Should Be Used
 
 All deployment patterns are working **without** any AWS long-lived credentials and should be set **only** using **AWS roles** leveraging the Akeyless [AWS Target](https://docs.akeyless.io/docs/aws-targets) via **cloud ID** option that uses the AWS role. 
 
@@ -48,7 +48,7 @@ When using an [AWS Target](https://docs.akeyless.io/docs/aws-targets)with the **
 >
 > Akelyess uses AWS official SDK, hence the role that will be used is according to [AWS precedence](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html#cli-chap-authentication-precedence).
 
-# Deployment patterns
+## Deployment Patterns
 
 As the Akelyess Gateway is a light, stateless application, it might be deployed using the following patterns according to your preference while managing an AWS organization with multiple accounts: 
 

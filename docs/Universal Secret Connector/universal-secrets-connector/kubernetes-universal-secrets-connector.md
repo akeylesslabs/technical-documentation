@@ -12,15 +12,15 @@ next:
 ---
 This page discusses the creation of Kubernetes [Universal Secrets Connectors](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, as they have varying parameters.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)  with **Read** permission on the target associated with the **USC**.
 
-# Working With Universal Secrets Connector from the Console
+## Working With Universal Secrets Connector from the Console
 
 This section will discuss the different commands necessary to handle USCs. While the initial creation command is a regular Akeyless command, management of USCs is done through a set of sub-commands, which all have the prefix `usc` added to them, as will be shown later in this section. If the prefix is not added to these sub-commands, they will not work.
 
-## Creating a USC
+### Creating a USC
 
 To create a USC, use the following command:
 
@@ -38,7 +38,7 @@ The main parameters are:
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Listing USC Secrets
+### Listing USC Secrets
 
 To list the secrets from your USC, use the following command:
 
@@ -62,7 +62,7 @@ The output should look as follows:
 }
 ```
 
-## Fetching a Secret from the USC
+### Fetching a Secret from the USC
 
 To view a secret from your USC, use the following command:
 
@@ -90,7 +90,7 @@ The output should look as follows:
 }
 ```
 
-## Adding a New Secret to a USC
+### Adding a New Secret to a USC
 
 To create a new secret in your USC, use the following command:
 
@@ -108,7 +108,7 @@ The main parameters are:
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Updating an Existing USC secret
+### Updating an Existing USC Secret
 
 To update an existing secret in your USC, use the following command:
 
@@ -118,7 +118,7 @@ akelyess usc update --usc-name <usc name> --secret-id <secret id or name> --valu
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Deleting an Existing USC secret
+### Deleting an Existing USC Secret
 
 To delete an existing secret in your USC, use the following command:
 
@@ -128,7 +128,7 @@ akelyess usc delete --usc-name <usc name> --secret-id <secret id or name>
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-# Creating a Universal Secrets Connector from the Console
+## Creating a Universal Secrets Connector from the Console
 
 1. Log in to the Akeyless Console, and go to **Items > New > Universal Secrets Connector**.
 
@@ -152,7 +152,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 5. Click **Finish**.
 
-# Kubernetes Universal Secrets Connectors
+## Kubernetes Universal Secrets Connectors
 
 Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 

@@ -14,13 +14,13 @@ This section outlines the CLI commands relevant to SSH and PKI certificates.
 
 <CLIGeneralFlags />
 
-## SSH certificates
+## SSH Certificates
 
-### `create-ssh-cert-issuer`
+### `Create-ssh-cert-issuer`
 
 Creates a new SSH certificate issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless create-ssh-cert-issuer \
@@ -62,11 +62,11 @@ akeyless create-ssh-cert-issuer \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `get-ssh-certificate`
+### `Get-ssh-certificate`
 
 Generate SSH certificate using Akeyless certificate issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless get-ssh-certificate \
@@ -92,11 +92,11 @@ akeyless get-ssh-certificate \
 
 `--legacy-signing-alg-name[=false]`: Set this option to use the legacy signing algorithm `ssh-rsa-cert-v01@openssh.com`.
 
-### `update-ssh-cert-issuer`
+### `Update-ssh-cert-issuer`
 
 Updates an existing SSH certificate issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless update-ssh-cert-issuer \
@@ -142,13 +142,13 @@ akeyless update-ssh-cert-issuer \
 
 `--secure-access-use-internal-bastion`: Use internal SSH Bastion
 
-## PKI certificates
+## PKI Certificates
 
-### `create-pki-cert-issuer`
+### `Create-pki-cert-issuer`
 
 Creates a new PKI certificate issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless create-pki-cert-issuer \
@@ -241,11 +241,11 @@ akeyless create-pki-cert-issuer \
 
 `--tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: `--tag Tag1 --tag Tag2`
 
-### `generate-csr`
+### `Generate-csr`
 
 Generates a new Certificate Signing Request (CSR)
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless generate-csr \
@@ -295,11 +295,11 @@ akeyless generate-csr \
 
 `--description`: Description of the object
 
-### `get-kube-exec-creds`
+### `Get-kube-exec-creds`
 
 Gets credentials for authentication with Kubernetes cluster based on a PKI Cert Issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless get-kube-exec-creds \
@@ -335,11 +335,11 @@ akeyless get-kube-exec-creds \
 
 `-a, --api-version[=v1]`: The version of the client authentication API
 
-### `get-pki-certificate`
+### `Get-pki-certificate`
 
 Generates PKI certificate from a PKI Issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless get-pki-certificate \
@@ -376,11 +376,11 @@ akeyless get-pki-certificate \
 
 `-o, --outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension
 
-### `get-cert-challenge`
+### `Get-cert-challenge`
 
 Get a challenge for certificate authentication
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless get-cert-challenge \
@@ -388,11 +388,11 @@ akeyless get-cert-challenge \
 --cert-data <'Certificate data encoded in Base64'>
 ```
 
-### `renew-certificate`
+### `Renew-certificate`
 
 Renew a PKI certificate
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless renew-certificate \
@@ -410,11 +410,11 @@ akeyless renew-certificate \
 
 `-c, --cert-issuer-name`: Optional,the name of the PKI certificate issuer, relevant only for **imported** Certificates.
 
-### `update-pki-cert-issuer`
+### `Update-pki-cert-issuer`
 
 Updates a new PKI certificate issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless update-pki-cert-issuer \
@@ -508,11 +508,11 @@ akeyless update-pki-cert-issuer \
 
 ## Certificate Storage
 
-### `create-certificate`
+### `Create-certificate`
 
 Creates a new certificate
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless create-certificate \
@@ -546,11 +546,11 @@ akeyless create-certificate \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `get-certificate-value`
+### `Get-certificate-value`
 
 Gets the certificate's PEM, and the private key's PEM if it exists, in a JSON file
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless get-certificate-value --name <certificate-name>
@@ -570,11 +570,11 @@ akeyless get-certificate-value --name <certificate-name>
 
 `--private-key-file-output`: File to write the private key to
 
-### `provision-certificate`
+### `Provision-certificate`
 
 Provision a certificate content to a target
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless provision-certificate \
@@ -590,11 +590,11 @@ akeyless provision-certificate \
 
 `-d, --display-id`: Certificate display ID
 
-### `revoke-certificate`
+### `Revoke-certificate`
 
 Revokes a certificate and adds it to the issuer CRL
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless revoke-certificate \
@@ -612,11 +612,11 @@ akeyless revoke-certificate \
 
 `--version`: Certificate version to revoke. Required if item-id or name are used
 
-### `update-certificate-value`
+### `Update-certificate-value`
 
 Updates the data in an existing certificate
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless update-certificate-value \
@@ -652,33 +652,33 @@ akeyless update-certificate-value \
 
 ## ACME
 
-### `generate-acme-eab`
+### `Generate-acme-eab`
 
 Generates an external account binding for a cert issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless generate-acme-eab \
 --cert-issuer-name <PKI issuer name> 
 ```
 
-### `list-acme-accounts`
+### `List-acme-accounts`
 
 Lists ACME external accounts for a cert issuer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless list-acme-accounts \
 --cert-issuer-name <PKI issuer name>
 ```
 
-### `deactivate-acme-account`
+### `Deactivate-acme-account`
 
 Deactivate an ACME external account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless deactivate-acme-account \
@@ -688,11 +688,11 @@ akeyless deactivate-acme-account \
 
 ## Chain of Trust
 
-### `generate-ca`
+### `Generate-ca`
 
 Creates a new PKI CA and Intermediate issuers
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless generate-ca \ 

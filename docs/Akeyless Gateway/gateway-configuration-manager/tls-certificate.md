@@ -14,7 +14,7 @@ next:
       slug: implement-zero-knowledge
       title: Implementing Zero Knowledge
 ---
-# Configuring TLS
+## Configuring TLS
 
 Akeyless Gateway should always be used with TLS to ensure all traffic is encrypted at transit. 
 
@@ -30,7 +30,7 @@ To configure TLS, on your [Gateway Configuration Manager](https://docs.akeyless.
 
 2. Upload a TLS Certificate and provide a TLS Private Key in a PEM format and **Save**.
 
-# Updating a TLS Certificate
+## Updating a TLS Certificate
 
 Updating a TLS certificate can be accessed through the CLI by using the following command:
 

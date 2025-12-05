@@ -18,7 +18,7 @@ This project provides a ServiceNow MID external credential resolver that retriev
 * Network access from the MID Server host to the Akeyless Gateway (default [https://api.akeyless.io](https://api.akeyless.io), or your private gateway URL).
 * An Akeyless Access ID and one of the supported authentication methods listed below.
 
-## Supported Akeyless authentication methods
+## Supported Akeyless Authentication Methods
 
 * access_key: Access ID + Access Key
 * aws_iam: CloudID from AWS
@@ -40,7 +40,7 @@ mvn -Drevision=1.0.0 clean package
 * With -Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar
 * Without a revision property, Maven will produce akeyless-servicenow-credential-resolver-null.jar.
 
-## Install the resolver on the MID Server
+## Install the Resolver on the MID Server
 
 1. Upload the JAR to the MID Server via the instance UI
    * Navigate: MID Server → JAR files → New
@@ -52,7 +52,7 @@ mvn -Drevision=1.0.0 clean package
 * The MID will sync and place the JAR in its agent lib cache.
 * If not picked up, restart the MID service to force a sync.
 
-## Configure MID properties (Akeyless parameters)
+## Configure MID Properties (Akeyless Parameters)
 
 Set the following MID properties on your instance (System Properties or MID Properties). Property names are case-sensitive.
 
@@ -78,7 +78,7 @@ Environment/system property alternatives
 * As a fallback for any ext.cred.* property, an environment variable with the uppercased name and dots replaced by underscores is also read (e.g., EXT_CRED_AKEYLESS_GW_URL).
 * Precedence: MID properties override environment/system variables.
 
-## Configure MID config.xml (secure local parameters)
+## Configure MID Config.xml (Secure Local Parameters)
 
 Add sensitive Akeyless credentials in the MID’s config.xml.
 
@@ -119,7 +119,7 @@ net stop mid
 net start mid
 ```
 
-## Configure a Discovery Credential to use this resolver
+## Configure a Discovery Credential to Use This Resolver
 
 1. Create a new credential
    * Navigate: Discovery → Credentials → New
@@ -130,7 +130,7 @@ net start mid
 2. Save and test
    * Click “Test credential”, select a MID Server and a target if required by the type.
 
-## What to store in Akeyless and how it’s mapped
+## What to Store in Akeyless and How It’s Mapped
 
 The resolver accepts either:
 
@@ -205,7 +205,7 @@ Then a JSON like:
 
 will map to ServiceNow username = alice, password = secret.
 
-## CloudID notes (aws_iam / azure_ad / gcp)
+## CloudID Notes (Aws_iam / Azure_ad / Gcp)
 
 * When ext.cred.akeyless.access_type (or AKEYLESS_ACCESS_TYPE) is aws_iam, azure_ad, or gcp, the resolver fetches a CloudID and sends it to Akeyless during auth.
 * Ensure the MID Server host is running in the target cloud with the appropriate identity, or that cloud SDK environment is present to retrieve a CloudID.
@@ -222,7 +222,7 @@ will map to ServiceNow username = alice, password = secret.
 * Logging:
   * Resolver logs go through Commons Logging. Check the MID Server logs for entries containing “Akeyless resolver”.
 
-## Local/dev testing (optional)
+## Local/dev Testing (Optional)
 
 You can run unit tests locally:
 

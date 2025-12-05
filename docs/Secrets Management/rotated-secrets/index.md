@@ -45,6 +45,6 @@ The typical flow for working with rotated secrets is:
 
 If required, you can manually rotate a secret. When a rotated secret becomes obsolete, you can delete it.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Using Rotated Secrets](https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets).

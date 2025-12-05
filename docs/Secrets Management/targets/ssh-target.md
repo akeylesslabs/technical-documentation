@@ -16,7 +16,7 @@ next:
 ---
 You can define an SSH target that will be used with an [SSH Rotated Secret](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret) or [RDP Dynamic Secrets](https://docs.akeyless.io/docs/rdp-dynamic-secrets)
 
-# Create an SSH Target in the CLI
+## Create an SSH Target in the CLI
 
 To create an SSH target from the CLI, run the following command:
 
@@ -43,7 +43,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluesshp) section.
 
-# Create an SSH Target in the Console
+## Create an SSH Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Operating System (SSH)**.
 

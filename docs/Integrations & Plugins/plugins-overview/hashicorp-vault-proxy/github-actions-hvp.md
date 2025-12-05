@@ -20,7 +20,7 @@ To work with the GitHub Actions plugin:
 4. [Define a Workflow for the GitHub Action](https://docs.akeyless.io/docs/github-actions-hvp#define-a-workflow-for-the-github-action)
 5. [Trigger the GitHub Runner](https://docs.akeyless.io/docs/github-actions-hvp#trigger-the-github-runner) 
 
-# Create a GitHub Repository
+## Create a GitHub Repository
 
 1. Create a new directory and initialize it as a git repository by running: 
 
@@ -52,7 +52,7 @@ git branch -M main
 git push -u origin main
 ```
 
-# Set Up Akeyless Authentication Credentials for the Repository
+## Set Up Akeyless Authentication Credentials for the Repository
 
 1. On GitHub, navigate to the main page of the repository, and select **Settings** > **Secrets** > **New repository secret**.
 
@@ -66,7 +66,7 @@ git push -u origin main
 
 The GitHub repository is now configured with an access token for Akeyless. 
 
-# Set Up a GitHub Self-Hosted Runner
+## Set Up a GitHub Self-Hosted Runner
 
 The GitHub [self-hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) enables you to start a runner instance on an instance that you manage. Your workstation can be used if it is supported.
 
@@ -78,7 +78,7 @@ The GitHub [self-hosted runner](https://docs.github.com/en/actions/hosting-your-
 
 4. Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
 
-# Define a Workflow for the GitHub Action
+## Define a Workflow for the GitHub Action
 
 1. In a terminal, within the repository directory, create the directory **.github/workflows**.
 
@@ -133,7 +133,7 @@ secrets: |
 
 <code>app\_secret</code> is the key name and <code>secret\_app</code> is the environment variable to store the secret value within your flow. 
 
-# Trigger the GitHub Runner
+## Trigger the GitHub Runner
 
 The workflow is triggered on every push to any branch of the repository.
 

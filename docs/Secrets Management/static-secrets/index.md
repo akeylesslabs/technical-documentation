@@ -30,6 +30,6 @@ If necessary, a Static Secret value can be updated or have multiple versions. Se
 
 When a Static Secret becomes obsolete, it can be deleted.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Updating a Static Secret](https://tutorials.akeyless.io/docs/creating-a-static-secret).

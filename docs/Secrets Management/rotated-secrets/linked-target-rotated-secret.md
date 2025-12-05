@@ -24,7 +24,7 @@ When a new server is created in your environment, simply add the relevant hostna
 >
 > Only Windows/SSH Target are currently supported for Rotated Secrets with Linked Target. In case one of the hosts in a Linked Target item is accessible over a different port from the one that is configured in the Parent Target, make sure to specify the port as part of the host in the Linked Target. e.g: `server01.com:443`.
 
-# Rotator Type Password
+## Rotator Type Password
 
 To rotate **Local users**  e.g. `ubuntu` or `administrator`, across your servers using a **privileged Domain user** which has access to all servers found in the [Linked Target](https://docs.akeyless.io/docs/linked-target), start by creating an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target to store your **Domain user** credentials: 
 
@@ -93,7 +93,7 @@ akeyless rotated-secret create ssh \
 
 The **Local user**  will be rotated using the **Parent** Target credentials as well across all hosts defined in the Linked Target.
 
-# Rotator Type Target
+## Rotator Type Target
 
 While working with **Local** users for a wide password rotation, all **Local** users must have the same password on all hosts. 
 
@@ -143,7 +143,7 @@ The rotation will generate a new password for the **Parent** Target and will use
 >
 > Working with `--rotator-type target` supports only Rotated Secret for the **Parent** Target which will trigger rotation on **all** associated **Linked Targets** hosts.
 
-# Fetching a Linked Target Rotated Secret
+## Fetching a Linked Target Rotated Secret
 
 The secret value format of the Linked Target Rotated Secret is a **key/value** map where `host:port` are the map keys, with `username/password` as their values.
 
@@ -186,7 +186,7 @@ akeyless get-rotated-secret-value -n <Rotated secret name> --host server02.examp
 }
 ```
 
-# Rotation Policy
+## Rotation Policy
 
 Rotation across multiple hosts will work on a best-effort approach to rotate at least one host from the given hosts' list. After successful rotation across all hosts, the rotation status will be `RotationSucceeded`. Upon a failure in one or more hosts, the rotation status will be `RotationPartialSucceeded`. In case of failure on all hosts, the rotation status will be `RotationFailed`. Each of those results will trigger events in the [Event Center](https://docs.akeyless.io/docs/event-center).
 

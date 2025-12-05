@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# What is Tokenization?
+## What Is Tokenization?
 
 Akeyless Platform provides Tokenization as a service. Tokenization is a process of encrypting sensitive data, such as social security, phone, and credit card numbers, in a way that will preserve data format and uniqueness, and allow for data decryption later on.
 
@@ -18,13 +18,13 @@ Akeyless Platform performs Tokenization using a Format Preserving Encryption (FP
 
 <Image align="center" width="100%" src="https://files.readme.io/fbe53f7-tokenizer.png" />
 
-# Why is it important to preserve the original format of data?
+## Why Is It Important to Preserve the Original Format of Data?
 
 First, a Format Preserving Encryption (FPE) is a method of encrypting data for systems that require it to be in a specific format and to pass certain validation checks in order to use it. By using it, companies can avoid costly and time-consuming changes to their data models and code.
 
 The second major advantage FPE has over conventional encryption is that data such as credit cards or Social Security numbers can still be used as a unique key to identify a row in a database.
 
-# Vaultless Tokenization
+## Vaultless Tokenization
 
 Akeyless Platform supports Vaultless tokenization where "vaultless" means that a tokenized secret is not stored in the Akeyless Platform at any time during or after the tokenization process.
 
@@ -36,11 +36,11 @@ Akeyless Platform provides built-in tokenization templates for the following dat
 
 And custom tokenization templates (where you can provide a custom alphabet, tokenization pattern, and data output format) are also supported.
 
-# Working With a Tokenizer from the CLI
+## Working With a Tokenizer from the CLI
 
 This section of the guide explains the workflow with the Akeyless CLI. If you wish to work from the Akeyless Console UI, go to [this section](https://docs.akeyless.io/docs/tokenization#working-with-a-tokenizer-from-the-console).
 
-## Create a Tokenizer from the CLI
+### Create a Tokenizer from the CLI
 
 To create a Tokenizer from the CLI, run the following command: 
 
@@ -97,7 +97,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-tokenizerp) section.
 
-## Tokenize and Detokenize a Secret from the CLI
+### Tokenize and Detokenize a Secret from the CLI
 
 To tokenize a secret from the CLI, run the following command: 
 
@@ -117,11 +117,11 @@ akeyless detokenize \
 --tweak <Base64-encoded tweak value that was used for encryption>
 ```
 
-# Working With a Tokenizer from the Console
+## Working With a Tokenizer from the Console
 
 This section of the guide explains the workflow with the Akeyless Console. If you wish to work from the Akeyless CLI, go to [this section](https://docs.akeyless.io/docs/tokenization#working-with-a-tokenizer-from-the-cli).
 
-## Create a Tokenizer in the Akeyless Console
+### Create a Tokenizer in the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items > New > Tokenizer**.
 
@@ -158,7 +158,7 @@ If you select the **Custom** template, you'll need to provide values for the fol
 
 6. Click on **Finish**.
 
-## Tokenize and Detokenize a Secret in the Akeyless Console
+### Tokenize and Detokenize a Secret in the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 
@@ -178,6 +178,6 @@ If you select the **Custom** template, you'll need to provide values for the fol
    c. Click **Detokenize**.\
    d. Copy and save the detokenized value.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Using a Tokenizer](https://tutorials.akeyless.io/docs/tokenization).

@@ -20,7 +20,7 @@ Setting up certificate provisioning requires **Target** permissions on the Gatew
 >
 > To prevent partial files, the Gateway first saves new items (certificates, keys, etc.) in a temporary folder on your server, then atomically renames them into the final paths you specify. Ensure the temporary folder is writable by the user defined in the Target.
 
-# Provisioning a certificate using the Akeyless CLI
+## Provisioning a Certificate Using the Akeyless CLI
 
 Run the following CLI command to provision a certificate:
 
@@ -47,7 +47,7 @@ Where:
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueassoc-target-itemp) section.
 
-# Provisioning a certificate using the Akeyless Console
+## Provisioning a Certificate Using the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**, find the certificate you wish to provision.
 2. Click on the **Certificate** item, click on the **Provisioning** tab, and then **Attach**.

@@ -16,7 +16,7 @@ next:
 
 <Image align="center" border={false} src="https://files.readme.io/c1f9c5b-Role_new_design.png" />
 
-# Create an AWS IAM Authentication Method from the CLI
+## Create an AWS IAM Authentication Method from the CLI
 
 Let's create a new AWS IAM authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/cli-ref-auth#aws-iam).)
 
@@ -36,7 +36,7 @@ Where:
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#/create) section.
 
-# Configure Akeyless CLI with the AWS IAM authentication method
+## Configure Akeyless CLI With the AWS IAM Authentication Method
 
 To configure your CLI to work with AWS IAM authentication, run the following command **from an AWS resource**:
 
@@ -49,7 +49,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 >
 > AWS IAM authentication doesn't require any privileged permissions. Ensure you have an IAM role without any privileged permissions and attach it to the resource you want to authenticate (e.g., EC2 instance).
 
-# Create an AWS IAM authentication method in the Akeyless Console
+## Create an AWS IAM Authentication Method in the Akeyless Console
 
 1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > AWS IAM**.
 
@@ -81,7 +81,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 4. Click **Finish**.
 
-# AWS Instance Metadata Service
+## AWS Instance Metadata Service
 
 By default, [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) (IMDSv2) enforces a hop limit of 1, which means the metadata token used for cloud identity (such as IAM role credentials) must be accessed directly from the **EC2 instance** that initiated the session.
 
@@ -99,6 +99,6 @@ aws ec2 modify-instance-metadata-options \
 
 This allows the metadata token to be accessed from within nested network environments, such as containers, while still maintaining **IMDSv2's** security benefits.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [AWS IAM Authentication and Access](https://tutorials.akeyless.io/docs/aws-iam-authentication-and-access).

@@ -12,7 +12,7 @@ next:
 ---
 The Akeyless [JavaScript](https://github.com/akeylesslabs/akeyless-javascript) makes it easy to integrate your **NodeJS** applications, libraries, or scripts with Akeyless. The following guide shows a typical integration.
 
-# Installation
+## Installation
 
 To install the **JavaScript SDK**  run: 
 
@@ -20,7 +20,7 @@ To install the **JavaScript SDK**  run:
 npm install akeyless --save
 ```
 
-# Configuration
+## Configuration
 
 Create and configure an instance of Akeyless Client:
 
@@ -36,11 +36,11 @@ const api = new akeyless.V2Api(client);
 
 To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set the `client.basePath` with your Gateway API endpoint on port `8081`.
 
-# Authentication
+## Authentication
 
 The Akeyless **JavaScript** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods). 
 
-## Using cloud ID
+### Using Cloud ID
 
 To work with a Cloud-based Auth,  Add the Akeyless [Cloud ID library](https://github.com/akeylesslabs/akeyless-js-cloud-id) for **JavaScript**  and set the relevant `access-type` based on your cloud provide, the following example uses `azure_ad`:
 
@@ -85,6 +85,6 @@ getSecretWithCloudId()
 
 Make sure to set your `Access Id` and `accessType` in the relevant places. The received token should be provided for every request that requires authentication.
 
-# API Reference
+## API Reference
 
 For a detailed API reference, see [here](https://github.com/akeylesslabs/akeyless-javascript).

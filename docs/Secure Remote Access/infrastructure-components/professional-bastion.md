@@ -91,7 +91,7 @@ helm install <RELEASE NAME>  akeyless/akeyless-ssh-proxy -f values.yaml
 
 Validate that Akeyless SSH pod is running.
 
-## Installing Akeyless Professional Bastion via Docker
+## Installing Akeyless Professional Bastion Via Docker
 
 To deploy Akeyless Professional Bastion via Docker, you will have to provide a mount path which should contain the following files:
 

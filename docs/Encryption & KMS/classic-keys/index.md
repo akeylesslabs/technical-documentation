@@ -45,9 +45,9 @@ You can create and manage your Classic Keys in both the Akeyless CLI and the Con
 >
 > If you are going to share the Classic Key with a cloud KMS, you need to create a [target](https://docs.akeyless.io/docs/targets) for the key to later be associated with.
 
-# Managing a Classic Key from the CLI
+## Managing a Classic Key from the CLI
 
-## Creating a Classic Key
+### Creating a Classic Key
 
 To create a Classic Key from the CLI, use this command with the following parameters:
 
@@ -61,7 +61,7 @@ akeyless create-classic-key --name classickey --alg RSA2048 --gateway-url https:
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-classic-keyp).
 
-## Associating a Key and a Target
+### Associating a Key and a Target
 
 To associate a Classic Key with a **Cloud KMS** [Target](https://docs.akeyless.io/docs/targets), use this command with the following parameters:
 
@@ -82,9 +82,9 @@ akeyless delete-assoc-target-item --target-name awstarg --name classickey
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueassociate-a-classic-keyp).
 
-# Managing a Classic Key from the Console
+## Managing a Classic Key from the Console
 
-## Creating a Classic Key
+### Creating a Classic Key
 
 1. In the Akeyless console, select **Items** >  **New** > **Encryption Key** > **Classic**.
 
@@ -117,7 +117,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 3. Click **Save**.
 
-## Associating a Key and a Target
+### Associating a Key and a Target
 
 1. In the Akeyless console, select the Classic Key you wish to associate.
 
@@ -125,13 +125,13 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 3. Select the relevant Target from the drop-down list, and fill in the required parameters. These parameters may vary between cloud providers. To see the relevant parameters, go to the correlated page under [External KMS Integration](https://docs.akeyless.io/docs/external-kms).
 
-## Envelope Encryption with Akeyless Classic Keys (KEK / DEK Pattern)
+### Envelope Encryption With Akeyless Classic Keys (KEK / DEK Pattern)
 
 Goal: keep your data-encryption keys (DEKs) in Akeyless, but let a key stored in Google Cloud KMS (the KEK) wrap and unwrap them. That way the DEKs never leave Akeyless in the clear, and the KEK never leaves Google’s HSM boundary.
 
-### Create the Key-Encryption Key (KEK) in Akeyless
+#### Create the Key-Encryption Key (KEK) in Akeyless
 
-#### Open a terminal and run:
+##### Open a Terminal and Run:
 
 ```shell
 akeyless create-classic-key \
@@ -143,7 +143,7 @@ akeyless create-classic-key \
 
 You now have an AES-256-GCM “classic key” called kek-name.
 
-### Tell Akeyless that this KEK belongs to Google Cloud
+#### Tell Akeyless That This KEK Belongs to Google Cloud
 
 1. In the Akeyless UI or CLI, create a GCP target (pointing to your project, location, key-ring and key).
 2. Set the purpose to “raw encrypt / raw decrypt.”
@@ -151,9 +151,9 @@ You now have an AES-256-GCM “classic key” called kek-name.
 4. Most importantly, pass the flag --wrapping-key-name kek-name (or pick kek-name in the UI).\
    This links your Akeyless key to Google’s KMS key so Akeyless can ask GCP to wrap or unwrap.
 
-### Create a Data-Encryption Key (DEK)
+#### Create a Data-Encryption Key (DEK)
 
-#### You can generate DEKs whenever you need them:
+##### You Can Generate DEKs Whenever You Need Them:
 
 ```shell
 akeyless create-classic-key \
@@ -162,7 +162,7 @@ akeyless create-classic-key \
     --type internal
 ```
 
-### Export the DEK, already wrapped by the KEK
+#### Export the DEK, Already Wrapped by the KEK
 
 ```shell
 akeyless export-classic-key \
@@ -171,7 +171,7 @@ akeyless export-classic-key \
     --format json > dek_wrapped.json
 ```
 
-#### The JSON file looks like this:
+##### The JSON File Looks Like This:
 
 ```shell
 {
@@ -183,7 +183,7 @@ akeyless export-classic-key \
 * key is the DEK, encrypted with the KEK.
 * iv is the 12-byte GCM nonce Google needs to decrypt.
 
-#### Unwrap (decrypt) the DEK inside your application code (using GCP GO SDK)
+##### Unwrap (Decrypt) the DEK Inside Your Application Code (Using GCP GO SDK)
 
 > 👍 Prerequisites
 >
@@ -213,7 +213,7 @@ dekPlaintext := resp.Plaintext
 
 dekPlaintext is now the usable AES-256-GCM key you can feed to your own data-encryption routines.
 
-#### Use the DEK and rotate when needed
+##### Use the DEK and Rotate When Needed
 
 Encrypt or decrypt your application data with the plaintext DEK.
 

@@ -18,11 +18,11 @@ For example, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dyna
 
 Linked Targets can inherit credentials from a designated Parent Target, thus giving the hosts of the Linked Target the option to authenticate with any service tied to their Parent Target. Based on the Parent Target type, the Linked Target item can be used for the relevant Dynamic Secret type. Otherwise, when no Parent Target is selected, the Linked Target object can hold a collection of hosts, that might be used for [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) cases like SSH and more. 
 
-# Working with Linked Targets in the CLI
+## Working With Linked Targets in the CLI
 
 These commands are unique to Linked Targets and do not apply to standard [Targets](https://docs.akeyless.io/docs/targets).
 
-## Create a Linked Target
+### Create a Linked Target
 
 To create a Linked Target, use the following command:
 
@@ -47,7 +47,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 >
 > All Linked Target hosts will be added to the Secure Remote Access hosts lists automatically
 
-## Update a Linked Target
+### Update a Linked Target
 
 To update an existing linked target use the following command:
 
@@ -58,9 +58,9 @@ akeyless update-linked-target --name <linked target name> --new-name <new name>\
 
 Inserting new values in the hosts or parent target parameters will change their values, but the name must be changed via the `new-name` parameter.
 
-# Working with Linked Targets in the Console
+## Working With Linked Targets in the Console
 
-## Create a Linked Target
+### Create a Linked Target
 
 To create a Linked Target follow these steps:
 
@@ -79,11 +79,11 @@ To create a Linked Target follow these steps:
 
 5. Click **Finish**.
 
-## Update a Linked Target
+### Update a Linked Target
 
 To change any information find the Linked target in your **Targets** tab and select edit.
 
-## Parentless Linked Target
+### Parentless Linked Target
 
 While the main advantage of a Linked Target item is the ability to share and utilize the same privileged credentials from its Parent Target, a Linked Target item without a Parent will represent a collection of hosts for easier and more convenient management of SSH certificates by using parentless Linked Targets for [SSH Cert Issuers](https://docs.akeyless.io/docs/ssh-certificates) with multiple hosts, eliminating the need to manage all those hosts across different items inside the Akeyless Platform.
 

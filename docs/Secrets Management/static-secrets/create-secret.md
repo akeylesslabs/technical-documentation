@@ -18,7 +18,7 @@ next:
 ---
 When you create a static secret, you need to name it and provide the secret value. All secret values are encrypted using patented Akeyless Distributed Fragment Cryptography™ (DFC) technology.
 
-# Create a Static Secret from the Akeyless CLI
+## Create a Static Secret from the Akeyless CLI
 
 Let’s create a static secret using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/create-secret#create-a-static-secret-from-the-akeyless-console) instead.
 
@@ -52,7 +52,7 @@ $ A new secret named /Admin/AdminCredentials was successfully created
 
 Next, assign the static secret to an access role that defines who can access the secret value, and with what permissions. For details, see [Add a Static Secret to an Access Role](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role).
 
-# Create a Static Secret from the Akeyless Console
+## Create a Static Secret from the Akeyless Console
 
 Let’s create a static secret using the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/create-secret#create-a-static-secret-from-the-akeyless-cli) instead.
 
@@ -78,6 +78,6 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 3. Select **Save**.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Updating a Static Secret](https://tutorials.akeyless.io/docs/creating-a-static-secret) .

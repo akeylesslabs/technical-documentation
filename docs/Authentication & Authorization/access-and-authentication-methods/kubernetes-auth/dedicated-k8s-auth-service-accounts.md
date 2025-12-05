@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Prerequisites
+## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the Kubernetes (K8s) cluster.
 
@@ -22,7 +22,7 @@ next:
 >
 > To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth.
 
-# Dedicated ServiceAccount
+## Dedicated ServiceAccount
 
 This flow describes the creation of a dedicated Kubernetes ServiceAccount which will work based on token projection.
 
@@ -68,7 +68,7 @@ Apply:
 kubectl apply -f akl_gw_token_reviewer.yaml
 ```
 
-### Bearer Token Extraction for Kubernetes Server v1.23 or lower
+### Bearer Token Extraction for Kubernetes Server V1.23 or Lower
 
 2. Extract the `gateway-token-reviewer` ServiceAccount secret name:
 
@@ -84,7 +84,7 @@ SA_JWT_TOKEN=$(kubectl get secret $GW_SA_NAME \
     --output 'go-template={{ .data.token | base64decode }}')
 ```
 
-### Bearer Token Extraction for Kubernetes Server v1.24 or higher
+#### Bearer Token Extraction for Kubernetes Server V1.24 or Higher
 
 Kubernetes won’t generate Secrets automatically for ServiceAccounts, to get your ServiceAccount token, run the following commands instead:
 
@@ -112,7 +112,7 @@ SA_JWT_TOKEN=$(kubectl get secret gateway-token-reviewer-token \
   --output 'go-template={{.data.token | base64decode}}')
 ```
 
-### Extract Kubernetes Cluster CA Certificate
+#### Extract Kubernetes Cluster CA Certificate
 
 To extract the Kubernetes cluster CA cert used to talk to Kubernetes API run the following command:
 
@@ -124,7 +124,7 @@ CA_CERT=$(kubectl config view --raw --minify --flatten  \
 CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/ p' | base64)
 ```
 
-### Create Kubernetes Auth Method
+#### Create Kubernetes Auth Method
 
 1. Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes auth method. The result contains an `access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw):
 
@@ -145,7 +145,7 @@ Upon successful creation, the response:
 >
 > Save returned private key & AccessID for next steps inside an environment variables  `$PRV_KEY` and `$ACCESS_ID`.
 
-### Create Kubernetes Gateway Auth Config Using Bearer Tokens
+#### Create Kubernetes Gateway Auth Config Using Bearer Tokens
 
 To [discover your Kubernetes service account issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
@@ -223,7 +223,7 @@ When the cluster access type is **Rancher**, add the following parameters:
 * `rancher-api-key`: Rancher **Bearer token**, based on the created Rancher [API Key](https://ranchermanager.docs.rancher.com/reference-guides/user-settings/api-keys).
 * `rancher-cluster-id`: Rancher Cluster ID, i.e., your Rancher API Key Scope.
 
-# Authenticate from a pod in your Kubernetes cluster
+## Authenticate from a Pod in Your Kubernetes Cluster
 
 1. Create a namespace in your Kubernetes cluster:
 
@@ -281,7 +281,7 @@ Token: t-bb7b...3564a7c9
 >
 > Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
 
-# Available claims for Kubernetes Auth
+## Available Claims for Kubernetes Auth
 
 The following list of claims can be configured within Akeyless [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for Kubernetes.
 
@@ -297,7 +297,7 @@ The following list of claims can be configured within Akeyless [Role-based Acces
 
 Each claim can be enforced as part of your role association to enforce the right policy for your items.
 
-# Enable token request projection on Minikube
+## Enable Token Request Projection on Minikube
 
 To enable token request projection on a managed Kubernetes cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide.
 
@@ -318,6 +318,6 @@ minikube start \
 >
 > This example uses `api` as the service account issuer name, for your service accounts API audience.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Kubernetes Authentication](https://tutorials.akeyless.io/docs/kubernetes-authentication).

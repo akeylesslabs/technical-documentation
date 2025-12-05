@@ -21,7 +21,7 @@ It covers:
 * Using [PushSecret](https://external-secrets.io/latest/api/pushsecret/) to push Kubernetes secrets back to Akeyless
 * Example usage
 
-## How ESO Works with Akeyless
+## How ESO Works With Akeyless
 
 The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates <Anchor label="standard Kubernetes Secret objects" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">standard Kubernetes Secret objects</Anchor> in a Kubernetes cluster.
 
@@ -71,7 +71,7 @@ At a high level:
 
 ***
 
-## Installing External Secrets Operator with Helm
+## Installing External Secrets Operator With Helm
 
 1. Add the official ESO Helm repository:
 
@@ -90,7 +90,7 @@ The ESO controller pods running in the `external-secrets` namespace should now b
 
 ***
 
-## Authentication with Akeyless
+## Authentication With Akeyless
 
 ESO’s Akeyless provider supports the following **access types**:
 
@@ -310,7 +310,7 @@ Remember that any namespace using this `ClusterSecretStore` must be authorized i
 
 ***
 
-## `ExternalSecret`: Syncing Akeyless Secrets into Kubernetes
+## `ExternalSecret`: Syncing Akeyless Secrets Into Kubernetes
 
 To fetch an Akeyless secret and store it as a Kubernetes Secret, define an `ExternalSecret` resource.
 
@@ -436,7 +436,7 @@ Now `my-tls-secret` can be used with a Kubernetes `Ingress` or other resource ex
 
 ***
 
-## `PushSecret`: Push Kubernetes Secrets into Akeyless
+## `PushSecret`: Push Kubernetes Secrets Into Akeyless
 
 `PushSecret` is used to **push** local Kubernetes Secrets into Akeyless, enabling a GitOps-friendly workflow where Kubernetes becomes the source of truth for some secrets.
 
@@ -488,7 +488,7 @@ Applying this manifest will create an Akeyless secret named `eso-created/my-secr
 
 This section illustrates how to use **Azure AD Managed Identity** on AKS in combination with an Akeyless **Azure AD Authentication Method** that enforces **sub-claims**, such as `xms_mirid` (Managed Identity resource ID) and `oid` (user/object ID).
 
-### Example: Akeyless Azure AD Auth Method with Sub-Claims
+### Example: Akeyless Azure AD Auth Method With Sub-Claims
 
 Below is a truncated example of an Azure AD Auth Method with **role associations** and **sub-claims** that bind the role to specific identities:
 

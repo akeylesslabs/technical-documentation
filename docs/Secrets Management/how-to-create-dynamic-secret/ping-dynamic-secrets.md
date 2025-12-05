@@ -16,9 +16,9 @@ You can create a PingFederate secret to allow users to dynamically receive short
 >
 > We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/ping-target). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-# Working With Ping Dynamic Secrets from the CLI
+## Working With Ping Dynamic Secrets from the CLI
 
-## Create a Dynamic Ping Secret
+### Create a Dynamic Ping Secret
 
 To create a dynamic Ping secret from the CLI using an existing [Ping Target](https://docs.akeyless.io/docs/ping-target), run the following command:
 
@@ -76,7 +76,7 @@ You may update the Dynamic Secret information using the following command with t
 akeyless dynamic-secret updateakeyless dynamic-secret get-value ping
 ```
 
-## Fetch a Dynamic Ping Secret Value
+### Fetch a Dynamic Ping Secret Value
 
 > 🚧 Warning
 >
@@ -101,13 +101,13 @@ The output should look as follows:
 }
 ```
 
-# Working With Ping Dynamic Secrets from the Console
+## Working With Ping Dynamic Secrets from the Console
 
 > 👍 Note
 >
 > To start working with dynamic secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
-## Create a Dynamic Ping Secret
+### Create a Dynamic Ping Secret
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
@@ -145,7 +145,7 @@ The output should look as follows:
 
 7. Click **Finish**.
 
-## Fetch a Dynamic Ping Secret Value
+### Fetch a Dynamic Ping Secret Value
 
 > 🚧 Warning
 >

@@ -12,11 +12,11 @@ next:
 ---
 Chef InSpec is an open-source framework for testing and auditing your applications and infrastructure. Chef InSpec works by comparing the actual state of your system with the desired state that you express in easy-to-read and easy-to-write Chef InSpec code. Chef InSpec detects violations and displays findings in the form of a report, but puts you in control of remediation.
 
-# Prerequsites
+## Prerequsites
 
 An [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 
-# Chef InSpec Plugin Configuration
+## Chef InSpec Plugin Configuration
 
 1. Issue an SSH Certificate from Akelyess:
 
@@ -44,7 +44,7 @@ inspec shell -c 'package("git").installed?' -t <target_username>@<target_ssh_ser
 inspec shell -c 'package("git").version' -t <target_username>@<target_ssh_server>
 ```
 
-# Example
+## Example
 
 ```ruby
 # sign public ssh key by Akeyless to get ssh certificate

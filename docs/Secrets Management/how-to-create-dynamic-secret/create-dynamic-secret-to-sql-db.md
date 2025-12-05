@@ -40,7 +40,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 >
 > We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/database-targets). While it saves time for multiple secret level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the DB used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-# Create a Dynamic Database Secret from the CLI
+## Create a Dynamic Database Secret from the CLI
 
 To create a dynamic database secret from the CLI using an existing [Target](https://docs.akeyless.io/docs/targets), run the following command:
 
@@ -303,7 +303,7 @@ Depending on each database, set the relevant creation and revocation statements 
 
 For example, the PostgreSQL database provides a `creation` statement that controls the capabilities (**create**, **read**, **update**, or **delete**) and access levels for the databases and tables.
 
-## RDS and Cloud-Managed Databases
+### RDS and Cloud-Managed Databases
 
 The following explains how to use **Creation** and **Revocation** statements in RDS and Cloud-Managed Databases:
 
@@ -333,7 +333,7 @@ The following is an example revocation statement for Postgres:
 >
 > `CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON *.* TO '{{name}}'@'%';`
 
-### Inline connection string
+#### Inline Connection String
 
 If you don't have a [Database Target](https://docs.akeyless.io/docs/database-targets), you can use the command with your database target server connection string inline:
 
@@ -341,7 +341,7 @@ Depending on your database type, provide a **privileged username** that has enou
 
 You can find the complete list of parameters for these commands in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets) section.
 
-# Fetch a Dynamic Database Secret value from the CLI
+## Fetch a Dynamic Database Secret Value from the CLI
 
 To fetch a dynamic database secret value from the CLI, run the following command:
 
@@ -349,7 +349,7 @@ To fetch a dynamic database secret value from the CLI, run the following command
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Database Secret in the Akeyless Console
+## Create a Dynamic Database Secret in the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
@@ -383,7 +383,7 @@ Set the relevant create & revoke statements to control and manage the level of a
 
 5. Click **Finish**.
 
-# Fetch a Dynamic Database Secret Value from the Akeyless Console
+## Fetch a Dynamic Database Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 
@@ -391,6 +391,6 @@ Set the relevant create & revoke statements to control and manage the level of a
 
 3. Select the secret and click **Get Dynamic Secret** button.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Using MySQL Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets) .

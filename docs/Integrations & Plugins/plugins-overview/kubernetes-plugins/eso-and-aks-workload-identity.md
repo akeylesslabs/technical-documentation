@@ -30,7 +30,7 @@ ESO:
 
 ***
 
-## What Makes Workload Identity Work with Akeyless
+## What Makes Workload Identity Work With Akeyless
 
 When an Azure AD Auth Method is configured in Akeyless, it validates Azure tokens based on:
 
@@ -47,7 +47,7 @@ This enables very fine-grained identity binding between AKS workloads and Akeyle
 
 ## Required Components
 
-### 1. Kubernetes `ServiceAccount` with Workload Identity Annotation
+### 1. Kubernetes `ServiceAccount` With Workload Identity Annotation
 
 This `ServiceAccount` determines _which_ Managed Identity ESO will use.
 

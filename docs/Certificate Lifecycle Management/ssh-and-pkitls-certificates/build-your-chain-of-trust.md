@@ -22,7 +22,7 @@ The certificate chain includes the following components:
 
 <Image align="center" width="123% " src="https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png" />
 
-# Creating a Chain of Trust
+## Creating a Chain of Trust
 
 The whole chain of trust can be generated using one dedicated CLI command, which automatically creates:
 
@@ -69,7 +69,7 @@ Running the command above will create  a **Certificate Chain** under **/My-First
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates section.](https://docs.akeyless.io/docs/cli-reference-certificates#chain-of-trust)
 
-## Items Structure
+### Items Structure
 
 The following is the structure of the items related to the newly created CA:
 
@@ -80,7 +80,7 @@ The following is the structure of the items related to the newly created CA:
 
 Once the certificate is generated, a new folder named **certificates** will be created, containing the newly generated certificate. 
 
-## Issuing a Leaf Certificate
+### Issuing a Leaf Certificate
 
 Once the chain is created, a certificate can be generated from the **Intermediate** issuer.
 

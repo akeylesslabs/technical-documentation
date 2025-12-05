@@ -12,25 +12,25 @@ metadata:
 next:
   description: ''
 ---
-# Background
+## Background
 
 In the rapidly evolving digital landscape, a leading multinational corporation recognized the need to enhance its organizational security and operational efficiency. The company faced challenges in managing access requests efficiently, often dealing with time-consuming processes and the high risk of security breaches due to manual errors.
 
-# Challenge
+## Challenge
 
 The company sought a solution that could streamline the process of managing access requests, from internal systems and databases to secure remote access for offsite work. They needed a system that could automate the approval or denial of these requests, enforce strict security standards, and ensure compliance with both internal and external regulations.
 
-# Solution
+## Solution
 
 The company chose to integrate Akeyless API with the ServiceNow platform, leveraging Akeyless' expertise in secure access management solutions and ServiceNow's robust IT service management capabilities. This integration enabled seamless interactions with IT systems to manage access credentials and permissions securely.
 
-# Implementation
+## Implementation
 
 With the integrated solution, IT personnel were empowered to approve or decline access requests directly within the ServiceNow platform using the Akeyless API. This direct interaction simplified the approval process, made it more efficient, and significantly reduced the likelihood of errors, thus bolstering security measures across the board.
 
 Utilizing the security and compliance data provided by Akeyless, approvers could make informed decisions within the ServiceNow interface. They had the flexibility to approve requests, granting the necessary access permissions automatically through Akeyless, or to decline them if they did not meet the organization's stringent security standards.
 
-# Implementation Steps for the Solution
+## Implementation Steps for the Solution
 
 **Prerequisites for Implementation**
 

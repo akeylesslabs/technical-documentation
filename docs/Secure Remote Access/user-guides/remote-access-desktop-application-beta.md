@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Introduction
+## Introduction
 
 The Desktop Application is designed to work across Windows and macOS, It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software.
 
@@ -24,19 +24,19 @@ Who Should benefit from using this application?
 >
 > The Desktop App is currently in its Beta phase
 
-# Prerequisites
+## Prerequisites
 
 * **Windows** or **macOS Ventura** / **Monterey** / **Big Sur** Operating System.
 
-## Permissions
+### Permissions
 
 The Desktop Application creates a tunnel to the designated resource and injects the password securely. To support this to support this process, any user working with the Desktop Application must have [Read permission](https://docs.akeyless.io/docs/rbac#permissions-for-items-access-roles-auth-methods-and-targets) on the Secret Item.
 
-# Installation Guide
+## Installation Guide
 
 Download the respective Desktop Application installation file from [here](https://download.akeyless.io/Akeyless_Artifacts/)
 
-## Windows Installation
+### Windows Installation
 
 1. Open Windows command line as an Administrator and generate Private & Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This will create an `.ssh` folder with the respective `id_rsa` and `id_rsa.pub` files.
 
@@ -48,7 +48,7 @@ The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\
 
 4. Open the app and sign in with your Akeyless credentials.
 
-## macOS Installation
+### macOS Installation
 
 1. After downloading the appropriate installer file, locate it in your `Downloads` folder or the directory you specified.
 2. Open it and drag the Akeyless Remote Access app to the Applications folder.
@@ -65,7 +65,7 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 > 1. **config.json** - the configuration file (includes the basic configuration parameters required to launch the desktop application). This file can be deployed by the Admin across the organization
 > 2. **Logs** - can be found at \Akeyless-desktop\logs
 
-# How it works?
+## How It Works?
 
 1. The Desktop Application retrieves connection details from the target item (e.g., `MY-MSSQL-connection`) and initiates a connection.
 2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window
@@ -82,7 +82,7 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 >
 > Applications such **Azure Data Studio**, **WindowsApp**, **DBeaver**, **Putty**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
 
-# Configuration & First-Time Setup
+## Configuration & First-Time Setup
 
 1. Logging to the Desktop Application (using SAML, OIDC, Certificate, Access Key, etc).
 

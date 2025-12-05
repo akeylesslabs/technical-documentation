@@ -16,7 +16,7 @@ You can enable secure remote access to AWS with a Dynamic Secret that generates 
 >
 > Use [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command to access the AWS Console from any UNIX terminal.
 
-# Prerequisites
+## Prerequisites
 
 To enable secure remote access to AWS you need:
 
@@ -28,13 +28,13 @@ In addition, for users to access the AWS Console using the CLI, you need:
 
 * An [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
-# Create an AWS Secret
+## Create an AWS Secret
 
 If you don't already have an AWS secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) that specifies the AWS account details and access credentials.
 
 If you already have a relevant secret, continue below.
 
-# Set Up Remote Access to the AWS Console from the Akeyless CLI
+## Set Up Remote Access to the AWS Console from the Akeyless CLI
 
 Let's set up remote access to the AWS Console using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/aws-console-secure-remote-access#set-up-remote-access-to-the-aws-console-from-the-akeyless-console) instead.
 
@@ -75,7 +75,7 @@ Alternatively, in case you prefer to work with the Akeyless bastions as a proxy 
 * **secure-access-web-proxy:** Optional, web-proxy via Akeyless Zero trust Web Access.
 * **secure-access-delay:** The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
-# Set Up Remote Access to the AWS Console from the Akeyless Console
+## Set Up Remote Access to the AWS Console from the Akeyless Console
 
 Let's set up remote access to the AWS Console from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/aws-console-secure-remote-access#set-up-remote-access-to-the-aws-console-from-the-akeyless-cli) instead.
 
@@ -108,7 +108,7 @@ For **CLI Access**:
 >
 > You can specify a custom delay, measured in seconds [0 - 120], before a newly generated dynamic secret becomes usable. This additional wait time helps target systems complete their sync process with the updated credentials
 
-# Access the AWS Console over the Web from the Secure Remote Access Portal
+## Access the AWS Console Over the Web from the Secure Remote Access Portal
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **AWS Console**.
 
@@ -119,14 +119,14 @@ For **CLI Access**:
 >
 > The temporary user is created when you request access to the AWS Console. As this may take a few seconds, please wait a few seconds for the credentials to be injected before you try sign in.
 
-# Access the AWS Console Using CLI from the Secure Remote Access Portal
+## Access the AWS Console Using CLI from the Secure Remote Access Portal
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **AWS Console**.
 
 2. Select the required target, then select **CLI**.
    A new tab opens, showing that you are connected to the AWS Console.
 
-# Access the AWS Console using Akeyless connect command
+## Access the AWS Console Using Akeyless Connect Command
 
 [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command enables application native CLI access:
 

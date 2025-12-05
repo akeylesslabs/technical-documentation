@@ -14,7 +14,7 @@ Akeyless Server Inventory discovery enables importing and managing **Local Users
 
 The discovery process can work against a standalone [Windows](https://docs.akeyless.io/docs/windows-target), [SSH](https://docs.akeyless.io/docs/ssh-target), and the migration will use the Target credentials to connect to the endpoint server using `Winrm` or `ssh` correspondingly. On each server, the discovery will search for all users except the **Ignored Users List**. 
 
-# Set Up Automatic Migration for Server Inventory
+## Set Up Automatic Migration for Server Inventory
 
 To create the Server Inventory Migration, login to your Gateway on port `8000`, navigate to the **Automatic Migration -> Server Inventory -> Add**, and set the following:
 

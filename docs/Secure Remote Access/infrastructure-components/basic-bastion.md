@@ -156,7 +156,7 @@ helm install <RELEASE NAME> akeyless/akeyless-zero-trust-bastion -f values.yaml
 
 Verify that the Basic Bastion pod is up and running.
 
-## Installing Basic Bastion via Docker
+## Installing Basic Bastion Via Docker
 
 Akeyless Basic bastion can be deployed via docker:
 

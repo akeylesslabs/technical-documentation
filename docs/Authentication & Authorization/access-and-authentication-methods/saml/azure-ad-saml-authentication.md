@@ -16,7 +16,7 @@ This guide will take you through the steps to set up SAML authentication with Az
 >
 > The Azure AD limit for groups per user is set by default to 150. Users with more groups cannot use SAML with Azure.
 
-# Create an Azure AD application
+## Create an Azure AD Application
 
 1. On your Azure Dashboard, select **Enterprise Applications**.
 
@@ -64,11 +64,11 @@ This guide will take you through the steps to set up SAML authentication with Az
 
 Now for the Akeyless side:
 
-# Create SAML Authentication Method
+## Create SAML Authentication Method
 
 The Akeyless side of the setup can be done either from the CLI or the console. Choose whichever you find preferable.
 
-## Using the Akeyless CLI
+### Using the Akeyless CLI
 
 Run the following command:
 
@@ -81,7 +81,7 @@ akeyless auth-method create saml \
 
 The IDP metadata URL is the **App Federation Metadata URL** you copied from the Azure process.
 
-## Using the Akeyless Console
+### Using the Akeyless Console
 
 1. Go to the **Users & Auth Methods** tab in your console.
 

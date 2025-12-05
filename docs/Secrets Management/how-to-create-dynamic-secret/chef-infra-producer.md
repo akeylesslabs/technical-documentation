@@ -12,13 +12,13 @@ next:
 ---
 You can define a Chef Infra dynamic secret to allow users to dynamically generate access credentials for a Chef Infra server.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * Chef privileged user
 
-# Create a Dynamic Chef Infra Secret from the CLI
+## Create a Dynamic Chef Infra Secret from the CLI
 
 > 👍 Note
 >
@@ -61,7 +61,7 @@ Where:
 
 * `password-length`: **Optional** The temporary user password length.
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have [Chef Infra Target](https://docs.akeyless.io/docs/chef-infra-targets) yet, you can use the command with your Chef connection string:
 
@@ -75,7 +75,7 @@ If you don't have [Chef Infra Target](https://docs.akeyless.io/docs/chef-infra-t
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluechefp) section.
 
-# Fetch a Dynamic Chef Infra Secret value from the CLI
+## Fetch a Dynamic Chef Infra Secret Value from the CLI
 
 To fetch a dynamic Chef Infra secret value from the CLI, run the following command:
 
@@ -83,7 +83,7 @@ To fetch a dynamic Chef Infra secret value from the CLI, run the following comma
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Chef Infra Secret in the Akeyless Console
+## Create a Dynamic Chef Infra Secret in the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Dynamic Secrets > New > Chef Infra**.
 
@@ -120,7 +120,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic Chef Infra Secret value from the Akeyless Console
+## Fetch a Dynamic Chef Infra Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

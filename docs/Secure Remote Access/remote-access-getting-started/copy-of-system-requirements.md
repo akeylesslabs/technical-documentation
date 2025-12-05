@@ -7,7 +7,7 @@ metadata:
 ---
 In this guide, you will find the system requirements and general information about the SRA deployment.
 
-# Minimum Resource Requirements
+## Minimum Resource Requirements
 
 Each pod in the Akeyless SRA solution has the following minimum resource requirements:
 
@@ -16,7 +16,7 @@ Each pod in the Akeyless SRA solution has the following minimum resource require
 
 These minimum resource allocations are designed to optimize performance and ensure stable operations. Adjustments may be needed based on the specific workload and deployment size.
 
-# Connection Handling Capabilities
+## Connection Handling Capabilities
 
 * **Web-SRA and SSH-SRA Pods**: These are capable of handling between 70 to 100 simultaneous connections with a mix of SSH, DB, and other applications under the recommended resource allocation.
 
@@ -26,19 +26,19 @@ These minimum resource allocations are designed to optimize performance and ensu
 
 The number of pods and replication is managed with the values file during Helm installation. Multiple `ssh-sra` pods previously required a dedicated persistent volume, but it is now replaced with a local Redis deployment. This will simplify the solution and reduce the dependency on a persistent volume.
 
-## Browser Extension Requirements
+### Browser Extension Requirements
 
 The Browser Extension is installed on the local browser and is highly recommended for the SRA environment. It enables Direct & Proxy connections for Web-Access, including advanced features such as auto-injection of passwords and additional RDP features.
 
-## Storage Requirements
+### Storage Requirements
 
 Akeyless does not require extensive storage for basic operation. However, if session recording is enabled, additional storage will be necessary. RDP session recordings are captured and saved as .m4v video files. These files can be stored locally, requiring a persistent volume, or uploaded to an S3 bucket for remote storage. The recording output rate is approximately 4 MB per minute, resulting in a file size of around 240 MB for a one-hour session.
 
-## Recommended Server Specifications
+### Recommended Server Specifications
 
 Based on the components and their respective resource allocations, the following server specifications are recommended for deploying the Akeyless Remote Access solution:
 
-### Minimum Specifications for Small Deployments
+#### Minimum Specifications for Small Deployments
 
 * **vCPUs**: 4
 * **Memory**: 16 GiB
@@ -47,7 +47,7 @@ Based on the components and their respective resource allocations, the following
 
 This setup is suitable for small deployments, supporting up to ~100 simultaneous ssh/application connections and several secure web applications with a combination of web-sra, ssh-sra, and web-worker pods.
 
-### Medium to Large Deployments
+#### Medium to Large Deployments
 
 * **vCPUs**: 16
 * **Memory**: 32 GiB
@@ -56,7 +56,7 @@ This setup is suitable for small deployments, supporting up to ~100 simultaneous
 
 This configuration is ideal for medium to large deployments, supporting hundreds of simultaneous connections and multiple web-worker pods.
 
-## Additional Considerations
+### Additional Considerations
 
 * **High Availability**: For production environments, it is recommended to deploy the Akeyless SRA solution in a high-availability configuration using multiple nodes and load balancers, with Kubernetes managing scaling and failover across multiple replicas to ensure traffic is balanced and service remains continuous.
 
@@ -81,6 +81,6 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
   * **NGINX Ingress (generic)** - Defaults commonly close connections around 60s without traffic. Raise with annotations / ConfigMap (e.g., `nginx.ingress.kubernetes.io/proxy-read-timeout`, proxy-send-timeout). See vendor information [here](https://nginx.org/en/docs/http/websocket.html?utm_source=chatgpt.com)
 
-## Conclusion
+### Conclusion
 
 The Akeyless Remote Access solution is designed to be flexible and scalable, capable of meeting the needs of a wide range of environments. By following the recommended server specifications and resource allocations, organizations can ensure that their deployment is both performant and reliable, providing secure remote access to their critical resources. Further information can be found on the [SRA online document page](https://docs.akeyless.io/docs/remote-access-overview).

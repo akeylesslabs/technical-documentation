@@ -12,7 +12,7 @@ next:
 ---
 You can define a HashiCorp Vault target to be used with [HashiCorp Vault Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector-copy)
 
-# Create a HashiCorp Vault Target in the CLI
+## Create a HashiCorp Vault Target in the CLI
 
 To create an **HashiCorp Vault** target from the CLI, run the following command:
 
@@ -36,7 +36,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluehashi-vaultp) section.
 
-# Create a HashiCorp Vault Target in the Console
+## Create a HashiCorp Vault Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Other > HashiCorp Vault**
 

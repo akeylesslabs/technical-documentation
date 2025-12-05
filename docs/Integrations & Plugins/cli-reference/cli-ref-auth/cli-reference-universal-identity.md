@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Universal Identity authentica
 
 <CLIGeneralFlags />
 
-### `create`
+### `Create`
 
 Create a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create universal-identity \
@@ -50,11 +50,11 @@ akeyless auth-method create universal-identity \
 
 `--ttl[=60]`: Token TTL (has the value that configured in Akeyless console > Authentication settings)
 
-### `uid-create-child-token`
+### `Uid-create-child-token`
 
 Create a new child token using Akeyless Universal Identity
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless uid-create-child-token \
@@ -78,31 +78,31 @@ akeyless uid-create-child-token \
 
 `--uid-token`: The universal identity token. It is required only for universal_identity authentication
 
-### `uid-generate-token`
+### `Uid-generate-token`
 
 Generate a new token using Akeyless Universal Identity
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless uid-generate-token --auth-method-name &lt;Auth method name&gt;
 ```
 
-### `uid-list-children`
+### `Uid-list-children`
 
 List the token children ids of Akeyless Universal Identity
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless uid-list-children --auth-method-name &lt;UID Auth Method Name&gt;
 ```
 
-### `uid-revoke-token`
+### `Uid-revoke-token`
 
 Revoke token using Akeyless Universal Identity
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless uid-revoke-token \
@@ -119,11 +119,11 @@ akeyless uid-revoke-token \
 
 `-n, --auth-method-name`: **Required**, the universal identity auth method name
 
-### `uid-rotate-token`
+### `Uid-rotate-token`
 
 Rotate Akeyless Universal Identity token
 
-##### Flags
+#### Flags
 
 `-t, --token, --uid-token`: The Universal identity token to rotate
 
@@ -137,11 +137,11 @@ Rotate Akeyless Universal Identity token
 
 `-i, --input-file`: Path to the input file
 
-### `update`
+### `Update`
 
 Update a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method update universal-identity \

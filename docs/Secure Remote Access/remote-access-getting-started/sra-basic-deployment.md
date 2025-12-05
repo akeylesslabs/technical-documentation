@@ -22,7 +22,7 @@ helm repo update
 helm show values akeyless/akeyless-gateway > values.yaml
 ```
 
-# Prerequisites
+## Prerequisites
 
 * Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
 
@@ -77,7 +77,7 @@ persistence:
     size: 2Gi
 ```
 
-## Horizontal Pod Autoscaler
+### Horizontal Pod Autoscaler
 
 The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
 
@@ -88,7 +88,7 @@ For it to work correctly, the K8s [metrics server](https://github.com/kubernetes
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
-# Basic Configuration
+## Basic Configuration
 
 In order to set your gateway with **Remote Access**, set the `sra` section to `true` and add the public key which is set on the SSH certificate Issuer as follows:
 
@@ -100,7 +100,7 @@ sshConfig:
   CAPublicKey: <"ssh-rsa AAAAB...">
 ```
 
-# Deployment Update
+## Deployment Update
 
 To update the existing gateway deployment with the SRA configuration, run the following command:
 
@@ -116,7 +116,7 @@ kubectl get pods
 
 In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`.
 
-# SRA Access
+## SRA Access
 
 In order to get the external IP address of your Gateway, run:
 

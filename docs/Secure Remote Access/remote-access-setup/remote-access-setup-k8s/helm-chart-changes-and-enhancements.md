@@ -16,9 +16,9 @@ To do this, many values in the chart have either been removed altogether or move
 
 Here you will find only the values that were moved or changed for each section:
 
-# Remote Access Chart Changes
+## Remote Access Chart Changes
 
-## Global
+### Global
 
 **clusterName**: Moved to the "Global" section in the Unified Gateway Helm chart.
 
@@ -40,7 +40,7 @@ Here you will find only the values that were moved or changed for each section:
 
 **deployment**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
-## Default values for akeyless-zero-trust-bastion
+### Default Values for Akeyless-zero-trust-bastion
 
 **ztbConfig**: Removed. Now called **webConfig** in the Unified Gateway Helm chart.
 
@@ -74,7 +74,7 @@ Here you will find only the values that were moved or changed for each section:
 
 **config** (**rdpRecord**): Removed. This whole section for RDP Recording is now appears in the Manage Gateway section in the Akeyless Console UI.
 
-## Default values for akeyless-zero-trust-portal
+### Default Values for Akeyless-zero-trust-portal
 
 **ztpConfig**: Removed.
 
@@ -102,7 +102,7 @@ Here you will find only the values that were moved or changed for each section:
 
 **certManager**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
 
-## Default values for akeyless-ssh-bastion
+### Default Values for Akeyless-ssh-bastion
 
 **sshConfig**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
 

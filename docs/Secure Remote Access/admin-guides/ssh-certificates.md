@@ -24,11 +24,11 @@ You can sign the certificate with your own private key or generate a new one in 
 >
 > We put the SSH Certificates section in the Secure Remote Access section of the docs because it is an integral part of setting up remote access SSH sessions. However, this feature can still be used for basic SSH logins without the need for a public SSH key on the target server even outside of the remote access use case.
 
-# Configuration
+## Configuration
 
 To configure a CA, you will need an **RSA key** to match. You can either use an existing key or create a new one. Once you are logged in to your Akeyless account on the desired server, proceed to one of the following.
 
-## Uploading an existing key
+### Uploading an Existing Key
 
 In case you want to use an existing key, upload your CA (RSA private key) for signing the client SSH certificate using the following command:
 
@@ -38,7 +38,7 @@ akeyless upload-rsa --name /keys/signer/MyRSA --alg RSA2048 --rsa-key-file-path 
 
 The command will upload an existing key to the `/keys/signer/` directory.
 
-## Creating a new key
+### Creating a New Key
 
 Alternatively, you can create a new **RSA key** in `/keys/new-signer/` folder:
 
@@ -69,7 +69,7 @@ l4BfQzeHV23YLvCLDRVB5YxXHogQ00IDGjYFPbp3KuYVqIZiDcTdmQ0HsHE28bQe
 -----END RSA PUBLIC KEY-----
 ```
 
-## Configuring the Server
+### Configuring the Server
 
 To enable certificate authentication, you will need to configure the target server to trust any certificates signed by your CA's public key as follows:
 
@@ -106,7 +106,7 @@ TrustedUserCAKeys /etc/ssh/ca.pub
 PubkeyAcceptedKeyTypes=+ssh-rsa,ssh-rsa-cert-v01@openssh.com
 ```
 
-# Principals
+## Principals
 
 An advanced feature available for server configuration in OpenSSH 6.2 and later is the use of the `AuthorizedPrincipalsFile`. This configuration option specifies a file that enumerates the valid principals (identities) permitted for certificate-based authentication.
 
@@ -136,9 +136,9 @@ admin
 AuthorizedPrincipalsFile /etc/ssh/principals
 ```
 
-# Generating a Certificate - CLI
+## Generating a Certificate - CLI
 
-## Creating the Certificate Authority
+### Creating the Certificate Authority
 
 The following command will create a new SSH Cert Issuer in the Akeyless Platform with ancillary data.
 
@@ -164,7 +164,7 @@ akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /
 >
 > You will also need to enable Secure Remote Access on the SSH Cert Issuer.
 
-## Issuing a Certificate
+### Issuing a Certificate
 
 After setting up a key and a certificate issuer, the following command will generate a certificate signed by the CA.
 
@@ -190,9 +190,9 @@ After generating a certificate, you should be able to connect to the server with
 ssh user@server
 ```
 
-# Generating a Certificate - Console
+## Generating a Certificate - Console
 
-## Creating the Certificate Authority
+### Creating the Certificate Authority
 
 This guide includes the steps needed for the necessary prerequisites. If you want to create the Certificate Issuer for an existing key, you may skip steps 1-3.
 
@@ -238,7 +238,7 @@ This guide includes the steps needed for the necessary prerequisites. If you wan
 
 You should now have a working certificate issuer.
 
-## Issuing a Certificate
+### Issuing a Certificate
 
 In order to issue an SSH certificate using an existing CI through the console, go through the following steps:
 

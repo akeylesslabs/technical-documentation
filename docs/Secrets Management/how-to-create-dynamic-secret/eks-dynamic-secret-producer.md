@@ -12,7 +12,7 @@ next:
 ---
 You can create a dynamic Amazon Elastic Kubernetes Service (EKS) secret to allow users to receive dynamic access tokens to an Amazon EKS cluster.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
@@ -41,7 +41,7 @@ roleRef:
 
 For more information about Kubernetes RBAC, see [the Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
-# Create an Amazon EKS Dynamic Secret from the CLI
+## Create an Amazon EKS Dynamic Secret from the CLI
 
 > 👍 Note
 >
@@ -88,7 +88,7 @@ Where:
 >
 > For more information, see [the Amazon EKS guide on user roles](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have a configured [Amazon EKS Target](https://docs.akeyless.io/docs/kubernetes-targets#eks) yet, you can use the command with an inline connection string:
 
@@ -106,7 +106,7 @@ If you don't have a configured [Amazon EKS Target](https://docs.akeyless.io/docs
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueeksp) section.
 
-# Use the Amazon EKS Dynamic Secret with the Akeyless CLI
+## Use the Amazon EKS Dynamic Secret With the Akeyless CLI
 
 If the Akeyless CLI is installed on the same host as the `kubectl`, you can define a `kubeconfig` file to automatically run the `get-dynamic-secret-value` command and fetch new access tokens as required.
 
@@ -148,7 +148,7 @@ When you run `kubectl`, the Akeyless `get-dynamic-secret-value` command will fet
 
 For more information regarding `kubectl` and the `kubeconfig` file, see the [kubectl installation manual](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
-# Use an Amazon EKS Dynamic Secret with the Akeyless CLI running on a remote host
+## Use an Amazon EKS Dynamic Secret With the Akeyless CLI Running on a Remote Host
 
 If the Akeyless CLI is installed on a different host as the `kubectl`, you can get a service account token from Akeyless separately, and then manually update the `kubeconfig` file that uses the token.
 

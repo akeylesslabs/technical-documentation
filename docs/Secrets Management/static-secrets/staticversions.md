@@ -42,7 +42,7 @@ Examples are as follows:
 * Delete a specific version of the secret value
 * Roll back to a previous secret version
 
-### Create a new version of _secret1_ with the new value _value2_ and keep previous version:
+### Create a New Version of _Secret1_ With the New Value _Value2_ and Keep Previous Version:
 
 ```shell Shell
 $ akeyless update-secret-val -n /secret1 -v value2 --keep-prev-version=true
@@ -69,21 +69,21 @@ $ akeyless describe-item -n /secret1 --show-versions
 }
 ```
 
-### Get a secret value always returns the current value:
+### Get a Secret Value Always Returns the Current Value:
 
 ```shell
 $ akeyless get-secret-value -n /secret1
 value2
 ```
 
-### Get a specific version of the secret value:
+### Get a Specific Version of the Secret Value:
 
 ```shell
 $ akeyless get-secret-value -n /secret1 --version 1
 value1
 ```
 
-### Get the last N versions of the secret value:
+### Get the Last N Versions of the Secret Value:
 
 To get the last **N** versions of a secret values, use `--version=-N`, where `-N` represents the last versions you wish to retrieve, supporting up to the last 20 versions of the secret.
 
@@ -97,7 +97,7 @@ $ akeyless get-secret-value -n /secret1  --version=-4
 }
 ```
 
-### Delete a specific version of the secret value:
+### Delete a Specific Version of the Secret Value:
 
 ```shell
 $ akeyless delete-item -n /secret1 --version 1
@@ -120,7 +120,7 @@ $ akeyless describe-item -n /secret1 --show-versions
 }
 ```
 
-### Roll back to a previous secret version:
+### Roll Back to a Previous Secret Version:
 
 ```shell
 $ akeyless update-secret-val -n /secret1 -v value3 --keep-prev-version=true
@@ -160,7 +160,7 @@ $ akeyless get-secret-value -n /secret1
 value2
 ```
 
-## Updates and versions from the UI
+## Updates and Versions from the UI
 
 From the UI, click the pencil icon next to the **Value** of the secret and toggle **Create new version** to update the value and create a new version of the secret.
 

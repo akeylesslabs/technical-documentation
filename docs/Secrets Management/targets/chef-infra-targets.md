@@ -12,7 +12,7 @@ next:
 ---
 You can define a Chef Infra target to be used with [Chef Infra dynamic secrets](https://docs.akeyless.io/docs/chef-infra-producer).
 
-# Create a Chef Infra Target in the Console
+## Create a Chef Infra Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Infra (Chef Infra)**.
 

@@ -38,7 +38,7 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 >
 > The log forwarding mechanism can only fetch logs from the previous 24 hours. Please ensure that your Gateway default Authentication Method has an [Access Role ](https://docs.akeyless.io/docs/rbac) that allows viewing **all** audit logs in the account.
 
-# Amazon S3
+## Amazon S3
 
 When you export the audit logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under:
 
@@ -80,7 +80,7 @@ This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file 
 >
 > Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
 
-# Azure Log Analytics
+## Azure Log Analytics
 
 When you export the audit logs from the Akeyless Gateway to Azure Log Analytics, the logs are stored in the specified workspace in the **AkeylessAudit_CL** table. The **TimeGenerated** is the time the log was created in Akeyless, and **msg_s** is textual information for the log.
 
@@ -102,7 +102,7 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 9. Select **Save Changes**.
 
-# Datadog
+## Datadog
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -124,7 +124,7 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 10. Optional - Define **Log Service** , default value `akeyless-gateway`.
 
-# Elasticsearch
+## Elasticsearch
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -146,7 +146,7 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 10. Select **Save Changes**.
 
-# Google Chronicle
+## Google Chronicle
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -166,7 +166,7 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 9. **Log Type** - A log type to identify the log entries
 
-# Logstash
+## Logstash
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -197,7 +197,7 @@ input {
 }
 ```
 
-# Logz.io
+## Logz.io
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -215,7 +215,7 @@ input {
 
 8. Select **Save Changes**.
 
-# Splunk
+## Splunk
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -237,7 +237,7 @@ input {
 
 10. Select **Save Changes**.
 
-# STDOUT
+## STDOUT
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -249,7 +249,7 @@ input {
 
 5. From the **Log Service** dropdown list, select  `Standard Output`.
 
-# Sumo Logic
+## Sumo Logic
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -267,7 +267,7 @@ input {
 
 8. Optional - Define **Host** of your choice.
 
-# Syslog
+## Syslog
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 

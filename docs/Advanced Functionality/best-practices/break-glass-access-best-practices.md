@@ -14,7 +14,7 @@ To safeguard against unauthorized use, apply layered controls to the dedicated A
 * IP Range Restrictions: Limit access to the Auth Method by configuring it to accept authentication attempts only from a predefined IP address range. This ensures that break-glass access can only be initiated from trusted locations, such as a secure operations center or specific on-premises networks.
 * High-Level Alerting: Enable monitoring and alerting mechanisms to trigger notifications (e.g., via email, Slack, or integrated SIEM tools) whenever the break-glass Auth Method is accessed. This provides immediate visibility into emergency usage, allowing for rapid response and audit.
 
-## Dual-Control Authentication with MFA
+## Dual-Control Authentication With MFA
 
 For heightened security, consider using a **User and Password** Auth Method combined with Multi-Factor Authentication (MFA). To enforce the separation of duties and prevent single-point compromise:
 

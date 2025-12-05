@@ -14,7 +14,7 @@ The Akeyless [Go SDK](https://github.com/akeylesslabs/akeyless-go) makes it easy
 
 The following guide shows a typical integration.
 
-# Installation
+## Installation
 
 Get the Akelyess package for **Go**:
 
@@ -28,7 +28,7 @@ Import the package into your project:
 go import "github.com/akeylesslabs/akeyless-go/v3"
 ```
 
-# Configuration
+## Configuration
 
 Create and configure an instance of Akeyless Client:
 
@@ -47,11 +47,11 @@ func main() {
 
 To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set `host` with your Gateway API endpoint on port `8081`.
 
-# Authentication
+## Authentication
 
 The Akeyless **Go** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
-## API Key
+### API Key
 
 To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
 
@@ -74,7 +74,7 @@ func authWithAPIKey(id, key string) (string, error) {
 
 Make sure to set your `Access ID` and `Access Key` in the relevant places. The received token should be provided for every request that requires authentication.
 
-## Using cloud ID
+### Using Cloud ID
 
 To work with a Cloud-based Auth, import the `akeyless-go-cloud-id` [package](https://github.com/akeylesslabs/akeyless-go-cloud-id):
 
@@ -82,7 +82,7 @@ To work with a Cloud-based Auth, import the `akeyless-go-cloud-id` [package](htt
 go get "github.com/akeylesslabs/akeyless-go-cloud-id"
 ```
 
-### Authenticate using cloud ID
+#### Authenticate Using Cloud ID
 
 Set the relevant `accessType` based on your cloud provider, the following example uses `aws_iam`:
 
@@ -114,7 +114,7 @@ func authWithAWS(accessID string) (string, error) {
 
 Make sure to set your `accessID` in the relevant place.
 
-# Example
+## Example
 
 A basic example demonstrating the `ListItems` command:
 
@@ -158,6 +158,6 @@ func main() {
 }
 ```
 
-# API Reference
+## API Reference
 
 For a detailed API reference, see [here](https://akeyless.readme.io/reference).

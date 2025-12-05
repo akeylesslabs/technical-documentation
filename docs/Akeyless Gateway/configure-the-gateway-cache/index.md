@@ -26,7 +26,7 @@ The Gateway cache utilizes two primary types of caches: a **Local In-Memory Cach
 
 In a high-availability configuration, secrets are stored in a **Cluster Cache**, typically backed by an internal database instance. This shared cache ensures every pod has a consistent view of the cached data. This model is crucial for resilience, as it allows the Gateway to continue serving cached secrets even during a complete Akeyless SaaS outage. Authentication can also persist during an outage for methods that can be validated locally, such as Kubernetes Service Account authentication, where the Gateway can verify the token against the cluster's K8s API server without needing to contact the SaaS.
 
-# Gateway Cache
+## Gateway Cache
 
 To enable and configure the Gateway Cache:
 
@@ -46,7 +46,7 @@ To enable and configure the Gateway Cache:
 >
 > In case there is no internet connection, the Gateway Cache won’t delete old items until the internet connection is restored.
 
-# Proactive Gateway Cache
+## Proactive Gateway Cache
 
 The Proactive Cache fetches all secrets from the Akeyless Cloud and stores them in the Gateway Cache upon successful authentication (based on the user access policy). To manage each user's access policy, the [Gateway's default Auth Method ](https://docs.akeyless.io/docs/gateway-k8s#authentication) must have **List** permissions for **Auth-Methods** and **Roles**, as well as **Read** permission for the secret intended to be saved in the cache.
 
@@ -78,11 +78,11 @@ To enable and configure the Proactive Cache:
 5. Set the **Cleanup TTL** value.  Compares the cache with the SaaS to remove entries for secrets that have been deleted or for which the Gateway's access permissions have been revoked.
 6. Click **Save Changes**.
 
-# Cluster Cache Mode
+## Cluster Cache Mode
 
 When deploying Gateway on K8s, a Cluster Cache can be set in addition to support offline authentication, this results in an additional service that syncs all pods and has a shared storage, to keep the secrets encrypted at rest, this mode requires a K8s encryption key. This feature can be set **only** during deployment.  To set this follow the installation guide under the [cache](https://docs.akeyless.io/docs/advanced-k8s-gateway-configuration#cache-configuration) section.
 
-# Bypass Cache
+## Bypass Cache
 
 When Cache is enabled by default, any client that requests a secret from the relevant Gateway will receive the latest cached value of the secret. To work directly with the Akeyless SaaS, to ensure you are retrieving the latest value of the secret, you can specify the `ignore-cache`  setting as part of the request to by-pass the cache mechanism :
 

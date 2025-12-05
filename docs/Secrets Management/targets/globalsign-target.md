@@ -20,7 +20,7 @@ With Public CA, Akeyless cannot access the private key that signs the certificat
 
 Akeyless will store and manage the issued certificates and notify you of upcoming expiration events.
 
-# Create a GlobalSign Target in the CLI
+## Create a GlobalSign Target in the CLI
 
 To create a GlobalSign target from the CLI, run the following command:
 
@@ -58,7 +58,7 @@ Once the GlobalSign Target is created, it can be used to generate a [Public cert
 
 You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsignp) section.
 
-# Create a GlobalSign Target in the Console
+## Create a GlobalSign Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Certificate Automation (GlobalSign)**.
 

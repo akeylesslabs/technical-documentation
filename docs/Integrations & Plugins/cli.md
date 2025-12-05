@@ -14,7 +14,7 @@ There are multiple methods to interact with the Akeyless Platform for managing, 
 
 The Akeyless CLI has pre-compiled binary versions for **Linux, macOS, and Windows** which can be easily installed.
 
-# Download
+## Download
 
 Run the following commands to download and install the CLI binary:
 
@@ -104,7 +104,7 @@ dnf clean all && dnf makecache && dnf install -y akeyless
 
 To download the latest version of the CLI, please make sure that the `https://akeyless-cli.s3.*` endpoint is trusted.
 
-# Configuration
+## Configuration
 
 Running the CLI for the first time by default, prompts you to configure the basic settings.
 
@@ -134,7 +134,7 @@ access-key '<Access-Key>'
 
 Continue with installing the Akeyless CLI, depending on your operating system
 
-## Linux \ Mac
+### Linux \ Mac
 
 Once the authentication succeeds, follow the prompt to add the CLI executable to your `$PATH` :
 
@@ -154,7 +154,7 @@ Try running the `create-secret`command to test your installation:
 akeyless create-secret --name MySecret1 --value MySecretPassword
 ```
 
-## Windows
+### Windows
 
 > 📘 Note
 >
@@ -190,7 +190,7 @@ Try running the `create-secret`command to test your installation:
 akeyless create-secret --name MySecret1 --value MySecretPassword
 ```
 
-## Non-Interactive Mode
+### Non-Interactive Mode
 
 To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
 If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
@@ -200,7 +200,7 @@ For example, to work with the `eu` tenant you would run:
 ./akeyless --init --akeyless-url vault.eu.akeyless.io
 ```
 
-# Authentication
+## Authentication
 
 The CLI supports various types of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
@@ -225,7 +225,7 @@ For example, to work with the `eu` tenant you would run:
 ./akeyless --init --akeyless-url vault.eu.akeyless.io
 ```
 
-# Working with profiles
+## Working With Profiles
 
 Akeyless CLI supports profiles that can be set with different authentication methods and permissions. If you wish to configure a new profile, use the following command:
 
@@ -243,7 +243,7 @@ cd .akeyless/profiles/
 
 After you've created an additional profile, add the `--profile` parameter with the profile name to any `akeyless` command to use it under that profile.
 
-## Advanced Configuration
+### Advanced Configuration
 
 When creating a profile in the CLI, the profile contains only the Authentication Method settings, such as `Access ID`,  and `Access Type`.
 
@@ -275,7 +275,7 @@ Where:
 
 * `legacy_signing_alg`: Set this option to use the  SSH legacy signing algorithm.
 
-# Working with the Gateway
+## Working With the Gateway
 
 To re-route the entire traffic directly via your [Gateway](https://docs.akeyless.io/docs/api-gw) for closed environments, create an environment variable `AKEYLESS_GATEWAY_URL` to point your CLI to interact with the relevant Gateway:
 
@@ -288,13 +288,13 @@ set AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8080>
 
 In case your Gateway uses a self-signed certificate not trusted by your machine, set the environment variable `AKEYLESS_TRUSTED_TLS_CERTIFICATE_FILE` with the location of your `PEM` file.
 
-# Working with Zero-Knowledge Encryption
+## Working With Zero-Knowledge Encryption
 
 You can work with items that are protected by [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) from the CLI without specifying the Gateway, as Akeyless will automatically detect it based on the **Customer Fragment ID**.
 
 However, if the `AKEYLESS_GATEWAY_URL` environment variable is set, Akeyless will use the Gateway from that variable, and the automatic detection won't work.
 
-# Precedence Configuration
+## Precedence Configuration
 
 Settings can be found in various locations, such as environment variables, the `profile` configuration file, or directly as command-line parameters. Some locations have higher precedence than others, in this order:
 
@@ -304,7 +304,7 @@ Settings can be found in various locations, such as environment variables, the `
 
 3. **Profile file**: Values in the profile are used only if no explicit parameters or environment variables are set.
 
-# Troubleshooting
+## Troubleshooting
 
 For access deny issues, ensure the following:
 
@@ -312,6 +312,6 @@ For access deny issues, ensure the following:
 
 * **Profile configuration file**: Make sure your profile configuration file is valid and that everything is spelled correctly and matches the authentication method you chose.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Installing and Configuring the CLI](https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-cli).

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Log Forwarding
+## Log Forwarding
 
 To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server directly inside the `values.yaml` file of your Gateway deployment.
 
@@ -37,7 +37,7 @@ Alternatively, you can specify the entire settings within a `K8s` secret base64 
 logandExistingSecretName:
 ```
 
-## Syslog
+### Syslog
 
 Edit the `values.yaml` file under the `logForwarding` section:
 
@@ -60,7 +60,7 @@ Default format: `<date > <time> <host name> <log level> <message>`.
 
 The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF**  format.
 
-## Splunk
+### Splunk
 
 Prerequisites: [Splunk HTTP Event Collector](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/9.4/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web) 
 
@@ -76,7 +76,7 @@ target_splunk_enable_tls="true"
 target_splunk_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-## ELK - Logstash
+### ELK - Logstash
 
 ```yaml
 target_log_type="logstash"
@@ -91,7 +91,7 @@ Configure your Logstash to use the same port and protocol:\
 Add the following to the `logstash.conf` file:\
 `input { tcp { port => 8911 codec => json } }`
 
-## ELK - Elasticsearch
+### ELK - Elasticsearch
 
 ```yaml
 logandConf: |
@@ -119,7 +119,7 @@ logandConf: |
   target_elasticsearch_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-## Logz.io
+### Logz.io
 
 ```yaml Shell
 target_log_type="logz_io"
@@ -131,7 +131,7 @@ target_logz_io_protocol="https"
 
 For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/).
 
-## AWS S3
+### AWS S3
 
 > 🚧 Warning
 >
@@ -148,7 +148,7 @@ aws_auth_type_assume_role="" # Relevant for aws_auth_type_assume_role
 target_s3_aws_region=""
 ```
 
-## Azure Log Analytics
+### Azure Log Analytics
 
 Logs will be sent to a given workspace according to provided ID.
 
@@ -158,7 +158,7 @@ target_azure_workspace_id=""
 target_azure_workspace_key="" # can be "Primary key" or "Secondary key"
 ```
 
-## STDOUT
+### STDOUT
 
 Setting log forwarding to stdout: 
 
@@ -166,7 +166,7 @@ Setting log forwarding to stdout:
 target_log_type="std_out"
 ```
 
-## DataDog
+### DataDog
 
 Setting log forwarding to DataDog system: 
 
@@ -179,7 +179,7 @@ target_datadog_log_tags="<Tags associated with your logs in the form of key:val,
 target_datadog_log_service="<The name of the application or service generating the log events>"(optional. Default value: akeyless-gateway)
 ```
 
-## Sumo Logic
+### Sumo Logic
 
 Setting log forwarding to Sumo Logic:
 
@@ -190,7 +190,7 @@ target_sumologic_tags="<Tags associated with your logs in the form of tag1,tag2.
 target_sumologic_host="<Host associated with your logs>"(optional)
 ```
 
-## Google Chronicle
+### Google Chronicle
 
 Setting log forwarding to Google Chronicle:
 

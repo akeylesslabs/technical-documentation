@@ -170,7 +170,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
   </tbody>
 </Table>
 
-## Standalone docker container
+## Standalone Docker Container
 
 Run the docker image **on the same machine as the`kube-apiserver`** with the relevant environment variables, and a mounted volume for the UNIX socket.
 
@@ -247,7 +247,7 @@ $ kubectl logs $CONTAINER
 2021/08/24 12:43:34 Api Version: v1beta1, Runtime Name: AKEYLESS, Runtime Version: 0.0.1
 ```
 
-## Configure kube-apiserver
+## Configure Kube-apiserver
 
 Once the plugin is up and running, the next step is to [configure kube-apiserver] ([https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider))
 

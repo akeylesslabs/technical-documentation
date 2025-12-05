@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-# Prerequisites
+## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.40.0` or later
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read` permission for **Items**
 * **Certificate Item** stored in Akeyless Platform containing the   `certificate` and `private_key` in `pem` format. 
 
-# Authentication
+## Authentication
 
 The following Authentication Methods are supported: 
 
@@ -57,7 +57,7 @@ akeyless set-role-rule --role-name /Dev/Spire-Role \
 --capability read
 ```
 
-# Configuration
+## Configuration
 
 Run the following command to download and unpack pre-built `spire-server` and `spire-agent` executable and example configuration files in a `spire-1.7.0` directory:
 
@@ -94,7 +94,7 @@ sha256sum AkeylessUpstreamAuthority-sm
 
 The `sha256sum` command generates a unique, fixed-size hash value (256 bits) for the **binary** file, ensuring that data remains unchanged.
 
-### Server configuration
+### Server Configuration
 
 Edit the **UpstreamAuthority** Plugin as follows in `spire-1.7.0/conf/server/server.conf` file.
 
@@ -133,7 +133,7 @@ For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
 
 * `azure_object_id` - Optional for Azure, `objectID`
 
-## SPIRE Server Initialization
+### SPIRE Server Initialization
 
 In order to initialize the server, run the following command:
 
@@ -159,7 +159,7 @@ Run the following command in order to generate a token that will be used to atte
 bin/spire-server token generate -spiffeID spiffe://example.org/myagent
 ```
 
-## SPIRE Agent Initialization
+### SPIRE Agent Initialization
 
 Use the token that was generated in order to attest the `agent` to the `server`
 

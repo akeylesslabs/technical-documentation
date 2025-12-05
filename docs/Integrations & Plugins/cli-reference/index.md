@@ -21,19 +21,19 @@ akeyless <command> -h, --help
 akeyless <command> --debug
 ```
 
-# Commands
+## Commands
 
-## `configure`
+### `Configure`
 
 Configure client profile
 
-### Usage
+#### Usage
 
 ```shell
 akeyless configure
 ```
 
-### Flags
+#### Flags
 
 `--profile[=default]`: The profile name to be configure
 
@@ -67,17 +67,17 @@ akeyless configure
 
 `--key-data`: Private key data encoded in base64. Used if file was not provided (relevant only for access-type=cert in Curl Context)
 
-## `delete-item`
+### `Delete-item`
 
 Delete an item or an item version
 
-### Usage
+#### Usage
 
 ```shell
 akeyless delete-item -n <Item name>
 ```
 
-### Flags
+#### Flags
 
 `-n, --name`: Required,  Item name
 
@@ -89,25 +89,25 @@ akeyless delete-item -n <Item name>
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-## `delete-items`
+### `Delete-items`
 
 Deletes multiple items from a given path
 
-### Usage
+#### Usage
 
 ```shell
 akeyless delete-items -p <Path\do\delete\items>
 ```
 
-### Flags
+#### Flags
 
 `-p, --path`: Required,  Path to delete the items from
 
-## `describe-item`
+### `Describe-item`
 
 Gets the item details
 
-### Flags
+#### Flags
 
 `-n, --name`: Item name
 
@@ -125,7 +125,7 @@ Gets the item details
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-### Output
+#### Output
 
 With only `--name` specified, the command returns all details about the specified item except for its version.
 
@@ -133,29 +133,29 @@ When a version number is specified, the command returns all details about the sp
 
 When `--show-versions` is specified, the command returns all details about the specified item including a full list of versions, their creation dates, and their encryption keys for any version for which a key other than the default was used.
 
-## `get-account-settings`
+### `Get-account-settings`
 
 Get the settings of the account
 
-## `get-tags`
+### `Get-tags`
 
 Get all tags of selected item
 
-### Usage
+#### Usage
 
 ```shell
 akeyless get-tags --name <Item Name>
 ```
 
-### Flags
+#### Flags
 
 `-n, --name`: Required,  The item name
 
-## `list-items`
+### `List-items`
 
 List of all accessible items
 
-### Flags
+#### Flags
 
 `-t, --type`: The item types list of the requested items. In case it is empty, all types of items will be returned, options: [key, static-secret, dynamic-secret, rotated-secret, ssh-cert-issuer, pki-cert-issuer, classic-key]
 
@@ -177,19 +177,19 @@ List of all accessible items
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder, options: [regular/personal]
 
-## `list-sra-bastions`
+### `List-sra-bastions`
 
 List of all Secure Remote Access (SRA) Bastions in the account
 
-### Flags
+#### Flags
 
 `--only-allowed-urls[=false]`: Filter the response to show only bastions allowed URLs
 
-## `move-objects`
+### `Move-objects`
 
 Moves/Renames objects
 
-### Usage
+#### Usage
 
 ```shell
 akeyless move-objects --source <Source path to move the objects from> \
@@ -197,7 +197,7 @@ akeyless move-objects --source <Source path to move the objects from> \
 --objects-type <The objects type to move (item/auth_method/role)>
 ```
 
-### Flags
+#### Flags
 
 `-s, --source`: Required,  Source path to move the objects from
 
@@ -205,44 +205,44 @@ akeyless move-objects --source <Source path to move the objects from> \
 
 `-o, --objects-type[=item]`: The objects type to move (item/auth_method/role)
 
-## `set-item-state`
+### `Set-item-state`
 
 Set Dynamic Secret item's state (Enabled, Disabled)
 
-### Usage
+#### Usage
 
 ```shell
 akeyless set-item-state --name <Current item name> \
 --desired-state <Desired item state [Enabled, Disabled]>
 ```
 
-### Flags
+#### Flags
 
 `-n, --name`: Required,  Current item name
 
 `-s, --desired-state`: Required,  Desired item state
 
-## `unconfigure`
+### `Unconfigure`
 
 Remove configuration of client profile
 
-### Usage
+#### Usage
 
 ```shell
 akeyless unconfigure --profile <Profile name>
 ```
 
-## `update`
+### `Update`
 
 Update the Akeyless CLI version or change to a prior version
 
-### Usage
+#### Usage
 
 ```shell
 akeyless update
 ```
 
-### Flags
+#### Flags
 
 `-v, --version[=latest]`: Provide the CLI version to update to, by default, the latest version is used
 
@@ -250,13 +250,13 @@ akeyless update
 
 `-r, --artifact-repository`: Alternative CLI repository url, for example, `https://artifacts.site2.akeyless.io`
 
-## `update-account-settings`
+### `Update-account-settings`
 
 Updates account settings.
 
 Note: The operation is allowed only for admin user
 
-### Flags
+#### Flags
 
 `--company-name`: Update Company Name of account
 
@@ -342,7 +342,7 @@ Note: The operation is allowed only for admin user
 
 `--default-certificate-expiration-notification-days`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--default-certificate-expiration-notification-days 1`, `--default-certificate-expiration-notification-days 5`.
 
-## `update-item`
+### `Update-item`
 
 Update item name and description
 
@@ -352,14 +352,14 @@ Update item name and description
 >
 > No updates made with `update-item` can be saved as part of new versions, which means that these changes override existing data. If you wish to track these updates as part of secret versioning, first create a new version with `update-version-val`. You can create a new version value using the same value for the current version if you don't want to actually change the value. Thereafter, run `update-item`.
 
-### Usage
+#### Usage
 
 ```shell
 akeyless update-item --name <Item name> \
 --new-name <New item name>
 ```
 
-### Flags
+#### Flags
 
 block:Flags]
 
@@ -439,15 +439,15 @@ block:Flags]
 
 `--accessibility  \"data\":` In case of an item in a user's personal folder
 
-## `folder management`
+### `Folder Management`
 
 Commands for managing folders in the account
 
-### `folder create`
+#### `Folder Create`
 
 Creates a new folder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless folder create \
@@ -456,11 +456,11 @@ akeyless folder create \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-### `folder update`
+#### `Folder Update`
 
 Updates a new folder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless folder update \
@@ -469,11 +469,11 @@ akeyless folder update \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-### `folder get`
+#### `Folder Get`
 
 Get information of a folder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless folder get \
@@ -482,11 +482,11 @@ akeyless folder get \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-### `folder delete`
+#### `Folder Delete`
 
 Deletes a new folder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless folder delete \
@@ -495,9 +495,9 @@ akeyless folder delete \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-## CLI Agent
+### CLI Agent
 
-### `agent start`
+#### `Agent Start`
 
 Start Akeyless Agent
 
@@ -507,7 +507,7 @@ Start Akeyless Agent
 akeyless agent start
 ```
 
-### `agent status`
+#### `Agent Status`
 
 Get Akeyless Agent status
 
@@ -517,7 +517,7 @@ Get Akeyless Agent status
 akeyless agent status
 ```
 
-### `agent stop`
+#### `Agent Stop`
 
 Stop Akeyless Agent
 

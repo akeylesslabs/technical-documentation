@@ -12,7 +12,7 @@ next:
 ---
 [OCI IAM](https://docs.oracle.com/en-us/iaas/Content/Identity/Concepts/overview.htm) authentication method provides an automated flow to retrieve an Akeyless token for Oracle Cloud Infrastructure IAM principals like API Key, instances or resources using OCI IAM group or dynamic group [components](https://docs.oracle.com/en-us/iaas/Content/Identity/Concepts/overview.htm#Componen).
 
-# Configuration
+## Configuration
 
 To authenticate **OCI** resources to Akeyless, the following configuration is required:
 
@@ -34,7 +34,7 @@ More information about the policies can be found [here](https://docs.oracle.com/
 
 Once set, you can continue creating the authentication method.
 
-# Create an OCI IAM Authentication Method from the CLI
+## Create an OCI IAM Authentication Method from the CLI
 
 To create an OCI IAM authentication method from the CLI, run the following command:
 
@@ -55,7 +55,7 @@ Where:
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueocip).
 
-# Configure Akeyless CLI with the OCI IAM authentication method
+## Configure Akeyless CLI With the OCI IAM Authentication Method
 
 To configure your CLI to work with OCI IAM authentication, run the following command **from an Oracle Cloud resource**:
 
@@ -73,7 +73,7 @@ Where:
 >
 > When the `group-ocid` explicitly provided, the authentication flow will use them, if no **group** provided, the CLI will send a preliminary request to verify that the user is a member of the same tenant,  and will extract the required **group** from the response.
 
-# Create an OCI IAM authentication method in the Akeyless Console
+## Create an OCI IAM Authentication Method in the Akeyless Console
 
 1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > OCI IAM**.
 

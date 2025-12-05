@@ -12,7 +12,7 @@ next:
 ---
 You can define an Azure AD target to be used with [Azure AD dynamic secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD rotated secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret). Having an Azure AD target will allow you to conserve the credentials chain between all of your dynamic secrets, as it is possible to point a target at a rotated secret, or to manually edit credentials in the target instead of having to change them individually for connecting items. Creating an Azure AD target requires an [Azure App ](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal)to be configured in your Azure environment.
 
-# Create an Azure AD Target in the CLI
+## Create an Azure AD Target in the CLI
 
 To create an Azure AD target from the CLI, run the following command:
 
@@ -46,7 +46,7 @@ If you wish the target to reference a specific Storage Account, add the followin
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueazurep) section.
 
-# Create an Azure Target in the Console
+## Create an Azure Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Cloud (Azure AD)**.
 

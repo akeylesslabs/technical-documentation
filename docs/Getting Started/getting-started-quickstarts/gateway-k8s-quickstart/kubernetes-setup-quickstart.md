@@ -55,7 +55,7 @@ Adjust these in **Settings → Resources**.
 3. Apply the change and allow Docker Desktop to install or restart Kubernetes if prompted.
 4. Wait until Docker Desktop shows that **Kubernetes** is running.
 
-## Step 3: Verify kubectl and Context
+## Step 3: Verify Kubectl and Context
 
 1. Launch a Terminal or Command Prompt.
 2. Docker Desktop should install the corresponding version of `kubectl` for you. It should match the version of your Kubernetes cluster. Ensure `kubectl` is installed:

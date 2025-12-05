@@ -16,7 +16,7 @@ Continuous monitoring also helps meet regulatory standards, supports investigati
 
 This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics),  [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gw-docker-log-forwarding) , [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
 
-# Audit Logs
+## Audit Logs
 
 Audit logging is important for security and compliance. Akeyless generates detailed, unchangeable logs for all operations, including API calls and administrative actions. Key features include:
 
@@ -28,7 +28,7 @@ Audit logging is important for security and compliance. Akeyless generates detai
 
 Audit logs can be exported to external platforms for further analysis and long-term storage, serving as valuable resources for investigations and audits.
 
-## Log Forwarding
+### Log Forwarding
 
 Akeyless supports centralized log management by allowing audit logs to be forwarded from the Akeyless Gateway. Logs can be streamed or exported to external platforms for detailed analysis and monitoring.
 
@@ -40,7 +40,7 @@ Setting the [Gateway](https://docs.akeyless.io/docs/api-gw) to forward the **Aud
 >
 > Only users with access permission on the gateway to manage log forwarding will authorize to set log forwards.
 
-# Metrics
+## Metrics
 
 Akeyless provides detailed telemetry metrics to offer insights into the health and performance of Akeyless components. These metrics help you track and optimize key areas, such as:
 
@@ -53,7 +53,7 @@ Telemetry metrics work with leading monitoring tools, including **Prometheus**, 
 
 Refer to the [Telemetry Metrics ](https://docs.akeyless.io/docs/telemetry-metrics) official docs for the Gateway full metrics list and to the [K8s Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for k8s Injector metrics.
 
-# Event Center
+## Event Center
 
 The Akeyless Event Center provides a centralized view of system events, ensuring operational transparency and enabling quick responses to important activities. Key features include:
 
@@ -67,7 +67,7 @@ The Akeyless Event Center provides a centralized view of system events, ensuring
 
 Refer to the [Event Center](https://docs.akeyless.io/docs/event-center)  official doc for the full events list.
 
-# Analytics
+## Analytics
 
 Akeyless provides built-in analytics to deliver clear insights into operational trends, helping you improve performance and reduce risks. With analytics, you can:
 
@@ -81,11 +81,11 @@ Akeyless provides built-in analytics to deliver clear insights into operational 
 
 Information about your **Items** and **Certificates** can be found in the [Analytics](https://docs.akeyless.io/docs/analytics)  official doc.
 
-# Gateway Status
+## Gateway Status
 
 Each **Gateway** cluster exposes a `/status` endpoint that provides basic runtime information. This endpoint is useful for verifying that the Gateway is operational. It returns the current **Gateway** version and a hashed identifier for the cluster.
 
-# Gateway Health
+## Gateway Health
 
 To assess the Gateway’s connectivity to Akeyless SaaS core services, you can use the `/health` endpoint. Additionally, when working with [Cluster Cache](https://docs.akeyless.io/docs/advanced-chart-configuration#cache-configuration), this endpoint will also be affected by the cache status.
 

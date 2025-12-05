@@ -12,7 +12,7 @@ next:
 ---
 You can define a Windows target to be used with an RDP [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets). Akeyless Windows Targets use WinRM by default over TLS. While Windows Secrets Rotation also supports SSH targets, for legacy environments, you can work with Akeyless Windows Targets instead. 
 
-# Create a Windows Target in the CLI
+## Create a Windows Target in the CLI
 
 To create a Windows target from the CLI, run the following command:
 
@@ -42,7 +42,7 @@ Where:
 
 You can find the complete list of parameters for this command at the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets/) page.
 
-# Create a Windows Target in the Console
+## Create a Windows Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Operating System (Windows)**.
 
@@ -59,7 +59,7 @@ You can find the complete list of parameters for this command at the [CLI Refere
 
 5. Click **Finish**.
 
-# Troubleshooting
+## Troubleshooting
 
 While facing connection errors, make sure that WinRM is enabled and that the relevant port is opened  i.e. `5985` for WinRM or `5986` for winRM over TLS and not blocked by a Firewall rule.
 

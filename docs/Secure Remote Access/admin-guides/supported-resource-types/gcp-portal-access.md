@@ -14,7 +14,7 @@ You can enable secure remote access to GCP Portal on a dedicated static secret t
 
 Users can then access the GCP Portal from the Secure Remote Access Portal without being exposed to your GCP credentials in Isolated mode.
 
-# Prerequisites
+## Prerequisites
 
 To enable secure remote access to the GCP Portal you need:
 
@@ -28,7 +28,7 @@ To enable secure remote access to the GCP Portal you need:
 
 * The GCP Portal site URL specified in the **values.yaml** file on the Web Access Bastion.
 
-# Set Up Remote Access to GCP Portal from the Akeyless Console
+## Set Up Remote Access to GCP Portal from the Akeyless Console
 
 1. Log in to the Akeyless Console and go to **Items**.
 

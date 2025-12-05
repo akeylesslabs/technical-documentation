@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Log Forwarding
+## Log Forwarding
 
 To forward all Akeyless audit logs directly from your Akeyless Gateway, create a local configuration file specifying a target logs server.
 
@@ -20,7 +20,7 @@ To start your Akeyless Gateway with this setting, please mount a local config fi
 docker run -d -p 8000:8000 -v {path-to}/log_forwarding_conf_file:/home/akeyless/.akeyless/logand.conf -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_ACCESS_KEY="<YourAccessKey" --name akeyless-gw  akeyless/base:latest-akeyless
 ```
 
-## Amazon S3
+### Amazon S3
 
 The following permissions are required to forward the audit logs to an Amazon S3 bucket:
 
@@ -53,7 +53,7 @@ target_s3_aws_region=""
   _**Warning:** Logs will be uploaded to an Amazon S3 bucket on ten minute intervals. Pods that terminate before this interval will not upload logs._
 </Callout>
 
-## Azure Log Analytics
+### Azure Log Analytics
 
 Logs will be sent to a given workspace according to provided ID.
 
@@ -64,7 +64,7 @@ azure_workspace_id=""
 azure_workspace_key="" # can be "Primary key" or "Secondary key"
 ```
 
-## DataDog
+### DataDog
 
 Setting log forwarding to DataDog system:
 
@@ -85,14 +85,14 @@ target_log_type="elasticSearch"
 "Elasticsearch server - requires one of the following:"
   target_elasticsearch_server_type="elastic-server-nodes"
   target_elasticsearch_nodes="https://host1:9200,https://host2:9200"  
-# OR 
+## OR
   target_elasticsearch_server_type="elastic-server-cloudId"
   target_elasticsearch_cloud_id="<your_cloudId>"
 
 "Elasticsearch authentication - requires one of the following:"
   target_elasticsearch_auth_type="elastic-auth-apiKey"
   target_elasticsearch_api_key="<your_apiKey>"
-# OR
+## OR
   target_elasticsearch_auth_type="elastic-auth-usrPwd"
   target_elasticsearch_user_name="<your_user>"
   target_elasticsearch_password="<your_pwd>"
@@ -138,7 +138,7 @@ enable="true"
 target_log_type="logz_io"
 target_logz_io_token="<TOKEN>"
 target_logz_io_protocol="tcp"
-# OR 
+## OR
 target_logz_io_protocol="https"
 ```
 

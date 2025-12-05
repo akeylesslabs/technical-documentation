@@ -46,7 +46,7 @@ akeyless assoc-role-am --role-name r1 --am-name Okta --sub-claims Groups=Enginee
 
 Or directly from the Akeyless Console using the [Access Roles](https://docs.akeyless.io/docs/rbac) with [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) association.
 
-# Logical Operators Syntax
+## Logical Operators Syntax
 
 While by default between different sub-claims values the logic of the comma symbol  is `OR`, it is possible to use the syntax of `OR`. In addition, to force logical `AND` between different values of a specific sub-claim, you can use the `AND` syntax.
 
@@ -65,7 +65,7 @@ Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes
 
 Note that between different sub-claims keys, the logic will always use the **AND** operator. 
 
-# Path Templating
+## Path Templating
 
 For easier management of your access rules, sub-claims keys can be utilized for quicker and more scalable rule definitions for the access path. 
 
@@ -100,7 +100,7 @@ This means that `Alice` will get `read` permissions under`/Engineering/Alice/*`,
 >
 > Templating Access **Rules**  supports Access **Role** case-sensitive settings.
 
-# View Sub-Claims
+## View Sub-Claims
 
 To review the current Sub-Claims available for your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), from the Akeyless Console, simply click on your account logo and click on **Show Sub Claims**. 
 

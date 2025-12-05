@@ -12,7 +12,7 @@ next:
 ---
 Akeyless officially integrates with **Cert Manager**, and this guide demonstrates the integration based on Venafi Dynamic Secret, for a direct integration with Akeyless, follow the main [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) guide.
 
-## Using cert-manager with Akeyless and Veanfi Dynamic Secret
+## Using Cert-manager With Akeyless and Veanfi Dynamic Secret
 
 You can have [Cert Manager](https://cert-manager.io/docs/) deployed in a cluster and use Akeyless to generate certificates.
 

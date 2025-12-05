@@ -14,7 +14,7 @@ next:
 
 With Public CA, Akeyless cannot access the private key that signs the certificates. Hence, Akeyless will programmatically contact GoDaddy through the [Gateway](https://docs.akeyless.io/docs/api-gw) using IMAP user credentials to validate the certificate request. Akeyless will store and manage the issued certificates and notify you of upcoming expiration events. 
 
-# Create a GoDaddy Target in the CLI
+## Create a GoDaddy Target in the CLI
 
 To create a GoDaddy target from the CLI, run the following command:
 
@@ -52,7 +52,7 @@ Once the GoDaddy Target is created, it can be used to generate a [public certifi
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluegodaddyp) section
 
-# Create a GoDaddy Target in the Console
+## Create a GoDaddy Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Certificate Automation (GoDaddy)**.
 

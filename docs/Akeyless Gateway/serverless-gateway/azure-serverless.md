@@ -12,7 +12,7 @@ next:
 ---
 This guide describes how to run a Serverless Gateway on **Azure** based on [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) using Azure [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep). 
 
-# Prerequisites
+## Prerequisites
 
 * [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
@@ -36,7 +36,7 @@ For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
-# Gateway Configuration
+## Gateway Configuration
 
 Clone the **Serverless Gateway** repository locally: 
 
@@ -46,7 +46,7 @@ gh repo clone akeyless-community/akeyless-serverless-gateway
 
 Edit the `akeyless-serverless-gateway/bicep/Azure/serverless-gateway/params.bicepparam` file according to the sections below.
 
-## Authentication
+### Authentication
 
 Set your Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway will have inside your Akeyless account.
 
@@ -187,7 +187,7 @@ Where:
 
 * `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
 
-## Customer Fragment
+### Customer Fragment
 
 To work with [Zero-Knowledge ](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments`  param as follows:
 
@@ -195,7 +195,7 @@ To work with [Zero-Knowledge ](https://docs.akeyless.io/docs/implement-zero-know
 "customer_fragments": [{"id": "<Customer Fragment ID>","value": "<Customer Fragment Value>","description": "My Serverless Fragment","name": "ServerLessFragment"}]
 ```
 
-## Storage Account
+### Storage Account
 
 To associate an existing [Storage Account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview), add the following section to the `main.bicep` file:
 
@@ -231,7 +231,7 @@ Where:
 
 For more information on the above configuration, refer to the [official Azure documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#recommended-workload-configurations).
 
-# Installation
+## Installation
 
 To install the module, run the following commands from the cloned directory
 
@@ -264,14 +264,14 @@ Upon successfully installing the **Serverless Gateway**, the Gateway console URL
 >
 > To connect to **Akeyless Gateway Configuration Manager** (Port `8000`) use: `/config` instead
 
-# Initial Gateway Configuration
+## Initial Gateway Configuration
 
 To configure your Akeyless Gateway:
 
 1. On your browser, navigate to the URL in the first output above.
 2. Enter your credentials to log in.
 
-# Limitations
+## Limitations
 
 **Unavailable services:**
 

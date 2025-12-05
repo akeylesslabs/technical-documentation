@@ -12,13 +12,13 @@ next:
 ---
 You can use Akeyless dynamic secrets to generate access credentials for Snowflake. To do this, configure a dynamic secret with the details required for Akeyless to authenticate and communicate with the relevant Snowflake account.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * Snowflake privileged account: To create a Snowflake dynamic secret, ensure that you have a Snowflake account and credentials for the admin user (with the `USERADMIN` role or higher)
 
-# Create a Snowflake Dynamic Secret from the CLI
+## Create a Snowflake Dynamic Secret from the CLI
 
 > 👍 Note
 >
@@ -78,7 +78,7 @@ Where:
 
 * `password-length`: **Optional** The temporary user password length.
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have [Snowflake Target](https://docs.akeyless.io/docs/database-targets#snowflake) yet, you can use the command with your Snowflake target connection string:
 
@@ -100,7 +100,7 @@ another alternative to the Snowflake login is to use a private RSA key:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluesnowflakep) section.
 
-# Fetch a Dynamic Snowflake Secret value from the CLI
+## Fetch a Dynamic Snowflake Secret Value from the CLI
 
 To fetch a dynamic Snowflake secret value from the CLI, run the following command:
 
@@ -108,7 +108,7 @@ To fetch a dynamic Snowflake secret value from the CLI, run the following comman
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Snowflake Secret in the Akeyless Console
+## Create a Dynamic Snowflake Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -155,7 +155,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic Snowflake Secret value from the Akeyless Console
+## Fetch a Dynamic Snowflake Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

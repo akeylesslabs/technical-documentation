@@ -14,7 +14,7 @@ next:
 ---
 The Google Cloud Platform (GCP) authentication method enables GCP entities to authenticate to the Akeyless Platform. Akeyless treats Google Cloud as a trusted third party and verifies entities requesting to authenticate against the Google Cloud APIs. It supports both Google Cloud Identity and Access Management (IAM) service accounts and Google Compute Engine (GCE) instances for authentication.
 
-# Prerequisites
+## Prerequisites
 
 You will need a GCP Service Account with the following permissions:
 
@@ -35,7 +35,7 @@ compute.instanceGroups.list
 >
 > Be sure to follow the <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity" target="_blank">GKE Guide</a> when configuring the GKE Workload Identity.
 
-# Create a GCP Authentication Method from the CLI
+## Create a GCP Authentication Method from the CLI
 
 Let's create a new GCP authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://akeyless.readme.io/docs/gcp-auth-method#create-a-gcp-authentication-method-in-the-akeyless-console).)
 
@@ -61,7 +61,7 @@ Where:
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorbluegcpp) section.
 
-# Configure Akeyless CLI with the GCP authentication method
+## Configure Akeyless CLI With the GCP Authentication Method
 
 To configure your CLI to work with GCP authentication, run the following command from a GCP resource:
 
@@ -70,7 +70,7 @@ akeyless configure --profile default --access-id <AccessID>  --access-type gcp -
 akeyless get-cloud-identity --cloud-provider gcp
 ```
 
-# Create a GCP Authentication Method in the Akeyless Console
+## Create a GCP Authentication Method in the Akeyless Console
 
 1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > GCP**.
 

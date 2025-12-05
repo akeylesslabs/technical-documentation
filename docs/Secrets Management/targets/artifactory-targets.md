@@ -12,7 +12,7 @@ next:
 ---
 You can define an Artifactory target to be used with [Artifactory dynamic secrets](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer).
 
-# Create an Artifactory Target in the CLI
+## Create an Artifactory Target in the CLI
 
 To create an Artifactory target from the CLI, run the following command:
 
@@ -36,7 +36,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueartifactoryp) section.
 
-# Create an Artifactory Target in the Console
+## Create an Artifactory Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Infra (Artifactory)**.
 

@@ -14,7 +14,7 @@ next:
 ---
 The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) uses an existing LDAP server in order to authenticate your users without sharing their credentials directly with Akeyless or any other third party. The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) interacts directly with your LDAP server inside your internal network, acting as an internal trusted server, to ensure safe communication.
 
-# Prerequisites
+## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to an LDAP server.
 
@@ -22,7 +22,7 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 * A privileged LDAP User.
 
-# Create an LDAP Authentication Method from the Akeyless Console
+## Create an LDAP Authentication Method from the Akeyless Console
 
 1. Log in to the Akeyless Console, go to **Users & Auth Methods > New > LDAP**, and click on **Next →**.
 2. On the **Basic Configuration** step define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. The folder will be created with the authentication method if it does not exist.

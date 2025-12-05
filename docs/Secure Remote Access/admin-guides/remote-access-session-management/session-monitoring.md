@@ -12,7 +12,7 @@ next:
 ---
 The Sessions Overview provides administrators and authorized users with the ability to view and track the status of SRA sessions. This view helps ensure that all session activities are visible, auditable, and managed effectively over a specified timeframe (default: last 30 days).
 
-### Session Overview grid
+### Session Overview Grid
 
 The Session Overview page displays detailed information for each session. The following key details are provided:
 

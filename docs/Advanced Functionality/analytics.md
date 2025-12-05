@@ -37,6 +37,6 @@ To get the Analytic data using a CLI command run the following command:
 akeyless get-analytics-data
 ```
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports" target="_blank" style={{ color: "#00e" }}>Audit Logs, Analytics, and Usage Reports</a>.

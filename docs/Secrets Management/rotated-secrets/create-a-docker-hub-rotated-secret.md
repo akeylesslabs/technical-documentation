@@ -12,7 +12,7 @@ next:
 ---
 You can create a Rotated Secret for Docker Hub that will rotate privileged user credentials. Before you get started, make sure you have created a [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target).
 
-# Create a Rotated Docker Hub Secret from the CLI
+## Create a Rotated Docker Hub Secret from the CLI
 
 To create a Rotated Docker Hub Secret using the Akeyless CLI, run the following command:
 
@@ -48,7 +48,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 >
 > Rotating the [Target](https://docs.akeyless.io/docs/targets) credentials (i.e., changing your Docker Hub password) will invalidate all existing personal access tokens.
 
-# Create a Rotated Docker Hub Secret in the Akeyless Console.
+## Create a Rotated Docker Hub Secret in the Akeyless Console.
 
 > 👍 Note
 >
