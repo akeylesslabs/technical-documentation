@@ -14,7 +14,7 @@ next:
       title: Vault Proxy Dynamic Secrets
       url: https://docs.akeyless.io/docs/dynamic-secrets
 ---
-Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets. 
+Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets.
 
 Benefits:
 

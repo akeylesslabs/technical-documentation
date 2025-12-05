@@ -27,7 +27,7 @@ Enter a name for the password in the "Password Name" field.
 
 Optionally, enter a description for the password in the "Description" field.
 
-Optionally, Click on the "Generate Password" button. This will generate a strong and secure password or you can enter the password manually. 
+Optionally, Click on the "Generate Password" button. This will generate a strong and secure password or you can enter the password manually.
 
 **Step 3: Define Password Name and Location**
 
@@ -67,11 +67,11 @@ Click on the desired password to view its details or copy it to your clipboard.
 
 **Password Strength Policy**
 
-The "Password Strength Policy" feature is like the guardian at the gate, ensuring that users' passwords meet the organization's security standards. 
+The "Password Strength Policy" feature is like the guardian at the gate, ensuring that users' passwords meet the organization's security standards.
 
 <Image align="right" width="150px" src="https://files.readme.io/91fa4a2-Screenshot_2024-04-11_at_14.21.32.png" />
 
-Users can customize their password strength policies, but, they can't go below the minimum standards set by the organization. 
+Users can customize their password strength policies, but, they can't go below the minimum standards set by the organization.
 
 Password Strength Policy indicator will ensure that while allowing users to set their password strength, they will only be able to set a password that is stronger than the policy set by the company.
 
@@ -79,13 +79,13 @@ Password Strength Evaluation Criteria:
 
 **Green: Strong password**
 
-Password length is at the minimum or more of the length defined by the organization 
+Password length is at the minimum or more of the length defined by the organization
 
 Meets at least 3 of the other 4 criteria (uppercase, lowercase, numbers, special characters)
 
 **Yellow: Medium password**
 
-Password length is lower than the length defined by the organization 
+Password length is lower than the length defined by the organization
 
 Meets at least 2 of the other 4 criteria (uppercase, lowercase, numbers, special characters)
 

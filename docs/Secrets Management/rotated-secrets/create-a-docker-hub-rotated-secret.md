@@ -62,7 +62,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) to be associated with the Rotated Secret. 
+* **Target:** Defines the name of the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) to be associated with the Rotated Secret.
 
 * **Password Length**: Set the length of the user's password
 

@@ -52,6 +52,7 @@ login:
         access_type: 'api_key'
         access_key: '<Access Key>'
 ```
+
 ```yaml AWS IAM
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -59,6 +60,7 @@ login:
         access_type: 'aws_iam'
         cloud_id: '<cloud_id>'
 ```
+
 ```yaml GCP
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -67,6 +69,7 @@ login:
         cloud_id: '<cloud_id>'
         gcp_audience: <'gcp_audience'>
 ```
+
 ```yaml Azure AD
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -74,6 +77,7 @@ login:
         access_type: 'azure_ad'
         cloud_id: '<cloud_id>'
 ```
+
 ```yaml Email
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -83,6 +87,7 @@ login:
         admin_email: '<admin_email>'
         account_id: '<account_id>'
 ```
+
 ```yaml K8s
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -92,6 +97,7 @@ login:
         k8s_auth_config_name: '<k8s_auth_config_name>'
         akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
 ```
+
 ```yaml OCI IAM
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -100,6 +106,7 @@ login:
         oci_auth_type: '<oci_auth_type>'
         oci_group_ocid: '<oci_group_ocid>'
 ```
+
 ```yaml LDAP
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -108,6 +115,7 @@ login:
         ldap_username: <'ldap_username'>
         ldap_password: <'ldap_password'>
 ```
+
 ```yaml JWT
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -116,6 +124,7 @@ login:
         jwt: '<jwt value>'
         akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
 ```
+
 ```yaml OIDC
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -125,6 +134,7 @@ login:
         jwt: '<jwt value>'
         akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
 ```
+
 ```yaml SAML
 login:
         akeyless_api_url: 'https://api.akeyless.io'
@@ -133,6 +143,7 @@ login:
         use_remote_browser: 'true | false'
         akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
 ```
+
 ```yaml Universal Identity
 login:
         akeyless_api_url: 'https://api.akeyless.io'

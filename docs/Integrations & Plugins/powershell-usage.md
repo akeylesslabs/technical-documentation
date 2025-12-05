@@ -43,7 +43,7 @@ $SecretParameters = @{
 Invoke-RestMethod @SecretParameters
 ```
 
-Make sure to set your `Access Id` and `Access Key` in the relevant places. The received token should be provided for every request that requires authentication. 
+Make sure to set your `Access Id` and `Access Key` in the relevant places. The received token should be provided for every request that requires authentication.
 
 The following example demonstrates fetching **static secret**:
 

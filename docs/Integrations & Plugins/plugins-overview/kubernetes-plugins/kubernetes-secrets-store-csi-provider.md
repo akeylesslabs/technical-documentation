@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-[Secrets Store CSI Driver ](https://github.com/kubernetes-sigs/secrets-store-csi-driver) for K8s secrets - Integrates secret stores with K8s via a Container Storage Interface (CSI) volume.
+[Secrets Store CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) for K8s secrets - Integrates secret stores with K8s via a Container Storage Interface (CSI) volume.
 
 The Secrets Store CSI Driver `secrets-store.csi.k8s.io` allows K8s to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the volume is attached, the data is mounted into the container's file system.
 
@@ -55,12 +55,12 @@ The `SecretProviderClass` is a namespaced resource in Secrets Store CSI Provider
 Supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) :
 
 * [API Key](https://docs.akeyless.io/docs/api-key)  
-* [Kubernetes (K8s)](https://docs.akeyless.io/docs/kubernetes-auth) 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam) 
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad) 
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method) 
+* [Kubernetes (K8s)](https://docs.akeyless.io/docs/kubernetes-auth)
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
 
-`SecretProviderClass` custom resource should state the `akeylessAccessType`-  which can be one of the supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) : `access_key`, `aws_iam`, `azure_ad`, `gcp`, `universal_identity`. 
+`SecretProviderClass` custom resource should state the `akeylessAccessType`-  which can be one of the supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) : `access_key`, `aws_iam`, `azure_ad`, `gcp`, `universal_identity`.
 
 While using `k8s`,`azure_ad`, or `gcp` , the following parameters should be provided accordingly:
 
@@ -86,6 +86,7 @@ spec:
       - secretPath: "/path/to/secret/bar"
         fileName: "bar"
 ```
+
 ```yaml K8s
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
@@ -104,6 +105,7 @@ spec:
       - secretPath: "/path/to/secret/bar"
         fileName: "bar"
 ```
+
 ```yaml AWS IAM
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
@@ -121,6 +123,7 @@ spec:
       - secretPath: "/path/to/secret/bar"
         fileName: "bar"
 ```
+
 ```yaml Azure AD
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
@@ -139,6 +142,7 @@ spec:
       - secretPath: "/path/to/secret/bar"
         fileName: "bar"
 ```
+
 ```yaml GCP
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass

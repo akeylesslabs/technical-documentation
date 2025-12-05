@@ -93,7 +93,7 @@ akeyless target create artifactory \
 
 `-p, --artifactory-admin-pwd`: **Required**, Admin API Key/Password
 
-`-k, --key `: The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
+`-k, --key`: The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
 
 `--description`: Target description
 
@@ -284,7 +284,7 @@ akeyless target create dockerhub \
 
 `--dockerhub-password`: **Required**, Password for docker repository
 
-`-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
 `--description`: Target description
 
@@ -392,7 +392,7 @@ akeyless target create github \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-`-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
 
 ### `Gke`
 
@@ -528,7 +528,7 @@ akeyless target create godaddy \
 --imap-fqdn <FQDN>
 ```
 
-##### Flags:
+##### Flags
 
 `-n, --name`: **Required**, Target name
 
@@ -568,7 +568,7 @@ akeyless target create hashi-vault \
 --namespace <Namespace Name>
 ```
 
-##### Flags:
+##### Flags
 
 `-n, --name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash / separators. If the folder does not exist, it will be created together with the target.
 
@@ -663,7 +663,7 @@ akeyless target create ldap \
 
 `--token-expiration`: --token-expiration
 
-`-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
 `--description`: Target description
 
@@ -722,7 +722,7 @@ akeyless target create ping \
 
 `-j, --authorization-port[=9031]`: Ping Federate authorization port
 
-`-k, --key `: The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
+`-k, --key`: The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used)
 
 `--description`: Target description
 
@@ -1679,7 +1679,7 @@ akeyless target update-godaddy-target \
 --imap-fqdn <FQDN>
 ```
 
-##### Flags:
+##### Flags
 
 `-n, --name`: **Required**, Target name
 
@@ -1722,7 +1722,7 @@ akeyless target update hashi-vault \
 --namespace <Namespace Name>
 ```
 
-##### Flags:
+##### Flags
 
 `-n, --name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash / separators. If the folder does not exist, it will be created together with the target.
 
@@ -2121,7 +2121,7 @@ akeyless target update windows \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-` --keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+`--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
 `--description`: Description of the object
 

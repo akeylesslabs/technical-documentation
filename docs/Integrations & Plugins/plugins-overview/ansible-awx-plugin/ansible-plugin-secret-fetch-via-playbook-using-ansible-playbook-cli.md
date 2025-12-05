@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Install the following package: 
+Install the following package:
 
 ```shell
 pip install hvac
@@ -22,7 +22,7 @@ pip install hvac
 
 ## Create Playbook
 
-In the below example the name of the secret is test. 
+In the below example the name of the secret is test.
 
 ```shell
 ---
@@ -41,7 +41,7 @@ Set your Akeyless token in `~/.vault-token` within your Ansible machine, where i
 VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}' > ~/.vault-token)
 ```
 
-In the response, you can extract your token. Note that this token will be revoked upon TTL expiration. 
+In the response, you can extract your token. Note that this token will be revoked upon TTL expiration.
 
 Setting up Akeyless Platform endpoint:
 

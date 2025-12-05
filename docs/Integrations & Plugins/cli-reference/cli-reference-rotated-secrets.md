@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This section outlines the CLI commands relevant to[ Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets).
+This section outlines the CLI commands relevant to [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets).
 
 Rotated secrets enable you to protect the credentials for privileged-user accounts such as an _Administrator_ account on a Windows server, a **root** account on a Linux server, or an **Admin** account on a network device, by resetting its password.
 

@@ -16,7 +16,7 @@ The Cloud Development Kit for Terraform (CDKTF) allows you to manage your Akeyle
 
 * [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)  (1.2+)
 * [Node.js](https://nodejs.org/en)  and npm (v16)+
-* [CDK for Terraform](https://developer.hashicorp.com/terraform/tutorials/cdktf/cdktf-install) 
+* [CDK for Terraform](https://developer.hashicorp.com/terraform/tutorials/cdktf/cdktf-install)
 
 ## Configuration
 
@@ -76,7 +76,7 @@ Create a file named `cdktf.json` and edit it as described below:
 }
 ```
 
-Once both files are configured, run the following command to apply the files: 
+Once both files are configured, run the following command to apply the files:
 
 ```shell
 cdktf apply # or plan

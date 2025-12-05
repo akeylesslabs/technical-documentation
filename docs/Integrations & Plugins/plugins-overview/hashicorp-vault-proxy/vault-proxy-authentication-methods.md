@@ -18,7 +18,7 @@ next:
 
 Some of Vault’s plugins support only Approle authentication.
 
-For those types of plugins, you’ll need to specify `role_id` & `secret_id`, for using HVP you’ll need to use `Access Id` &  `Access key` replacing `role_id `& `secret_id`correspondingly. 
+For those types of plugins, you’ll need to specify `role_id` & `secret_id`, for using HVP you’ll need to use `Access Id` &  `Access key` replacing `role_id` & `secret_id`correspondingly.
 
 For example, Vault Approle authentication using HVP:
 
@@ -29,7 +29,7 @@ vault write auth/approle/login role_id="<Access Id>" secret_id="<Access Key>"
 
 ## JWT
 
-To work with Vault plugins using JWT authentication for example GitLab: 
+To work with Vault plugins using JWT authentication for example GitLab:
 
 ```shell
 job:

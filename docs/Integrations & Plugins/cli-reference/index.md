@@ -526,6 +526,3 @@ Stop Akeyless Agent
 ```shell
 akeyless agent stop
 ```
-
-<br />
-

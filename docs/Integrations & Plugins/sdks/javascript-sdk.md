@@ -14,7 +14,7 @@ The Akeyless [JavaScript](https://github.com/akeylesslabs/akeyless-javascript) m
 
 ## Installation
 
-To install the **JavaScript SDK**  run: 
+To install the **JavaScript SDK** run:
 
 ```shell
 npm install akeyless --save
@@ -38,7 +38,7 @@ To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set the `clien
 
 ## Authentication
 
-The Akeyless **JavaScript** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods). 
+The Akeyless **JavaScript** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
 ### Using Cloud ID
 

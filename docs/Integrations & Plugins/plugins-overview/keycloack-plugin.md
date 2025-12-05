@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless provides an additional way of user authentication in the [Keycloak Identity Platform](https://www.keycloak.org/) using signed JWT tokens. 
+Akeyless provides an additional way of user authentication in the [Keycloak Identity Platform](https://www.keycloak.org/) using signed JWT tokens.
 
 Users that have a valid JWT token issued by Akeyless, which includes their email address, can use this token to authenticate in Keycloak platform instead of using their username/password.
 
@@ -33,7 +33,7 @@ Or use the following Maven dependency definition:
 
 In order to deploy this plugin into a Keycloak environment copy the `akeyless-keycloak-<version>-jar-with-dependencies.jar` into your Keycloak `deployments` folder.
 
-Verify your deployment in Keycloak logs: 
+Verify your deployment in Keycloak logs:
 
 ```shell
 [org.jboss.as.repository] (DeploymentScanner-threads - 1) WFLYDR0001: Content added at location /opt/bitnami/keycloak/standalone/data/content/4d/ab9072c416eabb61fe0aa72f94bbc44acb1110/content
@@ -49,7 +49,7 @@ Verify your deployment in Keycloak logs:
 
 ## Setting Up Akeyless Keycloak Authenticator
 
-After successful deployment, Keycloak administrator must configure the browser authentication flow to use Akeyless Authenticator as an alternative to other authentication methods. 
+After successful deployment, Keycloak administrator must configure the browser authentication flow to use Akeyless Authenticator as an alternative to other authentication methods.
 
 Navigate to "Authentication", Select "Browser" in the combo-box, and click "Copy":
 
@@ -71,9 +71,9 @@ On the "Bindings" tab, select "Akeyless Browser" in the combo box next to the "B
 
 ## Using Keycloak Authenticator
 
-Akeyless Keycloak Authenticator uses JWT tokens signed by Akeyless to establish user identity. 
+Akeyless Keycloak Authenticator uses JWT tokens signed by Akeyless to establish user identity.
 
-Tokens used by Akeyless Authenticator must include user’s email address. 
+Tokens used by Akeyless Authenticator must include user’s email address.
 
 The token can be extracted via SAML authentication, and then retrieving the token from temporary credentials file:
 

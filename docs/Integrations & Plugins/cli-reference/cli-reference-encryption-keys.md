@@ -79,11 +79,11 @@ akeyless create-classic-key \
 
 `-n, --name`: **Required**,  Classic key name/path.
 
-`-a, --alg `: **Required**, Key type; options: `[AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]`
+`-a, --alg`: **Required**, Key type; options: `[AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]`
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`-p, --key-file-path `: Path to file with the classic key value provided by user
+`-p, --key-file-path`: Path to file with the classic key value provided by user
 
 `--key-data`: Base64-encoded classic key value provided by user
 
@@ -755,7 +755,7 @@ akeyless update-rotation-settings \
 
 `--rotation-interval`: The number of days to wait between every automatic key rotation (7-365)
 
-`--rotation-event-in `: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times:`--rotation-event-in 1 --rotation-event-in 5`
+`--rotation-event-in`: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times:`--rotation-event-in 1 --rotation-event-in 5`
 
 ### `Upload-pkcs12`
 
@@ -960,6 +960,7 @@ akeyless create-tokenizer \
 --template-type <SSN,CreditCard,USPhoneNumber,Custom> \
 --tweak-type <Supplied, Generated, Internal, Masking>
 ```
+
 ```shell Custom Tokenization
 akeyless create-tokenizer \
 --name *<Tokenizer name> \
@@ -1034,7 +1035,7 @@ akeyless tokenize \
 
 ##### Flags
 
-`-n, --tokenizer-name `: **Required**, The name of the tokenizer to use in the encryption process
+`-n, --tokenizer-name`: **Required**, The name of the tokenizer to use in the encryption process
 
 `-p, --plaintext`: **Required**, Data to be encrypted
 

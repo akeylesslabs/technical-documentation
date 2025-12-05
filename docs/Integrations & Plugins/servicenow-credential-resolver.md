@@ -87,7 +87,7 @@ Edit the file on each MID host:
 * Linux: /opt/agent/config.xml
 * Windows: C:\ServiceNow\agent\config.xml
 
-Insert your parameters inside the `<parameters> `block:
+Insert your parameters inside the `<parameters>` block:
 
 ```json
 <parameters>

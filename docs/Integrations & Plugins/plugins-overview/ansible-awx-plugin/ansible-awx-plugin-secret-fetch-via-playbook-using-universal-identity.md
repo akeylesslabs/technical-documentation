@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Below, please find an example of using Ansible AWX with Akeyless Platform for fetching credentials, utilizing Akeyless [Universal Identity](https://docs.akeyless.io/docs/universal-identity). 
+Below, please find an example of using Ansible AWX with Akeyless Platform for fetching credentials, utilizing Akeyless [Universal Identity](https://docs.akeyless.io/docs/universal-identity).
 
 ## Prerequisites
 

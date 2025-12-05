@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-### Accessing Secret Generation Policy:
+### Accessing Secret Generation Policy
 
 <Image align="right" width="200px" src="https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png" />
 
@@ -22,7 +22,7 @@ Locate and click on "Password Generation Policy" in the displayed, click on this
 
 A Password Generation Policy screen will appear, providing options to configure the secret generation policy.
 
-### Define the Following Parameters:
+### Define the Following Parameters
 
 **Character Length**: Set the desired default length for secrets created within your account.
 

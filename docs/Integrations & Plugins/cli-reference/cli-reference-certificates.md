@@ -42,7 +42,7 @@ akeyless create-ssh-cert-issuer \
 
 `-p, --principals`: Signed certificates with principal, e.g example_role1,example_role2
 
-`-x, --extensions `: Signed certificates with extensions, e.g permit-port-forwarding="true"
+`-x, --extensions`: Signed certificates with extensions, e.g permit-port-forwarding="true"
 
 `--host-provider[=explicit]`: Host provider type [explicit/target]
 
@@ -78,7 +78,7 @@ akeyless get-ssh-certificate \
 
 ##### Flags
 
-`-s, --cert-username `: **Required**, The username to sign in the SSH certificate (use a comma-separated list for more than one username)
+`-s, --cert-username`: **Required**, The username to sign in the SSH certificate (use a comma-separated list for more than one username)
 
 `-c, --cert-issuer-name`: **Required**, The name of the SSH certificate issuer
 
@@ -183,21 +183,21 @@ akeyless create-pki-cert-issuer \
 
 `--not-require-cn [=false]`: If set, clients can request certificates without a CN.
 
-`--server-flag [=false] `: Extended Key Usage field If set, certificates will be flagged for server auth.
+`--server-flag [=false]`: Extended Key Usage field If set, certificates will be flagged for server auth.
 
-`--client-flag [=false] `: Extended Key Usage field If set, certificates will be flagged for client auth use.
+`--client-flag [=false]`: Extended Key Usage field If set, certificates will be flagged for client auth use.
 
-`--code-signing-flag [=false] `: Extended Key Usage field If set, certificates will be flagged for code signing use.
+`--code-signing-flag [=false]`: Extended Key Usage field If set, certificates will be flagged for code signing use.
 
 `--key-usage[=DigitalSignature,KeyAgreement,KeyEncipherment]`: A list of Key Usage flags
 
 `--critical-key-usage[=true]`: Mark key usage as critical [`true`/`false`]
 
-`--organization-units `: A comma-separated list of organizational units (OU) that will be set in the issued certificate.
+`--organization-units`: A comma-separated list of organizational units (OU) that will be set in the issued certificate.
 
-`--organizations `: A comma-separated list of organizations (O) that will be set in the issued certificate.
+`--organizations`: A comma-separated list of organizations (O) that will be set in the issued certificate.
 
-`--country `: A comma-separated list of the country that will be set in the issued certificate.
+`--country`: A comma-separated list of the country that will be set in the issued certificate.
 
 `--locality`: A comma-separated list of the locality that will be set in the issued certificate.
 
@@ -219,7 +219,7 @@ akeyless create-pki-cert-issuer \
 
 `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified, To specify multiple events, use the argument multiple times: --expiration-event-in 1 --expiration-event-in 5
 
-`--allowed-extra-extensions`: A `JSON `string that defines the allowed extra extensions for the PKI cert issuer, e.g. `'{"<OID>":["<Vlaue>"]}'`
+`--allowed-extra-extensions`: A `JSON`string that defines the allowed extra extensions for the PKI cert issuer, e.g. `'{"<OID>":["<Vlaue>"]}'`
 
 `--allowed-extra-extensions-file-path`: A path to a file containing a JSON string that defines the allowed extra extensions for the PKI cert issuer
 
@@ -311,7 +311,7 @@ akeyless get-kube-exec-creds \
 
 ##### Flags
 
-`-c, --cert-issuer-name `: **Required**, The name of the PKI certificate issuer.
+`-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
 `-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be use to extract the public key)
 
