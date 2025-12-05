@@ -14,7 +14,7 @@ You can define a dynamic RabbitMQ secret to generate user credentials dynamicall
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the target RabbitMQ server through the Gateway and creates a new user.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
@@ -22,11 +22,11 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 Before creating a dynamic RabbitMQ secret, ensure that the RabbitMQ user has sufficient privileges to create users.
 
-# Create a Dynamic RabbitMQ Secret from the CLI
+## Create a Dynamic RabbitMQ Secret from the CLI
 
-> 👍 Note
->
-> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rabbitmq-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+<Callout icon="📘">
+  We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rabbitmq-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+</Callout>
 
 To create a dynamic RabbitMQ secret from the CLI using an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) , run the following command:
 
@@ -84,7 +84,7 @@ If you don't have [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targe
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluerabbitmqp) section.
 
-# Fetch a Dynamic RabbitMQ Secret value from the CLI
+## Fetch a Dynamic RabbitMQ Secret value from the CLI
 
 To fetch a dynamic RabbitMQ secret value from the CLI, run the following command:
 
@@ -92,7 +92,7 @@ To fetch a dynamic RabbitMQ secret value from the CLI, run the following command
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic RabbitMQ Secret in the Akeyless Console
+## Create a Dynamic RabbitMQ Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -148,7 +148,7 @@ RabbitMQ distinguishes between `configure`, `write`, and `read` operations on a 
 
 7. Click **Finish**.
 
-# Fetch a Dynamic RabbitMQ Secret Value from the Akeyless Console
+## Fetch a Dynamic RabbitMQ Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 
