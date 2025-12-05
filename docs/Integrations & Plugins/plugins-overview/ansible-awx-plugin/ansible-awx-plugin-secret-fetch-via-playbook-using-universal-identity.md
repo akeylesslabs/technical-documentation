@@ -22,7 +22,7 @@ The section refers to changes that should be done in the awx machine (awx-task c
 export VAULT_ADDR=https://hvp.akeyless.io
 ```
 
-2. You’ll need to configure the Akeyless temporary API token (this is the recommended and the more secure method). For token rotation, please [read more here](https://docs.akeyless.io/docs/universal-identity). The rotated token should be saved in this file `/var/lib/awx/.vault-token` 
+2. You’ll need to configure the Akeyless temporary API token (this is the recommended and the more secure method). For token rotation, please [read more here](https://docs.akeyless.io/docs/universal-identity). The rotated token should be saved in this file `/var/lib/awx/.vault-token`
 
 ## Configuring AWX Plugin
 

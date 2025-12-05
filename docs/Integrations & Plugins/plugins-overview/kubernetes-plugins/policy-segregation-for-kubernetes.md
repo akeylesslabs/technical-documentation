@@ -47,13 +47,13 @@ akeyless create-secret --name K8s/NameSpaces/Folder/Secrets/namespace1  --value 
 akeyless create-role --name /K8s/NameSpaces/Folder/Role/namespace1role
 ```
 
-4. Associate the role with your authentication method and the relevant sub claim, in the following example only pods from `namespace1` will be authorized: 
+4. Associate the role with your authentication method and the relevant sub claim, in the following example only pods from `namespace1` will be authorized:
 
 ```shell
 akeyless assoc-role-am --role-name /K8s/NameSpaces/Folder/Role/namespace1role --am-name /K8s/NameSpaces/Folder/Auth/namespace1auth --sub-claims namespace=namespace1
 ```
 
-5. Set the role rule and capabilities: 
+5. Set the role rule and capabilities:
 
 ```shell
 akeyless set-role-rule --role-name /K8s/NameSpaces/Folder/Role/namespace1role --path /K8s/NameSpaces/Folder/Secrets/namespace1 --capability read --capability list

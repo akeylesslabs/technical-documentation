@@ -49,9 +49,9 @@ Provide an **App name**:
 
 ![](https://files.readme.io/057d8cf-6.png "6.png")
 
-5. Now, when an Okta Application is ready, assign users to the Okta app, just like with any other Okta app. 
+5. Now, when an Okta Application is ready, assign users to the Okta app, just like with any other Okta app.
 
-6. To bind the Okta application with your Akeyless account, you need to create a [SAML](https://docs.akeyless.io/docs/saml) Authentication Method using either CLI or UI, as described below. 
+6. To bind the Okta application with your Akeyless account, you need to create a [SAML](https://docs.akeyless.io/docs/saml) Authentication Method using either CLI or UI, as described below.
 
 ## Create SAML Authentication Method
 

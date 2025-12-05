@@ -138,7 +138,7 @@ ENCRYPTION_WALLET_LOCATION=(SOURCE=(METHOD=HSM))
 alter system set wallet_root='<path to the oracle wallet directory>' scope=spfile;
 ```
 
-4. Shut down and start up the database. 
+4. Shut down and start up the database.
 
 ```shell
 shutdown immediate;

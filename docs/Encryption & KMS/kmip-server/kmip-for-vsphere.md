@@ -18,7 +18,7 @@ next:
 akeyless kmip-server-setup --hostname <akeyless.gateway.hostname> --gateway-url <Your_Akeyless_GW_URL> --root /kmip/default
 ```
 
-2. Create KMIP client: 
+2. Create KMIP client:
 
 ```shell Akeyless CLI
 akeyless kmip-create-client --name myVCenter --gateway-url <Your_Akeyless_GW_URL>

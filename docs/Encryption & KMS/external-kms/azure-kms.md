@@ -34,7 +34,7 @@ For EC keys, allowed key operations are: `sign`, `verify`.
 >
 > Any classic key will be protected using the Akeyless DFC key (you can select a DFC key with Zero-Knowledge Encryption).
 
-3. [Associate](https://docs.akeyless.io/docs/classic-keys) the key with the [Azure Target](https://docs.akeyless.io/docs/azure-targets). When you attach a key, a copy of the key material is securely transferred to the Azure Key Vault KMS by its key import specification. 
+3. [Associate](https://docs.akeyless.io/docs/classic-keys) the key with the [Azure Target](https://docs.akeyless.io/docs/azure-targets). When you attach a key, a copy of the key material is securely transferred to the Azure Key Vault KMS by its key import specification.
 
 If you are using the CLI in order to associate the key and the target, please note to use all of the Azure mandatory parameters as described in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueassociate-a-classic-keyp):
 

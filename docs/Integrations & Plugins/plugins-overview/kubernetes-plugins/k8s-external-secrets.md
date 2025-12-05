@@ -82,7 +82,7 @@ spec:
 kubectl apply -f ExternalSecret.yaml
 ```
 
-6. Retrieve your secret value by running: 
+6. Retrieve your secret value by running:
 
 ```shell
 kubectl get secret hello-secret -o=yaml

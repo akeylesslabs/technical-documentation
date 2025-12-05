@@ -24,7 +24,7 @@ To use Auth0 as an IdP to authenticate the Akeyless Platform via OIDC, follow th
 
 ![](https://files.readme.io/3edb775-image-20210824-111105.png "image-20210824-111105.png")
 
-4. Once the OIDC app has been created, you need to obtain the **Client ID, Client Secret,** and **Auth0 domain**: 
+4. Once the OIDC app has been created, you need to obtain the **Client ID, Client Secret,** and **Auth0 domain**:
 
 ![](https://files.readme.io/4884e36-aut03.png "aut03.png")
 

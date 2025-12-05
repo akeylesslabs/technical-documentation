@@ -39,7 +39,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/6fd3690-Screenshot_at_Feb_24_17-17-46.png" />
 
 4. In the **Build Environment** tab, select the **Vault Plugin** radio button\
-   Then, enter the [Akeyless Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) URL: **[https://hvp.akeyless.io](https://hvp.akeyless.io)** 
+   Then, enter the [Akeyless Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) URL: **[https://hvp.akeyless.io](https://hvp.akeyless.io)**
 
 > 📘 Info
 >
