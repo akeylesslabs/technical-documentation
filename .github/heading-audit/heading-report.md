@@ -1,6 +1,6 @@
 # Markdown Heading Audit
 
-_Run: 2025-12-05 14:31:24 UTC_
+_Run: 2025-12-05 15:09:53 UTC_
 
 ## Files using Heading 1 (#)
 
@@ -501,4 +501,56 @@ _Run: 2025-12-05 14:31:24 UTC_
 - ./docs/Password Manager/password-manager-web-extension/deleting-password-1.md
 - ./docs/Password Manager/password-manager-web-extension/installation-of-akeyless-web-extension.md
 
-493 heading rule violation(s) found
+## Files with out-of-sequence heading levels
+
+- ./docs/Customer Journey Scenarios/customer-journey-scenarios-real-world-use-case-flows/beyond-env-building-a-dynamic-only-secretless-ai-agent-with-google-adk.md (H1 -> H4)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/azure-ad-dynamic-secrets.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/openai-dynamic-secrets.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/snowflake-dynamic-secrets.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/docker-hub-dynamic-secrets.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/ldap-dynamic-secret.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/github-dynamic-secret.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/artifactory-dynamic-secret-producer.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/chef-infra-producer.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/gke-dynamic-secret-producer.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/aws-producer.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/gitlab-dynamic-secret.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/eks-dynamic-secret-producer.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/k8s-generic-dynamic-secrets.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/gcp-dynamic-secrets.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/rdp-dynamic-secrets.md (H1 -> H3)
+- ./docs/Secrets Management/how-to-create-dynamic-secret/rabbitmq-producer.md (H1 -> H3)
+- ./docs/Integrations & Plugins/plugins-overview/databricks-plugin.md (H1 -> H3)
+- ./docs/Integrations & Plugins/plugins-overview/spire-plugins/spire-upstream-authority-sm.md (H1 -> H3)
+- ./docs/Integrations & Plugins/plugins-overview/aws-databricks-plugin.md (H1 -> H4)
+- ./docs/Integrations & Plugins/plugins-overview/gitlab-plugin.md (H1 -> H3)
+- ./docs/Integrations & Plugins/plugins-overview/cursor-akeyless-secrets-manager.md (H1 -> H4)
+- ./docs/Integrations & Plugins/plugins-overview/akeyless-azure-devops-extension.md (H1 -> H4)
+- ./docs/Integrations & Plugins/plugins-overview/kubernetes-plugins/external-secrets-operator.md (H1 -> H4)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-gateway/cli-reference-log-forwarding.md (H2 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-gateway/cli-reference-automatic-migration.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-access-roles.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-encryption-keys.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-ref-auth/cli-reference-universal-identity.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-ref-auth/cli-reference-kerberos.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-ref-auth/cli-reference-k8s-auth-method.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-ref-auth/cli-reference-ldap-auth-method.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-ref-auth/index.md (H2 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-certificates.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/akeyless-mcp-model-context-protocol-command.md (H1 -> H4)
+- ./docs/Integrations & Plugins/cli-reference/cli-ref-targets.md (H2 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-static-secrets.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-rotated-secrets.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/cli-reference-universal-secrets-connector.md (H3 -> H5)
+- ./docs/Integrations & Plugins/cli-reference/index.md (H3 -> H5)
+- ./docs/Integrations & Plugins/sdks/java-sdk-1.md (H1 -> H3)
+- ./docs/Secure Remote Access/remote-access-setup/remote-access-setup-k8s/index.md (H1 -> H3)
+- ./docs/Secure Remote Access/remote-access-setup/remote-access-docker/index.md (H1 -> H3)
+- ./docs/Encryption & KMS/tde/tde-for-mssql.md (H1 -> H3)
+- ./docs/Encryption & KMS/tde/transparent-data-encryption-tde-for-oracle.md (H3 -> H5)
+- ./docs/Encryption & KMS/java-jar-signing-wpkcs11.md (H1 -> H4)
+- ./docs/Authentication & Authorization/access-and-authentication-methods/kubernetes-auth/dedicated-k8s-auth-service-accounts.md (H1 -> H3)
+- ./docs/Authentication & Authorization/access-and-authentication-methods/kubernetes-auth/index.md (H1 -> H3)
+
+542 heading rule violation(s) found
