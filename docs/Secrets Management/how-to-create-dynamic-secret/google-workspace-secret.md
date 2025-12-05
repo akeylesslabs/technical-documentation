@@ -15,7 +15,7 @@ next:
 * **Role** - Assigns a user to an admin role in Google Workspace.
 * **Group** - Adds the user to a group in Google Workspace.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
@@ -23,7 +23,7 @@ next:
 
 * [GCP Target](https://docs.akeyless.io/docs/gcp-targets) with a **privileged service account**
 
-## Create a Service Account in GCP
+### Create a Service Account in GCP
 
 To create a **Google Workspace** Dynamic Secret, a Service Account that will be used for authentication is required.
 
@@ -48,7 +48,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
      https://www.googleapis.com/auth/admin.directory.customer.readonly
      ```
 
-# Create a Dynamic Google Workspace Secret from the CLI
+## Create a Dynamic Google Workspace Secret from the CLI
 
 > 👍 Note
 >
@@ -113,7 +113,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/google-workspace) section.
 
-# Fetch a Dynamic Google Workspace Secret value from the CLI
+## Fetch a Dynamic Google Workspace Secret value from the CLI
 
 To fetch a dynamic Google Workspace secret value from the CLI, run the following command:
 
@@ -121,11 +121,11 @@ To fetch a dynamic Google Workspace secret value from the CLI, run the following
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Secret for Google Workspace in the Akeyless Console
+## Create a Dynamic Secret for Google Workspace in the Akeyless Console
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/github-dynamic-secrets#create-a-dynamic-github-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/github-dynamic-secret#/create-a-dynamic-secret-for-github-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 

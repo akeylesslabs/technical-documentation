@@ -1,7 +1,7 @@
 ---
 title: Basic Bastion
 excerpt: ''
-deprecated: false
+deprecated: true
 hidden: true
 metadata:
   title: ''
@@ -58,9 +58,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The values.yaml file holds default values, copy the file from:
-
-[https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion)
+The values.yaml file holds default values, copy the file from: https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-bastion
 
 Or run the following helm command to generate the values file:
 

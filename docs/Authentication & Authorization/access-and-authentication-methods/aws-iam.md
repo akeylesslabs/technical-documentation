@@ -34,7 +34,7 @@ Where:
 
 * `bound-aws-account-id`: An AWS account ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one AWS account ID by using this parameter in the following format: `--bound-aws-account-id AWS-ID-1 --bound-aws-account-id AWS-ID-2`.)
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-authentication#p-stylecolorbluecreate-auth-method-aws-iamp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#/create) section.
 
 # Configure Akeyless CLI with the AWS IAM authentication method
 
