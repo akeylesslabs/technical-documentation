@@ -16,7 +16,7 @@ Terraform can be used to configure Akeyless and populate it with secrets, as wel
 
 For more information on the Terraform provider, see the [Akeyless GitHub Repository](https://github.com/akeyless-community/terraform-provider-akeyless) and the [Terraform Registry](https://registry.terraform.io/providers/akeyless-community/akeyless/latest).
 
-# Configuration
+## Configuration
 
 1. Install Akeyless as a provider in your Terraform Registry by adding the following code to your Terraform configuration (Terraform V0.13).
 
@@ -39,7 +39,7 @@ terraform init
 
 2. Select an Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to use with the  Terraform Provider, such as an **API Key** or Cloud Identity (CSP IAM) like **AWS IAM**, **Azure AD**.
 
-# Usage Example
+## Usage Example
 
 The following example creates an API Key authentication method called **auth-method-api-key-demo** in the **terraform-tests** folder, and a static secret called **secret** in the same folder. It uses **AWS IAM** for authentication.
 

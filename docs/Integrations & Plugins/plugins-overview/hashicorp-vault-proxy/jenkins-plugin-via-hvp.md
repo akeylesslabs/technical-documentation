@@ -20,7 +20,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 >
 > You can use any of the [authentication methods](https://docs.akeyless.io/docs/access-and-authentication-methods) supported by Akeyless. Ensure that the authentication method you use is associated with an [access role](https://docs.akeyless.io/docs/rbac) with access to the required secrets.
 
-# Configure the Akeyless Plugin in Jenkins
+## Configure the Akeyless Plugin in Jenkins
 
 > 👍 Note
 >
@@ -76,7 +76,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
 <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/b1aaa6e-Screenshot_at_Feb_24_17-56-21.png" />
 
-## Dynamic Secret
+### Dynamic Secret
 
 To use your Jenkins Plugin to fetch Dynamic Secrets: 
 
@@ -111,7 +111,7 @@ Click “Build Now” and expect to see the following Console Output:
 
 ![](https://files.readme.io/6f82e9a-Screenshot_at_Feb_24_18-18-31.png "Screenshot at Feb 24 18-18-31.png")
 
-## Static Secrets
+### Static Secrets
 
 To work with Static secrets, the Vault Secret Path should be in this format for **KV 1**: 
 

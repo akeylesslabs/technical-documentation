@@ -26,7 +26,7 @@ The following clients' libraries are currently supported:
 * [PHP](https://github.com/akeylesslabs/akeyless-grpc-php)
 * [.NET](https://github.com/akeylesslabs/akeyless-grpc-dotnet)
 
-# Installation
+## Installation
 
 This flow will describe the uses of the official [GO](https://github.com/akeylesslabs/akeyless-grpc-go) client `akeyless_grpc`.
 
@@ -36,7 +36,7 @@ Run the following command:
 go get github.com/akeylesslabs/akeyless-grpc-go
 ```
 
-# Example
+## Example
 
 This example demonstrates the uses of [API Key](https://docs.akeyless.io/docs/api-key) for authentication, make sure to set the following:
 

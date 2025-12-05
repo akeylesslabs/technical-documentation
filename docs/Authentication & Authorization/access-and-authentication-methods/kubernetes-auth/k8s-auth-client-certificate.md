@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Prerequisites
+## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the Kubernetes (K8s) cluster.
 
@@ -22,11 +22,11 @@ next:
 >
 > Notice: K8s Client certificate authentication is **not supported by EKS**.
 
-# Client Certificate Authentication
+## Client Certificate Authentication
 
 Client certificate-based authentication using a dedicated K8s user, instead of the bearer token flow, enables receiving notifications in advance of certificate expiration. This approach also follows K8s best practices for auth strategies since no token is being exchanged as part of the flow directly with your cluster. 
 
-## K8s Client Creation
+### K8s Client Creation
 
 Create a client key using a Certificate Signing Request (CSR): 
 
@@ -66,7 +66,7 @@ USER_CERT=$(kubectl get csr $USER_NAME -o jsonpath='{.status.certificate}')
 akeyless create-certificate --name /k8s/Clustername/certificates/$USER_NAME --certificate-data $USER_CERT --key-data $USER_KEY --expiration-event-in 30
 ```
 
-## K8s Role Binding
+### K8s Role Binding
 
 Create the **Cluster Role Binding** named `role-tokenreview-binding` for the user to review tokens:
 
@@ -88,7 +88,7 @@ subjects:
 EOF
 ```
 
-### Extract K8s Cluster CA Certificate
+#### Extract K8s Cluster CA Certificate
 
 To extract the K8s cluster CA cert. used to talk to the K8s API, run the following command:
 
@@ -100,7 +100,7 @@ CA_CERT=$(kubectl config view --raw --minify --flatten  \
 CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/ p' | base64)
 ```
 
-### Create K8s Auth Method
+#### Create K8s Auth Method
 
 Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the K8s auth method. The result will output an `Access ID` and `private key` that you will need later for the K8s auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
@@ -121,7 +121,7 @@ Upon successful creation, the response:
 >
 > Save the returned Access ID & private key for next steps inside environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
-### Create K8s Gateway Auth Config Using Certificates
+#### Create K8s Gateway Auth Config Using Certificates
 
 To [discover your K8s service account issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
@@ -192,7 +192,7 @@ Upon successful creation, the response:
 K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
 ```
 
-# Authenticate from a pod in your K8s cluster
+## Authenticate from a Pod in Your K8s Cluster
 
 1. Create a namespace in your k8s cluster:
 
@@ -250,7 +250,7 @@ Token: t-bb7b...3564a7c9
 >
 > Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
 
-# Available claims for K8s Auth
+## Available Claims for K8s Auth
 
 The following list of claims can be configured within Akeyless [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for K8s. 
 
@@ -266,7 +266,7 @@ The following list of claims can be configured within Akeyless [Role-based Acces
 
 Each claim can be enforced as part of your role association to enforce the right policy for your items.
 
-# Enable token request projection on Minikube
+## Enable Token Request Projection on Minikube
 
 To enable token request projection on a managed K8s cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide. 
 

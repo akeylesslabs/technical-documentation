@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Cluster Name
+## Cluster Name
 
 ```yaml
 clusterName: defaultCluster
@@ -24,7 +24,7 @@ It is recommended to set a meaningful Cluster Name for your Bastion cluster from
 
 To do that, you can set the <code>clusterName="meaningful-cluster-name"</code> field as part of the Bastion deployment.
 
-# Proxy
+## Proxy
 
 To configure your proxy settings, you can set several parameters, including proxy settings for HTTP traffic, HTTPS traffic, and Ignore Hosts, using the `no_proxy` field, to prevent local traffic from going through your proxy server.
 
@@ -36,7 +36,7 @@ httpProxySettings:
   no_proxy: ""
 ```
 
-# Log Forwarding
+## Log Forwarding
 
 To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page.
 
@@ -50,7 +50,7 @@ logForward: |
        target_splunk_url=""
 ```
 
-# WebWorker
+## WebWorker
 
 This section enables global settings of the internal dedicated remote browsers your users will use. You can customize the settings to provide a more flexible experience for your users. 
 
@@ -102,7 +102,7 @@ webWorker:
 1. Mount your organization's Root CA certificate to the pods. For the **Gateway** specifically, in the helm-chart, you can specify an existing k8s-secret for the gateway tls certificate under **apiGatewayCert.tlsCertsSecretName** (see [ztwa/values.yaml](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-zero-trust-web-access/values.yaml))
 2. In the `policies.json` above, uncomment the *Certificates.Install* line and set it to the relevant certificates' paths inside the pod
 
-# DLP
+## DLP
 
 To work with Data Leak Protection (DLP) tools, you can explicitly set the target settings of your DLP server, as well as with dedicated audit logs forwarding.
 
@@ -125,7 +125,7 @@ dlp:
     target_splunk_url=""
 ```
 
-# Redirect to Bastion URLs
+## Redirect to Bastion URLs
 
 To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-dispatcher-bastion**: 
 
@@ -136,7 +136,7 @@ config:
     allowedBastionUrls: []
 ```
 
-# Disable Fullscreen Mode
+## Disable Fullscreen Mode
 
 When set to `true`, this option disables the default fullscreen mode for Web Access sessions and also shows the internal browser address bar. To use this feature, the following should be added in the `webWorker` section under `env`:
 

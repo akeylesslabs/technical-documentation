@@ -17,7 +17,7 @@ next:
       slug: gateway-k8s
       title: Gateway on K8s
 ---
-# Prerequisites
+## Prerequisites
 
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) & [Targets](https://docs.akeyless.io/docs/targets).
 
@@ -41,7 +41,7 @@ next:
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
-# Installation
+## Installation
 
 To install a standalone instance of Akeyless Gateway, run the following command:
 
@@ -59,7 +59,7 @@ To upgrade your current Gateway version, simply restart the container using the 
 
 For further installation options, visit the [Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
 
-## Initial Configuration
+### Initial Configuration
 
 To configure your Akeyless Gateway:
 
@@ -67,6 +67,6 @@ To configure your Akeyless Gateway:
 
 2. Navigate to **Gateways > Select Your Gateway > Manage Gateway**
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Installing and Configuring the Gateway on Docker](https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway).

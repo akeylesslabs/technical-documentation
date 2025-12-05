@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-# Overview
+## Overview
 
 When using Akeyless [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth), policy segregation of resources can be done based on Kubernetes attributes via Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) using the relevant [sub-claims](https://docs.akeyless.io/docs/sub-claims), such as `namespace` and `pod_name`.
 
 The following guide will demonstrate the usage of namespace segregation.
 
-# Controlling the Capabilities of a Workload
+## Controlling the Capabilities of a Workload
 
 Authorization in Kubernetes is intentionally high level, focused on coarse actions on resources. However, *policies* enable you to limit, by use case, how objects act on the cluster, themselves, and other resources. You can use policies, together with the Akeyless native secrets injector, to support full and flexible segregation.
 
-# Namespace and Pod Segregation
+## Namespace and Pod Segregation
 
 To fully segregate your cluster workloads so that your cluster namespaces/pods have different authorizations for the Akeyless Platform, you can use Akeyless [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth). 
 

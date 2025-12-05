@@ -20,7 +20,7 @@ When working with [Gateway](https://docs.akeyless.io/docs/api-gw) Cloud Identity
 >
 > The best practice for using IAM roles in AWS is to leverage them for granting temporary, least-privilege access to resources, rather than relying on long-term access keys for users. Use your **Gateway cloud ID** to use IAM roles.
 
-# Create an AWS Target in the CLI
+## Create an AWS Target in the CLI
 
 To create an AWS target from the CLI, run the following command:
 
@@ -61,7 +61,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 >
 > In case you are working with explicit credentials, make sure to set a [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) to meet AWS best practices.
 
-# Create an AWS Target in the Console
+## Create an AWS Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Cloud (AWS)**.
 
@@ -96,6 +96,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 6. Click **Finish**.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Configuring AWS Targets](https://tutorials.akeyless.io/docs/creating-targets).

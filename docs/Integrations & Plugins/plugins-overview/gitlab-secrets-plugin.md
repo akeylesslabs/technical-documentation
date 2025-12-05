@@ -14,7 +14,7 @@ The Akeyless <Anchor label="Official plugin" target="_blank" href="https://archi
 
 Using Gitlab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab.com/ci/yaml/#id_tokens">ID tokens</Anchor> when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a <Anchor label="JSON Web Token (JWT)" target="_blank" href="https://docs.gitlab.com/ci/secrets/id_token_authentication/#id-tokens">JSON Web Token (JWT)</Anchor> as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
 
-# Prerequisites
+## Prerequisites
 
 * GitLab Version  **17.4** or higher.
 
@@ -22,7 +22,7 @@ Using Gitlab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab
 >
 > This plugin availability is currently controlled by GitLab Feature Flag, to enable this on your GitLab environment you might need to contact your GitLab Account Manager
 
-# Authentication
+## Authentication
 
 This plugin supports the following Authentication Methods:
 
@@ -122,7 +122,7 @@ Where make sure to set the relevant `access_type` according to the Auth Method t
 >
 > Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that GitLab provides in the JWT.
 
-# Usage
+## Usage
 
 Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml`  and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Auth method.
 
@@ -130,7 +130,7 @@ Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.
 >
 > Working with GitLab Token payload can be used with Access Roles [path templates ](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier management of your CI/CD project access using the `sub (subject)` field from your token.
 
-## Secret Example
+### Secret Example
 
 In the following example, we will fetch a [Static Secret](https://docs.akeyless.io/docs/static-secrets), this example will also work with [Rotated](https://docs.akeyless.io/docs/rotated-secrets) or [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) Secrets:
 
@@ -163,7 +163,7 @@ Where:
 >
 > To fetch **Dynamic** and **Rotated** Secrets make sure your **GitLab Runner** has network access to the relevant Akeyless Gateway.
 
-## JSON Example
+### JSON Example
 
 The following examples fetch a static secret named `/JSON/Secret` with a JSON key named: `imp` :
 
@@ -181,7 +181,7 @@ job:
     - "echo 'Fetching secrets from akeyless'"
 ```
 
-## JWT reuse
+### JWT Reuse
 
 When reusing the same token for multiple use the following format:
 
@@ -198,7 +198,7 @@ job:  # This job fetches the Akeyless Token
 
 Where the `token` should hold the pre-existing **JWT token**
 
-## Issue SSH Certificate
+### Issue SSH Certificate
 
 ```yaml
 job:
@@ -215,7 +215,7 @@ job:
 
 Where the `cert_user_name` value should match the [SSH Issuer](https://docs.akeyless.io/docs/ssh-remote-access) allowed username list. Should be provided with a `public_key_data` to issue the certificate.
 
-## Issue a PKI Certificate
+### Issue a PKI Certificate
 
 ```yaml
 job:

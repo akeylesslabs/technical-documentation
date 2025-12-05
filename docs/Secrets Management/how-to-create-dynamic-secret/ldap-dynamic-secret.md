@@ -12,13 +12,13 @@ next:
 ---
 You can define a dynamic LDAP secret to dynamically generate LDAP access credentials. When a client requests the dynamic secret value, the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) connects to your LDAP server and generates a temporary set of restricted access credentials.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the LDAP server.
 
 * LDAP server with a privileged LDAP User.
 
-# Create a Dynamic LDAP Secret from the CLI
+## Create a Dynamic LDAP Secret from the CLI
 
 > 👍 Note
 >
@@ -64,7 +64,7 @@ Where:
 
 * `fixed-user-claim-keyname[=ext_username]`: For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username=true)
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have [LDAP Target](https://docs.akeyless.io/docs/ldap-target) yet, you can use the command with your LDAP target server connection string:
 
@@ -78,7 +78,7 @@ If you don't have [LDAP Target](https://docs.akeyless.io/docs/ldap-target) yet, 
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueldapp) section.
 
-# Fetch a Dynamic LDAP Secret value from the CLI
+## Fetch a Dynamic LDAP Secret Value from the CLI
 
 To fetch a dynamic LDAP secret value from the CLI, run the following command: 
 
@@ -86,7 +86,7 @@ To fetch a dynamic LDAP secret value from the CLI, run the following command:
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic LDAP Secret in the Akeyless Console
+## Create a Dynamic LDAP Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -132,7 +132,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic LDAP Secret value from the Akeyless Console
+## Fetch a Dynamic LDAP Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 
@@ -140,7 +140,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 3. Select the secret and click **Get Dynamic Secret** button.
 
-# Username Length Policy
+## Username Length Policy
 
 To control the temporary username policy, you can add to your Gateway deployment the following environment variable: 
 

@@ -14,15 +14,15 @@ This section outlines the CLI commands relevant to the Gateway.
 
 <CLIGeneralFlags />
 
-# Access Permissions
+## Access Permissions
 
 Commands for managing the access of users to your Gateway.
 
-## `add-gw-access-id`
+### `Add-gw-access-id`
 
 Grants Gateway access to users
 
-### Usage
+#### Usage
 
 ```shell
 akeyless add-gw-access-id \
@@ -31,7 +31,7 @@ akeyless add-gw-access-id \
 --sub-claims <group=admins>
 ```
 
-### Flags
+#### Flags
 
 `-c, --cluster-name`: **Required**,  The name of the updated cluster
 
@@ -39,11 +39,11 @@ akeyless add-gw-access-id \
 
 `-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
 
-## `delete-gw-access-id`
+### `Delete-gw-access-id`
 
 Denials Gateway access to users
 
-### Usage
+#### Usage
 
 ```shell
 akeyless delete-gw-access-id \
@@ -51,17 +51,17 @@ akeyless delete-gw-access-id \
 --access-id <Access ID>
 ```
 
-### Flags
+#### Flags
 
 `-c, --cluster-name`: **Required**, The name of the updated cluster
 
 `-a, --access-id`: **Required**, The `Access ID` to be able to access the gateway
 
-## `gateway-create-allowed-access`
+### `Gateway-create-allowed-access`
 
 Add users that will have permission to manage the Gateway
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway-create-allowed-access \
@@ -73,7 +73,7 @@ akeyless gateway-create-allowed-access \
 --permissions <permissions for this allowed access> 
 ```
 
-### Flags
+#### Flags
 
 `-n, --name`: **Required**,  Allowed access name
 
@@ -89,11 +89,11 @@ akeyless gateway-create-allowed-access \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `gateway-update-allowed-access`
+### `Gateway-update-allowed-access`
 
 Set users that will have permission to manage the Gateway
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway-update-allowed-access \
@@ -106,7 +106,7 @@ akeyless gateway-update-allowed-access \
 --permissions <permissions for this allowed access> 
 ```
 
-### Flags
+#### Flags
 
 `-n, --name`: **Required**,  Allowed access name
 
@@ -126,13 +126,13 @@ akeyless gateway-update-allowed-access \
 
 <br />
 
-# Gateway Configuration
+## Gateway Configuration
 
-## `delete-gateway-cluster`
+### `Delete-gateway-cluster`
 
 Deletes a gateway in the account
 
-### Usage
+#### Usage
 
 ```shell
 akeyless delete-gateway-cluster \
@@ -140,24 +140,24 @@ akeyless delete-gateway-cluster \
 --force < true / flase>
 ```
 
-### Flags
+#### Flags
 
 `-c, --cluster-name`: **Required**,  Gateway Cluster, e.g. `acc-abcd12345678/p-123456789012/defaultCluster`
 
 `--force`: Deletes cluster even if there is an active gateway or associated secrets. All Gateway secrets will be deleted
 
-## `gateway-get-config`
+### `Gateway-get-config`
 
 Gets gateway configuration details
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway-get-config \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-## `gateway-update-tls-cert`
+### `Gateway-update-tls-cert`
 
 Updates TLS certificate in the Gateway
 
@@ -170,7 +170,7 @@ akeyless gateway-update-tls-cert \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-### Flags
+#### Flags
 
 `--cert-data`: TLS Certificate (base64 encoded), this flag is ignored if `--cert-file-name` is supplied
 
@@ -182,54 +182,54 @@ akeyless gateway-update-tls-cert \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-# `gateway get`
+## `Gateway Get`
 
 Command to get specified gateway configuration
 
-## `gateway get cache`
+### `Gateway Get Cache`
 
 Get cache settings
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway get cache \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-## `gateway get defaults`
+### `Gateway Get Defaults`
 
 Get defaults settings
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway get defaults \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-# `gateway list`
+## `Gateway List`
 
-## `gateway list customer-fragments`
+### `Gateway List Customer-fragments`
 
 Command to list the Customer Fragments on the Gateway
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway list customer-fragments \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-# `gateway update`
+## `Gateway Update`
 
 Command to update specified gateway configuration
 
-## `gateway update cache`
+### `Gateway Update Cache`
 
 Updates cache settings
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway update cache \
@@ -239,7 +239,7 @@ akeyless gateway update cache \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-### Flags
+#### Flags
 
 `--enable-cache`: Enable cache [`true`/`false`]
 
@@ -253,11 +253,11 @@ akeyless gateway update cache \
 
 `-u, --gateway-url`: Gateway URL (Configuration Management port)
 
-## `gateway update defaults`
+### `Gateway Update Defaults`
 
 Updates defaults settings
 
-### Usage
+#### Usage
 
 ```shell
 akeyless gateway update defaults \
@@ -269,7 +269,7 @@ akeyless gateway update defaults \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-### Flags
+#### Flags
 
 `--saml-access-id[=use-existing]`: Default SAML access-id for UI login
 

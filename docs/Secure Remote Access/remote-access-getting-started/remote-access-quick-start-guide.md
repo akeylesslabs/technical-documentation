@@ -20,7 +20,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 >
 > Please note that this guide was tested with AWS EKS and **not secured** with TLS. We highly suggest you do not use this in a production environment or with real credentials.
 
-# Prerequisites
+## Prerequisites
 
 * A K8s Cluster
 * [Helm](https://helm.sh/) Installed
@@ -37,7 +37,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 >
 > Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/quick-start-guide#remote-access-section) section.
 
-# Create Your Authentication Method
+## Create Your Authentication Method
 
 > 👍 Authentication note
 >
@@ -57,7 +57,7 @@ akeyless auth-method create api-key --name MyFirstAPIKey
 akeyless configure --profile default --access-id <Your API Key Auth AccessID>  --access-key <Your API Key>
 ```
 
-# Create Your Access Role
+## Create Your Access Role
 
 Follow this tutorial to create an Access Role and associate your Authentication Method. Or you can follow the below CLI commands:
 
@@ -87,7 +87,7 @@ akeyless assoc-role-am --role-name MyFirstRole --am-name MyFirstAPIKey
 
 Now you have an Authentication Method with the right access to deploy the Gateway.
 
-# Create Your SSH Certificate Issuer
+## Create Your SSH Certificate Issuer
 
 Follow the below commands:
 
@@ -107,9 +107,9 @@ akeyless create-ssh-cert-issuer --name your-ssh-cert-issuer-name --signer-key-na
 >
 > This is the bare minimum in order to have a required SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource via SSH, please see the docs [here](https://docs.akeyless.io/docs/ssh-certificates).
 
-# Configuration
+## Configuration
 
-## Add the Akeyless Helm Repo
+### Add the Akeyless Helm Repo
 
 Add the following repository to your Helm repository list:
 
@@ -118,7 +118,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-## Configure the Helm Chart
+### Configure the Helm Chart
 
 Here you will find the bare minimum values you will need in your Helm chart to get up and running.
 
@@ -126,7 +126,7 @@ You can [download the chart](https://raw.githubusercontent.com/akeylesslabs/helm
 
 Below is an explanation of the minimum required fields by section. Find them in the file and edit them as per the instructions.
 
-### Global Section
+#### Global Section
 
 ```yaml values.yaml
 ############
@@ -153,11 +153,11 @@ authorizedAccessIDs: <authorized_access_id>
 >
 > You must configure one of these Auth Methods in order to test Remote Access. In this case it will be a SAML Authentication Method which we explain how to set up here.
 
-### Gateway Section
+#### Gateway Section
 
 There is no need to change anything here. Note that the Gateway deployment creates two pods (replicas) in the cluster by default. You can customize that by changing the `replicaCount` variable.
 
-### Remote Access Section
+#### Remote Access Section
 
 ```yaml values.yaml
 ######################################################
@@ -180,9 +180,9 @@ To configure Remote Access, follow these steps:
 
 `CAPublicKey`: For this to work properly, you are also required to provide the matching public key of the key you used to create the SSH Certificate Issuer in Akeyless. More info can be found [here](https://docs.akeyless.io/docs/ssh-certificates). Add the `ssh-rsa` value.
 
-# Deployment
+## Deployment
 
-## Deploy the Helm Chart
+### Deploy the Helm Chart
 
 Once you have finished those steps, run the following command to create your deployment:
 
@@ -190,7 +190,7 @@ Once you have finished those steps, run the following command to create your dep
 helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
 ```
 
-## Verify Deployment Success
+### Verify Deployment Success
 
 Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.
 
@@ -200,7 +200,7 @@ Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service st
 
 Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (i.e. `http://<Your-Akeyless-GW-URL:8000/console>`). If you get the login page, you have successfully deployed the Gateway!
 
-### Gateway URLs
+#### Gateway URLs
 
 For the Gateway, you can access the following:
 
@@ -208,7 +208,7 @@ For the Gateway, you can access the following:
 
   <Image align="center" border={false} src="https://files.readme.io/8532daf-Screenshot_2024-08-06_at_11.11.57.png" />
 
-### Remote Access URLs
+#### Remote Access URLs
 
 For Remote Access, you can access the following:
 
@@ -217,7 +217,7 @@ For Remote Access, you can access the following:
   <Image align="center" border={false} src="https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png" />
 * Remote Access can also be accessed using our public URL: [https://zerotrust.akeyless.io](https://zerotrust.akeyless.io). If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/web-client`
 
-# Testing Out Remote Access
+## Testing Out Remote Access
 
 Here we will lay out the steps to get a SAML user to access the Remote Access Portal.
 
@@ -249,6 +249,6 @@ akeyless assoc-role-am --role-name MySamlRole --am-name MySamlAuth
 
 <Image align="center" border={false} src="https://files.readme.io/e0af62a-sra.png" />
 
-# Next Steps
+## Next Steps
 
 With a Gateway deployed, you can now test out using just-in-time [dynamic secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) for various applications and services by setting up [Targets](https://docs.akeyless.io/docs/targets). If you are also using Remote Access, you can also set up Remote Access on those Targets and log into those [Resources](https://docs.akeyless.io/docs/supported-resource-types) securely from anywhere by reading the docs [here](https://docs.akeyless.io/docs/remote-access-overview).

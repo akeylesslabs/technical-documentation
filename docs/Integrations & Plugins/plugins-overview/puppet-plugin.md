@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Prerequisites
+## Prerequisites
 
 * **Puppet** version 6 or later.
 * **Puppet/vault\_lookup** module installed
@@ -25,7 +25,7 @@ puppet module install puppet/vault_lookup
 >
 > Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
-# Create a sample module
+## Create a Sample Module
 
 Create `init.pp`  on your Puppet server as follows: 
 
@@ -60,7 +60,7 @@ Where:
 
 The following logic will create a `txt` file with the secret value, where for the sake of simplicity we are running `cat` command to print the value, this should not be used as is in a production environment. 
 
-## Secret fetch
+### Secret Fetch
 
 Retrieve the secret at the Puppet agent using the following command:
 

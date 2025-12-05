@@ -22,7 +22,7 @@ The certificate chain includes the following components:
 
 <Image align="center" width="123% " src="https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png" />
 
-# Creating a Root CA
+## Creating a Root CA
 
 Given the critical role of the Root CA in validating end-user certificates, it's strongly recommended to store both the Root PKI Cert Issuer and the Root CA key in a secure location accessible only to authorized users.
 
@@ -32,7 +32,7 @@ Using a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an
 >
 > In this guide, we used the environment variable `MY_GW` to store the gateway address (`https://<Your-Akeyless-GW-URL:8000`). You can also directly use the gateway address if preferred.
 
-## Creating a Root CA Signer Key
+### Creating a Root CA Signer Key
 
 Let's create  [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **Root CA** with a self-signed certificate, first let's create the **CSR** conf file:
 
@@ -88,7 +88,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** of our top chain [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). This issuer will be used to issue the Intermediate layer of PKI Issuers in our chain of trust. 
 
-## Creating a Root PKI Issuer
+### Creating a Root PKI Issuer
 
 Run the following command to create the Root PKI Issuer:
 
@@ -121,11 +121,11 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 The next step will be the creation of an **Intermediate Signer Key** with a signed certificate by our **Root PKI Cert Issuer** and using this key as a signer for our **Intermediate PKI Issuer**.
 
-# Creating Intermediate CA
+## Creating Intermediate CA
 
 Intermediate certificates act as a middle-man between the secure root certificates and the server certificates distributed to the public. While a chain will always include at least one intermediate certificate, it may contain multiple ones as well.
 
-## Create an Intermediate Signer Key
+### Create an Intermediate Signer Key
 
 Run the following command to create a **CSR** and a **Key** that will be used as our  **Intermediate Signer Key**:
 
@@ -157,7 +157,7 @@ akeyless update-classic-key-certificate \
 
 Now, we have our  **Intermediate Signer Key** which has a certificate signed by our **Root CA**, let's create the  **Intermediate PKI Issuer** to start issuing leaf certificates.
 
-## Create an Intermediate PKI Cert Issuer
+### Create an Intermediate PKI Cert Issuer
 
 Run the following command to create the **Intermediate PKI Cert Issuer:** 
 
@@ -180,7 +180,7 @@ akeyless create-pki-cert-issuer \
 
 Where **only** certificate with the domain`myexample.com`  will be accepted and valid for 30 days, and it will be automatically stored under the `/MyChain/Intermediate/Leaf/`  folder, with the **Extended key Usage** of `client auth` , **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
-# Issuing a Leaf Certificate
+## Issuing a Leaf Certificate
 
 Now that we have our **Intermediate PKI Cert Issuer** we can start issuing leaf certificates. 
 

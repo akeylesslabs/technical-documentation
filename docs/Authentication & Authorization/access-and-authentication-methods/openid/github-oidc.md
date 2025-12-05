@@ -39,7 +39,7 @@ Auth Method my GitHub app successfully created
 - Access ID: p-xxxxxxxx
 ```
 
-## Login with OIDC from the CLI
+## Login With OIDC from the CLI
 
 1. You should configure a new profile with your Access-ID from the previous step and OIDC type (if no profile name is provided the default will be configured):
 

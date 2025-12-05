@@ -24,7 +24,7 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 >
 > While the Akeyless Rotated Secret can work by default with many popular Unix OS, some distributions like **RedHat** etc, requires a customization of the default rotation statement. For those cases you can set a **Custom Rotation** command as desribed [here](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement)
 
-# Create a Rotated SSH Secret from the CLI
+## Create a Rotated SSH Secret from the CLI
 
 To create a Rotated SSH Secret using the Akeyless CLI, run the following command:
 
@@ -75,7 +75,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluesshp) section.
 
-# Create a Rotated SSH Secret in the Akeyless Console
+## Create a Rotated SSH Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -127,7 +127,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 4. Click **Finish**.
 
-# Custom Rotation Statement
+## Custom Rotation Statement
 
 Akeyless Rotated Secret for an [SSH Target](https://docs.akeyless.io/docs/ssh-target) supports a Custom Rotation Statement. This script or command will be executed on the target server after the secret rotation operation completes. You can specify any command you need.
 
@@ -165,6 +165,6 @@ Another example of rotating Windows service password :
 net user /domain "{{USERNAME}}" {{NEW_PASSWORD}} && sc config "lfsvc" obj= "ad\{{USERNAME}}" password=  "{{NEW_PASSWORD}}" && net stop lfsvc && net start lfsvc
 ```
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Using SSH Rotated Secrets](https://tutorials.akeyless.io/docs/creating-and-using-rotated-secrets).

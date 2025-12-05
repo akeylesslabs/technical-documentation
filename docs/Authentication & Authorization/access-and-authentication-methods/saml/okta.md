@@ -12,7 +12,7 @@ next:
 ---
 To use Okta as an IdP to authenticate to the Akeyless Platform, follow the steps below.
 
-# Create an Okta application
+## Create an Okta Application
 
 The following configuration will enable users to authenticate using Okta SAML-based Single Sign-On.
 
@@ -53,7 +53,7 @@ Provide an **App name**:
 
 6. To bind the Okta application with your Akeyless account, you need to create a [SAML](https://docs.akeyless.io/docs/saml) Authentication Method using either CLI or UI, as described below. 
 
-# Create SAML Authentication Method
+## Create SAML Authentication Method
 
 To create a SAML Auth method using the Akeyless CLI run the following command:
 
@@ -76,7 +76,7 @@ Alternatively, you can create this Auth method from the Akeyless console.
 * IDP Metadata URL: The  **App Federation Metadata URL** you copied from the Azure process.
 * Unique identifier: The required identifier. In this case, you can use **email**.
 
-# Authenticate using SAML
+## Authenticate Using SAML
 
 To log in using SAML from Akeyless CLI: 
 

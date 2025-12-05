@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## We use Zero-Knowledge Encryption for your Keys and Secrets
+## We Use Zero-Knowledge Encryption for Your Keys and Secrets
 
 The missing piece of that puzzle is - who can access the key fragments? Some may say that though DFC doesn't allow cloud providers to access the whole key, Akeyless itself can construct the key whenever it wishes since it manages the key fragments infrastructure. 
 

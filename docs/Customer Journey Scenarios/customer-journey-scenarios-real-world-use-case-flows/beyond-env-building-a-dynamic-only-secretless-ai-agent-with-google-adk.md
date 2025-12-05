@@ -259,7 +259,7 @@ Here is an example of that exact interaction:
 
 <br />
 
-### Conclusion: The Future is Ephemeral
+### Conclusion: The Future Is Ephemeral
 
 The architecture we've explored isn't just a theoretical workaround; it's a practical, robust solution to the security risks inherent in powerful AI agents. Traditional methods leave static, long-lived credentials like database passwords and API keys as ticking time bombs on a server. If compromised, it's game over.
 

@@ -12,7 +12,7 @@ next:
 ---
 To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follow the steps below.
 
-## Create an Okta application
+## Create an Okta Application
 
 1. In your Okta account, go to **Applications > Add Application > Create App Integration**.
 
@@ -47,7 +47,7 @@ akeyless auth-method create oidc --name 'My Okta app' --issuer https://{your-okt
 >
 > Set the OIDC Auth Method "Required Scopes" to "groups" to be included it in the sub claims.
 
-## Login with OIDC from Akeyless CLI
+## Login With OIDC from Akeyless CLI
 
 1. You should configure a new profile with your Access ID from the previous step and OIDC type (In case the profile name is not provided the default profile will be configured):
 

@@ -14,11 +14,11 @@ next:
 ---
 Azure AD Authentication method enables authentication to Akeyless. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure AD for the configured tenant.
 
-# Prerequisites
+## Prerequisites
 
 Depending on the Azure Identity type, enable the relevant [identity type](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) on your Azure resource.
 
-# Create an Azure AD Authentication Method from the CLI
+## Create an Azure AD Authentication Method from the CLI
 
 Let's create a new Azure AD authentication method using the Akeyless CLI.
 (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad#create-an-azure-active-directory-authentication-method-in-the-akeyless-console).)
@@ -39,7 +39,7 @@ Where:
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueazure-adp) section.
 
-# Configure Akeyless CLI with the Azure AD authentication method
+## Configure Akeyless CLI With the Azure AD Authentication Method
 
 To configure your CLI to work with Azure AD authentication, run the following command from an Azure VM with a system identity assigned:
 
@@ -48,7 +48,7 @@ akeyless configure --profile default --access-id &lt;AccessID&gt;  --access-type
 akeyless get-cloud-identity --cloud-provider azure_ad
 ```
 
-# Create an Azure AD authentication method in the Akeyless Console
+## Create an Azure AD Authentication Method in the Akeyless Console
 
 1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > Azure Active Directory**.
 

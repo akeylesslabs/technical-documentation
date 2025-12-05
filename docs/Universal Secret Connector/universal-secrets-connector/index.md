@@ -38,6 +38,6 @@ Akeyless currently supports creating Universal Secrets Connectors for the follow
 
 To view all your Universal Secret Connectors, log in to the **Console** and navigate to **Items** > **Universal Secrets Connector**.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s" target="_blank">Universal Secrets Connectors</a>.

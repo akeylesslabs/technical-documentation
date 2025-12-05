@@ -14,7 +14,7 @@ next:
 ---
 The SAML authentication method allows users to authenticate using external IdP using the SAML standard.
 
-# Create a SAML Authentication Method in the CLI
+## Create a SAML Authentication Method in the CLI
 
 Let's create a new SAML authentication method using the Akeyless CLI. You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/saml#create-a-saml-authentication-method-from-the-console).
 
@@ -43,7 +43,7 @@ By default, Akeyless treats the comma char `,` as a delimiter for the JWT attrib
 
 You can find the complete list of parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorbluesamlp) section.
 
-# Create a SAML Authentication Method in the Console
+## Create a SAML Authentication Method in the Console
 
 1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > User (SAML)**.
 

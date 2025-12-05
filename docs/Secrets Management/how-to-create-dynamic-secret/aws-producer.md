@@ -17,7 +17,7 @@ You can create dynamic access credentials for AWS in two modes:
 * **iam_user** mode: When a client requests a dynamic secret value, a **temporary** IAM user is created for the requested AWS account, and an access key is returned to the client. The temporary users should be assigned to an existing policy in the AWS account. Temporary IAM users can only be created with access to a single AWS account. If you have multiple AWS accounts, you will need to create a separate dynamic secret for each account for IAM user mode.
 * **assumed_role** mode: When a client requests the dynamic secret value, an [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) operation is performed to return an access key, secret key, and session token.  Although a single dynamic secret can assume roles for multiple accounts, due to AWS limitations, once access is granted, it cannot be revoked before its defined expiration time (a minimum of 15 minutes and a maximum of 12 hours). Assume role is more convenient for immediate actions, as the **STS** credentials are available immediately as described in AWS [official](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) docs.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 * An [AWS Target](https://docs.akeyless.io/docs/aws-targets)
@@ -77,7 +77,7 @@ where the `<RoleName>` should be replaced with the role that will be assumed.
 
 **Note:** Make sure that the target AWS role that will be part of the roles that this dynamic secret should be able to assume must include a trust policy with the principal of the role you created.
 
-# Create a Dynamic AWS Secret from the CLI
+## Create a Dynamic AWS Secret from the CLI
 
 > 👍 Note
 >
@@ -129,7 +129,7 @@ Where:
 
 * `aws-role-arns`: AWS Role ARNs to be used in the Assume Role operation. Multiple values should be separated by a comma.
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have an [AWS Target](https://docs.akeyless.io/docs/aws-targets) yet, you can use the command with target AWS account connection settings:
 
@@ -141,7 +141,7 @@ If you don't have an [AWS Target](https://docs.akeyless.io/docs/aws-targets) yet
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueawsp) section.
 
-# Fetch a Dynamic AWS Secret value from the CLI
+## Fetch a Dynamic AWS Secret Value from the CLI
 
 To fetch a dynamic AWS secret value from the CLI, run the following command:
 
@@ -149,7 +149,7 @@ To fetch a dynamic AWS secret value from the CLI, run the following command:
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic AWS Secret in the Akeyless Console
+## Create a Dynamic AWS Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -215,7 +215,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic AWS Secret Value from the Akeyless Console
+## Fetch a Dynamic AWS Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 
@@ -223,6 +223,6 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 3. Select the secret and click **Get Dynamic Secret** button.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Using AWS Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets).

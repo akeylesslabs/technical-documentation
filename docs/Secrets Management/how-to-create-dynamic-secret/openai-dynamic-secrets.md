@@ -7,12 +7,12 @@ metadata:
 ---
 You can use Akeyless Dynamic Secrets to generate short-lived credentials that let you securely connect to [OpenAI](https://openai.com/) — no need to store or manage long-term API keys or worry about them being exposed.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw#/)
 * an [Admin API Key](https://platform.openai.com/docs/api-reference/admin-api-keys)
 
-# Create an OpenAI Dynamic Secret from the CLI
+## Create an OpenAI Dynamic Secret from the CLI
 
 <Callout icon="👍" theme="okay">
   **Note**
@@ -51,7 +51,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-### Inline connection string
+### Inline Connection String
 
 * `api-key-id`: The **ID** of the Admin API Key.
 
@@ -61,7 +61,7 @@ Where:
 
 * `open-ai-url`: The endpoint for the OpenAI API
 
-# Create a Dynamic OpenAI Secret in the Akeyless Console
+## Create a Dynamic OpenAI Secret in the Akeyless Console
 
 <Callout icon="👍" theme="okay">
   **Note**

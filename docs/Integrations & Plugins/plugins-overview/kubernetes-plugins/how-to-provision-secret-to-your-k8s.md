@@ -14,7 +14,7 @@ next:
       slug: policy-segregation-for-kubernetes
       title: Policy Segregation for Kubernetes
 ---
-# Overview
+## Overview
 
 The Akeyless Kubernetes Secrets Injector plugin enables Kubernetes applications and workloads to use [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-storage)  and [USC](https://docs.akeyless.io/docs/universal-secrets-connector) sourced from the Akeyless Platform.
 
@@ -33,7 +33,7 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 >
 > The documentation, configuration and examples for the plugin are also applicable to **Red Hat OpenShift** environment.
 
-# Prerequisites
+## Prerequisites
 
 * Helm Installed.
 
@@ -45,7 +45,7 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 
 * For Google Kubernetes Engine (GKE) cluster, port **8443** is opened in your Google Cloud Platform (GCP) firewall rules.
 
-## Create a Secret in Akeyless
+### Create a Secret in Akeyless
 
 For example, the following command creates a static secret called **my_k8s_secret** inside  **K8s** folder.
 
@@ -63,7 +63,7 @@ akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234"
 >
 > The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) called **K8s_Auth** in **K8s** folder i.e. `K8s/K8s_Auth`
 
-## Create an Access Role
+### Create an Access Role
 
 Create an [Access Role](https://docs.akeyless.io/docs/rbac) associate the role with an **Auth Method** and grant access to the secret.  
 For example, the following command creates **K8s_role** role, the role is associated to **K8s_Auth** Auth Method, and grant **read** and **list** access to all the secrets in **K8s** folder
@@ -74,7 +74,7 @@ akeyless assoc-role-am --role-name /K8s/K8s_Role --am-name K8s/K8s_Auth
 akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability read --capability list
 ```
 
-# Install the Injector
+## Install the Injector
 
 1. Add the Akelyess Kubernetes Injector Helm repository from [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-k8s-secrets-injection) and update your Helm repositories.
 
@@ -180,11 +180,11 @@ NAME                                                        DESIRED    CURRENT  
 replicaset.apps/injector-akeyless-secrets-injection-77c857d496   2          2              2           1d
 ```
 
-# Launch an Application
+## Launch an Application
 
 The Akeyless Injector supports the following modes of operations, using **Environment Variables**, **File Injection**, and **SideCar** mode which can work only with File Injection.
 
-## Environment Variable
+### Environment Variable
 
 Set the following annotations in your deployment `YAML` files:
 
@@ -406,7 +406,7 @@ To create the environment variables without the prefix you can use the `parse_js
 >
 > The `parse_json_secret` flag is designed to handle flat JSON structures with single string-values (it does not support nested JSONs, nor array values).
 
-### Inject Secret via ConfigMap
+#### Inject Secret Via ConfigMap
 
 For existing environments that currently use ConfigMaps with Kubernetes secrets, you can modify your config maps to fetch the relevant secrets from Akeyless, instead of updating all your deployment manifest files, for example:
 
@@ -453,7 +453,7 @@ spec:
               key: MYSQL_ROOT_PASSWORD               
 ```
 
-### Override Entrypoint Automatically
+#### Override Entrypoint Automatically
 
 The injector can be set with credentials of your **private** registry using a secret reference that exists inside Akeyless, this secret should contain a JSON with creds to your registry, supporting either username & password or a simple token format, for example:
 
@@ -479,7 +479,7 @@ In AWS and GCP environments the node IAM role on EKS and GKE respectively can be
 >
 > For public container registry no secret is required, the Injector will try to override the entrypoint automatically.
 
-## File Injection
+### File Injection
 
 Enable the plugin under the `annotations` section, in your app deployment file:
 
@@ -560,7 +560,7 @@ Apply:
 kubectl apply -f Injectfile.yaml
 ```
 
-## Sidecar Mode
+### Sidecar Mode
 
 To keep track of secret changes while reflecting them into your pods during their lifetime, you can use the **Sidecar** mode, for example, while working with **Dynamic** or **Rotated** secrets.
 
@@ -621,7 +621,7 @@ Apply:
 kubectl apply -f Akeyless_sidecar.yaml
 ```
 
-# Annotations List
+## Annotations List
 
 The following table lists the available annotations:
 
@@ -1007,7 +1007,7 @@ The following table lists the available annotations:
   </tbody>
 </Table>
 
-# Metrics
+## Metrics
 
 To enable metrics collection from the injector using [Prometheus Operator](https://prometheus.io/), set the `metrics` setting to `true` in your `values.yaml` file:
 
@@ -1053,7 +1053,7 @@ These metrics are available for any pod matching the name pattern `injector-akey
 
 The metrics can be viewed using monitoring tools like [Grafana](https://grafana.com/) or the Prometheus U.
 
-# Troubleshooting
+## Troubleshooting
 
 When you are working with a GKE cluster, make sure that port **8443** is opened in your firewall rules, This port is needed by the Akeyless Secret Injection mutating webhook. Update your firewall rule as follows:
 
@@ -1069,6 +1069,6 @@ gcloud compute firewall-rules list
 gcloud compute firewall-rules update <firewall-rule-name> --allow tcp:10250,tcp:443,tcp:8443
 ```
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Injecting Secrets into a Kubernetes Cluster](https://tutorials.akeyless.io/docs/injecting-secrets-into-a-kubernetes-cluster).

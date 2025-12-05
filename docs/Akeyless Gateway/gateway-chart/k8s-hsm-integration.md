@@ -18,7 +18,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 >
 > For setting the **HSM** to generate random numbers for the cryptographic operations, the **HSM** must support the `C_GenerateRandom` operation.
 
-# Prerequisites
+## Prerequisites
 
 * **HSM** configured to work with `PKCS#11`. 
 
@@ -26,7 +26,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 * [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
-# HSM Configuration
+## HSM Configuration
 
 To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the  `pkcs11.so` file, you can either create a PVC manually and provide it using the  `existingClaim` or set the `storageClass` for automatic provisioning with your k8s provider. The `accessMode` should be `ReadWriteMany`. 
 
@@ -78,7 +78,7 @@ Where:
 
 * `pkcs11LibPath` - The path to a `PKCS#11` library file which should be mounted to the container filesystem. Must be a fixed path and imported along with the entire folder, since it contains configuration information. In our example, the source folder `/opt/cloudhsm` is mounted completely with all subdirectories.
 
-# Customer Fragments
+## Customer Fragments
 
 Akeyless offers two modes for integrating the customer fragment with the **HSM**: `hsm_wrapped` and `hsm_secured`. Both modes use the same mechanism: the fragment value itself is used as a seed for a [key derivation function](https://en.wikipedia.org/wiki/Key_derivation_function), which is executed with the **HSM key** performing `HMAC` signing operations. The derived value is then used as the actual customer fragment value, meaning the fragment itself is not stored in the HSM.
 

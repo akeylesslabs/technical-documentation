@@ -14,13 +14,13 @@ Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can b
 
 While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI, any thick client can be used to establish the connection to a remote server within your internal network via the Akeyless SRA SSH server.
 
-# Prerequisites
+## Prerequisites
 
 * [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) configured.
 
 * The [Secure Remote Access server](https://docs.akeyless.io/docs/remote-access-setup-k8s) deployed.
 
-# Usage
+## Usage
 
 > 🚧 Warning
 >
@@ -55,7 +55,7 @@ Where:
 
 * **ssh-extra-args:** Additional SSH arguments (except -i).
 
-## RDP
+### RDP
 
 To connect to a remote desktop server via the Akeyless SRA server from your local terminal, run the following command, and open your Remote Desktop client, where you should use the localhost endpoint to connect to your remote server.
 
@@ -69,9 +69,9 @@ akeyless connect -t <RDP User>@<RDP Host> \
 
 Once the tunnel is opened, you can connect with your local RDP client to the `TargetServer` using your localhost port via SRA.
 
-## K8s
+### K8s
 
-### kubectl
+#### Kubectl
 
 To connect with a remote K8s cluster using a thick client, you can leverage the Akeyless K8s Tunnel that will start a proxy service on your remote K8s server, via the SRA.
 
@@ -112,7 +112,7 @@ akeyless connect -t <k8s.server.host> \
 
 Once that's done, **in a new terminal tab** you can run `kubectl` commands as normal after switching to the above `kubectl` context.
 
-### Lens
+#### Lens
 
 Similarly, after having run the `akeyless connect` command as in the previous section, to work with [Lens](https://k8slens.dev/) K8s IDE, open your Lens Settings > Proxy and set the proxy server with your localhost interface in the following format: [http://127.0.0.1:2345](http://127.0.0.1:2345).
 
@@ -140,7 +140,7 @@ users:
 
 Where the `server` should point to your local tunnel port.
 
-## SSH Tools
+### SSH Tools
 
 To work with your native SSH tools, you can run a local tunnel on your host:
 

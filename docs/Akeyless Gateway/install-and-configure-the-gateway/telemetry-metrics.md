@@ -35,7 +35,7 @@ The following metrics are currently available:
 
 In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/gw-docker-log-forwarding) the Gateway application logs using **OTEL**.
 
-# Datadog
+## Datadog
 
 To enable Telemetry Metrics on your Gateway for Datadog, set the `ENABLE_METRICS=true` variable and mount the Telemetry config file, i.e.,`otel-config.yaml` as described below:
 
@@ -69,7 +69,7 @@ Akeyless is an official Datadog Partner and our dashboard can be found inside th
 
 * If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for "akeyless.gw".
 
-# Prometheus
+## Prometheus
 
 To enable Telemetry Metrics on your Gateway for Prometheus, set the `ENABLE_METRICS=true` variable, expose the port `8889` (or any other port) for Prometheus scraping, and mount the Telemetry config file, i.e.,`otel-config.yaml` for the **Prometheus Exporter** as described below:
 
@@ -110,7 +110,7 @@ Import the Akeyless GW dashboard for your Grafana instance using [this](https://
 
 <Image align="center" alt="A sample screenshot of a Grafana dashboard showing metrics and charts." border={false} src="https://files.readme.io/fd9e82c-Screen_Shot_2022-07-31_at_10.44.18.png" title="Screen Shot 2022-07-31 at 10.44.18.png" />
 
-# Gateway Application Log Forwarding
+## Gateway Application Log Forwarding
 
 To collect the Gateway application logs with the metrics you can set an additional `exporter` endpoint and  `service`, for example:
 

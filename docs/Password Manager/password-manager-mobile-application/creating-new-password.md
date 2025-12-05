@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## Creating a new password from Akeyless Mobile Application
+## Creating a New Password from Akeyless Mobile Application
 
 <Image align="right" width="200px" src="https://files.readme.io/66309dd-Screenshot_2024-01-10_at_14.52.27.png" />
 
@@ -63,7 +63,7 @@ Confirmation: The app will confirm that your password has been saved. It's now s
 
 <Image align="center" width="1px" src="https://files.readme.io/7569fe6-Screenshot_2023-11-05_at_14.07.50.png" />
 
-## Creating a new password from Akeyless Injection / Autofill window
+## Creating a New Password from Akeyless Injection / Autofill Window
 
 <Image align="right" width="300px" src="https://files.readme.io/e26ea04-Screenshot_2023-11-05_at_14.55.06.png" />
 

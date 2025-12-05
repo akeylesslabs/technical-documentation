@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Access Roles.
 
 <CLIGeneralFlags />
 
-### `assoc-role-am`
+### `Assoc-role-am`
 
 Create an association between role and auth method
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless assoc-role-am \
@@ -36,11 +36,11 @@ akeyless assoc-role-am \
 
 `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
-### `create-role`
+### `Create-role`
 
 Creates a new role
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless create-role name <Role Name>
@@ -70,31 +70,31 @@ akeyless create-role name <Role Name>
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-### `delete-assoc`
+### `Delete-assoc`
 
 Delete an association between role and auth method
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless delete-assoc --assoc-id <association ID to be deleted>
 ```
 
-### `delete-role`
+### `Delete-role`
 
 Delete a role
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless delete-role --name <Role Name>
 ```
 
-### `delete-role-rule`
+### `Delete-role-rule`
 
 Delete a rule from a role
 
-##### Usage
+#### Usage
 
 ```shell
 akeyelss delete-role-rule \
@@ -110,21 +110,21 @@ akeyelss delete-role-rule \
 
 `--rule-type[=item-rule]`: item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule.  \nA type of the item for which permissions are deleted. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Role, auth-method-rule - for Authentication Methods. By default, permissions are deleted only for Items
 
-### `delete-roles`
+### `Delete-roles`
 
 Delete multiple roles from a given path
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless delete-roles --path <Path/to/roles>
 ```
 
-### `describe-permissions`
+### `Describe-permissions`
 
 See which authentication methods have access to a particular object
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless describe-permissions \
@@ -132,46 +132,46 @@ akeyless describe-permissions \
 --type <Type of object (item, am, role, target)>
 ```
 
-### `describe-sub-claims`
+### `Describe-sub-claims`
 
 Get the sub-claims associated with the provided token or authentication profile
 
-### `describe-role-am-assoc`
+### `Describe-role-am-assoc`
 
 Describe role association details
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless describe-role-am-assoc \
 --assoc-id <association-id>
 ```
 
-### `get-role`
+### `Get-role`
 
 Get role details
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless get-role -n <Role Name>
 ```
 
-### `list-roles`
+### `List-roles`
 
 List of all roles in the account
 
-##### Flags
+#### Flags
 
 `filter`: Filter by role name or part of it
 
 `--pagination-token`: Next page reference
 
-### `request-access`
+### `Request-access`
 
 Request a temporary access for an item, supporting Static Secret, and Targets
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless request-access \
@@ -190,11 +190,11 @@ akeyless request-access \
 
 `--comment`: Optional, comment about the request.
 
-### `reverse-rbac`
+### `Reverse-rbac`
 
 See which authentication methods have access to a particular object
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless reverse-rbac \
@@ -208,11 +208,11 @@ akeyless reverse-rbac \
 
 `-t, --type`: **Required**, Type of object (item, am, role, target)
 
-### `set-role-rule`
+### `Set-role-rule`
 
 Set a rule to a role
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless set-role-rule \
@@ -236,11 +236,11 @@ akeyless set-role-rule \
 
 `-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This  replaces the `capability`, `path` and `rule-type`
 
-### `update-assoc`
+### `Update-assoc`
 
 Update the sub-claims of an association between the role and the auth method.
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless update-assoc --assoc-id <association ID to be updated>
@@ -254,11 +254,11 @@ akeyless update-assoc --assoc-id <association ID to be updated>
 
 `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
-### `update-role`
+### `Update-role`
 
 Update role details
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless update-role -n <Role name> \

@@ -12,7 +12,7 @@ next:
 ---
 To install this plugin you'll have to add the Vault Interaction task to your organization using this [link](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction).
 
-# Configuration & Usage
+## Configuration & Usage
 
 In your project, under Pipelines, select the relevant pipeline and click "Edit".
 

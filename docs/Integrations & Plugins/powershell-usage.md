@@ -12,7 +12,7 @@ next:
 ---
 Akeyless Platform natively supports multiple scripting languages, the following examples demonstrate how to fetch secrets from Akeyless via PowerShell script
 
-# Usage
+## Usage
 
 The following example demonstrates fetching **dynamic secret**:
 

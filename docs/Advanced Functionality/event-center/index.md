@@ -10,19 +10,19 @@ metadata:
 next:
   description: ''
 ---
-# Overview
+## Overview
 
 The Akeyless Event Center is your hub for everything event-related. This document will detail where you can access the Event Center, what it does, and how you can benefit from using it.
 
 The Event Center can be accessed, by default, by **Admins** only, as well as users with explicit [permissions](https://docs.akeyless.io/docs/rbac), by clicking the bell icon at the top right-hand corner of the console screen, next to your user icon. Selecting the bell will also show you any pending notifications you might have from the Event Center, based on your settings. Setting up notification triggers will also be explained later in this guide.
 
-# Using the Event Center
+## Using the Event Center
 
 The Akeyless Event Center shows your event logs in the form of a table and allows you to monitor, filter, and search through the different events that occur in your Akeyless account.
 
 On the upper left-hand side of the table, you will see a few interactive buttons, including a refresh button, a filter button, and a forwarder button, which allow you to use your event data to your benefit or to search through it.
 
-# Event Types
+## Event Types
 
 Akeyless events are defined by object types, supporting: 
 
@@ -89,7 +89,7 @@ For `gateways-event-source-locations`:
 
 * `gateway-inactive` When a Gateway changes its state to inactive, it must be set on the Gateway. 
 
-# Event Forwarders
+## Event Forwarders
 
 Event forwarders are tools you can configure through the Event Center to get notified on other platforms (e.g. email) when a certain event type happens. For example, one might want to be notified every time a certain [Certificate](https://docs.akeyless.io/docs/certificate-storage) is about to expire or when a user requests to access an item you have in your Akeyless Platform.
 
@@ -99,7 +99,7 @@ Event Forwarders can only be managed by **Admins** or by users with explicit [pe
 >
 > Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/api-gw). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions) on at least one [Gateway](https://docs.akeyless.io/docs/api-gw) to create and manage Event Forwarders.
 
-## Forwarded Events Format
+### Forwarded Events Format
 
 The following JSON structure describes the forwarded event's format:
 

@@ -25,7 +25,7 @@ Similar to K8s secrets, upon pod start, the Secrets Store CSI driver communicate
 Then the volume is mounted in the pod as `tmpfs` and the secret value is written to the volume.\
 Upon pod deletion, the corresponding volume is cleaned up and deleted.
 
-# Prerequisites
+## Prerequisites
 
 * K8s v1.16 or higher.
 
@@ -33,7 +33,7 @@ Upon pod deletion, the corresponding volume is cleaned up and deleted.
 
 * [TokenRequest](https://kubernetes-csi.github.io/docs/token-requests.html) enabled.
 
-# Install Akeyless CSI Provider
+## Install Akeyless CSI Provider
 
 Using helm
 
@@ -48,7 +48,7 @@ Or via local `yaml` file which located under `deployment` folder on this [git](h
 kubectl apply -f deployment/akeyless-csi-provider.yaml
 ```
 
-# SecretProviderClass
+## SecretProviderClass
 
 The `SecretProviderClass` is a namespaced resource in Secrets Store CSI Provider that is used to provide configurations and provider-specific parameters to the CSI provider.
 

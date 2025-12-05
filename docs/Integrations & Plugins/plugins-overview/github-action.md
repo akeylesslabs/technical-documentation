@@ -12,7 +12,7 @@ next:
 ---
 Akeyless Official [GitHub Actions](https://github.com/marketplace/actions/akeyless-authentication-and-fetching-secrets) plugin enables you to automate workflows for your GitHub-hosted repositories. With the GitHub Actions plugin, you can fetch secrets directly from Akeyless into your workflows. This guide describes how to use our various [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to fetch [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [SSH](https://docs.akeyless.io/docs/ssh-certificates) and [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) certificates, from Akeyless.
 
-# Prerequisites
+## Prerequisites
 
 * Job permissions requirement: **(Relevant for OAuth 2.0 / JWT Authentication only)**
 
@@ -28,7 +28,7 @@ jobs:
     #--------------------------#
 ```
 
-## Runner Configuration
+### Runner Configuration
 
 Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners):
 
@@ -37,7 +37,7 @@ Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your
 * Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
 * Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
 
-# Authentication
+## Authentication
 
 This Action plugin supports the following Authentication Methods:
 
@@ -50,7 +50,7 @@ This Action plugin supports the following Authentication Methods:
 * [Access Key](https://docs.akeyless.io/docs/api-key)
 * [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
 
-## GitHub Repository Variable
+### GitHub Repository Variable
 
 You can store the `Access ID` as a GitHub variable inside the repository to use in your workflow.
 
@@ -162,7 +162,7 @@ akeyless assoc-role-am --role-name /Dev/GitHubRole
 
 For example: `repository=octo-org/octo-repo` where `octo-org = {GitHub Account}` and `octo-repo = {GitHub Repository}`.
 
-# Usage
+## Usage
 
 Although this repository's workflows use placeholder values, it is still a real Akeyless account and a real provider. The approaches demonstrated in these examples are still valid as-is for real implementations. Use these to your advantage!
 
@@ -170,7 +170,7 @@ Although this repository's workflows use placeholder values, it is still a real 
 >
 > If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint e.g.  `<https://Your_GW_URL:8000/api/v2>` (or using your gateway URL at port `8081`).
 
-## Static Secrets Example
+### Static Secrets Example
 
 In this example, you will fetch two static secrets from Akeyless, `my_first_secret` and `my_second_secret`. Just define each secret's path and output name. The secret values can be found in the `secrets.txt` file created in that directory (note the "key" is only relevant for JSON formatted secrets, see [below](https://docs.akeyless.io/docs/github-action#parsing-json-secrets-examples)).
 
@@ -207,7 +207,7 @@ jobs:
             echo "my_second_secret: ${{ env.my_second_secret }}" >> secrets.txt
 ```
 
-## Dynamic Secrets Example
+### Dynamic Secrets Example
 
 In this example, you will fetch an AWS Dynamic Secret from Akeyless, called `aws_dynamic_secret`. Just define the secret path and output name. The secret's values can be found in the `secrets.txt` file created in that directory.
 
@@ -249,7 +249,7 @@ In this example, you will fetch an AWS Dynamic Secret from Akeyless, called `aws
         echo "user: ${{ env.AWS_USER }}" >> secrets.txt
 ```
 
-## Rotated Secrets Example
+### Rotated Secrets Example
 
 In this example, you will fetch an AWS Rotated Secret from Akeyless, called `aws_rotated_secret`.
 
@@ -274,7 +274,7 @@ In this example, you will fetch an AWS Rotated Secret from Akeyless, called `aws
           output-name: "aws_rotated_secret"
 ```
 
-## SSH Certificates Example
+### SSH Certificates Example
 
 In this example, you will fetch two SSH Certificates from Akeyless, called `ssh_secret1` and `ssh_secret2`.
 
@@ -304,7 +304,7 @@ In this example, you will fetch two SSH Certificates from Akeyless, called `ssh_
               public-key-data: "public_key_data",
 ```
 
-## PKI Certificates Example
+### PKI Certificates Example
 
 In this example, you will fetch two PKI Certificates from Akeyless, called `pki_secret1` and `pki_secret2`.
 
@@ -332,7 +332,7 @@ In this example, you will fetch two PKI Certificates from Akeyless, called `pki_
               csr-data-base64: "csr_data_base64"
 ```
 
-## Create Secret Example
+### Create Secret Example
 
 In this example, you will create a new static secret in Akeyless using the GitHub Action.
 
@@ -367,7 +367,7 @@ jobs:
           create-secret-value: "SuperSecretValue"
 ```
 
-## Update Secret Example
+### Update Secret Example
 
 In this example, you will update the value of an existing static secret in Akeyless.
 
@@ -402,7 +402,7 @@ jobs:
           update-secret-value: "UpdatedSuperSecretValue"
 ```
 
-## Parsing JSON Secrets Examples
+### Parsing JSON Secrets Examples
 
 By default, the action sets the environment variable value to the entire JSON string in the secret value. You can set `parse-json-secrets` to `true` to create environment variables for each key/value pair in the secret JSON.
 
@@ -469,7 +469,7 @@ key1 == val1
 key2 == val2
 ```
 
-### Extracting from JSON by field name
+#### Extracting from JSON by Field Name
 
 For each Akeyless secret, you can extract a specific field out of the JSON by adding the field key name.
 

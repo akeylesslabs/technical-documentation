@@ -15,7 +15,7 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 **TDE** protects data at rest, which is the data and log files. It lets you follow many laws, regulations, and guidelines established in various industries. This ability lets software developers encrypt data by using **AES** and **3DES** encryption algorithms without changing existing applications.
 
 <Callout icon="📒" theme="default">
-  ### **Platform prerequisites**
+  #### **Platform Prerequisites**
 
   _The TDE for MSSQL workflow documented above has been tested **only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”)._
 
@@ -28,7 +28,7 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
   • Azure “SQL VM” (a standard VM running SQL Server)
 </Callout>
 
-# Install the Akeyless EKM provider
+## Install the Akeyless EKM Provider
 
 1. Download and run the official Akeyless EKM provider:
 
@@ -51,7 +51,7 @@ use_classic_keys=true
 
 **Notice:** It is optional to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) by setting `use_classic_keys=true`. The default is otherwise using a DFC key. To work with Classic Keys, make sure you work against your own Gateway (on the `/api/v2` endpoint).
 
-# Configure the Akeyless EKM provider
+## Configure the Akeyless EKM Provider
 
 Open Microsoft SQL Server Management Studio, and run the SQL commands below to complete the installation.
 
@@ -180,7 +180,7 @@ SET ENCRYPTION ON ;
 GO
 ```
 
-# Troubleshooting
+## Troubleshooting
 
 If you're running into issues getting TDE with Akeyless set up on MSSQL, here are some useful tips and common pitfalls to check:
 

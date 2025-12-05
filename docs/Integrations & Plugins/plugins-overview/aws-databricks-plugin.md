@@ -23,7 +23,7 @@ Akeyless helps avoid secret scattering across AWS Secrets Manager, Databricks se
 
 ### Supported Languages in Databricks
 
-#### Databricks supports:
+#### Databricks Supports:
 
 * Python (natively supported by Akeyless SDK)
 * Scala & R (via spark.conf or dbutils)
@@ -61,7 +61,7 @@ Databricks EC2 → AWS IAM Role → Akeyless IAM Auth Method → Secret Retrieva
 
 Installs the Akeyless SDK and cloud identity helper, then restarts the Python kernel in Databricks.
 
-#### Step 2: Authenticate with Akeyless Using AWS IAM
+#### Step 2: Authenticate With Akeyless Using AWS IAM
 
 ```shell Python
 from akeyless_cloud_id import CloudId
@@ -115,7 +115,7 @@ response = requests.get(url, params=params)
 
 Uses the API key to fetch public healthcare data as an example.
 
-#### Step 5: Load API Data into a Spark Table
+#### Step 5: Load API Data Into a Spark Table
 
 ```shell Python
 import pandas as pd

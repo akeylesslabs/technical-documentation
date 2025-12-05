@@ -12,7 +12,7 @@ next:
 ---
 You can define a RabbitMQ target to be used with [RabbitMQ Dynamic Secrets](https://docs.akeyless.io/docs/rabbitmq-producer) 
 
-# Create a RabbitMQ Target in the CLI
+## Create a RabbitMQ Target in the CLI
 
 To create a RabbitMQ target from the CLI, run the following command:
 
@@ -36,7 +36,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluerabbitmqp) section.
 
-# Create a RabbitMQ Target in the Console
+## Create a RabbitMQ Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Infra (RabbitMQ)**.
 

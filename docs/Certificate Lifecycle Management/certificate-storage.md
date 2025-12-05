@@ -14,15 +14,15 @@ next:
       slug: event-center
       title: Event Center
 ---
-# Overview
+## Overview
 
 Akeyless Certificate storage allows you to securely store, sort, and browse through your certificates in one secure location, as well as set expiration notifications so you are always prepared.
 
 The certificates are treated as their own type of item inside the Akeyless Platform with their parsed information saved in the form of a JSON array to represent the certificate chain. The item will include both the certificate itself and the private key (if it exists), which will be stored completely encrypted.
 
-# Managing a Certificate in the CLI
+## Managing a Certificate in the CLI
 
-## Creating a New Certificate
+### Creating a New Certificate
 
 To create a new certificate, use the following command:
 
@@ -48,7 +48,7 @@ The main parameters for the command are as follows:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-certificatep) section.
 
-## Getting a Certificate
+### Getting a Certificate
 
 To view a certificate's value, use the following command:
 
@@ -61,7 +61,7 @@ This command will return the certificates with the chain if it exists, as well a
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-certificate-valuep) section.
 
-## Updating a Certificate
+### Updating a Certificate
 
 This command is similar to the creation command and uses the same parameters, but instead of creating a new item it will update the data in the existing item and overwrite the expiration notifications.\
 The command is as follows:
@@ -74,7 +74,7 @@ akeyless update-certificate-value \
 
 All of the parameters from the creation command will also apply here.
 
-# Managing a Certificate in the Console
+## Managing a Certificate in the Console
 
 1. Select **Items** > **New** > **Certificate**.
 

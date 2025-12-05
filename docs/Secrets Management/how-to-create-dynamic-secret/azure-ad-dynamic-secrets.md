@@ -16,7 +16,7 @@ You can define an Azure AD dynamic secret to dynamically generate access credent
 
 2. Portal: Access Azure AD using a username and password.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
@@ -41,7 +41,7 @@ To create a Service Account in your Azure AD, follow the guide on [how to create
 
 For example, the `microsoft.directory/applications/credentials/update` permission, Allows the ability to update the certificates and client secrets properties on single-tenant and multitenant applications.
 
-# Create a Dynamic Azure AD Secret from the CLI
+## Create a Dynamic Azure AD Secret from the CLI
 
 > 👍 Note
 >
@@ -102,7 +102,7 @@ Where:
 
 * `password-length`: **Optional** The temporary user password length.
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have an [Azure AD Target](https://docs.akeyless.io/docs/azure-targets) yet, you can use the command with your Azure AD connection settings:
 
@@ -114,7 +114,7 @@ If you don't have an [Azure AD Target](https://docs.akeyless.io/docs/azure-targe
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueazurep) section.
 
-# Fetch a Dynamic Azure AD Secret value from the CLI
+## Fetch a Dynamic Azure AD Secret Value from the CLI
 
 To fetch a dynamic Azure AD secret value from the CLI, run the following command:
 
@@ -122,7 +122,7 @@ To fetch a dynamic Azure AD secret value from the CLI, run the following command
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Azure AD Secret in the Akeyless Console
+## Create a Dynamic Azure AD Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -186,7 +186,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic Azure AD Secret Value from the Akeyless Console
+## Fetch a Dynamic Azure AD Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

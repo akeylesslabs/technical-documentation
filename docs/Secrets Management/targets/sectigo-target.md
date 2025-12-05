@@ -16,7 +16,7 @@ With a public CA, Akeyless cannot access the private key that signs certificates
 
 Akeyless will store the issued certificates, manage them, and notify you of upcoming expiration events.
 
-# Create a Sectigo Target in the Console
+## Create a Sectigo Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Certificate Automation (Sectigo)**.
 
@@ -43,7 +43,7 @@ Akeyless will store the issued certificates, manage them, and notify you of upco
 
 5. Click **Finish**.
 
-# Create a Sectigo Target in the CLI
+## Create a Sectigo Target in the CLI
 
 To create a Sectigo target from the CLI, run the following command:
 

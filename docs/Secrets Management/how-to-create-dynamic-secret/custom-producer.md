@@ -17,13 +17,13 @@ and `revoke` operations to the external services using a particular set of HTTP 
 
 Once you have set up a custom dynamic secret implementation, you can create a custom dynamic secret that calls the implementation to generate dynamic credentials.
 
-# Inputs
+## Inputs
 
 Custom dynamic secret implementations are completely stateless. Akeyless provides encrypted storage for any user credentials, API keys, or other secret data required by a particular implementation, and provides them to the dynamic secret implementation with every request.
 
 In addition, some custom dynamic secret implementations require user input every time a new secret value is requested. Akeyless accepts user input for every `get-dynamic-secret-value` operation for custom dynamic secret implementations.
 
-# Set Up a Custom Dynamic Secret Implementation
+## Set Up a Custom Dynamic Secret Implementation
 
 Implement the following endpoints to integrate with Akeyless:
 
@@ -31,7 +31,7 @@ Implement the following endpoints to integrate with Akeyless:
 - **POST /sync/revoke**: This endpoint is called each time temporary credentials need to be revoked.
 - **POST /sync/rotate**: (Optional) This endpoint is called to rotate the custom dynamic secret payload.
 
-## POST /sync/create Input
+### POST /Sync/create Input
 
 This endpoint is called each time a user requests a dynamic secret value.
 
@@ -91,7 +91,7 @@ Where:
 </table>
 `}</HTMLBlock>
 
-## POST /sync/create Output
+### POST /Sync/create Output
 
 ```http
 HTTP 200 OK
@@ -140,7 +140,7 @@ Where:
 `}</HTMLBlock>
 
 
-## POST /sync/revoke Input
+### POST /Sync/revoke Input
 
 This endpoint is called every time credentials need to be revoked. This can happen either when the **TTL** defined for the custom dynamic secret expires, or if an administrator explicitly requests that particular credentials are revoked.
 
@@ -188,7 +188,7 @@ Where:
 `}</HTMLBlock>
 
 
-## POST /sync/revoke Output
+### POST /Sync/revoke Output
 
 ```http
 HTTP 200 OK
@@ -205,7 +205,7 @@ Where:
 | revoked | A list of revoked IDs.                                                                                                             | `["foo", "bar"]`                                |
 | message | An optional message in case any of the specified IDs were not properly revoked. This field should only be used for error handling. | `"id foo was not removed: user does not exist"` |
 
-## POST /sync/rotate Input
+### POST /Sync/rotate Input
 
 This endpoint is called to rotate the custom producer secret payload.
 
@@ -242,7 +242,7 @@ Where:
 `}</HTMLBlock>
 
 
-## POST /sync/rotate Output
+### POST /Sync/rotate Output
 
 ```curl
 HTTP 200 OK
@@ -280,7 +280,7 @@ Where:
 > 
 > Payload rotation is performed on a best-effort basis. The rotation process could fail, and even after a successful `/sync/rotate` request the dynamic secret could still use the old payload. For these cases, the custom dynamic secret implementation should support both the old payload and the new payload until there is at least one `/sync/create` or `/sync/revoke` request that uses the old payload.
 
-## Authentication
+### Authentication
 
 Custom dynamic secret implementations should only handle requests made by a known Akeyless Gateway instance. Every request made by Akeyless to a custom dynamic implementation includes an `AkeylessCreds` header with a temporary JWT token issued and signed by Akeyless.
 
@@ -303,7 +303,7 @@ Where:
 | expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`               |
 | expected_item_name | (Optional) The item name of the custom dynamic secret. This can be helpful if a single Akeyless Gateway runs multiple custom dynamic secrets, and the custom dynamic secret implementation should only respond to one of them. | `"/custom-producer-foo"` |
 
-## Dry-Run Mode
+### Dry-Run Mode
 
 When you define a custom dynamic secret in the Akeyless Gateway, the gateway makes several requests to the endpoints used in the configuration to ensure that the configuration is correct. These dry-run requests include the configured secret payload and empty user input, and all use the **p-custom** user access ID. Dry-run requests are authenticated using an Akeyless Gateway access ID.
 
@@ -311,7 +311,7 @@ Ensure that your custom dynamic secret implementation can handle these requests 
 
 This ID is sent to the `POST /sync/revoke` endpoint, which should also be configured to handle dry-run mode correctly.
 
-# Create a Custom Dynamic Secret from the CLI
+## Create a Custom Dynamic Secret from the CLI
 
 Once you have a custom dynamic implementation that follows these specifications, create a new custom dynamic secret from the Akeyless CLI. 
 
@@ -344,7 +344,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 > 
 > To start working with dynamic secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
-# Usage Examples
+## Usage Examples
 
 You can find examples of custom dynamic secret implementations in this <a href="https://github.com/akeylesslabs/custom-producer" target="_blank">GitHub Repository</a>. 
 

@@ -18,7 +18,7 @@ Using the **BitBucket** plugin enables you to work with [Static](https://docs.ak
 
 Each pipeline step runs in isolation, so secrets don’t carry over automatically. The Akeyless Bitbucket Pipe stores them in `bitbucket-pipes-exports.env`, declaring it as an artifact lets later steps access them without re-fetching.
 
-# Supported Authentication Methods
+## Supported Authentication Methods
 
 * [OAuth 2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt)
 * [API Key](https://docs.akeyless.io/docs/api-key)
@@ -31,11 +31,11 @@ Each pipeline step runs in isolation, so secrets don’t carry over automaticall
 
 In this guide, for simplicity, we will use an **API Key**.
 
-# Examples
+## Examples
 
 The section below will demonstrate how to work with items from your Akeyless account in your Bitbucket pipeline.
 
-## Working With Secrets
+### Working With Secrets
 
 In order to fetch a secret from your Akeyless account, set the following configuration:
 
@@ -118,7 +118,7 @@ pipelines:
 
 ```
 
-## Working With Certificates
+### Working With Certificates
 
 In order to fetch a certificate from your Akeyless account, set the following configuration:
 

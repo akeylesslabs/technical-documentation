@@ -46,7 +46,7 @@ And for Authorized domains:
 akeyless auth-method create oidc --name 'Google-OIDC' --issuer https://accounts.google.com --client-id {your-client-id}  --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username')}
 ```
 
-## Login with OIDC from the CLI
+## Login With OIDC from the CLI
 
 1. You should configure a new profile with your Access-ID from the previous step and OIDC type (if no profile name is provided the default will be configured):
 

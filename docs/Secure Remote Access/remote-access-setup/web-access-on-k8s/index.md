@@ -16,7 +16,7 @@ Working with isolated browsers provides a complete zero-knowledge where users do
 
 This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes cluster using the Helm package manager. 
 
-# Prerequisites
+## Prerequisites
 
 * Helm Installed
 
@@ -64,7 +64,7 @@ For it to work correctly, the Kubernetes metrics server must be installed in the
 >
 > To enable Secure Remote Access features you will have to get an access-key to Akeyless private repository. Please contact your Account Manager for more details.
 
-# Installing the Chart
+## Installing the Chart
 
 Add Akeyless helm charts repository to your Helm repository list:
 
@@ -83,7 +83,7 @@ Or run the following helm command to generate the values file locally:
 helm show values akeyless/akeyless-zero-trust-web-access > values.yaml
 ```
 
-# Configuration
+## Configuration
 
 To connect to Akeyless private repository, set the `dockerRepositoryCreds` field to access the Akeyless internal image and the relevant `apiGatewayURL` to point your Gateway REST API port `8080`
 
@@ -121,7 +121,7 @@ privilegedAccess:
   allowedAccessIDs: []
 ```
 
-## Authentication
+### Authentication
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported: 
 
@@ -131,7 +131,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
 
-## API Key Authentication
+### API Key Authentication
 
 To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `accessID` and the matching `accessKey`  with a list of `allowedAccessIDs` that will be authorized to request access:
 
@@ -143,11 +143,11 @@ privilegedAccess:
     - p-xxxxxxx
 ```
 
-## CSP IAM Authentication
+### CSP IAM Authentication
 
 While running your K8s cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
-## AWS IAM
+### AWS IAM
 
 AWS IAM can be used in the following approach: 
 
@@ -162,7 +162,7 @@ privilegedAccess:
     - p-xxxxxxx
 ```
 
-## Azure Active Directory
+### Azure Active Directory
 
 Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
@@ -175,7 +175,7 @@ privilegedAccess:
     - p-xxxxxxx
 ```
 
-# Install
+## Install
 
 ```shell
 helm install <RELEASE NAME> akeyless/akeyless-zero-trust-web-access -f values.yaml

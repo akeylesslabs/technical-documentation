@@ -12,15 +12,15 @@ next:
 ---
 The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to fetch [Secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview) into [CircleCI](https://circleci.com/docs/pipelines/) pipelines, either integrating the native CircleCI short-lived [OIDC](https://docs.akeyless.io/docs/openid) authentication tokens, or using any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with Akeyless native [RBAC](https://docs.akeyless.io/docs/rbac).
 
-# Prerequisites
+## Prerequisites
 
 * A GitHub, GitLab, or Bitbucket project set up in CircleCI
 
 * Permissions to create CircleCI [context](https://circleci.com/docs/contexts/?utm_source=google\&utm_medium=sem\&utm_campaign=sem) that will be used to secure and share environment variables across projects
 
-# Authentication
+## Authentication
 
-## OpenID Connect tokens
+### OpenID Connect Tokens
 
 In CircleCI jobs that use at least one context, the OpenID Connect ID token is available in the environment variable `$CIRCLE_OIDC_TOKEN`. The OpenID Provider is unique to your organization. The URL is `https://oidc.circleci.com/org/ORGANIZATION_ID`, where `ORGANIZATION_ID` is the organization ID (a universally unique identifier) representing your organization.
 
@@ -71,7 +71,7 @@ akeyless set-role-rule --role-name /Dev/CI/CircleCIRole \
 --capability read --capability list
 ```
 
-# CircleCI Global Configuration
+## CircleCI Global Configuration
 
 Instead of checking your Auth Method `access Id`, or your [Gateway](https://docs.akeyless.io/docs/api-gw) `URL` into version control, we can store them securely in CircleCI environment variables.
 
@@ -90,7 +90,7 @@ In jobs using a context, CircleCI provides OpenID Connect ID (OIDC) tokens in en
 Go to **Organization Settings** > **Contexts** > **Add a context**
 Name it  `akeyless`, we will later add this context to a job by adding the context key to the workflows section of your `circleci/config.yml` file.
 
-# Usage
+## Usage
 
 Open your CircleCI project and create/update your `.circleci/config.yml` file for CircleCI.
 
@@ -133,6 +133,6 @@ workflows:
 
 **Success!** - the secrets are accessible to use within the job logic (in this example, they are just being printed).
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Managing Secrets in CircleCI Pipelines](https://tutorials.akeyless.io/docs/managing-secrets-in-circleci-pipelines) .

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Overview
+## Overview
 
 Azure DevOps is a set of tools and services that help DevOps teams provision and manage the lifecycle of production environments.
 
@@ -18,7 +18,7 @@ With [this](https://github.com/LanceMcCarthy/akeyless-extension-azdo/) **communi
 
 This guide will demonstrate the use of an [ OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** to fetch both [Static ](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
-# Prerequisites
+## Prerequisites
 
 1. An Azure Service Connection (see [here](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/getting-started.md#azure-setup) for setup if you don't have)
 2. A [JWT Authentication Method](https://docs.akeyless.io/docs/oauth20jwt) that points to the Service Connection with `Read` access to secrets
@@ -30,11 +30,11 @@ This guide will demonstrate the use of an [ OAuth 2.0 / JWT](https://docs.akeyle
 >
 > If this is your first time using the extension, see the documentation here to make sure you have the required prerequisites prepared: [Setup Akeyless and Azure service principal](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/getting-started.md).
 
-# Authentication
+## Authentication
 
 The following Authentication Methods can be used for authentication:
 
-## OAuth 2.0 / JWT
+### OAuth 2.0 / JWT
 
 Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** using the CLI:
 
@@ -81,7 +81,7 @@ akeyless set-role-rule --role-name /Dev/AzureRole \
 --capability read
 ```
 
-# Usage
+## Usage
 
 The following examples will demonstrate how to fetch [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
@@ -89,7 +89,7 @@ The following examples will demonstrate how to fetch [Static](https://docs.akeyl
 >
 > If you are using classic pipelines, you will find the `Reference Name` under the `Output Variables` section. This will be the `name` of your task in the YAML file.
 
-## Fetching Static Secrets
+### Fetching Static Secrets
 
 For static secrets, you will get an individual secret output variable for each secret. For example:
 
@@ -121,7 +121,7 @@ steps:
 
 You will also have `$(MyAkeylessTask.first_secret)` and  `$(MyAkeylessTask.second_secret)` available in subsequent tasks of that job if needed.
 
-## Fetching Dynamic Secrets
+### Fetching Dynamic Secrets
 
 For dynamic secrets, the output variable that holds all of that dynamic secret's output. For example:
 
@@ -149,7 +149,7 @@ steps:
 
 You will also have `$(MyAkeylessTask.my_dynamic_secret)` available in subsequent tasks of that job if needed.
 
-### Using jq to Parse Credentials
+#### Using Jq to Parse Credentials
 
 Dynamic secrets are more complex objects and you will likely need to further process the temporary credentials to get each value individually.
 

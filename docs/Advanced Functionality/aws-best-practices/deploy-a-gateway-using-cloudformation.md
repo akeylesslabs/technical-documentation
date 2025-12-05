@@ -12,17 +12,17 @@ next:
 ---
 This guide explains how to automate the integration with Akeyless using a [CloudFormation](https://aws.amazon.com/cloudformation/) script. The script provisions an EC2 instance with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw), creates an IAM Role with permissions to manage IAM users and secrets, and can generate both an [AWS Target](https://docs.akeyless.io/docs/aws-targets) and a [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) in Akeyless. The entire setup—from infrastructure deployment to integration configuration—is handled end to end.
 
-# General Configuration
+## General Configuration
 
 The following steps will be used to set up the environment and prepare it for integration with AWS.
 
-## Create an Akeyless Account
+### Create an Akeyless Account
 
 1. Go to the Akeyless [Registration Page](https://console.akeyless.io/registration).
 
 2. Sign up and log in to the Akeyless Console using your Email.
 
-## Create an Authentication Methods
+### Create an Authentication Methods
 
 In this case, for simplicity, we used [API Key](https://docs.akeyless.io/docs/api-key) and [AWS IAM](https://docs.akeyless.io/docs/aws-iam)Authentication Method.
 
@@ -41,7 +41,7 @@ In addition, to create an authentication methods that support user login, for si
 >
 > Save the **Access ID** and **Access Key** shown. You’ll need them later.
 
-## Create an Access Role
+### Create an Access Role
 
 1. Navigate to [Access Roles](https://docs.akeyless.io/docs/rbac), click **New**.
 
@@ -57,11 +57,11 @@ In addition, to create an authentication methods that support user login, for si
 
    * **Permissions**: All except Deny
 
-# Gateway Configuration
+## Gateway Configuration
 
 The following steps will be used to set up the Gateway and create the required **IAM Role** in **AWS**.
 
-## Deploy the Gateway Using AWS CloudFormation
+### Deploy the Gateway Using AWS CloudFormation
 
 To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html):
 
@@ -564,7 +564,7 @@ This stack will:
 
 * Create an IAM Role with scoped permissions for managing secrets and IAM users through AWS.
 
-## Log In to the Gateway
+### Log In to the Gateway
 
 First, login to `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console` , and enter the **Access ID** and **Access Key**, this will automatically update the **Gateway URL**, once done, proceed with the following steps:
 
@@ -577,17 +577,17 @@ First, login to `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console` , and enter the 
 2. Select **Access Key** login.
 3. Enter the **Access ID** and **Access Key**.
 
-# Create the Resources in Akeyless
+## Create the Resources in Akeyless
 
 The following steps will create the required resources in Akeyless to generate a temporary **AWS user**, rotate its **Access Key**, and sync the **Access ID** and **Access Key** with **AWS Secrets Manager**.
 
-## Get a temporary user credentials
+### Get a Temporary User Credentials
 
 1. Navigate to **Items**, search for the [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) named `AWS-Dynamic-Secret` (created by the script), and click **Get Dynamic Secret**.
 
 2. This will generate temporary AWS credentials for a user, which will later be used by the [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 
-## Create a Rotated Secret
+### Create a Rotated Secret
 
 1. Go to **Items** > **New** > **Rotated Secret**, then select **AWS**.
 
@@ -605,7 +605,7 @@ The following steps will create the required resources in Akeyless to generate a
 
 Click the **eye** icon to view the current credentials, or select **Rotate Secret** to generate a new set of credentials.
 
-## Create a Universal Secret Connector (USC)
+### Create a Universal Secret Connector (USC)
 
 1. Go to **Items** > **New** > **Universal Secret Connector**, and choose **AWS**.
 
@@ -625,7 +625,7 @@ You can use the USC to:
 
 * Rotate AWS credentials directly from Akeyless
 
-## Sync the Rotated Secret with your AWS Account
+### Sync the Rotated Secret With Your AWS Account
 
 To sync the **Rotated Secret** that was just created with the **AWS Secret Manager**:
 
