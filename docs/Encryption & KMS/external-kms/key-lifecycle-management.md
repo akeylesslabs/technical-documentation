@@ -50,7 +50,7 @@ akeyless set-item-state --name <Key Name> --desired-state <Disabled/Enabled>
 
 To [delete the managed key from the Cloud KMS](https://docs.akeyless.io/docs/delete-the-association-between-a-classic-key-and-a-target), you need to remove its association with targets. When association with targets is removed, the key will be deleted from Cloud KMS Providers defined in those targets (but will be preserved in the Akeyless KMS).
 
-To delete the association between the key and the target, use the following [command](https://docs.akeyless.io/docs/cli-reference-akeyless-targets#p-stylecolorbluedelete-assoc-target-itemp):
+To delete the association between the key and the target, use the following [command](https://docs.akeyless.io/docs/cli-ref-targets#/delete-assoc-target-item):
 
 ```shell
 akeyless delete-assoc-target-item -n <Key Name>
@@ -58,7 +58,7 @@ akeyless delete-assoc-target-item -n <Key Name>
 
 As a result, all associations of the specified key will be deleted. If you use a `target-name` parameter, only the association with a certain target will be deleted.
 
-To delete a classic key from the Akeyless KMS you can use the `delete-item` [command](https://docs.akeyless.io/docs/cli-reference#p-stylecolorbluedelete-itemp). When you delete the key that is associated with a Cloud KMS target, the key is deleted from both the Akeyless KMS and the Cloud KMS.
+To delete a classic key from the Akeyless KMS you can use the `delete-item` [command](https://docs.akeyless.io/docs/cli-reference#/delete-item). When you delete the key that is associated with a Cloud KMS target, the key is deleted from both the Akeyless KMS and the Cloud KMS.
 
 > 👍 Note
 >

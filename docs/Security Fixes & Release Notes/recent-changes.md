@@ -150,7 +150,7 @@ You can now set a list of characters that are not allowed to be used when naming
 
 ### GlobalSign Atlas Target
 
-A new [GlobalSign Atlas Target](https://docs.akeyless.io/docs/cli-reference-akeyless-targets#p-stylecolorblue-create-globalsign-atlas-targetp) is now available for users of the certificate automation service.
+A new [GlobalSign Atlas Target](https://docs.akeyless.io/docs/cli-ref-targets#/globalsign) is now available for users of the certificate automation service.
 
 ### Certificate Caching
 
