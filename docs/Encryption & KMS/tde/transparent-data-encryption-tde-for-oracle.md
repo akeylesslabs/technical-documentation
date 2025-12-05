@@ -39,7 +39,7 @@ Explanation: Correct permissions are essential to avoid runtime errors and ensur
 
 ### Install and Configure Akeyless HSM Library
 
-##### Commands
+#### Commands
 
 ```shell
 curl -o libakeyless.so https://akeylessservices.s3.us-east-2.amazonaws.com/services/pkcs11/release/linux/amd64/latest/libakeyless.so
@@ -51,7 +51,7 @@ This command downloads the HSM library, which is necessary for Oracle to interfa
 
 ### Create Required Directories and Install the Library
 
-##### Commands
+#### Commands
 
 ```shell
 mkdir -p /opt/oracle/extapi/64/hsm/akeyless/0.0.1/
@@ -74,7 +74,7 @@ Copy the library into the proper location and ensure that the directories are ow
 
 ### Configure the HSM Settings
 
-##### Steps
+#### Steps
 
 Create the pkcs11 configuration file:
 
@@ -116,7 +116,7 @@ chown -R oracle:dba /var/akeyless/conf/pkcs11.conf
 
 #### Database Wallet and TDE Configuration
 
-###### Prepare the Database Directory
+##### Prepare the Database Directory
 
 ##### Commands
 
@@ -134,7 +134,7 @@ mkdir -p ./hsm_wallet/tde
 
 ### Connect to the Database and Set Initial Parameters
 
-##### Commands
+#### Commands
 
 ```shell
 sqlplus / as sysdba
@@ -155,7 +155,7 @@ SHUTDOWN IMMEDIATE;
 STARTUP;
 ```
 
-##### Explanation
+#### Explanation
 
 A restart is necessary for the new parameter values (like WALLET_ROOT) to take effect.
 
@@ -165,14 +165,14 @@ A restart is necessary for the new parameter values (like WALLET_ROOT) to take e
 ALTER SYSTEM SET TDE_CONFIGURATION='KEYSTORE_CONFIGURATION=HSM' SCOPE=BOTH;
 ```
 
-##### Explanation
+#### Explanation
 
 * TDE_CONFIGURATION Parameter:
   * This command instructs Oracle TDE to use a keystore that is configured with HSM. The SCOPE=BOTH option applies the parameter change to both the in-memory environment and the spfile.
 
 ### Create and Open the HSM Wallet
 
-##### Commands
+#### Commands
 
 ```shell
 ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
@@ -194,7 +194,7 @@ After the initial HSM configuration, the next steps transition the wallet to a s
 
 ### Transition from HSM to File-Based Wallet for Auto Login
 
-##### Commands
+#### Commands
 
 ```shell
 ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
@@ -210,7 +210,7 @@ ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=FILE";
 
 ### Create a File-Based Keystore and Enable Auto Login
 
-##### Commands
+#### Commands
 
 ##### Create the Keystore
 
@@ -232,13 +232,13 @@ ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "AKEYLESS" CONTAINER=A
 
 Opens the newly created keystore so that further modifications can be made.
 
-### Add the HSM Password as a Secret
+### Add the HSM Password As a Secret
 
 ```shell
 ADMINISTER KEY MANAGEMENT ADD SECRET 'AKEYLESS' FOR CLIENT 'HSM_PASSWORD' IDENTIFIED BY "AKEYLESS" WITH BACKUP;
 ```
 
-##### Explanation
+#### Explanation
 
 This step adds the HSM’s password to the file-based keystore as a secret. The secret is necessary for operations that require HSM credentials without manual input.
 
@@ -248,7 +248,7 @@ This step adds the HSM’s password to the file-based keystore as a secret. The 
 ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 ```
 
-##### Explanation
+#### Explanation
 
 The keystore is closed to finalize the changes after the secret has been added.
 
@@ -258,7 +258,7 @@ The keystore is closed to finalize the changes after the secret has been added.
 ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/opt/oracle/admin/your_db_name/hsm_wallet/tde' IDENTIFIED BY "AKEYLESS";
 ```
 
-##### Explanation
+#### Explanation
 
 This command generates an auto-login version of the file-based wallet. The auto-login keystore allows Oracle to open the wallet automatically at startup, eliminating the need for manual intervention.
 
@@ -272,7 +272,7 @@ This command generates an auto-login version of the file-based wallet. The auto-
 ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "AKEYLESS" REVERSE MIGRATE USING "AKEYLESS" WITH BACKUP;
 ```
 
-##### Explanation:
+#### Explanation:
 
 Reverse migration applies the encryption key from the HSM-based configuration to the new file-based wallet, ensuring that the master encryption key remains consistent between configurations.
 
@@ -290,13 +290,13 @@ ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE";
 >
 > When using Oracle RAC, perform all the above steps only on one target instance and have all the other RAC instance(s) shutdown. After following the above steps copy the `cwallet.sso` and `ewallet.p12` file from the configured node to all the other node(s) at the same `<software_wallet_location>` location. After copying `cwallet.sso` and `ewallet.p12` on the other node(s), restart all the other RAC instance(s).
 
-##### Explanation
+#### Explanation
 
 This update configures Oracle to recognize both the HSM and file-based keystore settings, providing a fallback mechanism and facilitating a smoother transition.
 
 ### Post-Restart Verification
 
-##### Commands
+#### Commands
 
 ```shell
 SHUTDOWN IMMEDIATE;
@@ -365,7 +365,7 @@ Reference:
 
 ### Explanation of ENCRYPTION_WALLET Status
 
-##### Explanation
+#### Explanation
 
 * If you see OPEN_NO_MASTER_KEY in the output of V$ENCRYPTION_WALLET, it means that while the keystore is open, the master encryption key has not been created yet. This can also occur if the wallet location is configured for an SSL wallet (created with orapki) rather than a TDE wallet.
 * Reference:  

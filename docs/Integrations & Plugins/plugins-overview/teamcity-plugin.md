@@ -16,7 +16,7 @@ When performing integration tests and deployments, build scripts need credential
 >
 > Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
-# Prerequisites
+## Prerequisites
 
 1. A TeamCity server with an authorized BuildAgent. 
 
@@ -32,7 +32,7 @@ When performing integration tests and deployments, build scripts need credential
 >
 > Ensure that your [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is associated with an [access role](https://docs.akeyless.io/docs/rbac) that has sufficient permissions to access the required secrets.
 
-# Configure The TeamCity Plugin
+## Configure The TeamCity Plugin
 
 1. Log in to TeamCity and go to **Administration > Plugins**.
 
@@ -76,7 +76,7 @@ For example, to use [API Key](https://docs.akeyless.io/docs/api-key) set the fol
 
 * **AppRole Secret ID**: `Access Key` of the provided `Access ID`.
 
-# Static Secrets
+## Static Secrets
 
 Let's create a static secret first. For that, run the following command:
 
@@ -116,7 +116,7 @@ In the Audit Logs screen, you'll see that the script requested and successfully 
 
 <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/eb25fc4-TC-Results.png" />
 
-# Dynamic Secrets
+## Dynamic Secrets
 
 1. Go to the Parameters section to declare new build parameters for username and password which will refer to the corresponding dynamic secret values.
 

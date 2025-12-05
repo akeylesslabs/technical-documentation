@@ -18,7 +18,7 @@ However, in cases where you need to use a **custom**  or **predefined** username
 >
 > This feature is available only from GW version `4.34.0` and higher. Ensure you have enough randomness in your template to support the uniqueness of multiple usernames in parllel when using custom templates
 
-# Supported Functions
+## Supported Functions
 
 You can use the following built-in functions to construct custom usernames dynamically:
 
@@ -52,7 +52,7 @@ You can use the following built-in functions to construct custom usernames dynam
 
 * `sha256` – Computes a SHA‑256 hash of the input.
 
-# Available Fields
+## Available Fields
 
 By default, the following field values are available in your template using the `{{.field}}` syntax:
 
@@ -62,7 +62,7 @@ By default, the following field values are available in your template using the 
 
 If the field is not recognized, the system will attempt to retrieve it from [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) and fail if not found. You can use any other available sub-claims in your template
 
-# Examples
+## Examples
 
 1. **Unique Identifier**  with random suffix:
 

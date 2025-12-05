@@ -12,7 +12,7 @@ next:
 ---
 You can define an LDAP target to be used with [LDAP dynamic secrets](https://docs.akeyless.io/docs/ldap-dynamic-secret) or [LDAP rotated secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret).
 
-# Create an LDAP Target in the CLI
+## Create an LDAP Target in the CLI
 
 To create an LDAP target from the CLI, run the following command:
 
@@ -36,7 +36,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueldapp) section.
 
-# Create an LDAP Target in the Console
+## Create an LDAP Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Infra (LDAP)**.
 

@@ -14,7 +14,7 @@ next:
       slug: implement-zero-knowledge
       title: Implementing Zero Knowledge
 ---
-# Cluster Name & URL
+## Cluster Name & URL
 
 ```yaml values.yaml
 env:
@@ -37,7 +37,7 @@ In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL
 
 You can also provide a custom display name for the Gateway Instance using the `initialClusterDisplayName` variable, which is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
 
-# Encryption Key
+## Encryption Key
 
 To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to encrypt your Gateway configuration, you can provide the full path to your key using the following setting `configProtectionKeyName`.
 
@@ -47,7 +47,7 @@ By default, the Gateway configuration is encrypted with your account's default e
 >
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
-## Customer fragment
+### Customer Fragment
 
 If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), provide a JSON containing your Customer Fragment:
 
@@ -65,7 +65,7 @@ customerFragments: |
   }
 ```
 
-# TLS Configuration
+## TLS Configuration
 
 You can also [configure TLS settings using the Web interface](https://docs.akeyless.io/docs/tls-certificate) of the Gateway Configuration Manager.
 
@@ -91,7 +91,7 @@ TLSConf:
    -----END RSA PRIVATE KEY-----
 ```
 
-# Defaults Gateway Settings
+## Defaults Gateway Settings
 
 You can also configure the default settings using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) UI.
 
@@ -134,7 +134,7 @@ defaultsConf:
   defaultCertificateAccessId: "<Access ID>"
 ```
 
-# Cache Configuration
+## Cache Configuration
 
 You can enable caching of secrets and periodic backup of cached secrets, set the `cachingConf` setting and set the `cacheTTL` value in minutes to configure the  TTL for a secret that should be kept in the cache. 
 
@@ -166,7 +166,7 @@ cachingConf:
     dumpInterval: 60
 ```
 
-# Working With K8s Secrets
+## Working With K8s Secrets
 
 To provide the settings of your Gateway deployment directly from your local k8s secrets store, you can set the following settings with the corresponding `K8s Secrets names`:
 
@@ -199,7 +199,7 @@ To provide the settings of your Gateway deployment directly from your local k8s 
   # - akeyless-api-cert.key (base64)
 ```
 
-# Restrict Gateway Access
+## Restrict Gateway Access
 
 To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the <code>restrictServiceToAccessIds</code> setting with a comma-separated list of `AccessIDs`
 
@@ -214,7 +214,7 @@ akeylessUserAuth:
 
 In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway.  Alternatively, to block specific `AccessIDs` you can use the `blockedAccessIds` variable instead.
 
-# Fixed Artifact Repository
+## Fixed Artifact Repository
 
 In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, uncomment the `fixedArtifactRepository: "artifacts.site2.akeyless.io"` setting in your chart:
 
@@ -226,7 +226,7 @@ image:
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
-# Rate Limit
+## Rate Limit
 
 To set a local rate limit on your Gateway instance you can add the `GW_RATE_LIMIT`  environment variable where the value will set the maximum calls per minute. When a client reaches that threshold, this will be logged and any additional requests during that minute will be discarded on the Gateway:
 
@@ -236,7 +236,7 @@ env:
     value: 4000
 ```
 
-# gRPC
+## gRPC
 
 To enable **gRPC** on your Gateway set the following, the service will be exposed on port `8085`:
 

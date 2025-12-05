@@ -46,7 +46,7 @@ Confirm Installation: iOS may prompt you to confirm the installation. This might
 
 In the context of modern enterprise environments, where security is a top priority, the Akeyless Platform offers a highly secure login flow. This involves using a code ID provided by an IT admin combined with multi-factor authentication (MFA). This method is more secure than traditional master passwords or biometrics, as it introduces multiple verification layers and eliminates potential single points of failure.
 
-### Please Note: Users will need to have a VPN on their phone installed in order to use zero-knowledge keyless functionality:
+### Please Note: Users Will Need to Have a VPN on Their Phone Installed in Order to Use Zero-knowledge Keyless Functionality:
 
 Zero-knowledge keyless functionality is a security feature that allows users to access and manage their passwords or other sensitive information without revealing their credentials to the service provider. This is achieved through cryptographic techniques that ensure that only the user has knowledge of their credentials, while the service provider can only verify their identity without ever storing or seeing their passwords.
 

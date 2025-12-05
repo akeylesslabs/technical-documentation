@@ -20,7 +20,7 @@ You can define a list of allowed email domains in the **Global Settings**. Secre
 >
 > You can define a list of allowed email domains in the Global Settings. Secrets can only be shared with users whose email addresses belong to these domains. For security purposes, when working with email-based sharing, only users whose email addresses you’ve specified will be able to access the item using the shared link. By default, sharing is allowed with all domains.
 
-# Sharing Secrets from the Akeyless Console
+## Sharing Secrets from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items > Choose the relevant Secret**.
 
@@ -36,7 +36,7 @@ To view an email-based shared item, click or tap the link you were sent to open 
 
 To view the secret that was wrapped by the temporary token, you can run the `unwrap-token` API call.
 
-# Sharing Secrets from the Akeyless CLI
+## Sharing Secrets from the Akeyless CLI
 
 To share an item via **Email**, use the following command:
 
@@ -66,7 +66,7 @@ Where:
 
 You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorblueshare-itemp)
 
-# Access Shared Secret
+## Access Shared Secret
 
 Secrets that were shared via **Email** can be accessed directly from any browser, when working with **Token** flow, the recipient can use the CLI or using `curl` to unwrap the wrapping token for example using the CLI:
 
@@ -76,7 +76,7 @@ akeyless unwrap-token --shared-token <shared token>
 
 You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorblueunwrap-tokenp)
 
-# Managing Shared Items
+## Managing Shared Items
 
 Once an item has been shared, a full auditing activity is logged into Akeyless audit logs, to remove a user from an item, **Admins** or the item owners can remove those users from the sharing list.
 
@@ -84,7 +84,7 @@ Navigate to the shared item, and remove the relevant email address from the **Re
 
 **Admins** can easily find new temporary **Access Roles** for those users who received temporary access. Simply delete those temporary **Access Roles** to revoke the share.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Sharing a Secret](https://tutorials.akeyless.io/docs/sharing-a-static-secret) .
 

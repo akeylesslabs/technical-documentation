@@ -12,16 +12,16 @@ next:
 ---
 This page discusses the creation of Azure [Universal Secrets Connectors](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, which has varying parameters.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)  with **Read** permission on the target associated with the **USC**.
 * Azure [Registered Application](https://learn.microsoft.com/en-us/security/zero-trust/develop/app-registration) with the [Key Vault Secrets Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role assigned. If you wish to work with Certificates, assign the [Certificate Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role.
 
-# Working With Universal Secrets Connector from the Console
+## Working With Universal Secrets Connector from the Console
 
 This section will discuss the different commands necessary to handle USCs. While the initial creation command is a regular Akeyless command, management of USCs is done through a set of sub-commands, which all have the prefix `usc` added to them, as will be shown later in this section. If the prefix is not added to these sub-commands, they will not work.
 
-## Creating a USC
+### Creating a USC
 
 To create a USC, use the following command:
 
@@ -39,7 +39,7 @@ The main parameters are:
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Listing USC Objects
+### Listing USC Objects
 
 To list the secrets from your USC, use the following command:
 
@@ -69,7 +69,7 @@ To list the certificates from your USC, use the following command:
 akeyless usc list --usc-name <usc name> --object-type certificate
 ```
 
-## Fetching a Secret from the USC
+### Fetching a Secret from the USC
 
 To view a secret from your USC, use the following command:
 
@@ -99,7 +99,7 @@ The output should look as follows:
 }
 ```
 
-## Adding a New Secret to a USC
+### Adding a New Secret to a USC
 
 To create a new secret in your USC, use the following command:
 
@@ -119,7 +119,7 @@ The main parameters are:
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Updating an Existing USC secret
+### Updating an Existing USC Secret
 
 To update an existing secret in your USC, use the following command:
 
@@ -129,7 +129,7 @@ akelyess usc update --usc-name <usc name> --secret-name <new secret name> --valu
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Deleting an Existing USC secret
+### Deleting an Existing USC Secret
 
 To delete an existing secret in your USC, use the following command:
 
@@ -139,7 +139,7 @@ akelyess usc delete --usc-name <usc name> --secret-name < secret name>
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-# Creating a Universal Secrets Connector from the Console
+## Creating a Universal Secrets Connector from the Console
 
 1. Log in to the Akeyless Console, and go to **Items > New > Universal Secrets Connector**.
 
@@ -163,7 +163,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 5. Click **Finish**.
 
-# Azure Universal Secrets Details
+## Azure Universal Secrets Details
 
 Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 
@@ -177,7 +177,7 @@ Once connected to a Target, you will be able to access the Universal Secrets Con
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
 
-# Azure Universal Certificates Details
+## Azure Universal Certificates Details
 
 Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Certificates, as well as display the following information about the Certificates:
 

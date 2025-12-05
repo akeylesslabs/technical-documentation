@@ -18,11 +18,11 @@ This section outlines the CLI commands relevant to Universal Secrets Connector.
 
 <CLIGeneralFlags />
 
-### `create-usc`
+### `Create-usc`
 
 Creates a new Universal Secrets Connector
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless create-usc \
@@ -70,15 +70,15 @@ akeyless create-usc \
 
 After creating a USC, you will need to use these sub-commands, prefixed with `usc`, to further interact with it.
 
-### `usc`
+### `Usc`
 
 This command only has one parameter, `-h`, and it will display a list of the other `usc` commands.
 
-### `create`
+### `Create`
 
 Create a new secret in an existing USC
 
-##### Usage
+#### Usage
 
 ```shell
 usc create \
@@ -109,11 +109,11 @@ usc create \
 
 `--tags`:Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
 
-### `delete`
+### `Delete`
 
 Delete a secret from an Universal Secrets Connector
 
-##### Usage
+#### Usage
 
 ```shell
 usc delete \
@@ -131,11 +131,11 @@ usc delete \
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
-### `get`
+### `Get`
 
 Gets the value and internal details of a secret from an Universal Secrets Connector
 
-##### Usage
+#### Usage
 
 ```shell
 usc get \
@@ -165,11 +165,11 @@ usc get \
 
 `--no-creds-cleanup[=false]`:Do not clean local temporary expired creds
 
-### `list`
+### `List`
 
 Lists the secrets within the Universal Secrets Connector
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless usc list --usc-name <USC name>
@@ -195,11 +195,11 @@ akeyless usc list --usc-name <USC name>
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### `update`
+### `Update`
 
 Update an existing secret within the Universal Secrets Connector
 
-##### Usage
+#### Usage
 
 ```shell
 usc update \

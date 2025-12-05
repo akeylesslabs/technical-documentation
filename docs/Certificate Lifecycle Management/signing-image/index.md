@@ -24,7 +24,7 @@ The following registries are compatible with the Notary Project OCI signature sp
 
 Akeyless can be used to store certificates with signing keys that can be used by Notation with the Akeyless plugin for Notation, to sign and verify container images and other artifacts for the [supported](https://notaryproject.dev/docs/faq/) container registries.
 
-# Install the Notation CLI
+## Install the Notation CLI
 
 To install the Notation CLI, follow the relevant doc according to your environment OS as described in the Notation [official](https://notaryproject.dev/docs/user-guides/installation/) docs. In the following example for simplicity, we will use [Homebrew](https://brew.sh/) package manager.
 
@@ -32,7 +32,7 @@ To install the Notation CLI, follow the relevant doc according to your environme
 brew install notation
 ```
 
-# Akeyless Plugin Installation
+## Akeyless Plugin Installation
 
 The plugin directory varies depending on the operating system being used. The directory path in our example assumes Ubuntu. Please read the Notation [directory structure](https://notaryproject.dev/docs/user-guides/how-to/directory-structure/) for system configuration for more information.
 
@@ -75,7 +75,7 @@ List the Notation Plugins list to verify that Akeyless is listed.
 notation plugin ls
 ```
 
-## Configuration
+### Configuration
 
 Notation Plugins configuration supports the use of environment variables or static config file, our example will use a config file.  
 
@@ -112,7 +112,7 @@ Where:
 
 * `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth method. 
 
-## Create a Self-Signed Certificate
+### Create a Self-Signed Certificate
 
 The Notary project specified the [requirements](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements) for different types of certificates, the following examples will use a **Self Signed CA** certificate. 
 
@@ -145,7 +145,7 @@ Create a key with a self-signed certificate:
 akeyless create-dfc-key -n CodeSign -a RSA2048 --generate-self-signed-certificate true --certificate-format pem --conf-file-path csr.conf --certificate-ttl 30
 ```
 
-## Set Notation Default Key
+### Set Notation Default Key
 
 ```shell
 notation key add  --plugin akeyless  --id /CodeSign --default Akeyless
@@ -163,7 +163,7 @@ Verify that the key is added to the Notation keys:
 notation key ls
 ```
 
-# Sign Image
+## Sign Image
 
 For the simplicity of this example, the following steps will demonstrate the simple creation of a trust policy to sign docker artifacts.
 
@@ -191,7 +191,7 @@ Confirm there are no signatures listed. And use `notation sign` command to sign 
 notation sign $IMAGE
 ```
 
-# Verify Image Signatures
+## Verify Image Signatures
 
 To verify the container image, add the root certificate that signs the leaf certificate to the trust store and create trust policies for verification. For the self-signed certificate used in this tutorial, the root certificate is the self-signed certificate itself.
 

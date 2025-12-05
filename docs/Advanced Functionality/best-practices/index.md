@@ -22,7 +22,7 @@ next:
 ---
 In this article, we are going to map some of Akeyless's best practices related to both performance and security.
 
-# Glossary
+## Glossary
 
 **Superuser** - The user who signed up for Akeyless and owns the account. 
 
@@ -34,7 +34,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 **SRA Bastion** - Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
-# Akeyless Platform
+## Akeyless Platform
 
 * **Do not run as a superuser** for general purposes. An Akeyless superuser should ideally sign up using an email distribution list for the Administrators team, create a strong password, and then enable Email MFA for it in the Account Settings. The superuser should be used to set up the system initially, particularly for setting up the selected admin users who will be part of your admin role. Those admin users will create the authentication methods so regular users will be able to authenticate. 
 
@@ -46,7 +46,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * **Audit & Analytics** - On access roles, it's recommended to let your users view their analytics and logs rather than providing them broader permissions to view your account's entire audit logs and analytics. 
 
-# Items
+## Items
 
 * **Storing item** - Items location inside Akeyless should not be saved on the default root path, i.e., `/`. The recommended mode is to create those items under the relevant tree folders that describe the exact unit in your organization. This will enable easier and clearer tenant management.
 
@@ -64,7 +64,7 @@ CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}
 * [Targets](https://docs.akeyless.io/docs/targets) - To save time during Dynamic and Rotated secrets creation and avoid using your privileged user credentials often, you can create Targets.\
   Those items should not be shared with regular users, while those who need to use the Targets items can only have 'list' permissions.
 
-# System Prerequisites
+## System Prerequisites
 
 **Kubernetes Version**
 

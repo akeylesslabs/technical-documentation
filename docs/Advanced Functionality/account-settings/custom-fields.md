@@ -23,9 +23,9 @@ Administrators can define which fields are available for each object type in Ake
   **Note:** Currently Custom Fields supports only **Items**.
 </Callout>
 
-# Manage Custom Field
+## Manage Custom Field
 
-## Create a custom field
+### Create a Custom Field
 
 Run the following CLI command to create a new custom field in the account:
 
@@ -46,7 +46,7 @@ Where:
 
 Once a custom field is created, it applies to all new objects of the selected type. If an existing object is updated, the defined custom field rules will also apply.
 
-## Delete a custom field
+### Delete a Custom Field
 
 Delete a custom field from the account:
 
@@ -54,7 +54,7 @@ Delete a custom field from the account:
 akeyless account-custom-field delete --id <custom field ID>
 ```
 
-## Update a custom field
+### Update a Custom Field
 
 Updates an existing custom field in the account:
 
@@ -65,7 +65,7 @@ akeyless account-custom-field update \
 --required=`[false]`
 ```
 
-## Fetch a custom field
+### Fetch a Custom Field
 
 Retrieves a custom field:
 
@@ -79,7 +79,7 @@ Retrieves a list of all custom fields in the account:
 akeyless account-custom-field list --object item --object-type static-secret
 ```
 
-# Manage Custom Field from Console
+## Manage Custom Field from Console
 
 To manage custom fields in the account, navigate to your **Account Settings -> Custom Fields**, click **Add**
 

@@ -12,11 +12,11 @@ next:
 ---
 The akeyless mcp command starts an MCP server that enables AI assistants such as Cursor and GitHub Copilot to securely interact with Akeyless services through a standardized interface.
 
-### What is MCP?
+### What Is MCP?
 
 Model Context Protocol (MCP) is an open standard that allows AI assistants to securely access external data sources and tools.
 
-### With MCP, you can:
+### With MCP, You Can:
 
 * Safely authenticate AI assistants with Akeyless
 * Interact with Akeyless secrets, targets, and other resources
@@ -67,7 +67,7 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 
 \--profile: Use an existing CLI profile
 
-### Setting up MCP with Cursor
+### Setting Up MCP With Cursor
 
 1. Install Akeyless CLI\
    Ensure the Akeyless CLI is installed and configured.
@@ -104,7 +104,7 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 * “Create a new secret called api-key”
 * “List all my targets”
 
-### Setting up MCP with GitHub Copilot
+### Setting Up MCP With GitHub Copilot
 
 1. Install Copilot CLI
 

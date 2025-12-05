@@ -12,7 +12,7 @@ next:
 ---
 You can define a GitHub Dynamic Secret to generate just-in-time installation access tokens for your GitHub repository. Tokens are generated based on the GitHub App information.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
@@ -20,7 +20,7 @@ You can define a GitHub Dynamic Secret to generate just-in-time installation acc
 
 For more information on how to use installation access tokens in GitHub, see the [GitHub documentation](https://docs.github.com/en/developers/apps/building-github-apps/creating-a-github-app).
 
-# Create a Dynamic GitHub Secret from the CLI
+## Create a Dynamic GitHub Secret from the CLI
 
 > 👍 Note
 >
@@ -62,7 +62,7 @@ Where:
 
 * `installation-repository`: Optional, mutually exclusive with installation ID, GitHub repository `<owner>/<repo-name>`
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have [GitHub Target](https://docs.akeyless.io/docs/github-target) yet, you can use the command with your GitHub connection string:
 
@@ -74,7 +74,7 @@ If you don't have [GitHub Target](https://docs.akeyless.io/docs/github-target) y
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegithubp) section.
 
-# Fetch a Dynamic GitHub Secret value from the CLI
+## Fetch a Dynamic GitHub Secret Value from the CLI
 
 To fetch a dynamic GitHub secret value from the CLI, run the following command:
 
@@ -82,7 +82,7 @@ To fetch a dynamic GitHub secret value from the CLI, run the following command:
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Secret for GitHub in the Akeyless Console
+## Create a Dynamic Secret for GitHub in the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
@@ -118,7 +118,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic GitHub Secret value from the Akeyless Console
+## Fetch a Dynamic GitHub Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

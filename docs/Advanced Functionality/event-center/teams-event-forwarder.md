@@ -7,7 +7,7 @@ metadata:
 ---
 **Teams Event Forwarder** enables you to forward event notifications to **Teams URLs** based on your configuration. These include notifications about Items, Auth Methods, Targets, and Gateways, which can be configured to be sent immediately or every 1 to 24 hours.
 
-# Create a Teams Event Forwarder using the CLI
+## Create a Teams Event Forwarder Using the CLI
 
 To set up a **Teams** Event Forwarder, use the following command:
 
@@ -47,7 +47,7 @@ The main parameters for the command are as follows:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Teams Event Forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-slackp)
 
-# Create a Teams Event Forwarder using the Console
+## Create a Teams Event Forwarder Using the Console
 
 1. Log in to the Akeyless Console and open the [Event Center](https://docs.akeyless.io/docs/event-center), select **Manage Forwarders**. If this is your first Forwarder, it appears as Add Forwarder, click it and choose: **Teams**
 

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-# Introduction
+## Introduction
 
 The Akeyless Platform combines the capabilities of an HSM and a KMS to provide enhanced key-life cycle management, including cryptographic key generation, protection, versioning/rotation (more on this subject on the key rotation guide [Key Rotation](https://docs.akeyless.io/docs/key-rotation)), and using keys with Encryption-as-a-Service and Digital Signing functions.
 
-## Key Types
+### Key Types
 
 Akeyless supports a wide range of encryption keys, including:
 
@@ -33,14 +33,14 @@ Akeyless supports a wide range of encryption keys, including:
 >
 > CBC type algorithms are easy to misuse, require additional data to be supplied when used, and are not authenticated. We recommend using a different type of algorithm unless there is a clear use case for it.
 
-## Key States
+### Key States
 
 A key can be in one of three states, **Enabled**, **Disabled**, or **Pending Deletion**. The default state of a key is enabled unless stated otherwise, and can be transferred between states by any user with the appropriate permissions.\
 Any keys that are not in an **Enabled** state cannot be used for any cryptographic operations (**Encrypt** or **Decrypt**). Attempting to set a key that is protecting a different item in the system into a **Disabled** or **Pending Deletion** state will fail.
 
-# Key Use in CLI
+## Key Use in CLI
 
-## Creating an Encryption Key
+### Creating an Encryption Key
 
 To create an encryption key, use these commands with the following parameters:
 
@@ -73,7 +73,7 @@ akeyless create-dfc-key -n MyCBC -a AES256CBC
 >
 > To list all available options for key creation run this command: `akeyless create-dfc-key -h`
 
-## Managing an Encryption Key
+### Managing an Encryption Key
 
 * Delete an Encryption Key: Delete an obsolete Encryption Key or an obsolete version of an Encryption Key.\
   You may schedule a later deletion date by adding a `delete-in-days` parameter.
@@ -104,7 +104,7 @@ akeyless set-item-state -n MyAES256GCMKey -s disabled
 akeyless set-item-state -n MyAES256GCMKey -s enabled
 ```
 
-## Using the Encryption Key
+### Using the Encryption Key
 
 After creating a key, you can use it to encrypt values using this command with the following parameters:\
 `k`: The name of the key to encrypt with.\
@@ -159,9 +159,9 @@ akeyless hmac -p <plaintext> -f <hash function> -k <key>
 
 selecting a hash function between sha-256 and sha-512. The full parameters for this command can be found [here](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluehmacp).
 
-# Key Use in the Console
+## Key Use in the Console
 
-## Creating an Encryption Key
+### Creating an Encryption Key
 
 1. Log in to the Akeyless Console, and go to **Items** > **New** > **Encryption Key** > **DFC™**.
 
@@ -187,12 +187,12 @@ selecting a hash function between sha-256 and sha-512. The full parameters for t
 * **Protection level (For classic keys targeting GCP):** Users can select either "software" (default) or "hardware" (HSM) options for key creation. Choosing "hardware" generates keys within a Hardware Security Module for enhanced security. For classic keys targeting GCP, you can select the protection level (hardware or software) after creating the key. In the "Provision to an external KMS" section, click "Attach," select the GCP target, and choose the appropriate protection level.\
   .
 
-## Managing an Encryption Key
+### Managing an Encryption Key
 
 * To delete the key, go to the key's location in your repository, select it and tap the trash icon. You will get the option to choose if you wish to delete it immediately or in a set amount of days. The key must be set to be disabled via the edit options before doing so. A scheduled deletion can be canceled by re-selecting the delete option.
 * To view the public key for RSA keys, go to the folder in Akeyless where you saved the desired key, select it, and tap **get public RSA key**.
 
-## Using the Encryption Key
+### Using the Encryption Key
 
 1. Go to the folder in Akeyless where you saved the desired key and select it.
 
@@ -204,6 +204,6 @@ selecting a hash function between sha-256 and sha-512. The full parameters for t
 >
 > When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, 16 bytes of random data, encoded in base64 format, which must be unique to each encryption operation, and must be saved in order to decrypt the value, marked with the parameter -X.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Rotating Encryption Keys](https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys).

@@ -36,6 +36,6 @@ With this Gateway, Akeyless offers:
 
 <Image align="center" alt="Akeyless Gateway Architecture" border={false} caption="Akeyless Gateway Architecture" src="https://files.readme.io/eaaa39e-Gateway_2.png" />
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Installing and Configuring the Gateway](https://tutorials.akeyless.io/docs/installing-and-configuring-akeyless-gateway).

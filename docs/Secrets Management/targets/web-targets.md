@@ -12,7 +12,7 @@ next:
 ---
 You can define a Web target to be used with [custom dynamic secrets](https://docs.akeyless.io/docs/custom-producer) or [custom rotated secrets](https://docs.akeyless.io/docs/create-a-custom-rotated-secret).
 
-# Create a Web Target in the CLI
+## Create a Web Target in the CLI
 
 To create a Web target from the CLI, run the following command:
 
@@ -30,7 +30,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluewebp) section.
 
-# Create a Web Target in the Console
+## Create a Web Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Web (Web)**.
 

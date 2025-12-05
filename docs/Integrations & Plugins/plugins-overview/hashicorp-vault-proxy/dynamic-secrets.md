@@ -25,7 +25,7 @@ export VAULT_ADDR=https://hvp.akeyless.io
 p-XXXXX..AccessKey
 ```
 
-## Get dynamic secret with Vault CLI
+## Get Dynamic Secret With Vault CLI
 
 ```shell
 vault read {producer-type}/creds/{full/path/to/producer-name}
@@ -74,7 +74,7 @@ secret_access_key    <Access Key>
 username             tmp.JJRXoSsvDuj1Dp
 ```
 
-## Working with static secrets
+## Working With Static Secrets
 
 **Create/update secret**
 

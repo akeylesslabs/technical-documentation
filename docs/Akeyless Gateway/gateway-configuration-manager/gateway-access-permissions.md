@@ -18,7 +18,7 @@ In parallel with [Gateway](https://docs.akeyless.io/docs/api-gw) administrative 
 >
 > **Pre-Provisioned Admin Users** - Pre-Provisioned settings of your Gateway Admin users can not be modified after setup. To limit already **existing** admin users of your Gateway, you will be required to remove them from your deployment files.
 
-# Configuring Access Permissions from the Gateway
+## Configuring Access Permissions from the Gateway
 
 > 👍 Note
 >

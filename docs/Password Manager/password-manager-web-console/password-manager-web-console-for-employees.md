@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-### Initiate the setup on your preferred web browser.
+### Initiate the Setup on Your Preferred Web Browser.
 
 To start on your Akeyless journey, follow these steps to initiate the setup process using your preferred web browser:
 
@@ -27,7 +27,7 @@ Get to know your [Personal and Corporate folders](https://docs.akeyless.io/docs/
 * Corporate Folder: A Collaborative Hub for Team Access
   * The Corporate Folder serves as a central repository for passwords that your entire team needs to access. Store items like GitHub passwords in the Corporate Folder, ensuring everyone has the necessary credentials.
 
-### Start the process on your iOS / Android device.
+### Start the Process on Your iOS / Android Device.
 
 To start on your Akeyless journey using your iOS/Android device, follow these steps to initiate the setup process:
 

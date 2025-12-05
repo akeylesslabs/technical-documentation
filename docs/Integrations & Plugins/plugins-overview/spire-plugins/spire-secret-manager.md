@@ -137,13 +137,13 @@ Token: <token_string>
 
 Make a note of the token, you will need it in the next step to attest the agent on initial startup.
 
-### Attest the SPIRE agent to the SPIRE server:
+### Attest the SPIRE Agent to the SPIRE Server:
 
 ```shell
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 ```
 
-### Create a registration policy
+### Create a Registration Policy
 
 ```shell
 bin/spire-server entry create -parentID spiffe://example.org/myagent \

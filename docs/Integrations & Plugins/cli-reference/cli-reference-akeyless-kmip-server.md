@@ -14,13 +14,13 @@ This section outlines the CLI commands relevant to KMIP.
 
 <CLIGeneralFlags />
 
-# Commands
+## Commands
 
-## `kmip-client-delete-rule`
+### `Kmip-client-delete-rule`
 
 Delete an RBAC rule from a client
 
-### Usage
+#### Usage
 
 ```shell
 akeyless kmip-client-delete-rule \
@@ -30,7 +30,7 @@ akeyless kmip-client-delete-rule \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-### Flags
+#### Flags
 
 `-p, --path`: **Required**, Access path, e.g /* or /some-key
 
@@ -40,7 +40,7 @@ akeyless kmip-client-delete-rule \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `kmip-client-set-rule`
+### `Kmip-client-set-rule`
 
 Add a new RBAC rule to a client
 
@@ -56,7 +56,7 @@ Supported capabilities are:
 `REVOKE`
 `DESTROY`
 
-### Usage
+#### Usage
 
 ```shell
 akeyless kmip-client-set-rule \
@@ -67,7 +67,7 @@ akeyless kmip-client-set-rule \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-### Flags
+#### Flags
 
 `-p, --path`: **Required**, Access path, e.g /* or /some-key
 
@@ -79,11 +79,11 @@ akeyless kmip-client-set-rule \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `kmip-create-client`
+### `Kmip-create-client`
 
 Create a new KMIP client
 
-### Usage
+#### Usage
 
 ```shell
 akeyless kmip-create-client \
@@ -92,7 +92,7 @@ akeyless kmip-create-client \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-### Flags
+#### Flags
 
 `-n, --name`: **Required**, Client name
 
@@ -104,11 +104,11 @@ akeyless kmip-create-client \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `kmip-delete-client`
+### `Kmip-delete-client`
 
 Delete a KMIP client
 
-### Flags
+#### Flags
 
 `-n, --name`: KMIP client name (either name or id are required)
 
@@ -116,11 +116,11 @@ Delete a KMIP client
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `kmip-describe-client`
+### `Kmip-describe-client`
 
 Show KMIP client details
 
-### Flags
+#### Flags
 
 `-n, --name`: KMIP client name (either name or id are required)
 
@@ -128,27 +128,27 @@ Show KMIP client details
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `kmip-describe-server`
+### `Kmip-describe-server`
 
 Show KMIP environment details
 
-### Flags
+#### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-## `kmip-list-clients`
+### `Kmip-list-clients`
 
 Show existing KMIP clients
 
-### Flags
+#### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-## `kmip-renew-client-certificate`
+### `Kmip-renew-client-certificate`
 
 Renew KMIP client certificate
 
-### Flags
+#### Flags
 
 `-n, --name`: KMIP client name (either name or id are required)
 
@@ -158,29 +158,29 @@ Renew KMIP client certificate
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `kmip-renew-server-certificate`
+### `Kmip-renew-server-certificate`
 
 Renew KMIP server certificate
 
-### Flags
+#### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`:  Akeyless API Gateway URL (Configuration Management port)
 
-## `kmip-server-delete`
+### `Kmip-server-delete`
 
 Delete the kmip server (allowed only if it has no clients nor associated items)
 
-### Flags
+#### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
 <br />
 
-## `kmip-server-move`
+### `Kmip-server-move`
 
 Move the root location of the kmip server and all associated items to a new root location
 
-### Usage
+#### Usage
 
 ```shell
 akeyless kmip-server-move \
@@ -188,17 +188,17 @@ akeyless kmip-server-move \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-### Flags
+#### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
 `-n, --new-root`: **Required**, New root for the kmip server
 
-## `kmip-server-setup`
+### `Kmip-server-setup`
 
 Create a new KMIP environment
 
-### Usage
+#### Usage
 
 ```shell
 akeyless kmip-server-setup \
@@ -208,7 +208,7 @@ akeyless kmip-server-setup \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-### Flags
+#### Flags
 
 `-n, --hostname`: **Required**, Hostname of this KMIP server
 
@@ -220,11 +220,11 @@ akeyless kmip-server-setup \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `kmip-set-server-state`
+### `Kmip-set-server-state`
 
 Set the server state to enabled/disabled
 
-### Usage
+#### Usage
 
 ```shell
 akeyless kmip-set-server-state \ 
@@ -232,7 +232,7 @@ akeyless kmip-set-server-state \
 --gateway-url &lt;API Gateway URL:8000&gt;
 ```
 
-### Flags
+#### Flags
 
 `-s, --state`: **Required**, Make the server enabled or disabled [use 'enabled' or 'disabled']
 

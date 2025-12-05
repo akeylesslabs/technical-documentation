@@ -14,7 +14,7 @@ Akeyless Remote Access provides secure remote access to resources using just-in-
 
 This guide provides instructions on deploying Akeyless Secure Remote Access (SRA) using Docker Compose. The deployment includes the [Akeyless Gateway](https://docs.akeyless.io/docs/install-and-configure-the-gateway#/), SRA Web UI, SRA SSH Proxy, and a Redis cache for performance optimization
 
-# Prerequisites
+## Prerequisites
 
 > ⚠️ Intended use & production guidance
 >
@@ -44,7 +44,7 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 * When SSH sessions are routed through a load balancer, such as ELB, they may be disconnected due to idle connection timeouts. To avoid this, we recommend increasing the idle timeout to a higher value or setting it to unlimited.
 * For AWS ELB, you can adjust the idle timeout settings as outlined in the AWS ELB Idle Timeout Documentation.
 
-# Deployment Overview
+## Deployment Overview
 
 The Docker Compose file defines the following services:
 
@@ -56,14 +56,14 @@ The Docker Compose file defines the following services:
 
 Each service runs within an isolated Docker bridge network (internal-net), ensuring secure internal communication.
 
-# Configuration
+## Configuration
 
 The deployment uses number of environment files for configuration:
 
 * `gateway.env` - Defines environment variables for Akeyless Gateway. For more information on deployment of Gateway via Docker Compose, please refer to [Gateway documentation](https://docs.akeyless.io/docs/gateway-compose#/).
 * `sra.env` - Defines environment variables for Secure Remote Access services.
 
-## Example Configuration
+### Example Configuration
 
 `sra.env`
 
@@ -123,12 +123,12 @@ In order to provide just-in-time native CLI access for your users using SSH Cert
 >
 > If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless and set your `ca.pub`.
 
-# Running the Deployment
+## Running the Deployment
 
 1. Ensure you have the `docker-compose.yml` and`.env`files are in your working directory.
 2. Start the Services
 
-### Deploying as Secure Remote Access (SRA)
+### Deploying As Secure Remote Access (SRA)
 
 To deploy only the SRA components, run:
 
@@ -148,6 +148,6 @@ To stop and remove all services, run:
 docker-compose down
 ```
 
-# Getting Started
+## Getting Started
 
 Once Gateway & SRA are deployed, you can open SRA Web at `http://localhost:8000/sra/portal` and use your credentials to login to the local SRA portal.

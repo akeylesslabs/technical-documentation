@@ -25,7 +25,7 @@ The supported items that can be fetched using the Agent are:
 >
 > The CLI Agent is available starting from version `1.134.0`
 
-# Agent Configuration
+## Agent Configuration
 
 The Agent is configured using the `agent.toml` file, which can be located anywhere in your operating system, as the command includes a flag that specifies the location of the file.
 
@@ -92,7 +92,7 @@ Where:
 
 * `allow_missing_keys_in_template`: If one secret (or more) fails to be provisioned, continue with provision the rest, by default set to `true`.
 
-# Template Examples
+## Template Examples
 
 This section describe how to fetch each item.
 
@@ -135,7 +135,7 @@ password={{ .Data.Password }}
 {{- end -}}
 ```
 
-# Start the Agent
+## Start the Agent
 
 In order to start the Agent to provision the secrets you have defined in the `agent.toml` file, run the following command:
 

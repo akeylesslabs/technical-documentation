@@ -17,12 +17,12 @@ There are two modes for this Dynamic Secret:
 * [Group Access Token](https://docs.gitlab.com/ee/user/group/settings/group_access_tokens.html) - an access token that is used to perform actions for groups and manage projects within the group.
 * [Project Access Token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html)  - an access token that is scoped to a project, and cannot be used to access resources from other projects.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 * **Access Token** - Access Token that will be used for authentication with GitLab
 
-# Create a Dynamic GitLab Secret from the CLI
+## Create a Dynamic GitLab Secret from the CLI
 
 > 👍 Note
 >
@@ -74,13 +74,13 @@ Where:
 
 * `gitlab-token-role`: Name of the `role` to assign to the access token
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have [GitLab Target](https://docs.akeyless.io/docs/gitlab-target) yet, you can use the command with your GitLab connection string:
 
 * `gitlab-access-token`: **Required,** Access Token that will be used for authentication
 
-# Fetch a Dynamic GitLab Secret value from the CLI
+## Fetch a Dynamic GitLab Secret Value from the CLI
 
 To fetch a dynamic GitLab secret value from the CLI, run the following command: 
 
@@ -88,7 +88,7 @@ To fetch a dynamic GitLab secret value from the CLI, run the following command:
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Secret for GitLab in the Akeyless Console
+## Create a Dynamic Secret for GitLab in the Akeyless Console
 
 > 👍 Note
 >
@@ -126,7 +126,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Access Token**: Access Token that will be used for authentication with GitLab.
 
-# Fetch a Dynamic GitLab Secret value from the Akeyless Console
+## Fetch a Dynamic GitLab Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

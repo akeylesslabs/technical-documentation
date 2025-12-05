@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Overview
+## Overview
 
 [Cert-Manager](https://cert-manager.io/docs/) generates certificate requests from the Kubernetes (K8s) cluster to Akeyless and simplifies the process of obtaining, renewing, and using those certificates.
 
@@ -22,7 +22,7 @@ The process of generating a certificate request from a Kubernetes cluster to Ake
 
 Once all of the above are set, **CSR** will be generated to Akeyless from the Kubernetes Cluster, then, the certificate will be issued by the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
-# Prerequisites
+## Prerequisites
 
 * [Cert-Manager](https://cert-manager.io/docs/installation/) installed
 * A [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) or an [API Key](https://docs.akeyless.io/docs/api-key) Auth Method attached to a role with `read` permission for **Items**
@@ -34,7 +34,7 @@ Create a namespace called `akeyless-cert-manager`:
 kubectl create ns akeyless-cert-manager
 ```
 
-## Kubernetes Auth Method
+### Kubernetes Auth Method
 
 **Cert-Manager** authenticates to Akeyless using a Kubernetes **ServiceAccount token**, which is being generated using [Secretless Authentication with a Service Account](https://cert-manager.io/docs/configuration/vault/#secretless-authentication-with-a-service-account) - **Available in Cert-Manager >= v1.12.0**
 
@@ -131,7 +131,7 @@ kubectl apply -f issuer.yaml
 
 At this stage, all the configuration for Kubernetes authentication is set and it is possible to proceed to the next step to  [create the certificate request](https://docs.akeyless.io/docs/kubernetes-cert-manager#create-a-certificate-request).
 
-## API Key Auth Method
+### API Key Auth Method
 
 In order to use an [API Key](https://docs.akeyless.io/docs/api-key) Auth Method for generating certificate requests from the K8s cluster to Akeyless, An **Authentication Token** is required.
 
@@ -195,7 +195,7 @@ Create the Issuer:
 kubectl apply -f issuer.yaml
 ```
 
-# Create a certificate request
+## Create a Certificate Request
 
 Ensure the Issuer is successfully created:
 

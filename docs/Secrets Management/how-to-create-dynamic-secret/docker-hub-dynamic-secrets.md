@@ -12,13 +12,13 @@ next:
 ---
 You can define a Docker Hub Dynamic Secret to generate just-in-time personal access tokens for your Docker repository, currently Docker Hub dynamic secrets are not supported when two-factor authentication (2FA) is enabled on the associated account.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
 * A Docker privileged user to be used to generate access tokens
 
-# Create a Dynamic Docker Hub Secret from the CLI
+## Create a Dynamic Docker Hub Secret from the CLI
 
 > 👍 Note
 >
@@ -61,7 +61,7 @@ Each permission scope includes lower-permission scopes, i.e., `repo:admin` inclu
 >
 > If you don't have a configured Docker Hub target yet, you should [create](https://docs.akeyless.io/docs/docker-hub-target) it first.
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) yet, you can use the command with your Docker Hub connection string:
 
@@ -71,7 +71,7 @@ If you don't have [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-t
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluedockerhubp) section.
 
-# Fetch a Dynamic Docker Hub Secret value from the CLI
+## Fetch a Dynamic Docker Hub Secret Value from the CLI
 
 To fetch a dynamic Docker Hub secret value from the CLI, run the following command:
 
@@ -79,7 +79,7 @@ To fetch a dynamic Docker Hub secret value from the CLI, run the following comma
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Docker Hub Secret in the Akeyless Console
+## Create a Dynamic Docker Hub Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -115,7 +115,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic Docker Hub Secret value from the Akeyless Console
+## Fetch a Dynamic Docker Hub Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

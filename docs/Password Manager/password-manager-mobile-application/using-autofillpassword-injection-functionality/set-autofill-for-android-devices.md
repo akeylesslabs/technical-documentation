@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Allow Autofill in Android Settings
+## Allow Autofill in Android Settings
 
 Open Settings on Your Android Device: Navigate to your device's main Settings menu. You can find the Settings app in your app drawer or by pulling down the notification shade and tapping the gear icon.
 
@@ -26,7 +26,7 @@ Tap on "Autofill service" under the Languages & input settings. This option migh
 **Choose Akeyless Password Manager:**\
 A list of available autofill services will appear. Select "Akeyless Password Manager" from the list to set it as your default autofill service. If Akeyless Password Manager is not listed, ensure you have installed the app from the Google Play Store.
 
-# Enabling Akeyless Password Manager for Autofill
+## Enabling Akeyless Password Manager for Autofill
 
 **Launch Akeyless Password Manager:**\
 Open the Akeyless Password Manager app on your device.
@@ -39,7 +39,7 @@ Once inside the app, locate the settings or preferences section. This is usually
 **Enable Autofill:**\
 In the settings menu, look for an option related to autofill, such as "Autofill Service" or "Enable Autofill." Follow the prompts to enable autofill functionality with Akeyless Password Manager.
 
-# Using Autofill with Akeyless Password Manager
+## Using Autofill With Akeyless Password Manager
 
 **Login to Apps or Websites:**\
 When logging into an app or website, tap on the login field. The Akeyless Password Manager autofill popup should appear, suggesting login credentials for that site. If you do not see the popup, tap the key icon in your navigation bar or above the keyboard.

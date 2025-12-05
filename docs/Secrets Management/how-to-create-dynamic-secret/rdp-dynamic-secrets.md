@@ -14,7 +14,7 @@ You can define a Remote Desktop Protocol (RDP) dynamic secret to dynamically gen
 
 When a client requests a dynamic secret value, the Akeyless Platform, through your Gateway, connects to the target Windows host over SSH and creates a new user.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
@@ -22,7 +22,7 @@ When a client requests a dynamic secret value, the Akeyless Platform, through yo
 
 * Privileged Windows user with permission to create and remove users
 
-# Create a Dynamic RDP Secret from the CLI
+## Create a Dynamic RDP Secret from the CLI
 
 > 👍 Note
 >
@@ -68,7 +68,7 @@ Where:
 
 * `fixed-user-claim-keyname[=ext_username]`: For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only=true)
 
-### Inline connection string
+### Inline Connection String
 
 Or you can use the command with your Remote Desktop target server connection settings:
 
@@ -82,7 +82,7 @@ Or you can use the command with your Remote Desktop target server connection set
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluerdpp) section.
 
-# Fetch a Dynamic RDP Secret value from the CLI
+## Fetch a Dynamic RDP Secret Value from the CLI
 
 To fetch a dynamic RDP secret value from the CLI, run the following command:
 
@@ -90,7 +90,7 @@ To fetch a dynamic RDP secret value from the CLI, run the following command:
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic RDP Secret in the Akeyless Console
+## Create a Dynamic RDP Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -136,7 +136,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic RDP Secret value from the Akeyless Console
+## Fetch a Dynamic RDP Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

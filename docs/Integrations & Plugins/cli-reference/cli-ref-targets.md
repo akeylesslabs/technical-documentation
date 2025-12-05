@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Targets.
 
 <CLIGeneralFlags />
 
-## `create`
+## `Create`
 
 Create a new Target
 
-##### Subcommands
+### Subcommands
 
 `artifactory`
 
@@ -68,11 +68,11 @@ Create a new Target
 
 `zerossl`
 
-### `artifactory`
+### `Artifactory`
 
 Creates a new Artifactory target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create artifactory \
@@ -99,11 +99,11 @@ akeyless target create artifactory \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `aws`
+### `Aws`
 
 Creates a new AWS target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create aws \
@@ -137,11 +137,11 @@ akeyless target create aws \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `azure`
+### `Azure`
 
 Creates a new azure target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create azure \
@@ -174,11 +174,11 @@ akeyless target create azure \
 `--description`: Target description
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `db`
+### `Db`
 
 Creates a new DB target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create db \
@@ -262,11 +262,11 @@ akeyless target create db \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `dockerhub`
+### `Dockerhub`
 
 Creates a new Docker Hub target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create dockerhub \
@@ -290,11 +290,11 @@ akeyless target create dockerhub \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `eks`
+### `Eks`
 
 Creates a new Amazon EKS target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create eks \
@@ -332,11 +332,11 @@ akeyless target create eks \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `gcp`
+### `Gcp`
 
 Creates a new GCP target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create gcp \
@@ -363,11 +363,11 @@ akeyless target create gcp \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `github`
+### `Github`
 
 Creates a new GitHub target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create github \
@@ -394,11 +394,11 @@ akeyless target create github \
 
 `-k, --key `: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
 
-### `gke`
+### `Gke`
 
 Creates a new GKE target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create gke \
@@ -433,11 +433,11 @@ akeyless target create gke \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `globalsign`
+### `Globalsign`
 
 Creates a new GlobalSign Target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create globalsign \
@@ -477,11 +477,11 @@ akeyless target create globalsign \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `globalsign-atlas`
+### `Globalsign-atlas`
 
 Creates a new GlobalSign Atlas target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create globalsign-atlas \
@@ -512,11 +512,11 @@ akeyless target create globalsign-atlas \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `godaddy`
+### `Godaddy`
 
 Creates a new GoDaddy target
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create godaddy \
@@ -554,11 +554,11 @@ akeyless target create godaddy \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `hashi-vault`
+### `Hashi-vault`
 
 Creates a new HashiCorp Vault target
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create hashi-vault \
@@ -584,11 +584,11 @@ akeyless target create hashi-vault \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-### `k8s`
+### `K8s`
 
 Creates a new Kubernetes target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create k8s \
@@ -629,11 +629,11 @@ akeyless target create k8s \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `ldap`
+### `Ldap`
 
 Creates a new LDAP target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create ldap \
@@ -669,11 +669,11 @@ akeyless target create ldap \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `linked`
+### `Linked`
 
 Creates a new Linked Target which can inherit credentials from existing Targets
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create linked \
@@ -694,11 +694,11 @@ akeyless target create linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `ping`
+### `Ping`
 
 Creates a new Ping target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create ping \
@@ -728,11 +728,11 @@ akeyless target create ping \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `rabbitmq`
+### `Rabbitmq`
 
 Creates a new RabbitMQ target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create rabbitmq \
@@ -759,11 +759,11 @@ akeyless target create rabbitmq \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `salesforce`
+### `Salesforce`
 
 Creates a new Salesforce target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create salesforce \
@@ -809,11 +809,11 @@ akeyless target create salesforce \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `sectigo`
+### `Sectigo`
 
 Creates a new Sectigo target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create sectigo \
@@ -852,11 +852,11 @@ akeyless target create sectigo \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `ssh`
+### `Ssh`
 
 Creates a new SSH target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create ssh \
@@ -896,11 +896,11 @@ akeyless target create ssh \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `web`
+### `Web`
 
 Creates a new web target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create web \
@@ -921,11 +921,11 @@ akeyless target create web \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `windows`
+### `Windows`
 
 Creates a new Windows Target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create windows \
@@ -959,11 +959,11 @@ akeyless target create windows \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `zerossl`
+### `Zerossl`
 
 Creates a new ZeroSSL Target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target create zerossl \
@@ -999,11 +999,11 @@ akeyless target create zerossl \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-## `assoc-target-item`
+## `Assoc-target-item`
 
 Create an association between target and item
 
-##### Usage
+### Usage
 
 ```shell
 akeyless assoc-target-item \
@@ -1013,7 +1013,7 @@ akeyless assoc-target-item \
 --key-operations <List of allowed operations for the key>
 ```
 
-##### Flags
+#### Flags
 
 `-t, --target-name`: **Required**, The target to associate
 
@@ -1055,11 +1055,11 @@ akeyless assoc-target-item \
 
 `--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
 
-## `delete-assoc-target-item`
+## `Delete-assoc-target-item`
 
 Delete an association between target and item
 
-##### Usage
+### Usage
 
 ```shell
 akeyless delete-assoc-target-item \
@@ -1068,7 +1068,7 @@ akeyless delete-assoc-target-item \
 --target-name <The target name with which association will be deleted>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Item name
 
@@ -1076,11 +1076,11 @@ akeyless delete-assoc-target-item \
 
 `-t, --target-name`: The target name with which association will be deleted
 
-## `delete`
+## `Delete`
 
 Delete a target in the current account
 
-##### Usage
+### Usage
 
 ```shell
 akeyless target delete \
@@ -1088,7 +1088,7 @@ akeyless target delete \
 --target-version <Target Version>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Target name
 
@@ -1096,50 +1096,50 @@ akeyless target delete \
 
 `--force-deletion[=false]`: Delete target even if it has associated items
 
-## `delete-targets`
+## `Delete-targets`
 
 Delete multiple targets from a given path
 
-##### Usage
+### Usage
 
 ```shell
 akeyless delete-targets \
 --path <Path to delete the targets from>
 ```
 
-##### Flags
+#### Flags
 
 `-p, --path`: **Required**, Path to delete the targets from
 
 `--force-deletion[=false]`: Delete target even if it has associated items
 
-## `get`
+## `Get`
 
 Get target in the current account
 
-##### Usage
+### Usage
 
 ```shell
 akeyless target get --name <Target name>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Target name
 
 `--show-versions[=false]`: Include all target versions in reply
 
-## `get-details`
+## `Get-details`
 
 Get details of the specified target
 
-##### Usage
+### Usage
 
 ```shell
 akeyless target get-details --name <Target Name>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Target name
 
@@ -1147,11 +1147,11 @@ akeyless target get-details --name <Target Name>
 
 `--show-versions[=false]`: Include all target versions in reply
 
-## `list`
+## `List`
 
 List of all targets in the account
 
-##### Flags
+### Flags
 
 `--filter`: Filter by target name or part of it
 
@@ -1163,13 +1163,13 @@ List of all targets in the account
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
 
-## `update`
+## `Update`
 
-#### `artifactory`
+### `Artifactory`
 
 updates an existing artifactory target in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless target update artifactory \
@@ -1203,7 +1203,7 @@ akeyless target update artifactory \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `aws`
+#### `Aws`
 
 Updates an existing aws target in the current account
 
@@ -1252,7 +1252,7 @@ akeyless target update aws \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `azure`
+#### `Azure`
 
 Updates an existing azure target in the current account
 
@@ -1300,7 +1300,7 @@ akeyless target update azure \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `db`
+#### `Db`
 
 Update an existing db target in the current account
 
@@ -1370,7 +1370,7 @@ akeyless update-db-target \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `dockerhub`
+#### `Dockerhub`
 
 updates an existing DockerHub target in the current account
 
@@ -1404,7 +1404,7 @@ akeyless target update dockerhub \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `eks`
+#### `Eks`
 
 Updates an existing Amazon EKS target in the current account
 
@@ -1451,7 +1451,7 @@ akeyless target update eks \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `gcp`
+#### `Gcp`
 
 Update an existing GCP target in the current account
 
@@ -1489,7 +1489,7 @@ akeyless target update gcp \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `github`
+#### `Github`
 
 updates a new GitHub target in the current account
 
@@ -1526,7 +1526,7 @@ akeyless target update github \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `gke`
+#### `Gke`
 
 Updates an existing GKE target in the current account
 
@@ -1574,7 +1574,7 @@ akeyless target update gke \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `globalsign`
+#### `Globalsign`
 
 Update an existing GlobalSign Target in the current account
 
@@ -1623,7 +1623,7 @@ akeyless target update globalsign \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `globalsign-atlas`
+#### `Globalsign-atlas`
 
 Updates an existing GlobalSignAtlas target in the current account
 
@@ -1662,7 +1662,7 @@ akeyless target update globalsign-atlas \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `godaddy`
+#### `Godaddy`
 
 Creates a new GoDaddy target
 
@@ -1707,7 +1707,7 @@ akeyless target update-godaddy-target \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `hashi-vault`
+#### `Hashi-vault`
 
 Updates a new HashiCorp Vault target
 
@@ -1740,7 +1740,7 @@ akeyless target update hashi-vault \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-#### `k8s`
+#### `K8s`
 
 Updates an existing Kubernetes target in the current account
 
@@ -1792,7 +1792,7 @@ akeyless target update k8s \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `ldap`
+#### `Ldap`
 
 updates a new ldap target in the current account
 
@@ -1836,7 +1836,7 @@ akeyless target update ldap \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `linked`
+#### `Linked`
 
 Update an existing Linked Target in the current account
 
@@ -1864,7 +1864,7 @@ akeyless target update linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `rabbitmq`
+#### `Rabbitmq`
 
 Update an existing new RabbitMQ target in the current account
 
@@ -1902,7 +1902,7 @@ akeyless target update rabbitmq \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `salesforce`
+#### `Salesforce`
 
 Updates the Salesforce target in the current account
 
@@ -1959,7 +1959,7 @@ akeyless target update salesforce \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `sectigo`
+#### `Sectigo`
 
 Updates the Sectigo target in the current account
 
@@ -2005,7 +2005,7 @@ akeyless target create sectigo \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `ssh`
+#### `Ssh`
 
 Update an existing SSH target in the current account
 
@@ -2053,7 +2053,7 @@ akeyless target update ssh \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `web`
+#### `Web`
 
 Update an existing web target in the current account
 
@@ -2084,7 +2084,7 @@ akeyless target update web \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `windows`
+#### `Windows`
 
 Update an existing Windows Target in the current account
 
@@ -2125,7 +2125,7 @@ akeyless target update windows \
 
 `--description`: Description of the object
 
-#### `zerossl`
+#### `Zerossl`
 
 Update an existing ZeroSSL Target in the current account
 

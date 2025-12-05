@@ -16,7 +16,7 @@ next:
 >
 > The URL for the **ServiceNow** endpoint would be: `<serviceNowURL>/akeyless-events/`
 
-# Create a ServiceNow Event Forwarder using the CLI
+## Create a ServiceNow Event Forwarder Using the CLI
 
 To set up a **ServiceNow** Event Forwarder, use the following command:
 
@@ -88,7 +88,7 @@ The main parameters for the command are as follows:
 
 You can find the complete list of parameters for this command in the [CLI Reference - ServiceNow Event forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-servicenowp)
 
-# Create a ServiceNow event forwarder using the Console
+## Create a ServiceNow Event Forwarder Using the Console
 
 1. Log in to the Akeyless Console and open the [Event Center](https://docs.akeyless.io/docs/event-center), select **Manage Forwarders**. If this is your first Forwarder, it appears as Add Forwarder, click it and choose: **ServiceNow**
 

@@ -12,7 +12,7 @@ next:
 ---
 Groups enable administrators to manage and reuse [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) more easily by associating them to an Akelyess  [OIDC Application](https://docs.akeyless.io/docs/oidc-app-provider) as a Group rather than manually associating multiple individual Authentication Methods.
 
-# Creating a Group in the CLI
+## Creating a Group in the CLI
 
 To create a group, use the following command:
 

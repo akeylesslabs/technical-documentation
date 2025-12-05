@@ -12,7 +12,7 @@ next:
 ---
 You can define a Docker Hub target to be used with [Docker Hub dynamic secrets](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets) or [Docker Hub rotated secrets](https://docs.akeyless.io/docs/create-a-docker-hub-rotated-secret).
 
-# Create a Docker Hub Target in the CLI
+## Create a Docker Hub Target in the CLI
 
 To create a Docker Hub target from the CLI, run the following command:
 
@@ -33,7 +33,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluedockerhubp) section.
 
-# Create a Docker Hub Target in the Console
+## Create a Docker Hub Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Infra (Docker Hub)**.
 

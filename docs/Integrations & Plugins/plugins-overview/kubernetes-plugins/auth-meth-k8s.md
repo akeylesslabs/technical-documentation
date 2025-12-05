@@ -20,7 +20,7 @@ Akeyless supports multiple options to authenticate your K8s cluster with Akeyles
   * **[AWS-IAM](https://docs.akeyless.io/docs/aws-iam)**
   * **[GCP Auth](https://docs.akeyless.io/docs/gcp-auth-method)**
 
-# K8s Auth
+## K8s Auth
 
 > 👍 Note
 >
@@ -42,7 +42,7 @@ AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>" # or using por
 >
 > While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>"`
 
-# Universal Identity (UID)
+## Universal Identity (UID)
 
 To use UID Auth method for authentication:
 
@@ -52,7 +52,7 @@ AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8080>"
 AKEYLESS_INIT_TOKEN: "<token>"
 ```
 
-# API Key
+## API Key
 
 To use API Key Auth method for authentication:
 
@@ -65,9 +65,9 @@ AKEYLESS_API_KEY: "<Access Key>"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 ```
 
-# Cloud Authentication
+## Cloud Authentication
 
-## Azure Active Directory (AD)
+### Azure Active Directory (AD)
 
 To use Azure AD Auth method for authentication:
 
@@ -81,7 +81,7 @@ AKEYLESS_ACCESS_ID: "<Access Id>"
 # AKEYLESS_AZURE_OBJ_ID: "<azure-object-id>"
 ```
 
-## AWS-IAM
+### AWS-IAM
 
 To use AWS-IAM Auth method for authentication:
 
@@ -93,7 +93,7 @@ AKEYLESS_ACCESS_TYPE: "aws_iam"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 ```
 
-## GCP Auth
+### GCP Auth
 
 To use GCP Auth method for authentication:
 

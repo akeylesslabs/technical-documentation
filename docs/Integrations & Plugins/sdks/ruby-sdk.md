@@ -13,7 +13,7 @@ next:
 The Akeyless SDK for Ruby makes it easy for you to integrate your Ruby applications, libraries, or scripts with the Akeyless Platform secret management services.\
 The below Ruby code examples show a typical sequence of integrating secrets into your application.
 
-# Installation
+## Installation
 
 **Install the Akeyless gem package**
 
@@ -21,7 +21,7 @@ The below Ruby code examples show a typical sequence of integrating secrets into
 gem install akeyless
 ```
 
-# Getting Started
+## Getting Started
 
 Please follow the installation procedure and then run the following code:
 
@@ -59,6 +59,6 @@ body.token = tokenbody.names = ['my-secret']
 result = api.get_secret_value(body)
 ```
 
-# API Reference
+## API Reference
 
 For a detailed API reference, see [here](https://github.com/akeylesslabs/akeyless-ruby).

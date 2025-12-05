@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Prerequisites
+## Prerequisites
 
 * Chef Workstation installed. Refer to [this](https://docs.chef.io/workstation/install_workstation/) guide to install the workstation.
 
@@ -18,7 +18,7 @@ next:
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
-# Chef Infra Plugin Configuration
+## Chef Infra Plugin Configuration
 
 1. Download the following Chef Infra cookbook from [here](https://github.com/exospheredata/secrets_management)
 

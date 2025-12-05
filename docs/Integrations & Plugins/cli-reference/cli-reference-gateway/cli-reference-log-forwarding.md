@@ -20,11 +20,11 @@ This section outlines the CLI commands relevant to the Gateway Log-Forwarding.
 
 To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server using the CLI.
 
-## `update`
+## `Update`
 
 Command to update log forwarding configuration
 
-##### Flags
+### Flags
 
 `aws-s3`
 
@@ -52,7 +52,7 @@ Command to update log forwarding configuration
 
 Updates Log Forwarding config for aws-s3
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding aws-s3 \
@@ -97,7 +97,7 @@ akeyless gateway update log-forwarding aws-s3 \
 
 Updates Log Forwarding config for azure-analytics
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding azure-analytics \
@@ -127,7 +127,7 @@ akeyless gateway update log-forwarding azure-analytics \
 
 Updates Log Forwarding config for datadog
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding datadog \
@@ -166,7 +166,7 @@ akeyless gateway update log-forwarding datadog \
 
 Updates Log Forwarding config for elasticsearch
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding elasticsearch \
@@ -223,7 +223,7 @@ akeyless gateway update log-forwarding elasticsearch \
 
 Updates Log Forwarding config for google-chronicle
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding google-chronicle \
@@ -262,7 +262,7 @@ akeyless gateway update log-forwarding google-chronicle \
 
 Updates Log Forwarding config for logstash
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding logstash \
@@ -301,7 +301,7 @@ akeyless gateway update log-forwarding logstash \
 
 Updates Log Forwarding config for logz-io
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding logz-io \
@@ -331,7 +331,7 @@ akeyless gateway update log-forwarding logz-io \
 
 Updates Log Forwarding config for splunk
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding splunk \
@@ -379,7 +379,7 @@ akeyless gateway update log-forwarding splunk \
 
 Updates Log Forwarding config for standard output
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding stdout \
@@ -403,7 +403,7 @@ akeyless gateway update log-forwarding stdout \
 
 Updates Log Forwarding config for sumologic
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding sumologic \
@@ -436,7 +436,7 @@ akeyless gateway update log-forwarding sumologic \
 
 Updates Log Forwarding config for syslog
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway update log-forwarding syslog \
@@ -477,7 +477,7 @@ akeyless gateway update log-forwarding syslog \
 
 `--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
 
-### `get`
+### `Get`
 
 Command to get log forwarding configuration
 

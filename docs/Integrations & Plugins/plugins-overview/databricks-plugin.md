@@ -39,23 +39,23 @@ While Databricks supports SQL, most SQL queries don’t require secrets — henc
 
 ### Authentication Options
 
-#### Option 1: Azure Managed Identity (recommended for Azure-native workloads)
+#### Option 1: Azure Managed Identity (Recommended for Azure-native Workloads)
 
 * Use Azure AD with Akeyless to authenticate Databricks using the VM's managed identity.
 
-#### Option 2: API Key stored in Azure Key Vault
+#### Option 2: API Key Stored in Azure Key Vault
 
 * Enables user-level RBAC by storing each user's Akeyless API key securely.
 
 ### Language Support
 
-#### Databricks supports:
+#### Databricks Supports:
 
 * Python ✅ (fully supported by Akeyless SDK)
 * Scala / R ✅ (via Spark config or Databricks utilities)
 * SQL 🚫 (usually not required for secrets)
 
-### Example: Sharing a secret across languages
+### Example: Sharing a Secret Across Languages
 
 ```shell Python
 # Python Cell: retrieve secret and set Spark config

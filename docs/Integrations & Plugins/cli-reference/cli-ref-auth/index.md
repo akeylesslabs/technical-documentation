@@ -14,17 +14,17 @@ This section outlines the CLI commands relevant to authentication.
 
 <CLIGeneralFlags />
 
-## `auth`
+## `Auth`
 
 This command authenticates to Akeyless and saves the temporary token so that it can be used again until the token expires without the need to re-authenticate every time.
 
-##### Usage
+### Usage
 
 `akeyless auth --access-id <access ID> --access-type <accessType>`
 
 with the relevant flags according to the `access-type` being used.
 
-##### Flags
+#### Flags
 
 `--access-id`: Access ID
 
@@ -78,11 +78,11 @@ with the relevant flags according to the `access-type` being used.
 
 `--debug`: Use this flag for a printout of the authorization `JWT`.
 
-## create
+## Create
 
 `akeyless auth-method create`
 
-#### Flags
+### Flags
 
 `api-key`  Creates a new API Key Auth method
 
@@ -114,7 +114,7 @@ with the relevant flags according to the `access-type` being used.
 
 Create a new [API Key](https://docs.akeyless.io/docs/api-key) Auth Method
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create api-key --name <Auth method name>
@@ -146,11 +146,11 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-### `aws-iam`
+### `Aws-iam`
 
 Create a new Auth Method that will be able to authenticate using AWS IAM credentials
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create aws-iam \
@@ -205,11 +205,11 @@ akeyless auth-method create aws-iam \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### `azure-ad`
+### `Azure-ad`
 
 Create a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create azure-ad \
@@ -269,11 +269,11 @@ akeyless auth-method create azure-ad \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### `cert`
+### `Cert`
 
 Create a new Auth Method that will be able to authenticate using a client certificate
 
-##### Usage
+#### Usage
 
 ```shell Shell
 akeyless auth-method create cert \
@@ -328,11 +328,11 @@ akeyless auth-method create cert \
 
 ` -u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
-### `email`
+### `Email`
 
 Create a new Auth Method that will be able to authenticate using an email address
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create email \
@@ -368,11 +368,11 @@ akeyless auth-method create email \
 
 `--email`: **Required**, An email address to be invited to have access
 
-### `gcp`
+### `Gcp`
 
 Create a new Auth Method that will be able to authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create gcp \
@@ -428,11 +428,11 @@ akeyless auth-method create gcp \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### `oauth2`
+### `Oauth2`
 
 Create a new Auth Method that will be able to authenticate using OAuth2
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create oauth2 \
@@ -483,11 +483,11 @@ akeyless auth-method create oauth2 \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters"
 
-### `oci`
+### `Oci`
 
 Create a new Oracle Auth Method that will be used in the account using OCI principle and groups
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create oci \
@@ -526,11 +526,11 @@ akeyless auth-method create oci \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-### `oidc`
+### `Oidc`
 
 Creates a new Authentication Method object that will allow the user to authenticate using OIDC
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create oidc \
@@ -582,11 +582,11 @@ akeyless auth-method create oidc \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
-### `saml`
+### `Saml`
 
 Create a new Auth Method that will be able to authenticate using SAML
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method create saml \
@@ -634,11 +634,11 @@ akeyless auth-method create saml \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
-## `get-cloud-identity`
+## `Get-cloud-identity`
 
 Get Cloud Identity Token (relevant only for access-type=`azure_ad`, `aws_iam`, `gcp`, `oci`)
 
-##### Usage
+### Usage
 
 ```shell
 akeyless get-cloud-identity \
@@ -646,7 +646,7 @@ akeyless get-cloud-identity \
 --azure_ad_object_id <Azure AD ObjectID>
 ```
 
-##### Flags
+#### Flags
 
 `--cloud-provider`: Cloud provider (azure_ad/aws_iam/gcp)
 
@@ -664,15 +664,15 @@ akeyless get-cloud-identity \
 
 `--debug[=false]`: Turn on debug logging
 
-## update
+## Update
 
 Update Auth Method
 
-#### `api-key`
+### `Api-key`
 
 Update a new API Key Auth Method in the account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless auth-method update api-key --name <Auth method>
@@ -704,7 +704,7 @@ akeyless auth-method update api-key --name <Auth method>
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-#### `aws-iam`
+#### `Aws-iam`
 
 Update a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -758,7 +758,7 @@ akeyless auth-method update aws-iam \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-#### `azure-ad`
+#### `Azure-ad`
 
 Update a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -821,7 +821,7 @@ akeyless auth-method update azure-ad \
 
 `--bound-resource-id`: A list of full resource ids that the access is restricted to
 
-#### `cert`
+#### `Cert`
 
 Update a new Auth Method that will be able to authenticate using a client certificate.
 
@@ -880,7 +880,7 @@ akeyless auth-method update cert \
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
 
-#### `gcp`
+#### `Gcp`
 
 Update a new Auth Method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials
 
@@ -938,7 +938,7 @@ akeyless auth-method update gcp \
 
 `--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data`  becomes mandatory.
 
-#### `oauth2`
+#### `Oauth2`
 
 Update a new Auth Method that will be able to authenticate using OAuth2
 
@@ -991,7 +991,7 @@ akeyless auth-method update oauth2 \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
-#### `oci`
+#### `Oci`
 
 Update an Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -1035,7 +1035,7 @@ akeyless auth-method update oci \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-#### `oidc`
+#### `Oidc`
 
 Update a new Auth Method that will be able to authenticate using OIDC
 
@@ -1093,7 +1093,7 @@ akeyless auth-method update oidc \
 
 `-d, --delimiters`          A list of additional sub-claims delimiters
 
-#### `saml`
+#### `Saml`
 
 Update a new Auth Method that will be able to authenticate using SAML
 
@@ -1142,18 +1142,18 @@ akeyless auth-method update saml \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
-## `validate-token`
+## `Validate-token`
 
 Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
 
-##### Usage
+### Usage
 
 ```shell
 akeyless validate-token \
 --token <Token to validate>
 ```
 
-## `revoke-creds`
+## `Revoke-creds`
 
 This command will permanently revoke the credentials associated with the provided token or profile
 
@@ -1161,17 +1161,17 @@ This command will permanently revoke the credentials associated with the provide
 akeyless revoke-creds --profile/token <Profile/Token>
 ```
 
-## get
+## Get
 
-##### Usage
+### Usage
 
 ```shell
 akeyless auth-method get -n <Auth method name>
 ```
 
-## list
+## List
 
-##### Usage
+### Usage
 
 ```shell
 akeyless auth-method list \
@@ -1179,7 +1179,7 @@ akeyless auth-method list \
 --filter <Filter by auth method name or part of it>
 ```
 
-##### Flags
+#### Flags
 
 `-t, --type`: The auth method types list of the requested method. In case it is empty, all types of auth method will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s, cert]
 
@@ -1187,21 +1187,21 @@ akeyless auth-method list \
 
 `--pagination-token`: Next page reference
 
-## delete
+## Delete
 
 Delete an Auth Method
 
-##### Usage
+### Usage
 
 ```shell
 akeyless auth-method delete -n <Auth method name>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Auth Method name
 
-#### delete-auth-methods
+#### Delete-auth-methods
 
 Delete multiple auth methods from a given path
 
@@ -1215,7 +1215,7 @@ akeyless delete-auth-methods -p <Path/to/auth-methods>
 
 `-p, --path`: **Required**, path to delete the auth methods from
 
-## reset-access-key
+## Reset-access-key
 
 Reset an existing access key
 
@@ -1223,6 +1223,6 @@ Reset an existing access key
 akeyless reset-access-key --name <Auth Method Name>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, API Key Auth Method name to reset the access key.

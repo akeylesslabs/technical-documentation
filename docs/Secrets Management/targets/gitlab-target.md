@@ -12,7 +12,7 @@ next:
 ---
 You can define a GitLab target to be used with [GitLab Dynamic Secret](https://docs.akeyless.io/docs/gitlab-dynamic-secret).
 
-# Create a GitLab Target in the CLI
+## Create a GitLab Target in the CLI
 
 To create a GitLab target from the CLI, run the following command:
 
@@ -31,7 +31,7 @@ Where:
 
 * `gitlab-url`: Provide the GitLab base URL, default is ` https://gitlab.com`
 
-# Create a GitLab Target in the Console
+## Create a GitLab Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Infra > GitLab**.
 

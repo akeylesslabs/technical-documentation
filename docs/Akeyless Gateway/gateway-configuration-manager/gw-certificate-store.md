@@ -16,7 +16,7 @@ You can upload private CA certificates into the gateway to enable secure connect
 >
 > After uploading a private CA to certificate store, some services may require a restart or reconnection to fully recognize and utilize the new certificate authority.
 
-# Manage Certificates Using the CLI
+## Manage Certificates Using the CLI
 
 To upload certificates to your gateway using the CLI, run the following command:
 
@@ -46,7 +46,7 @@ Where:
 
 * `certificate-data`: Content of the certificate in a Base64 format.
 
-# Manage Certificates Using the UI
+## Manage Certificates Using the UI
 
 To upload certificates to your gateway using the UI, follow these steps:
 

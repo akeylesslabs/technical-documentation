@@ -33,7 +33,7 @@ The following Metrics are currently available:
 | `akeyless.gw.system.request_count`               | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status)        |
 | `akeyless.gw.system.healthcheck.status`          | Monitors container health check status                                                                             |
 
-# Datadog
+## Datadog
 
 To enable Telemetry Metrics on your Gateway for Datadog, edit the chart `values.yaml ` file under the `metrics` section and set your metrics backend configuration:
 
@@ -64,7 +64,7 @@ Akeyless is an official Datadog Partner and our dashboard can be found inside th
 
 * If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for "akeyless.gw".
 
-# Prometheus
+## Prometheus
 
 To enable Telemetry Metrics on your Gateway for Prometheus, edit the chart `values.yaml ` file under the `metrics` section and set your metrics backend configuration:
 
@@ -109,7 +109,7 @@ Import the Akeykess GW dashboard for your Grafana instance using [this](https://
 
 <Image border={false} src="https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png" title="Screen Shot 2022-07-31 at 10.44.18.png" />
 
-# Using Kubernetes Secret
+## Using Kubernetes Secret
 
 Create a Kubernetes secret with the relevant settings of your target metric server and save it to a file `config-secret.yaml`:
 
@@ -166,7 +166,7 @@ metrics:
   existingSecretName: "gw-metrics-secret"
 ```
 
-# Gateway Application Log Forwarding
+## Gateway Application Log Forwarding
 
 To collect the Gateway application logs with the metrics you can set an additional `exporter` endpoint and  `service`, for example:
 

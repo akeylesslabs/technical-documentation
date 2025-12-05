@@ -37,7 +37,7 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 
 ## Configuration
 
-### To configure the Akeyless plugin in Jenkins:
+### To Configure the Akeyless Plugin in Jenkins:
 
 1. From the Jenkins Dashboard, press New Item, choose Freestyle Project, give it a name and press ok.
 2. Scroll down to Environment and check Akeyless Plugin
@@ -100,7 +100,7 @@ The following configuration will fetch a static secret to your pipeline. This ex
 
 ![](https://files.readme.io/9f31c3fcbc87a157d318e00535237be8fb2ac2f7ba8d7b003375341fb4478eff-image.png)
 
-### Fetching a Rotated Secret with specific Keys:
+### Fetching a Rotated Secret With Specific Keys:
 
 The following example will only fetch the username of the rotated secret value, and will store it into User environment variable:
 

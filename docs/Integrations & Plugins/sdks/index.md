@@ -11,7 +11,7 @@ metadata:
 ---
 Integrate your applications, libraries, or scripts with Akeyless using our software development kits (SDKs).
 
-# Available SDKs
+## Available SDKs
 
 We currently support the following SDKs:
 
@@ -22,7 +22,7 @@ We currently support the following SDKs:
 * [Python SDK](https://docs.akeyless.io/docs/python-sdk-1)
 * [Ruby SDK](https://docs.akeyless.io/docs/ruby-sdk)
 
-# Available Environments
+## Available Environments
 
 Akeyless is available in the following environments, each with a unique base URL:
 

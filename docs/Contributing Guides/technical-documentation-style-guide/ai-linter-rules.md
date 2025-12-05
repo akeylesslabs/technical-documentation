@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-# Errors
+## Errors
 
 * There must be no technical inaccuracies.
 * There must be no conflicts between the information on a page or between pages.
@@ -37,7 +37,7 @@ metadata:
 * There must be no idioms, slang, or cultural references.
 * Use commas as separators for large numbers (1,000).
 
-# Warnings
+## Warnings
 
 * There should be no inconsistent styling within the same page.
 * There should be no grammar issues.

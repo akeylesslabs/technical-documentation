@@ -16,7 +16,7 @@ This documentation provides a comprehensive guide to creating, viewing, and mana
 
 <br />
 
-### What is a Passkey?
+### What Is a Passkey?
 
 A Passkey is a cryptographic key designed for password-less authentication, bound to specific user credentials and associated with certain origins (websites). Passkeys simplify secure login workflows and enhance security by eliminating password-based vulnerabilities.
 
@@ -30,7 +30,7 @@ Passkeys only support the following Elliptic Curve (EC) key types:
 * EC384
 * EC512
 
-### Creating a Passkey using the API
+### Creating a Passkey Using the API
 
 To create a passkey via the Akeyless API, follow this structure:
 

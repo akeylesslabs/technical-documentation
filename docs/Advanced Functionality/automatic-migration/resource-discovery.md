@@ -39,7 +39,7 @@ Note: When using Self Signed Certificate, please mount the matching certificate 
 > **Active Directory migration compatibility**  
 > The OpenSSH server is available as a supported Feature-on-Demand in Windows Server 2022, Windows Server 2019, and Windows 10 (build 1809 and later)
 
-# Set Up Automatic Migration for Active Directory
+## Set Up Automatic Migration for Active Directory
 
 To create the migration from your Active Directory, login to your Gateway on port `8000`, navigate to the **Automatic Migration -> Active Directory -> Add**, and set the following:
 

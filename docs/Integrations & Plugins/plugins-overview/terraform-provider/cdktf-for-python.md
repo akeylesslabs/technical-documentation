@@ -12,13 +12,13 @@ next:
 ---
 The Cloud Development Kit for Terraform (CDKTF) allows you to manage your Akeyless resources, such as secrets, roles, and authentication methods, using Terraform without needing to write HashiCorp Configuration Language (HCL). Instead, you can define and manage these resources using **Python**.
 
-# Prerequisites
+## Prerequisites
 
 * [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)  (1.2+)
 * [Node.js](https://nodejs.org/en)  and npm (v16)+
 * [CDK for Terraform](https://developer.hashicorp.com/terraform/tutorials/cdktf/cdktf-install) 
 
-# Configuration
+## Configuration
 
 **Install the library**
 

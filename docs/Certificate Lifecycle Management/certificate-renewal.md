@@ -16,7 +16,7 @@ As part of the renewal, the user can choose either to renew the certificate usin
 
 Upon successful renewal, in case [provisioning](https://docs.akeyless.io/docs/certificate-provisioning) settings exists, the certificate will be provisioned automatically.
 
-# Renew a certificate using the Akeyless CLI
+## Renew a Certificate Using the Akeyless CLI
 
 Run the following command to renew a certificate from the CLI: 
 
@@ -35,7 +35,7 @@ Upon successful renewal a new version will be created on the certificate item it
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluerenew-certificatep) section.
 
-# Renew a certificate using the Akeyless Console
+## Renew a Certificate Using the Akeyless Console
 
 Certificates can be renewed, either from the item or the event itself. the following flow will describe the renewal flow from the certificate item itself:
 
@@ -51,6 +51,6 @@ To renew a certificate from the **Event Center**:
 3. You will be asked to either **Generate new CSR and Key** or **Use an existing Key** when applicable. 
 4. Click **Renew** to renew the certificate, once done, a pop-up with the **Certificate** and **Private Key** will appear.
 
-# Viewing the certificate versions
+## Viewing the Certificate Versions
 
 In Akeyless console, press on the **certificate** item and then, press on **Versions**. You will find a table listing all the versions of the certificate and keys.

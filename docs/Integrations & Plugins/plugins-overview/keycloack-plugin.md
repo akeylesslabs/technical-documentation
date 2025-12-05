@@ -14,7 +14,7 @@ Akeyless provides an additional way of user authentication in the [Keycloak Iden
 
 Users that have a valid JWT token issued by Akeyless, which includes their email address, can use this token to authenticate in Keycloak platform instead of using their username/password.
 
-# Installing Akeyless Keycloak Authenticator
+## Installing Akeyless Keycloak Authenticator
 
 Download the latest version of the plugin from:
 
@@ -47,7 +47,7 @@ Verify your deployment in Keycloak logs:
 >
 > When working with ephemeral containers, `deployments` folder should be mounted using persistent volumes.
 
-# Setting up Akeyless Keycloak Authenticator
+## Setting Up Akeyless Keycloak Authenticator
 
 After successful deployment, Keycloak administrator must configure the browser authentication flow to use Akeyless Authenticator as an alternative to other authentication methods. 
 
@@ -69,7 +69,7 @@ On the "Bindings" tab, select "Akeyless Browser" in the combo box next to the "B
 
 ![](https://files.readme.io/1822f2f-image-20210621-111437.png "image-20210621-111437.png")
 
-# Using Keycloak Authenticator
+## Using Keycloak Authenticator
 
 Akeyless Keycloak Authenticator uses JWT tokens signed by Akeyless to establish user identity. 
 

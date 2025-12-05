@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-# What is Secure Remote Access?
+## What Is Secure Remote Access?
 
 The Akeyless Platform’s Secure Remote Access (SRA) solution offers a modern approach to Privileged Access Management (PAM), enabling users to securely connect to **servers**, **databases**, **internal applications**, and **web apps** across any environment, whether cloud hosted or on-premise, private or public, by leveraging Just-in-Time, Zero-Trust access with full audibility.
 
@@ -13,7 +13,7 @@ Users can connect securely to resources through the Gateway's internal SRA Porta
 
 SRA can be deployed on either a [K8s cluster](https://docs.akeyless.io/docs/remote-access-setup-k8s#/) using Helm or docker using [docker compose](https://docs.akeyless.io/docs/remote-access-docker#/).
 
-## How it works
+### How It Works
 
 SRA is deployed along side the Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a **Web** application and **SSH** application, each has a separate pod in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
 
@@ -21,7 +21,7 @@ SRA is deployed along side the Akeyless [Gateway](https://docs.akeyless.io/docs/
 
 * **SSH**: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any UNIX-supporting resource.
 
-## Key Features
+### Key Features
 
 Akeyless Secure Remote Access provides a robust set of features designed to support secure, efficient access for teams. Here are some of the key capabilities:
 
@@ -37,7 +37,7 @@ Akeyless Secure Remote Access provides a robust set of features designed to supp
 
 * **Native SSO integrations**: SRA supports authentication via SSO protocols such as [OIDC](https://docs.akeyless.io/docs/openid#/), [SAML](https://docs.akeyless.io/docs/saml#/), and [LDAP](https://docs.akeyless.io/docs/ldap#/).
 
-## Supported Resource Types
+### Supported Resource Types
 
 Using SRA supports connections to the following resource types:
 

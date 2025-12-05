@@ -14,7 +14,7 @@ next:
 
 The Akeyless plugin for GitLab Component enables a secure, easy, and intuitive way to fetch Secrets and certificates into GitLab pipelines using a [GitLab CI/CD component](https://docs.gitlab.com/ee/ci/components/) .
 
-# Authentication
+## Authentication
 
 Each job has a [JSON Web Token (JWT)](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens) provided as a CI/CD variable named `ID_TOKEN`. When a pipeline is about to run, GitLab uses the job token and generates a unique token for it.
 
@@ -26,7 +26,7 @@ The token is valid only while the pipeline job is running. After the job finishe
 
 In this guide, we will use [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Auth Method** to work with the plugin but you can use any [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) that is listed in the **Usage** section below.
 
-## OAuth 2.0 / JWT
+### OAuth 2.0 / JWT
 
 Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** using the CLI:
 
@@ -73,7 +73,7 @@ akeyless set-role-rule --role-name /Dev/GitLabRole \
 
 We can now continue with configuring a **GitLab project** to fetch **secrets** and **certificates** to your pipeline.
 
-# Usage
+## Usage
 
 Open your project and create a folder named `templates`, under this folder create a file named `fetch-secret.yml` and add the following content to the file:
 
@@ -180,7 +180,7 @@ Your secrets are stored either in `akeyless.env` or `akeyless.json` accordingly,
 >
 > Note that the `pull_policy` should be kept to `always` when using a shared runner.
 
-# Examples
+## Examples
 
 In the following example, we will use the `env-file` mode. where the secrets will be stored in environment variables. Additionally, upon a successful authentication, the value of the **Akeyless Token**   will be saved automatically into the `AKEYLESS_TOKEN` environment variable, so it can be reused.
 
@@ -298,6 +298,6 @@ Where:
 
 * `cert-user-name`: Users who will be allowed to use the certificate. **Relevant only for SSH Certificate**.
 
-# Working with Gateway
+## Working With Gateway
 
 To work directly with your Gateway URL  you can set  the variable `api_url` with the Rest API V2 endpoint i.e. port `8081`. When working with a self-signed certificate you can provide your `gateway_ca_certificate` as well.

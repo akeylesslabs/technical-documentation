@@ -16,7 +16,7 @@ For more information on how to use access tokens in Artifactory, see the <Anchor
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the Artifactory through your [Gateway](https://docs.akeyless.io/docs/api-gw) and generates a temporary access token.
 
-# Create a Dynamic Artifactory Secret from the CLI
+## Create a Dynamic Artifactory Secret from the CLI
 
 > 👍 Note
 >
@@ -58,7 +58,7 @@ Where:
 
 * `artifactory-token-audience`: A space-separated list of other Artifactory instances or services that should accept this token. For example, to accept all JFrog Artifactory instances, use `jfrt@*`.
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have an [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets) yet, you can use the command with your Artifactory target server connection string:
 
@@ -71,7 +71,7 @@ If you don't have an [Artifactory Target](https://docs.akeyless.io/docs/artifact
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueartifactoryp) section.
 
-# Fetch a Dynamic Artifactory Secret value from the CLI
+## Fetch a Dynamic Artifactory Secret Value from the CLI
 
 To fetch a dynamic Artifactory secret value from the CLI, run the following command:
 
@@ -79,7 +79,7 @@ To fetch a dynamic Artifactory secret value from the CLI, run the following comm
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic Artifactory Secret in the Akeyless Console
+## Create a Dynamic Artifactory Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -118,7 +118,7 @@ For example, if you use your JFrog URL, this could be `<https://myjfrog.acme.org
 
 7. Click **Finish**.
 
-# Fetch a Dynamic Artifactory Secret value from the Akeyless Console
+## Fetch a Dynamic Artifactory Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

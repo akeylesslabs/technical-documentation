@@ -12,7 +12,7 @@ next:
 ---
 You can define a Salesforce target to be used in the [Akeyless KMS integration with Salesforce Shield](https://docs.akeyless.io/docs/salesforce-shield).
 
-# Create a Salesforce Target in the CLI
+## Create a Salesforce Target in the CLI
 
 To create a Salesforce target using the Akeyless CLI, use the following command:
 
@@ -61,7 +61,7 @@ Or if using `jwt` `auth-flow` provide the following:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluesalesforcep) section.
 
-# Create a Salesforce Target in the Console
+## Create a Salesforce Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Cloud (Salesforce)**.
 

@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-# What is GPG?
+## What Is GPG?
 
 GPG stands for GNU Privacy Guard, an implementation of public key cryptography, which can be used both for the more standard operations of encryption keys (encrypt/decrypt), and for message verification via signature. In Akeyless, it is expressed as an additional type for the creation of [Classic Keys](https://docs.akeyless.io/docs/classic-keys), enabling the user to leverage GPG's functionality while keeping it doubly secure under the Akeyless platform.
 
-# Working with GPG from the CLI
+## Working With GPG from the CLI
 
-## Key Creation
+### Key Creation
 
 GPG keys are created using the same command structure as other classic keys, with an important new step, after the algorithm type is defined as GPG, the user must also add an additional parameter, `gpg-alg`, which defines which key type will be used for the implementation.
 
@@ -39,7 +39,7 @@ Where:
 
 Other parameters can be found in the [CLI Reference ](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-classic-keyp).
 
-## Key Usage
+### Key Usage
 
 While the creation statement for GPG keys is the same as other classic keys, it has a unique set of commands for its usage: encrypt, decrypt, sign, and verify.
 
@@ -88,11 +88,11 @@ akeyless verify-gpg --key-name <RSA Key> \
 
 The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueverify-gpgp).
 
-# Working with GPG from the Console
+## Working With GPG from the Console
 
 While the console can create GPG-type keys, their full usage functionalities are available from the CLO.
 
-## Key Creation:
+### Key Creation:
 
 1. In the Akeyless console, select **New**>**Encryption Key** > **Classic**.
 

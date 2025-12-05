@@ -12,7 +12,7 @@ next:
 ---
 The provided script is designed to be used in a ServiceNow instance, specifically for handling incoming HTTP requests to a Scripted REST API. It parses a JSON payload from the request, creates a new record in a specified table with data extracted from the JSON, and responds appropriately based on the success or failure of these operations. Below is a detailed explanation of how this script works:
 
-# Understanding the Script Flow
+## Understanding the Script Flow
 
 **Receive and Parse JSON Payload**
 

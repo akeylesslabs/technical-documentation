@@ -18,7 +18,7 @@ You can enable secure remote access to a database using a [Dynamic Secret](https
 >
 > Use the `akeyless connect` command from Akeyless CLI to access databases from any UNIX terminal to work with your database native CLI.
 
-# Prerequisites
+## Prerequisites
 
 To enable secure remote access to a database you need:
 
@@ -28,13 +28,13 @@ In addition, for users to access the database using native CLI, you need:
 
 * An [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
-# Create a Database Secret
+## Create a Database Secret
 
 If you don't already have a database secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db) or [Rotated Secret](https://docs.akeyless.io/docs/create-a-database-rotated-secret) that specifies the database details and access credentials.
 
 If you already have a database secret, continue below.
 
-# Set Up Remote Access to a Database from the Akeyless CLI
+## Set Up Remote Access to a Database from the Akeyless CLI
 
 Let's set up remote access to a database using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/database-secure-remote-access#set-up-remote-access-to-a-database-from-the-akeyless-console) instead.
 
@@ -69,7 +69,7 @@ where:
 * **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 * **secure-access-delay:** The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
-# Set Up Remote Access to a Database from the Akeyless Console
+## Set Up Remote Access to a Database from the Akeyless Console
 
 Let's set up remote access to a database from the Akeyless Console. If you'd prefer, see how to do this from [Akeyless CLI](https://docs.akeyless.io/docs/database-secure-remote-access#set-up-remote-access-to-a-database-from-the-akeyless-cli) instead.
 
@@ -97,21 +97,21 @@ For **CLI Access**, define the following field:
 >
 > You can specify a custom delay, measured in seconds \[0 - 120], before a newly generated dynamic secret becomes usable. This additional wait time helps target systems complete their sync process with the updated credentials
 
-# Access a Database over the Web from the Secure Remote Access Portal
+## Access a Database Over the Web from the Secure Remote Access Portal
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select the database type to which you want to connect.
 
 2. Select the database hostname or IP address, then select **Web**.\
    Adminer opens in a new tab, from which you can interact with the database according to your permissions.
 
-# Access a Database Using CLI from the Secure Remote Access Portal
+## Access a Database Using CLI from the Secure Remote Access Portal
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select the database type to which you want to connect.
 
 2. Select the database hostname or IP address, then select **CLI**.\
    A new tab opens, showing that you are connected to the database.
 
-# Access a Database using Akeyless connect command
+## Access a Database Using Akeyless Connect Command
 
 [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) command enables application native CLI access:
 

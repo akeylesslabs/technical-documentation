@@ -24,13 +24,13 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 <Image align="center" border={false} src="https://files.readme.io/8191f2c-Cert_key_auth.png" />
 
-# Prerequisites
+## Prerequisites
 
 * A **Chain of Trust** for siging a **Client** Certificate , If you don't have one, you can [build your chain of trust](https://docs.akeyless.io/docs/build-your-chain-of-trust) in Akeyless.
 
 * A **Client** Certificate (signed by an Intermediate CA) with `clientauth` key usage, along with the corresponding Private Key, both in `PEM` format.
 
-## Create a Certificate-based Authentication Method in the CLI
+### Create a Certificate-based Authentication Method in the CLI
 
 To create a certificate-based authentication method, the user must provide a signed client certificate, and a `unique identifier` that could be a value of `common_name` or `organizational_unit` parameters from the certificate.
 
@@ -55,7 +55,7 @@ Where:
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorbluecertp) section.
 
-## Authenticate with the Certificate-based Authentication Method
+### Authenticate With the Certificate-based Authentication Method
 
 To authenticate using the new certificate-based authentication method, run the following command:
 
@@ -79,7 +79,7 @@ As a result, you should get the authentication token
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueauthp) section.
 
-## Create a Certificate-based Authentication Method in the Console
+### Create a Certificate-based Authentication Method in the Console
 
 1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > Application (Certificate)**.
 
@@ -117,7 +117,7 @@ You can find the complete list of additional parameters for this command in the 
 
 4. Click **Finish**.
 
-# Manual Certificate Verification
+## Manual Certificate Verification
 
 Instead of providing your private key directly to the Gateway, you can now prove possession of the key by completing the certificate verification challenge manually.
 

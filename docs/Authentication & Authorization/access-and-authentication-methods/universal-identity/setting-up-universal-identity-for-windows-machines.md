@@ -12,11 +12,11 @@ next:
 ---
 To use [Universal Identity](https://docs.akeyless.io/docs/universal-identity) tokens for a Windows machine, you need to set up the machine to accept and renew tokens (through the use of **PowerShell** and **Task Scheduler**).
 
-# Prerequisites
+## Prerequisites
 
 * An Akeyless [Universal Identity](https://docs.akeyless.io/docs/universal-identity) Auth Method
 
-# Steps
+## Steps
 
 1. On the Windows machine, create the following [PowerShell script](https://download.akeyless.io/Akeyless_Artifacts/Windows/Universal_Identity/), where you can replace the`$HOME` (wherever it appears in the script) with the home directory of the user who is going to use this token to authenticate.\
    Save the script as **akeyless\_universal\_identity.ps1**.

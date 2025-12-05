@@ -36,7 +36,7 @@ This method ensures secure and efficient authentication across the network, maki
 
 <Image align="center" src="https://files.readme.io/8a44b2fd698958a43ad9423a017e54f6a5622c1a39655e83267b7a377dea49ec-User_Auth_Flow_2.png" />
 
-# Prerequisites
+## Prerequisites
 
 To use the **Kerberos** Auth Method in Akeyless, the following accounts and permissions need to be configured:
 
@@ -48,7 +48,7 @@ To use the **Kerberos** Auth Method in Akeyless, the following accounts and perm
 
 * **Active Directory module for Windows**: This [module](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) needs to be installed in your Windows environment to run the commands described later in this guide. 
 
-# Configuration
+## Configuration
 
 To authenticate users or clients to services using **Kerberos**, a [Service Principal Name](https://learn.microsoft.com/en-us/windows/win32/ad/service-principal-names) (SPN) must be registered with an account.
 
@@ -62,7 +62,7 @@ Where:
 * `S`: Checks for duplicates before adding the SPN
 * `SPN`: Your Gateway FQDN, e.g. `my.gateway.com`
 
-# Authentication
+## Authentication
 
 Once the SPN is successfully registered, we can proceed with authenticating to the Active Directory using **Kerberos**.
 
@@ -76,7 +76,7 @@ Get-ADUser <AccountName> -Property msDS-KeyVersionNumber
 
 The retrieved value will be used as the `kvno` parameter on the `ktpass` command. 
 
-## keytab Generation
+### Keytab Generation
 
 A [keytab](https://docs.oracle.com/cd/E27515_01/common/tutorials/kerberos_keytab.html) is a file used in Kerberos authentication that contains pairs of Kerberos principals and their corresponding secret keys. It allows services to authenticate to the **Kerberos Key Distribution Center (KDC)** without needing to interactively enter a password.
 
@@ -102,7 +102,7 @@ Where:
 
 `pass`: Indicates that a password is required for the user account
 
-## krb5 File
+### Krb5 File
 
 The **krb5 file** is a configuration file for the **Kerberos 5** authentication system. It contains settings that define the **Kerberos realm**, **KDC (Key Distribution Center)** servers, and other Kerberos-related parameters necessary for authentication.
 
@@ -206,7 +206,7 @@ akeyless auth \
 
 Running this command will authenticate the user specified in the `keytab` file to akeyless using **Kerberos**
 
-# Kerberos SSO SDK
+## Kerberos SSO SDK
 
 To utilize SSO for Kerberos, add the `Akeyless.Kerberos` package to your `.NET` project, and run the following command in your project directory:
 

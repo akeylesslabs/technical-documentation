@@ -46,7 +46,7 @@ When you share a key with one of the supported cloud KMS providers, a copy of th
 >
 > Only [classic keys](https://docs.akeyless.io/docs/classic-keys) can be distributed to cloud KMS providers.
 
-## Supported Cloud KMS Providers
+### Supported Cloud KMS Providers
 
 Akeyless KMS integrates with the following cloud KMS providers:
 
@@ -55,6 +55,6 @@ Akeyless KMS integrates with the following cloud KMS providers:
 * [Google Cloud EKM](https://docs.akeyless.io/docs/gcp-kms)
 * [Salesforce Shield](https://docs.akeyless.io/docs/salesforce-shield)
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Akeyless as an External Multi-Cloud KMS](https://tutorials.akeyless.io/docs/external-kms-with-classic-keys).

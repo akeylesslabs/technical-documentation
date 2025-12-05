@@ -22,7 +22,7 @@ Cryptographic objects managed by the Akeyless KMIP server are stored under the `
 >
 > Only users from your Gateway admins list can configure the KMIP server.
 
-# Enable a KMIP server from the Akeyless CLI
+## Enable a KMIP Server from the Akeyless CLI
 
 To start the Akeyless KMIP server using Akeyless CLI, run the following command:
 
@@ -62,7 +62,7 @@ Note that this will automatically create 2 items under the `/kmip/default` path 
 1. `ca.key` (the CA certificate that was the output of the kmip-server-setup)
 2. A [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) named **server**
 
-# KMIP client configuration
+## KMIP Client Configuration
 
 * In this guide, we will use MongoDB Enterprise as a KMIP Client.
 
@@ -74,7 +74,7 @@ Note that this will automatically create 2 items under the `/kmip/default` path 
 >
 > **Activate Keys** - Akeyless supports an optional setting to enable keys upon creation automatically. To set this function by default for your client, provide the `--activate-keys-on-creation=true` setting as part of your client creation command.
 
-# Create a KMIP client from the Akeyless CLI
+## Create a KMIP Client from the Akeyless CLI
 
 ```shell
 akeyless kmip-create-client \
@@ -120,7 +120,7 @@ Key and certificate will not be shown anymore, but you will still be able to ret
 akeyless kmip-list-clients --gateway-url 'https://<Your-Akeyless-Gateway-URL:8000>'
 ```
 
-# Client access permissions
+## Client Access Permissions
 
 By default, KMIP clients have no permissions. To grant your KMIP client minimal access permissions, execute the following command:
 
@@ -153,7 +153,7 @@ You can find the complete list of settings for this command in the [CLI Referenc
 >
 > Please note that these roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
 
-# MongoDB Encryption configuration
+## MongoDB Encryption Configuration
 
 MongoDB Enterprise supports [integration with KMIP Servers](https://docs.mongodb.com/manual/tutorial/configure-encryption/). To set up MongoDB integration with the Akeyless KMIP server, the following settings need to be provided (see the linked guide for details):
 
@@ -179,7 +179,7 @@ The command output shows the created KMIP key ID:
 
 `Encryption key manager initialized using KMIP key with id: feu...uoz.`
 
-# Create a KMIP server using the Akeyless Console
+## Create a KMIP Server Using the Akeyless Console
 
 1. Log in to the Akeyless Console and navigate to **Data Protection > New**.
 
@@ -197,7 +197,7 @@ The command output shows the created KMIP key ID:
 
 3. Click **Setup** to save the changes.
 
-# Create a KMIP client using the Akeyless Console
+## Create a KMIP Client Using the Akeyless Console
 
 1. Click on your **KMIP Server > Clients > New Client**.
 

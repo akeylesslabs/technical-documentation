@@ -20,6 +20,6 @@ There are two general types of keys available for creation and use:
 
 Each type has its own sub-types and unique uses that will be elaborated upon in their own pages.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Rotating Encryption Keys](https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys).

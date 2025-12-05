@@ -34,7 +34,7 @@ A certificate can be requested based on a Common Name (CN) or via a Certificate 
 
 The outcome artifacts of certificate issuance, including the certificate, private key, and certificate chain, are saved in the Akeyless Platform as a static secret in a configurable location.
 
-## Venafi Dynamic Secret settings
+## Venafi Dynamic Secret Settings
 
 **Venafi API Key** - The API Key to use when connecting to a Venafi Cloud environment.
 

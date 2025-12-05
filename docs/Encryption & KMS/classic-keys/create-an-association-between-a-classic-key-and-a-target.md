@@ -45,7 +45,7 @@ The full list of options for this command is:
       --no-creds-cleanup[=false]   Do not clean local temporary expired creds
 ```
 
-# Shared Keys on a Cloud KMS
+## Shared Keys on a Cloud KMS
 
 When you associate a classic key with a cloud KMS, you will find a new customer-managed key on the cloud KMS. The key alias is built as `managed-by-<account-id>-<item-id>`, as shown in the following example:
 

@@ -12,7 +12,7 @@ next:
 ---
 Akeyless is an OpenID Connect (OIDC) identity provider enabling client applications full support of the OIDC protocol to leverage all Akeyless supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) as a source of identity when authenticating end-users. Client applications can configure their authentication logic to talk to Akeyless. Once enabled, Akeyless will act as the bridge to other identity providers via its existing Authentication Methods.
 
-# Creating an OIDC App from the CLI
+## Creating an OIDC App from the CLI
 
 To create an OIDC Application from the CLI, run the following command:
 
@@ -34,7 +34,7 @@ Where:
 * `scopes` (Optional): A list of scopes that third-party applications are allowed to request. These scopes (excluding special scopes) will be copied from the `sub-claims` in Akeyless to the OIDC Token. Scopes can include Groups as well.
 * `audience`  (Optional) : A list of audiences that third-party applications are allowed to request. This will only affect the `access token` (the `audience` for the `id token` is always the `client id` ).
 
-## Client Type
+### Client Type
 
 OAuth defines two client types, based on their ability to authenticate securely with the authorization server (i.e., the ability to maintain the confidentiality of their client credentials):
 
@@ -58,7 +58,7 @@ Once created, you will see output similar to this:
 
 You will need this information for the next step in the process.
 
-# Authenticating with Akeyless
+## Authenticating With Akeyless
 
 Once you have created your OIDC App, you will need to authenticate agianst Akeyless using an Authentication Method  that was set as part of the  `access-permission-assignment`. 
 
@@ -77,7 +77,7 @@ Token: t-84e46b1ef69c617d0cd4b15aaeba10da
 
 You will need this token for the next step as well.
 
-## Make a POST Request to Token Endpoint
+### Make a POST Request to Token Endpoint
 
 Once authorized, make a `POST` request to the `Token Endpoint` in order to get back your OIDC Token.  The parameters should be `url encoded`.
 
@@ -129,7 +129,7 @@ After running this **POST** request, you will receive an OIDC token back:
 
 You can now use that OIDC  `access_token` to authenticate with another resource or application.
 
-# Updating an OIDC App from the CLI
+## Updating an OIDC App from the CLI
 
 Use the following command to update an OIDC App:
 

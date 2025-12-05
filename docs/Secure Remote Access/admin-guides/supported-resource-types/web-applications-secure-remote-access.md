@@ -22,7 +22,7 @@ The following browsing modes are available:
 >
 > Your web application must run over HTTPS
 
-## Prerequisite
+### Prerequisite
 
 * The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) deployed.
 
@@ -30,7 +30,7 @@ The following browsing modes are available:
 
 This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: <code>username..password</code>. i.e. a concatenation of your username and password, with double dots as a delimiter. 
 
-# Set Up Remote Access to a web application from the Akeyless CLI
+## Set Up Remote Access to a Web Application from the Akeyless CLI
 
 Let's set up remote access to your web application using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/web-applications-secure-remote-access#set-up-remote-access-to-a-web-application-from-the-akeyless-console) instead.
 
@@ -57,7 +57,7 @@ On Akeyless Secure Remote Access Portal, click on the Web Access application, se
 
 A new tab will open, redirect to the requested page, and inject credentials provided by the static secret.
 
-# Set Up Remote Access to a web application from the Akeyless Console
+## Set Up Remote Access to a Web Application from the Akeyless Console
 
 Let's set up remote access to the web application from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/web-applications-secure-remote-access#set-up-remote-access-to-a-web-application-from-the-akeyless-cli) instead.
 

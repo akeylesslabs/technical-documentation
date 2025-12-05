@@ -12,7 +12,7 @@ next:
 ---
 **Venafi** Target can be used with the Venafi Dynamic Secret as described under the [Venafi Integration](https://docs.akeyless.io/docs/venafi-integration) docs.
 
-# Create a Venafi Target in the Console
+## Create a Venafi Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Certificate Automation (Venafi)**.
 

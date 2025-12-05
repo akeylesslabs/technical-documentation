@@ -12,12 +12,12 @@ next:
 ---
 This guide will demonstrate how to use **Terraform** in order to create 2 roles in AWS in different accounts, and using one Akeyless Gateway to create resources as a cross-account deployment.
 
-# Prerequisites
+## Prerequisites
 
 * Akeyless Gateway
 * Terraform installed
 
-# Management Account Configuration
+## Management Account Configuration
 
 First, we will create the [IAM-Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the resource account using terraform:
 
@@ -224,7 +224,7 @@ In order to work with this role from Akeyless, an [AWS Target](https://docs.akey
 2. Give the Target a **Name** and optionally, a **Location**, Press **Next**.
 3. Choose **Use Gateway's Cloud Identity** and click **Finish**
 
-# Destination Account Configuration
+## Destination Account Configuration
 
 In order to have a centralized Gateway that will be able to manage resources in multiple AWS Accounts, A target in Akeyless with an [External ID](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/) is required. 
 
@@ -238,7 +238,7 @@ A new **External ID** will be generated.
 >
 > Once the role will be created, we will add it to the target.
 
-## Creating the Role in the Destination Account
+### Creating the Role in the Destination Account
 
 **In a new directory**, create the following files:
 
@@ -467,7 +467,7 @@ At this point, we have created the following resources:
 * An IAM-Role in the destination account Account.
 * A target in Akeyless with an External ID
 
-# CrossAccount Deployment
+## CrossAccount Deployment
 
 Now, we will use the roles that were created in order to manage the destination AWS account.
 
@@ -481,7 +481,7 @@ Connect to your Gateway - `https://public-ip>:8000`, this will automatically upd
 
 Then, enter the GW console - `https://public-ip>:8000/console`
 
-## Create the Dynamic Secret
+### Create the Dynamic Secret
 
 This example will use **IAM\_USER** mode, this will create a new temporary user in the destination account in AWS.
 
@@ -496,7 +496,7 @@ Once the Dynamic Secret is created, press **Get Dynamic Secret**
 
 You will get the credentials of the new temporary user that was created in the destination account, save the credentials as it will be used for the next step.
 
-## Create a Rotated Secret
+### Create a Rotated Secret
 
 Now, we will use an AWS [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 

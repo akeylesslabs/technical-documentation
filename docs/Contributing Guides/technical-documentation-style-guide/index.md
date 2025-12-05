@@ -13,15 +13,15 @@ metadata:
   This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites) .
 </Callout>
 
-# Purpose
+## Purpose
 
 This guide defines standards for writing clear, consistent, and professional technical documentation. All contributors should follow these guidelines to ensure readability, accuracy, and usability.
 
-# Prerequisites
+## Prerequisites
 
 * Review the [Brand Book](https://drive.google.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view?usp=sharing).
 
-# Writing Style
+## Writing Style
 
 * **Clarity first**: Use simple, direct language. Avoid unnecessarily technical terms or advanced vocabulary.
   * Avoid Latin phrases and abbreviations. For example, "e.g.", "i.e.", and "ad hoc".
@@ -32,40 +32,40 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you"). Quickstarts are exempted from this.
 * **Simplicity**: Keep punctuation simple and avoid chained clauses.
 
-## Punctuation
+### Punctuation
 
 * Use the serial comma (also called the Oxford comma).
   * With It: "At my court hearing there were two detectives, my wife, and my sister."
   * Without It: "At my court hearing there were two detectives, my wife and my sister."
 * Avoid using ampersands (&) and slashes (/) in sentences. Ampersands are acceptable in headings.
 
-## Tone
+### Tone
 
 * Professional yet approachable.
 * Avoid slang, jargon, or overly casual language.
 * Use inclusive language (e.g., "they" instead of "he/she").
 * Maintain a neutral and instructional tone.
 
-# Markdown Structure
+## Markdown Structure
 
-## Headings
+### Headings
 
 * Use `##` for sections, `###` for subsections, etc.
   * Avoid using `#` which is reserved for document titles, which ReadMe handles in a different way.
 * Titles should be descriptive and concise.
 * Do not use **bolded text**, when a heading is intended.
 
-## Paragraphs
+### Paragraphs
 
 * Keep paragraphs short (3–5 sentences).
 * Use lists and tables to break down complex information.
 
-## Lists
+### Lists
 
 * **Unordered lists** (`-` or `*`) for unordered items.
 * **Ordered lists** (`1.`) for step-by-step instructions.
 
-## Code
+### Code
 
 * Inline code: Use backticks (`command`). Use inline code for represent:
   * Example: Use `akeyless update` to update your Akeyless CLI version.
@@ -85,7 +85,7 @@ This guide defines standards for writing clear, consistent, and professional tec
   Java Code
   ```
 
-## `<details>`
+### `<Details>`
 
 Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoided, but the `<details>` tag is a good use of custom HTML.
 
@@ -103,27 +103,27 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
   ```
 </details>
 
-# Formatting
+## Formatting
 
 * **Bold**: For UI elements, important notes, or emphasis.
 * _Italics_: For new terms or lighter emphasis.
 * `Monospace`: For commands, code, filenames, configuration keys.
 * Avoid underlines (can be confused with hyperlinks).
 
-# Terminology
+## Terminology
 
 * Capitalize proper nouns and feature names (e.g., Akeyless MCP Server).
 * When using abbreviations, unless they are widely known (e.g., "API," "URL"), always define them on first use.
   * For example, "Our API supports CRUD (Create, Read, Update, and Delete) operations."
 * Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
 
-## Akeyless Specific Terms
+### Akeyless Specific Terms
 
 * Always use the product’s official names.
 * Avoid having Akeyless become possessive where possible. For example, "Akeyless' technology does great things." Instead, reword the sentence to avoid that scenario (e.g, "The innovative technology of Akeyless does great things.")
 * Akeyless is an "identity security platform". Previously it was acceptable to refer to it as a "secrets management platform". This is no longer the case.
 
-## Third-Party Terms
+### Third-Party Terms
 
 * When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
   * GitLab (instead of Gitlab)
@@ -137,7 +137,7 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
   * Amazon EKS (instead of EKS or AWS EKS)
   * `kubectl` (instead of Kubectl)'
 
-## Command-Line Conventions
+### Command-Line Conventions
 
 * When referring to CLI commands use the proper terminology. Referring to this example: `akeyless target create godaddy -n "name-value" -p "password"`
   * `akeyless` is the command.
@@ -145,20 +145,20 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
   * `-n` and `-p` are flags (also known as options).
   * `"name-value"` and `"password"` are flag values (or option values).
 
-# Examples
+## Examples
 
 * Include working, tested examples.
 * Show expected input and output when relevant.
 * Use realistic values wherever possible, not placeholders, unless security-sensitive.
 * When formatting inputs and output pairs, precede the input with a ">" and the output following on the next line.
 
-# CLI Reference Structure
+## CLI Reference Structure
 
 CLI References should document only one command or subcommand. Each CLI reference page should describe the command (or subcommand), provide a usage example, provide a description of all available flags, and can optionally have an additional notes section. Consequently, CLI Reference pages will feature a large amount of redundancy. To ease authoring, use ReadMe's Reusable Content feature.
 
 Due to the nature of CLI help pages, their documentation uses many shortened words, abbreviations, and unclear descriptions. These issues should be resolved on a CLI Reference, rather than duplicated.
 
-# Style Conventions
+## Style Conventions
 
 * Dates: `YYYY-MM-DD` (ISO 8601).
 * Time: Use UTC when relevant (e.g., `14:00 UTC`).

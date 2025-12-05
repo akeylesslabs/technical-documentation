@@ -12,7 +12,7 @@ next:
 ---
 You can enable secure remote access to a Kubernetes cluster based on the dynamic secret that generates ephemeral credentials for Kubernetes cluster. Users can then access Kubernetes cluster from the Secure Remote Access Portal, either over the web or using Kubernetes native CLI.
 
-## Prerequisite
+### Prerequisite
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
@@ -22,7 +22,7 @@ You can enable secure remote access to a Kubernetes cluster based on the dynamic
 
 * An  [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
 
-## Set Up Remote Access to a Kubernetes cluster from the Akeyless CLI
+### Set Up Remote Access to a Kubernetes Cluster from the Akeyless CLI
 
 Let's set up remote access to a Kubernetes cluster using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/k8s-cluster-access#set-up-remote-access-to-a-k8s-cluster-from-the-akeyless-console) instead.
 
@@ -48,7 +48,7 @@ For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-gener
 * **secure-access-dashboard-url:** The Kubernetes dashboard URL available only for Generic Kubernetes.
 * **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
-# Set Up Remote Access to a Kubernetes Cluster from the Akeyless Console
+## Set Up Remote Access to a Kubernetes Cluster from the Akeyless Console
 
 Let's set up remote access to a Kubernetes cluster from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/k8s-cluster-access#set-up-remote-access-to-a-k8s-cluster-from-the-akeyless-cli) instead.
 

@@ -12,7 +12,7 @@ next:
 ---
 Akeyless connect provides you with secure CLI access to resources or a secure tunnel from any UNIX terminal.
 
-# Prerequisites
+## Prerequisites
 
 To use Akeyless Connect  you need:
 
@@ -31,7 +31,7 @@ To use Akeyless Connect  you need:
 >
 > To work with the `akeyless-connect` command from a Windows machine, place the <code>.akeyless-connect.rc</code> script in your home directory.
 
-# Set Up Akeyless Connect
+## Set Up Akeyless Connect
 
 Install the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). Or run `akeyless update` to ensure you're using the latest version.
 
@@ -146,7 +146,7 @@ Where the URL will be set as follows:
 >
 > NOTE that this workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
 
-# Usage
+## Usage
 
 Use the `akeyless connect` command to connect to a resource through the Gateway's Remote Access (more examples below). If you are using the `akeyless-connect.rc` file with a `CERT_ISSUER_NAME`, you don't need to add the `-c <cert-issuer-name>` flag in the command:
 
@@ -190,7 +190,7 @@ Full options list:
     --no-creds-cleanup[=false]         Do not clean local temporary expired creds
 ```
 
-## Examples
+### Examples
 
 **SSH:**
 

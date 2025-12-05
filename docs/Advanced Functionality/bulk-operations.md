@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## Delete items
+## Delete Items
 
 This command deletes an entire items folder with its contents\
 The user running the command must have `Get`, `List`, and `Delete` permissions on the designated path and recursively on each item inside it.

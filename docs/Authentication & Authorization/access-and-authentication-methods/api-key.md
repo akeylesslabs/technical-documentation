@@ -16,7 +16,7 @@ API Key is a simple [Authentication Method](https://docs.akeyless.io/docs/access
 
 <Image align="center" border={false} src="https://files.readme.io/574347a-API_key_auth.png" />
 
-# Create an API Key Authentication Method from the CLI
+## Create an API Key Authentication Method from the CLI
 
 Let's create a new API Key authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/api-key#create-an-api-key-authentication-method-in-the-akeyless-console).)
 
@@ -36,7 +36,7 @@ Where:
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueapi-keyp) section.
 
-# Configure Akeyless CLI with the API Key authentication method
+## Configure Akeyless CLI With the API Key Authentication Method
 
 To configure your CLI to work with API Key authentication, run the following command:
 
@@ -44,7 +44,7 @@ To configure your CLI to work with API Key authentication, run the following com
 akeyless configure --profile default --access-id <AccessID>  --access-key < API Key>
 ```
 
-# Create an API Key authentication method in the Akeyless Console
+## Create an API Key Authentication Method in the Akeyless Console
 
 1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > API Key**.
 
@@ -64,6 +64,6 @@ akeyless configure --profile default --access-id <AccessID>  --access-key < API 
 
 5. Download a CSV file with the **Access ID** and **Access Key**.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Authentication Methods and API Key Authentication](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication).
