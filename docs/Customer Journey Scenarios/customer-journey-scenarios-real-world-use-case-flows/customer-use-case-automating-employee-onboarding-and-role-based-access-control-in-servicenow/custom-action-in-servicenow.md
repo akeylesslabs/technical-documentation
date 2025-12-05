@@ -184,6 +184,6 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 ![](https://files.readme.io/503d127-Screenshot_2024-02-29_at_19.21.58.png)
 
-## Step 6: Save and Publish the Custom Action.
+## Step 6: Save and Publish the Custom Action
 
 ![](https://files.readme.io/37f865b-Screenshot_2024-02-29_at_19.26.51.png)
