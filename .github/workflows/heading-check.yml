@@ -21,8 +21,31 @@ jobs:
       # 1. Scan Markdown headings
       - name: Scan Markdown headings
         id: scan_headings
+        env:
+          IGNORE_FILES: |
+            .github/heading-audit/heading-report.md
+            .github/lychee/lychee-out.md
+            ./docs/Contributing Guides/technical-documentation-style-guide/ai-linter-rules.md
+            ./docs/Contributing Guides/technical-documentation-style-guide/index.md
+            ./docs/Contributing Guides/look-feel-sample-page-title.md
+
         run: |
           set -euo pipefail
+
+          ignore_file() {
+            local file="$1"
+            # strip leading ./ for comparison
+            local normalized="${file#./}"
+
+            while IFS= read -r ignore; do
+                [ -z "$ignore" ] && continue
+                if [ "$file" = "$ignore" ] || [ "$normalized" = "$ignore" ]; then
+                return 0
+                fi
+            done <<< "$IGNORE_FILES"
+
+            return 1
+          }
 
           mkdir -p .github/heading-audit
           REPORT=".github/heading-audit/heading-report.md"
@@ -40,7 +63,11 @@ jobs:
           # 1. Detect any usage of Heading 1 in Markdown.
           #    Match lines starting with a single `#` and a space, but not `##`.
           while IFS= read -r -d '' FILE; do
-            if grep -qE '^[[:space:]]*# [^#]' "$FILE"; then
+            # Skip ignored files
+            if ignore_file "$FILE"; then
+              continue
+            fi
+            if grep -qE '^[[:space:]]*#[[:space:]]*[^#]' "$FILE"; then
               FOUND_ISSUES=$((FOUND_ISSUES+1))
               echo "- $FILE" >> "$REPORT"
             fi
@@ -52,6 +79,10 @@ jobs:
 
           # 2. Detect pages that don't use Heading 2 but use other headings.
           while IFS= read -r -d '' FILE; do
+            # Skip ignored files
+            if ignore_file "$FILE"; then
+              continue
+            fi
             # Does the file have ANY markdown headings (#..######)?
             if grep -qE '^[[:space:]]*#{1,6}[[:space:]]+' "$FILE"; then
               # Does the file have a Heading 2?
