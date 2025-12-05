@@ -82,18 +82,20 @@ GATEWAY_ACCESS_TYPE=access_key
 
 While running your Gateway instance inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) for authentication. Using machine-to-machine authentication between Akeyless and your Cloud Service Provider, they can supply a list of users allowed to to manage your Akeyless Gateway configuration by adding the `ALLOWED_ACCESS_PERMISSIONS` variable to the `.env` configuration file.
 
-Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods ](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you need to set a list of users that will be able to [manage your Gateway](https://docs.akeyless.io/docs/advance-gw-docker-configuration#/gateway-admins) configuration using `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) or an [API Key](https://docs.akeyless.io/docs/api-key).
+Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you need to set a list of users that will be able to [manage your Gateway](https://docs.akeyless.io/docs/advance-gw-docker-configuration#/gateway-admins) configuration using `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) or an [API Key](https://docs.akeyless.io/docs/api-key).
 
 ```shell AWS_IAM
 GATEWAY_ACCESS_ID=<AccessID>
 GATEWAY_ACCESS_TYPE=aws_iam 
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<AccessID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
+
 ```shell GCP_GCE
 GATEWAY_ACCESS_ID=<Access ID>
 GATEWAY_ACCESS_TYPE=gcp_gce
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
+
 ```shell Azure_AD
 GATEWAY_ACCESS_ID=<Access ID>
 GATEWAY_ACCESS_TYPE=azure_ad 

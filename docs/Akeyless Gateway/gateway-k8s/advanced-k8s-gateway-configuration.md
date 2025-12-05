@@ -101,7 +101,7 @@ For OIDC, to leverage your Gateway for the callback redirects instead of the Ake
 
 Set the default [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) that will encrypt all items created on this Gateway using the setting `defaultEncryptionKey` with the full path to your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) in Akeyless.
 
-Set the default location secrets created by this Gateway will be stored within your Akeyless account using the`defaultSecretLocation` setting with a path to store your secrets. 
+Set the default location secrets created by this Gateway will be stored within your Akeyless account using the`defaultSecretLocation` setting with a path to store your secrets.
 
 > 🚧 Warning
 >
@@ -121,7 +121,7 @@ defaultsConf:
 
 To work with [CBA](https://docs.akeyless.io/docs/certificate-based-authentication) flow for users login, first set your users' DNS records with the cert authentication subdomain  `auth-cert.akeyless.io` to point to your Gateway IP address.
 
-And set your deployment with the following parameters: 
+And set your deployment with the following parameters:
 
 Under `TLSConf` section, enable the `enableSniProxy` setting, and under the `defaultsConf` section provide your [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) auth method `accessID`:
 
@@ -136,7 +136,7 @@ defaultsConf:
 
 ## Cache Configuration
 
-You can enable caching of secrets and periodic backup of cached secrets, set the `cachingConf` setting and set the `cacheTTL` value in minutes to configure the  TTL for a secret that should be kept in the cache. 
+You can enable caching of secrets and periodic backup of cached secrets, set the `cachingConf` setting and set the `cacheTTL` value in minutes to configure the  TTL for a secret that should be kept in the cache.
 
 To work with proactive caching set the `proActiveCaching` to true and set the `minimumFetchingTime` to config the Gateway to update secrets in the cache if they are older than the specified value with the `dumpInterval` to set the time in minutes between the two consecutive backups.
 
@@ -174,7 +174,7 @@ To provide the settings of your Gateway deployment directly from your local k8s 
 * `admin-access-key`
 * `allowed-access-ids`
 * `customer-fragments`
-* `akeyless-api-cert.crt` 
+* `akeyless-api-cert.crt`
 * `akeyless-api-cert.key`
 * `admin-certificate (base64)`
 * `admin-certificate-key (base64)`

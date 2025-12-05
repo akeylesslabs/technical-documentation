@@ -46,7 +46,7 @@ To configure **Access Permissions** in your [Gateway Configuration Manager](http
 | **Rotate Secret Value**         | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item. |
 | **Classic Keys**                | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys)                                                      |
 | **Kubernetes Auth**             | Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)  Auth Gateway configuration                         |
-| **LDAP Auth**                   | Management of [LDAP ](https://docs.akeyless.io/docs/ldap)  Auth Gateway configuration                                         |
+| **LDAP Auth**                   | Management of [LDAP](https://docs.akeyless.io/docs/ldap)  Auth Gateway configuration                                         |
 | **Kerberos Auth**               | Management of [Kerberos](https://docs.akeyless.io/docs/kerberos)  Auth Gateway configuration                                  |
 | **Caching**                     | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache)  settings                            |
 | **Automatic Migration**         | Management of [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)  settings                              |

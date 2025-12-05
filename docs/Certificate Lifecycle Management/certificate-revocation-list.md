@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless enables you to proactively revoke certificates before their scheduled expiration date and seamlessly add them to a **Certificate Revocation List (CRL)**, ensuring enhanced security and trust in your certificate management process. Each [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) generates a consistent **Certificate Revocation List (CRL)** for all its issued certificates. 
+Akeyless enables you to proactively revoke certificates before their scheduled expiration date and seamlessly add them to a **Certificate Revocation List (CRL)**, ensuring enhanced security and trust in your certificate management process. Each [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) generates a consistent **Certificate Revocation List (CRL)** for all its issued certificates.
 
 > 📘 Note
 >
@@ -44,7 +44,7 @@ To revoke a certificate from the console:
 
 ## Revocation List
 
-Once the certificate is revoked, it is added to the **Certificate Revocation List**. For each issuer the following formats are maintaining the revocation list when applicable: 
+Once the certificate is revoked, it is added to the **Certificate Revocation List**. For each issuer the following formats are maintaining the revocation list when applicable:
 
 **Public CRL** at: `https://vault.akeyless.io/crl/<account-id>/<cert-issuer-display-id>`.
 

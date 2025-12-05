@@ -20,7 +20,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 ## Prerequisites
 
-* **HSM** configured to work with `PKCS#11`. 
+* **HSM** configured to work with `PKCS#11`.
 
 * An `AES` encryption key that supports the `hmac 256` mechanism ( **Relevant for Customer Fragment**)
 
@@ -28,7 +28,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 ## HSM Configuration
 
-To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the  `pkcs11.so` file, you can either create a PVC manually and provide it using the  `existingClaim` or set the `storageClass` for automatic provisioning with your k8s provider. The `accessMode` should be `ReadWriteMany`. 
+To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the  `pkcs11.so` file, you can either create a PVC manually and provide it using the  `existingClaim` or set the `storageClass` for automatic provisioning with your k8s provider. The `accessMode` should be `ReadWriteMany`.
 
 In addition, the **HSM pin** must be provided using a **K8s Secret** which holds the `pin`, **note** the **K8s secret** key name must be set to `pin`
 
@@ -95,7 +95,7 @@ Where:
 
 * `name`: **Customer Fragment** name.
 
-* `type`: The **HSM** mode for the **Customer Fragment** either: 
+* `type`: The **HSM** mode for the **Customer Fragment** either:
 
   * `hsm_wrapped`: Will derive the fragment once, when the gateway starts up, and keep the result in memory
 

@@ -58,7 +58,7 @@ Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool 
 
 * With your trigger defined, you can start adding actions that the flow will execute.
 * Click on Add Action in the main flow canvas.
-* Browse or search for the action you want to add. 
+* Browse or search for the action you want to add.
 
 ![](https://files.readme.io/bafbf12-Screenshot_2024-02-29_at_19.44.33.png)
 

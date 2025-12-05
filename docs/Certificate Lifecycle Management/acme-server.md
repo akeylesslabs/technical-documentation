@@ -20,7 +20,7 @@ Before proceeding, ensure you have permission to manage **ACME** on your Gateway
 
 ## Enable ACME Server
 
-In this guide, we will create a **PKI Cert Issuer** with  **ACME Server** where we will register [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows) as an **ACME Client** using External Account Binding. 
+In this guide, we will create a **PKI Cert Issuer** with  **ACME Server** where we will register [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows) as an **ACME Client** using External Account Binding.
 
 ### Create a Signer Key
 
@@ -73,7 +73,7 @@ Where:
 
 * `conf-file-path`: Path to the configuration file that contains CSR config data.
 
-Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** for our [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). 
+Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** for our [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
 ### Create a PKI Cert Issuer
 
@@ -108,7 +108,7 @@ Where:
 
 Upon successful creation,  the generated **ACME Server**  URL will use the following format:
 
-`https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory` 
+`https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory`
 
 To extract the `issuer-display-id`  from the CLI, run the following command:
 
@@ -117,13 +117,13 @@ akeyless describe-item \
 --name /ACME/Server/ACMEIssuer | jq -r '.display_id'
 ```
 
-Alternatively, you can extract the full **ACME Server** URL from the console. 
+Alternatively, you can extract the full **ACME Server** URL from the console.
 
 ## External Account Binding
 
 **External Account Binding**, defined in the [ACME Protocol RFC 8555](https://datatracker.ietf.org/doc/html/rfc8555/#section-7.3.4), is a feature that improves the security of certificate issuance by connecting certificate requests to specific accounts. This ensures that only authorized clients can request and receive certificates for those accounts, making the process much safer.
 
-Run the following command to generate an external account binding token which will be restricted for one-time use and valid only for **1 Hour**  for the registration of a new client: 
+Run the following command to generate an external account binding token which will be restricted for one-time use and valid only for **1 Hour**  for the registration of a new client:
 
 ```shell
 akeyless generate-acme-eab \
@@ -155,6 +155,7 @@ In the following example, we will request a certificate from the  **ACME server*
 ```shell Windows
 certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir  C:\Users\<username>\certbot\conf --work-dir C:\Users\<username>\certbot\work --logs-dir C:\Users\<username>\certbot\logs
 ```
+
 ```shell Linux
 certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir /home/ubuntu/certbot/conf --work-dir /home/ubuntu/certbot/work --logs-dir /home/ubuntu/certbot/logs
 ```
@@ -163,11 +164,11 @@ Where:
 
 * `server`: The **ACME Server URL**, can be found under **ACME Server** tab on the **PKI Cert Issuer** in the console.
 
-* `domain`: The domain name for which you want to issue the certificate, must be listed in the [PKI Cert Issuer](https://docs.akeyless.io/docs/acme-server#create-a-pki-cert-issuer) under the `Allowed domains list` field. 
+* `domain`: The domain name for which you want to issue the certificate, must be listed in the [PKI Cert Issuer](https://docs.akeyless.io/docs/acme-server#create-a-pki-cert-issuer) under the `Allowed domains list` field.
 
 * `eab-kid`: The external accounts binding  **Key Identifier** .
 
-* `eab-hmac-key`: The external account binding **HMAC key**. 
+* `eab-hmac-key`: The external account binding **HMAC key**.
 
 Upon successful certificate request, the certificate will be issued.
 

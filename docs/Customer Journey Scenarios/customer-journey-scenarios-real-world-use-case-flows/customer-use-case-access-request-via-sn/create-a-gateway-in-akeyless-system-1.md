@@ -30,7 +30,7 @@ Creating a gateway within the Akeyless system is a fundamental step for leveragi
 ## Step 4: Creating Gateway Credentials
 
 * Log In: Access the Akeyless console and log in with your admin account.
-* Create API Key: Click on the option to create or generate a new API key. 
+* Create API Key: Click on the option to create or generate a new API key.
 
 ![](https://files.readme.io/9219db2-Screenshot_2024-03-05_at_10.03.37.png)
 

@@ -74,13 +74,17 @@ This guide defines standards for writing clear, consistent, and professional tec
   ```bash
   git clone https://github.com/example/repo.git
   ```
+
 * Use code block tabbing when presenting the same example across multiple languages or platform configurations:
+
   ```python
   Python Code
   ```
+
   ```ruby
   Ruby Code
   ```
+
   ```java
   Java Code
   ```
@@ -101,6 +105,7 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
   I am text that should be hidden by default.
   </details>
   ```
+
 </details>
 
 ## Formatting
@@ -170,6 +175,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * File paths: Use `/` for paths (e.g., `/usr/local/bin`).
 * Data Structures: When representing child elements outside of a full object notation file, use a period to represent child elements in relation to their parents.
   * For example, represent `--access-type` from the below example as `args.--access-type`.
+
   * ```json
     {
       "args": [
@@ -180,6 +186,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
       ]
     }
     ```
+
     ```yaml
     args:
       - mcp

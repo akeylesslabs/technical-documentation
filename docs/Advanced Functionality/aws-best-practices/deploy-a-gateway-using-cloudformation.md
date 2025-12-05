@@ -555,7 +555,7 @@ aws ec2 describe-images \
 * **InstanceType** – e.g. `t3.small`, `t3.medium`
 * **KeyName** - Optional, EC2 Key Pair name for SSH access.
 
-3. Click **Next**, then **Create Stack**.
+1. Click **Next**, then **Create Stack**.
 
 This stack will:
 
@@ -575,8 +575,8 @@ First, login to `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console` , and enter the 
 >
 > The `INSTANCE_PUBLIC_IP` can be found under the **Outputs** tab in the CloudFormation stack.
 
-2. Select **Access Key** login.
-3. Enter the **Access ID** and **Access Key**.
+1. Select **Access Key** login.
+2. Enter the **Access ID** and **Access Key**.
 
 ## Create the Resources in Akeyless
 

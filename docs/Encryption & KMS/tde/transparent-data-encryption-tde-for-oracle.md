@@ -264,15 +264,13 @@ This command generates an auto-login version of the file-based wallet. The auto-
 
 {/*
 
- 
-
-### Reverse Migrate the Encryption Key:
+### Reverse Migrate the Encryption Key
 
 ```shell
 ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "AKEYLESS" REVERSE MIGRATE USING "AKEYLESS" WITH BACKUP;
 ```
 
-#### Explanation:
+#### Explanation
 
 Reverse migration applies the encryption key from the HSM-based configuration to the new file-based wallet, ensuring that the master encryption key remains consistent between configurations.
 
@@ -335,15 +333,13 @@ Reference: [ENCRYPTION_WALLET](https://docs.oracle.com/en/database/oracle/oracle
 
 #### Oracle Version Differences
 
-##### For Oracle 19c:
+##### For Oracle 19c
 
-##### Explanation:
+##### Explanation
 
 In a 19c environment (which may use a multitenant architecture with a CDB/PDB), you have the option to use united mode (one master key for all containers) or isolated mode (separate keys per PDB).
 
 {/*
-
- 
 
 Note that reverse migration from an HSM to a file-based wallet may not be supported in united mode.
 

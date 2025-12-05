@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-Akeyless offers the creation of a private certificate authority, in which you can use your certificate authority to sign intermediate certificates, which will sign server/client certificates, which is also called, **Chain of Trust**. 
+Akeyless offers the creation of a private certificate authority, in which you can use your certificate authority to sign intermediate certificates, which will sign server/client certificates, which is also called, **Chain of Trust**.
 
-The certificate chain includes the following components: 
+The certificate chain includes the following components:
 
-* **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece. 
+* **Root CA**: The Root CA is an authority responsible for signing Intermediate certificates. In our scenario, it functions as the Certificate Authority and we will use a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key never exists as a single piece.
 
 * **Intermediate CA**: Signed by the **Root CA**, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has authorized the Intermediate CA.
 
-* **Leaf Certificate**: A certificate that is being used by any application. 
+* **Leaf Certificate**: A certificate that is being used by any application.
 
 <Image align="center" width="123% " src="https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png" />
 
@@ -78,7 +78,7 @@ The following is the structure of the items related to the newly created CA:
 * **Issuers** -  Contains the both **Root** and **Intermediate** issuers.
 * **Keys** - Contains the signer keys for both **Root** and **Intermediate** issuers.
 
-Once the certificate is generated, a new folder named **certificates** will be created, containing the newly generated certificate. 
+Once the certificate is generated, a new folder named **certificates** will be created, containing the newly generated certificate.
 
 ### Issuing a Leaf Certificate
 

@@ -12,7 +12,7 @@ next:
 ---
 Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been modified.
 
-[Sigstore ](https://docs.sigstore.dev/about/overview/)is an open-source project for improving software supply chain security. The Sigstore framework and tooling empower software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more.
+[Sigstore](https://docs.sigstore.dev/about/overview/)is an open-source project for improving software supply chain security. The Sigstore framework and tooling empower software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more.
 
 To sign software artifacts and verify signatures using Sigstore, you need to install [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/), which is a command line utility that can sign and verify software artifacts, such as container images and blobs.
 
@@ -49,6 +49,7 @@ Create a folder for the Akeyless **Sigstore** plugin configuration:
 ```shell Ubuntu
 mkdir /var/akeyless/conf/
 ```
+
 ```shell MacOS
 mkdir -p /var/akeyless/conf/
 ```
@@ -64,6 +65,7 @@ access_key="<Access_Key>"
 access_type="access_key"
 EOF
 ```
+
 ```shell Windows
 cd C:\Users\<USER>\.akeyless\profiles
 echo akeyless_url="https://<Your Gateway URL>:8081" > sigstore.conf
@@ -92,7 +94,7 @@ Create an Encryption Key in Akeyless, using supported algorithms:
 * `RSA4096`
 * `EC256`
 
-Both [DFC ](https://docs.akeyless.io/docs/encryption-keys)and [Classic key](https://docs.akeyless.io/docs/classic-keys) are supported. 
+Both [DFC](https://docs.akeyless.io/docs/encryption-keys)and [Classic key](https://docs.akeyless.io/docs/classic-keys) are supported.
 
 ```shell
 akeyless create-classic-key -n Cosign -a RSA2048 --gateway-url https://<Your-Gateway-URL:8000>
@@ -124,7 +126,7 @@ To verify the signature, use the following command:
 ./cosign_linux_amd64 verify --key akeyless://Cosign <DockerHubUser>/<Image:Tag>@sha256:<sha>
 ```
 
-Example of a valid output: 
+Example of a valid output:
 
 ```shell Validation output
 Verification for index.docker.io/<DockerHubUser>/<Image:Tag>@sha256:<sha> --

@@ -42,7 +42,7 @@ This section of the guide explains the workflow with the Akeyless CLI. If you wi
 
 ### Create a Tokenizer from the CLI
 
-To create a Tokenizer from the CLI, run the following command: 
+To create a Tokenizer from the CLI, run the following command:
 
 > 👍 Note
 >
@@ -55,6 +55,7 @@ akeyless create-tokenizer \
 --template-type <SSN, CreditCard, USPhoneNumber> \
 --tweak-type <Supplied, Generated, Internal, Masking>
 ```
+
 ```text Custom Tokenization
 akeyless create-tokenizer \
 --name <Tokenizer name> \
@@ -91,15 +92,15 @@ Where:
 
 * `pattern`: A regexp pattern that is used to extract the parts that should be tokenized during **Custom** tokenization. It can use named and non-named capture groups (e.g., `(?P<first>\d{3})-(?P<last>\d{3})` or `(\d{3})-(\d{3})` ).
 
-* `encoding-template`: An expression to alter the template of the encryption output for **Custom** tokenization (e.g., `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group). 
+* `encoding-template`: An expression to alter the template of the encryption output for **Custom** tokenization (e.g., `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group).
 
-* `decoding-template`: An expression to alter the template of the decryption output for **Custom** tokenization. 
+* `decoding-template`: An expression to alter the template of the decryption output for **Custom** tokenization.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-tokenizerp) section.
 
 ### Tokenize and Detokenize a Secret from the CLI
 
-To tokenize a secret from the CLI, run the following command: 
+To tokenize a secret from the CLI, run the following command:
 
 ```shell
 akeyless tokenize \
@@ -108,7 +109,7 @@ akeyless tokenize \
 --tweak <Base64-encoded tweak value>
 ```
 
-To detokenize a secret from the CLI, use this command: 
+To detokenize a secret from the CLI, use this command:
 
 ```shell
 akeyless detokenize \
@@ -152,9 +153,9 @@ If you select the **Custom** template, you'll need to provide values for the fol
 
 * **Custom Pattern:** A regexp pattern that is used to extract the parts which should be tokenized. It can use named and non-named capture groups (e.g., `(?P<first>\d{3})-(?P<last>\d{3})` or `(\d{3})-(\d{3})` ).
 
-* **Encoding Template:** An expression to alter the template of the encryption output for tokenization (e.g., `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group). 
+* **Encoding Template:** An expression to alter the template of the encryption output for tokenization (e.g., `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group).
 
-* **Decoding Template:** An expression to alter the template of the decryption output for tokenization. 
+* **Decoding Template:** An expression to alter the template of the decryption output for tokenization.
 
 6. Click on **Finish**.
 
@@ -164,7 +165,7 @@ If you select the **Custom** template, you'll need to provide values for the fol
 
 2. Browse to the folder where you created a tokenizer.
 
-3. Select the tokenizer and click the **Tokenize / Detokenize** button. 
+3. Select the tokenizer and click the **Tokenize / Detokenize** button.
 
 4. To tokenize a secret:\
    a. In the pop-up, select the **Tokenize** tab.\

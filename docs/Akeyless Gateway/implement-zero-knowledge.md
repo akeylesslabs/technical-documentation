@@ -24,13 +24,13 @@ Using our unique Zero-Knowledge architecture, you can deploy multiple [Gateway](
 
 > 🚧 Warning
 >
-> When working with Customer Fragments, it is **your responsibility to back them up** securely and in a safe place. 
+> When working with Customer Fragments, it is **your responsibility to back them up** securely and in a safe place.
 >
 > Encryption keys created with the Customer Fragment cannot be reconstructed without it. Any and all information that is encrypted with those keys will not be recoverable if the Customer Fragment is lost.
 
 ## Generate Customer Fragment from the Akeyless CLI
 
-To generate a Customer Fragment, run the following command: 
+To generate a Customer Fragment, run the following command:
 
 ```shell Akeyless CLI
 akeyless gen-customer-fragment --name <CF-Name> --description MyFirstCF --json
@@ -65,7 +65,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -v /path/of/customer_fragments.json:/hom
 
 ## Create a Zero-Knowledge DFC Encryption Key
 
-Once the **Customer Fragment** is mounted in the Gateway, it can be used to secure your DFC Encryption Keys for full Zero Knowledge Encryption. 
+Once the **Customer Fragment** is mounted in the Gateway, it can be used to secure your DFC Encryption Keys for full Zero Knowledge Encryption.
 
 > 🚧 Warning
 >
@@ -87,7 +87,7 @@ To create a DFC Encryption Key:
 
 ### Create Zero Knowledge Key from the Akeyless CLI
 
-To generate a key using a Customer Fragment, run the following command: 
+To generate a key using a Customer Fragment, run the following command:
 
 ```shell Akeyless CLI
 akeyless create-dfc-key --name MyKeyWithMyCF --alg AES256GCM -f <customer-fragment-id>

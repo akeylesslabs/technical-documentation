@@ -23,7 +23,7 @@ akeyless gateway-update-item --gateway-url <Akeyless PAI GW URL> --name <classic
 where:
 
 * **gateway-url:** The URL of the Akeyless Gateway. If you are working with your own Akeyless Gateway, set the value of this option as your Akeyless Gateway URL on port 8080. For example, `https://akeyless-gw:8080`.
-* **name:** The name of the classic key to be updated. 
+* **name:** The name of the classic key to be updated.
 * **new-name:** The new name for the classic key (optional).
 * **new-metadata:** The new metadata about the classic key (optional).
 * **add tag:** The new tags to be attached to the classic key (optional).

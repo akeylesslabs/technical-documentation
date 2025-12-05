@@ -20,7 +20,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 ## Prerequisites
 
-* **HSM** configured to work with `PKCS#11`. 
+* **HSM** configured to work with `PKCS#11`.
 
 * An `AES` encryption key that supports the `hmac 256` mechanism ( **Relevant for Customer Fragment**)
 
@@ -72,7 +72,7 @@ Where:
 
 * `name`: **Customer Fragment** name.
 
-* `type`: The **HSM** mode for the **Customer Fragment** either: 
+* `type`: The **HSM** mode for the **Customer Fragment** either:
 
   * `hsm_wrapped`: Will derive the fragment once, when the gateway starts up, and keep the result in memory
 

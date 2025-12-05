@@ -56,7 +56,7 @@ Impact: Clients (Injector, ESO, or direct API calls) attempting to reach this sp
 **Cluster Cache:**
 
 Behavior: If a Gateway instance in a cluster fails, the shared cluster cache remains available to other healthy Gateway instances. Secrets and authentication data persisted in the cluster cache are not lost.\
-Impact: Other active Gateway instances can continue to serve requests by retrieving data from the cluster cache. This significantly enhances the high availability of the Gateway layer. Clients communicating with the healthy Gateway instances will experience continuous service for cached data. 
+Impact: Other active Gateway instances can continue to serve requests by retrieving data from the cluster cache. This significantly enhances the high availability of the Gateway layer. Clients communicating with the healthy Gateway instances will experience continuous service for cached data.
 
 ## What Would Be the Behavior of Each Caching Mechanism During a SaaS Outage?
 

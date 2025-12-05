@@ -23,7 +23,7 @@ next:
       slug: configure-the-gateway-cache
       title: Gateway Cache
 ---
-The Gateway Configuration Manager is available via the main console under **Gateways -> Your-Gateway -> Manage Gateway** 
+The Gateway Configuration Manager is available via the main console under **Gateways -> Your-Gateway -> Manage Gateway**
 
 > 👍 Note
 >
@@ -33,19 +33,19 @@ The Gateway Configuration Manager is available via the main console under **Gate
 
 In the Gateway Configuration Manager, the Gateway Admin can:
 
-* [Manage Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) encryption. 
+* [Manage Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) encryption.
 
 * Manage [TLS Settings](https://docs.akeyless.io/docs/tls-certificate)
 
-* Set up [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) 
+* Set up [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding)
 
-* Enable and configure [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) 
+* Enable and configure [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache)
 
 * Setup [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration) from external Secrets Management system.
 
 As well as setting the default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) for the users on that Gateway, setting the default encryption key for that specific Gateway, and triggering an event of the Gateway state when it goes inactive to the Akeyless [Event Center](https://docs.akeyless.io/docs/event-center)
 
-After the first login to the Gateway Configuration Manager, a record for the new Gateway instance is created in the Akeyless Console. 
+After the first login to the Gateway Configuration Manager, a record for the new Gateway instance is created in the Akeyless Console.
 
 > 📘 Info
 >
