@@ -35,7 +35,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 1. Log in to the Akeyless Console, and navigate to the [Static Secret](https://docs.akeyless.io/docs/cli-reference-static-secrets) item
 2. Go to the **Sync** tab on the secret item and click **Attach**.
-3. Set the following settings: 
+3. Set the following settings:
 
 * **Universal Secret Connector Name:** Choose the target **Universal Secret Connector**.
 
@@ -47,6 +47,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 >
 > K8s & Hashicorp target enforces that secrets will be in a JSON format, meaning that a valid JQ filter would be for example:  `{"password": .password}`
 
-Click on **Save** to synchronize the rotated secret. 
+Click on **Save** to synchronize the rotated secret.
 
 In case an automatic sync fails, an event will be triggered. In that case, you will be able to perform a **manual sync** from this tab.

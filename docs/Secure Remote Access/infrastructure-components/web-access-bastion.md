@@ -17,11 +17,11 @@ next:
       slug: web-applications-secure-remote-access
       title: Web Applications Access
 ---
-Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either via an isolated remote browser or directly to your target server based on your secret configuration. 
+Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either via an isolated remote browser or directly to your target server based on your secret configuration.
 
 Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.  
 
-This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes cluster using the Helm package manager. 
+This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes cluster using the Helm package manager.
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The values.yaml file holds default values. Copy the file from: 
+The values.yaml file holds default values. Copy the file from:
 
 [https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access)
 
@@ -116,11 +116,11 @@ env:
 >
 > The HTTP-type proxy will only work with Chrome browsers currently. For Firefox, you can skip this environment variable configuration so the default `socks-proxy` protocol will be used.
 
-The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions. To fetch the relevant secret on behalf of your users, set the `privilegedAccess` field with the relevant `AccessID` as described in the Authentication section of this page. 
+The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions. To fetch the relevant secret on behalf of your users, set the `privilegedAccess` field with the relevant `AccessID` as described in the Authentication section of this page.
 
-Users then can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently. 
+Users then can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
 
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs` that will be authorized to request access. 
+To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs` that will be authorized to request access.
 
 ```yaml
 privilegedAccess:
@@ -130,11 +130,11 @@ privilegedAccess:
 
 ### Authentication
 
-The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported: 
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported:
 
-* [API Key](https://docs.akeyless.io/docs/api-key) 
+* [API Key](https://docs.akeyless.io/docs/api-key)
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam) 
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 
 * [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
 
@@ -156,9 +156,9 @@ While running your K8s cluster inside your cloud environment, you can use [AWS I
 
 ### AWS IAM
 
-AWS IAM can be used in the following approach: 
+AWS IAM can be used in the following approach:
 
-* Instance IAM Role 
+* Instance IAM Role
 
 While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your <code>accessID</code>, with a list of `allowedAccessIDs` that will be authorized to request access:
 
@@ -188,6 +188,6 @@ privilegedAccess:
 helm install <RELEASE NAME> akeyless/akeyless-zero-trust-web-access -f values.yaml
 ```
 
-Verify that both pods are up and running: 
+Verify that both pods are up and running:
 
 <code>web-worker-deployment</code>\ <code>web-dispatcher-deployment</code>

@@ -32,7 +32,7 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access
 
-* Minimum 1 vCPU available with 2GB RAM per resource. This can be explicitly specified inside the chart. It can be found under `sraConfig` for the Web service and `sshConfig` for the SSH service. 
+* Minimum 1 vCPU available with 2GB RAM per resource. This can be explicitly specified inside the chart. It can be found under `sraConfig` for the Web service and `sshConfig` for the SSH service.
 
 * Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set `requests` values in the `resources` section. For the HPA to function correctly, the Kubernetes metrics server must be installed in your cluster. You can find the metrics server setup guide here: [Kubernetes metrics server](https://github.com/kubernetes-sigs/metrics-server) .
 
@@ -41,8 +41,8 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 <Callout icon="🌐" theme="default">
   #### Network Configuration
 
-  * When using **Ingress**, ensure *sticky sessions* are enabled by using the appropriate annotation. For example, in Nginx, you can use: nginx.ingress.kubernetes.io/affinity: "cookie"
-  * Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions Documentation for more details.
+* When using **Ingress**, ensure *sticky sessions* are enabled by using the appropriate annotation. For example, in Nginx, you can use: nginx.ingress.kubernetes.io/affinity: "cookie"
+* Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions Documentation for more details.
 </Callout>
 
 * When using SSH sessions behind a load balancer, such as ELB, sessions may be closed due to idle connection timeouts. We recommend increasing the idle timeout to a higher value or setting it to unlimited.
@@ -99,7 +99,7 @@ This section describes the web deployment. You can add `annotations` and `labels
 
 ***Storage***
 
-**NOTE**: Persistence is only relevant for the SRA-Web pod. 
+**NOTE**: Persistence is only relevant for the SRA-Web pod.
 
 The purpose of the `PersistentVolume` is to ensure that data can be shared and accessed by all pods in the cluster. When RDP is configured to [save recordings locally](https://docs.akeyless.io/docs/remote-access-rdp-recordings#local), the PersistentVolume is used to store these recordings. The Helm chart defines a persistent storage configuration using the `ReadWriteMany` access mode, which enables all pods to read from, and write to, the same storage volume. This is necessary to ensure that any changes or updates made by one pod are available to all other pods, maintaining consistency across the services.
 

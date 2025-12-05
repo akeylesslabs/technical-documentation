@@ -238,10 +238,8 @@ ESM not only allows you to store and manage the lifecycle of secrets, but also s
 
 ## Breaking Changes
 
-Starting from SDK version 4 the following methods: 
+Starting from SDK version 4 the following methods:
 
 `getSecretValue()`  and `getDynamicSecretValue()`
 
 return value is  `map[string]interface{}` instead of `map[string]string`
-
-<br />
