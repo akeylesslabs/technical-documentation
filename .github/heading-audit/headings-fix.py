@@ -1,32 +1,32 @@
 #!/usr/bin/env python3
 """
-Safe markdown heading fixer.
+Safe markdown heading fixer for docs/.
 
-Run from anywhere (e.g. `.github/heading-audit`); it will default to the repo root.
+Behavior:
 
-What it does, for each *.md file:
-- Skips files in IGNORE_FILES.
+- Only scans the docs/ directory of the repo (no --root needed).
+- Skips files listed in IGNORE_FILES (paths relative to repo root).
 - Ignores headings inside fenced code blocks (```).
-- Fixes multiple H1s:
-    - First H1 is kept.
-    - Any additional H1 in the same file is downgraded to H2.
-- Fixes out-of-sequence heading jumps:
-    - If heading level jumps up by more than 1 (e.g. H2 -> H4),
-      it is lowered to previous_level + 1 (e.g. H4 -> H3).
-- Does NOT change:
-    - Heading text/content
-    - Anything inside code fences
+- Per file:
+    - If any H1 (#) exists outside code fences:
+        - Demote ALL headings by 1 level:
+          H1->H2, H2->H3, ..., capped at H6.
+    - Then enforce: no upward jump of more than 1 level,
+      e.g., H2 -> H4 becomes H3.
+- Does NOT change heading text/content.
 
-Default: dry run (prints planned changes only).
-Use --apply to write changes to disk.
+Usage (from repo root or anywhere):
+
+    python3 .github/heading-audit/headings-fix.py        # dry run
+    python3 .github/heading-audit/headings-fix.py --apply
 """
 
 import argparse
 import pathlib
 import re
-from typing import List, Tuple, Iterable
+from typing import Iterable, List, Tuple
 
-# Keep this in sync with your workflow's IGNORE_FILES if desired
+# Paths relative to repo root
 IGNORE_FILES = {
     "docs/ignore-this.md",
     "docs/path/to/file.md",
@@ -35,33 +35,98 @@ IGNORE_FILES = {
 
 HEADING_RE = re.compile(r'^(\s*)(#{1,6})(\s+)(.+)$')
 
-def should_ignore(path: pathlib.Path) -> bool:
-    # Relative POSIX-style path, no leading "./"
-    rel = path.as_posix()
-    if rel.startswith("./"):
-        rel = rel[2:]
+
+def detect_repo_root(script_path: pathlib.Path) -> pathlib.Path:
+    """
+    Detect repo root assuming script is under:
+        <repo>/.github/heading-audit/headings-fix.py
+    """
+    parents = list(script_path.parents)
+    # parents[0] = .../.github/heading-audit
+    # parents[1] = .../.github
+    # parents[2] = .../<repo>
+    if len(parents) >= 3 and parents[1].name == ".github":
+        return parents[2]
+    # Fallback: two levels above the script
+    return script_path.parent.parent
+
+
+def resolve_docs_root(script_path: pathlib.Path) -> Tuple[pathlib.Path, pathlib.Path]:
+    """
+    Return (repo_root, docs_root).
+    """
+    repo_root = detect_repo_root(script_path)
+    docs_root = repo_root / "docs"
+    return repo_root, docs_root
+
+
+def should_ignore(path: pathlib.Path, repo_root: pathlib.Path) -> bool:
+    """
+    Check if a given file path (absolute) should be ignored,
+    using paths relative to the repo root.
+    """
+    try:
+        rel = path.relative_to(repo_root).as_posix()
+    except ValueError:
+        # Path is not under repo_root for some reason; don't ignore by default.
+        return False
     return rel in IGNORE_FILES
+
+
+def compute_bump(lines: List[str]) -> int:
+    """
+    Decide how much to shift heading levels for this file.
+
+    - If we see any H1 (outside code fences), bump = 1
+      (H1->H2, H2->H3, etc.).
+    - Otherwise bump = 0.
+    """
+    in_code_fence = False
+
+    for line in lines:
+        stripped = line.lstrip()
+
+        # Toggle fenced code block on ``` lines
+        if stripped.startswith("```"):
+            in_code_fence = not in_code_fence
+            continue
+
+        if in_code_fence:
+            continue
+
+        m = HEADING_RE.match(line)
+        if not m:
+            continue
+
+        hashes = m.group(2)
+        level = len(hashes)
+        if level == 1:
+            return 1
+
+    return 0
+
 
 def fix_headings_in_file(lines: List[str], path: pathlib.Path) -> Tuple[List[str], List[str]]:
     """
-    Return (new_lines, changes_descriptions).
+    For a single file:
 
-    Rules:
-    - Only operates outside fenced code blocks.
-    - If there are multiple H1s, the first is kept as H1, subsequent H1s -> H2.
-    - Prevent heading level jumps upwards by > 1 (e.g. H2 -> H4 becomes H3).
+    - If any H1 exists (outside code fences), demote ALL headings by 1:
+        H1->H2, H2->H3, ..., capped at H6.
+    - Then ensure we never jump upward by more than 1 level (H2->H4 -> H3).
+    - Ignore headings inside fenced code blocks.
     """
     new_lines = list(lines)
     changes: List[str] = []
 
+    bump = compute_bump(lines)  # 0 or 1
+
     in_code_fence = False
-    prev_level_effective = 0
-    seen_h1 = False
+    prev_level_effective = 0  # after bump + jump-fix
 
     for i, line in enumerate(lines):
         stripped = line.lstrip()
 
-        # Toggle fenced code block on lines starting with ```
+        # Toggle fenced code block state
         if stripped.startswith("```"):
             in_code_fence = not in_code_fence
             continue
@@ -75,92 +140,63 @@ def fix_headings_in_file(lines: List[str], path: pathlib.Path) -> Tuple[List[str
 
         indent, hashes, space, title = m.groups()
         orig_level = len(hashes)
-        new_level = orig_level
 
-        # Rule 1: multiple H1s -> downgrade later H1s to H2
-        if orig_level == 1:
-            if not seen_h1:
-                seen_h1 = True
-            else:
-                new_level = 2  # safe, predictable downgrade
+        # Base new level: apply bump (if any)
+        new_level = orig_level + bump
+        if new_level > 6:
+            new_level = 6  # very defensive
 
-        # Rule 2: out-of-sequence jumps upward by > 1
-        # Use the "current" new_level compared to previous effective level
+        # Fix big upward jumps: only if we've seen a heading before
         if prev_level_effective > 0 and new_level > prev_level_effective + 1:
             new_level = prev_level_effective + 1
             if new_level > 6:
-                new_level = 6  # very defensive; should basically never happen
+                new_level = 6
 
-        # If we changed the level, update the line
+        # Rewrite the line only if the heading level changed
         if new_level != orig_level:
             new_hashes = "#" * new_level
             new_line = f"{indent}{new_hashes}{space}{title}\n"
-            if new_line != line:
-                new_lines[i] = new_line
-                changes.append(
-                    f"{path}: line {i+1}: H{orig_level} -> H{new_level}"
-                )
-            effective_level = new_level
-        else:
-            effective_level = orig_level
+            new_lines[i] = new_line
+            changes.append(f"{path}: line {i+1}: H{orig_level} -> H{new_level}")
 
-        prev_level_effective = effective_level
+        prev_level_effective = new_level
 
     return new_lines, changes
 
+
 def find_markdown_files(root: pathlib.Path) -> Iterable[pathlib.Path]:
+    """
+    Yield all *.md files under the given root directory.
+    """
     for p in root.rglob("*.md"):
         if p.is_file():
             yield p
 
-def detect_repo_root(script_path: pathlib.Path) -> pathlib.Path:
-    """
-    Detect repo root assuming script is under .github/heading-audit/
-    """
-    parents = list(script_path.parents)
-    # script_path: repo/.github/heading-audit/script.py
-    # parents[2] = repo root
-    if len(parents) >= 3 and parents[1].name == ".github":
-        return parents[2]
-    # Fallback: repo root is parent of .github or similar
-    return script_path.parent.parent
-
-def resolve_docs_root(script_path: pathlib.Path) -> pathlib.Path:
-    repo_root = detect_repo_root(script_path)
-    return repo_root / "docs"
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Safely fix out-of-sequence and multiple H1 markdown headings."
+        description="Safely adjust markdown headings in docs/."
     )
     parser.add_argument(
         "--apply",
         action="store_true",
-        help="Actually write changes to files (default is dry-run).",
-    )
-    parser.add_argument(
-        "--root",
-        type=str,
-        default=None,
-        help="Root directory to scan (default: repo root inferred from script location).",
+        help="Write changes to files (default: dry run).",
     )
     args = parser.parse_args()
 
     script_path = pathlib.Path(__file__).resolve()
-    root = resolve_docs_root(script_path)
+    repo_root, docs_root = resolve_docs_root(script_path)
 
-    print(f"Scanning markdown files under: {root}")
+    print(f"Scanning markdown files under: {docs_root}")
 
-    if not root.exists():
+    if not docs_root.exists():
         print("WARNING: docs/ directory not found. Nothing to scan.")
         return
 
-    print(f"Scanning markdown files under: {root}")
-
     total_changes = 0
 
-    for path in find_markdown_files(root):
-        if should_ignore(path):
+    for path in find_markdown_files(docs_root):
+        if should_ignore(path, repo_root):
             continue
 
         text = path.read_text(encoding="utf-8")
@@ -183,7 +219,8 @@ def main() -> None:
     else:
         print(f"  {total_changes} heading(s) adjusted.")
         if not args.apply:
-            print("  (Dry run only; rerun with --apply to write changes.)")
+            print("  (Dry run; run again with --apply to write changes.)")
+
 
 if __name__ == "__main__":
     main()
