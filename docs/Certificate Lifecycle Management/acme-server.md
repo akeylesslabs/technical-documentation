@@ -18,11 +18,11 @@ Akeyless supports creating a [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh
 
 Before proceeding, ensure you have permission to manage **ACME** on your Gateway.
 
-# Enable ACME Server
+## Enable ACME Server
 
 In this guide, we will create a **PKI Cert Issuer** with  **ACME Server** where we will register [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows) as an **ACME Client** using External Account Binding. 
 
-## Create a Signer Key
+### Create a Signer Key
 
 Let's create  [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **PKI Cert Issuer** with a self-signed certificate, first let's create the **CSR** conf file:
 
@@ -75,7 +75,7 @@ Where:
 
 Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** for our [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). 
 
-## Create a PKI Cert Issuer
+### Create a PKI Cert Issuer
 
 Run the following command to create a **PKI Cert Issuer** with **ACME Server**:
 
@@ -119,7 +119,7 @@ akeyless describe-item \
 
 Alternatively, you can extract the full **ACME Server** URL from the console. 
 
-# External Account Binding
+## External Account Binding
 
 **External Account Binding**, defined in the [ACME Protocol RFC 8555](https://datatracker.ietf.org/doc/html/rfc8555/#section-7.3.4), is a feature that improves the security of certificate issuance by connecting certificate requests to specific accounts. This ensures that only authorized clients can request and receive certificates for those accounts, making the process much safer.
 
@@ -148,7 +148,7 @@ Where:
 
 This external account binding token will be used to register an **ACME client** to request a certificate from the **ACME server**.
 
-## Request a Certificate
+### Request a Certificate
 
 In the following example, we will request a certificate from the  **ACME server**, using  **Certbot**:
 
@@ -171,13 +171,13 @@ Where:
 
 Upon successful certificate request, the certificate will be issued.
 
-# Manage External Accounts
+## Manage External Accounts
 
 Multiple external accounts can be created under the same **PKI Cert Issuer**, therefore, it's possible to monitor the status of each external account. These external accounts can be used to request certificates using external clients. Keeping track of external accounts' status helps ensure that only authorized users can create certificates and reduces potential security risks.
 
 The following endpoints show how to list and deactivate external accounts when necessary.
 
-## List External Accounts
+### List External Accounts
 
 To list the external accounts, both in the status of `valid` or `deactivated` run the following command:
 
@@ -200,7 +200,7 @@ The output of this command:
 }
 ```
 
-## Deactivate an External Account
+### Deactivate an External Account
 
 To deactivate an external Account, run the following command:
 

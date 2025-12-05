@@ -20,7 +20,7 @@ Akeyless SSH Secure Remote Access enables traffic connections to servers that ar
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
 > For more details, please refer to [Legacy mode section](#section-legacy-mode) at the bottom of this page.
 
-# Prerequisites
+## Prerequisites
 
 To enable Secure Remote Access for SSH servers you need:
 
@@ -36,7 +36,7 @@ To enable Secure Remote Access for SSH servers you need:
 >
 > See GCP docs on backend service timeout and Ingress BackendConfig. After updating, your SSH session lifetime should match your intended TTL
 
-# Set Up Remote Access to an SSH server from the Akeyless CLI
+## Set Up Remote Access to an SSH Server from the Akeyless CLI
 
 Let's set up remote access to an SSH server using the Akeyless CLI.
 
@@ -68,7 +68,7 @@ where:
 >
 > You will also need to enable Secure Remote Access on the SSH Cert Issuer.
 
-# Set Up Remote Access to an SSH server from the Akeyless Console
+## Set Up Remote Access to an SSH Server from the Akeyless Console
 
 Let's set up remote access to an SSH server from the Akeyless Console.
 
@@ -87,7 +87,7 @@ Let's set up remote access to an SSH server from the Akeyless Console.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
-# Akeyless Secure Access from CLI
+## Akeyless Secure Access from CLI
 
 Akeyless enables CLI access from any UNIX terminal.
 
@@ -164,7 +164,7 @@ akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-sec
 >
 > NOTE that this workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
 
-# Legacy Mode
+## Legacy Mode
 
 > ❗️ Critical
 >
@@ -200,11 +200,11 @@ akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/secret] -v 
 
 <br />
 
-# Upload/Download Files Using SSH
+## Upload/Download Files Using SSH
 
 We support upload and download of files in SSH sessions through the Zero Trust Web Portal. To support this, **the remote server must support SFTP**.
 
-## Upload
+### Upload
 
 To upload a file, click on `Upload` button at the top and choose the file to upload from your local machine. The uploaded file will be placed in the user's $HOME directory on the remote machine.
 
@@ -212,7 +212,7 @@ To upload a file, click on `Upload` button at the top and choose the file to upl
 >
 > Files are created as temporary items inside the SSH server during the upload process, and are deleted upon completion.
 
-## Download
+### Download
 
 To download a file:
 

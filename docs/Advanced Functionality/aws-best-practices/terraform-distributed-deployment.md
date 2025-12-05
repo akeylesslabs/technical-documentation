@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-# Overview
+## Overview
 
 This article outlines the steps to integrate your AWS account with Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw), along with instructions for AWS Organization integration with relevant member accounts. This guide provides a [Terraform](https://developer.hashicorp.com/terraform) script to create the required AWS IAM roles that grant the Gateway IAM permissions in your AWS environment when operating in a distributed deployment, where each Gateway manages a single AWS account.
 
-# Prerequisites
+## Prerequisites
 
 To successfully integrate your AWS accounts with Akelyess, ensure the following prerequisites are met:
 
@@ -28,7 +28,7 @@ For Organization integration, ensure you have an existing AWS environment with A
 
 4. An [AWS IAM](https://docs.akeyless.io/docs/aws-iam) authentication method & [Access Role](https://docs.akeyless.io/docs/rbac) on your Akeyless account, this [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) can support many AWS accounts. Alternatively, you can create a dedicated auth method per account, ending with a unique access ID per account. In both cases, the [RBAC](https://docs.akeyless.io/docs/rbac) in Akeyless can isolate the access permissions inside Akeyless per account. 
 
-# Create the required IAM roles
+## Create the Required IAM Roles
 
 In this step, you will connect to your AWS management account to apply using a Terraform template that will create the IAM role that enables the **Akeyless Gateway** to:
 
@@ -36,17 +36,17 @@ In this step, you will connect to your AWS management account to apply using a T
 * Rotate existing IAM credentials using [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret)
 * Operate the [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector)
 
-## Provide the parameters to identify your AWS Organization
+### Provide the Parameters to Identify Your AWS Organization
 
 Sign in to the AWS Management Console of your management account. Navigate to **Organizations** → **Organize accounts**.
 
 Copy your **AWS Management Account ID** and paste it into the field.`management_account`
 
-# Configuration
+## Configuration
 
 The following steps will be used to deploy a distributed deployment.
 
-## Terraform variables
+### Terraform Variables
 
 Set the `env_vars.tf` file to set your AWS account details, as well as declaring the name of the AWS Role that will be created.
 
@@ -70,7 +70,7 @@ variable "management_account" {
 }
 ```
 
-## Terraform module
+### Terraform Module
 
 The `main.tf` file will create an AWS Role with permissions for managing secrets using [USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector) as well as creating [Dynamic](https://docs.akeyless.io/docs/aws-producer) and [Rotated](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) secrets:
 
@@ -182,7 +182,7 @@ resource "aws_iam_role_policy_attachment" "attach" {
 
 ```
 
-## Run the Deployment
+### Run the Deployment
 
 1. Run `terraform init && terraform apply`.  
 2. Create an [AWS Target](https://docs.akeyless.io/docs/aws-targets) in Akeyless using the **Gateway Cloud ID** option.  

@@ -14,17 +14,17 @@ This section outlines the CLI commands relevant to Event Forwarder.
 
 <CLIGeneralFlags />
 
-# `event-forwarder`
+## `Event-forwarder`
 
-## `event-forwarder create`
+### `Event-forwarder Create`
 
 Commands for managing the event forwarders.
 
-### `event-forwarder create email`
+#### `Event-forwarder Create Email`
 
 Create a new Email Event Forwarder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless event-forwarder create email \
@@ -41,7 +41,7 @@ akeyless event-forwarder create email \
 --every <1-24 hours>
 ```
 
-#### Flags
+##### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -71,11 +71,11 @@ akeyless event-forwarder create email \
 
 `--description`: Description of the object
 
-### `event-forwarder create servicenow`
+#### `Event-forwarder Create Servicenow`
 
 Create a new Service Now Event Forwarder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless event-forwarder create servicenow \
@@ -89,7 +89,7 @@ akeyless event-forwarder create servicenow \
 --event-types <event type>
 ```
 
-#### Flags
+##### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -131,11 +131,11 @@ akeyless event-forwarder create servicenow \
 
 `--description`: Description of the object
 
-### `event-forwarder create slack`
+#### `Event-forwarder Create Slack`
 
 Create a new Slack Event Forwarder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless event-forwarder create slack \
@@ -151,7 +151,7 @@ akeyless event-forwarder create slack \
 --every <1-24 hours>
 ```
 
-#### Flags
+##### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -177,11 +177,11 @@ akeyless event-forwarder create slack \
 
 `--description`: Description of the object
 
-### `event-forwarder create webhook`
+#### `Event-forwarder Create Webhook`
 
 Create a new Webhook Event Forwarder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless event-forwarder create webhook \
@@ -197,7 +197,7 @@ akeyless event-forwarder create webhook \
 --every <1-24 hours>
 ```
 
-#### Flags
+##### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -243,11 +243,11 @@ akeyless event-forwarder create webhook \
 
 `--description`: Description of the object
 
-### `event-forwarder create teams`
+#### `Event-forwarder Create Teams`
 
 Create a new teams Event Forwarder
 
-#### Usage
+##### Usage
 
 ```shell
 akeyless event-forwarder create teams \
@@ -263,7 +263,7 @@ akeyless event-forwarder create teams \
 --every <1-24 hours>
 ```
 
-#### Flags
+##### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
@@ -291,14 +291,14 @@ akeyless event-forwarder create teams \
 
 ###
 
-## `event-forwarder delete`
+### `Event-forwarder Delete`
 
-### Flags
+#### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
-## `event-forwarder get`
+### `Event-forwarder Get`
 
-### Flags
+#### Flags
 
 `-n, --name`: **Required**, Event Forwarder name

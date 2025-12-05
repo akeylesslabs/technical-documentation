@@ -16,9 +16,9 @@ next:
 >
 > The documentation for the legacy chart is available [here](https://docs.akeyless.io/docs/secure-remote-access-advance)
 
-# SSH Configuration
+## SSH Configuration
 
-## SSH Legacy Algorithm
+### SSH Legacy Algorithm
 
 To support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy '[ssh-rsa-cert-v01@openssh.com](mailto:ssh-rsa-cert-v01@openssh.com)' signing algorithm.
 
@@ -28,7 +28,7 @@ This can also be done via the console by going to **Gateways** -> **Your-Gateway
 akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url <your-gateway-url:8000>
 ```
 
-## Key Exchange Algorithm
+### Key Exchange Algorithm
 
 A Key Exchange Algorithm is a method used to securely exchange cryptographic keys between parties over an insecure channel such as a public network. The primary goal of these algorithms is to enable two or more parties to securely establish a shared secret key, which can then be used for encrypting and decrypting messages during communication.
 
@@ -51,7 +51,7 @@ The options for this are:
 * ecdh-sha2-nistp384
 * ecdh-sha2-nistp521
 
-## SSH Fingerprint
+### SSH Fingerprint
 
 Use this parameter to store fingerprint information in a specific folder within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
 
@@ -64,7 +64,7 @@ sshConfig:
   sshHostKeysPath: /MY_SSH_REMOTE_ACCESS_HOST_KEYS
 ```
 
-## Concurrent Unauthenticated Connections
+### Concurrent Unauthenticated Connections
 
 To specify the maximum number of concurrent unauthenticated connections to the SSH component, set the  `CONFIG_MAX_STARTUPS` variable:
 
@@ -74,9 +74,9 @@ env:
     value: "200:30:300"
 ```
 
-# RDP Configuration
+## RDP Configuration
 
-## RDP / SSH User Acces
+### RDP / SSH User Acces
 
 For RDP connections with an [externally provided username](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console), you can configure RDP/SSH authentication to use the relevant attribute from the IDP JWT (e.g., email) to establish a connection to the target server using the authenticated username.
 
@@ -96,7 +96,7 @@ akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim
 
 This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access** or from the CLI.
 
-## Support for Other Keyboard Layouts
+### Support for Other Keyboard Layouts
 
 To enable a keyboard layout in your remote sessions (ie Windows), use the following command (the default is `en-us-qwerty`):
 

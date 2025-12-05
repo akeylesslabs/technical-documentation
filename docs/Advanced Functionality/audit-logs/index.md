@@ -22,7 +22,7 @@ These audit logs can give an Akeyless administrator invaluable insight into what
 
 Akeyless log auditing is important for cybersecurity because it provides records that can serve as evidence. A comprehensive and in-depth log audit can make all the difference in the event of a legal battle and can protect your business from liability.
 
-# Viewing Logs in the Console
+## Viewing Logs in the Console
 
 When using the console, you will be able to navigate to the **Audit Logs** tab to view logs in the following format:
 
@@ -32,7 +32,7 @@ These logs show you the time of the described action, what it was, whether it wa
 
 You will be able to filter your logs based on any of these rubricks or tags inside the Akeyless SaaS platform in order to get insights or clarifications.
 
-# Reading the Raw Logs
+## Reading the Raw Logs
 
 Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, etc.\
 The logs will show up as a line of text, from which you will be able to read the following information:
@@ -52,6 +52,6 @@ The logs will show up as a line of text, from which you will be able to read the
 | `access_type`        | [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type from which the action was performed.                                                                                  |
 | `product`            | Which Akeyless product does this log concern. For example, currently this could be **Secrets Management**, **Secure Remote Access**, or **Password Management**.                          |
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/audit-logs-analytics-and-usage-reports" target="_blank" style={{ color: "#00e" }}>Audit Logs, Analytics, and Usage Reports</a>.

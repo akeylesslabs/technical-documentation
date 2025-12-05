@@ -47,7 +47,7 @@ For example:
 
 **Fixed User** enables you to assign a role temporary to an existing user, based on the user's sub-claim.
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
 
@@ -71,7 +71,7 @@ iam.serviceAccountKeys.get
 iam.serviceAccountKeys.list
 ```
 
-# Create a Dynamic GCP Secret from the CLI
+## Create a Dynamic GCP Secret from the CLI
 
 > 👍 Note
 >
@@ -150,7 +150,7 @@ Where:
 
 * `fixed-user-claim-keyname[=ext_email]`: For externally provided users, denotes the key-name of IdP claim to extract the username from.
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have a [GCP Target](https://docs.akeyless.io/docs/gcp-targets)  yet, you can use the command with your GCP connection strings:
 
@@ -160,7 +160,7 @@ If you don't have a [GCP Target](https://docs.akeyless.io/docs/gcp-targets)  yet
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegcpp) section.
 
-# Fetch a Dynamic GCP Secret value from the CLI
+## Fetch a Dynamic GCP Secret Value from the CLI
 
 To fetch a dynamic GCP secret value from the CLI, run the following command:
 
@@ -168,7 +168,7 @@ To fetch a dynamic GCP secret value from the CLI, run the following command:
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-# Create a Dynamic GCP Secret in the Akeyless Console
+## Create a Dynamic GCP Secret in the Akeyless Console
 
 > 👍 Note
 >
@@ -229,7 +229,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 7. Click **Finish**.
 
-# Fetch a Dynamic GCP Secret Value from the Akeyless Console
+## Fetch a Dynamic GCP Secret Value from the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Items**.
 

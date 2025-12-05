@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Encryption Keys.
 
 <CLIGeneralFlags />
 
-### `assoc-target-item`
+### `Assoc-target-item`
 
 Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms)
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless assoc-target-item \
@@ -58,11 +58,11 @@ akeyless assoc-target-item \
 
 `--protection-level[=software]`: Protection level of the key [software/hardware]. (Relevant only for Classic Key and target association, for gcp targets)
 
-### `create-classic-key`
+### `Create-classic-key`
 
 Creates a new Classic Key in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless create-classic-key \
@@ -131,11 +131,11 @@ akeyless create-classic-key \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `create-dfc-key`
+### `Create-dfc-key`
 
 Creates a new DFC key in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless create-dfc-key \
@@ -193,11 +193,11 @@ akeyless create-dfc-key \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `decrypt`
+### `Decrypt`
 
 Decrypts ciphertext into plaintext by using an AES key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless decrypt \
@@ -224,11 +224,11 @@ akeyless decrypt \
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
-### `decrypt-file`
+### `Decrypt-file`
 
 Decrypts a file by using an AES key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless decrypt-file \
@@ -257,11 +257,11 @@ akeyless decrypt-file \
 
 `-v, --version`: key version (relevant only for classic key)
 
-### `decrypt-gpg`
+### `Decrypt-gpg`
 
 Decrypts the given GPG message using an RSA key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless decrypt-gpg \
@@ -290,11 +290,11 @@ akeyless decrypt-gpg \
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
-### `decrypt-pkcs1`
+### `Decrypt-pkcs1`
 
 Decrypts a plaintext using RSA and the padding scheme from PKCS#1 v1.5
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless decrypt-pkcs1 \
@@ -316,11 +316,11 @@ akeyless decrypt-pkcs1 \
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
-### `encrypt`
+### `Encrypt`
 
 Encrypts plaintext into ciphertext by using an AES key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless encrypt \
@@ -348,11 +348,11 @@ akeyless encrypt \
 
 `-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
 
-### `encrypt-file`
+### `Encrypt-file`
 
 Encrypts a file by using an AES key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless encrypt-file \
@@ -378,11 +378,11 @@ akeyless encrypt-file \
 
 `-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
 
-### `encrypt-gpg`
+### `Encrypt-gpg`
 
 Encrypts the given message with GPG using an RSA key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless encrypt-gpg \
@@ -408,11 +408,11 @@ akeyless encrypt-gpg \
 
 `-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
 
-### `encrypt-pkcs1`
+### `Encrypt-pkcs1`
 
 Encrypts the given message with RSA and the padding scheme from PKCS#1 v1.5
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless encrypt-pkcs1 \
@@ -432,11 +432,11 @@ akeyless encrypt-pkcs1 \
 
 `-p, --plaintext`: **Required**, Data to be encrypted
 
-### `export-classic-key`
+### `Export-classic-key`
 
 Returns the Classic Key material
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless export-classic-key \
@@ -459,11 +459,11 @@ akeyless export-classic-key \
 
 `--wrapping-key-name`: Classic key name to wrap the key material with. This feature enables users to specify the name of a Key Encryption Key (KEK) to encrypt a Data Encryption Key (DEK) during the export process.
 
-### `gateway-download-customer-fragments`
+### `Gateway-download-customer-fragments`
 
 Download gateway customer fragments
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-download-customer-fragments \
@@ -471,11 +471,11 @@ akeyless gateway-download-customer-fragments \
 --gateway-url <API Gateway URL:8000>
 ```
 
-### `gen-customer-fragment`
+### `Gen-customer-fragment`
 
 Generates Customer Fragment
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gen-customer-fragment \
@@ -493,11 +493,11 @@ akeyless gen-customer-fragment \
 
 `-k, --hsm-key-label`:  The label of the hsm key to use for customer fragment operations (relevant for `hsm_wrapped`/`hsm_secured` customer fragments)
 
-### `get-rsa-public`
+### `Get-rsa-public`
 
 Obtain the public key from a specific RSA private key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless get-rsa-public --name <Key name>
@@ -507,11 +507,11 @@ akeyless get-rsa-public --name <Key name>
 
 `-n, --name`: **Required**, Name of RSA key to extract the public key from
 
-### `hmac`
+### `Hmac`
 
 Generates a hash-based message authentication code (HMAC) for a message, using an HMAC algorithm
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless hmac \
@@ -538,11 +538,11 @@ akeyless hmac \
 
 `-F, --input-format`: Select the default assumed format for any plaintext input. Currently supported options: [base64]
 
-### `refresh-key`
+### `Refresh-key`
 
 Refresh a key in the current account
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless refresh-key --name <Key name>
@@ -552,11 +552,11 @@ akeyless refresh-key --name <Key name>
 
 `-n, --name`: **Required**, Key name
 
-### `rotate-key`
+### `Rotate-key`
 
 Rotates an existing key, by creating a new version of the key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless rotate-key \
@@ -573,11 +573,11 @@ akeyless rotate-key \
 
 `--new-key-data`: The new value of the key, base64 encoded. Relevant only for Classic Key provided by the user (BYOK).
 
-### `set-item-state`
+### `Set-item-state`
 
 Set an item's state (Enabled, Disabled)
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless set-item-state \
@@ -593,11 +593,11 @@ akeyless set-item-state \
 
 `--version[=0]`: The specific version you want to update: 0=item level state (default)
 
-### `sign-ecdsa`
+### `Sign-ecdsa`
 
 Calculates the signature of a given message using ECDSA and a sha hash algorithm matching the key size
 
-###### Usage
+#### Usage
 
 ```shell
 akeyless sign-ecdsa \
@@ -621,11 +621,11 @@ akeyless sign-ecdsa \
 
 `-m, --message`: (**Mandatory**) The input message to sign in a base64 format
 
-### `sign-gpg`
+### `Sign-gpg`
 
 Calculates the signature of a message using GPG from an RSA key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless sign-gpg \
@@ -647,11 +647,11 @@ akeyless sign-gpg \
 
 `-p, --passphrase`: Passphrase to decrypt the message
 
-### `sign-pkcs1`
+### `Sign-pkcs1`
 
 Calculates the signature of hashed using RSASSA-PKCS1-V1_5-SIGN from RSA PKCS#1 v1.5
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless sign-pkcs1 \
@@ -679,11 +679,11 @@ akeyless sign-pkcs1 \
 
 `-m, --message`: **Required**, The message to be signed
 
-### `sign-rsassa-pss`
+### `Sign-rsassa-pss`
 
 Calculates the signature of a given message using rsassa-pss
 
-###### Usage
+#### Usage
 
 ```shell
 akeyless sign-rsassa-pss \
@@ -709,11 +709,11 @@ akeyless sign-rsassa-pss \
 
 `--prehashed`: Markes that the message is already hashed
 
-### `update-classic-key-certificate`
+### `Update-classic-key-certificate`
 
 Update the certificate for a classic key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless update-classic-key-certificate \
@@ -735,11 +735,11 @@ akeyless update-classic-key-certificate \
 
 `--certificate-format`: The format of the returned certificate [`pem`/`der`]
 
-### `update-rotation-settings`
+### `Update-rotation-settings`
 
 Updates rotation settings of an existing key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless update-rotation-settings \
@@ -757,11 +757,11 @@ akeyless update-rotation-settings \
 
 `--rotation-event-in `: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times:`--rotation-event-in 1 --rotation-event-in 5`
 
-### `upload-pkcs12`
+### `Upload-pkcs12`
 
 Upload a PKCS#12 key and certificates
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless upload-pkcs12 \
@@ -791,11 +791,11 @@ akeyless upload-pkcs12 \
 
 `--delete-protection[=false]`: Protection from accidental deletion of this item, [true/false]
 
-### `upload-rsa`
+### `Upload-rsa`
 
 Upload RSA key
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless upload-rsa \
@@ -833,11 +833,11 @@ akeyless upload-rsa \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `verify-ecdsa`
+### `Verify-ecdsa`
 
 Verifies an ECDSA signature using a SHA hash algorithm matching the key size
 
-###### Usage
+#### Usage
 
 ```shell
 akeyless verify-ecdsa \
@@ -860,11 +860,11 @@ akeyless verify-ecdsa \
 
 `-s, --signature`: (**Mandatory**) The message's signature
 
-### `verify-gpg`
+### `Verify-gpg`
 
 Verifies a GPG based on RSA signature
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless verify-gpg \
@@ -889,11 +889,11 @@ akeyless verify-gpg \
 
 `-p, --passphrase`: Passphrase to decrypt the message
 
-### `verify-pkcs1`
+### `Verify-pkcs1`
 
 Verifies an RSA PKCS#1 v1.5 signature
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless verify-pkcs1 \
@@ -916,11 +916,11 @@ akeyless verify-pkcs1 \
 
 `-s, --signature`: **Required**, The message's signature.
 
-### `verify-rsassa-pss`
+### `Verify-rsassa-pss`
 
 Verifies an rsassa-pss signature
 
-###### Usage
+#### Usage
 
 ```shell
 akeyless verify-rsassa-pss \
@@ -947,11 +947,11 @@ akeyless verify-rsassa-pss \
 
 ## Tokenization
 
-### `create-tokenizer`
+### `Create-tokenizer`
 
 Creates a new tokenizer
 
-##### Usage
+#### Usage
 
 ```shell Tokenization using Templates
 akeyless create-tokenizer \
@@ -998,11 +998,11 @@ akeyless create-tokenizer \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `detokenize`
+### `Detokenize`
 
 Decrypts text with a tokenizer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless detokenize \
@@ -1019,11 +1019,11 @@ akeyless detokenize \
 
 `--tweak`: Base64 encoded tweak for vaultless encryption
 
-### `tokenize`
+### `Tokenize`
 
 Encrypts text with a tokenizer
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless tokenize \

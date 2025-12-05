@@ -14,7 +14,7 @@ next:
       slug: configure-the-gateway-cache
       title: Gateway Cache
 ---
-# Introduction
+## Introduction
 
 To implement [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge), you must set up a [Gateway](https://docs.akeyless.io/docs/api-gw).
 
@@ -28,7 +28,7 @@ Using our unique Zero-Knowledge architecture, you can deploy multiple [Gateway](
 >
 > Encryption keys created with the Customer Fragment cannot be reconstructed without it. Any and all information that is encrypted with those keys will not be recoverable if the Customer Fragment is lost.
 
-# Generate Customer Fragment from the Akeyless CLI
+## Generate Customer Fragment from the Akeyless CLI
 
 To generate a Customer Fragment, run the following command: 
 
@@ -53,7 +53,7 @@ You'll get the following output:
 
 Save the output in a new file called `customer_fragments.json` in a directory of your choice.
 
-# Deploy a Gateway with mounted fragments
+## Deploy a Gateway With Mounted Fragments
 
 Once you have your `customer_fragments.json` file saved, you'll need to provide a path to the file containing your fragment as part of the Gateway installation command each time you want to update your Gateway instance.
 
@@ -63,7 +63,7 @@ Run the following command to create the Gateway with the mounted fragment:
 docker run -d -p 8000:8000 -p 5696:5696 -v /path/of/customer_fragments.json:/home/akeyless/.akeyless/customer_fragments.json -e ADMIN_ACCESS_ID="identity-access-id" -e ADMIN_ACCESS_KEY="identity-access-key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-# Create a Zero-Knowledge DFC Encryption Key
+## Create a Zero-Knowledge DFC Encryption Key
 
 Once the **Customer Fragment** is mounted in the Gateway, it can be used to secure your DFC Encryption Keys for full Zero Knowledge Encryption. 
 
@@ -71,7 +71,7 @@ Once the **Customer Fragment** is mounted in the Gateway, it can be used to secu
 >
 > To create a DFC encryption key with Customer Fragment, the Auth Method that's being used needs to be on the list of allowed access IDs for the gateway.
 
-## Create DFC Key from the Akeyless Console
+### Create DFC Key from the Akeyless Console
 
 To create a DFC Encryption Key:
 
@@ -85,7 +85,7 @@ To create a DFC Encryption Key:
 
 5. Click **Save**.
 
-## Create Zero Knowledge Key from the Akeyless CLI
+### Create Zero Knowledge Key from the Akeyless CLI
 
 To generate a key using a Customer Fragment, run the following command: 
 
@@ -105,7 +105,7 @@ You'll get the following output:
 A new AES256GCM key named MyKeyWithMyCF was successfully created
 ```
 
-## Set Up a Default Encryption Key
+### Set Up a Default Encryption Key
 
 To set a default Encryption Key based on your Customer Fragment to enforce Zero-Knowledge by default for all your secrets that will be created using your Gateway. This will ensure that any item created with Akeyless (via Web UI, CLI, or SDKs) will be encrypted using your encryption key.
 

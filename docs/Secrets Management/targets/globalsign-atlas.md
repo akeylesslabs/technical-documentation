@@ -18,7 +18,7 @@ With Public CA, Akeyless cannot access the private key that signs the certificat
 
 Akeyless will store and manage the issued certificates and notify you of upcoming expiration events.
 
-# Create a GlobalSign Atlas Target in the CLI
+## Create a GlobalSign Atlas Target in the CLI
 
 To create a GlobalSign Atlas target from the CLI, run the following command:
 
@@ -43,7 +43,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsign-atlasp) section.
 
-# Create a GlobalSign Atlas Target in the Console
+## Create a GlobalSign Atlas Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Certificate Automation (GlobalSign Atlas)**.
 

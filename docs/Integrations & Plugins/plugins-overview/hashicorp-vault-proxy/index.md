@@ -27,7 +27,7 @@ Interaction with the Akeyless vault proxy can be done against our public endpoin
 
 Or directly through your [Gateway](https://docs.akeyless.io/docs/api-gw) on port `8200`.
 
-# Usage
+## Usage
 
 HashiCorp Vault`V1` secret engine proxy will be available using this prefix: `v1/kv`
 
@@ -45,7 +45,7 @@ In case the secret value itself is a JSON-structured object, the **Path** must b
 
  `secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names**
 
-## Custom Engine Name
+### Custom Engine Name
 
 Custom engine names can also be used for accessing secrets by replacing the default engine name with the custom engine name in the URL:
 

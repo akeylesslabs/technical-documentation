@@ -12,7 +12,7 @@ next:
 ---
 Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool that enables you to automate processes and tasks within your ServiceNow environment without the need for extensive coding. Flows can consist of triggers, actions, and logic to perform a wide range of automated tasks, from simple notifications to complex orchestration of cross-application processes. Below is a step-by-step guide on how to create a flow in ServiceNow.
 
-# Step 1: Access the Flow Designer
+## Step 1: Access the Flow Designer
 
 * Log in to your ServiceNow instance.
 * In the Navigation Filter box, type Flow Designer.
@@ -20,7 +20,7 @@ Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool 
 
 ![](https://files.readme.io/f03a210-Screenshot_2024-02-29_at_19.35.24.png)
 
-# Step 2: Create a New Flow
+## Step 2: Create a New Flow
 
 * In the Flow Designer interface, click on the New button to create a new flow.
 
@@ -35,7 +35,7 @@ Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool 
 
 ![](https://files.readme.io/e60c566-Screenshot_2024-02-29_at_19.38.08.png)
 
-# Step 3: Define the Trigger
+## Step 3: Define the Trigger
 
 * Every flow starts with a trigger—what event will cause this flow to run. Click on Add Trigger.
 
@@ -54,7 +54,7 @@ Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool 
 
 ![](https://files.readme.io/a09d2f1-Screenshot_2024-02-29_at_19.40.30.png)
 
-# Step 4: Add Actions
+## Step 4: Add Actions
 
 * With your trigger defined, you can start adding actions that the flow will execute.
 * Click on Add Action in the main flow canvas.
@@ -64,7 +64,7 @@ Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool 
 
 ![](https://files.readme.io/9882831-Screenshot_2024-02-29_at_19.45.17.png)
 
-# Step 5: Map Record Columns to Action Inputs
+## Step 5: Map Record Columns to Action Inputs
 
 * With the action selected in your flow, look to the configuration panel on the right side of the screen. Here, you will see fields for each input of your action.
 * Map each input to the corresponding column of the updated record by clicking on the input field. This opens a selection window where you can choose data pills.
@@ -78,14 +78,14 @@ Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool 
 
 ![](https://files.readme.io/4a1c326-Screenshot_2024-02-29_at_19.48.03.png)
 
-# Step 6: Test Your Flow
+## Step 6: Test Your Flow
 
 * Before using your flow in a production environment, it's important to test it to ensure it behaves as expected.
 * Use the Test feature in Flow Designer to run your flow in a controlled environment. You can simulate the trigger and inspect the outcomes of each action.
 
 ![](https://files.readme.io/b58f04b-Screenshot_2024-02-29_at_19.49.09.png)
 
-# Step 7: Activate Your Flow
+## Step 7: Activate Your Flow
 
 * Once you're satisfied with the flow's performance during testing, you can activate it. An active flow will run according to its trigger conditions within your ServiceNow environment.
 

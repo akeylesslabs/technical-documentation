@@ -12,7 +12,7 @@ next:
 ---
 [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) can be configured with a **sync** setting, ensuring that upon manual or automatic rotation, the latest value of your secret will be **synced** via the relevant [Universal Secrets Connector](https://docs.akeyless.io/docs/universal-secrets-connector) automatically.
 
-# Syncing a Rotated Secret from the CLI
+## Syncing a Rotated Secret from the CLI
 
 Run the following command to sync a rotated secret to an external Secret Management solution using the CLI:
 
@@ -40,7 +40,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#sync) section.
 
-# Syncing a Rotated Secret from the Console
+## Syncing a Rotated Secret from the Console
 
 1. Log in to the Akeyless Console, and navigate to the [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) item.
 2. Go to the **Sync** tab on the secret item and click **Attach**.

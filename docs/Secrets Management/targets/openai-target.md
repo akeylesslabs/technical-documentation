@@ -7,7 +7,7 @@ metadata:
 ---
 You can define an [OpenAI](https://openai.com/) target to be used with [OpenAI Dynamic Secret](https://docs.akeyless.io/update/docs/openai-dynamic-secrets#/).
 
-# Create an OpenAI Target in the CLI
+## Create an OpenAI Target in the CLI
 
 To create an OpenAI target from the CLI, run the following command:
 
@@ -32,7 +32,7 @@ Where:
 
 * `open-ai-url`: The endpoint for the OpenAI API
 
-# Create an OpenAI Target in the Console
+## Create an OpenAI Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > AI (OpenAI)**.
 

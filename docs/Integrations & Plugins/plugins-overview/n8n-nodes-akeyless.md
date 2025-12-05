@@ -33,7 +33,7 @@ The Akeyless node for n8n integrates with Akeyless Vaultless Secrets Management.
 
 <br />
 
-#### For Self-Hosted n8n
+#### For Self-Hosted N8n
 
 Install via npm in your n8n installation directory:
 
@@ -63,14 +63,14 @@ Choose an authentication method:
 
 <br />
 
-#### Method A: Access ID + Access Key (Recommended)
+#### Method a: Access ID + Access Key (Recommended)
 
 * API Base URL: [https://api.akeyless.io](https://api.akeyless.io) (or your Akeyless instance URL)
 * Access ID: Your Akeyless Access ID (starts with p-)
 * Access Key: Your Base64 encoded Access Key
 * Ignore SSL Issues: Leave unchecked unless using self-signed certificates
 
-#### Method B: Token (t-token)
+#### Method B: Token (T-token)
 
 * API Base URL: [https://api.akeyless.io](https://api.akeyless.io)
 * Token: Your Akeyless token (starts with t-)

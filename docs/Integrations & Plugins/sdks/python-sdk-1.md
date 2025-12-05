@@ -12,7 +12,7 @@ next:
 ---
 The Akeyless [Python SDK](https://github.com/akeylesslabs/akeyless-python) makes it easy to integrate your **Python** applications, libraries, or scripts with Akeyless. The following guide shows a typical integration.
 
-# Installation
+## Installation
 
 Install the Akeyless **Python** pacakge using `pip`:
 
@@ -26,7 +26,7 @@ Import `akeyless` package:
 import akeyless
 ```
 
-# Configuration
+## Configuration
 
 Create and configure an instance of Akeyless Client:
 
@@ -42,11 +42,11 @@ api = akeyless.V2Api(api_client)
 
 To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set `host` with your Gateway API endpoint on port `8081`.
 
-# Authentication
+## Authentication
 
 The Akeyless **Python** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
-## API Key
+### API Key
 
 To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
 
@@ -58,7 +58,7 @@ token = res.token
 
 Make sure to set your `Access ID` and `Access Key` in the relevant places. The received token should be provided for every request that requires authentication.
 
-## UID
+### UID
 
 Another way to use the SDK is by using [Universal Identity](https://docs.akeyless.io/docs/universal-identity)tokens:
 
@@ -70,7 +70,7 @@ print(res['my-secret'])
 
 Note that when working with  **Universal Identity** you should use the`uid_token`, while for any other authentication method, you should use `token`.
 
-## Using cloud ID
+### Using Cloud ID
 
 To work with a Cloud-based Auth, install the `akeyless_cloud_id` [package](https://github.com/akeylesslabs/akeyless-python-cloud-id):
 
@@ -78,7 +78,7 @@ To work with a Cloud-based Auth, install the `akeyless_cloud_id` [package](https
 pip install akeyless_cloud_id
 ```
 
-### Authenticate using cloud ID
+#### Authenticate Using Cloud ID
 
 Choose the right example based on your cloud provider:
 
@@ -115,7 +115,7 @@ token = res.token
 
 Make sure to set your `Access Id` in the relevant place.
 
-# Examples
+## Examples
 
 **Get static secret value(s)**:
 
@@ -165,6 +165,6 @@ body = akeyless.AssocRoleAuthMethod(am_name='dev-api-key', role_name='dev-ro',
 api.assoc_role_auth_method(body)
 ```
 
-# API Reference
+## API Reference
 
 For a detailed API reference, see [here](https://github.com/akeylesslabs/akeyless-python).

@@ -36,7 +36,7 @@ Available database targets:
 
 * [Redis](https://docs.akeyless.io/docs/database-targets#redis)
 
-# Create a Database Target in the CLI
+## Create a Database Target in the CLI
 
 > 👍 Note
 >
@@ -158,9 +158,9 @@ akeyless target create db \
 --user-name <Database user name>
 ```
 
-# Create a Database Target in the Console
+## Create a Database Target in the Console
 
-## MySQL
+### MySQL
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (MySQL)**.
 
@@ -189,7 +189,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 Click **Finish**.
 
-## PostgreSQL
+### PostgreSQL
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (PostgreSQL)**.
 
@@ -212,7 +212,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 Click **Finish**.
 
-## MSSQL
+### MSSQL
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (MSSQL)**.
 
@@ -245,7 +245,7 @@ Choose the desired mode of authenticating either **Use Credentials**,  **Use Clo
 
 Click **Finish**.
 
-## Redshift
+### Redshift
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (Redshift)**.
 
@@ -268,7 +268,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 Click **Finish**.
 
-## Oracle
+### Oracle
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (Oracle)**.
 
@@ -317,7 +317,7 @@ Click **Finish**.
 >
 > To use your Wallet with login type of Password ensure to add the relevant username to your wallet using the following format: `mkstore -wrl ~/mywallet2 -createCredential "(HOST=<host>)(PORT=1521)(SERVICE_NAME=<SN Name>)" <Username> <Password>`
 
-## MongoDB
+### MongoDB
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (MongoDB)**.
 
@@ -344,7 +344,7 @@ Select **MongoDB** radio button.
 
 Click **Finish**.
 
-## MongoDB Atlas
+### MongoDB Atlas
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (MongoDB)**.
 
@@ -365,7 +365,7 @@ Select **MongoDB Atlas** radio button.
 
 Click **Finish**.
 
-## Snowflake
+### Snowflake
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (Snowflake)**.
 
@@ -395,7 +395,7 @@ Note: You can find this string in your Snowflake URL.
 
 Click **Finish**.
 
-## Cassandra
+### Cassandra
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (Cassandra)**.
 
@@ -416,7 +416,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 Click **Finish**.
 
-## SAP HanaDB
+### SAP HanaDB
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (SAP HanaDB)**.
 
@@ -439,7 +439,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 Click **Finish**.
 
-## Redis
+### Redis
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (Redis)**.
 
@@ -460,6 +460,6 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 Click **Finish**.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Configuring MySQL Targets](https://tutorials.akeyless.io/docs/creating-targets).

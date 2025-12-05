@@ -6,7 +6,7 @@ hidden: true
 metadata:
   robots: index
 ---
-# Cluster Name
+## Cluster Name
 
 ```yaml
 ############
@@ -23,7 +23,7 @@ It is recommended to set a meaningful Cluster Name for your Bastion cluster from
 
 To do that, you can set the `clusterName="meaningful-cluster-name"`field as part of the Bastion deployment.
 
-# Zero-Trust Web-Access (ZTWA)
+## Zero-Trust Web-Access (ZTWA)
 
 This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets via the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions), which opens a browser session and injects credentials into the browser for the user.
 
@@ -34,7 +34,7 @@ These targets are accessed using one of three methods: [Secure Web Browsing](htt
 
 The [Akeyless SRA Browser Extension](https://docs.akeyless.io/docs/installation-of-akeyless-web-extension) is installed locally on the user's browser (Chrome, Firefox, or Edge). It provides password management capabilities and supports the SRA by managing and adapting seamless configuration to the browser.
 
-# SSH Legacy Algorithm
+## SSH Legacy Algorithm
 
 ```yaml
 ############
@@ -45,7 +45,7 @@ legacySigningAlg: "false"
 
 As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy '[ssh-rsa-cert-v01@openssh.com](mailto:ssh-rsa-cert-v01@openssh.com)' signing algorithm.
 
-# RDP User Acces
+## RDP User Acces
 
 Set the `usernameSubClaim` with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
 
@@ -62,7 +62,7 @@ SSHusernameSubClaim:
 
 This will take effect on all SSH-based sessions, both for RDP and Linux-based systems. To split the use case when to extract the `usernameSubClaim` you can set instead a dedicated setting for each type.
 
-# Proxy
+## Proxy
 
 To configure your proxy settings, you can set several parameters, including proxy settings for HTTP traffic, HTTPS traffic, and Ignore Hosts, using the `no_proxy` field, to prevent local traffic from going through your proxy server.
 
@@ -74,7 +74,7 @@ httpProxySettings:
   no_proxy: ""
 ```
 
-# Session Recording
+## Session Recording
 
 SRA supports the recording of RDP, SSH, DB & K8s sessions.
 
@@ -121,7 +121,7 @@ To authenticate using an explicit **AWS Key**  provide the relevant `awsAccessKe
 
 To store local recordings inside your Bastion server, set the `KeepLocalRecording` with `true`, session recordings will be stored inside the bastion under `/home/akeyless/recordings`.
 
-# Session Management
+## Session Management
 
 To revoke an existing session from your [Akeyless Gateway Overview](https://docs.akeyless.io/docs/api-gw) or your IdP like Okta, or Keycloak, enable the `sessionTermination` and set the `apiURL` to your Gateway, or to your IdP URL.
 
@@ -133,11 +133,11 @@ sessionTermination:
       apiToken: ""
 ```
 
-# Log Forwarding
+## Log Forwarding
 
 To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page.
 
-# Redirect to Bastion URLs
+## Redirect to Bastion URLs
 
 To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**:
 
@@ -147,7 +147,7 @@ ztbConfig:
   allowedBastionUrls: []
 ```
 
-# Concurrent Unauthenticated Connections
+## Concurrent Unauthenticated Connections
 
 To specify the maximum number of concurrent unauthenticated connections to the SRA Bastion, set the following `env` variable under the  `sshConfig` as follows:
 
@@ -158,7 +158,7 @@ sshConfig:
       value: "200:30:300"
 ```
 
-# SSH Fingerprint
+## SSH Fingerprint
 
 To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.  
 Note, please  ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
@@ -170,7 +170,7 @@ sshConfig:
       value: /MY_SSH_BASTION_HOST_KEYS
 ```
 
-# Self-Hosted Zero Trust Portal
+## Self-Hosted Zero Trust Portal
 
 To deploy a self-hosted instance of the Akeyless Zero trust portal as part of this chart, you can enable the `ztpConfg`:
 
@@ -195,7 +195,7 @@ ztpConfig:
     port: 8080
 ```
 
-# Support for Other Keyboard Layouts
+## Support for Other Keyboard Layouts
 
 To enable support for other keyboard layouts in your remote sessions (ie Windows), find the `ztbConfig` section and add the `KEYBOARD_LAYOUT` variable name and value (the default is `en-us-qwerty`) to the `env` as follows:
 

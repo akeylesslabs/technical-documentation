@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Introduction
+## Introduction
 
 Key rotation is the process in which a new version of an encryption key is created. The key fragment instances and split level remain the same throughout the versions, as well as the customer fragment associated with it (if any).
 There are some constraints when rotating a key:
@@ -21,14 +21,14 @@ There are some constraints when rotating a key:
 A key can be set to automatically rotate every 7-365 days.
 When rotating a key, the last version of it will be used for **Encryption** and **Decryption** operations, previous versions can still be used for **Decryption** operations done by them.
 
-## Why would I want to rotate my keys?
+### Why Would I Want to Rotate My Keys?
 
 Key rotation is considered a best practice for management for a few reasons:
 
 * Like with passwords, it is advised to rotate a key every once in a while to prevent cracking. Shifting the key components around makes any progress made on cracking it obsolete.
 * Using different versions of a key allows you to compartmentalize and manage a key, and any information encrypted with it.
 
-# Managing a Key in the CLI
+## Managing a Key in the CLI
 
 To rotate a key in the CLI, use the following command:
 
@@ -118,7 +118,7 @@ To delete a specific key version, use these parameters on the  **Delete Item** c
 akeyless delete-item --name MyAES256SIVKey --version=1 --delete-in-days=30
 ```
 
-# Managing a Key in the Console
+## Managing a Key in the Console
 
 To rotate a key in the console,
 
@@ -132,6 +132,6 @@ To rotate a key in the console,
 
 * If you wish to view and manage previous versions open the **Versions** tab.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Rotating Encryption Keys](https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys) .

@@ -27,12 +27,12 @@ You can use two types of resources to fetch secrets from Akeyless:
 
 In addition to retrieving secrets from Akeyless to your Kubernetes cluster, you can use the `PushSecret` resource to push a local Kubernetes secret from your cluster to Akeyless.
 
-# Prerequisites
+## Prerequisites
 
 * [Helm ](https://helm.sh/) installed
 * Kubernetes v1.16 or higher
 
-# Installing with Helm
+## Installing With Helm
 
 Add External Secrets [official repository](https://github.com/external-secrets/external-secrets) to your helm and install:
 
@@ -41,7 +41,7 @@ helm repo add external-secrets https://charts.external-secrets.io
 helm install external-secrets external-secrets/external-secrets
 ```
 
-# Authentication
+## Authentication
 
 Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/) support the following Authentication Methods:
 
@@ -96,7 +96,7 @@ Apply the configuration:
 kubectl apply -f akeylesscreds.yaml
 ```
 
-# SecretStore
+## SecretStore
 
 The [SecretStore](https://external-secrets.io/v0.4.2/api-secretstore/) resource is namespaced and defines how to authenticate to Akeyless. In the following example, a reference to the `akeyless-secret-creds` that was created earlier is used.
 
@@ -138,7 +138,7 @@ Apply the configuration:
 kubectl apply -f secretstore.yaml
 ```
 
-## Explicit Secret Store
+### Explicit Secret Store
 
 Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` Kubernetes secret through the [SecretStore](https://docs.akeyless.io/docs/external-secret-operator-copy#secretstore). Alternatively, you can authenticate directly using your Kubernetes Authentication settings.
 
@@ -169,7 +169,7 @@ Where:
 
 * `serviceAccountRef`: The name of the Kubernetes service account used to fetch secrets from Akeyless. Only secrets defined in a role associated with that service account under claim `service_account_name` can be accessed.
 
-# ExternalSecret
+## ExternalSecret
 
 To retrieve a secret from Akeyless and store it as a [Kubernetes secret](https://kubernetes.io/docs/concepts/configuration/secret/) in your cluster, create an [ExternalSecret](https://external-secrets.io/latest/api/externalsecret/) resource that specifies which secret to fetch:
 
@@ -219,7 +219,7 @@ Getting the Kubernetes secret:
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.secretKey}' | base64 -d
 ```
 
-# Using DataFrom
+## Using DataFrom
 
 DataFrom can be used to get a secret as a `JSON` string and attempt to parse it, where each key will be used as the secret key in the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/):
 
@@ -260,7 +260,7 @@ Getting the Kubernetes secret:
 kubectl get secret akeyless-secret-to-create-json -o jsonpath='{.data}'
 ```
 
-## Working with Certificates
+### Working With Certificates
 
 Another example is when working with Akeyless [Certificate](https://docs.akeyless.io/docs/certificate-storage), the certificate item contains two separate `PEM` blocks, the actual `Certificate` and the `Private Key`, to split them into different keys you can configure the resource accordingly:
 
@@ -321,7 +321,7 @@ kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.crt}' | ba
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.key}' | base64 -d 
 ```
 
-# ClusterSecretStore
+## ClusterSecretStore
 
 The [ClusterSecretStore](https://external-secrets.io/v0.4.2/api-clustersecretstore/) is cluster-wide and can be accessed by `ExternalSecrets` from any namespace, offering centralized secret management:
 
@@ -368,7 +368,7 @@ Run the following command to create the **ClusterSecretStore** resource:
 kubectl apply -f clustersecretstore.yaml
 ```
 
-# Push Secret
+## Push Secret
 
 The [PushSecret](https://external-secrets.io/latest/api/pushsecret/) resource is namespaced and is used to push secrets from your Kubernetes Cluster to Akeyless.
 
@@ -423,6 +423,6 @@ kubectl apply -f pushsecret.yaml
 
 Upon successful execution, a secret named `k8s-created-secret` will be created in Akeyless, with the value of `cache-pass=mypassword`
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Sync Secrets to Kubernetes with External Secrets Operator (ESO)](https://tutorials.akeyless.io/docs/sync-secrets-to-k8s-with-external-secrets-operator).

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-# Introduction
+## Introduction
 
 This page includes a thorough comb through all of the different options for the **action** part of the Akeyless [log line](https://docs.akeyless.io/docs/audit-logs#reading-the-raw-logs) by category.
 
-# Items
+## Items
 
 * `list_items`: List items, either in a specific path or in your root Akeyless folder
 
@@ -24,7 +24,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `share_item`: Share an item from Akeyless
 
-# Roles
+## Roles
 
 * `create_role`: Create a new role
 
@@ -38,7 +38,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `list_roles`: List roles, either in a specific path or in your root Akeyless folder
 
-# Authentication Methods
+## Authentication Methods
 
 * `create_auth_method`: Create a new authentication method
 
@@ -54,7 +54,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `delete_assoc_role_auth_method`: Delete an association between a role and an auth method
 
-# General Item Actions
+## General Item Actions
 
 * `create_item`: Create an item
 
@@ -68,7 +68,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `share_item`: Share an item
 
-# Secrets and Keys Actions
+## Secrets and Keys Actions
 
 * `get_secret_value`: Fetch secret value
 
@@ -88,7 +88,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `new_dynamic_secret_value_pushed_by_producer`: Information that a dynamic secret has been fetched
 
-# Universal Identity Actions
+## Universal Identity Actions
 
 * `generate_universal_identity_token`: Generated a UID token
 
@@ -96,7 +96,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `universal_identity_rotate`: Rotation of UIDs
 
-# Targets
+## Targets
 
 * `create_target`: Create a new target
 
@@ -114,7 +114,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `delete_assoc_target_item`: Break association between a target and an item
 
-# Notification Forwarders
+## Notification Forwarders
 
 * `create_notification_forwarder`: Create a notification forwarder
 
@@ -122,7 +122,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `delete_notification_forwarder`: Delete a notification forwarder
 
-# Secure Remote Access Bastion
+## Secure Remote Access Bastion
 
 * `update_display_name_of_bastion`: Update a bastion name
 
@@ -130,7 +130,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `list_bastions`: List bastions
 
-# Gateways
+## Gateways
 
 * `issue_gateway_jwt`: Get gateway credentials
 
@@ -138,7 +138,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `list_gateways`: List gateways
 
-# Billing
+## Billing
 
 * `get_billing_details`: Fetch billing details
 
@@ -154,7 +154,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `get_next_invoice`: Show next invoice
 
-# Additional Log Actions
+## Additional Log Actions
 
 * `user_notification`: User notification eas issued
 

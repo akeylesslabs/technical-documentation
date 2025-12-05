@@ -12,19 +12,19 @@ next:
 ---
 You can enable secure remote access to a Windows machine with a [Dynamic Secret](https://docs.akeyless.io/docs/rdp-dynamic-secrets) that generates ephemeral credentials for the machine or a [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret). Users can access the Windows machine from the Secure Remote Access Portal over the web.
 
-# Prerequisites
+## Prerequisites
 
 To enable secure remote access to a Windows machine you need:
 
 * [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
-# Create an RDP Secret
+## Create an RDP Secret
 
 If you don't already have an RDP secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/rdp-dynamic-secrets) or [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret) that specifies the Windows machine details and access credentials.
 
 If you already have a relevant secret, continue below.
 
-# Set Up Remote Access to a Windows Machine from the Akeyless CLI
+## Set Up Remote Access to a Windows Machine from the Akeyless CLI
 
 Let's set up remote access to a Windows Machine using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console) instead.
 
@@ -58,7 +58,7 @@ Optional:
 * **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 * **secure-access-rd-gateway-server:** Optional for Dynamic Secret, to connect from SRA to the remote host via an RD-Gateway server.
 
-# Set Up Remote Access to a Windows Machine from the Akeyless Console
+## Set Up Remote Access to a Windows Machine from the Akeyless Console
 
 Let's set up remote access to a Windows Machine from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-cli) instead.
 
@@ -77,7 +77,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
-# Access a Windows Machine Over the Web from the Secure Remote Access Portal
+## Access a Windows Machine Over the Web from the Secure Remote Access Portal
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **Remote Desktop**.
 
@@ -94,13 +94,13 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 >
 > To enable this feature, the Auth Method used for the Gateway-SRA privileged Access-ID requires an Access Role with the *Update* permission on the relevant items' path
 
-# Inject a Fixed User Password Automatically
+## Inject a Fixed User Password Automatically
 
 While working with fixed users, Secure Remote Access can automatically inject your **own** password if stored under your **[personal folder](https://docs.akeyless.io/docs/password-manager#personal-folder)**.
 
 Create a new [Static Secret](https://docs.akeyless.io/docs/static-secrets) under your **personal** folder with the exact full name of the relevant [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
-# Download & Upload Files
+## Download & Upload Files
 
 Based on your permissions, you will have the ability to upload files from your local machine into the remote Windows machine or download files from the remote Windows machine to your local machine.
 

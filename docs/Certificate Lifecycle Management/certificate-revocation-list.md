@@ -16,7 +16,7 @@ Akeyless enables you to proactively revoke certificates before their scheduled e
 >
 > Your PKI Issuer **Signer Key** must be set with the `keyusage:critical,cRLSign` extension to maintain a  **CRL** and support self-signed certificate revocation.
 
-# Revoke a certificate using the Akeyless CLI
+## Revoke a Certificate Using the Akeyless CLI
 
 To revoke a certificate from the CLI, run the following command:
 
@@ -35,14 +35,14 @@ Upon successful revocation, the certificate status will change from **Valid** to
 
 You can find the complete list of parameters for this command in the [CLI-Reference-Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluerevoke-certificatep) section.
 
-# Revoke a certificate using the Akeyless Console
+## Revoke a Certificate Using the Akeyless Console
 
 To revoke a certificate from the console:
 
 1. Log in to the Akeyless Console, go to **Items**, and find the certificate you wish to revoke.
 2. Click on the **Certificate**, open the Action Menu (three dots), and click **Revoke**.
 
-# Revocation List
+## Revocation List
 
 Once the certificate is revoked, it is added to the **Certificate Revocation List**. For each issuer the following formats are maintaining the revocation list when applicable: 
 

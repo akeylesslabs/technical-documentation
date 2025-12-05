@@ -12,7 +12,7 @@ next:
 ---
 The Akeyless [Java SDK](https://github.com/akeylesslabs/akeyless-java) makes it easy to integrate your **Java** applications, libraries, or scripts with Akeyless. The following guide shows a typical integration.
 
-# Installation
+## Installation
 
 Building the API client library requires:
 
@@ -46,7 +46,7 @@ Then, add the following dependency to your project's `pom.xml` file:
 >
 > Don't forget to modify the value of the `<version>` element in the `pom.xml` file to specify the dependency version you want to include.
 
-## Build from Source
+### Build from Source
 
 Clone the <a href="https://github.com/akeylesslabs/akeyless-java" target="_blank">SDK Repository</a> and execute:
 
@@ -56,7 +56,7 @@ mvn clean package
 
 Then, manually install the **JAR** files under the `target` folder.
 
-# Configuration
+## Configuration
 
 The example below uses the following imported packages:
 
@@ -80,11 +80,11 @@ V2Api api = new V2Api(client);
 
 To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set the `client.setBasePath` with your Gateway API endpoint on port `8081`.
 
-# Authentication
+## Authentication
 
 The Akeyless **Java** SDK supports multiple [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
-## API Key
+### API Key
 
 To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
 
@@ -98,7 +98,7 @@ String token = out.getToken();
 
 Make sure to set your `Access Id` and `Access Key` in the relevant places. The received token should be provided for every request that requires authentication.
 
-## Using cloud ID
+### Using Cloud ID
 
 To work with a Cloud-based Auth,  Add the Akeyless [Cloud ID library](https://akeyless.jfrog.io/ui/native/akeyless-java/io/akeyless/cloudid) for **Java** and set the following dependency on your project's `pom`:
 
@@ -120,7 +120,7 @@ import io.akeyless.cloudid.CloudProviderFactory;
 import io.akeyless.cloudid.CloudIdProvider;
 ```
 
-### Authenticate using cloud ID
+#### Authenticate Using Cloud ID
 
 Set the relevant `accessType` based on your cloud provide, the following example uses `azure_ad`:
 
@@ -151,7 +151,7 @@ try {
 
 Make sure to set your `Access Id` in the relevant place.
 
-# Example
+## Example
 
 Wrapping everything together, here is a basic example demonstrating the `ListItems` command:
 
@@ -202,6 +202,6 @@ public class Main {
 }
 ```
 
-# API Reference
+## API Reference
 
 For a detailed API reference, see [here](https://github.com/akeylesslabs/akeyless-java).

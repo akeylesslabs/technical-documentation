@@ -16,7 +16,7 @@ Working with isolated browsers provides a complete zero-knowledge where users do
 
 This guide provides guidance for the deployment of the Akeyless-Web-Access-Bastion on **Docker** using **Docker Compose**
 
-# Prerequisites
+## Prerequisites
 
 * Docker Compose installed.
 
@@ -41,7 +41,7 @@ For security reasons, please limit the volume mount permissions to `0650`.
 >
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless's private repository. Please contact your Account Manager for more details.
 
-# Configuration
+## Configuration
 
 Download the **Docker Compose** file using this link: [https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml](https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml)
 
@@ -92,7 +92,7 @@ services:
       - WEB_PROXY_TYPE=http
 ```
 
-## Authentication
+### Authentication
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported: 
 
@@ -104,7 +104,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) 
 
-## API Key Authentication
+### API Key Authentication
 
 To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` as environment variables with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
@@ -129,11 +129,11 @@ services:
       - WEB_PROXY_TYPE=http
 ```
 
-## CSP IAM Authentication
+### CSP IAM Authentication
 
 While running your Docker inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
-## AWS IAM
+### AWS IAM
 
 AWS IAM can be used in the following approach: 
 
@@ -161,7 +161,7 @@ services:
       - WEB_PROXY_TYPE=http
 ```
 
-## Azure Active Directory
+### Azure Active Directory
 
 Azure AD authentication is provided with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
@@ -187,7 +187,7 @@ services:
       - WEB_PROXY_TYPE=http
 ```
 
-## GCP GCE
+### GCP GCE
 
 Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP.\
  Set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
@@ -212,7 +212,7 @@ services:
       - WEB_PROXY_TYPE=http
 ```
 
-## Redirect to Bastion URLs
+### Redirect to Bastion URLs
 
 To ensure only validated redirects are accepted, you can harden your bastion using the `ALLOWED_BASTION_URLS` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-dispatcher-bastion**:
 
@@ -238,9 +238,9 @@ services:
       - WEB_PROXY_TYPE=http
 ```
 
-# Advanced Configuration
+## Advanced Configuration
 
-## Cluster Name
+### Cluster Name
 
 Each Bastion is uniquely identified by combining the **Privilege Access ID**  Authentication Method and the **Cluster Name**.
 
@@ -257,7 +257,7 @@ services:
       - CLUSTER_NAME=compose-ztwa
 ```
 
-## Proxy
+### Proxy
 
 To configure your proxy settings, you can set several parameters, including proxy settings for HTTP traffic, HTTPS traffic, and Ignore Hosts, using the `no_proxy` field, to prevent local traffic from going through your proxy server. You can set both services `dispatcher` and `worker` accordingly.
 
@@ -276,7 +276,7 @@ services:
       - no_proxy=
 ```
 
-## Log Forwarding
+### Log Forwarding
 
 To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page. Set the `LOG_FORWARDING` variable inside the  **Docker Compose** deployment file as follow: 
 
@@ -302,7 +302,7 @@ services:
       - LOG_FORWARDING='enable="true"\n target_log_type="logz_io"\n target_logz_io_token=""\n target_logz_io_protocol="tcp" \n'
 ```
 
-## WebWorker
+### WebWorker
 
 This section enables global settings of the internal dedicated remote browsers your users will use. You can customize the settings to provide a more flexible experience for your users. 
 
@@ -355,7 +355,7 @@ EOT
 1. Mount your organization's Root CA certificate to the containers (in the docker-compose.yml, under services.worker.volumes)
 2. In the `policies.json` above, uncomment the *Certificates.Install* line and set it to the relevant certificates' paths inside the container
 
-## DLP
+### DLP
 
 To work with Data Leak Protection tools, you can explicitly set the target settings of your DLP server, as well as with dedicated audit logs forwarding.
 
@@ -376,7 +376,7 @@ worker:
       - LOG_FORWARDING=
 ```
 
-# Install
+## Install
 
 Run the following command to apply your settings as part of the **Docker Compose** command:
 

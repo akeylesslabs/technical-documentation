@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to the Gateway Migrations.
 
 <CLIGeneralFlags />
 
-### `create`
+### `Create`
 
 Commands for creating and managing automatic migrations.
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-create-migration \
@@ -152,11 +152,11 @@ akeyless gateway-create-migration \
 
 `--si-rotation-hour`: The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration)
 
-### `delete`
+### `Delete`
 
 Delete migration
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-delete-migration \
@@ -164,11 +164,11 @@ akeyless gateway-delete-migration \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-### `get`
+### `Get`
 
 Get migrations
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-get-migration \
@@ -176,19 +176,19 @@ akeyless gateway-get-migration \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-### `list`
+### `List`
 
 List migrations
 
-##### Flags
+#### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `personal-items`
+### `Personal-items`
 
 Migrates personal items from external vault
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-migrate-personal-items \
@@ -222,11 +222,11 @@ akeyless gateway-migrate-personal-items \
 
 `--1password-vaults`: Optional list of 1Password vaults to migrate items from; can be used multiple times (--1password-vaults vault1 --1password-vaults vault2), If not provided, all non-private vaults will be migrated
 
-### `status`
+### `Status`
 
 Gets migration Status
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-migration-status \
@@ -243,11 +243,11 @@ akeyless gateway-migration-status \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `sync`
+### `Sync`
 
 Sync migration
 
-##### usage
+#### Usage
 
 ```shell
 Akeyless gateway-sync-migration \
@@ -264,11 +264,11 @@ Akeyless gateway-sync-migration \
 
 `--sync`: true, for starting synchronization, false for stopping
 
-### `update`
+### `Update`
 
 Update migration
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-update-migration \

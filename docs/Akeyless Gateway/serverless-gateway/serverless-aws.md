@@ -12,7 +12,7 @@ next:
 ---
 This page describes how to run an Akeyless Serverless Gateway on AWS using HashiCorp Terraform.
 
-# Prerequisites
+## Prerequisites
 
 * [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (version 1.0.0 or later)
 
@@ -34,7 +34,7 @@ For example, to get to the `/api/v2` service, use this endpoint: `https://<your_
   _**Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services._
 </Callout>
 
-# Pre-Installation Configuration
+## Pre-Installation Configuration
 
 Clone the **Serverless Gateway** repository locally:
 
@@ -44,7 +44,7 @@ git clone https://github.com/akeyless-community/akeyless-serverless-gateway.git
 
 Edit the `akeyless-serverless-gateway/terraform/AWS/serverless-gateway/lambda_env_vars.tf` file according to the sections below.
 
-## Authentication
+### Authentication
 
 Set your Akeyless Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Akeyless Gateway will have to your Akeyless account.
 
@@ -109,7 +109,7 @@ Where:
 
 * `allowed_access_permissions`:  A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
 
-## Customer Fragment
+### Customer Fragment
 
 To work with [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments` variable:
 
@@ -131,7 +131,7 @@ variable "customer_fragments"{
 }
 ```
 
-# Installation
+## Installation
 
 To install the module, run the following commands:
 
@@ -153,7 +153,7 @@ repository_url = "<aws-acct-id>.dkr.ecr.<region>.amazonaws.com/<your>-serverless
 
 **Note:**  If the Akeyless Serverless Gateway settings need to be updated after installation, edit the relevant values in the [Terraform files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway) and run `terraform apply`.
 
-# Additional Gateway Configuration
+## Additional Gateway Configuration
 
 To configure your Akeyless Serverless Gateway:
 
@@ -170,7 +170,7 @@ For more information in regards to the **Serverless Gateway**, refer to the [Ser
 
 **Note:** After installing the **Serverless Gateway,** it becomes accessible as a **Lambda Function** within your **AWS account**. This enables you to access comprehensive information, monitor its performance, and gain a complete overview of its functionality,  while it's possible to edit the Gateway directly from the **Lambda function**, any changes made will be overwritten during the next `terraform apply` command.
 
-## AWS Configuration
+### AWS Configuration
 
 While the `lammbda_env_vars.tf` file contains the basic configuration required for deploying the **Serverless Gateway**, You can also configure the `variables.tf` file to match your **AWS account** needs. Below are examples of configurable settings:
 
@@ -184,7 +184,7 @@ While the `lammbda_env_vars.tf` file contains the basic configuration required f
 
 Find more information about the available terraform [configuration files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway).
 
-# Upgrading the Gateway
+## Upgrading the Gateway
 
 The **Serverless Gateway** version can be updated to different versions based on your preferences, follow these steps to update the Gateway:
 
@@ -196,7 +196,7 @@ The **Serverless Gateway** version can be updated to different versions based on
 
 The **Serverless Gateway** will boot with the version you chose.
 
-# Limitations
+## Limitations
 
 The Akeyless Serverless Gateway does not support:
 

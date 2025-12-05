@@ -25,7 +25,7 @@ The following registries are compatible with the Sigstore signature specificatio
 >
 > This procedure is supported starting from Gateway version **3.59.0**
 
-# Install Cosign CLI
+## Install Cosign CLI
 
 To install **Cosign CLI**, follow the relevant doc according to your environment OS as described in the Cosign [official docs](https://docs.sigstore.dev/cosign/system_config/installation/). In the following example for simplicity, we will use **Homebrew** package manager.
 
@@ -33,7 +33,7 @@ To install **Cosign CLI**, follow the relevant doc according to your environment
 brew install cosign
 ```
 
-# Akeyless Plugin Installation
+## Akeyless Plugin Installation
 
 Download the official **Sigstore** plugin for Akeyless public artifacts:
 
@@ -42,7 +42,7 @@ curl command for build
 chmod +x <build name>
 ```
 
-# Configuration
+## Configuration
 
 Create a folder for the Akeyless **Sigstore** plugin configuration:
 
@@ -83,7 +83,7 @@ Where:
 
 * `access_type` - The Authentication Method type.
 
-# Create an Encryption Key
+## Create an Encryption Key
 
 Create an Encryption Key in Akeyless, using supported algorithms:
 
@@ -98,7 +98,7 @@ Both [DFC ](https://docs.akeyless.io/docs/encryption-keys)and [Classic key](http
 akeyless create-classic-key -n Cosign -a RSA2048 --gateway-url https://<Your-Gateway-URL:8000>
 ```
 
-# Importing the Image
+## Importing the Image
 
 Log in to your DockerHub account, and [pull the image](https://docs.docker.com/engine/reference/commandline/image_pull/) from your repository. If there is no existing image in the repository, [build one](https://docs.docker.com/docker-hub/quickstart/#step-5-build-and-push-a-container-image-to-docker-hub-from-your-computer):
 
@@ -108,7 +108,7 @@ docker pull <DockerHubUser>/<Image:Tag>
 
 Save the `sha256` value as it will be required for the signing and verifying of the image.
 
-# Signing & Verifying the Image
+## Signing & Verifying the Image
 
 Sign the image with cosign by executing the following command (Ensure that you run this command in the directory where the file `cosign_linux_amd64` is located):
 

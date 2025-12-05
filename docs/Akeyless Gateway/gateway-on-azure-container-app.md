@@ -12,7 +12,7 @@ next:
 ---
 This page describes how to run [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) on [Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps). The latest Docker image can be found at the [Akeyless Docker Hub](https://hub.docker.com/r/akeyless/gateway/tags) using the following image tag: `akeyless/gateway:latest-container-app`.
 
-# Prerequisites
+## Prerequisites
 
 * Azure [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)
 * Azure [Container Apps environment](https://learn.microsoft.com/en-us/azure/container-apps/environment)
@@ -57,7 +57,7 @@ az containerapp env create \
 
 With the configuration complete, we can now proceed to install the Gateway.
 
-# Container App Creation
+## Container App Creation
 
 If the **Azure Container Registry (ACR)** is private and requires authentication, run the following command while Docker is running on your host:
 
@@ -80,7 +80,7 @@ To verify that the image was imported to the ACR, run the following command:
 az acr repository list -n akeylessgwacr
 ```
 
-# Installation
+## Installation
 
 Create the Container App using the following command:
 
@@ -175,7 +175,7 @@ Upon successful deployment, A new [Container APP](https://azure.microsoft.com/en
 
 The Gateway is configured using environment variables. For additional available variables, refer to the [Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration)  guide.
 
-# Mount a Volume in Your Container App
+## Mount a Volume in Your Container App
 
 After your Container App is created, follow these steps to add a volume:
 

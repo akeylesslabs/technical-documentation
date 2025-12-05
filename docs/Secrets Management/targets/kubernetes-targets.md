@@ -16,11 +16,11 @@ You can define Kubernetes (K8s) targets to be used with dynamic secrets for the 
 * [Google Kubernetes Engine (GKE)](https://docs.akeyless.io/docs/kubernetes-targets#gke)
 * [Kubernetes (K8s) Generic](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic)
 
-# Amazon EKS
+## Amazon EKS
 
 You can define an Amazon EKS target to be used with [EKS Dynamic Secrets](https://docs.akeyless.io/docs/eks-dynamic-secret-producer).
 
-## Create an Amazon EKS Target in the CLI
+### Create an Amazon EKS Target in the CLI
 
 To create an Amazon EKS target from the CLI, run the following command:
 
@@ -44,7 +44,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueeksp) section.
 
-## Create an Amazon EKS Target in the Console
+### Create an Amazon EKS Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Kubernetes (EKS)**.
 
@@ -80,11 +80,11 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 6. Click **Finish**.
 
-# GKE
+## GKE
 
 You can define a GKE target to be used with [GKE Dynamic Secrets](https://docs.akeyless.io/docs/gke-dynamic-secret-producer).
 
-## Create a GKE Target in the CLI
+### Create a GKE Target in the CLI
 
 To create a GKE target from the CLI, run the following command:
 
@@ -120,7 +120,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluegkep) section.
 
-## Create a GKE Target in the Console
+### Create a GKE Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Kubernetes (GKE)**.
 
@@ -154,7 +154,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 6. Click **Finish**.
 
-# K8S Generic
+## K8S Generic
 
 You can define a generic Kubernetes target to be used with [Generic Kubernetes Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) using a **Bearer Token**, **Client Certificate** or using your **GW Service Account** to extract the relevant settings from a Gateway that runs on a Kubernetes cluster.
 
@@ -164,7 +164,7 @@ In both cases of **Bearer Token** and **GW Service Account**, the Service Accoun
 >
 > K8s Client Certificate is not supported by EKS
 
-## Create a Generic Kubernetes Target in the CLI
+### Create a Generic Kubernetes Target in the CLI
 
 To create a generic Kubernetes target from the CLI, run the following command to create a Taregt using a **Token** or using **certificate**:
 
@@ -212,7 +212,7 @@ akeyless target create k8s \
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluek8sp) section.
 
-## Create a Generic Kubernetes Target in the Console
+### Create a Generic Kubernetes Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Kubernetes (Generic)**.
 

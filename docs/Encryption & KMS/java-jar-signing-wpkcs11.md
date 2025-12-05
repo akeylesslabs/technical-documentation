@@ -137,7 +137,7 @@ jarsigner -verify tika-app-signed.jar
 
 #### Android APK Signing
 
-##### Sign APK (v1 Signature)
+##### Sign APK (V1 Signature)
 
 ```shell
 jarsigner -debug -verbose \
@@ -177,7 +177,7 @@ $ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner --version
 $ANDROID_SDK_ROOT/build-tools/35.0.0/zipalign -h
 ```
 
-##### Add PKCS#11 as Java Security Provider
+##### Add PKCS#11 As Java Security Provider
 
 Create `/work/java.security.additions:`
 
@@ -199,7 +199,7 @@ cd /work
 $ANDROID_SDK_ROOT/build-tools/35.0.0/zipalign -p 4 app-release-unsigned.apk app-aligned.apk
 ```
 
-##### Sign APK (v2/v3 Signature)
+##### Sign APK (V2/v3 Signature)
 
 ```shell
 java -Djava.security.properties=/work/java.security.additions \

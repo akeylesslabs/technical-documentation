@@ -12,19 +12,19 @@ next:
 ---
 You can enable secure remote access to an LDAP server with a Dynamic Secret that generates ephemeral credentials for the server or a Rotated Secret. Users can access the LDAP server from the Secure Remote Access Portal over the web.
 
-# Prerequisites
+## Prerequisites
 
 To enable secure remote access to an LDAP server you need:
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
-# Create an LDAP Secret
+## Create an LDAP Secret
 
 If you don't already have an LDAP secret, see the following docs to either create a [Dynamic Secret](https://docs.akeyless.io/docs/ldap-dynamic-secret) or [Rotated Secret](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret) that specifies the server details and access credentials.
 
 If you already have a relevant secret, continue below.
 
-# Set Up Remote Access to an LDAP server from the Akeyless CLI
+## Set Up Remote Access to an LDAP Server from the Akeyless CLI
 
 Let's set up remote access to an LDAP server using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/ldap-remote-access#set-up-remote-access-to-an-ldap-server-from-the-akeyless-console) instead.
 
@@ -54,7 +54,7 @@ Optional:
 * **secure-access-rdp-domain:** Required only when `external-username` is set to true. Only required if the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the LDAP user for whom credentials are created belongs.
 * **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
-# Set Up Remote Access to an LDAP server from the Akeyless Console
+## Set Up Remote Access to an LDAP Server from the Akeyless Console
 
 Let's set up remote access to a LDAP server from the Akeyless Console. If you'd prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/ldap-remote-access#set-up-remote-access-to-an-ldap-server-from-the-akeyless-cli) instead.
 

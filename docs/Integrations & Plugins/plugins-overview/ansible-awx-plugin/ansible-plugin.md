@@ -14,7 +14,7 @@ The Akeyless official [plugin for Ansible](https://galaxy.ansible.com/ui/repo/pu
 
 You can manage secrets and certificates with either [Modules](https://docs.ansible.com/ansible/latest/plugins/module.html) or [Lookup](https://docs.ansible.com/ansible/latest/plugins/lookup.html) plugins. In this guide, we will use Modules for simplicity. More information about the Lookup plugin can be found [here](https://docs.ansible.com/ansible/latest/plugins/lookup.html)
 
-# Installation
+## Installation
 
 To install the Akeyless Ansible plugin, use one of the following methods:
 
@@ -26,7 +26,7 @@ ansible-galaxy collection install akeyless.secrets_management
 
 For more information, refer to the [Ansible Galaxy documentation](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
 
-# Authentication
+## Authentication
 
 This plugin supports the following Authentication Methods:
 
@@ -154,13 +154,13 @@ Where:
 
 * `akeyless_gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-# Usage
+## Usage
 
 This section provides examples of fetching secrets and certificates and creating a [Static Secret](https://docs.akeyless.io/docs/static-secrets).
 
 To create an **Ansible Playbook**, create a `yaml` file containing the configuration below.
 
-## Static Secret Example
+### Static Secret Example
 
 **Create a Static Secret**
 
@@ -235,7 +235,7 @@ Where:
 
 Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/)
 
-## Dynamic Secret Example
+### Dynamic Secret Example
 
 The following will fetch a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) named `Ansible/MyDynamicSecret`:
 
@@ -265,7 +265,7 @@ The following will fetch a [Dynamic Secret](https://docs.akeyless.io/docs/how-to
 
 Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/)
 
-## Rotated Secret Example
+### Rotated Secret Example
 
 The following will fetch a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) named `Ansible/MyRotatedSecret`:
 
@@ -295,7 +295,7 @@ The following will fetch a [Rotated Secret](https://docs.akeyless.io/docs/rotate
 
 Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/)
 
-## SSH Certificate Example
+### SSH Certificate Example
 
 The following will issue and fetch an SSH Certificate:
 
@@ -339,7 +339,7 @@ Where:
 
 * `legacy_signing_alg_name`: **Optional**, Set this option to output legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm name in the certificate.
 
-## PKI Certificate Example
+### PKI Certificate Example
 
 The following will issue and fetch a PKI certificate:
 

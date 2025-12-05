@@ -36,7 +36,7 @@ System administrators receive immediate email or notification alerts upon new ac
 
 Admins can conveniently view, evaluate, and take action on access requests directly within the ServiceNow instance. The approval or decline decision can be made with a single click, streamlining the approval process.
 
-### Granular Control with Termination Option
+### Granular Control With Termination Option
 
 Administrators maintain complete control over access requests, with the ability to terminate requests at any time. This termination option enhances security by ensuring that access privileges are revoked when they are no longer required.
 
@@ -159,7 +159,7 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
 
 <br />
 
-### Approving Access Request via ServiceNow Instance
+### Approving Access Request Via ServiceNow Instance
 
 * Locate "akeyless_access_request" table in ServiceNow instance "All" menu
   * Click on "All" and enter "akeyless_access_request" in the search field

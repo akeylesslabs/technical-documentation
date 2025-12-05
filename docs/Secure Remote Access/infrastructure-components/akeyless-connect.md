@@ -16,7 +16,7 @@ next:
 ---
 Akeyless connect provides you with secure CLI access to resources or a secure tunnel from any UNIX terminal. 
 
-# Prerequisites
+## Prerequisites
 
 To use Akeyless Connect you need:
 
@@ -37,7 +37,7 @@ To use Akeyless Connect you need:
 >
 > To work with the `akeyless-connect` command from a Windows machine, place the <code>.akeyless-connect.rc</code> script in your home directory.
 
-# Set Up Akeyless Connect
+## Set Up Akeyless Connect
 
 1. Download the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli).
 
@@ -162,7 +162,7 @@ Full options list:
       --no-creds-cleanup[=false]         Do not clean local temporary expired creds
 ```
 
-## Examples
+### Examples
 
 **SSH:**
 

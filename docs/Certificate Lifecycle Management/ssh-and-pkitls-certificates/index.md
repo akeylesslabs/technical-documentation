@@ -14,7 +14,7 @@ next:
       slug: kubectl-access
       title: Kubectl Access
 ---
-# Introduction
+## Introduction
 
 Akeyless can act as a Certificate Authority (CA) for the internal environment. This page focuses on PKI Cert Issuer, if you wish to see how to create and work with SSH certificates, please follow this [link](https://docs.akeyless.io/docs/ssh-certificates).
 
@@ -70,7 +70,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 >
 > The example above demonstrates a very basic usage of Signer key, to support all PKI settings You can work with Classic Keys as well to generate a signing key with a self-signed certificate.
 
-## Creating a Certificate Issuer
+### Creating a Certificate Issuer
 
 A PKI Issuer enables you to issue certificates while the certificate templates are well-defined at the issuer level. To create the PKI Issuer, use the following command:
 
@@ -113,7 +113,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 > **Automatically store & renew certificate**  
 > Set the PKI Issuer item to automatically store & renew any issued certificate with default expiration events to gain full automation of your PKI environments.
 
-## Creating a Certificate Signing Request
+### Creating a Certificate Signing Request
 
 You can generate a Certificate Signing Request (CSR) in Akeyless to issue a new certificate using the PKI Issuer.
 
@@ -148,7 +148,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp) section.
 
-## Issuing a Certificate
+### Issuing a Certificate
 
 To issue and sign a new certificate, use the following command:
 
@@ -173,7 +173,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-pki-certificatep) section.
 
-## Revoke a Certificate
+### Revoke a Certificate
 
 To revoke an existing certificate run the following command:
 
@@ -201,9 +201,9 @@ Here you can provide a certificate full name, or use the`item-id`  or the certif
 >
 > In order to view the **Certificate Revocation List**, the **PKI Cert Issuer's** signing key **must** include the `cRLSign` extention.
 
-# Working with Certificates in the Console
+## Working With Certificates in the Console
 
-## Prerequisites
+### Prerequisites
 
 Creating a CA private key and root certificate to build your chain of trust:
 
@@ -225,7 +225,7 @@ Creating a CA private key and root certificate to build your chain of trust:
 
 * **Generate-Self-Signed-Certificate:** Enable this option to generate your root CA certificate as part of the key creation.
 
-## Creating a Certificate Issuer
+### Creating a Certificate Issuer
 
 1. Go to **Items > New > PKI Cert Issuer**
 
@@ -249,7 +249,7 @@ Creating a CA private key and root certificate to build your chain of trust:
 
 4. The description for the advanced and location parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp).
 
-## Issuing a Certificate
+### Issuing a Certificate
 
 To issue a certificate using an existing PKI issuer through the console, go through the following steps:
 

@@ -12,13 +12,13 @@ next:
 ---
 A Scripted REST API in ServiceNow is a powerful way to create custom REST APIs according to your specific business requirements. It allows you to define your own endpoints, request methods, and scripts to process incoming requests and send responses. This customization capability enables you to extend ServiceNow's functionality, integrate with external systems, and handle complex data transformations or business logic not covered by out-of-the-box REST APIs. Here’s a detailed explanation of key components and how to set up a Scripted REST API in ServiceNow:
 
-# Key Components of Scripted REST APIs
+## Key Components of Scripted REST APIs
 
 * **API**: Represents the overall API you're creating. It serves as a container for your resources.
 * **Resource**: Each API can have multiple resources. A resource represents a specific URL pattern and method (GET, POST, PUT, DELETE) combination. It’s where you define the logic for handling requests and sending responses.
 * **Script**: Attached to a resource, this is where you implement the logic to process the incoming request, interact with the ServiceNow database or other APIs, and determine the response to send back.
 
-# Creating a Scripted REST API
+## Creating a Scripted REST API
 
 To create a Scripted REST API in ServiceNow, follow these general steps:
 

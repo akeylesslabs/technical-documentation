@@ -45,7 +45,7 @@ This opens the **Create Static Secret** form.
 
 Your Static Secret has been created.
 
-## Step 4: Verify your Secret
+## Step 4: Verify Your Secret
 
 The details of your Static Secret should be open in the right half of your browser. If not, select the `QuickSecret` item.
 

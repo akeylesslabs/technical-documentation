@@ -16,7 +16,7 @@ Rotated secrets enable you to protect the credentials for privileged-user accoun
 
 <CLIGeneralFlags />
 
-## `create`
+## `Create`
 
 `akeyless rotated-secret create`
 
@@ -60,11 +60,11 @@ Commands to create a Rotated Secret
 
 `windows`: Creates new Windows rotated secret item
 
-### `aws`
+### `Aws`
 
 Creates new AWS rotated secret item
 
-##### Usage
+#### Usage
 
 ```shell AWS
 akeyless rotated-secret create aws \
@@ -126,7 +126,7 @@ akeyless rotated-secret create aws \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `azure`
+### `Azure`
 
 Creates new Azure rotated secret item
 
@@ -192,7 +192,7 @@ akeyless rotated-secret create azure \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `cassandra`
+### `Cassandra`
 
 Creates new Cassandra rotated secret item
 
@@ -238,7 +238,7 @@ Creates new Cassandra rotated secret item
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `custom`
+### `Custom`
 
 Creates new custom rotated secret item
 
@@ -317,7 +317,7 @@ akeyless rotated-secret create custom \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `dockerhub`
+### `Dockerhub`
 
 Creates new DockerHub rotated secret item
 
@@ -354,7 +354,7 @@ akeyless rotated-secret create dockerhub \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-### `gcp`
+### `Gcp`
 
 Creates new GCP rotated secret item
 
@@ -412,7 +412,7 @@ akeyless rotated-secret create gcp \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `hanadb`
+### `Hanadb`
 
 Creates new HANADB rotated secret item
 
@@ -456,7 +456,7 @@ akeyless rotated-secret create hanadb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `ldap`
+### `Ldap`
 
 Creates new LDAP rotated secret item
 
@@ -524,7 +524,7 @@ akeyless rotated-secret create ldap \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `mongodb`
+### `Mongodb`
 
 Creates new MongoDB rotated secret item
 
@@ -582,7 +582,7 @@ akeyless rotated-secret create mongodb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `mssql`
+### `Mssql`
 
 Creates new MSSQL rotated secret item
 
@@ -642,7 +642,7 @@ akeyless rotated-secret create mssql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `mysql`
+### `Mysql`
 
 Creates new MySQL rotated secret item
 
@@ -700,7 +700,7 @@ akeyless rotated-secret create mysql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `oracledb`
+### `Oracledb`
 
 Creates new OracleDB rotated secret item
 
@@ -756,7 +756,7 @@ akeyless rotated-secret create oracledb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `postgresql`
+### `Postgresql`
 
 Creates new PostgreSQL rotated secret item
 
@@ -816,7 +816,7 @@ akeyless rotated-secret create postgresql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `redis`
+### `Redis`
 
 Creates new Redis rotated secret item
 
@@ -862,7 +862,7 @@ akeyless rotated-secret create redis \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `redshift`
+### `Redshift`
 
 Creates new Amazon Redshift rotated secret item
 
@@ -916,7 +916,7 @@ akeyless rotated-secret create redshift \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `snowflake`
+### `Snowflake`
 
 Creates new Snowflake rotated secret item
 
@@ -966,7 +966,7 @@ akeyless rotated-secret create snowflake \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `ssh`
+### `Ssh`
 
 Creates new SSH rotated secret item
 
@@ -1032,7 +1032,7 @@ akeyless rotated-secret create ssh \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `windows`
+### `Windows`
 
 Creates new Windows rotated secret item
 
@@ -1092,7 +1092,7 @@ akeyless rotated-secret create windows \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-## `update`
+## `Update`
 
 `akeyless rotated-secret-update`
 

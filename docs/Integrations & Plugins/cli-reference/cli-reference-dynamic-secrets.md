@@ -24,7 +24,7 @@ You can create a dynamic secret using an existing [target](https://docs.akeyless
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-## `create`
+## `Create`
 
 `akeyless dynamic-secret create`
 
@@ -88,11 +88,11 @@ Command to create a Dynamic Secret
 
 `openai`: Creates OpenAI dynamic secret
 
-### `artifactory`
+### `Artifactory`
 
 Creates Artifactory Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using Target
 akeyless dynamic-secret create artifactory  \
@@ -137,11 +137,11 @@ akeyless dynamic-secret create artifactory \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-### `aws`
+### `Aws`
 
 Creates AWS Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create aws \
@@ -224,11 +224,11 @@ akeyless dynamic-secret create aws \
 
 `--secure-access-web[=true]`: Enable Web Secure Remote Access, Default = true
 
-### `azure`
+### `Azure`
 
 Creates Azure AD Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create azure \
@@ -305,11 +305,11 @@ akeyless dynamic-secret create azure \
 
 `--password-length`: The length of the password to be generated
 
-### `cassandra`
+### `Cassandra`
 
 Create Cassandra Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create cassandra  \
@@ -359,11 +359,11 @@ akeyless dynamic-secret create cassandra  \
 
 `--password-length`: The length of the password to be generated
 
-### `chef`
+### `Chef`
 
 Creates Chef Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create chef \
@@ -410,11 +410,11 @@ akeyless dynamic-secret create chef \
 
 `--password-length`: The length of the password to be generated
 
-### `custom`
+### `Custom`
 
 Creates a custom webhook-based dynamic secret
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless dynamic-secret create custom \
@@ -448,11 +448,11 @@ akeyless dynamic-secret create custom \
 
 `--admin_rotation_interval_days`: Rotation period in days
 
-### `dockerhub`
+### `Dockerhub`
 
 Creates a Dockerhub Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create dockerhub \
@@ -488,11 +488,11 @@ akeyless dynamic-secret create dockerhub \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-### `eks`
+### `Eks`
 
 Creates Amazon Elastic Kubernetes Service (Amazon EKS) Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using Target
 akeyless dynamic-secret create eks \
@@ -550,11 +550,11 @@ akeyless dynamic-secret create eks \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `gcp`
+### `Gcp`
 
 Creates Google Cloud Provider (GCP) Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create gcp \
@@ -612,11 +612,11 @@ akeyless dynamic-secret create gcp \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-### `google-workspace`
+### `Google-workspace`
 
 Creates Google-Workspace Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless dynamic-secret create google-workspace \
@@ -660,11 +660,11 @@ akeyless dynamic-secret create google-workspace \
 
 `--producer-encryption-key-name`: Dynamic producer encryption key
 
-### `github`
+### `Github`
 
 Creates Github Dynamic Secret that support tokens creation with fixed ttl of 60 minutes
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create github \
@@ -709,11 +709,11 @@ akeyless dynamic-secret create github \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `gke`
+### `Gke`
 
 Creates Google Kubernetes Engine (GKE) Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create gke \
@@ -764,11 +764,11 @@ akeyless dynamic-secret create gke \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `hanadb`
+### `Hanadb`
 
 Creates HanaDB Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create hanadb \
@@ -831,11 +831,11 @@ akeyless dynamic-secret create hanadb \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `k8s`
+### `K8s`
 
 Creates Native Kubernetes Service Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create k8s \ 
@@ -914,11 +914,11 @@ akeyless dynamic-secret create k8s \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `ldap`
+### `Ldap`
 
 Creates LDAP Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create ldap \
@@ -986,11 +986,11 @@ akeyless dynamic-secret create ldap \
 
 `--secure-access-rd-gateway-server`: RD Gateway server
 
-### `mongodb`
+### `Mongodb`
 
 Creates a MongoDB/MongoDB Atlas Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create mongodb \
@@ -1060,11 +1060,11 @@ akeyless dynamic-secret create mongodb \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `mssql`
+### `Mssql`
 
 Creates Microsoft SQL Server
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create mssql \
@@ -1127,11 +1127,11 @@ akeyless dynamic-secret create mssql \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `mysql`
+### `Mysql`
 
 Creates MySQL Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create mysql \
@@ -1198,11 +1198,11 @@ akeyless dynamic-secret create mysql \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `oracledb`
+### `Oracledb`
 
 Creates Oracle DB Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create oracledb \
@@ -1265,13 +1265,13 @@ akeyless dynamic-secret create oracledb \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `ping`
+### `Ping`
 
 Creates a Ping dynamic secret Dynamic Secret
 
 There are  possible ways to run this command - using a target or an inline connection
 
-##### Usage
+#### Usage
 
 ```shell Using Target
 akeyless dynamic-secret create ping \
@@ -1338,11 +1338,11 @@ akeyless dynamic-secret create ping \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `postgresql`
+### `Postgresql`
 
 Creates PostgreSQL Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create postgresql \
@@ -1407,11 +1407,11 @@ akeyless dynamic-secret create postgresql \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-### `rabbitmq`
+### `Rabbitmq`
 
 Creates RabbitMQ Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create rabbitmq \
@@ -1475,11 +1475,11 @@ akeyless dynamic-secret create rabbitmq \
 
 `--secure-access-web[=true]`: Enable Web Secure Remote Access
 
-### `rdp`
+### `Rdp`
 
 Creates RDP Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create rdp \
@@ -1545,11 +1545,11 @@ akeyless dynamic-secret create rdp \
 
 `--secure-access-allow-external-user[=false]`: Allow providing external user for a domain users
 
-### `redis`
+### `Redis`
 
 Creates a redis Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless dynamic-secret create redis \
@@ -1592,11 +1592,11 @@ akeyless dynamic-secret create redis \
 
 `--password-length`: The length of the password to be generated
 
-### `redshift`
+### `Redshift`
 
 Creates Redshift Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create redshift \
@@ -1650,11 +1650,11 @@ akeyless dynamic-secret create redshift \
 
 `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
 
-### `snowflake`
+### `Snowflake`
 
 Creates Snowflake Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell Using target
 akeyless dynamic-secret create snowflake \
@@ -1712,11 +1712,11 @@ akeyless dynamic-secret create snowflake \
 
 `--password-length`: The length of the password to be generated
 
-### `venafi`
+### `Venafi`
 
 Creates a Venafi dynamic secret to create certificates generated by Venafi or monitored by Venafi and generated by Akeyless PKI
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless gateway-create venafi \
@@ -1773,11 +1773,11 @@ akeyless gateway-create venafi \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `openai`
+### `Openai`
 
 Creates OpenAI Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless dynamic-secret create openai \
@@ -1800,13 +1800,13 @@ akeyless dynamic-secret create openai \
 
 `org-id`: The organization ID.
 
-## `update`
+## `Update`
 
 `akeyless dynamic-secret update`
 
 Command to update a Dynamic Secret
 
-##### Flags
+### Flags
 
 `artifactory`: Updates Artifactory dynamic secret
 
@@ -1862,7 +1862,7 @@ Command to update a Dynamic Secret
 
 **Updates Artifactory dynamic secret**
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless dynamic-secret update artifactory \
@@ -3279,11 +3279,11 @@ akeyless dynamic-secret update venafi  \
 
 `--user-ttl[=60h]`: User TTL in time.Duration format (60h / 9600m / etc...). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/)
 
-### `openai`
+### `Openai`
 
 Updates OpenAI Dynamic Secret
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless dynamic-secret update openai \
@@ -3313,7 +3313,7 @@ akeyless dynamic-secret update openai \
 
 **Get dynamic secret details**
 
-##### Usage
+### Usage
 
 ```shell
 akeyless dynamic-secret get \
@@ -3323,7 +3323,7 @@ akeyless dynamic-secret get \
 
 **Get dynamic secret value**
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless dynamic-secret get-value \
@@ -3350,14 +3350,14 @@ akeyless dynamic-secret get-value \
 
 **List available dynamic secrets**
 
-##### Usage
+### Usage
 
 ```shell
 akeyless dynamic-secret list \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-##### Flags
+#### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -3365,7 +3365,7 @@ akeyless dynamic-secret list \
 
 **Deletes dynamic secret**
 
-##### Usage
+### Usage
 
 ```shell
 akeyless dynamic-secret delete \
@@ -3373,13 +3373,13 @@ akeyless dynamic-secret delete \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Dynamic Secret name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## Dynamic secrets tmp-creds
+## Dynamic Secrets Tmp-creds
 
 Commands to update, get, and delete a Dynamic Secret temporary credentials
 
@@ -3395,7 +3395,7 @@ akeyless dynamic-secret tmp-creds delete \
 --host <Host>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Dynamic Secret name
 
@@ -3411,7 +3411,7 @@ akeyless dynamic-secret tmp-creds delete \
 
 **Get dynamic secret temporary credentials list**
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless dynamic-secret tmp-creds get \
@@ -3450,11 +3450,11 @@ akeyless dynamic-secret tmp-creds update \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `set-item-state`
+### `Set-item-state`
 
 Set an item's state (Enabled, Disabled)
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless set-item-state \

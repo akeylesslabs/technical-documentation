@@ -14,7 +14,7 @@ next:
 
 The Akeyless plugin for GitLab enables a secure, easy, and integrative way to fetch Secrets into GitLab pipelines.
 
-# Authentication
+## Authentication
 
 Each job has a [JSON Web Token (JWT)](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens) provided as CI/CD variable named `CI_JOB_JWT_V2` or `ID_TOKEN` on version 16 and higher.
 
@@ -73,7 +73,7 @@ akeyless set-role-rule --role-name /Dev/GitLabRole \
 --capability read --capability list
 ```
 
-# Usage
+## Usage
 
 Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml` and update it to contain the following steps while making sure that the path to the relevant secrets, as well as the access-id value with your matching JWT access-id, was replaced.
 
@@ -126,6 +126,6 @@ Sample output of a successful job:
 
 Success! - the secrets are accessible to use within the job logic (in this example, they are just being printed).
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Managing Secrets in GitLab Pipelines](https://tutorials.akeyless.io/docs/managing-secrets-in-gitlab-pipelines).

@@ -16,7 +16,7 @@ Depending on the [resource type](https://docs.akeyless.io/docs/supported-resourc
 
 * With the [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command, access a resource using native CLI from any UNIX terminal.
 
-# Prerequisites
+## Prerequisites
 
 * [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) Installed.
 
@@ -24,7 +24,7 @@ Depending on the [resource type](https://docs.akeyless.io/docs/supported-resourc
 
 * **Optional** - [Web Access](https://docs.akeyless.io/docs/web-access-bastion) Installed.
 
-# Connect from the Secure Remote Access Portal
+## Connect from the Secure Remote Access Portal
 
 The default authentication method for logging in to the Secure Remote Access Portal is Security Assertion Markup Language (SAML). For details about integrating your SAML authentication with the Akeyless Platform, see [here](https://docs.akeyless.io/docs/saml). Alternatively, you can choose [OIDC](https://docs.akeyless.io/docs/openid) to set the default authentication method.
 
@@ -47,7 +47,7 @@ The default authentication method for logging in to the Secure Remote Access Por
 >
 > To simplify login, after you enter all the required information but before you sign in, select **Generate SAML Bookmark URL** to create a link to the completed form. The link is copied to your clipboard for you to save in a convenient place, such as your browser bookmarks, and use in the future to automatically complete the login details.
 
-## Add-hoc Hostnames for RDP/SSH Sessions
+### Add-hoc Hostnames for RDP/SSH Sessions
 
 The Ad-hoc Hostnames feature in the portal allows users to quickly connect to hosts that are not part of the static host list by manually entering hostnames or IP addresses. This capability is especially useful for accessing dynamically created or temporary hosts without requiring updates to the static configuration.
 
@@ -64,7 +64,7 @@ The Ad-hoc Hostnames feature in the portal allows users to quickly connect to ho
 
 The user can **Edit** or **Delete** the last added host and it will be removed from the list of hosts in the portal.
 
-## Start a Web Proxy Session
+### Start a Web Proxy Session
 
 1. Click **Connect** next to the web resource you want to open.
 2. Review the “Connection Info” pop‑up:

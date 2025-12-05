@@ -14,11 +14,11 @@ next:
 
 To use Ping Identity to authenticate users in the Akeyless Platform, you need to set up Akeyless as an application in the Ping Identity Platform. You can then create a SAML authentication method in Akeyless for Ping Identity.
 
-# Prerequisites
+## Prerequisites
 
 In order to use Ping Identity SAML authentication for the Akeyless Platform, you must have an Akeyless account and a Ping Identity account (either a trial account or a regular account with enterprise SSO support).
 
-# Create a Ping Identity Application
+## Create a Ping Identity Application
 
 1. Log in to [PingOne](https://admin.pingone.com/web-portal/login), and go to **Applications > Add Application > New SAML Application**.
 
@@ -47,7 +47,7 @@ In order to use Ping Identity SAML authentication for the Akeyless Platform, you
 
 Your new application appears in the list of available applications.
 
-# Create a SAML Authentication Method
+## Create a SAML Authentication Method
 
 1. Log in to the Akeyless Web Console, and go to **Users & Auth Methods > New > SAML**.
 

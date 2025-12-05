@@ -72,7 +72,7 @@ Where:
 
 * `password-length`: **Optional** The temporary user password length.
 
-### Inline connection string
+### Inline Connection String
 
 If you don't have [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) yet, you can use the command with your RabbitMQ target server connection settings:
 
@@ -84,7 +84,7 @@ If you don't have [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targe
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluerabbitmqp) section.
 
-## Fetch a Dynamic RabbitMQ Secret value from the CLI
+## Fetch a Dynamic RabbitMQ Secret Value from the CLI
 
 To fetch a dynamic RabbitMQ secret value from the CLI, run the following command:
 

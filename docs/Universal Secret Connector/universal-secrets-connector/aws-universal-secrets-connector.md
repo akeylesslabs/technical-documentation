@@ -22,7 +22,7 @@ The **USC** solution works in a governance loop model, supporting and reflecting
 
 <Image align="center" border={false} src="https://files.readme.io/60251a70458e8bb82d88317bde1ad04b9e9a7b6ea82e68e0b11086106a0f6a7c-Synced_Secret-AWS.png" />
 
-# Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)  with **Read** permission on the target associated with the **USC**.
 * [AWS Target](https://docs.akeyless.io/docs/aws-targets) which holds an AWS IAM Principal with the following permissions:
@@ -94,11 +94,11 @@ To allow selecting a KMS encryption key for the secret, add the following permis
 
 Note, `kms:ListKeys` and `kms:ListAliases` are AWS KMS operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
 
-# Working With Universal Secrets Connector from the CLI
+## Working With Universal Secrets Connector from the CLI
 
 This section will discuss the different commands necessary to handle USCs. While the initial creation command is a regular Akeyless command, management of USCs is done through a set of sub-commands, which all have the prefix `usc` added to them, as will be shown later in this section. If the prefix is not added to these sub-commands, they will not work.
 
-## Creating a USC
+### Creating a USC
 
 To create a USC, use the following command:
 
@@ -114,7 +114,7 @@ The main parameters are:
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Listing USC Secrets
+### Listing USC Secrets
 
 To list the secrets from your USC, use the following command:
 
@@ -138,7 +138,7 @@ The output should look as follows:
 }
 ```
 
-## Fetching a Secret from the USC
+### Fetching a Secret from the USC
 
 To view a secret from your USC, use the following command:
 
@@ -166,7 +166,7 @@ The output should look as follows:
 }
 ```
 
-## Adding a New Secret to a USC
+### Adding a New Secret to a USC
 
 To create a new secret in your USC, use the following command:
 
@@ -184,7 +184,7 @@ The main parameters are:
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Updating an Existing USC secret
+### Updating an Existing USC Secret
 
 To update an existing secret in your USC, use the following command:
 
@@ -194,7 +194,7 @@ akelyess usc update --usc-name <usc name> --secret-id <secret id or name> --valu
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-## Deleting an Existing USC secret
+### Deleting an Existing USC Secret
 
 To delete an existing secret in your USC, use the following command:
 
@@ -204,7 +204,7 @@ akelyess usc delete --usc-name <usc name> --secret-id <secret id or name>
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
-# Creating a Universal Secrets Connector from the Console
+## Creating a Universal Secrets Connector from the Console
 
 1. Log in to the Akeyless Console, and go to **Items > New > Universal Secrets Connector**.
 
@@ -230,7 +230,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 5. Click **Finish**
 
-# AWS Universal Secrets Details
+## AWS Universal Secrets Details
 
 Once connected to a Target, you will be able to access a Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 
@@ -242,6 +242,6 @@ Once connected to a Target, you will be able to access a Universal Secrets Conne
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s" target="_blank">AWS Universal Secrets Connector</a>.

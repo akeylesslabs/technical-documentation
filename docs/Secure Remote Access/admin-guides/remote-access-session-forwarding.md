@@ -14,7 +14,7 @@ Remote Access supports the forwarding of SSH, Database, and Kubernetes session l
 
 These terminal-based sessions provide a full transcript of input commands and output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, ElasticSearch, or just using Syslog).
 
-# Configure
+## Configure
 
 From the Console, click on "Gateways" in the left-side menu.
 

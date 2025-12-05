@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## Create a KMIP client on Akeyless Gateway
+## Create a KMIP Client on Akeyless Gateway
 
 1. From Akeyless CLI - enable the KMIP server: 
 
@@ -53,7 +53,7 @@ akeyless kmip-client-set-rule --gateway-url <Your_Akeyless_GW_URL> --client-id <
   --capability ACTIVATE
 ```
 
-## vCenter Server setup:
+## vCenter Server Setup:
 
 1. Log in to the vCenter Server system with the vSphere Web Client.
 

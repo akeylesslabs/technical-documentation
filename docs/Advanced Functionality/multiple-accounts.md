@@ -18,11 +18,11 @@ Different business units might have different processes. Depending on your overa
 
 <Image align="center" src="https://files.readme.io/a1ba298dd19aa27c8c643c7faf0519680da2a5371c2c5eb7dc2168f597d652b9-Akeyless_Organization.png" />
 
-# Organizational management
+## Organizational Management
 
 To enable easy work and navigation throughout multiple accounts, users who have access to different accounts can select to which account they want to log in easily using the relevant account alias during login. To add your accounts into an organization reach out to our [support](https://www.akeyless.io/contact/) for additional help.
 
-## Usage report
+### Usage Report
 
 Selected users can be added to an organization view for usage reports and billing purposes, to add users from different accounts to your organization reach out directly to your Account Manager.
 

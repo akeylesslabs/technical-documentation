@@ -43,6 +43,6 @@ To create a dynamic secret, you must configure the required account and access c
 
 Get the value of a dynamic secret when you need it.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Creating and Using Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets) .

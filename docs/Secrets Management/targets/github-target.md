@@ -12,7 +12,7 @@ next:
 ---
 You can define a GitHub target to be used with [GitHub Dynamic Secret](https://docs.akeyless.io/docs/github-dynamic-secret).
 
-# Create a GitHub Target in the CLI
+## Create a GitHub Target in the CLI
 
 To create a GitHub target from the CLI, run the following command:
 
@@ -36,7 +36,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluegithubp) section.
 
-# Create a GitHub Target in the Console
+## Create a GitHub Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Infra > GitHub**.
 

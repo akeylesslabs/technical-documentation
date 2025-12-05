@@ -22,7 +22,7 @@ While default access can be assigned via [Role-based Access Control (RBAC)](http
 >
 > Upon approval of an Access Request a temporary Access Role will be created with details about the request ID under a dedicated folder `/Access Requests/<Requestor AccessID>/<ID>`, and will be deleted automatically within an hour.
 
-# Requesting Access  From the CLI
+## Requesting Access From the CLI
 
 In order to request access to an item, use the following command:
 
@@ -39,6 +39,6 @@ Where:
 
 Once requested, a new event will be triggered inside your [Event Center](https://docs.akeyless.io/docs/event-center), to view the request, on the event from the action menu click on **View Request** and choose either to approve or decline this request.
 
-# Requesting Access From the Console
+## Requesting Access From the Console
 
 On a [Static Secret](https://docs.akeyless.io/docs/static-secrets), or [Target](https://docs.akeyless.io/docs/targets) Item, go to the top right-hand corner and select the three-dot options menu, click on **Request Access**, and choose the desired permissions.

@@ -18,7 +18,7 @@ next:
 
 The Akeyless Secure Remote Access Bastion provides secure remote access to resources using Just In Time credentials (dynamic, rotated secrets, and SSH certificates). This guide provides guidance for a **Docker** deployment of Akeyless Secure Remote Access Bastions both **Web-bastion**  and **SSH-bastion**.
 
-# Prerequisites
+## Prerequisites
 
 * Docker Installed
 
@@ -44,7 +44,7 @@ Currently, this setup requires a **Volume** storage mechanism of [Docker](https:
 >
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless private docker repository. Please contact your Account Manager for more details.
 
-# Configuration
+## Configuration
 
 The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page. 
 
@@ -59,7 +59,7 @@ To provide just-in-time native CLI access for your users using [Keyless SSH](htt
 >
 > If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA.
 
-## Authentication
+### Authentication
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported: 
 
@@ -71,7 +71,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
 
-## API Key Authentication
+### API Key Authentication
 
 To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY`  with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
@@ -96,11 +96,11 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
 ```
 
-## CSP IAM Authentication
+### CSP IAM Authentication
 
 While running your Dockers inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
-## AWS IAM
+### AWS IAM
 
 AWS IAM can be used for an instance with an IAM Role. While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
@@ -123,7 +123,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
 ```
 
-## GCP GCE
+### GCP GCE
 
 Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP.\
 Set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
@@ -148,7 +148,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
 ```
 
-## Azure Active Directory
+### Azure Active Directory
 
 Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with the matching service principal `azureobjectID', with a list of `ALLOWED\_ACCESS\_IDS\` that will be authorized to request access.
 
@@ -173,7 +173,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
 ```
 
-## Session Recording
+### Session Recording
 
 To enable session recording on your **web-bastion**, you can export the recordings into an S3 bucket or to an Azure Blob storage: 
 
@@ -245,7 +245,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
 
-## Log Forwarding
+### Log Forwarding
 
 To forward all your users session logs from the **ssh-bastion**, mount a local file which hold the setting of your target log server as described in [this](https://docs.akeyless.io/docs/ssh-log-forwarding) guide, for example: 
 
@@ -268,7 +268,7 @@ target_logz_io_protocol="tcp"
 EOT
 ```
 
-## Redirect to Bastion URLs
+### Redirect to Bastion URLs
 
 To ensure only validated redirects are accepted, you can harden your bastion using the `ALLOWED_BASTION_URLS` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**: 
 
@@ -283,7 +283,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
 
-## Concurrent Unauthenticated Connections
+### Concurrent Unauthenticated Connections
 
 To specify the maximum number of concurrent unauthenticated connections to the SSH Bastion, set the  `CONFIG_MAX_STARTUPS` variable:
 
@@ -301,7 +301,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 Verify that both **web-bastion** and **ssh-bastion** containers are up and running.
 
-## SSH Fingerprint
+### SSH Fingerprint
 
 To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the Docker deployment with a dedicated folder within your Akeyless account. The SSH bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.\
 Note, please  ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:

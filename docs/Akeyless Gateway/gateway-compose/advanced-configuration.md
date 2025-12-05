@@ -12,7 +12,7 @@ next:
 ---
 In this guide, we will configure settings in the `gateway.env` file. This file has to be located in the same directory the `docker-compose.yaml` file is located.
 
-# Cluster Name & URL
+## Cluster Name & URL
 
 Each Gateway instance is uniquely identified by combining the **Gateway Access ID**  Authentication Method and the **Cluster Name**.
 
@@ -28,7 +28,7 @@ To do that, edit the `gateway.env` file:
 
 You can also provide a custom display name for the Gateway Instance using the `INITIAL_DISPLAY_NAME`  variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
 
-# Customer Fragment
+## Customer Fragment
 
 If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), add the `CUSTOMER_FRAGMENT` as a `JSON` file in your `gateway.env`:
 
@@ -38,7 +38,7 @@ CUSTOMER_FRAGMENTS: <Customer Fragment>
 
 Note: When adding multiple Customer Fragments to the Gateway, make sure they are in the same JSON file.
 
-# Version Selection
+## Version Selection
 
 To work with a specific Gateway version use the `VERSION` setting in your `gateway.env` file:
 
@@ -46,7 +46,7 @@ To work with a specific Gateway version use the `VERSION` setting in your `gatew
 VERSION: x.y.z
 ```
 
-# TLS Configuration
+## TLS Configuration
 
 We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.\
 Please note that when you're enabling TLS, you must provide a `TLS certificate` and a `TLS Private Key` in `PEM` format.
@@ -88,7 +88,7 @@ volumes:
 
 It is also possible to [Set up TLS](https://docs.akeyless.io/docs/tls-certificate) in the Gateway Configuration Manager after the Gateway is installed.
 
-# Cache Configuration
+## Cache Configuration
 
 You can enable caching of secrets and periodic backup of cached secrets using the `gateway.env` file:
 
@@ -103,7 +103,7 @@ It is also possible to [configure cache](https://docs.akeyless.io/docs/configure
 NOTE: If you enable the Gateway cluster cache, you must define a Redis password. Edit the cache.env file in this folder and set: REDIS_PASS='your-REDIS-password'
 The password is stored in the Cache.env file and is referenced by both the redis-cache service and the Gateway (gateway.env). Replace the example value with your own and keep this file out of source control.
 
-# Restrict Gateway Access
+## Restrict Gateway Access
 
 To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `RESTRICT_SERVICE_TO_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`
 
@@ -113,7 +113,7 @@ RESTRICT_SERVICE_TO_ACCESS_IDS: <"comma separated list of access-ids">
 
 In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively to block specific `AccessIDs` you can use the `BLOCKLIST_ACCESS_IDS` variable instead. 
 
-# Default Secret Encryption
+## Default Secret Encryption
 
 While the **Encryption Key** section discusses the encryption of the configuration file, this section discusses the secrets created when using the Gateway.\
 To set a default existing key that will be used to encrypt any secret created through the gateway, add the parameter `DEFAULT_ENCRYPTION_KEY` in the following way:
@@ -122,7 +122,7 @@ To set a default existing key that will be used to encrypt any secret created th
 DEFAULT_ENCRYPTION_KEY: <"existing encryption key name">
 ```
 
-# Setting a Default Login
+## Setting a Default Login
 
 When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console` , a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML & OIDC](https://docs.akeyless.io/docs/gateway-authentication).\
 When configuring your gateway, you may supply a default value for either OIDC, SAML, or both, using the following parameters:

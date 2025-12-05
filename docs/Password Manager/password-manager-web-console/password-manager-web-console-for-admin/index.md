@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-### Effortless Password Management for Enterprises with Akeyless
+### Effortless Password Management for Enterprises With Akeyless
 
 As an admin user of the Akeyless password manager web console, you understand the importance of secure and efficient password management for your organization. Akeyless's enterprise-grade password management solution caters to the needs of businesses of all sizes, providing a powerful yet easy-to-use platform that doesn't require an IT department for implementation and management.
 
@@ -36,7 +36,7 @@ Akeyless offers a comprehensive suite of password management features, including
 * Password Injection: Seamlessly inject passwords into websites and applications using the Akeyless browser extension.
 * [Audit Logging](https://docs.akeyless.io/docs/audit-logs): Track all password activities and user access for comprehensive auditing and compliance purposes.
 
-### Empower Your Team with Secure and Efficient Password Management
+### Empower Your Team With Secure and Efficient Password Management
 
 With Akeyless, you can empower your team to manage passwords securely and efficiently, without sacrificing productivity. The platform's intuitive interface and user-friendly features make it easy for everyone to adopt Akeyless, streamlining password management across the organization.
 
@@ -52,23 +52,23 @@ Akeyless is an enterprise-grade password management solution that empowers busin
 
 Embark on your Akeyless journey by creating your [Akeyless account](https://docs.akeyless.io/docs/account-settings). Upon account creation, you'll be designated as the account owner/administrator, wielding full administrative privileges.
 
-### Fortify Your Akeyless Ecosystem with Enforced Security Policies
+### Fortify Your Akeyless Ecosystem With Enforced Security Policies
 
 Safeguard your organization's sensitive data by enforcing robust security policies within Akeyless. Dictate password strength requirements, manage two-factor [authentication](https://docs.akeyless.io/docs/understanding-authentication) protocols, define [access restrictions](https://docs.akeyless.io/docs/rbac), [monitor usage](https://docs.akeyless.io/docs/audit-logs), and mandate regular updates across all devices.
 
-### Granular Control over Akeyless Access
+### Granular Control Over Akeyless Access
 
 Exert granular control over your team's access to Akeyless by leveraging comprehensive policy management capabilities. Define [access permissions](https://docs.akeyless.io/docs/rbac) based on roles and responsibilities, ensuring that users only have access to the information they need.
 
-### Unified Akeyless Experience across Devices
+### Unified Akeyless Experience Across Devices
 
 Maintain a consistent and secure experience for your team by enforcing regular updates to the Akeyless [browser extension ](https://docs.akeyless.io/docs/password-manager-web-extension)and [mobile application](https://docs.akeyless.io/docs/password-manager-mobile-application) across all devices. This ensures that your team always has access to the latest security features and protection.
 
-### Securely Share Secrets with Anyone, Anytime
+### Securely Share Secrets With Anyone, Anytime
 
 Akeyless empowers you to securely [share static secrets ](https://docs.akeyless.io/docs/sharing-static-secrets)with anyone, even if they're not Akeyless users or part of your organization. Define a well-defined time-to-live (TTL) for each shared secret, ensuring that access expires after the specified period.
 
-### Add an sub-administrator
+### Add an Sub-administrator
 
 Akeyless's robust RBAC (Role-Based Access Control) model empowers you to [delegate some of your account owner's permissions](https://docs.akeyless.io/docs/sub-admins) to other trusted users. This flexible approach enables you to distribute administrative tasks and responsibilities effectively, ensuring that the right people have the right access to manage your Akeyless environment.
 

@@ -7,7 +7,7 @@ metadata:
 ---
 You can organize your secrets and other items in the Akeyless Console by creating folders even if they’re initially empty.
 
-# Create a folder from the CLI
+## Create a Folder from the CLI
 
 To create an empty folder from the CLI, run the following command:
 
@@ -20,7 +20,7 @@ akeyless folder create \
 
 You can find the complete list of commands for managing folders in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#/folder-management).
 
-# Create a folder in the Akeyless Console
+## Create a Folder in the Akeyless Console
 
 1. Log in to the Akeyless Console, and navigate to Items.
 2. Click the **New Folder** button.

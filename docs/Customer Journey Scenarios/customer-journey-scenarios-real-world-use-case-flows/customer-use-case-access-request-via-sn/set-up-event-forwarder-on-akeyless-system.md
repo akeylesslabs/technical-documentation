@@ -12,11 +12,11 @@ next:
 ---
 Setting up an event forwarder in Akeyless is a process that enables you to automatically send events from Akeyless to another system or application, such as a logging or monitoring service. This capability is particularly useful for maintaining security and operational awareness. Here’s how to configure an event forwarder in Akeyless:
 
-# Step 1: Access the Akeyless Console
+## Step 1: Access the Akeyless Console
 
 Log In: Start by logging into your Akeyless management console. You'll need administrative access to configure event forwarders.
 
-# Step 2: Navigate to Event Forwarders
+## Step 2: Navigate to Event Forwarders
 
 * Click the bell icon
 
@@ -24,13 +24,13 @@ Log In: Start by logging into your Akeyless management console. You'll need admi
 
 * Click open event center
 
-# Step 3: Create a New Event Forwarder
+## Step 3: Create a New Event Forwarder
 
 Initiate Creation: Inside the event forwarders section, there should be an option to create a new event forwarder.
 
 * Click on “New” 
 
-# Step 4: Configure Event Forwarder Settings
+## Step 4: Configure Event Forwarder Settings
 
 * Specify Destination: Enter the destination where you want the events to be forwarded. Choose ServiceNow.
 
@@ -56,7 +56,7 @@ Initiate Creation: Inside the event forwarders section, there should be an optio
 
 ![](https://files.readme.io/d99c9f2-Screenshot_2024-03-05_at_11.12.28.png)
 
-# Step 5: Register the Gateway
+## Step 5: Register the Gateway
 
 * Select the configured gateway 
 * [Link](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system-1) to Gateway configuration

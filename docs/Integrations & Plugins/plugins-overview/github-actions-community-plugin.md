@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-# Overview
+## Overview
 
 GitHub Actions enables you to automate workflows for your GitHub-hosted repositories. 
 
@@ -18,7 +18,7 @@ With [this](https://github.com/LanceMcCarthy/akeyless-action) **community** plug
 
 This guide will demonstrate the uses of [ OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) and [AWS IAM](https://docs.akeyless.io/docs/aws-iam) **Authentication Methods** to fetch both [Static ](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
-# Prerequisites
+## Prerequisites
 
 * Job permissions requirement: **(Relevant for OAuth 2.0 / JWT Authentication only)**
 
@@ -36,11 +36,11 @@ jobs:
 
 * For Dynamic Secrets, [jq](https://stedolan.github.io/jq/) must be installed on the runner host.
 
-# Authentication
+## Authentication
 
 The following Authentication Methods can be used for authentication:
 
-## OAuth 2.0 / JWT
+### OAuth 2.0 / JWT
 
 Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** using the CLI:
 
@@ -87,7 +87,7 @@ akeyless set-role-rule --role-name /Dev/GitHubRole \
 --capability read
 ```
 
-## AWS IAM
+### AWS IAM
 
 Create an [AWS IAM](https://docs.akeyless.io/docs/aws-iam) **Authentication Method** using the CLI:
 
@@ -118,7 +118,7 @@ akeyless set-role-rule --role-name /Dev/AWSRole \
 --capability read
 ```
 
-### **Runner Configuration**
+#### **Runner Configuration**
 
 Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners):
 
@@ -127,7 +127,7 @@ Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your
 * Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
 * Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
 
-## GitHub Repository Secret
+### GitHub Repository Secret
 
 You can store the `AccessID` as a GitHub secret inside the repository to use in your workflow.
 
@@ -137,11 +137,11 @@ In the following examples, instead of explicitly specifying the `AccessID` of th
 * Enter the name for the secret (for example, `ACCESS_ID` ) and set the secret value to your Auth Method **Access ID**.
 * Select **Add secret**.
 
-# Usage
+## Usage
 
 The following examples will demonstrate how to fetch [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
-## Fetching Static Secrets
+### Fetching Static Secrets
 
 Create a static secret using the following command:
 
@@ -202,7 +202,7 @@ jobs:
         echo "MY_SECRET: ${{ env.MY_SECRET }}"
 ```
 
-## Fetching Dynamic Secrets
+### Fetching Dynamic Secrets
 
 The key difference with dynamic secrets is that the output value is typically a JSON object. There are two ways you can handle this: default output or parsed output.
 
@@ -279,6 +279,6 @@ jobs:
 
 For additional information use this [link](https://github.com/LanceMcCarthy/akeyless-action).
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-in-github-pipelines" target="_blank" style="color: #00e">Managing Secrets in Github Pipelines</a>.

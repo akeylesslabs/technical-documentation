@@ -65,7 +65,7 @@ Add **client1** to the **role1**, so client1 will be able to access all items un
 akeyless assoc-role-am --role-name role1 --am-name client1
 ```
 
-# Permission Types
+## Permission Types
 
 Akeyless has six main permission types for Items, Access Roles, Auth Methods, and Targets that can be assigned to specific items, folders, or entire accounts. For Secure Remote Access only, there are six permission types.
 
@@ -75,7 +75,7 @@ The built-in admin role has full access to all parts of the accounts.
 >
 > It is considered a best practice **not** to use an API key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
-## Permissions for Items, Access Roles, Auth Methods, and Targets
+### Permissions for Items, Access Roles, Auth Methods, and Targets
 
 The existing permissions for Items, Access Roles, Auth Methods, and Targets are as follows:
 
@@ -92,7 +92,7 @@ The existing permissions for Items, Access Roles, Auth Methods, and Targets are 
 >
 > Some Akeyless permissions include others in them. For example, `list` is included under all other permissions, and `deny` has a complete override over any other permission.
 
-### Deny Rule Application and Role Management
+#### Deny Rule Application and Role Management
 
 Deny rules will be automatically added to a role only when the user creating the role has existing deny restrictions (i.e. non-admin users only). In such cases, all deny rules that apply to the user will also be applied to the newly created role. This is intended to prevent users from creating roles with broader permissions than they are allowed.
 
@@ -100,7 +100,7 @@ After the role is created, it functions independently, and any user with suffici
 
 This design ensures that the RBAC system remains resilient against permission elevation, upholding strict access control and enforcement standards.
 
-## Permissions for Secure Remote Access
+### Permissions for Secure Remote Access
 
 The existing permissions for Secure Remote Access are as follows:
 
@@ -111,7 +111,7 @@ The existing permissions for Secure Remote Access are as follows:
 * Upload Files: For RDP only. Allows a user to upload local files to a remote Windows machine using a button on the top menu. More information [here](https://docs.akeyless.io/docs/remote-desktop-secure-access#download--upload-files).
 * Download Files: For RDP only. Allows a user to download files from a remote Windows machine to their local machine. More information [here](https://docs.akeyless.io/docs/remote-desktop-secure-access#download--upload-files).
 
-# Administrative Rules
+## Administrative Rules
 
 With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**) or to all resources (**All**).
 
@@ -135,7 +135,7 @@ Example:
 
 If **Audit Log** is set to **Own**, the user will see only logs related to themselves. If it is set to **All**, the user will see logs related to all users in the account.
 
-# Event Center Rules
+## Event Center Rules
 
 You can define which events users are allowed to view based on their account permissions.
 Users can either:
@@ -160,7 +160,7 @@ You can set the allowed Forwarder names in two ways:
   Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/)
 </Callout>
 
-# Access Roles Syntax
+## Access Roles Syntax
 
 In general, you can set an Access Role to a specific item only:
 
@@ -187,7 +187,7 @@ akeyless set-role-rule --role-name role1 --path "foo/+/+/bar/*" --capability rea
 This Access Role will permit reading secrets under those folders path:  
 `foo/any/folder/bar/*`, `foo/other/folder/bar/*`, etc.
 
-# Multiple rules
+## Multiple Rules
 
 If you wish to apply multiple rules to your role in one command, you can use a `JSON` file using `-f` or `--file` parameter to the command, that will lead to a JSON file in the following way:
 
@@ -218,12 +218,12 @@ The JSON file structure should be as follows:
 
 Where the relevant Akeyless paths, e.g `secret/foo` and `secret/bar` correlate with the `--path` parameter, the rule type with the `rule-type` key, and the capabilities with the `capabilities` key that you would attach to a single rule command as described above.
 
-# View As
+## View As
 
 To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.  
 Click on your account logo on the top right corner of your console, and select **Impersonate As**.  
 On the dialog, choose from the drop-down menu and existing [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
 
-# Tutorial
+## Tutorial
 
 Check out our tutorial video on [Role-based Access Control (RBAC)](https://tutorials.akeyless.io/docs/role-based-access-control-with-api-key-authentication).

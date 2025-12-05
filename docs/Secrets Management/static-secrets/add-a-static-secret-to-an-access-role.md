@@ -20,7 +20,7 @@ Access roles provide clients (users or machines) with permissions to work with s
 >
 > By default, the account owner has privilege permissions in Akeyless. Managing users' access roles and permissions can be done using Akeyless Platform [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with [Access Roles](https://docs.akeyless.io/docs/rbac) to grant users the minimum permissions they need.
 
-# Add a Static Secret to a Role from the Akeyless CLI
+## Add a Static Secret to a Role from the Akeyless CLI
 
 Static Secrets can be created with the Akeyless CLI:
 
@@ -61,7 +61,7 @@ $ The requested rule was successfully set to the role /Admin/SystemAdmin
 
 You can find the complete list of parameters for this command in the [CLI Reference - Access Roles](https://docs.akeyless.io/docs/cli-reference-access-roles) section.
 
-# Add a Static Secret to a Role from the Akeyless Console
+## Add a Static Secret to a Role from the Akeyless Console
 
 Let’s add a static secret to a role from the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role#add-a-static-secret-to-a-role-from-the-akeyless-cli) instead.
 
