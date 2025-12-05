@@ -25,7 +25,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
 3. Once the app has been created, you need to obtain the **Client ID**, **Client Secret**, and the **Issuer URL**:
 
-* The **Client Id** can be fetched from **Overview > Application (client) ID**: 
+* The **Client Id** can be fetched from **Overview > Application (client) ID**:
 
 ![](https://files.readme.io/963adb9-image-20210902-150241.png "image-20210902-150241.png")
 
@@ -33,7 +33,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
 ![](https://files.readme.io/73548af-image-20210902-150722.png "image-20210902-150722.png")
 
-* The **Issuer URL** can be fetched from **Overview > Endpoints > OpenID Connect metadata document** (note that the suffix **/.well-known/openid-configuration** should be omitted so that the Issuer URL will look like: `https://login.microsoftonline.com/tenant-id-abcd-efgh-a123-b456/v2.0`): 
+* The **Issuer URL** can be fetched from **Overview > Endpoints > OpenID Connect metadata document** (note that the suffix **/.well-known/openid-configuration** should be omitted so that the Issuer URL will look like: `https://login.microsoftonline.com/tenant-id-abcd-efgh-a123-b456/v2.0`):
 
 ![](https://files.readme.io/cb76d3c-image-20210902-151402.png "image-20210902-151402.png")
 

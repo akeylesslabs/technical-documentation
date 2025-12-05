@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define an Azure AD target to be used with [Azure AD dynamic secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD rotated secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret). Having an Azure AD target will allow you to conserve the credentials chain between all of your dynamic secrets, as it is possible to point a target at a rotated secret, or to manually edit credentials in the target instead of having to change them individually for connecting items. Creating an Azure AD target requires an [Azure App ](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal)to be configured in your Azure environment.
+You can define an Azure AD target to be used with [Azure AD dynamic secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD rotated secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret). Having an Azure AD target will allow you to conserve the credentials chain between all of your dynamic secrets, as it is possible to point a target at a rotated secret, or to manually edit credentials in the target instead of having to change them individually for connecting items. Creating an Azure AD target requires an [Azure App](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal) to be configured in your Azure environment.
 
 ## Create an Azure AD Target in the CLI
 

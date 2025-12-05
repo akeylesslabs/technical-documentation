@@ -38,6 +38,7 @@ akeyless gateway update remote-access-session-forwarding aws-s3 \
 --region <aws-region> \
 --role-arn <aws-role-arn> # relevant only for assume_role auth-type
 ```
+
 ```shell Azure Analytics
 akeyless gateway update remote-access-session-forwarding azure-analytics \
 --enable \
@@ -47,6 +48,7 @@ akeyless gateway update remote-access-session-forwarding azure-analytics \
 --workspace-id <azure-workspace-id> \
 --workspace-key <azure-workspace-key>
 ```
+
 ```shell Datadog
 akeyless gateway update remote-access-session-forwarding datadog \
 --enable \
@@ -59,6 +61,7 @@ akeyless gateway update remote-access-session-forwarding datadog \
 --log-tags <comma-separated-list of "key:value" strings> \
 --log-service <datadog-log-service>
 ```
+
 ```shell Elastic
 akeyless gateway update remote-access-session-forwarding elasticsearch \
 --enable \
@@ -77,6 +80,7 @@ akeyless gateway update remote-access-session-forwarding elasticsearch \
 --certificate-file <path-to-file \ # elasticsearch certificate in PEM format
 --tls-certificate <tls-certificate> # PEM in a Base64 format
 ```
+
 ```shell Google Chronicle
 akeyless gateway update remote-access-session-forwarding google-chronicle \
 --enable \
@@ -89,6 +93,7 @@ akeyless gateway update remote-access-session-forwarding google-chronicle \
 --region <eu_multi_region/london/us_multi_region/singapore/tel_aviv> \
 --log-type <log-type>
 ```
+
 ```shell Logstash
 akeyless gateway update remote-access-session-forwarding logstash \
 --enable \
@@ -101,6 +106,7 @@ akeyless gateway update remote-access-session-forwarding logstash \
 --certificate-file <path-to-file> \ # logstash certificate in PEM format
 --tls-certificate <tls-certificate< \ # PEM in a Base64 format
 ```
+
 ```shell Logz.io
 akeyless gateway update remote-access-session-forwarding logz-io \
 --enable \
@@ -110,6 +116,7 @@ akeyless gateway update remote-access-session-forwarding logz-io \
 --logz-io-token <logz-io-token> \
 --protocol <tcp/https>
 ```
+
 ```shell Splunk
 akeyless gateway update remote-access-session-forwarding splunk \
 --enable \
@@ -125,6 +132,7 @@ akeyless gateway update remote-access-session-forwarding splunk \
 --certificate-file <path-to-file> \ # splunk certificate in PEM format
 --tls-certificate <tls-certificate> \ # PEM in a Base64 format
 ```
+
 ```shell Stdout
 akeyless gateway update remote-access-session-forwarding stdout \
 --enable \
@@ -132,6 +140,7 @@ akeyless gateway update remote-access-session-forwarding stdout \
 --output-format <text|json> \
 --pull-interval <in seconds> \
 ```
+
 ```shell Sumo Logic
 akeyless gateway update remote-access-session-forwarding sumologic \
 --enable \
@@ -142,6 +151,7 @@ akeyless gateway update remote-access-session-forwarding sumologic \
 --sumologic-tags <comma-separated-list> \
 --host <sumologic-host>
 ```
+
 ```shell Syslog
 akeyless gateway update remote-access-session-forwarding syslog \
 --enable true \

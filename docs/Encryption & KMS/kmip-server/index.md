@@ -215,8 +215,6 @@ The command output shows the created KMIP key ID:
 
 4. Save the private key and certificate of the client to set up the connection with your KMIP Client system.
 
-<br />
-
 > 👍 Handling the "Cannot Parse Attribute: Unique Identifier" Error
 >
 > If you see the following error when starting MongoDB:

@@ -27,9 +27,9 @@ Where:
 
 * `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-* `gitlab-access-token`: Provide GitLab access token. 
+* `gitlab-access-token`: Provide GitLab access token.
 
-* `gitlab-url`: Provide the GitLab base URL, default is ` https://gitlab.com`
+* `gitlab-url`: Provide the GitLab base URL, default is `https://gitlab.com`
 
 ## Create a GitLab Target in the Console
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a RabbitMQ target to be used with [RabbitMQ Dynamic Secrets](https://docs.akeyless.io/docs/rabbitmq-producer) 
+You can define a RabbitMQ target to be used with [RabbitMQ Dynamic Secrets](https://docs.akeyless.io/docs/rabbitmq-producer)
 
 ## Create a RabbitMQ Target in the CLI
 
@@ -32,7 +32,7 @@ Where:
 
 * `pwd`: The password of the privileged RabbitMQ user.
 
-* `uri`: The URL of the RabbitMQ server. 
+* `uri`: The URL of the RabbitMQ server.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluerabbitmqp) section.
 
@@ -47,7 +47,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 4. Define the remaining parameters as follows:
 
-* **Server URI:** Enter the RabbitMQ server address. 
+* **Server URI:** Enter the RabbitMQ server address.
 
 * **Admin User:** Enter your RabbitMQ admin credentials.
 

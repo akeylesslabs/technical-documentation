@@ -85,6 +85,7 @@ subjects:
   name: token-request-sa
   namespace: <Namespace>
 ```
+
 ```yaml Dynamic Mode
 apiVersion: v1
 kind: ServiceAccount
@@ -217,6 +218,7 @@ subjects:
   apiGroup: rbac.authorization.k8s.io
 EOF
 ```
+
 ```yaml Dynamic Mode
 cat <<EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
@@ -299,6 +301,7 @@ akeyless dynamic-secret create k8s \
 --k8s-predefined-role-name <Role or ClusterRole name> \
 --k8s-allowed-namespaces <namespace1, namespace2>
 ```
+
 ```shell Generated Role
 akeyless dynamic-secret create k8s \ 
 --name <secret name> \
@@ -419,6 +422,7 @@ To get the dynamic generic Kubernetes secret value from the CLI, you should run 
 ```shell Fixed
 akeyless get-dynamic-secret-value --name <Path to the dynamic secret>
 ```
+
 ```shell Dynamic
 akeyless get-dynamic-secret-value --name <Path to the dynamic secret> --args=namespace=<namespace>"
 ```

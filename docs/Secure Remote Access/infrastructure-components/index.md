@@ -22,7 +22,7 @@ next:
 ---
 This document is a guide for deploying all relevant components to enable the Akeyless Secure Remote Access solution using the official Akeyless repository, a system booted from a Helm chart deployment based on an official repository image.
 
-The installation provides accessibility features that are described on the relevant pages. 
+The installation provides accessibility features that are described on the relevant pages.
 
 Before installing, it would be advised to view the prerequisites for each component. For conventions used in this document, mandatory parts are extracted from the chart values files.
 

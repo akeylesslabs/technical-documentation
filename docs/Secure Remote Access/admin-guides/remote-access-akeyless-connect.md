@@ -16,7 +16,7 @@ Akeyless connect provides you with secure CLI access to resources or a secure tu
 
 To use Akeyless Connect  you need:
 
-* Akeyless CLI v1.42.0 or higher. 
+* Akeyless CLI v1.42.0 or higher.
 
 * An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
@@ -98,11 +98,11 @@ USE_SSH_LEGACY_ALG=no
 SSH_EXTERNAL_CLIENT="ssh"
 ```
 
-Edit the settings as follows: 
+Edit the settings as follows:
 
 `IDENTITY_FILE` - Default is `~/.ssh/id_rsa`. Full path to the private key to be signed and used for the Zero Trust session.
 
-`CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-certificates) item. 
+`CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-certificates) item.
 
 `AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI.
 
@@ -114,17 +114,17 @@ Edit the settings as follows:
 
 `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS.  
 
-`BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port. 
+`BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
 
-`BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra` cluster service port. 
+`BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra` cluster service port.
 
-**Optional**: When working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port: 
+**Optional**: When working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
 
 `BASTION_API_PREFIX` - Set your path prefix as your load balancer settings.
 
 `BASTION_API_PATH` - Set your path as your load balancer settings.
 
-Where the URL will be set as follows: 
+Where the URL will be set as follows:
 
 `${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}`
 
@@ -210,13 +210,13 @@ akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
-In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file you can use: 
+In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file you can use:
 
 ```shell Akeyless CLI
 akeyless connect -t us-east-1 -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
-**MongoDB:** 
+**MongoDB:**
 
 ```shell Akeyless CLI
 akeyless connect -t <mongo server IP>:27017 -g <gw-ssh-url>:<port> -n "<Path to MongoDB Dynamic Secret>"
@@ -242,7 +242,7 @@ Linux:
 AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -g <gw-ssh-url> -n "Path To K8s Dynamnic Secret" --ssh-extra-args "non-interactive"
 ```
 
-Windows: 
+Windows:
 
 ```shell
 $env:AKEYLESS_PARAM = 'get pods'; .\akeyless.exe connect -t <k8 cluster endpoint> -g <gw-ssh-url> -n "Path To K8s Dynamnic Secret" --ssh-extra-args "non-interactive"

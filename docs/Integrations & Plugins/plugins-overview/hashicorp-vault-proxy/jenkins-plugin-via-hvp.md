@@ -78,11 +78,11 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
 ### Dynamic Secret
 
-To use your Jenkins Plugin to fetch Dynamic Secrets: 
+To use your Jenkins Plugin to fetch Dynamic Secrets:
 
 The **Path** should be in the following format: `<Dynamic Secret type>/creds/<Full Secret Name>`
 
-The returned JSON object will have keys named `password` and `username`.e.g. 
+The returned JSON object will have keys named `password` and `username`.e.g.
 
 ```json
 {
@@ -91,7 +91,7 @@ The returned JSON object will have keys named `password` and `username`.e.g.
 }
 ```
 
-In this example, we are fetching a dynamic secret named **ProdDB** using [MySQL Dynamic Secrets](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db). 
+In this example, we are fetching a dynamic secret named **ProdDB** using [MySQL Dynamic Secrets](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db).
 
 ![](https://files.readme.io/1af62b9-Screenshot_at_Feb_24_18-06-43.png "Screenshot at Feb 24 18-06-43.png")
 
@@ -113,9 +113,9 @@ Click “Build Now” and expect to see the following Console Output:
 
 ### Static Secrets
 
-To work with Static secrets, the Vault Secret Path should be in this format for **KV 1**: 
+To work with Static secrets, the Vault Secret Path should be in this format for **KV 1**:
 
-`secret/data/<Full Secret Name>`, where the Key in the returned JSON name is `data`. 
+`secret/data/<Full Secret Name>`, where the Key in the returned JSON name is `data`.
 
 For example, let's create a secret:
 
@@ -135,11 +135,11 @@ In case the secret value itself is a JSON-structured object, the **Path** must b
 akeyless create-secret -n /DevOps/JenkinsJson -v '{"username":"john","password":"secret"}'
 ```
 
-The **Key names** can be: `username` and `password` where the **Path** is `secret/DevOps/JenkinsJson` 
+The **Key names** can be: `username` and `password` where the **Path** is `secret/DevOps/JenkinsJson`
 
 ![](https://files.readme.io/6670afe-Screenshot_at_Jan_05_21-07-11.png "Screenshot at Jan 05 21-07-11.png")
 
-To work with **KV 2** use the following format: 
+To work with **KV 2** use the following format:
 
 To fetch the secret **/DevOps/Jenkins** :
 
@@ -149,6 +149,6 @@ To fetch the secret **/DevOps/Jenkins** :
 
 For example, to fetch the secret **/DevOps/JenkinsJson** :
 
-The **Path** should be `secret/DevOps/JenkinsJson`, and the **Key name** should be set with the relevant JSON keys. 
+The **Path** should be `secret/DevOps/JenkinsJson`, and the **Key name** should be set with the relevant JSON keys.
 
 ![](https://files.readme.io/98d3115-Screenshot_at_Jan_05_21-15-42.png "Screenshot at Jan 05 21-15-42.png")

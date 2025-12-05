@@ -54,7 +54,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 4. Define the remaining parameters as follows:
 
-* **Hostname**, **Port** and **Username** to set up the connection. 
+* **Hostname**, **Port** and **Username** to set up the connection.
 
 * **Authentication Type:** In this section, you can select the preferred type of authentication with the SSH server either `SSH Key` or `Password`:
 
@@ -62,7 +62,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
   * Select the **Password** radio button to authenticate with the password.
 
-Set the following details accordingly: 
+Set the following details accordingly:
 
 * **Private Key:** Provide an SSH private key.
 

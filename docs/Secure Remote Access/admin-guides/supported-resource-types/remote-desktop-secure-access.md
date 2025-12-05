@@ -37,6 +37,7 @@ akeyless dynamic-secret update rdp \
 --secure-access-host <hostname or IP> \
 --secure-access-rdp-domain <domain name>
 ```
+
 ```shell Rotated Secret
 akeyless rotated-secret update windows \
 --name <rotated secret name> \
@@ -51,9 +52,9 @@ where:
 * **secure-access-host:** The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret. For multiple values repeat this flag.
 * **secure-access-rdp-domain:** Optional, only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
 
-Optional: 
+Optional:
 
-* **secure-access-rdp-user :** Override the RDP Domain username. 
+* **secure-access-rdp-user :** Override the RDP Domain username.
 * **secure-access-allow-external-user:** Allow providing external user for a domain users \[true/false].
 * **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 * **secure-access-rd-gateway-server:** Optional for Dynamic Secret, to connect from SRA to the remote host via an RD-Gateway server.
@@ -70,7 +71,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 * `Host(s)`: The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret.
 * `Domain`: Optional for Dynamic Secret. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
-* `Override User`: Optional for Dynamic Secret. Override the RDP Domain username. 
+* `Override User`: Optional for Dynamic Secret. Override the RDP Domain username.
 * `Allow Providing External Username`: Optional for Dynamic Secret. Select to enable an external username to log in to the target host.
 * `RD Gateway`: Optional for Dynamic Secret. Connect from SRA to the remote host via an RD-Gateway server.
 * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
@@ -104,7 +105,7 @@ Create a new [Static Secret](https://docs.akeyless.io/docs/static-secrets) under
 
 Based on your permissions, you will have the ability to upload files from your local machine into the remote Windows machine or download files from the remote Windows machine to your local machine.
 
-To download files from a remote server, simply drag the desired files into the `Download` folder inside the mounted virtual disk named `file-share on Guacamole RDP` located under `This PC`, and a download process will start immediately where the file will be put into your local machine's Download folder. To upload files, use the **Upload** button on top of your session actions bar menu. The files you upload will be located in the same shared drive. 
+To download files from a remote server, simply drag the desired files into the `Download` folder inside the mounted virtual disk named `file-share on Guacamole RDP` located under `This PC`, and a download process will start immediately where the file will be put into your local machine's Download folder. To upload files, use the **Upload** button on top of your session actions bar menu. The files you upload will be located in the same shared drive.
 
 > 📘 Info
 >

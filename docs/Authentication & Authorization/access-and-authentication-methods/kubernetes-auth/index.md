@@ -31,8 +31,8 @@ The Kubernetes (K8s) Auth Method uses K8s JWTs in order to authenticate the K8s 
 Akeyless supports several authentication strategies to interact with the K8s cluster. Each of the below links describes the entire flow of creating the Akeyless K8s Auth Method. Choose the one that works for you and follow the entire flow:
 
 * The Akeyless Gateway ServiceAccount
-* A [dedicated ServiceAccount ](https://docs.akeyless.io/docs/dedicated-k8s-auth-service-accounts)
-* A [client certificate ](https://docs.akeyless.io/docs/k8s-auth-client-certificate)
+* A [dedicated ServiceAccount](https://docs.akeyless.io/docs/dedicated-k8s-auth-service-accounts)
+* A [client certificate](https://docs.akeyless.io/docs/k8s-auth-client-certificate)
 
 > 📘 Info
 >
@@ -40,7 +40,7 @@ Akeyless supports several authentication strategies to interact with the K8s clu
 
 ## Using Akeyless Gateway ServiceAccount
 
-In order to work with your Gateway Service Account the following K8s role should be assigned to the Service Account that runs your Gateway, Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment: 
+In order to work with your Gateway Service Account the following K8s role should be assigned to the Service Account that runs your Gateway, Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
 
 ```yaml Gateway SA K8s Role
 cat << EOF > akl_gw_sa_token_reviewer.yaml 
@@ -65,7 +65,7 @@ subjects:
 EOF
 ```
 
-Apply the changes: 
+Apply the changes:
 
 ```shell
 kubectl apply -f akl_gw_sa_token_reviewer.yaml
@@ -176,7 +176,7 @@ Token: t-bb7b...3564a7c9
 
 ## Available Claims for K8s Auth
 
-The following list of claims can be configured within Akeyless [Access Roles (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for K8s. 
+The following list of claims can be configured within Akeyless [Access Roles (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for K8s.
 
 ```yaml
 "service_account_name"
@@ -193,9 +193,9 @@ Each claim can be enforced as part of your role association to enforce the right
 
 ## Enable Token Request Projection on Minikube
 
-To enable token request projection on a managed K8s cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide. 
+To enable token request projection on a managed K8s cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide.
 
-To get this to work with Minikube you can start your cluster with the following configuration. 
+To get this to work with Minikube you can start your cluster with the following configuration.
 
 ```shell
 minikube start \

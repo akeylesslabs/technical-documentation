@@ -14,13 +14,13 @@ next:
       slug: akeyless-scp
       title: Akeyless SCP
 ---
-Akeyless connect provides you with secure CLI access to resources or a secure tunnel from any UNIX terminal. 
+Akeyless connect provides you with secure CLI access to resources or a secure tunnel from any UNIX terminal.
 
 ## Prerequisites
 
 To use Akeyless Connect you need:
 
-* Akeyless CLI v1.42.0 or higher. 
+* Akeyless CLI v1.42.0 or higher.
 
 * An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
@@ -33,7 +33,7 @@ To use Akeyless Connect you need:
 > `Akeyless connect` command supports legacy `~/.akeyless-sphere.rc` configuration file.
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."\
-> This feature enables users to utilize their Windows OS environment as a UNIX-like system. 
+> This feature enables users to utilize their Windows OS environment as a UNIX-like system.
 >
 > To work with the `akeyless-connect` command from a Windows machine, place the <code>.akeyless-connect.rc</code> script in your home directory.
 
@@ -41,7 +41,7 @@ To use Akeyless Connect you need:
 
 1. Download the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli).
 
-2. Create a resource file called **\~/.akeyless-connect.rc** as follows: 
+2. Create a resource file called **\~/.akeyless-connect.rc** as follows:
 
 ```shell akeyless-connect.rc
 # ---------------------------------------------------------------------
@@ -94,13 +94,13 @@ SSH_EXTRA_ARGS=""
 SSH_EXTERNAL_CLIENT="ssh"
 ```
 
-The latest version of this file can be found in [Akeyless official artifacts](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/). 
+The latest version of this file can be found in [Akeyless official artifacts](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/).
 
-Edit the settings as follows: 
+Edit the settings as follows:
 
 `IDENTITY_FILE` - Default is `~/.ssh/id_rsa`. Full path to the private key to be signed and used for the Zero Trust session.
 
-`CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item. 
+`CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item.
 
 `AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI.
 
@@ -110,17 +110,17 @@ Edit the settings as follows:
 
 `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) is configured with TLS.  
 
-`BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port. 
+`BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
 
-`BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra`  cluster service port. 
+`BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra`  cluster service port.
 
-**Optional** when working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port: 
+**Optional** when working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
 
 `BASTION_API_PREFIX` - Set your path prefix as your load balancer settings.
 
 `BASTION_API_PATH` - Set your path as your load balancer settings.
 
-Where the URL will be set as follow: 
+Where the URL will be set as follow:
 
 `${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}`
 
@@ -182,13 +182,13 @@ akeyless connect -t user@ssh-server[:port] -v <via-sra-bastion-ssh-service> -c "
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -v <via-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
-In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file you can use: 
+In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file you can use:
 
 ```shell Akeyless CLI
 akeyless connect -t us-east-1 -v <via-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
-**MongoDB:** 
+**MongoDB:**
 
 ```shell Akeyless CLI
 akeyless connect -t <mongo server IP>:27017 -v <via-sra-bastion-ssh-service>:<port> -n "<Path to MongoDB Dynamic Secret>"
@@ -214,7 +214,7 @@ Linux:
 AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -v <via-sra-bastion-ssh-service> -n "Path To K8s Dynamnic Secret" --ssh-extra-args "non-interactive"
 ```
 
-Windows: 
+Windows:
 
 ```shell
 $env:AKEYLESS_PARAM = 'get pods'; .\akeyless.exe connect -t <k8 cluster endpoint> -v <via-sra-bastion-ssh-service> -n "Path To K8s Dynamnic Secret" --ssh-extra-args "non-interactive"

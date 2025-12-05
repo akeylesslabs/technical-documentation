@@ -33,7 +33,7 @@ Perform the following commands in SQL\*Plus or another Oracle SQL interface:
 SQL> ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY akeyless;
 ```
 
-Result: Keysotre closed successfully 
+Result: Keysotre closed successfully
 
 ```text SQL
 SQL> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=FILE";
@@ -69,7 +69,7 @@ Result: Keystore closed again
 SQL> ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/opt/oracle/admin/FREE/hsm_wallet/tde' IDENTIFIED BY "APP_PASSWORD";
 ```
 
-Result: Auto-login key store created. 
+Result: Auto-login key store created.
 
 ```text SQL
 SQL> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE";

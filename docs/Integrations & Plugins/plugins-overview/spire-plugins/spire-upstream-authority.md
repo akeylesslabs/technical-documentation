@@ -17,7 +17,7 @@ next:
 
 ## Authentication
 
-The following Authentication Methods can be used: 
+The following Authentication Methods can be used:
 
 * [API Key](https://docs.akeyless.io/docs/api-key)
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
@@ -60,7 +60,7 @@ akeyless set-role-rule --role-name /Dev/Spire-Role \
 
 Log into the console using a Gateway admin account, navigate to the **Gateways** tab, and choose the relevant **Gateway**.
 
-Click on **Access Permissions** and click on  **New**: 
+Click on **Access Permissions** and click on  **New**:
 
 Give it a meaningful **Name**, choose the **Auth Method**, and click next.
 
@@ -135,7 +135,7 @@ Once the Classic Key and the PKI Issuer are created, a certificate needs to be g
 >
 > If a CSR is provided along with a private key using the `--key-file-path` option, the provided key will be stored alongside the issued certificate.
 
-The following command will generate a certificate using the PKI Cert Issuer that was created earlier: 
+The following command will generate a certificate using the PKI Cert Issuer that was created earlier:
 
 ```shell
 akeyless get-pki-certificate --cert-issuer-name <cert_issuer_name> --csr-file-path <csr_file_path> --key-file-path <key_file_path>
@@ -145,17 +145,18 @@ Where:
 
 * `cert-issuer-name` - **Required**, Name of the PKI Certificate Issuer that was created in the previous step.
 
-* `csr-file-path` - **Required**, Path to the CSR file. 
+* `csr-file-path` - **Required**, Path to the CSR file.
 
 * `key-file-path` - Optional, Path to the Private key.
 
-**Note**: The output of the command above will print a chain of certificates. Save the last certificate as a file as it will be used in the next steps. 
+**Note**: The output of the command above will print a chain of certificates. Save the last certificate as a file as it will be used in the next steps.
 
 Next, [download](https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/) the **AkeylessUpstreamAuthority** plugin, by running the following command:
 
 ```shell AMD64
 curl -o AkeylessUpstreamAuthority https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-amd64-linux-v0.0.4
 ```
+
 ```shell ARM64
 curl -o AkeylessUpstreamAuthority https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-arm64-linux-v0.0.4
 ```
@@ -183,7 +184,7 @@ UpstreamAuthority  "akeyless_upstream" {
 }  
 ```
 
-Where: 
+Where:
 
 * `plugin_cmd` - The location of the binary file that was created.
 
@@ -195,7 +196,7 @@ Where:
 
 * `access_key` - Optional, The AccessKey. Relevant only for API Key.
 
-* `pki_cert_issuer_name` - Name of the PKI Certificate Issuer. 
+* `pki_cert_issuer_name` - Name of the PKI Certificate Issuer.
 
 For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
 
@@ -225,7 +226,7 @@ Once the server is running, the Agent needs to be configured as well, in the `co
 trust_bundle_path = "/Path/To/certificate/file" #The file that holds the certificate from the previous step
 ```
 
-Once the `conf/agent/agent.conf` file is configured, we will start the agent: 
+Once the `conf/agent/agent.conf` file is configured, we will start the agent:
 
 ```shell
 bin/spire-server token generate -spiffeID spiffe://example.org/myagent

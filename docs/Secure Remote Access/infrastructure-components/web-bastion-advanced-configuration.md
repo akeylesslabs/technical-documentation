@@ -52,9 +52,9 @@ logForward: |
 
 ## WebWorker
 
-This section enables global settings of the internal dedicated remote browsers your users will use. You can customize the settings to provide a more flexible experience for your users. 
+This section enables global settings of the internal dedicated remote browsers your users will use. You can customize the settings to provide a more flexible experience for your users.
 
-Default `policies` sections aimed to provide the most secure work mode. By default, all `URLs` are blocked hence users will not be able to navigate inside the remote browser to different sites. If needed, set the relevant `URLs` in the `Exceptions` list. 
+Default `policies` sections aimed to provide the most secure work mode. By default, all `URLs` are blocked hence users will not be able to navigate inside the remote browser to different sites. If needed, set the relevant `URLs` in the `Exceptions` list.
 
 ```yaml
 webWorker:
@@ -127,7 +127,7 @@ dlp:
 
 ## Redirect to Bastion URLs
 
-To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-dispatcher-bastion**: 
+To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-dispatcher-bastion**:
 
 ```yaml
 dispatcher:

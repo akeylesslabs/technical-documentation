@@ -48,6 +48,7 @@ akeyless dynamic-secret update aws \
 --secure-access-aws-native-cli <true/false> \
 --secure-access-certificate-issuer </Path/to/SSH/Cert/Issuer>
 ```
+
 ```shell Rotated Secret
 akeyless rotated-secret update aws \
 --name <rotated secret name> \
@@ -85,7 +86,7 @@ Let's set up remote access to the AWS Console from the Akeyless Console. If you'
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-* `AWS Account ID `: The AWS account ID, as defined in the dynamic secret.
+* `AWS Account ID`: The AWS account ID, as defined in the dynamic secret.
 * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
 For **Web Access**, choose one of the following modes:

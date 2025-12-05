@@ -142,9 +142,9 @@ AuthorizedPrincipalsFile /etc/ssh/principals
 
 The following command will create a new SSH Cert Issuer in the Akeyless Platform with ancillary data.
 
-* `name`: The name that will be assigned to the new Cert Issuer 
+* `name`: The name that will be assigned to the new Cert Issuer
 
-* `signer-key-name`: The private key to be used for certificate signing 
+* `signer-key-name`: The private key to be used for certificate signing
 
 * `allowed-users`: Users allowed to use the certificate (supports wildcard) for explicitly provided list, or extracting the relevant username from an existing [Sub-Claim](https://docs.akeyless.io/docs/sub-claims)
 

@@ -37,7 +37,7 @@ Where:
 * `gpg-alg`: Relevant only if GPG key type selected; options: [`RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`, `X25519`]
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-Other parameters can be found in the [CLI Reference ](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-classic-keyp).
+Other parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-classic-keyp).
 
 ### Key Usage
 
@@ -92,7 +92,7 @@ The full parameters can be found in the [CLI reference](https://docs.akeyless.io
 
 While the console can create GPG-type keys, their full usage functionalities are available from the CLO.
 
-### Key Creation:
+### Key Creation
 
 1. In the Akeyless console, select **New**>**Encryption Key** > **Classic**.
 

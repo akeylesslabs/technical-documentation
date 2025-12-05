@@ -43,6 +43,7 @@ akeyless dynamic-secret update azure \
 --secure-access-enable true \
 --secure-access-web-browsing <true/false>
 ```
+
 ```shell Rotated Secret
 akeyless rotated-secret update azure \
 --name <rotated secret name> \
@@ -54,11 +55,11 @@ akeyless rotated-secret update azure \
 
 where:
 
-By default, access to the Azure portal will use direct network access mode. To work with Akeyless [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) for session isolation or as a secure proxy entry point, please set **one** of the following: 
+By default, access to the Azure portal will use direct network access mode. To work with Akeyless [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
 * **secure-access-web-browsing:** Optional, secure browser via Akeyless Web Access Bastion.
 
-Alternatively, in case you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true: 
+Alternatively, in case you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
 
 * **secure-access-web-proxy:** Optional, web-proxy via Akeyless Web Access Bastion.
 * **secure-access-url:** Required for Rotated Secret. The target URL where credentials will be injected.

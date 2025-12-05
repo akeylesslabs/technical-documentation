@@ -43,7 +43,7 @@ Where:
 * `target-name`: The name of the [Windows Target](https://docs.akeyless.io/docs/windows-target) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target server.
-  * `use-user-creds` - Use the credentials defined on the Rotated Secret item. 
+  * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
   * `use-target-creds` - Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
 
 > 👍 Note

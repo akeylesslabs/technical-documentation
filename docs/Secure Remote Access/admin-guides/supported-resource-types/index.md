@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Platform's Secure Remote Access solution supports connections to the following resource types: 
+Akeyless Platform's Secure Remote Access solution supports connections to the following resource types:
 
 * [Databases](https://docs.akeyless.io/docs/database-secure-remote-access)
 

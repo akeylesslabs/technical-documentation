@@ -36,6 +36,7 @@ akeyless dynamic-secret update ldap \
 --secure-access-enable true \
 --secure-access-host <hostname or IP>
 ```
+
 ```shell Rotated Secret
 akeyless rotated-secret update ldap \
 --name <rotated secret name> \
@@ -48,7 +49,7 @@ where:
 
 * **secure-access-host:** The hostname (or IP address) for accessing the LDAP server as defined in the secret. For multiple values repeat this flag.
 
-Optional: 
+Optional:
 
 * **external-username:** Allow providing external user for a domain user \[true/false].
 * **secure-access-rdp-domain:** Required only when `external-username` is set to true. Only required if the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the LDAP user for whom credentials are created belongs.

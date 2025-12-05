@@ -24,7 +24,7 @@ The Akeyless Secure Remote Access Bastion provides secure remote access to resou
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
 
-* At least 1 vCPU available with 1 GB RAM per Docker container. 
+* At least 1 vCPU available with 1 GB RAM per Docker container.
 
 \***\*Network\*\***
 
@@ -46,12 +46,12 @@ Currently, this setup requires a **Volume** storage mechanism of [Docker](https:
 
 ## Configuration
 
-The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page. 
+The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
 
 Users can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.\
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` that will be authorized to request access. 
+To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` that will be authorized to request access.
 
-For RDP access that uses the **Fixed user** feature, rely on the username sub-claims to figure out **Windows** username to use. If you use a different sub-claim, it should be specified at deployment time using `USERNAME_SUB_CLAIM` environment variable. To use this mode, separately for either `SSH` or for `RDP` only, you can use instead `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM` correspondingly. 
+For RDP access that uses the **Fixed user** feature, rely on the username sub-claims to figure out **Windows** username to use. If you use a different sub-claim, it should be specified at deployment time using `USERNAME_SUB_CLAIM` environment variable. To use this mode, separately for either `SSH` or for `RDP` only, you can use instead `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM` correspondingly.
 
 To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 
@@ -61,13 +61,13 @@ To provide just-in-time native CLI access for your users using [Keyless SSH](htt
 
 ### Authentication
 
-The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported: 
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported:
 
-* [API Key](https://docs.akeyless.io/docs/api-key) 
+* [API Key](https://docs.akeyless.io/docs/api-key)
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam) 
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 
-* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method)   
+* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method)
 
 * [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
 
@@ -85,6 +85,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e USERNAME_SUB_CLAIM="FIXED_USER_KEY_NAME" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
+
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -113,6 +114,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
+
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -138,6 +140,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
+
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -150,7 +153,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ### Azure Active Directory
 
-Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with the matching service principal `azureobjectID', with a list of `ALLOWED\_ACCESS\_IDS\` that will be authorized to request access.
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with the matching service principal `azureobjectID', with a list of`ALLOWED\_ACCESS\_IDS\` that will be authorized to request access.
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -163,6 +166,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
+
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL = "https://rest.akeyless.io" \
@@ -175,7 +179,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ### Session Recording
 
-To enable session recording on your **web-bastion**, you can export the recordings into an S3 bucket or to an Azure Blob storage: 
+To enable session recording on your **web-bastion**, you can export the recordings into an S3 bucket or to an Azure Blob storage:
 
 ```shell web-bastion-AWS-IAM
 docker run --name web-bastion -d -p 8888:8888  \
@@ -189,6 +193,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
+
 ```shell s3-Inline connection string
 docker run --name web-bastion -d -p 8888:8888  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -203,6 +208,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
+
 ```shell Azure Blob
 docker run --name web-bastion -d -p 8888:8888  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -214,6 +220,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
+
 ```shell Azure Blob-Inline connection string
 docker run --name web-bastion -d -p 8888:8888  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -247,7 +254,7 @@ docker run --name web-bastion -d -p 8888:8888  \
 
 ### Log Forwarding
 
-To forward all your users session logs from the **ssh-bastion**, mount a local file which hold the setting of your target log server as described in [this](https://docs.akeyless.io/docs/ssh-log-forwarding) guide, for example: 
+To forward all your users session logs from the **ssh-bastion**, mount a local file which hold the setting of your target log server as described in [this](https://docs.akeyless.io/docs/ssh-log-forwarding) guide, for example:
 
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
@@ -259,6 +266,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -v &PWD/log_forwarding.conf:/var/akeyless/conf/logand.conf \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
 ```
+
 ```shell log_forwarding.conf
 cat <<EOT>> log_forwarding.conf
 enable="true"
@@ -270,7 +278,7 @@ EOT
 
 ### Redirect to Bastion URLs
 
-To ensure only validated redirects are accepted, you can harden your bastion using the `ALLOWED_BASTION_URLS` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**: 
+To ensure only validated redirects are accepted, you can harden your bastion using the `ALLOWED_BASTION_URLS` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**:
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \

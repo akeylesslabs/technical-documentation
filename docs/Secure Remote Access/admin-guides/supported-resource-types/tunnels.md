@@ -37,7 +37,7 @@ akeyless connect --target <user>@<targetserver> \
  --sra-ctrl-port "http\https"
 ```
 
-Where: 
+Where:
 
 * **target:**  The target resource, e.g. `user@ssh-server[:port]`, `us-east-2`, `mysql-server:3306`, etc.
 
@@ -47,7 +47,7 @@ Where:
 * **tunnel:** SSH tunnel setting e.g. `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
 
 * **cert-issuer-name:** Optional. If already configured inside `akeyless-connect.rc` file, alternativity provide\
-  the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion. 
+  the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion.
 
 * **name :** Full name of the secret item to use in order to connect. i.e. Dynamic or a Rotated Secret for Database,RDP etc. Or a static secret which contains the credentials of the target system.
 
@@ -118,7 +118,7 @@ Similarly, after having run the `akeyless connect` command as in the previous se
 
 Now, you can start interacting with your remote K8s API server using the tunnel.
 
-For example, to add a new cluster to Lens add, you can use the following `kubeconfig` reference: 
+For example, to add a new cluster to Lens add, you can use the following `kubeconfig` reference:
 
 ```yaml
 apiVersion: v1

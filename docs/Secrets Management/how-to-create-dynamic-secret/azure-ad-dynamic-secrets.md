@@ -164,7 +164,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 
-* **Custom Username Template:** Set a [custom username template ](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
+* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
 * **Temporary Password Length** Set the length of the temporary password.
 

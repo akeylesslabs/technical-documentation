@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access for Web Applications enables full secure remote connection to any web application while sharing access to any user without sharing access credentials. 
+Akeyless Secure Remote Access for Web Applications enables full secure remote connection to any web application while sharing access to any user without sharing access credentials.
 
 The following browsing modes are available:
 
@@ -26,9 +26,9 @@ The following browsing modes are available:
 
 * The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) deployed.
 
-* Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions). 
+* Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
 
-This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: <code>username..password</code>. i.e. a concatenation of your username and password, with double dots as a delimiter. 
+This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: <code>username..password</code>. i.e. a concatenation of your username and password, with double dots as a delimiter.
 
 ## Set Up Remote Access to a Web Application from the Akeyless CLI
 
@@ -53,7 +53,7 @@ where:
 >
 > In case you are using an Alias or multiple fields as part of your login credentials, please make sure your secret value follows this format: <code>username..alias..password</code>
 
-On Akeyless Secure Remote Access Portal, click on the Web Access application, select the relevant item in the list. 
+On Akeyless Secure Remote Access Portal, click on the Web Access application, select the relevant item in the list.
 
 A new tab will open, redirect to the requested page, and inject credentials provided by the static secret.
 
@@ -67,7 +67,7 @@ Let's set up remote access to the web application from the Akeyless Console. If 
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-* `Injection URL`: The web application login URL to inject secrets. 
+* `Injection URL`: The web application login URL to inject secrets.
 
 * `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 

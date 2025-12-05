@@ -35,7 +35,7 @@ The main parameters are:
 
 * `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-* `azure-kv-name`: The name of an existing Azure key vault. 
+* `azure-kv-name`: The name of an existing Azure key vault.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
