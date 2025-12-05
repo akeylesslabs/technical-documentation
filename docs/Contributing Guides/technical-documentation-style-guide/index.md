@@ -50,7 +50,8 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 ## Headings
 
-* Use `#` for document titles, `##` for sections, `###` for subsections.
+* Use `##` for sections, `###` for subsections, etc.
+  * Avoid using `#` which is reserved for document titles, which ReadMe handles in a different way.
 * Titles should be descriptive and concise.
 * Do not use **bolded text**, when a heading is intended.
 
