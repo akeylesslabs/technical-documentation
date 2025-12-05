@@ -182,6 +182,7 @@ helm install <RELEASE NAME> akeyless/akeyless-zero-trust-web-access -f values.ya
 ```
 
 Verify that both deployments are up and running:
+
 ```shell
 kubectl describe deploy web-worker-deployment -n <namespace>
 kubectl describe deploy web-dispatcher-deployment  -n <namespace>

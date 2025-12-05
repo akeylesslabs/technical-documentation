@@ -25,7 +25,7 @@ The integration with Akeyless allows users seamlessly to integrate secret data i
 export VAULT_ADDR=https://hvp.akeyless.io
 ```
 
-2. You'll need to configure the authentication token that Consul Template would use to fetch secrets from Akeyless Platform. Set your Akeyless token in a file `~/.vault-token` 
+2. You'll need to configure the authentication token that Consul Template would use to fetch secrets from Akeyless Platform. Set your Akeyless token in a file `~/.vault-token`
 
 You can either use Akelyess [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:\
 A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter: `< Access ID >..< Access Key >`, For example:`p-xxxxx..accessKey`

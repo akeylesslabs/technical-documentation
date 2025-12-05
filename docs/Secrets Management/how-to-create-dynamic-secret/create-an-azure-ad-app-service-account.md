@@ -20,7 +20,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 ![1024](https://files.readme.io/ada987e-image-20210204-103139.png "image-20210204-103139.png")
 
-2. Once the resource is created, navigate to **Overview** and note the **Application (client) ID** and **Directory (tenant) ID**. 
+2. Once the resource is created, navigate to **Overview** and note the **Application (client) ID** and **Directory (tenant) ID**.
 
 ![1024](https://files.readme.io/4d92388-image-20210204-103159.png "image-20210204-103159.png")
 
@@ -34,7 +34,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 ![1024](https://files.readme.io/b8a7809-image-20210204-102948.png "image-20210204-102948.png")
 
-3. Scroll down to **User** and check the **User.ReadWrite.All**: 
+3. Scroll down to **User** and check the **User.ReadWrite.All**:
 
 ![1024](https://files.readme.io/f31f1fe-image-20210204-103048.png "image-20210204-103048.png")
 
@@ -96,7 +96,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
   </tbody>
 </Table>
 
-4. After Updating the permissions, an admin must grant consent: 
+4. After Updating the permissions, an admin must grant consent:
 
 ![1024](https://files.readme.io/30f6f53-image-20210204-103239.png "image-20210204-103239.png")
 
@@ -108,6 +108,6 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 ![1024](https://files.readme.io/43eaafe-image-20210204-103441.png "image-20210204-103441.png")
 
-2. Save the client secret, as it will not be retrievable once you move to other page/resource: 
+2. Save the client secret, as it will not be retrievable once you move to other page/resource:
 
 ![1024](https://files.readme.io/68129dc-image-20210204-103506.png "image-20210204-103506.png")

@@ -27,7 +27,7 @@ To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follo
 
 ![](https://files.readme.io/42962ac-image-20210824-102417.png "image-20210824-102417.png")
 
-4. Once the OIDC app has been created, you need to obtain the **Client ID, Client secret,** and  **Okta domain**: 
+4. Once the OIDC app has been created, you need to obtain the **Client ID, Client secret,** and  **Okta domain**:
 
 ![](https://files.readme.io/7af68f3-image-20210824-103109.png "image-20210824-103109.png")
 
