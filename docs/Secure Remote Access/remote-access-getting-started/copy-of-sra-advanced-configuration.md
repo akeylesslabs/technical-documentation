@@ -99,6 +99,7 @@ config:
       # Specifies an existing secret to be used for bastion, management AWS credentials
       existingSecret: ""
 ```
+
 ```yaml Azure Blob
 config:
     rdpRecord:
@@ -210,6 +211,7 @@ ztbConfig:
     - name: KEYBOARD_LAYOUT
       value: fr-fr-azerty # Other options can be found below
 ```
+
 ```yaml Layout Options
 value: da-dk-qwerty # Danish (Qwerty)
 value: de-ch-qwertz # Swiss German (Qwertz)

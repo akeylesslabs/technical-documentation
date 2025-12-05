@@ -44,18 +44,18 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 1. Log in to the Akeyless Console, and navigate to the [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) item.
 2. Go to the **Sync** tab on the secret item and click **Attach**.
-3. Set the following settings: 
+3. Set the following settings:
 
 * **Universal Secret Connector Name:** Choose the target **Universal Secret Connector**.
 
 * **Remote Secret Name:** Enter the name of the secret that will be created or updated on the remote endpoint.
 
-* **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, e.g. `.password` etc. 
+* **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, e.g. `.password` etc.
 
 > 👍 Format restrictions
 >
 > K8s & Hashicorp target enforces that secrets will be in a JSON format, meaning that a valid JQ filter would be for example:  `{"password": .password}`
 
-Click on **Save** to synchronize the rotated secret. 
+Click on **Save** to synchronize the rotated secret.
 
 In case an automatic sync fails, an event will be triggered. In that case, you will be able to perform a **manual sync** from this tab.

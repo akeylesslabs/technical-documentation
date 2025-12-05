@@ -16,7 +16,7 @@ next:
 
 As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy '[ssh-rsa-cert-v01@openssh.com](mailto:ssh-rsa-cert-v01@openssh.com)' signing algorithm.
 
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**. 
+This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
 
 ```shell
 akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url <your-gateway-url:8000>
@@ -67,7 +67,7 @@ SSH_HOST_KEYS_PATH=/MY_SSH_REMOTE_ACCESS_HOST_KEYS
 
 ## RDP / SSH User Acces
 
-Set the RDP / SSH Authentication with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username. This can be done as follows from the CLI. 
+Set the RDP / SSH Authentication with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username. This can be done as follows from the CLI.
 
 RDP:
 
@@ -94,6 +94,7 @@ This can also be done via the console by going to **Gateways** -> **Your-Gateway
 ```shell
 akeyless gateway update remote-access --keyboard-layout <layout-option>
 ```
+
 ```yaml Layout Options
 value: da-dk-qwerty # Danish (Qwerty)
 value: de-ch-qwertz # Swiss German (Qwertz)

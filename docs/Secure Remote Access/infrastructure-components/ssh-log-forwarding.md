@@ -12,11 +12,11 @@ next:
 ---
 SSH/Web Access log forwarding enables you to forward SSH/Web Access session recordings to your log servers.
 
-Log forwarding to your bastions can be done for: 
+Log forwarding to your bastions can be done for:
 
 SSH Access: [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion)
 
-Web Application Access : [Web Access Bastion](https://docs.akeyless.io/docs/web-access-bastion) 
+Web Application Access : [Web Access Bastion](https://docs.akeyless.io/docs/web-access-bastion)
 
 ## Syslog
 
@@ -39,7 +39,7 @@ The variable `target_syslog_formatter` controls the format of the outputted mess
 
 ## Splunk
 
-Prerequisites: [Splunk HTTP Event Collector](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/9.4/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web) 
+Prerequisites: [Splunk HTTP Event Collector](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/9.4/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web)
 
 ```yaml
 target_log_type="splunk"
@@ -122,7 +122,7 @@ target_azure_workspace_key="" # can be "Primary key" or "Secondary key"
 
 ## STDOUT
 
-Setting log forwarding to stdout: 
+Setting log forwarding to stdout:
 
 ```yaml
 target_log_type="std_out"
@@ -130,7 +130,7 @@ target_log_type="std_out"
 
 ## DataDog
 
-Setting log forwarding to DataDog: 
+Setting log forwarding to DataDog:
 
 ```yaml
 target_log_type="datadog"

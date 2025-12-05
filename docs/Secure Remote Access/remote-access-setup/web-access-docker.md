@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either via an isolated remote browser or directly to your target server based on your secret configuration. 
+Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either via an isolated remote browser or directly to your target server based on your secret configuration.
 
 Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.  
 
@@ -66,11 +66,11 @@ services:
       - AKEYLESS_URL=https://vault.akeyless.io
 ```
 
-The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions, to fetch the relevant secret on behalf of your users, set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page. 
+The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions, to fetch the relevant secret on behalf of your users, set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
 
-Users then can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently. 
+Users then can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
 
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` comma separated that will be authorized to request access. 
+To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` comma separated that will be authorized to request access.
 
 ```yaml
 services:
@@ -94,15 +94,15 @@ services:
 
 ### Authentication
 
-The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported: 
+The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported:
 
-* [API Key](https://docs.akeyless.io/docs/api-key) 
+* [API Key](https://docs.akeyless.io/docs/api-key)
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam) 
+* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 
 * [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
 
-* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) 
+* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method)
 
 ### API Key Authentication
 
@@ -135,9 +135,9 @@ While running your Docker inside your cloud environment, you can use [AWS IAM](h
 
 ### AWS IAM
 
-AWS IAM can be used in the following approach: 
+AWS IAM can be used in the following approach:
 
-* Instance IAM Role 
+* Instance IAM Role
 
 While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
@@ -278,7 +278,7 @@ services:
 
 ### Log Forwarding
 
-To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page. Set the `LOG_FORWARDING` variable inside the  **Docker Compose** deployment file as follow: 
+To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page. Set the `LOG_FORWARDING` variable inside the  **Docker Compose** deployment file as follow:
 
 ```yaml docker-compose.yml
 services:
@@ -304,9 +304,9 @@ services:
 
 ### WebWorker
 
-This section enables global settings of the internal dedicated remote browsers your users will use. You can customize the settings to provide a more flexible experience for your users. 
+This section enables global settings of the internal dedicated remote browsers your users will use. You can customize the settings to provide a more flexible experience for your users.
 
-Default `policies` sections aimed to provide the most secure work mode. By default, all `URLs` are blocked hence users will not be able to navigate inside the remote browser to different sites. If needed, set the relevant `URLs` in the `Exceptions` list. 
+Default `policies` sections aimed to provide the most secure work mode. By default, all `URLs` are blocked hence users will not be able to navigate inside the remote browser to different sites. If needed, set the relevant `URLs` in the `Exceptions` list.
 
 ```shell policies.json
 cat <<EOT > policies.json
@@ -384,6 +384,6 @@ Run the following command to apply your settings as part of the **Docker Compose
 docker-compose up -d --scale worker=3
 ```
 
-Verify that both containers are up and running: 
+Verify that both containers are up and running:
 
 <code>web-worker-deployment</code>\ <code>web-dispatcher-deployment</code>

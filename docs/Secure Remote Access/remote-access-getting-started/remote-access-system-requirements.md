@@ -90,7 +90,7 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
 ### Additional Considerations
 
-* **High Availability**: For production environments, it is recommended to deploy the Akeyless SRA solution in a high-availability configuration, utilizing multiple nodes and load balancers to distribute the traffic. 
+* **High Availability**: For production environments, it is recommended to deploy the Akeyless SRA solution in a high-availability configuration, utilizing multiple nodes and load balancers to distribute the traffic.
 
   High availability is provided by deploying multiple replicas and using Kubernetes’ built-in scaling and failover capabilities. Traffic is load-balanced across these replicas to maintain continuous service.
 

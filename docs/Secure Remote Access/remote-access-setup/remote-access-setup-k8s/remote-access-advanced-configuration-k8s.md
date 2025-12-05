@@ -22,7 +22,7 @@ next:
 
 To support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy '[ssh-rsa-cert-v01@openssh.com](mailto:ssh-rsa-cert-v01@openssh.com)' signing algorithm.
 
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**. 
+This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
 
 ```shell
 akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url <your-gateway-url:8000>
@@ -105,6 +105,7 @@ This can also be done via the console by going to **Gateways** -> **Your-Gateway
 ```shell
 akeyless gateway update remote-access --keyboard-layout <layout-option>
 ```
+
 ```yaml Layout Options
 value: da-dk-qwerty # Danish (Qwerty)
 value: de-ch-qwertz # Swiss German (Qwertz)
@@ -132,7 +133,7 @@ For further configuration, please refer to the Akeyless official [repository](ht
 >
 > If you’re running SRA behind a GKE HTTP(S) Load Balancer, the backend service timeout defaults to 30 seconds. Long-lived SSH (and WebSocket-based) sessions will close around this time.
 >
-> To fix it, you should set a higher backend timeout with a BackendConfig (spec.timeoutSec) and annotate your Service. 
+> To fix it, you should set a higher backend timeout with a BackendConfig (spec.timeoutSec) and annotate your Service.
 >
 > See GCP docs on backend service timeout and Ingress BackendConfig. After updating, your SSH session lifetime should match your intended TTL
 >
