@@ -30,7 +30,7 @@ akeyless event-forwarder create email \
 --every <1-24 hours>
 ```
 
-The main parameters for the command are as follows: 
+The main parameters for the command are as follows:
 
 * `name`: **Event Forwarder** name
 
@@ -38,7 +38,7 @@ The main parameters for the command are as follows:
 
 * `overide-url`  Override Akeyless default URL inside the email with your Gateway Console endpoint `https://Your-Akeyless-GW-URL:8000/console`. (or use your gateway URL at port `18888`)
 
-* `include-error` Boolean by default false, to include error details as part of the email. 
+* `include-error` Boolean by default false, to include error details as part of the email.
 
 * `items-event-source-locations`: **Items** event sources to forward events about,  for example: `/MySecrets/*`
 

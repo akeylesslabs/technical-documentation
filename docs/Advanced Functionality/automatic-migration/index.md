@@ -144,4 +144,4 @@ Full parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-
 
 ## Tutorials
 
-Check out our tutorial videos on <a href="https://tutorials.akeyless.io/docs/aws-and-hashicorp-vault-secrets-migration-into-akeyless" target="_blank" style={{ color: "#00e" }}>AWS and HashiCorp Vault Secrets Migration Into Akeyless</a> and <a href="https://tutorials.akeyless.io/docs/kubernetes-secrets-migration-to-akeyless" target="_blank" style={{ color: "#00e" }}>Kubernetes Secrets Migration Into Akeyless</a>.
+Check out our tutorial videos on [AWS and HashiCorp Vault Secrets Migration Into Akeyless](https://tutorials.akeyless.io/docs/aws-and-hashicorp-vault-secrets-migration-into-akeyless) and [Kubernetes Secrets Migration into Akeyless](https://tutorials.akeyless.io/docs/kubernetes-secrets-migration-to-akeyless).

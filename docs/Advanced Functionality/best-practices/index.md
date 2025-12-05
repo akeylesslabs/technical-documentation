@@ -24,19 +24,19 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 ## Glossary
 
-**Superuser** - The user who signed up for Akeyless and owns the account. 
+**Superuser** - The user who signed up for Akeyless and owns the account.
 
 **RBAC** - Akeyless [Role Based  Access Control](https://docs.akeyless.io/docs/rbac).
 
 **CSP IAM** - Cloud Service Provider Identity and Access Management.
 
-**Customer Fragment** - [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) Akeyless unique encryption patented technology. 
+**Customer Fragment** - [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) Akeyless unique encryption patented technology.
 
 **SRA Bastion** - Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
 ## Akeyless Platform
 
-* **Do not run as a superuser** for general purposes. An Akeyless superuser should ideally sign up using an email distribution list for the Administrators team, create a strong password, and then enable Email MFA for it in the Account Settings. The superuser should be used to set up the system initially, particularly for setting up the selected admin users who will be part of your admin role. Those admin users will create the authentication methods so regular users will be able to authenticate. 
+* **Do not run as a superuser** for general purposes. An Akeyless superuser should ideally sign up using an email distribution list for the Administrators team, create a strong password, and then enable Email MFA for it in the Account Settings. The superuser should be used to set up the system initially, particularly for setting up the selected admin users who will be part of your admin role. Those admin users will create the authentication methods so regular users will be able to authenticate.
 
 * **Avoid API Key Authentication on production** - Due to the secret zero problem and management challenges, [Universal Identity](https://docs.akeyless.io/docs/universal-identity) should be used on production for on-premise environments or any CSP IAM on cloud environments for workloads or automated services, as well as SAML or OIDC for human access.  
 
@@ -44,7 +44,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * [Access Roles (RBAC)](https://docs.akeyless.io/docs/rbac) - In general, regular users do not have permission to change their Access Role or Authentication method settings. Make sure your Access Roles are not granting regular users permission to view or create neither Access Roles nor Authentication methods. In addition, avoid creating multiple different [Access Roles](https://docs.akeyless.io/docs/rbac) with a single path. Instead, create an access role for multiple paths.
 
-* **Audit & Analytics** - On access roles, it's recommended to let your users view their analytics and logs rather than providing them broader permissions to view your account's entire audit logs and analytics. 
+* **Audit & Analytics** - On access roles, it's recommended to let your users view their analytics and logs rather than providing them broader permissions to view your account's entire audit logs and analytics.
 
 ## Items
 

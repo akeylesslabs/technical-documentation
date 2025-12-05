@@ -179,6 +179,7 @@ output "role_arn" {
 }
 
 ```
+
 ```yaml vars.tf
 variable "management_account" {
   description = "AWS Management Account ID"
@@ -226,7 +227,7 @@ In order to work with this role from Akeyless, an [AWS Target](https://docs.akey
 
 ## Destination Account Configuration
 
-In order to have a centralized Gateway that will be able to manage resources in multiple AWS Accounts, A target in Akeyless with an [External ID](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/) is required. 
+In order to have a centralized Gateway that will be able to manage resources in multiple AWS Accounts, A target in Akeyless with an [External ID](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/) is required.
 
 1. Navigate to **Targets** > **New** > **AWS**, press **Next**.
 2. Give the Target a **Name** and optionally, a **Location**, Press **Next**.
@@ -412,6 +413,7 @@ output "role_arn" {
 }
 
 ```
+
 ```yaml vars.tf
 variable "role_name" {
   description = "IAM role name for Destination Account (the one being created)"
@@ -477,7 +479,7 @@ Now, we will use the roles that were created in order to manage the destination 
 >
 > Make sure you have an [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with the IAM Role from the source account atttached.
 
-Connect to your Gateway - `https://public-ip>:8000`, this will automatically update the URL of your Gateway in Akelyess. 
+Connect to your Gateway - `https://public-ip>:8000`, this will automatically update the URL of your Gateway in Akelyess.
 
 Then, enter the GW console - `https://public-ip>:8000/console`
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-In a SaaS environment managing sensitive assets such as credentials, certificates, and encryption keys, effective monitoring is essential. It ensures the system remains secure, reliable, and efficient by providing real-time insights into operational health and helping to solve issues quickly. 
+In a SaaS environment managing sensitive assets such as credentials, certificates, and encryption keys, effective monitoring is essential. It ensures the system remains secure, reliable, and efficient by providing real-time insights into operational health and helping to solve issues quickly.
 
 Continuous monitoring also helps meet regulatory standards, supports investigations, and ensures the system can grow smoothly as needed.
 
@@ -51,7 +51,7 @@ Akeyless provides detailed telemetry metrics to offer insights into the health a
 
 Telemetry metrics work with leading monitoring tools, including **Prometheus**, **Grafana**, and **DataDog**. By exporting metrics to these systems, you can set up dashboards and alerts to support active monitoring and quick responses. In addition to those metrics, you can also forward the Gateway application logs as well.
 
-Refer to the [Telemetry Metrics ](https://docs.akeyless.io/docs/telemetry-metrics) official docs for the Gateway full metrics list and to the [K8s Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for k8s Injector metrics.
+Refer to the [Telemetry Metrics](https://docs.akeyless.io/docs/telemetry-metrics) official docs for the Gateway full metrics list and to the [K8s Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for k8s Injector metrics.
 
 ## Event Center
 
@@ -91,9 +91,9 @@ To assess the Gateway’s connectivity to Akeyless SaaS core services, you can u
 
 * If the Gateway is successfully connected, it responds with an HTTP status code `200` and the message: **Health Check Ok**.
 * If the connection fails, it returns an HTTP status code `503` with the message: **Health Check Error**
-* If Cluster Cache is used, and not available, even when the Gateway is successfully connected, it will return `503` with **Health Check Error** 
+* If Cluster Cache is used, and not available, even when the Gateway is successfully connected, it will return `503` with **Health Check Error**
 
-To disable the effect of the [Cluster Cache](https://docs.akeyless.io/docs/advanced-chart-configuration#cache-configuration) on the `/health` endpoint you can set the following env variable as part of your Gateway deployment: 
+To disable the effect of the [Cluster Cache](https://docs.akeyless.io/docs/advanced-chart-configuration#cache-configuration) on the `/health` endpoint you can set the following env variable as part of your Gateway deployment:
 
 ```yaml Gateway chart
 env:
