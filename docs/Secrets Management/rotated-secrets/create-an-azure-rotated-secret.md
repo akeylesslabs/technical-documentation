@@ -99,7 +99,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueazurep) section.
 
-## Create a Rotated Azure Secret in the Akeyless Console.
+## Create a Rotated Azure Secret in the Akeyless Console
 
 > 👍 Note
 >
