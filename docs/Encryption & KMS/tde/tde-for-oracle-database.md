@@ -54,7 +54,7 @@ By using an external keystore for encryption key management, TDE provides centra
 
 To implement Transparent Data Encryption (TDE) with Oracle Database, Akeyless offers a PKCS#11 shared library file. This standard provides a platform-independent API designed to interface with cryptographic tokens, including hardware security modules (HSMs) and smart cards. By leveraging the Akeyless PKCS#11 shared library, organizations can seamlessly integrate their Oracle Database with the Akeyless Platform, ensuring secure key management and encryption functionalities.
 
-Download the Akeyless PKCS#11 file to your Oracle server: 
+Download the Akeyless PKCS#11 file to your Oracle server:
 
 ```shell
 curl -o libakeyless.so https://akeylessservices.s3.us-east-2.amazonaws.com/services/pkcs11/release/linux/amd64/latest/libakeyless.so
@@ -94,7 +94,7 @@ access_key="<Access Key>"
 
 * `akeyless_url` is your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL on API port `8081`.
 
-* `base_item_path` - The destination path, to save all your TDE encryption keys inside the Akeyless Platform. Ensure your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) has permission to create and manage items under the desired path. 
+* `base_item_path` - The destination path, to save all your TDE encryption keys inside the Akeyless Platform. Ensure your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) has permission to create and manage items under the desired path.
 
 * The `[auth]` section should be set with the relevant [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type and settings. Using the same structure as the Akeyless [CLI](https://docs.akeyless.io/docs/cli) profile setting file.
 
@@ -108,15 +108,15 @@ Optional:
 
 * `[syslog]` Section can be added, to set the destination Syslog server settings:
   * `network` - Either **TCP** or **UDP**
-  * `url` - Syslog server URL. 
+  * `url` - Syslog server URL.
 
-Set the relevant permission on the `pkcs11.conf` file for your `oracle` user & group : 
+Set the relevant permission on the `pkcs11.conf` file for your `oracle` user & group :
 
 ```shell
 chown -R oracle:dba /var/akeyless/conf/pkcs11.conf
 ```
 
-Edit the `sqlnet.ora` file under `$ORACLE_HOME/network/admin/sqlnet.ora` where `$ORACLE_HOME` is your `oracle` user home directory. 
+Edit the `sqlnet.ora` file under `$ORACLE_HOME/network/admin/sqlnet.ora` where `$ORACLE_HOME` is your `oracle` user home directory.
 
 For docker setup, the file location is `/u01/app/oracle/product/12.2.0/dbhome_1/admin/ORCLCDB/sqlnet.ora`
 
@@ -491,7 +491,7 @@ Ensure that you can access encrypted tablespaces and columns without manually op
 SELECT * FROM encrypted_table;
 ```
 
-For additional details on Oracle TDE and auto-login keystore, please refer to the[ Oracle TDE Auto-Login documentation](https://docs.oracle.com/database/121/ASOAG/managing-keystore-and-tde-master-encryption-key.htm#GUID-D7ACB0B7-CA85-4F72-B29E-2E283409546F) and [Database Advanced Security Administrator's Guide](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asotrans.htm)
+For additional details on Oracle TDE and auto-login keystore, please refer to the [Oracle TDE Auto-Login documentation](https://docs.oracle.com/database/121/ASOAG/managing-keystore-and-tde-master-encryption-key.htm#GUID-D7ACB0B7-CA85-4F72-B29E-2E283409546F) and [Database Advanced Security Administrator's Guide](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asotrans.htm)
 
 ## TDE Key Rotation
 

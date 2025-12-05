@@ -185,7 +185,7 @@ Allow the Kubernetes service account to impersonate the IAM service account by a
 
 Replace the following:
 `PROJECT_ID`: your Google Cloud project ID.
-`GSA_NAME `: the name of your IAM service account.
+`GSA_NAME`: the name of your IAM service account.
 `GSA_PROJECT`: the project ID of the Google Cloud project of your IAM service account.
 `KSA_NAME`: the name of your new Kubernetes service account.
 `NAMESPACE`: the name of the Kubernetes namespace for the service account.
@@ -296,7 +296,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ### Certificates
 
-[Certificate ](https://docs.akeyless.io/docs/certificate-based-authentication) Authentication Method requires a dedicated [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `certificate.pem` and the corresponding `private_key.pem` files, where the key of the secret has to be `gateway-certificate` for the `certificate` and `gateway-certificate-key` for the `private_key`:
+[Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) Authentication Method requires a dedicated [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `certificate.pem` and the corresponding `private_key.pem` files, where the key of the secret has to be `gateway-certificate` for the `certificate` and `gateway-certificate-key` for the `private_key`:
 
 ```shell
 kubectl create secret generic certificate-auth \

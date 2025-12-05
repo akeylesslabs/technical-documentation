@@ -24,14 +24,14 @@ On the upper left-hand side of the table, you will see a few interactive buttons
 
 ## Event Types
 
-Akeyless events are defined by object types, supporting: 
+Akeyless events are defined by object types, supporting:
 
 * **Items** events, for all items types e.g. [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)  and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) , [Certificates](https://docs.akeyless.io/docs/certificate-storage)
 * [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
 * [Targets](https://docs.akeyless.io/docs/targets)
-* Gateway 
+* Gateway
 
-For each object type, a **Forwarder** can be set to forward all events for a folder, path, and even a specific item inside Akeyless. 
+For each object type, a **Forwarder** can be set to forward all events for a folder, path, and even a specific item inside Akeyless.
 
 The following Events are currently supported:
 
@@ -39,9 +39,9 @@ For `items-event-source-locations`:
 
 * `certificate-pending-expiration`  When a certificate is about to expire, the users sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
 
-* `certificate-expired` When a certificate is expired. 
+* `certificate-expired` When a certificate is expired.
 
-* `certificate-error` When an error occurs during certificate issuance. 
+* `certificate-error` When an error occurs during certificate issuance.
 
 * `certificate-provisioning-success` When a certificate is successfully provisioned
 
@@ -49,9 +49,9 @@ For `items-event-source-locations`:
 
 * `next-automatic-rotation` When a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) or an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) is about to rotate automatically, the user sets and controls this event directly from the items.
 
-* `rotated-secret-success` Upon successful **automatic** rotation. 
+* `rotated-secret-success` Upon successful **automatic** rotation.
 
-* `rotated-secret-failure` Upon **automatic** rotation failure, including the error details. 
+* `rotated-secret-failure` Upon **automatic** rotation failure, including the error details.
 
 * `rotated-secret-partial-failure` Upon **automatic** rotation partial failure, relevant for clusters, or [Linked Target](https://docs.akeyless.io/docs/linked-target) mode.
 
@@ -67,11 +67,11 @@ For `items-event-source-locations`:
 
 * `request-access` When a user requests access, either for privilege permission or for a Secure Remote Access session.  **Note**: Relevant also for `targets-event-source-locations`.
 
-* `apply-justification` When the user provides a connection justification as part of the Secure Remote Access session. 
+* `apply-justification` When the user provides a connection justification as part of the Secure Remote Access session.
 
 For `auth-methods-event-source-locations` :
 
-* `uid-rotation-failure` On [Universal Identity](https://docs.akeyless.io/docs/universal-identity) rotation failure, to track the automatic rotation. 
+* `uid-rotation-failure` On [Universal Identity](https://docs.akeyless.io/docs/universal-identity) rotation failure, to track the automatic rotation.
 
 * `auth-method-pending-expiration` by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is about to expire can be customized.
 
@@ -79,15 +79,15 @@ For `auth-methods-event-source-locations` :
 
 * `email-auth-method-approved` When the invite of user based on [Email](https://docs.akeyless.io/docs/email) Auth Method is approved.
 
-* `multi-auth-failure`  When an auth attempt keeps failing, once blocked (after 5 consecutive attempts) 
+* `multi-auth-failure`  When an auth attempt keeps failing, once blocked (after 5 consecutive attempts)
 
 * `rate-limiting`  When a client reaches the rate-limiting threshold.
 
-* ` usage-report` When the number of clients reaches the threshold (can be set via **Usage Report** screen)
+* `usage-report` When the number of clients reaches the threshold (can be set via **Usage Report** screen)
 
-For `gateways-event-source-locations`: 
+For `gateways-event-source-locations`:
 
-* `gateway-inactive` When a Gateway changes its state to inactive, it must be set on the Gateway. 
+* `gateway-inactive` When a Gateway changes its state to inactive, it must be set on the Gateway.
 
 ## Event Forwarders
 
@@ -124,6 +124,7 @@ The following JSON structure describes the forwarded event's format:
 	}
 }
 ```
+
 ```json Certificate Event Format
 {
   "Certificate_Expired": [

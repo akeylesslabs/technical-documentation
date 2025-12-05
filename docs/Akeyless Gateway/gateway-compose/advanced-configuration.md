@@ -98,6 +98,7 @@ PROACTIVE_CACHE_ENABLE="true"
 USE_CLUSTER_CACHE="true"
 GATEWAY_CLUSTER_CACHE="enable"
 ```
+
 It is also possible to [configure cache](https://docs.akeyless.io/docs/configure-the-gateway-cache)  in the Gateway Configuration Manager after the Gateway is installed.
 
 NOTE: If you enable the Gateway cluster cache, you must define a Redis password. Edit the cache.env file in this folder and set: REDIS_PASS='your-REDIS-password'
@@ -111,7 +112,7 @@ To restrict access to Gateway services, you can specify exactly which `AccessIDs
 RESTRICT_SERVICE_TO_ACCESS_IDS: <"comma separated list of access-ids">
 ```
 
-In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively to block specific `AccessIDs` you can use the `BLOCKLIST_ACCESS_IDS` variable instead. 
+In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively to block specific `AccessIDs` you can use the `BLOCKLIST_ACCESS_IDS` variable instead.
 
 ## Default Secret Encryption
 
@@ -129,7 +130,7 @@ When configuring your gateway, you may supply a default value for either OIDC, S
 
 * `DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`
 * `DEFAULT_OIDC_ACCESS_ID=<OIDC Access ID>`
-* `AKEYLESS_OIDC_GW_AUTH=true` Optional, to authenticate directly against your Gateway. 
+* `AKEYLESS_OIDC_GW_AUTH=true` Optional, to authenticate directly against your Gateway.
 
 Add the following to the `gateway,env` file:
 

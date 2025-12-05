@@ -12,7 +12,7 @@ next:
 ---
 Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been modified.
 
-Notation is an open-source supply chain tool developed by the [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. 
+Notation is an open-source supply chain tool developed by the [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts.
 
 The following registries are compatible with the Notary Project OCI signature specification and its implementation in Notation:
 
@@ -41,9 +41,11 @@ Create a folder for the Akeyless Notation plugin configuration:
 ```shell Ubuntu
 mkdir -p ~/.config/notation/plugins/akeyless
 ```
+
 ```shell MacOS
 mkdir -p $HOME/Library/Application\ Support/notation/plugins/akeyless
 ```
+
 ```shell Windows
 mkdir %AppData%/notation/plugins
 ```
@@ -55,11 +57,13 @@ cd ~/.config/notation/plugins/akeyless
 curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/Linux/notation-akeyless/notation-akeyless-linux-amd64
 chmod +x notation-akeyless
 ```
+
 ```shell MacOS
 cd $HOME/Library/Application\ Support/notation/plugins/akeyless
 curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/MacOS/notation-akeyless/notation-akeyless-darwin-arm64
 chmod +x notation-akeyless
 ```
+
 ```shell Windows
 cd  %AppData%/notation/plugins
 curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/Windows/notation-akeyless/notation-akeyless-windows-amd64.exe
@@ -69,7 +73,7 @@ curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/Windows/no
 >
 > For **AMD** architecture download the relevant binaries from [here](https://rest.akeyless.io/Akeyless_Artifacts/)
 
-List the Notation Plugins list to verify that Akeyless is listed. 
+List the Notation Plugins list to verify that Akeyless is listed.
 
 ```shell
 notation plugin ls
@@ -91,6 +95,7 @@ access_key="<AccessKey>"
 access_type="access_key"
 EOF
 ```
+
 ```shell Windows
 cd C:\Users\<USER>\.akeyless\profiles
 echo akeyless_url="https://<Your Gateway URL>:8081" > notation.conf
@@ -100,21 +105,21 @@ echo access_key="<AccessKey>" >> notation.conf
 echo access_type="access_key" >> notation.conf
 ```
 
-Where: 
+Where:
 
-* `akeyless_url` - Your Akeyless Gateway `API v2` endpoint `8000/api/v2 ` (or using your gateway url at port `8081`).,  if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`. 
+* `akeyless_url` - Your Akeyless Gateway `API v2` endpoint `8000/api/v2` (or using your gateway url at port `8081`).,  if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`.
 
-* `access_type` - The [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type, supporting:`access_key`,`aws_iam`,`gcp`,`azure_ad` `certificate`,`jwt` and `k8s`. 
+* `access_type` - The [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type, supporting:`access_key`,`aws_iam`,`gcp`,`azure_ad` `certificate`,`jwt` and `k8s`.
 
 * `access_id` - The Auth method **Access ID**.  
 
 * `access_key` - Relevant only for  [API Key](https://docs.akeyless.io/docs/api-key) Auth method.
 
-* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth method. 
+* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth method.
 
 ### Create a Self-Signed Certificate
 
-The Notary project specified the [requirements](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements) for different types of certificates, the following examples will use a **Self Signed CA** certificate. 
+The Notary project specified the [requirements](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements) for different types of certificates, the following examples will use a **Self Signed CA** certificate.
 
 > 📘 Note
 >
@@ -139,7 +144,7 @@ keyUsage = critical, digitalSignature
 EOF
 ```
 
-Create a key with a self-signed certificate: 
+Create a key with a self-signed certificate:
 
 ```shell
 akeyless create-dfc-key -n CodeSign -a RSA2048 --generate-self-signed-certificate true --certificate-format pem --conf-file-path csr.conf --certificate-ttl 30
@@ -151,7 +156,7 @@ akeyless create-dfc-key -n CodeSign -a RSA2048 --generate-self-signed-certificat
 notation key add  --plugin akeyless  --id /CodeSign --default Akeyless
 ```
 
-Where: 
+Where:
 
 * `id`- The full key name or the key `item id`, as stored inside Akeyless. In our example, we used the created key named `CodeSign`.
 
@@ -199,7 +204,7 @@ To verify the container image, add the root certificate that signs the leaf cert
 >
 > Depending on your OS the follow the folder structure as described [here](https://notaryproject.dev/docs/user-guides/tutorials/trust-policy/#create-a-trust-policy)
 
-Get the certificate from Akeyless: 
+Get the certificate from Akeyless:
 
 ```shell
  akeyless describe-item -n CodeSign --json --jq-expression .certificates | base64 -d > certificate.pem
@@ -213,7 +218,7 @@ notation certificate add --type ca --store selfSigned certificate.pem
 
 Create a `trustpolicy.json` with the following trust policy in the notation configuration directory.
 
-Note: this is a very permissive trust policy. Read more on creating trust policies and trust stores [here](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/trust-store-trust-policy.md): 
+Note: this is a very permissive trust policy. Read more on creating trust policies and trust stores [here](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/trust-store-trust-policy.md):
 
 ```json
 {

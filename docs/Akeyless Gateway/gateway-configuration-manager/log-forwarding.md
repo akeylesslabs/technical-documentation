@@ -30,13 +30,13 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 
 * [STDOUT](https://docs.akeyless.io/docs/log-forwarding#stdout)
 
-* [Sumo Logic ](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
+* [Sumo Logic](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
 
 * [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
 
 > 🚧 Warning
 >
-> The log forwarding mechanism can only fetch logs from the previous 24 hours. Please ensure that your Gateway default Authentication Method has an [Access Role ](https://docs.akeyless.io/docs/rbac) that allows viewing **all** audit logs in the account.
+> The log forwarding mechanism can only fetch logs from the previous 24 hours. Please ensure that your Gateway default Authentication Method has an [Access Role](https://docs.akeyless.io/docs/rbac) that allows viewing **all** audit logs in the account.
 
 ## Amazon S3
 
@@ -261,7 +261,7 @@ input {
 
 5. From the **Log Service** dropdown list, select  `Sumo Logic`.
 
-6. Insert the [Endpoint address ](https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/).
+6. Insert the [Endpoint address](https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/).
 
 7. Optional - Define **Tags** - `tag1`,`tag2`.
 

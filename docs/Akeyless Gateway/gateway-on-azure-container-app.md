@@ -103,6 +103,7 @@ az containerapp create \
     CLUSTER_NAME='Akeyless-GW-Container-APP' \
     CUSTOMER_FRAGMENTS='{"customer_fragments":[{"id":"CF-ID","value":"CF-Value","name":"CF-Name","fragment_type":"CF-Type"}]}'
 ```
+
 ```shell User-Assigned Identity
 az containerapp create \
   --name akeyless-gw-app \

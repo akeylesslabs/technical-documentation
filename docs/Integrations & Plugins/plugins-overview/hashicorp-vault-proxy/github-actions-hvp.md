@@ -14,15 +14,15 @@ The GitHub Actions plugin enables you to automate workflows for your GitHub-host
 
 To work with the GitHub Actions plugin:
 
-1. [Create a GitHub Repository](https://docs.akeyless.io/docs/github-actions-hvp#create-a-github-repository) 
-2. [Set Up Akeyless Authentication Credentials for the Repository](https://docs.akeyless.io/docs/github-actions-hvp#set-up-akeyless-authentication-credentials-for-the-repository) 
+1. [Create a GitHub Repository](https://docs.akeyless.io/docs/github-actions-hvp#create-a-github-repository)
+2. [Set Up Akeyless Authentication Credentials for the Repository](https://docs.akeyless.io/docs/github-actions-hvp#set-up-akeyless-authentication-credentials-for-the-repository)
 3. [Set Up a GitHub Self-Hosted Runner](https://docs.akeyless.io/docs/github-actions-hvp#set-up-a-github-self-hosted-runner)
 4. [Define a Workflow for the GitHub Action](https://docs.akeyless.io/docs/github-actions-hvp#define-a-workflow-for-the-github-action)
-5. [Trigger the GitHub Runner](https://docs.akeyless.io/docs/github-actions-hvp#trigger-the-github-runner) 
+5. [Trigger the GitHub Runner](https://docs.akeyless.io/docs/github-actions-hvp#trigger-the-github-runner)
 
 ## Create a GitHub Repository
 
-1. Create a new directory and initialize it as a git repository by running: 
+1. Create a new directory and initialize it as a git repository by running:
 
 ```shell
 git init
@@ -56,7 +56,7 @@ git push -u origin main
 
 1. On GitHub, navigate to the main page of the repository, and select **Settings** > **Secrets** > **New repository secret**.
 
-2. Name the secret  **VAULT\_TOKEN**. 
+2. Name the secret  **VAULT\_TOKEN**.
 
 3. Set the secret value in the following format : **\<access\_id>..\<access\_key>**. For example:
 
