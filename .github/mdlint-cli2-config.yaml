@@ -1,0 +1,8 @@
+config:
+  # Disable ordered list numbering rules
+  MD029: false     # ordered list item prefix
+
+  MD002: false     # disable "first heading must be H1"
+
+globs:
+  - "docs/**/*.md"
