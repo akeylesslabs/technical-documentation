@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.globalsign.com/), [Venafi](https://venafi.com/), [GoDaddy](https://www.godaddy.com/) and [Sectigo](https://www.sectigo.com/) as a Public CAs. 
+Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.globalsign.com/), [Venafi](https://venafi.com/), [GoDaddy](https://www.godaddy.com/) and [Sectigo](https://www.sectigo.com/) as a Public CAs.
 
 The public certificate authority will sign and issue the certificate, while Akeyless will store and manage the certificate lifecycle.
 
@@ -97,7 +97,7 @@ akeyless get-pki-certificate \
 --csr-file-path MyCSR.csr
 ```
 
-The output of this command contains the following value: 
+The output of this command contains the following value:
 
 * `display ID` - Certificate display ID.
 

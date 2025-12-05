@@ -12,7 +12,7 @@ next:
 ---
 Our powerful RBAC model allows delegating some of the account owner’s permissions to other users.
 
-While users can be added to the default **admin** role of the account using the pre-defined **admin** role without having to mention what type of access they will have explicitly. you can still segregate the account into multiple different tenants. While only the account owner and users that are part of the admin default role can still navigate between those different tenants. 
+While users can be added to the default **admin** role of the account using the pre-defined **admin** role without having to mention what type of access they will have explicitly. you can still segregate the account into multiple different tenants. While only the account owner and users that are part of the admin default role can still navigate between those different tenants.
 
 As the Akeyless Platform stores all objects (secrets, keys, targets, roles, auth methods, etc.) in a virtual filesystem. It allows organizing everything based on the domain each item belongs to. For example, an organization may have Dev, Operations, and Security departments, each having its own set of secrets, roles, and auth methods.
 
@@ -35,7 +35,7 @@ It would make sense to grant every leader full access to their departments.**/de
 * Each role can be granted “Audit Logs” and “Analytics” permissions. Any path/department does not limit these capabilities.
 * Any role with “Audit Logs” permission can view all audit logs with their own Access ID.
 * Any role with “Analytics” permission can view reports about their own Access ID.
-* Users granted admin permissions can view all logs and see all reports. 
+* Users granted admin permissions can view all logs and see all reports.
 
 ## FAQ
 

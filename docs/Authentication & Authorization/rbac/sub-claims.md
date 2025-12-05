@@ -38,7 +38,7 @@ Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes
 > `?`: Replaces one character. For example, the string `1?1` will accept `121` but not `1231`.\
 > `*`: Replaces any amount of characters. For example, the string `*@example.com` will accept any address in that domain.
 
-You can set the relevant sub-claims to an existing role using the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli) 
+You can set the relevant sub-claims to an existing role using the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli)
 
 ```shell
 akeyless assoc-role-am --role-name r1 --am-name Okta --sub-claims Groups=Engineering,Security  --sub-claims Email=james@example.com,linda@example.com
@@ -54,7 +54,7 @@ While by default between different sub-claims values the logic of the comma symb
 >
 > The Logicial Operators Syntax support requires Gateway `4.19` version or higher.
 
-For example: 
+For example:
 
 ```json
 Groups=Engineering `AND` Security
@@ -63,11 +63,11 @@ Email=james@example.com `OR` linda@example.com
 
 Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes, and respective matching values of [`Engineering` **AND** `Security`] and [`james@example.com` **OR** `linda@example.com`], would be authorized. In the case of mixing logical operators on the same sub-claim, the order of operation will start from the left.
 
-Note that between different sub-claims keys, the logic will always use the **AND** operator. 
+Note that between different sub-claims keys, the logic will always use the **AND** operator.
 
 ## Path Templating
 
-For easier management of your access rules, sub-claims keys can be utilized for quicker and more scalable rule definitions for the access path. 
+For easier management of your access rules, sub-claims keys can be utilized for quicker and more scalable rule definitions for the access path.
 
 Each sub-claim key should be wrapped by double curly braces, i.e. `{{Sub-Claim Name}}` with a `/` as a separator for folders.
 
@@ -94,7 +94,7 @@ Those claims can be templated as `/{{Groups}}/{{Username}}/*` (or the relevant a
 
 Each user will get `read` permissions for the relevant paths, based on the sub-claims key values.
 
-This means that `Alice` will get `read` permissions under`/Engineering/Alice/*`, `Bob`&`Charlie` will have access to `/Security/Bob/*` and `/Security/Charlie/*` accordingly, and `Dennis` will have access to `/DevOps/Dennis/*`. 
+This means that `Alice` will get `read` permissions under`/Engineering/Alice/*`, `Bob`&`Charlie` will have access to `/Security/Bob/*` and `/Security/Charlie/*` accordingly, and `Dennis` will have access to `/DevOps/Dennis/*`.
 
 > 👍 Note
 >
@@ -102,9 +102,9 @@ This means that `Alice` will get `read` permissions under`/Engineering/Alice/*`,
 
 ## View Sub-Claims
 
-To review the current Sub-Claims available for your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), from the Akeyless Console, simply click on your account logo and click on **Show Sub Claims**. 
+To review the current Sub-Claims available for your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), from the Akeyless Console, simply click on your account logo and click on **Show Sub Claims**.
 
-To view the available Sub-Claims of your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the Akeyless [CLI](https://docs.akeyless.io/docs/cli) based on the CLI profile you are using, run the following command: 
+To view the available Sub-Claims of your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the Akeyless [CLI](https://docs.akeyless.io/docs/cli) based on the CLI profile you are using, run the following command:
 
 ```shell
 akeyless describe-sub-claims

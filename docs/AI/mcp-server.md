@@ -839,6 +839,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   ]
 }
 ```
+
 ```json Azure
 {
   "args": [
@@ -848,6 +849,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   ]
 }
 ```
+
 ```json GCP
 {
   "args": [

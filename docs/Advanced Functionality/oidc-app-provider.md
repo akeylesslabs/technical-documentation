@@ -39,7 +39,7 @@ Where:
 OAuth defines two client types, based on their ability to authenticate securely with the authorization server (i.e., the ability to maintain the confidentiality of their client credentials):
 
 * **Confidential** Clients capable of maintaining the confidentiality of their credentials (e.g., client implemented on a secure server with restricted access to the client credentials), or capable of secure client authentication using other means. By default, an Akeyless OIDC App will be created for this client type.
-* **Public** Clients are incapable of maintaining the confidentiality of their credentials (e.g., clients executing on the device used by the resource owner, such as an installed native application or a web browser-based application), and incapable of secure client authentication via any other means. To create an Akeyless OIDC App for **Public** client type use the `public` flag as part of the creation command. 
+* **Public** Clients are incapable of maintaining the confidentiality of their credentials (e.g., clients executing on the device used by the resource owner, such as an installed native application or a web browser-based application), and incapable of secure client authentication via any other means. To create an Akeyless OIDC App for **Public** client type use the `public` flag as part of the creation command.
 
 > 👍 Note
 >
@@ -60,7 +60,7 @@ You will need this information for the next step in the process.
 
 ## Authenticating With Akeyless
 
-Once you have created your OIDC App, you will need to authenticate agianst Akeyless using an Authentication Method  that was set as part of the  `access-permission-assignment`. 
+Once you have created your OIDC App, you will need to authenticate agianst Akeyless using an Authentication Method  that was set as part of the  `access-permission-assignment`.
 
 For example, if you assigned an [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Authentication Method, authenticate to Akeyless using the `auth` command:
 
@@ -85,7 +85,7 @@ Once authorized, make a `POST` request to the `Token Endpoint` in order to get b
 >
 > **Issuer URL, Token and well-known Endpoints**
 >
-> Your `Issuer URL` is always `https://auth.akeyless.io/oidc/provider/<AkeylessAccountId>`. 
+> Your `Issuer URL` is always `https://auth.akeyless.io/oidc/provider/<AkeylessAccountId>`.
 >
 > The `Token endpoint` is `https://auth.akeyless.io/oidc/provider/<AkeylessAccountId>/oauth2/token`.
 >

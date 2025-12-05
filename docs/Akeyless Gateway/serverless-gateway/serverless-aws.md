@@ -74,6 +74,7 @@ variable "allowed_access_permissions" {
   default     = "[{\"name\": \"\", \"<Access ID>\": \"\", \"permissions\": [\"admin\"]}]"
 }
 ```
+
 ```shell API Key
 variable "admin_access_id_type" {
   description = "Set the Admin Auth Type for the Gateway"

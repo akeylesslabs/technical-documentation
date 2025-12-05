@@ -18,7 +18,7 @@ The Akeyless Platform combines the capabilities of an HSM and a KMS to provide e
 
 Akeyless supports a wide range of encryption keys, including:
 
-* AES128GCM 
+* AES128GCM
 * AES256GCM
 * AES128SIV
 * AES256SIV
@@ -50,21 +50,27 @@ To create an encryption key, use these commands with the following parameters:
 ```shell AES128GCM
 akeyless create-dfc-key -n MyAES128GCMKey -a AES128GCM
 ```
+
 ```shell AES256GCM
 akeyless create-dfc-key -n MyAES256GCMKey -a AES256GCM
 ```
+
 ```shell AES128SIV
 akeyless create-dfc-key -n MyAES128SIVKey -a AES128SIV
 ```
+
 ```shell AES256SIV
 akeyless create-dfc-key -n MyAES256SIVKey -a AES256SIV
 ```
+
 ```shell RSA1024
 akeyless create-dfc-key -n MyRSAKey -a RSA1024
 ```
+
 ```shell RSA2048
 akeyless create-dfc-key -n MyRSAKey -a RSA2048
 ```
+
 ```shell AES256CBC
 akeyless create-dfc-key -n MyCBC -a AES256CBC
 ```
@@ -81,11 +87,12 @@ akeyless create-dfc-key -n MyCBC -a AES256CBC
 ```shell Delete Immidiately
 akeyless delete-item -n MyAES256GCMKey
 ```
+
 ```shell Scheduled Delete
 akeyless delete-item -n MyAES128GCMKey --delete-in-days=30
 ```
 
-* Get the public key from your RSA encryption key: 
+* Get the public key from your RSA encryption key:
 
 ```shell Get RSA Public Key
 akeyless get-rsa-public -n MyRSAKey
@@ -117,6 +124,7 @@ After creating a key, you can use it to encrypt values using this command with t
 ```shell AES128GCM
 akeyless encrypt -k MyAES256GCMKey -p 12345
 ```
+
 ```shell AES256CBC
 akeyless encrypt -k cbc -p 12345 -X iv=7iBxRZ3NvucULGXgpsUFGw==
 ```
@@ -126,6 +134,7 @@ The output should look like a jumbled string of characters
 ```shell AES128GCM
 AQAAAAEIAacq7xBbq3PYFnTmuUwqdRHclYjti/5u/MvVacv7mtFjlJQtUIpY13YF
 ```
+
 ```shell AES256CBC
 AQAAAAEIAWj/BDSTdvCHMG1aqBW+r+u41nEvN1qTRQ==
 ```
@@ -137,6 +146,7 @@ Similarly, you can use it in order to Decrypt values using this command with the
 ```shell AES128GCM
 akeyless decrypt -k MyAES256GCMKey -c AQAAAAEIAacq7xBbq3PYFnTmuUwqdRHclYjti/5u/MvVacv7mtFjlJQtUIpY13YF
 ```
+
 ```shell AES256CBC
 akeyless decrypt -k cbc -c AQAAAAEIAWj/BDSTdvCHMG1aqBW+r+u41nEvN1qTRQ== -X iv=7iBxRZ3NvucULGXgpsUFGw==
 ```
@@ -146,6 +156,7 @@ The output should be the message you encrypted beforehand:
 ```shell AES128GCM
 12345
 ```
+
 ```shell AES256CBC
 12345
 ```

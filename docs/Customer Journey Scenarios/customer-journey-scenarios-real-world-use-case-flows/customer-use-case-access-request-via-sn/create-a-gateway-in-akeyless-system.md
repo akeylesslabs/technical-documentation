@@ -12,7 +12,7 @@ next:
 ---
 To install and configure a standalone instance of Akeyless Gateway using Docker, follow these steps. It's important to note that all of these actions can be conveniently performed using Docker Desktop, a user-friendly interface for managing Docker applications.
 
-## Installation Steps:
+## Installation Steps
 
 * Run Akeyless Gateway Container:
   * Open a terminal or command prompt on your machine.
@@ -33,12 +33,12 @@ docker run -d -p 8000:8000 -p 8200:8200 -p 18888:18888 -p 8080:8080 -p 8081:8081
 docker restart akeyless-gateway
 ```
 
-## Initial Configuration:
+## Initial Configuration
 
 * Accessing Akeyless Gateway:
   * Open your preferred web browser.
   * Navigate to http\://localhost:8000 or replace localhost with your Docker host's IP address if you're not running the browser on the same machine as Docker. This will take you to the Akeyless Gateway's login page.
 
-## Logging In:
+## Logging In
 
 * Enter your credentials to log in. If this is your first time logging in and you haven't set up an authentication method during installation, the first credentials you use will be associated with the admin user for this gateway.

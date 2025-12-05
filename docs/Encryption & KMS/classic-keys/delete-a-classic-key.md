@@ -12,7 +12,7 @@ next:
 ---
 When you delete a classic key that is associated with a target (cloud KMS), the key is deleted from both the Akeyless KMS and the cloud KMS.
 
-You can specify to delete the key immediately, or only after a configurable number of days. When you specify to delete a classic key immediately, it will be deleted immediately from the Akeyless KMS, but it might not be deleted immediately from the cloud KMS, according to the cloud KMS deletion policy. 
+You can specify to delete the key immediately, or only after a configurable number of days. When you specify to delete a classic key immediately, it will be deleted immediately from the Akeyless KMS, but it might not be deleted immediately from the cloud KMS, according to the cloud KMS deletion policy.
 
 The CLI command to delete a classic key is:
 

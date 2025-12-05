@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a  [Windows](https://docs.akeyless.io/docs/windows-target) endpoint utilizing [Targets](https://docs.akeyless.io/docs/targets). 
+Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a  [Windows](https://docs.akeyless.io/docs/windows-target) endpoint utilizing [Targets](https://docs.akeyless.io/docs/targets).
 
-Any [stored](https://docs.akeyless.io/docs/certificate-storage) certificate can be provisioned through the [Gateway](https://docs.akeyless.io/docs/api-gw), whereupon successful provisioning, future renewals of the certificate will be provisioned automatically. 
+Any [stored](https://docs.akeyless.io/docs/certificate-storage) certificate can be provisioned through the [Gateway](https://docs.akeyless.io/docs/api-gw), whereupon successful provisioning, future renewals of the certificate will be provisioned automatically.
 
 Setting up certificate provisioning requires **Target** permissions on the Gateway.
 
@@ -33,17 +33,17 @@ akeyless assoc-target-item \
 --post-provision-command <"echo Akeyless">
 ```
 
-Where: 
+Where:
 
 * `name` : The **Certificate**  item name.
 
-* `target-name` The **Target** item name, to provision the certificate. 
+* `target-name` The **Target** item name, to provision the certificate.
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `certificate-path` :A path on the **Target** to save the certificate PEM file can be used as well with `chain-path` and `private-key-path` flags to save those on different locations. 
+* `certificate-path` :A path on the **Target** to save the certificate PEM file can be used as well with `chain-path` and `private-key-path` flags to save those on different locations.
 
-* `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning e.g. restarting a service. 
+* `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning e.g. restarting a service.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueassoc-target-itemp) section.
 
@@ -53,7 +53,7 @@ You can find the complete list of additional parameters for this command in the 
 2. Click on the **Certificate** item, click on the **Provisioning** tab, and then **Attach**.
 3. Enter the following parameters:
 
-* **Target Name** - **Choose an existing Target** from the drop-down list to select the existing [SSH ](https://docs.akeyless.io/docs/ssh-target)/ [Windows](https://docs.akeyless.io/docs/windows-target) Target.
+* **Target Name** - **Choose an existing Target** from the drop-down list to select the existing [SSH](https://docs.akeyless.io/docs/ssh-target)/ [Windows](https://docs.akeyless.io/docs/windows-target) Target.
 
 * **Gateway** - **Choose an existing Gateway** from the drop-down list to select the relevant Gateway.
 

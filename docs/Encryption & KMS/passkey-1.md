@@ -53,7 +53,7 @@ POST http://localhost:8081/create-passkey
 }
 ```
 
-### Parameter Descriptions:
+### Parameter Descriptions
 
 * token: The authentication token required to interact with the Akeyless API.
 * name: The name of the passkey. You can organize passkeys into folders using / separators in the name.

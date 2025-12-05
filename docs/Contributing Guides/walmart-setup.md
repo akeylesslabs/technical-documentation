@@ -269,11 +269,13 @@ curl -o akeyless https://storage.googleapis.com/akeyless-cli/cli/latest/cli-linu
 chmod +x akeyless
 ./akeyless
 ```
+
 ```shell macOS
 curl -o akeyless https://storage.googleapis.com/akeyless-cli/cli/latest/cli-darwin-amd64
 chmod +x akeyless
 ./akeyless
 ```
+
 ```shell Windows
 curl -o akeyless.exe https://storage.googleapis.com/akeyless-cli/cli/latest/cli-windows-amd64.exe
 akeyless.exe
@@ -316,6 +318,7 @@ akeyless configure
 Access ID: p-abc12de
 Access Key: <type your access key here>
 ```
+
 ```shell LDAP
 akeyless configure --access-type ldap
 Access ID:  p-abc12de

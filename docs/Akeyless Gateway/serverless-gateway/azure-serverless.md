@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-This guide describes how to run a Serverless Gateway on **Azure** based on [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) using Azure [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep). 
+This guide describes how to run a Serverless Gateway on **Azure** based on [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) using Azure [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep).
 
 ## Prerequisites
 
 * [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
-* [Azure Bicep ](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+* [Azure Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 
 * Permission to create and manage [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) in Azure.
 
-* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints: 
+* Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
 | Service                                              | Endpoint   |
 | :--------------------------------------------------- | :--------- |
@@ -38,7 +38,7 @@ For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/
 
 ## Gateway Configuration
 
-Clone the **Serverless Gateway** repository locally: 
+Clone the **Serverless Gateway** repository locally:
 
 ```shell Shell
 gh repo clone akeyless-community/akeyless-serverless-gateway
@@ -119,6 +119,7 @@ param docker_img = ''
 @description('docker tag')
 param docker_tag = 'latest'
 ```
+
 ```shell API Key
 using 'main.bicep'
 
@@ -189,7 +190,7 @@ Where:
 
 ### Customer Fragment
 
-To work with [Zero-Knowledge ](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments`  param as follows:
+To work with [Zero-Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments`  param as follows:
 
 ```shell
 "customer_fragments": [{"id": "<Customer Fragment ID>","value": "<Customer Fragment Value>","description": "My Serverless Fragment","name": "ServerLessFragment"}]
@@ -221,7 +222,7 @@ Where:
 
 * `location`: The location where the storage account is deployed.
 
-* `sku`: [Stock Keeping Unit](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/file#parameters) - A unique identifier used to specify a particular version or configuration of the storage account. 
+* `sku`: [Stock Keeping Unit](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/file#parameters) - A unique identifier used to specify a particular version or configuration of the storage account.
 
 * `kind`: Type of storage account.
 
@@ -247,7 +248,7 @@ Deploy the Gateway using the **Resource Group** that was created:
 az deployment group create -g <resource_group> -f main.bicep -p params.bicepparam --query "properties.outputs.functionAppURL.value"
 ```
 
-Alternatively, the `/akeyless-serverless-gateway/bicep/Azure/serverless-gateway/Mainfile` file can be configured to create the resource group and to install the serverless Gateway by setting the following: 
+Alternatively, the `/akeyless-serverless-gateway/bicep/Azure/serverless-gateway/Mainfile` file can be configured to create the resource group and to install the serverless Gateway by setting the following:
 
 ```shell
 RESOURCE_GROUP = akeless-serverless-gateway

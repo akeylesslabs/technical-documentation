@@ -204,5 +204,3 @@ target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
 
   The variable `target_syslog_formatter` controls the output message format: either `text` or `cef`.
 </Callout>
-
-

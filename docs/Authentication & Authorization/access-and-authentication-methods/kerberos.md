@@ -46,7 +46,7 @@ To use the **Kerberos** Auth Method in Akeyless, the following accounts and perm
 
 * **Admin access to the Active Directory Domain Controller**: Administrative privileges on the Active Directory Domain Controller are required to manage the accounts and services for Kerberos authentication.
 
-* **Active Directory module for Windows**: This [module](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) needs to be installed in your Windows environment to run the commands described later in this guide. 
+* **Active Directory module for Windows**: This [module](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) needs to be installed in your Windows environment to run the commands described later in this guide.
 
 ## Configuration
 
@@ -74,7 +74,7 @@ Get-ADUser <AccountName> -Property msDS-KeyVersionNumber
 
 * `msDS-KeyVersionNumber`: An integer that indicates the version of the Kerberos key associated with a **user** or **service principal**.
 
-The retrieved value will be used as the `kvno` parameter on the `ktpass` command. 
+The retrieved value will be used as the `kvno` parameter on the `ktpass` command.
 
 ### Keytab Generation
 

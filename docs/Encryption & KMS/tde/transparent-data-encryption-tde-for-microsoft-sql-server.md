@@ -101,7 +101,7 @@ ADD CREDENTIAL akeyless_tde;
 GO
 ```
 
-* Create an asymmetric key for the EKM provider. This creates a key in Akeyless called SQL_Server_Key. To work with an existing key, add `CREATION_DISPOSITION = OPEN_EXISTING`. Supported algorithms: `RSA_2048`, `RSA_3072`, ` RSA_4096`
+* Create an asymmetric key for the EKM provider. This creates a key in Akeyless called SQL_Server_Key. To work with an existing key, add `CREATION_DISPOSITION = OPEN_EXISTING`. Supported algorithms: `RSA_2048`, `RSA_3072`, `RSA_4096`
 
 ```curl SQL
 CREATE ASYMMETRIC KEY akls_ekm_login_key
@@ -197,4 +197,4 @@ If you encounter issues during the installation or configuration, follow these s
 * Default Configuration Values:
   * If the `sqlcrypt.conf` file is missing, the system defaults to using the **Akeyless public gateway** `https://api.akeyless.io` and the default **root base path** (/).
 * Configuration Changes:
-  * Any changes made to the `sqlcrypt.conf `file after it is created **require a restart of the “SQL Server (MSSQLSERVER)**” service for the changes to take effect.
+  * Any changes made to the `sqlcrypt.conf` file after it is created **require a restart of the “SQL Server (MSSQLSERVER)**” service for the changes to take effect.

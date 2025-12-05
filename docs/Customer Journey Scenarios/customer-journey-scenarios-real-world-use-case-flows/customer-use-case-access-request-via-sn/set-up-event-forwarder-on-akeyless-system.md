@@ -28,7 +28,7 @@ Log In: Start by logging into your Akeyless management console. You'll need admi
 
 Initiate Creation: Inside the event forwarders section, there should be an option to create a new event forwarder.
 
-* Click on “New” 
+* Click on “New”
 
 ## Step 4: Configure Event Forwarder Settings
 
@@ -58,7 +58,7 @@ Initiate Creation: Inside the event forwarders section, there should be an optio
 
 ## Step 5: Register the Gateway
 
-* Select the configured gateway 
+* Select the configured gateway
 * [Link](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system-1) to Gateway configuration
 
 ![](https://files.readme.io/9eeb32e-Screenshot_2024-03-05_at_11.15.01.png)

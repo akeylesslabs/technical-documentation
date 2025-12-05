@@ -35,7 +35,7 @@ The following Metrics are currently available:
 
 ## Datadog
 
-To enable Telemetry Metrics on your Gateway for Datadog, edit the chart `values.yaml ` file under the `metrics` section and set your metrics backend configuration:
+To enable Telemetry Metrics on your Gateway for Datadog, edit the chart `values.yaml` file under the `metrics` section and set your metrics backend configuration:
 
 ```yaml Datadog
 metrics:
@@ -66,7 +66,7 @@ Akeyless is an official Datadog Partner and our dashboard can be found inside th
 
 ## Prometheus
 
-To enable Telemetry Metrics on your Gateway for Prometheus, edit the chart `values.yaml ` file under the `metrics` section and set your metrics backend configuration:
+To enable Telemetry Metrics on your Gateway for Prometheus, edit the chart `values.yaml` file under the `metrics` section and set your metrics backend configuration:
 
 expose the port `8889` (or any other port) for **Prometheus Exporter** and the **Prometheus Scraping** as described below:
 
@@ -123,6 +123,7 @@ service:
     metrics:
       exporters: [datadog]
 ```
+
 ```yaml Prometheus
 exporters:
   prometheus:
