@@ -1,3 +1,5 @@
+# npx markdownlint-cli2 --fix --config .github/mdlint-cli2-config.yaml 'docs/**/*.md'
+
 config:
   # Disable ordered list numbering rules
   MD029: false     # ordered list item prefix
