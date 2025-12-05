@@ -13,7 +13,10 @@ Behavior:
           H1->H2, H2->H3, ..., capped at H6.
     - Then enforce: no upward jump of more than 1 level,
       e.g., H2 -> H4 becomes H3.
-- Does NOT change heading text/content.
+- Applies conservative capitalization to all heading text:
+    - Title-style capitalization with small-word rules.
+    - Preserves acronyms, mixed-case words, CLI flags, placeholders, URLs, and backticked text.
+- Does NOT change heading text inside code fences.
 
 Usage (from repo root or anywhere):
 
@@ -24,6 +27,7 @@ Usage (from repo root or anywhere):
 import argparse
 import pathlib
 import re
+import string
 from typing import Iterable, List, Tuple
 
 # Paths relative to repo root
@@ -34,6 +38,13 @@ IGNORE_FILES = {
 }
 
 HEADING_RE = re.compile(r'^(\s*)(#{1,6})(\s+)(.+)$')
+
+SMALL_WORDS = {
+    "a", "an", "the",
+    "and", "or", "but",
+    "for", "nor",
+    "on", "at", "to", "from", "by", "in", "of",
+}
 
 
 def detect_repo_root(script_path: pathlib.Path) -> pathlib.Path:
@@ -71,6 +82,74 @@ def should_ignore(path: pathlib.Path, repo_root: pathlib.Path) -> bool:
         # Path is not under repo_root for some reason; don't ignore by default.
         return False
     return rel in IGNORE_FILES
+
+
+def should_preserve_word(word: str) -> bool:
+    """Return True if the word should NOT be touched for capitalization."""
+    # preserve placeholders <id>, {name}
+    if word.startswith("<") and word.endswith(">"):
+        return True
+    if word.startswith("{") and word.endswith("}"):
+        return True
+    # preserve code-like arguments
+    if word.startswith("--"):
+        return True
+    # preserve URLs
+    if word.startswith("http://") or word.startswith("https://"):
+        return True
+    # preserve backticks
+    if word.startswith("`") and word.endswith("`"):
+        return True
+    # preserve all caps (API, SSH)
+    if word.isupper() and len(word) > 1:
+        return True
+    # preserve words with mixed case (GitHub, PowerShell)
+    if any(c.islower() for c in word) and any(c.isupper() for c in word):
+        return True
+    return False
+
+
+def title_case_heading_text(text: str) -> str:
+    """
+    Apply conservative, safe capitalization to heading text.
+
+    - First word always capitalized (if not preserved).
+    - Small words (a, an, the, in, of, ...) are lowercased unless first.
+    - Preserves acronyms, mixed case, CLI flags, placeholders, URLs, and backticked text.
+    """
+    words = text.split()
+    if not words:
+        return text
+
+    new_words: List[str] = []
+
+    for i, word in enumerate(words):
+        # Strip leading/trailing punctuation for decisions,
+        # but keep the original punctuation wrapping.
+        stripped = word.strip(string.punctuation)
+
+        if not stripped:
+            new_words.append(word)
+            continue
+
+        if should_preserve_word(stripped):
+            new_words.append(word)
+            continue
+
+        # First word: always capitalized
+        if i == 0:
+            new_words.append(word[0:len(word) - len(stripped)] + stripped.capitalize() + word[len(word.rstrip(string.punctuation)):])
+            continue
+
+        # Small-word rule
+        if stripped.lower() in SMALL_WORDS:
+            new_words.append(word[0:len(word) - len(stripped)] + stripped.lower() + word[len(word.rstrip(string.punctuation)):])
+            continue
+
+        # Default: Capitalize
+        new_words.append(word[0:len(word) - len(stripped)] + stripped.capitalize() + word[len(word.rstrip(string.punctuation)):])
+
+    return " ".join(new_words)
 
 
 def compute_bump(lines: List[str]) -> int:
@@ -113,6 +192,7 @@ def fix_headings_in_file(lines: List[str], path: pathlib.Path) -> Tuple[List[str
     - If any H1 exists (outside code fences), demote ALL headings by 1:
         H1->H2, H2->H3, ..., capped at H6.
     - Then ensure we never jump upward by more than 1 level (H2->H4 -> H3).
+    - Apply safe capitalization to heading text.
     - Ignore headings inside fenced code blocks.
     """
     new_lines = list(lines)
@@ -152,12 +232,20 @@ def fix_headings_in_file(lines: List[str], path: pathlib.Path) -> Tuple[List[str
             if new_level > 6:
                 new_level = 6
 
-        # Rewrite the line only if the heading level changed
-        if new_level != orig_level:
-            new_hashes = "#" * new_level
-            new_line = f"{indent}{new_hashes}{space}{title}\n"
+        # Apply capitalization to the title text
+        fixed_title = title_case_heading_text(title)
+
+        # Build the new line as it *should* look
+        new_hashes = "#" * new_level
+        new_line = f"{indent}{new_hashes}{space}{fixed_title}\n"
+
+        # Only record and write if it's actually different
+        if new_line != line:
             new_lines[i] = new_line
-            changes.append(f"{path}: line {i+1}: H{orig_level} -> H{new_level}")
+            if new_level != orig_level:
+                changes.append(f"{path}: line {i+1}: H{orig_level} -> H{new_level}")
+            else:
+                changes.append(f"{path}: line {i+1}: text capitalization adjusted")
 
         prev_level_effective = new_level
 
