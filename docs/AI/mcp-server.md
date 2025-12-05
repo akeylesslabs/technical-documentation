@@ -780,7 +780,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
     <tr>
       <td>
-        `args.--username``
+        `args.--username`
       </td>
 
       <td>
