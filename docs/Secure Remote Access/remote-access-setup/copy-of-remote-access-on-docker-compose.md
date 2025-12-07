@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-In this guide, we will deploy the SRA utility on docker using docker compose. 
+In this guide, we will deploy the SRA utility on docker using docker compose using the most basic configuration. 
 
 You can get the configuration files that will be used to deploy the gateway with the SRA by cloning the following repository to your environment:
 
@@ -19,6 +19,8 @@ The following files will be used:
 * `gateway.env` : Stores environment variables for configuring the Gateway.
 * `sra.env`: Stores environment variables for Secure Remote Access.
 * `cache.env`: Stores Redis password (required when cache is enabled).
+
+Note that this guide assumes you already have a gateway, and will only refer to the `sra.env` file configuration. 
 
 # Prerequisites
 
@@ -40,5 +42,55 @@ The Docker Compose file defines the following services:
 Each service runs within an isolated Docker bridge network (internal-net), ensuring secure internal communication.
 
 # Configuration
+
+To deploy a gateway with the SRA utility, run the following steps:
+
+1. For SSH access, configure the following in the `docker-compose.yaml` file:
+
+* ```yaml docker-compose.yaml
+  volumes:
+    - /path/to/ca.pub:/var/akeyless/creds/ca.pub
+  ```
+  In the example above, the `ca.pub` is the public key specified in the SSH Certificate Issuer.
+
+2. Configure the following in the `gateway.env` file:
+
+* `CLUSTER_NAME`: The name of the cluster that will be deployed.
+* `UNIFIED_GATEWAY`: Set to `true` to enable the SRA utility.
+* `GATEWAY_ACCESS_ID`: The `AccessID` of the authentication method that will be used for the authentication.
+* `GATEWAY_ACCESS_TYPE`: The `AccessType` of the authentication method.
+* `GATEWAY_ACCESS_KEY`: The `AccessKey` of the authentication method (relevant only for [API Key](https://docs.akeyless.io/docs/api-key#/)). 
+* `ALLOWED_ACCESS_PERMISSIONS`: A list of users that will be able to manage your Gateway configuration
+
+Additional information about the available parameters can be found [here](https://github.com/akeylesslabs/docker-compose/blob/main/gateway.env).  
+
+3. Configure the following in the `sra.env` file:
+
+* `UNIFIED_GATEWAY`: Set to `true`.
+
+4. Optional - if Redis is enabled, configure the following in the `cache.env` file:
+
+* `REDIS_PASS=password`.
+
+# Installation
+
+To install the Gateway with the SRA utility, run the following command from the directory containing your configuration files:
+
+```shell
+docker compose --profile sra --profile gateway up -d
+```
+
+In order to verify the installation, run:
+
+```shell
+docker ps
+```
+
+Upon successful installation, you will see 4 containers:
+
+* `akeyless-sra-ssh`
+* `akeyless-sra-web`
+* `akeyless-gateway`
+* `akeyless-cache`
 
 <br />
