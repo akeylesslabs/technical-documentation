@@ -41,8 +41,8 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 <Callout icon="🌐" theme="default">
   #### Network Configuration
 
-* When using **Ingress**, ensure *sticky sessions* are enabled by using the appropriate annotation. For example, in Nginx, you can use: nginx.ingress.kubernetes.io/affinity: "cookie"
-* Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions Documentation for more details.
+  * When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in Nginx, you can use: nginx.ingress.kubernetes.io/affinity: "cookie"
+  * Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions Documentation for more details.
 </Callout>
 
 * When using SSH sessions behind a load balancer, such as ELB, sessions may be closed due to idle connection timeouts. We recommend increasing the idle timeout to a higher value or setting it to unlimited.
@@ -71,7 +71,7 @@ To enable only specific users to use Remote Access, make sure to add the relevan
 ## Global ##
 ############
 
-authorizedAccessIDs: p-
+authorizedAccessIDs: <AccessID>
 ```
 
 Remote Access uses the same Authentication as the Gateway which is found in the `akeylessGatewayAuth` section of the chart. To start configuring Remote Access, find the `sra` section and set it to `enabled: true`.
@@ -97,7 +97,7 @@ This section describes the web deployment. You can add `annotations` and `labels
     replicaCount: 1
 ```
 
-***Storage***
+_**Storage**_
 
 **NOTE**: Persistence is only relevant for the SRA-Web pod.
 
