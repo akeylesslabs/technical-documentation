@@ -20,4 +20,13 @@ The following files will be used:
 * `sra.env`: Stores environment variables for Secure Remote Access.
 * `cache.env`: Stores Redis password (required when cache is enabled).
 
+# Prerequisites
+
+* [Docker Installed](https://docs.docker.com/engine/install/) (version `20.10` or higher)
+* [Docker Compose](https://docs.docker.com/compose/) (version `1.29` or higher)
+* Akeyless Gateway deployed on [Docker Compose](https://docs.akeyless.io/docs/gateway-compose#/).
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_ username` allowed.
+
+# Configuration
+
 <br />
