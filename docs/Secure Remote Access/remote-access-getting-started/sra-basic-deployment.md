@@ -102,7 +102,7 @@ To upgrade the existing gateway deployment with the SRA configuration, run the f
 helm upgrade --install gw akeyless/akeyless-gateway -f values.yaml
 ```
 
-Once updated, check if the pods are running:
+Once upgraded, check if the pods are running:
 
 ```shell
 kubectl get pods
