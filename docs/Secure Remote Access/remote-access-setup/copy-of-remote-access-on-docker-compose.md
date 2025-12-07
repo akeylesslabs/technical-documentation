@@ -15,8 +15,9 @@ gh repo clone akeylesslabs/docker-compose
 
 The following files will be used:
 
-* `docker-compose.yaml` 
-* `gateway.env` 
-* `sra.env`
+* `docker-compose.yaml`: Defines the Akeyless services and their setup.
+* `gateway.env` : Stores environment variables for configuring the Gateway.
+* `sra.env`: Stores environment variables for Secure Remote Access.
+* `cache.env`: Stores Redis password (required when cache is enabled).
 
 <br />
