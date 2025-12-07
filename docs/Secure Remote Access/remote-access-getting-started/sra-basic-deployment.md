@@ -94,9 +94,9 @@ sshConfig:
   CAPublicKey: <"ssh-rsa AAAAB...">
 ```
 
-## Deployment Update
+## Run The Deployment
 
-To update the existing gateway deployment with the SRA configuration, run the following command:
+To upgrade the existing gateway deployment with the SRA configuration, run the following command:
 
 ```shell
 helm upgrade --install gw akeyless/akeyless-gateway -f values.yaml
