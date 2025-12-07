@@ -59,6 +59,8 @@ To deploy a gateway with the SRA utility, run the following steps:
   ```
   In the example above, the `ca.pub` is the public key specified in the SSH Certificate Issuer.
 
+Additional information about the available parameters can be found [here](https://github.com/akeylesslabs/docker-compose/blob/main/docker-compose.yaml).
+
 2. Configure the following in the `gateway.env` file:
 
 * `CLUSTER_NAME`: The name of the cluster that will be deployed.
@@ -79,9 +81,13 @@ Additional information about the available parameters can be found [here](https:
 
 * `UNIFIED_GATEWAY`: Set to `true`.
 
+Additional information about the available parameters can be found [here](https://github.com/akeylesslabs/docker-compose/blob/main/sra.env).
+
 4. Optional - if Redis is enabled, configure the following in the `cache.env` file:
 
 * `REDIS_PASS=password`.
+
+Additional information about the available parameters can be found [here](https://github.com/akeylesslabs/docker-compose/blob/main/cache.env).
 
 # Installation
 
