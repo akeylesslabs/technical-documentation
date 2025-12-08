@@ -27,8 +27,8 @@ To create an Azure AD authentication method from the CLI, run the following comm
 
 ```shell Akeyless CLI
 akeyless auth-method create azure-ad \
---name &lt;Auth Method Name&gt;\
---bound-tenant-id &lt;Azure Tenant Id&gt;
+--name <Auth Method Name> \
+--bound-tenant-id <Azure Tenant Id>
 ```
 
 Where:
@@ -44,7 +44,7 @@ You can find the complete list of additional parameters for this command in the 
 To configure your CLI to work with Azure AD authentication, run the following command from an Azure VM with a system identity assigned:
 
 ```shell Akeyless CLI
-akeyless configure --profile default --access-id &lt;AccessID&gt;  --access-type azure_ad 
+akeyless configure --profile default --access-id <AccessID>  --access-type azure_ad 
 akeyless get-cloud-identity --cloud-provider azure_ad
 ```
 
