@@ -53,8 +53,6 @@ For `items-event-source-locations`:
 
 * `rotated-secret-failure` Upon **automatic** rotation failure, including the error details.
 
-* `rotated-secret-partial-failure` Upon **automatic** rotation partial failure, relevant for clusters, or [Linked Target](https://docs.akeyless.io/docs/linked-target) mode.
-
 * `secret-sync` Upon **automatic** sync failure, including the error details.
 
 * `dynamic-secret-failure` On general failure of a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
