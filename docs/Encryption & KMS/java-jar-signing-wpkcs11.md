@@ -104,7 +104,7 @@ cert_item = "/jarsign/gadicert"
 
 [auth]
 access_type = "access_key"
-access_id = "p-t4l0patwex6tal"
+access_id = "p-texample"
 access_key = "***********************************"
 
 ```
