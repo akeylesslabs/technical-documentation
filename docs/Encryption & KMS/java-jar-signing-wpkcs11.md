@@ -74,10 +74,10 @@ Always compile on OracleLinux 7 (2014) or equivalent to maintain backward compat
 
 In your Akeyless account, create the following items under Secret Management:
 
-| **Item Type** | **Path**            | **Description**         |
-| ------------- | ------------------- | ----------------------- |
-| Key           | `/jarsign/gadikey`  | Private key for signing |
-| Certificate   | `/jarsign/gadicert` | Associated certificate  |
+| **Item Type** | **Path**        | **Description**         |
+| ------------- | --------------- | ----------------------- |
+| Key           | `/jarsign/key`  | Private key for signing |
+| Certificate   | `/jarsign/cert` | Associated certificate  |
 
 Copy both items into the same local directory (e.g. /work).
 
@@ -99,8 +99,8 @@ slotListIndex = 0
 akeyless_url = "http://host.docker.internal:8080/v2"
 base_item_path = "/jarsign"
 log_level = "debug"
-key_item = "/jarsign/gadikey"
-cert_item = "/jarsign/gadicert"
+key_item = "/jarsign/key"
+cert_item = "/jarsign/cert"
 
 [auth]
 access_type = "access_key"
@@ -120,7 +120,7 @@ jarsigner -debug -verbose \
   -tsa http://timestamp.digicert.com \
   -signedjar tika-app-signed.jar \
   tika-app-4.0.0-SNAPSHOT.jar \
-  /jarsign/gadikey-cert
+  /jarsign/key-cert
 ```
 
 Notes
@@ -148,7 +148,7 @@ jarsigner -debug -verbose \
   -tsa http://timestamp.digicert.com \
   -signedjar app-signed-v1.apk \
   app-release-unsigned.apk \
-  /jarsign/gadikey-cert
+  /jarsign/key-cert
 ```
 
 #### Install Android SDK and Tools
@@ -207,7 +207,7 @@ java -Djava.security.properties=/work/java.security.additions \
   --ks-type PKCS11 \
   --ks-provider-name SunPKCS11-Akeyless \
   --ks NONE \
-  --ks-key-alias "/jarsign/gadikey-cert" \
+  --ks-key-alias "/jarsign/key-cert" \
   --v2-signing-enabled true \
   --v3-signing-enabled true \
   --out app-signed-v2v3.apk \
