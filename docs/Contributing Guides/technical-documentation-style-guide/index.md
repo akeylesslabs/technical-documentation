@@ -184,7 +184,6 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
       ]
     }
     ```
-
     ```yaml
     args:
       - mcp
