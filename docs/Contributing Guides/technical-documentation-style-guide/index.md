@@ -88,14 +88,6 @@ This guide defines standards for writing clear, consistent, and professional tec
   Java Code
   ```
 
-  ```ruby
-  Ruby Code
-  ```
-
-  ```java
-  Java Code
-  ```
-
 ### `<Details>`
 
 Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoided, but the `<details>` tag is a good use of custom HTML.
