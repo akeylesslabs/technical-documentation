@@ -69,6 +69,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 * Inline code: Use backticks (`command`). Use inline code for represent:
   * Example: Use `akeyless update` to update your Akeyless CLI version.
+
 * Code blocks: Use triple backticks with language identifiers:
 
   ```bash
@@ -79,6 +80,12 @@ This guide defines standards for writing clear, consistent, and professional tec
 
   ```python
   Python Code
+  ```
+  ```ruby
+  Ruby Code
+  ```
+  ```java
+  Java Code
   ```
 
   ```ruby
@@ -105,7 +112,6 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
   I am text that should be hidden by default.
   </details>
   ```
-
 </details>
 
 ## Formatting
