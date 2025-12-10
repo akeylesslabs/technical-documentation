@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless enables you to proactively revoke certificates before their scheduled expiration date and seamlessly add them to a **Certificate Revocation List (CRL)**, ensuring enhanced security and trust in your certificate management process. Each [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) generates a consistent **Certificate Revocation List (CRL)** for all its issued certificates.
+Akeyless enables you to proactively revoke certificates before their scheduled expiration date and seamlessly add them to a **Certificate Revocation List (CRL)**, ensuring enhanced security and trust in your certificate management process. Each [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) generates a consistent **Certificate Revocation List (CRL)** for all its issued certificates. In addition, Akeyless supports the **Online Certificate Status Protocol (OCSP)**, providing real-time certificate status verification to further strengthen your PKI security and streamline revocation checking.
 
 > 📘 Note
 >
@@ -50,4 +50,10 @@ Once the certificate is revoked, it is added to the **Certificate Revocation Lis
 
 **Private CRL** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL:8000>/crl/<cert-issuer-display-id>`.
 
+**Public OCSP** at: `https://vault.akeyless.io/ocsp/<account-id>/<cert-issuer-display-id>`.
+
+**Private OCSP** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL:8000>/ocsp/<cert-issuer-display-id>`.
+
 To view any existing **Certificate Revocation List** information on a **Certificate Item** click the  **View Certificate Details** and scroll down to **CRL Distribution points**, where the **CRL Endpoints** will be listed.
+
+<br />
