@@ -79,8 +79,6 @@ Fenced Code Block:
 Sample text.
 ```
 
-<br />
-
 Here's a sentence with a footnote. [^1]
 
 Task List or Check List:
