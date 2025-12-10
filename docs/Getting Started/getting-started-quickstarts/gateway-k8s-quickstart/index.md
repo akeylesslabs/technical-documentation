@@ -31,7 +31,7 @@ You will need:
 * An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 
 <Callout icon="📘" theme="info">
-  We have created a [Setup K to assist you if you're unfamiliar with setting up a Kubernetes cluster.
+  We have created a [Setup Kubernetes Quickstart](https://docs.akeyless.io/docs/kubernetes-setup-quickstart) to assist you if you're unfamiliar with setting up a Kubernetes cluster.
 </Callout>
 
 ## Step 1: Create Namespace
