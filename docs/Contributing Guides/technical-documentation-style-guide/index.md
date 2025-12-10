@@ -192,8 +192,6 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
       - --key-file-name=/path/to/key.pem
     ```
 
-<br />
-
 # Accessibility
 
 * Ensure headings follow a logical hierarchy.
