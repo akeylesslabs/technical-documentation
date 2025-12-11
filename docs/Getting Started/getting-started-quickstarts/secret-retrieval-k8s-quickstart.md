@@ -14,11 +14,10 @@ You will need:
 * A running Kubernetes cluster (v1.21 or later recommended)
 * `kubectl` configured
 * An Akeyless Gateway reachable from the cluster within a namespace titled `akeyless`
+* A Static Secret in Akeyless
 * An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 
 <ApiKeyWarning />
-
-* A Static Secret in Akeyless
 
 ## Step 1: Install the Injector
 
