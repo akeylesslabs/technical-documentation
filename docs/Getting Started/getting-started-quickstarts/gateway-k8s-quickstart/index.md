@@ -32,8 +32,6 @@ You will need:
 
 <ApiKeyWarning />
 
-<br />
-
 <Callout icon="👍">
   We have created a [Setup Kubernetes Quickstart](https://docs.akeyless.io/docs/kubernetes-setup-quickstart) to assist you if you're unfamiliar with setting up a Kubernetes cluster.
 </Callout>
