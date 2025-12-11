@@ -12,6 +12,10 @@ next:
 ---
 This Quickstart walks you through creating an **Akeyless API Key**, which can be used for programmatic access, automation, and for authenticating Akeyless Gateways or applications.
 
+<Callout icon="📘" theme="info">
+  The **API Key Authentication Method** is not recommended for production use. It works well for getting started with Akeyless, quick proof-of-concepts (POCs), and other temporary scenarios.
+</Callout>
+
 By the end of this guide, you will have:
 
 * An Akeyless **Access ID**
@@ -25,7 +29,7 @@ You will need:
 * An active Akeyless account
 * Access to the Internet
 
-If you do not yet have an account, complete the  **[Creating an Akeyless Account Quickstart](doc:account-quickstart)** first.
+If you do not yet have an account, complete the  [Creating an Akeyless Account Quickstart](doc:account-quickstart) first.
 
 ## Step 1: Sign In to the Akeyless Console
 
