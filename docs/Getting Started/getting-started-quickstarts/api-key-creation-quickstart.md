@@ -12,9 +12,7 @@ next:
 ---
 This Quickstart walks you through creating an **Akeyless API Key**, which can be used for programmatic access, automation, and for authenticating Akeyless Gateways or applications.
 
-<Callout icon="📘" theme="info">
-  The **API Key Authentication Method** is not recommended for production use. It works well for getting started with Akeyless, quick proof-of-concepts (POCs), and other temporary scenarios.
-</Callout>
+<ApiKeyWarning />
 
 By the end of this guide, you will have:
 
