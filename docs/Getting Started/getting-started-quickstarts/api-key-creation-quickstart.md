@@ -25,7 +25,7 @@ You will need:
 * An active Akeyless account
 * Access to the Internet
 
-If you do not yet have an account, complete the  [Creating an Akeyless Account Quickstart](doc:account-quickstart) first.
+If you do not yet have an account, complete the  **[Creating an Akeyless Account Quickstart](doc:account-quickstart)** first.
 
 ## Step 1: Sign In to the Akeyless Console
 
