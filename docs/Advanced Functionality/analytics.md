@@ -21,11 +21,11 @@ The main screen tab provides information mostly for **Secret & Keys** where the 
 
 The user can change the timeframe for which the data is presented.
 
-<Image align="center" src="https://files.readme.io/7469f53-Screenshot_at_Nov_23_14-36-38.png" />
+<Image align="center" border={false} src="https://files.readme.io/7469f53-Screenshot_at_Nov_23_14-36-38.png" />
 
 Navigate to the **Certificates** tab to get an immediate overview of your certificate's status with additional details on future expiration.
 
-<Image align="center" src="https://files.readme.io/f7946c8-Screenshot_at_Nov_23_15-02-11.png" />
+<Image align="center" border={false} src="https://files.readme.io/f7946c8-Screenshot_at_Nov_23_15-02-11.png" />
 
 On the **Certificate Expiry** graph, click on the **Overview** button in the top right corner to get a detailed overview of all your certificate and their expiration details.
 
@@ -34,6 +34,10 @@ To get the Analytic data using a CLI command run the following command:
 ```shell CLI
 akeyless get-analytics-data
 ```
+
+<Callout icon="📘" theme="info">
+  Data in the Analytics report includes items stored in Personal Folders.
+</Callout>
 
 ## Tutorial
 
