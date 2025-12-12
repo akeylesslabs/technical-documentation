@@ -34,9 +34,9 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 > 📘 For our use case we will use the following Akeyless API endpoints
 >
-> * [https://api.akeyless.io/auth](https://api.akeyless.io/auth)
-> * [https://api.akeyless.io/create-auth-method-saml'](https://api.akeyless.io/create-auth-method-saml')
-> * [https://api.akeyless.io/assoc-role-am](https://api.akeyless.io/assoc-role-am)
+> * `https://api.akeyless.io/auth`
+> * `https://api.akeyless.io/create-auth-method-saml`
+> * `https://api.akeyless.io/assoc-role-am`
 
 ## Step 2: Access ServiceNow's Flow Designer
 
