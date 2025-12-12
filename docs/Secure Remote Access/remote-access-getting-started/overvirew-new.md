@@ -37,6 +37,10 @@ Akeyless Secure Remote Access provides a robust set of features designed to supp
 
 * **Native SSO integrations**: SRA supports authentication via SSO protocols such as [OIDC](https://docs.akeyless.io/docs/openid#/), [SAML](https://docs.akeyless.io/docs/saml#/), and [LDAP](https://docs.akeyless.io/docs/ldap#/).
 
+* **Allowed SSH URL**:  SRA Supports setting SSH Service URL in the Gateway Remote Access settings.
+
+* **SRA Session TTL**: Custom TTL for SRA sessions can be set in the Gateway Remote Access settings to override the Dynamic Secret TTL
+
 ### Supported Resource Types
 
 Using SRA supports connections to the following resource types:

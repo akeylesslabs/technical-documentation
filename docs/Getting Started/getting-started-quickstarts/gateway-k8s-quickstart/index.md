@@ -30,8 +30,10 @@ You will need:
 * 1 vCPU and 2 GB RAM free in the cluster
 * An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 
-<Callout icon="📘" theme="info">
-  We have created a [Setup K to assist you if you're unfamiliar with setting up a Kubernetes cluster.
+<ApiKeyWarning />
+
+<Callout icon="👍">
+  We have created a [Setup Kubernetes Quickstart](https://docs.akeyless.io/docs/kubernetes-setup-quickstart) to assist you if you're unfamiliar with setting up a Kubernetes cluster.
 </Callout>
 
 ## Step 1: Create Namespace

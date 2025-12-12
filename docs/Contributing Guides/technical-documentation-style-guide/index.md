@@ -10,7 +10,7 @@ metadata:
 </Callout>
 
 <Callout icon="❗️" theme="error">
-  This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites) .
+  This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
 </Callout>
 
 ## Purpose
@@ -69,6 +69,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 * Inline code: Use backticks (`command`). Use inline code for represent:
   * Example: Use `akeyless update` to update your Akeyless CLI version.
+
 * Code blocks: Use triple backticks with language identifiers:
 
   ```bash
@@ -80,11 +81,9 @@ This guide defines standards for writing clear, consistent, and professional tec
   ```python
   Python Code
   ```
-
   ```ruby
   Ruby Code
   ```
-
   ```java
   Java Code
   ```
@@ -105,7 +104,6 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
   I am text that should be hidden by default.
   </details>
   ```
-
 </details>
 
 ## Formatting
@@ -186,7 +184,6 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
       ]
     }
     ```
-
     ```yaml
     args:
       - mcp
@@ -194,8 +191,6 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
       - --cert-file-name=/path/to/cert.pem
       - --key-file-name=/path/to/key.pem
     ```
-
-<br />
 
 # Accessibility
 

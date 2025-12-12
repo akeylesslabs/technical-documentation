@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-SRA can be deployed on an existing Gateway or alongside the deployment of a new one. In this guide, we will deploy SRA using the most basic configuration on a K8s cluster with an existing Gateway. If you do not already have a Gateway, please [install](https://docs.akeyless.io/docs/gateway-chart#/) one first.
+SRA can be deployed on an existing Gateway or alongside the deployment of a new one. In this guide, we will deploy SRA using the most basic configuration on a K8s cluster with an **existing Gateway**. If you do not already have a Gateway, please [deploy](https://docs.akeyless.io/docs/gateway-chart#/) one first.
 
 You can get the `values.yaml` file that will be used on this guide by running the following commands:
 
@@ -26,11 +26,7 @@ helm show values akeyless/akeyless-gateway > values.yaml
 
 * Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
-
-> 📘 Allowed Username
->
-> The `session_`  username need to be allowed on the SSH Issuer to grant CLI access.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_`  username allowed.
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
 
@@ -38,13 +34,11 @@ helm show values akeyless/akeyless-gateway > values.yaml
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service                                                                        | Endpoint   |
-| :----------------------------------------------------------------------------- | :--------- |
-| [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
-| Akeyless V1 REST API                                                           | `/api/v1`  |
-| Akeyless V2 REST API                                                           | `/api/v2`  |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
+| Service                  | Endpoint                            |
+| :----------------------- | :---------------------------------- |
+| Remote Access Portal     | `<gateway-url>:8000/sra/portal`     |
+| Remote Access Web Client | `<gateway-url>:8000/sra/web-client` |
+| Remote Access SSH Config | `<gateway-url>:8000/sra/ssh-config` |
 
 * Network Settings:
 
@@ -100,15 +94,15 @@ sshConfig:
   CAPublicKey: <"ssh-rsa AAAAB...">
 ```
 
-## Deployment Update
+## Run The Deployment
 
-To update the existing gateway deployment with the SRA configuration, run the following command:
+To upgrade the existing gateway deployment with the SRA configuration, run the following command:
 
 ```shell
 helm upgrade --install gw akeyless/akeyless-gateway -f values.yaml
 ```
 
-Once updated, check if the pods are running:
+Once upgraded, check if the pods are running:
 
 ```shell
 kubectl get pods
