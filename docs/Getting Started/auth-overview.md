@@ -54,6 +54,8 @@ Authentication is _who_ is making a request: the identity of the user, service, 
 
 Universal Identity is especially useful for large organizations standardizing identity strategy across multiple platforms.
 
+[Read more about Akeyless' Authentication Methods.](doc:access-and-authentication-methods)
+
 ***
 
 ## Authorization
