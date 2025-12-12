@@ -18,7 +18,7 @@ This extension helps you find and fix hardcoded secrets (like API keys and passw
 
 <Image border={false} src="https://files.readme.io/8f791b6d749c7143a20f17d544592b57aa3b04ffd690c75dfcbb113fe3470bcc-Screenshot_2025-08-04_at_14.24.37.png" />
 
-<br />
+
 
 #### What It Does
 
@@ -32,7 +32,7 @@ Scans your code and highlights potential secrets as you type.
 
 <Image border={false} src="https://files.readme.io/7776cce54a76236bc12a091bd8e2bc5a84d32c3d62b9cd4489b6615246dccfaf-scan_for_secrets.gif" />
 
-<br />
+
 
 #### Save to Akeyless
 
@@ -40,7 +40,7 @@ Right-click on a highlighted secret to move it securely to your Akeyless vault.
 
 <Image border={false} src="https://files.readme.io/153f8d1518ecd7095146d63ca9fa65a94a90ac328d8642919b6ecf03907016e0-save_secrets_to_akeyless.gif" />
 
-<br />
+
 
 #### Integrated Experience
 
@@ -86,7 +86,7 @@ Press Ctrl + Shift + P and run “Akeyless: Scan for Hardcoded Secrets”, or si
 
 <Image border={false} src="https://files.readme.io/8c249761d389466aa3dcc9a5abfaee6740bc42ed689aa69d7d482c97db367187-Oct-06-2025_12-41-23.gif" />
 
-<br />
+
 
 **Save to Akeyless**
 Right-click a detected secret in your code and select “Save to Akeyless”.

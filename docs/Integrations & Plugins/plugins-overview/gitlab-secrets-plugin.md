@@ -121,7 +121,7 @@ secrets:
 
 Where make sure to set the relevant `access_type` according to the Auth Method type you are using. for example the [API Key](https://docs.akeyless.io/docs/api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. i.e. `access_key: $AKEYLESS_ACCESS_KEY`.
 
-<br />
+
 
 > 🚧 Warning
 >

@@ -63,7 +63,7 @@ The Akeyless Web Extension password manager will open, displaying a list of your
 
 Click on the desired password to view its details or copy it to your clipboard.
 
-<br />
+
 
 **Password Strength Policy**
 

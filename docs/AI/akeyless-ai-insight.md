@@ -205,4 +205,4 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 * [ ] Verify the Gateway configuration
 * [ ] Test in the Web UI
 
-<br />
+

@@ -93,7 +93,7 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 }
 ```
 
-<br />
+
 
 3. Restart Cursor\
    Restart for the changes to take effect.

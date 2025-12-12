@@ -174,7 +174,7 @@ Delete the kmip server (allowed only if it has no clients nor associated items)
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-<br />
+
 
 ### `Kmip-server-move`
 

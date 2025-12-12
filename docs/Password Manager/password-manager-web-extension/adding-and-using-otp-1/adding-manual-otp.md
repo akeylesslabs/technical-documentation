@@ -26,7 +26,7 @@ Users often receive OTP Auth secrets as strings instead of complete QR codes or 
 * Setup Key Option: There is an option to enter the setup key associated with the OTPAuth secret.\
   Input Secret: Enter the OTPAuth secret into the designated field.
 
-<br />
+
 
 <Image align="right" width="200px" src="https://files.readme.io/8ad8ef4-Screenshot_2024-08-19_at_16.25.10.png" />
 
