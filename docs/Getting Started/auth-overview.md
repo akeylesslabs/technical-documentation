@@ -93,6 +93,8 @@ Akeyless allows RBAC and ABAC to be used together. For example:
 
 This layered approach provides strong access governance.
 
+[Read more about RBAC with Akeyless.](doc:rbac)
+
 ***
 
 ## Policy Enforcement
