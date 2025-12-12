@@ -148,7 +148,7 @@ DISPLAY_STAGES=yes
 akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
 ```
 
-<br />
+
 
 > 🚧 Compatibility Issue with Legacy SSH Versions (7.4 & 7.6)
 >
@@ -198,7 +198,7 @@ Now, you can connect to your target SSH server via the `akeyless connect` comman
 akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/secret] -v <professional-bastion-hostname/ip[:port]>
 ```
 
-<br />
+
 
 ## Upload/Download Files Using SSH
 

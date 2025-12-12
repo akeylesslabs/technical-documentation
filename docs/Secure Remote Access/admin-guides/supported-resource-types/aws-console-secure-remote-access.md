@@ -135,4 +135,4 @@ For **CLI Access**:
 akeyless connect -t <AWS Region> -g <your-gateway-ip[:port]> -n "/path/to/AWS-dynamic-secret"
 ```
 
-<br />
+

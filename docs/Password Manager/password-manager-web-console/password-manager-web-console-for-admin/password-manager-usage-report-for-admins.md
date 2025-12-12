@@ -31,6 +31,6 @@ The Password Manager Usage Report delivers critical metrics that help in underst
          Access ID: A unique identifier used for authentication within the system.
       5. ETC...
 
-<br />
+
 
 ![](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)

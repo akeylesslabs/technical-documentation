@@ -28,7 +28,7 @@ Only users with admin privileges can manage the visibility of the personal folde
   The personal folder toggle will be enabled by default, meaning the folder is visible. Admins can disable it at any time.
 * **New Users:\&#xA;**&#x54;he toggle will be disabled by default, hiding the personal folder unless explicitly enabled by an admin.
 
-<br />
+
 
 #### How to Use
 

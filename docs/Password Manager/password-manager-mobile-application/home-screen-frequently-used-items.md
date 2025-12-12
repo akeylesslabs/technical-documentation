@@ -14,7 +14,7 @@ The revamped home screen brings a host of new features and improvements to ensur
 
 <Image align="right" width="150px" src="https://files.readme.io/f53004f-Screenshot_2024-04-11_at_15.21.31.png" />
 
-<br />
+
 
 **"What's New" Banner**
 

@@ -128,4 +128,4 @@ You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC
 
 Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or via an SSH connection.
 
-<br />
+

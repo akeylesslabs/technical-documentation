@@ -115,7 +115,7 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
   </tbody>
 </Table>
 
-<br />
+
 
 ## Additional Notes
 

@@ -56,4 +56,4 @@ Once the certificate is revoked, it is added to the **Certificate Revocation Lis
 
 To view any existing **Certificate Revocation List** information on a **Certificate Item** click the  **View Certificate Details** and scroll down to **CRL Distribution points**, where the **CRL Endpoints** will be listed.
 
-<br />
+
