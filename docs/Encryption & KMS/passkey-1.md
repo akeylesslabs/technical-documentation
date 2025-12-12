@@ -10,19 +10,17 @@ metadata:
 next:
   description: ''
 ---
-### Passkey Management Overview
+## Passkey Management Overview
 
 This documentation provides a comprehensive guide to creating, viewing, and managing passkeys within the Akeyless platform. Passkeys enable password-less authentication, which is more secure and user-friendly. The documentation covers the use of both the Akeyless API and CLI for creating and managing passkeys.
 
-<br />
-
-### What Is a Passkey?
+## What Is a Passkey?
 
 A Passkey is a cryptographic key designed for password-less authentication, bound to specific user credentials and associated with certain origins (websites). Passkeys simplify secure login workflows and enhance security by eliminating password-based vulnerabilities.
 
 Passkeys in Akeyless can be either regular or personal, depending on the accessibility settings. They also support searchable parameters like the associated website (origin URL) and the username, making them easy to manage and locate within the platform.
 
-### Supported Algorithms for Passkeys
+## Supported Algorithms for Passkeys
 
 Passkeys only support the following Elliptic Curve (EC) key types:
 
@@ -30,7 +28,7 @@ Passkeys only support the following Elliptic Curve (EC) key types:
 * EC384
 * EC512
 
-### Creating a Passkey Using the API
+## Creating a Passkey Using the API
 
 To create a passkey via the Akeyless API, follow this structure:
 
@@ -53,7 +51,7 @@ POST http://localhost:8081/create-passkey
 }
 ```
 
-### Parameter Descriptions
+## Parameter Descriptions
 
 * token: The authentication token required to interact with the Akeyless API.
 * name: The name of the passkey. You can organize passkeys into folders using / separators in the name.
