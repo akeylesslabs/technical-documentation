@@ -12,7 +12,7 @@ next:
 ---
 Transparent Data Encryption ([TDE](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver16)) encrypts SQL Server data files to protect data at rest. The encryption uses a Database Encryption Key (DEK) that is secured by a certificate stored in the master database or by an asymmetric key protected by an External Key Management ([EKM](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm?view=sql-server-ver16)) module like Akeyless.
 
-### Prerequisites
+## Prerequisites
 
 Ensure the following conditions are met before proceeding with the configuration:
 
@@ -24,7 +24,7 @@ Ensure the following conditions are met before proceeding with the configuration
 * Ensure you have Administrator privileges on the Windows Server and MSSQL.
 * Install the required .NET Framework to avoid issues with the `sqlcrypt.conf` file generation.
 
-### Install the Akeyless EKM Provider
+## Install the Akeyless EKM Provider
 
 * Download and run the Akeyless EKM provider by executing the following  `curl` command:
 
@@ -55,7 +55,7 @@ base_item_path="/sqlcrypt" \<--- base path for the keys to be created
 >
 > Note: If the installer does not generate the `sqlcrypt.conf`  file, refer to the Troubleshooting section below.
 
-### Configure the Akeyless EKM Provider
+## Configure the Akeyless EKM Provider
 
 * Enable the EKM provider on the MSSQL server:
 
@@ -166,7 +166,7 @@ SET ENCRYPTION ON;
 GO
 ```
 
-### Verification of TDE Configuration
+## Verification of TDE Configuration
 
 To verify that TDE is properly configured and the database is encrypted, you can use the following SQL query:
 
@@ -186,7 +186,7 @@ For example, the result should look similar to:
 
 <Image border={false} src="https://files.readme.io/5082a1e3f8881e26ac52f47aff100ade7464fc810f55e4800b557a386bc64514-Screenshot_2024-10-16_at_17.04.33.png" />
 
-### Troubleshooting
+## Troubleshooting
 
 If you encounter issues during the installation or configuration, follow these steps:
 
