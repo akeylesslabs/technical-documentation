@@ -14,14 +14,14 @@ This documentation outlines the requirements and process for enhancing the Encry
 
 The primary objective is to efficiently decrypt a substantial number of credit card numbers (approximately 400,000) within a constrained time frame (5-10 minutes) as part of payment processing transactions. The process involves decrypting batches of credit card numbers ranging from 1,000 to 10,000 and then sending the decrypted data to Visa (or a similar entity).
 
-### Key Points
+## Key Points
 
-**Volume and Timing Requirements**
+### Volume and Timing Requirements
 
 * Volume: Approximately 400,000 credit card numbers per batch.
 * Time Frame: Decryption should be completed within 5-10 minutes.
 
-**Encryption/Decryption Process**
+### Encryption/Decryption Process
 
 * Batch Size: Credit card numbers will be processed in batches ranging from 1,000 to 10,000.
 * Algorithm: AES256 with CBC mode.
@@ -30,23 +30,23 @@ The primary objective is to efficiently decrypt a substantial number of credit c
   * Up to 5 active keys are maintained per year.
   * Keys are stored for a duration of 5 years, potentially involving up to 25 different keys per batch.
 
-**Key Specifications**
+### Key Specifications
 
 * Encryption Algorithm: AES256 CBC.
 * Keys: AES256 keys are used for encryption/decryption.
 * Batch Processing:
   * Up to 25 different keys per batch, depending on the key version and key\_id.
 
-**Workflow**
+### Workflow
 
 * The encryption/decryption service will be provided via an API supporting:
   * ingle value encryption/decryption.
   * Batch processing for encryption/decryption.
 * The initial phase will focus on batch processing using a classic key (AES256) through a gateway, without involving asymmetric keys.
 
-### Command References
+## Command References
 
-**Batch Encryption Command**
+### Batch Encryption Command
 
 The following command is used to encrypt a batch of plaintext using AES classic keys:
 
@@ -54,7 +54,7 @@ The following command is used to encrypt a batch of plaintext using AES classic 
 akeyless encrypt-batch -h
 ```
 
-**Options:**
+#### Options
 
 * \--batch-data: Batch data in JSON array format.
 * \--batch-data-file-path: Path to the file containing batch data.
@@ -65,7 +65,7 @@ akeyless encrypt-batch -h
 * \--jq-expression: JQ expression to filter result output.
 * \--no-creds-cleanup\[=false]\: Do not clean up local temporary expired credentials.
 
-**Batch Decryption Command**
+### Batch Decryption Command
 
 The following command is used to decrypt a batch of ciphertext using AES classic keys:
 
@@ -73,9 +73,7 @@ The following command is used to decrypt a batch of ciphertext using AES classic
 akeyless decrypt-batch -h
 ```
 
-<br />
-
-**Options:**
+#### Options
 
 * \--batch-data: Batch data in JSON array format.
 * \--batch-data-file-path: Path to the file containing batch data.
