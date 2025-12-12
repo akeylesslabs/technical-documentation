@@ -12,7 +12,7 @@ next:
 ---
 Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either via an isolated remote browser or directly to your target server based on your secret configuration.
 
-Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.  
+Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.
 
 This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes cluster using the Helm package manager.
 
@@ -20,17 +20,17 @@ This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes
 
 * Helm Installed
 
-* K8s Installed
+* Kubernetes Installed
 
 * Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `webWorker` and for the `dispatcher` services.
 
-\***\*Network\*\***
+****Network****
 
 When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
 
-e.g, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
+e.g, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-\***\*Storage\*\***
+****Storage****
 
 To be able to download files to your local machine, the chart requires a storage class with `ReadWriteMany` access mode.
 
@@ -53,11 +53,11 @@ persistence:
 
 e.g, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
-For security reasons, please limit the PersistentVolumes`mount permissions to`0650\`.
+For security reasons, please limit the PersistentVolumes`mount permissions to`0650`.
 
-\***\*Horizontal Auto-Scaling\*\***
+****Horizontal Auto-Scaling****
 
-Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.\
+Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.  
 For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server).
 
 > 🚧 Warning
