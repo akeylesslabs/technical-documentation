@@ -31,6 +31,8 @@ Akeyless uses a Vaultless architecture, which avoids storing sensitive key mater
 
 A deeper explanation of the architecture and its security properties is available in the **Vaultless Architecture** section.
 
+[Read more about Akeyless' Vaultless SaaS Architecture.](doc:vaultless-architecture)
+
 ***
 
 ## Distributed Fragments Cryptography (DFC)
