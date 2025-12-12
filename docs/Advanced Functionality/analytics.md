@@ -36,7 +36,7 @@ akeyless get-analytics-data
 ```
 
 <Callout icon="📘" theme="info">
-  Data in the Analytics report includes items stored in Personal Folders.
+  Data in the Analytics report includes items stored in <Anchor label="Personal Folders" target="_blank" href="doc:personal-corporate-areas-navigation">Personal Folders</Anchor>.
 </Callout>
 
 ## Tutorial
