@@ -343,7 +343,7 @@ The following is an example revocation statement for Postgres:
 
 `REVOKE CONNECT ON DATABASE postgres FROM "{{name}}"; REVOKE USAGE ON SCHEMA public FROM "{{name}}"; REVOKE SELECT ON ALL TABLES IN SCHEMA public FROM "{{name}}"; DROP USER "{{name}}";`
 
-<br />
+
 
 > 📘 Info
 >

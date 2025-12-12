@@ -109,7 +109,7 @@ You should be able to see a list of the resources you can connect to, upon your 
 |                  | Direct Connection / Secure Remote Access | Default Browser   |                                                                                                           |
 |                  | SSH File Transfer (SFTP)                 | Terminal          |                                                                                                           |
 
-<br />
+
 
 > 🚧 Multiple Hosts / Linked Targets
 >
@@ -124,7 +124,7 @@ You should be able to see a list of the resources you can connect to, upon your 
    4. **Control API Port** - the control API port (specify 8000 for unified Gateway, or 9900 if not)
    5. **Control API Path** - the SRA control API path (for example: /sra/ssh-config)
 
-<br />
+
 
 > 📘 Connection Failures
 >

@@ -15,7 +15,7 @@ This post explores a more radical, secure architecture: a "dynamic-only" secretl
 
 <Image border={false} src="https://files.readme.io/f5c06bb7db757f742fa8959b6e0e705c800baeb66f72fc9b06283a60c37522a4-8630a779-57cb-4b0c-a9d4-65756bd93296.png" />
 
-<br />
+
 
 This architecture fundamentally changes how an app accesses resources.
 
@@ -28,7 +28,7 @@ This architecture fundamentally changes how an app accesses resources.
 
 The result: The agent's database credentials only exist for the few seconds they are needed. An attacker scanning the environment would find nothing to steal.
 
-<br />
+
 
 ### Code Deep Dive: The Secretless Engine
 
@@ -95,7 +95,7 @@ def fetch_api_key_from_akeyless():
     return fetch_secret_from_akeyless('/Gemini_API_Key-V2')
 ```
 
-<br />
+
 
 #### Part 2: The "Dynamic-Only" Database Access
 
@@ -211,7 +211,7 @@ def initialize_credentials():
         return False
 ```
 
-<br />
+
 
 This code initializes an AI agent's credentials securely by fetching them directly from Akeyless at runtime, rather than storing them in files.
 
@@ -257,7 +257,7 @@ Here is an example of that exact interaction:
 
 <Image border={false} src="https://files.readme.io/823f5394e1c484e67422caa038a06011ee7db9c2a24d70cda7486c715bb612a5-ba532c6c-403e-4f73-8425-313c6f7f7439.png" />
 
-<br />
+
 
 ### Conclusion: The Future Is Ephemeral
 

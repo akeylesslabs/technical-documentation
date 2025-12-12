@@ -178,9 +178,9 @@ akeyless rotated-secret create azure \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-<br />
 
-<br />
+
+
 
 `--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
 

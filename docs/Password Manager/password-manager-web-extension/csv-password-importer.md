@@ -21,7 +21,7 @@ Step 1: Access the Web Extension Settings
 
 <Image align="center" width="200px" src="https://files.readme.io/522836b-Screenshot_2024-07-01_at_16.09.35.png" />
 
-<br />
+
 
 Step 2: Initiate the Import Process
 
@@ -45,7 +45,7 @@ Step 6: Create a Dedicated Folder
 
 <Image align="center" width="200px" src="https://files.readme.io/8898628-Screenshot_2024-06-04_at_14.52.18.png" />
 
-<br />
+
 
 Step 7: Submit the Import
 

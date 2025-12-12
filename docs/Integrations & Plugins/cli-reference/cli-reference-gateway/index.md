@@ -124,7 +124,7 @@ akeyless gateway-update-allowed-access \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-<br />
+
 
 ## Gateway Configuration
 
@@ -285,4 +285,4 @@ akeyless gateway update defaults \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-<br />
+

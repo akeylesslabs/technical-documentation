@@ -26,7 +26,7 @@ Grant Permissions: A prompt will appear, detailing the permissions required by t
 
 <Image align="center" width="200px" src="https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg" />
 
-<br />
+
 
 ### Akeyless Password Manager iOS Installation
 
@@ -40,7 +40,7 @@ Confirm Installation: iOS may prompt you to confirm the installation. This might
 
 <Image align="center" width="200px" src="https://files.readme.io/9f41004-File_5.jpg" />
 
-<br />
+
 
 ### Authentication Methods Support
 
