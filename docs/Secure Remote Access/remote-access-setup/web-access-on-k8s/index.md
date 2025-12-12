@@ -1,5 +1,5 @@
 ---
-title: Web Access on K8s
+title: Web Access on Kubernetes
 excerpt: ''
 deprecated: false
 hidden: false
