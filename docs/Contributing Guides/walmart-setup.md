@@ -10,10 +10,10 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless Gateway is a stateless docker container, provided as a standalone or cluster. In order for the Akeyless Gateway to function properly, it requires public network connectivity to the Akeyless SaaS CORE.
+The Akeyless Gateway is a stateless Docker container, provided as a standalone or cluster. In order for the Akeyless Gateway to function properly, it requires public network connectivity to the Akeyless SaaS CORE.
 
 **Docker**  
-A basic deployment would preferably require a Linux Server (VM) with a docker engine installed.  
+A basic deployment would preferably require a Linux Server (VM) with Docker Engine installed.  
 You may download the latest docker engine on [Docker website](https://docs.docker.com/get-docker/).
 
 **Network connectivity**

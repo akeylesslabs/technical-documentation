@@ -28,16 +28,18 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 * Minimum 1 vCPU available with 2 GB RAM
 
+* For **Argo CD–based** deployments, verify that your configuration meets the required settings as documented [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway#argo-cd-instructions)
+
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your cluster.
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service                                              | Endpoint   |
-| :--------------------------------------------------- | :--------- |
+| Service                                                                        | Endpoint   |
+| :----------------------------------------------------------------------------- | :--------- |
 | [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
 | [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
-| Akeyless V1 REST API                                 | `/api/v1`  |
-| Akeyless V2 REST API                                 | `/api/v2`  |
+| Akeyless V1 REST API                                                           | `/api/v1`  |
+| Akeyless V2 REST API                                                           | `/api/v2`  |
 | [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
 
 ## Helm Chart Configuration
