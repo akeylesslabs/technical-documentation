@@ -13,15 +13,13 @@ next:
 This guide explains how to build and validate the Akeyless PKCS#11 shared library (libakeyless.so) for use with Oracle TDE and Java JAR/APK signing.
 It covers both compilation steps and signing workflows for JAR and Android APK files.
 
-<br />
-
-#### Overview
+## Overview
 
 * Purpose: Build a portable shared library (libakeyless.so) compatible with Oracle TDE and Java PKCS#11 integrations.
 * Minimum Oracle version supported: Oracle 21c (21.3.0) this is the oldest version customers should have.
 * Target platform: Linux (amd64) compiled on Oracle Linux 7 for maximum compatibility.
 
-#### Build the Library (Go → C Shared Library)
+## Build the Library (Go → C Shared Library)
 
 ```shell
 docker run --rm -it --platform=linux/amd64 \
@@ -54,7 +52,7 @@ docker run --rm -it --platform=linux/amd64 \
 
 ```
 
-#### Validate Library Compatibility
+## Validate Library Compatibility
 
 | **Build Environment** | **Validation Environment** | **Result** | **Notes**             |
 | --------------------- | -------------------------- | ---------- | --------------------- |
@@ -70,7 +68,7 @@ Example of failed validation:
 
 Always compile on OracleLinux 7 (2014) or equivalent to maintain backward compatibility.
 
-#### Oracle TDE Integration Setup
+## Oracle TDE Integration Setup
 
 In your Akeyless account, create the following items under Secret Management:
 
@@ -81,9 +79,9 @@ In your Akeyless account, create the following items under Secret Management:
 
 Copy both items into the same local directory (e.g. /work).
 
-#### Environment Setup for JAR Signing
+## Environment Setup for JAR Signing
 
-##### Define PKCS#11 Configuration Files
+### Define PKCS#11 Configuration Files
 
 `/work/pkcs11.cnf`
 
@@ -109,7 +107,7 @@ access_key = "***********************************"
 
 ```
 
-#### Run JAR Signing
+## Run JAR Signing
 
 ```shell
 jarsigner -debug -verbose \
@@ -129,15 +127,15 @@ Notes
 * Use `-signedjar` to output a separate signed file (otherwise the input JAR is modified).
 * The `-tsa` parameter adds a trusted timestamp to the signature.
 
-#### Validate Signed JAR
+## Validate Signed JAR
 
 ```shell
 jarsigner -verify tika-app-signed.jar
 ```
 
-#### Android APK Signing
+## Android APK Signing
 
-##### Sign APK (V1 Signature)
+### Sign APK (V1 Signature)
 
 ```shell
 jarsigner -debug -verbose \
@@ -151,7 +149,7 @@ jarsigner -debug -verbose \
   /jarsign/key-cert
 ```
 
-#### Install Android SDK and Tools
+### Install Android SDK and Tools
 
 ```shell
 apt-get update && apt-get install -y openjdk-17-jdk unzip wget
@@ -163,21 +161,21 @@ mkdir -p android-sdk/cmdline-tools/latest
 mv android-sdk/cmdline-tools/* android-sdk/cmdline-tools/latest/
 ```
 
-##### Environment Variables
+### Environment Variables
 
 ```shell
 export ANDROID_SDK_ROOT=/work/android-sdk
 export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$PATH
 ```
 
-##### Verify Tool Installation
+### Verify Tool Installation
 
 ```shell
 $ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner --version
 $ANDROID_SDK_ROOT/build-tools/35.0.0/zipalign -h
 ```
 
-##### Add PKCS#11 As Java Security Provider
+### Add PKCS#11 As Java Security Provider
 
 Create `/work/java.security.additions:`
 
@@ -192,14 +190,14 @@ java -Djava.security.properties=/work/java.security.additions \
   -XshowSettings:security -version 2>&1 | grep SunPKCS11
 ```
 
-##### Align APK
+### Align APK
 
 ```shell
 cd /work
 $ANDROID_SDK_ROOT/build-tools/35.0.0/zipalign -p 4 app-release-unsigned.apk app-aligned.apk
 ```
 
-##### Sign APK (V2/v3 Signature)
+### Sign APK (V2/v3 Signature)
 
 ```shell
 java -Djava.security.properties=/work/java.security.additions \
@@ -214,7 +212,7 @@ java -Djava.security.properties=/work/java.security.additions \
   app-aligned.apk
 ```
 
-##### Verify Signed APK
+### Verify Signed APK
 
 ```shell
 $ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner verify \
@@ -222,5 +220,3 @@ $ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner verify \
   --print-certs \
   app-signed-v2v3.apk
 ```
-
-<br />
