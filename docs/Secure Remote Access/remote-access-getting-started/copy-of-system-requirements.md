@@ -1,5 +1,5 @@
 ---
-title: Advanced system requirments
+title: Advanced System Requirments
 deprecated: false
 hidden: true
 metadata:
