@@ -3,4 +3,4 @@
 - remote-access-docker
 - copy-of-remote-access-on-docker-compose
 - web-access-on-k8s
-- web-access-docker
+- sra-web-access-docker
