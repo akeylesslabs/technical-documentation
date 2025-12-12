@@ -21,6 +21,10 @@ Depending on which Quickstart you follow, you may need:
 * Basic familiarity with command-line tools
 * Access to install command-line tools and applications
 
+<Callout icon="📘" theme="info">
+  Some familiarity with cloud providers, containerization, and Kubernetes will be helpful, but is not required.
+</Callout>
+
 Each Quickstart lists its own prerequisites in more detail.
 
 ***
