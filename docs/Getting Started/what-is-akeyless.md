@@ -52,7 +52,7 @@ Akeyless consists of several cooperating components:
 
 These components work together to enforce identity security with no requirement to store or reconstruct complete secrets or private keys.
 
-[Read morea about Akeyless' platform components.](doc:components)
+[Read more about Akeyless' platform components.](doc:components)
 
 ***
 
