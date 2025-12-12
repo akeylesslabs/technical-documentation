@@ -24,14 +24,14 @@ The Akeyless node for n8n integrates with Akeyless Vaultless Secrets Management.
 
 <Image border={false} src="https://files.readme.io/7f6ee734fa1faa3631f18b22535d539c1a1a61dcf16766b41324334f2dc223c3-Screenshot_2025-11-17_at_19.14.55.png" />
 
-<br />
+
 
 5. Click Install
 6. Refresh your workflow editor
 
 <Image border={false} src="https://files.readme.io/e04ed312248f961e0a21a972c61fb43a7af87df983bd0149a7b9db46352dab55-Screenshot_2025-11-17_at_19.15.11.png" />
 
-<br />
+
 
 #### For Self-Hosted N8n
 
@@ -55,13 +55,13 @@ Select Akeyless Security
 
 <Image border={false} src="https://files.readme.io/ccc9b3bfe271d41087a408b69547c7f8234bd6354fb286c270fdb60a008c5139-Screenshot_2025-11-14_at_16.45.51.png" />
 
-<br />
+
 
 Choose an authentication method:
 
 <Image border={false} src="https://files.readme.io/0cb8dee191ebe3c1562733b78e71d9f3c6cf7d0f798953dfb4608119027853c7-Screenshot_2025-11-17_at_19.22.46.png" />
 
-<br />
+
 
 #### Method a: Access ID + Access Key (Recommended)
 
@@ -189,4 +189,4 @@ Extract the secret value first for cleaner, reusable workflows:
 * Package on npm: [https://www.npmjs.com/package/@akeylesslabs/n8n-nodes-akeyless](https://www.npmjs.com/package/@akeylesslabs/n8n-nodes-akeyless)
 * GitHub Repository: [https://github.com/akeyless-community/N8N_PlugIn](https://github.com/akeyless-community/N8N_PlugIn)
 
-<br />
+

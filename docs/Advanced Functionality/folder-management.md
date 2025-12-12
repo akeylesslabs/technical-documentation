@@ -30,4 +30,4 @@ You can find the complete list of commands for managing folders in the [CLI Refe
 
 Once created, the folder will immediately appear in your Items list, ready for you to start adding secrets, keys, or additional subfolders.
 
-<br />
+
