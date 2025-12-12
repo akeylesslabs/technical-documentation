@@ -47,7 +47,7 @@ inspec shell -c 'package("git").version' -t <target_username>@<target_ssh_server
 ## Example
 
 ```ruby
-# sign public ssh key by Akeyless to get ssh certificate
+# Sign public ssh key by Akeyless to get ssh certificate
 akeyless get-ssh-certificate -s ubuntu -c ssh-cert-issuer-demo -p ~/.ssh/id_rsa.pub --profile inspec && echo
 # Test ssh connection
 ssh ubuntu@172.17.0.2
