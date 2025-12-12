@@ -12,12 +12,12 @@ next:
 ---
 This document outlines the steps to set up Transparent Data Encryption (TDE) on Oracle Database 19c and above, using an HSM wallet for encryption. This guide includes the creation of directories, keystore configuration, and verification of the wallet status.
 
-### Directory Creation
+## Directory Creation
 
-•	Create the folder and subfolder /tde.\
-•	No changes required to sqlnet.ora for Oracle Database 19c and up.
+• Create the folder and subfolder `/tde.\`
+• No changes required to sqlnet.ora for Oracle Database 19c and up.
 
-### Configuration Steps
+## Configuration Steps
 
 a. In this example, we use hsm\_wallet as the base folder. This can be adjusted based on your specific environment or the naming conventions used in your organization.
 
@@ -25,7 +25,7 @@ b. The APP\_PASSWORD is not directly used during the configuration process. It c
 
 c. /opt/oracle/admin corresponds to the $ORACLE\_HOME directory in your environment.
 
-### Key Management and Keystore Setup
+## Key Management and Keystore Setup
 
 Perform the following commands in SQL\*Plus or another Oracle SQL interface:
 
@@ -77,7 +77,7 @@ SQL> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE";
 
 Result: System altered to use a combination of HSM and file-based keystore configurations.
 
-### Post-Restart Verification
+## Post-Restart Verification
 
 After restarting the database, you can verify that the HSM wallet is open and correctly configured.
 
@@ -97,7 +97,7 @@ Verification Output: Check the database’s global area and buffers. The databas
 SQL> SELECT * FROM V$ENCRYPTION_WALLET;
 ```
 
-#### Expected Output
+### Expected Output
 
 ```text SQL
 WRL_TYPE   WRL_PARAMETER                      STATUS            WALLET_TYPE  WALLET_OR  KEYSTORE FULLY_BAC  CON_ID
@@ -110,7 +110,7 @@ FILE       OPEN_NO_MASTER_KEY                AUTOLOGIN           SINGLE       UN
 HSM        OPEN_NO_MASTER_KEY               HSM                 SINGLE       UNITED      UNDEFINED   3
 ```
 
-#### Error Handling
+### Error Handling
 
 If you encounter the following error:
 

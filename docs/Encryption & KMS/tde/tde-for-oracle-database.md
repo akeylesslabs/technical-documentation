@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-**Introduction**
+## Introduction
 
 Transparent Data Encryption (TDE) is a security feature provided by Oracle Database that enables the encryption of sensitive data stored within tables and tablespaces. While Oracle Database employs authentication, authorization, and auditing mechanisms to secure data during access and usage within the database, it does not inherently protect the data stored in the operating system files. These files, which contain the actual data, can be vulnerable to unauthorized access. To mitigate this risk, Akeyless offers integration with TDE, enabling the encryption of data at the storage level. This ensures that even if an unauthorized user gains access to the data files, the data remains unreadable, thereby enhancing overall data security.
 
-**Oracle Database Integration Configuration**
+## Oracle Database Integration Configuration
 
 To ensure compatibility, Oracle Database must be on an supported version. The supported Oracle Database versions for PKCS#11 integration with Transparent Data Encryption (TDE) are as follows:
 
@@ -27,27 +27,40 @@ To ensure compatibility, Oracle Database must be on an supported version. The su
 
 ## Key Concepts of TDE
 
-**TDE Table Key:** A TDE Table Key is a unique encryption key associated with a specific table that has columns marked for encryption. Each table that requires encryption will have its own TDE Table Key. This key is responsible for encrypting the data in the specified columns of the table. However, to further secure the TDE Table Key itself, it is encrypted by the TDE master encryption key. This two-tier encryption mechanism adds an additional layer of security by ensuring that the table-specific encryption key cannot be easily compromised.
+### TDE Table Key
 
-**Tablespace Encryption Key:** In addition to table-level encryption, TDE also supports the encryption of entire tablespaces, which are logical storage units within the Oracle Database. A Tablespace Encryption Key is used to encrypt all the data stored within a tablespace. Similar to the TDE Table Key, the Tablespace Encryption Key is protected by the TDE master encryption key. This key hierarchy means that the data in the tablespace is encrypted by the Tablespace Encryption Key, which is, in turn, encrypted by the TDE master encryption key.
+A TDE Table Key is a unique encryption key associated with a specific table that has columns marked for encryption. Each table that requires encryption will have its own TDE Table Key. This key is responsible for encrypting the data in the specified columns of the table. However, to further secure the TDE Table Key itself, it is encrypted by the TDE master encryption key. This two-tier encryption mechanism adds an additional layer of security by ensuring that the table-specific encryption key cannot be easily compromised.
+
+### Tablespace Encryption Key
+
+In addition to table-level encryption, TDE also supports the encryption of entire tablespaces, which are logical storage units within the Oracle Database. A Tablespace Encryption Key is used to encrypt all the data stored within a tablespace. Similar to the TDE Table Key, the Tablespace Encryption Key is protected by the TDE master encryption key. This key hierarchy means that the data in the tablespace is encrypted by the Tablespace Encryption Key, which is, in turn, encrypted by the TDE master encryption key.
 
 ## How TDE Works
 
-**Data Encryption Process:** When data is written to a table or tablespace that is protected by TDE, the Oracle Database automatically encrypts the data using either the TDE Table Key or the Tablespace Encryption Key, depending on the level of encryption applied (table or tablespace). The encryption process is transparent to the end-user, meaning that no changes are required in the application code or queries. The data is stored in an encrypted format in the data files.
+### Data Encryption Process
 
-**Data Decryption Process:** When an authorized user or application retrieves data from an encrypted table or tablespace, TDE automatically decrypts the data. The appropriate encryption key (TDE Table Key or Tablespace Encryption Key) is retrieved from the keystore, and the data is decrypted before being presented to the user or application. Again, this process is seamless and does not require any special handling by the user.
+When data is written to a table or tablespace that is protected by TDE, the Oracle Database automatically encrypts the data using either the TDE Table Key or the Tablespace Encryption Key, depending on the level of encryption applied (table or tablespace). The encryption process is transparent to the end-user, meaning that no changes are required in the application code or queries. The data is stored in an encrypted format in the data files.
 
-**Keystore Management:** The keystore, which houses the master encryption key and other related keys, must be securely managed. Administrators are responsible for ensuring that the keystore is accessible to the Oracle Database but protected from unauthorized access. Proper management of the keystore is critical because if the keystore is compromised or lost, the encrypted data may become inaccessible.
+### Data Decryption Process
+
+When an authorized user or application retrieves data from an encrypted table or tablespace, TDE automatically decrypts the data. The appropriate encryption key (TDE Table Key or Tablespace Encryption Key) is retrieved from the keystore, and the data is decrypted before being presented to the user or application. Again, this process is seamless and does not require any special handling by the user.
+
+### Keystore Management
+
+The keystore, which houses the master encryption key and other related keys, must be securely managed. Administrators are responsible for ensuring that the keystore is accessible to the Oracle Database but protected from unauthorized access. Proper management of the keystore is critical because if the keystore is compromised or lost, the encrypted data may become inaccessible.
 
 ## Security Benefits of TDE
 
-**Data Protection at Rest:**\
+### Data Protection at Rest
+
 TDE ensures that sensitive data remains secure even when stored in the database's physical files on the operating system. This protection is crucial for compliance with data protection regulations and safeguarding against data breaches.
 
-**Seamless Implementation:**\
+### Seamless Implementation
+
 Since TDE operates transparently at the database level, no modifications to existing applications or database schemas are required. The encryption and decryption processes are handled automatically by the database, simplifying the implementation of data security.
 
-**Centralized Key Management:**\
+### Centralized Key Management
+
 By using an external keystore for encryption key management, TDE provides centralized control over key usage and rotation. This centralization ensures that encryption keys are properly managed and protected, further enhancing data security.
 
 ## Setting Up Oracle Database for Integration
@@ -90,7 +103,7 @@ access_id="<Access Id>"
 access_key="<Access Key>"
 ```
 
- Where:
+Where:
 
 * `akeyless_url` is your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL on API port `8081`.
 
@@ -134,22 +147,22 @@ ENCRYPTION_WALLET_LOCATION=(SOURCE=(METHOD=HSM))
 2. Log in to the database as a user with the `SYSDBA` administrative privilege.
 3. Set the `WALLET_ROOT` parameter.
 
-```shell
-alter system set wallet_root='<path to the oracle wallet directory>' scope=spfile;
-```
+  ```shell
+  alter system set wallet_root='<path to the oracle wallet directory>' scope=spfile;
+  ```
 
 4. Shut down and start up the database.
 
-```shell
-shutdown immediate;
-startup;
-```
+  ```shell
+  shutdown immediate;
+  startup;
+  ```
 
 5. Set the `TDE_CONFIGURATION` parameter as follows:
 
-```shell
-alter system set TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM" SCOPE=both ;
-```
+  ```shell
+  alter system set TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM" SCOPE=both ;
+  ```
 
 ## Encrypting Tablespaces
 
@@ -180,25 +193,23 @@ CREATE TABLE my_table (
 )  TABLESPACE encrypt_ts;
 ```
 
-<br />
-
 > 👍 Note
 >
 > To migrate a database with an existing file-based wallet, follow these steps:
 >
 > 1. Set the TDE configuration:
 >
-> ```sql
-> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
-> ```
+>   ```sql
+>   ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
+>   ```
 >
 > 2. Migrate the encryption key:
 >
-> ```sql
-> ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "akeyless" MIGRATE USING "&lt;old file based tde password&gt;" WITH BACKUP;
-> ```
+>   ```sql
+>   ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "akeyless" MIGRATE USING "&lt;old file based tde password&gt;" WITH BACKUP;
+>   ```
 >
-> Ensure to replace &lt;old file based tde password&gt; with the appropriate password.
+> Ensure to replace `<old file based tde password>` with the appropriate password.
 
 ## Testing Data Encrypt
 
@@ -209,7 +220,7 @@ Once TDE is configured on the Oracle Database, you can start encrypting your dat
 
 ## Testing Encrypting Individual Column
 
-**Connect to SQL\_Plus as a Non-Sysadmin User**
+### Connect to SQL\_Plus as a Non-Sysadmin User
 
 To begin, connect to the Oracle database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tables and manage encryption.
 
@@ -219,7 +230,7 @@ sqlplus your_username@your_database
 
 Replace your\_username with your actual username and your\_database with the database service name.
 
-**Enable Encryption on a Table**
+### Enable Encryption on a Table
 
 Once connected, you can enable encryption on a table by creating a table with an encrypted column. The encryption is specified using the ENCRYPT clause in the CREATE TABLE statement.
 
@@ -238,7 +249,7 @@ In this example:
 The first\_name, last\_name, and empID columns are created as normal.\
 The salary column is encrypted using Oracle's Transparent Data Encryption (TDE) by adding the ENCRYPT clause.
 
-**Insert Data into the Encrypted Table**
+### Insert Data into the Encrypted Table
 
 After creating the table with the encrypted column, you can insert data into it. The data in the encrypted column will be automatically encrypted by Oracle TDE.
 
@@ -248,7 +259,7 @@ INSERT INTO employee VALUES ('JOHN', 'SMITH', 001, 10000);
 
 This command inserts a record into the employee table, where the salary value of 10000 will be stored in an encrypted format.
 
-**List Encrypted Columns in the Database**
+### List Encrypted Columns in the Database
 
 To verify which columns in your database are encrypted, you can query the DBA\_ENCRYPTED\_COLUMNS view. This view provides details about the encrypted columns, including the encryption algorithm used, whether salt is applied, and the integrity algorithm
 
@@ -271,7 +282,7 @@ SALT is applied, and the integrity algorithm used is SHA-1.For more details abou
 
 ## Testing Tablespace Encryption
 
-**Connect to SQL\_Plus as a Regular User**
+### Connect to SQL\_Plus as a Regular User
 
 Start by connecting to your Oracle database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tablespaces.
 
@@ -281,11 +292,11 @@ sqlplus your_username@your_database
 
 Replace your\_username with your actual username and your\_database with the appropriate database service name.
 
-**Verify and Set the COMPATIBLE Initialization Parameter**
+### Verify and Set the COMPATIBLE Initialization Parameter
 
 Before creating an encrypted tablespace, ensure that the COMPATIBLE parameter is set to 11.2.0.0 or higher. This is particularly important for older versions of the 11g database.
 
-**Check the Current COMPATIBLE Setting:**
+### Check the Current COMPATIBLE Setting
 
 ```sql sql
 SHOW PARAMETER COMPATIBLE;
@@ -302,7 +313,7 @@ noncdbcompatible            BOOLEAN     FALSE
 
 If the COMPATIBLE value is below 11.2.0.0, proceed with the following steps.
 
-**Update the COMPATIBLE Parameter (if needed):**
+### Update the COMPATIBLE Parameter (if needed)
 
 ```sql sql
 ALTER SYSTEM SET COMPATIBLE='11.2.0.0' SCOPE=SPFILE;
@@ -310,7 +321,7 @@ SHUTDOWN IMMEDIATE;
 STARTUP;
 ```
 
-**Create an Encrypted Tablespace**
+### Create an Encrypted Tablespace
 
 With the COMPATIBLE parameter correctly set, you can now create a new encrypted tablespace. Use the CREATE TABLESPACE statement along with the ENCRYPT clause to specify the encryption algorithm.
 
@@ -332,7 +343,7 @@ Grant Unlimited Quota on the Encrypted Tablespace:
 ALTER USER test QUOTA UNLIMITED ON encrypted_ts;
 ```
 
-**Create a Table in the Encrypted Tablespace**
+### Create a Table in the Encrypted Tablespace
 
 Now that the encrypted tablespace is set up, create a table within it to verify the encryption.
 
@@ -346,7 +357,7 @@ TABLESPACE encrypted_ts;
 
 This creates a table named ets\_test in the encrypted\_ts tablespace.
 
-**Insert Data into the Encrypted Table**
+### Insert Data into the Encrypted Table
 
 After creating the table, insert data to see how it is stored in the encrypted tablespace.
 
@@ -355,7 +366,7 @@ INSERT INTO ets_test (id, data) VALUES (1, 'This is a secret!');
 COMMIT;
 ```
 
-**Verify Tablespace Encryption**
+### Verify Tablespace Encryption
 
 To confirm that the tablespace is indeed encrypted, query the DBA\_TABLESPACES or USER\_TABLESPACES views.
 
