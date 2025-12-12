@@ -5,7 +5,7 @@
 - ssh-log-forwarding
 - akeyless-connect
 - akeyless-scp
-- how-to-configure-ssh
+- sra-how-to-configure-ssh
 - secure-remote-access-bastion-docker
 - web-access-bastion-docker
 - basic-bastion
