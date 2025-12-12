@@ -1,7 +1,7 @@
 ---
 title: Folder Navigation within Personal & Corporate Areas
 excerpt: ''
-deprecated: false
+deprecated: true
 hidden: true
 metadata:
   title: ''
