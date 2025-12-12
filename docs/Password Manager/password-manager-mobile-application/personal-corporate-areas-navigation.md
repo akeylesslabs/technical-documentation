@@ -38,13 +38,21 @@ In general, the Personal Folder can be used to store any type of sensitive data 
 
 Here are some additional details about the Personal Folder:
 
-* The Personal Folder is created automatically for each user when they first log in to Akeyless.
 * The Personal Folder is located at the root of the Akeyless hierarchy, and is accessible to the user only.
 * The user can create subfolders within their Personal Folder to organize their secrets and keys.
 * The user can grant access to other users to specific secrets or keys in their Personal Folder.
 * The user can also revoke access to secrets and keys that they have granted to other users.
 
 The Personal Folder is a powerful tool that can help users to securely manage their personal secrets and keys. It is completely private and isolated from the user's Access Roles, making it ideal for storing sensitive data that the user does not want to share with others.
+
+### Enabling Personal Folders
+
+By default, Personal Folders are hiddens from users. An Administrator can enable them.
+
+1. Access the **Account Settings** menu.
+2. Access the **Item Settings** submenu.
+3. Locate the **Hide Personal Folder** setting.
+4. Toggle the button from enabled to disabled.
 
 ## Corporate Folder
 
