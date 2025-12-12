@@ -37,6 +37,8 @@ A deeper explanation of the architecture and its security properties is availabl
 
 Distributed Fragments Cryptography (DFC) is the cryptographic framework that enables the Vaultless architecture. Instead of storing full encryption keys, DFC divides key material into multiple independent fragments. No single system ever holds the complete key, and an optional customer-held fragment allows organizations to retain exclusive control over critical operations.
 
+[Read more about Distributed Fragments Cryptography (DFC).](doc:dfc-overview)
+
 ***
 
 ## Platform Components
@@ -49,6 +51,8 @@ Akeyless consists of several cooperating components:
 * **Client Tools** — The CLI, SDKs, and REST API used by applications and administrators to request identity operations.
 
 These components work together to enforce identity security with no requirement to store or reconstruct complete secrets or private keys.
+
+[Read morea about Akeyless' platform components.](doc:components)
 
 ***
 
