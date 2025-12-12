@@ -25,7 +25,7 @@ The following files will be used:
 
 Note that this guide assumes you already have a gateway, and will only refer to the `sra.env` file configuration.
 
-# Prerequisites
+## Prerequisites
 
 * [Docker Installed](https://docs.docker.com/engine/install/) (version `20.10` or higher).
 
@@ -35,7 +35,7 @@ Note that this guide assumes you already have a gateway, and will only refer to 
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_ username` allowed.
 
-## Deployment Overview
+### Deployment Overview
 
 The Docker Compose file defines the following services:
 
@@ -47,7 +47,7 @@ The Docker Compose file defines the following services:
 
 Each service runs within an isolated Docker bridge network (internal-net), ensuring secure internal communication.
 
-# Configuration
+## Configuration
 
 To deploy a gateway with the SRA utility, run the following steps:
 
