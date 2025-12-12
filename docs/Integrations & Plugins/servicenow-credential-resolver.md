@@ -15,7 +15,7 @@ This project provides a ServiceNow MID external credential resolver that retriev
 
 * ServiceNow instance (Quebec+ recommended) with Discovery and External Credentials enabled.
 * MID Server installed and connected to your instance.
-* Network access from the MID Server host to the Akeyless Gateway (default [https://api.akeyless.io](https://api.akeyless.io), or your private gateway URL).
+* Network access from the MID Server host to the Akeyless Gateway (default `https://api.akeyless.io`, or your private gateway URL).
 * An Akeyless Access ID and one of the supported authentication methods listed below.
 
 ## Supported Akeyless Authentication Methods
