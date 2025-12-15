@@ -91,10 +91,10 @@ Additional information about the available parameters can be found [here](https:
 
 # Installation
 
-To install the Gateway with the SRA utility, run the following command from the directory containing your configuration files:
+To install the Gateway with the SRA utility, run this command from the directory where your **Gateway** and **SRA** configuration files are located.
 
 ```shell
-docker compose --profile sra --profile gateway up -d
+docker compose --profile sra up -d
 ```
 
 In order to verify the installation, run:
