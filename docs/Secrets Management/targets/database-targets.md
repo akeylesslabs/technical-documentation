@@ -191,8 +191,6 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 **SSL:** Check to enable SSL, requires SSL certificate.
 
-**Advanced:**
-
 **DB Server Certificate:** Set of root certificate authorities in base64 encoding used by clients to verify server certificates.
 
 **DB Server Name:** The server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address
@@ -287,7 +285,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (Oracle)**.
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
 For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-**Connect Using:** Select how to connect to Oracle DB either using **Explicit Credentials**, or using  **Wallet**
+**Connect Using:** Select how to connect to Oracle DB either using **Explicit Credentials**, or using  **Wallet**.
 
 For **Explicit Credentials** provide the following:
 
@@ -309,7 +307,7 @@ To connect using **Wallet** provide the following:
 
 **SSO File:** Wallet SSO file
 
-**Wallet Login Type:** Select how to use the Wallet, either using **Password** or with **mTLS**
+**Wallet Login Type:** Select how to use the Wallet, either using **Password** or with **mTLS**.
 
 **DB Username:** Privilege database user name with sufficient rights to create users, relevant only for **Wallet Login Type** of Password.
 
@@ -345,8 +343,6 @@ Select **MongoDB** radio button.
 **Password:** Password of the database privilege user name.
 
 **Host and Port:** Target database hostname or IP address with port.
-
-**Advanced:**
 
 **Default Authentication DB:** MongoDB default authentication database.
 

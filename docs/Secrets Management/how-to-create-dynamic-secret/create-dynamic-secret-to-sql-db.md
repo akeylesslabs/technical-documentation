@@ -329,11 +329,11 @@ For example, the PostgreSQL database provides a `creation` statement that contro
 
 The following explains how to use **Creation** and **Revocation** statements in RDS and Cloud-Managed Databases:
 
-**Creation Statement**
+#### Creation Statement
 
 Please add the following to the creation statement `GRANT “{{name}}” TO postgres;`, where `postgres` refers to the `postgresql-username` variable.
 
-**Revocation Statement**
+#### Revocation Statement
 
 Standard **PostgreSQL** provides full superuser privileges, allowing complete cleanup of user-owned objects and active sessions before dropping a user.
 
@@ -346,8 +346,6 @@ The following is an example revocation statement for Postgres:
 
 
 > 📘 Info
->
-> **MySQL 8 Dynamic Secrets**
 >
 > For MySQL 8, modify the default `CREATE USER` statement to allow native MySQL password authentication.
 >

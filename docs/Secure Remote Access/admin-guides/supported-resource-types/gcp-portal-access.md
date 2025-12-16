@@ -46,7 +46,7 @@ To enable secure remote access to the GCP Portal you need:
 
 * `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s).
 
-**Secure Web Browsing (Isolated)**
+### Secure Web Browsing (Isolated)
 
 All secrets which have **Secure Web Browsing** option enabled are marked with a badge in the Akeyless Secure Remote Access Portal.
 

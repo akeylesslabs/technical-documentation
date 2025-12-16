@@ -38,7 +38,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 ![1024](https://files.readme.io/f31f1fe-image-20210204-103048.png "image-20210204-103048.png")
 
-**The following permissions required:**
+### Required Permissions
 
 <Table align={["left","left"]}>
   <thead>

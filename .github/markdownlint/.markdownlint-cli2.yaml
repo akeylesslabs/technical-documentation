@@ -22,7 +22,7 @@ config:
   # AKY003: Disallow bold-only pseudo-headings
   # Knobs:
   #   - severity: error|warning|info
-  AKY003: false
+  AKY003: true
 
   # AKY004: Require language identifiers on fenced code blocks
   # Knobs:
