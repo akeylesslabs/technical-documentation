@@ -101,9 +101,7 @@ kubectl get svc
 
 You will see the service name as `gw-akeyless-gateway`. The **External-IP** will be used to reach the Gateway from your browser.
 
-To start working with SRA, open your browser and log in using the following URL:
-
-* `http://<External-IP>:8000/sra/portal`
+To start working with SRA, open your browser and log in using the following URL: `http://<External-IP>:8000/sra/portal`
 
 You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC](https://docs.akeyless.io/docs/openid#/) or a [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication#/) authentication method.
 
