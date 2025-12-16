@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Kerberos authentication.
 
 <CLIGeneralFlags />
 
-### `Create`
+## `create`
 
 Creates a new Authentication Method object that will allow the user to authenticate using Kerberos
 
-#### Usage
+### Usage
 
 ```shell
 akeyless auth-method create kerberos \
@@ -28,7 +28,7 @@ akeyless auth-method create kerberos \
 --ldap-url ldap://ldap.domain.com:389
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: Auth Method name
 
@@ -86,11 +86,11 @@ akeyless auth-method create kerberos \
 
 `--unique-identifier`: A unique identifier (ID) value which is a "sub claim" name that contains details uniquely identifying that resource. This "sub claim" is used to distinguish between different identities.
 
-### `Update`
+## `update`
 
 Updates an Authentication Method object that will allow the user to authenticate using Kerberos
 
-#### Usage
+### Usage
 
 ```shell
 akeyless auth-method update kerberos \
@@ -101,7 +101,7 @@ akeyless auth-method update kerberos \
 --ldap-url ldap://ldap.domain.com:389
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: Auth Method name
 

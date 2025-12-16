@@ -14,9 +14,9 @@ The tokenization service is being enhanced to support batch processing for large
 
 The primary goal is to enhance the existing tokenization service by integrating a sophisticated batch processing system. This will include the introduction of a new "bulk" flag within the tokenize function, allowing users to transmit entire datasets for encryption in one go. The focus is on improving efficiency, reducing latency, and optimizing resource usage, especially for scenarios involving large datasets.
 
-### Enhancements to the Tokenize Function
+## Enhancements to the Tokenize Function
 
-**Bulk Input Capability**
+### Bulk Input Capability
 
 * Modification: The existing tokenize function will be updated to accept an array of data entries (or a similar bulk format) instead of processing single data entries individually.
 * Format: Data will be in a batch format such as
@@ -32,7 +32,7 @@ The primary goal is to enhance the existing tokenization service by integrating 
 
 A caching mechanism is being implemented to further improve the performance of the tokenization service, especially for handling the expected 1.5+ trillion operations per month.
 
-**Key Points**
+#### Key Points
 
 * Purpose: The cache is intended to handle frequently accessed tokens, reducing the need for repeated processing and further optimizing resource usage.
 * API Support: A single API call will be introduced for `tokenize-batch` and `detokenize-batch`. This will streamline batch operations, excluding normal `tokenize/detokenize` operations from caching.

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-### Introduction
+## Introduction
 
 Automatic migration allows importing static secrets into Akeyless from other identity security platforms. This feature is available as part of the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) functionality. Additionally, it is possible to configure migration via the Console, where each Gateway has its dedicated directory for managing the migration process.
 
-### Supported Platforms
+## Supported Platforms
 
 Currently, you can import static secrets from the following platforms:
 
@@ -26,7 +26,7 @@ Currently, you can import static secrets from the following platforms:
 * [HashiCorp Vault](https://docs.akeyless.io/docs/automatic-migration#hashicorp-vault)
 * [Kubernetes](https://docs.akeyless.io/docs/automatic-migration#kubernetes)
 
-### General Configuration
+## General Configuration
 
 The following options are available when importing secrets from other identity security platforms:
 
@@ -48,7 +48,7 @@ After the migration, new secrets will be available under the specified path. If 
 >
 > Before getting started, ensure that the platform where the secrets are stored is accessible over the network from the Akeyless Gateway server. Depending on the deployment, it might require adding an Akeyless Gateway IP address to a security group or a firewall.
 
-### 1Password
+## 1Password
 
 > 🚧 Deprecation Note
 >
@@ -60,15 +60,15 @@ You can choose the relevant `Vaults` you would like to migrate items from. comma
 
 To import the private vaults of your users into Akeyless Personal folder space, each user will have to run its own process using the Akeyless CLI command `gateway-migrate-personal-items`.
 
-### AWS Secrets Manager
+## AWS Secrets Manager
 
 To import secrets from AWS Secrets Manager, you need to provide access credentials of a user with sufficient permissions to get all secrets. The required configuration includes AWS Access Key ID, AWS Secret Access Key, and an AWS region.
 
-### Azure Key Vault
+## Azure Key Vault
 
 To import secrets from Azure Key Vault, you need to create an [Azure AD app with a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). Access credentials and the unique Key Vault name must be provided in the configuration dialog.
 
-### CSV Import
+## CSV Import
 
 To upload a CSV file containing passwords into your Akeyless, you will need to run the following command in the Akeyless CLI:
 
@@ -90,7 +90,7 @@ The main parameters for this command are:
 
 * `update`: Replacing any existing passwords with the same name as those in the import file. This ensures that existing passwords are updated with the latest information from the import file, it can potentially overwrite any changes made on the system since the last import.
 
-### GCP Secrets Manager
+## GCP Secrets Manager
 
 To import secrets from GCP Secrets Manager, you need to provide a GCP Service Account Key in the JSON format with sufficient permissions to get all secrets.
 
@@ -100,7 +100,7 @@ To import secrets from GCP Secrets Manager, you need to provide a GCP Service Ac
 >
 > The minimum required permissions to access the secret payload can be acquired from the Secret Manager Secret Accessor role (roles/secretmanager.secretAccessor).
 
-### HashiCorp Vault
+## HashiCorp Vault
 
 To import secrets from HashiCorp Vault into Akeyless, you need to create a new access token or use the existing one with sufficient permissions. You also need to provide a full URL of the HashiCorp Vault API server.
 
@@ -110,7 +110,7 @@ Akeyless supports migration from the `kv` storage engine of versions 1 and 2. Fo
 
 For all supported engines the following prefix structure will be used: `<vault-namespace>/<vault secret engine name>`
 
-### Kubernetes
+## Kubernetes
 
 Akeyless supports secrets migration from Kubernetes Secrets using Kubernetes API.
 
@@ -140,7 +140,7 @@ For any Kubernetes authentication method, the following options are available:
 
 **Password authentication:** For servers that allow username/password authentication, use Password authentication method
 
-Full parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-migrations).
+[Read more about command parameters.](https://docs.akeyless.io/docs/cli-reference-migrations)
 
 ## Tutorials
 

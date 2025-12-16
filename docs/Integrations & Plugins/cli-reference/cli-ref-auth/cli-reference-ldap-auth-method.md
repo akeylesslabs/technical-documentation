@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to LDAP authentication.
 
 <CLIGeneralFlags />
 
-### `Create`
+## `create`
 
 Creates a new Authentication Method object that will allow the user to authenticate using LDAP
 
-#### Usage
+### Usage
 
 ```shell
 akeyless auth-method create ldap \
@@ -26,7 +26,7 @@ akeyless auth-method create ldap \
 --public-key-file-path <Path\To\Public\Key>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Auth method name
 
@@ -54,11 +54,11 @@ akeyless auth-method create ldap \
 
 `--gen-key[=true]`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
 
-### `Update`
+## `update`
 
 Update a new Auth Method that will be able to authenticate using LDAP
 
-#### Usage
+### Usage
 
 ```shell
 akeyless update-auth-method-ldap \
@@ -67,7 +67,7 @@ akeyless update-auth-method-ldap \
 --public-key-file-path <Public/Key/Path>
 ```
 
-##### Flags
+### Flags
 
 `--new-name`: Auth Method new name
 
@@ -97,11 +97,11 @@ akeyless update-auth-method-ldap \
 
 `--gen-key`: Automatically generate key-pair for LDAP configuration. If set to false, a public key needs to be provided
 
-#### `Gateway-update-ldap-auth-config`
+## `gateway-update-ldap-auth-config`
 
 Updates LDAP Auth config
 
-##### Usage
+### Usage
 
 ```shell
 akeyless gateway-update-ldap-auth-config \
@@ -112,7 +112,7 @@ akeyless gateway-update-ldap-auth-config \
 --ldap-ca-cert <LDAP CA Certificate (base64 encoded)>
 ```
 
-##### Flags
+### Flags
 
 `--ldap-enable`: Enabling ldap authentication
 
@@ -150,18 +150,18 @@ akeyless gateway-update-ldap-auth-config \
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
-### `Get`
+## `get`
 
 Gets Ldap Auth config from Gateway
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway-get-ldap-auth-config \
 --gateway-url <API Gateway URL (Configuration Management port)>
 ```
 
-##### Flags
+### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
