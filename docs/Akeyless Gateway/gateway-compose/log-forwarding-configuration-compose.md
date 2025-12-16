@@ -36,7 +36,7 @@ TARGET_SYSLOG_TLS_CERTIFICATE:"<BASE64 PEM ENCODED CERT>"
 >
 > Default format: `<date > <time> <host name> <log level> <message>`.
 >
-> The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF**  format.
+> The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF** format.
 
 ### Splunk
 

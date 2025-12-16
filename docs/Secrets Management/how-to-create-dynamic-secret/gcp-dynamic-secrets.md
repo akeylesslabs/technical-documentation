@@ -190,7 +190,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Use the **Choose an existing target** drop-down list to select the existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-  * Check the **Explicitly specify target properties**  to provide details of the GCP target in the next step.
+  * Check the **Explicitly specify target properties** to provide details of the GCP target in the next step.
 
 * **Fixed SA:** A fixed Service Account. with **Service Account  Email** to create JIT Keys/Tokens for.
 

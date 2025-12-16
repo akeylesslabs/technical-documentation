@@ -12,7 +12,7 @@ next:
 ---
 By default, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)  is generated using a randomly assigned username. This is well-suited for ephemeral access scenarios where short-lived, unique credentials are preferred.
 
-However, in cases where you need to use a **custom**  or **predefined** username, for example, to align with existing identities or to integrate with external systems that require consistent naming, you can define a [template](https://pkg.go.dev/text/template) using the supported Go functions listed below.
+However, in cases where you need to use a **custom** or **predefined** username, for example, to align with existing identities or to integrate with external systems that require consistent naming, you can define a [template](https://pkg.go.dev/text/template) using the supported Go functions listed below.
 
 > 👍 Note
 >
@@ -64,7 +64,7 @@ If the field is not recognized, the system will attempt to retrieve it from [Sub
 
 ## Examples
 
-1. **Unique Identifier**  with random suffix:
+1. **Unique Identifier** with random suffix:
 
 ```shell
 user-{{.UniqueIdentifier}}-{{ random 4 }}

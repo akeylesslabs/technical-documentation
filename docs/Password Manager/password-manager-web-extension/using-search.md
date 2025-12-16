@@ -24,7 +24,7 @@ Website URL (Hover Feature): For an enhanced user experience, hovering over a se
 
 ###
 
-**Search Results Display**  
+**Search Results Display**
 When your search yields results, the Akeyless Password Manager web browser extension ensures that certain key fields are always visible to you:
 
 * Password/Secret Name: This is always displayed, making it straightforward to identify the specific credential you're after.
@@ -34,7 +34,7 @@ When your search yields results, the Akeyless Password Manager web browser exten
 
 
 
-**Using the Search Bar**  
+**Using the Search Bar**
 To utilize this enhanced search functionality, follow these steps:
 
 1. Click on the search bar located at the top of either the Personal or Corporate Area.

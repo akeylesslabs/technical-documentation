@@ -77,31 +77,31 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Define the remaining settings as follows:
 
-* **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
+  * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) to be associated with the Rotated Secret.
+  * **Target:** Defines the name of the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) to be associated with the Rotated Secret.
 
-* **Rotator type:** Determines the rotator type:
-  * **Service Account**: Rotates the Key defined inside the Rotated Secret item.
-  * **Target**: Rotates the Key defined inside the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
+  * **Rotator type:** Determines the rotator type:
+    * **Service Account**: Rotates the Key defined inside the Rotated Secret item.
+    * **Target**: Rotates the Key defined inside the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
 
-* **Authenticate with the following credentials:** Determines how to connect to the target GCP account:
-  * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
+  * **Authenticate with the following credentials:** Determines how to connect to the target GCP account:
+    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+    * **Target credentials:** Use the credentials defined inside the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
 
-> 👍 Note
->
-> Select **Target credentials** if the Rotated Secret Service Account is not authorized to change their own Key, and a privileged user, like the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) Service Account, is required to change the Key on behalf of the Rotated Secret user.
+  > 👍 Note
+  >
+  > Select **Target credentials** if the Rotated Secret Service Account is not authorized to change their own Key, and a privileged user, like the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) Service Account, is required to change the Key on behalf of the Rotated Secret user.
 
-* **SA Credentials:** Relevant only for Service Account Rotator Type, provide the exact Key to rotate.
-* **SA Details:** Relevant only for Service Account Rotator Type, provide the Service Account details in order to rotate the Service Account Key, **SA Email** , and  **SA Key ID**.  **Note** When **Key ID**  is not provided, upon successful creation, a new Key will be automatically created for the relevant Service Account, and upon deletion of the Rotated Secret, the Service Account Key will be deleted from GCP as well.
-* **Gateway:** Select the Gateway through which the secret will be rotated.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
-* **Graceful Rotation:**  When enabled, a graceful mode of rotation will be conducted, where only the older Service Account Key will be rotated. When there is only one Key, a new version will be created to maintain 2 keys at the same time.
-* **Auto rotate:** Determines if automatic rotation is enabled.
-* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic Access Key rotations when **Auto Rotate** is enabled.
-* **Rotation hour (local time zone):** Defines the time when the Access Key should be rotated if **Auto Rotate** is enabled.
-* **Graceful Rotation Interval (in days):**  Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
-* **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+  * **SA Credentials:** Relevant only for Service Account Rotator Type, provide the exact Key to rotate.
+  * **SA Details:** Relevant only for Service Account Rotator Type, provide the Service Account details in order to rotate the Service Account Key, **SA Email** , and  **SA Key ID**.  **Note** When **Key ID** is not provided, upon successful creation, a new Key will be automatically created for the relevant Service Account, and upon deletion of the Rotated Secret, the Service Account Key will be deleted from GCP as well.
+  * **Gateway:** Select the Gateway through which the secret will be rotated.
+  * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment.
+  * **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older Service Account Key will be rotated. When there is only one Key, a new version will be created to maintain 2 keys at the same time.
+  * **Auto rotate:** Determines if automatic rotation is enabled.
+  * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic Access Key rotations when **Auto Rotate** is enabled.
+  * **Rotation hour (local time zone):** Defines the time when the Access Key should be rotated if **Auto Rotate** is enabled.
+  * **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
+  * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

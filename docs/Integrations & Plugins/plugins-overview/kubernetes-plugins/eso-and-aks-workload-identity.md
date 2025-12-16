@@ -125,7 +125,7 @@ spec:
             key: accessTypeParam
 ```
 
-**Important:**  
+**Important:**
 Do **not** use `serviceAccountRef` in the SecretStore when using `accessType: azure_ad`.  
 Identity selection happens only through the `ServiceAccount` set on the `ExternalSecret`.
 

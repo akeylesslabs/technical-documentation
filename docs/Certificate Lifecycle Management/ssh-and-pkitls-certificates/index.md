@@ -16,11 +16,11 @@ next:
 ---
 ## Introduction
 
-Akeyless can act as a Certificate Authority (CA) for the internal environment. This page focuses on PKI Cert Issuer, if you wish to see how to create and work with SSH certificates, please follow this [link](https://docs.akeyless.io/docs/ssh-certificates).
+Akeyless can act as a Certificate Authority (CA) for the internal environment. This page focuses on PKI Cert Issuer, [read more about how to create and work with SSH certificates](https://docs.akeyless.io/docs/ssh-certificates).
 
 To start building your chain of trust using Akeyless PKI Issuer, you can either bring your own CA certificate with the signing RSA key or simply generate your CA certificate as part of the signing key creation.
 
-Using the PKI Issuer templates alongside the defined constraints enables maximum security with common PKI use cases, for example, limiting a PKI Issuer to accept issuance requests of specific key types and algorithms for example **RSA4096**  for specific **Allowed Domains** while templating the resulted certificate to use a specific list of **Key Usage** with a well defined **Location** settings.
+Using the PKI Issuer templates alongside the defined constraints enables maximum security with common PKI use cases, for example, limiting a PKI Issuer to accept issuance requests of specific key types and algorithms for example **RSA4096** for specific **Allowed Domains** while templating the resulted certificate to use a specific list of **Key Usage** with a well defined **Location** settings.
 
 In case you want to use your existing key, upload your RSA private key with the matching certificate for signing intermediate CA or leaf certificates based on your chain of trust, using the following command:
 
@@ -247,7 +247,7 @@ Creating a CA private key and root certificate to build your chain of trust:
 
 * **Allowed URI sans:** Specify the allowed URI for the certificates issued.
 
-4. The description for the advanced and location parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp).
+4. [Read more about the descriptions of advanced and location parameters.](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp).
 
 ### Issuing a Certificate
 

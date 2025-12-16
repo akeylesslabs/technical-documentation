@@ -78,7 +78,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Authenticate with the following credentials:** Determines how to connect to the target server:
   * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:**  Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
+  * **Target credentials:** Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
 
 > 👍 Note
 >

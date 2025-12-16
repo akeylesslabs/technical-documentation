@@ -40,7 +40,7 @@ Where:
 
 * `imap-username`: An email address of the user registered to the IMAP service. This is either the same as `imap-validation-email` or a forward email address of  `imap-validation-email` if the domain does not have native email forwarding feature.
 
-* `imap-password`: **IMAP APP-Password** - for example, on **Gmail**  Under **Settings-> Security** , click on **2-Step Verification**, and generate **APP-Password** (2-Step verification must be enabled)
+* `imap-password`: **IMAP APP-Password** - for example, on **Gmail**, under **Settings-> Security** , click on **2-Step Verification**, and generate **APP-Password** (2-Step verification must be enabled)
 
 * `imap-fqdn`: IMAP FQDN, for example: `imap.gmail.com`
 
@@ -65,7 +65,7 @@ You can find the complete list of parameters for this command in the [CLI refere
 
 * **IMAP Username:** An email address of the user registered to the IMAP service
 
-* **IMAP Password:** **IMAP APP-Password**, for example, on **Gmail**  Under **Settings -> Security**, click on **2-Step Verification** and generate **APP-Password** (2-Step verification must be enabled)
+* **IMAP Password:** **IMAP APP-Password**, for example, on **Gmail**, under **Settings -> Security**, click on **2-Step Verification** and generate **APP-Password** (2-Step verification must be enabled)
 
 * **IMAP FQDN:** A FQDN of an IMAP service, For example, `imap.gmail.com`
 

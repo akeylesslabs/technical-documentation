@@ -16,7 +16,7 @@ next:
 >
 > A new and updated chart is soon to be released.
 
-The Akeyless Secure Remote Access Bastion provides secure remote access to resources using Just In Time credentials (dynamic, rotated secrets, and SSH certificates). This guide provides guidance for a **Docker** deployment of Akeyless Secure Remote Access Bastions both **Web-bastion**  and **SSH-bastion**.
+The Akeyless Secure Remote Access Bastion provides secure remote access to resources using Just In Time credentials (dynamic, rotated secrets, and SSH certificates). This guide provides guidance for a **Docker** deployment of Akeyless Secure Remote Access Bastions both **Web-bastion** and **SSH-bastion**.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ The Akeyless Secure Remote Access Bastion provides secure remote access to resou
 
 * At least 1 vCPU available with 1 GB RAM per Docker container.
 
-\***\*Network\*\***
+### Networking
 
 * Make sure to use sticky session.
 
@@ -36,7 +36,7 @@ When using SSH sessions behind a load balancer such as AWS ELB, the session can 
 
 e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-\***\*Storage\*\***
+### Storage
 
 Currently, this setup requires a **Volume** storage mechanism of [Docker](https://docs.docker.com/storage/volumes/).
 

@@ -36,7 +36,7 @@ To enable and configure the Gateway Cache:
 
 3. Select the **Enable Caching** checkbox.
 
-4. Set the **Stale Timeout**  value. This is the time (in minutes) during which a secret should be kept in the cache. The secret is deleted from the cache at the end of this period. By default, cached secrets will expire after 60 minutes.
+4. Set the **Stale Timeout** value. This is the time (in minutes) during which a secret should be kept in the cache. The secret is deleted from the cache at the end of this period. By default, cached secrets will expire after 60 minutes.
 
 5. Click **Save Changes**.
 

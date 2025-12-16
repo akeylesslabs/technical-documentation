@@ -13,7 +13,7 @@ next:
 Akeyless supports multiple options to authenticate your K8s cluster with Akeyless platform:
 
 * **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/kubernetes-auth)**
-* **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)**  Not supported by the External Secret Operator (ESO).
+* **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)** Not supported by the External Secret Operator (ESO).
 * **[API Key](https://docs.akeyless.io/docs/api-key)**
 * Cloud Authentication:
   * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/azure-ad)**
