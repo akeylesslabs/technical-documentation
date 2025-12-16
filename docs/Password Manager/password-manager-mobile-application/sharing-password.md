@@ -14,7 +14,7 @@ Akeyless Password Manager allows you to securely share passwords with others. Th
 
 <Image align="right" width="150px" src="https://files.readme.io/5308eb5-Screenshot_2024-03-20_at_10.47.42.png" />
 
-**To share a password:**
+## To Share a Password
 
 Open the Akeyless Password Manager application.
 

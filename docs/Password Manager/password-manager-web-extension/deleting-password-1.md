@@ -12,7 +12,7 @@ next:
 ---
 There are two ways to delete passwords and secrets using the Akeyless Password Manager web browser extension:
 
-### Method 1: Using the Quick Action Menu
+## Method 1: Using the Quick Action Menu
 
 <Image align="right" width="200px" src="https://files.readme.io/62cf452-Screenshot_2024-01-10_at_16.46.49.png" />
 
@@ -32,7 +32,7 @@ The password or secret will be deleted.
 
 <Image align="right" width="200px" src="https://files.readme.io/cc914f5-Screenshot_2024-01-10_at_16.47.07.png" />
 
-### Method 2: Using the Delete Action Button
+## Method 2: Using the Delete Action Button
 
 Open the password or secret item you want to delete.
 
@@ -46,6 +46,6 @@ Click on the "Delete" button.
 
 The password or secret will be deleted.
 
-### Additional Note
+## Additional Note
 
 Once a password or secret is deleted, it cannot be recovered.

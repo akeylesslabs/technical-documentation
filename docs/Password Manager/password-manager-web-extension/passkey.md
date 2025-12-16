@@ -10,13 +10,11 @@ metadata:
 next:
   description: ''
 ---
-### Passkey Management Overview
+## Passkey Management Overview
 
 This documentation provides an overview of the Passkey management system, including how to view passkey details, use a passkey for login, and create a new passkey. The instructions below describe the key functionalities and flow for managing passkeys.
 
-
-
-### Viewing Passkey Details
+## Viewing Passkey Details
 
 The Passkey Details section allows users to view information about their saved passkeys.
 
@@ -28,9 +26,7 @@ The Passkey Details section allows users to view information about their saved p
 * Related Website: The website the passkey is linked to for login.
 * Option to Delete Passkey: Allows users to remove the passkey from the system.
 
-
-
-### Using a Passkey for Login
+## Using a Passkey for Login
 
 The following steps guide users on how to log in using an existing passkey for a supported website:
 
@@ -48,9 +44,7 @@ The following steps guide users on how to log in using an existing passkey for a
 
 * Go to the website → Try to sign in → If passkey exists → Show available passkeys.
 
-
-
-### Creating a New Passkey
+## Creating a New Passkey
 
 Users can create a new passkey for a supported website. Follow the steps below to generate and save a passkey within the system.
 

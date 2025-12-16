@@ -22,9 +22,8 @@ Username: If you're looking for a password or secret associated with a specific 
 
 Website URL (Hover Feature): For an enhanced user experience, hovering over a search result will reveal the website URL associated with each password or secret, provided this information exists. This feature is especially useful when you need to differentiate between multiple accounts held on the same platform.
 
-###
+## Search Results Display
 
-**Search Results Display**
 When your search yields results, the Akeyless Password Manager web browser extension ensures that certain key fields are always visible to you:
 
 * Password/Secret Name: This is always displayed, making it straightforward to identify the specific credential you're after.
@@ -32,9 +31,8 @@ When your search yields results, the Akeyless Password Manager web browser exten
 
   Additionally, the username associated with each password or secret will be displayed by default. However, for a deeper insight, simply hover over an item to switch this display to the website URL, if such information is available. This dual-display functionality enriches your search experience by providing contextual information that can help you better manage your credentials.
 
+## Using the Search Bar
 
-
-**Using the Search Bar**
 To utilize this enhanced search functionality, follow these steps:
 
 1. Click on the search bar located at the top of either the Personal or Corporate Area.

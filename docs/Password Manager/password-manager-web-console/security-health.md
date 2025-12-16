@@ -16,10 +16,6 @@ The Security Health Dashboard provides users with an overview of the strength an
 
 ![](https://files.readme.io/c51dd3e02752d51b5d79e21377a2cc21270b2bb98962f694dacc5674b4347a87-Screenshot_2024-09-21_at_7.32.19.png)
 
-
-
-
-
 ## Dashboard Layout
 
 1. **Upper Section: Gauges**\
@@ -38,8 +34,6 @@ The Security Health Dashboard provides users with an overview of the strength an
 * Suggestion: Provides recommendations for improving password strength.
 * Last Updated: The date when the password was last changed.
 
-
-
 ## Enhanced Filtering Options
 
 Users can apply filters to view specific types of passwords:
@@ -48,8 +42,6 @@ Users can apply filters to view specific types of passwords:
 * Filter by Breached Passwords: Filters the list to show passwords that have appeared in known breaches.
 * Filter by Update Required Passwords: Filters passwords that need to be updated based on their age or vulnerability.
 
-
-
 ## Toggle for Password Score Feature
 
 A toggle button has been added to allow users to enable or disable the password score feature in their account settings:
@@ -57,8 +49,6 @@ A toggle button has been added to allow users to enable or disable the password 
 * **Toggle Button:** Located under "Password Management," the button controls whether the password score is displayed.
 * **Default Setting:** The feature is disabled by default.\
   Functionality: When enabled, password scores are calculated and displayed; when disabled, scores are hidden.
-
-
 
 ## Compromised Password Check
 

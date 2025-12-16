@@ -10,7 +10,8 @@ metadata:
 next:
   description: ''
 ---
-**As an Admin**, the Akeyless Password Manager Console provides a comprehensive overview of all user accounts, roles, and permissions within the organization. This centralized hub enables you to efficiently manage user access privileges, define granular permissions, and enforce security policies.
+## As an Admin
+The Akeyless Password Manager Console provides a comprehensive overview of all user accounts, roles, and permissions within the organization. This centralized hub enables you to efficiently manage user access privileges, define granular permissions, and enforce security policies.
 
 The console also offers powerful tools for auditing and monitoring user activity, ensuring that your organization's password management practices adhere to compliance requirements. Additionally, the console's intuitive interface facilitates seamless integration with third-party systems, such as CI/CD pipelines and IT service management (ITSM) platforms.
 
@@ -22,7 +23,8 @@ Here are some of the key features of the Akeyless Password Manager Console for a
 * Role-based access control (RBAC): Define granular permissions and assign roles to users based on their specific needs.
 * Security policies: Implement and enforce security policies, such as password rotation and multi-factor authentication (MFA).
 
-**As a User**, the Akeyless Password Manager Console provides a convenient and secure way to store, manage, and access your passwords. The console's intuitive interface makes it easy to create, edit, and delete passwords, as well as organize them into folders and categories.
+## As a User
+The Akeyless Password Manager Console provides a convenient and secure way to store, manage, and access your passwords. The console's intuitive interface makes it easy to create, edit, and delete passwords, as well as organize them into folders and categories.
 
 The console also offers a variety of features to help you strengthen your password security, such as password generation, password rotation, and password sharing. Additionally, the console integrates with the Akeyless browser extension, allowing you to automatically inject saved passwords into websites with ease.
 

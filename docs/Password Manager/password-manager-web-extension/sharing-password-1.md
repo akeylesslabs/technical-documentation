@@ -10,25 +10,19 @@ metadata:
 next:
   description: ''
 ---
-### Method 1: Using the Quick Action Menu
+## Sharing a Password with the Quick Action Menu
 
 <Image align="right" width="200px" src="https://files.readme.io/264d287-Screenshot_2024-01-10_at_16.44.54.png" />
 
-Hover over the password or secret you want to share in the password or secrets list.
+1. Hover over the password or secret you want to share in the password or secrets list. A small menu will appear.
 
-A small menu will appear.
+2. Click on the "Share" option. A share window will appear.
 
-Click on the "Share" option.
+3. Enter the email address of the person you want to share the password or secret with.
 
-A share window will appear.
+4. Select for how long the sharing link will be valid.
 
-Enter the email address of the person you want to share the password or secret with.
-
-Select for how long the sharing link will be valid.
-
-Click on the "Get Link to Share" button.
-
-The link to share will be copied to your clipboard.
+5. Click on the "Get Link to Share" button. The link to share will be copied to your clipboard.
 
 You can then paste the link into an email or other message to send to the person you want to share the password or secret with.
 
