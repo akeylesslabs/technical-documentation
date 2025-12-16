@@ -40,7 +40,7 @@ akeyless dynamic-secret update k8s \
 where:
 
 * **secure-access-certificate-issuer:** Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication..
-* **secure-access-cluster-endpoint:**  The Kubernetes cluster endpoint URL.
+* **secure-access-cluster-endpoint:** The Kubernetes cluster endpoint URL.
 * **secure-access-allow-port-forwading:** Optional, allows running non-interactive kubectl commands, such as: exec / port-forward / etc. Also allows using the --watch flag (-w), for example.
 
 For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) you can have secure remote access for your Kubernetes dashboard URL:

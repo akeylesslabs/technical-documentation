@@ -14,7 +14,7 @@ In this guide, we will configure settings in the `gateway.env` file. This file h
 
 ## Cluster Name & URL
 
-Each Gateway instance is uniquely identified by combining the **Gateway Access ID**  Authentication Method and the **Cluster Name**.
+Each Gateway instance is uniquely identified by combining the **Gateway Access ID** Authentication Method and the **Cluster Name**.
 
 It means that changing the Gateway **Access ID** or the **Cluster Name** of your Gateway instance will create an entirely new Gateway instance, and it will not retrieve the settings and data from the previous Gateway instance.
 

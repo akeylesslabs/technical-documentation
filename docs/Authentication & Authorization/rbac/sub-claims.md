@@ -98,7 +98,7 @@ This means that `Alice` will get `read` permissions under`/Engineering/Alice/*`,
 
 > 👍 Note
 >
-> Templating Access **Rules**  supports Access **Role** case-sensitive settings.
+> Templating Access **Rules** supports Access **Role** case-sensitive settings.
 
 ## View Sub-Claims
 

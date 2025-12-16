@@ -106,7 +106,7 @@ Where:
 
 * `enable-acme`: Enable  **ACME Server**.
 
-Upon successful creation,  the generated **ACME Server**  URL will use the following format:
+Upon successful creation,  the generated **ACME Server** URL will use the following format:
 
 `https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory`
 
@@ -123,7 +123,7 @@ Alternatively, you can extract the full **ACME Server** URL from the console.
 
 **External Account Binding**, defined in the [ACME Protocol RFC 8555](https://datatracker.ietf.org/doc/html/rfc8555/#section-7.3.4), is a feature that improves the security of certificate issuance by connecting certificate requests to specific accounts. This ensures that only authorized clients can request and receive certificates for those accounts, making the process much safer.
 
-Run the following command to generate an external account binding token which will be restricted for one-time use and valid only for **1 Hour**  for the registration of a new client:
+Run the following command to generate an external account binding token which will be restricted for one-time use and valid only for **1 Hour** for the registration of a new client:
 
 ```shell
 akeyless generate-acme-eab \
