@@ -30,8 +30,6 @@ Field Name: The field name should be labeled "otpauth" for OTP-based secrets.
 
 Input Secret: Enter the OTPAuth secret string into the "Field Name Value" box (as shown in the first screenshot). Once entered, it will be stored and ready to use for authentication.
 
-
-
 <Image align="center" width="1px" src="https://files.readme.io/31a69fb27196aa64ab36b2f9023c35cd3ed646c1c88e90f01b21c371a3274e49-Screenshot_2024-10-07_at_11.55.12.png" />
 
 <Image align="left" width="200px" src="https://files.readme.io/482c2db0fdfdf2a6dbed1c834403f289e5412806f56bcaf335ba380a8390c6b6-Screenshot_2024-10-07_at_11.55.12.png" />
