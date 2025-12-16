@@ -89,7 +89,7 @@ Additional information about the available parameters can be found [here](https:
 
 Additional information about the available parameters can be found [here](https://github.com/akeylesslabs/docker-compose/blob/main/cache.env).
 
-# Installation
+## Installation
 
 To install the Gateway with the SRA utility, run this command from the directory where your **Gateway** and **SRA** configuration files are located.
 
@@ -113,7 +113,7 @@ Upon successful installation, you will see 4 containers:
 
 * `akeyless-cache`
 
-# SRA Access
+## SRA Access
 
 To start working with SRA, open your browser and log in using the following URL:
 

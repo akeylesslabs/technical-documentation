@@ -192,14 +192,14 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
       - --key-file-name=/path/to/key.pem
     ```
 
-# Accessibility
+## Accessibility
 
 * Ensure headings follow a logical hierarchy.
 * Provide alt-text for images.
 * Avoid color as the only means of conveying meaning.
 * Use descriptive link text instead of "click here."
 
-## Localization and Translation
+### Localization and Translation
 
 * **Keep sentences simple and clear**: Short sentences are easier to translate and less likely to create ambiguity.
 * **Avoid fragments**: Sentence fragments are harder to translate; therefore, wherever possible, write in complete sentences.
@@ -213,7 +213,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * **Avoid embedded text in images**: Avoid text in diagrams presented as images. Instead, use Mermaid diagrams or move the text to a caption. If labels or text must appear in graphics, provide separate source files for easy translation.
 * **Provide context for placeholders**: If using variables like `{username}` or `{path}`, describe their expected format so translation can adjust grammar as needed.
 
-# Review Process
+## Review Process
 
 * If possible, have Harrison ([harrison.s@akeyless.io](mailto:harrison.s@akeyless.io)) review all content.
 * Verify technical accuracy.
