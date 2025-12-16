@@ -12,11 +12,11 @@ next:
 ---
 The Akeyless Gateway is a stateless Docker container, provided as a standalone or cluster. In order for the Akeyless Gateway to function properly, it requires public network connectivity to the Akeyless SaaS CORE.
 
-**Docker**  
+**Docker**
 A basic deployment would preferably require a Linux Server (VM) with Docker Engine installed.  
 You may download the latest docker engine on [Docker website](https://docs.docker.com/get-docker/).
 
-**Network connectivity**
+**Network Connectivity**
 
 1. Network access to pull a docker image from: [https://hub.docker.com](https://hub.docker.com)
 2. Outgoing network access to Akeyless SaaS Core Services via the following URLs:
@@ -328,7 +328,7 @@ Profile ldap successfully configured
 
 > 🚧 Warning
 >
-> **No validation of credentials**  
+> **No validation of credentials**
 > If you don’t enter the correct credentials, the CLI will not give you an error message, and it will just tell you that everything is configured. You will only receive an error message when you attempt to run commands.
 
 At the prompt `Would you like to add AKEYLESS-CLI to PATH (...)? (Y/n)` line, type `Y`.

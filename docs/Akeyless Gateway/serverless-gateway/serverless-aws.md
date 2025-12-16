@@ -152,7 +152,7 @@ aws_lambda_function = "arn:aws:lambda:<region>:<aws-acct-id>:function:<your-serv
 repository_url = "<aws-acct-id>.dkr.ecr.<region>.amazonaws.com/<your>-serverless-gateway-repo-for-lambda"
 ```
 
-**Note:**  If the Akeyless Serverless Gateway settings need to be updated after installation, edit the relevant values in the [Terraform files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway) and run `terraform apply`.
+**Note:** If the Akeyless Serverless Gateway settings need to be updated after installation, edit the relevant values in the [Terraform files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway) and run `terraform apply`.
 
 ## Additional Gateway Configuration
 

@@ -98,10 +98,10 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
 * **Security**: Ensure that the Kubernetes cluster is secured following best practices, including network segmentation, pod security policies, and regular security audits.
 
-* **Network**  
+* **Network**
   Long SRA sessions (SSH/RDP/Web) might be cut off early by default LB/Ingress timeouts. Set your LB/Ingress idle/response timeout ≥ your intended session TTL (e.g., 15-60 minutes):
 
-  * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is 30s. Increase via BackendConfig (or GCPBackendPolicy) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. See vendor information [here](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration?utm_source=chatgpt.com)
+  * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is 30s. Increase via BackendConfig (or GCPBackendPolicy) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration?utm_source=chatgpt.com)
 
   * **AWS (EKS / Elastic Load Balancing)** - ALB (HTTP/HTTPS): Default idle timeout = 60s. Set higher using LB attributes; with AWS Load Balancer Controller use: alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600 (example = 10m). See vendor information [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html?utm_source=chatgpt.com)
 
