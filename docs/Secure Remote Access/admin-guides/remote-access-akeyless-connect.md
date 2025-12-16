@@ -190,9 +190,9 @@ Full options list:
     --no-creds-cleanup[=false]         Do not clean local temporary expired creds
 ```
 
-### Examples
+## Examples
 
-**SSH:**
+### SSH
 
 For SSH access through the SSH component, please use both the `-g <gw-ssh-url>` and `-c <cert-issuer-name>` options. Note that end-users require `read` permission on the cert issuer item which enables them access to the service.
 
@@ -204,7 +204,7 @@ akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert
 >
 > For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert-issuer-name` for the **other** cert-issuer. This will enable access through the bastion based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
 
-**AWS:**
+### AWS
 
 ```shell Akeyless CLI
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
@@ -216,25 +216,25 @@ In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` f
 akeyless connect -t us-east-1 -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
-**MongoDB:**
+### MongoDB
 
 ```shell Akeyless CLI
 akeyless connect -t <mongo server IP>:27017 -g <gw-ssh-url>:<port> -n "<Path to MongoDB Dynamic Secret>"
 ```
 
-**MySQL:**
+### MySQL
 
 ```shell Akeyless CLI
 akeyless connect -t <mysql-server>:3306 -g <gw-ssh-url>:<port> -n "<Path to MySQL Dynamic Secret>"
 ```
 
-**EKS:**
+### Amazon EKS
 
 ```shell Akeyless CLI
 akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -g <gw-ssh-url>:<port> -n "<Path to EKS Dynamic secret>"
 ```
 
-**Non-interactive connection to K8s:**
+### Non-interactive connection to Kubernetes
 
 Linux:
 

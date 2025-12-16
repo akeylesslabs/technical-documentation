@@ -455,13 +455,13 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
 5. Select your Service Account mode, **Fixed** or **Dynamic**, and fill in the following parameters:
 
-**For Fixed Mode**
+*For Fixed Mode:*
 
 * **Service Account:** The name of the Kubernetes Service Account to generate the tokens for.
 
 * **Namespace:** The namespace of the Kubernetes Service Account.
 
-**For Dynamic Mode**
+*For Dynamic Mode:*
 
 * **Role Bindings:** A YAML file describing the Role, and Role Binding parameters.
 
@@ -606,7 +606,7 @@ Generate a single `kubeconfig` file that aggregates all of your allowed Kubernet
 
 The CLI command is `akeyless kubeconfig-generate`
 
-**Options**
+### Options
 
 * `n, --name` - List of Dynamic Secret names (repeatable)
 * `t, --tag` - A single tag attached to Dynamic Secrets

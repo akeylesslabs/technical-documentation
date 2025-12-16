@@ -47,7 +47,7 @@ akeyless rotated-secret update windows \
 --rotate-after-disconnect <true|false>
 ```
 
-where:
+Where:
 
 * **secure-access-host:** The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret. For multiple values repeat this flag.
 * **secure-access-rdp-domain:** Optional, only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.

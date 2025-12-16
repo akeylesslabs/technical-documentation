@@ -26,7 +26,7 @@ To provide access to the Akeyless Platform from Azure AD, create a **Registratio
 
 To create a Service Account in your Azure AD, follow the guide on [how to create an Application Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) in Azure Active Directory.
 
-**Required Permissions by Action Type:**
+### Required Permissions by Action Type
 
 | Action                           | Permissions                                                                | Usage                                     |
 | :------------------------------- | :------------------------------------------------------------------------- | :---------------------------------------- |
@@ -35,7 +35,7 @@ To create a Service Account in your Azure AD, follow the guide on [how to create
 | Add user role                    | RoleManagement.ReadWrite.Directory                                         | Ephemeral Azure Web Portal Credentials    |
 | Create\Delete Application secret | Application.ReadWrite.OwnedBy, Application.ReadWrite.All                   | Ephemeral Azure Service Principal Secrets |
 
-**Entra ID Custom Roles**
+### Entra ID Custom Roles
 
 [Custom roles](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/custom-create?tabs=admin-center) in Entra ID allow you to define specific [permissions](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/custom-available-permissions) for users or groups. These roles help control access to resources and actions, ensuring users have only the permissions they need for their tasks.
 
