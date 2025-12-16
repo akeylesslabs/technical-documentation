@@ -13,9 +13,9 @@ In this guide, we will deploy SRA using the most basic configuration on a K8s cl
 
 * Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_`  username allowed.
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_`  username .
 
-* Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion- `ztbConfig` section and the SSH bastion under `sshConfig`.
+* Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion `ztbConfig` section and the SSH bastion under `sshConfig`.
 
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your cluster.
 
