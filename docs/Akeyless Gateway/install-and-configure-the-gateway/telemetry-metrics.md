@@ -134,7 +134,7 @@ service:
       exporters: [loki]
 ```
 
-Where the new **Loki**  `endpoint`  is set with a new `service` for logs, using `filelog` as the `reciver` and `loki` as the `exporter`.  Note, that this example uses local [Loki](https://grafana.com/docs/loki/latest/setup/install/docker/) on Docker.
+Where the new **Loki** `endpoint`  is set with a new `service` for logs, using `filelog` as the `reciver` and `loki` as the `exporter`.  Note, that this example uses local [Loki](https://grafana.com/docs/loki/latest/setup/install/docker/) on Docker.
 
 To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_APP_LOG="true"` environment variable and mount the Telemetry config file:
 

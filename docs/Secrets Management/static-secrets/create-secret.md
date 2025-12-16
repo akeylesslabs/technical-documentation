@@ -68,7 +68,7 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 * **Delete Protection:** Prevent accidental deletion.
 
-* **Protection Key:**  Select the encryption key with which to encrypt the secret (if your system includes multiple encryption keys). Otherwise, select `Default`.
+* **Protection Key:** Select the encryption key with which to encrypt the secret (if your system includes multiple encryption keys). Otherwise, select `Default`.
 
 * **Format:** The format type of the value either **Text** , **JSON** or **Key/Value**.
 

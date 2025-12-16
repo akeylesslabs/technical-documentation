@@ -25,7 +25,7 @@ akeylessUserAuth:
   initialClusterDisplayName:
 ```
 
-Each Gateway instance is uniquely identified by combining the **Admin Access ID**  Authentication Method and the **Cluster Name**.
+Each Gateway instance is uniquely identified by combining the **Admin Access ID** Authentication Method and the **Cluster Name**.
 
 It means that changing the Admin **Access ID** or the **Cluster Name** of your Gateway instance will create an entirely new Gateway instance, and it will not retrieve the settings and data from the previous Gateway instance.
 

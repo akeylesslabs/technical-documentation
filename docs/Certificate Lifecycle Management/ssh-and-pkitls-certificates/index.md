@@ -110,7 +110,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> **Automatically store & renew certificate**  
+> **Automatically store & renew certificate**
 > Set the PKI Issuer item to automatically store & renew any issued certificate with default expiration events to gain full automation of your PKI environments.
 
 ### Creating a Certificate Signing Request

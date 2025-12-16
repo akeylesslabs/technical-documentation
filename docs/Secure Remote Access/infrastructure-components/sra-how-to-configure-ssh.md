@@ -237,7 +237,7 @@ In order to issue an SSH certificate using an existing CI through the console, g
 
 * **Certificate Username:** The username that will be linked to the certificate. Make sure this username matches the allowed usernames you defined in the previous section.
 
-* **Public Key:**  Your SSH public key, can be copied in or uploaded from file.
+* **Public Key:** Your SSH public key, can be copied in or uploaded from file.
 
 4. Tap generate, and if all parameters are valid, you will get a string representing your certificate. Download the certificate, or copy it to a file, in the client's `ssh` relevant folder.
 

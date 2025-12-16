@@ -17,19 +17,19 @@ next:
 **Ticket Granting Server (TGS)**: Provides service tickets for accessing network services.  
 The authentication process follows these steps:
 
-1. **Client Sends Credentials to AS**  
+1. **Client Sends Credentials to AS**
    The client sends its credentials (username) to the Authentication Server (AS).
 
-2. **AS Verifies Credentials and Issues TGT**  
+2. **AS Verifies Credentials and Issues TGT**
    If the credentials are verified, the Authentication Server (AS) issues a Ticket Granting Ticket (TGT).
 
-3. **Client Requests Service Ticket from TGS**  
+3. **Client Requests Service Ticket from TGS**
    The client uses the TGT to request a service ticket from the Ticket Granting Server (TGS).
 
-4. **TGS Issues Service Ticket**  
+4. **TGS Issues Service Ticket**
    The Ticket Granting Server (TGS) verifies the TGT and issues a service ticket for the requested service.
 
-5. **Client Presents Service Ticket to Service Server**  
+5. **Client Presents Service Ticket to Service Server**
    The client presents the service ticket to the desired service server for authentication.
 
 This method ensures secure and efficient authentication across the network, making Kerberos a widely used solution for identity verification.

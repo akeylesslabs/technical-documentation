@@ -35,7 +35,7 @@ akeyless assoc-target-item \
 
 Where:
 
-* `name` : The **Certificate**  item name.
+* `name` : The **Certificate** item name.
 
 * `target-name` The **Target** item name, to provision the certificate.
 
