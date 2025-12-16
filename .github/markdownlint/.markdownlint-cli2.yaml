@@ -1,169 +1,520 @@
 # npx markdownlint-cli2 --fix --config .github/mdlint-cli2-config.yaml 'docs/**/*.md'
 
+# Load Akeyless custom rules
+customRules:
+  - ./custom-rules.js
+
 config:
-  # MD001: Heading levels should only increment by one level at a time
+  # =========================
+  # Akeyless Custom Rules
+  # =========================
+
+  # AKY001: Disallow Heading 1 (H1); reserved for ReadMe titles
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY001: true
+
+  # AKY002: Require headings to start at H2 and not skip levels
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY002: false
+
+  # AKY003: Disallow bold-only pseudo-headings
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY003: false
+
+  # AKY004: Require language identifiers on fenced code blocks
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY004: false
+
+  # AKY005: Disallow generic link text (e.g., "click here")
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY005: false
+
+  # AKY006: Disallow Latin abbreviations (e.g., i.e., ad hoc)
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY006: false
+
+  # AKY007: Prefer third-person voice (heuristic)
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY007: false
+
+  # AKY008: Enforce Oxford comma (heuristic)
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY008: false
+
+  # AKY009: Disallow ampersands in sentences (allowed in headings)
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY009: false
+
+  # AKY010: Enforce ISO 8601 dates (YYYY-MM-DD)
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY010: false
+
+  # AKY011: Require numerals instead of spelled-out numbers
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY011: false
+
+  # AKY012: Enforce SI unit formatting (space + casing)
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY012: false
+
+  # AKY014: Require meaningful image alt text
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY014: false
+
+  # AKY015: Disallow inline HTML except <details>/<summary>
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY015: false
+
+  # =========================
+  # Core markdownlint Rules
+  # =========================
+
+  # MD001: Heading levels should only increment by one level
+  # Knobs:
+  #   - severity: error|warning|info
   MD001: false
 
-  # MD002: First heading should be a top-level heading
+  # MD002: First heading should be top-level
+  # Knobs:
+  #   - severity: error|warning|info
   MD002: false
 
   # MD003: Heading style (ATX vs Setext)
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|atx|setext
+  #   - style options:
+  #       - consistent
+  #       - atx
+  #       - setext
   MD003: false
 
-  # MD004: Unordered list style (dash, plus, or asterisk)
+  # MD004: Unordered list style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|dash|asterisk|plus
+  #   - style options:
+  #       - consistent
+  #       - dash
+  #       - asterisk
+  #       - plus
   MD004: false
 
-  # MD005: Inconsistent indentation for list items at the same level
+  # MD005: Inconsistent list indentation
+  # Knobs:
+  #   - severity: error|warning|info
   MD005: false
 
-  # MD006: Consider starting bulleted lists at the beginning of the line
+  # MD006: Lists should start at beginning of line
+  # Knobs:
+  #   - severity: error|warning|info
   MD006: false
 
   # MD007: Unordered list indentation
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - indent: integer (common values: 2|4)
+  #   - start_indented: true|false
+  #   - indent examples:
+  #       - 2
+  #       - 4
+  #   - start_indented options:
+  #       - true
+  #       - false
   MD007: false
 
   # MD009: Trailing spaces
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - br_spaces: integer (common: 0|2)
+  #   - list_item_empty_lines: true|false
+  #   - strict: true|false
+  #   - br_spaces examples:
+  #       - 0
+  #       - 2
+  #   - list_item_empty_lines options:
+  #       - true
+  #       - false
+  #   - strict options:
+  #       - true
+  #       - false
   MD009: false
 
   # MD010: Hard tabs
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - code_blocks: true|false
+  #   - code_blocks options:
+  #       - true
+  #       - false
   MD010: false
 
   # MD011: Reversed link syntax
+  # Knobs:
+  #   - severity: error|warning|info
   MD011: false
 
   # MD012: Multiple consecutive blank lines
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - maximum: integer (common: 1|2)
+  #   - maximum examples:
+  #       - 1
+  #       - 2
   MD012: false
 
   # MD013: Line length
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - line_length: integer
+  #   - heading_line_length: integer
+  #   - code_block_line_length: integer
+  #   - code_blocks: true|false
+  #   - tables: true|false
+  #   - headings: true|false
+  #   - strict: true|false
+  #   - stern: true|false
+  #   - common integer examples:
+  #       - 80
+  #       - 100
+  #       - 120
+  #   - boolean options:
+  #       - true
+  #       - false
   MD013: false
 
-  # MD014: Dollar signs used before commands without showing output
+  # MD014: Dollar signs before shell commands
+  # Knobs:
+  #   - severity: error|warning|info
   MD014: false
 
-  # MD018: No space after hash on ATX heading
+  # MD018: No space after hash in ATX headings
+  # Knobs:
+  #   - severity: error|warning|info
   MD018: false
 
-  # MD019: Multiple spaces after hash on ATX heading
+  # MD019: Multiple spaces after hash
+  # Knobs:
+  #   - severity: error|warning|info
   MD019: false
 
-  # MD020: No space inside hashes on closed ATX heading
+  # MD020: No space inside closed ATX headings
+  # Knobs:
+  #   - severity: error|warning|info
   MD020: false
 
-  # MD021: Multiple spaces inside hashes on closed ATX heading
+  # MD021: Multiple spaces inside closed ATX headings
+  # Knobs:
+  #   - severity: error|warning|info
   MD021: false
 
-  # MD022: Headings should be surrounded by blank lines
+  # MD022: Headings surrounded by blank lines
+  # Knobs:
+  #   - severity: error|warning|info
   MD022: false
 
-  # MD023: Headings must start at the beginning of the line
+  # MD023: Headings must start at beginning of line
+  # Knobs:
+  #   - severity: error|warning|info
   MD023: false
 
-  # MD024: Multiple headings with the same content
+  # MD024: Duplicate heading content
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - allow_different_nesting: true|false
+  #   - siblings_only: true|false
+  #   - allow_different_nesting options:
+  #       - true
+  #       - false
+  #   - siblings_only options:
+  #       - true
+  #       - false
   MD024: false
 
-  # MD025: Multiple top-level headings in the same document
+  # MD025: Multiple top-level headings
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - level: integer (commonly 1)
+  #   - front_matter_title: string (pattern; empty disables)
+  #   - level examples:
+  #       - 1
+  #       - 2
+  #   - front_matter_title examples:
+  #       - ""
+  #       - "title"
+  #       - "^\\s*title\\s*[:=]"
   MD025: false
 
   # MD026: Trailing punctuation in headings
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - punctuation: string (characters to disallow)
+  #   - punctuation examples:
+  #       - ".,;:!?"
+  #       - ".,;:"
   MD026: false
 
   # MD027: Multiple spaces after blockquote symbol
+  # Knobs:
+  #   - severity: error|warning|info
   MD027: false
 
   # MD028: Blank line inside blockquote
+  # Knobs:
+  #   - severity: error|warning|info
   MD028: false
 
-  # MD029: Ordered list item prefix (numeric vs sequential)
+  # MD029: Ordered list marker style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: one_or_ordered|one|ordered
+  #   - style options:
+  #       - one_or_ordered
+  #       - one
+  #       - ordered
   MD029: false
 
   # MD030: Spaces after list markers
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - ul_single: integer
+  #   - ol_single: integer
+  #   - ul_multi: integer
+  #   - ol_multi: integer
+  #   - common integer examples:
+  #       - 1
+  #       - 2
   MD030: false
 
-  # MD031: Fenced code blocks should be surrounded by blank lines
+  # MD031: Fenced code blocks surrounded by blank lines
+  # Knobs:
+  #   - severity: error|warning|info
   MD031: false
 
-  # MD032: Lists should be surrounded by blank lines
+  # MD032: Lists surrounded by blank lines
+  # Knobs:
+  #   - severity: error|warning|info
   MD032: false
 
   # MD033: Inline HTML
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - allowed_elements: [string]
+  #   - allowed_elements examples:
+  #       - []
+  #       - ["details", "summary"]
+  #       - ["br", "kbd", "sup", "sub"]
   MD033: false
 
-  # MD034: Bare URL used instead of angle brackets or link syntax
+  # MD034: Bare URLs
+  # Knobs:
+  #   - severity: error|warning|info
   MD034: false
 
   # MD035: Horizontal rule style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|---|***|___
+  #   - style options:
+  #       - consistent
+  #       - ---
+  #       - ***
+  #       - ___
   MD035: false
 
-  # MD036: Emphasis used instead of a heading
+  # MD036: Emphasis used instead of heading
+  # Knobs:
+  #   - severity: error|warning|info
   MD036: false
 
   # MD037: Spaces inside emphasis markers
+  # Knobs:
+  #   - severity: error|warning|info
   MD037: false
 
-  # MD038: Spaces inside code span elements
+  # MD038: Spaces inside code spans
+  # Knobs:
+  #   - severity: error|warning|info
   MD038: false
 
   # MD039: Spaces inside link text
+  # Knobs:
+  #   - severity: error|warning|info
   MD039: false
 
-  # MD040: Fenced code blocks should have a language specified
+  # MD040: Code fences must specify language
+  # Knobs:
+  #   - severity: error|warning|info
   MD040: false
 
-  # MD041: First line in file should be a top-level heading
+  # MD041: First line should be top-level heading
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - level: integer (commonly 1)
+  #   - level examples:
+  #       - 1
+  #       - 2
   MD041: false
 
   # MD042: No empty links
+  # Knobs:
+  #   - severity: error|warning|info
   MD042: false
 
   # MD043: Required heading structure
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - headings: [string]
+  #   - match_case: true|false
+  #   - headings examples:
+  #       - []
+  #       - ["## Prerequisites", "## Installation", "## Usage"]
+  #   - match_case options:
+  #       - true
+  #       - false
   MD043: false
 
-  # MD044: Proper names should have the correct capitalization
+  # MD044: Proper names capitalization
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - names: [string]
+  #   - code_blocks: true|false
+  #   - names examples:
+  #       - []
+  #       - ["JavaScript", "GitHub", "Akeyless"]
+  #   - code_blocks options:
+  #       - true
+  #       - false
   MD044: false
 
-  # MD045: Images should have alternate text (alt attribute)
+  # MD045: Images must have alt text
+  # Knobs:
+  #   - severity: error|warning|info
   MD045: false
 
-  # MD046: Code block style (fenced vs indented)
+  # MD046: Code block style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|fenced|indented
+  #   - style options:
+  #       - consistent
+  #       - fenced
+  #       - indented
   MD046: false
 
-  # MD047: Files should end with a single newline character
+  # MD047: File must end with newline
+  # Knobs:
+  #   - severity: error|warning|info
   MD047: false
 
-  # MD048: Code fence style (backticks vs tildes)
+  # MD048: Code fence style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|backtick|tilde
+  #   - style options:
+  #       - consistent
+  #       - backtick
+  #       - tilde
   MD048: false
 
-  # MD049: Emphasis style (* vs _)
+  # MD049: Emphasis style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|asterisk|underscore
+  #   - style options:
+  #       - consistent
+  #       - asterisk
+  #       - underscore
   MD049: false
 
-  # MD050: Strong style (** vs __)
+  # MD050: Strong emphasis style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|asterisk|underscore
+  #   - style options:
+  #       - consistent
+  #       - asterisk
+  #       - underscore
   MD050: false
 
-  # MD051: Link fragments should be valid
+  # MD051: Valid link fragments
+  # Knobs:
+  #   - severity: error|warning|info
   MD051: false
 
-  # MD052: Reference links and images should use a label that is defined
+  # MD052: Defined reference labels
+  # Knobs:
+  #   - severity: error|warning|info
   MD052: false
 
-  # MD053: Link and image reference definitions should be needed
+  # MD053: Unused reference definitions
+  # Knobs:
+  #   - severity: error|warning|info
   MD053: false
 
   # MD054: Link and image style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - autolink: true|false
+  #   - inline: true|false
+  #   - full: true|false
+  #   - collapsed: true|false
+  #   - shortcut: true|false
+  #   - url_inline: true|false
+  #   - each boolean option:
+  #       - true
+  #       - false
   MD054: false
 
   # MD055: Table pipe style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|leading_and_trailing|leading_only|trailing_only|no_leading_or_trailing
+  #   - style options:
+  #       - consistent
+  #       - leading_and_trailing
+  #       - leading_only
+  #       - trailing_only
+  #       - no_leading_or_trailing
   MD055: false
 
   # MD056: Table column count
+  # Knobs:
+  #   - severity: error|warning|info
   MD056: false
 
-  # MD058: Tables should be surrounded by blank lines
+  # MD058: Blank lines around tables
+  # Knobs:
+  #   - severity: error|warning|info
   MD058: false
 
-  # MD059: Link text should be descriptive
+  # MD059: Descriptive link text
+  # Knobs:
+  #   - severity: error|warning|info
   MD059: false
 
   # MD060: Table column style
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - style: consistent|aligned|unaligned
+  #   - style options:
+  #       - consistent
+  #       - aligned
+  #       - unaligned
   MD060: false
 
 globs:
