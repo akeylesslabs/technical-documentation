@@ -12,29 +12,29 @@ next:
 ---
 [Kerberos](https://en.wikipedia.org/wiki/Kerberos_\(protocol\)) is a network authentication protocol that securely verifies the identities of users and services using secret-key cryptography. It operates on a client-server model, centered around a **Key Distribution Center (KDC)**, which includes:
 
-**Authentication Server (AS)**: Issues **Ticket Granting Tickets (TGTs)**.  
+**Authentication Server (AS)**: Issues **Ticket Granting Tickets (TGTs)**.
 
-**Ticket Granting Server (TGS)**: Provides service tickets for accessing network services.\
+**Ticket Granting Server (TGS)**: Provides service tickets for accessing network services.  
 The authentication process follows these steps:
 
-1. **Client Sends Credentials to AS**\
+1. **Client Sends Credentials to AS**  
    The client sends its credentials (username) to the Authentication Server (AS).
 
-2. **AS Verifies Credentials and Issues TGT**\
+2. **AS Verifies Credentials and Issues TGT**  
    If the credentials are verified, the Authentication Server (AS) issues a Ticket Granting Ticket (TGT).
 
-3. **Client Requests Service Ticket from TGS**\
+3. **Client Requests Service Ticket from TGS**  
    The client uses the TGT to request a service ticket from the Ticket Granting Server (TGS).
 
-4. **TGS Issues Service Ticket**\
+4. **TGS Issues Service Ticket**  
    The Ticket Granting Server (TGS) verifies the TGT and issues a service ticket for the requested service.
 
-5. **Client Presents Service Ticket to Service Server**\
+5. **Client Presents Service Ticket to Service Server**  
    The client presents the service ticket to the desired service server for authentication.
 
 This method ensures secure and efficient authentication across the network, making Kerberos a widely used solution for identity verification.
 
-<Image align="center" src="https://files.readme.io/8a44b2fd698958a43ad9423a017e54f6a5622c1a39655e83267b7a377dea49ec-User_Auth_Flow_2.png" />
+<Image align="center" border={false} src="https://files.readme.io/8a44b2fd698958a43ad9423a017e54f6a5622c1a39655e83267b7a377dea49ec-User_Auth_Flow_2.png" />
 
 ## Prerequisites
 
@@ -201,7 +201,8 @@ akeyless auth \
 --access-id <Access ID> \
 --access-type=kerberos \
 --krb5conf-file-path /path/to/krb5.conf \
---keytab-file-path /path/to/keytab
+--keytab-file-path /path/to/keytab \
+--gateway-url '<https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
 Running this command will authenticate the user specified in the `keytab` file to akeyless using **Kerberos**
@@ -285,8 +286,8 @@ public class Program
 
 Make sure to change the following:
 
- `<your-gateway-spn` with the Service Principal Name for your Akeyless Gateway.
+`<your-gateway-spn` with the Service Principal Name for your Akeyless Gateway.
 
- `<your-gateway-url` with the URL of your Akeyless Gateway.
+`<your-gateway-url` with the URL of your Akeyless Gateway.
 
- `<your-access-id`with your Akeyless Access ID.
+`<your-access-id`with your Akeyless Access ID.
