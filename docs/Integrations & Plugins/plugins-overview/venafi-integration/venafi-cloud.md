@@ -20,7 +20,7 @@ To work with the Venafi Cloud platform, you can choose either to work with Venaf
 
 ## Usage
 
-**Venafi Issuer**
+### Venafi Issuer
 
 The following command creates a Venafi **Dynamic Secret** using Venafi as the **certificate issuer**.
 
@@ -42,7 +42,7 @@ Where:
 
 `venafi-zone`:  The Venafi zone to use when issuing new certificates (policies will be pulled from here) - for example: `<Application_Name>/<Issuing_template_name>`
 
-**Akeyless Issuer**
+### Akeyless Issuer
 
 The following commands create a Venafi **Dynamic Secret** using Akeyless as the **certificate issuer**.
 
@@ -69,7 +69,7 @@ Where:
 
 `certificate-ttl`: TTL in days for the generated certificate.
 
-**Note: Once the key is created, it will be uploaded automatically to Akeyless.**
+*Note: Once the key is created, it will be uploaded automatically to Akeyless.*
 
 The certificate attached to the private key must have at least a Common Name (CN) with it.
 
@@ -108,7 +108,7 @@ Where:
 
 Once your Venafi dynamic secret has been successfully created, you can request a new certificate.
 
-**Certificate request**:
+### Certificate Request
 
 Certificate request using **Common Name (CN)**:
 

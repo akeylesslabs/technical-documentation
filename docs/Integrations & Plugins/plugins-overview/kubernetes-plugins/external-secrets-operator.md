@@ -45,13 +45,13 @@ At a high level:
 
 ## Architecture & Resources
 
-**In-cluster components:**
+### In-Cluster Components
 
 * The ESO controller runs as a Kubernetes **Deployment**.
 * It watches custom resources: `ExternalSecret`, `SecretStore`, `ClusterSecretStore`, and `PushSecret`.
 * It reconciles the desired state by calling Akeyless APIs to create and update Kubernetes Secret objects.
 
-**Akeyless side:**
+### Akeyless Side
 
 * Akeyless **Authentication Methods** define how Kubernetes workloads authenticate (e.g., API Key, Kubernetes Auth, Azure AD, AWS IAM, GCP).
 * **Access Roles** control which Akeyless items (paths) a given authentication identity may access.
@@ -260,7 +260,7 @@ spec:
             key: "token"
 ```
 
-**Key fields:**
+##### Key Fields
 
 * `accessID`: Access ID of the Kubernetes Auth method.
 * `k8sConfName`: Kubernetes Auth config name attached to the cluster.
@@ -473,7 +473,7 @@ spec:
           remoteKey: eso-created/my-secret
 ```
 
-**Key fields:**
+#### Key Fields
 
 * `refreshInterval`: How often ESO checks for changes in the Kubernetes Secret.
 * `updatePolicy`: Whether to replace or merge when updating the provider secret.
@@ -547,7 +547,7 @@ The associated role `devops/devops-api-role` typically grants `read`, `list`, `c
 
 The following manifests show how to use the above Auth Method from an AKS cluster with ESO.
 
-**Credentials Secret (Azure AD):**
+#### Credentials Secret (Azure AD)
 
 ```yaml
 apiVersion: v1
@@ -562,7 +562,7 @@ stringData:
   accessTypeParam: ""      # Required field; can be empty when binding via sub-claims
 ```
 
-**SecretStore referencing the Azure AD credentials:**
+#### SecretStore Referencing the Azure AD Credentials
 
 ```yaml
 apiVersion: external-secrets.io/v1
@@ -590,7 +590,7 @@ spec:
             key: accessTypeParam
 ```
 
-**ExternalSecret consuming a Secret via the SecretStore:**
+#### ExternalSecret Consuming a Secret via the SecretStore
 
 ```yaml
 apiVersion: external-secrets.io/v1
@@ -612,7 +612,7 @@ spec:
         key: /devops/static_secret_1
 ```
 
-**Retrieving the synced secret:**
+#### Retrieving the Synced Secret
 
 ```bash
 kubectl -n app-test get secret app-api-secret -o jsonpath="{.data.api-key}" | base64 -d

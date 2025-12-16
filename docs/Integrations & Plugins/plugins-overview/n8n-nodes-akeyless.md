@@ -152,14 +152,15 @@ Use Case: Retrieve database credentials that rotate automatically.
 
 When the Akeyless node returns a secret, access it directly in the next node:
 Example: Get API Key and Use in HTTP Request
-**Add Akeyless node:**
+
+*Add Akeyless node:*
 
 * Operation: Get Static Secret Value
 * Secret Name: /myapp/api-key
 
-**Add HTTP Request node:**
+*Add HTTP Request node:*
 
-In the Authorization header, u
+In the Authorization header,
 
 ```text
 {{$node["Akeyless"].json["/myapp/api-key"]}}

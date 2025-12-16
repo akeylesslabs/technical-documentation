@@ -16,13 +16,13 @@ Rotated secrets enable you to protect the credentials for privileged-user accoun
 
 <CLIGeneralFlags />
 
-## `Create`
+## `create`
 
 `akeyless rotated-secret create`
 
 Commands to create a Rotated Secret
 
-**Subcommands**
+### Subcommands
 
 `aws`: Creates new AWS rotated secret item
 
@@ -60,13 +60,13 @@ Commands to create a Rotated Secret
 
 `windows`: Creates new Windows rotated secret item
 
-### `Aws`
+### `aws`
 
 Creates new AWS rotated secret item
 
 #### Usage
 
-```shell AWS
+```shell
 akeyless rotated-secret create aws \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -74,7 +74,7 @@ akeyless rotated-secret create aws \
 --rotator-type <target/api-key> 
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -126,13 +126,13 @@ akeyless rotated-secret create aws \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Azure`
+### `azure`
 
 Creates new Azure rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Azure
+```shell
 akeyless rotated-secret create azure \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -140,7 +140,7 @@ akeyless rotated-secret create azure \
 --rotator-type <target|api-key|azure-storage-account|password> 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -178,10 +178,6 @@ akeyless rotated-secret create azure \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-
-
-
-
 `--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
 
 `--password-length`: The length of the password to be generated
@@ -192,13 +188,12 @@ akeyless rotated-secret create azure \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Cassandra`
+### `cassandra`
 
 Creates new Cassandra rotated secret item
 
-**Usage**
-
-```shell Cassandra
+#### Usage 
+```shell
  akeyless rotated-secret create cassandra \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -206,7 +201,7 @@ Creates new Cassandra rotated secret item
 --rotator-type <target/password> 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -238,20 +233,19 @@ Creates new Cassandra rotated secret item
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Custom`
+### `custom`
 
 Creates new custom rotated secret item
 
-**Usage**
-
-```shell Custom
+#### Usage
+```shell
 akeyless rotated-secret create custom \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -317,20 +311,20 @@ akeyless rotated-secret create custom \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Dockerhub`
+### `dockerhub`
 
 Creates new DockerHub rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Dockerhub
+```shell
 akeyless rotated-secret create dockerhub \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -354,13 +348,13 @@ akeyless rotated-secret create dockerhub \
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
-### `Gcp`
+### `gcp`
 
 Creates new GCP rotated secret item
 
-**Usage**
+#### Usage
 
-```shell GCP
+```shell
 akeyless rotated-secret create gcp \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -368,7 +362,7 @@ akeyless rotated-secret create gcp \
 --rotator-type <target/service-account-rotator>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -412,13 +406,13 @@ akeyless rotated-secret create gcp \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Hanadb`
+### `hanadb`
 
 Creates new HANADB rotated secret item
 
-**Usage**
+#### Usage
 
-```shell HanaDB
+```shell
 akeyless rotated-secret create hanadb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -426,7 +420,7 @@ akeyless rotated-secret create hanadb \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -456,13 +450,13 @@ akeyless rotated-secret create hanadb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Ldap`
+### `ldap`
 
 Creates new LDAP rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Ldap
+```shell
 akeyless rotated-secret create ldap \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -470,7 +464,7 @@ akeyless rotated-secret create ldap \
 --rotator-type <target/ldap>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -524,13 +518,13 @@ akeyless rotated-secret create ldap \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Mongodb`
+### `mongodb`
 
 Creates new MongoDB rotated secret item
 
-**Usage**
+#### Usage
 
-```shell MongoDB
+```shell
 akeyless rotated-secret create mongodb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -538,7 +532,7 @@ akeyless rotated-secret create mongodb \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -582,13 +576,13 @@ akeyless rotated-secret create mongodb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Mssql`
+### `mssql`
 
 Creates new MSSQL rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Mssql
+```shell
 akeyless rotated-secret create mssql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -596,7 +590,7 @@ akeyless rotated-secret create mssql \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -642,13 +636,13 @@ akeyless rotated-secret create mssql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Mysql`
+### `mysql`
 
 Creates new MySQL rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Mysql
+```shell
 akeyless rotated-secret create mysql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -656,7 +650,7 @@ akeyless rotated-secret create mysql \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -700,13 +694,13 @@ akeyless rotated-secret create mysql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Oracledb`
+### `oracledb`
 
 Creates new OracleDB rotated secret item
 
-**Usage**
+#### Usage
 
-```shell OracleDB
+```shell
 akeyless rotated-secret create oracledb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -714,7 +708,7 @@ akeyless rotated-secret create oracledb \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -756,13 +750,13 @@ akeyless rotated-secret create oracledb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Postgresql`
+### `postgresql`
 
 Creates new PostgreSQL rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Postgresql
+```shell
 akeyless rotated-secret create postgresql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -770,7 +764,7 @@ akeyless rotated-secret create postgresql \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -816,13 +810,13 @@ akeyless rotated-secret create postgresql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Redis`
+### `redis`
 
 Creates new Redis rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret create redis \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -830,7 +824,7 @@ akeyless rotated-secret create redis \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -862,13 +856,13 @@ akeyless rotated-secret create redis \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Redshift`
+### `redshift`
 
 Creates new Amazon Redshift rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret create redshift \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -876,7 +870,7 @@ akeyless rotated-secret create redshift \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -916,13 +910,13 @@ akeyless rotated-secret create redshift \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Snowflake`
+### `snowflake`
 
 Creates new Snowflake rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret create snowflake \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -930,7 +924,7 @@ akeyless rotated-secret create snowflake \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -966,13 +960,13 @@ akeyless rotated-secret create snowflake \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Ssh`
+### `ssh`
 
 Creates new SSH rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret create ssh \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -980,7 +974,7 @@ akeyless rotated-secret create ssh \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1032,13 +1026,13 @@ akeyless rotated-secret create ssh \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `Windows`
+### `windows`
 
 Creates new Windows rotated secret item
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret create windows \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -1046,7 +1040,7 @@ akeyless rotated-secret create windows \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1092,13 +1086,13 @@ akeyless rotated-secret create windows \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-## `Update`
+## `update`
 
 `akeyless rotated-secret-update`
 
 Commands to update a Rotated Secret
 
-**Flags**
+### Subcommands
 
 `aws`: Updates new aws rotated secret item
 
@@ -1136,18 +1130,18 @@ Commands to update a Rotated Secret
 
 `windows`: Updates new windows rotated secret item
 
-**Updates AWS rotated secret**
+### `aws`
 
-**Usage**
+#### Usage
 
-```shell AWS
+```shell
 akeyless rotated-secret update aws \
 --name <Rotated Secret name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --new-name <New Item name>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1199,18 +1193,18 @@ akeyless rotated-secret update aws \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates Azure rotated secret**
+### `azure`
 
-**Usage**
+#### Usage
 
-```shell Azure
+```shell
 akeyless rotated-secret update azure \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1256,18 +1250,18 @@ akeyless rotated-secret update azure \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates cassandra rotated secret**
+### `cassandra`
 
-**Usage**
+#### Usage
 
-```shell Cassandra
+```shell
  akeyless rotated-secret update cassandra \
 --name <Rotated Secret name> \
 --new-name <New-Item name>
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1301,18 +1295,18 @@ akeyless rotated-secret update azure \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates custom rotated secret**
+### `custom`
 
-**Usage**
+#### Usage
 
-```shell Custom
+```shell
 akeyless rotated-secret update custom \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1382,18 +1376,18 @@ akeyless rotated-secret update custom \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates custom rotated secret**
+### `dockerhub`
 
-**Usage**
+#### Usage
 
-```shell Dockerhub
+```shell
 akeyless rotated-secret update dockerhub \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1421,18 +1415,18 @@ akeyless rotated-secret update dockerhub \
 
 `--keep-prev-version`: Whether to keep the previous version, options:[`true`, `false`]. If not set, use default according to account settings
 
-**Updates custom rotated secret**
+### `gcp`
 
-**Usage**
+#### Usage
 
-```shell GCP
+```shell
 akeyless rotated-secret update gcp \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1480,18 +1474,18 @@ akeyless rotated-secret update gcp \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates hanadb rotated secret**
+### `hanadb`
 
-**Usage**
+#### Usage
 
-```shell HanaDB
+```shell
 akeyless rotated-secret update hanadb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1523,18 +1517,18 @@ akeyless rotated-secret update hanadb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates ldap rotated secret**
+### `ldap`
 
-**Usage**
+#### Usage
 
-```shell Ldap
+```shell
 akeyless rotated-secret update ldap \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1590,18 +1584,18 @@ akeyless rotated-secret update ldap \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates mongodb rotated secret**
+### `monogodb`
 
-**Usage**
+#### Usage
 
-```shell MongoDB
+```shell
 akeyless rotated-secret update mongodb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1647,18 +1641,18 @@ akeyless rotated-secret update mongodb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates mssql rotated secret**
+### `mssql`
 
-**Usage**
+#### Usage
 
-```shell Mssql
+```shell
 akeyless rotated-secret update  mssql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1704,18 +1698,18 @@ akeyless rotated-secret update  mssql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates mysql rotated secret**
+### `mysql`
 
-**Usage**
+#### Usage
 
-```shell Mysql
+```shell
 akeyless rotated-secret update mysql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1761,18 +1755,18 @@ akeyless rotated-secret update mysql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates oracledb rotated secret**
+### `oracledb`
 
-**Usage**
+#### Usage
 
-```shell OracleDB
+```shell
 akeyless rotated-secret update oracledb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1818,18 +1812,18 @@ akeyless rotated-secret update oracledb \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates postgresql rotated secret**
+### `postgresql`
 
-**Usage**
+#### Usage
 
-```shell Postgresql
+```shell
 akeyless rotated-secret update postgresql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1877,18 +1871,18 @@ akeyless rotated-secret update postgresql \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates redis rotated secret**
+### `redis`
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret update redis \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -1922,19 +1916,18 @@ akeyless rotated-secret update redis \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates redshift rotated secret**
+### `redshift`
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret update redshift \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
-
+#### Flags
 `-n, --name`: **Required**, Rotated Secret name
 
 `--new-name`: New Item name
@@ -1975,11 +1968,11 @@ akeyless rotated-secret update redshift \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates snowflake rotated secret**
+### `snowflake`
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret update snowflake \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
@@ -1987,7 +1980,7 @@ akeyless rotated-secret update snowflake \
 --rotator-type <target/password>
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -2025,18 +2018,18 @@ akeyless rotated-secret update snowflake \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates ssh rotated secret**
+### `ssh`
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret update ssh \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -2090,18 +2083,18 @@ akeyless rotated-secret update ssh \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-**Updates windows rotated secret**
+### `windows`
 
-**Usage**
+#### Usage
 
-```shell Redis
+```shell
 akeyless rotated-secret update windows \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-**Flags**
+#### Flags
 
 `-n, --name`: **Required**, Rotated Secret name
 
@@ -2149,11 +2142,9 @@ akeyless rotated-secret update windows \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-## Get
+## `get-value`
 
-**Get rotated secret value**
-
-**Usage**
+### Usage
 
 ```shell
 akeyless rotated-secret get-value \
@@ -2161,26 +2152,24 @@ akeyless rotated-secret get-value \
 --version <Rotated Secret version> \
 ```
 
-**Flags**
+### Flags
 
 `--host`: Get rotated secret value of specific Host (relevant only for Linked Target)
 
 `--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
 
-## List
+## `list`
 
-**Usage**
+### Usage
 
 ```shell
 akeyless rotated-secret list \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-## Sync
+## `sync`
 
-**Sync rotated secret**
-
-**Usage**
+### Usage
 
 ```shell
 akeyless rotated-secret sync \
@@ -2191,7 +2180,7 @@ akeyless rotated-secret sync \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-Where:
+### Flags
 
 `--name`: The Rotated Secret name.
 

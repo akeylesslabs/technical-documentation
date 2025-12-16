@@ -46,8 +46,6 @@ The outcome artifacts of certificate issuance, including the certificate, privat
 
 **Venafi Zone** - The zone to use when issuing new certificates (policies will be pulled from the provided zone).
 
-**Optional fields:**
-
 **Sign Using Akeyless PKI** - Determines whether to use Akeyless as an issuer.
 
 **Signer Key Name** - The signer key to use as the issuer, must be a valid RSA 2048/4096 key with a certificate (Required when using Akeyless PKI, must already exist in Akeyless).

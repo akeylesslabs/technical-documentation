@@ -26,11 +26,11 @@ Once cert-manager is installed and running in your K8s cluster, you’ll need to
 
 **Certificate(s)** - Certificates created based on your previously created Issuer.
 
-**Authentication**
+### Authentication
 
 The following Authentication Methods are supported:
 
-* [K8s Auth](https://docs.akeyless.io/docs/kubernetes-auth)
+* [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth)
 * [API Key](https://docs.akeyless.io/docs/api-key)
 
 The Secret object allows cert-manager to connect to Akeyless:

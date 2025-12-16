@@ -119,7 +119,7 @@ Make sure to set your `Access Id` in the relevant place.
 
 ## Examples
 
-**Get static secret value(s)**:
+### Get Static Secret Value(s)
 
 ```python
 body = akeyless.GetSecretValue(names=['secret-1', 'secret-2'], token=token)
@@ -128,14 +128,14 @@ print(res['secret-1'])
 print(res['secret-2'])
 ```
 
-**Create a new static secret**
+### Create a New Static Secret
 
 ```python
 body = akeyless.CreateSecret(name='new-secret', value='my-password', token=token)
 api.create_secret(body)
 ```
 
-**Create a new Role**
+### Create a New Role
 
 ```python
 body = akeyless.CreateRole(token=token, name='dev-role')
@@ -149,7 +149,7 @@ for rule_type in ['role-rule', 'item-rule', 'auth-method-rule']:
     api.set_role_rule(body)
 ```
 
-**Create a new Authentication Method**
+### Create a New Authentication Method
 
 ```python
 body = akeyless.CreateAuthMethod(name='dev-api-key', token=token)
@@ -159,7 +159,7 @@ print(res.access_id)
 print(res.access_key)
 ```
 
-**Associate a Role with an Authentication Method**
+### Associate a Role with an Authentication Method
 
 ```python
 body = akeyless.AssocRoleAuthMethod(am_name='dev-api-key', role_name='dev-ro',

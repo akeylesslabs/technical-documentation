@@ -24,10 +24,10 @@ In our Password Manager application, you have the flexibility to define specific
 
 ## How It Works
 
-**Creating a New Password:**
+### Creating a New Password
 
 When creating a new password, find these options under the password field. Adjust the settings based on your specific requirements, and the password will be generated accordingly.
 
-**Editing an Existing Password:**
+### Editing an Existing Password
 
 If you need to update the password policy for an existing password, navigate to the password editing screen. Here, you'll find the same options under the password field to tailor the policy as needed.
