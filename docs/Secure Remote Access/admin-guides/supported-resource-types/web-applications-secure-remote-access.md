@@ -12,6 +12,8 @@ next:
 ---
 Akeyless Secure Remote Access for Web Applications enables full secure remote connection to any web application while sharing access to any user without sharing access credentials.
 
+## Browsing Modes
+
 The following browsing modes are available:
 
 * **Direct Connections** - Users access web targets directly in the browser by simply injecting the secret credentials into the correct fields through the Akeyless Browser Extension.
@@ -22,7 +24,7 @@ The following browsing modes are available:
 >
 > Your web application must run over HTTPS
 
-### Prerequisite
+## Prerequisites
 
 * The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) deployed.
 
@@ -43,7 +45,7 @@ akeyless update-item --name <static secret name> /
 --secure-access-web-browsing <true/false>
 ```
 
-where:
+Where:
 
 * **secure-access-url:** The web application login URL to inject secret.
 * **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
@@ -73,7 +75,7 @@ Let's set up remote access to the web application from the Akeyless Console. If 
 
 * `Secure Web Proxy`: Optional, secure web proxy via the bastion, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
-**Secure Web Browsing (Isolated)**
+### Secure Web Browsing (Isolated)
 
 Secure Web Browsing available for applications any web application, includes, self managed K8s dashboard URL, AWS and Azure Portal, those application can be accessed in isolated mode. This method adds an extra layer of security in the usage of credentials injection. This mode requires A [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 

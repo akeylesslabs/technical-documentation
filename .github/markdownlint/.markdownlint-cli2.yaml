@@ -17,7 +17,7 @@ config:
   # AKY002: Require headings to start at H2 and not skip levels
   # Knobs:
   #   - severity: error|warning|info
-  AKY002: false
+  AKY002: true
 
   # AKY003: Disallow bold-only pseudo-headings
   # Knobs:

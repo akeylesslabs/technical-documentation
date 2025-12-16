@@ -15,7 +15,7 @@ next:
 * **Role** - Assigns a user to an admin role in Google Workspace.
 * **Group** - Adds the user to a group in Google Workspace.
 
-### Prerequisites
+## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
@@ -23,7 +23,7 @@ next:
 
 * [GCP Target](https://docs.akeyless.io/docs/gcp-targets) with a **privileged service account**
 
-#### Create a Service Account in GCP
+### Create a Service Account in GCP
 
 To create a **Google Workspace** Dynamic Secret, a Service Account that will be used for authentication is required.
 
@@ -49,7 +49,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
      https://www.googleapis.com/auth/admin.directory.customer.readonly
      ```
 
-### Create a Dynamic Google Workspace Secret from the CLI
+## Create a Dynamic Google Workspace Secret from the CLI
 
 > 👍 Note
 >
@@ -114,7 +114,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/google-workspace) section.
 
-### Fetch a Dynamic Google Workspace Secret Value from the CLI
+## Fetch a Dynamic Google Workspace Secret Value from the CLI
 
 To fetch a dynamic Google Workspace secret value from the CLI, run the following command:
 
@@ -122,7 +122,7 @@ To fetch a dynamic Google Workspace secret value from the CLI, run the following
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 
-### Create a Dynamic Secret for Google Workspace in the Akeyless Console
+## Create a Dynamic Secret for Google Workspace in the Akeyless Console
 
 > 👍 Note
 >
