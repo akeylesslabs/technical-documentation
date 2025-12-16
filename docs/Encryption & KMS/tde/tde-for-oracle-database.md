@@ -394,113 +394,88 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 ### Step-by-Step Configuration
 
-**Create a Software-Based Keystore**
+1. First, you need to create a software-based keystore that will securely store the Oracle Wallet credentials. This keystore will facilitate the auto-login feature.
 
-First, you need to create a software-based keystore that will securely store the Oracle Wallet credentials. This keystore will facilitate the auto-login feature.
+2. Choose a secure location on your database server to store the keystore files. For example:
 
-**Create the Keystore Directory:**\
-Choose a secure location on your database server to store the keystore files. For example:
+  ```sql bash
+  mkdir -p /u01/app/oracle/admin/ORCL/wallet
+  ```
 
-```sql bash
-mkdir -p /u01/app/oracle/admin/ORCL/wallet
-```
+3. Use the following command to create the keystore. Replace /u01/app/oracle/admin/ORCL/wallet with your chosen directory path.
 
-**Create the Keystore:**
+  ```sql bash
+  ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/u01/app/oracle/admin/ORCL/wallet' IDENTIFIED BY "YourWalletPassword";
+  r -p /u01/app/oracle/admin/ORCL/wallet
+  ```
 
-Use the following command to create the keystore. Replace /u01/app/oracle/admin/ORCL/wallet with your chosen directory path.
+4. Before proceeding, you need to open the newly created keystore:
 
-```sql bash
-ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/u01/app/oracle/admin/ORCL/wallet' IDENTIFIED BY "YourWalletPassword";
-r -p /u01/app/oracle/admin/ORCL/wallet
-```
+  ```sql bash
+  ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
+  ```
 
-**Open the Keystore:**
+5. To enable the auto-login feature, the keystore must be converted to an auto-login keystore. This process creates an auto-login file that Oracle will use to open the wallet automatically.
 
-Before proceeding, you need to open the newly created keystore:
+6. Execute the following command to create the auto-login keystore:
 
-```sql bash
-ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
-```
+  ```sql sql
+  ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/u01/app/oracle/admin/ORCL/wallet' IDENTIFIED BY "YourWalletPassword";
+  ```
 
-**Convert the Keystore to Auto-Login**
+7. After conversion, you should verify that the auto-login keystore was created successfully. Check that the cwallet.sso file exists in the keystore directory:
 
-To enable the auto-login feature, the keystore must be converted to an auto-login keystore. This process creates an auto-login file that Oracle will use to open the wallet automatically.
+  ```sql sql
+  ls -l /u01/app/oracle/admin/ORCL/wallet/
+  ```
 
-**Convert to Auto-Login:**\
-Execute the following command to create the auto-login keystore:
+  You should see both `ewallet.p12` (the original keystore) and `cwallet.sso` (the auto-login keystore) files in this directory.
 
-```sql sql
-ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/u01/app/oracle/admin/ORCL/wallet' IDENTIFIED BY "YourWalletPassword";
-```
+8. With the auto-login keystore in place, you now need to configure Oracle TDE to use it. This ensures that the wallet is automatically opened during database startup.
 
-**Verify the Auto-Login Keystore:**
+9. Modify the sqlnet.ora file to specify the location of the keystore. Add or update the following entry:
 
-After conversion, you should verify that the auto-login keystore was created successfully. Check that the cwallet.sso file exists in the keystore directory:
-
-```sql sql
-ls -l /u01/app/oracle/admin/ORCL/wallet/
-```
-
-You should see both the ewallet.p12 (the original keystore) and cwallet.sso (the auto-login keystore) files in this directory.
-
-**Configure Oracle TDE to Use the Auto-Login Keystore**
-
-With the auto-login keystore in place, you now need to configure Oracle TDE to use it. This ensures that the wallet is automatically opened during database startup.
-
-**Set the Keystore Location:**
-
-Modify the sqlnet.ora file to specify the location of the keystore. Add or update the following entry:
-
-```sql plaintext
-ENCRYPTION_WALLET_LOCATION=
-  (SOURCE=
-    (METHOD=FILE)
-    (METHOD_DATA=
-      (DIRECTORY=/u01/app/oracle/admin/ORCL/wallet/)
+  ```sql plaintext
+  ENCRYPTION_WALLET_LOCATION=
+    (SOURCE=
+      (METHOD=FILE)
+      (METHOD_DATA=
+        (DIRECTORY=/u01/app/oracle/admin/ORCL/wallet/)
+      )
     )
-  )
-```
+  ```
 
-**Close and Reopen the Keystore:**
+10. Test the auto-login functionality by closing and reopening the keystore. The wallet should open automatically without requiring a password.
 
-Test the auto-login functionality by closing and reopening the keystore. The wallet should open automatically without requiring a password.
+  ```sql sql
+  ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE;
+  ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
+  ```
 
-```sql sql
-ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE;
-ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
-```
+11. Restart the Oracle database to confirm that the auto-login feature is working as expected. Upon restart, the wallet should open automatically, and all encrypted columns and tablespaces should remain accessible.
 
-**Restart the Database to Confirm:**
+  ```sql bash
+  shutdown immediate;
+  startup;
+  ```
 
-Restart the Oracle database to confirm that the auto-login feature is working as expected. Upon restart, the wallet should open automatically, and all encrypted columns and tablespaces should remain accessible.
+12. After setting up the auto-login keystore, it is crucial to test and verify the configuration to ensure that everything works as expected.
 
-```sql bash
-shutdown immediate;
-startup;
-```
+13. Use the following query to check the wallet status:
 
-**Testing and Verification**
+  ```sql sql
+  SELECT * FROM V$ENCRYPTION_WALLET;
+  ```
 
-After setting up the auto-login keystore, it is crucial to test and verify the configuration to ensure that everything works as expected.
+  The output should indicate that the wallet is open and that auto-login is enabled.
 
-**Verify Wallet Status:**\
-Use the following query to check the wallet status:
+  To display information on the status of the wallet and the wallet location for Transparent Data Encryption (TDE) please refer to [7.204 V$ENCRYPTION\_WALLET documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-ENCRYPTION_WALLET.html).  
 
-```sql sql
-SELECT * FROM V$ENCRYPTION_WALLET;
-```
+14. Ensure that you can access encrypted tablespaces and columns without manually opening the wallet.
 
-The output should indicate that the wallet is open and that auto-login is enabled.
-
-To displays information on the status of the wallet and the wallet location for Transparent Data Encryption (TDE) please refer to [7.204 V$ENCRYPTION\_WALLET documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-ENCRYPTION_WALLET.html).  
-
-**Test Encrypted Data Access:**
-
-Ensure that you can access encrypted tablespaces and columns without manually opening the wallet.
-
-```sql sql
-SELECT * FROM encrypted_table;
-```
+  ```sql sql
+  SELECT * FROM encrypted_table;
+  ```
 
 For additional details on Oracle TDE and auto-login keystore, please refer to the [Oracle TDE Auto-Login documentation](https://docs.oracle.com/database/121/ASOAG/managing-keystore-and-tde-master-encryption-key.htm#GUID-D7ACB0B7-CA85-4F72-B29E-2E283409546F) and [Database Advanced Security Administrator's Guide](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asotrans.htm)
 
