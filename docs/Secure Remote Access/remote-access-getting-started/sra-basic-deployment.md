@@ -1,5 +1,5 @@
 ---
-title: SRA On K8s
+title: Remote Access on Kubernetes
 deprecated: false
 hidden: true
 metadata:
