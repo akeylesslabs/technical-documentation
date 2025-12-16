@@ -7,7 +7,7 @@ metadata:
 ---
 Akeyless Secure Remote Access (SRA) is the Akeyless capability that enables controlled, auditable access to private infrastructure and resources  without exposing your environments to the public internet or relying on traditional VPN jump-host models. Delivered as part of the Akeyless Gateway deployment, SRA uses the Gateway as a secure access plane inside your target networks (cloud VPC/VNet, data center, Kubernetes, etc.), so users can reach protected resources through a centrally governed policy layer.
 
-> 📘 GKE Cluster
+> 🚧 GKE Cluster
 >
 > If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported.
 
