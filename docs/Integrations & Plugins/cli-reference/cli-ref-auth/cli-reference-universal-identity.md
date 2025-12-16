@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Universal Identity authentica
 
 <CLIGeneralFlags />
 
-### `Create`
+## `create`
 
 Create a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
-#### Usage
+### Usage
 
 ```shell
 akeyless auth-method create universal-identity \
@@ -26,7 +26,7 @@ akeyless auth-method create universal-identity \
 --ttl &lt;Token TTL&gt;
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required** Auth Method name
 
@@ -50,11 +50,11 @@ akeyless auth-method create universal-identity \
 
 `--ttl[=60]`: Token TTL (has the value that configured in Akeyless console > Authentication settings)
 
-### `Uid-create-child-token`
+## `uid-create-child-token`
 
 Create a new child token using Akeyless Universal Identity
 
-#### Usage
+### Usage
 
 ```shell
 akeyless uid-create-child-token \
@@ -62,7 +62,7 @@ akeyless uid-create-child-token \
 --child-deny-inheritance
 ```
 
-##### Flags
+### Flags
 
 `--child-deny-rotate`: Deny from new child to rotate
 
@@ -78,31 +78,31 @@ akeyless uid-create-child-token \
 
 `--uid-token`: The universal identity token. It is required only for universal_identity authentication
 
-### `Uid-generate-token`
+## `uid-generate-token`
 
 Generate a new token using Akeyless Universal Identity
 
-#### Usage
+### Usage
 
 ```shell
 akeyless uid-generate-token --auth-method-name &lt;Auth method name&gt;
 ```
 
-### `Uid-list-children`
+## `uid-list-children`
 
 List the token children ids of Akeyless Universal Identity
 
-#### Usage
+### Usage
 
 ```shell
 akeyless uid-list-children --auth-method-name &lt;UID Auth Method Name&gt;
 ```
 
-### `Uid-revoke-token`
+## `uid-revoke-token`
 
 Revoke token using Akeyless Universal Identity
 
-#### Usage
+### Usage
 
 ```shell
 akeyless uid-revoke-token \
@@ -111,7 +111,7 @@ akeyless uid-revoke-token \
 --auth-method-name <UID Name>
 ```
 
-##### Flags
+### Flags
 
 `-r, --revoke-type`: **Required**, revokeSelf/revokeAll (delete only this token/this token and his children)
 
@@ -119,11 +119,11 @@ akeyless uid-revoke-token \
 
 `-n, --auth-method-name`: **Required**, the universal identity auth method name
 
-### `Uid-rotate-token`
+## `uid-rotate-token`
 
 Rotate Akeyless Universal Identity token
 
-#### Flags
+### Flags
 
 `-t, --token, --uid-token`: The Universal identity token to rotate
 
@@ -137,11 +137,11 @@ Rotate Akeyless Universal Identity token
 
 `-i, --input-file`: Path to the input file
 
-### `Update`
+## `update`
 
 Update a new Auth Method that will be able to authenticate using Akeyless Universal Identity
 
-#### Usage
+### Usage
 
 ```shell
 akeyless auth-method update universal-identity \
@@ -149,7 +149,7 @@ akeyless auth-method update universal-identity \
 --new-name &lt;Auth method new name&gt;
 ```
 
-##### Flags
+### Flags
 
 `--new-name`: Auth Method new name
 

@@ -12,27 +12,27 @@ next:
 ---
 The akeyless mcp command starts an MCP server that enables AI assistants such as Cursor and GitHub Copilot to securely interact with Akeyless services through a standardized interface.
 
-### What Is MCP?
+## What Is MCP?
 
 Model Context Protocol (MCP) is an open standard that allows AI assistants to securely access external data sources and tools.
 
-### With MCP, You Can
+## With MCP, You Can
 
 * Safely authenticate AI assistants with Akeyless
 * Interact with Akeyless secrets, targets, and other resources
 * Leverage existing profiles and authentication methods
 * Connect to Akeyless Gateway instances
 
-### Features
+## Features
 
 * Secure Authentication – Uses Akeyless authentication mechanisms
 * Tool Integration – Access Akeyless secrets, targets, RBAC, and more
 * Profile Support – Works with your existing Akeyless CLI profiles
 * Gateway Integration – Supports both local and cloud Akeyless Gateways
 
-### Usage
+## Usage
 
-#### Basic Commands
+### Basic Commands
 
 ```shell
 # Start MCP server with access key authentication
@@ -45,7 +45,7 @@ akeyless mcp --access-id <your-access-id> --access-type saml --gateway-url https
 akeyless mcp --profile <profile-name> --gateway-url https://api.akeyless.io
 ```
 
-#### Supported Authentication Methods
+### Supported Authentication Methods
 
 ```shell
 --access-type [=access_key]  
@@ -55,7 +55,7 @@ akeyless mcp --profile <profile-name> --gateway-url https://api.akeyless.io
 The MCP command accepts the same authentication parameters as standard Akeyless CLI auth commands.\
 For more details, see [Akeyless Authentication Documentation](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
-### Common Parameters
+## Common Parameters
 
 \--access-id: Your Akeyless Access ID
 
@@ -67,7 +67,7 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 
 \--profile: Use an existing CLI profile
 
-### Setting Up MCP With Cursor
+## Setting Up MCP With Cursor
 
 1. Install Akeyless CLI\
    Ensure the Akeyless CLI is installed and configured.
@@ -104,7 +104,7 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 * “Create a new secret called api-key”
 * “List all my targets”
 
-### Setting Up MCP With GitHub Copilot
+## Setting Up MCP With GitHub Copilot
 
 1. Install Copilot CLI
 
@@ -135,12 +135,12 @@ mcpServers:
 copilot mcp
 ```
 
-4. Use Copilot\
+4. Use Copilot
    You can now manage secrets, configure targets, and perform infrastructure tasks via Copilot.
 
-### Examples
+## Examples
 
-#### Secret Operations
+### Secret Operations
 
 ```shell
 # Start MCP server
@@ -151,14 +151,14 @@ akeyless mcp --profile production --gateway-url https://api.akeyless.io
 # "Show me all secrets in the /prod/ path"
 ```
 
-#### Target Management
+### Target Management
 
 ```shell
 # "List all my AWS targets"
 # "Update the SSH target with new credentials"
 ```
 
-#### Production Setup
+### Production Setup
 
 ```shell
 # Production

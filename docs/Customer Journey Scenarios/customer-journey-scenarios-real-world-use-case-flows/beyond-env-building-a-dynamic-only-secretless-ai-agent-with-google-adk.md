@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-### Introduction
+## Introduction
 
 In AI development, we're obsessed with agent capabilities. But what about their security? An AI agent is a high-value target, holding keys to models (like Gemini) and, more critically, your data (like a MongoDB database).
 
@@ -14,8 +14,6 @@ The common solution, .env files or Kubernetes secrets, just moves the problem. Y
 This post explores a more radical, secure architecture: a "dynamic-only" secretless agent. We'll walk through the code for a Google ADK agent that starts with zero credentials. It uses its native GCP cloud identity to fetch its Gemini API key, and for its database, it only accepts just-in-time, dynamic credentials.
 
 <Image border={false} src="https://files.readme.io/f5c06bb7db757f742fa8959b6e0e705c800baeb66f72fc9b06283a60c37522a4-8630a779-57cb-4b0c-a9d4-65756bd93296.png" />
-
-
 
 This architecture fundamentally changes how an app accesses resources.
 
@@ -28,13 +26,11 @@ This architecture fundamentally changes how an app accesses resources.
 
 The result: The agent's database credentials only exist for the few seconds they are needed. An attacker scanning the environment would find nothing to steal.
 
-
-
-### Code Deep Dive: The Secretless Engine
+## Code Deep Dive: The Secretless Engine
 
 Let's break down the Python code that makes this possible.
 
-#### Part 1: The Resilient Authentication Core
+### Part 1: The Resilient Authentication Core
 
 Before we can fetch any secret, we need a token. But that token can expire. This function, fetch_secret_from_akeyless, is a resilient engine that can get any static secret. It first tries optimistically, and if it fails, it performs a full re-authentication using its GCP identity.
 
@@ -95,9 +91,7 @@ def fetch_api_key_from_akeyless():
     return fetch_secret_from_akeyless('/Gemini_API_Key-V2')
 ```
 
-
-
-#### Part 2: The "Dynamic-Only" Database Access
+### Part 2: The "Dynamic-Only" Database Access
 
 This is the most critical part of the new code. This function's job is to get MongoDB credentials. It does not look for static connection strings. It only attempts to fetch dynamic, just-in-time credentials. If it can't, it fails which is exactly the behavior we want.
 
@@ -158,7 +152,7 @@ def fetch_mongodb_credentials_from_akeyless() -> Optional[Dict[str, str]]:
 
 ```
 
-#### Part 3: Bootstrapping the "Secretless" Agent
+### Part 3: Bootstrapping the "Secretless" Agent
 
 Finally, we wrap this logic into an initialization function that the Google ADK agent calls when it's created.
 
@@ -249,7 +243,7 @@ def create_agent():
 
 ```
 
-### Example: The Agent in Action
+## Example: The Agent in Action
 
 With the secretless_agent now running, it can use the tools defined in its create_agent function. These tools, like list_mongodb_collections, transparently use the dynamic, in-memory MongoDB credentials that were fetched during initialization.
 
@@ -257,9 +251,7 @@ Here is an example of that exact interaction:
 
 <Image border={false} src="https://files.readme.io/823f5394e1c484e67422caa038a06011ee7db9c2a24d70cda7486c715bb612a5-ba532c6c-403e-4f73-8425-313c6f7f7439.png" />
 
-
-
-### Conclusion: The Future Is Ephemeral
+## Conclusion: The Future Is Ephemeral
 
 The architecture we've explored isn't just a theoretical workaround; it's a practical, robust solution to the security risks inherent in powerful AI agents. Traditional methods leave static, long-lived credentials like database passwords and API keys as ticking time bombs on a server. If compromised, it's game over.
 
