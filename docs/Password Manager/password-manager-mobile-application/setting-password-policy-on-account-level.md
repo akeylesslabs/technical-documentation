@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-### Accessing Password Generation Policy
+## Accessing Password Generation Policy
 
 <Image align="right" width="300px" src="https://files.readme.io/fc0783d-Screenshot_2024-01-10_at_16.21.04.png" />
 
@@ -24,7 +24,7 @@ Locate and click on "Password Generation Policy" in the displayed "More" screen.
 
 A bottom action menu will appear, providing options to configure the password generation policy.
 
-### Define the Following Parameters
+## Define the Following Parameters
 
 **Character Length:** Set the desired default length for passwords created within your account.
 

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-### Installation on Your Mobile Devices
+## Installation on Your Mobile Devices
 
 The Akeyless password manager mobile application offers a streamlined and user-friendly installation process, compatible with both Android and iOS platforms. Here's how you can effortlessly install and begin using Akeyless on your mobile device:
 
-### Akeyless Password Manager Android Installation
+## Akeyless Password Manager Android Installation
 
 Open Google Play Store: On your Android device, navigate to the Google Play Store. This app is typically found on your device's home screen or app drawer. Tap on its icon to open it.
 
@@ -26,9 +26,7 @@ Grant Permissions: A prompt will appear, detailing the permissions required by t
 
 <Image align="center" width="200px" src="https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg" />
 
-
-
-### Akeyless Password Manager iOS Installation
+## Akeyless Password Manager iOS Installation
 
 Open Apple App Store: On your iOS device, locate and launch the Apple App Store. This is typically found on your home screen.
 
@@ -40,13 +38,11 @@ Confirm Installation: iOS may prompt you to confirm the installation. This might
 
 <Image align="center" width="200px" src="https://files.readme.io/9f41004-File_5.jpg" />
 
-
-
-### Authentication Methods Support
+## Authentication Methods Support
 
 In the context of modern enterprise environments, where security is a top priority, the Akeyless Platform offers a highly secure login flow. This involves using a code ID provided by an IT admin combined with multi-factor authentication (MFA). This method is more secure than traditional master passwords or biometrics, as it introduces multiple verification layers and eliminates potential single points of failure.
 
-### Please Note: Users Will Need to Have a VPN on Their Phone Installed in Order to Use Zero-knowledge Keyless Functionality
+## Please Note: Users Will Need to Have a VPN on Their Phone Installed in Order to Use Zero-knowledge Keyless Functionality
 
 Zero-knowledge keyless functionality is a security feature that allows users to access and manage their passwords or other sensitive information without revealing their credentials to the service provider. This is achieved through cryptographic techniques that ensure that only the user has knowledge of their credentials, while the service provider can only verify their identity without ever storing or seeing their passwords.
 
@@ -54,7 +50,7 @@ A VPN establishes a secure tunnel between the user's mobile device and the VPN s
 
 Therefore, requiring users to have a VPN installed on their phones before using zero-knowledge keyless functionality is a necessary security measure to protect their sensitive information and maintain the integrity of the zero-knowledge authentication process. By routing all network traffic through a secure VPN tunnel, users can confidently use zero-knowledge keyless functionality without compromising their security.
 
-### Authentication Methods Support
+## Authentication Methods Support
 
 Once you've installed the Akeyless browser extension. Simply locate the Akeyless Password Manager mobile app. To securely access your Akeyless account, you can utilize one of the following authentication methods:
 

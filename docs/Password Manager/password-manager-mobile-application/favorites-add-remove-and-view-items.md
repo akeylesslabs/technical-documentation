@@ -14,7 +14,7 @@ The Favorites Tab is crafted to offer you quick and easy access to select passwo
 
 <Image align="right" width="150px" src="https://files.readme.io/267b625-Screenshot_2024-04-11_at_15.25.13.png" />
 
-**Adding Items to Favorites**
+## Adding Items to Favorites
 
 How to Add: You can add any password or secret to the Favorites Tab by tapping the 'Add to Favorites' option available on each individual item.
 
@@ -22,10 +22,10 @@ How to Remove: You can easily remove any password or secret from the Favorites T
 
 Accessibility: Once added, these items are easily accessible, allowing for quick retrieval without the need to sift through your entire library.
 
-**Layout and Display**
+## Layout and Display
 
 View Options: The Favorites Tab organizes your chosen items in a user-friendly list or grid layout, ensuring you can view and access your favorites efficiently.
 
-**Search and Filter Functionality**
+## Search and Filter Functionality
 
 Quick Search: The integrated search bar enables you to rapidly locate specific entries within your Favorites Tab, eliminating the need for manual scrolling.

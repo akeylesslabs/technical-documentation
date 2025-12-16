@@ -14,9 +14,7 @@ The revamped home screen brings a host of new features and improvements to ensur
 
 <Image align="right" width="150px" src="https://files.readme.io/f53004f-Screenshot_2024-04-11_at_15.21.31.png" />
 
-
-
-**"What's New" Banner**
+## "What's New" Banner
 
 Location: Prominently displayed at the top of the screen.
 
@@ -33,11 +31,9 @@ Implementation Details: We've dedicated a specific view/layout to ensure this ba
 
 * Features: A streamlined header/navigator allows you to easily switch between your Personal and Corporate spaces, each tailored with specific options for an organized viewing experience.
 
-**Frequently Used Section**
+## Frequently Used Section
 
 This addition to the home screen is designed to put your most used passwords and secrets right at your fingertips, ensuring that your most critical credentials are always within easy reach.
-
-**Frequently Used Section Overview**
 
 * Purpose: To provide quick access to the passwords and secrets you use most frequently, making your daily routines smoother and more efficient.
 * Criteria for "Most Used": This section dynamically updates based on your actions, including:

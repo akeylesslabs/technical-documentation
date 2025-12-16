@@ -16,8 +16,6 @@ Open Options Menu: Click the three dots button next to the password entry to ope
 
 <Image align="center" width="200px" src="https://files.readme.io/ba937b7-Screenshot_2024-06-16_at_11.01.45.png" />
 
-
-
 Prepare OTP for Scanning: Ensure that the OTP (One-Time Password) code is visible on the screen in a scannable format.
 
 Scan OTP: Select the "Scan OTP" option from the menu.
