@@ -84,13 +84,13 @@ cat ~/gsa-key.json | jq -re .client_email
 cat ~/gsa-key.json | jq -re .private_key
 ```
 
-Then copy the values to the dynamic GKE secret settings. You can find the rest of the values for dynamic GKE secret settings in your <code>kubeconfig</code> file or in the GCP console.
+Then copy the values to the dynamic GKE secret settings. You can find the rest of the values for dynamic GKE secret settings in your `kubeconfig` file or in the GCP console.
 
 ## Use a Dynamic GKE Secret With the Akeyless CLI Running on the Same Host
 
 If the Akeyless CLI is installed on the same host as the `kubectl`, you can define a `kubeconfig` file to automatically run the `get-dynamic-secret-value` command and fetch new access tokens as required.
 
-You need to either download the <code>kubeconfig</code> file directly from the [Akeyless Console](https://console.akeyless.io/) by selecting the **Dynamic Secret** item and copying the file from the **Dynamic Secret Description**, or generate the file manually as follows:
+You need to either download the `kubeconfig` file directly from the [Akeyless Console](https://console.akeyless.io/) by selecting the **Dynamic Secret** item and copying the file from the **Dynamic Secret Description**, or generate the file manually as follows:
 
 ```yaml kubeconfig
 apiVersion: v1

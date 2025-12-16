@@ -139,7 +139,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your <code>PRIVILEGED\_ACCESS\_ID</code>, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -165,7 +165,7 @@ services:
 
 Azure AD authentication is provided with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your <code>PRIVILEGED\_ACCESS\_ID</code> with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your `PRIVILEGED\_ACCESS\_ID` with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -386,4 +386,4 @@ docker-compose up -d --scale worker=3
 
 Verify that both containers are up and running:
 
-<code>web-worker-deployment</code>\ <code>web-dispatcher-deployment</code>
+`web-worker-deployment` / `web-dispatcher-deployment`

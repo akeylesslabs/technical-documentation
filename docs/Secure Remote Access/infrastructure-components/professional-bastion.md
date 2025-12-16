@@ -32,20 +32,20 @@ To spin Akeyless Professional-Bastion using docker please refer to the last sect
 
 * [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates)
 
-****Storage****
+### Storage
 
 Currently, the helm chart requires a storage class with ReadWriteMany access modes.
-Since a storage class is more environment specific, you will need to provide one before proceeding. In addition, please provide 2 PersistentVolumes with <code>persistentVolumeReclaimPolicy: retain</code> and reference those PVs in the values.yaml file
+Since a storage class is more environment specific, you will need to provide one before proceeding. In addition, please provide 2 PersistentVolumes with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the values.yaml file
 
 e.g when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
-****Network****
+### Network
 
 When using SSH sessions behind load balancer such as ELB, the session can be closed due to idle connection timeout, so its advise to increase it to a reasonable high value, or event unlimited.
 
 e.g when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-****Horizontal Auto-Scaling****
+### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.
 For it to work properly, Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)

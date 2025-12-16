@@ -35,7 +35,7 @@ To use Akeyless Connect you need:
 > Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."\
 > This feature enables users to utilize their Windows OS environment as a UNIX-like system.
 >
-> To work with the `akeyless-connect` command from a Windows machine, place the <code>.akeyless-connect.rc</code> script in your home directory.
+> To work with the `akeyless-connect` command from a Windows machine, place the `.akeyless-connect.rc` script in your home directory.
 
 ## Set Up Akeyless Connect
 

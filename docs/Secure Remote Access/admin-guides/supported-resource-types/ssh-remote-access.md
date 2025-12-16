@@ -96,7 +96,7 @@ Akeyless enables CLI access from any UNIX terminal.
 > Starting from Windows 10, Microsoft supports the native feature "Windows subsystem for Linux."
 > This feature enables users to utilize their Windows OS environment as a UNIX-like system.
 >
-> To work with `Akeyless connect` command from Windows machine, place the <code>.akeyless-connect.rc</code> script on your home directory.
+> To work with `Akeyless connect` command from Windows machine, place the `.akeyless-connect.rc` script on your home directory.
 
 1. Download and install the latest version of Akeyless CLI.
 

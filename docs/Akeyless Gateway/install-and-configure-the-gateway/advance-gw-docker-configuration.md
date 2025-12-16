@@ -370,12 +370,12 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e ADMIN_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-You can also provide a custom display name for the Gateway Instance using the <code>INITIAL_DISPLAY_NAME</code> variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
+You can also provide a custom display name for the Gateway Instance using the `INITIAL_DISPLAY_NAME` variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
 
 ## Encryption Key
 
 While the **Secret Encryption** section discusses the secrets created when using the Gateway, this section discusses the encryption of the configuration file.
-To choose an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to encrypt your Gateway configuration, you can choose an existing key using the following variable <code>CONFIG_PROTECTION_KEY_NAME</code>
+To choose an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to encrypt your Gateway configuration, you can choose an existing key using the following variable `CONFIG_PROTECTION_KEY_NAME`
 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
@@ -444,23 +444,23 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e
 
 In the example above,
 
-* The <code>ENABLE_TLS</code> variable enables TLS for the Gateway Console.
+* The `ENABLE_TLS` variable enables TLS for the Gateway Console.
 
-* The <code>ENABLE_TLS_CONFIGURE</code> variable enables TLS for the Gateway Configuration Manager.
+* The `ENABLE_TLS_CONFIGURE` variable enables TLS for the Gateway Configuration Manager.
 
-* The <code>ENABLE_TLS_HVP</code> variable enables TLS for the HVP service.
+* The `ENABLE_TLS_HVP` variable enables TLS for the HVP service.
 
-* The <code>ENABLE_TLS_CURL</code> variable enables TLS for the Akeyless API Services.
+* The `ENABLE_TLS_CURL` variable enables TLS for the Akeyless API Services.
 
-* The <code> MIN_TLS_VERSION</code>  variable sets the minimum TLS version that will be supported supporting `<TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>`.
+* The `MIN_TLS_VERSION` variable sets the minimum TLS version that will be supported supporting `<TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>`.
 
 In addition to exclude specific cipher suites, use this variable `EXCLUDE_CIPHER_SUITES` with the relevant suites, you wish to exclude comma-separated.
 
 With the following attributes, you can mount the TLS certificate and the TLS Private Key from the Present Working Directory to the Gateway target directory:
 
-* <code>-v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-api-cert.crt</code>
+* `-v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-api-cert.crt`
 
-* <code>-v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key</code>
+* `-v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key`
 
 It is also possible to [Set up TLS](https://docs.akeyless.io/docs/tls-certificate) in the Gateway Configuration Manager after the Gateway is installed.
 

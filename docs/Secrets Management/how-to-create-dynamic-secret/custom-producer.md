@@ -66,17 +66,17 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>mongodb://user:password@host</code>  </p>
-<p><code>{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`mongodb://user:password@host`</p>
+<p>`{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}`</p>
 </td>
 </tr>
 <tr>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>input</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) User input provided with the current<br> <code>get-dynamic-secret-value</code> operation. This is a JSON object, and its format depends on the information provided by the user.</p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) User input provided with the current `get-dynamic-secret-value` operation. This is a JSON object, and its format depends on the information provided by the user.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>{   &quot;domain&quot;:&quot;foo.example.com&quot;,   &quot;use_staging&quot;:true }</code>  </p>
-<p><code>{&quot;project_id&quot;:42}</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;domain&quot;:&quot;foo.example.com&quot;,   &quot;use_staging&quot;:true }`</p>
+<p>`{&quot;project_id&quot;:42}`</p>
 </td>
 </tr>
 <tr>
@@ -84,7 +84,7 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>Information about the user requesting the credentials. It includes the user&#39;s Akeyless access ID, as well as any sub-claims.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>{   &quot;access_id&quot;: &quot;p-1234&quot;,   &quot;sub_claims&quot;: {     &quot;claim1&quot;: [&quot;value1&quot;]   } }</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;access_id&quot;: &quot;p-1234&quot;,   &quot;sub_claims&quot;: {     &quot;claim1&quot;: [&quot;value1&quot;]   } }`</p>
 </td>
 </tr>
 </tbody>
@@ -118,12 +118,12 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}>
   <p>
-    A unique identifier for the temporary credentials, which is required during a <code>POST /sync/revoke</code> operation.
+    A unique identifier for the temporary credentials, which is required during a `POST /sync/revoke` operation.
   </p>
 </td>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>tmp.user1234</code>  </p>
-<p><code>f2fa1940-8d7e-41d4-a688-8d915795e88b</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`tmp.user1234`</p>
+<p>`f2fa1940-8d7e-41d4-a688-8d915795e88b`</p>
 </td>
 </tr>
 <tr>
@@ -131,8 +131,8 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A JSON object that includes any fields required by the particular use case.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>{   &quot;cert&quot;:&quot;&lt;redacted&gt;&quot;,   &quot;private_key&quot;:&quot;&lt;redacted&gt;&quot; }</code>  </p>
-<p><code>{&quot;password&quot;:&quot;strongpassword!&quot;}</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;cert&quot;:&quot;&lt;redacted&gt;&quot;,   &quot;private_key&quot;:&quot;&lt;redacted&gt;&quot; }`</p>
+<p>`{&quot;password&quot;:&quot;strongpassword!&quot;}`</p>
 </td>
 </tr>
 </tbody>
@@ -170,8 +170,8 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>mongodb://user:password@host</code>  </p>
-<p><code>{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`mongodb://user:password@host`</p>
+<p>`{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}`</p>
 </td>
 </tr>
 <tr>
@@ -179,7 +179,7 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A list of IDs to revoke. These IDs were previously received in response to <code>POST /sync/create</code> operations.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>[&quot;foo&quot;, &quot;bar&quot;]</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`[&quot;foo&quot;, &quot;bar&quot;]`</p>
 </td>
 </tr>
 </tbody>
