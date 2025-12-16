@@ -160,7 +160,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your <code>accessID</code>, with a list of `allowedAccessIDs` that will be authorized to request access:
+While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -173,7 +173,7 @@ privilegedAccess:
 
 Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your <code>accessID</code> with a list of `allowedAccessIDs` that will be authorized to request access:
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your `accessID` with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -190,4 +190,4 @@ helm install <RELEASE NAME> akeyless/akeyless-zero-trust-web-access -f values.ya
 
 Verify that both pods are up and running:
 
-<code>web-worker-deployment</code>\ <code>web-dispatcher-deployment</code>
+`web-worker-deployment`\ `web-dispatcher-deployment`

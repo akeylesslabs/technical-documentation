@@ -30,7 +30,7 @@ This chart bootstraps the Secure Remote Access Bastion deployment on a Kubernete
 
 * Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set requests values.
 
-_**Network**_
+### Networking
 
 * Ingress - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
 
@@ -40,11 +40,11 @@ When using SSH sessions behind a load balancer such as ELB, the session can be c
 
 e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-_**Storage**_
+### Storage
 
 To be able to make more than 1 SSH-bastion pod work, the chart requires a persistent storage, with the `ReadWriteMany` access mode.
 
-Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with <code>persistentVolumeReclaimPolicy: retain</code> and reference those PVs in the chart `values` file
+Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart `values` file
 
 ```yaml
 persistence: 
@@ -63,7 +63,7 @@ persistence:
 
 e.g., when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
-_**Horizontal Auto-Scaling**_
+### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.
 For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` Statefulset (HPA can not support multiple pods without defining a shared persistent storage volume).
@@ -174,7 +174,7 @@ AWS IAM can be used in the following approaches:
 
 * Service Account IAM Role
 
-While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your <code>accessID</code>, with a list of `allowedAccessIDs` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -270,7 +270,7 @@ privilegedAccess:
 
 Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your <code>accessID</code> with the matching service principal `azureobjectID`, with a list of `allowedAccessIDs` that will be authorized to request access:
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your `accessID` with the matching service principal `azureobjectID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:

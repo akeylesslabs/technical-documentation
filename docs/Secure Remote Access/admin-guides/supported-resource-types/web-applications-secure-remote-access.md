@@ -28,7 +28,7 @@ The following browsing modes are available:
 
 * Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
 
-This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: <code>username..password</code>. i.e. a concatenation of your username and password, with double dots as a delimiter.
+This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: `username..password`. i.e. a concatenation of your username and password, with double dots as a delimiter.
 
 ## Set Up Remote Access to a Web Application from the Akeyless CLI
 
@@ -51,7 +51,7 @@ where:
 
 > 🚧 Warning
 >
-> In case you are using an Alias or multiple fields as part of your login credentials, please make sure your secret value follows this format: <code>username..alias..password</code>
+> In case you are using an Alias or multiple fields as part of your login credentials, please make sure your secret value follows this format: `username..alias..password`
 
 On Akeyless Secure Remote Access Portal, click on the Web Access application, select the relevant item in the list.
 

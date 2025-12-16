@@ -29,13 +29,13 @@ To use Akeyless Connect  you need:
 > Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."\
 > This feature enables users to utilize their Windows OS environment as a UNIX-like system.
 >
-> To work with the `akeyless-connect` command from a Windows machine, place the <code>.akeyless-connect.rc</code> script in your home directory.
+> To work with the `akeyless-connect` command from a Windows machine, place the `.akeyless-connect.rc` script in your home directory.
 
 ## Set Up Akeyless Connect
 
 Install the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). Or run `akeyless update` to ensure you're using the latest version.
 
-**Optional**: Download the `akeyless-connect.rc` file from [here](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs. If you prefer to get started without this, go straight to the Usage section below.
+**Optional**: Download the `akeyless-connect.rc` file from [https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs. If you prefer to get started without this, go straight to the Usage section below.
 
 > 📘 RC file location
 >
