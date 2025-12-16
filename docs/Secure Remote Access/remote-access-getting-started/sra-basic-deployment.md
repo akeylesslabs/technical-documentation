@@ -11,7 +11,7 @@ In this guide, we will deploy SRA using the most basic configuration on a K8s cl
 
 ## Prerequisites
 
-* Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA. 
+* Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA.
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_`  username .
 
@@ -29,7 +29,7 @@ In this guide, we will deploy SRA using the most basic configuration on a K8s cl
 
 * Network Settings:
 
-  Proper network configuration is required to ensure correct traffic routing and session management for SRA components. Configure networking depending on whether you use an Ingress controller or a cloud load balancer. 
+  Proper network configuration is required to ensure correct traffic routing and session management for SRA components. Configure networking depending on whether you use an Ingress controller or a cloud load balancer.
 
   * **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
 
@@ -99,10 +99,8 @@ In order to get the external IP address of your Gateway, run:
 kubectl get svc
 ```
 
-You will see the service name as `gw-akeyless-gateway`. The **External-IP** will be used to reach the Gateway from your browser.
+You will see the service name as `gw-akeyless-gateway`, to login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
 
-To start working with SRA, open your browser and log in using the following URL: `http://<External-IP>:8000/sra/portal`
-
-You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC](https://docs.akeyless.io/docs/openid#/) or a [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication#/) authentication method.
+You will need to log in with one of the [supported authentication methods](https://docs.akeyless.io/docs/access-resources-remotely#prerequisites). 
 
 Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or via an SSH connection.
