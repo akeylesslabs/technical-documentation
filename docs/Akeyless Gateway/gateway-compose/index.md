@@ -66,7 +66,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 > 👍 Note
 >
-> Your Gateway **Authentication Method**  should have permission to create and manage both Items along with Targets items **only**.
+> Your Gateway **Authentication Method** should have permission to create and manage both Items along with Targets items **only**.
 
 ### API Key Authentication
 

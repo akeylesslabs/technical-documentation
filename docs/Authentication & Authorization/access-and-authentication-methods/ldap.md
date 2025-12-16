@@ -53,7 +53,7 @@ On the **LDAP Configuration** step define the following:
 * **Server CA Certificate:** LDAP server CA certificate, requires x509 PEM encoded certificate format, **Relevant** only if secured LDAP server `ldaps` is used.
 
 * **LDAP Bind DN:** Distinguished Name (DN) of object to bind when performing user and group search
-  e.g. `cn=admin,dc=planetexpress` ,**Relevant** only if **Enable LDAP Anonymous Search**  is checked.
+  e.g. `cn=admin,dc=planetexpress` ,**Relevant** only if **Enable LDAP Anonymous Search** is checked.
 
 * **Password for LDAP Bind DN:** Password to perform user search, **Relevant** only if **Enable LDAP Anonymous Search** is NOT checked.
 
@@ -67,7 +67,7 @@ The following **Search Configuration** steps are **Optional**:
 
 * **Group Base DN:** Base DN to perform group membership search, e.g. `ou=groups,dc=planetexpress,dc=com`.
 
-* **Go Template for Group Membership query:**  Go template used when constructing the group membership query. The template can access the following context variables: `UserDN, Username`.
+* **Go Template for Group Membership query:** Go template used when constructing the group membership query. The template can access the following context variables: `UserDN, Username`.
 
 * **LDAP Group Attribute:** LDAP attribute to follow on objects returned by `ldap_group_filter` in order to enumerate user group membership, the default is `cn`.
 

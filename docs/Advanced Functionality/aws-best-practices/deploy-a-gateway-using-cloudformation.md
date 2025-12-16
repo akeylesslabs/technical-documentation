@@ -47,7 +47,7 @@ In addition, to create an authentication methods that support user login, for si
 
 2. Provide a name and click **Next**.
 
-3. Click **Associate**, then select the **API Key** and the **AWS IAM**  authentication methods.
+3. Click **Associate**, then select the **API Key** and the **AWS IAM** authentication methods.
 
 4. Click **Add** to define permissions:
 
