@@ -25,7 +25,7 @@ next:
 
    * **Venafi Cloud** Or **Trust Protection Platform**.
 
-   * For **Venafi Cloud**  set the following:
+   * For **Venafi Cloud** set the following:
 
      * **API Key:** The API key to use when connecting to a Venafi Cloud environment.
 
@@ -39,7 +39,7 @@ next:
 
      * **Refresh Token:** Venafi Refresh Token to use when the Access Token is expired
 
-     * **Client ID:**  Default is `akeyless`.
+     * **Client ID:** Default is `akeyless`.
 
      * **Zone:** The zone to use when issuing new certificates (policies will be pulled from here).
 

@@ -39,7 +39,7 @@ akeyless connect --target <user>@<targetserver> \
 
 Where:
 
-* **target:**  The target resource, e.g. `user@ssh-server[:port]`, `us-east-2`, `mysql-server:3306`, etc.
+* **target:** The target resource, e.g. `user@ssh-server[:port]`, `us-east-2`, `mysql-server:3306`, etc.
 
 * **--via-sra:** SRA host, which the connection will go through. e.g.: sra-host:port\`.
   * NOTE - With unified Gateway, you should be using `-g <your-gateway-ip[:port]>`instead of `--via-sra`

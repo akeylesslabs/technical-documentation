@@ -46,7 +46,7 @@ Certificates can be renewed, either from the item or the event itself. the follo
 
 To renew a certificate from the **Event Center**:
 
-1. Open the **Event Center** and open the **Action Menu**  on the event of the certificate that is about to expire.
+1. Open the **Event Center** and open the **Action Menu** on the event of the certificate that is about to expire.
 2. Click **Certificate Renewal**.
 3. You will be asked to either **Generate new CSR and Key** or **Use an existing Key** when applicable.
 4. Click **Renew** to renew the certificate, once done, a pop-up with the **Certificate** and **Private Key** will appear.

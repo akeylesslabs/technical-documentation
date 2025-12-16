@@ -109,7 +109,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Use the **Choose an existing target** drop-down list to select the existing SSH Target.
 
-  * Select the **Explicitly specify target properties**  to provide details of the target Windows server in the next step.
+  * Select the **Explicitly specify target properties** to provide details of the target Windows server in the next step.
 * **Groups:** A comma-separated list of RDP user groups to which the new user should be added.
 * **Display message to the user before TTL expires:** Select this checkbox to allow displaying messages to the user before TTL expires.
 * **Allow user to extend session periodically:** Select this checkbox to allow the user to extend session periodically.

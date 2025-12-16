@@ -170,7 +170,7 @@ akeyless_secrets:
 
 where the plugin can be used in the following modes:
 
-* `env-file`: This mode stores **secrets**  in environment variables, which are stored inside an `env` file for future usage across jobs, this mode has character and structure limitations, for example, it's not possible to fetch **certificates** items.
+* `env-file`: This mode stores **secrets** in environment variables, which are stored inside an `env` file for future usage across jobs, this mode has character and structure limitations, for example, it's not possible to fetch **certificates** items.
 
 * `json`:  This mode stores **secrets** and **certificates** in a `json` file where any format can be fetched. It is recommended to use with `jq` for easier parsing of the`JSON` content.
 
@@ -182,7 +182,7 @@ Your secrets are stored either in `akeyless.env` or `akeyless.json` accordingly,
 
 ## Examples
 
-In the following example, we will use the `env-file` mode. where the secrets will be stored in environment variables. Additionally, upon a successful authentication, the value of the **Akeyless Token**   will be saved automatically into the `AKEYLESS_TOKEN` environment variable, so it can be reused.
+In the following example, we will use the `env-file` mode. where the secrets will be stored in environment variables. Additionally, upon a successful authentication, the value of the **Akeyless Token** will be saved automatically into the `AKEYLESS_TOKEN` environment variable, so it can be reused.
 
 Create a file named `.gitlab-ci.yml`, as follows:
 
@@ -293,7 +293,7 @@ use_secret:
 
 Where:
 
-* `csr-data`: **Base64 Encoded CSR**  for issuing the certificate. **Relevant only for PKI Certificate**, alternatively you can use `public-key-data` instead.
+* `csr-data`: **Base64 Encoded CSR** for issuing the certificate. **Relevant only for PKI Certificate**, alternatively you can use `public-key-data` instead.
 
 * `public-key-data`**public key** for issuing a certificate, only for **PKI Certificate** must be in a **Base64** format
 

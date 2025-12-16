@@ -169,7 +169,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) .
 
-  * Check the **Explicitly specify target properties**  to provide details of the target AWS account in the next step.
+  * Check the **Explicitly specify target properties** to provide details of the target AWS account in the next step.
 
 * **Access Mode:** Select the AWS access mode, either **IAM User** or **Assume Role**.
 
@@ -185,7 +185,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **User Console Access:** Check to enable access to the AWS management console. (The returned object will include a username and password to connect to the AWS Management Console).
 
-* **Session Tags:**  Key-value pair attributes that you pass when you assume an IAM role or federate a user in AWS STS, additionally can be used with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) templates,for example`Key=MyTag,Value={{username}}` where `username` is the sub-claim name. Relevant only for **Assume Role** mode.
+* **Session Tags:** Key-value pair attributes that you pass when you assume an IAM role or federate a user in AWS STS, additionally can be used with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) templates,for example`Key=MyTag,Value={{username}}` where `username` is the sub-claim name. Relevant only for **Assume Role** mode.
 
 * **Transitive Tag Keys:** STS Transitive [session tag](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role) keys, relevant only for **Assume Role** mode.
 

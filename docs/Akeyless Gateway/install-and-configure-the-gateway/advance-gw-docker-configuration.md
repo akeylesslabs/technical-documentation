@@ -18,7 +18,7 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ENV_VARIABLE_1="value1" -e ENV_VARIA
 
 > 👍 Note
 >
-> To update an existing Gateway, use the same **Gateway Access ID**  and **Cluster Name** for the new Gateway in order to retrieve the latest settings and data from the previously removed Docker instance.
+> To update an existing Gateway, use the same **Gateway Access ID** and **Cluster Name** for the new Gateway in order to retrieve the latest settings and data from the previously removed Docker instance.
 
 ## Authentication
 
@@ -40,7 +40,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 > 👍 Note
 >
-> Your Gateway **Authentication Method**  should have permission to create and manage both Items along with Targets items **only**.
+> Your Gateway **Authentication Method** should have permission to create and manage both Items along with Targets items **only**.
 
 While working with Cloud Service Providers [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) you can provide a list of allowed users that will be able to log in and manage your Gateway configuration.
 
@@ -354,13 +354,13 @@ You may also edit this parameter on your console, by going to the Gateways tab a
 
 ## Cluster Name & URL
 
-Each Gateway instance is uniquely identified by combining the **Gateway Access ID**  Authentication Method and the **Cluster Name**.
+Each Gateway instance is uniquely identified by combining the **Gateway Access ID** Authentication Method and the **Cluster Name**.
 
 It means that changing the Gateway **Access ID** or the **Cluster Name** of your Gateway instance will create an entirely new Gateway instance, and it will not retrieve the settings and data from the previous Gateway instance.
 
 That’s why we recommend setting up a meaningful Cluster Name for your Gateway instance from the very beginning. By default, your cluster name is _defaultCluster_.
 
-To do that, you can set the <code> CLUSTER_NAME="meaningful-cluster-name"</code> variable. In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` variable as part of the Gateway Installation command.
+To do that, you can set the `CLUSTER_NAME="meaningful-cluster-name"` variable. In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` variable as part of the Gateway Installation command.
 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless

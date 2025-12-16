@@ -35,9 +35,9 @@ GCP supports the following algorithm types: `AES256GCM`, `RSA2048`, `RSA3072`, `
 If you are using the CLI in order to associate the key and the target, please note to use all of the GCP mandatory parameters as described in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueassociate-a-classic-keyp):
 
 * **project-id:** A project ID of the GCP KMS (from the keyring created in the first step).
-* **location-id:**  A location ID of the GCP KMS (from the keyring created in the first step).
+* **location-id:** A location ID of the GCP KMS (from the keyring created in the first step).
 * **keyring-name:** A keyring name of the GCP KMS (from the keyring created in the first step).
-* **purpose:**  A purpose of the key in GCP KMS.
+* **purpose:** A purpose of the key in GCP KMS.
 * **kms-algorithm:** An algorithm of the key in GCP KMS.
 
 The value of the `--purpose` parameter depends on the key type:

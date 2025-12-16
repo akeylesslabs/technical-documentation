@@ -26,7 +26,7 @@ When a new server is created in your environment, simply add the relevant hostna
 
 ## Rotator Type Password
 
-To rotate **Local users**  e.g. `ubuntu` or `administrator`, across your servers using a **privileged Domain user** which has access to all servers found in the [Linked Target](https://docs.akeyless.io/docs/linked-target), start by creating an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target to store your **Domain user** credentials:
+To rotate **Local users** e.g. `ubuntu` or `administrator`, across your servers using a **privileged Domain user** which has access to all servers found in the [Linked Target](https://docs.akeyless.io/docs/linked-target), start by creating an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target to store your **Domain user** credentials:
 
 ```shell Windows Target
 akeyless create-windows-target \
@@ -94,7 +94,7 @@ akeyless rotated-secret create ssh \
 --rotation-hour <hour in UTC>
 ```
 
-The **Local user**  will be rotated using the **Parent** Target credentials as well across all hosts defined in the Linked Target.
+The **Local user** will be rotated using the **Parent** Target credentials as well across all hosts defined in the Linked Target.
 
 ## Rotator Type Target
 

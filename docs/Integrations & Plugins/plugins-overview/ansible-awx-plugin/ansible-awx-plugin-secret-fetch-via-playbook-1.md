@@ -51,7 +51,7 @@ VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method t
 
 ![](https://files.readme.io/9e55048-ansible1.png "ansible1.png")
 
-To fetch a secret from the Akeyless platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create a new **Credentials**  and set the **Credentials Type** as **Ansible Tower**:
+To fetch a secret from the Akeyless platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create a new **Credentials** and set the **Credentials Type** as **Ansible Tower**:
 
 ![](https://files.readme.io/714572a-Ansible3.png "Ansible3.png")
 

@@ -105,7 +105,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
-  * Check the **Explicitly specify target properties**  to provide details of the target LDAP Server in the next step.
+  * Check the **Explicitly specify target properties** to provide details of the target LDAP Server in the next step.
 * **User Base DN:** Specify user base DN settings.
 * **LDAP User Attribute:** Specify the default value CN.
 * **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IDP.

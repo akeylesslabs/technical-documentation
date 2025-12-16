@@ -20,7 +20,7 @@ Web Application Access : [Web Access Bastion](https://docs.akeyless.io/docs/web-
 
 ## Syslog
 
-Edit the <code>values.yaml</code> file under the `logForwarding` section:
+Edit the `values.yaml` file under the `logForwarding` section:
 
 ```yaml
 target_syslog_tag="ssh-audit-export"
@@ -35,7 +35,7 @@ The outputted message format conforms to Syslog format and assumes the Syslog se
 
 Default format: `<date > <time> <host name> <log level> <message>`.
 
-The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF**  format.
+The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF** format.
 
 ## Splunk
 

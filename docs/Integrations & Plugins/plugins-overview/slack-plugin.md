@@ -38,7 +38,7 @@ Type in the content of the message you'd like to send for example:
 
 `/akeyless Secret Management Reimangined`
 
-Once sending the message, click `Yes` to share the secret **OTP**  in the Slack channel, A URL will be shared with the recipient.
+Once sending the message, click `Yes` to share the secret **OTP** in the Slack channel, A URL will be shared with the recipient.
 
 Clicking on the **OTP** URL will allow the view of the secret only for a one-time.
 
