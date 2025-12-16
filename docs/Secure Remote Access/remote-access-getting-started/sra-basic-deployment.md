@@ -37,27 +37,6 @@ In this guide, we will deploy SRA using the most basic configuration on a K8s cl
 
   When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited, for more information, click [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
-* Storage Settings:
-
-  Persistent storage with `ReadWriteMany` access mode is required when running multiple SSH-bastion pods.
-
-  Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart `values.yaml` file:
-
-```yaml
-persistence: 
-  volumes:
-    name: share-storage
-    storageClassName: "efs-sc"
-    accessModes:
-      - ReadWriteMany
-    persistentVolumeReclaimPolicy: Retain
-    annotations: {}
-    mountOptions:
-      - dir_mode=0650
-      - file_mode=0650
-    size: 2Gi
-```
-
 ### Horizontal Pod Autoscaler
 
 The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
