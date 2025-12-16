@@ -24,7 +24,7 @@ Traditional vault systems maintain encrypted storage that contains secrets or pr
 
 The result is an architecture where cryptographic operations occur without persisting or retrieving complete secrets or private keys.
 
-**Core architectural characteristics:**
+### Core architectural characteristics
 
 * No storage of full secrets, private keys, or reconstructable credential material.
 * No database to replicate, synchronize, or back up.
