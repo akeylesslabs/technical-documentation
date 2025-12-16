@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-**Application Registration in Active Directory:**
+## Application Registration in Active Directory
 
 1. On Azure Portal -> Azure Active directory -> App Registration:
 
@@ -24,7 +24,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 ![1024](https://files.readme.io/4d92388-image-20210204-103159.png "image-20210204-103159.png")
 
-**Configure permission for Microsoft Graph:**
+## Configure permission for Microsoft Graph
 
 1. On the left pane, select **API Permission** , select **Microsoft Graph**:
 
@@ -102,7 +102,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 ![1024](https://files.readme.io/3c8e753-image-20210204-103317.png "image-20210204-103317.png")
 
-**Certificate & Secrets:**
+## Certificate & Secrets
 
 1. Navigate to **Certificate & Secrets** on the left pane, create a **New Client Secret**.
 

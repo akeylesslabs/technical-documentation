@@ -12,7 +12,7 @@ next:
 ---
 The Sessions Overview provides administrators and authorized users with the ability to view and track the status of SRA sessions. This view helps ensure that all session activities are visible, auditable, and managed effectively over a specified timeframe (default: last 30 days).
 
-### Session Overview Grid
+## Session Overview Grid
 
 The Session Overview page displays detailed information for each session. The following key details are provided:
 
@@ -24,12 +24,12 @@ The Session Overview page displays detailed information for each session. The fo
 * **Status**: The current state of the session (e.g., active, closed, or terminated).
 * **Duration**: The length of time the session has been active.
 
-### Real-Time Updates
+## Real-Time Updates
 
 * **Auto-Refresh**: The sessions list automatically updates every 20 seconds to ensure the displayed information is current.
 * **Manual Refresh**: Users have the option to manually refresh the list by clicking the Refresh button.
 
-### Filtering Options
+## Filtering Options
 
 Users can filter the session list based on the following criteria to quickly locate specific sessions:
 
@@ -38,11 +38,11 @@ Users can filter the session list based on the following criteria to quickly loc
 * Gateway Name
 * Status
 
-### Audit Logging
+## Audit Logging
 
 Every session update is captured in the Audit Log. This ensures that any changes (such as status updates or modifications) are recorded for compliance and troubleshooting purposes.
 
-### Permissions
+## Permissions
 
 * **Self-Session Visibility**: Any user who initiates a session is permitted to view their own session details (there is no need to specify any permission for that).
 * **Extended Visibility for SRA Application Servers**: If a user has permissions to access one or more SRA application servers, they can view all sessions managed by those servers.
@@ -54,7 +54,7 @@ Every session update is captured in the Audit Log. This ensures that any changes
 >
 > Choose **Own** for allowing access to specific SRA servers (aka Extended Visibility) or **All** for all SRA servers (aka Admin Access)
 
-### Accessing Session Monitoring
+## Accessing Session Monitoring
 
 To access the Session Monitoring feature:
 

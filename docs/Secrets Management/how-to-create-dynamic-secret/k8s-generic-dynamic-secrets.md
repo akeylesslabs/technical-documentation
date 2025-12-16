@@ -16,11 +16,11 @@ Akeyless allows you to create a wide variety of resources in Kubernetes to utili
 
 To know what resources to generate with and supply to Akeyless, you will first need to choose which of the following Service Account modes is best for your purposes:
 
-### **Fixed Service Account**
+### Fixed Service Account
 
 Fixed Service Accounts are existing Kubernetes Service Accounts that Akeyless generates JIT tokens or keys for, and manages them. To work in **Fixed Mode**, you must point Akeyless to the exact Service Account you want to generate tokens for.
 
-#### **Dynamic Service Account**
+#### Dynamic Service Account
 
 When working in **Dynamic Mode**, you may use a predefined role and only generate and bind the Service Account. Alternatively, you may use a YAML file that contains both new Role and Role Binding information for the new Service Account to be generated.
 
