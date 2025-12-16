@@ -20,7 +20,7 @@ The Cloud Development Kit for Terraform (CDKTF) allows you to manage your Akeyle
 
 ## Configuration
 
-**Install the library**
+### Install the Library
 
 Install the CDKTF for Akeyless [package](https://pypi.org/project/akeyless-cdktf/#files)
 
@@ -30,7 +30,7 @@ pip install akeyless-cdktf==1.6.3
 
 Once the package is installed, configure the `main.py` and `cdktf.json` files:
 
-**Example for Static Secret creation**
+### Example for Static Secret Creation
 
 Create a file named `main.py` and edit it as described below:
 

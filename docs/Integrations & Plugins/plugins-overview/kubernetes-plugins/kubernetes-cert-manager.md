@@ -36,7 +36,7 @@ kubectl create ns akeyless-cert-manager
 
 ### Kubernetes Auth Method
 
-**Cert-Manager** authenticates to Akeyless using a Kubernetes **ServiceAccount token**, which is being generated using [Secretless Authentication with a Service Account](https://cert-manager.io/docs/configuration/vault/#secretless-authentication-with-a-service-account) - **Available in Cert-Manager >= v1.12.0**
+**Cert-Manager** authenticates to Akeyless using a Kubernetes **ServiceAccount token**, which is being generated using [Secretless Authentication with a Service Account](https://cert-manager.io/docs/configuration/vault/#secretless-authentication-with-a-service-account) - *Available in Cert-Manager >= v1.12.0*.
 
 > 📘 Info
 >

@@ -20,7 +20,7 @@ To work with Venafi TPP, you can choose either to work with Venafi as your certi
 
 ## Usage
 
-**Venafi Issuer**
+### Venafi Issuer
 
 The following command creates a Venafi Dynamic Secret using Venafi as the **certificate issuer**:
 
@@ -51,7 +51,7 @@ Where:
 
 `venafi-zone`: Venafi Zone.
 
-**Akeyless Issuer**
+### Akeyless Issuer
 
 The following commands create a Venafi Dynamic Secret using Akeyless as the **certificate issuer**.
 
@@ -78,7 +78,7 @@ Where:
 
 `certificate-ttl`: TTL in days for the generated certificate.
 
-**Note: Once the key is created, it will be uploaded automatically to Akeyless.**
+*Note: Once the key is created, it will be uploaded automatically to Akeyless.*
 
 The certificate attached to the private key must have at least a **Common Name (CN)** with it.
 
@@ -128,7 +128,7 @@ Where:
 
 Once your Venafi Dynamic Secret has been successfully created, you can request a new **certificate**.
 
-**Certificate request**:
+### Certificate Request
 
 Certificate request using **Common Name (CN)**:
 

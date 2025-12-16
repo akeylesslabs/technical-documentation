@@ -76,14 +76,15 @@ username             tmp.JJRXoSsvDuj1Dp
 
 ## Working With Static Secrets
 
-**Create/update secret**
+### Create or Update Secret
 
 Create a new static secret in Akeyless. If it already exists, it will add a new version of that secret.
 
-**Usage:**\
+#### Usage
+
 `vault kv put secret/{secret-name} {my-key}={my-value}`
 
-**Get secret**
+### Get Secret
 
 To retrieve the value from Akeyless:
 
@@ -97,7 +98,7 @@ To retrieve the value from Akeyless:
 >
 > Default value is the latest version.
 
-**Delete secret**
+### Delete Secret
 
 To delete a secret from Akeyless:
 

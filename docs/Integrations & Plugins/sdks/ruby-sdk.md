@@ -15,8 +15,6 @@ The below Ruby code examples show a typical sequence of integrating secrets into
 
 ## Installation
 
-**Install the Akeyless gem package**
-
 ```ruby
 gem install akeyless
 ```

@@ -18,7 +18,7 @@ This documentation provides an overview of the Passkey management system, includ
 
 The Passkey Details section allows users to view information about their saved passkeys.
 
-**Fields Displayed:**
+### Fields Displayed
 
 * Passkey Name: The label or identifier for the passkey.
 * Username/Email: The email or username used when the passkey was created.
@@ -30,7 +30,7 @@ The Passkey Details section allows users to view information about their saved p
 
 The following steps guide users on how to log in using an existing passkey for a supported website:
 
-**Steps:**
+### Steps
 
 * Navigate to a Passkey-supported website:
   * Example: Adobe Account Security
@@ -40,7 +40,7 @@ The following steps guide users on how to log in using an existing passkey for a
   * A list of available passkeys will be shown.
   * Users can select the relevant passkey to sign in.
 
-**Example Flow:**
+### Example Flow
 
 * Go to the website → Try to sign in → If passkey exists → Show available passkeys.
 
@@ -48,7 +48,7 @@ The following steps guide users on how to log in using an existing passkey for a
 
 Users can create a new passkey for a supported website. Follow the steps below to generate and save a passkey within the system.
 
-**Steps:**
+### Steps
 
 * Navigate to the Passkey creation page on a supported website:
   * Example: Adobe Account Security
@@ -63,7 +63,7 @@ Users can create a new passkey for a supported website. Follow the steps below t
   * If saving the passkey is successful, a Success Message will be shown.
   * If there is an error during the process, an Error Message will be displayed.
 
-**Example Flow:**
+#### Example Flow
 
 * Navigate to the website → Click on "Add Passkey" → Authenticate (if needed) → Check passkey existence → Create or update passkey → Save passkey → Success/Error message.
 

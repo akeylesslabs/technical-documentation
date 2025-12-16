@@ -1,5 +1,5 @@
 ---
-title: Using Autofill/Password Injection Functionality
+title: Using Autofill and Password Injection Functionality
 excerpt: ''
 deprecated: false
 hidden: false

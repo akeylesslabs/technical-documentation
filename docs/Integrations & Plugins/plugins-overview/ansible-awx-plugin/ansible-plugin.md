@@ -173,7 +173,7 @@ To create an **Ansible Playbook**, create a `yaml` file containing the configura
 
 ### Static Secret Example
 
-**Create a Static Secret**
+#### Create a Static Secret
 
 The following will create a [Static Secret](https://docs.akeyless.io/docs/static-secrets) named `'/Ansible/MySecret'`:
 
@@ -210,7 +210,7 @@ Where:
 
 Additional parameters for this module can be found in the [official Ansible Repository](https://galaxy.ansible.com/ui/repo/published/akeyless/secrets_management/).
 
-**Fetch a Static Secret**
+#### Fetch a Static Secret
 
 The following will fetch a [Static Secret](https://docs.akeyless.io/docs/static-secrets) named `/Ansible/MySecret`:
 
