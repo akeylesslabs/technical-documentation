@@ -5,22 +5,9 @@ hidden: true
 metadata:
   robots: index
 ---
-SRA can be deployed on an existing Gateway or alongside the deployment of a new one. In this guide, we will deploy SRA using the most basic configuration on a K8s cluster with an **existing Gateway**. If you do not already have a Gateway, please [deploy](https://docs.akeyless.io/docs/gateway-chart#/) one first.
+Akeyless Secure Remote Access (SRA) is the Akeyless capability that enables controlled, auditable access to private infrastructure and resources  without exposing your environments to the public internet or relying on traditional VPN jump-host models. Delivered as part of the Akeyless Gateway deployment, SRA uses the Gateway as a secure access plane inside your target networks (cloud VPC/VNet, data center, Kubernetes, etc.), so users can reach protected resources through a centrally governed policy layer.
 
-You can get the `values.yaml` file that will be used on this guide by running the following commands:
-
-* Add the following repository to the Helm repository list:
-
-```shell
-helm repo add akeyless https://akeylesslabs.github.io/helm-charts
-helm repo update
-```
-
-* Fetch the `values.yaml` file from the Akeyless repository:
-
-```shell
-helm show values akeyless/akeyless-gateway > values.yaml
-```
+In this guide, we will deploy SRA using the most basic configuration on a K8s cluster with an **existing Gateway**. If you do not already have a Gateway, please [deploy](https://docs.akeyless.io/docs/gateway-chart#/) one first.
 
 ## Prerequisites
 
@@ -84,6 +71,21 @@ For it to work correctly, the K8s [metrics server](https://github.com/kubernetes
 
 ## Basic Configuration
 
+You can get the `values.yaml` file that will be used on this guide by running the following commands:
+
+Add the following repository to the Helm repository list:
+
+```shell
+helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+helm repo update
+```
+
+Fetch the `values.yaml` file from the Akeyless repository:
+
+```shell
+helm show values akeyless/akeyless-gateway > values.yaml
+```
+
 In order to set your gateway with **Remote Access**, set the `sra` section to `true` and add the public key which is set on the SSH certificate Issuer as follows:
 
 ```shell
@@ -127,5 +129,3 @@ To start working with SRA, open your browser and log in using the following URL:
 You will need to log in with [SAML](https://docs.akeyless.io/docs/saml#/), [OIDC](https://docs.akeyless.io/docs/openid#/) or a [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication#/) authentication method.
 
 Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or via an SSH connection.
-
-
