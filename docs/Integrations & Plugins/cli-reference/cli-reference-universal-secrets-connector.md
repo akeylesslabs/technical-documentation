@@ -12,17 +12,15 @@ next:
 ---
 _The External Secrets Manager has been renamed Universal Secrets Connector. All`esm` commands will still work as expected._
 
-## Universal Secrets Connector
-
 This section outlines the CLI commands relevant to Universal Secrets Connector.
 
 <CLIGeneralFlags />
 
-### `Create-usc`
+## `create-usc`
 
 Creates a new Universal Secrets Connector
 
-#### Usage
+### Usage
 
 ```shell
 akeyless create-usc \
@@ -30,7 +28,7 @@ akeyless create-usc \
 --target-to-associate <target to associate>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Universal Secrets Connector name
 
@@ -70,11 +68,11 @@ akeyless create-usc \
 
 After creating a USC, you will need to use these sub-commands, prefixed with `usc`, to further interact with it.
 
-### `Usc`
+### `usc`
 
 This command only has one parameter, `-h`, and it will display a list of the other `usc` commands.
 
-### `Create`
+### `create`
 
 Create a new secret in an existing USC
 
@@ -87,7 +85,7 @@ usc create \
 --value <secret value>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --usc-name`:  **Required**, USC name
 
@@ -109,7 +107,7 @@ usc create \
 
 `--tags`:Tags for the external secret. Should be provided as --tags tag1=value1 --tags tag2=value2
 
-### `Delete`
+### `delete`
 
 Delete a secret from an Universal Secrets Connector
 
@@ -121,7 +119,7 @@ usc delete \
 --secret-id <Secret name or id>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --usc-name`: **Required**, USC name
 
@@ -131,7 +129,7 @@ usc delete \
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
-### `Get`
+### `get`
 
 Gets the value and internal details of a secret from an Universal Secrets Connector
 
@@ -143,7 +141,7 @@ usc get \
 --secret-id <Secret name or id>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --usc-name`: **Required**, USC name
 
@@ -165,7 +163,7 @@ usc get \
 
 `--no-creds-cleanup[=false]`:Do not clean local temporary expired creds
 
-### `List`
+### `list`
 
 Lists the secrets within the Universal Secrets Connector
 
@@ -175,7 +173,7 @@ Lists the secrets within the Universal Secrets Connector
 akeyless usc list --usc-name <USC name>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --usc-name`: **Required**, USC name
 
@@ -195,7 +193,7 @@ akeyless usc list --usc-name <USC name>
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 
-### `Update`
+### `update`
 
 Update an existing secret within the Universal Secrets Connector
 
@@ -208,7 +206,7 @@ usc update \
 --value <secret value>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --usc-name`: **Required**, USC name
 

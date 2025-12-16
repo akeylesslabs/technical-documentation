@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-### Filtering Passwords and Secrets
+## Filtering Passwords and Secrets
 
 The Akeyless Password Manager web browser extension provides a powerful filtering feature to help you quickly find the passwords and secrets you need. You can filter passwords and secrets by using types, tags, or a combination of both.
 
-### Using Types
+## Using Types
 
 <Image align="right" width="300px" src="https://files.readme.io/1525939-Screenshot_2024-01-10_at_16.51.06.png" />
 
 Types are custom identifiers that you can assign to passwords and secrets. This can be helpful for organizing passwords and secrets according to their purpose or website.
 
-#### To Filter Passwords and Secrets by Labels
+### To Filter Passwords and Secrets by Labels
 
 Click on the "Filter" button in the top right corner of the Personal or Corporate Area.
 
@@ -32,13 +32,13 @@ Click on the "Apply" button.
 
 The filtered passwords and secrets will be displayed in the Personal or Corporate Area.
 
-### Using Tags
+## Using Tags
 
 Tags are predefined keywords that are associated with passwords and secrets. Tags can be used to further categorize passwords and secrets.
 
 <Image align="right" width="300px" src="https://files.readme.io/c13164c-Screenshot_2024-01-10_at_16.50.58.png" />
 
-#### To Filter Passwords and Secrets by Tags
+### To Filter Passwords and Secrets by Tags
 
 Click on the "Filter" button in the top right corner of the Personal or Corporate Area.
 
@@ -50,11 +50,11 @@ Click on the "Apply" button.
 
 The filtered passwords and secrets will be displayed in the Personal or Corporate Area.
 
-### Combining Types and Tags
+## Combining Types and Tags
 
 You can combine labels and tags to create even more powerful filters. For example, you could filter passwords and secrets that have the label "banking" and the tag "personal."
 
-#### To Filter Passwords and Secrets by Labels and Tags
+### To Filter Passwords and Secrets by Labels and Tags
 
 Click on the "Filter" button in the top right corner of the Personal or Corporate Area.
 

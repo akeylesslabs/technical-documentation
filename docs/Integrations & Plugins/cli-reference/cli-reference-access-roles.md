@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Access Roles.
 
 <CLIGeneralFlags />
 
-### `Assoc-role-am`
+## `assoc-role-am`
 
 Create an association between role and auth method
 
-#### Usage
+### Usage
 
 ```shell
 akeyless assoc-role-am \
@@ -26,7 +26,7 @@ akeyless assoc-role-am \
 --am-name <Auth Method Name>
 ```
 
-##### Flags
+### Flags
 
 `-r, --role-name`: **Required**, The role to associate
 
@@ -36,17 +36,17 @@ akeyless assoc-role-am \
 
 `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
-### `Create-role`
+## `create-role`
 
 Creates a new role
 
-#### Usage
+### Usage
 
 ```shell
 akeyless create-role name <Role Name>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Role name
 
@@ -70,31 +70,31 @@ akeyless create-role name <Role Name>
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-### `Delete-assoc`
+## `delete-assoc`
 
 Delete an association between role and auth method
 
-#### Usage
+### Usage
 
 ```shell
 akeyless delete-assoc --assoc-id <association ID to be deleted>
 ```
 
-### `Delete-role`
+## `delete-role`
 
 Delete a role
 
-#### Usage
+### Usage
 
 ```shell
 akeyless delete-role --name <Role Name>
 ```
 
-### `Delete-role-rule`
+## `delete-role-rule`
 
 Delete a rule from a role
 
-#### Usage
+### Usage
 
 ```shell
 akeyelss delete-role-rule \
@@ -102,7 +102,7 @@ akeyelss delete-role-rule \
 --path <Role Path>
 ```
 
-##### Flags
+### Flags
 
 `-r, --role-name`: **Required**, The role name to be updated
 
@@ -110,21 +110,21 @@ akeyelss delete-role-rule \
 
 `--rule-type[=item-rule]`: item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule.  \nA type of the item for which permissions are deleted. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Role, auth-method-rule - for Authentication Methods. By default, permissions are deleted only for Items
 
-### `Delete-roles`
+## `delete-roles`
 
 Delete multiple roles from a given path
 
-#### Usage
+### Usage
 
 ```shell
 akeyless delete-roles --path <Path/to/roles>
 ```
 
-### `Describe-permissions`
+## `describe-permissions`
 
 See which authentication methods have access to a particular object
 
-#### Usage
+### Usage
 
 ```shell
 akeyless describe-permissions \
@@ -132,46 +132,46 @@ akeyless describe-permissions \
 --type <Type of object (item, am, role, target)>
 ```
 
-### `Describe-sub-claims`
+## `describe-sub-claims`
 
 Get the sub-claims associated with the provided token or authentication profile
 
-### `Describe-role-am-assoc`
+## `describe-role-am-assoc`
 
 Describe role association details
 
-#### Usage
+### Usage
 
 ```shell
 akeyless describe-role-am-assoc \
 --assoc-id <association-id>
 ```
 
-### `Get-role`
+## `get-role`
 
 Get role details
 
-#### Usage
+### Usage
 
 ```shell
 akeyless get-role -n <Role Name>
 ```
 
-### `List-roles`
+## `list-roles`
 
 List of all roles in the account
 
-#### Flags
+### Flags
 
 `filter`: Filter by role name or part of it
 
 `--pagination-token`: Next page reference
 
-### `Request-access`
+## `request-access`
 
 Request a temporary access for an item, supporting Static Secret, and Targets
 
-#### Usage
+### Usage
 
 ```shell
 akeyless request-access \
@@ -180,7 +180,7 @@ akeyless request-access \
 --capability <read, update, delete>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Name of the item to which access is requested for
 
@@ -190,11 +190,11 @@ akeyless request-access \
 
 `--comment`: Optional, comment about the request.
 
-### `Reverse-rbac`
+## `reverse-rbac`
 
 See which authentication methods have access to a particular object
 
-#### Usage
+### Usage
 
 ```shell
 akeyless reverse-rbac \
@@ -202,17 +202,17 @@ akeyless reverse-rbac \
 --type <object type>
 ```
 
-##### Flags
+### Flags
 
 `-p, --path`: **Required**, Path to an object
 
 `-t, --type`: **Required**, Type of object (item, am, role, target)
 
-### `Set-role-rule`
+## `set-role-rule`
 
 Set a rule to a role
 
-#### Usage
+### Usage
 
 ```shell
 akeyless set-role-rule \
@@ -222,7 +222,7 @@ akeyless set-role-rule \
 --capability <Permission>
 ```
 
-##### Flags
+### Flags
 
 `-r, --role-name`: **Required**, The role name to be updated
 
@@ -236,17 +236,17 @@ akeyless set-role-rule \
 
 `-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This  replaces the `capability`, `path` and `rule-type`
 
-### `Update-assoc`
+## `update-assoc`
 
 Update the sub-claims of an association between the role and the auth method.
 
-#### Usage
+### Usage
 
 ```shell
 akeyless update-assoc --assoc-id <association ID to be updated>
 ```
 
-##### Flags
+### Flags
 
 `-a, --assoc-id`: **Required**, The association id to be updated
 
@@ -254,18 +254,18 @@ akeyless update-assoc --assoc-id <association ID to be updated>
 
 `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
-### `Update-role`
+## `update-role`
 
 Update role details
 
-#### Usage
+### Usage
 
 ```shell
 akeyless update-role -n <Role name> \
 --new-name <New role name>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Role name.
 
