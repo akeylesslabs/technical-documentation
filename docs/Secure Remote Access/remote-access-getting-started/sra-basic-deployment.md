@@ -7,15 +7,11 @@ metadata:
 ---
 Akeyless Secure Remote Access (SRA) is the Akeyless capability that enables controlled, auditable access to private infrastructure and resources  without exposing your environments to the public internet or relying on traditional VPN jump-host models. Delivered as part of the Akeyless Gateway deployment, SRA uses the Gateway as a secure access plane inside your target networks (cloud VPC/VNet, data center, Kubernetes, etc.), so users can reach protected resources through a centrally governed policy layer.
 
-> 🚧 GKE Cluster
->
-> If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported.
-
 In this guide, we will deploy SRA using the most basic configuration on a K8s cluster with an **existing Gateway**. If you do not already have a Gateway, please [deploy](https://docs.akeyless.io/docs/gateway-chart#/) one first.
 
 ## Prerequisites
 
-* Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/).
+* Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA. 
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_`  username .
 
@@ -33,11 +29,11 @@ In this guide, we will deploy SRA using the most basic configuration on a K8s cl
 
 * Network Settings:
 
-  Proper network configuration is required to ensure correct traffic routing and session management for SRA components. Configure networking depending on whether you use an Ingress controller or a cloud load balancer.
+  Proper network configuration is required to ensure correct traffic routing and session management for SRA components. Configure networking depending on whether you use an Ingress controller or a cloud load balancer. 
 
   * **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
 
-  * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html).
+  * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html). For **GKE** environment  the default service timeout is `30s`. Increase via [BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA read more [here](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
 
   When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited, for more information, click [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
