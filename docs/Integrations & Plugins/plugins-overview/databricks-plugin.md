@@ -12,7 +12,7 @@ next:
 ---
 Easily manage secrets across Databricks DataOps / MLOps pipelines using Akeyless
 
-### Background
+## Background
 
 Azure Databricks allows secret management via its native secret scope or integration with Azure Key Vault. However, organizations operating across clouds or teams often face challenges such as:
 
@@ -21,7 +21,7 @@ Cloud vendor lock-in\
 Inconsistent RBAC policies\
 Akeyless provides a centralized, cloud-agnostic vault for managing secrets securely and consistently — making it ideal for managing secrets in Databricks DLT (delta live table) and non-DLT workloads, across Azure and AWS.
 
-### Use Case
+## Use Case
 
 Akeyless enables:
 
@@ -31,31 +31,31 @@ Akeyless enables:
 
 While Databricks supports SQL, most SQL queries don’t require secrets — hence Akeyless primarily targets Python, Scala, and R notebooks.
 
-### Prerequisites
+## Prerequisites
 
 * An active Azure Databricks workspace with internet access or the access to Akeyless Gateway
 * Akeyless account with an Access ID
 * A stored secret in Akeyless (e.g., API key for data access)
 
-### Authentication Options
+## Authentication Options
 
-#### Option 1: Azure Managed Identity (Recommended for Azure-native Workloads)
+### Option 1: Azure Managed Identity (Recommended for Azure-native Workloads)
 
 * Use Azure AD with Akeyless to authenticate Databricks using the VM's managed identity.
 
-#### Option 2: API Key Stored in Azure Key Vault
+### Option 2: API Key Stored in Azure Key Vault
 
 * Enables user-level RBAC by storing each user's Akeyless API key securely.
 
-### Language Support
+## Language Support
 
-#### Databricks Supports
+### Databricks Supports
 
 * Python ✅ (fully supported by Akeyless SDK)
 * Scala / R ✅ (via Spark config or Databricks utilities)
 * SQL 🚫 (usually not required for secrets)
 
-### Example: Sharing a Secret Across Languages
+## Example: Sharing a Secret Across Languages
 
 ```shell Python
 # Python Cell: retrieve secret and set Spark config
@@ -68,11 +68,11 @@ val apiKey = spark.conf.get("api.key")
 println(s"Retrieved API Key: $apiKey")
 ```
 
-### Implementation: Sample Python Notebook
+## Implementation: Sample Python Notebook
 
 This notebook retrieves a secret (API key), fetches data from a public API, and saves it into a Databricks table.
 
-#### Step-by-Step Notebook
+### Step-by-Step Notebook
 
 ```shell Python
 # Install Akeyless packages
@@ -164,6 +164,6 @@ What it does:
 > * DLT workloads may not attach Managed Identity to every VM. In that case, use API key authentication.
 > * For user-level or group-level RBAC, store access keys in Azure Key Vault per user/team.
 
-### Final Result
+## Final Result
 
 If successful, you’ll see the data from the API inside your Databricks workspace, stored securely using a secret retrieved from Akeyless.

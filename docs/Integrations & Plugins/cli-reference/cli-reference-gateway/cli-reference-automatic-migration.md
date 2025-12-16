@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to the Gateway Migrations.
 
 <CLIGeneralFlags />
 
-### `Create`
+## `create`
 
 Commands for creating and managing automatic migrations.
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway-create-migration \
@@ -28,7 +28,7 @@ akeyless gateway-create-migration \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Migration name for display
 
@@ -152,11 +152,11 @@ akeyless gateway-create-migration \
 
 `--si-rotation-hour`: The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration)
 
-### `Delete`
+## `delete`
 
 Delete migration
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway-delete-migration \
@@ -164,11 +164,11 @@ akeyless gateway-delete-migration \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-### `Get`
+## `get`
 
 Get migrations
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway-get-migration \
@@ -176,19 +176,19 @@ akeyless gateway-get-migration \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-### `List`
+## `list`
 
 List migrations
 
-#### Flags
+### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Personal-items`
+## `personal-items`
 
 Migrates personal items from external vault
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway-migrate-personal-items \
@@ -202,7 +202,7 @@ akeyless gateway-migrate-personal-items \
 --1password-secret-key <Secret Key> \
 ```
 
-##### Flags
+### Flags
 
 `-u, --gateway-url[=http://localhost:18888]`: API Gateway URL (Akeyless UI port)
 
@@ -222,11 +222,11 @@ akeyless gateway-migrate-personal-items \
 
 `--1password-vaults`: Optional list of 1Password vaults to migrate items from; can be used multiple times (--1password-vaults vault1 --1password-vaults vault2), If not provided, all non-private vaults will be migrated
 
-### `Status`
+## `status`
 
 Gets migration Status
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway-migration-status \
@@ -235,7 +235,7 @@ akeyless gateway-migration-status \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: Migration name to display
 
@@ -243,11 +243,11 @@ akeyless gateway-migration-status \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Sync`
+## `sync`
 
 Sync migration
 
-#### Usage
+### Usage
 
 ```shell
 Akeyless gateway-sync-migration \
@@ -256,7 +256,7 @@ Akeyless gateway-sync-migration \
 --sync <true/false>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Migration name
 
@@ -264,11 +264,11 @@ Akeyless gateway-sync-migration \
 
 `--sync`: true, for starting synchronization, false for stopping
 
-### `Update`
+## `update`
 
 Update migration
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway-update-migration \
@@ -279,7 +279,7 @@ akeyless gateway-update-migration \
 --gateway-url <API Gateway URL:8000>
 ```
 
-##### Flags
+### Flags
 
 `-i, --id`: Migration ID (Can be retrieved with gateway-list-migration command)
 

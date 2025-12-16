@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-### Overview
+## Overview
 
 Managing secrets across AWS services can be challenging, especially in a multi-cloud environment or when moving workloads between AWS and Azure.
 
@@ -21,38 +21,38 @@ With Akeyless Vault, you can manage secrets centrally and securely for Databrick
 
 Akeyless helps avoid secret scattering across AWS Secrets Manager, Databricks secret scopes, and other platforms, giving you a cloud-agnostic and portable solution.
 
-### Supported Languages in Databricks
+## Supported Languages in Databricks
 
-#### Databricks Supports
+### Databricks Supports
 
 * Python (natively supported by Akeyless SDK)
 * Scala & R (via spark.conf or dbutils)
 * SQL (generally does not require secrets)
 
-### Requirements
+## Requirements
 
-#### AWS Infrastructure
+### AWS Infrastructure
 
 * An IAM role for EC2 instances used by Databricks compute clusters
 * A cross-account IAM role allowing Databricks to manage AWS resources
 * Properly configured Instance Profile in Databricks to link IAM roles
 
-#### Akeyless Configuration
+### Akeyless Configuration
 
 * An Akeyless Access ID
 * An AWS IAM Auth Method created in Akeyless
 * A secret stored in Akeyless (e.g., /devops/data\_gov\_api\_key)
 * A Databricks workspace with internet access or the access to the Akeyless gateway
 
-### Architecture Overview
+## Architecture Overview
 
 Databricks EC2 → AWS IAM Role → Akeyless IAM Auth Method → Secret Retrieval → Use in Notebook (Python, DLT)
 
 ![](https://files.readme.io/2189d87976ab1d76db0a28db1143de5d30fa789a94c370b1dc49030eb4f4a6ee-image.png)
 
-### Step-by-Step Guide: Using Akeyless in Databricks
+## Step-by-Step Guide: Using Akeyless in Databricks
 
-#### Step 1: Install Required Packages
+### Step 1: Install Required Packages
 
 ```shell Python
 %pip install akeyless akeyless_cloud_id
@@ -61,7 +61,7 @@ Databricks EC2 → AWS IAM Role → Akeyless IAM Auth Method → Secret Retrieva
 
 Installs the Akeyless SDK and cloud identity helper, then restarts the Python kernel in Databricks.
 
-#### Step 2: Authenticate With Akeyless Using AWS IAM
+### Step 2: Authenticate With Akeyless Using AWS IAM
 
 ```shell Python
 from akeyless_cloud_id import CloudId
@@ -92,7 +92,7 @@ token = api.auth(auth_request).token
 
 This uses the IAM role attached to the Databricks EC2 instance to securely get a short-lived session token from Akeyless.
 
-#### Step 3: Retrieve a Secret from Akeyless
+### Step 3: Retrieve a Secret from Akeyless
 
 ```shell Python
 # Get the API key from Akeyless Vault
@@ -103,7 +103,7 @@ API_KEY = res[secret_path]
 
 This fetches your API key securely and stores it in the API\_KEY variable.
 
-#### Step 4: Use the Secret (API Call Example)
+### Step 4: Use the Secret (API Call Example)
 
 ```shell Python
 import requests
@@ -115,7 +115,7 @@ response = requests.get(url, params=params)
 
 Uses the API key to fetch public healthcare data as an example.
 
-#### Step 5: Load API Data Into a Spark Table
+### Step 5: Load API Data Into a Spark Table
 
 ```shell Python
 import pandas as pd
@@ -133,7 +133,7 @@ else:
     print(f"❌ API Request Failed: {response.status_code}")
 ```
 
-#### DLT Version: Using Akeyless in Delta Live Tables
+### DLT Version: Using Akeyless in Delta Live Tables
 
 The only change from the non-DLT version is how the data is saved:
 
@@ -148,7 +148,7 @@ def mytable():
 
 Uses DLT’s @dlt.table decorator to register the DataFrame as a managed DLT table.
 
-### IAM Role Configuration (Summary)
+## IAM Role Configuration (Summary)
 
 You’ll need:
 
@@ -185,7 +185,7 @@ Example trust policy (cross-account):
 }
 ```
 
-### Best Practices
+## Best Practices
 
 * Use Instance Profiles in Databricks to map to IAM roles
 * Use Akeyless short-lived tokens to avoid hardcoding secrets

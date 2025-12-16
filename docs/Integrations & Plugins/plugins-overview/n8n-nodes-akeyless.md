@@ -7,7 +7,7 @@ metadata:
 ---
 The Akeyless node for n8n integrates with Akeyless Vaultless Secrets Management. Use it to retrieve, create, and manage secrets in your n8n workflows without hardcoding sensitive values.
 
-### What You Can Do
+## What You Can Do
 
 * Retrieve secrets (static, rotated, dynamic)
 * Create new secrets
@@ -15,25 +15,21 @@ The Akeyless node for n8n integrates with Akeyless Vaultless Secrets Management.
 * Create and delete folders
 * Use secrets dynamically in workflows
 
-### Installation
+## Installation
 
 1. For n8n Cloud (SaaS)
 2. Open your n8n instance
 3. Go to Settings → Community Nodes
 4. Search for @akeylesslabs/n8n-nodes-akeyless
 
-<Image border={false} src="https://files.readme.io/7f6ee734fa1faa3631f18b22535d539c1a1a61dcf16766b41324334f2dc223c3-Screenshot_2025-11-17_at_19.14.55.png" />
-
-
+  <Image border={false} src="https://files.readme.io/7f6ee734fa1faa3631f18b22535d539c1a1a61dcf16766b41324334f2dc223c3-Screenshot_2025-11-17_at_19.14.55.png" />
 
 5. Click Install
 6. Refresh your workflow editor
 
-<Image border={false} src="https://files.readme.io/e04ed312248f961e0a21a972c61fb43a7af87df983bd0149a7b9db46352dab55-Screenshot_2025-11-17_at_19.15.11.png" />
+  <Image border={false} src="https://files.readme.io/e04ed312248f961e0a21a972c61fb43a7af87df983bd0149a7b9db46352dab55-Screenshot_2025-11-17_at_19.15.11.png" />
 
-
-
-#### For Self-Hosted N8n
+### For Self-Hosted N8n
 
 Install via npm in your n8n installation directory:
 
@@ -45,9 +41,9 @@ Then restart your n8n instance.
 
 Or via N8N UI
 
-### Getting Started
+## Getting Started
 
-#### Step 1: Configure Credentials
+### Step 1: Configure Credentials
 
 In n8n, go to Credentials → Add Credential
 
@@ -55,15 +51,11 @@ Select Akeyless Security
 
 <Image border={false} src="https://files.readme.io/ccc9b3bfe271d41087a408b69547c7f8234bd6354fb286c270fdb60a008c5139-Screenshot_2025-11-14_at_16.45.51.png" />
 
-
-
 Choose an authentication method:
 
 <Image border={false} src="https://files.readme.io/0cb8dee191ebe3c1562733b78e71d9f3c6cf7d0f798953dfb4608119027853c7-Screenshot_2025-11-17_at_19.22.46.png" />
 
-
-
-#### Method a: Access ID + Access Key (Recommended)
+#### Method A: Access ID + Access Key (Recommended)
 
 * API Base URL: `[https://api.akeyless.io` (or your Akeyless instance URL)
 * Access ID: Your Akeyless Access ID (starts with p-)
@@ -76,7 +68,7 @@ Choose an authentication method:
 * Token: Your Akeyless token (starts with t-)
 * Ignore SSL Issues: Leave unchecked unless using self-signed certificates
 
-#### Step 2: Add the Akeyless Node
+### Step 2: Add the Akeyless Node
 
 1. In your workflow, click Add Node
 2. Search for "Akeyless"
@@ -84,7 +76,7 @@ Choose an authentication method:
 4. Choose your credential from the dropdown
 5. Select an operation
 
-### Available Operations
+## Available Operations
 
 1. Get Static Secret Value
    Retrieves a static secret from Akeyless.
@@ -117,8 +109,8 @@ Use Case: Retrieve database credentials that rotate automatically.
    * Secret Name: The full path to your dynamic secret
    * Timeout: Maximum seconds to wait for secret generation (default: 15)
 
-Output: Returns the dynamically generated secret value.
-Use Case: Generate temporary database access credentials or API tokens.
+  Output: Returns the dynamically generated secret value.
+  Use Case: Generate temporary database access credentials or API tokens.
 
 4. Create Secret
    Creates a new secret in Akeyless.
@@ -154,9 +146,9 @@ Use Case: Generate temporary database access credentials or API tokens.
    * Accessibility: Choose regular or personal
      Use Case: Remove empty or unused folders.
 
-### Using Secrets in Your Workflows
+## Using Secrets in Your Workflows
 
-#### Method 1: Direct Expression (Simple Cases)
+### Method 1: Direct Expression (Simple Cases)
 
 When the Akeyless node returns a secret, access it directly in the next node:
 Example: Get API Key and Use in HTTP Request
@@ -173,7 +165,7 @@ In the Authorization header, u
 {{$node["Akeyless"].json["/myapp/api-key"]}}
 ```
 
-#### Method 2: Using Set Node (Recommended for Complex Workflows)
+### Method 2: Using Set Node (Recommended for Complex Workflows)
 
 Extract the secret value first for cleaner, reusable workflows:
 
@@ -184,7 +176,7 @@ Extract the secret value first for cleaner, reusable workflows:
 3. Configure HTTP Request:
    * Header: `X-API-Key: {{$json.apiKey}}`
 
-#### Resources
+## Resources
 
 * Package on npm: [https://www.npmjs.com/package/@akeylesslabs/n8n-nodes-akeyless](https://www.npmjs.com/package/@akeylesslabs/n8n-nodes-akeyless)
 * GitHub Repository: [https://github.com/akeyless-community/N8N_PlugIn](https://github.com/akeyless-community/N8N_PlugIn)

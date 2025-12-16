@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Static Secrets.
 
 <CLIGeneralFlags />
 
-### `Create-secret`
+## `create-secret`
 
 Creates a new static secret item
 
-#### Usage
+### Usage
 
 ```shell
 akeyless create-secret \
@@ -27,7 +27,7 @@ akeyless create-secret \
 --type <generic/password> 
 ```
 
-##### Flags
+### Flags
 
 `--name`: **Required**, Secret name
 
@@ -79,11 +79,11 @@ akeyless create-secret \
 
 `--change-event`: Trigger an event when a secret value changed, [True/False]
 
-### `Describe-item`
+## `describe-item`
 
 Get the item details
 
-#### Usage
+### Usage
 
 ```shell
 akeyless describe-item \
@@ -92,7 +92,7 @@ akeyless describe-item \
 --item-id <Item-ID> 
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: Item name
 
@@ -112,17 +112,17 @@ akeyless describe-item \
 
 See [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects) and also [Updating and versioning static secrets](https://docs.akeyless.io/docs/staticversions) for details.
 
-### `Get-secret-value`
+## `get-secret-value`
 
 Get static secret value
 
-#### Usage
+### Usage
 
 ```shell
 akeyless get-secret-value --name <Secret Name>
 ```
 
-##### Flags
+### Flags
 
 `--name`: **Required**, Secret name
 
@@ -132,7 +132,7 @@ akeyless get-secret-value --name <Secret Name>
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-### `Import-passwords`
+## `import-passwords`
 
 Import passwords from CSV file
 
@@ -140,7 +140,7 @@ Import passwords from CSV file
 >
 > The box below has an example CSV that is valid for importing in the format of Chrome
 
-#### Usage
+### Usage
 
 ```shell
 akeyless import-passwords \
@@ -156,7 +156,7 @@ name,url,username,password,description
 
 ```
 
-##### Flags
+### Flags
 
 `-p, --import-path`: **Required**, Path to the CSV file that contains passwords to import
 
@@ -170,15 +170,15 @@ name,url,username,password,description
 
 `--update-mode[=skip]`: Specify how to handle passwords that already exist (skip/update)
 
-### `List-shared-items`
+## `list-shared-items`
 
 List shared items in the current account
 
-### `Rollback-secret`
+## `rollback-secret`
 
 Rollback secret to older version
 
-#### Usage
+### Usage
 
 ```shell
 akeyless rollback-secret \
@@ -186,17 +186,17 @@ akeyless rollback-secret \
 --old-version <Secret version>
 ```
 
-##### Flags
+### Flags
 
 `--name`: **Required**, Secret name
 
 `--old-version`: **Required**, Old secret version to rollback to
 
-### `Share-item`
+## `share-item`
 
 Sharing item operation [start sharing/stop sharing/sharing describe]
 
-#### Usage
+### Usage
 
 ```shell
 akeyless share-item \
@@ -205,7 +205,7 @@ akeyless share-item \
 --email <Email list> 
 ```
 
-##### Flags
+### Flags
 
 `-n, --item-name`: **Required**, The secret name (supported types: static secret)
 
@@ -223,26 +223,26 @@ akeyless share-item \
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-### `Unwrap-token`
+## `unwrap-token`
 
 Unwrapping the token containing a secret
 
-#### Usage
+### Usage
 
 ```shell
 akeyless unwrap-token \
 --shared-token <token>
 ```
 
-##### Flags
+### Flags
 
 `-s, --shared-token`: **Required**, The value of the shared token that wraps the secret
 
-### `Update-secret-val`
+## `update-secret-val`
 
 Update static secret value
 
-#### Usage
+### Usage
 
 ```shell
 akeyless update-secret-val \
@@ -250,7 +250,7 @@ akeyless update-secret-val \
 --value <secret value> 
 ```
 
-##### Flags
+### Flags
 
 `--name`: **Required**, Secret name
 
@@ -278,11 +278,11 @@ akeyless update-secret-val \
 
 For other data, such as description or tags, use `update-item` as described in [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects).
 
-### `Static-secret-sync`
+## `static-secret-sync`
 
 Sync a Static Secret using Universal Secret Connector
 
-#### Usage
+### Usage
 
 ```shell
 akeyless static-secret-sync \
@@ -291,7 +291,7 @@ akeyless static-secret-sync \
 --remote-secret-name <Name of the secret in the remote endpoint>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Secret name
 

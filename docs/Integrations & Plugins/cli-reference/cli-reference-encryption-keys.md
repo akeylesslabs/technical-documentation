@@ -14,11 +14,11 @@ This section outlines the CLI commands relevant to Encryption Keys.
 
 <CLIGeneralFlags />
 
-### `Assoc-target-item`
+## `assoc-target-item`
 
 Create an association between a [Target](https://docs.akeyless.io/docs/targets) and a [Classic Key](https://docs.akeyless.io/docs/classic-keys) for [External KMS Integration](https://docs.akeyless.io/docs/external-kms)
 
-#### Usage
+### Usage
 
 ```shell
 akeyless assoc-target-item \
@@ -32,7 +32,7 @@ akeyless assoc-target-item \
 --purpose <Purpose if the key in GCP KMS>
 ```
 
-#### Flags
+### Flags
 
 `-t, --target-name`: **Required**, The target to associate
 
@@ -58,11 +58,11 @@ akeyless assoc-target-item \
 
 `--protection-level[=software]`: Protection level of the key [software/hardware]. (Relevant only for Classic Key and target association, for gcp targets)
 
-### `Create-classic-key`
+## `create-classic-key`
 
 Creates a new Classic Key in the current account
 
-#### Usage
+### Usage
 
 ```shell
 akeyless create-classic-key \
@@ -75,7 +75,7 @@ akeyless create-classic-key \
 --certificate-format <pem / der>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**,  Classic key name/path.
 
@@ -131,11 +131,11 @@ akeyless create-classic-key \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `Create-dfc-key`
+## `create-dfc-key`
 
 Creates a new DFC key in the current account
 
-#### Usage
+### Usage
 
 ```shell
 akeyless create-dfc-key \
@@ -147,7 +147,7 @@ akeyless create-dfc-key \
 --certificate-format <pem / der>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**,  DFCKey name
 
@@ -193,11 +193,11 @@ akeyless create-dfc-key \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `Decrypt`
+## `decrypt`
 
 Decrypts ciphertext into plaintext by using an AES key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless decrypt \
@@ -206,7 +206,7 @@ akeyless decrypt \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the key to use in the decryption process.
 
@@ -224,11 +224,11 @@ akeyless decrypt \
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
-### `Decrypt-file`
+## `decrypt-file`
 
 Decrypts a file by using an AES key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless decrypt-file \
@@ -239,7 +239,7 @@ akeyless decrypt-file \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
-##### Flags
+### Flags
 
 `--key-name`: **Required**, The name of the key to use in the decryption process
 
@@ -257,11 +257,11 @@ akeyless decrypt-file \
 
 `-v, --version`: key version (relevant only for classic key)
 
-### `Decrypt-gpg`
+## `decrypt-gpg`
 
 Decrypts the given GPG message using an RSA key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless decrypt-gpg \
@@ -270,7 +270,7 @@ akeyless decrypt-gpg \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the key to use in the decryption process.
 
@@ -290,11 +290,11 @@ akeyless decrypt-gpg \
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
-### `Decrypt-pkcs1`
+## `decrypt-pkcs1`
 
 Decrypts a plaintext using RSA and the padding scheme from PKCS#1 v1.5
 
-#### Usage
+### Usage
 
 ```shell
 akeyless decrypt-pkcs1 \
@@ -304,7 +304,7 @@ akeyless decrypt-pkcs1 \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the key to use in the decryption process
 
@@ -316,11 +316,11 @@ akeyless decrypt-pkcs1 \
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
-### `Encrypt`
+## `encrypt`
 
 Encrypts plaintext into ciphertext by using an AES key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless encrypt \
@@ -330,7 +330,7 @@ akeyless encrypt \
 --in <Path to the file to be encrypted in base64 format> 
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: The name of the key to use in the encryption process
 
@@ -348,11 +348,11 @@ akeyless encrypt \
 
 `-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
 
-### `Encrypt-file`
+## `encrypt-file`
 
 Encrypts a file by using an AES key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless encrypt-file \
@@ -362,7 +362,7 @@ akeyless encrypt-file \
 --display-id <Display id of the key> 
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
@@ -378,11 +378,11 @@ akeyless encrypt-file \
 
 `-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
 
-### `Encrypt-gpg`
+## `encrypt-gpg`
 
 Encrypts the given message with GPG using an RSA key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless encrypt-gpg \
@@ -392,7 +392,7 @@ akeyless encrypt-gpg \
 --in <Path to the file to be encrypted in base64 format> 
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
@@ -408,11 +408,11 @@ akeyless encrypt-gpg \
 
 `-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
 
-### `Encrypt-pkcs1`
+## `encrypt-pkcs1`
 
 Encrypts the given message with RSA and the padding scheme from PKCS#1 v1.5
 
-#### Usage
+### Usage
 
 ```shell
 akeyless encrypt-pkcs1 \
@@ -422,7 +422,7 @@ akeyless encrypt-pkcs1 \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**,The name of the key to use in the encryption process
 
@@ -432,11 +432,11 @@ akeyless encrypt-pkcs1 \
 
 `-p, --plaintext`: **Required**, Data to be encrypted
 
-### `Export-classic-key`
+## `export-classic-key`
 
 Returns the Classic Key material
 
-#### Usage
+### Usage
 
 ```shell
 akeyless export-classic-key \
@@ -445,7 +445,7 @@ akeyless export-classic-key \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-#### Flags
+### Flags
 
 `-n, --name`: **Required**, Classic key name
 
@@ -459,11 +459,11 @@ akeyless export-classic-key \
 
 `--wrapping-key-name`: Classic key name to wrap the key material with. This feature enables users to specify the name of a Key Encryption Key (KEK) to encrypt a Data Encryption Key (DEK) during the export process.
 
-### `Gateway-download-customer-fragments`
+## `gateway-download-customer-fragments`
 
 Download gateway customer fragments
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gateway-download-customer-fragments \
@@ -471,11 +471,11 @@ akeyless gateway-download-customer-fragments \
 --gateway-url <API Gateway URL:8000>
 ```
 
-### `Gen-customer-fragment`
+## `gen-customer-fragment`
 
 Generates Customer Fragment
 
-#### Usage
+### Usage
 
 ```shell
 akeyless gen-customer-fragment \
@@ -485,7 +485,7 @@ akeyless gen-customer-fragment \
 --description <Customer Fragment Description>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: Customer Fragment name
 
@@ -493,25 +493,25 @@ akeyless gen-customer-fragment \
 
 `-k, --hsm-key-label`:  The label of the hsm key to use for customer fragment operations (relevant for `hsm_wrapped`/`hsm_secured` customer fragments)
 
-### `Get-rsa-public`
+## `get-rsa-public`
 
 Obtain the public key from a specific RSA private key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless get-rsa-public --name <Key name>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Name of RSA key to extract the public key from
 
-### `Hmac`
+## `hmac`
 
 Generates a hash-based message authentication code (HMAC) for a message, using an HMAC algorithm
 
-#### Usage
+### Usage
 
 ```shell
 akeyless hmac \
@@ -520,7 +520,7 @@ akeyless hmac \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
@@ -538,25 +538,25 @@ akeyless hmac \
 
 `-F, --input-format`: Select the default assumed format for any plaintext input. Currently supported options: [base64]
 
-### `Refresh-key`
+## `refresh-key`
 
 Refresh a key in the current account
 
-#### Usage
+### Usage
 
 ```shell
 akeyless refresh-key --name <Key name>
 ```
 
-#### Flags
+### Flags
 
 `-n, --name`: **Required**, Key name
 
-### `Rotate-key`
+## `rotate-key`
 
 Rotates an existing key, by creating a new version of the key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless rotate-key \
@@ -565,7 +565,7 @@ akeyless rotate-key \
 --new-key-data <The new value of the key, base64 encoded>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Key name
 
@@ -573,11 +573,11 @@ akeyless rotate-key \
 
 `--new-key-data`: The new value of the key, base64 encoded. Relevant only for Classic Key provided by the user (BYOK).
 
-### `Set-item-state`
+## `set-item-state`
 
 Set an item's state (Enabled, Disabled)
 
-#### Usage
+### Usage
 
 ```shell
 akeyless set-item-state \
@@ -585,7 +585,7 @@ akeyless set-item-state \
 --desired-state [Enabled, Disabled]
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Current item name
 
@@ -593,11 +593,11 @@ akeyless set-item-state \
 
 `--version[=0]`: The specific version you want to update: 0=item level state (default)
 
-### `Sign-ecdsa`
+## `sign-ecdsa`
 
 Calculates the signature of a given message using ECDSA and a sha hash algorithm matching the key size
 
-#### Usage
+### Usage
 
 ```shell
 akeyless sign-ecdsa \
@@ -607,7 +607,7 @@ akeyless sign-ecdsa \
 --item-id <Item id of the RSA key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: The name of the EC key to use for the signing process
 
@@ -621,11 +621,11 @@ akeyless sign-ecdsa \
 
 `-m, --message`: (**Mandatory**) The input message to sign in a base64 format
 
-### `Sign-gpg`
+## `sign-gpg`
 
 Calculates the signature of a message using GPG from an RSA key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless sign-gpg \
@@ -635,7 +635,7 @@ akeyless sign-gpg \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the RSA key to use in the signing process
 
@@ -647,11 +647,11 @@ akeyless sign-gpg \
 
 `-p, --passphrase`: Passphrase to decrypt the message
 
-### `Sign-pkcs1`
+## `sign-pkcs1`
 
 Calculates the signature of hashed using RSASSA-PKCS1-V1_5-SIGN from RSA PKCS#1 v1.5
 
-#### Usage
+### Usage
 
 ```shell
 akeyless sign-pkcs1 \
@@ -661,7 +661,7 @@ akeyless sign-pkcs1 \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the RSA key to use in the signing process
 
@@ -679,11 +679,11 @@ akeyless sign-pkcs1 \
 
 `-m, --message`: **Required**, The message to be signed
 
-### `Sign-rsassa-pss`
+## `sign-rsassa-pss`
 
 Calculates the signature of a given message using rsassa-pss
 
-#### Usage
+### Usage
 
 ```shell
 akeyless sign-rsassa-pss \
@@ -693,7 +693,7 @@ akeyless sign-rsassa-pss \
 --item-id <Item id of the RSA key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: The name of the RSA key to use for the signing process
 
@@ -709,11 +709,11 @@ akeyless sign-rsassa-pss \
 
 `--prehashed`: Markes that the message is already hashed
 
-### `Update-classic-key-certificate`
+## `update-classic-key-certificate`
 
 Update the certificate for a classic key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless update-classic-key-certificate \
@@ -723,7 +723,7 @@ akeyless update-classic-key-certificate \
 --cert-file-data <PEM Certificate in a Base64 format>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: (**Mandatory**) Classic key name
 
@@ -735,11 +735,11 @@ akeyless update-classic-key-certificate \
 
 `--certificate-format`: The format of the returned certificate [`pem`/`der`]
 
-### `Update-rotation-settings`
+## `update-rotation-settings`
 
 Updates rotation settings of an existing key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless update-rotation-settings \
@@ -747,7 +747,7 @@ akeyless update-rotation-settings \
 --auto-rotate <True/False> 
 ```
 
-#### Flags
+### Flags
 
 `-n, --name`: **Required**, Key name
 
@@ -757,11 +757,11 @@ akeyless update-rotation-settings \
 
 `--rotation-event-in`: How many days before the rotation of the item would you like to be notified. To specify multiple events, use argument multiple times:`--rotation-event-in 1 --rotation-event-in 5`
 
-### `Upload-pkcs12`
+## `upload-pkcs12`
 
 Upload a PKCS#12 key and certificates
 
-#### Usage
+### Usage
 
 ```shell
 akeyless upload-pkcs12 \
@@ -771,7 +771,7 @@ akeyless upload-pkcs12 \
 --description <Key description> 
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Name of key to be created
 
@@ -791,11 +791,11 @@ akeyless upload-pkcs12 \
 
 `--delete-protection[=false]`: Protection from accidental deletion of this item, [true/false]
 
-### `Upload-rsa`
+## `upload-rsa`
 
 Upload RSA key
 
-#### Usage
+### Usage
 
 ```shell
 akeyless upload-rsa \
@@ -807,7 +807,7 @@ akeyless upload-rsa \
 --cert-file-data <PEM Certificate in a Base64 format>
 ```
 
-##### Flags
+### Flags
 
 `-n, --name`: **Required**, Name of key to be created
 
@@ -833,11 +833,11 @@ akeyless upload-rsa \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `Verify-ecdsa`
+## `verify-ecdsa`
 
 Verifies an ECDSA signature using a SHA hash algorithm matching the key size
 
-#### Usage
+### Usage
 
 ```shell
 akeyless verify-ecdsa \
@@ -848,7 +848,7 @@ akeyless verify-ecdsa \
 --item-id <Item id of the RSA key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: The name of the EC key to use for the verification process
 
@@ -860,11 +860,11 @@ akeyless verify-ecdsa \
 
 `-s, --signature`: (**Mandatory**) The message's signature
 
-### `Verify-gpg`
+## `verify-gpg`
 
 Verifies a GPG based on RSA signature
 
-#### Usage
+### Usage
 
 ```shell
 akeyless verify-gpg \
@@ -875,7 +875,7 @@ akeyless verify-gpg \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: The name of the RSA key to use in the verification process
 
@@ -889,11 +889,11 @@ akeyless verify-gpg \
 
 `-p, --passphrase`: Passphrase to decrypt the message
 
-### `Verify-pkcs1`
+## `verify-pkcs1`
 
 Verifies an RSA PKCS#1 v1.5 signature
 
-#### Usage
+### Usage
 
 ```shell
 akeyless verify-pkcs1 \
@@ -904,7 +904,7 @@ akeyless verify-pkcs1 \
 --item-id <Item id of the key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: **Required**, The name of the RSA key to use in the verification process
 
@@ -916,11 +916,11 @@ akeyless verify-pkcs1 \
 
 `-s, --signature`: **Required**, The message's signature.
 
-### `Verify-rsassa-pss`
+## `verify-rsassa-pss`
 
 Verifies an rsassa-pss signature
 
-#### Usage
+### Usage
 
 ```shell
 akeyless verify-rsassa-pss \
@@ -931,7 +931,7 @@ akeyless verify-rsassa-pss \
 --item-id <Item id of the RSA key>
 ```
 
-##### Flags
+### Flags
 
 `-k, --key-name`: The name of the RSA key to use for the verification process
 
@@ -947,7 +947,7 @@ akeyless verify-rsassa-pss \
 
 ## Tokenization
 
-### `Create-tokenizer`
+### `create-tokenizer`
 
 Creates a new tokenizer
 
@@ -973,7 +973,7 @@ akeyless create-tokenizer \
 --decoding-template <An expression to alter the template of the decryption output>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Tokenizer name
 
@@ -999,7 +999,7 @@ akeyless create-tokenizer \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `Detokenize`
+### `detokenize`
 
 Decrypts text with a tokenizer
 
@@ -1012,7 +1012,7 @@ akeyless detokenize \
 --tweak <Base64-encoded tweak value that was used for encryption>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --tokenizer-name`: **Required**, The name of the tokenizer to use in the decryption process
 
@@ -1020,7 +1020,7 @@ akeyless detokenize \
 
 `--tweak`: Base64 encoded tweak for vaultless encryption
 
-### `Tokenize`
+### `tokenize`
 
 Encrypts text with a tokenizer
 
@@ -1033,7 +1033,7 @@ akeyless tokenize \
 --tweak <Base64-encoded tweak value
 ```
 
-##### Flags
+#### Flags
 
 `-n, --tokenizer-name`: **Required**, The name of the tokenizer to use in the encryption process
 
