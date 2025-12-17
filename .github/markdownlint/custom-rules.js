@@ -61,6 +61,10 @@ function extractLinkText(inlineToken, linkOpenIndex) {
   return text.trim();
 }
 
+function escapeRegExp(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 module.exports = [
   /**
    * AKY001: Disallow H1 (# / Setext H1)
@@ -416,6 +420,101 @@ module.exports = [
         const m2 = text.match(badCasing);
         if (m2) {
           report(onError, ln, "Use correct unit capitalization (e.g., 'GB' not 'gb').", m2[0]);
+        }
+      }
+    }
+  },
+
+  /**
+   * AKY013: Proper names must use correct capitalization (MD044-like), ignoring inline HTML <a>...</a>
+   *
+   * Configuration:
+   * - names: [ "Akeyless", "Kubernetes", ... ] (required)
+   * - code_blocks: boolean (default true) - ignore fenced/indented code blocks
+   * - ignore_a_html_tag: boolean (default true) - ignore matches inside inline HTML anchors
+   *
+   * Notes:
+   * - This ignores inline-code spans by default via token filtering.
+   * - This intentionally only ignores HTML anchors expressed as inline HTML (<a>...</a>),
+   *   not Markdown links. If you want to ignore Markdown link text too, say so and we’ll extend it.
+   */
+  {
+    names: ["AKY013", "proper-names-capitalization-ignore-a"],
+    description: "Enforce proper name capitalization (MD044-like), ignoring inline HTML <a>...</a> content",
+    tags: ["spelling", "capitalization", "style"],
+    function: function (params, onError) {
+      const options = params.config || {};
+      const names = Array.isArray(options.names) ? options.names : [];
+      const checkCodeBlocks = options.code_blocks !== false;
+      const ignoreAHtmlTag = options.ignore_a_html_tag !== false;
+
+      if (names.length === 0) return;
+
+      const canonicalByLower = new Map(
+        names.map((n) => [String(n).toLowerCase(), String(n)])
+      );
+
+      // One combined regex for efficiency; we validate against canonical map after match.
+      const alternation = names
+        .map((n) => escapeRegExp(String(n)))
+        .filter(Boolean)
+        .join("|");
+
+      if (!alternation) return;
+
+      // Word-boundary-ish match; allows names with dashes as well.
+      const re = new RegExp(`\\b(?:${alternation})\\b`, "gi");
+
+      const tokens = params.tokens || [];
+      const codeLines = checkCodeBlocks ? getCodeBlockLineSet(tokens) : new Set();
+
+      for (const t of tokens) {
+        if (t.type !== "inline" || !Array.isArray(t.children)) continue;
+
+        // If the inline token itself is on a code line (rare, but can happen), skip.
+        if (checkCodeBlocks && codeLines.has(t.lineNumber)) continue;
+
+        let inAInlineHtml = false;
+
+        for (const child of t.children) {
+          // Skip inline code spans
+          if (child.type === "code_inline") continue;
+
+          // Track inline HTML <a>...</a>
+          if (ignoreAHtmlTag && child.type === "html_inline") {
+            const html = String(child.content || "");
+
+            // Start tag: <a ...> or <a>
+            if (/^<a(\s|>)/i.test(html)) {
+              inAInlineHtml = true;
+              continue;
+            }
+
+            // End tag: </a>
+            if (/^<\/a\s*>/i.test(html)) {
+              inAInlineHtml = false;
+              continue;
+            }
+          }
+
+          // Ignore any visible text while inside an inline HTML <a>...</a>
+          if (ignoreAHtmlTag && inAInlineHtml) continue;
+
+          if (child.type !== "text") continue;
+
+          const text = String(child.content || "");
+          let m;
+          while ((m = re.exec(text)) !== null) {
+            const found = m[0];
+            const canonical = canonicalByLower.get(String(found).toLowerCase());
+            if (canonical && found !== canonical) {
+              report(onError, t.lineNumber, `Proper name capitalization: use "${canonical}" instead of "${found}".`, text.trim());
+              break; // prevent multiple reports per line segment
+            }
+          }
+
+          // Reset lastIndex between different strings to avoid cross-string statefulness.
+          re.lastIndex = 0;
         }
       }
     }
