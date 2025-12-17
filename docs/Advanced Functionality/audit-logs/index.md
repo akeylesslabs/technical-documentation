@@ -28,7 +28,7 @@ When using the console, you will be able to navigate to the **Audit Logs** tab t
 
 <Image title="Screenshot at Nov 10 13-44-36.png" alt="1912" align="center" src="https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png"> Example of Akeyless Audit log </Image>
 
-These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status in the 400s means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
+These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status codes in the four hundreds means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
 
 You will be able to filter your logs based on any of these rubricks or tags inside the Akeyless SaaS platform in order to get insights or clarifications.
 

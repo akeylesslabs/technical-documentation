@@ -22,7 +22,7 @@ This chart bootstraps the `Akeyless-Web-Access-Bastion` deployment on a Kubernet
 
 * Kubernetes Installed
 
-* Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `WebWorker` and for the `dispatcher` services.
+* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and  1 vCPU available with 1 GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `WebWorker` and for the `dispatcher` services.
 
 ### Network
 

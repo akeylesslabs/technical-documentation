@@ -29,7 +29,7 @@ Optionally, enter a description for the secret in the "Description" field.
 
 ## Step 3: Define Var and Location
 
-In the "Var" field, enter a unique combination of letters, symbols, and numbers. The value length should be 16KB.
+In the `Var` field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.
 
 <Image align="right" width="200px" src="https://files.readme.io/774a6f9-Screenshot_2024-02-22_at_14.23.19.png" />
 

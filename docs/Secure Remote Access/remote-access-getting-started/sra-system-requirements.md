@@ -101,17 +101,17 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 * **Network**
   Long SRA sessions (SSH/RDP/Web) might be cut off early by default LB/Ingress timeouts. Set your LB/Ingress idle/response timeout ≥ your intended session TTL (e.g., 15-60 minutes):
 
-  * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is 30s. Increase via BackendConfig (or GCPBackendPolicy) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
+  * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is 30 seconds. Increase via BackendConfig (or GCPBackendPolicy) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
 
-  * **AWS (EKS / Elastic Load Balancing)** - ALB (HTTP/HTTPS): Default idle timeout = 60s. Set higher using LB attributes; with AWS Load Balancer Controller use: `alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600` (measured in seconds). [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html).
+  * **AWS (EKS / Elastic Load Balancing)** - ALB (HTTP/HTTPS): Default idle timeout is 60 seconds. Set higher using LB attributes; with AWS Load Balancer Controller use: `alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600` (measured in seconds). [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html).
 
-  * **NLB (TCP/TLS)**: Default TCP idle timeout is 350 seconds; now configurable 60-6000s. Adjust if sessions may be idle, and enable TCP keepalives. [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html).
+  * **NLB (TCP/TLS)**: Default TCP idle timeout is 350 seconds; now configurable 60-6000 seconds. Adjust if sessions may be idle, and enable TCP keepalives. [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html).
 
   * **Microsoft Azure (AKS)** -
 
-    * **Azure Load Balancer (L4)**: Default idle timeout = 4 minutes; configurable up to 100 minutes (Standard). Increase for SRA sessions. See vendor information [here](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-tcp-idle-timeout?tabs=tcp-reset-idle-portal)
+    * **Azure Load Balancer (L4)**: Default idle timeout = 4 minutes; configurable up to 100 minutes (Standard). Increase for SRA sessions. [See vendor information](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-tcp-idle-timeout?tabs=tcp-reset-idle-portal).
 
-    * **Application Gateway (L7):** TCP idle timeout default 4 minutes (configurable up to 30 minutes); HTTP request timeout default 20s (backend response wait). Tune both as needed. See vendor information [here](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq)
+    * **Application Gateway (L7):** TCP idle timeout default 4 minutes (configurable up to 30 minutes); HTTP request timeout default 20 seconds (backend response wait). Tune both as needed. [See vendor information](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq).
 
   * **NGINX Ingress (generic)** - Defaults commonly close connections around 60 seconds without traffic. Raise with annotations / ConfigMap (for example, `nginx.ingress.kubernetes.io/proxy-read-timeout`, `proxy-send-timeout`). [See vendor information](https://nginx.org/en/docs/http/websocket.html).
 

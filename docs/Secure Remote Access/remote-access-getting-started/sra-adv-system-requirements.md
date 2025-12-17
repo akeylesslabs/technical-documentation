@@ -45,7 +45,7 @@ Based on the components and their respective resource allocations, the following
 * **Storage**: 100 GiB (SSD recommended)
 * **Networking**: 1 Gbps NIC
 
-This setup is suitable for small deployments, supporting up to ~100 simultaneous ssh/application connections and several secure web applications with a combination of web-sra, ssh-sra, and web-worker pods.
+This setup is suitable for small deployments, supporting up to 100 simultaneous SSH/application connections and several secure web applications with a combination of `web-sra`, `ssh-sra`, and `web-worker` pods.
 
 #### Medium to Large Deployments
 
@@ -69,18 +69,18 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
   * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is `30s`. Increase via BackendConfig (or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection)) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
 
-  * **AWS (EKS / Elastic Load Balancing)** - ALB (`HTTP`/`HTTPS`): Default idle `timeout = 60s`. Set higher using LB attributes; with AWS Load Balancer Controller use: alb.ingress.kubernetes.io/load-balancer-attributes: `idle_timeout.timeout_seconds=600` (example = `10m`). [See vendor information.](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html)
+  * **AWS (EKS / Elastic Load Balancing)** - ALB (`HTTP`/`HTTPS`): Default idle `timeout = 60s`. Set higher using LB attributes; with AWS Load Balancer Controller use: `alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600` (measured in seconds). [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html).
 
-  * **NLB (TCP/TLS)**: Default TCP idle `timeout = 350s`, now configurable 60-6000s. Adjust if sessions may be idle, and enable TCP keepalives. [See vendor information.](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html)
+  * **NLB (TCP/TLS)**: Default TCP idle `timeout = 350s`, now configurable 60-6000 seconds. Adjust if sessions may be idle, and enable TCP keepalives. [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html).
 
   * **Microsoft Azure (AKS)** -
 
-    * **Azure Load Balancer (L4)**: Default idle `timeout = 4 minutes`, configurable up to 100 minutes (Standard). Increase for SRA sessions. [See vendor information.](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-tcp-idle-timeout)
+    * **Azure Load Balancer (L4)**: Default idle `timeout = 4 minutes`, configurable up to 100 minutes (Standard). Increase for SRA sessions. [See vendor information](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-tcp-idle-timeout).
 
-    * **Application Gateway (L7):** TCP idle timeout default 4 minutes (configurable up to 30 minutes), HTTP request timeout default 20s (backend response wait). Tune both as needed. [See vendor information.](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq)
+    * **Application Gateway (L7):** TCP idle timeout default 4 minutes (configurable up to 30 minutes), HTTP request timeout default 20 seconds (backend response wait). Tune both as needed. [See vendor information](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq).
 
-  * **NGINX Ingress (generic)** - Defaults commonly close connections around 60s without traffic. Raise with annotations / ConfigMap (e.g., `nginx.ingress.kubernetes.io/proxy-read-timeout`, proxy-send-timeout). [See vendor information.](https://nginx.org/en/docs/http/websocket.html)
+  * **NGINX Ingress (generic)** - Defaults commonly close connections around 60 seconds without traffic. Raise with annotations / ConfigMap (e.g., `nginx.ingress.kubernetes.io/proxy-read-timeout`, proxy-send-timeout). [See vendor information](https://nginx.org/en/docs/http/websocket.html).
 
 ### Conclusion
 
-The Akeyless Remote Access solution is designed to be flexible and scalable, capable of meeting the needs of a wide range of environments. By following the recommended server specifications and resource allocations, organizations can ensure that their deployment is both performant and reliable, providing secure remote access to their critical resources. Further information can be found on the [SRA online document page](https://docs.akeyless.io/docs/remote-access-overview).
+The Akeyless Remote Access solution is designed to be flexible and scalable, capable of meeting the needs of a wide range of environments. By following the recommended server specifications and resource allocations, organizations can ensure that their deployment is both performant and reliable, providing Secure Remote Access to their critical resources. Further information can be found on the [SRA online document page](https://docs.akeyless.io/docs/remote-access-overview).
