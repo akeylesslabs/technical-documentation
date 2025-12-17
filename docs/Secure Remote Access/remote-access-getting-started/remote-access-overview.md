@@ -78,7 +78,7 @@ Akeyless' Remote Access solution supports connections to the following resource 
 * [Azure Portal](https://docs.akeyless.io/docs/azure-portal-access)
 * [GCP Portal](https://docs.akeyless.io/docs/gcp-portal-access)
 * [SSH Servers](https://docs.akeyless.io/docs/ssh-remote-access)
-* [LDAP Servers](#)
+* [LDAP Servers](https://docs.akeyless.io/docs/ldap)
 * [RabbitMQ](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access)
 * [Kubernetes](https://docs.akeyless.io/docs/k8s-cluster-access)
 * [Web Applications](https://docs.akeyless.io/docs/web-applications-secure-remote-access)

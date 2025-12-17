@@ -96,13 +96,13 @@ Where:
 
 This section describe how to fetch each item.
 
-**Static Secret**:
+### Static Secret
 
 ```shell static.tmpl
 {{ with secret "/my_secret" }}Value: {{ .Data.Value }}{{ end -}}
 ```
 
-**Rotated Secret**:
+### Rotated Secret
 
 ```shell rotated.tmpl
 {{- with rotatedSecret "/my_rotator" -}}
@@ -111,7 +111,7 @@ password={{ .Data.Password }}
 {{- end -}}
 ```
 
-**SSH Certificate**:
+### SSH Certificate
 
 ```shell ssh_cert.tmpl
 {{- with sshCertificate "/certificates/ssh_cert_issuer" "ubuntu" "--pub-key-file-path=path_to/ssh_key.pub"-}}
@@ -119,7 +119,7 @@ password={{ .Data.Password }}
 {{- end -}}
 ```
 
-**PKI Certificate using a Public Key**:
+### PKI Certificate using a Public Key
 
 ```shell pki_cert_with_key.tmpl
 {{- with pkiCertificate "/certificate/pki_cert_issuer" "--key-file-path=path_to/rsa_key.pub" "--ttl=3600" -}}
@@ -127,7 +127,7 @@ password={{ .Data.Password }}
 {{- end -}}
 ```
 
-**PKI Certificate using a CSR**:
+### PKI Certificate using a CSR
 
 ```shell pki_cert_with_csr.tmpl
 {{- with pkiCertificate "/certificate/pki_cert_issuer" "--csr-file-path=path_to/test.csr" "--ttl=3600" -}}
@@ -146,4 +146,4 @@ akeyless agent start \
 
 The command above will start the agent using the `agent.toml` configuration file located in `$HOME/agent/`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - CLI Agent]() section.
+You can find the complete list of parameters for this command in the [CLI Reference - CLI Agent](https://docs.akeyless.io/docs/cli-reference#cli-agent) section.
