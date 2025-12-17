@@ -9,11 +9,9 @@ metadata:
   description: ''
   robots: index
 ---
-## EU SaaS Core Services
-
 The table below outlines the primary functionalities of Akeyless microservices in the **EU** environment:
 
-| **Service**       | **Endpoint**                                                                                                                                                                                                                                                       | **IP**                                                      | **Port**   | **Description**                                                           |
+| Service           | Endpoint                                                                                                                                                                                                                                                           | IP                                                          | Port       | Description                                                               |
 | :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- | :--------- | :------------------------------------------------------------------------ |
 | Console           | `https://console.eu.akeyless.io`                                                                                                                                                                                                                                   | 13.248.216.215, 76.223.80.182                               | 443        | Akeyless SaaS Platform                                                    |
 | Audit             | `https://audit.eu.akeyless.io`, `https://audit-ro.eu.akeyless.io`                                                                                                                                                                                                  | 15.197.166.202, 3.33.166.129, 13.248.216.215, 76.223.80.182 | 443        | Audit log main service, enables log forwarding from GW & Bastion          |
@@ -30,6 +28,6 @@ The table below outlines the primary functionalities of Akeyless microservices i
 | Akeyless Binaries | `https://akeylessservices.s3.us-east-2.amazonaws.com`                                                                                                                                                                                                              | N/A                                                         | 443        | S3 bucket to download & update Akeyless official binaries                 |
 | Akeyless CLI      | `https://akeyless-cli.s3.us-east-2.amazonaws.com`                                                                                                                                                                                                                  | N/A                                                         | 443        | S3 bucket to download & update Akeyless CLI versions                      |
 
-> **Note:**
->
-> When using proxy services, you can use `https://sqs.eu-central-1.amazonaws.com` instead of classic MQ service endpoints. If you are not working with a proxy service and still want to utilize SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
+<Callout icon="📘" theme="info">
+  *Note:* When using proxy services, you can use `https://sqs.eu-central-1.amazonaws.com` instead of classic MQ service endpoints. If you are not working with a proxy service and still want to utilize SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
+</Callout>
