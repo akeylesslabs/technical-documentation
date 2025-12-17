@@ -556,8 +556,6 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id"
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e DEFAULT_CERTIFICATE_ACCESS_ID="access-id" -e ENABLE_SNI_PROXY="true" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-
-
 ## Fixed Artifact Repository
 
 In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, you can pass the `ARTIFACTS_REPO="artifacts.site2.akeyless.io"` environment variable as part of the docker run command:

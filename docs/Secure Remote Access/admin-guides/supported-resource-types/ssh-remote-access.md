@@ -78,12 +78,12 @@ Let's set up remote access to an SSH server from the Akeyless Console.
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-* Choose the right mode to work with either:
-  * `Explicit Hosts`:  The hostnames (or IP addresses) of your SSH target servers.
-  * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
-* `Secure Access API`: Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
-* `Secure Access SSH`: Secure Access SSH server. e.g. `my.sra-server:22`.
-* `Username`: SSH username to connect to the target server, based on the 'Allowed Users' list.
+  * Choose the right mode to work with either:
+    * `Explicit Hosts`:  The hostnames (or IP addresses) of your SSH target servers.
+    * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
+  * `Secure Access API`: Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
+  * `Secure Access SSH`: Secure Access SSH server. e.g. `my.sra-server:22`.
+  * `Username`: SSH username to connect to the target server, based on the 'Allowed Users' list.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
@@ -148,8 +148,6 @@ DISPLAY_STAGES=yes
 akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
 ```
 
-
-
 > 🚧 Compatibility Issue with Legacy SSH Versions (7.4 & 7.6)
 >
 > Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using Akeyless Connect to access remote machines running OpenSSH version 7.4 or 7.6. This occurs both in CLI and the Web portal.
@@ -186,7 +184,7 @@ akeyless update-item --name <Path/to/static/secret> \
 --secure-access-host <Target SSH server>
 ```
 
-where:
+Where:
 
 * **secure-access-ssh-creds:** Static-Secret values contain SSH Credentials, either Private Key or Password [password/private-key].
 * **--secure-access-certificate-issuer** Path to the SSH Certificate Issuer for your Akeyless SRA.
@@ -197,8 +195,6 @@ Now, you can connect to your target SSH server via the `akeyless connect` comman
 ```shell
 akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/secret] -v <professional-bastion-hostname/ip[:port]>
 ```
-
-
 
 ## Upload/Download Files Using SSH
 

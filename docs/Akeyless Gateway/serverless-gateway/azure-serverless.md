@@ -61,8 +61,6 @@ The following Authentication Methods are supported for Azure Serverless:
 >
 > When using the **Azure AD** authentication method, you can configure a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) on the associated [Access Role](https://docs.akeyless.io/docs/rbac) to match the user's **Azure Object ID** which can be found under **Identity** tab, in the **Function App** running the gateway.
 
-
-
 When using [Azure AD](https://docs.akeyless.io/docs/azure-ad) as the `admin_access_id` of the Gateway, make sure to set in addition a list of users that will be able to manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
 
 ```shell Azure_AD

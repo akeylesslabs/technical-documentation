@@ -86,12 +86,12 @@ config:
   # MD001: Heading levels should only increment by one level
   # Knobs:
   #   - severity: error|warning|info
-  MD001: false
+  MD001: true
 
   # MD002: First heading should be top-level
   # Knobs:
   #   - severity: error|warning|info
-  MD002: false
+  MD002: true
 
   # MD003: Heading style (ATX vs Setext)
   # Knobs:
@@ -101,7 +101,8 @@ config:
   #       - consistent
   #       - atx
   #       - setext
-  MD003: false
+  MD003:
+    style: atx
 
   # MD004: Unordered list style
   # Knobs:
@@ -122,7 +123,7 @@ config:
   # MD006: Lists should start at beginning of line
   # Knobs:
   #   - severity: error|warning|info
-  MD006: false
+  MD006: true
 
   # MD007: Unordered list indentation
   # Knobs:
@@ -175,7 +176,7 @@ config:
   #   - maximum examples:
   #       - 1
   #       - 2
-  MD012: false
+  MD012: true
 
   # MD013: Line length
   # Knobs:
@@ -210,22 +211,22 @@ config:
   # MD019: Multiple spaces after hash
   # Knobs:
   #   - severity: error|warning|info
-  MD019: false
+  MD019: true
 
   # MD020: No space inside closed ATX headings
   # Knobs:
   #   - severity: error|warning|info
-  MD020: false
+  MD020: true
 
   # MD021: Multiple spaces inside closed ATX headings
   # Knobs:
   #   - severity: error|warning|info
-  MD021: false
+  MD021: true
 
   # MD022: Headings surrounded by blank lines
   # Knobs:
   #   - severity: error|warning|info
-  MD022: false
+  MD022: true
 
   # MD023: Headings must start at beginning of line
   # Knobs:

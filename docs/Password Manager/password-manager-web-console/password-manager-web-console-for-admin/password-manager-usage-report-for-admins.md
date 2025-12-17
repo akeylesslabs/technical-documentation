@@ -13,6 +13,7 @@ next:
 This report provides administrators with a comprehensive overview of user interaction with the password management system. It is designed to help admins monitor usage patterns, assess security protocols, and ensure efficient management of user credentials.
 
 ## Overview of the Report
+
 The Password Manager Usage Report delivers critical metrics that help in understanding how the organization's password management system is being utilized. Below are the key components of the report:
 
 1. **Overall User Base**

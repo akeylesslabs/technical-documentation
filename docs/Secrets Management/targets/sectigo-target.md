@@ -23,23 +23,23 @@ Akeyless will store the issued certificates, manage them, and notify you of upco
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   <Anchor label="Read more about Zero-Knowledge Encryption" target="_blank" href="doc:implement-zero-knowledge">Read more about Zero-Knowledge Encryption</Anchor>.
+  <Anchor label="Read more about Zero-Knowledge Encryption" target="_blank" href="doc:implement-zero-knowledge">Read more about Zero-Knowledge Encryption</Anchor>.
 
 4. Define the remaining parameters as follows:
 
-* **Customer URI:** The Customer URI of the Sectigo account.
+  * **Customer URI:** The Customer URI of the Sectigo account.
 
-* **Username:** Username used to log in to Sectigo.
+  * **Username:** Username used to log in to Sectigo.
 
-* **Password:** Password of the Sectigo account
+  * **Password:** Password of the Sectigo account
 
-* **Organization ID:** Sectigo Organization ID.
+  * **Organization ID:** Sectigo Organization ID.
 
-* **Certificate Profile ID:** Sectigo Certificate Profile ID.
+  * **Certificate Profile ID:** Sectigo Certificate Profile ID.
 
-* **External Requester:** Sectigo External Requester username.
+  * **External Requester:** Sectigo External Requester username.
 
-* **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
+  * **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
 
 5. Click **Finish**.
 
@@ -65,5 +65,3 @@ Once the Sectigo Target is created, it can be used to generate a [public certifi
 <Callout icon="❗️" theme="error">
   _The Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval._
 </Callout>
-
-

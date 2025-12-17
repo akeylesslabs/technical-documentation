@@ -192,7 +192,8 @@ akeyless rotated-secret create azure \
 
 Creates new Cassandra rotated secret item
 
-#### Usage 
+#### Usage
+
 ```shell
  akeyless rotated-secret create cassandra \
 --name <Rotated Secret name> \
@@ -238,6 +239,7 @@ Creates new Cassandra rotated secret item
 Creates new custom rotated secret item
 
 #### Usage
+
 ```shell
 akeyless rotated-secret create custom \
 --name <Rotated Secret name> \
@@ -1928,6 +1930,7 @@ akeyless rotated-secret update redshift \
 ```
 
 #### Flags
+
 `-n, --name`: **Required**, Rotated Secret name
 
 `--new-name`: New Item name

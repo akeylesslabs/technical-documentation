@@ -87,5 +87,3 @@ Navigate to the shared item, and remove the relevant email address from the **Re
 ## Tutorial
 
 Check out our tutorial video on [Sharing a Secret](https://tutorials.akeyless.io/docs/sharing-a-static-secret) .
-
-

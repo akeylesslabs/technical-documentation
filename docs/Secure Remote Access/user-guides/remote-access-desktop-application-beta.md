@@ -44,7 +44,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 3. Grant necessary permissions if prompted
 
-The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\Akeyless-desktop`
+  The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\Akeyless-desktop`
 
 4. Open the app and sign in with your Akeyless credentials.
 
@@ -109,8 +109,6 @@ You should be able to see a list of the resources you can connect to, upon your 
 |                  | Direct Connection / Secure Remote Access | Default Browser   |                                                                                                           |
 |                  | SSH File Transfer (SFTP)                 | Terminal          |                                                                                                           |
 
-
-
 > 🚧 Multiple Hosts / Linked Targets
 >
 > The Desktop Application supports the use of multiple hosts / linked targets. You can easily add / remove hosts you wish to connect to and press on `Confirm`.
@@ -123,8 +121,6 @@ You should be able to see a list of the resources you can connect to, upon your 
    3. **SSH Certificate Issuer** (recommended) - This is the name of the SSH Certificate Issuer the Akeyless CLI will use to initiate the connection
    4. **Control API Port** - the control API port (specify 8000 for unified Gateway, or 9900 if not)
    5. **Control API Path** - the SRA control API path (for example: /sra/ssh-config)
-
-
 
 > 📘 Connection Failures
 >

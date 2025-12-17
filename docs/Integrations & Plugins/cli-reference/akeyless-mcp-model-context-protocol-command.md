@@ -93,8 +93,6 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 }
 ```
 
-
-
 3. Restart Cursor\
    Restart for the changes to take effect.
 4. Verify\

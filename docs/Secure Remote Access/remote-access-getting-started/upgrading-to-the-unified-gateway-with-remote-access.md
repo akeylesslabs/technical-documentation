@@ -40,18 +40,18 @@ The unified edition introduces powerful new Remote Access functionalities that w
 
 The unified deployment of Gateway and Remote Access offers multiple configurations to meet organizational needs for different purposes:
 
-1. **Flexible Deployment Options of Gateway**\
-   Organizations have the ability to deploy a Gateway with or without the Remote Access component.
+1. **Flexible Deployment Options of Gateway**
+  Organizations have the ability to deploy a Gateway with or without the Remote Access component.
 
-2. **Supports Kubernetes and Docker Compose Deployments**\
-   The unified version supports both the Kubernetes and Docker Compose deployments. For Kubernetes, the deployment consists of different services and pods for each component (gateway, web remote access, ssh remote access).\
-   For users only leveraging the Gateway in a standalone deployment, they can simply configure the Helm Chart with `SRA=false`, or deploy standalone via Docker Compose.
+2. **Supports Kubernetes and Docker Compose Deployments**
+  The unified version supports both the Kubernetes and Docker Compose deployments. For Kubernetes, the deployment consists of different services and pods for each component (gateway, web remote access, ssh remote access).
+  For users only leveraging the Gateway in a standalone deployment, they can simply configure the Helm Chart with `SRA=false`, or deploy standalone via Docker Compose.
 
-3. **Planning the Migration**\
-   There is no direct upgrade path from the legacy separate Gateway and Remote Access deployments to the unified version. A planned migration is essential, and we strongly recommend scheduling the upgrade to minimize operational disruptions and ensure a seamless transition for your users. For detailed information on changes introduced during the unification process, refer to the document outlining all [Helm chart modifications](https://docs.akeyless.io/docs/helm-chart-changes-and-enhancements).
+3. **Planning the Migration**
+  There is no direct upgrade path from the legacy separate Gateway and Remote Access deployments to the unified version. A planned migration is essential, and we strongly recommend scheduling the upgrade to minimize operational disruptions and ensure a seamless transition for your users. For detailed information on changes introduced during the unification process, refer to the document outlining all [Helm chart modifications](https://docs.akeyless.io/docs/helm-chart-changes-and-enhancements).
 
-4. **Unification of endpoints (ports)**\
-   The unified Gateway with Remote Access has simplified access to the various components by creating internal mapping of the endpoints. All endpoints can be accessed through the Gateway as follows:
+4. **Unification of endpoints (ports)**
+  The unified Gateway with Remote Access has simplified access to the various components by creating internal mapping of the endpoints. All endpoints can be accessed through the Gateway as follows:
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -114,8 +114,6 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
     </tr>
   </tbody>
 </Table>
-
-
 
 ## Additional Notes
 
