@@ -58,6 +58,7 @@ Once your email is verified, your account becomes active.
   * At least 1 lower case letter (a-z)
   * At least 1 number (0-9)
   * At least 1 special character
+  
 </details>
 
 2. Select **Let's Get Started**.

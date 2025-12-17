@@ -56,7 +56,7 @@ akeyless set-role-rule \
 The response should be like this:
 
 ```shell
-$ The requested rule was successfully set to the role /Admin/SystemAdmin
+The requested rule was successfully set to the role /Admin/SystemAdmin
 ```
 
 You can find the complete list of parameters for this command in the [CLI Reference - Access Roles](https://docs.akeyless.io/docs/cli-reference-access-roles) section.
