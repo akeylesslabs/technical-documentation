@@ -19,8 +19,6 @@ It covers both compilation steps and signing workflows for JAR and Android APK f
 * Minimum Oracle version supported: Oracle 21c (21.3.0) this is the oldest version customers should have.
 * Target platform: Linux (amd64) compiled on Oracle Linux 7 for maximum compatibility.
 
-## Oracle TDE Integration Setup
-
 In your Akeyless account, create the following items under Secret Management:
 
 | **Item Type** | **Path**        | **Description**         |
