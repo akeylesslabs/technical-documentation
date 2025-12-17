@@ -14,7 +14,7 @@ Akeyless Web Access Bastion provides Secure Remote Access to any web application
 
 Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.
 
-This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes cluster using the Helm package manager.
+This chart bootstraps the `Akeyless-Web-Access-Bastion` deployment on a Kubernetes cluster using the Helm package manager.
 
 ## Prerequisites
 
@@ -22,15 +22,13 @@ This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes
 
 * Kubernetes Installed
 
-* Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `webWorker` and for the `dispatcher` services.
+* Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `WebWorker` and for the `dispatcher` services.
 
-****Network****
+### Network
 
-When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
+When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited. [For example, when running on AWS with ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
-e.g, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
-
-****Storage****
+### Storage
 
 To be able to download files to your local machine, the chart requires a storage class with `ReadWriteMany` access mode.
 
@@ -51,14 +49,14 @@ persistence:
     size: 2Gi
 ```
 
-e.g, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
+[For example, when running on Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html).
 
-For security reasons, please limit the PersistentVolumes`mount permissions to`0650`.
+For security reasons, please limit the `PersistentVolumes` mount permissions to `0650`.
 
-****Horizontal Auto-Scaling****
+### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.  
-For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server).
+For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster. [View the Metrics Server documentation](https://github.com/kubernetes-sigs/metrics-server).
 
 > 🚧 Warning
 >
@@ -66,18 +64,16 @@ For it to work correctly, the Kubernetes metrics server must be installed in the
 
 ## Installing the Chart
 
-Add Akeyless helm charts repository to your Helm repository list:
+Add the Akeyless Helm charts repository to your Helm repository list:
 
 ```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The values.yaml file holds default values. Copy the file from:
+The `values.yaml` file holds default values. Copy the file from: [`https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access`](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access)
 
-[https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access)
-
-Or run the following helm command to generate the values file locally:
+Or run the following Helm command to generate the values file locally:
 
 ```shell
 helm show values akeyless/akeyless-zero-trust-web-access > values.yaml
@@ -85,7 +81,7 @@ helm show values akeyless/akeyless-zero-trust-web-access > values.yaml
 
 ## Configuration
 
-To connect to Akeyless private repository, set the `dockerRepositoryCreds` field to access the Akeyless internal image and the relevant `apiGatewayURL` to point your Gateway REST API port `8080`
+To connect to Akeyless private repository, set the `dockerRepositoryCreds` field to access the Akeyless internal image and the relevant `apiGatewayURL` to point your Gateway REST API port `8080`.
 
 ```yaml
 dockerRepositoryCreds:
@@ -145,7 +141,7 @@ privilegedAccess:
 
 ### CSP IAM Authentication
 
-While running your K8s cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
+While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
 ### AWS IAM
 
@@ -153,7 +149,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
+While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:

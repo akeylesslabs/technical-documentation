@@ -14,7 +14,7 @@ Depending on the [resource type](https://docs.akeyless.io/docs/supported-resourc
 
 * From the [Secure Remote Access Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal), access a resource over the web or using native CLI.
 
-* With the [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command, access a resource using native CLI from any UNIX terminal.
+* With the [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command, access a resource using native CLI from any Unix terminal.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Depending on the [resource type](https://docs.akeyless.io/docs/supported-resourc
 
 ## Connect from the Secure Remote Access Portal
 
-The default authentication method for logging in to the Secure Remote Access Portal is Security Assertion Markup Language (SAML). For details about integrating your SAML authentication with the Akeyless Platform, see [here](https://docs.akeyless.io/docs/saml). Alternatively, you can choose [OIDC](https://docs.akeyless.io/docs/openid) to set the default authentication method.
+The default authentication method for logging in to the Secure Remote Access Portal is Security Assertion Markup Language (SAML). [See more details about integrating your SAML authentication with the Akeyless Platform](https://docs.akeyless.io/docs/saml). Alternatively, you can choose [OIDC](https://docs.akeyless.io/docs/openid) to set the default authentication method.
 
 1. Go to `https://zerotrust.akeyless.io`.
 2. In the **SAML Access ID** field, enter your SAML Access ID. or click the **OIDC** button to work with OpenID Connect.

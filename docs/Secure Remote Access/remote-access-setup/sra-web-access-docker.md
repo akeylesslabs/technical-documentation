@@ -28,12 +28,11 @@ This guide provides guidance for the deployment of the Akeyless-Web-Access-Basti
 
 When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
 
-e.g, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
+[For example, when running on AWS with ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
 ***Storage***
 
-To be able to download files to your local machine, the Docker engine requires mounted volumes.\
-e.g, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
+To be able to download files to your local machine, the Docker Engine requires mounted volumes. [For example, when running on AWS with EKS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html).
 
 For security reasons, please limit the volume mount permissions to `0650`.
 
@@ -43,7 +42,7 @@ For security reasons, please limit the volume mount permissions to `0650`.
 
 ## Configuration
 
-Download the **Docker Compose** file using this link: [https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml](https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml)
+[Download the **Docker Compose** file](https://github.com/akeylesslabs/helm-charts/blob/main/docker-compose/akeyless-zero-trust-web-access/docker-compose.yml).
 
 To work with a specific Gateway, set the environment variable that points to your Gateway URL on port `8080`. Alternatively, you can work with Akeyless public Gateway endpoint instead. To support `HTTP` connections, set the `DISABLE_SECURE_COOKIE` variable with `true` otherwise, only `HTTPS` connection will be supported, and set your policy for internal authentication using `ALLOW_INTERNAL_AUTH`. In the following example, internal authentication is blocked:
 
@@ -352,7 +351,7 @@ EOT
 
 **Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the web-access-bastion, or if your AKEYLESS\_GW\_URL is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
 
-1. Mount your organization's Root CA certificate to the containers (in the docker-compose.yml, under services.worker.volumes)
+1. Mount your organization's Root CA certificate to the containers (in the `docker-compose.yml`, under `services.worker.volumes`)
 2. In the `policies.json` above, uncomment the *Certificates.Install* line and set it to the relevant certificates' paths inside the container
 
 ### DLP

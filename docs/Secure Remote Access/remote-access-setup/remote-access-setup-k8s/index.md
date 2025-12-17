@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Remote Access provides secure remote access to resources using just-in-time credentials (dynamic secrets, rotated secrets, and SSH certificates).
+Akeyless Secure Remote Access offers robust security for accessing your resources by leveraging a range of just-in-time credentials, including dynamic secrets, rotated secrets, and SSH certificates.
 
 > 📘 New Chart
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
 >
-> The documentation for the legacy chart is available [here](https://docs.akeyless.io/docs/secure-remote-access-bastion)
+> [Review the documentation for the legacy chart](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
 Remote Access is enabled through the [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-chart) Helm chart deployment. Usually this is added after the Gateway is deployed, but it can be deployed as part of the Gateway deployment. This document will show how to upgrade your deployment to add Remote Access capabilities.
 
-The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `web-sra`
+The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `web-sra`.
 
 ## Prerequisites
 
@@ -28,25 +28,25 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 
 * Helm Installed
 
-* K8s Cluster
+* A Kubernetes Cluster
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI access
 
-* Minimum 1 vCPU available with 2GB RAM per resource. This can be explicitly specified inside the chart. It can be found under `sraConfig` for the Web service and `sshConfig` for the SSH service.
+* Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart. It can be found under `sraConfig` for the Web service and `sshConfig` for the SSH service.
 
-* Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set `requests` values in the `resources` section. For the HPA to function correctly, the Kubernetes metrics server must be installed in your cluster. You can find the metrics server setup guide here: [Kubernetes metrics server](https://github.com/kubernetes-sigs/metrics-server) .
+* Optional: If Horizontal Pod Autoscaler (HPA) usage is desired, you must set `requests` values in the `resources` section. For the HPA to function correctly, the Kubernetes Metrics Server must be installed in your cluster. [Review the Metrics Server setup guide](https://github.com/kubernetes-sigs/metrics-server).
 
 ### Network Configuration
 
 <Callout icon="🌐" theme="default">
   #### Network Configuration
 
-  * When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in Nginx, you can use: nginx.ingress.kubernetes.io/affinity: "cookie"
-  * Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions Documentation for more details.
+  * When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in NGINX, you can use: `nginx.ingress.kubernetes.io/affinity: "cookie"`.
+  * Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions documentation for more details.
 </Callout>
 
 * When using SSH sessions behind a load balancer, such as ELB, sessions may be closed due to idle connection timeouts. We recommend increasing the idle timeout to a higher value or setting it to unlimited.
-* For AWS ELB, adjust the idle timeout settings as per AWS ELB Idle Timeout Documentation.
+* For AWS ELB, adjust the idle timeout settings as per AWS ELB Idle Timeout documentation.
 
 ## Deploying Remote Access
 
@@ -153,7 +153,7 @@ sshConfig:
 helm install <RELEASE NAME> akeyless/akeyless-gateway -f values.yaml
 ```
 
-Verify that both **ssh-** and **web-** pods are up and running.
+Verify that both `ssh-` and `web-` pods are up and running.
 
 ## Upgrade Remote Access
 

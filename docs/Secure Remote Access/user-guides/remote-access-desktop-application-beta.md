@@ -62,7 +62,7 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 >
 > The installation folder contains the following:
 >
-> 1. **config.json** - the configuration file (includes the basic configuration parameters required to launch the desktop application). This file can be deployed by the Admin across the organization
+> 1. **`config.json`** - the configuration file (includes the basic configuration parameters required to launch the desktop application). This file can be deployed by the Admin across the organization
 > 2. **Logs** - can be found at \Akeyless-desktop\logs
 
 ## How It Works?
@@ -80,7 +80,7 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 
 > 👍 Note
 >
-> Applications such **Azure Data Studio**, **WindowsApp**, **DBeaver**, **Putty**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
+> Applications such **Azure Data Studio**, **WindowsApp**, **DBeaver**, **PuTTY**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
 
 ## Configuration & First-Time Setup
 
@@ -96,10 +96,10 @@ You should be able to see a list of the resources you can connect to, upon your 
 | **Windows**      | MSSQL Server                             | Azure Data Studio |                                                                                                           |
 |                  | RDP                                      | Remote Desktop    |                                                                                                           |
 |                  | Postgres DB                              | DBeaver           |                                                                                                           |
-|                  | SSH Cert Issuer                          | Putty             | WinSCP is a pre-requisite for Putty                                                                       |
-|                  | SSH username & password                  | Putty             | Specify Port 2022                                                                                         |
-|                  | SSH File Transfer                        | WinSCP            | NOTE: File transfers for certificate-based targets have a known limitation and currently is not supported |
-|                  | Powershell                               | Putty             | PS Tag should be configured on the secret item                                                            |
+|                  | SSH Cert Issuer                          | PuTTY             | WinSCP is a prerequisite for PuTTY                                                                       |
+|                  | SSH username & password                  | PuTTY             | Specify Port 2022                                                                                         |
+|                  | SSH File Transfer                        | WinSCP            | Note: File transfers for certificate-based targets have a known limitation and currently is not supported |
+|                  | PowerShell                               | PuTTY             | PS Tag should be configured on the secret item                                                            |
 |                  | Direct Connection / Secure Remote Access | Default Browser   |                                                                                                           |
 | **macOS**        | MSSQL Server                             | Azure Data Studio |                                                                                                           |
 |                  | Postgres DB                              | DBeaver           |                                                                                                           |
@@ -113,14 +113,14 @@ You should be able to see a list of the resources you can connect to, upon your 
 >
 > The Desktop Application supports the use of multiple hosts / linked targets. You can easily add / remove hosts you wish to connect to and press on `Confirm`.
 >
-> > NOTE - Removing host from the list only removes it from the list of hosts in the desktop application.
+> > Note: Removing host from the list only removes it from the list of hosts in the desktop application.
 
 3. Configure the **Defaults Configuration**  - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (aka, the target you wish to connect to). If this information is not accessible to the desktop application, it will use the information configured in the Advanced Configuration.
    1. **Web Application Dispatcher** & **Web Proxy URL** - Should be provided if working with Zero trust Web Access solution (ZTWA)
-   2. **Secure SSH Access Address** (recommended) - This is the path & port for SSH deployment (my.SSH.address)
+   2. **Secure SSH Access Address** (recommended) - This is the path & port for SSH deployment (`my.SSH.address`)
    3. **SSH Certificate Issuer** (recommended) - This is the name of the SSH Certificate Issuer the Akeyless CLI will use to initiate the connection
    4. **Control API Port** - the control API port (specify 8000 for unified Gateway, or 9900 if not)
-   5. **Control API Path** - the SRA control API path (for example: /sra/ssh-config)
+   5. **Control API Path** - the SRA control API path (for example: `/sra/ssh-config`)
 
 > 📘 Connection Failures
 >
