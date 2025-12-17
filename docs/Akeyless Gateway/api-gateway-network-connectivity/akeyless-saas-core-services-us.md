@@ -358,5 +358,3 @@ The following table describes the main functionality of Akeyless microservices i
     </tr>
   </tbody>
 </Table>
-
-<br />

@@ -43,7 +43,7 @@ akeyless create-secret --name /Admin/AdminCredentials --value Admin101!
 The response should be like this:
 
 ```shell
-$ A new secret named /Admin/AdminCredentials was successfully created
+A new secret named /Admin/AdminCredentials was successfully created
 ```
 
 > 👍 Note

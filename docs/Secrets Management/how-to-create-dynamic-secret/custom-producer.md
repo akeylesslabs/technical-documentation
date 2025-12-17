@@ -177,7 +177,7 @@ Where:
 <tr>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>ids</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A list of IDs to revoke. These IDs were previously received in response to <code>POST /sync/create</code> operations.</p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A list of IDs to revoke. These IDs were previously received in response to `POST /sync/create` operations.</p>
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`[&quot;foo&quot;, &quot;bar&quot;]`</p>
 </td>
@@ -231,8 +231,8 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>mongodb://user:password@host</code>  </p>
-<p><code>{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`mongodb://user:password@host`</p>
+<p>`{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}`</p>
 </td>
 </tr>
 </tbody>
@@ -265,8 +265,8 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>New secret credentials to replace the existing credentials stored by Akeyless.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p><code>mongodb://user:password@host</code>  </p>
-<p><code>{&quot;user&quot;:&quot;mun&quot;,&quot;pass&quot;:&quot;goh&quot;}</code></p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`mongodb://user:password@host`</p>
+<p>`{&quot;user&quot;:&quot;mun&quot;,&quot;pass&quot;:&quot;goh&quot;}`</p>
 </td>
 </tr>
 </tbody>

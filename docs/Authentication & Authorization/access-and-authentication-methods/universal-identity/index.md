@@ -130,7 +130,7 @@ akeyless uid-create-child-token --uid-token u-XXXXXXXX
 You will get the following result with the child token:
 
 ```shell
-$ "Child Token: u-XXXXXXXX2"
+"Child Token: u-XXXXXXXX2"
 ```
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#p-stylecolorblueuid-create-child-tokenp) section.
