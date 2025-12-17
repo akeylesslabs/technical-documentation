@@ -64,9 +64,7 @@ CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}
 * [Targets](https://docs.akeyless.io/docs/targets) - To save time during Dynamic and Rotated secrets creation and avoid using your privileged user credentials often, you can create Targets.\
   Those items should not be shared with regular users, while those who need to use the Targets items can only have 'list' permissions.
 
-## System Prerequisites
-
-**Kubernetes Version**
+## System Prerequisites: Kubernetes Versioning
 
 Different components of the Akeyless platform require different versions of Kubernetes, while we recommend you use one that works with all components to allow you to work with the full scope of the platform, the requirements are:
 
