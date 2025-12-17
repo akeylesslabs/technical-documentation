@@ -12,7 +12,7 @@ next:
 ---
 This page discusses the creation of AWS [Universal Secrets Connectors](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, as they have varying parameters.
 
-To manage secrets stored on AWS Secret Manager, the **USC** utilizes [AWS Target](https://docs.akeyless.io/docs/aws-targets) to create local "windows" into the related Secret Manager, effectively letting you manage them indirectly. Each **USC** item derives its permissions from the identity linked to its [AWS Target](https://docs.akeyless.io/docs/aws-targets).
+To manage secrets stored on AWS Secret Manager, the **USC** utilizes the [AWS Target](https://docs.akeyless.io/docs/aws-targets) to establish secure logical access into the related Secret Manager, effectively letting you manage them indirectly. Each **USC** item derives its permissions from the identity linked to its [AWS Target](https://docs.akeyless.io/docs/aws-targets).
 
 When a user is granted read access to a **USC** item, they can act using the permissions of that underlying identity. With USC, you can unify governance and visibility across fragmented secret stores without migrating data or altering existing workflows.
 
@@ -158,7 +158,7 @@ The output should look as follows:
 
 ```shell
 {
-  "value": "<base64 encoded value>",
+  "value": "<Base64 encoded value>",
   "metadata": {
     "created": "<timestamp>",
     "updated": "<timestamp>"
@@ -180,7 +180,7 @@ The main parameters are:
 
 * `secret-name`: The name of the secret you would like to create.
 
-* `value`: The value of the secret you would like to create, plaintext or base64 encoded.
+* `value`: The value of the secret you would like to create, plaintext or Base64 encoded.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 

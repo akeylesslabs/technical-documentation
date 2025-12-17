@@ -81,7 +81,7 @@ The output should look as follows:
 
 ```shell
 {
-  "value": "<base64 encoded value>",
+  "value": "<Base64 encoded value>",
   "metadata": {
     "created": "<timestamp>",
     "updated": "<timestamp>"
@@ -94,7 +94,7 @@ The output should look as follows:
 To create a new secret in your USC, use the following command:
 
 ```shell
-akeyless usc create  --usc-name <usc name> --secret-id <secret id> --value <new secret value>
+akeyless usc create  --usc-name <USC name> --secret-id <secret id> --value <new secret value>
 ```
 
 The main parameters are:
@@ -103,7 +103,7 @@ The main parameters are:
 
 * `secret-name`: The name of the secret you would like to create.
 
-* `value`: The value of the secret you would like to create, plaintext or base64 encoded.
+* `value`: The value of the secret you would like to create, plaintext or Base64 encoded.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
@@ -112,7 +112,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 To update an existing secret in your USC, use the following command:
 
 ```shell
-akelyess usc update  --usc-name <usc name> --secret-id <secret id> --value <new secret value>
+akelyess usc update  --usc-name <USC name> --secret-id <secret id> --value <new secret value>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
@@ -122,7 +122,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 To delete an existing secret in your USC, use the following command:
 
 ```shell
-akelyess usc delete --usc-name <usc name> --secret-id <secret id>
+akelyess usc delete --usc-name <USC name> --secret-id <secret id>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
