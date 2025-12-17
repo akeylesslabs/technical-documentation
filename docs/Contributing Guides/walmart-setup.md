@@ -12,11 +12,12 @@ next:
 ---
 The Akeyless Gateway is a stateless Docker container, provided as a standalone or cluster. In order for the Akeyless Gateway to function properly, it requires public network connectivity to the Akeyless SaaS CORE.
 
-**Docker**
+## Docker
+
 A basic deployment would preferably require a Linux Server (VM) with Docker Engine installed.  
 You may download the latest docker engine on [Docker website](https://docs.docker.com/get-docker/).
 
-**Network Connectivity**
+## Network Connectivity
 
 1. Network access to pull a docker image from: [https://hub.docker.com](https://hub.docker.com)
 2. Outgoing network access to Akeyless SaaS Core Services via the following URLs:
@@ -124,7 +125,7 @@ Outgoing network access to Akeyless WMT SaaS Core Services via the following IP'
   </tbody>
 </Table>
 
-**Akeyless Services Description**
+## Akeyless Services Description
 
 The following table describes the main functionality of Akeyless microservices:
 

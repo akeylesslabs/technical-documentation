@@ -30,15 +30,15 @@ With the integrated solution, IT personnel were empowered to approve or decline 
 
 Utilizing the security and compliance data provided by Akeyless, approvers could make informed decisions within the ServiceNow interface. They had the flexibility to approve requests, granting the necessary access permissions automatically through Akeyless, or to decline them if they did not meet the organization's stringent security standards.
 
-## Implementation Steps for the Solution
-
-**Prerequisites for Implementation**
+### Prerequisites for Implementation
 
 Before beginning the implementation of the solution, it's essential to have the following prerequisites in place:
 
 * **Akeyless Admin Account:** An administrative account on Akeyless is required. This account will enable access to Akeyless APIs and the management of secure access credentials and permissions.
 * **ServiceNow Admin Account:** An administrative account on ServiceNow is necessary to facilitate the integration and to manage the workflows and access requests directly within the ServiceNow platform.
 * **Docker:** A system with Docker installed is crucial for deploying any necessary containers that might be required for the integration or for running specific services related to Akeyless or ServiceNow. Docker will provide the flexibility and ease of deployment for various components of the solution.
+
+### Implementation Steps for the Solution
 
 To implement the integration of Akeyless with ServiceNow for managing access requests and utilizing event forwarding, follow these detailed steps:
 
