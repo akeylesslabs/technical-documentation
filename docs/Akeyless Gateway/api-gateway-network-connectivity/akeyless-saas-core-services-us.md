@@ -222,14 +222,14 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        `[https://kfm1.us.akeyless.io](https://kfm1.us.akeyless.io)`,
-        `[https://kfm1-ro.us.akeyless.io](https://kfm1-ro.us.akeyless.io)`,
-        `[https://kfm2.us.akeyless.io](https://kfm2.us.akeyless.io)`,
-        `[https://kfm2-ro.us.akeyless.io](https://kfm2-ro.us.akeyless.io)`,
-        `[https://kfm3.us.akeyless.io](https://kfm3.us.akeyless.io)`,
-        `[https://kfm3-ro.us.akeyless.io](https://kfm3-ro.us.akeyless.io)`,
-        `[https://kfm4.us.akeyless.io](https://kfm4.us.akeyless.io)`,
-        `[https://kfm4-ro.us.akeyless.io](https://kfm4-ro.us.akeyless.io)`
+        `https://kfm1.us.akeyless.io`,
+        `https://kfm1-ro.us.akeyless.io`,
+        `https://kfm2.us.akeyless.io`,
+        `https://kfm2-ro.us.akeyless.io`,
+        `https://kfm3.us.akeyless.io`,
+        `https://kfm3-ro.us.akeyless.io`,
+        `https://kfm4.us.akeyless.io`,
+        `https://kfm4-ro.us.akeyless.io`
       </td>
 
       <td style={{ textAlign: "left" }}>
