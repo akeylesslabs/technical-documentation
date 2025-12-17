@@ -342,11 +342,11 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        [https://akeyless-cli.s3.us-east-2.amazonaws.com](https://akeyless-cli.s3.us-east-2.amazonaws.com)
+        Akeyless CLI
       </td>
 
       <td style={{ textAlign: "left" }}>
-
+        `https://akeyless-cli.s3.us-east-2.amazonaws.com`
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -364,11 +364,11 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        [https://akeylessservices.s3.us-east-2.amazonaws.com](https://akeylessservices.s3.us-east-2.amazonaws.com)
+        Akeyless Binaries
       </td>
 
       <td style={{ textAlign: "left" }}>
-
+        `https://akeylessservices.s3.us-east-2.amazonaws.com`
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -385,3 +385,5 @@ The following table describes the main functionality of Akeyless microservices i
     </tr>
   </tbody>
 </Table>
+
+<br />
