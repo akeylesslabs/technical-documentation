@@ -40,17 +40,13 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 
 ## Amazon S3
 
-When you export the audit logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under:
-
-**\{root_folder_name} / \{year} / \{month} / \{day}**
+When you export the audit logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under: `\{root_folder_name} / \{year} / \{month} / \{day}`
 
 > 📘 Info
 >
 > The default root folder is `akeyless-log`. You can change this when you set up the log file export in the Akeyless Gateway.
 
-The log files include log records from a ten-minute window, where the file name includes the start time of the logs. For example:
-
-**akeyless-log/2021/05/25/akeyless-audit_2021-05-25T16:30.log**
+The log files include log records from a ten-minute window, where the file name includes the start time of the logs. For example: `akeyless-log/2021/05/25/akeyless-audit_2021-05-25T16:30.log`.
 
 This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file that can be parsed individually.
 

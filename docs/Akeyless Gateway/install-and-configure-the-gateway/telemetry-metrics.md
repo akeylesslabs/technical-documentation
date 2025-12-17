@@ -59,7 +59,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_
 
 Alternatively, you can use an environment variable `METRICS_CONFIG_BASE64` to provide those settings in base64, for example:  `base64 -w 0 otel-config.yaml`.
 
-**Dashboard Setup:**
+### Dashboard Setup
 
 Akeyless is an official Datadog Partner and our dashboard can be found inside the Datadog app.
 
@@ -102,7 +102,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 -e ADMIN_ACCESS_ID="Access-
 
 Once done, check your Prometheus server for the ingested metrics.
 
-**Grafana Dashboard**
+### Grafana Dashboard
 
 You can visualize Akeyless metrics in the Grafana Dashboard when using Prometheus as a data source.
 

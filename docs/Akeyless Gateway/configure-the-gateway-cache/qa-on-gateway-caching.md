@@ -48,25 +48,25 @@ The two tickers run in parallel. If the Akeyless cloud services become unreachab
 
 ## What Would Be the Behavior of Each Caching Mechanism During a Gateway Outage?
 
-**Local In-Memory Cache:**
+### Local In-Memory Cache
 
 Behavior: If a single Gateway instance goes down, its in-memory cache is lost. Any secrets and authentication data stored solely in that instance's local cache will become unavailable until a new or surviving Gateway instance can fetch them.\
 Impact: Clients (Injector, ESO, or direct API calls) attempting to reach this specific downed Gateway instance will fail. If there are other healthy Gateway instances, requests will be routed to them. If the failed Gateway was the only one, or if all Gateway instances in a standalone setup fail, all requests will fail until a Gateway is restored.
 
-**Cluster Cache:**
+### Cluster Cache
 
 Behavior: If a Gateway instance in a cluster fails, the shared cluster cache remains available to other healthy Gateway instances. Secrets and authentication data persisted in the cluster cache are not lost.\
 Impact: Other active Gateway instances can continue to serve requests by retrieving data from the cluster cache. This significantly enhances the high availability of the Gateway layer. Clients communicating with the healthy Gateway instances will experience continuous service for cached data.
 
 ## What Would Be the Behavior of Each Caching Mechanism During a SaaS Outage?
 
-**Local In-Memory Cache**:
+### Local In-Memory Cache
 
 Behavior: The Gateway will attempt to serve requests for secrets and authentication from its local in-memory cache. If a secret is present in the cache, the Gateway will serve it from the cache. The Minimum Fetching Interval will be ignored as the SaaS is unreachable. The Gateway can continue to authenticate existing sessions for supported authentication methods (K8s, API Key, Password, LDAP, Certificate, JWT) if the credentials and authentication data are cached. Crucially, in offline mode, credentials' expiration is ignored.
 
 Impact: Read-only operations for cached secrets will succeed. If the curl\_proxy has cached the necessary authentication data (e.g., system credentials for a K8S Auth Method), new authentications succeed.
 
-**Cluster Cache**:
+### Cluster Cache
 
 Behavior: Similar to the local cache, the Gateway will leverage the shared cluster cache to serve secrets and authentication data. This means all Gateway instances in the cluster will have access to the same cached data. The curl\_proxy processes on each Gateway instance will also utilize this shared cache for authentication data.
 
