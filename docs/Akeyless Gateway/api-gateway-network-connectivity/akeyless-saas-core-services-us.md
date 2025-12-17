@@ -109,12 +109,10 @@ The following table describes the main functionality of Akeyless microservices i
     <tr>
       <td style={{ textAlign: "left" }}>
         Certificate Auth
-
-        [https://auth-cert.us.akeyless.io](https://auth-cert.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-
+        `https://auth-cert.us.akeyless.io`
       </td>
 
       <td style={{ textAlign: "left" }}>
