@@ -19,4 +19,4 @@ Secure Remote Access (SRA) provides multiple flexible and secure ways to connect
 >
 > The Desktop Application is under Beta. For additional information please contact our support team
 
-3. **[Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)** - The CLI method, powered by the akeyless-connect command, is designed for advanced users and administrators. It offers a powerful and scriptable way to connect to resources securely via a UNIX terminal. **Ideal For**: Developers, system administrators, and power users who rely on command-line tools for resource access and automation
+3. **[Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)** - The CLI method, powered by the `akeyless-connect` command, is designed for advanced users and administrators. It offers a powerful and scriptable way to connect to resources securely via a Unix terminal. **Ideal For**: Developers, system administrators, and power users who rely on command-line tools for resource access and automation

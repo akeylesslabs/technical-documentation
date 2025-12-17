@@ -14,13 +14,13 @@ next:
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
 >
-> The documentation for the legacy chart is available [here](https://docs.akeyless.io/docs/secure-remote-access-advance)
+> [Read the documentation for the legacy chart](https://docs.akeyless.io/docs/secure-remote-access-advance).
 
 ## SSH Configuration
 
 ### SSH Legacy Algorithm
 
-To support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy '[ssh-rsa-cert-v01@openssh.com](mailto:ssh-rsa-cert-v01@openssh.com)' signing algorithm.
+To support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
 This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
 
@@ -76,7 +76,7 @@ env:
 
 ## RDP Configuration
 
-### RDP / SSH User Acces
+### RDP & SSH User Acces
 
 For RDP connections with an [externally provided username](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console), you can configure RDP/SSH authentication to use the relevant attribute from the IDP JWT (e.g., email) to establish a connection to the target server using the authenticated username.
 
