@@ -42,7 +42,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
 4. **Delegate Domain-Wide Authority**: In the **Google Workspace Admin Console**, go to **Security** > **Access and data control > API controls** click on **Manage Domain Wide Delegation** > **Add new** > enter the client **ID** from the **JSON** file downloaded earlier.
    * In the same location, add the following scopes:
 
-     ```
+     ```json
      https://www.googleapis.com/auth/admin.directory.group.member
      https://www.googleapis.com/auth/admin.directory.rolemanagement
      https://www.googleapis.com/auth/admin.directory.user.readonly

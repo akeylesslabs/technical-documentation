@@ -582,35 +582,6 @@ module.exports = [
     }
   },
 
-  /**
-   * AKY015: Disallow inline HTML except <details>/<summary>
-   * Style guide: Custom HTML should generally be avoided, but <details> is acceptable. :contentReference[oaicite:14]{index=14}
-   */
-  {
-    names: ["AKY015", "html-only-details-summary"],
-    description: "Allow only <details> and <summary> HTML tags; flag other HTML",
-    tags: ["html", "readme", "style"],
-    function: function (params, onError) {
-      const tokens = params.tokens || [];
-      const allowed = new Set(["details", "summary"]);
-
-      for (const t of tokens) {
-        if (t.type !== "html_block" && t.type !== "html_inline") continue;
-        const html = String(t.content || "");
-
-        // Find all tags like <tag ...> or </tag>
-        const tagMatches = html.matchAll(/<\/?\s*([a-zA-Z0-9-]+)/g);
-        for (const m of tagMatches) {
-          const tag = (m[1] || "").toLowerCase();
-          if (tag && !allowed.has(tag)) {
-            report(onError, t.lineNumber, "Avoid custom HTML; only <details> and <summary> are allowed.", `<${tag}>`);
-            break;
-          }
-        }
-      }
-    }
-  },
-
     /**
    * AKY016: Disallow tracking query parameters in links (e.g., utm_source)
    * Rationale: URLs with tracking params are noisy and can leak analytics identifiers into docs.
