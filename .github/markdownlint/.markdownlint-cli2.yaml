@@ -69,6 +69,17 @@ config:
   #   - severity: error|warning|info
   AKY012: false
 
+  # AKY013: Proper names capitalization with <a> tag ignoring
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY013:
+    names:
+      - Akeyless
+      - HashiCorp
+      - Kubernetes
+    code_blocks: true
+    ignore_a_html_tag: true
+
   # AKY014: Require meaningful image alt text
   # Knobs:
   #   - severity: error|warning|info
@@ -391,6 +402,7 @@ config:
   MD043: false
 
   # MD044: Proper names capitalization
+  # Superseded by AKY013
   # Knobs:
   #   - severity: error|warning|info
   #   - names: [string]
@@ -398,9 +410,6 @@ config:
   #   - names examples:
   #       - []
   #       - ["JavaScript", "GitHub", "Akeyless"]
-  #   - code_blocks options:
-  #       - true
-  #       - false
   MD044: false
 
   # MD045: Images must have alt text
