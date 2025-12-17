@@ -14,7 +14,7 @@ next:
 
 ### SSH Legacy Algorithm
 
-As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy '[ssh-rsa-cert-v01@openssh.com](mailto:ssh-rsa-cert-v01@openssh.com)' signing algorithm.
+As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
 This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
 

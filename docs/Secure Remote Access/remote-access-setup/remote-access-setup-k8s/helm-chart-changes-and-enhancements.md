@@ -40,15 +40,15 @@ Here you will find only the values that were moved or changed for each section:
 
 **deployment**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
-### Default Values for Akeyless-zero-trust-bastion
+### Default Values for `akeyless-zero-trust-bastion`
 
 **ztbConfig**: Removed. Now called **webConfig** in the Unified Gateway Helm chart.
 
-**image**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**image**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
 **containerName**: Removed.
 
-**service**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**service**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
 **ingress**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
@@ -56,21 +56,21 @@ Here you will find only the values that were moved or changed for each section:
 
 **path**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
-**tls**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
+**TLS**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
 **certManager**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
 **allowedBastionUrls**: Removed. Now appears in the Manage Gateway section in the Akeyless Console UI.
 
-**persistence**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**persistence**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**livenessProbe**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**livenessProbe**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**readinessProbe**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**readinessProbe**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**resources**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**resources**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**hpa**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**HPA**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
 **config** (**rdpRecord**): Removed. This whole section for RDP Recording is now appears in the Manage Gateway section in the Akeyless Console UI.
 
@@ -78,19 +78,19 @@ Here you will find only the values that were moved or changed for each section:
 
 **ztpConfig**: Removed.
 
-**nodeSelector**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**nodeSelector**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**securityContext**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**securityContext**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**service**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**service**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**livenessProbe**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**livenessProbe**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**readinessProbe**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**readinessProbe**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**resources**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**resources**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**hpa**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**HPA**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
 **ingress**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
@@ -98,37 +98,37 @@ Here you will find only the values that were moved or changed for each section:
 
 **path**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
-**tls**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
+**TLS**: Moved to "Default values for Gateway" section in the Unified Gateway Helm chart.
 
-**certManager**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**certManager**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-### Default Values for Akeyless-ssh-bastion
+### Default Values for `akeyless-ssh-bastion`
 
-**sshConfig**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**sshConfig**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
 **updateStrategy**: Removed.
 
-**labels**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**labels**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**nodeSelector**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**nodeSelector**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**securityContext**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**securityContext**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
 **env**: Removed.
 
 **initContainer**: Removed.
 
-**image**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**image**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
 **containerName**: Removed.
 
-**service**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**service**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**persistence**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**persistence**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**resources**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**resources**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
-**hpa**: Located in "Default values for akeyless-secure-remote-access" section in the Unified Gateway Helm chart.
+**HPA**: Located in the `Default values for akeyless-secure-remote-access` section in the Unified Gateway Helm chart.
 
 **config**: The configuration of the **CAPublicKey** is now located under the new **sshConfig** section in the Unified Gateway Helm chart.
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access offers robust security for accessing your resources by leveraging a range of just-in-time credentials, including dynamic secrets, rotated secrets, and SSH certificates.
+Akeyless Secure Remote Access offers robust security for accessing your resources by leveraging a range of just-in-time credentials, including Dynamic Secrets, Rotated Secrets, and SSH certificates.
 
 > 📘 New Chart
 >
