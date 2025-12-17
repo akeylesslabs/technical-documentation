@@ -170,7 +170,7 @@ config:
   #   - strict options:
   #       - true
   #       - false
-  MD009: false
+  MD009: true
 
   # MD010: Hard tabs
   # Knobs:
@@ -184,7 +184,7 @@ config:
   # MD011: Reversed link syntax
   # Knobs:
   #   - severity: error|warning|info
-  MD011: false
+  MD011: true
 
   # MD012: Multiple consecutive blank lines
   # Knobs:
@@ -215,15 +215,15 @@ config:
   #       - false
   MD013: false
 
-  # MD014: Dollar signs before shell commands
+  # MD014: Disallow dollar signs ($) before shell commands
   # Knobs:
   #   - severity: error|warning|info
-  MD014: false
+  MD014: true
 
   # MD018: No space after hash in ATX headings
   # Knobs:
   #   - severity: error|warning|info
-  MD018: false
+  MD018: true
 
   # MD019: Multiple spaces after hash
   # Knobs:
@@ -326,7 +326,7 @@ config:
   # MD032: Lists surrounded by blank lines
   # Knobs:
   #   - severity: error|warning|info
-  MD032: false
+  MD032: true
 
   # MD033: Inline HTML
   # Knobs:
@@ -336,12 +336,43 @@ config:
   #       - []
   #       - ["details", "summary"]
   #       - ["br", "kbd", "sup", "sub"]
-  MD033: false
+  MD033:
+    allowed_elements:
+      - "details"
+      - "summary"
+      - "a"
+      - "p"
+      - "svg"
+      - "path"
+      # Table Elements
+      - "table"
+      - "thead"
+      - "th"
+      - "tbody"
+      - "tr"
+      - "td"
+      # ReadMe Proprietary
+      - "HTMLBlock"
+      - "Image"
+      - "Callout"
+      - "Anchor"
+      - "Embed"
+      - "Recipe"
+      - "Tabs"
+      - "Tab"
+      - "Cards"
+      - "Card"
+      - "Columns"
+      - "Column"
+      - "Accordion"
+      # ReadMe Reusable Elements
+      - "CLIGeneralFlags"
+      - "ApiKeyWarning"
 
   # MD034: Bare URLs
   # Knobs:
   #   - severity: error|warning|info
-  MD034: false
+  MD034: true
 
   # MD035: Horizontal rule style
   # Knobs:
@@ -373,7 +404,7 @@ config:
   # MD039: Spaces inside link text
   # Knobs:
   #   - severity: error|warning|info
-  MD039: false
+  MD039: true
 
   # MD040: Code fences must specify language
   # Knobs:
@@ -436,7 +467,7 @@ config:
   # MD047: File must end with newline
   # Knobs:
   #   - severity: error|warning|info
-  MD047: false
+  MD047: true
 
   # MD048: Code fence style
   # Knobs:
@@ -446,7 +477,8 @@ config:
   #       - consistent
   #       - backtick
   #       - tilde
-  MD048: false
+  MD048:
+    style: backtick
 
   # MD049: Emphasis style
   # Knobs:
