@@ -16,7 +16,7 @@ The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to 
 
 * A GitHub, GitLab, or Bitbucket project set up in CircleCI
 
-* Permissions to create CircleCI [context](https://circleci.com/docs/contexts/?utm_source=google\&utm_medium=sem\&utm_campaign=sem) that will be used to secure and share environment variables across projects
+* Permissions to create CircleCI [context](https://circleci.com/docs/contexts/) that will be used to secure and share environment variables across projects
 
 ## Authentication
 

@@ -14,7 +14,7 @@ The new, unified version of the Akeyless Gateway introduces significant improvem
 
 > 📘 New Helm Chart
 >
-> With this new version comes a new Helm chart for K8s deployments. We have created a doc to explain what changed and how. You can see it at [this link](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-gateway/values.yaml).
+> With this new version comes a new Helm chart for Kubernetes deployments. [Review the Helm Chart changes](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-gateway/values.yaml).
 
 ## Why Upgrade to the Unified Gateway & Remote Access Version?
 
@@ -44,7 +44,7 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
   Organizations have the ability to deploy a Gateway with or without the Remote Access component.
 
 2. **Supports Kubernetes and Docker Compose Deployments**
-  The unified version supports both the Kubernetes and Docker Compose deployments. For Kubernetes, the deployment consists of different services and pods for each component (gateway, web remote access, ssh remote access).
+  The unified version supports both the Kubernetes and Docker Compose deployments. For Kubernetes, the deployment consists of different services and pods for each component (Gateway, Web Remote Access, SSH Remote Access).
   For users only leveraging the Gateway in a standalone deployment, they can simply configure the Helm Chart with `SRA=false`, or deploy standalone via Docker Compose.
 
 3. **Planning the Migration**

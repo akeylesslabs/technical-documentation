@@ -25,7 +25,7 @@ Supported Firefox: desktop version 91.1.0 or later.
 
 To embark on a journey of effortless password management on Firefox, follow these simple steps:
 
-1. Launch Firefox: Open your Firefox browser and navigate to the Firefox Add-ons website, [link](https://addons.mozilla.org/en-US/firefox/addon/akeyless-sra/?utm_source=addons.mozilla.org\&utm_medium=referral\&utm_content=search).
+1. Launch Firefox: Open your Firefox browser and navigate to the Firefox Add-ons website, [link](https://addons.mozilla.org/en-US/firefox/addon/akeyless-sra/).
 2. Search for Akeyless: In the search bar at the top of the page, type "Akeyless" and press Enter.
 3. Locate Akeyless Extension: From the search results, identify the Akeyless browser extension and click on the "Add to Firefox" button.
 4. Grant Permissions: Review the permissions requested by the extension and click on the "Add" button to proceed.

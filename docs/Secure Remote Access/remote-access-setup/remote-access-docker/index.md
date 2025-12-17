@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Remote Access provides secure remote access to resources using just-in-time credentials (dynamic secrets, rotated secrets, and SSH certificates).
+Akeyless Secure Remote Access offers robust security for accessing your resources by leveraging a range of just-in-time credentials, including Dynamic Secrets, Rotated Secrets, and SSH certificates.
 
 This guide provides instructions on deploying Akeyless Secure Remote Access (SRA) using Docker Compose. The deployment includes the [Akeyless Gateway](https://docs.akeyless.io/docs/install-and-configure-the-gateway#/), SRA Web UI, SRA SSH Proxy, and a Redis cache for performance optimization
 
