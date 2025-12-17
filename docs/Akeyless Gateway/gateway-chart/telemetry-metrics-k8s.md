@@ -54,7 +54,7 @@ metrics:
 
 Set the relevant `API Key` of your **Datadog** server, and set the relevant site. If your Datadog server is running in the `EU` site, add `site:datadoghq.eu`. By default it is set to the `US` site. If you did this before deploying your Gateway, go to Dashboard Setup. If you are adding this to a running Gateway, update your Gateway once done and continue to Dashboard Setup.
 
-**Dashboard Setup:**
+### Dashboard Setup
 
 Akeyless is an official Datadog Partner and our dashboard can be found inside the Datadog app.
 
@@ -101,7 +101,7 @@ scrape_configs:
 
 Once done, check your Prometheus server for the ingested metrics.
 
-**Grafana Dashboard**
+### Grafana Dashboard
 
 You can visualize Akeyless metrics in Grafana Dashboard when using Prometheus as a data source.
 

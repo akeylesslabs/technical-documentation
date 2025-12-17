@@ -272,8 +272,11 @@ To configure your Akeyless Gateway:
 1. On your browser, navigate to the URL in the first output above.
 2. Enter your credentials to log in.
 
-## Limitations
+## Limitations: Unavailable Services
 
-**Unavailable services:**
-
-[Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) / [LDAP](https://docs.akeyless.io/docs/ldap) Authentication, [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache), [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration), Event on Gateway status change, [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate).
+* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
+* [LDAP Authentication](https://docs.akeyless.io/docs/ldap)
+* [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
+* [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
+* Event on Gateway Status Change
+* [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate).
