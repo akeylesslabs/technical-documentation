@@ -7,11 +7,11 @@ metadata:
 ---
 Akeyless Secure Remote Access (SRA) is the Akeyless capability that enables controlled, auditable access to private infrastructure and resources  without exposing your environments to the public internet or relying on traditional VPN jump-host models. Delivered as part of the Akeyless Gateway deployment, SRA uses the Gateway as a secure access plane inside your target networks (cloud VPC/VNet, data center, Kubernetes, etc.), so users can reach protected resources through a centrally governed policy layer.
 
-In this guide, we will deploy SRA using the most basic configuration on a K8s cluster with an **existing Gateway**. If you do not already have a Gateway, please [deploy](https://docs.akeyless.io/docs/gateway-chart#/) one first.
+In this guide, we will deploy SRA using the most basic configuration on a Kubernetes cluster with an **existing Gateway**. If you do not already have a Gateway, please [deploy](https://docs.akeyless.io/docs/gateway-chart#/) one first.
 
 ## Prerequisites
 
-* Akeyless Gateway deployed on [K8s](https://docs.akeyless.io/docs/gateway-chart#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA.
+* Akeyless Gateway deployed on [Kubernetes](https://docs.akeyless.io/docs/gateway-chart#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA.
 
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_`  username .
 
@@ -42,7 +42,7 @@ In this guide, we will deploy SRA using the most basic configuration on a K8s cl
 The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
 
 Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object.
-For it to work correctly, the K8s [metrics server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the sshConfig`Statefulset`(HPA can not support multiple pods without defining a shared persistent storage volume).
+For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the sshConfig`StatefulSet`(HPA can not support multiple pods without defining a shared persistent storage volume).
 
 > 🚧 Warning
 >

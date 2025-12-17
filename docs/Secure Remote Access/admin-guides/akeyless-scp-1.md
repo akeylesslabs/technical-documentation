@@ -14,7 +14,7 @@ Akeyless SCP enables secure copy via [Remote Access](https://docs.akeyless.io/do
 
 > 👍 Note
 >
-> Akeyless SCP currently supports only UNIX-like OS.
+> Akeyless SCP currently supports only Unix-like operating systems.
 
 ## Prerequisite
 

@@ -303,7 +303,7 @@ You can configure different types of authentication methods from the CLI:
 5. [LDAP](https://docs.akeyless.io/docs/ldap) (`ldap`)
 6. Password (`email/password`)
 7. [OIDC](https://docs.akeyless.io/docs/openid) (`oidc`)
-8. [K8s](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
+8. [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
 9. [GCP](https://docs.akeyless.io/docs/gcp-auth-method) (`GCP`)
 
 Use the authentication mode that you also used when you signed up and signed in to the UI, use your username and password credentials, or use the API key Akeyless assigned to you when you signed in for the first time.

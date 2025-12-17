@@ -24,11 +24,11 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 * [Helm](https://helm.sh/) Installed
 
-* Kubernetes installed with the [Kubernetes metrics server](https://github.com/kubernetes-sigs/metrics-server)
+* Kubernetes installed with the [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
 
 * Minimum 1 vCPU available with 2 GB RAM
 
-* For **Argo CD–based** deployments, verify that your configuration meets the required settings as documented [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway#argo-cd-instructions)
+* For **Argo CD–based** deployments, verify that your configuration meets the required settings as [documented](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway#argo-cd-instructions).
 
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your cluster.
 
@@ -141,9 +141,9 @@ globalConfig:
   allowedAccessPermissions: {}
 ```
 
-When working from an AWS instance with an IAM Role associated with it (which is the default state for EKS clusters that leverage the IAM Role of their Node group), nothing else is required, as the Gateway will be leveraging the IAM Role of the AWS instance itself where K8s is running.
+When working from an AWS instance with an IAM Role associated with it (which is the default state for EKS clusters that leverage the IAM Role of their Node group), nothing else is required, as the Gateway will be leveraging the IAM Role of the AWS instance itself where Kubernetes is running.
 
-Alternatively, you can also leverage an IAM Role assumed by a K8s Service Account in your Cluster. For that, you must either [create an IAM Role bound to a K8s Service Account](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html), or use an existing IAM role for annotating the Service Account in the Gateway's `values.yaml` helm-chart:
+Alternatively, you can also leverage an IAM Role assumed by a Kubernetes ServiceAccount in your Cluster. For that, you must either [create an IAM Role bound to a Kubernetes ServiceAccount](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html), or use an existing IAM role for annotating the Service Account in the Gateway's `values.yaml` helm-chart:
 Set the `serviceAccountName` with the desired Kubernetes Service Account name, and set its `eks.amazonaws.com/role-arn` annotation to the ARN of the IAM Role in question (which is constructed using the following format: `arn:aws:iam::<AWS-Account-ID>:role/<IAM-Role-Name>`).
 
 You can also create a new Service Account by simply setting the `create` field to `true`, so the `serviceAccountName` you defined will be created upon deployment. Furthermore, if the `serviceAccountName` is left empty, by default - the chart will create a new Service Account called `<release name>-akeyless-gateway`.
@@ -206,7 +206,7 @@ kubectl annotate serviceaccount KSA_NAME \
     iam.gke.io/gcp-service-account=GSA_NAME@GSA_PROJECT.iam.gserviceaccount.com
 ```
 
-Set the relevant K8s `serviceAccountName` or leave it empty to use the `default` K8s Service Account, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes service account.
+Set the relevant Kubernetes `serviceAccountName` or leave it empty to use the `default` Kubernetes Service Account, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes service account.
 
 And set your [GCP](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) :
 
@@ -266,18 +266,18 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ### Universal Identity
 
-Akeyless support [Universal Identity](https://docs.akeyless.io/docs/universal-identity) authentication method for on-premise K8s cluster environments, eliminating the secret zero problems within your config files.
+Akeyless support [Universal Identity](https://docs.akeyless.io/docs/universal-identity) authentication method for on-premise Kubernetes cluster environments, eliminating the secret zero problems within your config files.
 
-Universal Identity Authentication Method requires a dedicated [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `UID-Token` where the key of the secret has to be `gateway-uid-init-token`.
+Universal Identity Authentication Method requires a dedicated [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `UID-Token` where the key of the secret has to be `gateway-uid-init-token`.
 
-Run the following command to store the  K8s secret that stores the `UID-Token`:
+Run the following command to store the  Kubernetes secret that stores the `UID-Token`:
 
 ```shell
 kubectl create secret generic uid-token \
   --from-literal=gateway-uid-token=<base64-encoded-UID-Token>
 ```
 
-Set your [Universal Identity](https://docs.akeyless.io/docs/universal-identity) `Access ID`  as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins), and set the **K8s Secret** name under `gatewayCredentialsExistingSecret`. Set the rotation interval and choose either to generate a child token for your pods using `uidCreateChildTokenPerPod` field.
+Set your [Universal Identity](https://docs.akeyless.io/docs/universal-identity) `Access ID`  as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins), and set the **Kubernetes Secret** name under `gatewayCredentialsExistingSecret`. Set the rotation interval and choose either to generate a child token for your pods using `uidCreateChildTokenPerPod` field.
 
 ```yaml values.yaml
 globalConfig:
@@ -298,7 +298,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ### Certificates
 
-[Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) Authentication Method requires a dedicated [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `certificate.pem` and the corresponding `private_key.pem` files, where the key of the secret has to be `gateway-certificate` for the `certificate` and `gateway-certificate-key` for the `private_key`:
+[Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) Authentication Method requires a dedicated [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `certificate.pem` and the corresponding `private_key.pem` files, where the key of the secret has to be `gateway-certificate` for the `certificate` and `gateway-certificate-key` for the `private_key`:
 
 ```shell
 kubectl create secret generic certificate-auth \

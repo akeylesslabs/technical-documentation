@@ -73,6 +73,9 @@ config:
   # Knobs:
   #   - severity: error|warning|info
   AKY013:
+    code_blocks: true
+    ignore_a_html_tag: true
+    
     names:
       # Akeyless platform and features
       - Akeyless
@@ -161,6 +164,7 @@ config:
       - Horizontal Pod Autoscaler
       - HPA
       - NGINX
+      - Secrets Injector
 
       # HashiCorp ecosystem
       - HashiCorp
@@ -216,9 +220,6 @@ config:
       - RAM
       - vCPU
       - CPU
-
-    code_blocks: true
-    ignore_a_html_tag: true
 
   # AKY014: Require meaningful image alt text
   # Knobs:

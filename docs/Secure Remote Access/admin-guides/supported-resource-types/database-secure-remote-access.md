@@ -16,7 +16,7 @@ You can enable secure remote access to a database using a [Dynamic Secret](https
 
 > 👍 Note
 >
-> Use the `akeyless connect` command from Akeyless CLI to access databases from any UNIX terminal to work with your database native CLI.
+> Use the `akeyless connect` command from Akeyless CLI to access databases from any Unix terminal to work with your database native CLI.
 
 ## Prerequisites
 

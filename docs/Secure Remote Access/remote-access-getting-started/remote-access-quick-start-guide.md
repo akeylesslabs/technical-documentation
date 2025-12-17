@@ -12,9 +12,9 @@ next:
 ---
 This quick start guide is intended to get you started with deploying a Gateway (with Remote Access) using the most basic, required parameters and a clean Kubernetes cluster. Within just a few minutes you will see how easy it is to complete the Gateway deployment and secure your user and machine access. You will also be able to use just-in-time credentials with remote access to log into your various applications and services.
 
-Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed on Docker using docker-compose, but this guide will focus on K8s.
+Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed on Docker using docker-compose, but this guide will focus on Kubernetes.
 
-Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In K8s deployments, the configuration process takes place before the actual installation.
+Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.
 
 > 🚧 Security
 >
@@ -22,10 +22,10 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 ## Prerequisites
 
-* A K8s Cluster
+* A Kubernetes Cluster
 * [Helm](https://helm.sh/) Installed
 * [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
-* Minimum 1 vCPU available with 2GB RAM per resource
+* Minimum 1 vCPU available with 2 GB RAM per resource
 * The following ports need to be open on the cluster:
 
 | Service                                                                                      | Port |
@@ -145,7 +145,7 @@ authorizedAccessIDs: <authorized_access_id>
 
 `gatewayAccessType`: This is already set to `access_key` for API Key authentication.
 
-`gatewayCredentialsExistingSecret`: The value is already set to `akeyless-auth`. A K8s secret is **required** for the deployment. In order to create this, follow the steps described in [API Key Authentication in the Akeyless Gateway chart](https://docs.akeyless.io/docs/gateway-chart#api-key-authentication).
+`gatewayCredentialsExistingSecret`: The value is already set to `akeyless-auth`. A Kubernetes Secret is **required** for the deployment. In order to create this, follow the steps described in [API Key Authentication in the Akeyless Gateway chart](https://docs.akeyless.io/docs/gateway-chart#api-key-authentication).
 
 `authorizedAccessIDs`: Remote Access only supports human identities including SAML, OIDC, Certificate, or LDAP authentication. For security reasons, it is advised that you specify at least one Auth Method. If this variable is empty, all supported Auth Methods will be able to access it. For this, you will need to either set up one of the supported Authentication Methods or use your company's existing one.
 

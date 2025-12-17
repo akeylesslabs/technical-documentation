@@ -29,11 +29,11 @@ env:
     value: "enable=\"true\"\ntarget_syslog_tag=\"ssh-audit-export\"\ntarget_log_type=\"syslog\"\ntarget_syslog_network=\"udp\"\ntarget_syslog_host=\"my-syslog:514\"\ntarget_syslog_formatter=\"text\""
 ```
 
-Alternatively, you can specify the entire settings within a `K8s` secret base64 encoded:
+Alternatively, you can specify the entire settings within a Kubernetes Secret Base64 encoded:
 
 ```yaml
 # Specifies an existing secret for logand should be in yaml syntax, and include:
-# - logand-conf field (base64). The content the same as above.
+# - logand-conf field (Base64). The content the same as above.
 logandExistingSecretName:
 ```
 

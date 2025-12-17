@@ -66,7 +66,7 @@ e.g., when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/user
 ### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.
-For it to work correctly, the Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` Statefulset (HPA can not support multiple pods without defining a shared persistent storage volume).
+For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` StatefulSet (HPA can not support multiple pods without defining a shared persistent storage volume).
 
 > 🚧 Warning
 >

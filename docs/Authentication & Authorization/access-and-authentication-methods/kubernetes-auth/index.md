@@ -10,25 +10,25 @@ metadata:
 next:
   description: ''
 ---
-The Kubernetes (K8s) Auth Method uses K8s JWTs in order to authenticate the K8s application (e.g. a pod). Throughout the process, this K8s JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
+The Kubernetes (K8s) Auth Method uses Kubernetes JWTs in order to authenticate the Kubernetes application (e.g. a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
 
 <Image align="center" src="https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png" />
 
 ## Prerequisites
 
-* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the K8s cluster.
+* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the Kubernetes cluster.
 
-* `K8s v1.21` or later.
+* Kubernetes v1.21 or later.
 
 > 📘 Info
 >
 > **Required Gateway Access Permissions**
 >
-> To set K8s Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the K8s Auth
+> To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth
 
 ## Authentication Strategies
 
-Akeyless supports several authentication strategies to interact with the K8s cluster. Each of the below links describes the entire flow of creating the Akeyless K8s Auth Method. Choose the one that works for you and follow the entire flow:
+Akeyless supports several authentication strategies to interact with the Kubernetes cluster. Each of the below links describes the entire flow of creating the Akeyless Kubernetes Auth Method. Choose the one that works for you and follow the entire flow:
 
 * The Akeyless Gateway ServiceAccount
 * A [dedicated ServiceAccount](https://docs.akeyless.io/docs/dedicated-k8s-auth-service-accounts)
@@ -36,13 +36,13 @@ Akeyless supports several authentication strategies to interact with the K8s clu
 
 > 📘 Info
 >
-> ServiceAccount approaches work based on K8s bearer tokens, whereas Certificate-based Authentication works based on a certificate and private key
+> ServiceAccount approaches work based on Kubernetes bearer tokens, whereas Certificate-based Authentication works based on a certificate and private key
 
 ## Using Akeyless Gateway ServiceAccount
 
-In order to work with your Gateway Service Account the following K8s role should be assigned to the Service Account that runs your Gateway, Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
+In order to work with your Gateway Service Account the following Kubernetes role should be assigned to the Service Account that runs your Gateway, Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
 
-```yaml Gateway SA K8s Role
+```yaml Gateway SA Kubernetes Role
 cat << EOF > akl_gw_sa_token_reviewer.yaml 
 apiVersion: v1
 kind: ServiceAccount
@@ -71,7 +71,7 @@ Apply the changes:
 kubectl apply -f akl_gw_sa_token_reviewer.yaml
 ```
 
-### Create K8s Auth Method
+### Create Kubernetes Auth Method
 
 Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes auth method, The result contains an `Access Id` and a `private key` that you will need later for the K8S Auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
@@ -92,7 +92,7 @@ Upon successful creation, the response:
 >
 > Save returned private key & AccessID for next steps inside an environment variables  `$PRV_KEY` and `$ACCESS_ID`
 
-#### Create K8s Gateway Auth Config Using Gateway ServiceAccount
+#### Create Kubernetes Gateway Auth Config Using Gateway ServiceAccount
 
 Use the Akeyless CLI to create the K8S auth config:
 
@@ -116,7 +116,7 @@ Where:
 
 * `use-gw-service-account`: Extract all the relevant information using the Gateway Service Account.
 
-## Authenticate from a Pod in Your K8s Cluster
+## Authenticate from a Pod in Your Kubernetes Cluster
 
 1. Create a namespace in your k8s cluster:
 
@@ -174,9 +174,9 @@ Token: t-bb7b...3564a7c9
 >
 > Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
 
-## Available Claims for K8s Auth
+## Available Claims for Kubernetes Auth
 
-The following list of claims can be configured within Akeyless [Access Roles (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for K8s.
+The following list of claims can be configured within Akeyless [Access Roles (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for Kubernetes.
 
 ```yaml
 "service_account_name"
@@ -193,7 +193,7 @@ Each claim can be enforced as part of your role association to enforce the right
 
 ## Enable Token Request Projection on Minikube
 
-To enable token request projection on a managed K8s cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide.
+To enable token request projection on a managed Kubernetes cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide.
 
 To get this to work with Minikube you can start your cluster with the following configuration.
 

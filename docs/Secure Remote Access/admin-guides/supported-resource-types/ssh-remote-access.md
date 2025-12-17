@@ -89,12 +89,12 @@ Let's set up remote access to an SSH server from the Akeyless Console.
 
 ## Akeyless Secure Access from CLI
 
-Akeyless enables CLI access from any UNIX terminal.
+Akeyless enables CLI access from any Unix terminal.
 
 > 👍 Note
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows subsystem for Linux."
-> This feature enables users to utilize their Windows OS environment as a UNIX-like system.
+> This feature enables users to utilize their Windows OS environment as a Unix-like system.
 >
 > To work with `Akeyless connect` command from Windows machine, place the `.akeyless-connect.rc` script on your home directory.
 

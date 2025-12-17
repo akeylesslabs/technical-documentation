@@ -19,7 +19,7 @@ SRA is deployed along side the Akeyless [Gateway](https://docs.akeyless.io/docs/
 
 * **Web**: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
 
-* **SSH**: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any UNIX-supporting resource.
+* **SSH**: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any Unix-supporting resource.
 
 ### Key Features
 

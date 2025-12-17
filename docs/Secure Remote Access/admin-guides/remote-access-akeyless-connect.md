@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless connect provides you with secure CLI access to resources or a secure tunnel from any UNIX terminal.
+Akeyless connect provides you with secure CLI access to resources or a secure tunnel from any Unix terminal.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To use Akeyless Connect  you need:
 > 👍 Note
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."\
-> This feature enables users to utilize their Windows OS environment as a UNIX-like system.
+> This feature enables users to utilize their Windows OS environment as a Unix-like system.
 >
 > To work with the `akeyless-connect` command from a Windows machine, place the `.akeyless-connect.rc` script in your home directory.
 

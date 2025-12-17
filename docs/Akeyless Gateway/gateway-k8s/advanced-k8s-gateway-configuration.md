@@ -1,5 +1,5 @@
 ---
-title: Advanced K8s Configuration
+title: Advanced Kubernetes Configuration
 excerpt: ''
 deprecated: false
 hidden: true
@@ -140,7 +140,7 @@ You can enable caching of secrets and periodic backup of cached secrets, set the
 
 To work with proactive caching set the `proActiveCaching` to true and set the `minimumFetchingTime` to config the Gateway to update secrets in the cache if they are older than the specified value with the `dumpInterval` to set the time in minutes between the two consecutive backups.
 
-To keep your cluster pods always synced via a `clusterCache`  service, you must provide a local K8s secret with an encryption key to encrypt at rest the cached secrets:
+To keep your cluster pods always synced via a `clusterCache`  service, you must provide a local Kubernetes Secret with an encryption key to encrypt at rest the cached secrets:
 
 ```shell
 kubectl create secret generic cluster-cache-encryption-key \
@@ -166,9 +166,9 @@ cachingConf:
     dumpInterval: 60
 ```
 
-## Working With K8s Secrets
+## Working With Kubernetes Secrets
 
-To provide the settings of your Gateway deployment directly from your local k8s secrets store, you can set the following settings with the corresponding `K8s Secrets names`:
+To provide the settings of your Gateway deployment directly from your local k8s secrets store, you can set the following settings with the corresponding `Kubernetes Secrets names`:
 
 * `admin-access-id`
 * `admin-access-key`
@@ -181,7 +181,7 @@ To provide the settings of your Gateway deployment directly from your local k8s 
 
 > 🚧 Warning
 >
-> Providing any of those settings using an existing K8s secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
+> Providing any of those settings using an existing Kubernetes secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
 ```yaml values.yaml
   adminAccessIdExistingSecret:

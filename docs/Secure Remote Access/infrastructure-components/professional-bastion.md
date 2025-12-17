@@ -48,7 +48,7 @@ e.g when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalanc
 ### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.
-For it to work properly, Kubernetes metrics server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)
+For it to work properly, Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)
 
 > 🚧 Note:
 >
