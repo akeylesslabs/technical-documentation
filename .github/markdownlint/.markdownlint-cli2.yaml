@@ -74,9 +74,118 @@ config:
   #   - severity: error|warning|info
   AKY013:
     names:
+      # Akeyless platform and features
       - Akeyless
-      - HashiCorp
+      - Akeyless Gateway
+      - Akeyless Bastion
+      - Akeyless Console
+      - Akeyless Web Console
+      - Akeyless CLI
+      - Akeyless API
+      - Akeyless SaaS
+      - Secure Remote Access
+      - SRA
+      - Universal Secrets Connector
+      - USC
+      - Dynamic Secrets
+      - Rotated Secrets
+      - Static Secrets
+
+      # Cloud providers and services
+      - AWS
+      - Amazon
+      - Amazon S3
+      - Amazon EC2
+      - Amazon RDS
+      - Amazon Redshift
+      - Amazon EKS
+      - Amazon Elastic Kubernetes Service
+      - EKS
+      - AWS IAM
+      - IAM
+      - Amazon CloudTrail
+      - CloudTrail
+      - Azure
+      - Microsoft Azure
+      - Azure AD
+      - Entra ID
+      - Google Cloud
+      - GCP
+      - Google Cloud IAM
+      - GKE
+      - Google Kubernetes Engine
+
+      # Identity and security standards
+      - OAuth
+      - OAuth 2.0
+      - OIDC
+      - OpenID Connect
+      - SAML
+      - SAML 2.0
+      - JWT
+      - JSON Web Tokens
+      - TLS
+      - mTLS
+      - SSH
+      - PKI
+      - X.509
+      - HMAC
+      - AES
+      - RSA
+
+      # Kubernetes and container ecosystem
       - Kubernetes
+      - Helm
+      - Docker
+      - Docker Hub
+      - containerd
+      - OpenShift
+
+      # HashiCorp ecosystem
+      - HashiCorp
+      - HashiCorp Vault
+      - Vault
+      - Terraform
+      - Consul
+
+      # CI/CD and developer tooling
+      - Git
+      - GitHub
+      - GitHub Actions
+      - GitLab
+      - GitLab CI
+      - Jenkins
+      - CircleCI
+      - Argo CD
+      - Argo Workflows
+
+      # Databases and data platforms
+      - PostgreSQL
+      - MySQL
+      - MongoDB
+      - Microsoft SQL Server
+      - MSSQL
+      - Oracle Database
+      - OracleDB
+      - Redis
+      - Snowflake
+      - Cassandra
+      - SAP HANA
+      - HanaDB
+
+      # Infrastructure and common technical terms
+      - API Gateway
+      - REST API
+      - RESTful
+      - JSON
+      - YAML
+      - Base64
+      - UUID
+      - Unix
+      - Linux
+      - Windows
+      - PowerShell
+
     code_blocks: true
     ignore_a_html_tag: true
 
