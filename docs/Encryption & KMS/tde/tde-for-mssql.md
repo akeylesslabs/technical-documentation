@@ -15,15 +15,15 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 **TDE** protects data at rest, which is the data and log files. It lets you follow many laws, regulations, and guidelines established in various industries. This ability lets software developers encrypt data by using **AES** and **3DES** encryption algorithms without changing existing applications.
 
 <Callout icon="📒" theme="default">
-  **Platform Prerequisites**
+  *Platform Prerequisites*
 
   _The TDE for MSSQL workflow documented above has been tested **only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”)._
 
-  **Not supported**
+  *Not supported:*
   • MSSQL in Docker containers (Microsoft does not support TDE in containers)
   • Azure SQL Managed DB / Managed Instance (they only expose Azure Key Vault for external keys)
 
-  **Supported**
+  *Supported:*
   • Traditional Windows Server + SQL Server
   • Azure “SQL VM” (a standard VM running SQL Server)
 </Callout>
