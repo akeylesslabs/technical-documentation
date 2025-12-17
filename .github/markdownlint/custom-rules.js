@@ -88,6 +88,16 @@ function getQueryParamNames(url) {
     .filter(Boolean);
 }
 
+function stripUrls(text) {
+  // Remove http/https URLs and www.* URLs
+  return (text || "").replace(/\bhttps?:\/\/[^\s)>"']+/gi, "").replace(/\bwww\.[^\s)>"']+/gi, "");
+}
+
+function stripHtmlTags(text) {
+  // Remove HTML tags to avoid matching attribute values (src, width, etc.)
+  return (text || "").replace(/<[^>]*>/g, "");
+}
+
 module.exports = [
   /**
    * AKY001: Disallow H1 (# / Setext H1)
@@ -423,17 +433,21 @@ module.exports = [
       const lines = params.lines || [];
 
       // Missing space: "10GB", "12ms", etc.
-      const missingSpace = /\b(\d+)(KB|MB|GB|TB|ms|s|Mb|Gb|Tb|Kb|B|b)\b/g;
+      // Avoid matching hash/slug patterns like "522836b-Screenshot" by disallowing '-' immediately after the unit
+      const missingSpace = /\b(\d+)(KB|MB|GB|TB|ms|s|Mb|Gb|Tb|Kb|B|b)\b(?!-)/g;
 
       // Bad casing: "10 gb", "10gb", etc.
-      const badCasing = /\b\d+\s*(kb|mb|gb|tb|ms|secs?|msec|gbs?)\b/gi;
+      // Case-sensitive: only flag lowercase unit spellings
+      const badCasing = /\b\d+\s*(kb|mb|gb|tb|secs?|msec)\b/g;
 
       for (let i = 0; i < lines.length; i++) {
         const ln = i + 1;
         if (codeLines.has(ln)) continue;
         if (isHeadingLine(lines[i])) continue;
 
-        const text = stripInlineCode(lines[i]);
+        let text = stripInlineCode(lines[i]);
+        text = stripUrls(text);
+        text = stripHtmlTags(text);
 
         const m1 = text.match(missingSpace);
         if (m1) {

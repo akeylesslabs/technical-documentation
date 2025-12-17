@@ -22,7 +22,7 @@ This guide provides guidance for the deployment of the Akeyless-Web-Access-Basti
 
 * Web Access Bastion - `docker-compose.yml` file.
 
-* Minimum 1 vCPU available with 2GB RAM for the `WebWorker` and  1 vCPU available with 1GB RAM for the `WebDispatcher`.
+* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and  1 vCPU available with 1 GB RAM for the `WebDispatcher`.
 
 ***Network***
 

@@ -16,6 +16,6 @@ next:
 
 * **Isolation mode** - Can be set with `list` permissions to ensure users will get their access only via isolated sessions. In addition, allowlist the relevant domains and force `HTTPS` connections only to enable credentials injection.
 
-* **Required resources** - Default is set to 1Gb memory. If your web targets require high resolution or multiple concurrent sessions, increase the resources up to your needs.  
+* **Required resources** - Default is set to 1 Gb memory. If your web targets require high resolution or multiple concurrent sessions, increase the resources up to your needs.  
 
 * **Forward Logs** - From your bastions to any logging system, to constantly track and monitor your user's activity.

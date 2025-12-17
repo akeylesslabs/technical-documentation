@@ -18,7 +18,7 @@ Akeyless SSH Secure Remote Access enables traffic connections to servers that ar
 >
 > **Legacy Mode**
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
-> For more details, please refer to [Legacy mode section](#section-legacy-mode) at the bottom of this page.
+> For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To enable Secure Remote Access for SSH servers you need:
 
 * An  [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
-> 🚧 SSH session ends after ~30s on GKE/Ingress
+> 🚧 SSH session ends after about 30 seconds on GKE/Ingress
 >
 > If you’re running SRA behind a GKE HTTP(S) Load Balancer, the backend service timeout defaults to 30 seconds. Long-lived SSH (and WebSocket-based) sessions will close around this time.
 >

@@ -1033,7 +1033,7 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-password`: MongoDB server password
 
-`--mongodb-host-port`: host:port (e.g. my.mongo.db:707)
+`--mongodb-host-port`: host:port (for example, `my.mongo.db:707`)
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
@@ -1047,7 +1047,7 @@ akeyless dynamic-secret create mongodb \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--user-ttl[=60m]`: User TTL (e.g. 60s, 60m, 60h)
+`--user-ttl[=60m]`: User TTL (for example, `60s`, `60m`, `60h`)
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -2672,7 +2672,7 @@ akeyless dynamic-secret update mongodb \
 
 `--mongodb-password`: MongoDB server password
 
-`--mongodb-host-port`: host:port (e.g. my.mongo.db:707)
+`--mongodb-host-port`: host:port (for example, `my.mongo.db:707`)
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
@@ -2686,7 +2686,7 @@ akeyless dynamic-secret update mongodb \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--user-ttl[=60m]`: User TTL (e.g. 60s, 60m, 60h)
+`--user-ttl[=60m]`: User TTL (for example, `60s`, `60m`, `60h`)
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 

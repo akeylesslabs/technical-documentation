@@ -32,7 +32,7 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
   * Make sure to set the UNIFIED_GATEWAY=true in both Gateway & SRA env files.
 * Environment variables configured in .env files
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
-* At least 1 vCPU available with 1GB RAM per Docker container.
+* At least 1 vCPU available with 1 GB RAM per Docker container.
 
 <Callout icon="🌐" theme="default">
   ### Network Configuration

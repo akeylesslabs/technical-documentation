@@ -25,6 +25,6 @@ Once installed, tap on the Akeyless Password Manager app icon on your mobile dev
 
 ## Step 3: Define Var and Location
 
-In the "Var" field, enter a unique combination of letters, symbols, and numbers. The value length should be 16KB.
+In the "Var" field, enter a unique combination of letters, symbols, and numbers. The value length should be 16 KB.
 
 Optionally, you can specify the "Password Location" using the drop-down menu to choose between "Corporate" and "Personal" areas to store the password.

@@ -129,12 +129,12 @@ value: tr-tr-qwerty # Turkish-Q (Qwerty)
 
 For further configuration, please refer to the Akeyless official [repository](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-secure-remote-access/README.md#akeyless-secure-remote-access).
 
-> 🚧 SSH session ends after \~30s on GKE/Ingress
+> 🚧 SSH session ends after about 30 seconds on GKE/Ingress
 >
 > If you’re running SRA behind a GKE HTTP(S) Load Balancer, the backend service timeout defaults to 30 seconds. Long-lived SSH (and WebSocket-based) sessions will close around this time.
 >
 > To fix it, you should set a higher backend timeout with a BackendConfig (spec.timeoutSec) and annotate your Service.
 >
-> See GCP docs on backend service timeout and Ingress BackendConfig. After updating, your SSH session lifetime should match your intended TTL
+> See GCP docs on backend service timeout and Ingress BackendConfig. After updating, your SSH session lifetime should match your intended TTL.
 >
-> For other vendors please refer to [System Requirments](https://docs.akeyless.io/docs/remote-access-system-requirements#additional-considerations)section
+> For other vendors please refer to [System Requirements](https://docs.akeyless.io/docs/remote-access-system-requirements#additional-considerations) section.

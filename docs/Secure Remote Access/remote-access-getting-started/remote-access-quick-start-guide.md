@@ -12,7 +12,7 @@ next:
 ---
 This quick start guide is intended to get you started with deploying a Gateway (with Remote Access) using the most basic, required parameters and a clean Kubernetes cluster. Within just a few minutes you will see how easy it is to complete the Gateway deployment and secure your user and machine access. You will also be able to use just-in-time credentials with remote access to log into your various applications and services.
 
-Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed on Docker using docker-compose, but this guide will focus on Kubernetes.
+Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed using Docker Compose, but this guide will focus on Kubernetes.
 
 Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.
 
@@ -204,7 +204,7 @@ Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (
 
 For the Gateway, you can access the following:
 
-* The Gateway's Internal Console is located at `http://<Your-Akeyless-GW-URL:8000/console>`. The internal console means you are working from inside the Gateway and talking directly with the SaaS. If you are using [https://console.akeyless.io](https://console.akeyless.io), you will not be able to interact with this Gateway as it is not secured with TLS.
+* The Gateway's Internal Console is located at `http://<Your-Akeyless-GW-URL:8000/console>`. The internal console means you are working from inside the Gateway and talking directly with the SaaS. If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.
 
   <Image align="center" border={false} src="https://files.readme.io/8532daf-Screenshot_2024-08-06_at_11.11.57.png" />
 
@@ -215,7 +215,7 @@ For Remote Access, you can access the following:
 * The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
 
   <Image align="center" border={false} src="https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png" />
-* Remote Access can also be accessed using our public URL: [https://zerotrust.akeyless.io](https://zerotrust.akeyless.io). If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/web-client`
+* Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/web-client`
 
 ## Testing Out Remote Access
 
@@ -244,11 +244,11 @@ akeyless set-role-rule --role-name MySamlRole --path "/\*" --rule-type sra-rule 
 akeyless assoc-role-am --role-name MySamlRole --am-name MySamlAuth
 ```
 
-5. Next, open your browser and go to your Remote Access internal endpoint: http://\<Your-Akeyless-GW-URL:8000>>/sra/portal
+5. Next, open your browser and go to your Remote Access internal endpoint: `http://\<Your-Akeyless-GW-URL:8000>>/sra/portal`
 6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that it will redirect you to a page with the various types of resources you can set at a later time (see below image). Congrats!
 
 <Image align="center" border={false} src="https://files.readme.io/e0af62a-sra.png" />
 
 ## Next Steps
 
-With a Gateway deployed, you can now test out using just-in-time [dynamic secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) for various applications and services by setting up [Targets](https://docs.akeyless.io/docs/targets). If you are also using Remote Access, you can also set up Remote Access on those Targets and log into those [Resources](https://docs.akeyless.io/docs/supported-resource-types) securely from anywhere by reading the docs [here](https://docs.akeyless.io/docs/remote-access-overview).
+With a Gateway deployed, you can now test out using just-in-time [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) for various applications and services by setting up [Targets](https://docs.akeyless.io/docs/targets). If you are also using Remote Access, you can also set up Remote Access on those Targets and log into those [Resources](https://docs.akeyless.io/docs/supported-resource-types) securely from anywhere by [reading the docs](https://docs.akeyless.io/docs/remote-access-overview).

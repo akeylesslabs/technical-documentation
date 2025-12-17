@@ -32,7 +32,7 @@ where:
 
 * `name`: A unique name for the secret. The name can include the path to the virtual folder in which you want to create the new secret, using slash `/` separators. If the folder does not exist, it will be created together with the secret.
 
-* `value`: The value of the secret. The secret value maximum size is 16KB.
+* `value`: The value of the secret. The secret value maximum size is 16 KB.
 
 For example, to create a secret in the **Admin** folder called **AdminCredentials** with the value **Admin101!**, type:
 
@@ -72,7 +72,7 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 * **Format:** The format type of the value either **Text** , **JSON** or **Key/Value**.
 
-* **Value:** Enter the value of the secret. The value length should be 16KB.
+* **Value:** Enter the value of the secret. The value length should be 16 KB.
 
 * **Change Event** Optional, trigger an event when the value is changed.
 
