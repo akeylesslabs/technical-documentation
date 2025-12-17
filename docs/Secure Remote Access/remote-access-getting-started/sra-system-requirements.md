@@ -16,17 +16,17 @@ Akeyless Secure Remote Access offers two types of solutions, each providing dist
 
 ### Remote Access
 
-This provides secure access to resources using just-in-time dynamic secrets, rotated secrets, or SSH certificates.
+This provides secure access to resources using just-in-time Dynamic Secrets, Rotated Secrets, or SSH certificates.
 
-It can be deployed on Docker Compose or Kubernetes and creates two types of deployments:
+It can be deployed on Docker Compose or Kubernetes and creates two types Deployment objects:
 
 #### Web-SRA
 
-The web-sra component allows access to RDP/SSH/DB target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`.
+The `web-sra` component allows access to RDP/SSH/DB target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`.
 
 #### SSH-SRA
 
-The ssh-sra component enables end-users to connect to targets that support CLI access (over SSH) from their own native Terminal/CLI tool with the [`akeyless connect`](https://docs.akeyless.io/docs/remote-access-akeyless-connect) command.
+The `ssh-sra` component enables end-users to connect to targets that support CLI access (over SSH) from their own native Terminal/CLI tool with the [`akeyless connect`](https://docs.akeyless.io/docs/remote-access-akeyless-connect) command.
 
 > Although SRA can be deployed with Docker Compose or Kubernetes, this document focuses on deploying to Kubernetes
 
@@ -77,7 +77,7 @@ Based on the components and their respective resource allocations, the following
 * **Storage**: 100 GiB (SSD recommended)
 * **Networking**: 1 Gbps NIC
 
-This setup is suitable for small deployments, supporting up to ~100 simultaneous ssh/application connections and several secure web applications with a combination of web-sra, ssh-sra, and web-worker pods.
+This setup is suitable for small deployments, supporting up to 100 simultaneous SSH/application connections and several secure web applications with a combination of `web-sra`, `ssh-sra`, and `web-worker` pods.
 
 #### Medium to Large Deployments
 
@@ -103,9 +103,9 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
   * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is 30s. Increase via BackendConfig (or GCPBackendPolicy) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
 
-  * **AWS (EKS / Elastic Load Balancing)** - ALB (HTTP/HTTPS): Default idle timeout = 60s. Set higher using LB attributes; with AWS Load Balancer Controller use: alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600 (example = 10m). See vendor information [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html)
+  * **AWS (EKS / Elastic Load Balancing)** - ALB (HTTP/HTTPS): Default idle timeout = 60s. Set higher using LB attributes; with AWS Load Balancer Controller use: `alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600` (measured in seconds). [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html).
 
-  * **NLB (TCP/TLS)**: Default TCP idle timeout = 350s; now configurable 60-6000s. Adjust if sessions may be idle, and enable TCP keepalives. See vendor information [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html)
+  * **NLB (TCP/TLS)**: Default TCP idle timeout is 350 seconds; now configurable 60-6000s. Adjust if sessions may be idle, and enable TCP keepalives. [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html).
 
   * **Microsoft Azure (AKS)** -
 
@@ -113,7 +113,7 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
     * **Application Gateway (L7):** TCP idle timeout default 4 minutes (configurable up to 30 minutes); HTTP request timeout default 20s (backend response wait). Tune both as needed. See vendor information [here](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq)
 
-  * **NGINX Ingress (generic)** - Defaults commonly close connections around 60s without traffic. Raise with annotations / ConfigMap (e.g., nginx.ingress.kubernetes.io/proxy-read-timeout, proxy-send-timeout). [See vendor information](https://nginx.org/en/docs/http/websocket.html).
+  * **NGINX Ingress (generic)** - Defaults commonly close connections around 60 seconds without traffic. Raise with annotations / ConfigMap (for example, `nginx.ingress.kubernetes.io/proxy-read-timeout`, `proxy-send-timeout`). [See vendor information](https://nginx.org/en/docs/http/websocket.html).
 
 ### Conclusion
 

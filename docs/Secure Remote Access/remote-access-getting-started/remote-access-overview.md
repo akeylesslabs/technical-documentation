@@ -31,7 +31,7 @@ SRA is deployed alongside the Akeyless [Gateway](https://docs.akeyless.io/docs/a
 <Image align="center" alt="Gateway & Secure Remote Access architecture" border={false} caption="Gateway & Secure Remote Access architecture" src="https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png" />
 
 1. Web: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
-2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any UNIX-supporting resource.
+2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any Unix-supporting resource.
 
 To connect to a resource, the user first authenticates to Akeyless via a configured Identity Provider (IdP). Once authorized, SRA facilitates the connection in a Zero-Trust manner by retrieving the required secret credentials via the Gateway and automatically injecting them into the target resource to establish and proxy the user’s access.
 
@@ -64,9 +64,9 @@ Implement a gold-standard Zero-Trust environment and make auditing a breeze.
 
 Provide third-party access to resources without compromising your security.
 
-### Manage Access to K8s Clusters
+### Manage Access to K8Kubernetess Clusters
 
-Remote Access supports access to any flavor of K8s cluster, including EKS, GKE or any other generic K8s cluster.
+Remote Access supports access to any flavor of Kubernetes cluster, including EKS, GKE or any other generic Kubernetes cluster.
 
 ## Supported Resource Types
 

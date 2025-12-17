@@ -1,6 +1,6 @@
 ---
 title: HSM Integration
-excerpt: HSM Integration on K8s
+excerpt: HSM Integration on Kubernetes
 deprecated: false
 hidden: false
 metadata:
@@ -30,7 +30,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the  `pkcs11.so` file, you can either create a PVC manually and provide it using the  `existingClaim` or set the `storageClass` for automatic provisioning with your k8s provider. The `accessMode` should be `ReadWriteMany`.
 
-In addition, the **HSM pin** must be provided using a **K8s Secret** which holds the `pin`, **note** the **K8s secret** key name must be set to `pin`
+In addition, the **HSM pin** must be provided using a **Kubernetes Secret** which holds the `pin`, **note** the **Kubernetes secret** key name must be set to `pin`
 
 ```shell
 kubectl create secret generic hsm-pin \

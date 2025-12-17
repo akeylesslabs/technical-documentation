@@ -1,5 +1,5 @@
 ---
-title: Advanced K8s Configuration
+title: Advanced Kubernetes Configuration
 excerpt: ''
 deprecated: false
 hidden: false
@@ -127,14 +127,14 @@ To set an internal TLS between the Gateway and cache service, set the `enableTls
     enabled: true
 ```
 
-To set the cache on your gateway with a default encryption key to support full offline mode, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` base64 encoded :
+To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` base64 encoded :
 
 ```shell
 kubectl create secret generic cache-configuration \
   --from-literal=cluster-cache-encryption-key=<base64-encoded-cluster-cache-encryption-key>
 ```
 
-And add to the `values.yaml` file the K8s secret name:
+And add to the `values.yaml` file the Kubernetes Secret name:
 
 ```yaml values.yaml
   clusterCache:
@@ -190,7 +190,7 @@ While the **Cache** setup can address many cases for some environments, there is
 >
 > This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
 
-To set the default encryption key to support full offline mode, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` base64 encoded :
+To set the default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` base64 encoded :
 
 ```yaml
 kubectl create secret generic cache-configuration \
@@ -277,9 +277,9 @@ cacheHA:
   hardAntiAffinity: false
 ```
 
-To set **Authentication**, `auth` must be set to `true`, which requires a password stored in a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) specified by `existingSecret` for the secret name and `authKey` for the key containing the password. In our example: `redis-password`.
+To set **Authentication**, `auth` must be set to `true`, which requires a password stored in a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) specified by `existingSecret` for the secret name and `authKey` for the key containing the password. In our example: `redis-password`.
 
-When **TLS** is enabled, the Gateway deployment automatically generates a K8s Secret containing the TLS certificate and key.
+When **TLS** is enabled, the Gateway deployment automatically generates a Kubernetes Secret containing the TLS certificate and key.
 
 For production environment, set the `hardAntiAffinity` option to ensure that Gateway pods are scheduled on different nodes.
 
@@ -287,7 +287,7 @@ Additionally, you can add topology spread constraint settings to control how pod
 
 To control the cache settings, you should [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache#/) using the Gateway Configuration Manager.
 
-## Working With K8s Secrets
+## Working With Kubernetes Secrets
 
 To provide the settings of your Gateway deployment directly from your local k8s secrets store, you can set the following settings:
 
@@ -301,7 +301,7 @@ To provide the settings of your Gateway deployment directly from your local k8s 
 
 > 🚧 Warning
 >
-> Providing any of those settings using an existing K8s secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
+> Providing any of those settings using an existing Kubernetes Secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
 ```yaml values.yaml
 gatewayCredentialsExistingSecret:

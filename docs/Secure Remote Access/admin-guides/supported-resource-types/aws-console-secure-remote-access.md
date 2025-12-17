@@ -14,7 +14,7 @@ You can enable secure remote access to AWS with a Dynamic Secret that generates 
 
 > 👍 Note
 >
-> Use [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command to access the AWS Console from any UNIX terminal.
+> Use [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command to access the AWS Console from any Unix terminal.
 
 ## Prerequisites
 

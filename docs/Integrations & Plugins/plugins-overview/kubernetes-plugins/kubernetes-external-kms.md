@@ -32,7 +32,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
 
 > 👍 Note
 >
-> `kube-apiserver` communicates with the plugin through a UNIX socket,hence a volume must be mounted accordingly where the plugin will create the socket on, and the `kube-apiserver` will send and received requests through it.
+> `kube-apiserver` communicates with the plugin through a Unix socket,hence a volume must be mounted accordingly where the plugin will create the socket on, and the `kube-apiserver` will send and received requests through it.
 
 ## Akeyless Environment Variables
 
@@ -75,7 +75,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
       </td>
 
       <td>
-        Path to listen on UNIX socket
+        Path to listen on Unix socket
       </td>
 
       <td>
@@ -172,7 +172,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
 
 ## Standalone Docker Container
 
-Run the docker image **on the same machine as the`kube-apiserver`** with the relevant environment variables, and a mounted volume for the UNIX socket.
+Run the docker image **on the same machine as the `kube-apiserver`** with the relevant environment variables, and a mounted volume for the Unix socket.
 
 ```shell
 docker run -d \
@@ -193,7 +193,7 @@ $ docker logs akeyless-kms-plugin
 2021/08/24 12:17:02 using <key type here (DFC / Classic)> Key <your key name here> (DisplayId: <your key display id) for encryption
 2021/08/24 12:17:02 testing crypto operations with key <your key name here>
 2021/08/24 12:17:03 crypto operations with key <your key name here> succeeded!
-2021/08/24 12:17:03 listening on UNIX socket: /tmp/akeyless_kms_plugin.sock
+2021/08/24 12:17:03 listening on Unix socket: /tmp/akeyless_kms_plugin.sock
 2021/08/24 12:17:03 Api Version: v1beta1, Runtime Name: AKEYLESS, Runtime Version: 0.0.1
 ```
 
@@ -221,7 +221,7 @@ apiVersion: v1
       - name: AKEYLESS_ACCESS_ID
         value: <the access id to use for authentication>
       volumeMounts:
-      - mountPath: /tmp # The location of the UNIX socket
+      - mountPath: /tmp # The location of the Unix socket
         name: akeyless-kms-plugin
     hostNetwork: true
     priorityClassName: system-cluster-critical
@@ -243,7 +243,7 @@ $ kubectl logs $CONTAINER
 2021/08/24 12:43:32 using <key type here (DFC / Classic)> Key <your key name here> (DisplayId: <your key display id) for encryption
 2021/08/24 12:43:32 testing crypto operations with key <your key name here>
 2021/08/24 12:43:33 crypto operations with key <your key name here> succeeded!
-2021/08/24 12:43:33 listening on UNIX socket: /tmp/akeyless_kms_plugin.sock
+2021/08/24 12:43:33 listening on Unix socket: /tmp/akeyless_kms_plugin.sock
 2021/08/24 12:43:34 Api Version: v1beta1, Runtime Name: AKEYLESS, Runtime Version: 0.0.1
 ```
 
@@ -253,7 +253,7 @@ Once the plugin is up and running, the next step is to [configure kube-apiserver
 
 To do this you will need to use the below `encryption_provider_config.yaml` file.
 
-If you want to change the location of the UNIX socket make sure to update the plugin as well as
+If you want to change the location of the  socket make sure to update the plugin as well as
 
 the `encryption_provider_config.yaml`.
 

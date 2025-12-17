@@ -51,7 +51,7 @@ Akeyless provides detailed telemetry metrics to offer insights into the health a
 
 Telemetry metrics work with leading monitoring tools, including **Prometheus**, **Grafana**, and **DataDog**. By exporting metrics to these systems, you can set up dashboards and alerts to support active monitoring and quick responses. In addition to those metrics, you can also forward the Gateway application logs as well.
 
-Refer to the [Telemetry Metrics](https://docs.akeyless.io/docs/telemetry-metrics) official docs for the Gateway full metrics list and to the [K8s Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for k8s Injector metrics.
+Refer to the [Telemetry Metrics](https://docs.akeyless.io/docs/telemetry-metrics) official docs for the Gateway full metrics list and to the [Kubernetes Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for k8s Injector metrics.
 
 ## Event Center
 
