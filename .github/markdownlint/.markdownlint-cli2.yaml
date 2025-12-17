@@ -72,17 +72,163 @@ config:
   # AKY013: Proper names capitalization with <a> tag ignoring
   # Knobs:
   #   - severity: error|warning|info
-  AKY013: false
+  AKY013:
+    code_blocks: true
+    ignore_a_html_tag: true
+    
+    names:
+      # Akeyless platform and features
+      - Akeyless
+      - Akeyless Gateway
+      - Akeyless Bastion
+      - Akeyless Console
+      - Akeyless Web Console
+      - Akeyless CLI
+      - Akeyless API
+      - Akeyless SaaS
+      - Secure Remote Access
+      - SRA
+      - SRA SSH Proxy
+      - Universal Secrets Connector
+      - USC
+      - Dynamic Secrets
+      - Rotated Secrets
+      - Static Secrets
+
+      # Cloud providers and services
+      - AWS
+      - Amazon
+      - Amazon S3
+      - Amazon EC2
+      - Amazon RDS
+      - Amazon Redshift
+      - Amazon EKS
+      - Amazon Elastic Kubernetes Service
+      - EKS
+      - AWS IAM
+      - IAM
+      - Amazon CloudTrail
+      - CloudTrail
+      - ELB
+
+      - Azure
+      - Microsoft Azure
+      - Azure AD
+      - Entra ID
+      - Azure Key Vault
+      - Active Directory
+      - Azure Data Studio
+      - AKS
+      - Azure Kubernetes Service
+
+      - Google Cloud
+      - GCP
+      - Google Cloud IAM
+      - GKE
+      - Google Kubernetes Engine
+
+      # Identity and security standards
+      - OAuth
+      - OAuth 2.0
+      - OIDC
+      - OpenID Connect
+      - SAML
+      - SAML 2.0
+      - LDAP
+      - Kerberos
+      - JWT
+      - JSON Web Tokens
+      - TLS
+      - SSL
+      - mTLS
+      - SSH
+      - PKI
+      - X.509
+      - HMAC
+      - AES
+      - RSA
+
+      # Kubernetes and container ecosystem
+      - Kubernetes
+      - Helm
+      - Docker
+      - Docker Hub
+      - Docker Engine
+      - containerd
+      - OpenShift
+      - Metrics Server
+      - PersistentVolume
+      - PersistentVolumeClaim
+      - StorageClass
+      - HorizontalPodAutoscaler
+      - Horizontal Pod Autoscaler
+      - HPA
+      - NGINX
+      - Secrets Injector
+
+      # HashiCorp ecosystem
+      - HashiCorp
+      - HashiCorp Vault
+      - Terraform
+      - Consul
+
+      # CI/CD and developer tooling
+      - Git
+      - GitHub
+      - GitHub Actions
+      - GitLab
+      - GitLab CI
+      - Jenkins
+      - CircleCI
+      - Argo CD
+      - Argo Workflows
+
+      # Databases and data platforms
+      - PostgreSQL
+      - MySQL
+      - MongoDB
+      - Microsoft SQL Server
+      - MSSQL
+      - MSSQL Server
+      - Oracle
+      - Oracle Database
+      - OracleDB
+      - Redis
+      - Snowflake
+      - Cassandra
+      - SAP HANA
+      - HanaDB
+      - DBeaver
+      - Splunk
+      - ServiceNow
+      - Redis
+
+      # Infrastructure and common technical terms
+      - API Gateway
+      - REST API
+      - RESTful
+      - JSON
+      - YAML
+      - Base64
+      - UUID
+      - Unix
+      - Linux
+      - Windows
+      - PowerShell
+      - PuTTY
+      - WinSCP
+      - RAM
+      - vCPU
+      - CPU
+      - TCP
+      - UDP
 
   # AKY014: Require meaningful image alt text
   # Knobs:
   #   - severity: error|warning|info
   AKY014: false
 
-  # AKY015: Disallow inline HTML except <details>/<summary>
-  # Knobs:
-  #   - severity: error|warning|info
-  AKY015: false
+  # AKY015: Not Used
 
   # AKY016: Disallow HTTP Link Parameters
   # Knobs:
@@ -440,13 +586,6 @@ config:
 
   # MD044: Proper names capitalization
   # Superseded by AKY013
-  # Knobs:
-  #   - severity: error|warning|info
-  #   - names: [string]
-  #   - code_blocks: true|false
-  #   - names examples:
-  #       - []
-  #       - ["JavaScript", "GitHub", "Akeyless"]
   MD044: false
 
   # MD045: Images must have alt text
