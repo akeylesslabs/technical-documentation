@@ -16,19 +16,19 @@ The following table describes the main functionality of Akeyless microservices i
   <thead>
     <tr>
       <th style={{ textAlign: "left" }}>
-        **Service**
+        Service
       </th>
 
       <th style={{ textAlign: "left" }}>
-        **IP**
+        IP
       </th>
 
       <th style={{ textAlign: "left" }}>
-        **Port**
+        Port
       </th>
 
       <th style={{ textAlign: "left" }}>
-        **Description**
+        Description
       </th>
     </tr>
   </thead>
@@ -237,7 +237,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        68.154.26.48, 
+        68.154.26.48,
         4.242.224.82
       </td>
 
