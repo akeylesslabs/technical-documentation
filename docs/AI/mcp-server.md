@@ -26,7 +26,7 @@ Read more about the <Anchor label="Model Context Protocol" target="_blank" href=
 
 The Akeyless MCP Server provides comprehensive access to Akeyless functionality, including:
 
-**Core Capabilities**
+### Core Capabilities
 
 * Secrets Management: Create, read, update, and delete static secrets
 * Encryption & Key Management: Generate, rotate, and manage encryption keys
@@ -35,7 +35,7 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 * Access Control: Manage roles, permissions, and authentication methods
 * Analytics: Retrieve usage analytics and audit data
 
-**Supported Operations**
+### Supported Operations
 
 * List and describe items (such as secrets, keys, certificates)
 * Create and update secrets
