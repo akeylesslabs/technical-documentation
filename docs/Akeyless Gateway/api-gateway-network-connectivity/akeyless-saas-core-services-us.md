@@ -87,13 +87,10 @@ The following table describes the main functionality of Akeyless microservices i
     <tr>
       <td style={{ textAlign: "left" }}>
         Auth
-
-        [https://auth.us.akeyless.io](https://auth.us.akeyless.io)
-        [https://auth-ro.us.akeyless.io](https://auth-ro.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-
+        `https://auth.us.akeyless.io`, `https://auth-ro.us.akeyless.io`
       </td>
 
       <td style={{ textAlign: "left" }}>
