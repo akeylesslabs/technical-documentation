@@ -19,8 +19,8 @@ To create a GitHub target from the CLI, run the following command:
 ```shell GitHub Target
 akeyless target create github \
 --name <target name> \
---github-app-id <Github application ID> \
---github-app-private-key <Github application private key (base64-encoded key)> \
+--github-app-id <GitHub application ID> \
+--github-app-private-key <GitHub application private key (base64-encoded key)> \
 --github-base-url https://api.github.com
 ```
 
@@ -51,6 +51,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **App Private Key:** The [GitHub application private key](https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps).
 
-* **Base URL:** Provide the Github base URL, default is `https://api.github.com`
+* **Base URL:** Provide the GitHub base URL, default is `https://api.github.com`
 
 5. Click **Finish**.

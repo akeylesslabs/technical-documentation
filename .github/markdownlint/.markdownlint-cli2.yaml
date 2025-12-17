@@ -105,10 +105,14 @@ config:
       - IAM
       - Amazon CloudTrail
       - CloudTrail
+
       - Azure
       - Microsoft Azure
       - Azure AD
       - Entra ID
+      - Azure Key Vault
+      - Active Directory
+
       - Google Cloud
       - GCP
       - Google Cloud IAM
@@ -122,6 +126,8 @@ config:
       - OpenID Connect
       - SAML
       - SAML 2.0
+      - LDAP
+      - Kerberos
       - JWT
       - JSON Web Tokens
       - TLS
@@ -144,7 +150,6 @@ config:
       # HashiCorp ecosystem
       - HashiCorp
       - HashiCorp Vault
-      - Vault
       - Terraform
       - Consul
 

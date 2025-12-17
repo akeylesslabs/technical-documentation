@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-While Akeyless is built to store, manage, and protect your secrets internally, it can also be used to manage secrets stored on other Secret Management services like AWS, GCP, Azure, or Kubernetes. This can be done **seamlessly** by creating a Universal Secrets Connector (USC) that utilizes [Targets](https://docs.akeyless.io/docs/targets) to create local "windows" into the related services, effectively letting you manage them indirectly. Each **USC** item derives its permissions from the identity linked to its [Target](https://docs.akeyless.io/docs/targets).
+While Akeyless is built to store, manage, and protect your secrets internally, it can also be used to manage secrets stored in other secret management services such as AWS, GCP, Azure, or Kubernetes. This can be done seamlessly by creating a Universal Secrets Connector (USC) that utilizes [Targets](https://docs.akeyless.io/docs/targets) to establish secure logical access to the related services, enabling indirect management of those secrets. Each USC item derives its permissions from the identity linked to its Target.
 
 When a user is granted `read` access to a **USC** item, they can act using the permissions of that underlying identity. With **USC**, you can unify governance and visibility across fragmented secret stores without migrating data or altering existing workflows.
 
@@ -34,7 +34,7 @@ Akeyless currently supports creating Universal Secrets Connectors for the follow
 
 * [Kubernetes Universal Secrets Connector](https://docs.akeyless.io/docs/kubernetes-external-secrets-manager)
 
-* [Hashicorp Vault Universal Secret Connector](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
+* [HashiCorp Vault Universal Secret Connector](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
 
 To view all your Universal Secret Connectors, log in to the **Console** and navigate to **Items** > **Universal Secrets Connector**.
 

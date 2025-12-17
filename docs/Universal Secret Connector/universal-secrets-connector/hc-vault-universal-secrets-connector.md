@@ -1,5 +1,5 @@
 ---
-title: Hashicorp Vault Universal Secrets Connector
+title: HashiCorp Vault Universal Secrets Connector
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page discusses the creation of Hashicorp Vault [Universal Secrets Connector](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different Secret service, please go to the matching doc, as they have varying parameters.
+This page discusses the creation of HashiCorp Vault [Universal Secrets Connector](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different Secret service, please go to the matching doc, as they have varying parameters.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ This page discusses the creation of Hashicorp Vault [Universal Secrets Connector
 This section will discuss the different commands necessary to handle USCs. While the initial creation command is a regular Akeyless command, management of USCs is done through a set of sub-commands, which all have the prefix `usc` added to them, as will be shown later in this section. If the prefix is not added to these sub-commands, they will not work.
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
-* [Hashicorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target) which holds an access token with permissions to `create`, `delete`, `update`, `read` and `list` secrets.
+* [HashiCorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target) which holds an access token with permissions to `create`, `delete`, `update`, `read` and `list` secrets.
 
 ### Creating a USC
 
@@ -68,7 +68,7 @@ The output should look as follows:
 To view a secret from your USC, use the following command:
 
 ```shell
-akeyless usc get --usc-name <usc name> --secret-id <secret id or name>
+akeyless usc get --usc-name <USC name> --secret-id <secret id or name>
 ```
 
 The main parameters are:
@@ -83,7 +83,7 @@ The output should look as follows:
 
 ```shell
 {
-  "value": "<base64 encoded value>",
+  "value": "<Base64 encoded value>",
   "metadata": {
     "created": "<timestamp>",
     "updated": "<timestamp>"
@@ -105,7 +105,7 @@ The main parameters are:
 
 * `secret-name`: The name of the secret you would like to create.
 
-* `value`: The value of the secret you would like to create, plaintext or base64 encode - **Key = Value** format
+* `value`: The value of the secret you would like to create, plaintext or Base64 encode - **Key = Value** format
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
@@ -133,7 +133,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Universal Secrets Connector**.
 
-2. Select the **Hashicorp Vault** secret type and click **Next**.
+2. Select the **HashiCorp Vault** secret type and click **Next**.
 
 3. Define a **Name** of the Universal Secrets Connector group, and specify the **Location** as a path to the virtual folder where you want to create the new Universal Secrets Connector, using slash `/` separators. If the folder does not exist, it will be created along with the Universal Secrets Connector.
 
@@ -145,13 +145,13 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 * **Delete Protection:** Optional, turn on this setting to protect the item from deletion.
 
-* **Target:** Select an existing [Hashicorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target)
+* **Target:** Select an existing [HashiCorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target)
 
 * **Gateway:** Select the desired corresponding Gateway.
 
 5. Click **Finish**
 
-## Hashicorp Vault Universal Secrets Details
+## HashiCorp Vault Universal Secrets Details
 
 Once connected to a Target, you will be able to access a Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 
