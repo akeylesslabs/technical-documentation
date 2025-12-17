@@ -16,7 +16,7 @@ This section outlines the CLI commands relevant to KMIP.
 
 ## Commands
 
-### `Kmip-client-delete-rule`
+### `kmip-client-delete-rule`
 
 Delete an RBAC rule from a client
 
@@ -40,7 +40,7 @@ akeyless kmip-client-delete-rule \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Kmip-client-set-rule`
+### `kmip-client-set-rule`
 
 Add a new RBAC rule to a client
 
@@ -79,7 +79,7 @@ akeyless kmip-client-set-rule \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Kmip-create-client`
+### `kmip-create-client`
 
 Create a new KMIP client
 
@@ -104,7 +104,7 @@ akeyless kmip-create-client \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Kmip-delete-client`
+### `kmip-delete-client`
 
 Delete a KMIP client
 
@@ -116,7 +116,7 @@ Delete a KMIP client
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Kmip-describe-client`
+### `kmip-describe-client`
 
 Show KMIP client details
 
@@ -128,7 +128,7 @@ Show KMIP client details
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Kmip-describe-server`
+### `kmip-describe-server`
 
 Show KMIP environment details
 
@@ -136,7 +136,7 @@ Show KMIP environment details
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-### `Kmip-list-clients`
+### `kmip-list-clients`
 
 Show existing KMIP clients
 
@@ -144,7 +144,7 @@ Show existing KMIP clients
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-### `Kmip-renew-client-certificate`
+### `kmip-renew-client-certificate`
 
 Renew KMIP client certificate
 
@@ -158,7 +158,7 @@ Renew KMIP client certificate
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Kmip-renew-server-certificate`
+### `kmip-renew-server-certificate`
 
 Renew KMIP server certificate
 
@@ -166,7 +166,7 @@ Renew KMIP server certificate
 
 `-u, --gateway-url[=http://localhost:8000]`:  Akeyless API Gateway URL (Configuration Management port)
 
-### `Kmip-server-delete`
+### `kmip-server-delete`
 
 Delete the kmip server (allowed only if it has no clients nor associated items)
 
@@ -174,9 +174,7 @@ Delete the kmip server (allowed only if it has no clients nor associated items)
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-
-
-### `Kmip-server-move`
+### `kmip-server-move`
 
 Move the root location of the kmip server and all associated items to a new root location
 
@@ -194,7 +192,7 @@ akeyless kmip-server-move \
 
 `-n, --new-root`: **Required**, New root for the kmip server
 
-### `Kmip-server-setup`
+### `kmip-server-setup`
 
 Create a new KMIP environment
 
@@ -220,7 +218,7 @@ akeyless kmip-server-setup \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Kmip-set-server-state`
+### `kmip-set-server-state`
 
 Set the server state to enabled/disabled
 

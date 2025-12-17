@@ -39,6 +39,7 @@ To spin an Akeyless Basic Bastion using docker please refer to the last section 
 * K8s Installed
 
 ### Network
+
 Currently, when using DB application (mysql, mongodb.mssql) via the Basic Bastion, it'll only work properly when using load balancer with "sticky" session:
 
 * Ingress - Make sure to use sticky session annotation, for example nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx

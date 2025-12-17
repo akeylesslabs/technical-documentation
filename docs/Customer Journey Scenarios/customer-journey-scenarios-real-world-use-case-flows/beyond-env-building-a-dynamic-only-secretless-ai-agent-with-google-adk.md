@@ -205,8 +205,6 @@ def initialize_credentials():
         return False
 ```
 
-
-
 This code initializes an AI agent's credentials securely by fetching them directly from Akeyless at runtime, rather than storing them in files.
 
 When the agent starts, the initialize_credentials function is called. It:

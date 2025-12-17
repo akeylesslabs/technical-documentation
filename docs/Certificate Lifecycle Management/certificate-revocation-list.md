@@ -55,5 +55,3 @@ Once the certificate is revoked, it is added to the **Certificate Revocation Lis
 **Private OCSP** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL:8000>/ocsp/<cert-issuer-display-id>`.
 
 To view any existing **Certificate Revocation List** information on a **Certificate Item** click the  **View Certificate Details** and scroll down to **CRL Distribution points**, where the **CRL Endpoints** will be listed.
-
-

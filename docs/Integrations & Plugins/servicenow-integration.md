@@ -24,8 +24,6 @@ Each access request triggers the creation of a dedicated record in ServiceNow Ak
 
 <Image border={false} src="https://files.readme.io/31626841ec2855f6ac1f288ff83e52946292d0fe7e55b3e6ba638dcacf6ea362-Screenshot_2024-09-20_at_6.32.09.png" />
 
-
-
 ### Prompt Admin Notification
 
 System administrators receive immediate email or notification alerts upon new access requests. This notification mechanism ensures that requests are promptly reviewed and evaluated, minimizing delays in access provisioning.
@@ -87,16 +85,12 @@ Creating basic auth credentials via ServiceNow instance.
 
 <Image border={false} src="https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png" />
 
-
-
 * In the "Name" field write "akeyless_basic_auth_creds"
 * Add "User Name" & "Password" / [API key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-via-the-ui).
 
 <Image border={false} src="https://files.readme.io/b11a153-Screenshot_2024-07-14_at_15.10.31.png" />
 
-
-
-Add Jwt authentication in ServiceNow:
+Add JWT authentication in ServiceNow:
 
 * Create certificate.
   (example: openssl req -new -x509 -key service_now.pem -out service_now_cert.pem -days 30)
@@ -107,13 +101,10 @@ Add Jwt authentication in ServiceNow:
 
   <Image border={false} src="https://files.readme.io/b60bfff-Screenshot_2024-07-14_at_15.17.26.png" />
 
-  
 * Create oAuth Application Registry:
   * Choose the option "Create an OAuth JWT API endpoint for external clients":
 
 <Image border={false} src="https://files.readme.io/25c6457-Screenshot_2024-07-14_at_15.21.19.png" />
-
-
 
 * Insert name, choose “User field” (email is default), ensure “Active” and “Enable JTI Verification“ are set, and Submit.
 
@@ -131,8 +122,6 @@ Add Jwt authentication in ServiceNow:
 
 <Image border={false} src="https://files.readme.io/d32f15b-Screenshot_2024-07-14_at_15.36.45.png" />
 
-
-
 * Create user with akeyless role:
   * Create user in “Users” table:
 
@@ -146,8 +135,6 @@ Add Jwt authentication in ServiceNow:
 
 <Image border={false} src="https://files.readme.io/e47d4a5-Screenshot_2024-07-14_at_15.49.00.png" />
 
-
-
 * Configure ServiceNow Event Forwarder in Akeyless:
   * Create new event forwarder:
 
@@ -156,8 +143,6 @@ Add Jwt authentication in ServiceNow:
 Insert the details. It is recommended to choose Auth type “JWT”. Insert the private key used to sign the certificate. Insert the user created in ServiceNow. Insert the client-id and client-secret from the oAuth Application in ServiceNow.
 
 <Image border={false} src="https://files.readme.io/d383a3d-Screenshot_2024-07-14_at_16.01.06.png" />
-
-
 
 ### Approving Access Request Via ServiceNow Instance
 

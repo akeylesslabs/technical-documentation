@@ -29,5 +29,3 @@ You can find the complete list of commands for managing folders in the [CLI Refe
 * Define a Name for the folder, and specify the Location as a path to the virtual folder where you want to create the new folder, using slash (/) separators. If the specified path does not exist, it will be automatically created along with the new folder.
 
 Once created, the folder will immediately appear in your Items list, ready for you to start adding secrets, keys, or additional subfolders.
-
-

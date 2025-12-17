@@ -124,8 +124,6 @@ akeyless gateway-update-allowed-access \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-
-
 ## Gateway Configuration
 
 ### `Delete-gateway-cluster`
@@ -284,5 +282,3 @@ akeyless gateway update defaults \
 `--event-on-status-change`: Trigger an event when Gateway status is changed [`true`/`false`]
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
-
-
