@@ -65,6 +65,29 @@ function escapeRegExp(s) {
   return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function getUrlFromLinkOpen(token) {
+  if (!token || token.type !== "link_open") return "";
+  const attrs = token.attrs || [];
+  for (const [k, v] of attrs) {
+    if (k === "href") return String(v || "");
+  }
+  return "";
+}
+
+function getQueryParamNames(url) {
+  const qIndex = url.indexOf("?");
+  if (qIndex === -1) return [];
+  const hashIndex = url.indexOf("#", qIndex + 1);
+  const query = url.slice(qIndex + 1, hashIndex === -1 ? url.length : hashIndex);
+  if (!query) return [];
+
+  return query
+    .split("&")
+    .map((part) => part.split("=", 1)[0])
+    .map((name) => decodeURIComponent(name || "").trim())
+    .filter(Boolean);
+}
+
 module.exports = [
   /**
    * AKY001: Disallow H1 (# / Setext H1)
@@ -568,6 +591,93 @@ module.exports = [
           if (tag && !allowed.has(tag)) {
             report(onError, t.lineNumber, "Avoid custom HTML; only <details> and <summary> are allowed.", `<${tag}>`);
             break;
+          }
+        }
+      }
+    }
+  },
+
+    /**
+   * AKY016: Disallow tracking query parameters in links (e.g., utm_source)
+   * Rationale: URLs with tracking params are noisy and can leak analytics identifiers into docs.
+   *
+   * Config (optional):
+   *   AKY016:
+   *     tracking_parameters: ["utm_source", "utm_medium", ...]
+   *     allow_parameters: ["param_to_ignore"]
+   */
+  {
+    names: ["AKY016", "no-tracking-params-in-links"],
+    description: "Disallow tracking query parameters (e.g., utm_source) in link URLs",
+    tags: ["links", "style", "privacy"],
+    function: function (params, onError) {
+      const codeLines = getCodeBlockLineSet(params.tokens);
+      const tokens = params.tokens || [];
+
+      const cfg = params.config || {};
+      const defaultTracking = [
+        // UTM
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_term",
+        "utm_content",
+        "utm_id",
+        "utm_name",
+        "utm_reader",
+        "utm_viz_id",
+        "utm_pubreferrer",
+        "utm_swu",
+        // Common click IDs
+        "gclid",
+        "dclid",
+        "gbraid",
+        "wbraid",
+        "fbclid",
+        "msclkid",
+        "yclid",
+        "ttclid",
+        "twclid",
+        "igshid"
+      ];
+
+      const trackingSet = new Set(
+        (Array.isArray(cfg.tracking_parameters) ? cfg.tracking_parameters : defaultTracking)
+          .map((s) => String(s || "").toLowerCase())
+          .filter(Boolean)
+      );
+
+      const allowSet = new Set(
+        (Array.isArray(cfg.allow_parameters) ? cfg.allow_parameters : [])
+          .map((s) => String(s || "").toLowerCase())
+          .filter(Boolean)
+      );
+
+      for (const t of tokens) {
+        if (t.type !== "inline" || !Array.isArray(t.children)) continue;
+        if (codeLines.has(t.lineNumber)) continue;
+
+        const children = t.children;
+
+        for (let i = 0; i < children.length; i++) {
+          const c = children[i];
+          if (c.type !== "link_open") continue;
+
+          const href = getUrlFromLinkOpen(c);
+          if (!href || href.indexOf("?") === -1) continue;
+
+          const paramsFound = getQueryParamNames(href).map((p) => p.toLowerCase());
+          for (const p of paramsFound) {
+            if (allowSet.has(p)) continue;
+            if (trackingSet.has(p)) {
+              report(
+                onError,
+                t.lineNumber,
+                `Remove tracking query parameters from links (found '${p}').`,
+                href
+              );
+              break; // one finding per link is enough
+            }
           }
         }
       }

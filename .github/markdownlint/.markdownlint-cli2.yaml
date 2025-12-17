@@ -85,6 +85,7 @@ config:
       - Akeyless SaaS
       - Secure Remote Access
       - SRA
+      - SRA SSH Proxy
       - Universal Secrets Connector
       - USC
       - Dynamic Secrets
@@ -114,6 +115,8 @@ config:
       - Azure Key Vault
       - Active Directory
       - Azure Data Studio
+      - AKS
+      - Azure Kubernetes Service
 
       - Google Cloud
       - GCP
@@ -194,6 +197,7 @@ config:
       - DBeaver
       - Splunk
       - ServiceNow
+      - Redis
 
       # Infrastructure and common technical terms
       - API Gateway
@@ -225,6 +229,18 @@ config:
   # Knobs:
   #   - severity: error|warning|info
   AKY015: false
+
+  # AKY016: Disallow HTTP Link Parameters
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - tracking_parameters:
+  #       - utm_source
+  #       - utm_medium
+  #   - allow_parameters:
+  #       - ref
+  AKY016: true
+
+
 
   # =========================
   # Core markdownlint Rules
