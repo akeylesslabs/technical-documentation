@@ -41,12 +41,10 @@ The following table describes the main functionality of Akeyless microservices i
     <tr>
       <td style={{ textAlign: "left" }}>
         Console
-
-        [https://console.us.akeyless.io](https://console.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-
+        `https://console.us.akeyless.io`
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -65,13 +63,11 @@ The following table describes the main functionality of Akeyless microservices i
     <tr>
       <td style={{ textAlign: "left" }}>
         Vault
-
-        [https://vault.us.akeyless.io](https://vault.us.akeyless.io)
-        [https://vault-ro.us.akeyless.io](https://vault-ro.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
-
+        `https://vault.us.akeyless.io`, 
+        `https://vault-ro.us.akeyless.io`
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -297,8 +293,6 @@ The following table describes the main functionality of Akeyless microservices i
     <tr>
       <td style={{ textAlign: "left" }}>
         Public HVP
-
-        [](https://hvp.us.akeyless.io)
       </td>
 
       <td style={{ textAlign: "left" }}>
