@@ -124,7 +124,7 @@ Upon successful creation, the response:
 
 #### Create Kubernetes Gateway Auth Config Using Certificates
 
-To [discover your Kubernetes Service account issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
+To [discover your Kubernetes ServiceAccount issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
 > 👍 Note
 >

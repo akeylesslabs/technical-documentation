@@ -285,9 +285,9 @@ Where:
 
 * `k8s-service-account-type`: This is the parameter that will define if you are working with a Fixed SA or a Dynamic SA. The default is `fixed`.
 
-* `k8s-service-account`: The Kubernetes Service Account to generate tokens for (Relevant for **Fixed Mode** only).
+* `k8s-service-account`: The Kubernetes ServiceAccount to generate tokens for (Relevant for **Fixed Mode** only).
 
-* `k8s-namespace`: The name of the K8s Namespace where the example Service Account exists.
+* `k8s-namespace`: The name of the K8s Namespace where the example Kubernetes ServiceAccount exists.
 
 **Dynamic Mode:** To create a dynamic generic Kubernetes Secret from the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Dynamic Mode**, use the following command (note parameters will change if you choose to create a ServiceAccount using an existing Role, or if you choose to generate everything from scratch):
 
