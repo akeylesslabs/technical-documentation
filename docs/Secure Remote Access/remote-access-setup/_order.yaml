@@ -3,4 +3,5 @@
 - remote-access-docker
 - zero-trust-web-access
 - sra-web-access-docker
+- sra-web-access-on-k8s-adv-config
 - web-access-on-k8s
