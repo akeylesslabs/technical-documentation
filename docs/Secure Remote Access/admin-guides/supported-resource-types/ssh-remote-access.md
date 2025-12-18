@@ -36,9 +36,9 @@ In this guide, we will connect to a remote target using an [SSH Certificate](htt
 >
 > See GCP docs on backend service timeout and Ingress BackendConfig. After updating, your SSH session lifetime should match your intended TTL
 
-## Set Up Remote Access to an SSH Server from the Akeyless CLI
+## Set Up Certificate-Based SSH Access from the Akeyless CLI
 
-Let's set up remote access to an SSH server using the Akeyless CLI.
+Let's set up remote access to an SSH host using the Akeyless CLI.
 
 1. Run the `update-item` command to set the following fields on the SSH Certificate Issuer item:
 
@@ -63,13 +63,13 @@ where:
 
 * `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
-## Set Up Remote Access to an SSH Server from the Akeyless Console
+## Set Up Certificate-Based SSH Access from the Akeyless Console
 
-Let's set up remote access to an SSH server from the Akeyless Console.
+Let's set up remote access to an SSH host from the Akeyless Console.
 
 1. Log in to the Akeyless Console and go to **Items**.
 
-2. Select the SSH Cert Issuer item that specifies the SSH server details and access credentials.
+2. Select the SSH Cert Issuer item that specifies the SSH host details and access credentials.
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
@@ -176,7 +176,7 @@ akeyless update-item --name <Path/to/static/secret> \
 --secure-access-enable true \
 --secure-access-ssh-creds  <password/private-key> \
 --secure-access-bastion-issuer </Path/of/SSH Cert Issuer> \
---secure-access-host <Target SSH server>
+--secure-access-host <Target SSH host>
 ```
 
 Where:
@@ -185,7 +185,7 @@ Where:
 * **--secure-access-certificate-issuer** Path to the SSH Certificate Issuer for your Akeyless SRA.
 * **secure-access-host:** Target servers for connections. For multiple values, repeat this flag.
 
-Now, you can connect to your target SSH server via the `akeyless connect` command:
+Now, you can connect to your target SSH host via the `akeyless connect` command:
 
 ```shell
 akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/secret] -v <professional-bastion-hostname/ip[:port]>
