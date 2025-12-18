@@ -7,7 +7,7 @@ metadata:
 ---
 In this guide, we will deploy the SRA utility on docker using docker compose using the most basic configuration.
 
-You can get the configuration files that will be used to deploy the gateway with the SRA by cloning the following repository to your environment:
+You can get the [configuration files](https://github.com/akeylesslabs/docker-compose/blob/main/README.md) that will be used to deploy the gateway with the SRA by cloning the following repository to your environment:
 
 ```shell
 gh repo clone akeylesslabs/docker-compose
