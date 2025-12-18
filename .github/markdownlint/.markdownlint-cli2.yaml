@@ -787,7 +787,7 @@ config:
       - OTel
       - Fluentd
       - Fluent Bit
-      - Vector
+      #- Vector
       - Datadog
       - New Relic
       - Splunk
