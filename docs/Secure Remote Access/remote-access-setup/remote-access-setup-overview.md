@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Remote Access is part of the same chart (values file) as the Akeyless Gateway. Users can deploy Remote Access components alongside the Gateway or can use the same chart to deploy Remote Access components after the Gateway is deployed.
+Akeyless Secure Remote Access is part of the Akeyless Gateway. Users can deploy Remote Access components alongside the Gateway or can use the same chart to deploy Remote Access components after the Gateway is deployed.
 
 The Remote Access solution can be deployed in one of two methods:
 
@@ -19,7 +19,7 @@ The Remote Access solution can be deployed in one of two methods:
 
 In this section, we will cover how to deploy Remote Access on each solution along with advanced configuration options.
 
-We will also cover deploying the Web Access component for connecting to web application targets from within a local browser.
+We will also cover deploying the [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s)  component for connecting to web application targets from within an isolated browser.
 
 Other features in this section include:
 
