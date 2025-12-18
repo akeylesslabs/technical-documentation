@@ -10,8 +10,6 @@ metadata:
 next:
   description: ''
 ---
-## Introduction
-
 The Desktop Application is designed to work across Windows and macOS, It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software.
 
 Who Should benefit from using this application?
@@ -44,7 +42,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 3. Grant necessary permissions if prompted
 
-  The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\Akeyless-desktop`
+The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\Akeyless-desktop`
 
 4. Open the app and sign in with your Akeyless credentials.
 
@@ -96,7 +94,7 @@ You should be able to see a list of the resources you can connect to, upon your 
 | **Windows**      | MSSQL Server                             | Azure Data Studio |                                                                                                           |
 |                  | RDP                                      | Remote Desktop    |                                                                                                           |
 |                  | Postgres DB                              | DBeaver           |                                                                                                           |
-|                  | SSH Cert Issuer                          | PuTTY             | WinSCP is a prerequisite for PuTTY                                                                       |
+|                  | SSH Cert Issuer                          | PuTTY             | WinSCP is a prerequisite for PuTTY                                                                        |
 |                  | SSH username & password                  | PuTTY             | Specify Port 2022                                                                                         |
 |                  | SSH File Transfer                        | WinSCP            | Note: File transfers for certificate-based targets have a known limitation and currently is not supported |
 |                  | PowerShell                               | PuTTY             | PS Tag should be configured on the secret item                                                            |
