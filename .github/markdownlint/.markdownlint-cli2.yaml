@@ -381,7 +381,7 @@ config:
       - Azure Database for MySQL
       - Azure Cache for Redis
       - Azure Functions
-      - Functions
+      #- Functions
       - Azure App Service
       - App Service
       - Azure Container Apps
