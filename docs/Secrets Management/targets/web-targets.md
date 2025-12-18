@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a Web target to be used with [custom dynamic secrets](https://docs.akeyless.io/docs/custom-producer) or [custom rotated secrets](https://docs.akeyless.io/docs/create-a-custom-rotated-secret).
+You can define a Web target to be used with [custom Dynamic Secrets](https://docs.akeyless.io/docs/custom-producer) or [custom Rotated Secrets](https://docs.akeyless.io/docs/create-a-custom-rotated-secret).
 
 ## Create a Web Target in the CLI
 

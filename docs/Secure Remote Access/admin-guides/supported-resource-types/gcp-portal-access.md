@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to GCP Portal on a dedicated static secret that stores the credentials for GCP.
+You can enable Secure Remote Access to GCP Portal on a dedicated static secret that stores the credentials for GCP.
 
 Users can then access the GCP Portal from the Secure Remote Access Portal without being exposed to your GCP credentials in Isolated mode.
 
 ## Prerequisites
 
-To enable secure remote access to the GCP Portal you need:
+To enable Secure Remote Access to the GCP Portal you need:
 
 * A [Static Secret](https://docs.akeyless.io/docs/static-secrets) that specifies the GCP login details, with **Web Access** selected.
 

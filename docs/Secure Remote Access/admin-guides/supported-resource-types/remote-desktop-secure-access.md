@@ -1,6 +1,6 @@
 ---
 title: Remote Desktop Access
-excerpt: Secure remote access to a Windows machine
+excerpt: Secure Remote Access to a Windows machine
 deprecated: false
 hidden: false
 metadata:
@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to a Windows machine with a [Dynamic Secret](https://docs.akeyless.io/docs/rdp-dynamic-secrets) that generates ephemeral credentials for the machine or a [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret). Users can access the Windows machine from the Secure Remote Access Portal over the web.
+You can enable Secure Remote Access to a Windows machine with a [Dynamic Secret](https://docs.akeyless.io/docs/rdp-dynamic-secrets) that generates ephemeral credentials for the machine or a [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret). Users can access the Windows machine from the Secure Remote Access Portal over the web.
 
 ## Prerequisites
 
-To enable secure remote access to a Windows machine you need:
+To enable Secure Remote Access to a Windows machine you need:
 
 * [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
@@ -110,4 +110,4 @@ To download files from a remote server, simply drag the desired files into the `
 > 📘 Info
 >
 > **Mounted Folder**\
-> Notice that upload stores (temporarily) the file on the secure remote access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.
+> Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.

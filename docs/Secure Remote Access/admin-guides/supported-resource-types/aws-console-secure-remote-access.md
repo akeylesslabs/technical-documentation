@@ -1,6 +1,6 @@
 ---
 title: AWS Console Access
-excerpt: Secure remote access to the AWS Console
+excerpt: Secure Remote Access to the AWS Console
 deprecated: false
 hidden: false
 metadata:
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to AWS with a Dynamic Secret that generates ephemeral credentials for AWS or a Rotated Secret. Users can then access AWS from the Secure Remote Access Portal, either over the web or using the native AWS CLI.
+You can enable Secure Remote Access to AWS with a Dynamic Secret that generates ephemeral credentials for AWS or a Rotated Secret. Users can then access AWS from the Secure Remote Access Portal, either over the web or using the native AWS CLI.
 
 > 👍 Note
 >
@@ -18,7 +18,7 @@ You can enable secure remote access to AWS with a Dynamic Secret that generates 
 
 ## Prerequisites
 
-To enable secure remote access to AWS you need:
+To enable Secure Remote Access to AWS you need:
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 

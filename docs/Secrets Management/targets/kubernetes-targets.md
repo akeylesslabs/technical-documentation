@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define Kubernetes (K8s) targets to be used with dynamic secrets for the following supported Kubernetes types:
+You can define Kubernetes (K8s) targets to be used with Dynamic Secrets for the following supported Kubernetes types:
 
 * [Amazon Elastic Kubernetes Service (EKS)](https://docs.akeyless.io/docs/kubernetes-targets#eks)
 * [Google Kubernetes Engine (GKE)](https://docs.akeyless.io/docs/kubernetes-targets#gke)
@@ -144,7 +144,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **GKE Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the email of the service account (`service_account@something.iam.gserviceaccount.com`).
 
-* **GKE Service Account Key:** Provide the RSA private key generated for this service account to access. This must be a proper PEM encoded PKCS1 or PKCS8 private key. (available under the "private_key" field within the service-account's downloaded key json-file from GCP IAM. **Make sure** to replace all its escaped new-lines, \n, with actual new lines to avoid parsing errors)
+* **GKE Service Account Key:** Provide the RSA private key generated for this service account to access. This must be a proper PEM encoded PKCS1 or PKCS8 private key. (available under the "private_key" field within the service-account's downloaded key JSON-file from GCP IAM. **Make sure** to replace all its escaped new-lines, \n, with actual new lines to avoid parsing errors)
 
 * **GKE Cluster CA Certificate:** Provide a Base64-encoded cluster CA certificate.
 
@@ -154,11 +154,11 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 6. Click **Finish**.
 
-## K8S Generic
+## K8s Generic
 
 You can define a generic Kubernetes target to be used with [Generic Kubernetes Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) using a **Bearer Token**, **Client Certificate** or using your **GW Service Account** to extract the relevant settings from a Gateway that runs on a Kubernetes cluster.
 
-In both cases of **Bearer Token** and **GW Service Account**, the Service Account **must** have a **Kubernetes role** with permissions as described in the [Generic Kubernetes](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) guide.
+In both cases of **Bearer Token** and **GW Service Account**, the Service Account **must** have a **Kubernetes Role** with permissions as described in the [Generic Kubernetes](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) guide.
 
 > 📘 Note
 >

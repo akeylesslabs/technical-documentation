@@ -105,7 +105,7 @@ The Secure Remote Access Bastion should be set with a **privileged** `AccessID` 
 >
 > The requirement for "update" permissions is to allow SRA to display information about sessions.
 
-Users can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
+Users can have only `list` permissions on their secrets. Upon successful authentication against your IdP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
 
 To control which users will be allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs` that will be authorized to request access.
 
@@ -202,7 +202,7 @@ privilegedAccess:
 
 ### GCP GCE
 
-Google Kubernetes Engine (GKE) can run Akeyless Bastion in its secured and managed Kubernetes service in standard or autopilot mode.
+Google Kubernetes Engine (GKE) can run Akeyless Bastion in its secured and managed Kubernetes Service in standard or autopilot mode.
 
 Deploying Akeyless Bastion via the Helm chart using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP Workload Identity mechanism.
 
@@ -210,9 +210,9 @@ Workload Identity allows workloads in your GKE clusters to impersonate Identity 
 
 Follow the [GKE workload identities guide](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#authenticating_to) to enable GKE workload identities on your cluster.
 
-Create a Kubernetes service account for Akeyless Bastion to use. You can also use the default Kubernetes service account in the default or any existing namespace.
+Create a Kubernetes Service account for Akeyless Bastion to use. You can also use the default Kubernetes Service account in the default or any existing Namespace.
 
-Use the existing IAM service account as provided in your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) auth method.
+Use the existing IAM service account as provided in your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) Auth Method.
 
 > 👍 Note
 >
@@ -220,14 +220,14 @@ Use the existing IAM service account as provided in your [GCP GCE](https://docs.
 >
 > To work with the GKE Workload Identity with `bounded rules`, please configure **only** the `Bound Service Accounts`  field in your [GCP Auth Method](https://docs.akeyless.io/docs/gcp-auth-method).
 
-Allow the Kubernetes service account to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes service account to act as the IAM service account.
+Allow the Kubernetes Service account to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes Service account to act as the IAM service account.
 
 Replace the following:
 `PROJECT_ID`: your Google Cloud project ID.
 `GSA_NAME`: the name of your IAM service account.
 `GSA_PROJECT`: the project ID of the Google Cloud project of your IAM service account.
-`KSA_NAME`: the name of your new Kubernetes service account.
-`NAMESPACE`: the name of the Kubernetes namespace for the service account.
+`KSA_NAME`: the name of your new Kubernetes Service account.
+`NAMESPACE`: the name of the Kubernetes Namespace for the service account.
 
 ```shell GKE
 gcloud iam service-accounts add-iam-policy-binding GSA_NAME@GSA_PROJECT.iam.gserviceaccount.com \
@@ -235,7 +235,7 @@ gcloud iam service-accounts add-iam-policy-binding GSA_NAME@GSA_PROJECT.iam.gser
     --member "serviceAccount:PROJECT_ID.svc.id.goog[NAMESPACE/KSA_NAME]"
 ```
 
-Annotate the Kubernetes service account with the email address of the IAM service account.
+Annotate the Kubernetes Service account with the email address of the IAM service account.
 
 ```shell GKE
 kubectl annotate serviceaccount KSA_NAME \
@@ -243,7 +243,7 @@ kubectl annotate serviceaccount KSA_NAME \
     iam.gke.io/gcp-service-account=GSA_NAME@GSA_PROJECT.iam.gserviceaccount.com
 ```
 
-Set the relevant K8s `serviceAccountName` or leave it empty to use the `default` K8s Service Account, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes service account.
+Set the relevant K8s `serviceAccountName` or leave it empty to use the `default` K8s Service Account, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes Service account.
 
 And set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `adminAccessId` and at least one another `Access ID` in the `allowedAccessIDs` list.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Portal Access
-excerpt: Secure remote access to the Microsoft Azure Portal
+excerpt: Secure Remote Access to the Microsoft Azure Portal
 deprecated: false
 hidden: false
 metadata:
@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to Azure Portal with a Dynamic Secret that generates ephemeral credentials for Azure AD or using a Rotated Secret. Users can then access the Azure Portal from the Secure Remote Access Portal.
+You can enable Secure Remote Access to Azure Portal with a Dynamic Secret that generates ephemeral credentials for Azure AD or using a Rotated Secret. Users can then access the Azure Portal from the Secure Remote Access Portal.
 
 ## Prerequisites
 
-To enable secure remote access to Azure Portal you need:
+To enable Secure Remote Access to Azure Portal you need:
 
 * The [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) deployed.
 
@@ -63,7 +63,7 @@ Alternatively, in case you prefer to work with the Akeyless bastions as a proxy 
 
 * **secure-access-web-proxy:** Optional, web-proxy via Akeyless Web Access Bastion.
 * **secure-access-url:** Required for Rotated Secret. The target URL where credentials will be injected.
-* **rotate-after-disconnect:** Optional for Rotated Secret. You can enable an automatic secret rotation after a session ends.
+* **rotate-after-disconnect:** Optional for Rotated Secret. You can enable an automatic Secret Rotation after a session ends.
 * **secure-access-delay:** The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
 ## Set Up Remote Access to the Azure Portal from the Akeyless Console

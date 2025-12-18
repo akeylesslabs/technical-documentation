@@ -22,7 +22,7 @@ Akeyless Professional Bastion provides SSH connections with short lived signed c
 
 This chart bootstraps a Akeyless-Professional-Bastion deployment on a Kubernetes cluster using the Helm package manager.
 
-To spin Akeyless Professional-Bastion using docker please refer to the last section on this page.
+To spin Akeyless Professional-Bastion using Docker please refer to the last section on this page.
 
 ## Prerequisites
 
