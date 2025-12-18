@@ -610,7 +610,7 @@ config:
       - Taint
       - Toleration
       - ServiceAccount
-      - Role
+      - Kubernetes Role
       - ClusterRole
       - RoleBinding
       - ClusterRoleBinding
