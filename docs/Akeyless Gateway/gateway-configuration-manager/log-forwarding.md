@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can export the audit logs from the Akeyless Gateway to any of the following log services:
+You can export the Audit Logs from the Akeyless Gateway to any of the following log services:
 
 * [Amazon S3](https://docs.akeyless.io/docs/log-forwarding#amazon-s3)
 
@@ -18,7 +18,7 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 
 * [Datadog](https://docs.akeyless.io/docs/log-forwarding#datadog)
 
-* [Elasticsearch](https://docs.akeyless.io/docs/log-forwarding#elasticsearch)
+* [ElasticSearch](https://docs.akeyless.io/docs/log-forwarding#elasticsearch)
 
 * [Google Chronicle](https://docs.akeyless.io/docs/log-forwarding#google-chronicle)
 
@@ -36,11 +36,11 @@ You can export the audit logs from the Akeyless Gateway to any of the following 
 
 > 🚧 Warning
 >
-> The log forwarding mechanism can only fetch logs from the previous 24 hours. Please ensure that your Gateway default Authentication Method has an [Access Role](https://docs.akeyless.io/docs/rbac) that allows viewing **all** audit logs in the account.
+> The log forwarding mechanism can only fetch logs from the previous 24 hours. Please ensure that your Gateway default Authentication Method has an [Access Role](https://docs.akeyless.io/docs/rbac) that allows viewing **all** Audit Logs in the account.
 
 ## Amazon S3
 
-When you export the audit logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under: `\{root_folder_name} / \{year} / \{month} / \{day}`
+When you export the Audit Logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under: `\{root_folder_name} / \{year} / \{month} / \{day}`
 
 > 📘 Info
 >
@@ -78,7 +78,7 @@ This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file 
 
 ## Azure Log Analytics
 
-When you export the audit logs from the Akeyless Gateway to Azure Log Analytics, the logs are stored in the specified workspace in the **AkeylessAudit_CL** table. The **TimeGenerated** is the time the log was created in Akeyless, and **msg_s** is textual information for the log.
+When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics, the logs are stored in the specified workspace in the **AkeylessAudit_CL** table. The **TimeGenerated** is the time the log was created in Akeyless, and **msg_s** is textual information for the log.
 
 1. Create a new Log Analytics workspace in the Azure Portal, then select **Agent Management**.
 
@@ -120,7 +120,7 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 10. Optional - Define **Log Service** , default value `akeyless-gateway`.
 
-## Elasticsearch
+## ElasticSearch
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -132,11 +132,11 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 5. From the **Log Service** dropdown list, select `Elasticsearch`.
 
-6. Define the **Elasticsearch Server**. It can be set either as **Node** or **Cloud ID**.
+6. Define the **ElasticSearch Server**. It can be set either as **Node** or **Cloud ID**.
 
-7. Define the **Elasticsearch Authentication**. It can be set as **Api Key** or **Username & Password**.
+7. Define the **ElasticSearch Authentication**. It can be set as **API Key** or **Username & Password**.
 
-8. Define the **Elasticsearch Index**.
+8. Define the **ElasticSearch Index**.
 
 9. Optional, check **TLS** and upload the **TLS Certificate** of your log server.
 
@@ -279,7 +279,7 @@ input {
 
 7. Define the **Syslog Host** as the hostname or IP address of the Syslog server.
 
-8. Optionally, define the **Syslog Tag** as the tag with which audit logs are sent to the Syslog server. The default value is `audit-export`.
+8. Optionally, define the **Syslog Tag** as the tag with which Audit Logs are sent to the Syslog server. The default value is `audit-export`.
 
 9. Select the **Syslog Formatter** either `Text` or `CEF`.
 

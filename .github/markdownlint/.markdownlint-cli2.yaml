@@ -500,7 +500,7 @@ config:
       - Vertex AI
       - Google Vertex AI
       - Artifact Registry
-      - Container Registry
+      #- Container Registry
       - Cloud Build
       - Google Cloud Build
       - Cloud Deploy

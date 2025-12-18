@@ -12,7 +12,7 @@ next:
 ---
 ## Log Forwarding
 
-To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server directly inside the `values.yaml` file of your Gateway deployment.
+To forward your Akeyless Audit Logs directly from your Gateway, you can set the relevant settings of your target logs server directly inside the `values.yaml` file of your Gateway deployment.
 
 On the `values.yaml` file, enable the `logandConf` section and provide the relevant settings as described below:
 
@@ -91,7 +91,7 @@ Configure your Logstash to use the same port and protocol:\
 Add the following to the `logstash.conf` file:\
 `input { tcp { port => 8911 codec => json } }`
 
-### ELK - Elasticsearch
+### ELK - ElasticSearch
 
 ```yaml
 logandConf: |
@@ -166,9 +166,9 @@ Setting log forwarding to stdout:
 target_log_type="std_out"
 ```
 
-### DataDog
+### Datadog
 
-Setting log forwarding to DataDog system:
+Setting log forwarding to Datadog system:
 
 ```yaml
 target_log_type="datadog"

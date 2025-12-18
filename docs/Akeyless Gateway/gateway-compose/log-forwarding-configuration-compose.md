@@ -12,7 +12,7 @@ next:
 ---
 ## Log Forwarding
 
-To forward all your Akeyless audit logs directly from your Gateway, add the relevant configuration for your target logs server as described below to your `docker-compose.yaml` file.
+To forward all your Akeyless Audit Logs directly from your Gateway, add the relevant configuration for your target logs server as described below to your `docker-compose.yaml` file.
 
 ### Syslog
 
@@ -70,7 +70,7 @@ target_logstash_tls_certificate="<Based64 PEM encoded Cert>"
 Configure your Logstash to use the same port and protocol:\
 Add the following to the `logstash.conf` file. `input \{ tcp \{ port => 8911 codec => json } }`
 
-### ELK Elasticsearch
+### ELK ElasticSearch
 
 ```yaml
 enable="true"
@@ -147,9 +147,9 @@ enable="true"
 target_log_type="std_out"
 ```
 
-### DataDog
+### Datadog
 
-Setting log forwarding to DataDog system:
+Setting log forwarding to Datadog system:
 
 ```yaml
 enable="true"
