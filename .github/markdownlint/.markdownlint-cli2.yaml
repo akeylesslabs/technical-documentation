@@ -663,7 +663,11 @@ config:
       - Docker Engine
       - Docker Hub
       - CSI
+      - Container Storage Interface
       - CNI
+      - Container Network Interface
+      - CRI
+      - Container Runtime Interface
       - Prometheus Operator
       - Grafana Agent
       - OpenTelemetry Collector
