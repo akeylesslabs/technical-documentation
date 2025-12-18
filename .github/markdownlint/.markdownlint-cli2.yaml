@@ -846,7 +846,7 @@ config:
       - DOCX
       - XLSX
       - PPTX
-      - PNG
+      #- PNG
       - JPEG
       - JPG
       - GIF
@@ -1021,7 +1021,6 @@ config:
       - Amazon WorkMail
       - WorkMail
       - Amazon Connect
-      - Connect
       - AWS IAM Identity Center
       - IAM Identity Center
       - AWS SSO
