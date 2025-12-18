@@ -456,7 +456,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
       </td>
 
       <td>
-        The Kubernetes service account token
+        The Kubernetes ServiceAccount token
       </td>
 
       <td>

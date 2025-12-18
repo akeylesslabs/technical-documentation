@@ -24,7 +24,7 @@ The most straightforward use cases are the following:
 
 The Gateway cache utilizes two primary types of caches: a **Local In-Memory Cache** for individual Gateway instances and a **Cluster Cache** for high availability in Kubernetes environments. This architecture ensures that secrets are readily available to applications while minimizing the load on the Akeyless SaaS platform.
 
-In a high-availability configuration, secrets are stored in a **Cluster Cache**, typically backed by an internal database instance. This shared cache ensures every pod has a consistent view of the cached data. This model is crucial for resilience, as it allows the Gateway to continue serving cached secrets even during a complete Akeyless SaaS outage. Authentication can also persist during an outage for methods that can be validated locally, such as Kubernetes Service Account authentication, where the Gateway can verify the token against the cluster's Kubernetes API server without needing to contact the SaaS.
+In a high-availability configuration, secrets are stored in a **Cluster Cache**, typically backed by an internal database instance. This shared cache ensures every pod has a consistent view of the cached data. This model is crucial for resilience, as it allows the Gateway to continue serving cached secrets even during a complete Akeyless SaaS outage. Authentication can also persist during an outage for methods that can be validated locally, such as Kubernetes ServiceAccount authentication, where the Gateway can verify the token against the cluster's Kubernetes API server without needing to contact the SaaS.
 
 ## Gateway Cache
 

@@ -168,7 +168,7 @@ Where:
 
 * `k8sConfName`: The name of the **Kubernetes Conf** on the Gateway.
 
-* `serviceAccountRef`: The name of the Kubernetes Service account used to fetch secrets from Akeyless. Only secrets defined in a role associated with that service account under claim `service_account_name` can be accessed.
+* `serviceAccountRef`: The name of the Kubernetes ServiceAccount used to fetch secrets from Akeyless. Only secrets defined in a role associated with that service account under claim `service_account_name` can be accessed.
 
 ## ExternalSecret
 

@@ -144,7 +144,7 @@ globalConfig:
 When working from an AWS instance with an IAM Role associated with it (which is the default state for EKS clusters that leverage the IAM Role of their Node group), nothing else is required, as the Gateway will be leveraging the IAM Role of the AWS instance itself where Kubernetes is running.
 
 Alternatively, you can also leverage an IAM Role assumed by a Kubernetes ServiceAccount in your Cluster. For that, you must either [create an IAM Role bound to a Kubernetes ServiceAccount](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html), or use an existing IAM role for annotating the Service Account in the Gateway's `values.yaml` Helm chart:
-Set the `serviceAccountName` with the desired Kubernetes Service Account name, and set its `eks.amazonaws.com/role-arn` annotation to the ARN of the IAM Role in question (which is constructed using the following format: `arn:aws:iam::<AWS-Account-ID>:role/<IAM-Role-Name>`).
+Set the `serviceAccountName` with the desired Kubernetes ServiceAccount name, and set its `eks.amazonaws.com/role-arn` annotation to the ARN of the IAM Role in question (which is constructed using the following format: `arn:aws:iam::<AWS-Account-ID>:role/<IAM-Role-Name>`).
 
 You can also create a new Service Account by simply setting the `create` field to `true`, so the `serviceAccountName` you defined will be created upon deployment. Furthermore, if the `serviceAccountName` is left empty, by default - the chart will create a new Service Account called `<release name>-akeyless-gateway`.
 Make sure to set the required role-arn `annotation` to connect your IAM Role with the Service Account in **any** of the scenarios.
@@ -173,7 +173,7 @@ Workload Identity allows workloads in your GKE clusters to impersonate Identity 
 
 Follow the [GKE workload identities guide](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#authenticating_to) to enable GKE workload identities on your cluster.
 
-Create a Kubernetes Service account for Akeyless Gateway to use. You can also use the default Kubernetes Service account in the default or any existing Namespace.
+Create a Kubernetes ServiceAccount for Akeyless Gateway to use. You can also use the default Kubernetes ServiceAccount in the default or any existing Namespace.
 
 Use the existing IAM service account that is bound to your [GCP](https://docs.akeyless.io/docs/gcp-auth-method) Auth Method.
 
@@ -183,13 +183,13 @@ Use the existing IAM service account that is bound to your [GCP](https://docs.ak
 >
 > To work with the GKE Workload Identity you must configure **only** the `Bound Service Accounts`  field in your [GCP Auth Method](https://docs.akeyless.io/docs/gcp-auth-method).
 
-Allow the Kubernetes Service account to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes Service account to act as the IAM service account.
+Allow the Kubernetes ServiceAccount to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes ServiceAccount to act as the IAM service account.
 
 Replace the following:
 `PROJECT_ID`: your Google Cloud project ID.
 `GSA_NAME`: the name of your IAM service account.
 `GSA_PROJECT`: the project ID of the Google Cloud project of your IAM service account.
-`KSA_NAME`: the name of your new Kubernetes Service account.
+`KSA_NAME`: the name of your new Kubernetes ServiceAccount.
 `NAMESPACE`: the name of the Kubernetes Namespace for the service account.
 
 ```shell GKE
@@ -198,7 +198,7 @@ gcloud iam service-accounts add-iam-policy-binding GSA_NAME@GSA_PROJECT.iam.gser
     --member "serviceAccount:PROJECT_ID.svc.id.goog[NAMESPACE/KSA_NAME]"
 ```
 
-Annotate the Kubernetes Service account with the email address of the IAM service account.
+Annotate the Kubernetes ServiceAccount with the email address of the IAM service account.
 
 ```shell GKE
 kubectl annotate serviceaccount KSA_NAME \
@@ -206,7 +206,7 @@ kubectl annotate serviceaccount KSA_NAME \
     iam.gke.io/gcp-service-account=GSA_NAME@GSA_PROJECT.iam.gserviceaccount.com
 ```
 
-Set the relevant Kubernetes `serviceAccountName` or leave it empty to use the `default` Kubernetes Service Account, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes Service account.
+Set the relevant Kubernetes `serviceAccountName` or leave it empty to use the `default` Kubernetes ServiceAccount, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes ServiceAccount.
 
 And set your [GCP](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) :
 

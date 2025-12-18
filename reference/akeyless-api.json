@@ -53633,7 +53633,7 @@
           "x-go-name": "AuthMethodTokenExpiration"
         },
         "token-reviewer-jwt": {
-          "description": "A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
+          "description": "A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
           "type": "string",
           "x-go-name": "K8STokenReviewerJWT"
         },
@@ -58870,7 +58870,7 @@
           "x-go-name": "AuthMethodTokenExpiration"
         },
         "token-reviewer-jwt": {
-          "description": "A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
+          "description": "A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
           "type": "string",
           "x-go-name": "K8STokenReviewerJWT"
         },
@@ -59573,7 +59573,7 @@
           "x-go-name": "AuthMethodTokenExpiration"
         },
         "token-reviewer-jwt": {
-          "description": "A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
+          "description": "A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
           "type": "string",
           "x-go-name": "K8STokenReviewerJWT"
         },
