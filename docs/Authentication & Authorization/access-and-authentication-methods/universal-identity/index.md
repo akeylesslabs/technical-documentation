@@ -90,7 +90,7 @@ curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 It is considered a best practice to rotate tokens often, and with tokens being a machine identity authentication method, you may set up an automated script that will rotate your token in pre-scheduled intervals.
 
 While you can write your own script, we have a compatible one-minute interval token rotation script in the <a href="https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/" target="_blank">Akeyless Downloads</a> folder.
-This script is Linux/MacOS compatible, and has the following flow:
+This script is Linux/macOS compatible, and has the following flow:
 
 1. Write the token to a path
 2. Take the token from path to perform commands
@@ -183,7 +183,7 @@ Universal Identity Details:
 * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).
   If empty, the Gateway's IP will be used in the logs.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
 * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `Web UI`,`SDK`.
 

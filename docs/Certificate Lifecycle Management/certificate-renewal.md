@@ -53,4 +53,4 @@ To renew a certificate from the **Event Center**:
 
 ## Viewing the Certificate Versions
 
-In Akeyless console, press on the **certificate** item and then, press on **Versions**. You will find a table listing all the versions of the certificate and keys.
+In Akeyless Console, press on the **certificate** item and then, press on **Versions**. You will find a table listing all the versions of the certificate and keys.

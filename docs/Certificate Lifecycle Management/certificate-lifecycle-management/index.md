@@ -12,7 +12,7 @@ next:
 ---
 Akelyess **Certificate Lifecycle Management (CLM)** solution provides a seamless way to create, provision, monitor, renew, and revoke digital certificates. Certificates are essential for securing communications, verifying identities, and establishing trust across systems. With Akeyless **CLM**, these processes are streamlined while reducing the risks of expired or mismanaged certificates.
 
-Unlike solutions that rely on **external KMS** services, the **Akeyless CLM** solution securely manages keys directly within the Akeyless platform. Root Keys can be generated as [DFC Keys](https://docs.akeyless.io/docs/encryption-keys), ensuring private keys remain protected at all times.
+Unlike solutions that rely on **external KMS** services, the **Akeyless CLM** solution securely manages keys directly within the Akeyless Platform. Root Keys can be generated as [DFC Keys](https://docs.akeyless.io/docs/encryption-keys), ensuring private keys remain protected at all times.
 
 Akeyless integrates natively into diverse environments without requiring external secrets, leveraging its broad range of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods). Fine-grained [RBAC](https://docs.akeyless.io/docs/rbac) controls ensure each identity has the precise level of access it needs, in line with policies defined for the[PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 

@@ -70,11 +70,11 @@ destination = "path_to/pki_cert_with_csr.txt"
 
 Where:
 
-* `access_type`: The **Access Type** of the auth method that is being used to authenticate.
+* `access_type`: The **Access Type** of the Auth Method that is being used to authenticate.
 
-* `access_id`: The **Access ID** of the auth method that is being used to authenticate.
+* `access_id`: The **Access ID** of the Auth Method that is being used to authenticate.
 
-* `access_key`: The **Access Key** of the auth method that is being used to authenticate.
+* `access_key`: The **Access Key** of the Auth Method that is being used to authenticate.
 
 * `log_file_path`: The path to the `agent.log` file, defaults are:
 

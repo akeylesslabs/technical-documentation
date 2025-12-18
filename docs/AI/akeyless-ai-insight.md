@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-Akeyless AI Insights enables natural-language interaction with the Akeyless platform using Large Language Models (LLMs). To use AI Insights, it must be configured at:
+Akeyless AI Insights enables natural-language interaction with the Akeyless Platform using Large Language Models (LLMs). To use AI Insights, it must be configured at:
 
 1. **Account level** — Enable the feature
 2. **Gateway level** — Specify the LLM target and model
@@ -194,7 +194,7 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 | Target not found       | Validate the target name and ID                              |
 | Authentication failure | Re-authenticate by running `akeyless auth`                   |
 | Gateway unreachable    | Check that port 8000 is open and firewall rules allow access |
-| API key errors         | Verify the API key is valid and check the base URL           |
+| API Key errors         | Verify the API Key is valid and check the base URL           |
 
 ## Configuration Checklist
 
