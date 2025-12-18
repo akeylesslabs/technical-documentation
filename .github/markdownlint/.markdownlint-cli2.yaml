@@ -594,9 +594,9 @@ config:
       - StatefulSet
       - DaemonSet
       - ReplicaSet
-      - Kubernetes Job
+      - Kubernetes Job #"Kubernetes " added to avoid common language conflucts.
       - CronJob
-      - Kubernetes Service
+      - Kubernetes Service #"Kubernetes " added to avoid common language conflucts.
       - ClusterIP
       - NodePort
       - LoadBalancer
@@ -604,13 +604,13 @@ config:
       - IngressClass
       - NetworkPolicy
       - ConfigMap
-      - Kubernetes Secret
+      - Kubernetes Secret #"Kubernetes " added to avoid common language conflucts.
       - Namespace
       - Node
       - Taint
       - Toleration
       - ServiceAccount
-      - Kubernetes Role
+      - Kubernetes Role #"Kubernetes " added to avoid common language conflucts.
       - ClusterRole
       - RoleBinding
       - ClusterRoleBinding
@@ -882,6 +882,7 @@ config:
       - Python
       - JavaScript
       - TypeScript
+      # Go intentionally excluded since it's a common word.
       - Golang
       - Java
       - Kotlin
