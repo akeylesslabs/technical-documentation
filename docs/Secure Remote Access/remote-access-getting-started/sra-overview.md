@@ -25,7 +25,7 @@ SRA is deployed along side the Akeyless [Gateway](https://docs.akeyless.io/docs/
 
 Akeyless Secure Remote Access provides a robust set of features designed to support secure, efficient access for teams. Here are some of the key capabilities:
 
-* **Just-in-time Access**: With SRA, just-in-time secrets can be created and injected into a remote resource, such as a database, on the fly.
+* **Just-in-Time Access**: With SRA, just-in-time secrets can be created and injected into a remote resource, such as a database, on the fly.
 
 * **Rotated Secret Access**: Privileged secrets can be used to access remote resources with the ability to automatically rotate the credentials once the session ends.
 
@@ -55,4 +55,4 @@ Using SRA supports connections to the following resource types:
 * [RabbitMQ](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access)
 * [Kubernetes](https://docs.akeyless.io/docs/k8s-cluster-access)
 * [Web Applications](https://docs.akeyless.io/docs/web-applications-secure-remote-access)
-* [Kubectl](https://docs.akeyless.io/docs/kubectl-access)
+* [kubectl](https://docs.akeyless.io/docs/kubectl-access)

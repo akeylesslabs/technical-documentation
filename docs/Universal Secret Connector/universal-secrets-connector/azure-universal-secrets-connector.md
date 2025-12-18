@@ -35,7 +35,7 @@ The main parameters are:
 
 * `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-* `azure-kv-name`: The name of an existing Azure key vault.
+* `azure-kv-name`: The name of an existing Azure Key Vault.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
@@ -159,13 +159,13 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 * **Gateway:** Select the desired corresponding Gateway.
 
-* **Key Vault Name:** The name of the Azure key vault you would like to connect with.
+* **Key Vault Name:** The name of the Azure Key Vault you would like to connect with.
 
 5. Click **Finish**.
 
 ## Azure Universal Secrets Details
 
-Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
+Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 
 * **Name:** Secret name
 
@@ -179,7 +179,7 @@ More information and secret value can be viewed by selecting a specific secret, 
 
 ## Azure Universal Certificates Details
 
-Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Certificates, as well as display the following information about the Certificates:
+Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Certificates, as well as display the following information about the Certificates:
 
 * **Name:** Certifitcate name
 

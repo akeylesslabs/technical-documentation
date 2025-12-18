@@ -232,7 +232,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ## AWS Universal Secrets Details
 
-Once connected to a Target, you will be able to access a Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
+Once connected to a Target, you will be able to access a Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 
 * **Name:** Secret name
 
