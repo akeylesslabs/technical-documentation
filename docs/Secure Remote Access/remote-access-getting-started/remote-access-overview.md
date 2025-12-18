@@ -26,16 +26,16 @@ Users can connect securely to resources through the Gateway's internal SRA Porta
 
 ## Architecture
 
-SRA is deployed alongside the Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a Web application and SSH application, each a separate container in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
+SRA is deployed alongside the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a Web application and SSH application, each a separate container in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
 
-<Image align="center" alt="Gateway & Secure Remote Access architecture" border={false} caption="Gateway & Secure Remote Access architecture" src="https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png" />
+![Akeyless Gateway & Secure Remote Access architecture](https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png)
 
 1. Web: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
 2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any Unix-supporting resource.
 
 To connect to a resource, the user first authenticates to Akeyless via a configured Identity Provider (IdP). Once authorized, SRA facilitates the connection in a Zero-Trust manner by retrieving the required secret credentials via the Gateway and automatically injecting them into the target resource to establish and proxy the user’s access.
 
-As a result, Akeyless uniquely combines the ability to interface with 3rd-party **identity providers** for authentication with granular **role-based access control** (**RBAC**) for authorization and the ability to provide **just-in-time access** to remote resources, using dynamic secrets as short-lived credentials and certificates.
+As a result, Akeyless uniquely combines the ability to interface with 3rd-party **identity providers** for authentication with granular **role-based access control** (**RBAC**) for authorization and the ability to provide **just-in-time access** to remote resources, using Dynamic Secrets as short-lived credentials and certificates.
 
 ## Key Features
 

@@ -33,16 +33,15 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
   * **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
 
-  * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html). For **GKE** environment  the default service timeout is `30s`. Increase via [BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA read more [here](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
+  * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html). For **GKE** environment  the default service timeout is `30s`. Increase via [BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [Read more about the configuration](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration).
 
-  When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited, for more information, click [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
+  When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited. [Read more about configuring Amazon ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
 ### Horizontal Pod Autoscaler
 
 The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
 
-Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object.
-For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the sshConfig`StatefulSet`(HPA can not support multiple pods without defining a shared persistent storage volume).
+Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the sshConfig`StatefulSet`(HPA can not support multiple pods without defining a shared persistent storage volume).
 
 > 🚧 Warning
 >
@@ -52,22 +51,22 @@ For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kub
 
 1. Add the following repository to the Helm repository list:
 
-```shell
-helm repo add akeyless https://akeylesslabs.github.io/helm-charts
-helm repo update
-```
+  ```shell
+  helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+  helm repo update
+  ```
 
 2. Fetch the `values.yaml` file from the Akeyless repository:
 
-```shell
-helm show values akeyless/akeyless-gateway > values.yaml
-```
+  ```shell
+  helm show values akeyless/akeyless-gateway > values.yaml
+  ```
 
 3. Set the relevant parameters in the `values.yaml` file with a text editor or IDE.
 
 ### SRA Configuration
 
-1. Get your SSH Cert Issuer Signer public key using the **CLI** command: 
+1. Get your SSH Cert Issuer Signer public key using the **CLI** command:
 
 ```shell SSH CA Public Key
 akeyless get-rsa-public --name /path/to/SSHSignerKey --json --jq-expression='.ssh' 
@@ -87,27 +86,25 @@ sshConfig:
 
 1. To upgrade the existing gateway deployment with the SRA configuration, run the following command:
 
-```shell
-helm upgrade --install <deployment name> akeyless/akeyless-gateway -f values.yaml
-```
+  ```shell
+  helm upgrade --install <deployment name> akeyless/akeyless-gateway -f values.yaml
+  ```
 
-2. Once upgraded, check if the pods are running, In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`: 
+2. Once upgraded, check if the pods are running, In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`:
 
-```shell
-kubectl get pods
+  ```shell
+  kubectl get pods
 
-NAME                                          READY   STATUS    RESTARTS   AGE
-gw-akeyless-gateway-cache-69f549844-shvs7     1/1     Running   0          5s
-ssh-gw-akeyless-gateway-655cd8c975-bg67s      1/1     Running   0          5s
-unified-gw-akeyless-gateway-f9697f7dd-8wgc9   1/1     Running   0          5s
-web-gw-akeyless-gateway-55c866c9fc-lztl7      1/1     Running   0          5s
-```
+  NAME                                          READY   STATUS    RESTARTS   AGE
+  gw-akeyless-gateway-cache-69f549844-shvs7     1/1     Running   0          5s
+  ssh-gw-akeyless-gateway-655cd8c975-bg67s      1/1     Running   0          5s
+  unified-gw-akeyless-gateway-f9697f7dd-8wgc9   1/1     Running   0          5s
+  web-gw-akeyless-gateway-55c866c9fc-lztl7      1/1     Running   0          5s
+  ```
 
 3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000/console`)  with your Gateway admin credentials.
 
 ## SRA Portal Access
-
-<br />
 
 To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
 

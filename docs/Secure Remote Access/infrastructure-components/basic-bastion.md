@@ -52,7 +52,7 @@ Currently, when using DB application (mysql, mongodb.mssql) via the Basic Bastio
 
 ## Installing the Chart
 
-Add Akeyless helm charts repository to your Helm repository list:
+Add Akeyless Helm charts repository to your Helm repository list:
 
 ```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
