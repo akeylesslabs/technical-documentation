@@ -14,7 +14,7 @@ Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and 
 
 The Telemetry Metrics are based on time series telemetry data metrics from the application and the runtime environment, storing them in a unique database or index, and analyzing data trends over time.
 
-The metrics visualization uses a pre-made/custom dashboard (Grafana marketplace dashboard, Datadog integration dashboard, etc.).
+The metrics visualization uses a pre-made/custom dashboard (Grafana Marketplace dashboard, Datadog integration dashboard, etc.).
 
 The following Metrics are currently available:
 
@@ -111,7 +111,7 @@ Import the Akeykess GW dashboard for your Grafana instance using [this](https://
 
 ## Using Kubernetes Secret
 
-Create a Kubernetes secret with the relevant settings of your target metric server and save it to a file `config-secret.yaml`:
+Create a Kubernetes Secret with the relevant settings of your target metric server and save it to a file `config-secret.yaml`:
 
 ```yaml Datadog
 exporters:

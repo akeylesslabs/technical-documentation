@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server using the [CLI](https://docs.akeyless.io/docs/cli) or directly from the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager).
+To forward your Akeyless Audit Logs directly from your Gateway, you can set the relevant settings of your target logs server using the [CLI](https://docs.akeyless.io/docs/cli) or directly from the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager).
 
 By default, the log format of all of the commands below is `text` and the pull interval is set to `10` seconds.
 
@@ -61,7 +61,7 @@ akeyless gateway update log-forwarding logstash \
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluelogstashp) section.
 
-## ELK - Elasticsearch
+## ELK - ElasticSearch
 
 ```shell
 akeyless gateway update log-forwarding elasticsearch \
@@ -94,7 +94,7 @@ You can find the complete list of additional parameters for this command in the 
 >
 > Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
 
-The following permissions are required to forward the audit logs to an S3 bucket:
+The following permissions are required to forward the Audit Logs to an S3 bucket:
 
 ```json
 {
@@ -149,9 +149,9 @@ akeyless gateway update log-forwarding stdout \
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluestdoutp) section.
 
-## DataDog
+## Datadog
 
-Setting log forwarding to DataDog system:
+Setting log forwarding to Datadog system:
 
 ```shell
 akeyless gateway update log-forwarding datadog \
