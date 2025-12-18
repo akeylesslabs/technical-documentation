@@ -1,5 +1,5 @@
 ---
-title: Web Access on Kubernetes
+title: Zero Trust Web Access on Kubernetes
 excerpt: ''
 deprecated: false
 hidden: false
