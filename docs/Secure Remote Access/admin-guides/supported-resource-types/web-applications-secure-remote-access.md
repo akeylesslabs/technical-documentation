@@ -1,5 +1,5 @@
 ---
-title: Web Applications Access
+title: Zero Trust Web Applications Access
 excerpt: ''
 deprecated: false
 hidden: false
