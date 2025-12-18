@@ -1,5 +1,5 @@
 ---
-title: Web Access on Docker
+title: Zero Trust Web Access on Docker
 excerpt: ''
 deprecated: false
 hidden: false
