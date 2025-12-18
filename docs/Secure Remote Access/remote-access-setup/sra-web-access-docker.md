@@ -383,6 +383,4 @@ Run the following command to apply your settings as part of the **Docker Compose
 docker-compose up -d --scale worker=3
 ```
 
-Verify that both containers are up and running:
-
-`web-worker-deployment` / `web-dispatcher-deployment`
+Verify that both containers are up and running: `web-worker-deployment` / `web-dispatcher-deployment`

@@ -97,9 +97,9 @@ webWorker:
         }
 ```
 
-**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the web-access-bastion, or if your **apiGatewayURL** is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
+**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the `web-access-bastion`, or if your **apiGatewayURL** is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
 
-1. Mount your organization's Root CA certificate to the pods. For the **Gateway** specifically, in the helm-chart, you can specify an existing k8s-secret for the gateway tls certificate under **apiGatewayCert.tlsCertsSecretName** (see [ztwa/values.yaml](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-zero-trust-web-access/values.yaml))
+1. Mount your organization's Root CA certificate to the pods. For the **Gateway** specifically, in the Helm chart, you can specify an existing Kubernetes Secret for the gateway TLS certificate under `apiGatewayCert.tlsCertsSecretName` (see [`ztwa/values.yaml`](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-zero-trust-web-access/values.yaml))
 2. In the `policies.json` above, uncomment the *Certificates.Install* line and set it to the relevant certificates' paths inside the pod
 
 ## DLP
@@ -142,7 +142,7 @@ When set to `true`, this option disables the default fullscreen mode for Web Acc
 
 ```yaml
 webWorker:
-	env:
+  env:
   - name: DISABLE_FULLSCREEN
-  	value: "true"
+    value: "true"
 ```

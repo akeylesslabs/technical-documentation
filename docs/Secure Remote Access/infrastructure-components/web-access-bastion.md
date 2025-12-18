@@ -27,17 +27,17 @@ This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes
 
 * Helm Installed
 
-* K8s Installed
+* Kubernetes Installed
 
 * Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and  1 vCPU available with 1 GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `webWorker` and for the `dispatcher` services.
 
-\***\*Network\*\***
+### Networking
 
 When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
 
 e.g, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-\***\*Storage\*\***
+### Storage
 
 To be able to download files to your local machine, the chart requires a storage class with `ReadWriteMany` access mode.
 
@@ -62,7 +62,7 @@ e.g, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userg
 
 For security reasons, please limit the PersistentVolumes`mount permissions to`0650\`.
 
-\***\*Horizontal Auto-Scaling\*\***
+### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.\
 For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server).
@@ -73,18 +73,16 @@ For it to work correctly, the Kubernetes Metrics Server must be installed in the
 
 ## Installing the Chart
 
-Add Akeyless helm charts repository to your Helm repository list:
+Add Akeyless Helm charts repository to your Helm repository list:
 
 ```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The values.yaml file holds default values. Copy the file from:
+The `values.yaml` file holds default values. Copy the file from: [`https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access`](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access)
 
-[https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access)
-
-Or run the following helm command to generate the values file locally:
+Or run the following Helm command to generate the values file locally:
 
 ```shell
 helm show values akeyless/akeyless-zero-trust-web-access > values.yaml
