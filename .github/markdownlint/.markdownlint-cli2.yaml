@@ -69,13 +69,15 @@ config:
   #   - severity: error|warning|info
   AKY012: true
 
-  # AKY013: Proper names capitalization with <a> tag ignoring
+  # AKY013: Proper names capitalization (MD044-like), ignoring inline HTML <a>...</a> and URLs
   # Knobs:
   #   - severity: error|warning|info
+  #   - code_blocks: true|false
+  #   - ignore_a_html_tag: true|false
   AKY013:
     code_blocks: true
     ignore_a_html_tag: true
-    
+
     names:
       # Akeyless platform and features
       - Akeyless
@@ -228,7 +230,10 @@ config:
   #   - severity: error|warning|info
   AKY014: false
 
-  # AKY015: Not Used
+  # AKY015: Disallow links inside code blocks AND code spans inside links
+  # Knobs:
+  #   - severity: error|warning|info
+  AKY015: true
 
   # AKY016: Disallow HTTP Link Parameters
   # Knobs:
@@ -420,7 +425,7 @@ config:
   #   - front_matter_title examples:
   #       - ""
   #       - "title"
-  #       - "^\\s*title\\s*[:=]"
+  #       - "^\s*title\s*[:=]"
   MD025: true
 
   # MD026: Trailing punctuation in headings
