@@ -24,7 +24,7 @@ In this guide, we will connect to a remote target using an [SSH Certificate](htt
 
 ## Prerequisites
 
-* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
+* [SRA](https://docs.akeyless.io/docs/remote-access-setup-overview) deployment.
 
 * An  [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
