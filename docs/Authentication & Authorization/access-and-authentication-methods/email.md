@@ -48,7 +48,7 @@ You can find the complete list of additional parameters for this command in the 
 
 * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-* **Audit Log Sub-Claims:** Include the following sub-claims values in audit logs.
+* **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
 
 * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `Web UI`,`SDK`,`Gateway Admin`, `Mobile`, `Extension`.
 

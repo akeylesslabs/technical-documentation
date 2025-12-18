@@ -46,7 +46,7 @@ The default setting of your token TTL will affect all your authentication method
 > 👍 Note
 >
 > For an authentication method to have the necessary permissions to perform actions, you will need to attach it to a matching role.
-> To learn more about this, please go to [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).
+> To learn more about this, please go to [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).
 
 ### Product Type
 
