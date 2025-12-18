@@ -628,7 +628,7 @@ config:
       - PDB
       - CustomResourceDefinition
       - CRD
-      - Operator
+      #- Operator
       - Admission Controller
       - ValidatingWebhookConfiguration
       - MutatingWebhookConfiguration

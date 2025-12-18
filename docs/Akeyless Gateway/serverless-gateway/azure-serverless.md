@@ -216,15 +216,15 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 
 Where:
 
-* `name`: The name of the storage account.
+* `name`: The name of the Storage Account.
 
-* `location`: The location where the storage account is deployed.
+* `location`: The location where the Storage Account is deployed.
 
-* `sku`: [Stock Keeping Unit](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/file#parameters) - A unique identifier used to specify a particular version or configuration of the storage account.
+* `sku`: [Stock Keeping Unit](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/file#parameters) - A unique identifier used to specify a particular version or configuration of the Storage Account.
 
-* `kind`: Type of storage account.
+* `kind`: Type of Storage Account.
 
-* `properties`: Settings for the storage account.
+* `properties`: Settings for the Storage Account.
 
 * `supportsHttpsTrafficOnly`: Only allows HTTPS traffic.
 

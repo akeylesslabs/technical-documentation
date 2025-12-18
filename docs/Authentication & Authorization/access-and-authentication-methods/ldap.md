@@ -35,7 +35,7 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs).
   This parameter is optional. If empty, the IP of the Gateway will be used in the logs.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the audit logs.
+* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
 * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `Web UI`, `Mobile`.
 

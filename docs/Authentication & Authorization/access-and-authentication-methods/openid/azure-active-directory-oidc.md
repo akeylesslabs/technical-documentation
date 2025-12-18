@@ -54,7 +54,7 @@ This can also be done from the Console UI by creating a New OIDC Auth Method and
 Notice the **unique-identifier** must be an available claim, which out of the box might be the "**preferred\_username**" field.\
 If you wish to use a field such as **email** instead, make sure to first **Add optional claim** under **Token configuration** (in the Azure App), and add the **email** claim.
 
-To log in with SSO to Akeyless with your new Azure AD OIDC auth method, login to the Console, browse to Auth Methods, select the newly created OIDC auth method, and hit the "**Generate OIDC Bookmark URL**" - this will provide you with the SSO link.
+To log in with SSO to Akeyless with your new Azure AD OIDC Auth Method, login to the Console, browse to Auth Methods, select the newly created OIDC Auth Method, and hit the "**Generate OIDC Bookmark URL**" - this will provide you with the SSO link.
 
 ## Login With OIDC from the CLI
 
