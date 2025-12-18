@@ -12,11 +12,11 @@ next:
 ---
 ## Introduction
 
-Automatic migration allows importing static secrets into Akeyless from other identity security platforms. This feature is available as part of the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) functionality. Additionally, it is possible to configure migration via the Console, where each Gateway has its dedicated directory for managing the migration process.
+Automatic migration allows importing Static Secrets into Akeyless from other identity security platforms. This feature is available as part of the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) functionality. Additionally, it is possible to configure migration via the Console, where each Gateway has its dedicated directory for managing the migration process.
 
 ## Supported Platforms
 
-Currently, you can import static secrets from the following platforms:
+Currently, you can import Static Secrets from the following platforms:
 
 * [1Password](https://docs.akeyless.io/docs/automatic-migration#1password) - Deprecated from Gateway version `4.35.1`
 * [AWS Secrets Manager](https://docs.akeyless.io/docs/automatic-migration#aws-secrets-manager)
@@ -54,7 +54,7 @@ After the migration, new secrets will be available under the specified path. If 
 >
 > Due to internal security restrictions this migration is deprecated starting from Gateway version `4.35.1`.
 
-To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company_name.1password.com” with a privileged email and password with your 1Password Secret Key`.
+To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company_name.1Password.com” with a privileged email and password with your 1Password Secret Key`.
 
 You can choose the relevant `Vaults` you would like to migrate items from. comma separated, if left empty all non-private Vaults will be migrated.
 
@@ -104,7 +104,7 @@ To import secrets from GCP Secrets Manager, you need to provide a GCP Service Ac
 
 To import secrets from HashiCorp Vault into Akeyless, you need to create a new access token or use the existing one with sufficient permissions. You also need to provide a full URL of the HashiCorp Vault API server.
 
-For migration from HashiCorp Vault Enterprise, the configuration of namespaces is available. A comma-separated list of namespaces must be imported into Akeyless. For every provided namespace, all its child namespaces are imported as well.
+For migration from HashiCorp Vault Enterprise, the configuration of namespaces is available. A comma-separated list of namespaces must be imported into Akeyless. For every provided Namespace, all its child namespaces are imported as well.
 
 Akeyless supports migration from the `kv` storage engine of versions 1 and 2. For v2 migrations, all versions of the secret are migrated over.
 
@@ -124,15 +124,15 @@ For any Kubernetes authentication method, the following options are available:
 
 * **Cluster URL endpoint:** This is the URL of the Kubernetes API server (including schema and port, for example, `https://<k8s-api.mycompany.com>:6443)`.
 
-* **Cluster CA Certificate:** Optional Certificate Authority data in case the server is accessed over HTTPS. This value can be found in your `~/.kube/config` file, under the **certificate-authority-data** property of the cluster with the existing secrets. There is no need to base64-decode this value. It should be used as-is. If no value is provided, an insecure connection is used, which is discouraged.
+* **Cluster CA Certificate:** Optional Certificate Authority data in case the server is accessed over HTTPS. This value can be found in your `~/.kube/config` file, under the **certificate-authority-data** property of the cluster with the existing secrets. There is no need to Base64-decode this value. It should be used as-is. If no value is provided, an insecure connection is used, which is discouraged.
 
-* **Namespace:** Use this field to import secrets from a particular namespace only. By default, the secrets are imported from all namespaces.
+* **Namespace:** Use this field to import secrets from a particular Namespace only. By default, the secrets are imported from all namespaces.
 
 * **Skip Control Plane Secrets:** This flag allows us to avoid importing secrets from system namespaces (the ones that begin with `kube-`). If you need to import secrets from all namespaces, uncheck this flag.
 
 > 👍 Tip
 >
-> When choosing an authentication method to access your Kubernetes cluster, ensure that the credentials you provide have sufficient privileges to list and get secrets in the namespace(s) you selected.
+> When choosing an authentication method to access your Kubernetes cluster, ensure that the credentials you provide have sufficient privileges to list and get secrets in the Namespace(s) you selected.
 
 **Bearer token authentication:** For servers that support Bearer Token authentication, use Token authentication method. Make sure that this token is not expired when used.
 

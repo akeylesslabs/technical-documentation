@@ -23,18 +23,18 @@ When managing environments across multiple AWS accounts, the key requirement is 
 ## How Akeyless Gateway Authenticates Using IAM
 
 AWS compute resources can authenticate directly to Akeyless using supported identity mechanisms. These include:\
-EC2 instances, Lambda functions, ECS (Elastic Container Service) tasks, EKS (Elastic Kubernetes Service) pods (if using IAM roles for service accounts)\
+EC2 instances, Lambda Functions, ECS (Elastic Container Service) tasks, EKS (Elastic Kubernetes Service) pods (if using IAM roles for service accounts)\
 These resources use AWS IAM roles to obtain temporary credentials, which Akeyless uses to validate their identity.
 
 When the **Gateway** is running on such a resource, it utilizes the existing identity to authenticate to Akeyless SaaS services.
 
 ### How Is This Authentication Implemented Securely?
 
-Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Auth method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
+Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Auth Method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
 
 1. The AWS resource retrieves temporary credentials from its IAM role.
 2. The resource sends these credentials to Akeyless using the auth API endpoint
-3. Akeyless validates the request using **AWS STS** by calling the `GetCallerIdentity` API to verify the authenticity and identity of the requester. This exchange does not expose long-term credentials and relies on short-lived tokens, ensuring secure communication. This secure flow avoids needing to manage static secrets or access keys within AWS services.
+3. Akeyless validates the request using **AWS STS** by calling the `GetCallerIdentity` API to verify the authenticity and identity of the requester. This exchange does not expose long-term credentials and relies on short-lived tokens, ensuring secure communication. This secure flow avoids needing to manage Static Secrets or access keys within AWS services.
 
 ![](https://files.readme.io/f8e683e1aaa94a88ebda40de04504f4c56c8126bec5760a3289ba9a97f958444-image.png)
 

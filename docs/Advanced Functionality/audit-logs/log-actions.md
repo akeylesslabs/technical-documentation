@@ -42,17 +42,17 @@ This page includes a thorough comb through all of the different options for the 
 
 * `create_auth_method`: Create a new authentication method
 
-* `get_auth_method`: Fetch an auth method or all auth methods in a certain path
+* `get_auth_method`: Fetch an Auth Method or all auth methods in a certain path
 
 * `list_auth_methods`: List all auth methods
 
-* `delete_auth_method`: Delete an auth method
+* `delete_auth_method`: Delete an Auth Method
 
 * `delete_auth_methods`: Delete all auth methods in a certain path
 
-* `create_assoc_role_auth_method`: Associate a role and an auth method
+* `create_assoc_role_auth_method`: Associate a role and an Auth Method
 
-* `delete_assoc_role_auth_method`: Delete an association between a role and an auth method
+* `delete_assoc_role_auth_method`: Delete an association between a role and an Auth Method
 
 ## General Item Actions
 

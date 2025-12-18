@@ -40,11 +40,11 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * **Avoid API Key Authentication on production** - Due to the secret zero problem and management challenges, [Universal Identity](https://docs.akeyless.io/docs/universal-identity) should be used on production for on-premise environments or any CSP IAM on cloud environments for workloads or automated services, as well as SAML or OIDC for human access.  
 
-* [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)  - Shared authentication methods such as SAML, OIDC, LDAP, IAM, JWT, or Kubernetes should be used with sub-claims on role association to avoid mistakes and overriding existing access roles.
+* [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)  - Shared authentication methods such as SAML, OIDC, LDAP, IAM, JWT, or Kubernetes should be used with sub-claims on role association to avoid mistakes and overriding existing Access Roles.
 
 * [Access Roles (RBAC)](https://docs.akeyless.io/docs/rbac) - In general, regular users do not have permission to change their Access Role or Authentication method settings. Make sure your Access Roles are not granting regular users permission to view or create neither Access Roles nor Authentication methods. In addition, avoid creating multiple different [Access Roles](https://docs.akeyless.io/docs/rbac) with a single path. Instead, create an access role for multiple paths.
 
-* **Audit & Analytics** - On access roles, it's recommended to let your users view their analytics and logs rather than providing them broader permissions to view your account's entire audit logs and analytics.
+* **Audit & Analytics** - On Access Roles, it's recommended to let your users view their analytics and logs rather than providing them broader permissions to view your account's entire Audit Logs and analytics.
 
 ## Items
 
@@ -61,12 +61,12 @@ CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}
 
 * [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) - This should be used as a breakglass admin static credentials, which should automatically rotate strong users' passwords. Primarily for your super users, which their passwords should be rotated automatically.
 
-* [Targets](https://docs.akeyless.io/docs/targets) - To save time during Dynamic and Rotated secrets creation and avoid using your privileged user credentials often, you can create Targets.\
+* [Targets](https://docs.akeyless.io/docs/targets) - To save time during Dynamic and Rotated Secrets creation and avoid using your privileged user credentials often, you can create Targets.\
   Those items should not be shared with regular users, while those who need to use the Targets items can only have 'list' permissions.
 
 ## System Prerequisites: Kubernetes Versioning
 
-Different components of the Akeyless platform require different versions of Kubernetes, while we recommend you use one that works with all components to allow you to work with the full scope of the platform, the requirements are:
+Different components of the Akeyless Platform require different versions of Kubernetes, while we recommend you use one that works with all components to allow you to work with the full scope of the platform, the requirements are:
 
 * For the Akeyless native injector: 1.19 or higher
 

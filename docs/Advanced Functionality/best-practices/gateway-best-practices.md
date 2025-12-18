@@ -27,7 +27,7 @@ next:
 
   * For **Universal Secret Connector** - Read permission is required both on the USC item and on the target associated with the USC.
 
-* **Dedicated environment** - GW should be the only application running on the machine. This can be done using a dedicated docker that runs on that machine or a dedicated Kubernetes (K8s) cluster. This reduces the risk that another process running on the same machine is compromised and can interact with your GW.
+* **Dedicated environment** - GW should be the only application running on the machine. This can be done using a dedicated Docker that runs on that machine or a dedicated Kubernetes (K8s) cluster. This reduces the risk that another process running on the same machine is compromised and can interact with your GW.
 
 * **Configure[TLS](https://docs.akeyless.io/docs/tls-certificate)**
 
