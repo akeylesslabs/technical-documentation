@@ -14,11 +14,11 @@ next:
       slug: classic-keys
       title: Classic Keys
 ---
-We call classic keys distributed to cloud KMS providers - "managed keys".
+We call classic keys distributed to Cloud KMS providers - "managed keys".
 
 > 👍 Note
 >
-> Only [classic keys](https://docs.akeyless.io/docs/classic-keys) can be distributed to cloud KMS providers.
+> Only [classic keys](https://docs.akeyless.io/docs/classic-keys) can be distributed to Cloud KMS providers.
 
 ## Create a Managed Key
 

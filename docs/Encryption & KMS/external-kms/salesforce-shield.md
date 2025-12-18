@@ -18,7 +18,7 @@ To set up Akeyless KMS Integration with Salesforce Shield, follow these steps:
 
 1. Create a new Salesforce Target in the Akeyless Platfrom. You can do it either from the [Akeyless CLI](https://docs.akeyless.io/docs/cloud-targets#create-a-salesforce-target-from-the-cli) or in the Akeyless Console. Make sure you have a Salesforce OAuth2.0 app to target.
 
-2. Create a [Classic Key](https://docs.akeyless.io/docs/classic-keys) in the Akeyless Platform. You can do it either from the Akeyless CLI or in the Akeyless console. Alternatively, You can also use an existing Classic Key if it fits the target's accepted algorithm types.
+2. Create a [Classic Key](https://docs.akeyless.io/docs/classic-keys) in the Akeyless Platform. You can do it either from the Akeyless CLI or in the Akeyless Console. Alternatively, You can also use an existing Classic Key if it fits the target's accepted algorithm types.
 
 Salesforce supports only `AES256GCM` keys.
 

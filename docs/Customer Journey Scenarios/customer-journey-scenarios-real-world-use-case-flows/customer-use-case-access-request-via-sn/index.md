@@ -18,7 +18,7 @@ In the rapidly evolving digital landscape, a leading multinational corporation r
 
 ## Challenge
 
-The company sought a solution that could streamline the process of managing access requests, from internal systems and databases to secure remote access for offsite work. They needed a system that could automate the approval or denial of these requests, enforce strict security standards, and ensure compliance with both internal and external regulations.
+The company sought a solution that could streamline the process of managing access requests, from internal systems and databases to Secure Remote Access for offsite work. They needed a system that could automate the approval or denial of these requests, enforce strict security standards, and ensure compliance with both internal and external regulations.
 
 ## Solution
 
@@ -42,7 +42,7 @@ Before beginning the implementation of the solution, it's essential to have the 
 
 To implement the integration of Akeyless with ServiceNow for managing access requests and utilizing event forwarding, follow these detailed steps:
 
-**[Create a Gateway in Akeyless](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system-1):** The initial step involves setting up an Akeyless gateway. This is a crucial step as having a gateway is mandatory to utilize the event forwarder functionality. The gateway serves as a bridge, facilitating secure communication between Akeyless and other systems or applications.
+**[Create a Gateway in Akeyless](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system-1):** The initial step involves setting up an Akeyless Gateway. This is a crucial step as having a gateway is mandatory to utilize the event forwarder functionality. The gateway serves as a bridge, facilitating secure communication between Akeyless and other systems or applications.
 
 * [To begin constructing the Gateway, we must first set up Docker.](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system)
 

@@ -22,7 +22,7 @@ To set up Akeyless KMS Integration with Azure KMS, follow these steps:
 >
 > Remember to give the Azure Target the [Key Vault Administrator](https://docs.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations) permissions to manage the Azure Key Vault.
 
-2. Create a [Classic Key](https://docs.akeyless.io/docs/classic-keys) in the Akeyless Platform. You can do it either from the Akeyless CLI or in the Akeyless console. Alternatively, You can also use an existing Classic Key if it fits the target's accepted algorithm types.
+2. Create a [Classic Key](https://docs.akeyless.io/docs/classic-keys) in the Akeyless Platform. You can do it either from the Akeyless CLI or in the Akeyless Console. Alternatively, You can also use an existing Classic Key if it fits the target's accepted algorithm types.
 
 Azure supports the following algorithm types: `RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`, `EC256`, `EC384`.
 

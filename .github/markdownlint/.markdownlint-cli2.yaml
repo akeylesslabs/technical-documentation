@@ -888,7 +888,7 @@ config:
       - Java
       - Kotlin
       - Scala
-      - C
+      ##- C # Interferes with ordered lists.
       - C++
       - 'C#'
       - Rust

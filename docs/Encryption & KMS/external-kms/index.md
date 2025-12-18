@@ -38,9 +38,9 @@ When your cloud provider encryption keys are managed by Akeyless:
 * Encryption keys are separated from the data
 * Your requirements on key complexity are met
 * All your keys are managed in a uniform manner
-* You have a complete audit trail of key usage
+* You have a complete Audit Trail of key usage
 
-When you share a key with one of the supported cloud KMS providers, a copy of the key material is securely transferred in accordance with the key import specification (BYOK) of the KMS provider.
+When you share a key with one of the supported Cloud KMS providers, a copy of the key material is securely transferred in accordance with the key import specification (BYOK) of the KMS provider.
 
 > 👍 Note
 >

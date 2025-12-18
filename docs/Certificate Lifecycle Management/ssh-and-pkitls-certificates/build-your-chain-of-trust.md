@@ -73,7 +73,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 The following is the structure of the items related to the newly created CA:
 
-* **pki** - A root folder that will contain all **Certs**, **Issuers** and **Keys**.
+* **PKI** - A root folder that will contain all **Certs**, **Issuers** and **Keys**.
 * **Certs** - Contains the certificate for both **Root** and **Intermediate** issuers.
 * **Issuers** -  Contains the both **Root** and **Intermediate** issuers.
 * **Keys** - Contains the signer keys for both **Root** and **Intermediate** issuers.
