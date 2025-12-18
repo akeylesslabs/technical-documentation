@@ -16,7 +16,7 @@ The missing piece of that puzzle is - who can access the key fragments? Some may
 
 Well, they're basically correct, but, they can also be completely wrong.
 
-Since Akeyless DFC enables Akeyless to perform cryptographic operations WITHOUT EVER COMBINING the encryption key, one of the key fragments can actually be on the customer's environment, to which Akeyless has no access. This means that Akeyless, as a service provider, won't be able to decrypt any encrypted data by our customers (who hold one of the key fragments). The reason is simple: we don't have access to your fragment.
+Since Akeyless DFC enables Akeyless to perform cryptographic operations WITHOUT EVER COMBINING the encryption key, one of the key fragments can actually be on the customer's environment, to which Akeyless has no access. This means that Akeyless, as a Service Provider, won't be able to decrypt any encrypted data by our customers (who hold one of the key fragments). The reason is simple: we don't have access to your fragment.
 
 Therefore, in order to enable Zero-Knowledge Encryption, all you need is your own Customer Fragment.
 

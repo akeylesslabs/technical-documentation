@@ -11,7 +11,7 @@ In AI development, we're obsessed with agent capabilities. But what about their 
 
 The common solution, .env files or Kubernetes secrets, just moves the problem. You still have a static, long-lived password sitting on a server. If that's compromised, it's game over.
 
-This post explores a more radical, secure architecture: a "dynamic-only" secretless agent. We'll walk through the code for a Google ADK agent that starts with zero credentials. It uses its native GCP cloud identity to fetch its Gemini API key, and for its database, it only accepts just-in-time, dynamic credentials.
+This post explores a more radical, secure architecture: a "dynamic-only" secretless agent. We'll walk through the code for a Google ADK agent that starts with zero credentials. It uses its native GCP cloud identity to fetch its Gemini API Key, and for its database, it only accepts just-in-time, dynamic credentials.
 
 <Image border={false} src="https://files.readme.io/f5c06bb7db757f742fa8959b6e0e705c800baeb66f72fc9b06283a60c37522a4-8630a779-57cb-4b0c-a9d4-65756bd93296.png" />
 
@@ -209,10 +209,10 @@ This code initializes an AI agent's credentials securely by fetching them direct
 
 When the agent starts, the initialize_credentials function is called. It:
 
-1. Fetches the Gemini API key and immediately configures the Google AI library with it using genai.configure(api_key=...).
+1. Fetches the Gemini API Key and immediately configures the Google AI library with it using genai.configure(api_key=...).
 2. Fetches dynamic, just-in-time MongoDB credentials and stores them in a global variable named mongodb_credentials.
 
-The result is that no secrets ever touch the disk. The API key and database credentials exist only in the application's memory, where they are used directly by the agent's tools. This "secretless" approach significantly enhances security by eliminating static, stored credentials.
+The result is that no secrets ever touch the disk. The API Key and database credentials exist only in the application's memory, where they are used directly by the agent's tools. This "secretless" approach significantly enhances security by eliminating static, stored credentials.
 
 ```python Phyton
 def create_agent():
@@ -253,15 +253,15 @@ Here is an example of that exact interaction:
 
 The architecture we've explored isn't just a theoretical workaround; it's a practical, robust solution to the security risks inherent in powerful AI agents. Traditional methods leave static, long-lived credentials like database passwords and API keys as ticking time bombs on a server. If compromised, it's game over.
 
-By contrast, the "dynamic-only" model empowers the agent to start with zero secrets. It leverages its native cloud identity (GCP IAM) to prove who it is. Based on this identity, it fetches its Gemini API key and loads it directly into the Google client's configuration in memory, bypassing environment variables entirely. More critically, it dynamically generates database credentials that are valid for only a few minutes.
+By contrast, the "dynamic-only" model empowers the agent to start with zero secrets. It leverages its native cloud identity (GCP IAM) to prove who it is. Based on this identity, it fetches its Gemini API Key and loads it directly into the Google client's configuration in memory, bypassing environment variables entirely. More critically, it dynamically generates database credentials that are valid for only a few minutes.
 
-This means the agent's most sensitive secrets, its database access simply do not exist until the exact moment of execution and are gone before an attacker can find them. This shift from protecting static secrets to eliminating them entirely results in a far more resilient and auditable system.
+This means the agent's most sensitive secrets, its database access simply do not exist until the exact moment of execution and are gone before an attacker can find them. This shift from protecting Static Secrets to eliminating them entirely results in a far more resilient and auditable system.
 
 The benefits of this approach are profound:
 
 * Zero Trust for Secrets: The application trusts nothing at startup. It proves its identity to fetch what it needs.
 * No Static Database Passwords: This is the biggest win. There is no long-lived database password to steal. You can't leak what doesn't exist.
 * Dramatically Reduced Attack Surface: An attacker who compromises the machine finds no keys, no .env files, and no credentials. By the time they start scanning, any in-memory credentials have already expired.
-* Fully Auditable: Every time the agent fetches a key or generates a credential, it creates an audit log in Akeyless. You have a complete, real-time record of all secret access.
+* Fully Auditable: Every time the agent fetches a key or generates a credential, it creates an Audit Log in Akeyless. You have a complete, real-time record of all secret access.
 
 By building our agents this way, we move from a defensive security model (protecting secrets) to a proactive one (eliminating them entirely).
