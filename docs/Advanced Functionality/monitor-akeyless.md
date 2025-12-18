@@ -26,11 +26,11 @@ Audit logging is important for security and compliance. Akeyless generates detai
 
 **Regulatory Compliance**: Align with standards such as **GDPR**, **HIPAA**, and **ISO 27001**.
 
-Audit logs can be exported to external platforms for further analysis and long-term storage, serving as valuable resources for investigations and audits.
+Audit Logs can be exported to external platforms for further analysis and long-term storage, serving as valuable resources for investigations and audits.
 
 ### Log Forwarding
 
-Akeyless supports centralized log management by allowing audit logs to be forwarded from the Akeyless Gateway. Logs can be streamed or exported to external platforms for detailed analysis and monitoring.
+Akeyless supports centralized log management by allowing Audit Logs to be forwarded from the Akeyless Gateway. Logs can be streamed or exported to external platforms for detailed analysis and monitoring.
 
 A full list of the log servers to which logs can be forwarded can be found in this [guide](https://docs.akeyless.io/docs/gw-docker-log-forwarding).
 
@@ -49,9 +49,9 @@ Akeyless provides detailed telemetry metrics to offer insights into the health a
 * **Error Rates**: Identify and fix issues by tracking errors.
 * **Resource Utilization**: Monitor CPU, memory, and other system resources.
 
-Telemetry metrics work with leading monitoring tools, including **Prometheus**, **Grafana**, and **DataDog**. By exporting metrics to these systems, you can set up dashboards and alerts to support active monitoring and quick responses. In addition to those metrics, you can also forward the Gateway application logs as well.
+Telemetry metrics work with leading monitoring tools, including **Prometheus**, **Grafana**, and **Datadog**. By exporting metrics to these systems, you can set up dashboards and alerts to support active monitoring and quick responses. In addition to those metrics, you can also forward the Gateway application logs as well.
 
-Refer to the [Telemetry Metrics](https://docs.akeyless.io/docs/telemetry-metrics) official docs for the Gateway full metrics list and to the [Kubernetes Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for k8s Injector metrics.
+Refer to the [Telemetry Metrics](https://docs.akeyless.io/docs/telemetry-metrics) official docs for the Gateway full metrics list and to the [Kubernetes Secrets Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s) official doc for K8s Injector metrics.
 
 ## Event Center
 
@@ -101,4 +101,4 @@ env:
     value: "true"
 ```
 
-Note, the k8s [readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) monitors the `api/v1/health` endpoint to keep the deployment up and running while working in offline mode.
+Note, the K8s [readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) monitors the `api/v1/health` endpoint to keep the deployment up and running while working in offline mode.
