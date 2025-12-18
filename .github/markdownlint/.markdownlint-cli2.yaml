@@ -1131,7 +1131,7 @@ config:
       - Microsoft Purview
       - Purview
       - Azure Purview
-      - Cloud Identity
+      #- Cloud Identity
       - Google Cloud Identity
       - Cloud Identity-Aware Proxy
       - IAP
