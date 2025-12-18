@@ -101,6 +101,26 @@ function stripHtmlTags(text) {
   return (text || "").replace(/<[^>]*>/g, "");
 }
 
+/**
+ * Find Markdown links of the form [text](destination).
+ *
+ * This is intentionally heuristic:
+ * - It avoids matching image syntax ![alt](src) by checking the preceding char.
+ * - It does not attempt to fully parse nested parentheses/brackets.
+ */
+function findMarkdownLinks(text) {
+  const s = String(text || "");
+  const matches = [];
+  const re = /\[[^\]\n]+\]\([^) \n]+(?:\s+"[^"]*")?\)/g; // [text](dest "title")
+  let m;
+  while ((m = re.exec(s)) !== null) {
+    const start = m.index;
+    if (start > 0 && s[start - 1] === "!") continue; // ignore images
+    matches.push(m[0]);
+  }
+  return matches;
+}
+
 module.exports = [
   /**
    * AKY001: Disallow H1 (# / Setext H1)
@@ -211,14 +231,7 @@ module.exports = [
     description: "Disallow generic link text like 'click here' and require descriptive labels",
     tags: ["links", "accessibility"],
     function: function (params, onError) {
-      const banned = new Set([
-        "click here",
-        "here",
-        "this link",
-        "link",
-        "learn more",
-        "more"
-      ]);
+      const banned = new Set(["click here", "here", "this link", "link", "learn more", "more"]);
 
       const tokens = params.tokens || [];
       for (const t of tokens) {
@@ -491,9 +504,7 @@ module.exports = [
 
       if (names.length === 0) return;
 
-      const canonicalByLower = new Map(
-        names.map((n) => [String(n).toLowerCase(), String(n)])
-      );
+      const canonicalByLower = new Map(names.map((n) => [String(n).toLowerCase(), String(n)]));
 
       // One combined regex for efficiency; we validate against canonical map after match.
       const alternation = names
@@ -543,17 +554,14 @@ module.exports = [
 
           if (child.type !== "text") continue;
 
-          // Ignore URLs inside visible text, so names inside links/URLs don't trigger.
-          const text = stripUrls(String(child.content || ""));
-          if (!text) continue;
-
+          const segment = stripUrls(String(child.content || ""));
           let m;
-          while ((m = re.exec(text)) !== null) {
+          while ((m = re.exec(segment)) !== null) {
             const found = m[0];
             const canonical = canonicalByLower.get(String(found).toLowerCase());
             if (canonical && found !== canonical) {
-              report(onError, t.lineNumber, `Proper name capitalization: use "${canonical}" instead of "${found}".`, text.trim());
-              break; // prevent multiple reports per line segment
+              report(onError, t.lineNumber, `Proper name capitalization: use "${canonical}" instead of "${found}".`, segment.trim());
+              break;
             }
           }
 
@@ -590,102 +598,65 @@ module.exports = [
   },
 
   /**
-   * AKY015: Disallow links inside code blocks AND code spans inside links
+   * AKY015: Disallow code spans/blocks being combined with Markdown links.
    *
-   * Detects:
-   * 1) Inline code used as Markdown link text: [`code`](url)
-   * 2) Markdown links/autolinks inside fenced or indented code blocks
-   * 3) HTML anchors wrapping code/pre tags: <a ...><code|pre>...</code|pre></a>
+   * Detects both:
+   *  1) Inline links whose visible link text contains inline code (e.g., [`foo`](...)).
+   *  2) Markdown link syntax inside fenced/indented code blocks (e.g., shown as code but actually a link).
+   *
+   * This rule intentionally looks for Markdown link syntax ([]()) rather than URL structures.
    */
   {
-    names: ["AKY015", "no-links-in-code-and-no-code-in-links"],
-    description: "Detect code used as link text and links embedded inside code blocks",
-    tags: ["links", "code", "style", "accessibility"],
+    names: ["AKY015", "no-links-in-code-or-code-in-links"],
+    description: "Disallow Markdown links that include inline code, and disallow Markdown link syntax inside code blocks",
+    tags: ["links", "code", "style"],
     function: function (params, onError) {
       const tokens = params.tokens || [];
       const lines = params.lines || [];
+      const codeLines = getCodeBlockLineSet(tokens);
 
-      // ---------- 1) Inline code spans inside markdown link text ----------
+      // (2) Links inside code blocks: scan raw lines in code blocks for markdown link syntax.
+      for (let i = 0; i < lines.length; i++) {
+        const ln = i + 1;
+        if (!codeLines.has(ln)) continue;
+
+        const matches = findMarkdownLinks(lines[i]);
+        if (matches.length > 0) {
+          report(onError, ln, "Avoid Markdown link syntax inside code blocks. Use plain text or a non-linked example.", matches[0]);
+        }
+      }
+
+      // (1) Inline code inside link text: use token stream for accuracy.
       for (const t of tokens) {
         if (t.type !== "inline" || !Array.isArray(t.children)) continue;
+        if (codeLines.has(t.lineNumber)) continue;
 
-        const children = t.children;
-        for (let i = 0; i < children.length; i++) {
-          const c = children[i];
-          if (c.type !== "link_open") continue;
+        let inLink = false;
+        let linkTextPreview = "";
 
-          // Walk until link_close and detect code_inline
-          let hasCodeInline = false;
-          let linkText = "";
-          for (let j = i + 1; j < children.length; j++) {
-            const cc = children[j];
-            if (cc.type === "link_close") break;
-            if (cc.type === "code_inline") {
-              hasCodeInline = true;
-              linkText += cc.content;
-            } else if (cc.type === "text") {
-              linkText += cc.content;
-            }
+        for (const child of t.children) {
+          if (child.type === "link_open") {
+            inLink = true;
+            linkTextPreview = "";
+            continue;
+          }
+          if (child.type === "link_close") {
+            inLink = false;
+            linkTextPreview = "";
+            continue;
+          }
+          if (!inLink) continue;
+
+          if (child.type === "text") {
+            linkTextPreview += child.content;
+            continue;
           }
 
-          if (hasCodeInline) {
-            report(
-              onError,
-              t.lineNumber,
-              "Avoid using inline code as link text; use descriptive link text and put the code outside the link.",
-              linkText.trim() || "(code link text)"
-            );
+          if (child.type === "code_inline") {
+            const ctx = (`[${(linkTextPreview || "").trim()}${(child.content || "").trim()}]`).slice(0, 80);
+            report(onError, t.lineNumber, "Avoid inline code inside Markdown link text. Use descriptive plain text for the link label.", ctx);
+            break;
           }
-        }
-      }
-
-      // ---------- 2) Links inside fenced or indented code blocks ----------
-      // Use token maps to find code blocks precisely and scan their raw lines for link syntax.
-      for (const t of tokens) {
-        if (!((t.type === "fence" || t.type === "code_block") && Array.isArray(t.map))) continue;
-
-        const startLine = t.map[0] + 1; // 1-based
-        const endLineExclusive = t.map[1] + 1;
-
-        for (let ln = startLine; ln < endLineExclusive; ln++) {
-          const raw = lines[ln - 1] || "";
-
-          // Detect markdown links and autolinks inside code blocks
-          // - [text](url)
-          // - [text][ref]
-          // - <https://...>
-          const hasMdLink =
-            /\[[^\]]+\]\([^)]+\)/.test(raw) ||
-            /\[[^\]]+\]\[[^\]]+\]/.test(raw) ||
-            /<https?:\/\/[^>]+>/.test(raw);
-
-          if (hasMdLink) {
-            report(
-              onError,
-              ln,
-              "Avoid including markdown links inside code blocks; move the link to prose outside the code block.",
-              raw.trim()
-            );
-          }
-        }
-      }
-
-      // ---------- 3) HTML links wrapping code blocks or code elements ----------
-      for (const t of tokens) {
-        if (t.type !== "html_block" && t.type !== "html_inline") continue;
-        const html = String(t.content || "");
-
-        const hasAnchor = /<a\b[^>]*>/i.test(html) && /<\/a>/i.test(html);
-        if (!hasAnchor) continue;
-
-        const wrapsCode = /<a\b[^>]*>[\s\S]*<(code|pre)\b/i.test(html);
-        if (wrapsCode) {
-          report(
-            onError,
-            t.lineNumber,
-            "Avoid wrapping code (code/pre) inside links; use descriptive link text and keep code separate.",
-            "<a>…<code/pre>…</a>"
-          );
         }
       }
     }
@@ -710,29 +681,9 @@ module.exports = [
 
       const cfg = params.config || {};
       const defaultTracking = [
-        // UTM
-        "utm_source",
-        "utm_medium",
-        "utm_campaign",
-        "utm_term",
-        "utm_content",
-        "utm_id",
-        "utm_name",
-        "utm_reader",
-        "utm_viz_id",
-        "utm_pubreferrer",
-        "utm_swu",
-        // Common click IDs
-        "gclid",
-        "dclid",
-        "gbraid",
-        "wbraid",
-        "fbclid",
-        "msclkid",
-        "yclid",
-        "ttclid",
-        "twclid",
-        "igshid"
+        "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_id", "utm_name",
+        "utm_reader", "utm_viz_id", "utm_pubreferrer", "utm_swu",
+        "gclid", "dclid", "gbraid", "wbraid", "fbclid", "msclkid", "yclid", "ttclid", "twclid", "igshid"
       ];
 
       const trackingSet = new Set(
@@ -752,11 +703,8 @@ module.exports = [
         if (codeLines.has(t.lineNumber)) continue;
 
         const children = t.children;
-
-        for (let i = 0; i < children.length; i++) {
-          const c = children[i];
+        for (const c of children) {
           if (c.type !== "link_open") continue;
-
           const href = getUrlFromLinkOpen(c);
           if (!href || href.indexOf("?") === -1) continue;
 
@@ -764,13 +712,8 @@ module.exports = [
           for (const p of paramsFound) {
             if (allowSet.has(p)) continue;
             if (trackingSet.has(p)) {
-              report(
-                onError,
-                t.lineNumber,
-                `Remove tracking query parameters from links (found '${p}').`,
-                href
-              );
-              break; // one finding per link is enough
+              report(onError, t.lineNumber, `Remove tracking query parameters from links (found '${p}').`, href);
+              break;
             }
           }
         }
