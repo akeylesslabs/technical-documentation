@@ -231,7 +231,7 @@ config:
       - CloudWatch Metrics
       - AWS Config
       - AWS Organizations
-      - Organizations
+      #- Organizations
       - AWS Control Tower
       - Control Tower
       - AWS WAF
