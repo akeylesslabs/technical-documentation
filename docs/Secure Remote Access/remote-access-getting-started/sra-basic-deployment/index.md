@@ -65,9 +65,9 @@ helm show values akeyless/akeyless-gateway > values.yaml
 
 3. Set the relevant parameters in the `values.yaml` file with a text editor or IDE.
 
-## SRA Configuration
+### SRA Configuration
 
-1. Get your SSH Cert Issuer Signer public key using the CLI command: 
+1. Get your SSH Cert Issuer Signer public key using the **CLI** command: 
 
 ```shell SSH CA Public Key
 akeyless get-rsa-public --name /path/to/SSHSignerKey --json --jq-expression='.ssh' 
@@ -83,7 +83,7 @@ sshConfig:
   CAPublicKey: <"ssh-rsa AAAAB...">
 ```
 
-## Run The Deployment
+## Upgrade Gateway
 
 1. To upgrade the existing gateway deployment with the SRA configuration, run the following command:
 
@@ -99,16 +99,10 @@ kubectl get pods
 
 3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000/console`)  with your Gateway admin credentials.
 
-## SRA Access
+## SRA Portal Access
 
-In order to get the external IP address of your Gateway, run:
-
-```shell
-kubectl get svc
-```
-
-You will see the service name as `gw-akeyless-gateway`, to login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
+To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
 
 Log in with one of the [supported authentication methods](https://docs.akeyless.io/docs/access-resources-remotely#prerequisites).
 
-Once logged in, you will see the [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret#/) with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or via an SSH connection.
+Once logged in, you will see Secrets with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or via an SSH connection.
