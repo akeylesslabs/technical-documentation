@@ -56,8 +56,11 @@ akeyless update-ssh-cert-issuer \
 where:
 
 * `secure-access-api`: Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
+
 * `secure-access-ssh`: Secure Access SSH server. e.g. `my.sra-server:22`.
+
 * `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users`list.
+
 * `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
 > 👍 Note
