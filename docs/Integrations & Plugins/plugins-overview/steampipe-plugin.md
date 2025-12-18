@@ -33,7 +33,7 @@ The Steampipe plugin supports the following Authentication Methods:
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 * [Azure AD](https://docs.akeyless.io/docs/azure-ad)
 * [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
 * [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
 * [Access Key](https://docs.akeyless.io/docs/api-key)
 

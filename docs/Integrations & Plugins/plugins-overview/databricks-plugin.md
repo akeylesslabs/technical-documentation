@@ -35,7 +35,7 @@ While Databricks supports SQL, most SQL queries don’t require secrets — henc
 
 * An active Azure Databricks workspace with internet access or the access to Akeyless Gateway
 * Akeyless account with an Access ID
-* A stored secret in Akeyless (e.g., API key for data access)
+* A stored secret in Akeyless (e.g., API Key for data access)
 
 ## Authentication Options
 
@@ -70,7 +70,7 @@ println(s"Retrieved API Key: $apiKey")
 
 ## Implementation: Sample Python Notebook
 
-This notebook retrieves a secret (API key), fetches data from a public API, and saves it into a Databricks table.
+This notebook retrieves a secret (API Key), fetches data from a public API, and saves it into a Databricks table.
 
 ### Step-by-Step Notebook
 

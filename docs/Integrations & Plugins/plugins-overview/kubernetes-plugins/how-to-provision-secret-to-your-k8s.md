@@ -24,7 +24,7 @@ Before the application starts, the injector deploys an **init** container to fet
 
 If the application consumes secrets which regularly change, an annotation can be used to deploy an additional **Sidecar** container which runs alongside the application to monitor changes in secrets. The **Sidecar** tracks and updates secrets within injected files inside the pods, according to specifically annotated pod configurations, and will remain up for the entire application lifecycle. Relevant for cases where the app can watch for live changes in files.
 
-Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together with the Akeyless Platform's [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).  
+Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together with the Akeyless Platform's [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).  
 For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/docs/policy-segregation-for-kubernetes).
 
 <Image align="center" border={false} src="https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png" />

@@ -476,9 +476,9 @@ akeyless dynamic-secret create dockerhub \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`--dockerhub-username`: Username for docker repository
+`--dockerhub-username`: Username for Docker repository
 
-`--dockerhub-password`: password for docker repository
+`--dockerhub-password`: password for Docker repository
 
 `--dockerhub-token-scopes`: Comma-separated access token scopes list to give the created dynamic secret. Valid options are in 'repo:admin', 'repo:write', 'repo:read', 'repo:public_read'
 

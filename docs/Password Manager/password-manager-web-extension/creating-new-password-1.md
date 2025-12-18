@@ -59,7 +59,7 @@ The Akeyless Web Extension will securely store the password and automatically fi
 
 To access saved passwords, click on the Akeyless Web Extension icon in your browser's toolbar.
 
-The Akeyless Web Extension password manager will open, displaying a list of your saved passwords.
+The Akeyless Web Extension Password Manager will open, displaying a list of your saved passwords.
 
 Click on the desired password to view its details or copy it to your clipboard.
 

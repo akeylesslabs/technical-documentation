@@ -12,7 +12,7 @@ next:
 ---
 ## Installation on Your Mobile Devices
 
-The Akeyless password manager mobile application offers a streamlined and user-friendly installation process, compatible with both Android and iOS platforms. Here's how you can effortlessly install and begin using Akeyless on your mobile device:
+The Akeyless Password Manager mobile application offers a streamlined and user-friendly installation process, compatible with both Android and iOS platforms. Here's how you can effortlessly install and begin using Akeyless on your mobile device:
 
 ## Akeyless Password Manager Android Installation
 
@@ -20,7 +20,7 @@ Open Google Play Store: On your Android device, navigate to the Google Play Stor
 
 Search for Akeyless: Once inside the Play Store, locate the search bar at the top of the screen. Here, type in "Akeyless" and press the Enter key on your device's keyboard. This action initiates a search for the app within the Google Play Store.
 
-Locate Akeyless Mobile App: Browse through the search results until you find the official Akeyless password manager mobile application. Look for the app with the recognizable Akeyless logo. Once located, tap on the "Install" button adjacent to the app.
+Locate Akeyless Mobile App: Browse through the search results until you find the official Akeyless Password Manager mobile application. Look for the app with the recognizable Akeyless logo. Once located, tap on the "Install" button adjacent to the app.
 
 Grant Permissions: A prompt will appear, detailing the permissions required by the Akeyless app to function optimally on your device. Carefully review these permissions. If they seem appropriate and necessary for the app’s functionality, tap on the "Accept" button to begin the installation process.
 
@@ -32,7 +32,7 @@ Open Apple App Store: On your iOS device, locate and launch the Apple App Store.
 
 Search for Akeyless: At the top of the App Store interface, you'll find a search bar. Tap on it and enter "Akeyless." Proceed by tapping the "Search" button on the keyboard.
 
-Choose Akeyless Mobile App: The search results will display various apps. Navigate to find the official Akeyless password manager mobile application, recognizable by its logo. Once you've found it, tap on the "Get" button next to the app.
+Choose Akeyless Mobile App: The search results will display various apps. Navigate to find the official Akeyless Password Manager mobile application, recognizable by its logo. Once you've found it, tap on the "Get" button next to the app.
 
 Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password or using Face ID/Touch ID for verification. Follow these steps to finalize the installation.
 
@@ -44,7 +44,7 @@ In the context of modern enterprise environments, where security is a top priori
 
 ## Please Note: Users Will Need to Have a VPN on Their Phone Installed in Order to Use Zero-knowledge Keyless Functionality
 
-Zero-knowledge keyless functionality is a security feature that allows users to access and manage their passwords or other sensitive information without revealing their credentials to the service provider. This is achieved through cryptographic techniques that ensure that only the user has knowledge of their credentials, while the service provider can only verify their identity without ever storing or seeing their passwords.
+Zero-knowledge keyless functionality is a security feature that allows users to access and manage their passwords or other sensitive information without revealing their credentials to the Service Provider. This is achieved through cryptographic techniques that ensure that only the user has knowledge of their credentials, while the Service Provider can only verify their identity without ever storing or seeing their passwords.
 
 A VPN establishes a secure tunnel between the user's mobile device and the VPN server, encrypting all network traffic and routing it through the VPN provider's secure infrastructure. This encrypted tunnel effectively shields the user's data from prying eyes, ensuring that their sensitive information, including their zero-knowledge keyless credentials, remains protected from interception and unauthorized access.
 

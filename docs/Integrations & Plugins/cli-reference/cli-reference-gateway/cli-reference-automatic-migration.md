@@ -78,11 +78,11 @@ akeyless gateway-create-migration \
 
 `--k8s-client-key`: Kubernetes Client key (relevant only for Kubernetes migration with Certificate Authentication method)
 
-`--k8s-username`: Kubernetes Client username with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Password Authentication method)
+`--k8s-username`: Kubernetes Client username with sufficient permission to list and get secrets in the Namespace(s) you selected (relevant only for Kubernetes migration with Password Authentication method)
 
 `--k8s-password`: Kubernetes Client password (relevant only for Kubernetes migration with Password Authentication method)
 
-`--k8s-token`: Kubernetes Bearer Token with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Token Authentication method)
+`--k8s-token`: Kubernetes Bearer Token with sufficient permission to list and get secrets in the Namespace(s) you selected (relevant only for Kubernetes migration with Token Authentication method)
 
 `--ad-target-name`: Active Directory LDAP Target Name. Server type should be Active Directory (Relevant only for Active Directory migration)
 

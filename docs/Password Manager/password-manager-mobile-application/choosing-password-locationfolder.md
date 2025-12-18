@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-When engaging with the Akeyless platform for password management, you are presented with a flexible and intuitive system to categorize and store your passwords. This system is structured around the concept of personal and corporate folders, each serving a distinct purpose and offering different levels of access and privacy.
+When engaging with the Akeyless Platform for password management, you are presented with a flexible and intuitive system to categorize and store your passwords. This system is structured around the concept of personal and corporate folders, each serving a distinct purpose and offering different levels of access and privacy.
 
 ## Personal Folder
 

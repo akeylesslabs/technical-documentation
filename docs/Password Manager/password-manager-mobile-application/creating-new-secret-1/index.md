@@ -12,7 +12,7 @@ next:
 ---
 ## Step 1: Launch the Akeyless Mobile Secret Manager Application
 
-Locating the App: Begin by finding the Akeyless mobile password manager application on your mobile device.
+Locating the App: Begin by finding the Akeyless mobile Password Manager application on your mobile device.
 
 Opening the App: Tap on the Akeyless icon. This action initiates the application, and you may see a brief loading screen as the app prepares to open.
 
@@ -46,7 +46,7 @@ Activating Delete Protection: For added security, especially against accidental 
 
 You will enter the secret's value directly In the 'Value' field, input the information you wish to keep secret.
 
-This could be a secure note, an API key, or any other sensitive information that requires secure storage.
+This could be a secure note, an API Key, or any other sensitive information that requires secure storage.
 
 ## Step 6: Save the Newly Created Secret
 

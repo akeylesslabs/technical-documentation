@@ -28,7 +28,7 @@ By default, Secrets are not encrypted at rest and are open to attack, either via
 
 ## Usage
 
-K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) or a standalone docker container both methods require direct access to the K8s master nodes on the control plane where the `kube-apiserver` is running:
+K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) or a standalone Docker container both methods require direct access to the K8s master nodes on the control plane where the `kube-apiserver` is running:
 
 > 👍 Note
 >
@@ -172,7 +172,7 @@ K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.
 
 ## Standalone Docker Container
 
-Run the docker image **on the same machine as the `kube-apiserver`** with the relevant environment variables, and a mounted volume for the Unix socket.
+Run the Docker image **on the same machine as the `kube-apiserver`** with the relevant environment variables, and a mounted volume for the Unix socket.
 
 ```shell
 docker run -d \
@@ -183,7 +183,7 @@ docker run -d \
   akeyless/k8s-akeyless-kms-plugin
 ```
 
-Check the docker logs to validate the plugin is running:
+Check the Docker logs to validate the plugin is running:
 
 ```shell
 $ docker logs akeyless-kms-plugin

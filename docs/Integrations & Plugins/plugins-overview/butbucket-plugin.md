@@ -1,5 +1,5 @@
 ---
-title: BitBucket Plugin
+title: Bitbucket Plugin
 excerpt: ''
 deprecated: false
 hidden: true
@@ -14,7 +14,7 @@ next:
 
 The Akeyless integration for Bitbucket Pipelines enables a secure, simple, and native way to fetch secrets just-in-time into pipeline steps—avoiding secrets in code or config while keeping deployments seamless.
 
-Using the **BitBucket** plugin enables you to work with [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [PKI](https://docs.akeyless.io/docs/certificate-lifecycle-management) and [SSH](https://docs.akeyless.io/docs/ssh-certificates) certificates.
+Using the **Bitbucket** plugin enables you to work with [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated](https://docs.akeyless.io/docs/rotated-secrets) secrets, as well as [PKI](https://docs.akeyless.io/docs/certificate-lifecycle-management) and [SSH](https://docs.akeyless.io/docs/ssh-certificates) certificates.
 
 Each pipeline step runs in isolation, so secrets don’t carry over automatically. The Akeyless Bitbucket Pipe stores them in `bitbucket-pipes-exports.env`, declaring it as an artifact lets later steps access them without re-fetching.
 

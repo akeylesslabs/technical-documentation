@@ -114,11 +114,11 @@ akeyless gateway-update-ldap-auth-config \
 
 ### Flags
 
-`--ldap-enable`: Enabling ldap authentication
+`--ldap-enable`: Enabling LDAP authentication
 
-`--access-id`: The access ID of the Ldap auth method
+`--access-id`: The access ID of the LDAP Auth Method
 
-`--signing-key-data`: The private key (base64 encoded), associated with the public key defined in the Ldap auth
+`--signing-key-data`: The private key (Base64 encoded), associated with the public key defined in the LDAP auth
 
 `--signing-key-file-name`: the path to the file containing the private key
 

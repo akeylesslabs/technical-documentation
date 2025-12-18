@@ -50,7 +50,7 @@ Requestors receive timely notifications regarding the status of their access req
 
 ## Required Configuration on Akeyless System
 
-To utilize the Akeyless ServiceNow App, an Access Role must be created. [This guide (Role-based Access Control (RBAC))](https://docs.akeyless.io/docs/rbac) outlines the steps for creating an Access Role in Akeyless.
+To utilize the Akeyless ServiceNow App, an Access Role must be created. [This guide (Role-Based Access Control (RBAC))](https://docs.akeyless.io/docs/rbac) outlines the steps for creating an Access Role in Akeyless.
 
 Please configure the following permissions:
 
@@ -62,7 +62,7 @@ Please configure the following permissions:
 
 <Image border={false} src="https://files.readme.io/004d7ba-image-20230205-095303.png" />
 
-* Read/Update/Delete (this is a set of actions that the user can request access for) for static secrets/targets under the path that item exists that the user can request access for (note, that path is case-sensitive)
+* Read/Update/Delete (this is a set of actions that the user can request access for) for Static Secrets/targets under the path that item exists that the user can request access for (note, that path is case-sensitive)
 
 <Image border={false} src="https://files.readme.io/92425b3-image-20230205-100518.png" />
 
@@ -86,7 +86,7 @@ Creating basic auth credentials via ServiceNow instance.
 <Image border={false} src="https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png" />
 
 * In the "Name" field write "akeyless_basic_auth_creds"
-* Add "User Name" & "Password" / [API key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-via-the-ui).
+* Add "User Name" & "Password" / [API Key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-via-the-ui).
 
 <Image border={false} src="https://files.readme.io/b11a153-Screenshot_2024-07-14_at_15.10.31.png" />
 
@@ -101,7 +101,7 @@ Add JWT authentication in ServiceNow:
 
   <Image border={false} src="https://files.readme.io/b60bfff-Screenshot_2024-07-14_at_15.17.26.png" />
 
-* Create oAuth Application Registry:
+* Create OAuth Application Registry:
   * Choose the option "Create an OAuth JWT API endpoint for external clients":
 
 <Image border={false} src="https://files.readme.io/25c6457-Screenshot_2024-07-14_at_15.21.19.png" />
@@ -114,7 +114,7 @@ Add JWT authentication in ServiceNow:
 
 <Image border={false} src="https://files.readme.io/c1d69ce-Screenshot_2024-07-14_at_15.33.14.png" />
 
-* Scroll down to “Jwt Verifier Maps”, press New.
+* Scroll down to “JWT Verifier Maps”, press New.
 
 <Image border={false} src="https://files.readme.io/8af87f5-Screenshot_2024-07-14_at_15.33.39.png" />
 
@@ -122,7 +122,7 @@ Add JWT authentication in ServiceNow:
 
 <Image border={false} src="https://files.readme.io/d32f15b-Screenshot_2024-07-14_at_15.36.45.png" />
 
-* Create user with akeyless role:
+* Create user with Akeyless role:
   * Create user in “Users” table:
 
 <Image border={false} src="https://files.readme.io/b22ab87-Screenshot_2024-07-14_at_15.45.00.png" />
@@ -140,7 +140,7 @@ Add JWT authentication in ServiceNow:
 
 <Image border={false} src="https://files.readme.io/b1a5f9b-Screenshot_2024-07-14_at_15.56.29.png" />
 
-Insert the details. It is recommended to choose Auth type “JWT”. Insert the private key used to sign the certificate. Insert the user created in ServiceNow. Insert the client-id and client-secret from the oAuth Application in ServiceNow.
+Insert the details. It is recommended to choose Auth type “JWT”. Insert the private key used to sign the certificate. Insert the user created in ServiceNow. Insert the client-id and client-secret from the OAuth Application in ServiceNow.
 
 <Image border={false} src="https://files.readme.io/d383a3d-Screenshot_2024-07-14_at_16.01.06.png" />
 

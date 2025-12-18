@@ -170,11 +170,11 @@ akeyless gateway-update-tls-cert \
 
 #### Flags
 
-`--cert-data`: TLS Certificate (base64 encoded), this flag is ignored if `--cert-file-name` is supplied
+`--cert-data`: TLS Certificate (Base64 encoded), this flag is ignored if `--cert-file-name` is supplied
 
 `--cert-file-name`: Path to the file containing the TLS Certificate, this flag is ignored if `--cert-data` is supplied
 
-`--key-data`: TLS Private Key (base64 encoded), this flag is ignored if `--key-file-name` is supplied
+`--key-data`: TLS Private Key (Base64 encoded), this flag is ignored if `--key-file-name` is supplied
 
 `--key-file-name`: Path to the file containing the TLS Private Key, this flag is ignored if `--key-data` is supplied
 

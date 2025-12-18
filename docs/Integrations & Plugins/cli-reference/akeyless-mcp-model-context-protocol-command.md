@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The akeyless mcp command starts an MCP server that enables AI assistants such as Cursor and GitHub Copilot to securely interact with Akeyless services through a standardized interface.
+The `akeyless mcp` command starts an MCP server that enables AI assistants such as Cursor and GitHub Copilot to securely interact with Akeyless services through a standardized interface.
 
 ## What Is MCP?
 

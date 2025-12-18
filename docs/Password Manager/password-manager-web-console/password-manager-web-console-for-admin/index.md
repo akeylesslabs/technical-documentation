@@ -66,7 +66,7 @@ Maintain a consistent and secure experience for your team by enforcing regular u
 
 ## Securely Share Secrets With Anyone, Anytime
 
-Akeyless empowers you to securely [share static secrets](https://docs.akeyless.io/docs/sharing-static-secrets) with anyone, even if they're not Akeyless users or part of your organization. Define a well-defined time-to-live (TTL) for each shared secret, ensuring that access expires after the specified period.
+Akeyless empowers you to securely [share Static Secrets](https://docs.akeyless.io/docs/sharing-static-secrets) with anyone, even if they're not Akeyless users or part of your organization. Define a well-defined time-to-live (TTL) for each shared secret, ensuring that access expires after the specified period.
 
 ## Add a Sub-administrator
 

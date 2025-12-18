@@ -42,7 +42,7 @@ akeyless auth-method create k8s \
 
 `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false
 

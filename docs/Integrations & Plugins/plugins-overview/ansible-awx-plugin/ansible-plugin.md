@@ -18,7 +18,7 @@ You can manage secrets and certificates with either [Modules](https://docs.ansib
 
 To install the Akeyless Ansible plugin, use one of the following methods:
 
-The Akeyless `secrets_management` collection is available on Ansible Galaxy under the namespace `akeyless`. You can install it using:
+The Akeyless `secrets_management` collection is available on Ansible Galaxy under the Namespace `akeyless`. You can install it using:
 
 ```shell
 ansible-galaxy collection install akeyless.secrets_management

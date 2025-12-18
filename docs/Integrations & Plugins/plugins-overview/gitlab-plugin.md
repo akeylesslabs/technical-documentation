@@ -83,7 +83,7 @@ Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.
 >
 > In GitLab v16 and above, `CI_JOB_JWT_V2` is replaced by [ID tokens](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens).
 >
-> The image is `akeyless/ci_base` which is a public docker image based on `ruby:2.4` that contains the Akeyless CLI as well as other essential components.
+> The image is `akeyless/ci_base` which is a public Docker image based on `ruby:2.4` that contains the Akeyless CLI as well as other essential components.
 
 ```yaml .gitlab-ci.yml
 variables: 

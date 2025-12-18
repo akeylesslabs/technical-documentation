@@ -82,7 +82,7 @@ Where:
 
 The certificate attached to the private key must have at least a **Common Name (CN)** with it.
 
-Create the Venafi Dynamic Secret in Akeyless gateway:
+Create the Venafi Dynamic Secret in Akeyless Gateway:
 
 ```shell
 akeyless dynamic-secret create venafi \
@@ -140,7 +140,7 @@ akeyless get-dynamic-secret-value \
 
 Certificate request via **Certificate Signing Request (CSR)**:
 
-To fetch a new certificate via **CSR**, you need to create your **CSR** and send it to the Akeyless gateway in base64 encoding.
+To fetch a new certificate via **CSR**, you need to create your **CSR** and send it to the Akeyless Gateway in Base64 encoding.
 
 Create a **CSR**:
 
@@ -165,4 +165,4 @@ In the response, you’ll see the relevant information and artifacts for the req
 
  Depending on your flow you may also see the `certificate chain`, `issuing ca`, `ca chain`, and `private key`.
 
-The artifacts `certificate`, `certificate chain` and `private key` can also be found as static secrets under the Artifacts Folder defined in the dynamic secret's settings.
+The artifacts `certificate`, `certificate chain` and `private key` can also be found as Static Secrets under the Artifacts Folder defined in the dynamic secret's settings.

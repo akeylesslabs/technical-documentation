@@ -23,11 +23,11 @@ The following Authentication Methods can be used:
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 * [Azure](https://docs.akeyless.io/docs/azure-ad)
 * [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
 
 > 👍 Note
 >
-> In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For MacOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
+> In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For macOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
 Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/api-key) using the CLI:
 
@@ -164,4 +164,4 @@ With a successful server initialization, 2 **Classic keys** will be created in y
 >
 > **SPIFFE/SPIRE**
 >
-> For the full configuration steps, visit the official [Quickstart for Linux and MacOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
+> For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

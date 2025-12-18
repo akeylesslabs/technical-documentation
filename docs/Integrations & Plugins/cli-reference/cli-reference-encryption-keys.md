@@ -38,19 +38,19 @@ akeyless assoc-target-item \
 
 `-n, --name`: **Required**, The item to associate
 
-`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for azure targets)
+`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for Azure targets)
 
-`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for azure targets)
+`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for Azure targets)
 
-`--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
+`--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
+`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
+`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
+`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for gcp targets)
+`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for GCP targets)
 
 `--tenant-secret-type`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
 

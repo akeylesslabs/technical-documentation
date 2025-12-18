@@ -12,7 +12,7 @@ next:
 ---
 Akeyless officially integrates with **Cert Manager**, and this guide demonstrates the integration based on Venafi Dynamic Secret, for a direct integration with Akeyless, follow the main [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) guide.
 
-## Using Cert-manager With Akeyless and Veanfi Dynamic Secret
+## Using cert-manager With Akeyless and Veanfi Dynamic Secret
 
 You can have [Cert Manager](https://cert-manager.io/docs/) deployed in a cluster and use Akeyless to generate certificates.
 
@@ -45,7 +45,7 @@ data:
   token: "<Token>"
 ```
 
-The token in the Secret object is expected to be a base64 encoding of an API KEY used to access Akeyless in the following format:
+The token in the Secret object is expected to be a Base64 encoding of an API Key used to access Akeyless in the following format:
 
 ```shell
 access_id..acces_key | base64
@@ -56,7 +56,7 @@ access_id..acces_key | base64
 > The API Key token should be a concatenation of your `access_id` and your `access_key` with double dots as a delimiter.
 >
 > Make sure this [Authentication method](https://akeyless.readme.io/docs/understanding-authentication) is set with the appropriate [RBAC](https://akeyless.readme.io/docs/rbac) in Akeyless, to grant access to your dynamic secret.
-> The path in the yaml should always start with the prefix `pki/sign/` prior to the item path in Akeyless
+> The path in the YAML should always start with the prefix `pki/sign/` prior to the item path in Akeyless
 
 The Issuer object is what allows the cert-manager to call Akeyless with the appropriate dynamic secret.
 

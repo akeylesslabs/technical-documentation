@@ -24,13 +24,13 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
 > 👍 Note
 >
-> Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
+> Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
 1. Log in to Jenkins and go to **Manage Jenkins > Manage Plugins**.
 
   <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/a9975df-2.png" />
 
-2. Find and install the Hashicorp Vault plugin.
+2. Find and install the HashiCorp Vault plugin.
 
   <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/1e80fe6-3.png" />
 
@@ -112,7 +112,7 @@ Click “Build Now” and expect to see the following Console Output:
 
 ### Static Secrets
 
-To work with Static secrets, the Vault Secret Path should be in this format for **KV 1**:
+To work with Static Secrets, the Vault Secret Path should be in this format for **KV 1**:
 
 `secret/data/<Full Secret Name>`, where the Key in the returned JSON name is `data`.
 

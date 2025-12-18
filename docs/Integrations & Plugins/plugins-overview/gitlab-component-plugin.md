@@ -218,7 +218,7 @@ use_secret:
     - echo "Fetching Secrets From Akeyless"
 ```
 
-In this example, we demonstrated using both [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) while using the [JWT](https://docs.akeyless.io/docs/oauth20jwt) auth method which we created earlier.
+In this example, we demonstrated using both [Static](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) while using the [JWT](https://docs.akeyless.io/docs/oauth20jwt) Auth Method which we created earlier.
 
 > 👍 Tip
 >

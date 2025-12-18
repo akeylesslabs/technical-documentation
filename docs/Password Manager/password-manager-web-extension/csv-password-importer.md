@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The "CSV Password Import" feature allows users to seamlessly import passwords from a CSV file directly through the web extension. This feature supports a straightforward import process, enabling users to efficiently upload password data either to personal or corporate areas within the password manager.
+The "CSV Password Import" feature allows users to seamlessly import passwords from a CSV file directly through the web extension. This feature supports a straightforward import process, enabling users to efficiently upload password data either to personal or corporate areas within the Password Manager.
 
 ## How to Use the CSV Password Import Feature
 
@@ -35,7 +35,7 @@ Step 4: Select the CSV File
 
 Step 5: Choose Import Location
 
-* Select where the passwords will be imported: choose either the 'Personal' or 'Corporate' areas within the password manager.
+* Select where the passwords will be imported: choose either the 'Personal' or 'Corporate' areas within the Password Manager.
 
 Step 6: Create a Dedicated Folder
 
