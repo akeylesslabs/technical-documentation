@@ -182,7 +182,7 @@ When you export the audit logs from the Akeyless Gateway to Azure Log Analytics,
 
 9. Select **Save Changes**.
 
-10. To configure your Logstash to use the same port and protocol, add the following to the **logstash.conf** file:
+10. To configure your Logstash to use the same port and protocol, add the following to the `logstash.conf` file:
 
 ```shell
 input {

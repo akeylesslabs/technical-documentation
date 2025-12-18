@@ -16,7 +16,7 @@ next:
 >
 > A new and updated chart is soon to be released.
 
-The Akeyless Secure Remote Access Bastion provides secure remote access to resources using Just In Time credentials (dynamic, rotated secrets, and SSH certificates). This guide provides guidance for a **Docker** deployment of Akeyless Secure Remote Access Bastions both **Web-bastion** and **SSH-bastion**.
+The Akeyless Secure Remote Access Bastion provides Secure Remote Access to resources using Just In Time credentials (Dynamic Secrets, Rotated Secrets, and SSH certificates). This guide provides guidance for a **Docker** deployment of Akeyless Secure Remote Access Bastions both `web-bastion` and `ssh-bastion`.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Currently, this setup requires a **Volume** storage mechanism of [Docker](https:
 
 > 🚧 Note:
 >
-> To enable Secure Remote Access features, you will have to get an access key to Akeyless private docker repository. Please contact your Account Manager for more details.
+> To enable Secure Remote Access features, you will have to get an access key to Akeyless private Docker Hub repository. Please contact your Account Manager for more details.
 
 ## Configuration
 
@@ -254,7 +254,7 @@ docker run --name web-bastion -d -p 8888:8888  \
 
 ### Log Forwarding
 
-To forward all your users session logs from the **ssh-bastion**, mount a local file which hold the setting of your target log server as described in [this](https://docs.akeyless.io/docs/ssh-log-forwarding) guide, for example:
+To forward all your users session logs from the `ssh-bastion`, mount a local file which hold the setting of your target log server. [Review this guide for the process](https://docs.akeyless.io/docs/ssh-log-forwarding). For example:
 
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
@@ -307,7 +307,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
 ```
 
-Verify that both **web-bastion** and **ssh-bastion** containers are up and running.
+Verify that both `web-bastion` and `ssh-bastion` containers are up and running.
 
 ### SSH Fingerprint
 

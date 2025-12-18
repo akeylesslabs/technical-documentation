@@ -14,7 +14,7 @@ next:
       slug: secure-remote-access-advance
       title: SRA Advanced Configuration
 ---
-The Akeyless Secure Remote Access Bastion provides secure remote access to resources using Just In Time credentials (dynamic secrets, rotated secrets, and SSH certificates).
+The Akeyless Secure Remote Access Bastion provides Secure Remote Access to resources using Just In Time credentials (Dynamic Secrets, Rotated Secrets, and SSH certificates).
 
 This chart bootstraps the Secure Remote Access Bastion deployment on a Kubernetes cluster using the Helm package manager.
 
@@ -32,19 +32,19 @@ This chart bootstraps the Secure Remote Access Bastion deployment on a Kubernete
 
 ### Networking
 
-* Ingress - Make sure to use sticky session annotation, for example, nginx.ingress.kubernetes.io/affinity: "cookie" in Nginx
+* Ingress - Make sure to use sticky session annotation, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"` in NGINX
 
-* Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html)
+* Cloud Provider Load Balancer - Make sure to config the Load Balancer to support sticky sessions, for example, in AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html).
 
 When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited.
 
-e.g., when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
+For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
 ### Storage
 
 To be able to make more than 1 SSH-bastion pod work, the chart requires a persistent storage, with the `ReadWriteMany` access mode.
 
-Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart `values` file
+Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart's `values.yaml` file
 
 ```yaml
 persistence: 
@@ -81,11 +81,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The values.yaml file holds default values. Copy the file from:
-
-[https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-secure-remote-access](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-secure-remote-access)
-
-Or run the following helm command to generate the values file locally:
+The `values.yaml` file holds default values. [Copy the file from GitHub](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-secure-remote-access). Or run the following Helm command to generate the values file locally:
 
 ```shell
 helm show values akeyless/akeyless-sra > values.yaml
@@ -183,9 +179,9 @@ privilegedAccess:
     - p-xxxxxxx
 ```
 
-When working from an AWS instance with an IAM Role associated with it (which is the default state for EKS clusters that leverage the IAM Role of their Node group), nothing else is required - as the Bastion will be leveraging the IAM Role of the AWS instance itself where K8s is running.
+When working from an AWS instance with an IAM Role associated with it (which is the default state for EKS clusters that leverage the IAM Role of their Node group), nothing else is required - as the Bastion will be leveraging the IAM Role of the AWS instance itself where Kubernetes is running.
 
-Alternatively, you can leverage an IAM Role assumed by a K8s Service Account in your Cluster. For that, you must either [create an IAM Role bound to a K8s Service Account](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html), or use an existing IAM role for annotating the Service Account in the Bastion's `values.yaml` helm-chart:
+Alternatively, you can leverage an IAM Role assumed by a Kubernetes Service Account in your Cluster. For that, you must either [create an IAM Role bound to a Kubernetes Service Account](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html), or use an existing IAM role for annotating the Service Account in the Bastion's `values.yaml` Helm chart:
 
 Set the `serviceAccountName` with the desired Kubernetes Service Account name, and set its `eks.amazonaws.com/role-arn` annotation to the ARN of the IAM Role in question (which is constructed using the following format: `arn:aws:iam::<AWS-Account-ID>:role/<IAM-Role-Name>`).
 
@@ -286,7 +282,7 @@ privilegedAccess:
 helm install <RELEASE NAME> akeyless/akeyless-sra -f values.yaml
 ```
 
-Verify that both **ssh-sra-akeyless** and **web-sra-akeyless** pods are up and running.
+Verify that both `ssh-sra-akeyless` and `web-sra-akeyless` pods are up and running.
 
 > 👍 Note
 >
@@ -306,4 +302,4 @@ Check that the new pods are starting.
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/install-and-configure-remote-access-bastion" target="_blank">Install and Configure Remote Access Bastion</a>.
+Check out our tutorial video on [Install and Configure Remote Access Bastion](https://tutorials.akeyless.io/docs/install-and-configure-remote-access-bastion).

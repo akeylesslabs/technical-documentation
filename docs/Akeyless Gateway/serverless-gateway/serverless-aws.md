@@ -211,5 +211,3 @@ The Akeyless Serverless Gateway does not support:
 ```shell
 https://{serverless_gateway_URL}/api/gw/api
 ```
-
-<br />
