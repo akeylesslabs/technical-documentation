@@ -567,6 +567,7 @@ config:
       - AES-256
       - RSA
       - RSA-2048
+      - RSASSA-PSS
       - ECDSA
       - Ed25519
       - OpenAPI
@@ -597,6 +598,7 @@ config:
       - Kubernetes Job # "Kubernetes " added to avoid common language conflicts.
       - CronJob
       - Kubernetes Service # "Kubernetes " added to avoid common language conflicts.
+      - Kubernetes ServiceAccount
       - ClusterIP
       - NodePort
       - LoadBalancer
@@ -642,6 +644,9 @@ config:
       - Ingress NGINX
       - cert-manager
       - ExternalDNS
+      - ExternalSecret
+      - ESO
+      - ExternalSecretOperator
       - Cilium
       - Calico
       - Flannel
@@ -851,7 +856,7 @@ config:
       - JPEG
       - JPG
       - GIF
-      - SVG
+      #- SVG
       - WebP
       - TIFF
       - TIF
@@ -1235,6 +1240,11 @@ config:
       - Rails
       - Ruby on Rails
       - TTL
+      - CLI
+      - ID
+      - UUID
+      - API
+      - SDK
 
   # AKY014: Require meaningful image alt text
   # Knobs:

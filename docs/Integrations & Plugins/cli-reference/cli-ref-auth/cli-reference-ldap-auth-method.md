@@ -28,7 +28,7 @@ akeyless auth-method create ldap \
 
 ### Flags
 
-`-n, --name`: **Required**, Auth method name
+`-n, --name`: **Required**, Auth Method name
 
 `--descrpition`: Auth Method description
 
@@ -38,7 +38,7 @@ akeyless auth-method create ldap \
 
 `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
 
-`--audit-logs-claims`: Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
@@ -83,7 +83,7 @@ akeyless update-auth-method-ldap \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--audit-logs-claims`: Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
@@ -124,7 +124,7 @@ akeyless gateway-update-ldap-auth-config \
 
 `--ldap-url`: LDAP Server URL, e.g. ldap://planetexpress.com:389
 
-`-t, --ldap-ca-cert`: LDAP CA Certificate (base64 encoded)
+`-t, --ldap-ca-cert`: LDAP CA Certificate (Base64 encoded)
 
 `--ldap-ca-cert-file-name`: the path to the file containing the CA certificate
 
@@ -146,13 +146,13 @@ akeyless gateway-update-ldap-auth-config \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--audit-logs-claims`: Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
 ## `get`
 
-Gets Ldap Auth config from Gateway
+Gets LDAP Auth config from Gateway
 
 ### Usage
 

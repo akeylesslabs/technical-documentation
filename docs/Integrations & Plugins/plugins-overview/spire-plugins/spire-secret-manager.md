@@ -113,7 +113,7 @@ Where:
 
 * `target_folder` - A path to save all items inside Akeyless where the generated `SVIDs` will be stored
 
-For **K8s**,**GCP** or **AzureAD** Auth method set the following settings as well:
+For **K8s**,**GCP** or **AzureAD** Auth Method set the following settings as well:
 
 * `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
 
@@ -161,4 +161,4 @@ Upon successful registration of the workload, a secret will be created in Akeyle
 >
 > **SPIFFE/SPIRE**
 >
-> For the full configuration steps, visit the official [Quickstart for Linux and MacOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
+> For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

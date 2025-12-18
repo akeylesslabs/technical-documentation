@@ -50,7 +50,7 @@ Command to update log forwarding configuration
 
 ### `AWS S3`
 
-Updates Log Forwarding config for aws-s3
+Updates Log Forwarding config for AWS-S3
 
 #### Usage
 
@@ -95,7 +95,7 @@ akeyless gateway update log-forwarding aws-s3 \
 
 ### `Azure Log Analytics`
 
-Updates Log Forwarding config for azure-analytics
+Updates Log Forwarding config for Azure-analytics
 
 #### Usage
 

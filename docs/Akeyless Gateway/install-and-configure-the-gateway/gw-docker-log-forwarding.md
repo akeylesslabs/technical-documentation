@@ -109,8 +109,8 @@ Setting log forwarding to Google Chronicle system:
 
 ```yaml
 target_log_type="google_chronicle"
-target_google_chronicle_service_account_key="<Base64 json service account key file content>" (required if "target_google_chronicle_service_account_key_file" is empty)
-target_google_chronicle_service_account_key_file="<Path to the json service account key file>" (required if "target_google_chronicle_service_account_key" is empty)
+target_google_chronicle_service_account_key="<Base64 JSON service account key file content>" (required if "target_google_chronicle_service_account_key_file" is empty)
+target_google_chronicle_service_account_key_file="<Path to the JSON service account key file>" (required if "target_google_chronicle_service_account_key" is empty)
 target_google_chronicle_customer_id="<Unique identifier for the Chronicle instance>"(required)
 target_google_chronicle_region="<Region where the customer account is provisioned, possible value: "eu_multi_region", "london", "us_multi_region", "singapore", "tel_aviv">" (required)
 target_google_chronicle_log_type="<Log type>"(required)

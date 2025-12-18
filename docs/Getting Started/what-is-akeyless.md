@@ -64,7 +64,7 @@ Akeyless supports several categories of identity workloads:
 
 ### Secrets Management
 
-Manage static secrets, rotated secrets, and dynamic credentials through a centralized interface.
+Manage Static Secrets, Rotated Secrets, and dynamic credentials through a centralized interface.
 
 ### Certificate Authority & PKI Services
 

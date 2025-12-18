@@ -16,7 +16,7 @@ This section outlines the CLI commands relevant to Access Roles.
 
 ## `assoc-role-am`
 
-Create an association between role and auth method
+Create an association between role and Auth Method
 
 ### Usage
 
@@ -30,7 +30,7 @@ akeyless assoc-role-am \
 
 `-r, --role-name`: **Required**, The role to associate
 
-`-a, --am-name`: **Required**, The auth method to associate
+`-a, --am-name`: **Required**, The Auth Method to associate
 
 `-s, --sub-claims`: key/val of sub claims, e.g group='admins','developers'
 
@@ -50,7 +50,7 @@ akeyless create-role name <Role Name>
 
 `-n, --name`: **Required**, Role name
 
-`--audit-access`: Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
+`--audit-access`: Allow this role to view Audit Logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view Audit Logs produced by the same auth methods.
 
 `--analytics-access`: Allow this role to view analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
 
@@ -72,7 +72,7 @@ akeyless create-role name <Role Name>
 
 ## `delete-assoc`
 
-Delete an association between role and auth method
+Delete an association between role and Auth Method
 
 ### Usage
 
@@ -271,7 +271,7 @@ akeyless update-role -n <Role name> \
 
 `--new-name`: New role name.
 
-`--audit-access`: Allow this role to view audit logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
+`--audit-access`: Allow this role to view Audit Logs. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view Audit Logs produced by the same auth methods.
 
 `--analytics-access`: Allow this role to view analytics. Currently only 'none', 'own' and 'all' values are supported, allowing associated auth methods to view reports produced by the same auth methods.
 

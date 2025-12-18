@@ -50,7 +50,7 @@ Command to create a Dynamic Secret
 
 `gcp`: Creates Google Cloud Provider (GCP) dynamic secret
 
-`github`: Creates GitHub dynamic secret that support tokens creation with fixed ttl of 60 minutes
+`github`: Creates GitHub dynamic secret that support tokens creation with fixed TTL of 60 minutes
 
 `gke`: Creates Google Kubernetes Engine (GKE) dynamic secret
 
@@ -210,7 +210,7 @@ akeyless dynamic-secret create aws \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-aws-account-id`: The AWS account ID
 
@@ -295,7 +295,7 @@ akeyless dynamic-secret create azure \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
@@ -663,7 +663,7 @@ akeyless dynamic-secret create google-workspace \
 
 ### `github`
 
-Creates GitHub Dynamic Secret that support tokens creation with fixed ttl of 60 minutes
+Creates GitHub Dynamic Secret that support tokens creation with fixed TTL of 60 minutes
 
 #### Usage
 
@@ -822,7 +822,7 @@ akeyless dynamic-secret create hanadb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -867,19 +867,19 @@ akeyless dynamic-secret create k8s \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-e, --k8s-cluster-endpoint`: K8S Cluster endpoint. \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: K8s Cluster endpoint. \<DNS / IP> of the cluster
 
-`-c, --k8s-cluster-ca-cert`: K8S Cluster certificate. Base 64 encoded certificate
+`-c, --k8s-cluster-ca-cert`: K8s Cluster certificate. Base 64 encoded certificate
 
-`-t, --k8s-cluster-token`: K8S Cluster authentication token
+`-t, --k8s-cluster-token`: K8s Cluster authentication token
 
-`-s, --k8s-service-account`: K8S ServiceAccount to extract token from
+`-s, --k8s-service-account`: K8s ServiceAccount to extract token from
 
 `-i, --use-gw-service-account`: Use GW's Service Account. **Boolean**, when provided, as part of the **inline connection**.
 
-`--k8s-service-account-type[=fixed]`: K8S ServiceAccount type [fixed, dynamic].
+`--k8s-service-account-type[=fixed]`: K8s ServiceAccount type [fixed, dynamic].
 
-`--k8s-namespace[=default]`: K8S Namespace where the ServiceAccount exists.(relevant only for service-account-type=fixed)
+`--k8s-namespace[=default]`: K8s Namespace where the ServiceAccount exists.(relevant only for service-account-type=fixed)
 
 `--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type=dynamic)
 
@@ -889,7 +889,7 @@ akeyless dynamic-secret create k8s \
 
 `--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)
 
-`--k8s-cluster-name`: K8S cluster name
+`--k8s-cluster-name`: K8s cluster name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -899,7 +899,7 @@ akeyless dynamic-secret create k8s \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-cluster-endpoint`: The K8s cluster endpoint
 
@@ -975,15 +975,15 @@ akeyless dynamic-secret create ldap \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
-`--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+`--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
 
-`--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+`--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for SSH cert issuer, LDAP rotated secret and LDAP dynamic secret, To specify multiple targets use argument multiple times
 
 `--secure-access-rd-gateway-server`: RD Gateway server
 
@@ -1053,7 +1053,7 @@ akeyless dynamic-secret create mongodb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -1118,7 +1118,7 @@ akeyless dynamic-secret create mssql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -1175,13 +1175,13 @@ akeyless dynamic-secret create mysql \
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
-`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
 `--user-ttl[=60m]`: User TTL
 
-`--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates
+`--db-server-certificates`: the set of root certificate authorities in Base64 encoding that clients use when verifying server certificates
 
 `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
@@ -1191,7 +1191,7 @@ akeyless dynamic-secret create mysql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -1248,7 +1248,7 @@ akeyless dynamic-secret create oracledb \
 
 `--user-ttl[=60m]`: User TTL
 
-`--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates
+`--db-server-certificates`: the set of root certificate authorities in Base64 encoding that clients use when verifying server certificates
 
 `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
@@ -1258,7 +1258,7 @@ akeyless dynamic-secret create oracledb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable[=false]`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable[=false]`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -1399,7 +1399,7 @@ akeyless dynamic-secret create postgresql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion.
 
@@ -1467,7 +1467,7 @@ akeyless dynamic-secret create rabbitmq \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
@@ -1535,7 +1535,7 @@ akeyless dynamic-secret create rdp \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1549,7 +1549,7 @@ akeyless dynamic-secret create rdp \
 
 ### `redis`
 
-Creates a redis Dynamic Secret
+Creates a Redis Dynamic Secret
 
 #### Usage
 
@@ -1578,11 +1578,11 @@ akeyless dynamic-secret create redis \
 
 `--port[=6379]`: Redis port
 
-`--acl-rules`: A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys ([~*, +@read])
+`--acl-rules`: A JSON array list of Redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys ([~*, +@read])
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
-`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
@@ -1648,7 +1648,7 @@ akeyless dynamic-secret create redshift \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
 
@@ -1696,7 +1696,7 @@ akeyless dynamic-secret create snowflake \
 
 `--warehouse`: The warehouse the generated credentials are restricted to
 
-`--private-key`: RSA Private key (base64 encoded)
+`--private-key`: RSA Private key (Base64 encoded)
 
 `--private-key-file-name`: The path to the file containing the private key
 
@@ -1739,7 +1739,7 @@ akeyless gateway-create venafi \
 
 `-z, --venafi-zone`: Venafi Zone
 
-`--venafi-api-key`: Venafi API key (Relevant when using Venafi Cloud)
+`--venafi-api-key`: Venafi API Key (Relevant when using Venafi Cloud)
 
 `--venafi-use-tpp`: When connecting to TPP this flag is required
 
@@ -1828,7 +1828,7 @@ Command to update a Dynamic Secret
 
 `gcp`: Updates Google Cloud Provider (GCP) dynamic secret
 
-`github`: Updates Github dynamic secret that support tokens creation with fixed ttl of 60 minutes
+`github`: Updates GitHub dynamic secret that support tokens creation with fixed TTL of 60 minutes
 
 `gke`: Updates Google Kubernetes Engine (GKE) dynamic secret
 
@@ -1965,11 +1965,11 @@ akeyless dynamic-secret update aws \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-aws-account-id`: The aws account id
+`--secure-access-aws-account-id`: The AWS account id
 
-`--secure-access-aws-native-cli`: The aws native cli
+`--secure-access-aws-native-cli`: The AWS native cli
 
 `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
@@ -2035,7 +2035,7 @@ akeyless dynamic-secret update azure \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
@@ -2081,7 +2081,7 @@ akeyless dynamic-secret update cassandra \
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
-`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -2185,9 +2185,9 @@ akeyless dynamic-secret update dockerhub \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`--dockerhub-username`: Username for docker repository
+`--dockerhub-username`: Username for Docker repository
 
-`--dockerhub-password`: Password for docker repository
+`--dockerhub-password`: Password for Docker repository
 
 `--dockerhub-token-scopes`: Comma-separated access token scopes list to give the created dynamic secret. Valid options are in 'repo:admin', 'repo:write', 'repo:read', 'repo:public_read'
 
@@ -2243,7 +2243,7 @@ akeyless dynamic-secret update eks \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
 
@@ -2290,11 +2290,11 @@ akeyless dynamic-secret update gcp \
 
 `--gcp-key-algo`: Service account key algorithm, e.g. KEY_ALG_RSA_04
 
-`-s, --service-account-type[=fixed]`: **Required**, The type of the gcp dynamic secret. Options[fixed, dynamic]
+`-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options[fixed, dynamic]
 
 `-e, --gcp-sa-email`: The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)
 
-`--role-binding`: Role binding definitions in json format
+`--role-binding`: Role binding definitions in JSON format
 
 `--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account , by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
@@ -2376,7 +2376,7 @@ akeyless dynamic-secret update github \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`--installation-id`: Github application installation id
+`--installation-id`: GitHub application installation id
 
 `--installation-organization`: Optional, mutually exclusive with installation id, GitHub organization name
 
@@ -2384,9 +2384,9 @@ akeyless dynamic-secret update github \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`--github-app-id`: Github application id
+`--github-app-id`: GitHub application id
 
-`--github-app-private-key`: Github application private key (base64 encoded key)
+`--github-app-private-key`: GitHub application private key (Base64 encoded key)
 
 `--github-base-url[=https://api.github.com/]`: Github base url
 
@@ -2440,7 +2440,7 @@ akeyless dynamic-secret update gke \
 
 `--user-ttl[=60m]`: User TTL
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
 
@@ -2499,7 +2499,7 @@ akeyless dynamic-secret update hanadb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -2536,7 +2536,7 @@ akeyless dynamic-secret update k8s \
 
 `-i, --use-gw-service-account`: Use the GW's service account
 
-`--k8s-service-account-type[=fixed]`: K8S ServiceAccount type [fixed, dynamic]
+`--k8s-service-account-type[=fixed]`: K8s ServiceAccount type [fixed, dynamic]
 
 `-s, --k8s-service-account`: K8s ServiceAccount to extract token from
 
@@ -2560,7 +2560,7 @@ akeyless dynamic-secret update k8s \
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-cluster-endpoint`: The K8s cluster endpoint
 
@@ -2623,15 +2623,15 @@ akeyless dynamic-secret update ldap \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
-`--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+`--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
 
-`--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+`--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for SSH cert issuer, LDAP rotated secret and LDAP dynamic secret, To specify multiple targets use argument multiple times
 
 `--secure-access-rd-gateway-server`: RD Gateway server
 
@@ -2694,7 +2694,7 @@ akeyless dynamic-secret update mongodb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -2751,7 +2751,7 @@ akeyless dynamic-secret update mssql \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -2801,9 +2801,9 @@ akeyless dynamic-secret update mysql \
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
-`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
-`--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates
+`--db-server-certificates`: the set of root certificate authorities in Base64 encoding that clients use when verifying server certificates
 
 `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
@@ -2817,7 +2817,7 @@ akeyless dynamic-secret update mysql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -2863,7 +2863,7 @@ akeyless dynamic-secret update oracledb \
 
 `--oracle-revocation-statements`: Oracle Revocation statements
 
-`--db-server-certificates`: the set of root certificate authorities in base64 encoding that clients use when verifying server certificates
+`--db-server-certificates`: the set of root certificate authorities in Base64 encoding that clients use when verifying server certificates
 
 `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
@@ -2877,7 +2877,7 @@ akeyless dynamic-secret update oracledb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable[=false]`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable[=false]`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -2939,7 +2939,7 @@ akeyless dynamic-secret update postgresql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -2998,7 +2998,7 @@ akeyless dynamic-secret update rabbitmq \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
@@ -3053,7 +3053,7 @@ akeyless dynamic-secret update rdp \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -3095,11 +3095,11 @@ akeyless dynamic-secret update redis \
 
 `--port[=6379]`: Redis port
 
-`--acl-rules`: A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys ([~*, +@read])
+`--acl-rules`: A JSON array list of Redis ACL rules to attach to the created user. For available rules see the ACL CAT command [https://redis.io/commands/acl-cat](https://redis.io/commands/acl-cat). If omitted the user will have access to read all keys ([~*, +@read])
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
-`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -3161,7 +3161,7 @@ akeyless dynamic-secret update redshift \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
 
@@ -3202,7 +3202,7 @@ akeyless dynamic-secret update snowflake \
 
 `--warehouse`: The warehouse the generated credentials are restricted to
 
-`--private-key`: RSA Private key (base64 encoded)
+`--private-key`: RSA Private key (Base64 encoded)
 
 `--private-key-file-name`: The path to the file containing the private key
 
@@ -3247,7 +3247,7 @@ akeyless dynamic-secret update venafi  \
 
 `-z, --venafi-zone`: Venafi Zone
 
-`--venafi-api-key`: Venafi API key (Relevant when using Venafi Cloud)
+`--venafi-api-key`: Venafi API Key (Relevant when using Venafi Cloud)
 
 `--venafi-use-tpp`: When connecting to TPP this flag is required
 
@@ -3354,7 +3354,7 @@ akeyless dynamic-secret get-value \
 
 ## `list`
 
-List available dynamic secrets
+List available Dynamic Secrets
 
 ### Usage
 
@@ -3439,7 +3439,7 @@ akeyless dynamic-secret tmp-creds get \
 
 ### `update`
 
-Update ttl of dynamic secret temporary credentials
+Update TTL of dynamic secret temporary credentials
 
 #### Usage
 

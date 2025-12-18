@@ -209,7 +209,7 @@ These provide protection against potential future quantum attacks on captured tr
 * Fragment holders must be reachable for operations.
 * Gateway availability is required for CF-based operations.
 * No backups or replication are required for fragments.
-* Fragment refreshing replaces the need for secret rotation at storage level.
+* Fragment refreshing replaces the need for Secret Rotation at storage level.
 
 ***
 

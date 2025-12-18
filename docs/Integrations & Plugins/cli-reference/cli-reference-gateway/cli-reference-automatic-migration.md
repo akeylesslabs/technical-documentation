@@ -40,17 +40,17 @@ akeyless gateway-create-migration \
 
 `-k, --protection-key`: The name of the key that protects the classic key value (if empty, the account default key will be used)
 
-`-g, --gcp-key-file-path`: Path to file with the base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
+`-g, --gcp-key-file-path`: Path to file with the Base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
 
 `-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
 
 `-U, --hashi-url`: HashiCorp Vault API URL, e.g. `https://<vault-server>:8200` (relevant only for HashiCorp Vault migration)
 
-`--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HashiCorp Vault migration)
+`--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
 `-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list & read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
-`--hashi-json=[true]`: Import secret key as json value or independent secrets (relevant only for HashiCorp Vault migration)
+`--hashi-json=[true]`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
 `-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, e.g. `arn:aws:secretsmanager:AWSregion:AWSAccountId:Secret:/path/to/secrets/*` (relevant only for AWS migration)
 
@@ -66,7 +66,7 @@ akeyless gateway-create-migration \
 
 `-s, --azure-secret`: Azure Key Vault secret (relevant only for Azure Key Vault migration)
 
-`--k8s-namespace`: Kubernetes Namespace, Use this field to import secrets from a particular namespace only. By default, the secrets are imported from all namespaces (relevant only for Kubernetes migration)
+`--k8s-namespace`: Kubernetes Namespace, Use this field to import secrets from a particular Namespace only. By default, the secrets are imported from all namespaces (relevant only for Kubernetes migration)
 
 `--k8s-url`: Kubernetes API Server URL, e.g. `https://kubernetes-api-endpoint.mycompany.com:6443` (relevant only for Kubernetes migration)
 
@@ -74,7 +74,7 @@ akeyless gateway-create-migration \
 
 `--k8s-ca-certificate`: Kubernetes Cluster CA certificate (relevant only for Kubernetes migration with Certificate Authentication method)
 
-`--k8s-client-cert`: Kubernetes Client certificate with sufficient permission to list and get secrets in the namespace(s) you selected (relevant only for Kubernetes migration with Certificate Authentication method)
+`--k8s-client-cert`: Kubernetes Client certificate with sufficient permission to list and get secrets in the Namespace(s) you selected (relevant only for Kubernetes migration with Certificate Authentication method)
 
 `--k8s-client-key`: Kubernetes Client key (relevant only for Kubernetes migration with Certificate Authentication method)
 
@@ -120,7 +120,7 @@ akeyless gateway-create-migration \
 
 `--ad-discovery-types`: Set migration discovery types (domain-users, computers, local-users). To specify multiple types use argument multiple times: --ad-discovery-types domain-users --ad-discovery-types local-users. (Relevant only for Active Directory migration)
 
-`--ad-sra-enable-rdp`: Enable/Disable RDP Secure Remote Access for the migrated local users rotated secrets. Default is false: rotated secrets will not be created with SRA (Relevant only for Active Directory migration)
+`--ad-sra-enable-rdp`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Active Directory migration)
 
 `--ad-auto-rotate`: Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour Flags (Relevant only for Active Directory migration)
 
@@ -144,7 +144,7 @@ akeyless gateway-create-migration \
 
 `--si-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)
 
-`--si-sra-enable-rdp[=false]`: Enable/Disable RDP Secure Remote Access for the migrated local users rotated secrets. Default is false: rotated secrets will not be created with SRA (Relevant only for Server Inventory migration)
+`--si-sra-enable-rdp[=false]`: Enable/Disable RDP Secure Remote Access for the migrated local users Rotated Secrets. Default is false: Rotated Secrets will not be created with SRA (Relevant only for Server Inventory migration)
 
 `--si-auto-rotate`: Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with `--si-rotation-interval` and `--si-rotation-hour` Flags (Relevant only for Server Inventory migration)
 

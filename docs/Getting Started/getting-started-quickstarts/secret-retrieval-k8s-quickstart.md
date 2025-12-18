@@ -13,7 +13,7 @@ You will need:
 
 * A running Kubernetes cluster (v1.21 or later recommended)
 * `kubectl` configured
-* An Akeyless Gateway reachable from the cluster within a namespace titled `akeyless`
+* An Akeyless Gateway reachable from the cluster within a Namespace titled `akeyless`
 * A Static Secret in Akeyless
 * An Akeyless API Key (Access ID + Access Key) with an appropriate Role associated
 
