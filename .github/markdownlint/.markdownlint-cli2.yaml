@@ -599,13 +599,13 @@ config:
       - ClusterIP
       - NodePort
       - LoadBalancer
-      - Ingress
+      - Kubernetes Ingress
       - IngressClass
       - NetworkPolicy
       - ConfigMap
       - Kubernetes Secret # "Kubernetes " added to avoid common language conflicts.
       - Namespace
-      - Node
+      #- Node
       - Taint
       - Toleration
       - ServiceAccount
