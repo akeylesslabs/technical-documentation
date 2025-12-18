@@ -16,10 +16,11 @@ Key behaviors (aligned with common markdownlint custom-rule expectations):
     * Fixes only the visible text/alt portion; never touches the URL destination.
 
 Usage:
-  python3 fix_proper_names.py --names-file .github/markdownlint/.markdownlint-cli2.yaml \
-    --glob "docs/**/*.md" --write
+  python3 .github/cleaning-scripts/fix_proper_names.py \
+  --names-file .github/markdownlint/.markdownlint-cli2.yaml \
+  --glob "docs/**/*.md" --write
 
-Dry-run (default) prints a summary and diffs per file are not shown to keep output manageable.
+Dry-run (default, excluding --write) prints a summary and diffs per file are not shown to keep output manageable.
 """
 
 from __future__ import annotations
