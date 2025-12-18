@@ -906,7 +906,7 @@ config:
       - Erlang
       - OCaml
       - Bash
-      - Shell
+      #- Shell
       - PowerShell
       - SQL
       - HTML
