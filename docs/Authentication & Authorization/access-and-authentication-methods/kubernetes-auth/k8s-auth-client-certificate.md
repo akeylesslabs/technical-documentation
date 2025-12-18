@@ -103,7 +103,7 @@ CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/
 
 #### Create Kubernetes Auth Method
 
-Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the KKubernetes8s auth method. The result will output an `Access ID` and `private key` that you will need later for the Kubernetes auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the KKubernetes8s Auth Method. The result will output an `Access ID` and `private key` that you will need later for the Kubernetes auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell Akeyless CLI
 akeyless auth-method create k8s -n my-k8s-auth-method  --json
@@ -124,7 +124,7 @@ Upon successful creation, the response:
 
 #### Create Kubernetes Gateway Auth Config Using Certificates
 
-To [discover your Kubernetes service account issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
+To [discover your Kubernetes Service account issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
 > 👍 Note
 >
@@ -201,7 +201,7 @@ K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
 kubectl create namespace my-namespace-a
 ```
 
-2. In this namespace, create a pod:
+2. In this Namespace, create a pod:
 
 ```shell CLI
 kubectl run mypod1 --image=nginx -n my-namespace-a
@@ -221,7 +221,7 @@ chmod +x akeyless
 ./akeyless --init
 ```
 
-5. Authenticate via your K8s auth method :
+5. Authenticate via your K8s Auth Method :
 
 ```shell Akeyless CLI
 ./akeyless auth --access-id $ACCESS_ID \
@@ -232,7 +232,7 @@ chmod +x akeyless
 
 Where:
 
-* `access-id`: The `Access Id` of the Kubernetes auth method that was created.
+* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
 
 * `access-type`: The Auth Method access type, i.e. `k8s`.
 
@@ -253,7 +253,7 @@ Token: t-bb7b...3564a7c9
 
 ## Available Claims for Kubernetes Auth
 
-The following list of claims can be configured within Akeyless [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for Kubernetes.
+The following list of claims can be configured within Akeyless [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for Kubernetes.
 
 ```yaml
 "service_account_name"

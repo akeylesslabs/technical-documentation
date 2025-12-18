@@ -49,7 +49,7 @@ To install a standalone instance of Akeyless Gateway, run the following command
 docker run -d -p 8000:8000 -p 5696:5696 --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-After executing the above command, a new container named **akeyless-gateway** should run on Docker (use `docker ps` for confirmation). It contains a single instance of Akeyless Gateway.
+After executing the above command, a new container named `akeyless-gateway` should run on Docker (use `docker ps` for confirmation). It contains a single instance of Akeyless Gateway.
 
 To upgrade your current Gateway version, simply restart the container using the `docker restart <container name>` command.
 

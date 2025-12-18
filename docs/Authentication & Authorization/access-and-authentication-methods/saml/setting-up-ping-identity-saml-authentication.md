@@ -51,7 +51,7 @@ Your new application appears in the list of available applications.
 
 1. Log in to the Akeyless Web Console, and go to **Users & Auth Methods > New > SAML**.
 
-2. In the **IDP Metadata URL** field, add the URL metadata from your Ping Application configuration tab.
+2. In the **IdP Metadata URL** field, add the URL metadata from your Ping Application configuration tab.
 
 3. Set the **Unique Identifier** field with `email`.
 

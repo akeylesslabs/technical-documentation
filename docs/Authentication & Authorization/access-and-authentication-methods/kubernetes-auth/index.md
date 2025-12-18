@@ -40,7 +40,7 @@ Akeyless supports several authentication strategies to interact with the Kuberne
 
 ## Using Akeyless Gateway ServiceAccount
 
-In order to work with your Gateway Service Account the following Kubernetes role should be assigned to the Service Account that runs your Gateway, Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
+In order to work with your Gateway Service Account the following Kubernetes Role should be assigned to the Service Account that runs your Gateway, Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
 
 ```yaml Gateway SA Kubernetes Role
 cat << EOF > akl_gw_sa_token_reviewer.yaml 
@@ -73,7 +73,7 @@ kubectl apply -f akl_gw_sa_token_reviewer.yaml
 
 ### Create Kubernetes Auth Method
 
-Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes auth method, The result contains an `Access Id` and a `private key` that you will need later for the K8S Auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method, The result contains an `Access Id` and a `private key` that you will need later for the K8s Auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell Akeyless CLI
 akeyless auth-method create k8s -n my-k8s-auth-method --json
@@ -94,7 +94,7 @@ Upon successful creation, the response:
 
 #### Create Kubernetes Gateway Auth Config Using Gateway ServiceAccount
 
-Use the Akeyless CLI to create the K8S auth config:
+Use the Akeyless CLI to create the K8s auth config:
 
 ```shell
 akeyless gateway-create-k8s-auth-config  --name k8s-conf \
@@ -110,21 +110,21 @@ Where:
 
 * `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `access-id`: The `Access Id` of the Kubernetes auth method that was created.
+* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
 
-* `signing-key`: The private key (The key that was created when the Kubernetes auth method was created).
+* `signing-key`: The private key (The key that was created when the Kubernetes Auth Method was created).
 
 * `use-gw-service-account`: Extract all the relevant information using the Gateway Service Account.
 
 ## Authenticate from a Pod in Your Kubernetes Cluster
 
-1. Create a namespace in your k8s cluster:
+1. Create a Namespace in your K8s cluster:
 
 ```shell
 kubectl create namespace my-namespace-a
 ```
 
-2. In this namespace, create a pod:
+2. In this Namespace, create a pod:
 
 ```shell
 kubectl run mypod1 --image=nginx -n my-namespace-a
@@ -144,7 +144,7 @@ chmod +x akeyless
 ./akeyless --init
 ```
 
-5. Authenticate via your Kubernetes auth method as follows:
+5. Authenticate via your Kubernetes Auth Method as follows:
 
 ```shell
 ./akeyless auth --access-id $ACCESS_ID \
@@ -155,7 +155,7 @@ chmod +x akeyless
 
 Where:
 
-* `access-id`: The `Access Id` of the Kubernetes auth method that was created.
+* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
 
 * `access-type`: the access type - `k8s`
 

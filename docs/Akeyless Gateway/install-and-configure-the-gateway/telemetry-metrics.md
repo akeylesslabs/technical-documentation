@@ -14,7 +14,7 @@ Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and 
 
 The Telemetry Metrics are based on time series telemetry data metrics from the application and the runtime environment, storing them in a unique database or index, and analyzing data trends over time.
 
-The metrics visualization uses a pre-made or custom dashboard (Grafana marketplace dashboard, Datadog integration dashboard, etc.).
+The metrics visualization uses a pre-made or custom dashboard (Grafana Marketplace dashboard, Datadog integration dashboard, etc.).
 
 The following metrics are currently available:
 
@@ -33,7 +33,7 @@ The following metrics are currently available:
 | `akeyless.gw.system.request_count`               | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status         |
 | `akeyless.gw.system.healthcheck.status`          | Monitors container health check status                                                                             |
 
-In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/gw-docker-log-forwarding) the Gateway application logs using **OTEL**.
+In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/gw-docker-log-forwarding) the Gateway application logs using **OTel**.
 
 ## Datadog
 
@@ -57,7 +57,7 @@ Set the relevant `API Key` of your **Datadog** server, and set the relevant site
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-Alternatively, you can use an environment variable `METRICS_CONFIG_BASE64` to provide those settings in base64, for example:  `base64 -w 0 otel-config.yaml`.
+Alternatively, you can use an environment variable `METRICS_CONFIG_BASE64` to provide those settings in Base64, for example:  `base64 -w 0 otel-config.yaml`.
 
 ### Dashboard Setup
 
@@ -67,7 +67,7 @@ Akeyless is an official Datadog Partner and our dashboard can be found inside th
 
 * Once installed, go to **Dashboards** --> **Dashboard List** and choose the **Akeyless GW** Dashboard that was installed.
 
-* If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for "akeyless.gw".
+* If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for `akeyless.gw`.
 
 ## Prometheus
 

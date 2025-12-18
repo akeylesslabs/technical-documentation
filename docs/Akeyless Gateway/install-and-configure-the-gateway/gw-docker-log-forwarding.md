@@ -12,7 +12,7 @@ next:
 ---
 ## Log Forwarding
 
-To forward all Akeyless audit logs directly from your Akeyless Gateway, create a local configuration file specifying a target logs server.
+To forward all Akeyless Audit Logs directly from your Akeyless Gateway, create a local configuration file specifying a target logs server.
 
 To start your Akeyless Gateway with this setting, please mount a local config file at this path: `/home/akeyless/.akeyless/logand.conf`.
 
@@ -22,7 +22,7 @@ docker run -d -p 8000:8000 -v {path-to}/log_forwarding_conf_file:/home/akeyless/
 
 ### Amazon S3
 
-The following permissions are required to forward the audit logs to an Amazon S3 bucket:
+The following permissions are required to forward the Audit Logs to an Amazon S3 bucket:
 
 ```json
 {
@@ -64,9 +64,9 @@ azure_workspace_id=""
 azure_workspace_key="" # can be "Primary key" or "Secondary key"
 ```
 
-### DataDog
+### Datadog
 
-Setting log forwarding to DataDog system:
+Setting log forwarding to Datadog system:
 
 ````yaml
 enable="true"

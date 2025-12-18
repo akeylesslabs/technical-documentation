@@ -110,7 +110,7 @@ docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e GAT
 docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_CERTIFICATE="base64-cert" -e ADMIN_CERTIFICATE_KEY="base64-cert-key" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-Alternatively, you can mount the certificate and key directly into the docker image:
+Alternatively, you can mount the certificate and key directly into the Docker image:
 
 ```shell CLI
 docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-admin-cert.key -v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-admin-cert.crt -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
@@ -148,7 +148,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLO
 docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n  {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]},  {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]'  --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-In this case, the above will create an **Access Permission** object named **Administrators**,  associated with an Auth method `p-yyyyyy` which for example is your [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) `Access ID`, where a user that at least matches one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute, will be authorized to access the Gateway with **Admin** permissions:
+In this case, the above will create an **Access Permission** object named **Administrators**,  associated with an Auth Method `p-yyyyyy` which for example is your [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) `Access ID`, where a user that at least matches one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute, will be authorized to access the Gateway with **Admin** permissions:
 
 In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
 
@@ -531,7 +531,7 @@ When configuring your gateway, you may supply a default value for either OIDC, S
 
 * `-e DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`
 * `-e DEFAULT_OIDC_ACCESS_ID=<OIDC Access ID>`
-* `-e AKEYLESS_OIDC_GW_AUTH=true` Optional, to authenticate directly against your Gateway. To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IDP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable while making sure the corresponding OIDC App on your IDP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
+* `-e AKEYLESS_OIDC_GW_AUTH=true` Optional, to authenticate directly against your Gateway. To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
 In the following way:
 
@@ -558,7 +558,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -
 
 ## Fixed Artifact Repository
 
-In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, you can pass the `ARTIFACTS_REPO="artifacts.site2.akeyless.io"` environment variable as part of the docker run command:
+In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, you can pass the `ARTIFACTS_REPO="artifacts.site2.akeyless.io"` environment variable as part of the `docker run` command:
 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e ARTIFACTS_REPO="artifacts.site2.akeyless.io" --name akeyless-gw akeyless/base:latest-akeyless

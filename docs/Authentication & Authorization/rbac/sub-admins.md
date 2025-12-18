@@ -49,7 +49,7 @@ No. Even if a user is granted “create role” permissions, they cannot create 
 
 ### Do I have to create “Deny” permission if I don’t want user access to some path?
 
-No. By default, a role has no permissions and is not able to do anything. Any permission must be explicit. “Deny” permissions are good for cases where a user has access under a particular path (/dev/ci/\*), but is forbidden from seeing a specific item or sub-path (/dev/ci/jenkins).
+No. By default, a role has no permissions and is not able to do anything. Any permission must be explicit. “Deny” permissions are good for cases where a user has access under a particular path (/dev/ci/\*), but is forbidden from seeing a specific item or sub-path (/dev/ci/Jenkins).
 
 ### Can I only grant role management permissions to human users?
 

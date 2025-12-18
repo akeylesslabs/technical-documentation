@@ -181,9 +181,9 @@ While the `lammbda_env_vars.tf` file contains the basic configuration required f
 
 * `api_gw_name` Set the name of the gateway in **AWS**, default value: `akeyless-serverless-gateway-api-gateway`
 
-* `lambda_func_name` Set the name of the lambda function in **AWS**, the default value is `akeyless-serverless-gateway`
+* `lambda_func_name` Set the name of the Lambda function in **AWS**, the default value is `akeyless-serverless-gateway`
 
-Find more information about the available terraform [configuration files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway).
+Find more information about the available Terraform [configuration files](https://github.com/akeyless-community/akeyless-serverless-gateway/tree/main/terraform/AWS/serverless-gateway).
 
 ## Upgrading the Gateway
 

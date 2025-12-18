@@ -79,7 +79,7 @@ akeyless auth-method create saml \
 --unique-identifier email
 ```
 
-The IDP metadata URL is the **App Federation Metadata URL** you copied from the Azure process.
+The IdP metadata URL is the **App Federation Metadata URL** you copied from the Azure process.
 
 ### Using the Akeyless Console
 
@@ -90,7 +90,7 @@ The IDP metadata URL is the **App Federation Metadata URL** you copied from the 
 3. Fill in the mandatory parameters:
 
 * Name: The in-system name for the authentication method.
-* IDP Metadata URL: The  **App Federation Metadata URL** you copied from the Azure process.
+* IdP Metadata URL: The  **App Federation Metadata URL** you copied from the Azure process.
 * Unique identifier: The required identifier. In this case, you can use **email**.
 
 Your SAML authentication should be up and running.

@@ -127,7 +127,7 @@ CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/
 
 #### Create Kubernetes Auth Method
 
-1. Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes auth method. The result contains an `access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw):
+1. Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method. The result contains an `access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell Akeyless CLI
 akeyless create-auth-method-k8s -n my-k8s-auth-method --json
@@ -148,7 +148,7 @@ Upon successful creation, the response:
 
 #### Create Kubernetes Gateway Auth Config Using Bearer Tokens
 
-To [discover your Kubernetes service account issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
+To [discover your Kubernetes Service account issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
 > 👍 Note
 >
@@ -204,10 +204,10 @@ Where:
 
 * `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `access-id`: The `Access Id` of the Kubernetes auth method that was created.
+* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
 
-* `signing-key`: The private key (base64 encoded) associated with the public key defined in the Kubernetes auth
-  (The private key that was created when the Kubernetes auth method was created previously).
+* `signing-key`: The private key (Base64 encoded) associated with the public key defined in the Kubernetes auth
+  (The private key that was created when the Kubernetes Auth Method was created previously).
 
 * `k8s-host`: The URL of your **Kubernetes API server** or your **Rancher server**.
 
@@ -227,13 +227,13 @@ When the cluster access type is **Rancher**, add the following parameters:
 
 ## Authenticate from a Pod in Your Kubernetes Cluster
 
-1. Create a namespace in your Kubernetes cluster:
+1. Create a Namespace in your Kubernetes cluster:
 
 ```shell CLI
 kubectl create namespace my-namespace-a
 ```
 
-2. In this namespace create a pod:
+2. In this Namespace create a pod:
 
 ```shell CLI
 kubectl run mypod1 --image=nginx -n my-namespace-a
@@ -253,7 +253,7 @@ chmod +x akeyless
 ./akeyless --init
 ```
 
-5. Authenticate via your Kubernetes auth method with the following parameters:
+5. Authenticate via your Kubernetes Auth Method with the following parameters:
 
 ```shell Akeyless CLI
 ./akeyless auth --access-id $ACCESS_ID \
@@ -264,7 +264,7 @@ chmod +x akeyless
 
 Where:
 
-* `access-id`: The `Access Id` of the Kubernetes auth method that was created previously.
+* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created previously.
 
 * `access-type`: The Auth Method access type, `k8s`.
 
@@ -285,7 +285,7 @@ Token: t-bb7b...3564a7c9
 
 ## Available Claims for Kubernetes Auth
 
-The following list of claims can be configured within Akeyless [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for Kubernetes.
+The following list of claims can be configured within Akeyless [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac) to control and segregate the relevant policy for Kubernetes.
 
 ```yaml
 "service_account_name"
