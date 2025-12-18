@@ -554,51 +554,51 @@ subjects:
 
 1. Extract the service account token (secret) name by running:
 
-```shell Shell
-TOKENNAME=`kubectl -n kubernetes-dashboard get serviceaccount/token-request-sa -o jsonpath='{.secrets[0].name}'`
-```
+    ```shell Shell
+    TOKENNAME=`kubectl -n kubernetes-dashboard get serviceaccount/token-request-sa -o jsonpath='{.secrets[0].name}'`
+    ```
 
 2. Extract the service account token by running:
 
-```shell Shell
-TOKEN=`kubectl -n kubernetes-dashboard get secret $TOKENNAME -o jsonpath='{.data.token}'| base64 --decode`
-```
+    ```shell Shell
+    TOKEN=`kubectl -n kubernetes-dashboard get secret $TOKENNAME -o jsonpath='{.data.token}'| base64 --decode`
+    ```
 
 3. Create a Kubernetes generic dynamic secret called **k8s-dashboard-producer** by running:
 
-```shell Shell
-akeyless dynamic-secret create k8s -n k8s-dashboard-producer \
---gateway-url <http://YourGWURL:8000> \
---k8s-cluster-endpoint <cluster DNS/IP address> \
---k8s-cluster-ca-cert <base 64 encoding of the cluster certificate> \
---k8s-namespace kubernetes-dashboard \
---k8s-service-account kubernetes-dashboard \
---k8s-cluster-token ${TOKEN}
-```
+    ```shell Shell
+    akeyless dynamic-secret create k8s -n k8s-dashboard-producer \
+    --gateway-url <http://YourGWURL:8000> \
+    --k8s-cluster-endpoint <cluster DNS/IP address> \
+    --k8s-cluster-ca-cert <base 64 encoding of the cluster certificate> \
+    --k8s-namespace kubernetes-dashboard \
+    --k8s-service-account kubernetes-dashboard \
+    --k8s-cluster-token ${TOKEN}
+    ```
 
-3. Get the **k8s-dashboard-producer** dynamic secret value by running:
+4. Get the **k8s-dashboard-producer** dynamic secret value by running:
 
-```shell Akeyless CLI
-akeyless get-dynamic-secret-value -n k8s-dashboard-producer | jq .
-```
+    ```shell Akeyless CLI
+    akeyless get-dynamic-secret-value -n k8s-dashboard-producer | jq .
+    ```
 
-The output is:
+    The output is:
 
-```shell Akeyless CLI
-{
-  "apiVersion": "client.authentication.k8s.io/v1beta1",
-  "clusterCACertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkekNDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdGMyVnkKZG1WeUxXTmhRREUyTWpNek1UZzBPRFV3SGhjTk1qRXdOakV3TURrME9EQTFXaGNOTXpFd05qQTRNRGswT0RBMQpXakFqTVNFd0h3WURWUVFEREJock0zTXRjMlZ5ZG1WeUxXTmhRREUyTWpNek1UZzBPRFV3V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFUTEZqVXZIRFg0YmhzMm9TS0Vkb1Y1R2dsQVRPUkpYVDBzYmhCVSs2VzEKUm52dEFwWVZlVDlQa1crUnJXL0VKcS9lZEpNYUFzZGFIcEtxM2FHZTFNbGJvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVWhXTGwzU1N5UGVHVlRRVlh6UkszClV5RnF4S0l3Q2dZSUtvWkl6ajBFQXdJRFNBQXdSUUloQUkwd2MwcUUwck9YZVN2VzN5d1RFc1BHWVUrVHZkVTIKbVFEYUtIN3BvSGJVQWlCbWtoQTNZejZhQkpmTmU0c09Eb1RKK2lGTElwSndvb3FPZjhGZWYvdnJSdz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
-  "clusterEndpoint": "https://0.0.0.0:56155",
-  "clusterName": "k8s-native-cluster",
-  "clusterUsername": "k8s-native-cluster",
-  "kind": "ExecCredential",
-  "status": {
-    "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InNmMmZhbXgyRC1KT1pzUTBSVll0RFMzQjk1dGJXV19sRnd0b3FhYnBBRTgifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiLCJrM3MiXSwiZXhwIjoxNjI0MTg4MTY5LCJpYXQiOjE2MjQxODQ1NjksImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInVpZCI6IjI5MGU4M2IwLTc1MTItNDZiOC1hYWIxLWViN2IxOTIxNmY2NyJ9fSwibmJmIjoxNjI0MTg0NTY5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQifQ.oflUcXwzFF2Kcyi45_SNrdGmAk_2abqAz0nE7AyUU_-W2-l7ZxPovtM2pfcfHm_dmW9wCDxM3zK4Zh39ruWnvjqIB_uxWQGAtQnU3TBlHSY2knQdZ7lNop-ylvQMdh4rTNf07BM_zKoKVh1w1__nE-esghwOe6mtRuKIy3Xj5Ijk2aamx3DFbFcyizHyZVst_PSbm1fdxdSLFzBy0vXmI8-Lx-KbJsUM5yO2MGmEk-oX28YCG0hgF0NkPbyjyEtIPBrRKbbdyo8lM_dGQ5Hk7D1P5Vo56f14oKUHRJDdzyd-jFSH_dtxD0FxazuNPlmuE9lRdJzeSgvuGp6S-MsksQ"
-  }
-}
-```
+    ```shell Akeyless CLI
+    {
+    "apiVersion": "client.authentication.k8s.io/v1beta1",
+    "clusterCACertificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkekNDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdGMyVnkKZG1WeUxXTmhRREUyTWpNek1UZzBPRFV3SGhjTk1qRXdOakV3TURrME9EQTFXaGNOTXpFd05qQTRNRGswT0RBMQpXakFqTVNFd0h3WURWUVFEREJock0zTXRjMlZ5ZG1WeUxXTmhRREUyTWpNek1UZzBPRFV3V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFUTEZqVXZIRFg0YmhzMm9TS0Vkb1Y1R2dsQVRPUkpYVDBzYmhCVSs2VzEKUm52dEFwWVZlVDlQa1crUnJXL0VKcS9lZEpNYUFzZGFIcEtxM2FHZTFNbGJvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVWhXTGwzU1N5UGVHVlRRVlh6UkszClV5RnF4S0l3Q2dZSUtvWkl6ajBFQXdJRFNBQXdSUUloQUkwd2MwcUUwck9YZVN2VzN5d1RFc1BHWVUrVHZkVTIKbVFEYUtIN3BvSGJVQWlCbWtoQTNZejZhQkpmTmU0c09Eb1RKK2lGTElwSndvb3FPZjhGZWYvdnJSdz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
+    "clusterEndpoint": "https://0.0.0.0:56155",
+    "clusterName": "k8s-native-cluster",
+    "clusterUsername": "k8s-native-cluster",
+    "kind": "ExecCredential",
+    "status": {
+        "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InNmMmZhbXgyRC1KT1pzUTBSVll0RFMzQjk1dGJXV19sRnd0b3FhYnBBRTgifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiLCJrM3MiXSwiZXhwIjoxNjI0MTg4MTY5LCJpYXQiOjE2MjQxODQ1NjksImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInVpZCI6IjI5MGU4M2IwLTc1MTItNDZiOC1hYWIxLWViN2IxOTIxNmY2NyJ9fSwibmJmIjoxNjI0MTg0NTY5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQifQ.oflUcXwzFF2Kcyi45_SNrdGmAk_2abqAz0nE7AyUU_-W2-l7ZxPovtM2pfcfHm_dmW9wCDxM3zK4Zh39ruWnvjqIB_uxWQGAtQnU3TBlHSY2knQdZ7lNop-ylvQMdh4rTNf07BM_zKoKVh1w1__nE-esghwOe6mtRuKIy3Xj5Ijk2aamx3DFbFcyizHyZVst_PSbm1fdxdSLFzBy0vXmI8-Lx-KbJsUM5yO2MGmEk-oX28YCG0hgF0NkPbyjyEtIPBrRKbbdyo8lM_dGQ5Hk7D1P5Vo56f14oKUHRJDdzyd-jFSH_dtxD0FxazuNPlmuE9lRdJzeSgvuGp6S-MsksQ"
+    }
+    }
+    ```
 
-4. Copy the **token** value, and use it for the Kubernetes Dashboard.
+5. Copy the **token** value, and use it for the Kubernetes Dashboard.
 
 ## Single `Kubeconfig` Generation
 

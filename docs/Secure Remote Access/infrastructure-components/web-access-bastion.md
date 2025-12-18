@@ -80,7 +80,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The `values.yaml` file holds default values. Copy the file from: [`https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access`](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access)
+The `values.yaml` file holds default values. [Copy the file from GitHub](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-zero-trust-web-access).
 
 Or run the following Helm command to generate the values file locally:
 

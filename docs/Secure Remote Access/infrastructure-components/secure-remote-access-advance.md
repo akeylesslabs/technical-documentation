@@ -23,7 +23,7 @@ Each Bastion is uniquely identified by combining the **Privilege Access ID** Aut
 
 It means that changing the  **Privilege Access ID** or the **Cluster Name** of your Bastion instance will create an entirely new Bastion instance.
 
-It is recommended to set a meaningful Cluster Name for your Bastion cluster from the very beginning. By default, your cluster name is **defaultCluster**.
+It is recommended to set a meaningful Cluster Name for your Bastion cluster from the very beginning. By default, your cluster name is `defaultCluster`.
 
 To do that, you can set the `clusterName="meaningful-cluster-name"`field as part of the Bastion deployment.
 
@@ -36,11 +36,11 @@ To do that, you can set the `clusterName="meaningful-cluster-name"`field as part
 legacySigningAlg: "false"
 ```
 
-As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy '[ssh-rsa-cert-v01@openssh.com](mailto:ssh-rsa-cert-v01@openssh.com)' signing algorithm.
+As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
 ## RDP User Acces
 
-Set the `usernameSubClaim` with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
+Set the `usernameSubClaim` with the relevant attribute that exists inside your IDP JWT, for example, `email`, to set the connection to your target server using the current authenticated username.
 
 ```yaml
 ############
@@ -111,7 +111,7 @@ config:
       existingSecret: ""
 ```
 
-To authenticate using an explicit **AWS Key** provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **K8s Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
+To authenticate using an explicit **AWS Key** provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **Kubernetes Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
 
 To store local recordings inside your Bastion server, set the `KeepLocalRecording` with `true`, session recordings will be stored inside the bastion under `/home/akeyless/recordings`.
 

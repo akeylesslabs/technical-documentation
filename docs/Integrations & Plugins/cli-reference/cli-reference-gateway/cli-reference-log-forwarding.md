@@ -260,7 +260,7 @@ akeyless gateway update log-forwarding google-chronicle \
 
 ### `ELK - Logstash`
 
-Updates Log Forwarding config for logstash
+Updates Log Forwarding config for Logstash
 
 #### Usage
 
@@ -287,15 +287,15 @@ akeyless gateway update log-forwarding logstash \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--dns`: Logstash dns
+`--dns`: Logstash DNS
 
 `--protocol`: Logstash protocol [`tcp`/`udp`]
 
-`--enable-tls`: Enable-tls
+`--enable-tls`: Enable TLS
 
-`--certificate-file`: Path to a file that contain logstash certificate in `PEM` format
+`--certificate-file`: Path to a file that contain Logstash certificate in `PEM` format
 
-`--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
+`--tls-certificate[=use-existing]`: Logstash TLS certificate (PEM format) in a Base64 format
 
 ### `Logz.io`
 
