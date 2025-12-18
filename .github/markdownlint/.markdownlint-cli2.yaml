@@ -543,7 +543,7 @@ config:
       - IPv6
       - DNS
       - DoH
-      - DoT
+      #- DoT # Conflicts with the word "dot".
       - DHCP
       - NTP
       - SNMP
