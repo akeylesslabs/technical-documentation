@@ -116,11 +116,11 @@ akeyless rotated-secret create aws \
 
 `--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
-`--secure-access-aws-account-id`: The **AWS account id**
+`--secure-access-aws-account-id`: The **AWS account ID**
 
 `--aws-region[=us-east-2]`: **AWS** region
 
-`--secure-access-aws-native-cli`: The **AWS** native cli
+`--secure-access-aws-native-cli`: The **AWS** native CLI
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
@@ -380,7 +380,7 @@ akeyless rotated-secret create gcp \
 
 `--gcp-service-account-email`: The email of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
 
-`--gcp-service-account-key-id`: The key id of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
+`--gcp-service-account-key-id`: The key ID of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
 
 `-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
 
@@ -1187,11 +1187,11 @@ akeyless rotated-secret update aws \
 
 `--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
-`--secure-access-aws-account-id`: The **AWS account id**
+`--secure-access-aws-account-id`: The **AWS account ID**
 
 `--aws-region[=us-east-2]`: **AWS** region
 
-`--secure-access-aws-native-cli`: The **AWS** native cli
+`--secure-access-aws-native-cli`: The **AWS** native CLI
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
@@ -1444,7 +1444,7 @@ akeyless rotated-secret update gcp \
 
 `--gcp-service-account-email`: The email of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
 
-`--gcp-service-account-key-id`: The key id of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
+`--gcp-service-account-key-id`: The key ID of the **GCP** service account to rotate (relevant only when `rotator-type`=`servcie-account-rotator`)
 
 `-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
 

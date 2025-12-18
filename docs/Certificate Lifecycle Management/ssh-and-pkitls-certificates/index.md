@@ -189,7 +189,7 @@ Where:
 
 * `name`: Certificate item name to revoke.
 
-* `item-id`: The item id of the certificate to revoke.
+* `item-id`: The item ID of the certificate to revoke.
 
 * `serial-number`: The serial number of the certificate to revoke, in `base10` or `hex` format.
 
