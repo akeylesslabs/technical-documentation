@@ -82,6 +82,7 @@ config:
     names:
       # Akeyless platform and features
       - Akeyless
+      - support@akeyless.io
       - Akeyless Platform
       - Akeyless Gateway
       - Akeyless Bastion
