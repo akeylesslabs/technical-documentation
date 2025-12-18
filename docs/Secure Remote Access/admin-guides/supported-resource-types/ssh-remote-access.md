@@ -14,7 +14,7 @@ Certificate-based authentication eliminates the need to approve and distribute k
 
 Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible via SSH but directed through a ssh-sra host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
 
-In this guide, we will connect to the remote target using an SSH Certificate.
+In this guide, we will connect to the remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
 
 > 👍 Note
 >
@@ -23,8 +23,6 @@ In this guide, we will connect to the remote target using an SSH Certificate.
 > For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
 
 ## Prerequisites
-
-To enable Secure Remote Access for SSH servers you need:
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
 
