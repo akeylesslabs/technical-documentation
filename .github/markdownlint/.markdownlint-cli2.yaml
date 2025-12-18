@@ -588,7 +588,7 @@ config:
       - kubeconfig
       - Helm
       - Kustomize
-      - Pod
+      #- Pod
       - Kubernetes Deployment # "Kubernetes " added to avoid common language conflicts.
       - StatefulSet
       - DaemonSet
