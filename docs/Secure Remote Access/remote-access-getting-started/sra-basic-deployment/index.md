@@ -48,24 +48,34 @@ For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kub
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
-## Basic Configuration
+## Helm Chart Configuration
 
-You can get the `values.yaml` file that will be used on this guide by running the following commands:
-
-Add the following repository to the Helm repository list:
+1. Add the following repository to the Helm repository list:
 
 ```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-Fetch the `values.yaml` file from the Akeyless repository:
+2. Fetch the `values.yaml` file from the Akeyless repository:
 
 ```shell
 helm show values akeyless/akeyless-gateway > values.yaml
 ```
 
-In order to set your gateway with **Remote Access**, set the `sra` section to `true` and add the public key which is set on the SSH certificate Issuer as follows:
+3. Set the relevant parameters in the `values.yaml` file with a text editor or IDE.
+
+## SRA Configuration
+
+1. Get your SSH Cert Issuer Signer public key using the CLI command: 
+
+```shell SSH CA Public Key
+akeyless get-rsa-public --name /path/to/SSHSignerKey --json --jq-expression='.ssh' 
+```
+
+<br />
+
+2. In order to enable **Remote Access** on your Gateway, enable the `sra`  and add the public key of your SSH Cert Issuer
 
 ```shell
 sra:
