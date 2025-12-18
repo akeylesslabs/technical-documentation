@@ -2,7 +2,7 @@
 title: Secure Remote Access Bastion on Docker
 excerpt: Docker Setup
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
