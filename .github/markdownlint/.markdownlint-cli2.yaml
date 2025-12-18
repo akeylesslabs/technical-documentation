@@ -399,7 +399,6 @@ config:
       - Azure Bicep
       - Bicep
       - Azure Monitor
-      - Monitor
       - Log Analytics
       - Azure Log Analytics
       - Application Insights
@@ -781,9 +780,6 @@ config:
       - OpenTelemetry
       - OpenTelemetry Collector
       - OTel
-      - Tracing
-      - Metrics
-      - Logging
       - Fluentd
       - Fluent Bit
       - Vector
