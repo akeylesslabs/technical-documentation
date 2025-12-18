@@ -106,7 +106,7 @@ config:
       - JIT Access
       - Password Manager
       - Akeyless Password Manager
-      - Secrets Management
+      #- Secrets Management
       - Secret Rotation
       - Access Roles
       - Auth Method
@@ -276,7 +276,7 @@ config:
       - Amazon EMR
       - EMR
       - AWS Batch
-      - Batch
+      #- Batch
       - AWS Fargate
       - Fargate
       - Amazon ECS
@@ -1178,7 +1178,6 @@ config:
       - Service Provider
       - SP
       - X.509 CA
-      - Certificate Authority
       - CA
       - TLS handshake
       - Diffie-Hellman
