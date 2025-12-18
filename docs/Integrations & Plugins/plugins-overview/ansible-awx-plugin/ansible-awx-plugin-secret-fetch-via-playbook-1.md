@@ -18,7 +18,7 @@ The lookup plugin uses these via the environment variables `VAULT_ADDR` and `VAU
 
 > 👍 Note
 >
-> Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
+> Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
 ## Prepare AWX Environment
 
@@ -51,7 +51,7 @@ VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method t
 
 ![](https://files.readme.io/9e55048-ansible1.png "ansible1.png")
 
-To fetch a secret from the Akeyless platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create a new **Credentials** and set the **Credentials Type** as **Ansible Tower**:
+To fetch a secret from the Akeyless Platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create a new **Credentials** and set the **Credentials Type** as **Ansible Tower**:
 
 ![](https://files.readme.io/714572a-Ansible3.png "Ansible3.png")
 
@@ -61,7 +61,7 @@ You can now select to populate the Username and Password fields from an external
 
 ## Static Secrets
 
-To work with Static secrets, the Path to Secret should be in this format for **KV 1**:
+To work with Static Secrets, the Path to Secret should be in this format for **KV 1**:
 
 `secret/data/<Full Secret Name>`, where the Key Name in the returned JSON name is `data`.
 

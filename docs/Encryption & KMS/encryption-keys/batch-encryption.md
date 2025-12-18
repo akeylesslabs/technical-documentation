@@ -61,8 +61,8 @@ akeyless encrypt-batch -h
 * \--profile, --token: Use a specific profile (located at $HOME/.akeyless/profiles) or a temporary access token.
 * \--uid-token: The universal identity token (required only for universal\_identity authentication).
 * \-h, --help: Display help information.
-* \--json\[=false]\: Set output format to JSON.
-* \--jq-expression: JQ expression to filter result output.
+* \--JSON\[=false]\: Set output format to JSON.
+* \--jq-expression: jq expression to filter result output.
 * \--no-creds-cleanup\[=false]\: Do not clean up local temporary expired credentials.
 
 ### Batch Decryption Command
@@ -80,6 +80,6 @@ akeyless decrypt-batch -h
 * \--profile, --token: Use a specific profile (located at $HOME/.akeyless/profiles) or a temporary access token.
 * \--uid-token: The universal identity token (required only for universal\_identity authentication).
 * \-h, --help: Display help information.
-* \--json\[=false]\: Set output format to JSON.
-* \--jq-expression: JQ expression to filter result output.
+* \--JSON\[=false]\: Set output format to JSON.
+* \--jq-expression: jq expression to filter result output.
 * \--no-creds-cleanup\[=false]\: Do not clean up local temporary expired credentials.

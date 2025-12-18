@@ -72,7 +72,7 @@ Where:
 
 * `name`: A unique name of the tokenizer. The name can include the path to the virtual folder where you want to create the new tokenizer, using the slash `/` separators. If the folder does not exist, it will be created together with the tokenizer.
 
-* `tokenizer-type`: Currently, Akeyless platform supports only vaultless tokenization. So, the default value of this parameter is `vaultless`.
+* `tokenizer-type`: Currently, Akeyless Platform supports only vaultless tokenization. So, the default value of this parameter is `vaultless`.
 
 * `template-type`:The format of the tokenized secret. The following templates are available:\
   `SSN`, `CreditCard`, `USPhoneNumber`, and `Custom`.

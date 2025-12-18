@@ -900,7 +900,7 @@ config:
       - Dart
       - Lua
       - Perl
-      - R
+      #- R
       - Julia
       - Haskell
       - Elixir
@@ -1234,6 +1234,7 @@ config:
       - Symfony
       - Rails
       - Ruby on Rails
+      - TTL
 
   # AKY014: Require meaningful image alt text
   # Knobs:

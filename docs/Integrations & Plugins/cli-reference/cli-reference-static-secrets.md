@@ -55,7 +55,7 @@ akeyless create-secret \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-`--secure-access-enable`: Enable/Disable secure remote access, 'true'/'false'
+`--secure-access-enable`: Enable/Disable Secure Remote Access, 'true'/'false'
 
 `--secure-access-ssh-creds`: Static-Secret values contains SSH Credentials, either Private Key or Password [password/private-key]
 
@@ -110,7 +110,7 @@ akeyless describe-item \
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-See [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects) and also [Updating and versioning static secrets](https://docs.akeyless.io/docs/staticversions) for details.
+See [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects) and also [Updating and versioning Static Secrets](https://docs.akeyless.io/docs/staticversions) for details.
 
 ## `get-secret-value`
 
@@ -299,8 +299,8 @@ akeyless static-secret-sync \
 
 `--remote-secret-name`: Remote Secret Name that will be synced on the remote endpoint
 
-`--namespace`: Vault namespace, releavnt only for Hashicorp Vault Target
+`--namespace`: Vault Namespace, relevant only for HashiCorp Vault Target
 
-`--filter-secret-value`: JQ expression to filter or transform the secret value
+`--filter-secret-value`: jq expression to filter or transform the secret value
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)

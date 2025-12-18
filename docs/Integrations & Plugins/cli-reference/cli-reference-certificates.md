@@ -48,7 +48,7 @@ akeyless create-ssh-cert-issuer \
 
 `-m, --metadata`: A metadata about the issuer
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `https://my.bastion:9900`
 
@@ -130,7 +130,7 @@ akeyless update-ssh-cert-issuer \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use argument multiple times: `--rm-tag Tag1 --rm-tag Tag2`
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `https://my.bastion:9900`
 
@@ -283,11 +283,11 @@ akeyless generate-csr \
 
 `--country`: country to be included in the CSR
 
-`--alt-names`: a comma-separated list of dns alternative names
+`--alt-names`: a comma-separated list of DNS alternative names
 
 `--email-addresses`: a comma-separated list of email addresses alternative names
 
-`--ip-addresses`: a comma-separated list of ip addresses alternative names
+`--ip-addresses`: a comma-separated list of IP addresses alternative names
 
 `--uri-sans`: a comma-separated list of URI alternative names
 

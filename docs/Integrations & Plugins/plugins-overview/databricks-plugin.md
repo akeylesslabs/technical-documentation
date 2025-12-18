@@ -121,7 +121,7 @@ What it does:
 * Retrieves a temporary session token (token) that will be used to fetch secrets securely.
 * Requests the secret value from Akeyless for the given path (/devops/data\_gov\_api\_key).
 * Stores the result in the API\_KEY variable.
-* You can now use this API key in your code securely — without ever hardcoding it!
+* You can now use this API Key in your code securely — without ever hardcoding it!
 
 ```shell Python
 # Use the API key to fetch public data
@@ -161,7 +161,7 @@ What it does:
 
 > 👍 Note
 >
-> * DLT workloads may not attach Managed Identity to every VM. In that case, use API key authentication.
+> * DLT workloads may not attach Managed Identity to every VM. In that case, use API Key authentication.
 > * For user-level or group-level RBAC, store access keys in Azure Key Vault per user/team.
 
 ## Final Result

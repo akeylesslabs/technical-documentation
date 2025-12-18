@@ -56,7 +56,7 @@ akeyless assoc-target-item \
 
 `--multi-region[=false]`: The list of regions in which to create a copy of the key. (Relevant only for Classic Key AWS targets). To specify multiple regions use argument multiple times: --regions us-east-1 --regions us-west-1
 
-`--protection-level[=software]`: Protection level of the key [software/hardware]. (Relevant only for Classic Key and target association, for gcp targets)
+`--protection-level[=software]`: Protection level of the key [software/hardware]. (Relevant only for Classic Key and target association, for GCP targets)
 
 ## `create-classic-key`
 
@@ -113,9 +113,9 @@ akeyless create-classic-key \
 
 `--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] (only for RSA and EC keys)
 
-`--conf-file-path`: Path to the configuration file that contains csr config data
+`--conf-file-path`: Path to the configuration file that contains CSR config data
 
-`--conf-file-data`: The csr config data in base64 encoding
+`--conf-file-data`: The CSR config data in Base64 encoding
 
 `--certificate-format` : The format of the returned certificate can be pem or der.
 
@@ -177,9 +177,9 @@ akeyless create-dfc-key \
 
 `--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] (only for **RSA** keys)
 
-`--conf-file-path`: Path to the configuration file that contains csr config data
+`--conf-file-path`: Path to the configuration file that contains CSR config data
 
-`--conf-file-data`: The csr config data in base64 encoding
+`--conf-file-data`: The CSR config data in Base64 encoding
 
 `--certificate-format` : The format of the returned certificate can be pem or der.
 
@@ -214,11 +214,11 @@ akeyless decrypt \
 
 `-I, --item-id`: The item id of the key to use in the decryption process
 
-`-i, --in`: Path to the file to be decrypted (base64 encoded)
+`-i, --in`: Path to the file to be decrypted (Base64 encoded)
 
 `-o, --out`: Path to the output file. If not provided, the output will be printed as text.
 
-`-c, --ciphertext`: Ciphertext to be decrypted in base64 encoded format, if a file was not provided
+`-c, --ciphertext`: Ciphertext to be decrypted in Base64 encoded format, if a file was not provided
 
 `-X, --encryption-context`: The encryption context. If this was specified in the encrypt command, it must be specified here or the decryption operation will fail
 
@@ -278,11 +278,11 @@ akeyless decrypt-gpg \
 
 `-I, --item-id`: The item id of the key to use in the decryption process
 
-`-i, --in`: Path to the file to be decrypted (base64 encoded)
+`-i, --in`: Path to the file to be decrypted (Base64 encoded)
 
 `-o, --out`: Path to the output file. If not provided, the output will be printed as text.
 
-`-c, --ciphertext`: Ciphertext to be decrypted in base64 encoded format, if a file was not provided
+`-c, --ciphertext`: Ciphertext to be decrypted in Base64 encoded format, if a file was not provided
 
 `-N, --input-format[=base64]`: Select default assumed format for the ciphertext. Currently supported options: [base64,raw]
 
@@ -312,7 +312,7 @@ akeyless decrypt-pkcs1 \
 
 `-I, --item-id`: The item id of the key to use in the decryption process
 
-`-c, --ciphertext`: **Required**, Ciphertext to be decrypted in base64 encoded format
+`-c, --ciphertext`: **Required**, Ciphertext to be decrypted in Base64 encoded format
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
@@ -338,9 +338,9 @@ akeyless encrypt \
 
 `-I, --item-id`: The item id of the key to use in the encryption process
 
-`-i, --in`: Path to the file to be encrypted in base64 format
+`-i, --in`: Path to the file to be encrypted in Base64 format
 
-`-o, --out`: Path to the output file. If not provided, the output will be printed as base64
+`-o, --out`: Path to the output file. If not provided, the output will be printed as Base64
 
 `-p, --plaintext`: Data to be encrypted, if a file was not provided
 

@@ -176,7 +176,7 @@ Setting log forwarding to Sumo Logic system:
 
 ```yaml
 target_log_type="sumo_logic"
-target_sumologic_endpoint_url="<sumo logic endpoint>"(required)
+target_sumologic_endpoint_url="<Sumo Logic endpoint>"(required)
 target_sumologic_tags="<Tags associated with your logs in the form of tag1,tag2...>"(optional)
 target_sumologic_host="<Host associated with your logs>"(optional)
 ```

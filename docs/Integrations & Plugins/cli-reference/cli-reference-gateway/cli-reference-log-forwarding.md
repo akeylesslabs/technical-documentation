@@ -164,7 +164,7 @@ akeyless gateway update log-forwarding datadog \
 
 ### `ELK - Elasticsearch`
 
-Updates Log Forwarding config for elasticsearch
+Updates Log Forwarding config for ElasticSearch
 
 #### Usage
 
@@ -197,31 +197,31 @@ akeyless gateway update log-forwarding elasticsearch \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--index`: Elasticsearch index
+`--index`: ElasticSearch index
 
-`--server-type`: Elasticsearch server type [`nodes`/`cloud`]
+`--server-type`: ElasticSearch server type [`nodes`/`cloud`]
 
-`--nodes`: Elasticsearch nodes relevant only for `nodes` server-type
+`--nodes`: ElasticSearch nodes relevant only for `nodes` server-type
 
-`--cloud-id`: Elasticsearch cloud id relevant only for `cloud` server-type
+`--cloud-id`: ElasticSearch cloud id relevant only for `cloud` server-type
 
-`--auth-type`: Elasticsearch auth type [`api_key`/`password`]
+`--auth-type`: ElasticSearch auth type [`api_key`/`password`]
 
-`--api-key`: Elasticsearch api key relevant only for `api_key` auth-type
+`--api-key`: ElasticSearch API Key relevant only for `api_key` auth-type
 
-`--user-name`: Elasticsearch user name relevant only for `password` auth-type
+`--user-name`: ElasticSearch user name relevant only for `password` auth-type
 
-`--password`: Elasticsearch password relevant only for `password` auth-type
+`--password`: ElasticSearch password relevant only for `password` auth-type
 
-`--enable-tls`: enable-tls
+`--enable-tls`: enable-TLS
 
-`--certificate-file`: Path to a file that contain elasticsearch certificate in `PEM` format
+`--certificate-file`: Path to a file that contain ElasticSearch certificate in `PEM` format
 
-`--tls-certificate[=use-existing]`: Elasticsearch tls certificate (`PEM format`) in a Base64 format
+`--tls-certificate[=use-existing]`: ElasticSearch TLS certificate (`PEM format`) in a Base64 format
 
 ### `Google Chronicle`
 
-Updates Log Forwarding config for google-chronicle
+Updates Log Forwarding config for Google-Chronicle
 
 #### Usage
 
@@ -252,11 +252,11 @@ akeyless gateway update log-forwarding google-chronicle \
 
 `--gcp-key`: Base64-encoded service account private key text
 
-`--customer-id`: Google chronicle `customer id`
+`--customer-id`: Google Chronicle `customer id`
 
-`--region`: Google chronicle region [`eu_multi_region`/`london`/`us_multi_region`/`singapore`/`tel_aviv`]
+`--region`: Google Chronicle region [`eu_multi_region`/`london`/`us_multi_region`/`singapore`/`tel_aviv`]
 
-`--log-type`: Google chronicle log type
+`--log-type`: Google Chronicle log type
 
 ### `ELK - Logstash`
 
@@ -325,11 +325,11 @@ akeyless gateway update log-forwarding logz-io \
 
 `--logz-io-token`: Logz-io token
 
-`--protocol`: Logz-io protocol [tcp/https]
+`--protocol`: Logz-io protocol [TCP/HTTPS]
 
 ### `Splunk`
 
-Updates Log Forwarding config for splunk
+Updates Log Forwarding config for Splunk
 
 #### Usage
 
@@ -361,7 +361,7 @@ akeyless gateway update log-forwarding splunk \
 
 `--splunk-url`: Splunk server URL
 
-`--splunk-token`: splunk-token
+`--splunk-token`: Splunk-token
 
 `--source[=use-existing]`: Splunk source
 
@@ -369,11 +369,11 @@ akeyless gateway update log-forwarding splunk \
 
 `--index`: Splunk index
 
-`--enable-tls`: Enable-tls
+`--enable-tls`: Enable-TLS
 
-`--certificate-file`: Path to a file that contain logstash certificate in `PEM` format
+`--certificate-file`: Path to a file that contain Logstash certificate in `PEM` format
 
-`--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
+`--tls-certificate[=use-existing]`: Logstash TLS certificate (PEM format) in a Base64 format
 
 ### `STDOUT`
 
@@ -434,7 +434,7 @@ akeyless gateway update log-forwarding sumologic \
 
 ### `Syslog`
 
-Updates Log Forwarding config for syslog
+Updates Log Forwarding config for Syslog
 
 #### Usage
 
@@ -471,11 +471,11 @@ akeyless gateway update log-forwarding syslog \
 
 `--formatter[=text]`: Syslog formatter [`text`/`cef`]
 
-`--enable-tls`: Enable-tls
+`--enable-tls`: Enable-TLS
 
-`--certificate-file`: Path to a file that contain logstash certificate in `PEM` format
+`--certificate-file`: Path to a file that contain Logstash certificate in `PEM` format
 
-`--tls-certificate[=use-existing]`: Logstash tls certificate (PEM format) in a Base64 format
+`--tls-certificate[=use-existing]`: Logstash TLS certificate (PEM format) in a Base64 format
 
 ### `Get`
 

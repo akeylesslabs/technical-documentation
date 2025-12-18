@@ -10,7 +10,7 @@ next:
       title: Authentication & Authorization
       type: basic
 ---
-The Akeyless platform is composed of several components that work together to provide identity security services without storing or reconstructing full private keys or long-lived secrets. This page describes each component’s role at a high level.
+The Akeyless Platform is composed of several components that work together to provide identity security services without storing or reconstructing full private keys or long-lived secrets. This page describes each component’s role at a high level.
 
 ## High-Level Components
 
@@ -109,7 +109,7 @@ When a CF is used, the Gateway manages CF access and combines CF-derived values 
 
 Connectors and Targets define how Akeyless interacts with external systems. They support:
 
-* Dynamic secrets (for example, cloud IAM credentials, database credentials)
+* Dynamic Secrets (for example, Cloud IAM credentials, database credentials)
 * Secrets rotation (for example, rotating passwords, tokens, or access keys)
 * Use of Akeyless-managed encryption keys in external services
 
@@ -157,4 +157,4 @@ This workflow maintains the Vaultless and non-reconstructive guarantees of the p
 
 ## Summary
 
-The Akeyless platform consists of cloud-hosted control-plane services, internal fragment managers, and optional customer-deployed components. Each component has a clearly defined role, and none of them—individually or collectively—store or reconstruct full private keys. Together, they implement the Vaultless model and Distributed Fragments Cryptography used for secure, scalable identity operations.
+The Akeyless Platform consists of cloud-hosted control-plane services, internal fragment managers, and optional customer-deployed components. Each component has a clearly defined role, and none of them—individually or collectively—store or reconstruct full private keys. Together, they implement the Vaultless model and Distributed Fragments Cryptography used for secure, scalable identity operations.
