@@ -101,7 +101,7 @@ kubectl get pods
 
 ## SRA Portal Access
 
-place hodler
+<br />
 
 To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
 
