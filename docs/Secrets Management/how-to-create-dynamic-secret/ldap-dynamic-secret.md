@@ -22,7 +22,7 @@ You can define a dynamic LDAP secret to dynamically generate LDAP access credent
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/ldap-dynamic-secret#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/ldap-dynamic-secret#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic LDAP secret from the CLI using an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target), run the following command:
 
@@ -90,7 +90,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/ldap-dynamic-secret#create-a-dynamic-ldap-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/ldap-dynamic-secret#create-a-dynamic-ldap-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
@@ -108,9 +108,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
   * Check the **Explicitly specify target properties** to provide details of the target LDAP Server in the next step.
 * **User Base DN:** Specify user base DN settings.
 * **LDAP User Attribute:** Specify the default value CN.
-* **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IDP.
+* **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IdP.
   * **Override:** Explicitly enter the username.
-  * **Extract:** Extract the user from a Sub Claim configured on your IDP, where the default value is `ext_username`
+  * **Extract:** Extract the user from a Sub Claim configured on your IdP, where the default value is `ext_username`
 * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only when **not using** externally provided username).
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Temporary Password Length** Set the length of the temporary password.
@@ -124,7 +124,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **LDAP Server URL:** Specify the LDAP Server URL.
 
-* **CA Certificate File Content:** Provide the base64-encoded CA Certificate to enable the secure connection.
+* **CA Certificate File Content:** Provide the Base64-encoded CA Certificate to enable the secure connection.
 
 * **LDAP Bind DN:** Provide Bind DN for authentication of a privileged user.
 

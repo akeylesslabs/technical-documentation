@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can create dynamic secrets for a wide range of databases, including:
+You can create Dynamic Secrets for a wide range of databases, including:
 
 * Amazon Redshift
 
@@ -32,13 +32,13 @@ You can create dynamic secrets for a wide range of databases, including:
 
 * Vertica
 
-With dynamic secrets, you can control and manage which databases, tables, schema, and what set of permissions to issue for each type of application access, as well as completely manage the lifecycle of those temporary credentials which are created just in time-based on short-lived TTL with flexible revocation statements.
+With Dynamic Secrets, you can control and manage which databases, tables, schema, and what set of permissions to issue for each type of application access, as well as completely manage the lifecycle of those temporary credentials which are created just in time-based on short-lived TTL with flexible revocation statements.
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the database through the [Gateway](https://docs.akeyless.io/docs/api-gw) within your internal network and generates a temporary set of restricted access credentials.
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/database-targets). While it saves time for multiple secret level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the DB used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/database-targets). While it saves time for multiple secret level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the DB used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 ## Create a Dynamic Database Secret from the CLI
 

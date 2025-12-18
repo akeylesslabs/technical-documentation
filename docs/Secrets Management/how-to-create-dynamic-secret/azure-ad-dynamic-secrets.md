@@ -45,7 +45,7 @@ For example, the `microsoft.directory/applications/credentials/update` permissio
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/azure-targets). It both saves time for multiple secret-level configurations (by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/azure-targets#create-an-azure-target-from-the-cli) each time), and it's also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/azure-targets). It both saves time for multiple secret-level configurations (by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/azure-targets#create-an-azure-target-from-the-cli) each time), and it's also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic Azure AD secret from the CLI using an existing [Azure Target](https://docs.akeyless.io/docs/azure-targets), run the following command:
 
@@ -126,7 +126,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets#create-a-dynamic-azure-ad-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets#create-a-dynamic-azure-ad-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 

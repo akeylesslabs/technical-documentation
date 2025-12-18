@@ -86,11 +86,11 @@ Where:
 
 * `username`: The user principal name to rotate his password (relevant only for `rotator-type=password`)
 
-* `storage-account-key-name`: Provide the storage account key name `[key1/key2/kerb1/kerb2]` (relevant only for `rotator-type=azure-storage-account`)
+* `storage-account-key-name`: Provide the Storage Account key name `[key1/key2/kerb1/kerb2]` (relevant only for `rotator-type=azure-storage-account`)
 
-* `explicitly-set-sa[=false]`: If set, explicitly provide the storage account details `[true/false]`
+* `explicitly-set-sa[=false]`: If set, explicitly provide the Storage Account details `[true/false]`
   * `resource-group-name`: The resource group name (only relevant when `explicitly-set-sa=true`)
-  * `resource-name`: The name of the storage account (only relevant when `explicitly-set-sa=true`)
+  * `resource-name`: The name of the Storage Account (only relevant when `explicitly-set-sa=true`)
 
 * `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created - to maintain 2 values at the same time.  Relevant only for **Client Secret**.
 
@@ -141,7 +141,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
   * **Username**: The user's principal name to rotate his password (relevant only for **Password Rotator type**)
 
-  * **Storage Account Key Name** :  Defines the storage account Key name (relevant only for **Azure Storage Account**)
+  * **Storage Account Key Name** :  Defines the Storage Account Key name (relevant only for **Azure Storage Account**)
     * **Resource Group Name** : Resource group name, relevant only when **Storage Account Details** are provided explicitly.
     * **Resource Name** : Resource name, relevant only when **Storage Account Details** are provided explicitly.
 

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-You can create a PingFederate secret to allow users to dynamically receive short-lived authentication options to interact with a PingFederate service using an API key, a public key (private key JWT) and client certificates.
+You can create a PingFederate secret to allow users to dynamically receive short-lived authentication options to interact with a PingFederate service using an API Key, a public key (private key JWT) and client certificates.
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/ping-target). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/ping-target). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 ## Working With Ping Dynamic Secrets from the CLI
 
@@ -105,7 +105,7 @@ The output should look as follows:
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 ### Create a Dynamic Ping Secret
 

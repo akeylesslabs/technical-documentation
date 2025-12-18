@@ -28,7 +28,7 @@ The Akeyless Basic Bastion provides Secure Remote Access to resources using Akey
 
 This chart bootstraps an Akeyless Basic Bastion deployment on a Kubernetes cluster using the Helm package manager.
 
-To spin an Akeyless Basic Bastion using docker please refer to the last section on this page.
+To spin an Akeyless Basic Bastion using Docker please refer to the last section on this page.
 
 ## Prerequisites
 

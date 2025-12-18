@@ -76,7 +76,7 @@ Let's set up remote access to the Azure Portal from the Akeyless Console. If you
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-* `Rotate after disconnection`: Optional for Rotated Secret. You can enable an automatic secret rotation after a session ends.
+* `Rotate after disconnection`: Optional for Rotated Secret. You can enable an automatic Secret Rotation after a session ends.
 
 * `Block Concurrent Use`: Optional for Rotated Secret. Block concurrent use of this secret.
 

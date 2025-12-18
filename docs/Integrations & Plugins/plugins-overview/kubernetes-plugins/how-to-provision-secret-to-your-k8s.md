@@ -103,7 +103,7 @@ Modify the following values under the `env` section as follows:
 
 * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`.  To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
 
-* `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
+* `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
 
 * Optional `AKEYLESS_IGNORE_CACHE`:  to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
 
@@ -127,9 +127,9 @@ env:
 >
 > 1. When working with Red Hat OpenShift, enable the OpenShift flag in the **values.yaml** chart file: `openshiftEnabled: true`
 >
-> 2. Injecting secrets into the namespace where the `k8s injector` plugin is installed is unsupported.
+> 2. Injecting secrets into the Namespace where the `k8s injector` plugin is installed is unsupported.
 
-3. On your K8s cluster, create and label a namespace for Akeyless.
+3. On your K8s cluster, create and label a Namespace for Akeyless.
 
 ```shell CLI
 kubectl create namespace akeyless
@@ -143,7 +143,7 @@ oc create namespace akeyless
 oc label namespace akeyless name=akeyless
 ```
 
-4. Deploy the Helm chart to the selected namespace.
+4. Deploy the Helm chart to the selected Namespace.
 
 ```shell CLI
 helm install injector akeyless/akeyless-secrets-injection --namespace akeyless -f values.yaml
@@ -378,7 +378,7 @@ kubectl apply -f MySQLWordPress.yaml
 kubectl apply -f Wordpress.yaml
 ```
 
-Another example demonstrates fetching secret specific versions for example `version=2` of the secret `my_k8s_secret` in the `K8s` folder,  decode in base64:
+Another example demonstrates fetching secret specific versions for example `version=2` of the secret `my_k8s_secret` in the `K8s` folder,  decode in Base64:
 
 ```yaml
 - name:  MY_SECRET

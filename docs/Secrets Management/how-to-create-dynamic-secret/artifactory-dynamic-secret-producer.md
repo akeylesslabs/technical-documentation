@@ -20,7 +20,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [a Target](https://docs.akeyless.io/docs/artifactory-targets) . While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [a Target](https://docs.akeyless.io/docs/artifactory-targets) . While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic Artifactory secret from the CLI using an existing [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets) , run the following command:
 
@@ -67,7 +67,7 @@ If you don't have an [Artifactory Target](https://docs.akeyless.io/docs/artifact
 
 * `artifactory-admin-name`: The Artifactory user with privileges to create JWT tokens.
 
-* `artifactory-admin-pwd`: The API key or password of the admin user.
+* `artifactory-admin-pwd`: The API Key or password of the admin user.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueartifactoryp) section.
 
@@ -83,7 +83,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#/create-a-dynamic-artifactory-secret-in-the-akeyless-console), you need to configure the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#/create-a-dynamic-artifactory-secret-in-the-akeyless-console), you need to configure the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
@@ -114,7 +114,7 @@ For example, if you use your JFrog URL, this could be `<https://myjfrog.acme.org
 
 * **Admin Username:** Provide the name of the Artifactory user with privileges to create JWT tokens.
 
-* **Admin API Key/Password:** Provide the admin user's API key or password.
+* **Admin API Key/Password:** Provide the admin user's API Key or password.
 
 7. Click **Finish**.
 

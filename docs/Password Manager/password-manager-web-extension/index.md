@@ -22,7 +22,7 @@ Whether you're working remotely or simply away from your primary device, the Ake
 
 ### Securely Inject Passwords Into Remote Access Sessions
 
-Maintaining secure connections is paramount in today's interconnected world. The Akeyless browser extension seamlessly integrates with secure remote access sessions, enabling you to inject passwords directly into these sessions without compromising your credentials. This added layer of security safeguards your sensitive information and protects your privacy.
+Maintaining secure connections is paramount in today's interconnected world. The Akeyless browser extension seamlessly integrates with Secure Remote Access sessions, enabling you to inject passwords directly into these sessions without compromising your credentials. This added layer of security safeguards your sensitive information and protects your privacy.
 
 ### Experience the Power of Akeyless Browser Extension
 

@@ -41,126 +41,126 @@ To use Akeyless Connect you need:
 
 1. Download the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli).
 
-2. Create a resource file called **\~/.akeyless-connect.rc** as follows:
+2. Create a resource file called `~/.akeyless-connect.rc` as follows:
 
-```shell akeyless-connect.rc
-# ---------------------------------------------------------------------
-# Copyright © 2019-2023  Akeyless Security LTD.
-#
-# All rights reserved
-# ----------------------------------------------------------------------
+    ```shell akeyless-connect.rc
+    # ---------------------------------------------------------------------
+    # Copyright © 2019-2023  Akeyless Security LTD.
+    #
+    # All rights reserved
+    # ----------------------------------------------------------------------
 
-#
-# This file is a user-specific configuration file for `akeyless connect` CLI command, part of Akeyless Secure Remote Access
-# This file should be located under the user's home directory, named explicitly: .akeyless-connect.rc
-#
+    #
+    # This file is a user-specific configuration file for `akeyless connect` CLI command, part of Akeyless Secure Remote Access
+    # This file should be located under the user's home directory, named explicitly: .akeyless-connect.rc
+    #
 
-# IDENTITY_FILE - the path to the ssh-key to be signed and used for Zero Trust session (if empty, default ssh-key is used)
-IDENTITY_FILE=""
+    # IDENTITY_FILE - the path to the ssh-key to be signed and used for Zero Trust session (if empty, default ssh-key is used)
+    IDENTITY_FILE=""
 
-# CERT_ISSUER_NAME - full path to the Akeyless SSH Cert Issuer to use for Zero Trust session
-CERT_ISSUER_NAME=""
+    # CERT_ISSUER_NAME - full path to the Akeyless SSH Cert Issuer to use for Zero Trust session
+    CERT_ISSUER_NAME=""
 
-# AKEYLESS_PROFILE - Akeyless CLI profile to be used
-AKEYLESS_PROFILE="default"
+    # AKEYLESS_PROFILE - Akeyless CLI profile to be used
+    AKEYLESS_PROFILE="default"
 
-# Akeyless CLI binary (if needed)
-AKEYLESS_CLI=akeyless
+    # Akeyless CLI binary (if needed)
+    AKEYLESS_CLI=akeyless
 
-# AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (RestAPI)
-AKEYLESS_GW_REST_API=""
+    # AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (RestAPI)
+    AKEYLESS_GW_REST_API=""
 
-# Following are used for control service, to configure the temporary session:
-# ${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}
-#
-BASTION_API_PREFIX=""
-BASTION_API_PATH=""
-BASTION_API_PROTO=http
-BASTION_API_PORT=9900
-BASTION_SSH_PORT=22
+    # Following are used for control service, to configure the temporary session:
+    # ${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}
+    #
+    BASTION_API_PREFIX=""
+    BASTION_API_PATH=""
+    BASTION_API_PROTO=http
+    BASTION_API_PORT=9900
+    BASTION_SSH_PORT=22
 
-# Allow caching of temp session creds
-SESSION_CACHING=no
+    # Allow caching of temp session creds
+    SESSION_CACHING=no
 
-# Display connection stages
-DISPLAY_STAGES=yes
+    # Display connection stages
+    DISPLAY_STAGES=yes
 
-# Use SSH Agent to store user's identity keys.
-USE_SSH_AGENT=no
+    # Use SSH Agent to store user's identity keys.
+    USE_SSH_AGENT=no
 
-SSH_EXTRA_ARGS=""
+    SSH_EXTRA_ARGS=""
 
-# Path to SSH executable. e.g. /usr/bin/ssh
-SSH_EXTERNAL_CLIENT="ssh"
-```
+    # Path to SSH executable. e.g. /usr/bin/ssh
+    SSH_EXTERNAL_CLIENT="ssh"
+    ```
 
-The latest version of this file can be found in [Akeyless official artifacts](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/).
+    The latest version of this file can be found in [Akeyless official artifacts](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/).
 
-Edit the settings as follows:
+    Edit the settings as follows:
 
-`IDENTITY_FILE` - Default is `~/.ssh/id_rsa`. Full path to the private key to be signed and used for the Zero Trust session.
+    `IDENTITY_FILE` - Default is `~/.ssh/id_rsa`. Full path to the private key to be signed and used for the Zero Trust session.
 
-`CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item.
+    `CERT_ISSUER_NAME` - Full path to the Akeyless [SSH Certificates Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item.
 
-`AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI.
+    `AKEYLESS_PROFILE` - Set the default profile that will be used from your Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). By default, it's using the `default` profile of your Akeyless CLI.
 
-`AKEYLESS_CLI` - Akeyless CLI binary (if needed).
+    `AKEYLESS_CLI` - Akeyless CLI binary (if needed).
 
-`AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
+    `AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
-`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) is configured with TLS.  
+    `BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) is configured with TLS.  
 
-`BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
+    `BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
 
-`BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra`  cluster service port.
+    `BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra`  cluster service port.
 
-**Optional** when working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
+    **Optional** when working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
 
-`BASTION_API_PREFIX` - Set your path prefix as your load balancer settings.
+    `BASTION_API_PREFIX` - Set your path prefix as your load balancer settings.
 
-`BASTION_API_PATH` - Set your path as your load balancer settings.
+    `BASTION_API_PATH` - Set your path as your load balancer settings.
 
-Where the URL will be set as follow:
+    Where the URL will be set as follow:
 
-`${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}`
+    `${BASTION_API_PROTO}://"${BASTION_API_PREFIX}${BASTION_HOST}${BASTION_API_PATH}":"${BASTION_API_PORT}`
 
-`SSH_EXTRA_ARGS` - Add any official SSH arguments.
+    `SSH_EXTRA_ARGS` - Add any official SSH arguments.
 
 3. Use the `akeyless connect` command to connect to a resource through the [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion):
 
-```shell General Template
-akeyless connect -t <[user@]target/hostname/ip[:port]> -v <sra-bastion-ssh-sra-service/ip[:port]>
-```
+    ```shell General Template
+    akeyless connect -t <[user@]target/hostname/ip[:port]> -v <sra-bastion-ssh-sra-service/ip[:port]>
+    ```
 
-Full options list:
+    Full options list:
 
-```shell akeyless connect -h
--t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
-  -v, --via-bastion                      Bastion host, which the connection will go through. e.g.: bastion-host:port. 
-  -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified will be taken from ~/.akeyless-connect.rc 
-  -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
-  -n, --name                             Path to Secret, based on the required connection
-      --ssh-extra-args                   Additional SSH arguments (except -i)
-      --bastion-ctrl-proto[=http]        Bastion API Protocol [http/https]
-      --bastion-ctrl-subdomain           Bastion control API URL prefix. e.g. https://<prefix>.bastion-host
-      --bastion-ctrl-path                Bastion control API path. e.g. https://bastion-host/<path>
-      --bastion-ctrl-port[=9900]         Bastion control API port. e.g. https://bastion-host:<7777>
-      --gateway-rest-endpoint            Gateway RestAPI URL. e.g. https://rest.akeyless.io
-  -V, --ssh-version                      Output local SSH client version
-      --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
-      --use-ssh-agent										 Enable ssh-agent
-      --ssh-command                      Path to SSH executable. e.g. /usr/bin/ssh
-  -T, --tunnel                           SSH tunnel param. e.g. -T='-L :5555:0.0.0.0:5555' 
-  -C, --command                          Command to execute on the target (useful for non interactive-mode). e.g. -C='ls -al'
-  -J, --justification                    User connection justification    
-      --debug                            Output debug prints
-      --profile, --token                 Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
-      --uid-token                        The universal identity token, Required only for universal_identity authentication
-  -h, --help                             display help information
-      --json[=false]                     Set output format to JSON
-      --jq-expression                    JQ expression to filter result output
-      --no-creds-cleanup[=false]         Do not clean local temporary expired creds
-```
+    ```shell akeyless connect -h
+    -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
+      -v, --via-bastion                      Bastion host, which the connection will go through. e.g.: bastion-host:port. 
+      -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified will be taken from ~/.akeyless-connect.rc 
+      -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
+      -n, --name                             Path to Secret, based on the required connection
+          --ssh-extra-args                   Additional SSH arguments (except -i)
+          --bastion-ctrl-proto[=http]        Bastion API Protocol [http/https]
+          --bastion-ctrl-subdomain           Bastion control API URL prefix. e.g. https://<prefix>.bastion-host
+          --bastion-ctrl-path                Bastion control API path. e.g. https://bastion-host/<path>
+          --bastion-ctrl-port[=9900]         Bastion control API port. e.g. https://bastion-host:<7777>
+          --gateway-rest-endpoint            Gateway RestAPI URL. e.g. https://rest.akeyless.io
+      -V, --ssh-version                      Output local SSH client version
+          --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
+          --use-ssh-agent										 Enable ssh-agent
+          --ssh-command                      Path to SSH executable. e.g. /usr/bin/ssh
+      -T, --tunnel                           SSH tunnel param. e.g. -T='-L :5555:0.0.0.0:5555' 
+      -C, --command                          Command to execute on the target (useful for non interactive-mode). e.g. -C='ls -al'
+      -J, --justification                    User connection justification    
+          --debug                            Output debug prints
+          --profile, --token                 Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+          --uid-token                        The universal identity token, Required only for universal_identity authentication
+      -h, --help                             display help information
+          --json[=false]                     Set output format to JSON
+          --jq-expression                    JQ expression to filter result output
+          --no-creds-cleanup[=false]         Do not clean local temporary expired creds
+    ```
 
 ### Examples
 

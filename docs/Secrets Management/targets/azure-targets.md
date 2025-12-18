@@ -40,9 +40,9 @@ If you wish the target to reference a specific Storage Account, add the followin
 
 * `subscription-id`: The ID of a Subscription that contains the Azure Storage Account.
 
-* `resource-group-name`: The name of the Resource Group to which your Azure Storage account belongs.
+* `resource-group-name`: The name of the Resource Group to which your Azure Storage Account belongs.
 
-* `resource-name`: The name of the Azure Storage account.
+* `resource-name`: The name of the Azure Storage Account.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueazurep) section.
 
