@@ -89,8 +89,11 @@ function getQueryParamNames(url) {
 }
 
 function stripUrls(text) {
-  // Remove http/https URLs and www.* URLs
-  return (text || "").replace(/\bhttps?:\/\/[^\s)>"']+/gi, "").replace(/\bwww\.[^\s)>"']+/gi, "");
+  // Remove http/https and www URLs, including common punctuation terminators.
+  // This is intentionally simple and resilient for docs linting.
+  return (text || "")
+    .replace(/\bhttps?:\/\/[^\s)>"']+/gi, "")
+    .replace(/\bwww\.[^\s)>"']+/gi, "");
 }
 
 function stripHtmlTags(text) {
@@ -474,10 +477,11 @@ module.exports = [
    * - This ignores inline-code spans by default via token filtering.
    * - This intentionally only ignores HTML anchors expressed as inline HTML (<a>...</a>),
    *   not Markdown links. If you want to ignore Markdown link text too, say so and we’ll extend it.
+   * - Updated: ignores text inside URLs (both visible text that contains URLs and href attributes are not evaluated).
    */
   {
     names: ["AKY013", "proper-names-capitalization-ignore-a"],
-    description: "Enforce proper name capitalization (MD044-like), ignoring inline HTML <a>...</a> content",
+    description: "Enforce proper name capitalization (MD044-like), ignoring inline HTML <a>...</a> content and URLs",
     tags: ["spelling", "capitalization", "style"],
     function: function (params, onError) {
       const options = params.config || {};
@@ -539,7 +543,10 @@ module.exports = [
 
           if (child.type !== "text") continue;
 
-          const text = String(child.content || "");
+          // Ignore URLs inside visible text, so names inside links/URLs don't trigger.
+          const text = stripUrls(String(child.content || ""));
+          if (!text) continue;
+
           let m;
           while ((m = re.exec(text)) !== null) {
             const found = m[0];
@@ -582,7 +589,109 @@ module.exports = [
     }
   },
 
-    /**
+  /**
+   * AKY015: Disallow links inside code blocks AND code spans inside links
+   *
+   * Detects:
+   * 1) Inline code used as Markdown link text: [`code`](url)
+   * 2) Markdown links/autolinks inside fenced or indented code blocks
+   * 3) HTML anchors wrapping code/pre tags: <a ...><code|pre>...</code|pre></a>
+   */
+  {
+    names: ["AKY015", "no-links-in-code-and-no-code-in-links"],
+    description: "Detect code used as link text and links embedded inside code blocks",
+    tags: ["links", "code", "style", "accessibility"],
+    function: function (params, onError) {
+      const tokens = params.tokens || [];
+      const lines = params.lines || [];
+
+      // ---------- 1) Inline code spans inside markdown link text ----------
+      for (const t of tokens) {
+        if (t.type !== "inline" || !Array.isArray(t.children)) continue;
+
+        const children = t.children;
+        for (let i = 0; i < children.length; i++) {
+          const c = children[i];
+          if (c.type !== "link_open") continue;
+
+          // Walk until link_close and detect code_inline
+          let hasCodeInline = false;
+          let linkText = "";
+          for (let j = i + 1; j < children.length; j++) {
+            const cc = children[j];
+            if (cc.type === "link_close") break;
+            if (cc.type === "code_inline") {
+              hasCodeInline = true;
+              linkText += cc.content;
+            } else if (cc.type === "text") {
+              linkText += cc.content;
+            }
+          }
+
+          if (hasCodeInline) {
+            report(
+              onError,
+              t.lineNumber,
+              "Avoid using inline code as link text; use descriptive link text and put the code outside the link.",
+              linkText.trim() || "(code link text)"
+            );
+          }
+        }
+      }
+
+      // ---------- 2) Links inside fenced or indented code blocks ----------
+      // Use token maps to find code blocks precisely and scan their raw lines for link syntax.
+      for (const t of tokens) {
+        if (!((t.type === "fence" || t.type === "code_block") && Array.isArray(t.map))) continue;
+
+        const startLine = t.map[0] + 1; // 1-based
+        const endLineExclusive = t.map[1] + 1;
+
+        for (let ln = startLine; ln < endLineExclusive; ln++) {
+          const raw = lines[ln - 1] || "";
+
+          // Detect markdown links and autolinks inside code blocks
+          // - [text](url)
+          // - [text][ref]
+          // - <https://...>
+          const hasMdLink =
+            /\[[^\]]+\]\([^)]+\)/.test(raw) ||
+            /\[[^\]]+\]\[[^\]]+\]/.test(raw) ||
+            /<https?:\/\/[^>]+>/.test(raw);
+
+          if (hasMdLink) {
+            report(
+              onError,
+              ln,
+              "Avoid including markdown links inside code blocks; move the link to prose outside the code block.",
+              raw.trim()
+            );
+          }
+        }
+      }
+
+      // ---------- 3) HTML links wrapping code blocks or code elements ----------
+      for (const t of tokens) {
+        if (t.type !== "html_block" && t.type !== "html_inline") continue;
+        const html = String(t.content || "");
+
+        const hasAnchor = /<a\b[^>]*>/i.test(html) && /<\/a>/i.test(html);
+        if (!hasAnchor) continue;
+
+        const wrapsCode = /<a\b[^>]*>[\s\S]*<(code|pre)\b/i.test(html);
+        if (wrapsCode) {
+          report(
+            onError,
+            t.lineNumber,
+            "Avoid wrapping code (code/pre) inside links; use descriptive link text and keep code separate.",
+            "<a>…<code/pre>…</a>"
+          );
+        }
+      }
+    }
+  },
+
+  /**
    * AKY016: Disallow tracking query parameters in links (e.g., utm_source)
    * Rationale: URLs with tracking params are noisy and can leak analytics identifiers into docs.
    *
