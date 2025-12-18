@@ -1,5 +1,5 @@
 ---
-title: Kubectl Access
+title: kubectl Access
 excerpt: Short-lived certificate for accessing a Kubernetes cluster via kubectl
 deprecated: false
 hidden: false
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Below we will describe how to configure Kubectl to work with short-lived certificates to access a Kubernetes (K8s) cluster using an Akeyless PKI Cert Issuer. The advantage of this approach is that there is no need to manage client certificates. Clients identify to the Akeyless account with one of the available Auth Methods and receive a short-lived certificate that can be used to access the Kubernetes cluster via Kubectl.
+Below we will describe how to configure kubectl to work with short-lived certificates to access a Kubernetes (K8s) cluster using an Akeyless PKI Cert Issuer. The advantage of this approach is that there is no need to manage client certificates. Clients identify to the Akeyless account with one of the available Auth Methods and receive a short-lived certificate that can be used to access the Kubernetes cluster via kubectl.
 
 ## Setup
 

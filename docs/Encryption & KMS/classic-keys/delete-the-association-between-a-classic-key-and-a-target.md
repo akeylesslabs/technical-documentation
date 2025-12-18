@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-When you delete the association between a classic key and a target (cloud KMS), the key is deleted from the cloud KMS, but remains in the Akeyless KMS. The key might not be deleted immediately from the cloud KMS, according to the cloud KMS deletion policy.
+When you delete the association between a classic key and a target (Cloud KMS), the key is deleted from the Cloud KMS, but remains in the Akeyless KMS. The key might not be deleted immediately from the Cloud KMS, according to the Cloud KMS deletion policy.
 
 The CLI command to delete the association between a classic key and a target is:
 

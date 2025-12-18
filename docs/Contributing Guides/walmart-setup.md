@@ -15,11 +15,11 @@ The Akeyless Gateway is a stateless Docker container, provided as a standalone o
 ## Docker
 
 A basic deployment would preferably require a Linux Server (VM) with Docker Engine installed.  
-You may download the latest docker engine on [Docker website](https://docs.docker.com/get-docker/).
+You may download the latest Docker Engine on [Docker website](https://docs.docker.com/get-docker/).
 
 ## Network Connectivity
 
-1. Network access to pull a docker image from: [https://hub.docker.com](https://hub.docker.com)
+1. Network access to pull a Docker image from: [https://hub.docker.com](https://hub.docker.com)
 2. Outgoing network access to Akeyless SaaS Core Services via the following URLs:
 
 ```http WMT tenant network
@@ -306,7 +306,7 @@ You can configure different types of authentication methods from the CLI:
 8. [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
 9. [GCP](https://docs.akeyless.io/docs/gcp-auth-method) (`GCP`)
 
-Use the authentication mode that you also used when you signed up and signed in to the UI, use your username and password credentials, or use the API key Akeyless assigned to you when you signed in for the first time.
+Use the authentication mode that you also used when you signed up and signed in to the UI, use your username and password credentials, or use the API Key Akeyless assigned to you when you signed in for the first time.
 
 If you're not sure what authentication method to use, consult your administrator.  
 For more information about authentication methods, see [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods).

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can associate a classic key with a [target](https://docs.akeyless.io/docs/targets) (cloud KMS) when you [create the key](https://docs.akeyless.io/docs/create-a-classic-key), or add this association at any time. When you associate a classic key with a target, you share the key with the cloud KMS, from where it can be used in the same way as any key created by the cloud provider. Akeyless remains responsible for managing the key lifecycle by providing secure storage, as well as full role-based access control, recording of key activities, and logging.
+You can associate a classic key with a [target](https://docs.akeyless.io/docs/targets) (Cloud KMS) when you [create the key](https://docs.akeyless.io/docs/create-a-classic-key), or add this association at any time. When you associate a classic key with a target, you share the key with the Cloud KMS, from where it can be used in the same way as any key created by the cloud provider. Akeyless remains responsible for managing the key lifecycle by providing secure storage, as well as full Role-Based Access Control, recording of key activities, and logging.
 
 The CLI command to associate a classic key with a target is:
 
@@ -47,6 +47,6 @@ The full list of options for this command is:
 
 ## Shared Keys on a Cloud KMS
 
-When you associate a classic key with a cloud KMS, you will find a new customer-managed key on the cloud KMS. The key alias is built as `managed-by-<account-id>-<item-id>`, as shown in the following example:
+When you associate a classic key with a Cloud KMS, you will find a new customer-managed key on the Cloud KMS. The key alias is built as `managed-by-<account-id>-<item-id>`, as shown in the following example:
 
 <Image className="border" width="100%" border={true} src="https://files.readme.io/5ffc31d-image-20210518-114015.png" />

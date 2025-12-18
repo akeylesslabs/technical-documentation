@@ -12,13 +12,13 @@ next:
 ---
 ## Background
 
-A rapidly growing company requires an efficient and secure system to manage new employee onboarding, specifically focusing on authentication and access control within their ServiceNow environment. To address this, the company plans to leverage Akeyless API to automate the creation of new authentication methods for each employee and assign them to predefined access roles based on their job function, directly within ServiceNow.
+A rapidly growing company requires an efficient and secure system to manage new employee onboarding, specifically focusing on authentication and access control within their ServiceNow environment. To address this, the company plans to leverage Akeyless API to automate the creation of new authentication methods for each employee and assign them to predefined Access Roles based on their job function, directly within ServiceNow.
 
 ## Requirements
 
 ### Akeyless Account and API Access
 
-* A valid Akeyless account with administrative privileges to generate API keys and manage access roles.
+* A valid Akeyless account with administrative privileges to generate API keys and manage Access Roles.
 * API keys, allowing ServiceNow to securely communicate with Akeyless services.
 
 For detailed instructions on configuring your Akeyless API keys, please refer to our [Akeyless API Key Configuration Guide](https://docs.akeyless.io/docs/api-key).
@@ -31,7 +31,7 @@ For detailed instructions on configuring your Akeyless API keys, please refer to
 
 ### REST API Integration Capabilities
 
-* The ability to make outbound REST API calls to Akeyless for creating and managing authentication methods and access roles.
+* The ability to make outbound REST API calls to Akeyless for creating and managing authentication methods and Access Roles.
 * Support for securely storing API credentials and handling API responses within ServiceNow.
 
 ### Custom Table and Workflow Configuration
@@ -41,7 +41,7 @@ For detailed instructions on configuring your Akeyless API keys, please refer to
 
 ### Role-Based Access Control Management
 
-* The ability to dynamically assign and manage access roles within ServiceNow, potentially using information from Akeyless to determine the appropriate roles based on the authentication method or policy.
+* The ability to dynamically assign and manage Access Roles within ServiceNow, potentially using information from Akeyless to determine the appropriate roles based on the authentication method or policy.
 
 ### Implementation
 

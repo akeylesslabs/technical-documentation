@@ -156,7 +156,7 @@ GO
 
 > 📘 Note
 >
-> This does not create a new key in the Akeyless platform. The key is created inside the database and encrypted using the key from Akeyless.
+> This does not create a new key in the Akeyless Platform. The key is created inside the database and encrypted using the key from Akeyless.
 
 * Enable Transparent Data Encryption (TDE):
 

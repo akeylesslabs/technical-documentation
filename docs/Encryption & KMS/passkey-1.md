@@ -12,7 +12,7 @@ next:
 ---
 ## Passkey Management Overview
 
-This documentation provides a comprehensive guide to creating, viewing, and managing passkeys within the Akeyless platform. Passkeys enable password-less authentication, which is more secure and user-friendly. The documentation covers the use of both the Akeyless API and CLI for creating and managing passkeys.
+This documentation provides a comprehensive guide to creating, viewing, and managing passkeys within the Akeyless Platform. Passkeys enable password-less authentication, which is more secure and user-friendly. The documentation covers the use of both the Akeyless API and CLI for creating and managing passkeys.
 
 ## What Is a Passkey?
 

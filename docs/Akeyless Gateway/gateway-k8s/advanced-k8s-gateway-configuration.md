@@ -95,9 +95,9 @@ TLSConf:
 
 You can also configure the default settings using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) UI.
 
-A default [SAML](https://docs.akeyless.io/docs/saml)  or [OIDC](https://docs.akeyless.io/docs/openid)  `Access ID`  can be set for the Gateway (using either `defaultSamlAccessId` or `defaultOidcAccessId` respectively) to automatically select the auth method for end-users logging in to the Gateway Console (port `18888`), upon clicking on the respective auth method.
+A default [SAML](https://docs.akeyless.io/docs/saml)  or [OIDC](https://docs.akeyless.io/docs/openid)  `Access ID`  can be set for the Gateway (using either `defaultSamlAccessId` or `defaultOidcAccessId` respectively) to automatically select the Auth Method for end-users logging in to the Gateway Console (port `18888`), upon clicking on the respective Auth Method.
 
-For OIDC, to leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IDP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IDP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
+For OIDC, to leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
 Set the default [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) that will encrypt all items created on this Gateway using the setting `defaultEncryptionKey` with the full path to your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) in Akeyless.
 
@@ -123,7 +123,7 @@ To work with [CBA](https://docs.akeyless.io/docs/certificate-based-authenticatio
 
 And set your deployment with the following parameters:
 
-Under `TLSConf` section, enable the `enableSniProxy` setting, and under the `defaultsConf` section provide your [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) auth method `accessID`:
+Under `TLSConf` section, enable the `enableSniProxy` setting, and under the `defaultsConf` section provide your [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) Auth Method `accessID`:
 
 ```yaml
 TLSConf:
@@ -168,7 +168,7 @@ cachingConf:
 
 ## Working With Kubernetes Secrets
 
-To provide the settings of your Gateway deployment directly from your local k8s secrets store, you can set the following settings with the corresponding `Kubernetes Secrets names`:
+To provide the settings of your Gateway deployment directly from your local K8s secrets store, you can set the following settings with the corresponding `Kubernetes Secrets names`:
 
 * `admin-access-id`
 * `admin-access-key`
@@ -181,7 +181,7 @@ To provide the settings of your Gateway deployment directly from your local k8s 
 
 > 🚧 Warning
 >
-> Providing any of those settings using an existing Kubernetes secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
+> Providing any of those settings using an existing Kubernetes Secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
 ```yaml values.yaml
   adminAccessIdExistingSecret:
