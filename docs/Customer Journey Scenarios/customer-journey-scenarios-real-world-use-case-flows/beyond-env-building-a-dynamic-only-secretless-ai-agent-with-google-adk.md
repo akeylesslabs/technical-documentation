@@ -83,7 +83,7 @@ def fetch_secret_from_akeyless(secret_name: str) -> Optional[str]:
 
 ```
 
-This function is our workhorse for static secrets, like the Gemini key:
+This function is our workhorse for Static Secrets, like the Gemini key:
 
 ```python Phyton
 def fetch_api_key_from_akeyless():

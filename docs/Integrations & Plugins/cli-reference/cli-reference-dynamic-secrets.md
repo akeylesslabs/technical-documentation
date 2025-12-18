@@ -12,7 +12,7 @@ next:
 ---
 This section outlines the CLI commands relevant to [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
-Dynamic secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a temporary period with a defined set of permissions.
+Dynamic Secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a temporary period with a defined set of permissions.
 
 You can create a dynamic secret using an existing [target](https://docs.akeyless.io/docs/targets) or manually enter the connection settings.
 
@@ -50,7 +50,7 @@ Command to create a Dynamic Secret
 
 `gcp`: Creates Google Cloud Provider (GCP) dynamic secret
 
-`github`: Creates Github dynamic secret that support tokens creation with fixed ttl of 60 minutes
+`github`: Creates GitHub dynamic secret that support tokens creation with fixed ttl of 60 minutes
 
 `gke`: Creates Google Kubernetes Engine (GKE) dynamic secret
 
@@ -353,7 +353,7 @@ akeyless dynamic-secret create cassandra  \
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
-`--ssl-certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--ssl-certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -540,7 +540,7 @@ akeyless dynamic-secret create eks \
 
 `--user-ttl[=60m]`: User TTL, Default = 60m
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
 
@@ -607,7 +607,7 @@ akeyless dynamic-secret create gcp \
 
 `-e, --gcp-sa-email`: The email of the fixed service account to generate keys or tokens for. (revelant for service-account-type=fixed)
 
-`--role-binding`: Role binding definitions in json format
+`--role-binding`: Role binding definitions in JSON format
 
 `--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account , by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
@@ -663,7 +663,7 @@ akeyless dynamic-secret create google-workspace \
 
 ### `github`
 
-Creates Github Dynamic Secret that support tokens creation with fixed ttl of 60 minutes
+Creates GitHub Dynamic Secret that support tokens creation with fixed ttl of 60 minutes
 
 #### Usage
 
@@ -688,7 +688,7 @@ akeyless dynamic-secret create github \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`--installation-id`: Github application installation id
+`--installation-id`: GitHub application installation id
 
 `--installation-organization`: Optional, instead of installation id, set a GitHub organization name
 
@@ -696,9 +696,9 @@ akeyless dynamic-secret create github \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`--github-app-id`: Github application id
+`--github-app-id`: GitHub application id
 
-`--github-app-private-key`: Github application private key (base64 encoded key)
+`--github-app-private-key`: GitHub application private key (Base64 encoded key)
 
 `--github-base-url[=https://api.github.com/]`: Github base URL
 
@@ -755,7 +755,7 @@ akeyless dynamic-secret create gke \
 
 `--user-ttl[=60m]`: User TTL, Default = 60m
 
-`--secure-access-enable`: Enable/Disable secure remote access, [true/false]
+`--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
 `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
 

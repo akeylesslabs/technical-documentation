@@ -12,7 +12,7 @@ next:
 ---
 This section outlines the CLI commands relevant to [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets).
 
-Rotated secrets enable you to protect the credentials for privileged-user accounts such as an _Administrator_ account on a Windows server, a **root** account on a Linux server, or an **Admin** account on a network device, by resetting its password.
+Rotated Secrets enable you to protect the credentials for privileged-user accounts such as an _Administrator_ account on a Windows Server, a **root** account on a Linux server, or an **Admin** account on a network device, by resetting its password.
 
 <CLIGeneralFlags />
 
@@ -84,7 +84,7 @@ akeyless rotated-secret create aws \
 
 `--api-id`: **API ID** to rotate (relevant only for `rotator-type`=`api-key`)
 
-`--api-key`: **API key** to rotate (relevant only for `rotator-type`=`api-key`)
+`--api-key`: **API Key** to rotate (relevant only for `rotator-type`=`api-key`)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -110,7 +110,7 @@ akeyless rotated-secret create aws \
 
 `--grace-rotation-hour`: The Hour of the grace rotation in UTC
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -154,15 +154,15 @@ akeyless rotated-secret create azure \
 
 `--api-key`: **API key** to rotate (relevant only for `rotator-type`=`api-key`)
 
-`--storage-account-key-name`: The name of the storage account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevat to `azure-storage-account`)
+`--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevat to `azure-storage-account`)
 
 `--username`:  The user principal name to rotate his password (relevant only for `rotator-type`=`password`)
 
-`--explicitly-set-sa[=false]`: If set, explicitly provide the storage account details [`true`/`false`]
+`--explicitly-set-sa[=false]`: If set, explicitly provide the Storage Account details [`true`/`false`]
 
 `--resource-group-name`: The resource group name (only relevant when `explicitly-set-sa`=`true`)
 
-`--resource-name`: The name of the storage account (only relevant when `explicitly-set-sa`=`true`)
+`--resource-name`: The name of the Storage Account (only relevant when `explicitly-set-sa`=`true`)
 
 `--secure-access-disable-concurrent-connections[=false]`: Enable this flag to prevent simultaneous use of the same secret
 
@@ -285,7 +285,7 @@ akeyless rotated-secret create custom \
 
 `--timeout-sec[=40]`: Maximum allowed timeout in seconds for the custom rotator to return the results
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
 
@@ -1220,7 +1220,7 @@ akeyless rotated-secret update azure \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--storage-account-key-name`: The name of the storage account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevat to `azure-storage-account`)
+`--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevat to `azure-storage-account`)
 
 `-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
 
@@ -1346,7 +1346,7 @@ akeyless rotated-secret update custom \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
 
@@ -1562,7 +1562,7 @@ akeyless rotated-secret update ldap \
 
 `--grace-rotation`: Create a new `access key` without deleting the old key from **AWS** for backup (relevant only for AWS) [`true`/`false`]
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1623,7 +1623,7 @@ akeyless rotated-secret update mongodb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1680,7 +1680,7 @@ akeyless rotated-secret update  mssql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1737,7 +1737,7 @@ akeyless rotated-secret update mysql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1794,7 +1794,7 @@ akeyless rotated-secret update oracledb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1851,7 +1851,7 @@ akeyless rotated-secret update postgresql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1955,7 +1955,7 @@ akeyless rotated-secret update redshift \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1993,7 +1993,7 @@ akeyless rotated-secret update snowflake \
 
 `--rotated-password`: Rotated-username password (relevant only for `rotator-type`=`password`)
 
-`--private-key`: RSA Private key (base64 encoded) to rotate (relevant only for `rotator-type`=`key`)
+`--private-key`: RSA Private key (Base64 encoded) to rotate (relevant only for `rotator-type`=`key`)
 
 `--private-key-file-name`: The path to the file containing the private key (relevant only for `rotator-type`=`key`)
 
@@ -2062,7 +2062,7 @@ akeyless rotated-secret update ssh \
 
 `--rotator-custom-cmd`: Custom rotation command
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
 
@@ -2125,7 +2125,7 @@ akeyless rotated-secret update windows \
 
 `--same-password`: Rotate the same password for each host from the Linked Target (**relevant only for Linked Target**)
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -2191,8 +2191,8 @@ akeyless rotated-secret sync \
 
 `--remote-secret-name`: Remote Secret name that will be created on the remote endpoint.
 
-`--namespace`: Namespace name, Relevant only for Hashicorp Vault target.
+`--namespace`: Namespace name, Relevant only for HashiCorp Vault target.
 
-`--filter-secret-value`: JQ expression to filter or transform the secret value
+`--filter-secret-value`: jq expression to filter or transform the secret value
 
 `--gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).

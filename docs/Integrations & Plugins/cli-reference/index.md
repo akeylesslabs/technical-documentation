@@ -270,11 +270,11 @@ Note: The operation is allowed only for admin user
 
 `--postal-code`: Update Postal Code of account
 
-`--jwt-ttl-default`: default jwt ttl for auth method authentication (in minutes)
+`--jwt-ttl-default`: default JWT ttl for Auth Method authentication (in minutes)
 
-`--jwt-ttl-min`: minimum allowed jwt ttl for auth method authentication (in minutes)
+`--jwt-ttl-min`: minimum allowed JWT ttl for Auth Method authentication (in minutes)
 
-`--jwt-ttl-max`: maximum allowed jwt ttl for auth method authentication (in minutes)
+`--jwt-ttl-max`: maximum allowed JWT ttl for Auth Method authentication (in minutes)
 
 `--max-versions`: Maximum versions of a given item-type, valid range [`1`, `300`]. When item version exceeds this number, the oldest versions will be deleted
 
@@ -308,15 +308,15 @@ Note: The operation is allowed only for admin user
 
 `--usage-event-enable`: Enable event for objects that have not been used or changed [true/false]
 
-`--usage-event-object-type`: Usage event is supported for auth method or secrets-and-keys [auth/item]
+`--usage-event-object-type`: Usage event is supported for Auth Method or secrets-and-keys [auth/item]
 
 `--usage-event-interval`: Interval by days for unused objects. Default and minimum interval is 90 days
 
-`--dynamic-secret-max-ttl-enable`: Set a maximum ttl for dynamic secrets [true/false]
+`--dynamic-secret-max-ttl-enable`: Set a maximum ttl for Dynamic Secrets [true/false]
 
-`--dynamic-secret-max-ttl`: Set the maximum ttl for dynamic secrets
+`--dynamic-secret-max-ttl`: Set the maximum ttl for Dynamic Secrets
 
-`--max-rotation-interval-enable`: Set a maximum rotation interval for rotated secrets auto rotation settings [true/false]
+`--max-rotation-interval-enable`: Set a maximum rotation interval for Rotated Secrets auto rotation settings [true/false]
 
 `--max-rotation-interval`: Set the maximum rotation interval for rotated secrets auto rotation settings
 
@@ -373,15 +373,15 @@ block:Flags]
 
 `--rm-tag`: List of the existent tags that will be removed from this item.  \nTo specify multiple tags use argument multiple times: `--rm-tag Tag1 --rm-tag Tag2`
 
-`--secure-access-enable`: Enable/Disable secure remote access, "0-1": "__(M
+`--secure-access-enable`: Enable/Disable Secure Remote Access, "0-1": "__(M
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `my.bastion:9900` (relevant only for ssh cert issuer)
+`--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `my.bastion:9900` (relevant only for SSH cert issuer)
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22`  \n(relevant only for ssh cert issuer)
+`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22`  \n(relevant only for SSH cert issuer)
 
-`--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list (relevant only for ssh cert issuer)
+`--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list (relevant only for SSH cert issuer)
 
 `--secure-access-use-internal-bastion`: Use internal SSH Bastion
 

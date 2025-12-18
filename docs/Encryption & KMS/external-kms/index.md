@@ -30,7 +30,7 @@ The Akeyless Key Management System (KMS) allows organizations to simplify the li
 
 <Image border={false} src="https://files.readme.io/8a5853e-Classic_Keys.png" title="Classic Keys.png" />
 
-The Akeyless KMS provides a workflow for sharing cryptographic keys with cloud KMS providers and managing the key lifecycle, including secure key generation and storage, full role-based access control, and logging and reporting of the key usage. This enables the customer to maintain centralized control of their keys in the Akeyless Platform while using the cryptographic capabilities of external cloud KMS providers. Additionally, the option to choose a custom key name when attaching a key to a KMS provides greater flexibility and control over key management within the Akeyless ecosystem.
+The Akeyless KMS provides a workflow for sharing cryptographic keys with Cloud KMS providers and managing the key lifecycle, including secure key generation and storage, full Role-Based Access Control, and logging and reporting of the key usage. This enables the customer to maintain centralized control of their keys in the Akeyless Platform while using the cryptographic capabilities of external Cloud KMS providers. Additionally, the option to choose a custom key name when attaching a key to a KMS provides greater flexibility and control over key management within the Akeyless ecosystem.
 
 When your cloud provider encryption keys are managed by Akeyless:
 
@@ -44,11 +44,11 @@ When you share a key with one of the supported Cloud KMS providers, a copy of th
 
 > 👍 Note
 >
-> Only [classic keys](https://docs.akeyless.io/docs/classic-keys) can be distributed to cloud KMS providers.
+> Only [classic keys](https://docs.akeyless.io/docs/classic-keys) can be distributed to Cloud KMS providers.
 
 ## Supported Cloud KMS Providers
 
-Akeyless KMS integrates with the following cloud KMS providers:
+Akeyless KMS integrates with the following Cloud KMS providers:
 
 * [AWS KMS](https://docs.akeyless.io/docs/aws-kms)
 * [Azure Key Vault](https://docs.akeyless.io/docs/azure-kms)
