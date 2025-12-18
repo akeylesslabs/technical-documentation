@@ -168,7 +168,7 @@ To work with SSH keys, you will have to create a static secret in an Akeyless to
 
 To enable Secure SSH Access for your target, set the following fields on your secret:
 
-Run the `update-item` command to set the following fields on the static secret that stores the ssh password or private key details:
+Run the `update-item` command to set the following fields on the static secret that stores the SSH password or private key details:
 
 ```shell Akeyless CLI
 akeyless update-item --name <Path/to/static/secret> \

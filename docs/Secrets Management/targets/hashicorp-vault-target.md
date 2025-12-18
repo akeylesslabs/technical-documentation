@@ -53,6 +53,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **URL:** Vault URL.
 
-* **Namespace:** Enter the [namespace](https://developer.hashicorp.com/vault/docs/enterprise/namespaces) in which your vault resources are located.
+* **Namespace:** Enter the [Namespace](https://developer.hashicorp.com/vault/docs/enterprise/namespaces) in which your vault resources are located.
 
 6. Click **Finish**.

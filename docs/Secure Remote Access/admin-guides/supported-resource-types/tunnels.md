@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts via Akeyless SRA SSH server, supported with a complete audit trail.
+Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts via Akeyless SRA SSH server, supported with a complete Audit Trail.
 
 While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI, any thick client can be used to establish the connection to a remote server within your internal network via the Akeyless SRA SSH server.
 
@@ -71,7 +71,7 @@ Once the tunnel is opened, you can connect with your local RDP client to the `Ta
 
 ### K8s
 
-#### Kubectl
+#### kubectl
 
 To connect with a remote K8s cluster using a thick client, you can leverage the Akeyless K8s Tunnel that will start a proxy service on your remote K8s server, via the SRA.
 

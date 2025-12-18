@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable secure remote access to a Kubernetes cluster based on the dynamic secret that generates ephemeral credentials for Kubernetes cluster. Users can then access Kubernetes cluster from the Secure Remote Access Portal, either over the web or using Kubernetes native CLI.
+You can enable Secure Remote Access to a Kubernetes cluster based on the dynamic secret that generates ephemeral credentials for Kubernetes cluster. Users can then access Kubernetes cluster from the Secure Remote Access Portal, either over the web or using Kubernetes native CLI.
 
 ## Prerequisites
 
@@ -43,9 +43,9 @@ Where:
 * **secure-access-cluster-endpoint:** The Kubernetes cluster endpoint URL.
 * **secure-access-allow-port-forwading:** Optional, allows running non-interactive kubectl commands, such as: exec / port-forward / etc. Also allows using the --watch flag (-w), for example.
 
-For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) you can have secure remote access for your Kubernetes dashboard URL:
+For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) you can have Secure Remote Access for your Kubernetes Dashboard URL:
 
-* **secure-access-dashboard-url:** The Kubernetes dashboard URL available only for Generic Kubernetes.
+* **secure-access-dashboard-url:** The Kubernetes Dashboard URL available only for Generic Kubernetes.
 * **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 ## Set Up Remote Access to a Kubernetes Cluster from the Akeyless Console
@@ -70,7 +70,7 @@ For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-gener
 
 For **Web Access**:
 
-* `Dashboard URL`: Required to enable secure remote access to your Kubernetes dashboard.
+* `Dashboard URL`: Required to enable Secure Remote Access to your Kubernetes Dashboard.
 
 * `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define an LDAP target to be used with [LDAP dynamic secrets](https://docs.akeyless.io/docs/ldap-dynamic-secret) or [LDAP rotated secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret).
+You can define an LDAP target to be used with [LDAP Dynamic Secrets](https://docs.akeyless.io/docs/ldap-dynamic-secret) or [LDAP Rotated Secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret).
 
 ## Create an LDAP Target in the CLI
 
@@ -49,7 +49,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **LDAP Server URL:** Specify the LDAP Server URL.
 
-* **CA Certificate File Content:** Provide the base64-encoded CA Certificate to enable the secure connection.
+* **CA Certificate File Content:** Provide the Base64-encoded CA Certificate to enable the secure connection.
 
 * **LDAP Bind DN:** Provide Bind DN for authentication of a privileged user.
 

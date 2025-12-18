@@ -26,7 +26,7 @@ SRA supports compressing and encrypting RDP session recordings to optimize stora
 
 Choose the output resolution for the encoded video file (default is `1280×720`).
 
-#### Compression (GZIP)
+#### Compression (gzip)
 
 Optionally compress the encoded video file using `GZIP`.
 
@@ -56,7 +56,7 @@ Encoding is executed via a **[decrypt file command](https://docs.akeyless.io/doc
 #### Where to Configure
 
 * **Latest (Console UI):** **Gateway Manager → Remote Access → Session Recording → RDP recordings**
-  From here you can set the recording **Quality**, toggle **GZIP Compression**, and enable **Encryption**.
+  From here you can set the recording **Quality**, toggle **gzip Compression**, and enable **Encryption**.
 
 * **Legacy Helm Chart:** Configure under the **`rdpRecord`** section of your values file to set **quality**, **compression**, and **encryption** parameters for RDP recordings.
 

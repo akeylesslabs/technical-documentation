@@ -59,4 +59,4 @@ Every session update is captured in the Audit Log. This ensures that any changes
 To access the Session Monitoring feature:
 
 1. Log in to the Console UI.
-2. Navigate to: Platform → Secure Remote Access → Sessions Overview. From this interface, you can view all SRA sessions within the selected timeframe, apply filters, refresh session data, and review audit logs.
+2. Navigate to: Platform → Secure Remote Access → Sessions Overview. From this interface, you can view all SRA sessions within the selected timeframe, apply filters, refresh session data, and review Audit Logs.

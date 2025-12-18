@@ -61,7 +61,7 @@ target_logstash_protocol="tcp"
 Configure your Logstash to use the same port and protocol:\
 Add the following to the `logstash.conf` file `input \{ tcp \{ port => 8911 codec => json } }`
 
-## ELK Elasticsearch
+## ELK ElasticSearch
 
 ```yaml
 target_log_type="elasticSearch"
@@ -128,9 +128,9 @@ Setting log forwarding to stdout:
 target_log_type="std_out"
 ```
 
-## DataDog
+## Datadog
 
-Setting log forwarding to DataDog:
+Setting log forwarding to Datadog:
 
 ```yaml
 target_log_type="datadog"
