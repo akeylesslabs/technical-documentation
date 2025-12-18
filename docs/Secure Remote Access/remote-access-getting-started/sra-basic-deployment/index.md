@@ -73,9 +73,7 @@ helm show values akeyless/akeyless-gateway > values.yaml
 akeyless get-rsa-public --name /path/to/SSHSignerKey --json --jq-expression='.ssh' 
 ```
 
-<br />
-
-2. In order to enable **Remote Access** on your Gateway, enable the `sra`  and add the public key of your SSH Cert Issuer
+2. Enable **Remote Access** on your Gateway, enable the `sra`  and add the public key of your SSH Cert Issuer:
 
 ```shell
 sra:
@@ -87,19 +85,19 @@ sshConfig:
 
 ## Run The Deployment
 
-To upgrade the existing gateway deployment with the SRA configuration, run the following command:
+1. To upgrade the existing gateway deployment with the SRA configuration, run the following command:
 
 ```shell
-helm upgrade --install gw akeyless/akeyless-gateway -f values.yaml
+helm upgrade --install <deployment name> akeyless/akeyless-gateway -f values.yaml
 ```
 
-Once upgraded, check if the pods are running:
+2. Once upgraded, check if the pods are running, In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`: 
 
 ```shell
 kubectl get pods
 ```
 
-In addition to the Gateway pods, two new pods for Remote Access will be created: `web` and `ssh`.
+3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000/console`)  with your Gateway admin credentials.
 
 ## SRA Access
 
