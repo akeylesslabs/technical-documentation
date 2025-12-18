@@ -6,34 +6,6 @@ hidden: true
 metadata:
   robots: index
 ---
-## Cluster Name
-
-```yaml
-############
-## Global ##
-############
-clusterName: defaultCluster
-```
-
-Each Bastion is uniquely identified by combining the **Privilege Access ID** Authentication Method and the **Cluster Name**.
-
-It means that changing the  **Privilege Access ID** or the **Cluster Name** of your Bastion instance will create an entirely new Bastion instance.
-
-It is recommended to set a meaningful Cluster Name for your Bastion cluster from the very beginning. By default, your cluster name is **defaultCluster**.
-
-To do that, you can set the `clusterName="meaningful-cluster-name"`field as part of the Bastion deployment.
-
-## Zero-Trust Web-Access (ZTWA)
-
-This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets via the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions), which opens a browser session and injects credentials into the browser for the user.
-
-These targets are accessed using one of three methods: [Secure Web Browsing](https://docs.akeyless.io/docs/web-applications-secure-remote-access), [Secure Web Proxy](https://docs.akeyless.io/docs/web-applications-secure-remote-access), or [Direct Connections](https://docs.akeyless.io/docs/web-applications-secure-remote-access). This solution creates two types of applications as well:
-
-* **Web Dispatcher**: Acts as a load balancer service that dispatches requests to _web-workers_ to take on secure web-browsing sessions. It enables secure web browsing by launching a Firefox browser inside the pod.
-* **Web Workers**: These containers host the isolated browser sessions (for "secure web browsing") and each such container supports a single isolated browser session.
-
-The [Akeyless SRA Browser Extension](https://docs.akeyless.io/docs/installation-of-akeyless-web-extension) is installed locally on the user's browser (Chrome, Firefox, or Edge). It provides password management capabilities and supports the SRA by managing and adapting seamless configuration to the browser.
-
 ## SSH Legacy Algorithm
 
 ```yaml
@@ -99,7 +71,6 @@ config:
       # Specifies an existing secret to be used for bastion, management AWS credentials
       existingSecret: ""
 ```
-
 ```yaml Azure Blob
 config:
     rdpRecord:
