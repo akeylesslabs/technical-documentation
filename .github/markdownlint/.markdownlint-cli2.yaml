@@ -447,7 +447,7 @@ config:
       - Cloud Storage
       - GCS
       - Google Cloud IAM
-      - Cloud IAM
+      #- Cloud IAM
       - IAM
       - Google Cloud VPC
       - VPC
@@ -469,9 +469,9 @@ config:
       - Bigtable
       - Firestore
       - Cloud Firestore
-      - Datastore
+      #- Datastore
       - Google Cloud Datastore
-      - Pub/Sub
+      #- Pub/Sub
       - Cloud Pub/Sub
       - Cloud Functions
       - Google Cloud Functions

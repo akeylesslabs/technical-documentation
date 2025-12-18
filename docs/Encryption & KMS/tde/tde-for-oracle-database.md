@@ -131,7 +131,7 @@ chown -R oracle:dba /var/akeyless/conf/pkcs11.conf
 
 Edit the `sqlnet.ora` file under `$ORACLE_HOME/network/admin/sqlnet.ora` where `$ORACLE_HOME` is your `oracle` user home directory.
 
-For docker setup, the file location is `/u01/app/oracle/product/12.2.0/dbhome_1/admin/ORCLCDB/sqlnet.ora`
+For Docker setup, the file location is `/u01/app/oracle/product/12.2.0/dbhome_1/admin/ORCLCDB/sqlnet.ora`
 
 Add the following line to set your `Oracle` wallet:
 
@@ -222,7 +222,7 @@ Once TDE is configured on the Oracle Database, you can start encrypting your dat
 
 ### Connect to SQL\_Plus as a Non-Sysadmin User
 
-To begin, connect to the Oracle database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tables and manage encryption.
+To begin, connect to the Oracle Database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tables and manage encryption.
 
 ```sql bash
 sqlplus your_username@your_database
@@ -278,13 +278,13 @@ OE     EMPLOYEE   SALARY      AES 192 bits   YES  SHA-1
 In this example:
 
 The SALARY column in the EMPLOYEE table is encrypted using the AES 192 bits algorithm.\
-SALT is applied, and the integrity algorithm used is SHA-1.For more details about encryption options, such as how to specify different encryption algorithms or disable the use of salt, you can refer to the [Oracle documentation on Transparent Data Encryption (TDE)](https://docs.oracle.com/database/121/TDPSG/GUID-61259237-5514-4531-AFB4-CF716F93F1E5.htm#TDPSG44324). This documentation provides comprehensive guidelines on using TDE to secure sensitive data at rest within your Oracle database.
+SALT is applied, and the integrity algorithm used is SHA-1.For more details about encryption options, such as how to specify different encryption algorithms or disable the use of salt, you can refer to the [Oracle documentation on Transparent Data Encryption (TDE)](https://docs.oracle.com/database/121/TDPSG/GUID-61259237-5514-4531-AFB4-CF716F93F1E5.htm#TDPSG44324). This documentation provides comprehensive guidelines on using TDE to secure sensitive data at rest within your Oracle Database.
 
 ## Testing Tablespace Encryption
 
 ### Connect to SQL\_Plus as a Regular User
 
-Start by connecting to your Oracle database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tablespaces.
+Start by connecting to your Oracle Database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tablespaces.
 
 ```sql bash
 sqlplus your_username@your_database
@@ -452,7 +452,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
   ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
   ```
 
-11. Restart the Oracle database to confirm that the auto-login feature is working as expected. Upon restart, the wallet should open automatically, and all encrypted columns and tablespaces should remain accessible.
+11. Restart the Oracle Database to confirm that the auto-login feature is working as expected. Upon restart, the wallet should open automatically, and all encrypted columns and tablespaces should remain accessible.
 
   ```sql bash
   shutdown immediate;
