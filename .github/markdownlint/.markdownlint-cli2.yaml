@@ -594,9 +594,9 @@ config:
       - StatefulSet
       - DaemonSet
       - ReplicaSet
-      - Job
+      - Kubernetes Job
       - CronJob
-      - Service
+      - Kubernetes Service
       - ClusterIP
       - NodePort
       - LoadBalancer
