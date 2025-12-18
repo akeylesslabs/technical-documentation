@@ -457,9 +457,9 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
 *For Fixed Mode:*
 
-* **Service Account:** The name of the Kubernetes Service Account to generate the tokens for.
+* **Service Account:** The name of the Kubernetes ServiceAccount to generate the tokens for
 
-* **Namespace:** The Namespace of the Kubernetes Service Account.
+* **Namespace:** The Namespace of the Kubernetes ServiceAccount
 
 *For Dynamic Mode:*
 

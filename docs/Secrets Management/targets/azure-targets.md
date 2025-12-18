@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define an Azure AD target to be used with [Azure AD dynamic secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD rotated secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret). Having an Azure AD target will allow you to conserve the credentials chain between all of your dynamic secrets, as it is possible to point a target at a rotated secret, or to manually edit credentials in the target instead of having to change them individually for connecting items. Creating an Azure AD target requires an [Azure App](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal) to be configured in your Azure environment.
+You can define an Azure AD target to be used with [Azure AD Dynamic Secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD Rotated Secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret). Having an Azure AD target will allow you to conserve the credentials chain between all of your Dynamic Secrets, as it is possible to point a target at a rotated secret, or to manually edit credentials in the target instead of having to change them individually for connecting items. Creating an Azure AD target requires an [Azure App](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal) to be configured in your Azure environment.
 
 ## Create an Azure AD Target in the CLI
 
@@ -73,7 +73,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * If you selected the **Use Gateway's Cloud Identity**, skip to the next step.  
 
 * If you wish the target to reference to a specific Storage Account, click **Next** and add the following parameters:
-  * **Subscription ID:** Azure Subscription ID (If this target is for the Azure Storage account).
+  * **Subscription ID:** Azure Subscription ID (If this target is for the Azure Storage Account).
   * **Resource Group Name:** Resource Group name in your Azure Subscription.
   * **Resource Name:** Name of the relevant Resource.
 

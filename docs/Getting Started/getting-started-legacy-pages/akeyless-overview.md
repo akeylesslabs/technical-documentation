@@ -16,13 +16,13 @@ next:
 ---
 The Akeyless Platform is a unified secrets management system that enables you to store, protect, rotate, and dynamically create credentials, certificates, and encryption keys. Our platform supports various use cases, including managing static and dynamic credentials, certificate lifecycle management, encryption, digital signing, and zero-trust application access, which secures remote access to your internal resources.
 
-Workloads and human users interact with Akeyless using various channels, including the Akeyless Web Console, the Akeyless Remote Access Portal, [CLI](https://docs.akeyless.io/docs/cli), [SDKs](https://docs.akeyless.io/docs/sdks), and an extensive range of plugins and integrations. A wide range of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are used with Role-based Access Control (RBAC) to ensure that clients are only granted access to specific secrets.
+Workloads and human users interact with Akeyless using various channels, including the Akeyless Web Console, the Akeyless Remote Access Portal, [CLI](https://docs.akeyless.io/docs/cli), [SDKs](https://docs.akeyless.io/docs/sdks), and an extensive range of plugins and integrations. A wide range of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are used with Role-Based Access Control (RBAC) to ensure that clients are only granted access to specific secrets.
 
 Using a patented, FIPS 140-2 certified technology called Akeyless [Distributed Fragments Cryptography](https://docs.akeyless.io/docs/dfc)™ (Akeyless DFC™), the Akeyless Platform provides a highly secure SaaS solution with zero-knowledge capabilities, so that even Akeyless can neither access your encryption keys nor decrypt your secrets.
 
 ## Manage Your Secrets
 
-Your secrets are safe with the Akeyless Platform. **Protect your static secrets**, such as connection strings, passwords, tokens, and encryption keys, in our encrypted Key/Value store, **generate dynamic secrets on-demand** to support just-in-time access, or **automatically rotate** privileged credentials.
+Your secrets are safe with the Akeyless Platform. **Protect your Static Secrets**, such as connection strings, passwords, tokens, and encryption keys, in our encrypted Key/Value store, **generate Dynamic Secrets on-demand** to support Just-in-Time Access, or **automatically rotate** privileged credentials.
 
 Easily create new secrets, or use our automatic secret migration tool to import secrets from your current secret repositories or vaulting solutions.
 
@@ -30,7 +30,7 @@ Inject and provision secrets into DevOps tools such as CI/CD and Configuration M
 
 Learn more about managing your secrets [here](https://docs.akeyless.io/docs/manage-your-secrets-overview).
 
-<Image alt="The Akeyless platform stored encrypted secrets in the cloud. An Akeyless plugin then facilitates the download and decryption of a secret to multiple applications, such as an API token, a database password, and a TLS certificate." border={false} src="https://files.readme.io/7814b0e-Customers_Applications.png" />
+<Image alt="The Akeyless Platform stored encrypted secrets in the cloud. An Akeyless plugin then facilitates the download and decryption of a secret to multiple applications, such as an API token, a database password, and a TLS certificate." border={false} src="https://files.readme.io/7814b0e-Customers_Applications.png" />
 
 ## Universal Secret Connector
 
@@ -58,7 +58,7 @@ Learn more about encryption and key management [here](https://docs.akeyless.io/d
 
 Enable your DevOps, Engineers, and IT teams to securely and seamlessly access resources - servers, databases, internal applications, and SaaS - in any of your environments, whether private, public, or on-prem.
 
-Also known as Zero-Trust Application Access, our solution uniquely combines the ability to interface with third-party **identity providers** for authentication with robust **role-based access control** for authorization, and the ability to provide **just-in-time access** to endpoint resources, using dynamic secrets as short-lived credentials and certificates.
+Also known as Zero-Trust Application Access, our solution uniquely combines the ability to interface with third-party **identity providers** for authentication with robust **Role-Based Access Control** for authorization, and the ability to provide **Just-in-Time Access** to endpoint resources, using Dynamic Secrets as short-lived credentials and certificates.
 
 Privileged and non-privileged access is allowed via protocols such as SSH, RDP, SQL, `kubectl` (and more), either from the Akeyless Remote Access Portal or the native CLI tools. Furthermore, maintain compliance with session auditing and recording capabilities. You can even revoke sessions in real-time if any suspicious activity is detected.
 

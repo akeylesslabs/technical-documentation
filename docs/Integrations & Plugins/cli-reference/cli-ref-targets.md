@@ -139,7 +139,7 @@ akeyless target create aws \
 
 ### `Azure`
 
-Creates a new azure target in the current account
+Creates a new Azure target in the current account
 
 #### Usage
 
@@ -208,13 +208,13 @@ akeyless target create db \
 
 `--db-name`: Database name
 
-`--snowflake-api-private-key`: RSA Private key (base64 encoded)
+`--snowflake-api-private-key`: RSA Private key (Base64 encoded)
 
 `--snowflake-api-private-key-file-name`: The path to the file containing the private key
 
 `--snowflake-api-private-key-passphrases`: The Private key passphrase
 
-`--db-server-certificates`: Set of root certificate authorities in base64 encoding used by clients to verify server certificates
+`--db-server-certificates`: Set of root certificate authorities in Base64 encoding used by clients to verify server certificates
 
 `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
@@ -224,9 +224,9 @@ akeyless target create db \
 
 `--azure-client-secret`: Azure client secret (relevant for "cloud-service-provider" only)
 
-`--cloud-service-provider`: Cloud service provider (currently only supports Azure)
+`--cloud-service-provider`: Cloud Service Provider (currently only supports Azure)
 
-`--connection-type[=credentials]`: Type of connection to mssql database [credentials/cloud-identity]
+`--connection-type[=credentials]`: Type of connection to MSSQL database [credentials/cloud-identity]
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
@@ -256,7 +256,7 @@ akeyless target create db \
 
 `--mongodb-atlas-api-private-key`: MongoDB Atlas private key
 
-`--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MsSQL targets
+`--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MSSQL targets
 
 `--description`: Target description
 
@@ -280,9 +280,9 @@ akeyless target create dockerhub \
 
 `-n, --name`: **Required**, Target name
 
-`--dockerhub-username`: **Required**, Username for docker repository
+`--dockerhub-username`: **Required**, Username for Docker repository
 
-`--dockerhub-password`: **Required**, Password for docker repository
+`--dockerhub-password`: **Required**, Password for Docker repository
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
@@ -351,7 +351,7 @@ akeyless target create gcp \
 
 `-n, --name`: **Required**, Target name
 
-`--gcp-key-file-path`: Path to file with the base64-encoded service account private key
+`--gcp-key-file-path`: Path to file with the Base64-encoded service account private key
 
 `--gcp-key`: Base64-encoded service account private key text
 
@@ -382,9 +382,9 @@ akeyless target create github \
 
 `-n, --name`: **Required**, Target name
 
-`--github-app-id`: Github application id
+`--github-app-id`: GitHub application id
 
-`--github-app-private-key`: Github application private key (base64 encoded key)
+`--github-app-private-key`: GitHub application private key (Base64 encoded key)
 
 `--github-base-url[=https://api.github.com/]`: Github base url
 
@@ -500,11 +500,11 @@ akeyless target create globalsign-atlas \
 
 `--mtls-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path` or `tls-cert-data-base64` must be supplied
 
-`--mtls-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied
+`--mtls-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in Base64, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied
 
 `--mtls-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied
 
-`--mtls-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied
+`--mtls-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in Base64, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 
@@ -606,22 +606,22 @@ akeyless target create k8s \
 
 `-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
-`-c, --k8s-cluster-ca-cert`: **Required**, K8S Cluster certificate. Base 64 encoded certificate
+`-c, --k8s-cluster-ca-cert`: **Required**, K8s Cluster certificate. Base 64 encoded certificate
 
-`-t, --k8s-cluster-token`: **Required**, K8S Cluster authentication token
+`-t, --k8s-cluster-token`: **Required**, K8s Cluster authentication token
 
 `-i, --use-gw-service-account`: Use GW's service account. **Boolean** when provided only `name` is required
 
-`--k8s-auth-type[=token]`: K8S auth type, [token/certificate]
+`--k8s-auth-type[=token]`: K8s auth type, [token/certificate]
 `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format
 
-`--k8s-client-certificate-file`: Path to a file that contain the k8s client private key in PEM format
+`--k8s-client-certificate-file`: Path to a file that contain the K8s client private key in PEM format
 
 `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format
 
-`--k8s-client-key-file`: Path to a file that contain the k8s client private key in PEM format
+`--k8s-client-key-file`: Path to a file that contain the K8s client private key in PEM format
 
-`--k8s-cluster-name`: K8S cluster name
+`--k8s-cluster-name`: K8s cluster name
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
 
@@ -657,7 +657,7 @@ akeyless target create ldap \
 
 `-p, --bind-dn-password`: **Required**, Password for LDAP Bind DN
 
-`-s, --server-type[=OpenLDAP]`: Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]. Default is OpenLDAP
+`-s, --server-type[=OpenLDAP]`: Set LDAP server type, Options:[OpenLDAP, ActiveDirectory]. Default is OpenLDAP
 
 `-t, --ldap-ca-cert`: LDAP base-64 encoded CA Certificate
 
@@ -951,7 +951,7 @@ akeyless target create windows \
 
 `--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS [true/false]
 
-`--certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `-k, --key`: Key name. The key is used to encrypt the target secret value. If the key name is not specified, the account default protection key is used
 
@@ -1019,23 +1019,23 @@ akeyless assoc-target-item \
 
 `-n, --name`: **Required**, The item to associate
 
-`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for azure targets)
+`--vault-name`: Name of the vault used. (Relevant only for Classic Key and target association. Required for Azure targets)
 
-`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for azure targets)
+`--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for Azure targets)
 
-`--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with azure targets)
+`--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with Azure targets)
 
-`--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
+`--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
+`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
+`--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for gcp targets)
+`--purpose`: Purpose if the key in GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for gcp targets)
+`--kms-algorithm`: Algorithm of the key in GCP KMS. (Relevant only for Classic Key and target association, Required for GCP targets)
 
-`--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for salesforce targets)
+`--tenant-secret-type`: The tenant secret type [Data/SearchIndex/Analytics]. (Relevant only for Classic Key and target association. Required for Salesforce targets)
 
 `--multi-region[=false]`: Set to 'true' to create a multi-region managed key. (Relevant only for Classic Key AWS targets)
 
@@ -1051,7 +1051,7 @@ akeyless assoc-target-item \
 
 `--gateway-url[=http://localhost:8000]`: Gateway URL for the certificate provisioning (relevant only for certificate provisioning)
 
-`--sra-association[=false]`: Specify if the target to associate is for sra, relevant only for sra linked target association to `ldap` rotated secret
+`--sra-association[=false]`: Specify if the target to associate is for SRA, relevant only for SRA linked target association to `ldap` rotated secret
 
 `--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
 
@@ -1205,7 +1205,7 @@ akeyless target update artifactory \
 
 #### `Aws`
 
-Updates an existing aws target in the current account
+Updates an existing AWS target in the current account
 
 ##### Usage
 
@@ -1254,7 +1254,7 @@ akeyless target update aws \
 
 #### `Azure`
 
-Updates an existing azure target in the current account
+Updates an existing Azure target in the current account
 
 ##### Usage
 
@@ -1358,7 +1358,7 @@ akeyless update-db-target \
 
 `--mongodb-atlas-api-private-key`: MongoDB Atlas private key
 
-`--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MsSQL targets
+`--cluster-mode`: Flag, if set, define this target as cluster mode. relevant for MSSQL targets
 
 `--ssl[=false]`: Enable/Disable SSL [true/false]
 
@@ -1477,7 +1477,7 @@ akeyless target update gcp \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-`--gcp-key-file-path`: Path to file with the base64-encoded service account private key
+`--gcp-key-file-path`: Path to file with the Base64-encoded service account private key
 
 `--gcp-key`: Base64-encoded service account private key text
 
@@ -1512,7 +1512,7 @@ akeyless target update github \
 
 `--github-app-id`: GitHub application id
 
-`--github-app-private-key`: GitHub application private key (base64 encoded key)
+`--github-app-private-key`: GitHub application private key (Base64 encoded key)
 
 `--github-base-url[=https://api.github.com/]`: GitHub base url
 
@@ -1762,23 +1762,23 @@ akeyless target update k8s \
 
 `-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
-`-c, --k8s-cluster-ca-cert`: **Required**, K8S Cluster certificate. Base 64 encoded certificate
+`-c, --k8s-cluster-ca-cert`: **Required**, K8s Cluster certificate. Base 64 encoded certificate
 
-`-t, --k8s-cluster-token`: **Required**, K8S Cluster authentication token
+`-t, --k8s-cluster-token`: **Required**, K8s Cluster authentication token
 
 `-i, --use-gw-service-account`: Use the GW's service account
 
-`--k8s-auth-type[=token]`: K8S auth type, [token/certificate]
+`--k8s-auth-type[=token]`: K8s auth type, [token/certificate]
 
 `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format
 
-`--k8s-client-certificate-file`: Path to a file that contain the k8s client certificate in PEM format
+`--k8s-client-certificate-file`: Path to a file that contain the K8s client certificate in PEM format
 
 `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format
 
-`--k8s-client-key-file\`: Path to a file that contain the k8s client private key in PEM format
+`--k8s-client-key-file\`: Path to a file that contain the K8s client private key in PEM format
 
-`--k8s-cluster-name`: k8s-cluster-name
+`--k8s-cluster-name`: K8s-cluster-name
 
 `--new-name`: New target name
 
@@ -1794,7 +1794,7 @@ akeyless target update k8s \
 
 #### `Ldap`
 
-updates a new ldap target in the current account
+updates a new LDAP target in the current account
 
 ##### Usage
 
@@ -1818,7 +1818,7 @@ akeyless target update ldap \
 
 `-p, --bind-dn-password`: **Required**, Password for LDAP Bind DN
 
-`-s, --server-type`: Set Ldap server type, Options:[OpenLDAP, ActiveDirectory]
+`-s, --server-type`: Set LDAP server type, Options:[OpenLDAP, ActiveDirectory]
 
 `--new-name`: New target name
 
@@ -2117,7 +2117,7 @@ akeyless target update windows \
 
 `--use-tls[=true]`: Enable/Disable TLS for WinRM over HTTPS [true/false]
 
-`--certificate`: SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA)
+`--certificate`: SSL CA certificate in Base64 encoding generated from a trusted Certificate Authority (CA)
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 

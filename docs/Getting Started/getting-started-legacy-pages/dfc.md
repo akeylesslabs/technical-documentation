@@ -30,8 +30,8 @@ The missing piece of that puzzle is - who can access the key fragments? Some may
 
 Well, they're basically right, but, they can also be completely wrong.
 
-Since Akeyless DFC enables Akeyless to perform cryptographic operations WITHOUT EVER COMBINING the encryption key, one of the key fragments can actually be on the customer's environment, where Akeyless has no access. This means that Akeyless, as a service provider, won't be able to decrypt any data that is encrypted by our customers (who hold one of the key fragments). The reason is simple: we don't have access to your fragment.
+Since Akeyless DFC enables Akeyless to perform cryptographic operations WITHOUT EVER COMBINING the encryption key, one of the key fragments can actually be on the customer's environment, where Akeyless has no access. This means that Akeyless, as a Service Provider, won't be able to decrypt any data that is encrypted by our customers (who hold one of the key fragments). The reason is simple: we don't have access to your fragment.
 
 Therefore, in order to enable Zero-Knowledge Encryption, all you need is your own Customer Fragment.
 
-<Image align="center" alt="1920" border={false} caption="Fragments of a single Encryption Key that are managed by Akeyless while a single fragment is stored in the customer's environment." title="API key auth (1).png" src="https://files.readme.io/3b36cbc-CFZK.png" />
+<Image align="center" alt="1920" border={false} caption="Fragments of a single Encryption Key that are managed by Akeyless while a single fragment is stored in the customer's environment." title="API Key auth (1).png" src="https://files.readme.io/3b36cbc-CFZK.png" />

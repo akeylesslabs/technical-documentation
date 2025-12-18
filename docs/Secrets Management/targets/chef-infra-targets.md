@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a Chef Infra target to be used with [Chef Infra dynamic secrets](https://docs.akeyless.io/docs/chef-infra-producer).
+You can define a Chef Infra target to be used with [Chef Infra Dynamic Secrets](https://docs.akeyless.io/docs/chef-infra-producer).
 
 ## Create a Chef Infra Target in the Console
 

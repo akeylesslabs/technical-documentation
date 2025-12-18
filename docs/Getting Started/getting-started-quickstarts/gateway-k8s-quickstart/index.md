@@ -39,7 +39,7 @@ You will need:
 ## Step 1: Create Namespace
 
 1. Launch a Terminal or Command Prompt.
-2. Run the following command to create a new namespace in the Kubernetes cluster:
+2. Run the following command to create a new Namespace in the Kubernetes cluster:
 
 ```shell
 kubectl create namespace akeyless

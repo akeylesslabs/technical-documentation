@@ -152,7 +152,7 @@ akeyless rotated-secret create azure \
 
 `--api-id`: **API ID** to rotate (relevant only for `rotator-type`=`api-key`)
 
-`--api-key`: **API key** to rotate (relevant only for `rotator-type`=`api-key`)
+`--api-key`: **API Key** to rotate (relevant only for `rotator-type`=`api-key`)
 
 `--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevat to `azure-storage-account`)
 
@@ -500,7 +500,7 @@ akeyless rotated-secret create ldap \
 
 `--grace-rotation`: Create a new `access key` without deleting the old key from **AWS** for backup (relevant only for AWS) [`true`/`false`]
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -510,11 +510,11 @@ akeyless rotated-secret create ldap \
 
 `--secure-access-url`: Destination **URL** to inject secrets
 
-`--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **ssh cert issuer** and **ldap rotated secret**
+`--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
 
-`--target`: A list of linked targets to be associated, Relevant only for **Secure Remote Access** for **ssh cert issuer** and **ldap rotated secret**, To specify multiple targets use argument multiple times
+`--target`: A list of linked targets to be associated, Relevant only for **Secure Remote Access** for **SSH cert issuer** and **LDAP rotated secret**, To specify multiple targets use argument multiple times
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
@@ -562,7 +562,7 @@ akeyless rotated-secret create mongodb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -620,7 +620,7 @@ akeyless rotated-secret create mssql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -680,7 +680,7 @@ akeyless rotated-secret create mysql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -738,7 +738,7 @@ akeyless rotated-secret create oracledb \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -794,7 +794,7 @@ akeyless rotated-secret create postgresql \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -900,7 +900,7 @@ akeyless rotated-secret create redshift \
 
 `--password-length`: The length of the password to be generated
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -938,7 +938,7 @@ akeyless rotated-secret create snowflake \
 
 `--rotated-password`: Rotated-username password (relevant only for `rotator-type`=`password`)
 
-`--private-key`: RSA Private key (base64 encoded) to rotate (relevant only for `rotator-type`=`key`)
+`--private-key`: RSA Private key (Base64 encoded) to rotate (relevant only for `rotator-type`=`key`)
 
 `--private-key-file-name`: The path to the file containing the private key (relevant only for `rotator-type`=`key`)
 
@@ -1008,7 +1008,7 @@ akeyless rotated-secret create ssh \
 
 `--rotator-custom-cmd`: Custom rotation command
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
 
@@ -1072,7 +1072,7 @@ akeyless rotated-secret create windows \
 
 `--same-password`: Rotate the same password for each host from the Linked Target (**relevant only for Linked Target**)
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1096,41 +1096,41 @@ Commands to update a Rotated Secret
 
 ### Subcommands
 
-`aws`: Updates new aws rotated secret item
+`aws`: Updates new AWS rotated secret item
 
-`azure`: Updates new azure rotated secret item
+`azure`: Updates new Azure rotated secret item
 
-`cassandra`: Updates new cassandra rotated secret item
+`cassandra`: Updates new Cassandra rotated secret item
 
 `custom`: Updates new custom rotated secret item
 
 `dockerhub`: Updates new dockerhub rotated secret item
 
-`gcp`: Updates new gcp rotated secret item.
+`gcp`: Updates new GCP rotated secret item.
 
 `hanadb`: Updates new hanadb rotated secret item
 
-`ldap`: Updates new ldap rotated secret item
+`ldap`: Updates new LDAP rotated secret item
 
-`mongodb`: Updates new mongodb rotated secret item
+`mongodb`: Updates new MongoDB rotated secret item
 
-`mssql`: Updates new mssql rotated secret item
+`mssql`: Updates new MSSQL rotated secret item
 
-`mysql`: Updates new mysql rotated secret item
+`mysql`: Updates new MySQL rotated secret item
 
-`oracledb`: Updates new oracledb rotated secret item
+`oracledb`: Updates new OracleDB rotated secret item
 
-`postgresql`: Updates new postgresql rotated secret item
+`postgresql`: Updates new PostgreSQL rotated secret item
 
-`redis`: Updates new redis rotated secret item
+`redis`: Updates new Redis rotated secret item
 
-`redshift`: Updates new redshift rotated secret item
+`redshift`: Updates new Redshift rotated secret item
 
-`snowflake`: Updates new snowflake rotated secret item
+`snowflake`: Updates new Snowflake rotated secret item
 
-`ssh`: Updates new ssh rotated secret item
+`ssh`: Updates new SSH rotated secret item
 
-`windows`: Updates new windows rotated secret item
+`windows`: Updates new Windows rotated secret item
 
 ### `aws`
 
@@ -1151,7 +1151,7 @@ akeyless rotated-secret update aws \
 
 `--api-id`: **API ID** to rotate (relevant only for `rotator-type`=`api-key`)
 
-`--api-key`: **API key** to rotate (relevant only for `rotator-type`=`api-key`)
+`--api-key`: **API Key** to rotate (relevant only for `rotator-type`=`api-key`)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -1181,7 +1181,7 @@ akeyless rotated-secret update aws \
 
 `--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use the argument multiple times: `--rm-tag Tag1` `--rm-tag Tag2`
 
-`--secure-access-enable`: `Enable`/`Disable` secure remote access, [`true`/`false`]
+`--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
@@ -1216,7 +1216,7 @@ akeyless rotated-secret update azure \
 
 `--api-id`: **API ID** to rotate (relevant only for `rotator-type`=`api-key`)
 
-`--api-key`: **API key** to rotate (relevant only for `rotator-type`=`api-key`)
+`--api-key`: **API Key** to rotate (relevant only for `rotator-type`=`api-key`)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -1572,11 +1572,11 @@ akeyless rotated-secret update ldap \
 
 `--secure-access-url`: Destination **URL** to inject secrets
 
-`--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **ssh cert issuer** and **ldap rotated secret**
+`--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
 
-`--target`: A list of linked targets to be associated, Relevant only for **Secure Remote Access** for **ssh cert issuer** and **ldap rotated secret**, To specify multiple targets use argument multiple times
+`--target`: A list of linked targets to be associated, Relevant only for **Secure Remote Access** for **SSH cert issuer** and **LDAP rotated secret**, To specify multiple targets use argument multiple times
 
 `--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use the argument multiple times: `--add-tag Tag1` `--add-tag Tag2`
 

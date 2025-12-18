@@ -52,23 +52,23 @@ with the relevant flags according to the `access-type` being used.
 
 `--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for access-type=`gcp`)
 
-`--gateway-url`: Gateway URL for the K8S authenticated (relevant only for access-type=`k8s`)
+`--gateway-url`: Gateway URL for the K8s authenticated (relevant only for access-type=`k8s`)
 
 `--k8s-auth-config-name`: The K8s Auth config name (relevant only for access-type=`k8s`)
 
-`--k8s-service-account-token`: The K8S service account token
+`--k8s-service-account-token`: The K8s service account token
 
 `--cert-file-name`: Name of the cert file to use (relevant only for access-type=`cert`)
 
-`--cert-data`: Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type=`cert`)
+`--cert-data`: Certificate data encoded in Base64. Used if file was not provided. (relevant only for access-type=`cert`)
 
 `--key-file-name`: Name of the private key file to use (relevant only for access-type=`cert`)
 
-`--key-data`: Private key data encoded in base64. Used if file was not provided.(relevant only for access-type=`cert`)
+`--key-data`: Private key data encoded in Base64. Used if file was not provided.(relevant only for access-type=`cert`)
 
-`--signed-cert-challenge`: Signed certificate challenge encoded in base64. (relevant only for access-type=`cert`)
+`--signed-cert-challenge`: Signed certificate challenge encoded in Base64. (relevant only for access-type=`cert`)
 
-`--cert-challenge`: Certificate challenge encoded in base64. (relevant only for access-type=`cert`)
+`--cert-challenge`: Certificate challenge encoded in Base64. (relevant only for access-type=`cert`)
 
 `--oci-auth-type[=apikey]`: The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type=oci)
 
@@ -84,31 +84,31 @@ with the relevant flags according to the `access-type` being used.
 
 ### Flags
 
-`api-key`  Creates a new API Key Auth method
+`api-key`  Creates a new API Key Auth Method
 
-`aws-iam`  Creates a new AWS IAM Auth method
+`aws-iam`  Creates a new AWS IAM Auth Method
 
-`azure-ad` Creates a new Azure AD Auth method
+`azure-ad` Creates a new Azure AD Auth Method
 
-`cert` Creates a new Certificate Auth method
+`cert` Creates a new Certificate Auth Method
 
-`email` Creates a new Email Auth method
+`email` Creates a new Email Auth Method
 
-`gcp` Creates a new GCP Auth method
+`gcp` Creates a new GCP Auth Method
 
-`k8s` Creates a new K8s Auth method
+`k8s` Creates a new K8s Auth Method
 
-`ldap` Creates a new LDAP Auth method
+`ldap` Creates a new LDAP Auth Method
 
-`oauth2` Creates a new Oauth Auth method
+`oauth2` Creates a new OAuth Auth Method
 
-`oci` Creates a new Oracle Cloud Auth method
+`oci` Creates a new Oracle Cloud Auth Method
 
-`oidc` Creates a new OIDC Auth method
+`oidc` Creates a new OIDC Auth Method
 
-`saml` Creates a new SAML Auth method
+`saml` Creates a new SAML Auth Method
 
-`universal-identity` Creates a new Universal Identity Auth method
+`universal-identity` Creates a new Universal Identity Auth Method
 
 ### API Key
 
@@ -136,13 +136,13 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `--jwt-ttl[=0]`:creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -177,13 +177,13 @@ akeyless auth-method create aws-iam \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -233,13 +233,13 @@ akeyless auth-method create azure-ad \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -298,17 +298,17 @@ akeyless auth-method create cert \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false
 
-`--certificate-data`: The certificate data in base64, if no file was provided
+`--certificate-data`: The certificate data in Base64, if no file was provided
 
 `--certificate-file-name`: The path to the file containing the CA certificate
 
@@ -356,13 +356,13 @@ akeyless auth-method create email \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -398,13 +398,13 @@ akeyless auth-method create gcp \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -414,7 +414,7 @@ akeyless auth-method create gcp \
 
 `--service-account-creds-file`: Service Account credentials key file path
 
-`--service-account-creds-data`: Service Account credentials data, base64 encoded
+`--service-account-creds-data`: Service Account credentials data, Base64 encoded
 
 `--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag
 
@@ -459,17 +459,17 @@ akeyless auth-method create oauth2 \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false
 
 `-j, --jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server
 
-`--jwks-json-data`: The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.  base64 encoded string
+`--jwks-json-data`: The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.  Base64 encoded string
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPNfor example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
@@ -516,13 +516,13 @@ akeyless auth-method create oci \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -543,7 +543,7 @@ akeyless auth-method create oidc \
 
 ##### Flags
 
-`-n, --name`: **Required**, Auth method name
+`-n, --name`: **Required**, Auth Method name
 
 `--descrpition`: Auth Method description
 
@@ -557,13 +557,13 @@ akeyless auth-method create oidc \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false
 
@@ -574,9 +574,9 @@ akeyless auth-method create oidc \
 
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-oidc` to enable OIDC via Akeyless Console and `http://127.0.0.1:*` to enable OIDC via the Akeyless CLI)
 
-`--require-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve
+`--require-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
 
-`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the oidc server (for example, azures` Application ID URI)
+`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, azures` Application ID URI)
 
 `--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider`s Application
 
@@ -598,7 +598,7 @@ akeyless auth-method create saml \
 
 ##### Flags
 
-`-n, --name`: **Required**, Auth method name
+`-n, --name`: **Required**, Auth Method name
 
 `--descrpition`: Auth Method description
 
@@ -612,25 +612,25 @@ akeyless auth-method create saml \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--allowed-client-type`: limit the auth method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
+`--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPN for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
-`--idp-metadata-url`: IDP metadata url
+`--idp-metadata-url`: IdP metadata url
 
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-saml` to enable SAML via Akeyless Console and  `http://127.0.0.1:*` to enable SAML via the Akeyless CLI)
 
-`--idp-metadata-xml-file-path`: IDP metadata xml file path
+`--idp-metadata-xml-file-path`: IdP metadata XML file path
 
-`--idp-metadata-xml-data`: IDP metadata as xml encoded in base64
+`--idp-metadata-xml-data`: IdP metadata as XML encoded in Base64
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
@@ -696,11 +696,11 @@ akeyless auth-method update api-key --name <Auth method>
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -719,7 +719,7 @@ akeyless auth-method update aws-iam \
 
 #### Flags
 
-`--new-name`: Auth method new name
+`--new-name`: Auth Method new name
 
 `-n, --name`: **Required**, Auth Method name
 
@@ -735,11 +735,11 @@ akeyless auth-method update aws-iam \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `-b, --bound-aws-account-id`: **Required**, A list of AWS account-IDs that the access is restricted to
 
@@ -789,11 +789,11 @@ akeyless auth-method update azure-ad \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -852,15 +852,15 @@ akeyless auth-method update cert \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-`--certificate-data`: The certificate data in base64, if no file was provided.
+`--certificate-data`: The certificate data in Base64, if no file was provided.
 
 `--certificate-file-name`: the path to the file containing the CA certificate
 
@@ -912,11 +912,11 @@ akeyless auth-method update gcp \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -926,7 +926,7 @@ akeyless auth-method update gcp \
 
 `--service-account-creds-file`: Service Account creds key file path
 
-`--service-account-creds-data`: Service Account creds data, base64 encoded
+`--service-account-creds-data`: Service Account creds data, Base64 encoded
 
 `--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag.
 
@@ -969,11 +969,11 @@ akeyless auth-method update oauth2 \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -1027,11 +1027,11 @@ akeyless auth-method update oci \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -1068,11 +1068,11 @@ akeyless auth-method update oidc \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -1086,8 +1086,8 @@ akeyless auth-method update oidc \
 
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-oidc` to enable OIDC via Akeyless Console and `http://127.0.0.1:*` to enable OIDC via the Akeyless CLI)
 
-`--required-scopes`: required scopes that the oidc method will request from the oidc provider and the user must approve
-`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the oidc server (for example, azures` Application ID URI)
+`--required-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
+`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, azures` Application ID URI)
 
 `--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider`s Application
 
@@ -1122,23 +1122,23 @@ akeyless auth-method update saml \
 
 `--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [`sm`, `sra`, `pm`, `dp`, `ca`]
+`--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`:  Additional sub-claims to include in audit logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--expiration-event-in`: How many days before the auth method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
+`--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
 
-`--idp-metadata-url`: IDP metadata url
+`--idp-metadata-url`: IdP metadata url
 
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-saml` to enable SAML via Akeyless Console and  `http://127.0.0.1:*` to enable SAML via the Akeyless CLI)
 
-`--idp-metadata-xml-file-path`: IDP metadata xml file path
+`--idp-metadata-xml-file-path`: IdP metadata XML file path
 
-`--idp-metadata-xml-data`: IDP metadata as xml encoded in Base64
+`--idp-metadata-xml-data`: IdP metadata as XML encoded in Base64
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
@@ -1183,7 +1183,7 @@ akeyless auth-method list \
 
 `-t, --type`: The auth method types list of the requested method. In case it is empty, all types of auth method will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s, cert]
 
-`--filter`: Filter by auth method name or part of it
+`--filter`: Filter by Auth Method name or part of it
 
 `--pagination-token`: Next page reference
 

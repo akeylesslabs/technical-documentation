@@ -400,9 +400,9 @@ akeyless encrypt-gpg \
 
 `-I, --item-id`: The item id of the key to use in the encryption process
 
-`-i, --in`: Path to the file to be encrypted in base64 format
+`-i, --in`: Path to the file to be encrypted in Base64 format
 
-`-o, --out`: Path to the output file. If not provided, the output will be printed as base64
+`-o, --out`: Path to the output file. If not provided, the output will be printed as Base64
 
 `-p, --plaintext`: Data to be encrypted, if a file was not provided
 
@@ -530,9 +530,9 @@ akeyless hmac \
 
 `-i, --in`: Path to the input file
 
-`-o, --out`: Path to the output file. If not provided, the output will be printed as base64
+`-o, --out`: Path to the output file. If not provided, the output will be printed as Base64
 
-`-p, --plaintext`: Data to perform hmac on, if a file was not provided
+`-p, --plaintext`: Data to perform HMAC on, if a file was not provided
 
 `-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-512`
 
@@ -571,7 +571,7 @@ akeyless rotate-key \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port). Relevant only for Classic Key.
 
-`--new-key-data`: The new value of the key, base64 encoded. Relevant only for Classic Key provided by the user (BYOK).
+`--new-key-data`: The new value of the key, Base64 encoded. Relevant only for Classic Key provided by the user (BYOK).
 
 ## `set-item-state`
 
@@ -619,7 +619,7 @@ akeyless sign-ecdsa \
 
 `--prehashed`: Markes that the message is already hashed
 
-`-m, --message`: (**Mandatory**) The input message to sign in a base64 format
+`-m, --message`: (**Mandatory**) The input message to sign in a Base64 format
 
 ## `sign-gpg`
 
@@ -705,7 +705,7 @@ akeyless sign-rsassa-pss \
 
 `-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-384`,`sha-512`
 
-`-m, --message`: (**Mandatory**) The input message to sign in a base64 format
+`-m, --message`: (**Mandatory**) The input message to sign in a Base64 format
 
 `--prehashed`: Markes that the message is already hashed
 
@@ -815,7 +815,7 @@ akeyless upload-rsa \
 
 `-p, --rsa-key-file-path`: RSA private key file path.
 
-`--rsa-key-data`: RSA private key data, base64 encoded
+`--rsa-key-data`: RSA private key data, Base64 encoded
 
 `-c, --cert`: Path to a file that contain the certificate in a PEM format
 
@@ -856,7 +856,7 @@ akeyless verify-ecdsa \
 
 `-I, --item-id`: The item id of the EC key to use for the verification process
 
-`-m, --message`: (**Mandatory**) The input message to sign in a base64 format
+`-m, --message`: (**Mandatory**) The input message to sign in a Base64 format
 
 `-s, --signature`: (**Mandatory**) The message's signature
 
@@ -941,7 +941,7 @@ akeyless verify-rsassa-pss \
 
 `-f, --hash-function[=sha-256]`: Hash function [sha-256,sha-384,sha-512]
 
-`-m, --message`:(**Mandatory**) The input message to sign in a base64 format
+`-m, --message`:(**Mandatory**) The input message to sign in a Base64 format
 
 `-s, --signature`: (**Mandatory**) The message's signature
 
