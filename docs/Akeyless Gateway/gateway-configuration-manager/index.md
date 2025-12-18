@@ -29,7 +29,7 @@ The Gateway Configuration Manager is available via the main console under **Gate
 >
 > The use of HTTP protocol is considered insecure and discouraged; thus, remote Gateway configuration is not supported over HTTP. If you wish to configure your gateway remotely make sure you do it over HTTPS.
 >
-> In case of connectivity issue, you can enter your legacy gateway console available at: `http://Your-Akeyless-Gateway-URL:8000/console`
+> Your Akeyless gateway console available at: `http://Your-Akeyless-Gateway-URL:8000/console`
 
 In the Gateway Configuration Manager, the Gateway Admin can:
 
