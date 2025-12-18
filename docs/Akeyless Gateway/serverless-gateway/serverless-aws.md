@@ -206,3 +206,10 @@ The Akeyless Serverless Gateway does not support:
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway status change
 * [TLS Configuration](https://docs.akeyless.io/docs/tls-certificate)
+* To enable **CLI access** (for example, to create or retrieve a Dynamic Secret), set the `AKEYLESS_GATEWAY_URL` environment variable to the Gateway endpoint in the following format:
+
+```shell
+https://{serverless_gateway_URL}/api/gw/api
+```
+
+<br />
