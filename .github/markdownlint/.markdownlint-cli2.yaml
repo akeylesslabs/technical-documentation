@@ -509,7 +509,7 @@ config:
       - Apigee
       - Cloud Scheduler
       - Cloud Tasks
-      - Workflows
+      #- Workflows
       - Cloud Run Jobs
       - Cloud Storage Transfer Service
       - Transfer Service
@@ -589,13 +589,13 @@ config:
       - Helm
       - Kustomize
       - Pod
-      - Deployment
+      - Kubernetes Deployment # "Kubernetes " added to avoid common language conflicts.
       - StatefulSet
       - DaemonSet
       - ReplicaSet
-      - Kubernetes Job #"Kubernetes " added to avoid common language conflucts.
+      - Kubernetes Job # "Kubernetes " added to avoid common language conflicts.
       - CronJob
-      - Kubernetes Service #"Kubernetes " added to avoid common language conflucts.
+      - Kubernetes Service # "Kubernetes " added to avoid common language conflicts.
       - ClusterIP
       - NodePort
       - LoadBalancer
@@ -603,13 +603,13 @@ config:
       - IngressClass
       - NetworkPolicy
       - ConfigMap
-      - Kubernetes Secret #"Kubernetes " added to avoid common language conflucts.
+      - Kubernetes Secret # "Kubernetes " added to avoid common language conflicts.
       - Namespace
       - Node
       - Taint
       - Toleration
       - ServiceAccount
-      - Kubernetes Role #"Kubernetes " added to avoid common language conflucts.
+      - Kubernetes Role # "Kubernetes " added to avoid common language conflicts.
       - ClusterRole
       - RoleBinding
       - ClusterRoleBinding
