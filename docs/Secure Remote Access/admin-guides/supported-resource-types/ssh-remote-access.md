@@ -24,7 +24,7 @@ In this guide, we will connect to a remote target using an [SSH Certificate](htt
 
 ## Prerequisites
 
-* [SRA](https://docs.akeyless.io/docs/remote-access-setup-overview) deployment.
+* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
 
 * An  [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
@@ -55,10 +55,10 @@ akeyless update-ssh-cert-issuer \
 
 where:
 
-* **secure-access-api:** Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
-* **secure-access-ssh:** Secure Access SSH server. e.g. `my.sra-server:22`.
-* **secure-access-ssh-creds-user:** SSH username to connect to a target server, based on the `Allowed Users`list.
-* **host-provider:** Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
+* `secure-access-api`: Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
+* `secure-access-ssh`: Secure Access SSH server. e.g. `my.sra-server:22`.
+* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users`list.
+* `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
 > 👍 Note
 >
