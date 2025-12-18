@@ -882,7 +882,6 @@ config:
       - Python
       - JavaScript
       - TypeScript
-      - Go
       - Golang
       - Java
       - Kotlin
