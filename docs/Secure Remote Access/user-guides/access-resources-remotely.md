@@ -1,5 +1,5 @@
 ---
-title: SRA Web Portal
+title: Secure Remote Access Portal
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,19 +10,22 @@ metadata:
 next:
   description: ''
 ---
-Depending on the [resource type](https://docs.akeyless.io/docs/supported-resource-types), you can securely access resources in the following ways:
+The Secure Remote Access Portal  is available via the main console at: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
 
-* From the [Secure Remote Access Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal), access a resource over the web or using native CLI.
+All Akeyless supported [Resource types ](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using  the **SRA Portal** , [CLI](doc:cli) or via the [Desktop Application](doc:remote-access-desktop-application-beta). 
 
-* With the [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) command, access a resource using native CLI from any Unix terminal.
+Currently the SRA Portal supports the following Authentication Methods:
 
-## Prerequisites
+* [SAML](https://docs.akeyless.io/docs/saml)
+* [OIDC](https://docs.akeyless.io/docs/openid) 
+* [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) 
+* [LDAP](https://docs.akeyless.io/docs/ldap) 
 
-* [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) Installed.
+<Callout icon="👍">
+  **Allowed Redirect URL**
 
-* [SAML](https://docs.akeyless.io/docs/saml), [OIDC](https://docs.akeyless.io/docs/openid) , [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) or [LDAP](https://docs.akeyless.io/docs/ldap) Authentication method available.
-
-* **Optional** - [Web Access](https://docs.akeyless.io/docs/web-access-bastion) Installed.
+  In case using SAML or OIDC Authe methods ensure your Gateway URL is trusted
+</Callout>
 
 ## Connect from the Secure Remote Access Portal
 
