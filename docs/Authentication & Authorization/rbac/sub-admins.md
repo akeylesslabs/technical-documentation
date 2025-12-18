@@ -20,7 +20,7 @@ In such a situation, it would make sense to have a person responsible for every 
 
 To grant each one of these users full control over their department, 3 separate roles should be created, for example,**/dev/director**, **/ops/lead**, and **/security/ciso**.
 
-Each role should be associated with the corresponding auth method to grant required permissions. Each user’s power depends on a set of permissions granted to them. There are 5 permission categories:
+Each role should be associated with the corresponding Auth Method to grant required permissions. Each user’s power depends on a set of permissions granted to them. There are 5 permission categories:
 
 * Items
 * Access Roles
@@ -33,7 +33,7 @@ It would make sense to grant every leader full access to their departments.**/de
 ## Logs and Analytics
 
 * Each role can be granted “Audit Logs” and “Analytics” permissions. Any path/department does not limit these capabilities.
-* Any role with “Audit Logs” permission can view all audit logs with their own Access ID.
+* Any role with “Audit Logs” permission can view all Audit Logs with their own Access ID.
 * Any role with “Analytics” permission can view reports about their own Access ID.
 * Users granted admin permissions can view all logs and see all reports.
 

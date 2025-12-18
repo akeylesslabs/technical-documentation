@@ -170,12 +170,12 @@ Where:
 
 * `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `access-id`: The `Access ID` of the Kubernetes auth method that was created.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
-* `signing-key`: The private key (base64 encoded) associated with the public key defined in the Kubernetes auth\
-  (The private key that was created when the Kubernetes auth method was created previously).
+* `signing-key`: The private key (Base64 encoded) associated with the public key defined in the Kubernetes auth\
+  (The private key that was created when the Kubernetes Auth Method was created previously).
 
-* `k8s-auth-type`: K8S auth type, use `certificate`.
+* `k8s-auth-type`: K8s auth type, use `certificate`.
 
 * `k8s-host`: The URL of your **Kubernetes Cluster**.
 
@@ -195,7 +195,7 @@ K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
 
 ## Authenticate from a Pod in Your K8s Cluster
 
-1. Create a namespace in your k8s cluster:
+1. Create a Namespace in your K8s cluster:
 
 ```shell CLI
 kubectl create namespace my-namespace-a

@@ -34,7 +34,7 @@ The Akeyless Gateway utilizes two distinct types of caches to ensure both high p
 The types of caches are:
 
 1. **Local In Memory Cache** Speed up day-to-day secret retrieval by keeping the last value locally.
-2. **Cluster Cache Mode (K8S only)**: Provide a shared, highly available, encrypted cache service for all Gateway pods in a Kubernetes deployment. Helm chart spins up a `cache` service, all pods `read/write` through it, so every pod sees the same cached objects. Secrets are stored encrypted at rest, you supply a `Kubernetes` Secret cluster cache encryption key (and optional TLS between pod and cache). Because the cache is external to any single pod, rolling upgrades or pod restarts do not clear the cache. An optional cache HA flag turns the service itself into a multi-replica set backed by a `ReadWriteOnce` storage class (`Gateway version v4.34 and higher`).
+2. **Cluster Cache Mode (K8s only)**: Provide a shared, highly available, encrypted cache service for all Gateway pods in a Kubernetes Deployment. Helm chart spins up a `cache` service, all pods `read/write` through it, so every pod sees the same cached objects. Secrets are stored encrypted at rest, you supply a `Kubernetes` Secret cluster cache encryption key (and optional TLS between pod and cache). Because the cache is external to any single pod, rolling upgrades or pod restarts do not clear the cache. An optional cache HA flag turns the service itself into a multi-replica set backed by a `ReadWriteOnce` storage class (`Gateway version v4.34 and higher`).
 
 ## How Proactive Cache Works?
 
@@ -64,7 +64,7 @@ Impact: Other active Gateway instances can continue to serve requests by retriev
 
 Behavior: The Gateway will attempt to serve requests for secrets and authentication from its local in-memory cache. If a secret is present in the cache, the Gateway will serve it from the cache. The Minimum Fetching Interval will be ignored as the SaaS is unreachable. The Gateway can continue to authenticate existing sessions for supported authentication methods (Kubernetes, API Key, Password, LDAP, Certificate, JWT) if the credentials and authentication data are cached. Crucially, in offline mode, credentials' expiration is ignored.
 
-Impact: Read-only operations for cached secrets will succeed. If the curl\_proxy has cached the necessary authentication data (e.g., system credentials for a K8S Auth Method), new authentications succeed.
+Impact: Read-only operations for cached secrets will succeed. If the curl\_proxy has cached the necessary authentication data (e.g., system credentials for a K8s Auth Method), new authentications succeed.
 
 ### Cluster Cache
 
@@ -98,7 +98,7 @@ The different Gateway Cache configuration options related to caching are:
 | `IGNORE_REDIS_HEALTH`        | `/health` check will ignore if Redis is down, and reply with `Health Check Ok` and `200 OK`              |
 
 There are no differences between the `Kubernetes/Helm chart` options and the `VM-based/Docker` deployment methods. All configurations listed above can be used and function identically in both deployment types.\
-Additional specific settings could be found in the Gateway k8s configuration page
+Additional specific settings could be found in the Gateway K8s configuration page
 
 ## What's the Behavior When Caching Is Enabled and a User Updates the Secret in UI?
 

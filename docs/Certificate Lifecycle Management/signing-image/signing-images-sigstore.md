@@ -18,7 +18,7 @@ To sign software artifacts and verify signatures using Sigstore, you need to ins
 
 The following registries are compatible with the Sigstore signature specification and its implementation in **Cosign**:
 
-* **Gitlab**
+* **GitLab**
 * **DockerHub**
 
 > 📘 Gateway Version
@@ -79,9 +79,9 @@ Where:
 
 * `akeyless_url` - Your Akeyless Gateway `API v2` endpoint (port `8081`), if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`.
 
-* `access_id` - The Auth method **Access ID**.
+* `access_id` - The Auth Method **Access ID**.
 
-* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth method.
+* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth Method.
 
 * `access_type` - The Authentication Method type.
 

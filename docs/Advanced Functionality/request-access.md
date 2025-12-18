@@ -16,7 +16,7 @@ Admins can view, and either approve or decline those requests directly from the 
 
 This option needs to be enabled by an admin in the account under Account settings navigate to **Settings > Items Settings > Request access**.
 
-While default access can be assigned via [Role-based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac),  this article discusses how to easily manage your access requests using customizable notifications and easy workflow to approve such requests
+While default access can be assigned via [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac),  this article discusses how to easily manage your access requests using customizable notifications and easy workflow to approve such requests
 
 > 👍 Note
 >

@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Role-based Access Control (RBAC) follows the least privilege principle to limit access rights for machines/human users to the bare minimum of permissions they need to perform their work.
+Akeyless Role-Based Access Control (RBAC) follows the least privilege principle to limit access rights for machines/human users to the bare minimum of permissions they need to perform their work.
 
 We associate specific clients with a certain Authentication Method to an Access Role to increase operational flexibility. The user can define any number of roles with permissions per each role.
 
 <Image border={false} src="https://files.readme.io/54c7a41-RBAC.JPG" title="RBAC.JPG" />
 
-Access Roles can be configured to grant permissions on Secrets & Encryption Keys, Targets, Authentication methods and Access Roles, you can also control user access to audit logs, analytics, Gateways settings and Secure Remote Access (SRA) information.
+Access Roles can be configured to grant permissions on Secrets & Encryption Keys, Targets, Authentication methods and Access Roles, you can also control user access to Audit Logs, analytics, Gateways settings and Secure Remote Access (SRA) information.
 
 To set permission for a user to work with any item in the Platform, an appropriate Access Role must be assigned to the Authentication Method that represents this user. By default, users don't have any permissions in Akeyless unless explicitly granted.
 
@@ -76,7 +76,7 @@ The built-in admin role has full access to all parts of the accounts.
 
 > 🚧 Warning
 >
-> It is considered a best practice **not** to use an API key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
+> It is considered a best practice **not** to use an API Key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
 ### Permissions for Items, Access Roles, Auth Methods, and Targets
 
@@ -227,4 +227,4 @@ On the dialog, choose from the drop-down menu and existing [Authentication Metho
 
 ## Tutorial
 
-Check out our tutorial video on [Role-based Access Control (RBAC)](https://tutorials.akeyless.io/docs/role-based-access-control-with-api-key-authentication).
+Check out our tutorial video on [Role-Based Access Control (RBAC)](https://tutorials.akeyless.io/docs/role-based-access-control-with-api-key-authentication).

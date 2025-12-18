@@ -111,11 +111,11 @@ Where:
 
 * `access_type` - The [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type, supporting:`access_key`,`aws_iam`,`gcp`,`azure_ad` `certificate`,`jwt` and `k8s`.
 
-* `access_id` - The Auth method **Access ID**.  
+* `access_id` - The Auth Method **Access ID**.  
 
-* `access_key` - Relevant only for  [API Key](https://docs.akeyless.io/docs/api-key) Auth method.
+* `access_key` - Relevant only for  [API Key](https://docs.akeyless.io/docs/api-key) Auth Method.
 
-* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth method.
+* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Method.
 
 ### Create a Self-Signed Certificate
 
@@ -170,7 +170,7 @@ notation key ls
 
 ## Sign Image
 
-For the simplicity of this example, the following steps will demonstrate the simple creation of a trust policy to sign docker artifacts.
+For the simplicity of this example, the following steps will demonstrate the simple creation of a trust policy to sign Docker artifacts.
 
 ```shell
 docker run -d -p 5001:5000 ghcr.io/oras-project/registry:v1.0.0-rc.4
