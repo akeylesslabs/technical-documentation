@@ -21,7 +21,7 @@ Here are some of the key features of the Akeyless Password Manager Console for a
 * Centralized user management: Create, manage, and delete user accounts, assign roles and permissions, and enforce security policies.
 * Audit and monitoring: Track user activity, identify anomalies, and generate reports for compliance purposes.
 * Third-party integrations: Seamlessly integrate with CI/CD pipelines and ITSM platforms to automate password management workflows.
-* Role-based access control (RBAC): Define granular permissions and assign roles to users based on their specific needs.
+* Role-Based Access Control (RBAC): Define granular permissions and assign roles to users based on their specific needs.
 * Security policies: Implement and enforce security policies, such as password rotation and multi-factor authentication (MFA).
 
 ## As a User

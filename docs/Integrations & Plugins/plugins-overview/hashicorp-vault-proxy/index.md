@@ -21,7 +21,7 @@ Benefits:
 * Extending the variety of platform plugins
 * Side-by-side scenarios with vault repositories
 * Easing migrations from existing solutions
-* Supporting **KV** and dynamic secrets.
+* Supporting **KV** and Dynamic Secrets.
 
 Interaction with the Akeyless vault proxy can be done against our public endpoint: `https://hvp.akeyless.io`
 

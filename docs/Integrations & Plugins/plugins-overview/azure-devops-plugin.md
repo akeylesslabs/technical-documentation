@@ -22,7 +22,7 @@ Under **Vault Server Settings**: add the following Akeyless host as your Vault U
 
 > 👍 Note
 >
-> Akeyless developed API compatibility with Hashicorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
+> Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
 Under **Authentication Method**: choose **Client Token** and provide the Akeyless token following this format:\
 The Token value can be a concatenation of your Access ID and your Access Key for an [API Key](https://docs.akeyless.io/docs/api-key) authentication in the following format: `< Access ID >".."< Access Key >`. And should be used more securely as an environment variable.
@@ -76,7 +76,7 @@ The final task should look in this fashion:
    replaceCR: false
 ```
 
-Add a script block for using the mysql credentials:
+Add a script block for using the MySQL credentials:
 
 ```shell
 - script: |

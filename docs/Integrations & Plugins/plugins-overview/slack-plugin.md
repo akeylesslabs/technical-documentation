@@ -28,7 +28,7 @@ Short Description - exactly what it sounds like, a short description of what you
 
 ![](https://files.readme.io/4664042-Screen_Shot_2020-04-30_at_11.27.35.png "Screen Shot 2020-04-30 at 11.27.35.png")
 
-## Using AKEYLESS OTP Via Slack
+## Using Akeyless OTP Via Slack
 
 Type `/akeyless` in Slack and select the **OTP** option:
 

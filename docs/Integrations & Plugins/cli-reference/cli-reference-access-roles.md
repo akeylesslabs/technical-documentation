@@ -238,7 +238,7 @@ akeyless set-role-rule \
 
 ## `update-assoc`
 
-Update the sub-claims of an association between the role and the auth method.
+Update the sub-claims of an association between the role and the Auth Method.
 
 ### Usage
 

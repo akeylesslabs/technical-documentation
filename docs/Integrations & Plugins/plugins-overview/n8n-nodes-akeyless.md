@@ -92,7 +92,7 @@ Choose an authentication method:
 }
 ```
 
-Use Case: Retrieve API keys, database passwords, or other static secrets.
+Use Case: Retrieve API keys, database passwords, or other Static Secrets.
 
 2. Get Rotated Secret Value
    Retrieves a rotated secret (automatically rotated by Akeyless).

@@ -58,7 +58,7 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 
 ## Retrieving Items
 
-The Akeyless plugin allows you to retrieve Static, Dynamic, and Rotated secrets and PKI and SSH certificates.
+The Akeyless plugin allows you to retrieve Static, Dynamic, and Rotated Secrets and PKI and SSH certificates.
 
 ## Retrieving Secrets
 
@@ -82,7 +82,7 @@ To Issue a certificate:
 * Output Name: Name the retrieved certificate.
 * Certificate User Name: (For SSH certificates) Enter the username to be signed.
 * Public Key: Provide the public key (if required).
-* CSR in base64: Provide the Certificate Signing Request (CSR) in base64 format.
+* CSR in Base64: Provide the Certificate Signing Request (CSR) in Base64 format.
 * Environment Variable: Define an environment variable to store the certificate.
 * Key Name: Specify the key to fetch. To retrieve all keys, enter data.
 
@@ -92,7 +92,7 @@ The following examples demonstrate how to authenticate and retrieve items using 
 
 ### Setting API Key Authentication
 
-The following configuration utilizes an existing API key in Akeyless for Jenkins authentication.
+The following configuration utilizes an existing API Key in Akeyless for Jenkins authentication.
 
 ![](https://files.readme.io/fd278b50a80159780c9b765772b37859ba715f7ad777ae12d0d214db21c1b55c-image.png)
 
@@ -110,7 +110,7 @@ The following example will only fetch the username of the rotated secret value, 
 
 ### Issuing an SSH Certificate
 
-The following above will generate an SSH Certificate that will be allowed for ubuntu user, using a public key:
+The following above will generate an SSH Certificate that will be allowed for the `ubuntu` user, using a public key:
 
 ![](https://files.readme.io/20d1d24c8bf53d285e233e8c698442a101f65c381ff31ec1c5b9b972a4671494-image.png)
 

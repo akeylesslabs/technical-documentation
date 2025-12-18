@@ -18,7 +18,7 @@ This section outlines the CLI commands relevant to the Gateway Log-Forwarding.
 >
 > Flags with a default value of `use-existing` indicate that the field's value will remain unchanged unless explicitly modified.
 
-To forward your Akeyless audit logs directly from your Gateway, you can set the relevant settings of your target logs server using the CLI.
+To forward your Akeyless Audit Logs directly from your Gateway, you can set the relevant settings of your target logs server using the CLI.
 
 ## `Update`
 
@@ -125,7 +125,7 @@ akeyless gateway update log-forwarding azure-analytics \
 
 ### `Datadog`
 
-Updates Log Forwarding config for datadog
+Updates Log Forwarding config for Datadog
 
 #### Usage
 
@@ -154,7 +154,7 @@ akeyless gateway update log-forwarding datadog \
 
 `--host`: Datadog host
 
-`--api-key`: Datadog api key
+`--api-key`: Datadog API Key
 
 `--log-source[=use-existing]`: Datadog log source
 

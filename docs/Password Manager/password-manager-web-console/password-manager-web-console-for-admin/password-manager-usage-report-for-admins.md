@@ -20,7 +20,7 @@ The Password Manager Usage Report delivers critical metrics that help in underst
    This metric provides a quick snapshot of the total number of users or clients who are actively using the password management system.
 
 2. **Total Number of Passwords**
-   Displays the total count of passwords stored within the system. This number reflects the cumulative security entries managed by the password manager.
+   Displays the total count of passwords stored within the system. This number reflects the cumulative security entries managed by the Password Manager.
 
 3. **Total Users by Authentication Method**
    1. Metric Description: This section counts and categorizes the total number of users based on their chosen authentication method.

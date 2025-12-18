@@ -26,4 +26,4 @@ We offer a wide array of plugins, including:
 
 **SPIRE**: [SPIRE Key Manager](https://docs.akeyless.io/docs/spire-keymanager), [SPIRE Secret Manager](https://docs.akeyless.io/docs/spire-secret-manager), [SPIRE Upstream Authority](https://docs.akeyless.io/docs/spire-upstream-authority) and more.
 
-In addition, Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for all akeyless secrets.
+In addition, Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for all Akeyless secrets.

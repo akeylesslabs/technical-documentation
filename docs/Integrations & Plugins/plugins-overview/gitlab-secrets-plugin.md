@@ -12,7 +12,7 @@ next:
 ---
 The Akeyless <Anchor label="Official plugin" target="_blank" href="https://archives.docs.gitlab.com/18.0/ci/secrets/akeyless/">Official plugin</Anchor> for GitLab securely and easily fetches secrets into GitLab pipelines.
 
-Using Gitlab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab.com/ci/yaml/#id_tokens">ID tokens</Anchor> when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a <Anchor label="JSON Web Token (JWT)" target="_blank" href="https://docs.gitlab.com/ci/secrets/id_token_authentication/#id-tokens">JSON Web Token (JWT)</Anchor> as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
+Using GitLab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab.com/ci/yaml/#id_tokens">ID tokens</Anchor> when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a <Anchor label="JSON Web Token (JWT)" target="_blank" href="https://docs.gitlab.com/ci/secrets/id_token_authentication/#id-tokens">JSON Web Token (JWT)</Anchor> as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
 
 ## Prerequisites
 
@@ -129,7 +129,7 @@ Where make sure to set the relevant `access_type` according to the Auth Method t
 
 ## Usage
 
-Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml`  and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Auth method.
+Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml`  and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Auth Method.
 
 > 📘 Tip
 >

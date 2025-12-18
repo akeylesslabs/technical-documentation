@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports multiple options to authenticate your K8s cluster with Akeyless platform:
+Akeyless supports multiple options to authenticate your K8s cluster with Akeyless Platform:
 
 * **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/kubernetes-auth)**
 * **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)** Not supported by the External Secret Operator (ESO).
@@ -26,7 +26,7 @@ Akeyless supports multiple options to authenticate your K8s cluster with Akeyles
 >
 > Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth).
 
-To use the K8s Auth method for authentication:
+To use the K8s Auth Method for authentication:
 
 ```yaml YAML
 AKEYLESS_ACCESS_TYPE: "k8s"
@@ -44,7 +44,7 @@ AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>" # or using por
 
 ## Universal Identity (UID)
 
-To use UID Auth method for authentication:
+To use UID Auth Method for authentication:
 
 ```yaml YAML
 AKEYLESS_ACCESS_TYPE: "universal_identity"
@@ -54,7 +54,7 @@ AKEYLESS_INIT_TOKEN: "<token>"
 
 ## API Key
 
-To use API Key Auth method for authentication:
+To use API Key Auth Method for authentication:
 
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
@@ -69,7 +69,7 @@ AKEYLESS_ACCESS_ID: "<Access Id>"
 
 ### Azure Active Directory (AD)
 
-To use Azure AD Auth method for authentication:
+To use Azure AD Auth Method for authentication:
 
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
@@ -83,7 +83,7 @@ AKEYLESS_ACCESS_ID: "<Access Id>"
 
 ### AWS-IAM
 
-To use AWS-IAM Auth method for authentication:
+To use AWS-IAM Auth Method for authentication:
 
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
@@ -95,7 +95,7 @@ AKEYLESS_ACCESS_ID: "<Access Id>"
 
 ### GCP Auth
 
-To use GCP Auth method for authentication:
+To use GCP Auth Method for authentication:
 
 ```yaml
 AKEYLESS_URL: "https://vault.akeyless.io"

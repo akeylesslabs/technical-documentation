@@ -42,7 +42,7 @@ Akeyless helps avoid secret scattering across AWS Secrets Manager, Databricks se
 * An Akeyless Access ID
 * An AWS IAM Auth Method created in Akeyless
 * A secret stored in Akeyless (e.g., /devops/data\_gov\_api\_key)
-* A Databricks workspace with internet access or the access to the Akeyless gateway
+* A Databricks workspace with internet access or the access to the Akeyless Gateway
 
 ## Architecture Overview
 
@@ -101,7 +101,7 @@ res = api.get_secret_value(secret_request)
 API_KEY = res[secret_path]
 ```
 
-This fetches your API key securely and stores it in the API\_KEY variable.
+This fetches your API Key securely and stores it in the API\_KEY variable.
 
 ### Step 4: Use the Secret (API Call Example)
 
@@ -113,7 +113,7 @@ params = {"api_key": API_KEY, "per_page": 5}
 response = requests.get(url, params=params)
 ```
 
-Uses the API key to fetch public healthcare data as an example.
+Uses the API Key to fetch public healthcare data as an example.
 
 ### Step 5: Load API Data Into a Spark Table
 

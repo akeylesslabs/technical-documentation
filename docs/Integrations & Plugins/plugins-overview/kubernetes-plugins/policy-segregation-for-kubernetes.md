@@ -14,11 +14,11 @@ next:
 
 When using Akeyless [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth), policy segregation of resources can be done based on Kubernetes attributes via Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) using the relevant [sub-claims](https://docs.akeyless.io/docs/sub-claims), such as `namespace` and `pod_name`.
 
-The following guide will demonstrate the usage of namespace segregation.
+The following guide will demonstrate the usage of Namespace segregation.
 
 ## Controlling the Capabilities of a Workload
 
-Authorization in Kubernetes is intentionally high level, focused on coarse actions on resources. However, *policies* enable you to limit, by use case, how objects act on the cluster, themselves, and other resources. You can use policies, together with the Akeyless native secrets injector, to support full and flexible segregation.
+Authorization in Kubernetes is intentionally high level, focused on coarse actions on resources. However, *policies* enable you to limit, by use case, how objects act on the cluster, themselves, and other resources. You can use policies, together with the Akeyless native Secrets Injector, to support full and flexible segregation.
 
 ## Namespace and Pod Segregation
 
@@ -28,11 +28,11 @@ For each required policy:
 
 1. Create an authentication method. For details about the authentication methods that are supported for K8s, see [Authentication Methods for K8s](https://docs.akeyless.io/docs/auth-meth-k8s).
 
-The following example uses a pre-defined Kubernetes Auth method called K8s\_Auth in the K8s folder. Follow this guide to create a [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) method.
+The following example uses a pre-defined Kubernetes Auth Method called K8s\_Auth in the K8s folder. Follow this guide to create a [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) method.
 
 > 👍 Note
 >
-> While it is not mandatory to separate the authentication methods and access roles into separate folders, we recommend that you do this to keep things organized.
+> While it is not mandatory to separate the authentication methods and Access Roles into separate folders, we recommend that you do this to keep things organized.
 
 2. Create a static secret in the Akeyless Platform.\
    For example, the following command creates a static secret called **namespace1** in the **K8s/NameSpaces/Folder/Secrets** folder.
@@ -59,8 +59,8 @@ akeyless assoc-role-am --role-name /K8s/NameSpaces/Folder/Role/namespace1role --
 akeyless set-role-rule --role-name /K8s/NameSpaces/Folder/Role/namespace1role --path /K8s/NameSpaces/Folder/Secrets/namespace1 --capability read --capability list
 ```
 
-The Akeyless webhook validates the Role-based Access Control (RBAC) rule for each namespace.\
-If the namespace is authorized, Akeyless searches in the secrets folder you defined for the appropriate secret.
+The Akeyless webhook validates the Role-Based Access Control (RBAC) rule for each Namespace.\
+If the Namespace is authorized, Akeyless searches in the secrets folder you defined for the appropriate secret.
 
 ```shell Create your namespace
 kubectl create namespace namespace1

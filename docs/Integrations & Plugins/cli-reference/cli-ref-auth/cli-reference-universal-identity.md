@@ -48,7 +48,7 @@ akeyless auth-method create universal-identity \
 
 `--deny-inheritance`: Deny from root to create children
 
-`--ttl[=60]`: Token TTL (has the value that configured in Akeyless console > Authentication settings)
+`--ttl[=60]`: Token TTL (has the value that configured in Akeyless Console > Authentication settings)
 
 ## `uid-create-child-token`
 
@@ -70,7 +70,7 @@ akeyless uid-create-child-token \
 
 `--child-ttl`: New child token TTL
 
-`-n, --auth-method-name`: The universal identity auth method name, required only when uid-token is not provided
+`-n, --auth-method-name`: The universal identity Auth Method name, required only when uid-token is not provided
 
 `--tid, --uid-token-id`: The ID of the uid-token, required only when uid-token is not provided
 

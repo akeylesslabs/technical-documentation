@@ -86,7 +86,7 @@ helm repo update
 helm install external-secrets external-secrets/external-secrets   --namespace external-secrets --create-namespace
 ```
 
-The ESO controller pods running in the `external-secrets` namespace should now be running.
+The ESO controller pods running in the `external-secrets` Namespace should now be running.
 
 ***
 
@@ -200,7 +200,7 @@ This Secret is suitable when using Azure AD Managed Identity with sub-claim enfo
 
 #### `SecretStore` (Using a Credentials Secret)
 
-Create a `SecretStore` resource which defines how ESO connects to Akeyless within a single namespace.
+Create a `SecretStore` resource which defines how ESO connects to Akeyless within a single Namespace.
 
 ```yaml
 apiVersion: external-secrets.io/v1
@@ -232,7 +232,7 @@ If using a **private Akeyless Gateway** (for example in a zero-knowledge or hybr
       akeylessGWApiURL: "https://<the.akeyless.gw:8080>/v2"
 ```
 
-Custom CAs can be configured via `caBundle` or `caProvider` if the Akeyless gateway uses a private CA.
+Custom CAs can be configured via `caBundle` or `caProvider` if the Akeyless Gateway uses a private CA.
 
 #### `SecretStore` (Direct Kubernetes Auth)
 
@@ -262,14 +262,14 @@ spec:
 
 ##### Key Fields
 
-* `accessID`: Access ID of the Kubernetes Auth method.
+* `accessID`: Access ID of the Kubernetes Auth Method.
 * `k8sConfName`: Kubernetes Auth config name attached to the cluster.
 * `serviceAccountRef`: `ServiceAccount` that ESO uses to request and project tokens.
 * `secretRef`: Optional; explicit Secret containing a SA token ESO should use.
 
 ### `ClusterSecretStore`: Cluster-Wide Secret Provider
 
-A `ClusterSecretStore` is a cluster-scoped provider configuration that can be used by `ExternalSecret` resources in any namespace.
+A `ClusterSecretStore` is a cluster-scoped provider configuration that can be used by `ExternalSecret` resources in any Namespace.
 
 ```yaml
 apiVersion: external-secrets.io/v1
@@ -296,7 +296,7 @@ spec:
             namespace: akeyless-demo
 ```
 
-For a `ClusterSecretStore` object, the namespace fields are required for `secretRef.accessID`, `secretRef.accessType`, and `secretRef.accessTypeParam` (and for any `serviceAccountRef` or `secretRef` when using the Kubernetes authentication method).
+For a `ClusterSecretStore` object, the Namespace fields are required for `secretRef.accessID`, `secretRef.accessType`, and `secretRef.accessTypeParam` (and for any `serviceAccountRef` or `secretRef` when using the Kubernetes authentication method).
 
 When using `ClusterSecretStore`, the referencing `ExternalSecret` must set `secretStoreRef` to use the `ClusterSecretStore` as opposed to a `SecretStore`:
 
@@ -306,7 +306,7 @@ secretStoreRef:
   name: akeyless-cluster-secret-store
 ```
 
-Remember that any namespace using this `ClusterSecretStore` must be authorized in the Akeyless platform with appropriate roles and claims.
+Remember that any Namespace using this `ClusterSecretStore` must be authorized in the Akeyless Platform with appropriate roles and claims.
 
 ***
 

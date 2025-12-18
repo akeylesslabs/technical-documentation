@@ -91,7 +91,7 @@ The following examples will demonstrate how to fetch [Static](https://docs.akeyl
 
 ### Fetching Static Secrets
 
-For static secrets, you will get an individual secret output variable for each secret. For example:
+For Static Secrets, you will get an individual secret output variable for each secret. For example:
 
 ```yaml
 steps:
@@ -123,7 +123,7 @@ You will also have `$(MyAkeylessTask.first_secret)` and  `$(MyAkeylessTask.secon
 
 ### Fetching Dynamic Secrets
 
-For dynamic secrets, the output variable that holds all of that dynamic secret's output. For example:
+For Dynamic Secrets, the output variable that holds all of that dynamic secret's output. For example:
 
 ```yaml
 steps:
@@ -149,9 +149,9 @@ steps:
 
 You will also have `$(MyAkeylessTask.my_dynamic_secret)` available in subsequent tasks of that job if needed.
 
-#### Using Jq to Parse Credentials
+#### Using jq to Parse Credentials
 
-Dynamic secrets are more complex objects and you will likely need to further process the temporary credentials to get each value individually.
+Dynamic Secrets are more complex objects and you will likely need to further process the temporary credentials to get each value individually.
 
 For example, with a MySQL dynamic secret, you can use `jq` to get each separate value:
 

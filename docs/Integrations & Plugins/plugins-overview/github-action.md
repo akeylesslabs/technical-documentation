@@ -45,7 +45,7 @@ This Action plugin supports the following Authentication Methods:
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 * [Azure AD](https://docs.akeyless.io/docs/azure-ad)
 * [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
 * [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
 * [Access Key](https://docs.akeyless.io/docs/api-key)
 * [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
@@ -179,7 +179,7 @@ Although this repository's workflows use placeholder values, it is still a real 
 
 ### Static Secrets Example
 
-In this example, you will fetch two static secrets from Akeyless, `my_first_secret` and `my_second_secret`. Just define each secret's path and output name. The secret values can be found in the `secrets.txt` file created in that directory (note the "key" is only relevant for JSON formatted secrets, see [below](https://docs.akeyless.io/docs/github-action#parsing-json-secrets-examples)).
+In this example, you will fetch two Static Secrets from Akeyless, `my_first_secret` and `my_second_secret`. Just define each secret's path and output name. The secret values can be found in the `secrets.txt` file created in that directory (note the "key" is only relevant for JSON formatted secrets, see [below](https://docs.akeyless.io/docs/github-action#parsing-json-secrets-examples)).
 
 ```yaml
 jobs:

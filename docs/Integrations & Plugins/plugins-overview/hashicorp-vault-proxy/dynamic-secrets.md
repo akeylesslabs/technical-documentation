@@ -1,6 +1,6 @@
 ---
 title: Vault Proxy Dynamic Secrets
-excerpt: Configuring Dynamic Secrets with Hashicorp Vault Proxy
+excerpt: Configuring Dynamic Secrets with HashiCorp Vault Proxy
 deprecated: false
 hidden: false
 metadata:
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## Configuring Hashicorp Vault Proxy
+## Configuring HashiCorp Vault Proxy
 
 1. Set Akeyless HVP URL in: `VAULT_ADDR` environment variable:
 

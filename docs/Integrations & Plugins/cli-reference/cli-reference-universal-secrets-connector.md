@@ -42,7 +42,7 @@ akeyless create-usc \
 
 `-v, --azure-kv-name`:   Azure Key Vault name (Relevant only for Azure targets)
 
-`-s, --k8s-namespace`: K8s namespace (Relevant to Kubernetes targets)
+`-s, --k8s-namespace`: K8s Namespace (Relevant to Kubernetes targets)
 
 `--usc-prefix`: A prefix for all secret that will be created on the USC endpoint (relevant only for AWS targets)
 
@@ -60,7 +60,7 @@ akeyless create-usc \
 
 `--json[=false]`: Set output format to JSON
 
-`--jq-expression`: JQ expression to filter result output
+`--jq-expression`: jq expression to filter result output
 
 `--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
 

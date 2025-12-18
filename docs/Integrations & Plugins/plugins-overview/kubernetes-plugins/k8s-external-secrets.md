@@ -52,7 +52,7 @@ AKEYLESS_ACCESS_TYPE_PARAM:
 > * If you define the value of `AKEYLESS_ACCESS_TYPE` as **api\_key**, define the\
 >    value of  `AKEYLESS_ACCESS_TYPE_PARAM` as your access key.
 
-3. Deploy the helm chart by running:
+3. Deploy the Helm chart by running:
 
 ```shell
 helm install <RELEASE NAME> external-secrets/kubernetes-external-secrets -f charts/kubernetes-external-secrets/values.yaml

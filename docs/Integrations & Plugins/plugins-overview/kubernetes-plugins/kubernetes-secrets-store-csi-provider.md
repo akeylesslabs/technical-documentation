@@ -35,14 +35,14 @@ Upon pod deletion, the corresponding volume is cleaned up and deleted.
 
 ## Install Akeyless CSI Provider
 
-Using helm
+Using Helm
 
 ```shell
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm install akeyless-csi akeyless/akeyless-csi-provider
 ```
 
-Or via local `yaml` file which located under `deployment` folder on this [git](https://github.com/akeylesslabs/akeyless-csi-provider).
+Or via local `yaml` file which located under `deployment` folder on this [Git](https://github.com/akeylesslabs/akeyless-csi-provider).
 
 ```shell
 kubectl apply -f deployment/akeyless-csi-provider.yaml
@@ -196,6 +196,6 @@ spec:
 
 > 🚧 Warning
 >
-> The `SecretProviderClass` needs to be created in the same namespace as the pod.
+> The `SecretProviderClass` needs to be created in the same Namespace as the pod.
 
 After the pod is created, the secret can be found inside the pod, under the `mountPath` - within the `fileName`

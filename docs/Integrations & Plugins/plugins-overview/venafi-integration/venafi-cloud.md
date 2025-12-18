@@ -38,7 +38,7 @@ Where:
 
 `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-`venafi-api-key`: Venafi API key.
+`venafi-api-key`: Venafi API Key.
 
 `venafi-zone`:  The Venafi zone to use when issuing new certificates (policies will be pulled from here) - for example: `<Application_Name>/<Issuing_template_name>`
 
@@ -73,7 +73,7 @@ Where:
 
 The certificate attached to the private key must have at least a Common Name (CN) with it.
 
-Create the Venafi **Dynamic Secret** in Akeyless gateway:
+Create the Venafi **Dynamic Secret** in Akeyless Gateway:
 
 ```shell
 akeyless dynamic-secret create venafi \

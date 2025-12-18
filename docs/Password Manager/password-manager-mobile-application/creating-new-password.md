@@ -16,7 +16,7 @@ next:
 
 ### Step 1: Launch the Akeyless Mobile Password Manager Application
 
-Locating the App: Begin by finding the Akeyless mobile password manager application on your mobile device. This can typically be found on your device's home screen, or within the app drawer, identifiable by the Akeyless logo.
+Locating the App: Begin by finding the Akeyless mobile Password Manager application on your mobile device. This can typically be found on your device's home screen, or within the app drawer, identifiable by the Akeyless logo.
 
 Opening the App: Tap on the Akeyless icon. This action initiates the application, and you may see a brief loading screen as the app prepares to open.
 

@@ -205,7 +205,7 @@ jobs:
 
 ### Fetching Dynamic Secrets
 
-The key difference with dynamic secrets is that the output value is typically a JSON object. There are two ways you can handle this: default output or parsed output.
+The key difference with Dynamic Secrets is that the output value is typically a JSON object. There are two ways you can handle this: default output or parsed output.
 
 Example of fetching AWS Dynamic Secret using OAuth 2.0 / JWT Authentication Method:
 

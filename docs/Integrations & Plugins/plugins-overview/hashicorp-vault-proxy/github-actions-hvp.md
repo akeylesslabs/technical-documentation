@@ -22,7 +22,7 @@ To work with the GitHub Actions plugin:
 
 ## Create a GitHub Repository
 
-1. Create a new directory and initialize it as a git repository by running:
+1. Create a new directory and initialize it as a Git repository by running:
 
 ```shell
 git init
