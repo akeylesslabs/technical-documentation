@@ -24,7 +24,7 @@ For more information on how to use installation access tokens in GitHub, see the
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic GitHub secret from the CLI using an existing GitHub target, run the following command:
 
@@ -112,7 +112,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **App ID:** Specify the ID of the GitHub application.
 
-* **App Private Key:** Upload a base64-encoded private key of the GitHub application. It will be used to sign access token requests.
+* **App Private Key:** Upload a Base64-encoded private key of the GitHub application. It will be used to sign access token requests.
 
 * **Base URL:** Specify the base URL of the GitHub repository. The default value is [https://api.github.com/](https://api.github.com/).
 

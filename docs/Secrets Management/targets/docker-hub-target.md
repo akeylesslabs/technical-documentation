@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a Docker Hub target to be used with [Docker Hub dynamic secrets](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets) or [Docker Hub rotated secrets](https://docs.akeyless.io/docs/create-a-docker-hub-rotated-secret).
+You can define a Docker Hub target to be used with [Docker Hub Dynamic Secrets](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets) or [Docker Hub Rotated Secrets](https://docs.akeyless.io/docs/create-a-docker-hub-rotated-secret).
 
 ## Create a Docker Hub Target in the CLI
 

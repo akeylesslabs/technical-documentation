@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-**Google Workspace Dynamic Secret** can be used to add users to resources in the Google Workspace Admin Console using the user's email as a claim in the **IDP**. once configured, the users can use the **Google Workspace** Dynamic Secret to be added as one of the specified types in the Google Workspace Admin Console:
+**Google Workspace Dynamic Secret** can be used to add users to resources in the Google Workspace Admin Console using the user's email as a claim in the **IdP**. once configured, the users can use the **Google Workspace** Dynamic Secret to be added as one of the specified types in the Google Workspace Admin Console:
 
 * **Role** - Assigns a user to an admin role in Google Workspace.
 * **Group** - Adds the user to a group in Google Workspace.

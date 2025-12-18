@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports dynamic secrets for a growing number of services. If you need to integrate with a service that is not yet natively implemented in Akeyless, you can create a custom dynamic secret implementation that calls the service on demand to generate or revoke temporary secrets.  
+Akeyless supports Dynamic Secrets for a growing number of services. If you need to integrate with a service that is not yet natively implemented in Akeyless, you can create a custom dynamic secret implementation that calls the service on demand to generate or revoke temporary secrets.  
 
 Akeyless communicates with custom dynamic secret implementations over HTTP, and delegates `create`  
 and `revoke` operations to the external services using a particular set of HTTP endpoints that follow a specific input/output format.
@@ -298,7 +298,7 @@ Where:
 | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------- |
 | creds              | A temporary JWT token issued and signed by Akeyless that is included in the `AkeylessCreds` header of every `POST /sync/create` and `POST /sync/revoke` request.                                                               |                          |
 | expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`               |
-| expected_item_name | (Optional) The item name of the custom dynamic secret. This can be helpful if a single Akeyless Gateway runs multiple custom dynamic secrets, and the custom dynamic secret implementation should only respond to one of them. | `"/custom-producer-foo"` |
+| expected_item_name | (Optional) The item name of the custom dynamic secret. This can be helpful if a single Akeyless Gateway runs multiple custom Dynamic Secrets, and the custom dynamic secret implementation should only respond to one of them. | `"/custom-producer-foo"` |
 
 ### Dry-Run Mode
 
@@ -339,10 +339,10 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 ## Usage Examples
 
 You can find examples of custom dynamic secret implementations in this <a href="https://github.com/akeylesslabs/custom-producer" target="_blank">GitHub Repository</a>.
 
-The repository includes sample authentication code, deployment examples (using a docker image, or [AWS Lambda function](https://github.com/akeylesslabs/custom-producer/tree/master/go/echoserver#setting-up-aws-lambda), or similar) and actual dynamic secret implementations, such as [Let’s Encrypt](https://github.com/akeylesslabs/custom-producer/tree/master/go/letsencrypt).
+The repository includes sample authentication code, deployment examples (using a Docker image, or [AWS Lambda function](https://github.com/akeylesslabs/custom-producer/tree/master/go/echoserver#setting-up-aws-lambda), or similar) and actual dynamic secret implementations, such as [Let’s Encrypt](https://github.com/akeylesslabs/custom-producer/tree/master/go/letsencrypt).

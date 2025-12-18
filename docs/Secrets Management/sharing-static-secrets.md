@@ -78,7 +78,7 @@ You can find the complete list of parameters for these commands in the [CLI Refe
 
 ## Managing Shared Items
 
-Once an item has been shared, a full auditing activity is logged into Akeyless audit logs, to remove a user from an item, **Admins** or the item owners can remove those users from the sharing list.
+Once an item has been shared, a full auditing activity is logged into Akeyless Audit Logs, to remove a user from an item, **Admins** or the item owners can remove those users from the sharing list.
 
 Navigate to the shared item, and remove the relevant email address from the **Recipient email address** list.
 

@@ -24,7 +24,7 @@ The following Authentication Methods are supported:
 * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
 * [Azure](https://docs.akeyless.io/docs/azure-ad)
 * [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8S](https://docs.akeyless.io/docs/kubernetes-auth)
+* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
 
 > 👍 Note
 >
@@ -171,4 +171,4 @@ bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 >
 > **SPIFFE/SPIRE**
 >
-> For the full configuration steps, visit the official [Quickstart for Linux and MacOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
+> For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

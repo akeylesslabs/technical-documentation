@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define an Artifactory target to be used with [Artifactory dynamic secrets](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer).
+You can define an Artifactory target to be used with [Artifactory Dynamic Secrets](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer).
 
 ## Create an Artifactory Target in the CLI
 
@@ -32,7 +32,7 @@ Where:
 
 * `artifactory-admin-name`: The Artifactory user with privileges to create JWT tokens.
 
-* `artifactory-admin-pwd`: The API key or password of the admin user.
+* `artifactory-admin-pwd`: The API Key or password of the admin user.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueartifactoryp) section.
 
@@ -53,6 +53,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Admin Username:** Provide the name of the Artifactory user with privileges to create JWT tokens.
 
-* **Admin API Key/Password:** Provide the API key or password of the admin user.
+* **Admin API Key/Password:** Provide the API Key or password of the admin user.
 
 5. Click **Finish**.

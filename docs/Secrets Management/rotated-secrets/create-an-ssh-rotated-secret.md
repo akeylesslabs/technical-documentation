@@ -129,9 +129,9 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Custom Rotation Statement
 
-Akeyless Rotated Secret for an [SSH Target](https://docs.akeyless.io/docs/ssh-target) supports a Custom Rotation Statement. This script or command will be executed on the target server after the secret rotation operation completes. You can specify any command you need.
+Akeyless Rotated Secret for an [SSH Target](https://docs.akeyless.io/docs/ssh-target) supports a Custom Rotation Statement. This script or command will be executed on the target server after the Secret Rotation operation completes. You can specify any command you need.
 
-For example, you can provide a command that will be executed instead of the default command to perform a secret rotation operation and specify three different arguments for it: **USERNAME, NEW_PASSWORD, OLD_PASSWORD**.
+For example, you can provide a command that will be executed instead of the default command to perform a Secret Rotation operation and specify three different arguments for it: **USERNAME, NEW_PASSWORD, OLD_PASSWORD**.
 
 Where:
 

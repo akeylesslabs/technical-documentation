@@ -116,7 +116,7 @@ env:
 
 The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions. To fetch the relevant secret on behalf of your users, set the `privilegedAccess` field with the relevant `AccessID` as described in the Authentication section of this page.
 
-Users then can have only `list` permissions on their secrets. Upon successful authentication against your IDP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
+Users then can have only `list` permissions on their secrets. Upon successful authentication against your IdP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
 
 To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs` that will be authorized to request access.
 

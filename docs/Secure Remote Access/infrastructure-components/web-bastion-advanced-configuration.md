@@ -105,7 +105,7 @@ webWorker:
 
 ## DLP
 
-To work with Data Leak Protection (DLP) tools, you can explicitly set the target settings of your DLP server, as well as with dedicated audit logs forwarding.
+To work with Data Leak Protection (DLP) tools, you can explicitly set the target settings of your DLP server, as well as with dedicated Audit Logs forwarding.
 
 ```yaml
 dlp:

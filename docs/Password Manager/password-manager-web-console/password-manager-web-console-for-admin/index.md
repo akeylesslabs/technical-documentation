@@ -12,7 +12,7 @@ next:
 ---
 ## Effortless Password Management for Enterprises With Akeyless
 
-As an admin user of the Akeyless password manager web console, you understand the importance of secure and efficient password management for your organization. Akeyless's enterprise-grade password management solution caters to the needs of businesses of all sizes, providing a powerful yet easy-to-use platform that doesn't require an IT department for implementation and management.
+As an admin user of the Akeyless Password Manager web console, you understand the importance of secure and efficient password management for your organization. Akeyless's enterprise-grade password management solution caters to the needs of businesses of all sizes, providing a powerful yet easy-to-use platform that doesn't require an IT department for implementation and management.
 
 ## Robust Security for Your Business-Critical Data
 
@@ -20,7 +20,7 @@ Akeyless prioritizes security, ensuring that your business-critical passwords an
 
 ## Effortless Administration and User Onboarding
 
-Akeyless simplifies administration, empowering you to manage passwords and access permissions with ease. The intuitive web console provides a centralized interface for creating and managing users, defining access roles, and auditing password activities. User onboarding is a breeze, with self-service password resets and multi-factor authentication options ensuring a secure and seamless user experience.
+Akeyless simplifies administration, empowering you to manage passwords and access permissions with ease. The intuitive web console provides a centralized interface for creating and managing users, defining Access Roles, and auditing password activities. User onboarding is a breeze, with self-service password resets and multi-factor authentication options ensuring a secure and seamless user experience.
 
 ## Scalability to Meet Your Growing Needs
 

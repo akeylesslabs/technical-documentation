@@ -191,7 +191,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 **SSL:** Check to enable SSL, requires SSL certificate.
 
-**DB Server Certificate:** Set of root certificate authorities in base64 encoding used by clients to verify server certificates.
+**DB Server Certificate:** Set of root certificate authorities in Base64 encoding used by clients to verify server certificates.
 
 **DB Server Name:** The server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
@@ -387,7 +387,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 **Account Password:** Password for the Snowflake user administrator account.
 (Relevant only when using **User-Password** authenticating)
 
-**Private Key:** RSA Private key (base64 encoded), associated with the public key defined in Snowflake connection.
+**Private Key:** RSA Private key (Base64 encoded), associated with the public key defined in Snowflake connection.
 (Relevant only when using **RSA Private Key** authenticating).
 For more information on how to get this key, check this [guide](https://docs.snowflake.com/en/user-guide/key-pair-auth).
 

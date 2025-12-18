@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Dynamic secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a temporary period with a defined set of permissions. You can configure multiple dynamic secrets for the same resource to granularly control the breadth of access either per a temporary user on a specific target or for the entire target within a single action. You can revoke all temporary users immediately for a specific target as necessary.
+Dynamic Secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a temporary period with a defined set of permissions. You can configure multiple Dynamic Secrets for the same resource to granularly control the breadth of access either per a temporary user on a specific target or for the entire target within a single action. You can revoke all temporary users immediately for a specific target as necessary.
 
 Setting up Dynamic Secrets requires the **Dynamic Secret** permission on the Gateway.
 
@@ -39,7 +39,7 @@ To create a dynamic secret, you must configure the required account and access c
 
 > 📘 Info
 >
-> The configuration required to produce dynamic secrets is part of your private network, and are stored on the Akeyless Gateway.
+> The configuration required to produce Dynamic Secrets is part of your private network, and are stored on the Akeyless Gateway.
 
 Get the value of a dynamic secret when you need it.
 

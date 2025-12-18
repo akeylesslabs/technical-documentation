@@ -12,7 +12,7 @@ next:
 ---
 ## Azure
 
-You can define an Azure AD target to be used with [Azure AD dynamic secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD rotated secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret).
+You can define an Azure AD target to be used with [Azure AD Dynamic Secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD Rotated Secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret).
 
 ### Create an Azure AD Target from the CLI
 
@@ -63,7 +63,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Azure Tenant ID:** Specify your Azure Tenant ID.
 
-* **Subscription ID:** If this target is for the Azure Storage account, then provide Azure Subscription ID.
+* **Subscription ID:** If this target is for the Azure Storage Account, then provide Azure Subscription ID.
 
 * **Resource Group Name:** Specify the Resource Group name in your Azure Subscription.
 
@@ -94,19 +94,19 @@ Where:
 
 * **tenant-id:** The ID of your Azure tenant.
 
-* **client-id:** The client ID of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage account.
+* **client-id:** The client ID of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage Account.
 
 * **client-secret:** The client secret of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage account.
 
-* **subscription-id:** The ID of a Subscription that contains the Azure Storage account.
+* **subscription-id:** The ID of a Subscription that contains the Azure Storage Account.
 
-* **resource-group-name:** The name of the Resource Group to which your Azure Storage account belongs.
+* **resource-group-name:** The name of the Resource Group to which your Azure Storage Account belongs.
 
-* **resource-name:** The name of the Azure Storage account.
+* **resource-name:** The name of the Azure Storage Account.
 
 ## GCP
 
-You can define a GCP target to be used with [GCP dynamic secrets](https://docs.akeyless.io/docs/gcp-dynamic-secrets).
+You can define a GCP target to be used with [GCP Dynamic Secrets](https://docs.akeyless.io/docs/gcp-dynamic-secrets).
 
 ### Create a GCP Target from the CLI
 
@@ -151,7 +151,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the super-user service account email that will be used to authenticate Akeyless with GCP.
 
-* **Service Account Key:** Provide a base64-encoded private key of the super-user service account.
+* **Service Account Key:** Provide a Base64-encoded private key of the super-user service account.
 
 * **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge).
 

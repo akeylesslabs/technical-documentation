@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Rotated secrets enable you to protect the credentials for privileged-user accounts such as an _Administrator_ account on a Windows server, a **root** account on a Linux server, or an **Admin** account on a network device, by resetting its password.
+Rotated Secrets enable you to protect the credentials for privileged-user accounts such as an _Administrator_ account on a Windows Server, a **root** account on a Linux server, or an **Admin** account on a network device, by resetting its password.
 
 Setting up Rotated Secrets requires the **Rotated Secret** permission on the Gateway. You can also set the **Rotate Secret Value** permission to allow rotation of the secret value without granting edit rights (this also requires **Read** permission on the rotated secret item).
 
@@ -33,7 +33,7 @@ You can configure:
 * [Windows Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret)
 * [Custom Rotated Secret](https://docs.akeyless.io/docs/create-a-custom-rotated-secret)
 
-The typical flow for working with rotated secrets is:
+The typical flow for working with Rotated Secrets is:
 
 1. [Create a Target for a Rotated Secret](https://docs.akeyless.io/docs/targets): Get started by defining the target. The rotated secret itself is a user account on the target, for which the password needs to be rotated every `X` days.
 

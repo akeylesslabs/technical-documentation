@@ -16,7 +16,7 @@ RDP Session Recording is managed entirely through your Gateway's console under t
 
 SRA supports the recording of RDP sessions. You can choose to store RDP Session Recordings by clicking **Remote Access -> Session Recording -> RDP Recordings**, clicking the slider to Enable, and then choosing the location to keep the recordings of those sessions.
 
-**RDP** sessions provide video recordings that can be saved to **AWS S3** buckets, **Azure Blob storage**, or locally. To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob storage.
+**RDP** sessions provide video recordings that can be saved to **AWS S3** buckets, **Azure Blob Storage**, or locally. To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage.
 
 ### Compression & Encryption
 
@@ -98,8 +98,8 @@ For storing RDP session recordings in Azure Blob Storage, the user can also sele
 
 This option allows the system to use the Gateway’s identity (such as Managed Identity) for authentication with Azure. The user must provide the following details:
 
-* **Storage Account Name** (required) The name of the Azure Storage account where the recordings will be uploaded.
-* **Storage Container Name** (required): The container within the storage account where recordings will be saved.
+* **Storage Account Name** (required) The name of the Azure Storage Account where the recordings will be uploaded.
+* **Storage Container Name** (required): The container within the Storage Account where recordings will be saved.
 
 #### Provide Credentials
 
@@ -108,8 +108,8 @@ With this option, the user provides explicit credentials for Azure authenticatio
 * **Azure Client ID** (required): The client ID used for Azure authentication.
 * **Azure Client Secret** (required): The corresponding secret key for the provided client ID.
 * **Azure Tenant ID** (required): The tenant ID associated with the Azure account.
-* **Storage Account Name**: The name of the Azure Storage account where the recordings will be uploaded.
-* **Storage Container Name**: The container within the storage account where recordings will be saved.
+* **Storage Account Name**: The name of the Azure Storage Account where the recordings will be uploaded.
+* **Storage Container Name**: The container within the Storage Account where recordings will be saved.
 
 This can also be done via the CLI:
 

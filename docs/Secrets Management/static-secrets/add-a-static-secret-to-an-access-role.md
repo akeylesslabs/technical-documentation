@@ -14,11 +14,11 @@ next:
       slug: retrievestatic
       title: Retrieve and view static secrets
 ---
-Access roles provide clients (users or machines) with permissions to work with secrets. When adding a secret to a role, exactly which **CRUD operations** (Create, Read, Update, and Delete) that a client can perform for that secret can be specified.
+Access Roles provide clients (users or machines) with permissions to work with secrets. When adding a secret to a role, exactly which **CRUD operations** (Create, Read, Update, and Delete) that a client can perform for that secret can be specified.
 
 > 📘 Info
 >
-> By default, the account owner has privilege permissions in Akeyless. Managing users' access roles and permissions can be done using Akeyless Platform [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with [Access Roles](https://docs.akeyless.io/docs/rbac) to grant users the minimum permissions they need.
+> By default, the account owner has privilege permissions in Akeyless. Managing users' Access Roles and permissions can be done using Akeyless Platform [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with [Access Roles](https://docs.akeyless.io/docs/rbac) to grant users the minimum permissions they need.
 
 ## Add a Static Secret to a Role from the Akeyless CLI
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can use Akeyless dynamic secrets to generate access credentials for Snowflake. To do this, configure a dynamic secret with the details required for Akeyless to authenticate and communicate with the relevant Snowflake account.
+You can use Akeyless Dynamic Secrets to generate access credentials for Snowflake. To do this, configure a dynamic secret with the details required for Akeyless to authenticate and communicate with the relevant Snowflake account.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ You can use Akeyless dynamic secrets to generate access credentials for Snowflak
 
 > 👍 Note
 >
-> We recommend using dynamic secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/snowflake-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/snowflake-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic Snowflake secret from the CLI using the existing [Snowflake Target](https://docs.akeyless.io/docs/database-targets#snowflake), run the following command:
 
@@ -93,7 +93,7 @@ If you don't have [Snowflake Target](https://docs.akeyless.io/docs/database-targ
 
 another alternative to the Snowflake login is to use a private RSA key:
 
-* `snowflake-api-private-key`: An RSA type private key that has access to the Snowflake account, in a base64 encoded format.
+* `snowflake-api-private-key`: An RSA type private key that has access to the Snowflake account, in a Base64 encoded format.
 
 * `snowflake-api-private-key-file-name`: Alternatively, you can use the path to a .pem file containing the key.
 
@@ -113,7 +113,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 > 👍 Note
 >
-> To start working with dynamic secrets from the [Akeyless Console](https://docs.akeyless.io/docs/snowflake-dynamic-secrets?isFramePreview=true#fetch-a-dynamic-snowflake-secret-value-from-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/snowflake-dynamic-secrets?isFramePreview=true#fetch-a-dynamic-snowflake-secret-value-from-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
