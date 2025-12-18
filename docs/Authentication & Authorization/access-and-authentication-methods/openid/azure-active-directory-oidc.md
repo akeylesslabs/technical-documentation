@@ -25,7 +25,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
 3. Once the app has been created, you need to obtain the **Client ID**, **Client Secret**, and the **Issuer URL**:
 
-* The **Client Id** can be fetched from **Overview > Application (client) ID**:
+* The **Client ID** can be fetched from **Overview > Application (client) ID**:
 
 ![](https://files.readme.io/963adb9-image-20210902-150241.png "image-20210902-150241.png")
 

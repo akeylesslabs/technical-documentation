@@ -122,7 +122,7 @@ The output should look as follows:
 * **Client Authentication Type**: OAuth Client Authentication Type.
 * **Redirect URIs**: List URIs to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained.
 * **Grant Types** : The grant type (or list of types) given to the OAuth client.
-* **Access Token Manager Instance ID**: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM Id. If no explicit value is given, the default PingFederate server ATM will be set.
+* **Access Token Manager Instance ID**: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM ID. If no explicit value is given, the default PingFederate server ATM will be set.
 * **Restricted Scopes**: Limit the OAuth client to specific scopes.
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.

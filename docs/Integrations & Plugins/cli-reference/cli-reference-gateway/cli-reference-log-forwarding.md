@@ -85,7 +85,7 @@ akeyless gateway update log-forwarding aws-s3 \
 
 `--auth-type`: AWS auth type [`access_key`/`cloud_id`/`assume_role`]
 
-`--access-id`: AWS access id relevant for `access_key` auth-type
+`--access-id`: AWS access ID relevant for `access_key` auth-type
 
 `--access-key`: AWS access key relevant for `access_key` auth-type
 
@@ -119,7 +119,7 @@ akeyless gateway update log-forwarding azure-analytics \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--workspace-id`: Azure workspace id
+`--workspace-id`: Azure workspace ID
 
 `--workspace-key`: Azure workspace key
 
@@ -203,7 +203,7 @@ akeyless gateway update log-forwarding elasticsearch \
 
 `--nodes`: ElasticSearch nodes relevant only for `nodes` server-type
 
-`--cloud-id`: ElasticSearch cloud id relevant only for `cloud` server-type
+`--cloud-id`: ElasticSearch cloud ID relevant only for `cloud` server-type
 
 `--auth-type`: ElasticSearch auth type [`api_key`/`password`]
 

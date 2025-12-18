@@ -461,7 +461,7 @@ variable "profile" {
 
 > 👍 Note
 >
-> `external_id` - take the value of the external id from the new target.
+> `external_id` - take the value of the external ID from the new target.
 
 At this point, we have created the following resources:
 
