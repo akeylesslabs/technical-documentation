@@ -62,7 +62,7 @@ Akeyless is an official Datadog Partner and our dashboard can be found inside th
 
 * Once installed, go to **Dashboards** --> **Dashboard List** and choose the **Akeyless GW** Dashboard that was installed.
 
-* If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for "akeyless.gw".
+* If your Gateway metrics are up and running properly, you will see your Gateway metrics in the **Akeyless GW** dashboard. You can also go to the **Metrics Explorer** to see more metrics to add to the Dashboard by filtering for `akeyless.gw`.
 
 ## Prometheus
 
@@ -140,7 +140,7 @@ Encode the file to `base64`:
 base64 --input=config-secret.yaml
 ```
 
-Create a Kubernetes secret using the encoded value and place it in the `data.otel-config.yaml` section:
+Create a Kubernetes Secret using the encoded value and place it in the `data.otel-config.yaml` section:
 
 ```yaml
 apiVersion: v1
@@ -153,13 +153,13 @@ data:
   otel-config.yaml: <Base64 Kubernetes Secret value>
 ```
 
-Deploy the secret on your Kubernetes cluster, and make sure to deploy the secret to the correct namespace:
+Deploy the secret on your Kubernetes cluster, and make sure to deploy the secret to the correct Namespace:
 
 ```shell
 kubectl apply -f secret.yaml -n <your-namespace>
 ```
 
-Set your Kubernetes secret name on the `metrics.existingSecretName` field in the Gateway chart `values.yaml` file:
+Set your Kubernetes Secret name on the `metrics.existingSecretName` field in the Gateway chart `values.yaml` file:
 
 ```yaml
 metrics:
@@ -211,4 +211,4 @@ After starting the Docker container, you can utilize [Loki Grafana](https://graf
 
 This will enable you to monitor and analyze your application logs seamlessly.
 
-Alternatively, you can store a Kubernetes secret to store the relevant `otel-config.yaml` as described in the [Using Kubernetes Secret](https://docs.akeyless.io/docs/telemetry-metrics-k8s#using-k8s-secret).
+Alternatively, you can store a Kubernetes Secret to store the relevant `otel-config.yaml` as described in the [Using Kubernetes Secret](https://docs.akeyless.io/docs/telemetry-metrics-k8s#using-k8s-secret).

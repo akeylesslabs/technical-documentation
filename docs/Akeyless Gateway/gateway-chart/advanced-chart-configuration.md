@@ -99,7 +99,7 @@ Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-ce
 
 ## OIDC Configuration
 
-To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IDP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IDP has the "**Redirect URI**" set to the Gateway's configuration endpoint (`port 8000`) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
+To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (`port 8000`) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
 ```yaml values.yaml
 globalConfig:
@@ -127,7 +127,7 @@ To set an internal TLS between the Gateway and cache service, set the `enableTls
     enabled: true
 ```
 
-To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` base64 encoded :
+To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64 encoded :
 
 ```shell
 kubectl create secret generic cache-configuration \
@@ -190,7 +190,7 @@ While the **Cache** setup can address many cases for some environments, there is
 >
 > This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
 
-To set the default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` base64 encoded :
+To set the default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64 encoded :
 
 ```yaml
 kubectl create secret generic cache-configuration \
@@ -289,7 +289,7 @@ To control the cache settings, you should [configure the cache](https://docs.ake
 
 ## Working With Kubernetes Secrets
 
-To provide the settings of your Gateway deployment directly from your local k8s secrets store, you can set the following settings:
+To provide the settings of your Gateway deployment directly from your local K8s secrets store, you can set the following settings:
 
 * `gateway-access-key`
 * `gateway-uid-init-token`
@@ -314,7 +314,7 @@ encryptionKeyExistingSecret:
 
 ## Fixed Artifact Repository
 
-In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, uncomment the fixedArtifactRepository: "artifacts.site2.akeyless.io" setting in your chart:
+In some environments where an IP address must be whitelisted, to pull Akeyless official artifacts as part of your Gateway deployment, uncomment the `fixedArtifactRepository: "artifacts.site2.akeyless.io"` setting in your chart:
 
 ```yaml
 image:
@@ -324,7 +324,7 @@ image:
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
-You can explicitly provide the k8s secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
+You can explicitly provide the K8s secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
 
 ```yaml
 image:
