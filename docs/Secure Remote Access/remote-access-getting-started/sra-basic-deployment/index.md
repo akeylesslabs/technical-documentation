@@ -95,6 +95,12 @@ helm upgrade --install <deployment name> akeyless/akeyless-gateway -f values.yam
 
 ```shell
 kubectl get pods
+
+NAME                                          READY   STATUS    RESTARTS   AGE
+gw-akeyless-gateway-cache-69f549844-shvs7     1/1     Running   0          5s
+ssh-gw-akeyless-gateway-655cd8c975-bg67s      1/1     Running   0          5s
+unified-gw-akeyless-gateway-f9697f7dd-8wgc9   1/1     Running   0          5s
+web-gw-akeyless-gateway-55c866c9fc-lztl7      1/1     Running   0          5s
 ```
 
 3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000/console`)  with your Gateway admin credentials.
