@@ -319,7 +319,7 @@ config:
       - PrivateLink
       - VPC Endpoint
       - Interface Endpoint
-      - Gateway Endpoint
+      #- Gateway Endpoint
       - AWS Certificate Manager
       - ACM
       - AWS CloudHSM

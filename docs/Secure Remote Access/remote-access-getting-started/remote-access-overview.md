@@ -35,15 +35,15 @@ SRA is deployed alongside the [Akeyless Gateway](https://docs.akeyless.io/docs/a
 
 To connect to a resource, the user first authenticates to Akeyless via a configured Identity Provider (IdP). Once authorized, SRA facilitates the connection in a Zero-Trust manner by retrieving the required secret credentials via the Gateway and automatically injecting them into the target resource to establish and proxy the user’s access.
 
-As a result, Akeyless uniquely combines the ability to interface with 3rd-party **identity providers** for authentication with granular **role-based access control** (**RBAC**) for authorization and the ability to provide **just-in-time access** to remote resources, using Dynamic Secrets as short-lived credentials and certificates.
+As a result, Akeyless uniquely combines the ability to interface with 3rd-party **identity providers** for authentication with granular **Role-Based Access Control** (**RBAC**) for authorization and the ability to provide **Just-in-Time Access** to remote resources, using Dynamic Secrets as short-lived credentials and certificates.
 
 ## Key Features
 
 Akeyless Secure Remote Access provides a robust set of features designed to support secure, efficient access for teams. Here are some of the key capabilities:
 
-1. Just-in-time Access: With SRA, just-in-time secrets can be created and injected into a remote resource, such as a database, on the fly.
+1. Just-in-Time Access: With SRA, just-in-time secrets can be created and injected into a remote resource, such as a database, on the fly.
 2. Rotated Secret Access: Privileged secrets can be used to access remote resources with the ability to automatically rotate the credentials once the session ends.
-3. Support for Various Protocols: Akeyless supports a variety of protocols, including SSH, RDP, SQL, Kubectl, and more.
+3. Support for Various Protocols: Akeyless supports a variety of protocols, including SSH, RDP, SQL, kubectl, and more.
 4. Request for Access: Admins have the ability to enable an option for users to request access for a specific resource on-demand.
 5. Audit and Session Management: Akeyless provides full session management with auditing and recording capabilities to keep you compliant. Session recordings and transcripts can be automatically exported to remote storage systems for long-term retention.
 6. Granular RBAC: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need (Users are restricted from accessing anything beyond their defined scope). Users only need SRA permissions to initiate connections—without requiring any _Read_ access to the underlying secrets.
@@ -82,7 +82,7 @@ Akeyless' Remote Access solution supports connections to the following resource 
 * [RabbitMQ](https://docs.akeyless.io/docs/rabbitmq-secure-remote-access)
 * [Kubernetes](https://docs.akeyless.io/docs/k8s-cluster-access)
 * [Web Applications](https://docs.akeyless.io/docs/web-applications-secure-remote-access)
-* [Kubectl](https://docs.akeyless.io/docs/kubectl-access)
+* [kubectl](https://docs.akeyless.io/docs/kubectl-access)
 
 ## Web Access
 

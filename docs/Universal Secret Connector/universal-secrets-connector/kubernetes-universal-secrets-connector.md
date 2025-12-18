@@ -34,7 +34,7 @@ The main parameters are:
 
 * `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-* `k8s-namespace`: Kubernetes namespace
+* `k8s-namespace`: Kubernetes Namespace
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
@@ -148,13 +148,13 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 * **Gateway:** Select the desired corresponding Gateway.
 
-* **Namespace:** Kubernetes namespace.
+* **Namespace:** Kubernetes Namespace.
 
 5. Click **Finish**.
 
 ## Kubernetes Universal Secrets Connectors
 
-Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
+Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
 
 * **Name:** Secret name
 

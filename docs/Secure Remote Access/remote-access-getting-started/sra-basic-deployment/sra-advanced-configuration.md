@@ -19,7 +19,7 @@ As both classic SSH and RDP access are based on SSH certificates, to support leg
 
 ## RDP User Acces
 
-Set the `usernameSubClaim` with the relevant attribute that exists inside your IDP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
+Set the `usernameSubClaim` with the relevant attribute that exists inside your IdP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
 
 ```yaml
 ############
@@ -52,7 +52,7 @@ SRA supports the recording of RDP, SSH, DB & Kubernetes sessions.
 
 CLI-based sessions of **SSH**, **DB** & **Kubernetes** connections provide a full transcript of Input commands and Output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, ElasticSearch, or just using Syslog) - [review more information here](https://docs.akeyless.io/docs/ssh-log-forwarding).
 
-**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob storage:
+**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage:
 
 ```yaml AWS S3
 config:
