@@ -2,7 +2,7 @@
 title: Upgrading to the Unified Gateway with Remote Access
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
