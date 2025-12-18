@@ -103,7 +103,7 @@ data:
   gateway-access-key: <Base64 encoded value>
 ```
 
-#### Provide the Secret to the Gateway Conf
+#### Provide the Secret to the Gateway Config
 
 Once the secret is created, set the relevant Access ID as your `gatewayAccessId` and add the name of the Kubernetes Secret that was created as the `gatewayCredentialsExistingSecret`:
 
