@@ -205,7 +205,7 @@ akeyless auth \
 --gateway-url '<https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
-Running this command will authenticate the user specified in the `keytab` file to akeyless using **Kerberos**
+Running this command will authenticate the user specified in the `keytab` file to Akeyless using **Kerberos**
 
 ## Kerberos SSO SDK
 
