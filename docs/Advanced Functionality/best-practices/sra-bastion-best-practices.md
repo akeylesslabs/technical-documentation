@@ -20,7 +20,7 @@ next:
 
 * **Limit the access** for privileged items for specific Access IDs by creating a dedicated Authentication method for privileged users only who will have `read` permission for those privileged items.
 
-* **Principal of Least privileged**- To follow this PoLP using the Akeyless RBAC model, utilize the "list" permission which will provide your users just-in-time access while not exposing them to the secret.
+* **Principal of Least privileged**- To follow this PoLP using the Akeyless RBAC model, utilize the "list" permission which will provide your users Just-in-Time Access while not exposing them to the secret.
 
 * **SSH sessions** - While working with Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) for SSH, a shared persistence volume should be used on those bastions to ensure the best performance for multiple concurrent SSH sessions.
 

@@ -26,7 +26,7 @@ The [LDAP Target](https://docs.akeyless.io/docs/ldap-target) should contain a **
 
 * Search for local users and change their password
 
-When working with [SSH Target](https://docs.akeyless.io/docs/ssh-target), the migration process will try to install the `OpenSSH.Server` windows feature on Windows servers where SSH is not installed, for domain servers using WinRM over `https`or `http` using NTLM for authentication over port `5986` or `5985` correspondingly.
+When working with [SSH Target](https://docs.akeyless.io/docs/ssh-target), the migration process will try to install the `OpenSSH.Server` Windows feature on Windows servers where SSH is not installed, for domain servers using WinRM over `https`or `http` using NTLM for authentication over port `5986` or `5985` correspondingly.
 
 > 🚧 Warning
 >

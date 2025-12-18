@@ -14,11 +14,11 @@ next:
       slug: log-forwarding
       title: Log Forwarding
 ---
-Akeyless collects detailed audit logs per secret type, operation, user, time, etc.
+Akeyless collects detailed Audit Logs per secret type, operation, user, time, etc.
 
-Akeyless audit logs take note of just about every change\\action within the Akeyless system, providing a complete track record of your Akeyless system operations. Therefore, Akeyless audit logs are a valuable resource for Akeyless admins and auditors who want to examine suspicious activity on Akeyless or diagnose and troubleshoot issues.
+Akeyless Audit Logs take note of just about every change\\action within the Akeyless system, providing a complete track record of your Akeyless system operations. Therefore, Akeyless Audit Logs are a valuable resource for Akeyless admins and auditors who want to examine suspicious activity on Akeyless or diagnose and troubleshoot issues.
 
-These audit logs can give an Akeyless administrator invaluable insight into what behavior is normal and what behavior isn’t. A log event, for example, will show what activity was attempted and whether it succeeded. This can be useful when identifying whether a system component is misconfigured or likely to fail.
+These Audit Logs can give an Akeyless administrator invaluable insight into what behavior is normal and what behavior isn’t. A log event, for example, will show what activity was attempted and whether it succeeded. This can be useful when identifying whether a system component is misconfigured or likely to fail.
 
 Akeyless log auditing is important for cybersecurity because it provides records that can serve as evidence. A comprehensive and in-depth log audit can make all the difference in the event of a legal battle and can protect your business from liability.
 
@@ -26,7 +26,7 @@ Akeyless log auditing is important for cybersecurity because it provides records
 
 When using the console, you will be able to navigate to the **Audit Logs** tab to view logs in the following format:
 
-<Image title="Screenshot at Nov 10 13-44-36.png" alt="1912" align="center" src="https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png"> Example of Akeyless Audit log </Image>
+<Image title="Screenshot at Nov 10 13-44-36.png" alt="1912" align="center" src="https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png"> Example of Akeyless Audit Log </Image>
 
 These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status codes in the four hundreds means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
 

@@ -19,7 +19,7 @@ This guide will demonstrate how to use **Terraform** in order to create 2 roles 
 
 ## Management Account Configuration
 
-First, we will create the [IAM-Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the resource account using terraform:
+First, we will create the [IAM-Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the resource account using Terraform:
 
 ```yaml main.tf
 terraform {
