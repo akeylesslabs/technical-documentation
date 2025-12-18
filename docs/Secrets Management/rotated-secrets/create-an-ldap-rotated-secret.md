@@ -50,7 +50,7 @@ Where:
 * `rotator-type`: The type of credentials to be rotated. For [LDAP Target](https://docs.akeyless.io/docs/ldap-target), choose:
   * `ldap` - to rotate the password for the user specified in the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
-* `rotated-username`: The LDAP user whose password should be rotated.
+* `rotated-username`: The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`.
 
 * `rotated-password`: The password to rotate.
 
@@ -82,7 +82,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Rotator type:** Determines the rotator type:
   * **LDAP**: Rotates the password defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
-* **Username:** Defines the LDAP username which password should be rotated.
+* **Username:**  The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`.
 
 * **Password:** Defines the password to rotate.
 
