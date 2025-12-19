@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Users often receive OTP Auth secrets as strings instead of complete QR codes or full OTP Auth links. This feature allows users to manually input these secrets into the PM extension, where they will be decoded and integrated as functional OTP authentication methods.
+Users often receive OTP Auth secrets as strings instead of complete QR codes or full OTP Auth links. This feature allows users to manually input these secrets into the Password Manager extension, where they will be decoded and integrated as functional OTP authentication methods.
 
 ## Accessing the Feature
 
-* Navigate to the PM Extension: Open the PM extension in your browser.
+* Navigate to the Password Manager Extension: Open the Password Manager extension in your browser.
 * Open the Menu: Click on the three dots menu within the extension.
 * Select "Manual OTP": From the dropdown menu, choose the "Manual OTP" option.
 
@@ -22,7 +22,7 @@ Users often receive OTP Auth secrets as strings instead of complete QR codes or 
 
 * Password Edit Screen: After selecting "Manual OTP," you will be redirected to a password edit screen.
 * Custom Field Pop-up: A pop-up for creating a custom field will appear above the password edit screen.
-* Field Name: The pop-up includes a field labeled "otpauth."
+* Field Name: The pop-up includes a field labeled `otpauth`.
 * Setup Key Option: There is an option to enter the setup key associated with the OTPAuth secret.
 * Input Secret: Enter the OTPAuth secret into the designated field.
 

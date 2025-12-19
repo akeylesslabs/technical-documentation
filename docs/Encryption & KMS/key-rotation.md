@@ -28,9 +28,9 @@ Key rotation is considered a best practice for management for a few reasons:
 * Like with passwords, it is advised to rotate a key every once in a while to prevent cracking. Shifting the key components around makes any progress made on cracking it obsolete.
 * Using different versions of a key allows you to compartmentalize and manage a key, and any information encrypted with it.
 
-## Managing a Key in the CLI
+## Managing a Key with the CLI
 
-To rotate a key in the CLI, use the following command:
+To rotate a key with the CLI, use the following command:
 
 ```shell MyAES256SIVKey
 akeyless rotate-key --name MyAES256SIVKey

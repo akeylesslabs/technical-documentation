@@ -134,6 +134,21 @@ config:
         replacement: "Workload Identity Federation"
         example_from: "Non-Human Identity Federation"
         example_to: "Workload Identity Federation"
+
+      - term: "PM"
+        replacement: "Akeyless Password Manager"
+        example_from: "The Akeyless PM mobile app..."
+        example_to: "The Akeyless Password Manager mobile app..."
+
+      - term: "in the CLI"
+        replacement: "with the CLI"
+        example_from: "in the CLI"
+        example_to: "with the CLI"
+
+      - term: "from the CLI"
+        replacement: "with the CLI"
+        example_from: "from the CLI"
+        example_to: "with the CLI"
         
       # Ableist / exclusionary phrasing
       - term: "sanity check"

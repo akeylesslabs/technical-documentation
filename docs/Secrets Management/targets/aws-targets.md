@@ -20,9 +20,9 @@ When working with [Gateway](https://docs.akeyless.io/docs/api-gw) Cloud Identity
 >
 > The best practice for using IAM roles in AWS is to leverage them for granting temporary, least-privilege access to resources, rather than relying on long-term access keys for users. Use your **Gateway cloud ID** to use IAM roles.
 
-## Create an AWS Target in the CLI
+## Create an AWS Target with the CLI
 
-To create an AWS target from the CLI, run the following command:
+To create an AWS target with the CLI, run the following command:
 
 ```shell GW Cloud ID
 akeyless target create aws \

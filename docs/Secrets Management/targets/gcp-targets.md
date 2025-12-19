@@ -12,7 +12,7 @@ next:
 ---
 You can define a GCP target to be used with [GCP Dynamic Secrets](https://docs.akeyless.io/docs/gcp-dynamic-secrets) and [GCP Rotated Secrets](https://docs.akeyless.io/docs/gcp-rotated-secret). Having a GCP target will allow you to conserve the credentials chain between all of your Dynamic Secrets, as it is possible to point a target at a rotated secret, or to manually edit credentials in the target instead of having to change them individually for connecting items.
 
-## Create a GCP Target in the CLI
+## Create a GCP Target with the CLI
 
 To create a GCP target from the CLI, run the following command:
 

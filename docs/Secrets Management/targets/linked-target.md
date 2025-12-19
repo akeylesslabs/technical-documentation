@@ -18,11 +18,11 @@ For example, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dyna
 
 Linked Targets can inherit credentials from a designated Parent Target, thus giving the hosts of the Linked Target the option to authenticate with any service tied to their Parent Target. Based on the Parent Target type, the Linked Target item can be used for the relevant Dynamic Secret type. Otherwise, when no Parent Target is selected, the Linked Target object can hold a collection of hosts, that might be used for [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) cases like SSH and more.
 
-## Working With Linked Targets in the CLI
+## Working With Linked Targets with the CLI
 
 These commands are unique to Linked Targets and do not apply to standard [Targets](https://docs.akeyless.io/docs/targets).
 
-### Create a Linked Target
+### Create a Linked Target with the CLI
 
 To create a Linked Target, use the following command:
 
@@ -47,7 +47,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 >
 > All Linked Target hosts will be added to the Secure Remote Access hosts lists automatically
 
-### Update a Linked Target
+### Update a Linked Target with the CLI
 
 To update an existing linked target use the following command:
 
@@ -60,7 +60,7 @@ Inserting new values in the hosts or parent target parameters will change their 
 
 ## Working With Linked Targets in the Console
 
-### Create a Linked Target
+### Create a Linked Target in the Console
 
 To create a Linked Target follow these steps:
 
@@ -69,13 +69,12 @@ To create a Linked Target follow these steps:
 2. Define a **Name** for the Linked Target, and specify the **Location** as a path to the virtual folder where you want to create the new Linked Target, using slash `/` separators. If the folder does not exist, it will be created together with the Linked Target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Fill in these parameters:
 
-* **Parent Target**: Select an existing target from which to inherit credentials.
-
-* **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname in order to open another row. After finishing, select **Confirm**.
+    * **Parent Target**: Select an existing target from which to inherit credentials.
+    * **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname in order to open another row. After finishing, select **Confirm**.
 
 5. Click **Finish**.
 

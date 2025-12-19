@@ -20,9 +20,9 @@ With Public CA, Akeyless cannot access the private key that signs the certificat
 
 Akeyless will store and manage the issued certificates and notify you of upcoming expiration events.
 
-## Create a GlobalSign Target in the CLI
+## Create a GlobalSign Target with the CLI
 
-To create a GlobalSign target from the CLI, run the following command:
+To create a GlobalSign target with the CLI, run the following command:
 
 ```shell
 akeyless target create globalsign \

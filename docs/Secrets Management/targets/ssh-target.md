@@ -16,9 +16,9 @@ next:
 ---
 You can define an SSH target that will be used with an [SSH Rotated Secret](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret) or [RDP Dynamic Secrets](https://docs.akeyless.io/docs/rdp-dynamic-secrets)
 
-## Create an SSH Target in the CLI
+## Create an SSH Target with the CLI
 
-To create an SSH target from the CLI, run the following command:
+To create an SSH target with the CLI, run the following command:
 
 ```shell
 akeyless target create ssh \

@@ -30,7 +30,7 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 * A **Client** Certificate (signed by an Intermediate CA) with `clientauth` key usage, along with the corresponding Private Key, both in `PEM` format.
 
-### Create a Certificate-based Authentication Method in the CLI
+### Create a Certificate-based Authentication Method with the CLI
 
 To create a certificate-based authentication method, the user must provide a signed client certificate, and a `unique identifier` that could be a value of `common_name` or `organizational_unit` parameters from the certificate.
 

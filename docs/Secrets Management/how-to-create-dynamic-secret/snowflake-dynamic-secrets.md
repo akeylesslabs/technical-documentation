@@ -148,7 +148,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
    * **Account Name:** Enter the Snowflake account name in the `xy12345.region.cloud_provider` format.
 
-   * **Account Username:** Enter the username for a Snowflake admin user (with the _USERADMIN_ role or higher).
+   * **Account Username:** Enter the username for a Snowflake admin user (with the `USERADMIN` role or higher).
 
    * **Account Password:** Enter the password for the Snowflake admin user account.
 

@@ -18,7 +18,7 @@ The following diagram describes the flow of credentials when using UID tokens, d
 
 While the process has an initiation phase where the Admin creates the original authentication method, the secret zero problem is avoided by repeatedly rotating the UID, to the point where the original credentials are unusable, and constant rotation protects any vulnerability.
 
-## Create a Universal Identity Authentication Method in the CLI
+## Create a Universal Identity Authentication Method with the CLI
 
 Let's create a new Universal Identity authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/universal-identity#create-a-iniversal-identity-authentication-method-in-the-akeyless-console).)
 

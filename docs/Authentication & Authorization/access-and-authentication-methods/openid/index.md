@@ -14,7 +14,7 @@ next:
 ---
 [OpenID Connect (OIDC)](https://openid.net/connect/) is a simple identity layer on top of the OAuth 2.0 protocol. It allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
 
-## Create an OIDC Authentication Method in the CLI
+## Create an OIDC Authentication Method with the CLI
 
 Let's create a new OIDC authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/openid#create-oidc-authentication-method-in-the-akeyless-console).)
 

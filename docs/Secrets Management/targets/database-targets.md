@@ -36,7 +36,7 @@ Available database targets:
 
 * [Redis](https://docs.akeyless.io/docs/database-targets#redis)
 
-## Create a Database Target in the CLI
+## Create a Database Target with the CLI
 
 > 👍 Note
 >
@@ -380,7 +380,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (Snowflake)
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
 For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-**Account Username:** Username for a Snowflake user administrator (with the USERADMIN role or higher).
+**Account Username:** Username for a Snowflake user administrator (with the `USERADMIN` role or higher).
 
 **Authentication Type:** Select your authentication type, either **User-Password** or **RSA Private Key**.
 

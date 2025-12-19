@@ -14,7 +14,7 @@ next:
 ---
 The SAML authentication method allows users to authenticate using external IdP using the SAML standard.
 
-## Create a SAML Authentication Method in the CLI
+## Create a SAML Authentication Method with the CLI
 
 Let's create a new SAML authentication method using the Akeyless CLI. You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/saml#create-a-saml-authentication-method-from-the-console).
 
