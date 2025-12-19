@@ -14,27 +14,27 @@ next:
 
 Akeyless Platform provides Tokenization as a service. Tokenization is a process of encrypting sensitive data, such as social security, phone, and credit card numbers, in a way that will preserve data format and uniqueness, and allow for data decryption later on.
 
-Akeyless Platform performs Tokenization using a Format Preserving Encryption (FPE) algorithm.
+Akeyless Platform performs Tokenization using a format-preserving Encryption (FPE) algorithm.
 
 <Image align="center" width="100%" src="https://files.readme.io/fbe53f7-tokenizer.png" />
 
 ## Why Is It Important to Preserve the Original Format of Data?
 
-First, a Format Preserving Encryption (FPE) is a method of encrypting data for systems that require it to be in a specific format and to pass certain validation checks in order to use it. By using it, companies can avoid costly and time-consuming changes to their data models and code.
+First, a format-preserving Encryption (FPE) is a method of encrypting data for systems that require it to be in a specific format and to pass certain validation checks in order to use it. By using it, companies can avoid costly and time-consuming changes to their data models and code.
 
 The second major advantage FPE has over conventional encryption is that data such as credit cards or Social Security numbers can still be used as a unique key to identify a row in a database.
 
-## Vaultless Tokenization
+## Zero-Knowledge Tokenization
 
-Akeyless Platform supports Vaultless tokenization where "vaultless" means that a tokenized secret is not stored in the Akeyless Platform at any time during or after the tokenization process.
+Akeyless Platform supports tokenization based on a **zero-knowledge encryption model**, meaning that tokenized data is never stored or persisted by the Akeyless Platform during or after the tokenization process.
 
-Akeyless Platform provides built-in tokenization templates for the following data types:
+Akeyless provides built-in tokenization templates for the following data types:
 
-* Credit/Debit/Pre-paid card numbers (must be compliant with the **Luhn** algorithm)
+* Credit, debit, and pre-paid card numbers (must comply with the **Luhn** algorithm)
 * Social Security Numbers (SSN)
 * US phone numbers
 
-And custom tokenization templates (where you can provide a custom alphabet, tokenization pattern, and data output format) are also supported.
+Custom tokenization templates are also supported, allowing you to define a custom alphabet, tokenization pattern, and data output format.
 
 ## Working With a Tokenizer from the CLI
 
@@ -52,7 +52,7 @@ To create a Tokenizer from the CLI, run the following command:
 akeyless create-tokenizer \
 --name <Tokenizer name> \
 --tokenizer-type <vaultless> \
---template-type <SSN, CreditCard, USPhoneNumber> \
+--template-type <SSN, CreditCard, USPhoneNumber, Custom> \
 --tweak-type <Supplied, Generated, Internal, Masking>
 ```
 
@@ -72,13 +72,11 @@ Where:
 
 * `name`: A unique name of the tokenizer. The name can include the path to the virtual folder where you want to create the new tokenizer, using the slash `/` separators. If the folder does not exist, it will be created together with the tokenizer.
 
-* `tokenizer-type`: Currently, Akeyless Platform supports only vaultless tokenization. So, the default value of this parameter is `vaultless`.
+* `tokenizer-type`: Currently, Akeyless Platform supports only zero-knowledge tokenization. The default and only supported value of this parameter is `vaultless`.
 
-* `template-type`:The format of the tokenized secret. The following templates are available:\
-  `SSN`, `CreditCard`, `USPhoneNumber`, and `Custom`.
+* `template-type`: The format of the tokenized secret. The following templates are available: `SSN`, `CreditCard`, `USPhoneNumber`, and `Custom`.
 
-* `tweak-type`: The tweak type to use in tokenization. The following tweak types are available:\
-  `Supplied`, `Generated`, `Internal`, and `Masking`.
+* `tweak-type`: The tweak type to use in tokenization. The following tweak types are available: `Supplied`, `Generated`, `Internal`, and `Masking`.
 
   * `Supplied`: Provided by the customer for each encrypt/decrypt operation.
 
@@ -128,34 +126,34 @@ This section of the guide explains the workflow with the Akeyless Console. If yo
 
 2. Define a **Name** of the tokenizer, and specify the **Location** as a path to the virtual folder where you want to create the new tokenizer, using slash `/` separators. If the folder does not exist, it will be created together with the tokenizer.
 
-3. Select **Tweak Type** to use in tokenization. The following tweak types are available:\
-   Supplied, Generated, Internal, and Masking.
+3. Select **Tweak Type** to use in tokenization. The following tweak types are available:
+    Supplied, Generated, Internal, and Masking.
 
-   * **Supplied:** Provided by the customer for each encrypt/decrypt operation.
+    * **Supplied:** Provided by the customer for each encrypt/decrypt operation.
 
-   * **Generated:** Created by Akeyless for each encryption operation and returned to the customer. The customer must provide it when decrypting.
+    * **Generated:** Created by Akeyless for each encryption operation and returned to the customer. The customer must provide it when decrypting.
 
-   * **Internal:** Generated by Akeyless when creating a tokenizer and saved with the tokenizer data. Thus the same tweak is used when encrypting or decrypting all tokens of this tokenizer.
+    * **Internal:** Generated by Akeyless when creating a tokenizer and saved with the tokenizer data. Thus the same tweak is used when encrypting or decrypting all tokens of this tokenizer.
 
-   * **Masking:** Created by Akeyless for each encryption operation, but it is not returned to the customer. Thus encryption with a **Masking** tweak is a one-way operation (i.e., the data cannot be decrypted).
+    * **Masking:** Created by Akeyless for each encryption operation, but it is not returned to the customer. Thus encryption with a **Masking** tweak is a one-way operation (i.e., the data cannot be decrypted).
 
-> 👍 Note
->
-> **Best Practice** - The Masking tweak is meant mainly for situations in which you want to allow exploration and analysis of certain data sets without exposing the data, and so take the measure of keeping its structure with a tokenizer but still encrypting it in a non-reversible manner. If you are not familiar with operations that require Masking, we suggest you select a different tweak type.
+    > 👍 Note
+    >
+    > **Best Practice** - The Masking tweak is meant mainly for situations in which you want to allow exploration and analysis of certain data sets without exposing the data, and so take the measure of keeping its structure with a tokenizer but still encrypting it in a non-reversible manner. If you are not familiar with operations that require Masking, we suggest you select a different tweak type.
 
 4. Click **Next** to go to the second step of the wizard.
 
-5. Select **Template Type** to use in tokenization. The following templates are available: Credit Card, SSN, US Phone number, and Custom.
+5. Select **Template Type** to use in tokenization. The following templates are available: credit card, Social Security Number (SSN), US phone number, and custom.
 
-If you select the **Custom** template, you'll need to provide values for the following parameters:
+    If you select the **Custom** template, you'll need to provide values for the following parameters:
 
-* **Alphabet:** A string of allowed symbols for tokenization.
+    * **Alphabet:** A string of allowed symbols for tokenization.
 
-* **Custom Pattern:** A regexp pattern that is used to extract the parts which should be tokenized. It can use named and non-named capture groups (e.g., `(?P<first>\d{3})-(?P<last>\d{3})` or `(\d{3})-(\d{3})` ).
+    * **Custom Pattern:** A regexp pattern that is used to extract the parts which should be tokenized. It can use named and non-named capture groups (e.g., `(?P<first>\d{3})-(?P<last>\d{3})` or `(\d{3})-(\d{3})` ).
 
-* **Encoding Template:** An expression to alter the template of the encryption output for tokenization (e.g., `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group).
+    * **Encoding Template:** An expression to alter the template of the encryption output for tokenization (e.g., `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group).
 
-* **Decoding Template:** An expression to alter the template of the decryption output for tokenization.
+    * **Decoding Template:** An expression to alter the template of the decryption output for tokenization.
 
 6. Click on **Finish**.
 
@@ -167,16 +165,16 @@ If you select the **Custom** template, you'll need to provide values for the fol
 
 3. Select the tokenizer and click the **Tokenize / Detokenize** button.
 
-4. To tokenize a secret:\
-   a. In the pop-up, select the **Tokenize** tab.\
-   b. Provide the secret value (and a Tweak - for a Tokenizer with a "Supplied" tweak type).\
-   c. Click **Tokenize**.\
+4. To tokenize a secret:
+   a. In the pop-up, select the **Tokenize** tab.
+   b. Provide the secret value (and a Tweak - for a Tokenizer with a "Supplied" tweak type).
+   c. Click **Tokenize**.
    d. Copy and save the tokenized value (and a Tweak - for a Tokenizer with a "Generated" tweak type).
 
-5. To detokenize a secret:\
-   a. In the pop-up, select the **Detokenize** tab.\
-   b. Provide the tokenized value (and a Tweak - for a Tokenizer with "Supplied" and "Generated" tweak types).\
-   c. Click **Detokenize**.\
+5. To detokenize a secret:
+   a. In the pop-up, select the **Detokenize** tab.
+   b. Provide the tokenized value (and a Tweak - for a Tokenizer with "Supplied" and "Generated" tweak types).
+   c. Click **Detokenize**.
    d. Copy and save the detokenized value.
 
 ## Tutorial
