@@ -96,7 +96,7 @@ Example 5 - Deleting multiple items:
 ```shell
 # Delete an entire folder 
 
-akelyess delete-items --path /Path/To/Folder
+akeyless delete-items --path /Path/To/Folder
 
 # Explicitly deleting multiple items 
 

@@ -113,7 +113,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 To update an existing secret in your USC, use the following command:
 
 ```shell
-akelyess usc update --usc-name <USC name> --secret-id <secret id or name> --value <new secret value>
+akeyless usc update --usc-name <USC name> --secret-id <secret id or name> --value <new secret value>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
@@ -123,7 +123,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 To delete an existing secret in your USC, use the following command:
 
 ```shell
-akelyess usc delete --usc-name <USC name> --secret-id <secret id or name>
+akeyless usc delete --usc-name <USC name> --secret-id <secret id or name>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
