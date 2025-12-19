@@ -96,9 +96,9 @@ To import secrets from GCP Secrets Manager, you need to provide a GCP Service Ac
 
 > 👍 Tip
 >
-> GCP Service Account is a type of Google account intended to interact with non-human users. Authentication with this account is required to fetch information over Google APIs.
+> A GCP Service Account is a type of Google identity intended to interact with workloads. Authentication with this identity is required to fetch information over Google APIs.
 >
-> The minimum required permissions to access the secret payload can be acquired from the Secret Manager Secret Accessor role (roles/secretmanager.secretAccessor).
+> The minimum required permissions to access the secret payload can be acquired from the Secret Manager Secret Accessor role (`roles/secretmanager.secretAccessor`).
 
 ## HashiCorp Vault
 
