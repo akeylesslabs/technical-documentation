@@ -19,8 +19,8 @@ To create a Docker Hub target from the CLI, run the following command:
 ```shell Docker Hub Target
 akeyless target create dockerhub \
 --name <target name> \
---dockerhub-username <Dockerhub username> \
---dockerhub-password <Dockerhub password> \
+--dockerhub-username <Docker Hub username> \
+--dockerhub-password <Docker Hub password> \
 ```
 
 Where:

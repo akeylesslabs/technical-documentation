@@ -883,3 +883,6 @@ Steampipe
 Logz.io
 SAP HANA
 SAP HANA database
+TDE
+Transparent Data Encryption
+ABAC

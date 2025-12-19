@@ -4,3 +4,6 @@ Decrypter
 autofilled
 subfolders
 uppercased
+HANA
+tablespace
+tablespaces

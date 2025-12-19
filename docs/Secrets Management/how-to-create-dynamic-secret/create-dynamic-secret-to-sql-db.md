@@ -272,15 +272,15 @@ akeyless dynamic-secret create cassandra  \
 --cassandra-statements "CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';"
 ```
 
-```shell SAP HanaDB
+```shell SAP HANA database
 akeyless dynamic-secret create hanadb \
 --name <New Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---hana-dbname <HanaDB name> \
---hanadb-username <HanaDB admin username> \
---hanadb-password <HanaDB admin password> \
---hanadbt-host <HanaDB host> \
---hanadb-port <HanaDB port> \
+--hana-dbname <SAP HANA database name> \
+--hanadb-username <SAP HANA database admin username> \
+--hanadb-password <SAP HANA database admin password> \
+--hanadbt-host <SAP HANA database host> \
+--hanadb-port <SAP HANA database port> \
 --hanadb-creation-statements "CREATE USER {{name}} PASSWORD '{{password}}';GRANT 'MONITOR ADMIN' TO {{name}};" \
 --hanadb-revocation-statements "DROP USER {{name}};"
 ```

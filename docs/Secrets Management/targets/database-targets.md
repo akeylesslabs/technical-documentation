@@ -32,7 +32,7 @@ Available database targets:
 
 * [Cassandra](https://docs.akeyless.io/docs/database-targets#cassandra)
 
-* [SAP HanaDB](https://docs.akeyless.io/docs/database-targets#sap-hanadb)
+* [SAP HANA database](https://docs.akeyless.io/docs/database-targets#sap-hanadb)
 
 * [Redis](https://docs.akeyless.io/docs/database-targets#redis)
 
@@ -422,7 +422,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 
 Click **Finish**.
 
-### SAP HanaDB
+### SAP HANA database
 
 Log in to the Akeyless Console, and go to **Targets > New > Database (SAP HanaDB)**.
 
