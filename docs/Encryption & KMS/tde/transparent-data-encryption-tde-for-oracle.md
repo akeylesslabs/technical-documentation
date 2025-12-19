@@ -184,7 +184,7 @@ ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 * Opening the Keystore:
   * The first command opens the keystore using the provided password (`AKEYLESS`).
 * Setting the Master Key:
-  * The second command sets the TDE master encryption key. The `CONTAINER=ALL` option applies this change to the entire multitenant environment (both the container database and all pluggable databases).
+  * The second command sets the TDE master encryption key. The `CONTAINER=ALL` option applies this change to the entire multi-tenant environment (both the container database and all pluggable databases).
 * Verification:
   * You should verify in the Akeyless management console or by checking Oracle's views that the key has been created successfully.
 
@@ -309,7 +309,7 @@ SELECT * FROM V$ENCRYPTION_WALLET;
 * Verify Wallet Status:
   * Running the query against V$ENCRYPTION_WALLET confirms that the wallet is open and shows the expected configuration. The output should indicate that the wallet is properly configured for auto-login.
 
-In a multitenant environment (CDB/PDB). Note that you may see multiple rows corresponding to each container (for example, CON_ID=0 for the CDB root, CON_ID=5 for a PDB):
+In a multi-tenant environment (CDB/PDB). Note that you may see multiple rows corresponding to each container (for example, CON_ID=0 for the CDB root, CON_ID=5 for a PDB):
 
 <Image border={false} src="https://files.readme.io/0000d0f056d736ed13b4dd2f0a76517a1954d665075d3df44bf745543f7af6ef-2082746d-b5e1-467e-bb62-8923dffaefe0_1.png" />
 
@@ -337,7 +337,7 @@ Reference: [ENCRYPTION_WALLET](https://docs.oracle.com/en/database/oracle/oracle
 
 ##### Explanation
 
-In a 19c environment (which may use a multitenant architecture with a CDB/PDB), you have the option to use united mode (one master key for all containers) or isolated mode (separate keys per PDB).
+In a 19c environment (which may use a multi-tenant architecture with a CDB/PDB), you have the option to use united mode (one master key for all containers) or isolated mode (separate keys per PDB).
 
 {/*
 

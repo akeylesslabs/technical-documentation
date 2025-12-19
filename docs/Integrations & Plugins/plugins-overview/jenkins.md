@@ -116,6 +116,6 @@ The following above will generate an SSH Certificate that will be allowed for th
 
 ### Issuing a PKI Certificate
 
-The following example will generate PKI Certificate using predefind Certificate Signing Request:
+The following example will generate PKI Certificate using predefined Certificate Signing Request:
 
 ![](https://files.readme.io/572a3006acc9bf1bae374b45fe721ec09e1658fc5c954c1c0114056049254b5f-image.png)

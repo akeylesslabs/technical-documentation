@@ -35,7 +35,7 @@ sudo mkdir /root/.awx/awxcompose
 sudo ansible-playbook -i inventory install.yml
 ```
 
-## Configure Akeyless Platfrom Settings
+## Configure Akeyless Platform Settings
 
 On AWX UI, navigate to **Resources** and create new **Credentials**.  Select HashiCorp Vault Secret Lookup as your **Credentials Type** and set the **SERVER URL** to `https://hvp.akeyless.io` or work directly with your [Gateway](https://docs.akeyless.io/docs/api-gw) URL on port `8200`:
 

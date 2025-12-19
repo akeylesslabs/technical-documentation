@@ -71,7 +71,7 @@ If you don't have an SSH certificate ready, please follow this guide on how to c
 
 The following parameters are mandatory:
 
-| Parameter             | Defualt                                              | Info                                                                                                                                                                         |
+| Parameter             | Default                                              | Info                                                                                                                                                                         |
 | :-------------------- | :--------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | dockerRepositoryCreds | N\A                                                  | Credentials to access Akeyless private image                                                                                                                                 |
 | apiGatewayURL         | [https://rest.akeyless.io](https://rest.akeyless.io) | A full URL of Akeyless API GW                                                                                                                                                |

@@ -32,7 +32,7 @@ To spin an Akeyless Basic Bastion using Docker please refer to the last section 
 
 ## Prerequisites
 
-* Horizonal Auto-Scaling
+* Horizontal Auto-Scaling
 
 * Helm Installed
 
