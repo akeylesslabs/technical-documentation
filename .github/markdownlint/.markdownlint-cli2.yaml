@@ -1348,7 +1348,27 @@ config:
         example_from: "Add the IP to the blacklist."
         example_to: "Add the IP to the denylist."
 
+      - term: "black-list"
+        replacement: "denylist"
+        example_from: "Add the IP to the blacklist."
+        example_to: "Add the IP to the denylist."
+
+      - term: "black list"
+        replacement: "denylist"
+        example_from: "Add the IP to the blacklist."
+        example_to: "Add the IP to the denylist."
+
       - term: "whitelist"
+        replacement: "allowlist"
+        example_from: "Add the user to the whitelist."
+        example_to: "Add the user to the allowlist."
+
+      - term: "white-list"
+        replacement: "allowlist"
+        example_from: "Add the user to the whitelist."
+        example_to: "Add the user to the allowlist."
+
+      - term: "white list"
         replacement: "allowlist"
         example_from: "Add the user to the whitelist."
         example_to: "Add the user to the allowlist."
