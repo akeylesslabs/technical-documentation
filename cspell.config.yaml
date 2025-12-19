@@ -1,0 +1,43 @@
+# npx cspell "**/*.md"
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+
+# The version of the configuration file format.
+version: "0.2"
+# The locale to use when spell checking. (e.g., en, en-GB, de-DE
+language: en
+
+dictionaries:
+  - en_US
+  - companies
+  - markdown
+  - softwareTerms
+  - html
+  - bash
+  - powershell
+  - filetypes
+  # Custom Dictionary
+  - akeyless
+
+ignorePaths:
+  - .cspell/**
+  - .github/**
+  - .other/**
+  - .venv/**
+  - recipes/**
+  - reference/**
+  - samples/**
+  - .gitignore
+  - cspell.config.yaml
+
+dictionaryDefinitions:
+  - name: akeyless
+    path: .cspell/akeyless-dictionary.txt
+    addWords: true
+
+overrides:
+  - filename: "**/*.md"
+    languageId: markdown
+    ignoreRegExpList:
+      - /`[^`]*`/
+      - /```[\s\S]*?```/
