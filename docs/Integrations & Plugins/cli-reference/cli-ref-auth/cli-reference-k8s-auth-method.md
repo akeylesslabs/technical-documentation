@@ -44,11 +44,11 @@ akeyless auth-method create k8s \
 
 `--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `-p, --public-key-file-path`: In case the gen-key  set to false, path to a public key for K8s authentication method is required [RSA2048]
 
@@ -177,7 +177,7 @@ akeyless update-auth-method-k8s \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `-p, --public-key-file-path`: In case the gen-key  set to false, path to a public key for K8s authentication method is required [RSA2048]
 

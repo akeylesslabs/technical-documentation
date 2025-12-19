@@ -42,7 +42,7 @@ akeyless auth-method create universal-identity \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--deny-rotate`: Deny from the token to rotate
 
@@ -169,7 +169,7 @@ akeyless auth-method update universal-identity \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--deny-rotate`: Deny from the token to rotate
 

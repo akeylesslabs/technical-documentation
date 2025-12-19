@@ -76,7 +76,7 @@ This page includes a thorough comb through all of the different options for the 
 
 * `get_dynamic_secret_details`: Fetch rotated secret value
 
-* `get_item_derivation_creds`: Get item creds
+* `get_item_derivation_creds`: Get item credentials
 
 * `gen_ssh_certificate`: Generate an SSH certificate
 

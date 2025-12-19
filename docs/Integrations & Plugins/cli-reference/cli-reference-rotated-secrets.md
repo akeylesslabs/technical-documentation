@@ -98,7 +98,7 @@ akeyless rotated-secret create aws \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -108,7 +108,7 @@ akeyless rotated-secret create aws \
 
 `--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
 
-`--grace-rotation-hour`: The Hour of the grace rotation in UTC
+`--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
 `--secure-access-enable`: `Enable`/`Disable` Secure Remote Access, [`true`/`false`]
 
@@ -178,7 +178,7 @@ akeyless rotated-secret create azure \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -226,7 +226,7 @@ Creates a new Cassandra rotated secret item
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -277,7 +277,7 @@ akeyless rotated-secret create custom \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -344,7 +344,7 @@ akeyless rotated-secret create dockerhub \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -396,9 +396,9 @@ akeyless rotated-secret create gcp \
 
 `--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
 
-`--grace-rotation-hour`: The Hour of the grace rotation in UTC
+`--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -444,7 +444,7 @@ akeyless rotated-secret create hanadb \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -494,7 +494,7 @@ akeyless rotated-secret create ldap \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -558,7 +558,7 @@ akeyless rotated-secret create mongodb \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -616,7 +616,7 @@ akeyless rotated-secret create mssql \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -676,7 +676,7 @@ akeyless rotated-secret create mysql \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -790,7 +790,7 @@ akeyless rotated-secret create postgresql \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -850,7 +850,7 @@ akeyless rotated-secret create redis \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -896,7 +896,7 @@ akeyless rotated-secret create redshift \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -954,7 +954,7 @@ akeyless rotated-secret create snowflake \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1000,7 +1000,7 @@ akeyless rotated-secret create ssh \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1066,7 +1066,7 @@ akeyless rotated-secret create windows \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1165,7 +1165,7 @@ akeyless rotated-secret update aws \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1175,7 +1175,7 @@ akeyless rotated-secret update aws \
 
 `--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
 
-`--grace-rotation-hour`: The Hour of the grace rotation in UTC
+`--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
 `--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use the argument multiple times: `--add-tag Tag1` `--add-tag Tag2`
 
@@ -1236,9 +1236,9 @@ akeyless rotated-secret update azure \
 
 `--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
 
-`--grace-rotation-hour`: The Hour of the grace rotation in UTC
+`--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1285,7 +1285,7 @@ akeyless rotated-secret update azure \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1338,7 +1338,7 @@ akeyless rotated-secret update custom \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
@@ -1407,7 +1407,7 @@ akeyless rotated-secret update dockerhub \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1460,9 +1460,9 @@ akeyless rotated-secret update gcp \
 
 `--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
 
-`--grace-rotation-hour`: The Hour of the grace rotation in UTC
+`--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1507,7 +1507,7 @@ akeyless rotated-secret update hanadb \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1556,7 +1556,7 @@ akeyless rotated-secret update ldap \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1619,7 +1619,7 @@ akeyless rotated-secret update mongodb \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1676,7 +1676,7 @@ akeyless rotated-secret update  mssql \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1733,7 +1733,7 @@ akeyless rotated-secret update mysql \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1790,7 +1790,7 @@ akeyless rotated-secret update oracledb \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1847,7 +1847,7 @@ akeyless rotated-secret update postgresql \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1906,7 +1906,7 @@ akeyless rotated-secret update redis \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -1951,7 +1951,7 @@ akeyless rotated-secret update redshift \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -2009,7 +2009,7 @@ akeyless rotated-secret update snowflake \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -2054,7 +2054,7 @@ akeyless rotated-secret update ssh \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 
@@ -2119,7 +2119,7 @@ akeyless rotated-secret update windows \
 
 `--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
 
-`--authentication-credentials[=use-user-creds]`: The credentials to connect with use-user-creds/use-target-creds
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
 `--password-length`: The length of the password to be generated
 

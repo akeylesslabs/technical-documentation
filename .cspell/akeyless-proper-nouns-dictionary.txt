@@ -886,3 +886,4 @@ SAP HANA database
 TDE
 Transparent Data Encryption
 ABAC
+RabbitMQ
