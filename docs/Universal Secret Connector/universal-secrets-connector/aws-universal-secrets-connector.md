@@ -94,7 +94,7 @@ To allow selecting a KMS encryption key for the secret, add the following permis
 
 Note, `kms:ListKeys` and `kms:ListAliases` are AWS KMS operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
 
-## Working With Universal Secrets Connector from the CLI
+## Working With Universal Secrets Connector with the CLI
 
 This section will discuss the different commands necessary to handle USCs. While the initial creation command is a regular Akeyless command, management of USCs is done through a set of sub-commands, which all have the prefix `usc` added to them, as will be shown later in this section. If the prefix is not added to these sub-commands, they will not work.
 

@@ -889,3 +889,6 @@ ABAC
 RabbitMQ
 CIDR
 Classless Inter-Domain Routing
+HashiCorp Vault AppRole
+Vault AppRole
+AppRole

@@ -12,9 +12,9 @@ next:
 ---
 You can define a RabbitMQ target to be used with [RabbitMQ Dynamic Secrets](https://docs.akeyless.io/docs/rabbitmq-producer)
 
-## Create a RabbitMQ Target in the CLI
+## Create a RabbitMQ Target with the CLI
 
-To create a RabbitMQ target from the CLI, run the following command:
+To create a RabbitMQ target with the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless target create rabbitmq \

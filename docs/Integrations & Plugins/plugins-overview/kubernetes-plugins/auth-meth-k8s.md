@@ -20,7 +20,7 @@ Akeyless supports multiple options to authenticate your K8s cluster with Akeyles
   * **[AWS-IAM](https://docs.akeyless.io/docs/aws-iam)**
   * **[GCP Auth](https://docs.akeyless.io/docs/gcp-auth-method)**
 
-## K8s Auth
+## Kubernetes Auth
 
 > 👍 Note
 >

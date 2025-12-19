@@ -12,7 +12,7 @@ next:
 ---
 You can define a Salesforce target to be used in the [Akeyless KMS integration with Salesforce Shield](https://docs.akeyless.io/docs/salesforce-shield).
 
-## Create a Salesforce Target in the CLI
+## Create a Salesforce Target with the CLI
 
 To create a Salesforce target using the Akeyless CLI, use the following command:
 
