@@ -34,8 +34,8 @@ To spin Akeyless Professional-Bastion using Docker please refer to the last sect
 
 ### Storage
 
-Currently, the helm chart requires a storage class with ReadWriteMany access modes.
-Since a storage class is more environment specific, you will need to provide one before proceeding. In addition, please provide 2 PersistentVolumes with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the values.yaml file
+Currently, the Helm chart requires a storage class with ReadWriteMany access modes.
+Since a storage class is more environment specific, you will need to provide one before proceeding. In addition, please provide 2 PersistentVolumes with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the `values.yaml` file
 
 e.g when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
@@ -63,11 +63,11 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The values.yaml file holds default values, replace the values with the ones from your environment where needed.
+The `values.yaml` file holds default values, replace the values with the ones from your environment where needed.
 
 `https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-ssh-bastion`
 
-If you don't have an SSH certificate ready, please follow this guide on how to create [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless vault and set your CA Public key in the values.yaml file.
+If you don't have an SSH certificate ready, please follow this guide on how to create [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless vault and set your CA Public key in the `values.yaml` file.
 
 The following parameters are mandatory:
 
@@ -95,7 +95,7 @@ Validate that Akeyless SSH pod is running.
 
 To deploy Akeyless Professional Bastion via Docker, you will have to provide a mount path which should contain the following files:
 
-1. ca.pub - SSH Cert Issuer CA Public key.
+1. `ca.pub` - SSH Cert Issuer CA Public key.
 
 ```shell ca.pub
 ssh-rsa AAAAB3NzaC1yc2EAAAA...

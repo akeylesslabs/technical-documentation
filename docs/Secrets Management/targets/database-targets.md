@@ -245,7 +245,7 @@ Choose the desired mode of authenticating either **Use Credentials**,  **Use Clo
 
 **Cluster Mode** Set when working with Cluster.
 
-**Client ID (Application ID):** Azure Client id. (Relevant only when using **Cloud Identity** authenticating)
+**Client ID (Application ID):** Azure Client ID. (Relevant only when using **Cloud Identity** authenticating)
 
 **Tenant ID:** Azure Tenant ID. (Relevant only when using **Cloud Identity** authenticating)
 
@@ -346,7 +346,7 @@ Select **MongoDB** radio button.
 
 **Default Authentication DB:** MongoDB default authentication database.
 
-**Options:** URI options (e.g. replicaSet=mySet&authSource=authDB)
+**Options:** URI options (for example, `replicaSet=mySet&authSource=authDB`)
 
 Click **Finish**.
 
