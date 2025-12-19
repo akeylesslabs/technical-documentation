@@ -66,7 +66,7 @@ customerFragmentsExistingSecret: customer-fragment
 We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
 Please note that when you're enabling TLS, you must provide a `TLS certificate` and a corresponding `TLS Private Key`.
 
-To set the TLS settings, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) includes your **TLS certificate** in `base64 encoded` format where the `key` of the secret has to be `tls-certificate`:
+To set the TLS settings, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) includes your **TLS certificate** in `base64-encoded` format where the `key` of the secret has to be `tls-certificate`:
 
 ```yaml secret.yaml
 apiVersion: v1
@@ -99,7 +99,7 @@ Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-ce
 
 ## OIDC Configuration
 
-To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (`port 8000`) with the following URI suffix `/api/oidc-callback`  (e.g., `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
+To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (`port 8000`) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
 ```yaml values.yaml
 globalConfig:
@@ -127,7 +127,7 @@ To set an internal TLS between the Gateway and cache service, set the `enableTls
     enabled: true
 ```
 
-To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64 encoded :
+To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded :
 
 ```shell
 kubectl create secret generic cache-configuration \
@@ -190,7 +190,7 @@ While the **Cache** setup can address many cases for some environments, there is
 >
 > This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
 
-To set the default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64 encoded :
+To set the default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded :
 
 ```yaml
 kubectl create secret generic cache-configuration \

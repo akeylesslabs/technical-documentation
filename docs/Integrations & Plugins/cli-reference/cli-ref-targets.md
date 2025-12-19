@@ -208,7 +208,7 @@ akeyless target create db \
 
 `--db-name`: Database name
 
-`--snowflake-api-private-key`: RSA Private key (Base64 encoded)
+`--snowflake-api-private-key`: RSA Private key (Base64-encoded)
 
 `--snowflake-api-private-key-file-name`: The path to the file containing the private key
 
@@ -373,7 +373,7 @@ Creates a new GitHub target in the current account
 akeyless target create github \
 --name <Target name> \
 --github-app-id <Github application id> \
---github-app-private-key <Github application private key (base64 encoded key)> \
+--github-app-private-key <Github application private key (base64-encoded key)> \
 --github-base-url <Github base url (Deafult = https://api.github.com/> \
 --key <Key name>
 ```
@@ -384,7 +384,7 @@ akeyless target create github \
 
 `--github-app-id`: GitHub application ID
 
-`--github-app-private-key`: GitHub application private key (Base64 encoded key)
+`--github-app-private-key`: GitHub application private key (Base64-encoded key)
 
 `--github-base-url[=https://api.github.com/]`: GitHub base URL
 
@@ -419,7 +419,7 @@ akeyless target create gke \
 
 `-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI `https://<DNS/IP>`
 
-`-c, --gke-cluster-ca-cert`: GKE Base64 encoded cluster certificate
+`-c, --gke-cluster-ca-cert`: GKE Base64-encoded cluster certificate
 
 `--gke-account-key-file-path`: File path to GKE service account key
 
@@ -791,7 +791,7 @@ akeyless target create salesforce \
 
 `-f, --app-private-key-file-name`: Name of the of file containing a PEM private key of the connected app (relevant for JWT auth only)
 
-`--app-private-key-data`: Base64 encoded PEM of the connected app private key (relevant for JWT auth only)
+`--app-private-key-data`: Base64-encoded PEM of the connected app private key (relevant for JWT auth only)
 
 `-p, --password`: The password of the user attached to the OAuth2 app used for connecting to Salesforce  (required for user-password flow)
 
@@ -799,7 +799,7 @@ akeyless target create salesforce \
 
 `--ca-cert-file-name`: Name of a file containing a PEM certificate to use when uploading new key to Salesforce
 
-`--ca-cert-data`: Base64 encoded PEM cert to use when uploading a new key to Salesforce. Used if file name was not provided.
+`--ca-cert-data`: Base64-encoded PEM cert to use when uploading a new key to Salesforce. Used if file name was not provided.
 
 `--ca-cert-name`: name of the certificate in Salesforce tenant to use when uploading new key
 
@@ -1512,7 +1512,7 @@ akeyless target update github \
 
 `--github-app-id`: GitHub application ID
 
-`--github-app-private-key`: GitHub application private key (Base64 encoded key)
+`--github-app-private-key`: GitHub application private key (Base64-encoded key)
 
 `--github-base-url[=https://api.github.com/]`: GitHub base url
 
@@ -1937,7 +1937,7 @@ akeyless target update salesforce \
 
 `-f, --app-private-key-file-name`: Name of the of file containing a PEM private key of the connected app (relevant for JWT auth only)
 
-`--app-private-key-data`: Base64 encoded PEM of the connected app private key (relevant for JWT auth only)
+`--app-private-key-data`: Base64-encoded PEM of the connected app private key (relevant for JWT auth only)
 
 `-p, --password`: The password of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
 
@@ -1945,7 +1945,7 @@ akeyless target update salesforce \
 
 `--ca-cert-file-name`: Name of a file containing a PEM certificate to use when uploading new key to Salesforce
 
-`--ca-cert-data`: Base64 encoded PEM cert to use when uploading a new key to Salesforce. Used if file name was not provided.
+`--ca-cert-data`: Base64-encoded PEM cert to use when uploading a new key to Salesforce. Used if file name was not provided.
 
 `--ca-cert-name`: name of the certificate in Salesforce tenant to use when uploading new key
 

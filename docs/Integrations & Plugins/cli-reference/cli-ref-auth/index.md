@@ -414,7 +414,7 @@ akeyless auth-method create gcp \
 
 `--service-account-creds-file`: Service Account credentials key file path
 
-`--service-account-creds-data`: Service Account credentials data, Base64 encoded
+`--service-account-creds-data`: Service Account credentials data, Base64-encoded
 
 `--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag
 
@@ -469,7 +469,7 @@ akeyless auth-method create oauth2 \
 
 `-j, --jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server
 
-`--jwks-json-data`: The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.  Base64 encoded string
+`--jwks-json-data`: The JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server.  Base64-encoded string
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPNfor example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
@@ -926,7 +926,7 @@ akeyless auth-method update gcp \
 
 `--service-account-creds-file`: Service Account credentials key file path
 
-`--service-account-creds-data`: Service Account credentials data, Base64 encoded
+`--service-account-creds-data`: Service Account credentials data, Base64-encoded
 
 `--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag.
 

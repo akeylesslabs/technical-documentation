@@ -28,7 +28,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 ## HSM Configuration
 
-To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the  `pkcs11.so` file, you can either create a PVC manually and provide it using the  `existingClaim` or set the `storageClass` for automatic provisioning with your K8s provider. The `accessMode` should be `ReadWriteMany`.
+To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the `pkcs11.so` file, you can either create a PVC manually and provide it using the `existingClaim` or set the `storageClass` for automatic provisioning with your K8s provider. The `accessMode` should be `ReadWriteMany`.
 
 In addition, the **HSM pin** must be provided using a **Kubernetes Secret** which holds the `pin`, **note** the **Kubernetes Secret** key name must be set to `pin`
 
@@ -66,7 +66,7 @@ Where:
 
 * `pinExistingSecret` - A K8s secret which includes the **HSM** pin, the secret key must be `pin`.
 
-* `pin` -  The **HSM** PIN for login, for example a `user:pass` or `wwwww-xxxx-yyyy-zzzz`.
+* `pin` - The **HSM** PIN for login, for example a `user:pass` or `wwwww-xxxx-yyyy-zzzz`.
 
 * `slot` - The slot number to use within the **HSM** that holds cryptographic objects.
 

@@ -221,7 +221,7 @@ akeyless event-forwarder create webhook \
 
 `--server-certificates-file-name`: Name of a file containing a `PEM` certificate of the Webhook
 
-`--server-certificates`: `Base64 encoded PEM` certificate of the Webhook
+`--server-certificates`: `Base64-encoded PEM` certificate of the Webhook
 
 `--auth-type[=user-pass]`: The Webhook authentication type [`user-pass`, `token`, `certificate`]
 
@@ -229,15 +229,15 @@ akeyless event-forwarder create webhook \
 
 `--password`: Password for authentication relevant for `user-pass` auth-type
 
-`--auth-token`: `Base64 encoded Token` string relevant for `token` auth-type
+`--auth-token`: `Base64-encoded Token` string relevant for `token` auth-type
 
 `--client-cert-file-name`: Name of a file containing a `PEM` certificate, relevant for `certificate` auth-type
 
-`--client-cert-data`: `Base64 encoded PEM certificate`, relevant for `certificate` auth-type
+`--client-cert-data`: `Base64-encoded PEM certificate`, relevant for `certificate` auth-type
 
 `--private-key-file-name`: Name of a file containing a `PEM RSA Private Key`, relevant for `certificate`  auth-type
 
-`--private-key-data`: `Base64 encoded PEM RSA Private Key`, relevant for `certificate` auth-type
+`--private-key-data`: `Base64-encoded PEM RSA Private Key`, relevant for `certificate` auth-type
 
 `-u, --gateway-url[=https://<Your-Akeyless-GW-URL:8000]`: API Gateway URL (Configuration Management port)
 

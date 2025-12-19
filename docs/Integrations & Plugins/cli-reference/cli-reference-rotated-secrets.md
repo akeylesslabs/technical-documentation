@@ -938,7 +938,7 @@ akeyless rotated-secret create snowflake \
 
 `--rotated-password`: Rotated-username password (relevant only for `rotator-type`=`password`)
 
-`--private-key`: RSA Private key (Base64 encoded) to rotate (relevant only for `rotator-type`=`key`)
+`--private-key`: RSA Private key (Base64-encoded) to rotate (relevant only for `rotator-type`=`key`)
 
 `--private-key-file-name`: The path to the file containing the private key (relevant only for `rotator-type`=`key`)
 
@@ -1993,7 +1993,7 @@ akeyless rotated-secret update snowflake \
 
 `--rotated-password`: Rotated-username password (relevant only for `rotator-type`=`password`)
 
-`--private-key`: RSA Private key (Base64 encoded) to rotate (relevant only for `rotator-type`=`key`)
+`--private-key`: RSA Private key (Base64-encoded) to rotate (relevant only for `rotator-type`=`key`)
 
 `--private-key-file-name`: The path to the file containing the private key (relevant only for `rotator-type`=`key`)
 

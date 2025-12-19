@@ -35,13 +35,13 @@ To configure TLS, on your [Gateway Configuration Manager](https://docs.akeyless.
 Updating a TLS certificate can be accessed through the CLI by using the following command:
 
 ```shell
-akeyless gateway-update-tls-cert --gateway-url <https://Your-Akeyless-Gateway-URL:8000> --cert-data <TLS Certificate(base64 encoded)>
+akeyless gateway-update-tls-cert --gateway-url <https://Your-Akeyless-Gateway-URL:8000> --cert-data <TLS Certificate(base64-encoded)>
 ```
 
 The command's full parameters are:
 
-* `cert-data`: TLS Certificate (Base64 encoded), this flag is ignored if `cert-file-name` is supplied.
+* `cert-data`: TLS Certificate (Base64-encoded), this flag is ignored if `cert-file-name` is supplied.
 * `cert-file-name`: Path to the file containing the TLS Certificate, this flag is ignored if `cert-data` is supplied
-* `key-data`: TLS Private Key (Base64 encoded), this flag is ignored if `key-file-name` is supplied
+* `key-data`: TLS Private Key (Base64-encoded), this flag is ignored if `key-file-name` is supplied
 * `key-file-name`: Path to the file containing the TLS Private Key, this flag is ignored if `key-data` is supplied
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL (Configuration Management port).

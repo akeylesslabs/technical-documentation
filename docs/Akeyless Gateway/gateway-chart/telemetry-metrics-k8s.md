@@ -169,9 +169,9 @@ metrics:
 
 ## Gateway Application Log Forwarding
 
-To collect the Gateway application logs with the metrics you can set an additional `exporter` endpoint and  `service`, for example:
+To collect the Gateway application logs with the metrics you can set an additional `exporter` endpoint and `service`, for example:
 
-Edit the Gateway  `values.yaml` file as described below:
+Edit the Gateway `values.yaml` file as described below:
 
 ```yaml values.yaml
 metrics:
@@ -195,7 +195,7 @@ env:
     value: "true"
 ```
 
-Where the new **Loki** `endpoint`  is set with a new `service` for logs, using `filelog` as the `reciver` and `loki` as the `exporter`.
+Where the new **Loki** `endpoint` is set with a new `service` for logs, using `filelog` as the `reciver` and `loki` as the `exporter`.
 
 To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_APP_LOG="true"` environment variable.
 

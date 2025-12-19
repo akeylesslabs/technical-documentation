@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway)  to bootstrap the Akeyless Gateway deployment.
+Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway) to bootstrap the Akeyless Gateway deployment.
 
 > 📘 New Chart
 >
@@ -20,7 +20,7 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with an [Access Role](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys,](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets)
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with an [Access Role](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview), and [Targets](https://docs.akeyless.io/docs/targets)
 
 * [Helm](https://helm.sh/) Installed
 
@@ -90,7 +90,7 @@ kubectl create secret generic access-key \
   --from-literal=gateway-access-key=<plaintext-Access-Key>
 ```
 
-Alternatively, use YAML to define the Kubernetes Secret with a Base64 encoded version of your Access Key:
+Alternatively, use YAML to define the Kubernetes Secret with a Base64-encoded version of your Access Key:
 
 ```yaml
 apiVersion: v1
@@ -100,7 +100,7 @@ metadata:
   namespace: akeyless  # Change this to your actual namespace
 type: Opaque
 data:
-  gateway-access-key: <Base64 encoded value>
+  gateway-access-key: <Base64-encoded value>
 ```
 
 #### Provide the Secret to the Gateway Config
@@ -131,7 +131,7 @@ AWS IAM can be used in the following approaches:
 
 * Service Account IAM Role
 
-In both cases, provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section  to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-on-k8s-copy-1#access-permissions):
+In both cases, provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-on-k8s-copy-1#access-permissions):
 
 ```yaml values.yaml
 globalConfig:
@@ -321,7 +321,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ## Gateway Admins
 
-To support local management of your Gateway configuration, you can set a list of  `Access ID` that will be able to log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
+To support local management of your Gateway configuration, you can set a list of `Access ID` that will be able to log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
 
 For example:
 

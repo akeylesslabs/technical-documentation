@@ -15,7 +15,7 @@ A basic Gateway deployment requires a server with a Docker Engine installed. You
 
 > 📘 Tenant Environments
 >
-> Accounts that were created on specific environments should modify the services endpoints according to the relevant environments. e.g. for `eu`  `https://vault.eu.akeyless.io`  etc.
+> Accounts that were created on specific environments should modify the services endpoints according to the relevant environments, for example, `eu` would use `https://vault.eu.akeyless.io`.
 >
 > Available explicit tenants are: `us`,`eu` .
 

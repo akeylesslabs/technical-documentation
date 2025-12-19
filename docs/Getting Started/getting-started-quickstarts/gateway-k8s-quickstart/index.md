@@ -85,7 +85,7 @@ There should be no command output.
 2. Run the command to create a new Secret object in your Kubernetes cluster:
 
 ```shell
-kubectl create secret generic access-key   --namespace akeyless   --from-literal=gateway-access-key=<Access-Key>
+kubectl create secret generic access-key --namespace akeyless --from-literal=gateway-access-key=<Access-Key>
 ```
 
 ## Step 5: Edit `values.yaml`

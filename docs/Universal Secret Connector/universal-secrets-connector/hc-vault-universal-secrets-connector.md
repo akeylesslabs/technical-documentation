@@ -83,7 +83,7 @@ The output should look as follows:
 
 ```shell
 {
-  "value": "<Base64 encoded value>",
+  "value": "<Base64-encoded value>",
   "metadata": {
     "created": "<timestamp>",
     "updated": "<timestamp>"

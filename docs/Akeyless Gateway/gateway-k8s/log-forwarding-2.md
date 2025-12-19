@@ -29,7 +29,7 @@ env:
     value: "enable=\"true\"\ntarget_syslog_tag=\"ssh-audit-export\"\ntarget_log_type=\"syslog\"\ntarget_syslog_network=\"udp\"\ntarget_syslog_host=\"my-syslog:514\"\ntarget_syslog_formatter=\"text\""
 ```
 
-Alternatively, you can specify the entire settings within a Kubernetes Secret Base64 encoded:
+Alternatively, you can specify the entire settings within a Kubernetes Secret Base64-encoded:
 
 ```yaml
 # Specifies an existing secret for logand should be in yaml syntax, and include:
@@ -139,7 +139,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 
 ```yaml
 target_log_type="aws_s3"
-target_s3_folder_prefix=""  # default value "akeyless-log"
+target_s3_folder_prefix="" # default value "akeyless-log"
 target_s3_bucket_name=""
 target_s3_aws_auth_type="" # aws_auth_type_access_key|aws_auth_type_cloud_id|aws_auth_type_assume_role
 target_s3_aws_access_id="" # aws_auth_type_access_key

@@ -41,7 +41,7 @@ akeyless event-forwarder create webhook \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>
 --auth-type bearer-token \
---auth-token <Base64 encoded Token string> \
+--auth-token <Base64-encoded Token string> \
 --event-types <event type> \
 --runner-type[=immediate] <immediate, periodic> \
 --every <1-24 hours> \
@@ -56,9 +56,9 @@ akeyless event-forwarder create webhook \
 --targets-event-source-locations </MyTargets/*>
 --auth-type certificate \
 --client-cert-file-name <file containing PEM certificate> \
---client-cert-data <Base64 encoded PEM certificate> \
+--client-cert-data <Base64-encoded PEM certificate> \
 --private-key-file-name <file containing a PEM RSA Private Key> \
---private-key-data <Base64 encoded PEM RSA Private Key> \
+--private-key-data <Base64-encoded PEM RSA Private Key> \
 --event-types <event type> \
 --runner-type[=immediate] <immediate, periodic> \
 --every <1-24 hours> \
@@ -86,7 +86,7 @@ The main parameters for the command are as follows:
 
   * For `bearer-token`:
 
-    * `auth-token`: Base64 encoded Token string
+    * `auth-token`: Base64-encoded Token string
 
   * For `certificate`:
 

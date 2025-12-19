@@ -172,7 +172,7 @@ Where:
 
 * `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
-* `signing-key`: The private key (Base64 encoded) associated with the public key defined in the Kubernetes auth\
+* `signing-key`: The private key (Base64-encoded) associated with the public key defined in the Kubernetes auth\
   (The private key that was created when the Kubernetes Auth Method was created previously).
 
 * `k8s-auth-type`: K8s auth type, use `certificate`.

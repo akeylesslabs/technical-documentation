@@ -43,7 +43,7 @@ akeyless gateway update log-forwarding splunk \
 --gateway-url 'https://Your-Akeyless-GW-URL:8000' \
 --splunk-url <server URL> \
 --splunk-token <token> \
---source  <source> \
+--source <source> \
 --source-type <source type> \
 --index <index>
 ```

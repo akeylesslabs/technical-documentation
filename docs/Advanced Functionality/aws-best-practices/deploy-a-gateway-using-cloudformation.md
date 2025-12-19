@@ -537,7 +537,7 @@ After uploading the `.yaml` file, set the following parameters:
 
 * **AllowedIP** – Your IP address or CIDR block (e.g. `203.0.113.5/32`).
 
-* **AssumeRoleArn** -  ARN of the role to assume for the assume\_role dynamic secret
+* **AssumeRoleArn** - ARN of the role to assume for the assume\_role dynamic secret
 
 * **ClusterName** – A name for your Gateway cluster
 

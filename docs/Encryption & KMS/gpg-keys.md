@@ -58,7 +58,7 @@ Decryption command:
 
 ```shell
 akeyless decrypt-gpg --key-name <Key Name> \
---ciphertext <Ciphertext to be decrypt in base64 encoded format> \
+--ciphertext <Ciphertext to be decrypt in base64-encoded format> \
 --display-id <Display id of the key to use in the encryption process> \
 --item-id <Item id of the key to use in the encryption process>
 ```
