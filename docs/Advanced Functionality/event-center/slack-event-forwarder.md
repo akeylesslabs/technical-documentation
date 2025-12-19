@@ -36,7 +36,7 @@ The main parameters for the command are as follows:
 
 * `url`: The server that will receive the events
 
-* `items-event-source-locations`: **Items** event sources to forward events about,  for example: `/MySecrets/*`
+* `items-event-source-locations`: **Items** event sources to forward events about, for example: `/MySecrets/*`
 
 * `targets-event-source-locations` **Targets** event sources to forward events about, for example: `/MyTargets/*`
 

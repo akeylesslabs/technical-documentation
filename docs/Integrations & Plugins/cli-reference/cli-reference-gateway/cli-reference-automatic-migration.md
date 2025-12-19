@@ -239,7 +239,7 @@ akeyless gateway-migration-status \
 
 `-n, --name`: Migration name to display
 
-`-i, --id`: Optional, instead of migration name, set a Migration ID  \n(Can be retrieve with gateway-list-migration command)
+`-i, --id`: Optional, instead of migration name, set a Migration ID (Can be retrieve with gateway-list-migration command)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

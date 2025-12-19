@@ -892,3 +892,5 @@ Classless Inter-Domain Routing
 HashiCorp Vault AppRole
 Vault AppRole
 AppRole
+NTLM
+New Technology LAN Manager

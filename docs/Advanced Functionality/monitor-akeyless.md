@@ -14,7 +14,7 @@ In a SaaS environment managing sensitive assets such as credentials, certificate
 
 Continuous monitoring also helps meet regulatory standards, supports investigations, and ensures the system can grow smoothly as needed.
 
-This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics),  [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gw-docker-log-forwarding), [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
+This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics), [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gw-docker-log-forwarding), [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
 
 ## Audit Logs
 
@@ -65,7 +65,7 @@ The Akeyless Event Center provides a centralized view of system events, ensuring
 
 **Event Subscriptions**: You can set up event subscriptions to receive notifications via email, webhooks, or third-party platforms, ensuring you're always informed about important activities.
 
-Refer to the [Event Center](https://docs.akeyless.io/docs/event-center)  official doc for the full events list.
+Refer to the [Event Center](https://docs.akeyless.io/docs/event-center) official doc for the full events list.
 
 ## Analytics
 
@@ -79,7 +79,7 @@ Akeyless provides built-in analytics to deliver clear insights into operational 
 
 **Interactive Dashboards**: Use pre-configured dashboards to monitor metrics such as API usage, secret access patterns, and key management activities in real time, enabling data-driven decisions.
 
-Information about your **Items** and **Certificates** can be found in the [Analytics](https://docs.akeyless.io/docs/analytics)  official doc.
+Information about your **Items** and **Certificates** can be found in the [Analytics](https://docs.akeyless.io/docs/analytics) official doc.
 
 ## Gateway Status
 

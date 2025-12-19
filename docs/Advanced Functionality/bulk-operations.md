@@ -118,7 +118,7 @@ The user running the command must have `Get`, `List`, and `Delete` permissions o
 
 Only Auth Methods visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not `Delete` on some of the Auth Methods inside the path.
 
-Examples of prerequisites -  `/folder/` is created with two Auth Methods:
+Examples of prerequisites - `/folder/` is created with two Auth Methods:
 
 ```shell
 $ akeyless create-auth-method -n /folder/am1

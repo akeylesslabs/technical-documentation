@@ -30,7 +30,7 @@ For a Rancher cluster, please create your [Rancher API Key](https://ranchermanag
 
 > 👍 Note
 >
-> To enable and use token request projection on a self-managed cluster, you must specify each of the following command line arguments to kube-apiserver:
+> To enable and use token request projection on a self-managed cluster, you must specify each of the following command line arguments to `kube-apiserver`:
 > `--service-account-issuer`
 > `--service-account-key-file`
 > `--service-account-signing-key-file`

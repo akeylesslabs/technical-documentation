@@ -174,7 +174,7 @@ Where:
 
 Upon successful deployment, A new [Container APP](https://azure.microsoft.com/en-us/products/container-apps) will be created, which will hold the Gateway application.
 
-The Gateway is configured using environment variables. For additional available variables, refer to the [Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration)  guide.
+The Gateway is configured using environment variables. For additional available variables, refer to the [Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) guide.
 
 ## Mount a Volume in Your Container App
 

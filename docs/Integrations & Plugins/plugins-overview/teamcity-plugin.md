@@ -68,7 +68,7 @@ Where:
 
 * **Authentication method:** Select the authentication method to use when authenticating with Akeyless.
 
-Available options: AWS IAM, LDAP, or Akeyless [API Key](https://docs.akeyless.io/docs/api-key) (Vault AppRole).
+Available options: AWS IAM, LDAP, or Akeyless [API Key](https://docs.akeyless.io/docs/api-key) (HashiCorp Vault AppRole).
 
 For example, to use [API Key](https://docs.akeyless.io/docs/api-key) set the following:
 

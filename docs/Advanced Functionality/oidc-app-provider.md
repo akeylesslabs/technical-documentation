@@ -30,9 +30,9 @@ Where:
 * `name`: A unique name for the OIDC App. The name can include the path to the virtual folder where you want to create the new app, using slash `/` separators. If the folder does not exist, it will be created together with the OIDC app.
 * `access-permission-assignment`: A JSON string defining which Akeyless Authentication Methods are allowed to use this OIDC App. This is set using the `access_id` and `sub_claims` for that Authentication Method. In addition, you can use an Akeyless [Groups](https://docs.akeyless.io/docs/groups) using `group_id` and `sub-claims`.
 * `permission-assignment-file`: Instead of a string, users can add this flag in order to pass a JSON file, using the same formatting, with a path to the file. Groups are allowed.
-* `redirect-uris`  (Optional): A list of URIs that the user will be directed back to after authenticating and consenting at the OIDC App.
+* `redirect-uris` (Optional): A list of URIs that the user will be directed back to after authenticating and consenting at the OIDC App.
 * `scopes` (Optional): A list of scopes that third-party applications are allowed to request. These scopes (excluding special scopes) will be copied from the `sub-claims` in Akeyless to the OIDC Token. Scopes can include Groups as well.
-* `audience`  (Optional) : A list of audiences that third-party applications are allowed to request. This will only affect the `access token` (the `audience` for the `id token` is always the `client id` ).
+* `audience` (Optional) : A list of audiences that third-party applications are allowed to request. This will only affect the `access token` (the `audience` for the `id token` is always the `client id` ).
 
 ### Client Type
 
@@ -60,7 +60,7 @@ You will need this information for the next step in the process.
 
 ## Authenticating With Akeyless
 
-Once you have created your OIDC App, you will need to authenticate against Akeyless using an Authentication Method  that was set as part of the  `access-permission-assignment`.
+Once you have created your OIDC App, you will need to authenticate against Akeyless using an Authentication Method that was set as part of the `access-permission-assignment`.
 
 For example, if you assigned an [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Authentication Method, authenticate to Akeyless using the `auth` command:
 
@@ -79,7 +79,7 @@ You will need this token for the next step as well.
 
 ### Make a POST Request to Token Endpoint
 
-Once authorized, make a `POST` request to the `Token Endpoint` in order to get back your OIDC Token.  The parameters should be `url encoded`.
+Once authorized, make a `POST` request to the `Token Endpoint` in order to get back your OIDC Token. The parameters should be URL encoded.
 
 > 📘 Info
 >
@@ -89,7 +89,7 @@ Once authorized, make a `POST` request to the `Token Endpoint` in order to get b
 >
 > The `Token endpoint` is `https://auth.akeyless.io/oidc/provider/<AkeylessAccountId>/oauth2/token`.
 >
-> The `well-known endpoint` is  `https://auth.akeyless.io/oidc/provider/<AkeylessAccountId>/.well-known/openid-configuration`
+> The `well-known endpoint` is `https://auth.akeyless.io/oidc/provider/<AkeylessAccountId>/.well-known/openid-configuration`
 
 ```shell Shell
 curl --location 'https://auth.akeyless.io/oidc/provider/<your-account-id>/oauth2/token' \
@@ -127,7 +127,7 @@ After running this **POST** request, you will receive an OIDC token back:
 }
 ```
 
-You can now use that OIDC  `access_token` to authenticate with another resource or application.
+You can now use that OIDC `access_token` to authenticate with another resource or application.
 
 ## Updating an OIDC App from the CLI
 

@@ -108,7 +108,7 @@ akeyelss delete-role-rule \
 
 `-p, --path`: **Required**, The path the rule refers to
 
-`--rule-type[=item-rule]`: item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule.  \nA type of the item for which permissions are deleted. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Role, auth-method-rule - for Authentication Methods. By default, permissions are deleted only for Items
+`--rule-type[=item-rule]`: item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule or sra-reports-rule. A type of the item for which permissions are deleted. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Role, auth-method-rule - for Authentication Methods. By default, permissions are deleted only for Items
 
 ## `delete-roles`
 
@@ -230,7 +230,7 @@ akeyless set-role-rule \
 
 `-c, --capability`: **(Mandatory if`-f, file` is not given)** List of the approved/denied capabilities in the path options: [read, create, update, delete, list, deny]
 
-`rule-type[=item-rule]`: item-rule, target-rule, role-rule, auth-method-rule.  \nA type of the item for which permissions are defined. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Roles, auth-method-rule - for Authentication Methods. By default, permissions are set only for Items.
+`rule-type[=item-rule]`: item-rule, target-rule, role-rule, auth-method-rule. A type of the item for which permissions are defined. Possible values: item-rule - for Items, target-rule - for Targets, role-rule - for Access Roles, auth-method-rule - for Authentication Methods. By default, permissions are set only for Items.
 
 `--ttl`: The time (in minutes) until the rule expires. If not used the rule will apply until manually removed
 

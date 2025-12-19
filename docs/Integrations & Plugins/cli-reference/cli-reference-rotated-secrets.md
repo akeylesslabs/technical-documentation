@@ -154,7 +154,7 @@ akeyless rotated-secret create azure \
 
 `--api-key`: **API Key** to rotate (relevant only for `rotator-type`=`api-key`)
 
-`--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevat to `azure-storage-account`)
+`--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevant to `azure-storage-account`)
 
 `--username`:  The user principal name to rotate his password (relevant only for `rotator-type`=`password`)
 
@@ -1220,7 +1220,7 @@ akeyless rotated-secret update azure \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevat to `azure-storage-account`)
+`--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevant to `azure-storage-account`)
 
 `-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
 

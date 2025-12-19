@@ -49,21 +49,21 @@ akeyless configure
 
 `--oidc-sp`: OIDC Service Provider (relevant only for access-type=oidc, inferred if empty), supported SPs: google, github
 
-`--azure_ad_object_id`: Azure Active Directory ObjectId  \n(relevant only for access-type=azure_ad)
+`--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for access-type=azure_ad)
 
-`--gcp-audience`: GCP audience to use in signed JWT  \n(relevant only for access-type=gcp)
+`--gcp-audience`: GCP audience to use in signed JWT (relevant only for access-type=gcp)
 
-`--gateway-url`: Gateway URL for the K8S authenticated  \n(relevant only for access-type=k8s)
+`--gateway-url`: Gateway URL for the K8S authenticated (relevant only for access-type=k8s)
 
-`--k8s-auth-config-name`: The K8S Auth config name  \n(relevant only for access-type=k8s)
+`--k8s-auth-config-name`: The K8S Auth config name (relevant only for access-type=k8s)
 
 `--k8s-token-path[=/var/run/secrets/kubernetes.io/serviceaccount/token]`: An optional path to a projected service account token inside the pod, for use instead of the default service account token (relevant only for access-type=k8s)
 
-`--cert-file-name`: Name of the certificate file to use  \n(relevant only for access-type=cert)
+`--cert-file-name`: Name of the certificate file to use (relevant only for access-type=cert)
 
 `--cert-data`: Certificate data encoded in Base64. Used if file was not provided. (relevant only for access-type=cert in Curl Context)
 
-`--key-file-name`: Name of the private key file to use  \n(relevant only for access-type=cert)
+`--key-file-name`: Name of the private key file to use (relevant only for access-type=cert)
 
 `--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for access-type=cert in Curl Context)
 
@@ -369,9 +369,9 @@ block:Flags]
 
 `--description[=default_metadata]`: Description of the object
 
-`--add-tag`: List of the new tags that will be attached to this item.  \nTo specify multiple tags use argument multiple times: `--add-tag Tag1 --add-tag Tag2`
+`--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use argument multiple times: `--add-tag Tag1 --add-tag Tag2`
 
-`--rm-tag`: List of the existent tags that will be removed from this item.  \nTo specify multiple tags use argument multiple times: `--rm-tag Tag1 --rm-tag Tag2`
+`--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use argument multiple times: `--rm-tag Tag1 --rm-tag Tag2`
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, "0-1": "__(M
 
@@ -379,7 +379,7 @@ block:Flags]
 
 `--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `my.bastion:9900` (relevant only for SSH cert issuer)
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22`  \n(relevant only for SSH cert issuer)
+`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22` (relevant only for SSH cert issuer)
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list (relevant only for SSH cert issuer)
 
@@ -389,9 +389,9 @@ block:Flags]
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag
 
-`--secure-access-add-host`: List of the new hosts that will be attached to SRA servers host.  \nTo specify multiple tags use argument multiple times: `--secure-access-add-host` host1 `--secure-access-add-host` host2
+`--secure-access-add-host`: List of the new hosts that will be attached to SRA servers host. To specify multiple tags use argument multiple times: `--secure-access-add-host` host1 `--secure-access-add-host` host2
 
-`--secure-access-rm-host`: List of the existent hosts that will be removed from SRA servers host.  \nTo specify multiple tags use argument multiple times: `--secure-access-rm-host` host1 `--secure-access-rm-host` host2
+`--secure-access-rm-host`: List of the existent hosts that will be removed from SRA servers host. To specify multiple tags use argument multiple times: `--secure-access-rm-host` host1 `--secure-access-rm-host` host2
 
 `--secure-access-url`: Destination URL to inject secrets
 
@@ -399,11 +399,11 @@ block:Flags]
 
 `--secure-access-web-proxy`: Web-Proxy via Akeyless Web Access Bastion
 
-`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user  \n(relevant only for RDP Dynamic-Secret)
+`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)
 
 `--secure-access-rdp-user`: Override the RDP Domain username
 
-`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user  \n(relevant only for RDP Dynamic-Secret)
+`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)
 
 `--secure-access-rdp-user`: Override the RDP Domain username
 
@@ -419,19 +419,19 @@ block:Flags]
 
 `--secure-access-aws-native-cli`: The AWS native CLI (relevant only for AWS Dynamic-Secret)
 
-`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL  \n(relevant only for EKS/GKE/K8s Dynamic-Secret)
+`--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic-Secret)
 
-`--secure-access-dashboard-url`: The K8s dashboard URL (relevant only for K8s Dynamic-Secret)
+`--secure-access-dashboard-url`: The Kubernetes dashboard URL (relevant only for Kubernetes Dynamic-Secret)
 
-`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access  \n(relevant only for EKS/GKE/K8s Dynamic-Secret)
+`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends (Mandatory)__ Curre  \n(relevant only for Rotated-secret on SRA)
+`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends (Mandatory) (relevant only for Rotated-secret on SRA)
 
 `--behaviordelete-protection`: Protection from accidental deletion of this item
 
 `--change-event`: Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)
 
-`-c, --cert-file-path`: Path to a file that contain the certificate in a PEM format.  \nUsed for updating RSA keys' certificates
+`-c, --cert-file-path`: Path to a file that contain the certificate in a PEM format. Used for updating RSA keys' certificates
 
 `--cert-file-data`: PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.
 
