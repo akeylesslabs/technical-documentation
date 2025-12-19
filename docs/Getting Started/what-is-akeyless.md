@@ -6,7 +6,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: vaultless-architecture
+    - slug: zero-knowledge-architecture
       title: Zero-Knowledge Encryption SaaS Architecture
       type: basic
     - slug: getting-started-quickstarts
@@ -31,7 +31,7 @@ Akeyless uses a Zero-Knowledge Encryption architecture, which avoids storing sen
 
 A deeper explanation of the architecture and its security properties is available in the **Zero-Knowledge Encryption Architecture** section.
 
-[Read more about Akeyless' Zero-Knowledge Encryption SaaS Architecture.](doc:vaultless-architecture)
+[Read more about Akeyless' Zero-Knowledge Encryption SaaS Architecture.](doc:zero-knowledge-architecture)
 
 ***
 
