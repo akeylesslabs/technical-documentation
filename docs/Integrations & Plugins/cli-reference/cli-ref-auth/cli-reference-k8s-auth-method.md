@@ -239,7 +239,7 @@ akeyless gateway-update-k8s-auth-config \
 
 `--rancher-api-key`: The API Key used to access the TokenReview API to validate other JWTs (relevant for "rancher" only)
 
-`--rancher-cluster-id`: The cluster id as define in rancher (relevant for "rancher" only)
+`--rancher-cluster-id`: The cluster ID as define in rancher (relevant for "rancher" only)
 
 `--k8s-issuer=[kubernetes/serviceaccount]`: The Kubernetes JWT issuer name. If not set, this \<Kubernetes/ServiceAccount> will be used by default.
 

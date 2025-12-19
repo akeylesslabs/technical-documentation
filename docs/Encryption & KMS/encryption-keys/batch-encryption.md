@@ -58,7 +58,7 @@ akeyless encrypt-batch -h
 
 * \--batch-data: Batch data in JSON array format.
 * \--batch-data-file-path: Path to the file containing batch data.
-* \--profile, --token: Use a specific profile (located at $HOME/.akeyless/profiles) or a temporary access token.
+* \--profile, --token: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temporary access token.
 * \--uid-token: The universal identity token (required only for universal\_identity authentication).
 * \-h, --help: Display help information.
 * \--JSON\[=false]\: Set output format to JSON.
@@ -77,7 +77,7 @@ akeyless decrypt-batch -h
 
 * \--batch-data: Batch data in JSON array format.
 * \--batch-data-file-path: Path to the file containing batch data.
-* \--profile, --token: Use a specific profile (located at $HOME/.akeyless/profiles) or a temporary access token.
+* \--profile, --token: Use a specific profile (`located at $HOME/.akeyless/profiles`) or a temporary access token.
 * \--uid-token: The universal identity token (required only for universal\_identity authentication).
 * \-h, --help: Display help information.
 * \--JSON\[=false]\: Set output format to JSON.

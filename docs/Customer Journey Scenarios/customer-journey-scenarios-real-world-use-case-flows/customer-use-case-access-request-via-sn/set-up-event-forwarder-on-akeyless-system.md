@@ -41,12 +41,12 @@ Initiate Creation: Inside the event forwarders section, there should be an optio
 ![](https://files.readme.io/71aa6c3-Screenshot_2024-03-05_at_10.40.16.png)
 
 * ServiceNow URL
-  * Instance url = https\://{user.your_seervicenow_instance_name}.service-now\.com//
-  * Api call url = for example pi/1235934/json\_reciver\_from\_akeyless/akeyless\_events, this is a path of Scripted Rest Resource path from ServiceNow admin console  
+  * Instance url = `https\://{user.your_seervicenow_instance_name}.service-now\.com//`
+  * API call url = for example `pi/1235934/JSON\_reciver\_from\_akeyless/akeyless\_events`, this is a path of Scripted Rest Resource path from ServiceNow admin console  
 
 ![](https://files.readme.io/5643d2b-Screenshot_2024-03-05_at_10.43.04.png)
 
-* Must have suffix = ?api=api
+* Must have suffix = `?api=api`
 * Authentication
   * For our example I am using user name / password auth
   * username = the admin user name of the instance, in case you are using the dev ServiceNow environment the user name called 'admin'

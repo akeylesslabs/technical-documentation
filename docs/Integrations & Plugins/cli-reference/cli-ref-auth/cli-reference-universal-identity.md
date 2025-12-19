@@ -74,7 +74,7 @@ akeyless uid-create-child-token \
 
 `--tid, --uid-token-id`: The ID of the uid-token, required only when uid-token is not provided
 
-`--profile` or `--token`: Use a specific Akeyless profile (located at $HOME/.akeyless/profiles) or a temporary access token
+`--profile` or `--token`: Use a specific Akeyless profile (located at `$HOME/.akeyless/profiles`) or a temporary access token
 
 `--uid-token`: The universal identity token. It is required only for universal_identity authentication
 

@@ -14,7 +14,7 @@ This section outlines the CLI commands relevant to authentication.
 
 <CLIGeneralFlags />
 
-## `Auth`
+## `auth`
 
 This command authenticates to Akeyless and saves the temporary token so that it can be used again until the token expires without the need to re-authenticate every time.
 
@@ -30,53 +30,53 @@ with the relevant flags according to the `access-type` being used.
 
 `--access-type[=access_key]`: Access Type (`access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert/oci`)
 
-`--access-key`: Access key (relevant only for access-type=`access_key`)
+`--access-key`: Access key (relevant only for `access-type=access_key`)
 
-`--cloud-id`: The cloud identity (relevant only for access-type=`azure_ad`,`aws_iam`,`gcp`)
+`--cloud-id`: The cloud identity (relevant only for `access-type=azure_ad`,`aws_iam`,`gcp`)
 
-`--uid_token`: The universal_identity token (relevant only for access-type=`universal_identity`)
+`--uid_token`: The universal_identity token (relevant only for `access-type=universal_identity`)
 
-`--jwt`: The JSON Web Token (relevant only for access-type=`jwt`/`oidc`)
+`--jwt`: The JSON Web Token (relevant only for `access-type=jwt` and `access-type=oidc`)
 
-`--admin-password`: Password (relevant only for access-type=`password`)
+`--admin-password`: Password (relevant only for `access-type=password`)
 
-`--admin-email`: Email (relevant only for access-type=`password`)
+`--admin-email`: Email (relevant only for `access-type=password`)
 
-`--oidc-sp`: OIDC Service Provider (relevant only for access-type=`oidc`, inferred if empty),supported SPs:`google`, `github`
+`--oidc-sp`: OIDC Service Provider (relevant only for `access-type=oidc`, inferred if empty),supported SPs:`google`, `github`
 
-`--ldap_proxy_url`: Address URL for LDAP proxy (relevant only for access-type=`ldap`)
+`--ldap_proxy_url`: Address URL for LDAP proxy (relevant only for `access-type=ldap`)
 
-`--username`: LDAP username (relevant only for access-type=`ldap`)
+`--username`: LDAP username (relevant only for `access-type=ldap`)
 
-`--password`: LDAP password (relevant only for access-type=`ldap`)
+`--password`: LDAP password (relevant only for `access-type=ldap`)
 
-`--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for access-type=`gcp`)
+`--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for `access-type=gcp`)
 
-`--gateway-url`: Gateway URL for the K8s authenticated (relevant only for access-type=`k8s`)
+`--gateway-url`: Gateway URL for the K8s authenticated (relevant only for `access-type=k8s`)
 
-`--k8s-auth-config-name`: The K8s Auth config name (relevant only for access-type=`k8s`)
+`--k8s-auth-config-name`: The K8s Auth config name (relevant only for `access-type=k8s`)
 
 `--k8s-service-account-token`: The K8s service account token
 
-`--cert-file-name`: Name of the cert file to use (relevant only for access-type=`cert`)
+`--cert-file-name`: Name of the cert file to use (relevant only for `access-type=cert`)
 
-`--cert-data`: Certificate data encoded in Base64. Used if file was not provided. (relevant only for access-type=`cert`)
+`--cert-data`: Certificate data encoded in Base64. Used if file was not provided. (relevant only for `access-type=cert`)
 
-`--key-file-name`: Name of the private key file to use (relevant only for access-type=`cert`)
+`--key-file-name`: Name of the private key file to use (relevant only for `access-type=cert`)
 
-`--key-data`: Private key data encoded in Base64. Used if file was not provided.(relevant only for access-type=`cert`)
+`--key-data`: Private key data encoded in Base64. Used if file was not provided.(relevant only for `access-type=cert`)
 
-`--signed-cert-challenge`: Signed certificate challenge encoded in Base64. (relevant only for access-type=`cert`)
+`--signed-cert-challenge`: Signed certificate challenge encoded in Base64. (relevant only for `access-type=cert`)
 
-`--cert-challenge`: Certificate challenge encoded in Base64. (relevant only for access-type=`cert`)
+`--cert-challenge`: Certificate challenge encoded in Base64. (relevant only for `access-type=cert`)
 
-`--oci-auth-type[=apikey]`: The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type=oci)
+`--oci-auth-type[=apikey]`: The type of the OCI configuration to use [instance/apikey/resource] (relevant only for `access-type=oci`)
 
-`--oci-group-ocid`: A list of Oracle Cloud IDs groups (relevant only for access-type=oci)
+`--oci-group-ocid`: A list of Oracle Cloud IDs groups (relevant only for `access-type=oci`)
 
-`--use-remote-browser`: Returns a link to complete the authentication remotely (relevant only for `access-type`=`saml/oidc`)
+`--use-remote-browser`: Returns a link to complete the authentication remotely (relevant only for `access-type=saml` and `access-type=oidc`)
 
-`--debug`: Use this flag for a printout of the authorization `JWT`.
+`--debug`: Use this flag for a printout of the authorization JWT.
 
 ## Create
 
@@ -146,7 +146,7 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-### `Aws-iam`
+### `aws-iam`
 
 Create a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -205,7 +205,7 @@ akeyless auth-method create aws-iam \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### `Azure-ad`
+### `azure-ad`
 
 Create a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -243,7 +243,7 @@ akeyless auth-method create azure-ad \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-`-b, --bound-tenant-id`: **Required**, The Azure tenant id that the access is restricted to
+`-b, --bound-tenant-id`: **Required**, The Azure tenant ID that the access is restricted to
 
 `--issuer`: Issuer URL (=`https://sts.windows.net/bound_tenant_id`)
 
@@ -269,7 +269,7 @@ akeyless auth-method create azure-ad \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### `Cert`
+### `cert`
 
 Create a new Auth Method that will be able to authenticate using a client certificate
 
@@ -328,7 +328,7 @@ akeyless auth-method create cert \
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
-### `Email`
+### `email`
 
 Create a new Auth Method that will be able to authenticate using an email address
 
@@ -368,7 +368,7 @@ akeyless auth-method create email \
 
 `--email`: **Required**, An email address to be invited to have access
 
-### `Gcp`
+### `gcp`
 
 Create a new Auth Method that will be able to authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
 
@@ -408,7 +408,7 @@ akeyless auth-method create gcp \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-`-t, --type`: **Required**, The type of the GCP Auth Method (iam/gce)
+`-t, --type`: **Required**, The type of the GCP Auth Method (IAM/GCE)
 
 `-a, --audience[=akeyless.io]`: **Required**, The audience to verify in the JWT received by the client
 
@@ -428,7 +428,7 @@ akeyless auth-method create gcp \
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
-### `Oauth2`
+### `oauth2`
 
 Create a new Auth Method that will be able to authenticate using OAuth2
 
@@ -483,7 +483,7 @@ akeyless auth-method create oauth2 \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters"
 
-### `Oci`
+### `oci`
 
 Create a new Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -526,7 +526,7 @@ akeyless auth-method create oci \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-### `Oidc`
+### `oidc`
 
 Creates a new Authentication Method object that will allow the user to authenticate using OIDC
 
@@ -582,7 +582,7 @@ akeyless auth-method create oidc \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
-### `Saml`
+### `saml`
 
 Create a new Auth Method that will be able to authenticate using SAML
 
@@ -634,7 +634,7 @@ akeyless auth-method create saml \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
-## `Get-cloud-identity`
+## `get-cloud-identity`
 
 Get Cloud Identity Token (relevant only for access-type=`azure_ad`, `aws_iam`, `gcp`, `oci`)
 
@@ -648,7 +648,7 @@ akeyless get-cloud-identity \
 
 #### Flags
 
-`--cloud-provider`: Cloud provider (azure_ad/aws_iam/gcp)
+`--cloud-provider`: Cloud provider (`azure_ad`/`aws_iam`/`gcp`)
 
 `--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for access-type=`azure_ad`)
 
@@ -668,7 +668,7 @@ akeyless get-cloud-identity \
 
 Update Auth Method
 
-### `Api-key`
+### `api-key`
 
 Update a new API Key Auth Method in the account
 
@@ -704,7 +704,7 @@ akeyless auth-method update api-key --name <Auth method>
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-#### `Aws-iam`
+#### `aws-iam`
 
 Update a new Auth Method that will be able to authenticate using AWS IAM credentials
 
@@ -758,7 +758,7 @@ akeyless auth-method update aws-iam \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-#### `Azure-ad`
+#### `azure-ad`
 
 Update a new Auth Method that will be able to authenticate using Azure Active Directory credentials
 
@@ -797,7 +797,7 @@ akeyless auth-method update azure-ad \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-`-b, --bound-tenant-id`: **Required**, The Azure tenant id that the access is restricted to
+`-b, --bound-tenant-id`: **Required**, The Azure tenant ID that the access is restricted to
 
 `--issuer[=https://sts.windows.net/bound_tenant_id]`: Issuer URL
 
@@ -821,7 +821,7 @@ akeyless auth-method update azure-ad \
 
 `--bound-resource-id`: A list of full resource ids that the access is restricted to
 
-#### `Cert`
+#### `cert`
 
 Update a new Auth Method that will be able to authenticate using a client certificate.
 
@@ -880,7 +880,7 @@ akeyless auth-method update cert \
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OIDC, OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
 
-#### `Gcp`
+#### `gcp`
 
 Update a new Auth Method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials
 
@@ -920,7 +920,7 @@ akeyless auth-method update gcp \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-`-t, --type`: **Required**, The type of the GCP Auth Method (iam/gce)
+`-t, --type`: **Required**, The type of the GCP Auth Method (`iam`/`gce`)
 
 `-a, --audience[=akeyless.io]`: **Required**, The audience to verify in the JWT received by the client
 
@@ -938,7 +938,7 @@ akeyless auth-method update gcp \
 
 `--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data`  becomes mandatory.
 
-#### `Oauth2`
+#### `oauth2`
 
 Update a new Auth Method that will be able to authenticate using OAuth2
 
@@ -991,7 +991,7 @@ akeyless auth-method update oauth2 \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
-#### `Oci`
+#### `oci`
 
 Update an Oracle Auth Method that will be used in the account using OCI principle and groups
 
@@ -1035,7 +1035,7 @@ akeyless auth-method update oci \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-#### `Oidc`
+#### `oidc`
 
 Update a new Auth Method that will be able to authenticate using OIDC
 
@@ -1093,7 +1093,7 @@ akeyless auth-method update oidc \
 
 `-d, --delimiters`          A list of additional sub-claims delimiters
 
-#### `Saml`
+#### `saml`
 
 Update a new Auth Method that will be able to authenticate using SAML
 
@@ -1142,7 +1142,7 @@ akeyless auth-method update saml \
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
-## `Validate-token`
+## `validate-token`
 
 Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
 
@@ -1153,7 +1153,7 @@ akeyless validate-token \
 --token <Token to validate>
 ```
 
-## `Revoke-creds`
+## `revoke-creds`
 
 This command will permanently revoke the credentials associated with the provided token or profile
 
@@ -1181,7 +1181,7 @@ akeyless auth-method list \
 
 #### Flags
 
-`-t, --type`: The auth method types list of the requested method. In case it is empty, all types of auth method will be returned. options: [api_key, azure_ad, oauth2/jwt, saml2, ldap, aws_iam, oidc, universal_identity, gcp, k8s, cert]
+`-t, --type`: The Auth Method types list of the requested method. In case it is empty, all types of Auth Method will be returned. options: [`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
 
 `--filter`: Filter by Auth Method name or part of it
 

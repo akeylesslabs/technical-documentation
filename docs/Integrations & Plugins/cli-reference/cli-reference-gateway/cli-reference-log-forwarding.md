@@ -20,7 +20,7 @@ This section outlines the CLI commands relevant to the Gateway Log-Forwarding.
 
 To forward your Akeyless Audit Logs directly from your Gateway, you can set the relevant settings of your target logs server using the CLI.
 
-## `Update`
+## `update`
 
 Command to update log forwarding configuration
 
@@ -48,9 +48,9 @@ Command to update log forwarding configuration
 
 `syslog`
 
-### `AWS S3`
+### `aws-s3`
 
-Updates Log Forwarding config for AWS-S3
+Updates Log Forwarding config for AWS S3
 
 #### Usage
 
@@ -123,7 +123,7 @@ akeyless gateway update log-forwarding azure-analytics \
 
 `--workspace-key`: Azure workspace key
 
-### `Datadog`
+### `datadog`
 
 Updates Log Forwarding config for Datadog
 
@@ -219,7 +219,7 @@ akeyless gateway update log-forwarding elasticsearch \
 
 `--tls-certificate[=use-existing]`: ElasticSearch TLS certificate (`PEM format`) in a Base64 format
 
-### `Google Chronicle`
+### `google-chronicle`
 
 Updates Log Forwarding config for Google-Chronicle
 
@@ -258,7 +258,7 @@ akeyless gateway update log-forwarding google-chronicle \
 
 `--log-type`: Google Chronicle log type
 
-### `ELK - Logstash`
+### `logstash`
 
 Updates Log Forwarding config for Logstash
 
@@ -297,7 +297,7 @@ akeyless gateway update log-forwarding logstash \
 
 `--tls-certificate[=use-existing]`: Logstash TLS certificate (PEM format) in a Base64 format
 
-### `Logz.io`
+### `logz-io`
 
 Updates Log Forwarding config for logz-io
 
@@ -327,7 +327,7 @@ akeyless gateway update log-forwarding logz-io \
 
 `--protocol`: Logz-io protocol [TCP/HTTPS]
 
-### `Splunk`
+### `splunk`
 
 Updates Log Forwarding config for Splunk
 
@@ -375,7 +375,7 @@ akeyless gateway update log-forwarding splunk \
 
 `--tls-certificate[=use-existing]`: Logstash TLS certificate (PEM format) in a Base64 format
 
-### `STDOUT`
+### `stdout`
 
 Updates Log Forwarding config for standard output
 
@@ -399,9 +399,9 @@ akeyless gateway update log-forwarding stdout \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-### `Sumo Logic`
+### `sumologic`
 
-Updates Log Forwarding config for sumologic
+Updates Log Forwarding config for Sumologic
 
 #### Usage
 
@@ -432,7 +432,7 @@ akeyless gateway update log-forwarding sumologic \
 
 `--host[=use-existing]`: Sumologic host
 
-### `Syslog`
+### `syslog`
 
 Updates Log Forwarding config for Syslog
 
@@ -477,7 +477,7 @@ akeyless gateway update log-forwarding syslog \
 
 `--tls-certificate[=use-existing]`: Logstash TLS certificate (PEM format) in a Base64 format
 
-### `Get`
+### `get`
 
 Command to get log forwarding configuration
 
