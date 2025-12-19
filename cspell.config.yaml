@@ -29,6 +29,7 @@ ignorePaths:
   - samples/**
   - .gitignore
   - cspell.config.yaml
+  - docs/Contributing Guides/look-feel-sample-page-title.md
 
 dictionaryDefinitions:
   - name: akeyless
