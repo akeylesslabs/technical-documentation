@@ -249,7 +249,7 @@ az deployment group create -g <resource_group> -f main.bicep -p params.biceppara
 Alternatively, the `/akeyless-serverless-gateway/bicep/Azure/serverless-gateway/Mainfile` file can be configured to create the resource group and to install the serverless Gateway by setting the following:
 
 ```shell
-RESOURCE_GROUP = akeless-serverless-gateway
+RESOURCE_GROUP = akeyless-serverless-gateway
 LOCATION = <location>
 BICEP_MAIN = main.bicep
 BICEP_PARAMS = params.bicepparam
