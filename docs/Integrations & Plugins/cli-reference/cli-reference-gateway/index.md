@@ -18,7 +18,7 @@ This section outlines the CLI commands relevant to the Gateway.
 
 Commands for managing the access of users to your Gateway.
 
-### `Add-gw-access-id`
+### `add-gw-access-id`
 
 Grants Gateway access to users
 
@@ -39,7 +39,7 @@ akeyless add-gw-access-id \
 
 `-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
 
-### `Delete-gw-access-id`
+### `delete-gw-access-id`
 
 Denials Gateway access to users
 
@@ -126,7 +126,7 @@ akeyless gateway-update-allowed-access \
 
 ## Gateway Configuration
 
-### `Delete-gateway-cluster`
+### `delete-gateway-cluster`
 
 Deletes a gateway in the account
 
@@ -144,7 +144,7 @@ akeyless delete-gateway-cluster \
 
 `--force`: Deletes cluster even if there is an active gateway or associated secrets. All Gateway secrets will be deleted
 
-### `Gateway-get-config`
+### `gateway-get-config`
 
 Gets gateway configuration details
 
@@ -155,7 +155,7 @@ akeyless gateway-get-config \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-### `Gateway-update-tls-cert`
+### `gateway-update-tls-cert`
 
 Updates TLS certificate in the Gateway
 
@@ -180,11 +180,11 @@ akeyless gateway-update-tls-cert \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `Gateway Get`
+## `gateway get`
 
 Command to get specified gateway configuration
 
-### `Gateway Get Cache`
+### `gateway get cache`
 
 Get cache settings
 
@@ -195,7 +195,7 @@ akeyless gateway get cache \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-### `Gateway Get Defaults`
+### `gateway get defaults`
 
 Get defaults settings
 
@@ -206,9 +206,9 @@ akeyless gateway get defaults \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-## `Gateway List`
+## `gateway list`
 
-### `Gateway List Customer-fragments`
+### `gateway list customer-fragments`
 
 Command to list the Customer Fragments on the Gateway
 
@@ -219,11 +219,11 @@ akeyless gateway list customer-fragments \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-## `Gateway Update`
+## `gateway update`
 
 Command to update specified gateway configuration
 
-### `Gateway Update Cache`
+### `gateway update cache`
 
 Updates cache settings
 
@@ -251,7 +251,7 @@ akeyless gateway update cache \
 
 `-u, --gateway-url`: Gateway URL (Configuration Management port)
 
-### `Gateway Update Defaults`
+### `gateway update defaults`
 
 Updates defaults settings
 

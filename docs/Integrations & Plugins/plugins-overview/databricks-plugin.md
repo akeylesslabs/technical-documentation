@@ -82,9 +82,9 @@ This notebook retrieves a secret (API Key), fetches data from a public API, and 
 
 What it does:
 
-* Installs the Akeyless SDK and the akeyless\_cloud\_id helper, which generates the required identity token.
-* akeyless\_cloud\_id helps authenticate with Akeyless using Azure Managed Identity.
-* %restart\_python is required in Databricks after installing new packages to reload the environment.
+* Installs the Akeyless SDK and the `akeyless_cloud_id` helper, which generates the required identity token.
+* `akeyless_cloud_id` helps authenticate with Akeyless using Azure Managed Identity.
+* `%restart_python` is required in Databricks after installing new packages to reload the environment.
 
 ```shell Python
 # Import Akeyless SDK and cloud ID generator

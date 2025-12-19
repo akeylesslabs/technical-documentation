@@ -23,7 +23,7 @@ This guide will demonstrate the use of an [OAuth 2.0 / JWT](https://docs.akeyles
 1. An Azure Service Connection (see [here](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/getting-started.md#azure-setup) for setup if you don't have)
 2. A [JWT Authentication Method](https://docs.akeyless.io/docs/oauth20jwt) that points to the Service Connection with `Read` access to secrets
 3. The Akeyless extension added to your Azure DevOps pipeline. You can do this in one of two ways:
-   1. Search for 'akeyless secrets' when adding a new task
+   1. Search for `akeyless secrets` when adding a new task
    2. Go to [Akeyless Extensions - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=LancelotSoftware.akeyless-extensions)
 
 > 📘 Step-by-Step

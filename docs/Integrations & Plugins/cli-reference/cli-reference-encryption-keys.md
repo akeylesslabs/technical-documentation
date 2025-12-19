@@ -42,9 +42,9 @@ akeyless assoc-target-item \
 
 `--key-operations`: A list of allowed operations for the key. (Relevant only for Classic Key and target association. Required for Azure targets)
 
-`--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+`--project-id`: Project ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+`--location-id`: Location ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
 `--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
@@ -210,9 +210,9 @@ akeyless decrypt \
 
 `-k, --key-name`: **Required**, The name of the key to use in the decryption process.
 
-`-d, --display-id`: The display id of the key to use in the decryption process
+`-d, --display-id`: The display ID of the key to use in the decryption process
 
-`-I, --item-id`: The item id of the key to use in the decryption process
+`-I, --item-id`: The item ID of the key to use in the decryption process
 
 `-i, --in`: Path to the file to be decrypted (Base64 encoded)
 
@@ -243,9 +243,9 @@ akeyless decrypt-file \
 
 `--key-name`: **Required**, The name of the key to use in the decryption process
 
-`-d, --display-id`: The display id of the key to use in the decryption process
+`-d, --display-id`: The display ID of the key to use in the decryption process
 
-`-I, --item-id`: The item id of the key to use in the decryption process
+`-I, --item-id`: The item ID of the key to use in the decryption process
 
 `-i, --in`: Path to the file to be decrypted. If not provided, the content will be taken from stdin
 
@@ -274,9 +274,9 @@ akeyless decrypt-gpg \
 
 `-k, --key-name`: **Required**, The name of the key to use in the decryption process.
 
-`-d, --display-id`: The display id of the key to use in the decryption process
+`-d, --display-id`: The display ID of the key to use in the decryption process
 
-`-I, --item-id`: The item id of the key to use in the decryption process
+`-I, --item-id`: The item ID of the key to use in the decryption process
 
 `-i, --in`: Path to the file to be decrypted (Base64 encoded)
 
@@ -308,9 +308,9 @@ akeyless decrypt-pkcs1 \
 
 `-k, --key-name`: **Required**, The name of the key to use in the decryption process
 
-`-d, --display-id`: The display id of the key to use in the decryption process
+`-d, --display-id`: The display ID of the key to use in the decryption process
 
-`-I, --item-id`: The item id of the key to use in the decryption process
+`-I, --item-id`: The item ID of the key to use in the decryption process
 
 `-c, --ciphertext`: **Required**, Ciphertext to be decrypted in Base64 encoded format
 
@@ -334,9 +334,9 @@ akeyless encrypt \
 
 `-k, --key-name`: The name of the key to use in the encryption process
 
-`-d, --display-id`: The display id of the key to use in the encryption process
+`-d, --display-id`: The display ID of the key to use in the encryption process
 
-`-I, --item-id`: The item id of the key to use in the encryption process
+`-I, --item-id`: The item ID of the key to use in the encryption process
 
 `-i, --in`: Path to the file to be encrypted in Base64 format
 
@@ -366,9 +366,9 @@ akeyless encrypt-file \
 
 `-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
-`-d, --display-id`: The display id of the key to use in the encryption process
+`-d, --display-id`: The display ID of the key to use in the encryption process
 
-`-I, --item-id`: The item id of the key to use in the encryption process
+`-I, --item-id`: The item ID of the key to use in the encryption process
 
 `-i, --in`: **Required**, Path to the file to be encrypted. If not provided, the content will be taken from stdin
 
@@ -396,9 +396,9 @@ akeyless encrypt-gpg \
 
 `-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
-`-d, --display-id`: The display id of the key to use in the encryption process
+`-d, --display-id`: The display ID of the key to use in the encryption process
 
-`-I, --item-id`: The item id of the key to use in the encryption process
+`-I, --item-id`: The item ID of the key to use in the encryption process
 
 `-i, --in`: Path to the file to be encrypted in Base64 format
 
@@ -426,9 +426,9 @@ akeyless encrypt-pkcs1 \
 
 `-k, --key-name`: **Required**,The name of the key to use in the encryption process
 
-`-d, --display-id`: The display id of the key to use in the encryption process
+`-d, --display-id`: The display ID of the key to use in the encryption process
 
-`-I, --item-id`: The item id of the key to use in the encryption process
+`-I, --item-id`: The item ID of the key to use in the encryption process
 
 `-p, --plaintext`: **Required**, Data to be encrypted
 
@@ -524,9 +524,9 @@ akeyless hmac \
 
 `-k, --key-name`: **Required**, The name of the key to use in the encryption process
 
-`-d, --display-id`: The display id of the key to use in the encryption process
+`-d, --display-id`: The display ID of the key to use in the encryption process
 
-`-I, --item-id`: The item id of the key to use in the encryption process
+`-I, --item-id`: The item ID of the key to use in the encryption process
 
 `-i, --in`: Path to the input file
 
@@ -611,9 +611,9 @@ akeyless sign-ecdsa \
 
 `-k, --key-name`: The name of the EC key to use for the signing process
 
-`-d, --display-id`: The display id of the EC key to use for the signing process
+`-d, --display-id`: The display ID of the EC key to use for the signing process
 
-`-I, --item-id`: The item id of the key EC to use for the signing process
+`-I, --item-id`: The item ID of the key EC to use for the signing process
 
 `--version`: The version of the key to use for signing
 
@@ -639,9 +639,9 @@ akeyless sign-gpg \
 
 `-k, --key-name`: **Required**, The name of the RSA key to use in the signing process
 
-`-d, --display-id`: The display id of the key to use in the signing process
+`-d, --display-id`: The display ID of the key to use in the signing process
 
-`-I, --item-id`: The item id of the key to use in the signing process
+`-I, --item-id`: The item ID of the key to use in the signing process
 
 `-m, --message`: **Required**, The message to be signed
 
@@ -665,9 +665,9 @@ akeyless sign-pkcs1 \
 
 `-k, --key-name`: **Required**, The name of the RSA key to use in the signing process
 
-`-d, --display-id`: The display id of the key to use in the signing process
+`-d, --display-id`: The display ID of the key to use in the signing process
 
-`-I, --item-id`: The item id of the key to use in the signing process
+`-I, --item-id`: The item ID of the key to use in the signing process
 
 `--version`: The version of the key to use for signing
 
@@ -681,7 +681,7 @@ akeyless sign-pkcs1 \
 
 ## `sign-rsassa-pss`
 
-Calculates the signature of a given message using rsassa-pss
+Calculates the signature of a given message using RSASSA-PSS
 
 ### Usage
 
@@ -697,9 +697,9 @@ akeyless sign-rsassa-pss \
 
 `-k, --key-name`: The name of the RSA key to use for the signing process
 
-`-d, --display-id`: The display id of the RSA key to use for the signing process
+`-d, --display-id`: The display ID of the RSA key to use for the signing process
 
-`-I, --item-id`: The item id of the RSA key to use for the signing process
+`-I, --item-id`: The item ID of the RSA key to use for the signing process
 
 `--version`: The version of the key to use for signing
 
@@ -852,9 +852,9 @@ akeyless verify-ecdsa \
 
 `-k, --key-name`: The name of the EC key to use for the verification process
 
-`-d, --display-id`: The display id of the key EC to use for the verification process
+`-d, --display-id`: The display ID of the key EC to use for the verification process
 
-`-I, --item-id`: The item id of the EC key to use for the verification process
+`-I, --item-id`: The item ID of the EC key to use for the verification process
 
 `-m, --message`: (**Mandatory**) The input message to sign in a Base64 format
 
@@ -879,9 +879,9 @@ akeyless verify-gpg \
 
 `-k, --key-name`: The name of the RSA key to use in the verification process
 
-`-d, --display-id`: The display id of the key to use in the verification process
+`-d, --display-id`: The display ID of the key to use in the verification process
 
-`-I, --item-id`: The item id of the key to use in the verification process
+`-I, --item-id`: The item ID of the key to use in the verification process
 
 `-m, --message`: **Required**, The message to be verified.
 
@@ -908,9 +908,9 @@ akeyless verify-pkcs1 \
 
 `-k, --key-name`: **Required**, The name of the RSA key to use in the verification process
 
-`-d, --display-id`: The display id of the key to use in the verification process
+`-d, --display-id`: The display ID of the key to use in the verification process
 
-`-I, --item-id`: The item id of the key to use in the verification process
+`-I, --item-id`: The item ID of the key to use in the verification process
 
 `-m, --message`: **Required**, The message to be verified.
 
@@ -918,7 +918,7 @@ akeyless verify-pkcs1 \
 
 ## `verify-rsassa-pss`
 
-Verifies an rsassa-pss signature
+Verifies an RSASSA-PSS signature
 
 ### Usage
 
@@ -935,9 +935,9 @@ akeyless verify-rsassa-pss \
 
 `-k, --key-name`: The name of the RSA key to use for the verification process
 
-`-d, --display-id`: The display id of the RSA key to use for the verification process
+`-d, --display-id`: The display ID of the RSA key to use for the verification process
 
-`-I, --item-id`: The item id of the RSA key to use for the verification process
+`-I, --item-id`: The item ID of the RSA key to use for the verification process
 
 `-f, --hash-function[=sha-256]`: Hash function [sha-256,sha-384,sha-512]
 

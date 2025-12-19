@@ -34,9 +34,9 @@ akeyless kmip-client-delete-rule \
 
 `-p, --path`: **Required**, Access path, e.g /* or /some-key
 
-`-n, --name`: KMIP client name (either name or id are required)
+`-n, --name`: KMIP client name (either name or ID are required)
 
-`-i, --client-id`: KMIP client ID (either name or id are required)
+`-i, --client-id`: KMIP client ID (either name or ID are required)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -73,9 +73,9 @@ akeyless kmip-client-set-rule \
 
 `-c, --capability`: **Required**, Access capability (see command description for supported values)
 
-`-n, --name`: KMIP client name (either name or id are required)
+`-n, --name`: KMIP client name (either name or ID are required)
 
-`-i, --client-id`: KMIP client ID (either name or id are required)
+`-i, --client-id`: KMIP client ID (either name or ID are required)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -110,9 +110,9 @@ Delete a KMIP client
 
 #### Flags
 
-`-n, --name`: KMIP client name (either name or id are required)
+`-n, --name`: KMIP client name (either name or ID are required)
 
-`-i, --client-id`: KMIP client ID (either name or id are required)
+`-i, --client-id`: KMIP client ID (either name or ID are required)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -122,9 +122,9 @@ Show KMIP client details
 
 #### Flags
 
-`-n, --name`: KMIP client name (either name or id are required)
+`-n, --name`: KMIP client name (either name or ID are required)
 
-`-i, --client-id`: KMIP client ID (either name or id are required)
+`-i, --client-id`: KMIP client ID (either name or ID are required)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -150,9 +150,9 @@ Renew KMIP client certificate
 
 #### Flags
 
-`-n, --name`: KMIP client name (either name or id are required)
+`-n, --name`: KMIP client name (either name or ID are required)
 
-`-i, --client-id`: KMIP client ID (either name or id are required)
+`-i, --client-id`: KMIP client ID (either name or ID are required)
 
 `-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: \<client-name>.key and \<client-name>.cert
 
@@ -214,7 +214,7 @@ akeyless kmip-server-setup \
 
 `-r, --root`: **Required**, Root path of KMIP Objects
 
-`-p, --output-file-folder`: Folder path to save CA certificate file (for example, '.'). A new file will be created in that folder: ca.cert.
+`-p, --output-file-folder`: Folder path to save CA certificate file (for example, '.'). A new file will be created in that folder: `ca.cert`.
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

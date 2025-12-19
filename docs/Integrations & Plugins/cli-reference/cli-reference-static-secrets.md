@@ -96,9 +96,9 @@ akeyless describe-item \
 
 `-n, --name`: Item name
 
-`-d, --display-id`: The display id of the item
+`-d, --display-id`: The display ID of the item
 
-`-I, --item-id`: Item id of the item
+`-I, --item-id`: Item ID of the item
 
 `--show-versions[=false]` : Include all item versions in reply
 

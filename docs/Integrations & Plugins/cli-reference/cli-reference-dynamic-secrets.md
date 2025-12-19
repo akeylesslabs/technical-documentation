@@ -688,15 +688,15 @@ akeyless dynamic-secret create github \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`--installation-id`: GitHub application installation id
+`--installation-id`: GitHub application installation ID
 
-`--installation-organization`: Optional, instead of installation id, set a GitHub organization name
+`--installation-organization`: Optional, instead of installation ID, set a GitHub organization name
 
-`--installation-repository`: Optional, instead of installation id, set a GitHub repository \<`owner`>/\<`repo-name`>
+`--installation-repository`: Optional, instead of installation ID, set a GitHub repository \<`owner`>/\<`repo-name`>
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`--github-app-id`: GitHub application id
+`--github-app-id`: GitHub application ID
 
 `--github-app-private-key`: GitHub application private key (Base64 encoded key)
 
@@ -1967,9 +1967,9 @@ akeyless dynamic-secret update aws \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-aws-account-id`: The AWS account id
+`--secure-access-aws-account-id`: The AWS account ID
 
-`--secure-access-aws-native-cli`: The AWS native cli
+`--secure-access-aws-native-cli`: The AWS native CLI
 
 `--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
 
@@ -2376,15 +2376,15 @@ akeyless dynamic-secret update github \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`--installation-id`: GitHub application installation id
+`--installation-id`: GitHub application installation ID
 
-`--installation-organization`: Optional, mutually exclusive with installation id, GitHub organization name
+`--installation-organization`: Optional, mutually exclusive with installation ID, GitHub organization name
 
-`--installation-repository`: Optional, instead of installation id, set a GitHub repository `<owner>/<repo-name>`
+`--installation-repository`: Optional, instead of installation ID, set a GitHub repository `<owner>/<repo-name>`
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`--github-app-id`: GitHub application id
+`--github-app-id`: GitHub application ID
 
 `--github-app-private-key`: GitHub application private key (Base64 encoded key)
 
