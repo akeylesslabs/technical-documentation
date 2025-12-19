@@ -263,7 +263,7 @@ Gets Gateway Kubernetes Auth config
 
 ```shell
 akeyless gateway-get-k8s-auth-config \
---name <K8S Auth config name> \
+--name <K8s Auth config name> \
 --gateway-url <API Gateway URL:8000> 
 ```
 

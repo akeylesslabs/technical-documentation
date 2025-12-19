@@ -1749,10 +1749,10 @@ Updates an existing Kubernetes target in the current account
 ```shell
 akeyless target update k8s \
 --name <Target Name> \
---k8s-cluster-endpoint <K8S Cluster endpoint> \
---k8s-cluster-ca-cert <K8S Cluster certificate> \
---k8s-cluster-token <K8S Cluster authentication token> \
---k8s-cluster-name <K8S cluster name> \
+--k8s-cluster-endpoint <K8s Cluster endpoint> \
+--k8s-cluster-ca-cert <K8s Cluster certificate> \
+--k8s-cluster-token <K8s Cluster authentication token> \
+--k8s-cluster-name <K8s cluster name> \
 --new-name <New target name> 
 ```
 
@@ -1760,13 +1760,13 @@ akeyless target update k8s \
 
 `-n, --name`: **Required**, Target name
 
-`-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https:// , \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: **Required**, K8s Cluster endpoint. https:// , \<DNS / IP> of the cluster
 
 `-c, --k8s-cluster-ca-cert`: **Required**, K8s Cluster certificate. Base 64 encoded certificate
 
 `-t, --k8s-cluster-token`: **Required**, K8s Cluster authentication token
 
-`-i, --use-gw-service-account`: Use the GW's service account
+`-i, --use-gw-service-account`: Use the Gateway's ServiceAccount
 
 `--k8s-auth-type[=token]`: K8s auth type, [token/certificate]
 
