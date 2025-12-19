@@ -58,7 +58,7 @@ akeyless set-role-rule --role-name /Dev/Spire-Agent-Role \
 
 ## Configuration
 
-Run the following command to download and unpack pre-built `spire-server` and `spire-agent` executables and example configuration files in a spire-1.7.0 directory.
+Run the following command to download and unpack pre-built `spire-server` and `spire-agent` executables and example configuration files in a SPIRE-1.7.0 directory.
 
 ```Text Shell
 curl -s -N -L https://github.com/spiffe/spire/releases/download/v1.7.0/spire-1.7.0-linux-amd64-glibc.tar.gz | tar xz

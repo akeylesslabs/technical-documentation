@@ -125,7 +125,7 @@ usc delete \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`-s, --secret-id`: **Required**, The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
+`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
@@ -145,7 +145,7 @@ usc get \
 
 `-n, --usc-name`: **Required**, USC name
 
-`-s, --secret-id`: **Required**, The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
+`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
@@ -210,7 +210,7 @@ usc update \
 
 `-n, --usc-name`: **Required**, USC name
 
-`-s, --secret-id`: **Required**, The secret id (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
+`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 

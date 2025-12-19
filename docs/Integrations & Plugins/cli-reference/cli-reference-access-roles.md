@@ -248,7 +248,7 @@ akeyless update-assoc --assoc-id <association ID to be updated>
 
 ### Flags
 
-`-a, --assoc-id`: **Required**, The association id to be updated
+`-a, --assoc-id`: **Required**, The association ID to be updated
 
 `-s, --sub-claims`: key/val of sub claims, e.g group=admins,developers
 
