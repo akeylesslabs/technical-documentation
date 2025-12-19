@@ -14,13 +14,13 @@ This section outlines the CLI commands relevant to Event Forwarder.
 
 <CLIGeneralFlags />
 
-## `Event-forwarder`
+## `event-forwarder`
 
-### `Event-forwarder Create`
+### `event-forwarder create`
 
 Commands for managing the event forwarders.
 
-#### `Event-forwarder Create Email`
+#### `event-forwarder create email`
 
 Create a new Email Event Forwarder
 
@@ -71,7 +71,7 @@ akeyless event-forwarder create email \
 
 `--description`: Description of the object
 
-#### `Event-forwarder Create Servicenow`
+#### `event-forwarder create servicenow`
 
 Create a new Service Now Event Forwarder
 
@@ -131,7 +131,7 @@ akeyless event-forwarder create servicenow \
 
 `--description`: Description of the object
 
-#### `Event-forwarder Create Slack`
+#### `event-forwarder create slack`
 
 Create a new Slack Event Forwarder
 
@@ -177,7 +177,7 @@ akeyless event-forwarder create slack \
 
 `--description`: Description of the object
 
-#### `Event-forwarder Create Webhook`
+#### `event-forwarder create webhook`
 
 Create a new Webhook Event Forwarder
 
@@ -243,7 +243,7 @@ akeyless event-forwarder create webhook \
 
 `--description`: Description of the object
 
-#### `Event-forwarder Create Teams`
+#### `event-forwarder create teams`
 
 Create a new teams Event Forwarder
 
@@ -291,13 +291,13 @@ akeyless event-forwarder create teams \
 
 ###
 
-### `Event-forwarder Delete`
+### `event-forwarder delete`
 
 #### Flags
 
 `-n, --name`: **Required**, Event Forwarder name
 
-### `Event-forwarder Get`
+### `event-forwarder get`
 
 #### Flags
 

@@ -57,7 +57,7 @@ akeyless delete-gw-access-id \
 
 `-a, --access-id`: **Required**, The `Access ID` to be able to access the gateway
 
-### `Gateway-create-allowed-access`
+### `gateway-create-allowed-access`
 
 Add users that will have permission to manage the Gateway
 
@@ -89,7 +89,7 @@ akeyless gateway-create-allowed-access \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-### `Gateway-update-allowed-access`
+### `gateway-update-allowed-access`
 
 Set users that will have permission to manage the Gateway
 

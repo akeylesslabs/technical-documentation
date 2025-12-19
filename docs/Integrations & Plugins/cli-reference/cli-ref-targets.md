@@ -394,7 +394,7 @@ akeyless target create github \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
 
-### `Gke`
+### `gke`
 
 Creates a new GKE target in the current account
 
@@ -433,7 +433,7 @@ akeyless target create gke \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Globalsign`
+### `globalsign`
 
 Creates a new GlobalSign Target in the current account
 
@@ -477,7 +477,7 @@ akeyless target create globalsign \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Globalsign-atlas`
+### `globalsign-atlas`
 
 Creates a new GlobalSign Atlas target in the current account
 
@@ -512,7 +512,7 @@ akeyless target create globalsign-atlas \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Godaddy`
+### `godaddy`
 
 Creates a new GoDaddy target
 
@@ -554,7 +554,7 @@ akeyless target create godaddy \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Hashi-vault`
+### `hashi-vault`
 
 Creates a new HashiCorp Vault target
 
@@ -584,7 +584,7 @@ akeyless target create hashi-vault \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-### `K8s`
+### `k8s`
 
 Creates a new Kubernetes target in the current account
 
@@ -593,10 +593,10 @@ Creates a new Kubernetes target in the current account
 ```shell
 akeyless target create k8s \
 --name <Target name> \
---k8s-cluster-endpoint <K8S Cluster endpoint> \
---k8s-cluster-ca-cert <K8S Cluster certificate> \
---k8s-cluster-token <K8S Cluster authentication token> \
---k8s-cluster-name <K8S cluster name> \
+--k8s-cluster-endpoint <K8s Cluster endpoint> \
+--k8s-cluster-ca-cert <K8s Cluster certificate> \
+--k8s-cluster-token <K8s Cluster authentication token> \
+--k8s-cluster-name <K8s cluster name> \
 --key <Key name>
 ```
 
@@ -629,7 +629,7 @@ akeyless target create k8s \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Ldap`
+### `ldap`
 
 Creates a new LDAP target in the current account
 
@@ -669,7 +669,7 @@ akeyless target create ldap \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Linked`
+### `linked`
 
 Creates a new Linked Target which can inherit credentials from existing Targets
 
@@ -694,7 +694,7 @@ akeyless target create linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Ping`
+### `ping`
 
 Creates a new Ping target in the current account
 
@@ -728,7 +728,7 @@ akeyless target create ping \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Rabbitmq`
+### `rabbitmq`
 
 Creates a new RabbitMQ target in the current account
 
@@ -759,7 +759,7 @@ akeyless target create rabbitmq \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Salesforce`
+### `salesforce`
 
 Creates a new Salesforce target in the current account
 
@@ -809,7 +809,7 @@ akeyless target create salesforce \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Sectigo`
+### `sectigo`
 
 Creates a new Sectigo target in the current account
 
@@ -852,7 +852,7 @@ akeyless target create sectigo \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Ssh`
+### `ssh`
 
 Creates a new SSH target in the current account
 
@@ -896,7 +896,7 @@ akeyless target create ssh \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Web`
+### `web`
 
 Creates a new web target in the current account
 
@@ -921,7 +921,7 @@ akeyless target create web \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Windows`
+### `windows`
 
 Creates a new Windows Target in the current account
 
@@ -959,7 +959,7 @@ akeyless target create windows \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Zerossl`
+### `zerossl`
 
 Creates a new ZeroSSL Target in the current account
 
@@ -999,7 +999,7 @@ akeyless target create zerossl \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-## `Assoc-target-item`
+## `assoc-target-item`
 
 Create an association between target and item
 
@@ -1055,7 +1055,7 @@ akeyless assoc-target-item \
 
 `--external-key-name`: The external key name to associate with the classic key (Relevant only for Classic Key AWS/Azure/GCP targets)
 
-## `Delete-assoc-target-item`
+## `delete-assoc-target-item`
 
 Delete an association between target and item
 
@@ -1076,7 +1076,7 @@ akeyless delete-assoc-target-item \
 
 `-t, --target-name`: The target name with which association will be deleted
 
-## `Delete`
+## `delete`
 
 Delete a target in the current account
 
@@ -1096,7 +1096,7 @@ akeyless target delete \
 
 `--force-deletion[=false]`: Delete target even if it has associated items
 
-## `Delete-targets`
+## `delete-targets`
 
 Delete multiple targets from a given path
 
@@ -1129,7 +1129,7 @@ akeyless target get --name <Target name>
 
 `--show-versions[=false]`: Include all target versions in reply
 
-## `Get-details`
+## `get-details`
 
 Get details of the specified target
 
@@ -1147,7 +1147,7 @@ akeyless target get-details --name <Target Name>
 
 `--show-versions[=false]`: Include all target versions in reply
 
-## `List`
+## `list`
 
 List of all targets in the account
 
@@ -1864,7 +1864,7 @@ akeyless target update linked \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `Rabbitmq`
+#### `rabbitmq`
 
 Update an existing new RabbitMQ target in the current account
 
@@ -1902,7 +1902,7 @@ akeyless target update rabbitmq \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Salesforce`
+#### `salesforce`
 
 Updates the Salesforce target in the current account
 
@@ -1959,7 +1959,7 @@ akeyless target update salesforce \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Sectigo`
+#### `sectigo`
 
 Updates the Sectigo target in the current account
 
@@ -2005,7 +2005,7 @@ akeyless target create sectigo \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `Ssh`
+#### `ssh`
 
 Update an existing SSH target in the current account
 
@@ -2053,7 +2053,7 @@ akeyless target update ssh \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Web`
+#### `web`
 
 Update an existing web target in the current account
 
@@ -2084,7 +2084,7 @@ akeyless target update web \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Windows`
+#### `windows`
 
 Update an existing Windows Target in the current account
 
