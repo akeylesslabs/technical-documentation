@@ -140,7 +140,7 @@ You can enable caching of secrets and periodic backup of cached secrets, set the
 
 To work with proactive caching set the `proActiveCaching` to true and set the `minimumFetchingTime` to config the Gateway to update secrets in the cache if they are older than the specified value with the `dumpInterval` to set the time in minutes between the two consecutive backups.
 
-To keep your cluster pods always synced via a `clusterCache`  service, you must provide a local Kubernetes Secret with an encryption key to encrypt at rest the cached secrets:
+To keep your cluster pods always synced via a `clusterCache` service, you must provide a local Kubernetes Secret with an encryption key to encrypt at rest the cached secrets:
 
 ```shell
 kubectl create secret generic cluster-cache-encryption-key \
@@ -212,7 +212,7 @@ akeylessUserAuth:
   restrictServiceToAccessIds:
 ```
 
-In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway.  Alternatively, to block specific `AccessIDs` you can use the `blockedAccessIds` variable instead.
+In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively, to block specific `AccessIDs` you can use the `blockedAccessIds` variable instead.
 
 ## Fixed Artifact Repository
 
@@ -228,7 +228,7 @@ fixedArtifactRepository: "artifacts.site2.akeyless.io"
 
 ## Rate Limit
 
-To set a local rate limit on your Gateway instance you can add the `GW_RATE_LIMIT`  environment variable where the value will set the maximum calls per minute. When a client reaches that threshold, this will be logged and any additional requests during that minute will be discarded on the Gateway:
+To set a local rate limit on your Gateway instance you can add the `GW_RATE_LIMIT` environment variable where the value will set the maximum calls per minute. When a client reaches that threshold, this will be logged and any additional requests during that minute will be discarded on the Gateway:
 
 ```yaml YAML
 env:
