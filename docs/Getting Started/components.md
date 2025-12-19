@@ -21,7 +21,7 @@ The Akeyless Platform is composed of several components that work together to pr
 * **Client Tools** (CLI, SDKs, API)
 * Optional **Customer Fragment (CF)** in the customer environment
 
-Distributed Fragments Cryptography (DFC) and the Vaultless architecture are implemented across these components but are described in detail on their dedicated pages.
+Distributed Fragments Cryptography (DFC) and the Zero-Knowledge Encryption architecture are implemented across these components but are described in detail on their dedicated pages.
 
 ***
 
@@ -151,10 +151,10 @@ A typical cryptographic or secret-management request works as follows:
 6. The Gateway or client assembles a one-time derived key and completes the requested operation.
 7. Derived key material is discarded immediately after use.
 
-This workflow maintains the Vaultless and non-reconstructive guarantees of the platform.
+This workflow maintains the zero-knowledge and non-reconstructive guarantees of the platform.
 
 ***
 
 ## Summary
 
-The Akeyless Platform consists of cloud-hosted control-plane services, internal fragment managers, and optional customer-deployed components. Each component has a clearly defined role, and none of them—individually or collectively—store or reconstruct full private keys. Together, they implement the Vaultless model and Distributed Fragments Cryptography used for secure, scalable identity operations.
+The Akeyless Platform consists of cloud-hosted control-plane services, internal fragment managers, and optional customer-deployed components. Each component has a clearly defined role, and none of them—individually or collectively—store or reconstruct full private keys. Together, they implement the Zero-Knowledge model and Distributed Fragments Cryptography used for secure, scalable identity operations.
