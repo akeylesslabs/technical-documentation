@@ -19,7 +19,7 @@ To sign software artifacts and verify signatures using Sigstore, you need to ins
 The following registries are compatible with the Sigstore signature specification and its implementation in **Cosign**:
 
 * **GitLab**
-* **DockerHub**
+* **Docker Hub**
 
 > 📘 Gateway Version
 >
@@ -102,7 +102,7 @@ akeyless create-classic-key -n Cosign -a RSA2048 --gateway-url https://<Your-Gat
 
 ## Importing the Image
 
-Log in to your DockerHub account, and [pull the image](https://docs.docker.com/engine/reference/commandline/image_pull/) from your repository. If there is no existing image in the repository, [build one](https://docs.docker.com/docker-hub/quickstart/#step-5-build-and-push-a-container-image-to-docker-hub-from-your-computer):
+Log in to your Docker Hub account, and [pull the image](https://docs.docker.com/engine/reference/commandline/image_pull/) from your repository. If there is no existing image in the repository, [build one](https://docs.docker.com/docker-hub/quickstart/#step-5-build-and-push-a-container-image-to-docker-hub-from-your-computer):
 
 ```shell
 docker pull <DockerHubUser>/<Image:Tag>
@@ -118,7 +118,7 @@ Sign the image with cosign by executing the following command (Ensure that you r
 ./cosign_linux_amd64 sign --key akeyless://Cosign <DockerHubUser>/<Image:Tag>@sha256:<sha>
 ```
 
-After executing the above command, you will be prompted to accept the terms of use. Once accepted, cosign will sign the image, and a new signature will be uploaded to your DockerHub repository
+After executing the above command, you will be prompted to accept the terms of use. Once accepted, cosign will sign the image, and a new signature will be uploaded to your Docker Hub repository
 
 To verify the signature, use the following command:
 
@@ -138,4 +138,4 @@ The following checks were performed on each of these signatures:
 [{"critical":{"identity":{"docker-reference":"index.docker.io/<DockerHubUser>/<Image>"},"image":{"docker-manifest-digest":"sha256:351752acbb4aec202bcc30f7c78b57d4f5739d7d0e872b439757066204009a9b"},"type":"cosign container image signature"},"optional":{"Bundle":{"SignedEntryTimestamp":"MEQCIFYeShPI6v0K4VvNWXZ454aspDjc6DxlBcOp0ieQF+7XAiAPYfgHRVYqn0KTKMA7NSFJWSd769MXHLlNvWib7yAZ5A==","Payload":{"body":"eyJhcGlWZXJzaW9uIjoiMC4wLjEiLCJraW5kIjoiaGFzaGVkcmVrb3JkIiwic3BlYyI6eyJkYXRhIjp7Imhhc2giOnsiYWxnb3JpdGhtIjoic2hhMjU2IiwidmFsdWUiOiJiMjc1OTFhMDdkZTEzOWZmYjI0ZGIyYjgxNjYyNzlmNmNhMWM4N2Q1NzVkOWU0MDU3MWM0NzU3NmY2ZTllZDhlIn19LCJzaWduYXR1cmUiOnsiY29udGVudCI6Ik01aHZGQXZDLzhYaXR3cEQyT0dQOVNvb2pIWHdtVUdUVE0yZkN4ZkFVbWpCN2lDc3dFVzVpbEx2UHNqTTJ3OFpTck9CRTRCWHR0REp5cEtCYVkrdUxTMURUOEZMT2FBSVZtVU5oT05Lek5OaDc1OGovSWlxTjFCSlNQdjljVTl5MEkyOWErdmVZNi9kaFIwNDJuZk5IMTJuTzJGVzY5aFNDRm9pd1MxQ0pnR1QrZUVJblgxck5xTjRGQk5uVGN1ZmxXNGJvUTBsRkZTdWEvZklyVzZJWmZhOGd3bjZTWXFUTytudFkxdXZuOWlnNmRBTEhJTnV2bWhSaWhOaGcwbXNKT2FQQ05aVDF4cE9halkzQnJBSmxLb1NNaW5NTGJZWWtYSTQrT29NTzhsNUlrbzBVcEtsK2I4MThIbTdXZ3NBUnJWanFVSHNQbU1ZbGp2dmsxUzJsZz09IiwicHVibGljS2V5Ijp7ImNvbnRlbnQiOiJMUzB0TFMxQ1JVZEpUaUJRVlVKTVNVTWdTMFZaTFMwdExTMEtUVWxKUWtscVFVNUNaMnR4YUd0cFJ6bDNNRUpCVVVWR1FVRlBRMEZST0VGTlNVbENRMmRMUTBGUlJVRjZSSFp1ZFRoT2NqaHVXVWs1YzFsa1ZHaHNkUXBDVjBOVWR6aEZXSFZ6VkVKcE9WZ3paM1Y0ZGt3MWNsRjViRnBwWjBwQ1pXMVVablJuVlhRMWVXZFBhMnRRVjA5dWRuVm5ja1J5VEZCcGFrZG1hRTlrQ2tORGMzSldTbkZpYlRRMVJWUkJORTg1T1docVpuaDNkbmQxVEZscFYzSlVLMDVMWnpWbVdUaHhXRTlSZW5NNGIwSlNjRlZwWldGUlduSlpkR2hGYTJNS1EzQnRXR1Y1Y0M5c01XWjZjbE5ZWkhadVozUm9ObXRSYWtKNmNsWk5URWhSTlhwbFp6ZG5ZMGhSYUdvMGNVRXllRTl4VGtoM2FIY3JlRkJuVWtaUVlncEVXVXhWVFRsVGVrZDZSMlJCZWxSR1dqaEZZMlVyZURaU1ZqZE1WM2RNUTJkek5HcGxha05RWm5CVk5rTXJlRWRFWkZaa1ZIVmxVelpuWjFCbVNFTnhDalU1VVdaUWRYRjBjRTVxTTJWWlZXVTVibU4zVmxCUlREVXdhVFoxTTJoamEyUlJWM2RqT1cxUGFuZHBSbWxCYm5RMFRYVkViMGhvYnpCaGQzTmpaR2dLVlZGSlJFRlJRVUlLTFMwdExTMUZUa1FnVUZWQ1RFbERJRXRGV1MwdExTMHRDZz09In19fX0=","integratedTime":1706178518,"logIndex":66371780,"logID":"c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d"}}}}]
 ```
 
-Additionally, the signature will appear in your DockerHub account under the "Tags" tab.
+Additionally, the signature will appear in your Docker Hub account under the "Tags" tab.

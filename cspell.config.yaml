@@ -1,4 +1,8 @@
-# npx cspell "**/*.md" --no-progress
+# Just Run It:
+#   cspell "**/*.md" --no-progress
+# Run It focusing on most common issues:
+#   cspell "**/*.md" --no-progress --quiet --reporter @cspell/cspell-json-reporter | jq -r '.issues[].text' | sort | uniq -c | sort -nr | head -5
+
 
 # yaml-language-server: $schema=https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
 

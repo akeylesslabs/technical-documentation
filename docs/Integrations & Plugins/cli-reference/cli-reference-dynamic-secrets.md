@@ -44,7 +44,7 @@ Command to create a Dynamic Secret
 
 `custom`: Creates a Custom webhook dynamic secret
 
-`dockerhub`: Creates a Dockerhub dynamic secret
+`dockerhub`: Creates a Docker Hub dynamic secret
 
 `eks`: Creates Amazon Elastic Kubernetes Service (Amazon EKS) dynamic secret
 
@@ -54,7 +54,7 @@ Command to create a Dynamic Secret
 
 `gke`: Creates Google Kubernetes Engine (GKE) dynamic secret
 
-`hanadb`: Creates HanaDB dynamic secret
+`hanadb`: Creates a SAP HANA database dynamic secret
 
 `k8s`: Creates Native Kubernetes Service dynamic secret
 
@@ -450,7 +450,7 @@ akeyless dynamic-secret create custom \
 
 ### `dockerhub`
 
-Creates a Dockerhub Dynamic Secret
+Creates a Docker Hub Dynamic Secret
 
 #### Usage
 
@@ -767,7 +767,7 @@ akeyless dynamic-secret create gke \
 
 ### `hanadb`
 
-Creates HanaDB Dynamic Secret
+Creates a SAP HANA Dynamic Secret
 
 #### Usage
 
@@ -783,11 +783,11 @@ akeyless dynamic-secret create hanadb \
 akeyless dynamic-secret create hanadb \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---hana-dbname <HanaDB name> \
---hanadb-username <HanaDB admin username> \
---hanadb-password <HanaDB admin password> \
---hanadbt-host <HanaDB host> \
---hanadb-port <HanaDB port> \
+--hana-dbname <SAP HANA database name> \
+--hanadb-username <SAP HANA database admin username> \
+--hanadb-password <SAP HANA database admin password> \
+--hanadbt-host <SAP HANA database host> \
+--hanadb-port <SAP HANA database port> \
 --hanadb-creation-statements CREATE USER {{name}} PASSWORD '{{password}}';GRANT 'MONITOR ADMIN' TO {{name}}; \
 --hanadb-revocation-statements DROP USER {{name}};
 ```
@@ -798,19 +798,19 @@ akeyless dynamic-secret create hanadb \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-d, --hana-dbname`: Hana DB Name
+`-d, --hana-dbname`: SAP HANA DB Name
 
-`--hanadb-username`: HanaDB user
+`--hanadb-username`: SAP HANA database user
 
-`--hanadb-password`: HanaDB password
+`--hanadb-password`: SAP HANA database password
 
-`--hanadb-host[=127.0.0.1]`: HanaDB host name
+`--hanadb-host[=127.0.0.1]`: SAP HANA database host name
 
-`--hanadb-port[=443]`: HanaDB port
+`--hanadb-port[=443]`: SAP HANA database port
 
-`--hanadb-creation-statements[=CREATE USER {{name}} PASSWORD {{password}}; GRANT MONITOR ADMIN TO {{name}};]`: HanaDB Creation Statements
+`--hanadb-creation-statements[=CREATE USER {{name}} PASSWORD {{password}}; GRANT MONITOR ADMIN TO {{name}};]`: SAP HANA database Creation Statements
 
-`--hanadb-revocation-statements[=DROP USER {{name}};]`: HanaDB Revocation Statements
+`--hanadb-revocation-statements[=DROP USER {{name}};]`: SAP HANA database Revocation Statements
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
@@ -1822,7 +1822,7 @@ Command to update a Dynamic Secret
 
 `custom`: Updates a Custom webhook dynamic secret
 
-`dockerhub`: Updates a Dockerhub dynamic secret
+`dockerhub`: Updates a Docker Hub dynamic secret
 
 `eks`: Updates Amazon Elastic Kubernetes Service (Amazon EKS) dynamic secret
 
@@ -1832,7 +1832,7 @@ Command to update a Dynamic Secret
 
 `gke`: Updates Google Kubernetes Engine (GKE) dynamic secret
 
-`hanadb`: Updates HanaDB dynamic secret
+`hanadb`: Updates SAP HANA database dynamic secret
 
 `k8s`: Updates Native Kubernetes Service dynamic secret
 
@@ -2460,10 +2460,10 @@ akeyless dynamic-secret update hanadb \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---hanadb-username <HanaDB user> \
---hanadb-password <--hanadb-password> \
---hanadb-host <HanaDB host name (Deafult = 127.0.0.1) \
---hanadb-port <HanaDB port (Deafult = 443) \
+--hanadb-username <SAP HANA database user> \
+--hanadb-password <SAP HANA database-password> \
+--hanadb-host <SAP HANA database host name (Deafult = 127.0.0.1) \
+--hanadb-port <SAP HANA database port (Deafult = 443) \
 --producer-encryption-key-name <Encrypt Dynamic Secret producer with following key>
 ```
 
@@ -2475,19 +2475,19 @@ akeyless dynamic-secret update hanadb \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-d, --hana-dbname`: HanaDB database Name
+`-d, --hana-dbname`: SAP HANA database database Name
 
-`--hanadb-username`: HanaDB user
+`--hanadb-username`: SAP HANA database user
 
-`--hanadb-password`: HanaDB password
+`--hanadb-password`: SAP HANA database password
 
-`--hanadb-host[=127.0.0.1]`: HanaDB host name
+`--hanadb-host[=127.0.0.1]`: SAP HANA database host name
 
-`--hanadb-port[=443]`: HanaDB port
+`--hanadb-port[=443]`: SAP HANA database port
 
-`--hanadb-creation-statements[=CREATE USER {{name}} PASSWORD {{password}}; GRANT MONITOR ADMIN TO {{name}};]`: HanaDB Creation Statements
+`--hanadb-creation-statements[=CREATE USER {{name}} PASSWORD {{password}}; GRANT MONITOR ADMIN TO {{name}};]`: SAP HANA database Creation Statements
 
-`--hanadb-revocation-statements[=DROP USER {{name}};]`: HanaDB Revocation Statements
+`--hanadb-revocation-statements[=DROP USER {{name}};]`: SAP HANA database Revocation Statements
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

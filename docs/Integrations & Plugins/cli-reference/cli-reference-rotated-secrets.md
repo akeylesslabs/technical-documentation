@@ -315,7 +315,7 @@ akeyless rotated-secret create custom \
 
 ### `dockerhub`
 
-Creates a new DockerHub rotated secret item
+Creates a new Docker Hub rotated secret item
 
 #### Usage
 
@@ -410,7 +410,7 @@ akeyless rotated-secret create gcp \
 
 ### `hanadb`
 
-Creates a new HANADB rotated secret item
+Creates a new SAP HANA database rotated secret item
 
 #### Usage
 
@@ -1096,41 +1096,41 @@ Commands to update a Rotated Secret
 
 ### Subcommands
 
-`aws`: Updates new AWS rotated secret item
+`aws`: Updates an AWS rotated secret item
 
-`azure`: Updates new Azure rotated secret item
+`azure`: Updates an Azure rotated secret item
 
-`cassandra`: Updates new Cassandra rotated secret item
+`cassandra`: Updates a Cassandra rotated secret item
 
-`custom`: Updates new custom rotated secret item
+`custom`: Updates a custom rotated secret item
 
-`dockerhub`: Updates new dockerhub rotated secret item
+`dockerhub`: Updates a Docker Hub rotated secret item
 
-`gcp`: Updates new GCP rotated secret item.
+`gcp`: Updates a GCP rotated secret item.
 
-`hanadb`: Updates new hanadb rotated secret item
+`hanadb`: Updates a SAP HANA database rotated secret item
 
-`ldap`: Updates new LDAP rotated secret item
+`ldap`: Updates a LDAP rotated secret item
 
-`mongodb`: Updates new MongoDB rotated secret item
+`mongodb`: Updates a MongoDB rotated secret item
 
-`mssql`: Updates new MSSQL rotated secret item
+`mssql`: Updates a MSSQL rotated secret item
 
-`mysql`: Updates new MySQL rotated secret item
+`mysql`: Updates a MySQL rotated secret item
 
-`oracledb`: Updates new OracleDB rotated secret item
+`oracledb`: Updates an OracleDB rotated secret item
 
-`postgresql`: Updates new PostgreSQL rotated secret item
+`postgresql`: Updates a PostgreSQL rotated secret item
 
-`redis`: Updates new Redis rotated secret item
+`redis`: Updates a Redis rotated secret item
 
-`redshift`: Updates new Redshift rotated secret item
+`redshift`: Updates a Redshift rotated secret item
 
-`snowflake`: Updates new Snowflake rotated secret item
+`snowflake`: Updates a Snowflake rotated secret item
 
-`ssh`: Updates new SSH rotated secret item
+`ssh`: Updates a SSH rotated secret item
 
-`windows`: Updates new Windows rotated secret item
+`windows`: Updates a Windows rotated secret item
 
 ### `aws`
 

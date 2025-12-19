@@ -1155,7 +1155,7 @@ List of all targets in the account
 
 `--filter`: Filter by target name or part of it
 
-`-t, --type`: The target types list of the requested targets. In case it is empty, all types of targets will be returned. Options: [hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]
+`-t, --type`: The target types list of the requested targets. In case it is empty, all types of targets will be returned. Options: `[hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]`
 
 `--pagination-token`: Next page reference
 
@@ -1372,7 +1372,7 @@ akeyless update-db-target \
 
 #### `dockerhub`
 
-updates an existing DockerHub target in the current account
+updates an existing Docker Hub target in the current account
 
 ##### Usage
 
