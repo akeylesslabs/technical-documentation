@@ -1266,6 +1266,123 @@ config:
   #       - ref
   AKY016: true
 
+  # AKY017: Disallow banned terminology and suggest preferred replacements
+  # Purpose:
+  #   Enforces approved product and security terminology across documentation.
+  #   Flags banned terms case-insensitively and provides guidance on preferred phrasing.
+  #
+  # Behavior:
+  #   - Searches case-insensitively
+  #   - Scans normal text, Markdown link text, link destinations (URLs), and inline/block HTML
+  #   - Ignores fenced/indented code blocks and inline code spans
+  #
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - terms:
+  #       - term: string               # Banned term or phrase
+  #         replacement: string        # Preferred replacement text
+  #         example_from: string        # (Optional) Example of discouraged usage
+  #         example_to: string          # (Optional) Example of preferred usage
+  AKY017:
+    terms:
+      # Akeyless Marketing Requests/Changes
+      - term: "Vaultless"
+        replacement: "Zero-Knowledge Encryption with Patented DFC"
+        example_from: "Vaultless Security with DFC"
+        example_to: "Zero-Knowledge Encryption with Patented DFC"
+
+      - term: "vault-less"
+        replacement: "Zero-Knowledge Encryption with Patented DFC"
+        example_from: "Vaultless Security with DFC"
+        example_to: "Zero-Knowledge Encryption with Patented DFC"
+
+      - term: "Non-human"
+        replacement: "Workload Identity Federation"
+        example_from: "Non-Human Identity Federation"
+        example_to: "Workload Identity Federation"
+        
+      # Ableist / exclusionary phrasing
+      - term: "sanity check"
+        replacement: "quick check"
+        example_from: "Run a sanity check on the configuration."
+        example_to: "Run a quick check on the configuration."
+
+      - term: "dummy value"
+        replacement: "placeholder value"
+        example_from: "Use a dummy value for testing."
+        example_to: "Use a placeholder value for testing."
+
+      - term: "dummy data"
+        replacement: "sample data"
+        example_from: "Load dummy data into the database."
+        example_to: "Load sample data into the database."
+
+      - term: "cripple"
+        replacement: "disable"
+        example_from: "Cripple TLS verification in dev."
+        example_to: "Disable TLS verification in dev."
+
+      - term: "crippled"
+        replacement: "disabled"
+        example_from: "The feature is crippled by default."
+        example_to: "The feature is disabled by default."
+
+      - term: "crazy"
+        replacement: "unexpected"
+        example_from: "If you see a crazy error, retry."
+        example_to: "If you see an unexpected error, retry."
+
+      - term: "insane"
+        replacement: "unexpected"
+        example_from: "An insane number of requests can occur."
+        example_to: "An unexpected number of requests can occur."
+
+      - term: "lame"
+        replacement: "suboptimal"
+        example_from: "This is a lame workaround."
+        example_to: "This is a suboptimal workaround."
+
+      # Commonly discouraged technical metaphors
+      - term: "blacklist"
+        replacement: "denylist"
+        example_from: "Add the IP to the blacklist."
+        example_to: "Add the IP to the denylist."
+
+      - term: "whitelist"
+        replacement: "allowlist"
+        example_from: "Add the user to the whitelist."
+        example_to: "Add the user to the allowlist."
+
+      - term: "master"
+        replacement: "primary"
+        example_from: "Promote the master node."
+        example_to: "Promote the primary node."
+
+      - term: "slave"
+        replacement: "replica"
+        example_from: "The slave database is lagging."
+        example_to: "The replica database is lagging."
+
+      # UI language that improves accessibility clarity
+      - term: "see above"
+        replacement: "refer to the previous section"
+        example_from: "See above for details."
+        example_to: "Refer to the previous section for details."
+
+      - term: "see below"
+        replacement: "refer to the next section"
+        example_from: "See below for more information."
+        example_to: "Refer to the next section for more information."
+
+      - term: "click here"
+        replacement: "select the link (descriptive text)"
+        example_from: "Click here to open the console."
+        example_to: "Open the Akeyless Console."
+
+      - term: "just click"
+        replacement: "select"
+        example_from: "Just click the button to continue."
+        example_to: "Select the button to continue."
 
 
   # =========================
