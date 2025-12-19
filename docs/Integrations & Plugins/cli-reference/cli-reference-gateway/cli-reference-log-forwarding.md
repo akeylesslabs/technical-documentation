@@ -93,9 +93,9 @@ akeyless gateway update log-forwarding aws-s3 \
 
 `--role-arn`: AWS role arn relevant for `assume_role` auth-type
 
-### `Azure Log Analytics`
+### `azure-analytics`
 
-Updates Log Forwarding config for Azure-analytics
+Updates Log Forwarding config for Azure Log Analytics
 
 #### Usage
 
@@ -162,7 +162,7 @@ akeyless gateway update log-forwarding datadog \
 
 `--log-service[=use-existing]`: Datadog log service
 
-### `ELK - Elasticsearch`
+### `elasticsearch`
 
 Updates Log Forwarding config for ElasticSearch
 
