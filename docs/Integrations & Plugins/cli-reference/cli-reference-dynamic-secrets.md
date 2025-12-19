@@ -3398,8 +3398,8 @@ Revoke dynamic secret temporary credentials
 ```shell
 akeyless dynamic-secret tmp-creds delete \
 --name <Dynamic Secret name> \
---tmp-creds-id <Temp Creds ID> \
---revoke-all <Revoke All Temp Creds> \
+--tmp-creds-id <Temporary credentials ID> \
+--revoke-all \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --soft-delete <Use soft-delete> \
 --host <Host>
@@ -3409,9 +3409,9 @@ akeyless dynamic-secret tmp-creds delete \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`-i, --tmp-creds-id`: Temp Creds ID
+`-i, --tmp-creds-id`: Temporary credentials ID
 
-`--revoke-all`: Revoke All Temp Creds
+`--revoke-all`: Revoke all temporary credentials
 
 `-u, --gateway-url`: API Gateway URL (Configuration Management port)
 
@@ -3446,7 +3446,7 @@ Update TTL of dynamic secret temporary credentials
 ```shell
 akeyless dynamic-secret tmp-creds update \
 --name <Dynamic Secret name> \
---tmp-creds-id <Temp Creds ID> \
+--tmp-creds-id <Temporary credentials ID> \
 --new-ttl-min <New TTL in Minutes> \
 --host <Requested host>
 --gateway-url <'https://<Your-Akeyless-GW-URL:8000>'
@@ -3456,9 +3456,9 @@ akeyless dynamic-secret tmp-creds update \
 
 `-n, --name`: **Required**, Dynamic Secret name
 
-`-i, --tmp-creds-id`: **Required**, Temp Creds ID
+`-i, --tmp-creds-id`: **Required**, Temporary credentials ID
 
-`-t, --new-ttl-min`: **Required**, New TTL in Minutes
+`-t, --new-ttl-min`: **Required**, New TTL in minutes
 
 `--host`: Requested host (relevant in linked target only)
 

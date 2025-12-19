@@ -303,7 +303,7 @@ For **Explicit Credentials** provide the following:
 
 To connect using **Wallet** provide the following:
 
-**P12 File :** Wallet P12 file contains the key in PCKS12 format
+**P12 File :** Wallet P12 file contains the key in PKCS12 format
 
 **SSO File:** Wallet SSO file
 

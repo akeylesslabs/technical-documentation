@@ -860,3 +860,26 @@ ID
 UUID
 API
 SDK
+Cloud KMS CryptoKey Encrypter
+Cloud KMS CryptoKey Decrypter
+Cloud KMS CryptoKey Encrypter and Decrypter
+SPIFFE Verifiable Identity Documents
+SVID
+SVIDs
+Vertica
+PKCS12
+PKCS
+ITSM
+JDBC
+Java Database Connectivity
+FQDN
+Fully Qualified Domain Name
+Fully Qualified Class Name
+FQCN
+Cloud Development Kit for Terraform
+CDK for Terraform
+CDKTF
+Steampipe
+Logz.io
+SAP HANA
+SAP HANA database

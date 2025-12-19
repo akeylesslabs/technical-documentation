@@ -24,45 +24,45 @@ Commands to create a Rotated Secret
 
 ### Subcommands
 
-`aws`: Creates new AWS rotated secret item
+`aws`: Creates a new AWS rotated secret item
 
-`azure`: Creates new Azure rotated secret item
+`azure`: Creates a new Azure rotated secret item
 
-`cassandra`: Creates new Cassandra rotated secret item
+`cassandra`: Creates a new Cassandra rotated secret item
 
-`custom`: Creates new custom rotated secret item
+`custom`: Creates a new custom rotated secret item
 
-`dockerhub`: Creates new DockerHub rotated secret item
+`dockerhub`: Creates a new Docker Hub rotated secret item
 
-`gcp`: Creates new GCP rotated secret item.
+`gcp`: Creates a new GCP rotated secret item.
 
-`hanadb`: Creates new HANADB rotated secret item
+`hanadb`: Creates a new SAP HANA database rotated secret item
 
-`ldap`: Creates new LDAP rotated secret item
+`ldap`: Creates a new LDAP rotated secret item
 
-`mongodb`: Creates new MongoDB rotated secret item
+`mongodb`: Creates a new MongoDB rotated secret item
 
-`mssql`: Creates new MSSQL rotated secret item
+`mssql`: Creates a new MSSQL rotated secret item
 
-`mysql`: Creates new MySQL rotated secret item
+`mysql`: Creates a new MySQL rotated secret item
 
-`oracledb`: Creates new OracleDB rotated secret item
+`oracledb`: Creates a new OracleDB rotated secret item
 
-`postgresql`: Creates new PostgreSQL rotated secret item
+`postgresql`: Creates a new PostgreSQL rotated secret item
 
-`redis`: Creates new Redis rotated secret item
+`redis`: Creates a new Redis rotated secret item
 
-`redshift`: Creates new Amazon Redshift rotated secret item
+`redshift`: Creates a new Amazon Redshift rotated secret item
 
-`snowflake`: Creates new Snowflake rotated secret item
+`snowflake`: Creates a new Snowflake rotated secret item
 
-`ssh`: Creates new SSH rotated secret item
+`ssh`: Creates a new SSH rotated secret item
 
-`windows`: Creates new Windows rotated secret item
+`windows`: Creates a new Windows rotated secret item
 
 ### `aws`
 
-Creates new AWS rotated secret item
+Creates a new AWS rotated secret item
 
 #### Usage
 
@@ -128,7 +128,7 @@ akeyless rotated-secret create aws \
 
 ### `azure`
 
-Creates new Azure rotated secret item
+Creates a new Azure rotated secret item
 
 #### Usage
 
@@ -190,7 +190,7 @@ akeyless rotated-secret create azure \
 
 ### `cassandra`
 
-Creates new Cassandra rotated secret item
+Creates a new Cassandra rotated secret item
 
 #### Usage
 
@@ -236,7 +236,7 @@ Creates new Cassandra rotated secret item
 
 ### `custom`
 
-Creates new custom rotated secret item
+Creates a new custom rotated secret item
 
 #### Usage
 
@@ -315,7 +315,7 @@ akeyless rotated-secret create custom \
 
 ### `dockerhub`
 
-Creates new DockerHub rotated secret item
+Creates a new DockerHub rotated secret item
 
 #### Usage
 
@@ -352,7 +352,7 @@ akeyless rotated-secret create dockerhub \
 
 ### `gcp`
 
-Creates new GCP rotated secret item
+Creates a new GCP rotated secret item
 
 #### Usage
 
@@ -410,7 +410,7 @@ akeyless rotated-secret create gcp \
 
 ### `hanadb`
 
-Creates new HANADB rotated secret item
+Creates a new HANADB rotated secret item
 
 #### Usage
 
@@ -454,7 +454,7 @@ akeyless rotated-secret create hanadb \
 
 ### `ldap`
 
-Creates new LDAP rotated secret item
+Creates a new LDAP rotated secret item
 
 #### Usage
 
@@ -522,7 +522,7 @@ akeyless rotated-secret create ldap \
 
 ### `mongodb`
 
-Creates new MongoDB rotated secret item
+Creates a new MongoDB rotated secret item
 
 #### Usage
 
@@ -580,7 +580,7 @@ akeyless rotated-secret create mongodb \
 
 ### `mssql`
 
-Creates new MSSQL rotated secret item
+Creates a new MSSQL rotated secret item
 
 #### Usage
 
@@ -640,7 +640,7 @@ akeyless rotated-secret create mssql \
 
 ### `mysql`
 
-Creates new MySQL rotated secret item
+Creates a new MySQL rotated secret item
 
 #### Usage
 
@@ -698,7 +698,7 @@ akeyless rotated-secret create mysql \
 
 ### `oracledb`
 
-Creates new OracleDB rotated secret item
+Creates a new OracleDB rotated secret item
 
 #### Usage
 
@@ -754,7 +754,7 @@ akeyless rotated-secret create oracledb \
 
 ### `postgresql`
 
-Creates new PostgreSQL rotated secret item
+Creates a new PostgreSQL rotated secret item
 
 #### Usage
 
@@ -814,7 +814,7 @@ akeyless rotated-secret create postgresql \
 
 ### `redis`
 
-Creates new Redis rotated secret item
+Creates a new Redis rotated secret item
 
 #### Usage
 
@@ -860,7 +860,7 @@ akeyless rotated-secret create redis \
 
 ### `redshift`
 
-Creates new Amazon Redshift rotated secret item
+Creates a new Amazon Redshift rotated secret item
 
 #### Usage
 
@@ -914,7 +914,7 @@ akeyless rotated-secret create redshift \
 
 ### `snowflake`
 
-Creates new Snowflake rotated secret item
+Creates a new Snowflake rotated secret item
 
 #### Usage
 
@@ -964,7 +964,7 @@ akeyless rotated-secret create snowflake \
 
 ### `ssh`
 
-Creates new SSH rotated secret item
+Creates a new SSH rotated secret item
 
 #### Usage
 
@@ -1030,7 +1030,7 @@ akeyless rotated-secret create ssh \
 
 ### `windows`
 
-Creates new Windows rotated secret item
+Creates a new Windows rotated secret item
 
 #### Usage
 

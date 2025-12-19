@@ -131,7 +131,7 @@ Add JWT authentication in ServiceNow:
 
 <Image border={false} src="https://files.readme.io/010f9ce-Screenshot_2024-07-14_at_15.49.21.png" />
 
-* Pick role “x_akse_akeyless_sa_akeyless_access_request” from the collection, and Save:
+* Pick role `x_akse_akeyless_sa_akeyless_access_request` from the collection, and Save:
 
 <Image border={false} src="https://files.readme.io/e47d4a5-Screenshot_2024-07-14_at_15.49.00.png" />
 

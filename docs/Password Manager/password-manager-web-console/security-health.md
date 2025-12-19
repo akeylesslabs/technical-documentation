@@ -52,7 +52,7 @@ A toggle button has been added to allow users to enable or disable the password 
 
 ## Compromised Password Check
 
-As part of our Password Manager’s Security Health evaluation, we incorporate checks against external databases of known compromised credentials. Specifically, we leverage the “Have I Been Pwned” (HIBP) database, which aggregates publicly disclosed password breaches.
+As part of our Password Manager’s Security Health evaluation, we incorporate checks against external databases of known compromised credentials. Specifically, we leverage the “Have I Been Pwned” database, which aggregates publicly disclosed password breaches.
 
 This integration allows us to:
 

@@ -22,7 +22,7 @@ metadata:
   * GitHub (instead of Github)
   * Docker Hub (instead of dockerhub)
   * HashiCorp Vault (instead of Hashi-Vault)
-  * SAP HANA database (instead of HANA DB)
+  * SAP HANA database (instead of HANA DB or HANADB)
   * MySQL (instead of mysql)
   * MSSQL (instead of mssql)
   * Amazon Redshift (instead of Redshift)
