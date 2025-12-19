@@ -1248,6 +1248,7 @@ config:
       - UUID
       - API
       - SDK
+      - ZTWA
 
   # AKY014: Require meaningful image alt text
   # Knobs:
