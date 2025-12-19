@@ -32,7 +32,7 @@ Explanation: This library provides the interface between Oracle TDE and the exte
 
 ### File and Directory Permissions
 
-Step: Ensure that the necessary directories (such as /opt/oracle/extapi, /logs, and configuration folders) have the proper ownership and permissions for the Oracle user.  
+Step: Ensure that the necessary directories (such as `/opt/oracle/extapi`, `/logs`, and configuration folders) have the proper ownership and permissions for the Oracle user.  
 Explanation: Correct permissions are essential to avoid runtime errors and ensure that the Oracle Database and its wallet management processes have access to required files.
 
 ## Environment Setup and Library Installation
@@ -182,9 +182,9 @@ ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 ##### Explanation
 
 * Opening the Keystore:
-  * The first command opens the keystore using the provided password ("AKEYLESS").
+  * The first command opens the keystore using the provided password (`AKEYLESS`).
 * Setting the Master Key:
-  * The second command sets the TDE master encryption key. The CONTAINER=ALL option applies this change to the entire multitenant environment (both the container database and all pluggable databases).
+  * The second command sets the TDE master encryption key. The `CONTAINER=ALL` option applies this change to the entire multitenant environment (both the container database and all pluggable databases).
 * Verification:
   * You should verify in the Akeyless management console or by checking Oracle's views that the key has been created successfully.
 

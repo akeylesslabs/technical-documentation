@@ -122,7 +122,7 @@ akeyless gateway-update-ldap-auth-config \
 
 `--signing-key-file-name`: the path to the file containing the private key
 
-`--ldap-url`: LDAP Server URL, e.g. ldap://planetexpress.com:389
+`--ldap-url`: LDAP Server URL, e.g. `ldap://planetexpress.com:389`
 
 `-t, --ldap-ca-cert`: LDAP CA Certificate (Base64 encoded)
 
@@ -165,6 +165,6 @@ akeyless gateway-get-ldap-auth-config \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication

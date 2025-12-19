@@ -535,6 +535,7 @@ config:
       - SCP
       - FTP
       - FTPS
+      - URL
       - TCP
       - UDP
       - ICMP
@@ -549,6 +550,7 @@ config:
       - SNMP
       - Syslog
       - OAuth
+      - OAuth 2
       - OAuth 2.0
       - OIDC
       - OpenID Connect

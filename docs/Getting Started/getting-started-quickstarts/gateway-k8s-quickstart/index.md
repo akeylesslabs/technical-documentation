@@ -69,7 +69,7 @@ Hang tight while we grab the latest from your chart repositories...
 Update Complete. ⎈Happy Helming!⎈
 ```
 
-## Step 3: Fetch `Values.yaml`
+## Step 3: Fetch `values.yaml`
 
 Run the following command to save the default configuration values of the Akeyless Gateway Helm chart to your current directory as a new file called `values.yaml`:
 
@@ -88,7 +88,7 @@ There should be no command output.
 kubectl create secret generic access-key   --namespace akeyless   --from-literal=gateway-access-key=<Access-Key>
 ```
 
-## Step 5: Edit Values.yaml
+## Step 5: Edit `values.yaml`
 
 1. Using your text editor of choice, edit the `values.yaml` file you created earlier. Below we show the path to and the values that need to be added (`gatewayAccessId`, `gatewayAccessType`, `gatewayCredentialsExistingSecret`, `clusterName`, and `initialClusterDisplayName`).
 

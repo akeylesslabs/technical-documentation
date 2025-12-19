@@ -59,82 +59,82 @@ For more details, see [Akeyless Authentication Documentation](https://docs.akeyl
 
 \--access-id: Your Akeyless Access ID
 
-\--access-key: Your Akeyless Access Key (for access\_key auth)
+\--access-key: Your Akeyless Access Key (for `access_key` auth)
 
 \--access-type: Authentication method (see list above)
 
-\--gateway-url: Gateway URL (default: http\://localhost:8080/v2)
+\--gateway-url: Gateway URL (default: `http://localhost:8080/v2`)
 
 \--profile: Use an existing CLI profile
 
 ## Setting Up MCP With Cursor
 
-1. Install Akeyless CLI\
-   Ensure the Akeyless CLI is installed and configured.
-2. Update Cursor Settings\
-   Open settings (Cmd/Ctrl + Shift + P → Preferences: Open Settings (JSON)) and add:
+1. Install Akeyless CLI:
+    Ensure the Akeyless CLI is installed and configured.
 
-```yaml
-{
-  "mcp.servers": {
-    "akeyless": {
-      "command": "akeyless",
-      "args": ["mcp", "--profile", "your-profile-name", "--gateway-url", "https://api.akeyless.io"]
-    },
-    "akeyless-saml": {
-      "command": "akeyless",
-      "args": ["mcp", "--access-id", "your-access-id", "--access-type", "saml", "--gateway-url", "https://api.akeyless.io"]
-    },
-    "akeyless-oidc": {
-      "command": "akeyless",
-      "args": ["mcp", "--access-id", "your-access-id", "--access-type", "oidc", "--gateway-url", "https://api.akeyless.io"]
+2. Update Cursor Settings:
+    Open settings (Cmd/Ctrl + Shift + P → Preferences: Open Settings (JSON)) and add:
+
+    ```yaml
+    {
+      "mcp.servers": {
+        "akeyless": {
+          "command": "akeyless",
+          "args": ["mcp", "--profile", "your-profile-name", "--gateway-url", "https://api.akeyless.io"]
+        },
+        "akeyless-saml": {
+          "command": "akeyless",
+          "args": ["mcp", "--access-id", "your-access-id", "--access-type", "saml", "--gateway-url", "https://api.akeyless.io"]
+        },
+        "akeyless-oidc": {
+          "command": "akeyless",
+          "args": ["mcp", "--access-id", "your-access-id", "--access-type", "oidc", "--gateway-url", "https://api.akeyless.io"]
+        }
+      }
     }
-  }
-}
-```
+    ```
 
-3. Restart Cursor\
-   Restart for the changes to take effect.
-4. Verify\
-   You can now run queries such as:
+3. Restart Cursor for the changes to take effect.
 
-* “Show me my Akeyless secrets”
-* “Create a new secret called api-key”
-* “List all my targets”
+4. Verify that you can now run queries such as:
+
+    * “Show me my Akeyless secrets”
+    * “Create a new secret called `api-key`”
+    * “List all my targets”
 
 ## Setting Up MCP With GitHub Copilot
 
 1. Install Copilot CLI
 
-```shell
-npm install -g @githubnext/github-copilot-cli
-```
+    ```shell
+    npm install -g @githubnext/github-copilot-cli
+    ```
 
 2. Configure Copilot
 
-Edit \~/.copilot/config.yml to include:
+    Edit `\~/.copilot/config.yml` to include:
 
-```yaml
-mcpServers:
-  akeyless:
-    command: akeyless
-    args: ["mcp", "--profile", "your-profile-name", "--gateway-url", "https://api.akeyless.io"]
-  akeyless-saml:
-    command: akeyless
-    args: ["mcp", "--access-id", "your-access-id", "--access-type", "saml", "--gateway-url", "https://api.akeyless.io"]
-  akeyless-oidc:
-    command: akeyless
-    args: ["mcp", "--access-id", "your-access-id", "--access-type", "oidc", "--gateway-url", "https://api.akeyless.io"]
-```
+    ```yaml
+    mcpServers:
+      akeyless:
+        command: akeyless
+        args: ["mcp", "--profile", "your-profile-name", "--gateway-url", "https://api.akeyless.io"]
+      akeyless-saml:
+        command: akeyless
+        args: ["mcp", "--access-id", "your-access-id", "--access-type", "saml", "--gateway-url", "https://api.akeyless.io"]
+      akeyless-oidc:
+        command: akeyless
+        args: ["mcp", "--access-id", "your-access-id", "--access-type", "oidc", "--gateway-url", "https://api.akeyless.io"]
+    ```
 
 3. Start Copilot with MCP
 
-```shell
-copilot mcp
-```
+    ```shell
+    copilot mcp
+    ```
 
 4. Use Copilot
-   You can now manage secrets, configure targets, and perform infrastructure tasks via Copilot.
+    You can now manage secrets, configure targets, and perform infrastructure tasks via Copilot.
 
 ## Examples
 

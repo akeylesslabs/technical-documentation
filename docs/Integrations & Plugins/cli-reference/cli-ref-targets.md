@@ -14,7 +14,7 @@ This section outlines the CLI commands relevant to Targets.
 
 <CLIGeneralFlags />
 
-## `Create`
+## `create`
 
 Create a new Target
 
@@ -68,7 +68,7 @@ Create a new Target
 
 `zerossl`
 
-### `Artifactory`
+### `artifactory`
 
 Creates a new Artifactory target in the current account
 
@@ -99,7 +99,7 @@ akeyless target create artifactory \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Aws`
+### `aws`
 
 Creates a new AWS target in the current account
 
@@ -137,7 +137,7 @@ akeyless target create aws \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Azure`
+### `azure`
 
 Creates a new Azure target in the current account
 
@@ -155,15 +155,15 @@ akeyless target create azure \
 
 `-n, --name`: **Required**, Target name
 
-`--client-id`: **Required**, Azure client/application id
+`--client-id`: **Required**, Azure client/application ID
 
-`--tenant-id`: Azure tenant id
+`--tenant-id`: Azure tenant ID
 
 `--client-secret`: **Required**, Azure client secret
 
 `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
-`--subscription-id`: Azure Subscription Id
+`--subscription-id`: Azure Subscription ID
 
 `--resource-group-name`: The Resource Group name in your Azure Subscription
 
@@ -174,7 +174,7 @@ akeyless target create azure \
 `--description`: Target description
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Db`
+### `db`
 
 Creates a new DB target in the current account
 
@@ -218,9 +218,9 @@ akeyless target create db \
 
 `--db-server-name`: Server name is used to verify the hostname on the returned certificates unless InsecureSkipVerify is provided. It is also included in the client's handshake to support virtual hosting unless it is an IP address
 
-`--azure-client-id`: Azure client id (relevant for "cloud-service-provider" only)
+`--azure-client-id`: Azure client ID (relevant for "cloud-service-provider" only)
 
-`--azure-tenant-id`: Azure tenant id (relevant for "cloud-service-provider" only)
+`--azure-tenant-id`: Azure tenant ID (relevant for "cloud-service-provider" only)
 
 `--azure-client-secret`: Azure client secret (relevant for "cloud-service-provider" only)
 
@@ -244,7 +244,7 @@ akeyless target create db \
 
 `--oracle-wallet-p12-file-data`: Oracle wallet `p12` file data in Base64
 
-`--mongodb-atlas`: Flag, set database type to "mongodb" and the flag to "true" to create Mongo Atlas target
+`--mongodb-atlas`: Flag, set database type to `mongodb` and the flag to "true" to create Mongo Atlas target
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
@@ -262,7 +262,7 @@ akeyless target create db \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Dockerhub`
+### `dockerhub`
 
 Creates a new Docker Hub target in the current account
 
@@ -290,7 +290,7 @@ akeyless target create dockerhub \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Eks`
+### `eks`
 
 Creates a new Amazon EKS target in the current account
 
@@ -332,7 +332,7 @@ akeyless target create eks \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Gcp`
+### `gcp`
 
 Creates a new GCP target in the current account
 
@@ -363,7 +363,7 @@ akeyless target create gcp \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-### `Github`
+### `github`
 
 Creates a new GitHub target in the current account
 
@@ -382,11 +382,11 @@ akeyless target create github \
 
 `-n, --name`: **Required**, Target name
 
-`--github-app-id`: GitHub application id
+`--github-app-id`: GitHub application ID
 
 `--github-app-private-key`: GitHub application private key (Base64 encoded key)
 
-`--github-base-url[=https://api.github.com/]`: Github base url
+`--github-base-url[=https://api.github.com/]`: GitHub base URL
 
 `--description`: Target description
 
@@ -532,9 +532,9 @@ akeyless target create godaddy \
 
 `-n, --name`: **Required**, Target name
 
-`-a, --api-key`: **Required**, Key of the api credentials to the Godaddy account
+`-a, --api-key`: **Required**, Key of the API credentials to the Godaddy account
 
-`-s, --secret`: **Required**, Secret of the api credentials to the Godaddy account
+`-s, --secret`: **Required**, Secret of the API credentials to the Godaddy account
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 
@@ -604,7 +604,7 @@ akeyless target create k8s \
 
 `-n, --name`: **Required**, Target name
 
-`-e, --k8s-cluster-endpoint`: **Required**, K8S Cluster endpoint. https:// , \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: **Required**, K8s Cluster endpoint. `https://` , \<DNS / IP> of the cluster
 
 `-c, --k8s-cluster-ca-cert`: **Required**, K8s Cluster certificate. Base 64 encoded certificate
 
@@ -768,8 +768,8 @@ Creates a new Salesforce target in the current account
 ```shell
 akeyless target create salesforce \
 --name <Target name> \
---tenant-url <Url of the Salesforce tenant> \
---client-id <Client ID of the oauth2 app to use for connecting to Salesforce> \
+--tenant-url <URL of the Salesforce tenant> \
+--client-id <Client ID of the OAuth2 app to use for connecting to Salesforce> \
 --email <The email of the user attached to the oauth2 app used for connecting to Salesforce> \
 --auth-flow <type of the auth flow ('jwt' / 'user-password') \
 --client-secret <Client secret of the oauth2 app to use for connecting to Salesforce> 
@@ -779,13 +779,13 @@ akeyless target create salesforce \
 
 `-n, --name`: **Required**, Target name
 
-`-u, --tenant-url`: **Required**, Url of the Salesforce tenant
+`-u, --tenant-url`: **Required**, URL of the Salesforce tenant
 
 `-i, --client-id`: **Required**, Client ID of the oauth2 app to use for connecting to Salesforce
 
 `-e, --email`: **Required**, The email of the user attached to the oauth2 app used for connecting to Salesforce
 
-`-a, --auth-flow`: **Required**, type of the auth flow ('jwt' / 'user-password')
+`-a, --auth-flow`: **Required**, type of the auth flow (`jwt`, `user-password`)
 
 `-s, --client-secret`: Client secret of the oauth2 app to use for connecting to Salesforce (required for password flow)
 
@@ -793,7 +793,7 @@ akeyless target create salesforce \
 
 `--app-private-key-data`: Base64 encoded PEM of the connected app private key (relevant for JWT auth only)
 
-`-p, --password`: The password of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
+`-p, --password`: The password of the user attached to the OAuth2 app used for connecting to Salesforce  (required for user-password flow)
 
 `-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
 
@@ -1025,9 +1025,9 @@ akeyless assoc-target-item \
 
 `--disable-previous-key-version[=false]`: Automatically disable previous key versions. (Required for classic key association with Azure targets)
 
-`--project-id`: Project id of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+`--project-id`: Project ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
-`--location-id`: Location id of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
+`--location-id`: Location ID of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
 `--keyring-name`: Keyring name of the GCP KMS. (Relevant only for Classic Key and target association. Required for GCP targets)
 
@@ -1072,7 +1072,7 @@ akeyless delete-assoc-target-item \
 
 `-n, --name`: **Required**, Item name
 
-`--id, --assoc-id`: The association id to be deleted. Not required if target name specified
+`--id, --assoc-id`: The association ID to be deleted. Not required if target name specified
 
 `-t, --target-name`: The target name with which association will be deleted
 
@@ -1113,7 +1113,7 @@ akeyless delete-targets \
 
 `--force-deletion[=false]`: Delete target even if it has associated items
 
-## `Get`
+## `get`
 
 Get target in the current account
 
@@ -1159,13 +1159,13 @@ List of all targets in the account
 
 `--pagination-token`: Next page reference
 
-`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
 
-## `Update`
+## `update`
 
-### `Artifactory`
+### `artifactory`
 
 updates an existing artifactory target in the current account
 
@@ -1203,7 +1203,7 @@ akeyless target update artifactory \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Aws`
+#### `aws`
 
 Updates an existing AWS target in the current account
 
@@ -1252,7 +1252,7 @@ akeyless target update aws \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `Azure`
+#### `azure`
 
 Updates an existing Azure target in the current account
 
@@ -1280,15 +1280,15 @@ akeyless target update azure \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-`--client-id`: Azure client/application id
+`--client-id`: Azure client/application ID
 
-`--tenant-id`: Azure tenant id
+`--tenant-id`: Azure tenant ID
 
 `--client-secret`: Azure client secret
 
 `-i, --use-gw-cloud-identity`: Use the GW's Cloud IAM
 
-`--subscription-id`: Azure Subscription Id
+`--subscription-id`: Azure Subscription ID
 
 `--resource-group-name`: The Resource Group name in your Azure Subscription
 
@@ -1300,7 +1300,7 @@ akeyless target update azure \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Db`
+#### `db`
 
 Update an existing db target in the current account
 
@@ -1370,7 +1370,7 @@ akeyless update-db-target \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Dockerhub`
+#### `dockerhub`
 
 updates an existing DockerHub target in the current account
 
@@ -1404,7 +1404,7 @@ akeyless target update dockerhub \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Eks`
+#### `eks`
 
 Updates an existing Amazon EKS target in the current account
 
@@ -1451,7 +1451,7 @@ akeyless target update eks \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Gcp`
+#### `gcp`
 
 Update an existing GCP target in the current account
 
@@ -1489,7 +1489,7 @@ akeyless target update gcp \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Github`
+#### `github`
 
 updates a new GitHub target in the current account
 
@@ -1510,7 +1510,7 @@ akeyless target update github \
 
 `--new-name`: New target name
 
-`--github-app-id`: GitHub application id
+`--github-app-id`: GitHub application ID
 
 `--github-app-private-key`: GitHub application private key (Base64 encoded key)
 
@@ -1526,7 +1526,7 @@ akeyless target update github \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Gke`
+#### `gke`
 
 Updates an existing GKE target in the current account
 
@@ -1574,7 +1574,7 @@ akeyless target update gke \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Globalsign`
+#### `globalsign`
 
 Update an existing GlobalSign Target in the current account
 
@@ -1623,7 +1623,7 @@ akeyless target update globalsign \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `Globalsign-atlas`
+#### `globalsign-atlas`
 
 Updates an existing GlobalSignAtlas target in the current account
 
@@ -1662,7 +1662,7 @@ akeyless target update globalsign-atlas \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `Godaddy`
+#### `godaddy`
 
 Creates a new GoDaddy target
 
@@ -1685,9 +1685,9 @@ akeyless target update-godaddy-target \
 
 `--new-name`: New target name
 
-`-a, --api-key`: **Required**, Key of the api credentials to the Godaddy account
+`-a, --api-key`: **Required**, Key of the API credentials to the Godaddy account
 
-`-s, --secret`: **Required**, Secret of the api credentials to the Godaddy account
+`-s, --secret`: **Required**, Secret of the API credentials to the Godaddy account
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 
@@ -1707,7 +1707,7 @@ akeyless target update-godaddy-target \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
-#### `Hashi-vault`
+#### `hashi-vault`
 
 Updates a new HashiCorp Vault target
 
@@ -1740,7 +1740,7 @@ akeyless target update hashi-vault \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-#### `K8s`
+#### `k8s`
 
 Updates an existing Kubernetes target in the current account
 
@@ -1792,7 +1792,7 @@ akeyless target update k8s \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Ldap`
+#### `ldap`
 
 updates a new LDAP target in the current account
 
@@ -1836,7 +1836,7 @@ akeyless target update ldap \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-#### `Linked`
+#### `linked`
 
 Update an existing Linked Target in the current account
 
@@ -2125,7 +2125,7 @@ akeyless target update windows \
 
 `--description`: Description of the object
 
-#### `Zerossl`
+#### `zerossl`
 
 Update an existing ZeroSSL Target in the current account
 
