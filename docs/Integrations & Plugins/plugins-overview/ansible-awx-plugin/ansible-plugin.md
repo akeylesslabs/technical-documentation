@@ -95,7 +95,7 @@ login:
         access_type: 'k8s'
         k8s_service_account_token: '<k8s_service_account_token>'
         k8s_auth_config_name: '<k8s_auth_config_name>'
-        akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
+        akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
 
 ```yaml OCI IAM
@@ -122,7 +122,7 @@ login:
         access_id: '<Access ID>'
         access_type: 'jwt'
         jwt: '<jwt value>'
-        akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
+        akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
 
 ```yaml OIDC
@@ -132,7 +132,7 @@ login:
         access_type: 'oidc'
         use_remote_browser: 'true / false'
         jwt: '<jwt value>'
-        akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
+        akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
 
 ```yaml SAML
@@ -141,7 +141,7 @@ login:
         access_id: '<Access ID>'
         access_type: 'saml'
         use_remote_browser: 'true | false'
-        akeyless_gateway_url: 'https://Your-Akelyess-Gateway-URL:8000'
+        akeyless_gateway_url: 'https://Your-Akeyless-Gateway-URL:8000'
 ```
 
 ```yaml Universal Identity

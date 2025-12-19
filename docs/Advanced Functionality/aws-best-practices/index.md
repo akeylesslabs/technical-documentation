@@ -46,11 +46,11 @@ When using an [AWS Target](https://docs.akeyless.io/docs/aws-targets)with the **
 
 > 📘 AWS Configuration and credential precedence
 >
-> Akelyess uses AWS official SDK, hence the role that will be used is according to [AWS precedence](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html#cli-chap-authentication-precedence).
+> Akeyless uses AWS official SDK, hence the role that will be used is according to [AWS precedence](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html#cli-chap-authentication-precedence).
 
 ## Deployment Patterns
 
-As the Akelyess Gateway is a light, stateless application, it might be deployed using the following patterns according to your preference while managing an AWS organization with multiple accounts:
+As the Akeyless Gateway is a light, stateless application, it might be deployed using the following patterns according to your preference while managing an AWS organization with multiple accounts:
 
 * [Centralized Gateway](https://docs.akeyless.io/docs/terraform-centralized-deployment): Deploy a single **Gateway** in a “security-services” or “shared-tools” account. In each member account, create an **IAM role** that the [Gateway](https://docs.akeyless.io/docs/gateway-chart) can assume, protected with an **External ID**. Register each role as an [AWS Target](https://docs.akeyless.io/docs/aws-targets) in Akeyless. Where [Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector), etc., will point to that Target. This will end with 1 or more **Gateways** to manage and monitor, while keeping member accounts isolated.
 

@@ -1407,6 +1407,15 @@ config:
         example_from: "Just click the button to continue."
         example_to: "Select the button to continue."
 
+      - term: "Akelyess"
+        replacement: "Akeyless"
+        example_from: "Akelyess is misspelled."
+        example_to: "Akeyless is correct."
+
+      - term: "Akeless"
+        replacement: "Akeyless"
+        example_from: "Akeless is misspelled."
+        example_to: "Akeyless is correct."
 
   # =========================
   # Core markdownlint Rules
