@@ -394,7 +394,7 @@ users:
 
 If the Akeyless CLI is installed on a different host as the `kubectl`, you can get a service account token from Akeyless separately, and then manually update the `kubeconfig` file that uses the token.
 
-1. Create the following kubeconfig file:
+1. Create the following `kubeconfig` file:
 
 ```yaml
 apiVersion: v1

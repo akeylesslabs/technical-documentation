@@ -65,7 +65,7 @@ Use this parameter to store fingerprint information in a specific folder within 
 SSH_HOST_KEYS_PATH=/MY_SSH_REMOTE_ACCESS_HOST_KEYS
 ```
 
-## RDP / SSH User Acces
+## RDP / SSH User Access
 
 Set the RDP / SSH Authentication with the relevant attribute that exists inside your IdP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username. This can be done as follows from the CLI.
 
