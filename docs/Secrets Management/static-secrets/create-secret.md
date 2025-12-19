@@ -70,7 +70,7 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 * **Protection Key:** Select the encryption key with which to encrypt the secret (if your system includes multiple encryption keys). Otherwise, select `Default`.
 
-* **Format:** The format type of the value either **Text** , **JSON** or **Key/Value**.
+* **Format:** The format type of the value either **Text**, **JSON** or **Key/Value**.
 
 * **Value:** Enter the value of the secret. The value length should be 16 KB.
 

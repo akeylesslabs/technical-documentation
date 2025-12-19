@@ -26,7 +26,7 @@ On the upper left-hand side of the table, you will see a few interactive buttons
 
 Akeyless events are defined by object types, supporting:
 
-* **Items** events, for all items types e.g. [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)  and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) , [Certificates](https://docs.akeyless.io/docs/certificate-storage)
+* **Items** events, for all items types e.g. [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)  and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
 * [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
 * [Targets](https://docs.akeyless.io/docs/targets)
 * Gateway

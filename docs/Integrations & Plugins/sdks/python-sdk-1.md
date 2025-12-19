@@ -14,7 +14,7 @@ The Akeyless [Python SDK](https://github.com/akeylesslabs/akeyless-python) makes
 
 ## Installation
 
-Install the Akeyless **Python** pacakge using `pip`:
+Install the Akeyless **Python** package using `pip`:
 
 ```shell
 pip install akeyless

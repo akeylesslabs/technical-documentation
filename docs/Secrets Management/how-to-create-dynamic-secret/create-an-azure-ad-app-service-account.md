@@ -26,7 +26,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 ## Configure permission for Microsoft Graph
 
-1. On the left pane, select **API Permission** , select **Microsoft Graph**:
+1. On the left pane, select **API Permission**, select **Microsoft Graph**:
 
 ![1348](https://files.readme.io/70a9789-image-20210204-102713.png "image-20210204-102713.png")
 

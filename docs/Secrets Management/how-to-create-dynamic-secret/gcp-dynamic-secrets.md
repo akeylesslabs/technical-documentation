@@ -134,7 +134,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `service-account-type`: `Fixed` , `Dynamic`type. By default set to **Fixed**.
+* `service-account-type`: `Fixed`, `Dynamic`type. By default set to **Fixed**.
 
 * `role-binding`: A path to a JSON file that holds the relevant resource with roles to bind for the created Service Account. Relevant only for **Dynamic** type.
 
@@ -195,7 +195,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Fixed SA:** A fixed Service Account. with **Service Account  Email** to create JIT Keys/Tokens for.
 
 * **Dynamic SA:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
-  * **Project ID:** Optional, The GCP Project ID to create the Just In Time Service Account , by default the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used . (Relevant only for **Dynamic SA** mode).
+  * **Project ID:** Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used . (Relevant only for **Dynamic SA** mode).
 
 * **Fixed:** Assigns a role to a user based on the user's sub-claim.
 

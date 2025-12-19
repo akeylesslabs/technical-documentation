@@ -185,7 +185,7 @@ Where:
 
 * `k8s-ca-cert`: The certificate to validate the Kubernetes cluster.
 
-* `k8s-issuer`: Optional ,the [Kubernetes JWT issuer name](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) (default is `kubernetes/serviceaccount`).
+* `k8s-issuer`: Optional, the [Kubernetes JWT issuer name](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) (default is `kubernetes/serviceaccount`).
 
 Upon successful creation, the response:
 
@@ -197,38 +197,38 @@ K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
 
 1. Create a Namespace in your K8s cluster:
 
-```shell CLI
-kubectl create namespace my-namespace-a
-```
+    ```shell CLI
+    kubectl create namespace my-namespace-a
+    ```
 
 2. In this Namespace, create a pod:
 
-```shell CLI
-kubectl run mypod1 --image=nginx -n my-namespace-a
-```
+    ```shell CLI
+    kubectl run mypod1 --image=nginx -n my-namespace-a
+    ```
 
 3. Start an interactive shell session on the pod and perform the following commands in the pod:
 
-```shell CLI
-kubectl exec --stdin=true --namespace my-namespace-a  --tty=true mypod1 -- /bin/sh
-```
+    ```shell CLI
+    kubectl exec --stdin=true --namespace my-namespace-a  --tty=true mypod1 -- /bin/sh
+    ```
 
 4. Install Akeyless CLI inside your pod:
 
-```shell CLI
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-chmod +x akeyless
-./akeyless --init
-```
+    ```shell CLI
+    curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
+    chmod +x akeyless
+    ./akeyless --init
+    ```
 
-5. Authenticate via your K8s Auth Method :
+5. Authenticate via your Kubernetes Auth Method :
 
-```shell Akeyless CLI
-./akeyless auth --access-id $ACCESS_ID \
-    --access-type k8s \
-    --gateway-url https://<Your_Akeyless_GW_URL:8000> \
-    --k8s-auth-config-name k8s-conf
-```
+    ```shell Akeyless CLI
+    ./akeyless auth --access-id $ACCESS_ID \
+        --access-type k8s \
+        --gateway-url https://<Your_Akeyless_GW_URL:8000> \
+        --k8s-auth-config-name k8s-conf
+    ```
 
 Where:
 
@@ -269,7 +269,7 @@ Each claim can be enforced as part of your role association to enforce the right
 
 ## Enable Token Request Projection on Minikube
 
-To enable token request projection on a managed K8s cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide.
+To enable token request projection on a managed Kubernetes cluster you can follow [this](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) guide.
 
 To get this to work with Minikube you can start your cluster with the following configuration.
 

@@ -522,7 +522,7 @@ akeyless dynamic-secret create eks \
 
 `--eks-cluster-name`: EKS cluster name. Must match the EKS cluster name you want to connect to
 
-`--eks-cluster-endpoint`: EKS Cluster endpoint. https:// , \<DNS / IP> of the cluster
+`--eks-cluster-endpoint`: EKS Cluster endpoint. `https://`, \<DNS / IP> of the cluster
 
 `--eks-cluster-ca-cert`: EKS Cluster certificate. Base 64 encoded certificate
 
@@ -609,7 +609,7 @@ akeyless dynamic-secret create gcp \
 
 `--role-binding`: Role binding definitions in JSON format
 
-`--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account , by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
+`--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -2225,7 +2225,7 @@ akeyless dynamic-secret update eks \
 
 `-c, --eks-cluster-name`: EKS cluster name. Must match the EKS cluster name you want to connect to
 
-`-e, --eks-cluster-endpoint`: EKS Cluster endpoint. https:// , \<DNS / IP> of the cluster
+`-e, --eks-cluster-endpoint`: EKS Cluster endpoint. https://, \<DNS / IP> of the cluster
 
 `-r, --eks-cluster-ca-cert`: EKS Cluster certificate. Base 64 encoded certificate
 
@@ -2296,7 +2296,7 @@ akeyless dynamic-secret update gcp \
 
 `--role-binding`: Role binding definitions in JSON format
 
-`--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account , by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
+`--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
 `--custom-username-template`: Customize how temporary usernames are generated using go template
 
@@ -2528,7 +2528,7 @@ akeyless dynamic-secret update k8s \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-e, --k8s-cluster-endpoint`: K8s Cluster endpoint. https:// , \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: K8s Cluster endpoint. https://, \<DNS / IP> of the cluster
 
 `-c, --k8s-cluster-ca-cert`: K8s Cluster certificate. Base 64 encoded certificate
 

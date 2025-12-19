@@ -298,7 +298,7 @@ Note: The operation is allowed only for admin user
 
 `--password-policy-contains-special-characters`: Password must contain special characters
 
-`--items-deletion-protection`: Set to update the default behaviour of new items creations deletion protection attribute [true/false]
+`--items-deletion-protection`: Set to update the default behavior of new items creations deletion protection attribute [true/false]
 
 `--default-key-name`: Set the account default key based on the DFC key item name. Use "set-original-akeyless-default-key" to revert to using the original default key of the account. Empty string will change nothing
 

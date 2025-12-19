@@ -14,7 +14,7 @@ In a SaaS environment managing sensitive assets such as credentials, certificate
 
 Continuous monitoring also helps meet regulatory standards, supports investigations, and ensures the system can grow smoothly as needed.
 
-This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics),  [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gw-docker-log-forwarding) , [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
+This guide outlines the monitoring features offered by Akeyless, including [Telemetry metrics](https://docs.akeyless.io/docs/telemetry-metrics),  [Audit Logs](https://docs.akeyless.io/docs/audit-logs), [Log Forwarding](https://docs.akeyless.io/docs/gw-docker-log-forwarding), [Analytics](https://docs.akeyless.io/docs/analytics), and [Event Monitoring](https://docs.akeyless.io/docs/event-center).
 
 ## Audit Logs
 

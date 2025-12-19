@@ -40,7 +40,7 @@ Where:
 
 * `imap-username`: An email address of the user registered to the IMAP service
 
-* `imap-password`: **IMAP APP-Password** - for example, on **Gmail**, under **Settings-> Security** , click on **2-Step Verification**, and generate **APP-Password** (2-Step verification must be enabled)
+* `imap-password`: **IMAP APP-Password** - for example, on **Gmail**, under **Settings-> Security**, click on **2-Step Verification**, and generate **APP-Password** (2-Step verification must be enabled)
 
 * `imap-fqdn`: IMAP FQDN, for example: `imap.gmail.com`
 

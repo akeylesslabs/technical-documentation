@@ -477,7 +477,7 @@ Now, we will use the roles that were created in order to manage the destination 
 >
 > The following Actions will take place from the Gateway that has the IAM-User from the source account assigned.
 >
-> Make sure you have an [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with the IAM Role from the source account atttached.
+> Make sure you have an [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with the IAM Role from the source account attached.
 
 Connect to your Gateway - `https://public-ip>:8000`, this will automatically update the URL of your Gateway in Akeyless.
 
@@ -507,7 +507,7 @@ In Akeyless, Navigate to **Items** > **New** > **Rotated Secret** > **AWS**.
 1. Give the Dynamic Secret a name and press **Next**.
 2. Choose the **Target** that was created with the **External ID**.
 3. For **Rotator Type**, choose **API Key**.
-4. For **Authenticate with the following credentials**, choose **Target Credentialds**.
+4. For **Authenticate with the following credentials**, choose **Target Credentials**.
 5. Enter the **Access Key ID** and the **Access Key** from the last step.
 6. For **Gateway**, choose **This Gateway** and click **Finish**.
 

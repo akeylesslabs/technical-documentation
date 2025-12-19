@@ -16,7 +16,7 @@ You can enable Secure Remote Access to a Kubernetes cluster based on the dynamic
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployed.
 
-* A running Kubernetes dynamic Secret [EKS](https://docs.akeyless.io/docs/eks-dynamic-secret-producer) , [GKE](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [Kubernetes Generic](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) .
+* A running Kubernetes dynamic Secret [EKS](https://docs.akeyless.io/docs/eks-dynamic-secret-producer), [GKE](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [Kubernetes Generic](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) .
 
 * [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect)
 

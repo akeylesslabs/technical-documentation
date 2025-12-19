@@ -62,7 +62,7 @@ Supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-auth
 
 `SecretProviderClass` custom resource should state the `akeylessAccessType`-  which can be one of the supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) : `access_key`, `aws_iam`, `azure_ad`, `gcp`, `universal_identity`.
 
-While using `k8s`,`azure_ad`, or `gcp` , the following parameters should be provided accordingly:
+While using `k8s`,`azure_ad`, or `gcp`, the following parameters should be provided accordingly:
 
 `akeylessK8sAuthConfigName`,`akeylessAzureObjectID` or `akeylessGCPAudience`.
 

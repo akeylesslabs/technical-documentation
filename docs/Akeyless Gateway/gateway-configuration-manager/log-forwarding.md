@@ -118,7 +118,7 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 9. Optional - Define **Log Tags** - using `key`:`value` format.
 
-10. Optional - Define **Log Service** , default value `akeyless-gateway`.
+10. Optional - Define **Log Service**, default value `akeyless-gateway`.
 
 ## ElasticSearch
 

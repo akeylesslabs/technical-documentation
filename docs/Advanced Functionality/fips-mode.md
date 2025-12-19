@@ -30,7 +30,7 @@ For Docker, run the following command with the variable `FIPS=true` :
 docker run -d -p 8000:8000 -p 5696:5696 -e FIPS=true --name akeyless-gw akeyless/base
 ```
 
-For Kuberntes, set the chart `values.yaml`  with the following setting enabled:
+For Kubernetes, set the chart `values.yaml`  with the following setting enabled:
 
 ```yaml
 deployment:

@@ -604,7 +604,7 @@ akeyless target create k8s \
 
 `-n, --name`: **Required**, Target name
 
-`-e, --k8s-cluster-endpoint`: **Required**, K8s Cluster endpoint. `https://` , \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: **Required**, K8s Cluster endpoint. `https://`, \<DNS / IP> of the cluster
 
 `-c, --k8s-cluster-ca-cert`: **Required**, K8s Cluster certificate. Base 64 encoded certificate
 
@@ -1760,7 +1760,7 @@ akeyless target update k8s \
 
 `-n, --name`: **Required**, Target name
 
-`-e, --k8s-cluster-endpoint`: **Required**, K8s Cluster endpoint. https:// , \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: **Required**, K8s Cluster endpoint. https://, \<DNS / IP> of the cluster
 
 `-c, --k8s-cluster-ca-cert`: **Required**, K8s Cluster certificate. Base 64 encoded certificate
 

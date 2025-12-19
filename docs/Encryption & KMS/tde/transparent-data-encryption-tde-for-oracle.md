@@ -327,7 +327,7 @@ Key Points About the Columns:
 
 For more details on these columns, refer to the official Oracle documentation:
 
-Reference: [ENCRYPTION_WALLET](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-ENCRYPTION_WALLET.html) ,
+Reference: [ENCRYPTION_WALLET](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-ENCRYPTION_WALLET.html)
 
 ### Additional Notes and Version-Specific Considerations
 

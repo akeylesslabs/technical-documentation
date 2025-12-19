@@ -16,7 +16,7 @@ next:
 ---
 To set up Akeyless KMS Integration with Azure KMS, follow these steps:
 
-1. Create a new [Azure Target](https://docs.akeyless.io/docs/azure-targets) in the Akeyless Platfrom. You can do it either from the Akeyless CLI or in the Akeyless Console. Make sure you have an Azure Key Vault to target.
+1. Create a new [Azure Target](https://docs.akeyless.io/docs/azure-targets) in the Akeyless Platform. You can do it either from the Akeyless CLI or in the Akeyless Console. Make sure you have an Azure Key Vault to target.
 
 > 👍 Note
 >

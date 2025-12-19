@@ -788,7 +788,7 @@ The following table lists the available annotations:
 
     <tr>
       <td>
-        `akeyless/inject_file: "/mysecret|jq={jq-expresion}"`
+        `akeyless/inject_file: "/mysecret|jq={jq-expression}"`
       </td>
 
       <td>
@@ -796,7 +796,7 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        jq=\{jq-expresion} e.g. secret items that contain JSON structure, can be parsed directly
+        jq=\{jq-expression} e.g. secret items that contain JSON structure, can be parsed directly
       </td>
     </tr>
 

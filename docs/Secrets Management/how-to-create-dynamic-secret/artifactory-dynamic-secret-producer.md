@@ -22,7 +22,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 >
 > We recommend using Dynamic Secrets with [a Target](https://docs.akeyless.io/docs/artifactory-targets) . While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Artifactory secret from the CLI using an existing [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets) , run the following command:
+To create a dynamic Artifactory secret from the CLI using an existing [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create artifactory \
