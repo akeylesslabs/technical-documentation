@@ -12,6 +12,24 @@
 
 "use strict";
 
+const fs = require("fs");
+const path = require("path");
+
+function loadNamesFromFile(filePath) {
+  if (!filePath) return [];
+  const abs = path.isAbsolute(filePath)
+    ? filePath
+    : path.resolve(process.cwd(), filePath);
+
+  if (!fs.existsSync(abs)) return [];
+
+  const raw = fs.readFileSync(abs, "utf8");
+  return raw
+    .split(/\r?\n/)
+    .map((l) => l.replace(/#.*/, "").trim()) // strip comments
+    .filter(Boolean);
+}
+
 /** Collect 1-based line numbers that are inside code blocks (fenced or indented). */
 function getCodeBlockLineSet(tokens) {
   const codeLines = new Set();
@@ -498,7 +516,9 @@ module.exports = [
     tags: ["spelling", "capitalization", "style"],
     function: function (params, onError) {
       const options = params.config || {};
-      const names = Array.isArray(options.names) ? options.names : [];
+      const namesInline = Array.isArray(options.names) ? options.names : [];
+      const namesFromFile = loadNamesFromFile(options.names_file);
+      const names = [...namesFromFile, ...namesInline];
       const checkCodeBlocks = options.code_blocks !== false;
       const ignoreAHtmlTag = options.ignore_a_html_tag !== false;
 
