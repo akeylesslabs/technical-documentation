@@ -23,7 +23,7 @@ a. In this example, we use `hsm\_wallet` as the base folder. This can be adjuste
 
 b. The `APP\_PASSWORD` is not directly used during the configuration process. It can be any value, as the actual configuration is pulled from a file.
 
-c. `/opt/oracle/admin` corresponds to the $oracle\_HOME` directory in your environment.
+c. `/opt/oracle/admin` corresponds to the `$oracle\_HOME` directory in your environment.
 
 ## Key Management and Keystore Setup
 

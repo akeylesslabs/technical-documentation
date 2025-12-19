@@ -39,11 +39,11 @@ sudo ansible-playbook -i inventory install.yml
 
 On AWX UI, navigate to **Resources** and create new **Credentials**.  Select HashiCorp Vault Secret Lookup as your **Credentials Type** and set the **SERVER URL** to `https://hvp.akeyless.io` or work directly with your [Gateway](https://docs.akeyless.io/docs/api-gw) URL on port `8200`:
 
-You can either use Akelyess [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:
+You can either use Akeyless [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:
 
 A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter i.e.: `< Access ID >..< Access Key >`.
 
-Alternatively, to extract your authorization tokens directly using the [Akelyess CLI](https://docs.akeyless.io/docs/cli) `auth` command as part of your workflow variables :
+Alternatively, to extract your authorization tokens directly using the [Akeyless CLI](https://docs.akeyless.io/docs/cli) `auth` command as part of your workflow variables :
 
 ```shell
 VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}')

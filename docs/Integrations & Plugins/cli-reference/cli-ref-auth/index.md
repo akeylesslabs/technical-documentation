@@ -624,7 +624,7 @@ akeyless auth-method create saml \
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPN for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
-`--idp-metadata-url`: IdP metadata url
+`--idp-metadata-url`: IdP metadata URL
 
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-saml` to enable SAML via Akeyless Console and  `http://127.0.0.1:*` to enable SAML via the Akeyless CLI)
 
@@ -1132,7 +1132,7 @@ akeyless auth-method update saml \
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or upn for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization.
 
-`--idp-metadata-url`: IdP metadata url
+`--idp-metadata-url`: IdP metadata URL
 
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-saml` to enable SAML via Akeyless Console and  `http://127.0.0.1:*` to enable SAML via the Akeyless CLI)
 
