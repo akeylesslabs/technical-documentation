@@ -78,7 +78,7 @@ Where:
   * `password` - to rotate a user password in Azure Entra
   * `azure-storage-account` - to rotate Azure Storage Account Key
 
-* `api-id`: The client secret ID of the Azure App whose client secret should be rotated.  If left empty, the rotated secret will try to create a new secret and manage its rotation only. **Note** when  `api-id` is not provided, upon successful creation, the Azure Secret Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. , the Azure Secret Key will be deleted from the cloud as well.
+* `api-id`: The client secret ID of the Azure App whose client secret should be rotated.  If left empty, the rotated secret will try to create a new secret and manage its rotation only. **Note** when  `api-id` is not provided, upon successful creation, the Azure Secret Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. The Azure Secret Key will be deleted from the cloud as well.
 
 * `api-key`: The client's secret to rotate.
 

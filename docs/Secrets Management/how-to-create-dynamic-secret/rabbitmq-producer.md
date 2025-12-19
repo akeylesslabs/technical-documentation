@@ -28,7 +28,7 @@ Before creating a dynamic RabbitMQ secret, ensure that the RabbitMQ user has suf
   We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rabbitmq-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 </Callout>
 
-To create a dynamic RabbitMQ secret from the CLI using an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) , run the following command:
+To create a dynamic RabbitMQ secret from the CLI using an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets), run the following command:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create rabbitmq \

@@ -53,7 +53,7 @@ On the **LDAP Configuration** step define the following:
 * **Server CA Certificate:** LDAP server CA certificate, requires x509 PEM encoded certificate format, **Relevant** only if secured LDAP server `ldaps` is used.
 
 * **LDAP Bind DN:** Distinguished Name (DN) of object to bind when performing user and group search
-  e.g. `cn=admin,dc=planetexpress` ,**Relevant** only if **Enable LDAP Anonymous Search** is checked.
+  e.g. `cn=admin,dc=planetexpress`, **Relevant** only if **Enable LDAP Anonymous Search** is checked.
 
 * **Password for LDAP Bind DN:** Password to perform user search, **Relevant** only if **Enable LDAP Anonymous Search** is NOT checked.
 

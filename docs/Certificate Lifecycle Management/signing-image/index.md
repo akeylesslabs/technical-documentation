@@ -123,7 +123,7 @@ The Notary project specified the [requirements](https://github.com/notaryproject
 
 > 📘 Note
 >
-> It is possible to work with Akeyless  [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)  to generate the certificates, the PKI Issuer must be set with the `Code Signing` flag , and `Key Usage List` of `critical,DigitalSignature`.
+> It is possible to work with Akeyless  [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)  to generate the certificates, the PKI Issuer must be set with the `Code Signing` flag, and `Key Usage List` of `critical,DigitalSignature`.
 
 Akeyless Supports both **EC** and **RSA** algorithms, run the following commands to create a key with a self signed certificate.
 

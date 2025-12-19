@@ -14,7 +14,7 @@ The Akeyless [C# .NET SDK](https://github.com/akeylesslabs/akeyless-csharp-netco
 
 ## Installation
 
-To add the Akeyless **C# .NET** SDK to your project, add the Akeyless pacakge:
+To add the Akeyless **C# .NET** SDK to your project, add the Akeyless package:
 
 ```shell Bash
 dotnet add package akeyless --version <package-version>

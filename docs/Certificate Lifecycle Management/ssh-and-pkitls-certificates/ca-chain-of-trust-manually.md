@@ -115,7 +115,7 @@ At this point, we have created the following:
 * **Root CA Key**: A Singer Key with a Self Signed Certificate.
 * **Root PKI Cert Issuer**: To sign new Intermediate CA.
 
-Where **only** certificate with the domain`example.com`  will be accepted and valid for 100 days, they will be automatically stored under the `/MyChain/IntermediateCertificates/`  folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage** , **OU** and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+Where **only** certificate with the domain`example.com`  will be accepted and valid for 100 days, they will be automatically stored under the `/MyChain/IntermediateCertificates/`  folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage**, **OU** and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
 
@@ -178,7 +178,7 @@ akeyless create-pki-cert-issuer \
 --locality NY 
 ```
 
-Where **only** certificate with the domain`myexample.com`  will be accepted and valid for 30 days, and it will be automatically stored under the `/MyChain/Intermediate/Leaf/`  folder, with the **Extended key Usage** of `client auth` , **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+Where **only** certificate with the domain`myexample.com`  will be accepted and valid for 30 days, and it will be automatically stored under the `/MyChain/Intermediate/Leaf/`  folder, with the **Extended key Usage** of `client auth`, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
 ## Issuing a Leaf Certificate
 

@@ -567,7 +567,7 @@ This stack will:
 
 ### Log In to the Gateway
 
-First, login to `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console` , and enter the **Access ID** and **Access Key**, this will automatically update the **Gateway URL**, once done, proceed with the following steps:
+First, login to `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console`, and enter the **Access ID** and **Access Key**, this will automatically update the **Gateway URL**, once done, proceed with the following steps:
 
 1. Visit: `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console`.
 

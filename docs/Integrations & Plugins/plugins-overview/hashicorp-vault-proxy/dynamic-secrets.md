@@ -106,7 +106,7 @@ To delete a secret from Akeyless:
 
 > 📘 Info
 >
-> An optional flag: `-versions` , a list of specific versions you would like to delete from Akeyless , for example:
+> An optional flag: `-versions`, a list of specific versions you would like to delete from Akeyless, for example:
 >
 > `vault kv delete -versions=2,6,15 secret/{secret-name}`
 >

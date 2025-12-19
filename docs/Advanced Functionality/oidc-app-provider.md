@@ -60,7 +60,7 @@ You will need this information for the next step in the process.
 
 ## Authenticating With Akeyless
 
-Once you have created your OIDC App, you will need to authenticate agianst Akeyless using an Authentication Method  that was set as part of the  `access-permission-assignment`.
+Once you have created your OIDC App, you will need to authenticate against Akeyless using an Authentication Method  that was set as part of the  `access-permission-assignment`.
 
 For example, if you assigned an [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Authentication Method, authenticate to Akeyless using the `auth` command:
 

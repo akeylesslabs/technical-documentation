@@ -94,7 +94,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
   > Select **Target credentials** if the Rotated Secret Service Account is not authorized to change their own Key, and a privileged user, like the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) Service Account, is required to change the Key on behalf of the Rotated Secret user.
 
   * **SA Credentials:** Relevant only for Service Account Rotator Type, provide the exact Key to rotate.
-  * **SA Details:** Relevant only for Service Account Rotator Type, provide the Service Account details in order to rotate the Service Account Key, **SA Email** , and  **SA Key ID**.  **Note** When **Key ID** is not provided, upon successful creation, a new Key will be automatically created for the relevant Service Account, and upon deletion of the Rotated Secret, the Service Account Key will be deleted from GCP as well.
+  * **SA Details:** Relevant only for Service Account Rotator Type, provide the Service Account details in order to rotate the Service Account Key, **SA Email**, and  **SA Key ID**.  **Note** When **Key ID** is not provided, upon successful creation, a new Key will be automatically created for the relevant Service Account, and upon deletion of the Rotated Secret, the Service Account Key will be deleted from GCP as well.
   * **Gateway:** Select the Gateway through which the secret will be rotated.
   * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment.
   * **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older Service Account Key will be rotated. When there is only one Key, a new version will be created to maintain 2 keys at the same time.

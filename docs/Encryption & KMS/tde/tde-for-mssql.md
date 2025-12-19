@@ -57,128 +57,130 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
 
 1. Enable the **EKM** provider on the MSSQL server:
 
-  ```sql
-  USE master;
-  GO
-  sp_configure 'show advanced', 1
-  GO
-  RECONFIGURE
-  GO
-  sp_configure 'EKM provider enabled', 1
-  GO
-  RECONFIGURE
-  GO
-  ```
+    ```sql
+    USE master;
+    GO
+    sp_configure 'show advanced', 1
+    GO
+    RECONFIGURE
+    GO
+    sp_configure 'EKM provider enabled', 1
+    GO
+    RECONFIGURE
+    GO
+    ```
 
 2. Create the **EKM** provider named Akeyless using the `dll` file from the installation folder:
 
-  ```sql
-  CREATE CRYPTOGRAPHIC PROVIDER Akeyless
-  FROM FILE = 'C:\Program Files\Akeyless\Akeyless Ekm Provider\AkeylessEkm.dll'
-  ```
+    ```sql
+    CREATE CRYPTOGRAPHIC PROVIDER Akeyless
+    FROM FILE = 'C:\Program Files\Akeyless\Akeyless Ekm Provider\AkeylessEkm.dll'
+    ```
 
 3. Create a SQL `CREDENTIAL` that will be used by the system administrators to access Akeyless from the SQL Server, for example using an [API Key](https://docs.akeyless.io/docs/api-key) which is stored inside a SQL `CREDENTIAL` named `akeyless_tde`
 
-  ```sql
-  CREATE CREDENTIAL akeyless_tde
-  WITH IDENTITY = '<ACCESS_ID>', SECRET = '<ACCESS_KEY>'
-  FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
-  GO
-  ```
+    ```sql
+    CREATE CREDENTIAL akeyless_tde
+    WITH IDENTITY = '<ACCESS_ID>', SECRET = '<ACCESS_KEY>'
+    FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
+    GO
+    ```
 
-  If you wish to utilize [Azure AD authentication](https://docs.akeyless.io/docs/azure-ad) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any dummy value:
+    If you wish to utilize [Azure AD authentication](https://docs.akeyless.io/docs/azure-ad) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any dummy value:
 
-  ```sql
-  CREATE CREDENTIAL akeyless_tde
-  WITH IDENTITY = '<AZURE_AD_ACCESS_ID>', SECRET = 'dummy'
-  FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
-  GO
-  ```
+    ```sql
+    CREATE CREDENTIAL akeyless_tde
+    WITH IDENTITY = '<AZURE_AD_ACCESS_ID>', SECRET = 'dummy'
+    FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
+    GO
+    ```
 
-  And modify the TOML-formatted configuration file located in the installation directory at `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` setting `access_type="azure_ad"`:
+    And modify the TOML-formatted configuration file located in the installation directory at `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` setting `access_type="azure_ad"`:
 
-  ```toml
-  [auth]
-  access_type="azure_ad"
-  object_id="..." # optional`
-  ```
+    ```toml
+    [auth]
+    access_type="azure_ad"
+    object_id="..." # optional`
+    ```
 
-  The `object_id` configuration should only be set in cases when the Azure AD authentication method used has multiple managed identities associated to it. [See Azure documentation](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) for more information.
+    The `object_id` configuration should only be set in cases when the Azure AD authentication method used has multiple managed identities associated to it. [See Azure documentation](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) for more information.
 
-  <Callout icon="📒" theme="default">
-    ### Access-Role Reminder
+    <Callout icon="📒" theme="default">
+      ### Access-Role Reminder
 
-    The API Key (or other Auth Method) used in **`akeyless_tde`** **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
+      The API Key (or other Auth Method) used in **`akeyless_tde`** **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
 
-    When working **Classic Keys**, make sure you also  grant the Auth Method the appropriate Gateway “[Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions)” to manage “**Classic Keys**”
-  </Callout>
+      When working **Classic Keys**, make sure you also  grant the Auth Method the appropriate Gateway “[Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions)” to manage “**Classic Keys**”
+    </Callout>
 
 4. Add the credential to a privileged user, in the following example replace the [`DOMAIN\login`] with your privileged username format and add the SQL `CREDENTIAL`:
 
-  ```sql
-  ALTER LOGIN [DOMAIN\login]
-  ADD CREDENTIAL akeyless_tde;
-  GO
-  ```
+    ```sql
+    ALTER LOGIN [DOMAIN\login]
+    ADD CREDENTIAL akeyless_tde;
+    GO
+    ```
 
 5. Create an asymmetric key for the **EKM** provider.  This will create a key in Akeyless named `SQL_Server_Key` in the path defined in the configuration file `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` parameter `base_item_path` (e.g. `/path/to/keys/SQL_Server_Key`. To work with an existing key add the `CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`:
 
-  ```sql
-  CREATE ASYMMETRIC KEY akls_ekm_login_key
-  FROM PROVIDER Akeyless
-  WITH ALGORITHM = RSA_2048,
-  PROVIDER_KEY_NAME = 'SQL_Server_Key'
-  GO
-  ```
+    ```sql
+    CREATE ASYMMETRIC KEY akls_ekm_login_key
+    FROM PROVIDER Akeyless
+    WITH ALGORITHM = RSA_2048,
+    PROVIDER_KEY_NAME = 'SQL_Server_Key'
+    GO
+    ```
 
-  > 📘 Working on Cluster
-  >
-  > When working with cluster, the above command should be executed only on the Primary server, on all other servers run the following statement:
-  >
-  > `CREATE ASYMMETRIC KEY akls_ekm_login_key
-  > FROM PROVIDER Akeyless WITH PROVIDER_KEY_NAME = 'SQL_Server_Key' , CREATION_DISPOSITION=OPEN_EXISTING;`
+    > 📘 Working on Cluster
+    >
+    > When working with cluster, the above command should be executed only on the Primary server, on all other servers run the following statement:
+    >
+    > ```sql
+    > CREATE ASYMMETRIC KEY akls_ekm_login_key
+    > FROM PROVIDER Akeyless WITH PROVIDER_KEY_NAME = 'SQL_Server_Key', CREATION_DISPOSITION=OPEN_EXISTING;
+    > ```
 
 6. Create **another** SQL credential that the database engine (**TDE**) will use:
 
-  ```sql
-  CREATE CREDENTIAL akls_ekm_tde_cred
-  WITH IDENTITY = '<ACCESS_ID>', SECRET = '<ACCESS_KEY>'
-  FOR CRYPTOGRAPHIC PROVIDER Akeyless ;  
-  GO
-  ```
+    ```sql
+    CREATE CREDENTIAL akls_ekm_tde_cred
+    WITH IDENTITY = '<ACCESS_ID>', SECRET = '<ACCESS_KEY>'
+    FOR CRYPTOGRAPHIC PROVIDER Akeyless ;  
+    GO
+    ```
 
 7. Create a login that will be used by the database engine (**TDE**) using the key that we created, and add the new credential to the login.
 
-  ```sql
-  CREATE LOGIN akls_EKM_Login
-  FROM ASYMMETRIC KEY akls_ekm_login_key ;
-  GO  
+    ```sql
+    CREATE LOGIN akls_EKM_Login
+    FROM ASYMMETRIC KEY akls_ekm_login_key ;
+    GO  
 
-  ALTER LOGIN akls_EKM_Login
-  ADD CREDENTIAL akls_ekm_tde_cred ;
-  GO  
-  ```
+    ALTER LOGIN akls_EKM_Login
+    ADD CREDENTIAL akls_ekm_tde_cred ;
+    GO  
+    ```
 
 8. Create the database encryption key that will be used for **TDE**.  In the following example `AdventureWorks` is a placeholder for the database name. Supported algorithms are `AES_128` or `AES_256`.
 
-  ```sql
-  USE [AdventureWorks] ;
-  GO  
-  CREATE DATABASE ENCRYPTION KEY
-  WITH ALGORITHM  = AES_128  
-  ENCRYPTION BY SERVER ASYMMETRIC KEY akls_ekm_login_key ;
-  GO  
-  ```
+    ```sql
+    USE [AdventureWorks] ;
+    GO  
+    CREATE DATABASE ENCRYPTION KEY
+    WITH ALGORITHM  = AES_128  
+    ENCRYPTION BY SERVER ASYMMETRIC KEY akls_ekm_login_key ;
+    GO  
+    ```
 
-  Note: This doesn’t create a new key in the Akeyless Platform, the key is created inside the database and encrypted by using the key from Akeyless.
+    Note: This doesn’t create a new key in the Akeyless Platform, the key is created inside the database and encrypted by using the key from Akeyless.
 
 9. Alter the database to enable transparent data encryption.
 
-  ```sql
-  ALTER DATABASE [AdventureWorks]
-  SET ENCRYPTION ON ;
-  GO
-  ```
+    ```sql
+    ALTER DATABASE [AdventureWorks]
+    SET ENCRYPTION ON ;
+    GO
+    ```
 
 ## Troubleshooting
 
