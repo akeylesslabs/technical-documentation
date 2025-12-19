@@ -75,7 +75,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ### Create an Azure Storage Account Target from the CLI
 
-To create a new Azure Target for an Azure Storage Account, run the following command in the CLI:
+To create a new Azure Target for an Azure Storage Account, run the following command with the CLI:
 
 ```shell
 akeyless create-azure-target \

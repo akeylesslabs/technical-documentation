@@ -12,9 +12,9 @@ next:
 ---
 You can define a Web target to be used with [custom Dynamic Secrets](https://docs.akeyless.io/docs/custom-producer) or [custom Rotated Secrets](https://docs.akeyless.io/docs/create-a-custom-rotated-secret).
 
-## Create a Web Target in the CLI
+## Create a Web Target with the CLI
 
-To create a Web target from the CLI, run the following command:
+To create a Web target with the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless target create web \

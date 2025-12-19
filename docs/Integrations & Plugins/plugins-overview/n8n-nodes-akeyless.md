@@ -20,7 +20,7 @@ The Akeyless node for n8n integrates with Akeyless Secrets Management. Use it to
 1. For n8n Cloud (SaaS)
 2. Open your n8n instance
 3. Go to Settings → Community Nodes
-4. Search for @akeylesslabs/n8n-nodes-akeyless
+4. Search for `@akeylesslabs/n8n-nodes-akeyless`
 
   <Image border={false} src="https://files.readme.io/7f6ee734fa1faa3631f18b22535d539c1a1a61dcf16766b41324334f2dc223c3-Screenshot_2025-11-17_at_19.14.55.png" />
 
@@ -79,72 +79,75 @@ Choose an authentication method:
 ## Available Operations
 
 1. Get Static Secret Value
-   Retrieves a static secret from Akeyless.
-   Configuration:
-   * Secret Name: The full path to your secret (e.g., /production/api-key)
-   * Accessibility: Choose regular or personal
-   * Ignore Cache: Set to true to bypass cache
-     Output Example:
+    Retrieves a static secret from Akeyless.
+    Configuration:
+    * Secret Name: The full path to your secret (e.g., /production/api-key)
+    * Accessibility: Choose regular or personal
+    * Ignore Cache: Set to true to bypass cache
+      Output Example:
 
-```text
-{
-  "/production/api-key": "your-secret-value"
-}
-```
+    ```text
+    {
+      "/production/api-key": "your-secret-value"
+    }
+    ```
 
-Use Case: Retrieve API keys, database passwords, or other Static Secrets.
+    Use Case: Retrieve API keys, database passwords, or other Static Secrets.
 
 2. Get Rotated Secret Value
-   Retrieves a rotated secret (automatically rotated by Akeyless).
-   Configuration:
-   * Secret Name: The full path to your rotated secret
-   * Ignore Cache: Set to true to bypass cache
+    Retrieves a rotated secret (automatically rotated by Akeyless).
+    Configuration:
+    * Secret Name: The full path to your rotated secret
+    * Ignore Cache: Set to true to bypass cache
 
-Output: Returns the current rotated secret value.
-Use Case: Retrieve database credentials that rotate automatically.
+    Output: Returns the current rotated secret value.
+    Use Case: Retrieve database credentials that rotate automatically.
 
 3. Get Dynamic Secret Value
-   Retrieves a dynamic secret (generated on-demand).
-   Configuration:
-   * Secret Name: The full path to your dynamic secret
-   * Timeout: Maximum seconds to wait for secret generation (default: 15)
+    Retrieves a dynamic secret (generated on-demand).
+    Configuration:
+    * Secret Name: The full path to your dynamic secret
+    * Timeout: Maximum seconds to wait for secret generation (default: 15)
 
   Output: Returns the dynamically generated secret value.
   Use Case: Generate temporary database access credentials or API tokens.
 
 4. Create Secret
-   Creates a new secret in Akeyless.
-   Configuration:
-   * Secret Name: Full path where the secret will be stored
-   * Type: Choose Generic or Password
-   * Format: Choose Text or JSON
-   * Accessibility: Choose regular or personal
-     For Generic Secrets:
-   * Secret Value: The value to store
-     For Password Secrets:
-   * Username: The username
-   * Password: The password
-     Additional Options:
-   * Secure Access Web Browsing: Enable if needed
-   * Secure Access Web Proxy: Enable if needed
-     Use Case: Store new API keys, create database credentials, or save configuration values.
+    Creates a new secret in Akeyless.
+    Configuration:
+    * Secret Name: Full path where the secret will be stored
+    * Type: Choose Generic or Password
+    * Format: Choose Text or JSON
+    * Accessibility: Choose regular or personal
+      For Generic Secrets:
+    * Secret Value: The value to store
+      For Password Secrets:
+    * Username: The username
+    * Password: The password
+      Additional Options:
+    * Secure Access Web Browsing: Enable if needed
+    * Secure Access Web Proxy: Enable if needed
+      Use Case: Store new API keys, create database credentials, or save configuration values.
+
 5. Delete Items
-   Deletes one or more items from Akeyless.
-   Configuration:
-   * Path: The path/name of the item(s) to delete (supports wildcards)
-     Use Case: Remove old secrets or clean up unused items.
+    Deletes one or more items from Akeyless.
+    Configuration:
+    * Path: The path/name of the item(s) to delete (supports wildcards)
+      Use Case: Remove old secrets or clean up unused items.
+
 6. Create Folder
-   Creates a new folder in Akeyless.
-   Configuration:
-   * Folder Name: The name/path of the folder to create
-   * Accessibility: Choose regular or personal
-     Use Case: Organize secrets into folders (e.g., /production/, /staging/).
+    Creates a new folder in Akeyless.
+    Configuration:
+    * Folder Name: The name/path of the folder to create
+    * Accessibility: Choose regular or personal
+      Use Case: Organize secrets into folders (e.g., /production/, /staging/).
+
 7. Delete Folder
-   Deletes a folder from Akeyless.
-   Configuration:
-   * Folder Name: The name/path of the folder to delete
-   * Accessibility: Choose regular or personal
-     Use Case: Remove empty or unused folders.
+    Deletes a folder from Akeyless.
+    Configuration:
+    * Folder Name: The name/path of the folder to delete
+    * Accessibility: Choose regular or personal
+      Use Case: Remove empty or unused folders.
 
 ## Using Secrets in Your Workflows
 
@@ -156,7 +159,7 @@ Example: Get API Key and Use in HTTP Request
 *Add Akeyless node:*
 
 * Operation: Get Static Secret Value
-* Secret Name: /myapp/api-key
+* Secret Name: `/myapp/api-key`
 
 *Add HTTP Request node:*
 
@@ -172,7 +175,7 @@ Extract the secret value first for cleaner, reusable workflows:
 
 1. Akeyless → Set → HTTP Request
 2. Configure Set Node:
-   * Add Field: apiKey
+   * Add Field: `apiKey`
    * `Value: ={{$json["/myapp/api-key"]}}`
 3. Configure HTTP Request:
    * Header: `X-API-Key: {{$json.apiKey}}`

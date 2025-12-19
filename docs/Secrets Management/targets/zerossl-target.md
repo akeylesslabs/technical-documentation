@@ -18,9 +18,9 @@ next:
 
 With Public CA, Akeyless cannot access the private key that signs the certificates. Hence, Akeyless will programmatically contact ZeroSSL through the [Gateway](https://docs.akeyless.io/docs/api-gw) using IMAP user credentials to validate the certificate request. Akeyless will store and manage the issued certificates and notify you of upcoming expiration events.
 
-## Create a ZeroSSL Target in the CLI
+## Create a ZeroSSL Target with the CLI
 
-To create a ZeroSSL target from the CLI, run the following command:
+To create a ZeroSSL target with the CLI, run the following command:
 
 ```shell
 akeyless target create zerossl \

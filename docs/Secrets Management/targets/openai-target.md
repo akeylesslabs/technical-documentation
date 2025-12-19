@@ -7,9 +7,9 @@ metadata:
 ---
 You can define an [OpenAI](https://openai.com/) target to be used with [OpenAI Dynamic Secret](https://docs.akeyless.io/update/docs/openai-dynamic-secrets#/).
 
-## Create an OpenAI Target in the CLI
+## Create an OpenAI Target with the CLI
 
-To create an OpenAI target from the CLI, run the following command:
+To create an OpenAI target with the CLI, run the following command:
 
 ```shell
 akeyless target create openai \
@@ -39,14 +39,14 @@ Where:
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-* **API Key:** The Admin API Key that will be used in order to create the API Key.
+    * **API Key:** The Admin API Key that will be used in order to create the API Key.
 
-* **API Key ID:** The **ID** of the Admin API Key.
+    * **API Key ID:** The **ID** of the Admin API Key.
 
-* **Organization ID:** The Organization where that API Key will be created.
+    * **Organization ID:** The Organization where that API Key will be created.
 
-* **OpenAI URL:** The endpoint for the OpenAI API
+    * **OpenAI URL:** The endpoint for the OpenAI API

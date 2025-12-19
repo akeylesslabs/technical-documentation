@@ -12,9 +12,9 @@ next:
 ---
 You can define a Ping target to be used with [Ping Dynamic Secrets](https://docs.akeyless.io/docs/ping-dynamic-secrets).
 
-## Working With Ping Targets in the CLI
+## Working with Ping Targets and the CLI
 
-### Create a Ping Target in the CLI
+### Create a Ping Target with the CLI
 
 To create a Ping target from the CLI, run the following command:
 
@@ -38,7 +38,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluepingp) section.
 
-### Update a Ping Target in the CLI
+### Update a Ping Target with the CLI
 
 You may update the target information using the same parameters with the following command:
 

@@ -20,9 +20,9 @@ You can define Kubernetes (K8s) targets to be used with Dynamic Secrets for the 
 
 You can define an Amazon EKS target to be used with [EKS Dynamic Secrets](https://docs.akeyless.io/docs/eks-dynamic-secret-producer).
 
-### Create an Amazon EKS Target in the CLI
+### Create an Amazon EKS Target with the CLI
 
-To create an Amazon EKS target from the CLI, run the following command:
+To create an Amazon EKS target with the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless target create eks \
@@ -51,32 +51,32 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   For more information, [read about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    For more information, [read about Zero-Knowledge Encryption](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Choose your preferred authentication mode by selecting one of the options:
 
-* Check the **Use Credentials** radio button to authenticate with the Amazon EKS admin user credentials.
-* Check the **Use Gateway's Cloud Identity** radio button to authenticate with the Gateway's Cloud IAM.
+    * Check the **Use Credentials** radio button to authenticate with the Amazon EKS admin user credentials.
+    * Check the **Use Gateway's Cloud Identity** radio button to authenticate with the Gateway's Cloud IAM.
 
-> 👍 Note
->
-> For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/eks-dynamic-secret-producer), you must select the Target and the Gateway through which temporary users will be created on a target server.
->
-> The **Use Gateway's Cloud Identity** parameter of the Target instructs the Akeyless SaaS to use the IAM credentials of the selected Gateway for authentication with Amazon EKS.
+    > 👍 Note
+    >
+    > For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/eks-dynamic-secret-producer), you must select the Target and the Gateway through which temporary users will be created on a target server.
+    >
+    > The **Use Gateway's Cloud Identity** parameter of the Target instructs the Akeyless SaaS to use the IAM credentials of the selected Gateway for authentication with Amazon EKS.
 
 5. Define the remaining parameters as follows:
 
-* **Access Key ID:** If you selected the **Use Credentials** option in the previous step, specify the Access ID assigned to the admin user you created to authenticate Akeyless with the EKS cluster.
+    * **Access Key ID:** If you selected the **Use Credentials** option in the previous step, specify the Access ID assigned to the admin user you created to authenticate Akeyless with the EKS cluster.
 
-* **Secret Access Key:** Specify the Access Key assigned to the admin user you created to authenticate Akeyless with the EKS cluster.
+    * **Secret Access Key:** Specify the Access Key assigned to the admin user you created to authenticate Akeyless with the EKS cluster.
 
-* **Region:** Enter the EKS region that the temporary credentials are permitted to access.
+    * **Region:** Enter the EKS region that the temporary credentials are permitted to access.
 
-* **EKS Cluster Name:** The cluster name.
+    * **EKS Cluster Name:** The cluster name.
 
-* **EKS Cluster URL Endpoint:** The URL of the cluster.
+    * **EKS Cluster URL Endpoint:** The URL of the cluster.
 
-* **EKS Cluster CA Certificate:** A Base64-encoded cluster CA certificate.
+    * **EKS Cluster CA Certificate:** A Base64-encoded cluster CA certificate.
 
 6. Click **Finish**.
 
@@ -84,7 +84,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 You can define a GKE target to be used with [GKE Dynamic Secrets](https://docs.akeyless.io/docs/gke-dynamic-secret-producer).
 
-### Create a GKE Target in the CLI
+### Create a GKE Target with the CLI
 
 To create a GKE target from the CLI, run the following command:
 
@@ -127,34 +127,34 @@ You can find the complete list of parameters for this command in the [CLI Refere
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Choose your preferred authentication mode by selecting one of the options:
 
-* Check the **Use Credentials** radio button to authenticate with the GKE admin user credentials.
-* Check the **Use Gateway's Cloud Identity** radio button to authenticate with the Gateway's Cloud IAM.
+    * Check the **Use Credentials** radio button to authenticate with the GKE admin user credentials.
+    * Check the **Use Gateway's Cloud Identity** radio button to authenticate with the Gateway's Cloud IAM.
 
-> 👍 Note
->
-> For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/gke-dynamic-secret-producer), you must select the Target and the Gateway through which temporary users will be created on a target server.
->
-> The **Use Gateway's Cloud Identity** parameter of the Target instructs the Akeyless SaaS to use the IAM credentials of the selected Gateway for authentication with GKE.
+    > 👍 Note
+    >
+    > For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/gke-dynamic-secret-producer), you must select the Target and the Gateway through which temporary users will be created on a target server.
+    >
+    > The **Use Gateway's Cloud Identity** parameter of the Target instructs the Akeyless SaaS to use the IAM credentials of the selected Gateway for authentication with GKE.
 
 5. Define the remaining parameters as follows:
 
-* **GKE Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the email of the service account (`service_account@something.iam.gserviceaccount.com`).
+    * **GKE Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the email of the service account (`service_account@something.iam.gserviceaccount.com`).
 
-* **GKE Service Account Key:** Provide the RSA private key generated for this service account to access. This must be a proper PEM encoded PKCS1 or PKCS8 private key. (available under the "private_key" field within the service-account's downloaded key JSON-file from GCP IAM. **Make sure** to replace all its escaped new-lines, \n, with actual new lines to avoid parsing errors)
+    * **GKE Service Account Key:** Provide the RSA private key generated for this service account to access. This must be a proper PEM encoded PKCS1 or PKCS8 private key. (available under the "private_key" field within the service-account's downloaded key JSON-file from GCP IAM. **Make sure** to replace all its escaped new-lines, \n, with actual new lines to avoid parsing errors)
 
-* **GKE Cluster CA Certificate:** Provide a Base64-encoded cluster CA certificate.
+    * **GKE Cluster CA Certificate:** Provide a Base64-encoded cluster CA certificate.
 
-* **GKE Cluster URL Endpoint:** Specify the URL of the cluster.
+    * **GKE Cluster URL Endpoint:** Specify the URL of the cluster.
 
-* **GKE Cluster Name:** The GKE cluster name. If no value is configured, the default name will be used: `gks-cluster-<service account name>`.
+    * **GKE Cluster Name:** The GKE cluster name. If no value is configured, the default name will be used: `gks-cluster-<service account name>`.
 
 6. Click **Finish**.
 
-## K8s Generic
+## Kubernetes Generic
 
 You can define a generic Kubernetes target to be used with [Generic Kubernetes Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) using a **Bearer Token**, **Client Certificate** or using your **GW Service Account** to extract the relevant settings from a Gateway that runs on a Kubernetes cluster.
 
@@ -164,7 +164,7 @@ In both cases of **Bearer Token** and **GW Service Account**, the Service Accoun
 >
 > K8s Client Certificate is not supported by EKS
 
-### Create a Generic Kubernetes Target in the CLI
+### Create a Generic Kubernetes Target with the CLI
 
 To create a generic Kubernetes target from the CLI, run the following command to create a Target using a **Token** or using **certificate**:
 

@@ -12,7 +12,7 @@ next:
 ---
 You can define a Docker Hub target to be used with [Docker Hub Dynamic Secrets](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets) or [Docker Hub Rotated Secrets](https://docs.akeyless.io/docs/create-a-docker-hub-rotated-secret).
 
-## Create a Docker Hub Target in the CLI
+## Create a Docker Hub Target with the CLI
 
 To create a Docker Hub target from the CLI, run the following command:
 

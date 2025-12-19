@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Users often receive OTP Auth secrets as strings instead of complete QR codes or full OTP Auth links. This feature allows users to manually input these secrets into the PM mobile app, where they will be decoded and integrated as functional OTP authentication methods.
+Users often receive OTP Auth secrets as strings instead of complete QR codes or full OTP Auth links. This feature allows users to manually input these secrets into the Password Manager mobile app, where they will be decoded and integrated as functional OTP authentication methods.
 
 ## Accessing the Feature
 
-Navigate to the Secrets Section: Open the PM mobile app and navigate to the 'Secrets' section, where your passwords are stored.
+Navigate to the Secrets Section: Open the Password Manager mobile app and navigate to the 'Secrets' section, where your passwords are stored.
 
 Open the Menu: Tap on the three-dot icon next to the desired account, such as GitLab, to open the options menu.
 
@@ -26,7 +26,7 @@ Password Edit Screen: After selecting "Manual OTP," you’ll be redirected to th
 
 Custom Field Creation: Scroll down to the "Custom Field" section where a new custom field can be added.
 
-Field Name: The field name should be labeled "otpauth" for OTP-based secrets.
+Field Name: The field name should be labeled `otpauth` for OTP-based secrets.
 
 Input Secret: Enter the OTPAuth secret string into the "Field Name Value" box (as shown in the first screenshot). Once entered, it will be stored and ready to use for authentication.
 

@@ -12,9 +12,9 @@ next:
 ---
 You can define an LDAP target to be used with [LDAP Dynamic Secrets](https://docs.akeyless.io/docs/ldap-dynamic-secret) or [LDAP Rotated Secrets](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret).
 
-## Create an LDAP Target in the CLI
+## Create an LDAP Target with the CLI
 
-To create an LDAP target from the CLI, run the following command:
+To create an LDAP target with the CLI, run the following command:
 
 ```shell Akeyless CLI
 akeyless target create ldap \

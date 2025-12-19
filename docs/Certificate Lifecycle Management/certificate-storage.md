@@ -20,7 +20,7 @@ Akeyless Certificate storage allows you to securely store, sort, and browse thro
 
 The certificates are treated as their own type of item inside the Akeyless Platform with their parsed information saved in the form of a JSON array to represent the certificate chain. The item will include both the certificate itself and the private key (if it exists), which will be stored completely encrypted.
 
-## Managing a Certificate in the CLI
+## Managing a Certificate with the CLI
 
 ### Creating a New Certificate
 

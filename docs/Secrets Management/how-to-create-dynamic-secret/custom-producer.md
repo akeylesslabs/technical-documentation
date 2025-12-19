@@ -132,7 +132,7 @@ Where:
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A JSON object that includes any fields required by the particular use case.</p>
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;cert&quot;:&quot;&lt;redacted&gt;&quot;,   &quot;private_key&quot;:&quot;&lt;redacted&gt;&quot; }`</p>
-<p>`{&quot;password&quot;:&quot;strongpassword!&quot;}`</p>
+<p>`{&quot;password&quot;:&quot;`strongpassword!`&quot;}`</p>
 </td>
 </tr>
 </tbody>

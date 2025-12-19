@@ -15,7 +15,7 @@ next:
 When setting up your Akeyless account, you will assign it an email address and a password. This authentication method will allow you to invite your teammates to join your account and utilize the items and resources in it using their email addresses and setting up their own passwords.
 While this flow is simple and easy to use, we recommend you mainly use it for basic onboarding.
 
-## Creating an Email Authentication in the CLI
+## Creating an Email Authentication with the CLI
 
 Let's create a new Email authentication method using the Akeyless CLI. (You can do this also from the Akeyless Console.)
 

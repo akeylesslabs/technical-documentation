@@ -252,7 +252,7 @@ After you've created an additional profile, add the `--profile` parameter with t
 
 ### Advanced Configuration
 
-When creating a profile in the CLI, the profile contains only the Authentication Method settings, such as `Access ID`,  and `Access Type`.
+When creating a profile with the CLI, the profile contains only the Authentication Method settings, such as `Access ID`,  and `Access Type`.
 
 However, you can configure additional parameters as defaults in your profile. Once set, these default parameters will automatically be used for your commands unless you choose to override them explicitly.
 

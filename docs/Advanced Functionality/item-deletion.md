@@ -25,7 +25,7 @@ Some types of items or deletion flows have special rules for their deletion:
 
 * [Targets](https://docs.akeyless.io/docs/cli-reference-event-forwarders#/event-forwarder-delete) and [Event Forwarders](https://docs.akeyless.io/docs/cli-reference-event-forwarders#/event-forwarder-delete) are deleted with a separate command, and not with the standard `delete-item` / `delete-items`
 
-## Deleting an Item in the CLI
+## Deleting an Item with the CLI
 
 When deleting an item from the CLI, there are two main things to consider, which item to delete and when.
 

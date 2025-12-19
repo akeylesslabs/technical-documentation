@@ -12,7 +12,7 @@ next:
 ---
 You can define a GitLab target to be used with [GitLab Dynamic Secret](https://docs.akeyless.io/docs/gitlab-dynamic-secret).
 
-## Create a GitLab Target in the CLI
+## Create a GitLab Target with the CLI
 
 To create a GitLab target from the CLI, run the following command:
 

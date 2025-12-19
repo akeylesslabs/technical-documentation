@@ -259,7 +259,7 @@ EOF
 
 If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using the Client Certificate generated above.
 
-## Dynamic Generic Kubernetes Secrets in the CLI
+## Dynamic Generic Kubernetes Secrets with the CLI
 
 ### Create a Dynamic Generic Kubernetes Secret
 

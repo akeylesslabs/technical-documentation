@@ -12,7 +12,7 @@ next:
 ---
 You can define an Artifactory target to be used with [Artifactory Dynamic Secrets](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer).
 
-## Create an Artifactory Target in the CLI
+## Create an Artifactory Target with the CLI
 
 To create an Artifactory target from the CLI, run the following command:
 

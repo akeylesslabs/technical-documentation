@@ -12,7 +12,7 @@ next:
 ---
 You can define a GitHub target to be used with [GitHub Dynamic Secret](https://docs.akeyless.io/docs/github-dynamic-secret).
 
-## Create a GitHub Target in the CLI
+## Create a GitHub Target with the CLI
 
 To create a GitHub target from the CLI, run the following command:
 
