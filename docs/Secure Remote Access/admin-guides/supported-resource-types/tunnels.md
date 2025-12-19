@@ -69,11 +69,11 @@ akeyless connect -t <RDP User>@<RDP Host> \
 
 Once the tunnel is opened, you can connect with your local RDP client to the `TargetServer` using your localhost port via SRA.
 
-### K8s
+### Kubernetes
 
 #### kubectl
 
-To connect with a remote K8s cluster using a thick client, you can leverage the Akeyless K8s Tunnel that will start a proxy service on your remote K8s server, via the SRA.
+To connect with a remote Kubernetes cluster using a thick client, you can leverage the Akeyless Kubernetes Tunnel that will start a proxy service on your remote Kubernetes server, via the SRA.
 
 First, you can use the following template as an example to add to your `~/.kube/config` file:
 

@@ -135,11 +135,6 @@ config:
         example_from: "Non-Human Identity Federation"
         example_to: "Workload Identity Federation"
 
-      - term: "PM"
-        replacement: "Akeyless Password Manager"
-        example_from: "The Akeyless PM mobile app..."
-        example_to: "The Akeyless Password Manager mobile app..."
-
       - term: "in the CLI"
         replacement: "with the CLI"
         example_from: "in the CLI"
@@ -149,6 +144,17 @@ config:
         replacement: "with the CLI"
         example_from: "from the CLI"
         example_to: "with the CLI"
+
+      # Acronyms to not use
+      - term: "PM"
+        replacement: "Akeyless Password Manager"
+        example_from: "The Akeyless PM mobile app..."
+        example_to: "The Akeyless Password Manager mobile app..."
+
+      - term: "HVP"
+        replacement: "HashiCorp Vault Proxy"
+        example_from: "HVP"
+        example_to: "HashiCorp Vault Proxy"
         
       # Ableist / exclusionary phrasing
       - term: "sanity check"

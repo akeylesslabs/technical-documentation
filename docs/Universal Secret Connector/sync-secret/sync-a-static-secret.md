@@ -12,7 +12,7 @@ next:
 ---
 [Static Secrets](https://docs.akeyless.io/docs/static-secrets) can be configured with a **sync** setting, ensuring that any change to the secret’s value is automatically synced through the relevant [Universal Secrets Connector](https://docs.akeyless.io/docs/universal-secrets-connector).
 
-## Syncing a Static Secret from the CLI
+## Syncing a Static Secret with the CLI
 
 Run the following command to sync a Static secret to an external Secret Management solution using the CLI:
 
@@ -31,7 +31,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Static Secrets section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorbluestatic-secret-syncp).
 
-## Syncing a Static Secret from the Console
+## Syncing a Static Secret with the Console
 
 1. Log in to the Akeyless Console, and navigate to the [Static Secret](https://docs.akeyless.io/docs/cli-reference-static-secrets) item
 2. Go to the **Sync** tab on the secret item and click **Attach**.

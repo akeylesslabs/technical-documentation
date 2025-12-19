@@ -1,5 +1,5 @@
 ---
-title: Vault Proxy Authentication Methods
+title: HashiCorp Vault Proxy Authentication Methods
 excerpt: ''
 deprecated: false
 hidden: false
@@ -11,16 +11,16 @@ next:
   description: ''
   pages:
     - type: link
-      title: Vault Proxy Dynamic Secrets
+      title: HashiCorp Vault Proxy Dynamic Secrets
       url: https://docs.akeyless.io/docs/dynamic-secrets
 ---
-## Approle
+## HashiCorp Vault AppRole
 
-Some of Vault’s plugins support only Approle authentication.
+Some of Vault’s plugins support only AppRole authentication.
 
 For those types of plugins, you’ll need to specify `role_id` & `secret_id`, for using HVP you’ll need to use `Access Id` &  `Access key` replacing `role_id` & `secret_id`correspondingly.
 
-For example, Vault Approle authentication using HVP:
+For example, Vault AppRole authentication using HVP:
 
 ```shell
 export VAULT_ADDR='https://hvp.akeyless.io'

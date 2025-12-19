@@ -199,7 +199,7 @@ $ docker logs akeyless-kms-plugin
 
 ## Static Pod
 
-Update the below Static Pod template and run it **on the same machine as the`kube-apiserver`**
+Update the below Static Pod template and run it **on the same machine as the `kube-apiserver`**
 
 ```yaml
 apiVersion: v1
@@ -247,15 +247,13 @@ $ kubectl logs $CONTAINER
 2021/08/24 12:43:34 Api Version: v1beta1, Runtime Name: AKEYLESS, Runtime Version: 0.0.1
 ```
 
-## Configure Kube-apiserver
+## Configure `kube-apiserver`
 
-Once the plugin is up and running, the next step is to [configure kube-apiserver] ([https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider))
+Once the plugin is up and running, the next step is to [configure `kube-apiserver`](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider).
 
 To do this you will need to use the below `encryption_provider_config.yaml` file.
 
-If you want to change the location of the  socket make sure to update the plugin as well as
-
-the `encryption_provider_config.yaml`.
+If you want to change the location of the  socket make sure to update the plugin as well as the `encryption_provider_config.yaml` file.
 
 ```yaml
 apiVersion: apiserver.config.k8s.io/v1
