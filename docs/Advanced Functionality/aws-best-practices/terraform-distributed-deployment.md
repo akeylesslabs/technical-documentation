@@ -16,7 +16,7 @@ This article outlines the steps to integrate your AWS account with Akeyless [Gat
 
 ## Prerequisites
 
-To successfully integrate your AWS accounts with Akelyess, ensure the following prerequisites are met:
+To successfully integrate your AWS accounts with Akeyless, ensure the following prerequisites are met:
 
 For Organization integration, ensure you have an existing AWS environment with AWS Organizations enabled. If you need to create one, refer to the [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started.html) user guide.
 

@@ -16,7 +16,7 @@ The following guide shows a typical integration.
 
 ## Installation
 
-Get the Akelyess package for **Go**:
+Get the Akeyless package for **Go**:
 
 ```go
 go get github.com/akeylesslabs/akeyless-go/v3

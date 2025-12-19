@@ -479,7 +479,7 @@ Now, we will use the roles that were created in order to manage the destination 
 >
 > Make sure you have an [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with the IAM Role from the source account atttached.
 
-Connect to your Gateway - `https://public-ip>:8000`, this will automatically update the URL of your Gateway in Akelyess.
+Connect to your Gateway - `https://public-ip>:8000`, this will automatically update the URL of your Gateway in Akeyless.
 
 Then, enter the GW console - `https://public-ip>:8000/console`
 

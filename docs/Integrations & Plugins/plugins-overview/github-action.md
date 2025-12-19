@@ -107,7 +107,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
           access-type: k8s
           k8s-auth-config-name: "k8s-auth-config-name"
-          gateway-url: "<https://Your-Akelyess-Gateway-URL:8000>"
+          gateway-url: "<https://Your-Akeyless-Gateway-URL:8000>"
           static-secrets: |
             - name: "/akeyless-github-action/github-static-secret-json"
               output-name: "my_first_secret"

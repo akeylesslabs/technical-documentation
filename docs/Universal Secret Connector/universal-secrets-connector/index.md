@@ -14,7 +14,7 @@ While Akeyless is built to store, manage, and protect your secrets internally, i
 
 When a user is granted `read` access to a **USC** item, they can act using the permissions of that underlying identity. With **USC**, you can unify governance and visibility across fragmented secret stores without migrating data or altering existing workflows.
 
-Universal Secret Connector is also supported by the Akelyess [K8s Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s), allowing Kubernetes applications and workloads to access secrets and credentials sourced through USC securely.
+Universal Secret Connector is also supported by the Akeyless [Kubernetes Injector](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s), allowing Kubernetes applications and workloads to access secrets and credentials sourced through USC securely.
 
 After connecting to your Universal Secrets source, you will be able to manage them from Akeyless, including viewing, adding, updating, deleting, and [syncing secrets](https://docs.akeyless.io/docs/sync-secret). The exact secret information that can be displayed in Akeyless varies between providers according to their unique attributes.
 
