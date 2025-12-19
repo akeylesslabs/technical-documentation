@@ -42,7 +42,7 @@ akeyless auth-method create kerberos \
 
 `--force-sub-claims`: Enforce `role-association` must include sub-claims
 
-`--jwt-ttl[=0]`: Creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
 
@@ -117,7 +117,7 @@ akeyless auth-method update kerberos \
 
 `--force-sub-claims`: Enforce `role-association` must include sub-claims
 
-`--jwt-ttl[=0]`: Creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
 

@@ -26,7 +26,7 @@ The Akeyless Web Extension offers a convenient feature allowing users to mark th
 
 ## Step 3: Access Favorites
 
-* To view your favorites, navigate to the Favorites tab within the Akeyless Web Extension. This tab consolidates all your favorited secrets and passwords in one place, allowing for quicker access.
+* To view your favorites, navigate to the Favorites tab within the Akeyless Web Extension. This tab consolidates all your favorite secrets and passwords in one place, allowing for quicker access.
 * In the Favorites tab, you can easily find and manage your most important items without sifting through the entire list of stored secrets and passwords.
 
 ## Step 4: Remove from Favorites
@@ -39,4 +39,4 @@ The Akeyless Web Extension offers a convenient feature allowing users to mark th
 
 ## Managing Favorites
 
-The favorites feature in the Akeyless Web Extension is designed to make your digital life more manageable and secure. By favoriting items, you ensure quick access to your most used secrets and passwords, enhancing your workflow and productivity. Remember, you can add or remove items from your favorites at any time, tailoring the list to meet your current needs and preferences.
+The favorites feature in the Akeyless Web Extension is designed to make your digital life more manageable and secure. By marking items as favorites, you ensure quick access to your most used secrets and passwords, enhancing your workflow and productivity. Remember, you can add or remove items from your favorites at any time, tailoring the list to meet your current needs and preferences.

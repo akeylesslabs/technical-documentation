@@ -1,1 +1,6 @@
 hostnames
+Encrypter
+Decrypter
+autofilled
+subfolders
+uppercased
