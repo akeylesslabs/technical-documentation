@@ -22,7 +22,7 @@ To create a GoDaddy target with the CLI, run the following command:
 akeyless target create godaddy \
 --name <Target Name> \
 --api-key <API Key of the GoDaddyTarget account> \
---secret <Secret of the api credentials to the Godaddy account>
+--secret <Secret of the API credentials to the GoDaddy account>
 --imap-username <Username to access the IMAP service> \
 --imap-password <Password to access the IMAP service> \
 --imap-fqdn <FQDN of the IMAP service> \

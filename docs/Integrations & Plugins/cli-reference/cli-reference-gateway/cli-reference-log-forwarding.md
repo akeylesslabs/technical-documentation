@@ -401,7 +401,7 @@ akeyless gateway update log-forwarding stdout \
 
 ### `sumologic`
 
-Updates Log Forwarding config for Sumologic
+Updates Log Forwarding config for SumoLogic
 
 #### Usage
 
@@ -412,7 +412,7 @@ akeyless gateway update log-forwarding sumologic \
 --pull-interval '10' \ \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --endpoint <endpoint URL> \
---sumologic-tags <Sumologic tags> \
+--sumologic-tags <SumoLogic tags> \
 --host <SumoLoginc host>
 ```
 
@@ -426,11 +426,11 @@ akeyless gateway update log-forwarding sumologic \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--endpoint`: Sumologic endpoint URL
+`--endpoint`: SumoLogic endpoint URL
 
-`--sumologic-tags[=use-existing]`: A comma-separated list of Sumologic tags
+`--sumologic-tags[=use-existing]`: A comma-separated list of SumoLogic tags
 
-`--host[=use-existing]`: Sumologic host
+`--host[=use-existing]`: SumoLogic host
 
 ### `syslog`
 

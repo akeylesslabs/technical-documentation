@@ -40,13 +40,13 @@ akeyless gateway-create-migration \
 
 `-k, --protection-key`: The name of the key that protects the classic key value (if empty, the account default key will be used)
 
-`-g, --gcp-key-file-path`: Path to file with the Base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
+`-g, --gcp-key-file-path`: Path to file with the Base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, for example, `roles/secretmanager.secretAccessor` (relevant only for GCP migration)
 
-`-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
+`-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, for example, `roles/secretmanager.secretAccessor` (relevant only for GCP migration)
 
-`-U, --hashi-url`: HashiCorp Vault API URL, e.g. `https://<vault-server>:8200` (relevant only for HashiCorp Vault migration)
+`-U, --hashi-url`: HashiCorp Vault API URL, for example, `https://<vault-server>:8200` (relevant only for HashiCorp Vault migration)
 
-`--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HashiCorp Vault migration)
+`--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, for example, `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
 `-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list & read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
@@ -293,19 +293,19 @@ akeyless gateway-update-migration \
 
 `-k, --protection-key`: The name of the key that protects the classic key value (if empty, the account default key will be used)
 
-`-g, --gcp-key-file-path`: Path to file with the Base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)
+`-g, --gcp-key-file-path`: Path to file with the Base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. `roles/secretmanager.secretAccessor` (relevant only for GCP migration)
 
-`-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration).
+`-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. `roles/secretmanager.secretAccessor` (relevant only for GCP migration).
 
 `-U, --hashi-url`: HashiCorp Vault API URL, e.g. `https://vault-mgr01:8200` (relevant only for HashiCorp Vault migration)
 
-`--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HashiCorp Vault migration)
+`--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, e.g. `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
 `-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list & read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json='true'`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
-`-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, e.g. 'arn:aws:secretsmanager:[Region]:[AccountId]: secret:[/path/to/secrets/*]' (relevant only for AWS migration)
+`-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, e.g. `arn:aws:secretsmanager:[Region]:[AccountId]:secret:[/path/to/secrets/*]` (relevant only for AWS migration)
 
 `-K, --aws-key`: AWS Secret Access Key (relevant only for AWS migration)
 

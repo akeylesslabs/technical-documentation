@@ -50,3 +50,30 @@ overrides:
     ignoreRegExpList:
       - /`[^`]*`/
       - /```[\s\S]*?```/
+
+  # Allow PostgreSQL-specific term "usename" only in selected files.
+  # Adjust the filename globs to match where you discuss or show pg_stat_activity / SQL revoke statements.
+  - filename:
+      - "docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md"
+    words:
+      - usename
+
+  # "hanadb" and "dockerhub" are CLI subcommands
+  - filename:
+      - "docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md"
+    words:
+      - hanadb
+      - dockerhub
+
+  # "forwading" is a known issue: ASM-16564
+  - filename:
+      - "docs/Secure Remote Access/admin-guides/supported-resource-types/k8s-cluster-access.md"
+      - "docs/Integrations & Plugins/cli-reference/cli-reference-dynamic-secrets.md"
+    words:
+      - forwading
+
+  # "vaultless" is a parameter option
+  - filename:
+      - "docs/Integrations & Plugins/cli-reference/cli-reference-encryption-keys.md"
+    words:
+      - vaultless

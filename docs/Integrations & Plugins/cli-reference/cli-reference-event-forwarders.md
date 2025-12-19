@@ -29,7 +29,7 @@ Create a new Email Event Forwarder
 ```shell
 akeyless event-forwarder create email \
 --name <Event Forwarder name> \
---email-to <comma seperated email addresses> \
+--email-to <comma separated email addresses> \
 --gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \

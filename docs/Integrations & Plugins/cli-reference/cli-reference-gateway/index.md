@@ -118,7 +118,7 @@ akeyless gateway-update-allowed-access \
 
 `-s, --sub-claims`: `key/val` of sub claims, e.g `group=admins,developers`
 
-`-p, --permissions`: Comma-seperated list of permissions for this allowed access. Available permissions: [`defaults`,`targets`,`classic_keys`,`automatic_migration`,`ldap_auth`,`dynamic_secret`,`k8s_auth`,`log_forwarding`,`zero_knowledge_encryption`,`rotated_secret`,`caching`,`event_forwarding`,`admin`,`kmip`,`general`]
+`-p, --permissions`: Comma-separated list of permissions for this allowed access. Available permissions: [`defaults`,`targets`,`classic_keys`,`automatic_migration`,`ldap_auth`,`dynamic_secret`,`k8s_auth`,`log_forwarding`,`zero_knowledge_encryption`,`rotated_secret`,`caching`,`event_forwarding`,`admin`,`kmip`,`general`]
 
 `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
@@ -135,7 +135,7 @@ Deletes a gateway in the account
 ```shell
 akeyless delete-gateway-cluster \
 --cluster-name <Cluster Name> \
---force < true / flase>
+--force < true / false>
 ```
 
 #### Flags
