@@ -179,11 +179,11 @@ akeyless target create k8s \
 ```shell Inline connection with certificate
 akeyless target create k8s \
 --name <Target name> \
---k8s-cluster-endpoint <K8S Cluster endpoint> \
---k8s-cluster-ca-cert <K8S Cluster certificate> \
+--k8s-cluster-endpoint <K8s Cluster endpoint> \
+--k8s-cluster-ca-cert <K8s Cluster certificate> \
 --k8s-auth-type certificate
---k8s-client-certificate <base64 PEM encoded client cert>
---k8s-client-key <base64 PEM encoded client key>
+--k8s-client-certificate <Base64 PEM encoded client cert>
+--k8s-client-key <Base64 PEM encoded client key>
 ```
 
 Where:
