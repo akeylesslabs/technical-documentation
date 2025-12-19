@@ -99,9 +99,9 @@ usc create \
 
 `--usc-encryption-key`: Optional, The name of the remote key that used to encrypt the secret value (if empty, the default key will be used). Relevant only for **AWS** and **GCP**
 
-`-v, --value`:**Required**,Value of the external secret item, either text or Base64 encoded binary
+`-v, --value`:**Required**,Value of the external secret item, either text or Base64-encoded binary
 
-`-b, --binary-value`:Use this option if the external secret value is a Base64 encoded binary
+`-b, --binary-value`:Use this option if the external secret value is a Base64-encoded binary
 
 `--description`:Description of the external secret
 
@@ -216,9 +216,9 @@ usc update \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`-v, --value`: **Required**,Value of the external secret item, either text or Base64 encoded binary
+`-v, --value`: **Required**,Value of the external secret item, either text or Base64-encoded binary
 
-`-b, --binary-value`: Use this option if the external secret value is a Base64 encoded binary
+`-b, --binary-value`: Use this option if the external secret value is a Base64-encoded binary
 
 `--description`: Description of the external secret
 

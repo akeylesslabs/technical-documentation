@@ -28,8 +28,8 @@ akeyless target create salesforce \
 --password <oauth2 app user password> \
 --security-token <Oauth2 app user security token>
 #Or If using 'jwt' auth-flow, provide the following:
---app-private-key-file-name <Name of the Base64 encoded PEM private key of the connected app> \
---app-private-key-data <Base64 encoded PEM private key of the connected app> #Used if 'app-private-key-file-name' was not provided
+--app-private-key-file-name <Name of the Base64-encoded PEM private key of the connected app> \
+--app-private-key-data <Base64-encoded PEM private key of the connected app> #Used if 'app-private-key-file-name' was not provided
 ```
 
 Where:
@@ -54,9 +54,9 @@ If using `user-password` `auth-flow` provide the following:
 
 Or if using `jwt` `auth-flow` provide the following:
 
-* `app-private-key-file-name`: The name of the of the file containing a Base64 encoded `PEM` private key of the connected app.
+* `app-private-key-file-name`: The name of the of the file containing a Base64-encoded `PEM` private key of the connected app.
 
-* `app-private-key-data`: The Base64 encoded `PEM` private key of the connected app.\
+* `app-private-key-data`: The Base64-encoded `PEM` private key of the connected app.\
   Note: Used if `app-private-key-file-name` was not provided.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluesalesforcep) section.
@@ -84,7 +84,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
   * Check the **User-Password** radio button to authenticate with the`OAuth2.0` app username and password to connect to Salesforce.
 
-* If you selected the **JWT** radio button, provide **App Private key**, a Base64 encoded `PEM` of the connected app private key.
+* If you selected the **JWT** radio button, provide **App Private key**, a Base64-encoded `PEM` of the connected app private key.
 
 * If you selected the **User-Password** radio button, provide the following:
   * **Client Secret:** Client secret of the `OAuth2.0` app to use for connecting to Salesforce.
@@ -94,7 +94,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 5. Define the remaining optional parameters as follows:
 
 * **CA certificate name:** Specify the name of the certificate in the Salesforce tenant.
-* **CA certificate:** Provide a Base64 encoded PEM cert to use when uploading a new key to Salesforce.\
+* **CA certificate:** Provide a Base64-encoded PEM cert to use when uploading a new key to Salesforce.\
   Note: Used if **CA certificate name** was not provided.
 
 6. Click **Finish**.

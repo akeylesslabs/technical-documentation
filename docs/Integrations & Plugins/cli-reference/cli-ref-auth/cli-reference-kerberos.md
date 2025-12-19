@@ -62,7 +62,7 @@ akeyless auth-method create kerberos \
 
 `--ldap-url`: LDAP server URL, e.g., `ldap://ldap.domain.com:389`
 
-`--ldap-ca-cert`: LDAP CA certificate (Base64 encoded)
+`--ldap-ca-cert`: LDAP CA certificate (Base64-encoded)
 
 `--ldap-ca-cert-file-name`: Path to the file containing the CA certificate
 
@@ -137,7 +137,7 @@ akeyless auth-method update kerberos \
 
 `--ldap-url`: LDAP server URL, e.g., `ldap://ldap.domain.com:389`
 
-`--ldap-ca-cert`: LDAP CA certificate (Base64 encoded)
+`--ldap-ca-cert`: LDAP CA certificate (Base64-encoded)
 
 `--ldap-ca-cert-file-name`: Path to the file containing the CA certificate
 

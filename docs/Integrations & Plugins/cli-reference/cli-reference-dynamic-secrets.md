@@ -698,7 +698,7 @@ akeyless dynamic-secret create github \
 
 `--github-app-id`: GitHub application ID
 
-`--github-app-private-key`: GitHub application private key (Base64 encoded key)
+`--github-app-private-key`: GitHub application private key (Base64-encoded key)
 
 `--github-base-url[=https://api.github.com/]`: Github base URL
 
@@ -1696,7 +1696,7 @@ akeyless dynamic-secret create snowflake \
 
 `--warehouse`: The warehouse the generated credentials are restricted to
 
-`--private-key`: RSA Private key (Base64 encoded)
+`--private-key`: RSA Private key (Base64-encoded)
 
 `--private-key-file-name`: The path to the file containing the private key
 
@@ -2366,7 +2366,7 @@ akeyless dynamic-secret update github \
 --installation-id <Your GitHub Installation ID> \
 --installation-repository <instead of installation id, set a GitHub repository> \
 --github-app-id <Github application id> \
---github-app-private-key <Github application private key (base64 encoded key)> \
+--github-app-private-key <Github application private key (base64-encoded key)> \
 --github-base-url <Github base url (Deafult = https://api.github.com/)
 ```
 
@@ -2386,7 +2386,7 @@ akeyless dynamic-secret update github \
 
 `--github-app-id`: GitHub application ID
 
-`--github-app-private-key`: GitHub application private key (Base64 encoded key)
+`--github-app-private-key`: GitHub application private key (Base64-encoded key)
 
 `--github-base-url[=https://api.github.com/]`: Github base url
 
@@ -3202,7 +3202,7 @@ akeyless dynamic-secret update snowflake \
 
 `--warehouse`: The warehouse the generated credentials are restricted to
 
-`--private-key`: RSA Private key (Base64 encoded)
+`--private-key`: RSA Private key (Base64-encoded)
 
 `--private-key-file-name`: The path to the file containing the private key
 

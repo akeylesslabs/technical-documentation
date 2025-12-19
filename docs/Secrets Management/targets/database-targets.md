@@ -133,7 +133,7 @@ akeyless target create db \
 --db-type snowflake \
 --user-name <Database user name> \
 --pwd <Database password> \ #relevent for User-Password Authentication
---snowflake-api-private-key <RSA Private key (base64 encoded)> \ #relevent for "RSA Private Key" Authentication
+--snowflake-api-private-key <RSA Private key (base64-encoded)> \ #relevent for "RSA Private Key" Authentication
 --snowflake-api-private-key-passphrase <The Private key passphrase> \ #relevent for "RSA Private Key" Authentication
 --db-name <Database name> \
 --snowflake-account <Snowflake account name>
@@ -387,7 +387,7 @@ For more information, [read here](https://docs.akeyless.io/docs/implement-zero-k
 **Account Password:** Password for the Snowflake user administrator account.
 (Relevant only when using **User-Password** authenticating)
 
-**Private Key:** RSA Private key (Base64 encoded), associated with the public key defined in Snowflake connection.
+**Private Key:** RSA Private key (Base64-encoded), associated with the public key defined in Snowflake connection.
 (Relevant only when using **RSA Private Key** authenticating).
 For more information on how to get this key, check this [guide](https://docs.snowflake.com/en/user-guide/key-pair-auth).
 

@@ -26,7 +26,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 **Superuser** - The user who signed up for Akeyless and owns the account.
 
-**RBAC** - Akeyless [Role Based  Access Control](https://docs.akeyless.io/docs/rbac).
+**RBAC** - Akeyless [Role-Based Access Control](https://docs.akeyless.io/docs/rbac).
 
 **CSP IAM** - Cloud Service Provider Identity and Access Management.
 

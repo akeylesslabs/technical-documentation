@@ -98,7 +98,7 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_UID_TOKEN=<UID Token> -e UID_R
 
 To set your Gateway default authentication based on [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)  provide the relevant `Access ID`, `Certificate`, and `Certificate Key` using those variables:
 
-`GATEWAY_ACCESS_ID="your-access-id"`,  `GATEWAY_CERTIFICATE="Certificate base64 encoded"` and `GATEWAY_CERTIFICATE_KEY="Certificate Key base64"`.
+`GATEWAY_ACCESS_ID="your-access-id"`,  `GATEWAY_CERTIFICATE="Certificate base64-encoded"` and `GATEWAY_CERTIFICATE_KEY="Certificate Key base64"`.
 
 With a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS`variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) or an [API Key](https://docs.akeyless.io/docs/api-key).
 

@@ -81,7 +81,7 @@ The output should look as follows:
 
 ```shell
 {
-  "value": "<Base64 encoded value>",
+  "value": "<Base64-encoded value>",
   "metadata": {
     "created": "<timestamp>",
     "updated": "<timestamp>"
@@ -103,7 +103,7 @@ The main parameters are:
 
 * `secret-name`: The name of the secret you would like to create.
 
-* `value`: The value of the secret you would like to create, plaintext or Base64 encoded.
+* `value`: The value of the secret you would like to create, plaintext or Base64-encoded.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 

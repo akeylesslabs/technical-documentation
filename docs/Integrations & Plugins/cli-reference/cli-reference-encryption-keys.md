@@ -214,11 +214,11 @@ akeyless decrypt \
 
 `-I, --item-id`: The item ID of the key to use in the decryption process
 
-`-i, --in`: Path to the file to be decrypted (Base64 encoded)
+`-i, --in`: Path to the file to be decrypted (Base64-encoded)
 
 `-o, --out`: Path to the output file. If not provided, the output will be printed as text.
 
-`-c, --ciphertext`: Ciphertext to be decrypted in Base64 encoded format, if a file was not provided
+`-c, --ciphertext`: Ciphertext to be decrypted in Base64-encoded format, if a file was not provided
 
 `-X, --encryption-context`: The encryption context. If this was specified in the encrypt command, it must be specified here or the decryption operation will fail
 
@@ -278,11 +278,11 @@ akeyless decrypt-gpg \
 
 `-I, --item-id`: The item ID of the key to use in the decryption process
 
-`-i, --in`: Path to the file to be decrypted (Base64 encoded)
+`-i, --in`: Path to the file to be decrypted (Base64-encoded)
 
 `-o, --out`: Path to the output file. If not provided, the output will be printed as text.
 
-`-c, --ciphertext`: Ciphertext to be decrypted in Base64 encoded format, if a file was not provided
+`-c, --ciphertext`: Ciphertext to be decrypted in Base64-encoded format, if a file was not provided
 
 `-N, --input-format[=base64]`: Select default assumed format for the ciphertext. Currently supported options: [base64,raw]
 
@@ -312,7 +312,7 @@ akeyless decrypt-pkcs1 \
 
 `-I, --item-id`: The item ID of the key to use in the decryption process
 
-`-c, --ciphertext`: **Required**, Ciphertext to be decrypted in Base64 encoded format
+`-c, --ciphertext`: **Required**, Ciphertext to be decrypted in Base64-encoded format
 
 `-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
 
@@ -562,7 +562,7 @@ Rotates an existing key, by creating a new version of the key
 akeyless rotate-key \
 --name <Key name> \
 --gateway-url <API Gateway URL:8000> \ 
---new-key-data <The new value of the key, base64 encoded>
+--new-key-data <The new value of the key, base64-encoded>
 ```
 
 ### Flags
@@ -571,7 +571,7 @@ akeyless rotate-key \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port). Relevant only for Classic Key.
 
-`--new-key-data`: The new value of the key, Base64 encoded. Relevant only for Classic Key provided by the user (BYOK).
+`--new-key-data`: The new value of the key, Base64-encoded. Relevant only for Classic Key provided by the user (BYOK).
 
 ## `set-item-state`
 
@@ -802,7 +802,7 @@ akeyless upload-rsa \
 --name <Key Name> \
 --alg <Key type> \
 --rsa-key-file-path <RSA private key file path> \
---rsa-key-data <RSA private key data, base64 encoded> \
+--rsa-key-data <RSA private key data, base64-encoded> \
 --cert <Certificate in a PEM format> \
 --cert-file-data <PEM Certificate in a Base64 format>
 ```
@@ -815,7 +815,7 @@ akeyless upload-rsa \
 
 `-p, --rsa-key-file-path`: RSA private key file path.
 
-`--rsa-key-data`: RSA private key data, Base64 encoded
+`--rsa-key-data`: RSA private key data, Base64-encoded
 
 `-c, --cert`: Path to a file that contain the certificate in a PEM format
 
@@ -1018,7 +1018,7 @@ akeyless detokenize \
 
 `-c, --ciphertext`: **Required**, Data to be decrypted
 
-`--tweak`: Base64 encoded tweak for zero-knowledge encryption
+`--tweak`: Base64-encoded tweak for zero-knowledge encryption
 
 ### `tokenize`
 
@@ -1039,4 +1039,4 @@ akeyless tokenize \
 
 `-p, --plaintext`: **Required**, Data to be encrypted
 
-`--tweak`: Base64 encoded tweak for zero-knowledge encryption
+`--tweak`: Base64-encoded tweak for zero-knowledge encryption

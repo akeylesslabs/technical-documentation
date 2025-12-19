@@ -59,7 +59,7 @@ Choose an authentication method:
 
 * API Base URL: `[https://api.akeyless.io` (or your Akeyless instance URL)
 * Access ID: Your Akeyless Access ID (starts with p-)
-* Access Key: Your Base64 encoded Access Key
+* Access Key: Your Base64-encoded Access Key
 * Ignore SSL Issues: Leave unchecked unless using self-signed certificates
 
 #### Method B: Token (T-token)

@@ -192,7 +192,7 @@ Where:
 
 * `k8s-cluster-endpoint`: The DNS or IP address of the cluster, in `https://` format.
 
-* `k8s-cluster-ca-cert`: The Base64 encoded cluster CA certificate.
+* `k8s-cluster-ca-cert`: The Base64-encoded cluster CA certificate.
 
 * `k8s-cluster-token`: A JWT authentication token authorized to create service account tokens.
 

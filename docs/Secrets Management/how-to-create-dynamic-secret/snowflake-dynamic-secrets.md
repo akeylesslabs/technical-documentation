@@ -56,7 +56,7 @@ akeyless dynamic-secret create akeyless dynamic-secret get-valuesnowflake \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
---snowflake-api-private-key RSA Private key (base64 encoded)\
+--snowflake-api-private-key RSA Private key (base64-encoded)\
 --snowflake-api-private-key-file-name The path to the file containing the private key\
 --snowflake-api-private-key-passphrase The Private key passphrase
 ```
@@ -93,7 +93,7 @@ If you don't have [Snowflake Target](https://docs.akeyless.io/docs/database-targ
 
 another alternative to the Snowflake login is to use a private RSA key:
 
-* `snowflake-api-private-key`: An RSA type private key that has access to the Snowflake account, in a Base64 encoded format.
+* `snowflake-api-private-key`: An RSA type private key that has access to the Snowflake account, in a Base64-encoded format.
 
 * `snowflake-api-private-key-file-name`: Alternatively, you can use the path to a .pem file containing the key.
 

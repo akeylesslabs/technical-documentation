@@ -12,7 +12,7 @@ next:
 ---
 ## Finding the Right Pricing Option
 
-Akeyless is priced monthly, based on the package you select. The package types are Free, Team, and Enterprise, and their full detail can be found [here.](https://www.akeyless.io/pricing/)
+Akeyless is priced monthly, based on the package you select. The package types are Free, Team, and Enterprise, and their full detail can be found [here](https://www.akeyless.io/pricing/).
 
 ### How to Select a Package
 

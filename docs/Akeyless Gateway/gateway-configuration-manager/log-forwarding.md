@@ -152,7 +152,7 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
 
-5. From the **Log Service** dropdown list, select  `Google Chronicle`.
+5. From the **Log Service** dropdown list, select `Google Chronicle`.
 
 6. **Service Account Key** - A JSON file holding service account credentials.
 

@@ -109,7 +109,7 @@ akeyless gateway-update-ldap-auth-config \
 --access-id <access ID of the Ldap auth method> \
 --signing-key-file-name <path/to/PRV/key> \
 --ldap-url <LDAP Server URL> \
---ldap-ca-cert <LDAP CA Certificate (base64 encoded)>
+--ldap-ca-cert <LDAP CA Certificate (base64-encoded)>
 ```
 
 ### Flags
@@ -118,13 +118,13 @@ akeyless gateway-update-ldap-auth-config \
 
 `--access-id`: The access ID of the LDAP Auth Method
 
-`--signing-key-data`: The private key (Base64 encoded), associated with the public key defined in the LDAP auth
+`--signing-key-data`: The private key (Base64-encoded), associated with the public key defined in the LDAP auth
 
 `--signing-key-file-name`: the path to the file containing the private key
 
 `--ldap-url`: LDAP Server URL, e.g. `ldap://planetexpress.com:389`
 
-`-t, --ldap-ca-cert`: LDAP CA Certificate (Base64 encoded)
+`-t, --ldap-ca-cert`: LDAP CA Certificate (Base64-encoded)
 
 `--ldap-ca-cert-file-name`: the path to the file containing the CA certificate
 

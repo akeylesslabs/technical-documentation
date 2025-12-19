@@ -182,7 +182,7 @@ func main() {
 
 	// --- Step 2: Get Challenge ---
 	accessID := "<YOUR_ACCESS_ID>"
-	// This should be the base64 encoded content of your public certificate
+	// This should be the base64-encoded content of your public certificate
 	certPem, err := os.ReadFile("<YOUR_CERT_PATH>")
 	if err != nil {
 		log.Fatalf("failed to read certificate file: %v", err)

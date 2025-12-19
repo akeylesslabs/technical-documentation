@@ -109,7 +109,7 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 
 `--access-id`: **Required**, The Access ID of the Kubernetes Auth Method
 
-`--signing-key`: The private key (Base64 encoded) associated with the public key defined in the Kubernetes auth
+`--signing-key`: The private key (Base64-encoded) associated with the public key defined in the Kubernetes auth
 
 `--token-exp[=300]`: Time in seconds of expiration of the Akeyless Kubernetes Auth Method token
 
@@ -119,7 +119,7 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf \
 
 `--k8s-host`: The URL of the Kubernetes API server
 
-`--k8s-ca-cert`: The CA Certificate (Base64 encoded) to use to call into the Kubernetes API server
+`--k8s-ca-cert`: The CA Certificate (Base64-encoded) to use to call into the Kubernetes API server
 
 `--k8s-auth-type[=token]`: Native K8s auth type, [token/certificate]. (relevant for "native_k8s" only)
 
@@ -213,7 +213,7 @@ akeyless gateway-update-k8s-auth-config \
 
 `--access-id`: **Required**, The access ID of the Kubernetes Auth Method
 
-`--signing-key`: The private key (Base64 encoded) associated with the public key defined in the Kubernetes auth
+`--signing-key`: The private key (Base64-encoded) associated with the public key defined in the Kubernetes auth
 
 `--token-exp[=300]`: Time in seconds of expiration of the Akeyless Kubernetes Auth Method token
 
@@ -223,7 +223,7 @@ akeyless gateway-update-k8s-auth-config \
 
 `--k8s-host`: The URL of the Kubernetes API server
 
-`--k8s-ca-cert`: The CA Certificate (Base64 encoded) to use to call into the Kubernetes API server
+`--k8s-ca-cert`: The CA Certificate (Base64-encoded) to use to call into the Kubernetes API server
 
 `--k8s-auth-type[=token]`: Native K8s auth type, [token/certificate]. (relevant for "native_k8s" only)
 

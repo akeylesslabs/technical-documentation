@@ -91,7 +91,7 @@ The output should look as follows:
 
 ```shell
 {
-  "value": "<Base64 encoded value>",
+  "value": "<Base64-encoded value>",
   "metadata": {
     "created": "<timestamp>",
     "updated": "<timestamp>"
@@ -113,7 +113,7 @@ The main parameters are:
 
 * `secret-name`: The name of the secret you would like to create.
 
-* `value`: The value of the secret you would like to create, plaintext or Base64 encoded.
+* `value`: The value of the secret you would like to create, plaintext or Base64-encoded.
 
 * `object-type[=secret]`: Either `secret` or `certificate`, when set to `certificate` -  Provide a Base64-encoded certificate file that includes the private key.
 
