@@ -1,1 +1,9 @@
 Akeyless
+KMIP
+Gbps
+Sectigo
+Venafi
+SIEM
+SPIFFE
+HMAC
+FIPS
