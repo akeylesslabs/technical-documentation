@@ -77,7 +77,7 @@ config:
   AKY013:
     code_blocks: true
     ignore_a_html_tag: true
-    names_file: .cspell/akeyless-dictionary.txt
+    names_file: .cspell/akeyless-proper-nouns-dictionary.txt
     ignore_urls: true  # ignore matches inside URLs (requires rule support)
 
   # AKY014: Require meaningful image alt text

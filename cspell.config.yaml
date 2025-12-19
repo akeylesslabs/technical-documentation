@@ -16,8 +16,9 @@ dictionaries:
   - bash
   - powershell
   - filetypes
-  # Custom Dictionary
-  - akeyless
+  # Custom Dictionaries
+  - akeyless-standard
+  - akeyless-proper-nouns
 
 ignorePaths:
   - .cspell/**
@@ -32,8 +33,11 @@ ignorePaths:
   - docs/Contributing Guides/look-feel-sample-page-title.md
 
 dictionaryDefinitions:
-  - name: akeyless
-    path: .cspell/akeyless-dictionary.txt
+  - name: akeyless-proper-nouns
+    path: .cspell/akeyless-proper-nouns-dictionary.txt
+    addWords: true
+  - name: akeyless-standard
+    path: .cspell/akeyless-standard-dictionary.txt
     addWords: true
 
 overrides:
