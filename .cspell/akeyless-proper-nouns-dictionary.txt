@@ -8,7 +8,6 @@ SPIFFE
 HMAC
 FIPS
 ZTWA
-hostnames
 support@akeyless.io
 Akeyless Platform
 Akeyless Gateway
