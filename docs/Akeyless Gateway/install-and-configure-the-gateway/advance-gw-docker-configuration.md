@@ -189,7 +189,7 @@ Full list of available permissions:
 
       <td>
         Management of the defaults settings of your Gateway
-        Including `Defualt Encryption Key` & `Defualt AccessID` for login.
+        Including `Default Encryption Key` & `Default AccessID` for login.
       </td>
     </tr>
 

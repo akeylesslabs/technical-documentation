@@ -166,7 +166,7 @@ In both cases of **Bearer Token** and **GW Service Account**, the Service Accoun
 
 ### Create a Generic Kubernetes Target in the CLI
 
-To create a generic Kubernetes target from the CLI, run the following command to create a Taregt using a **Token** or using **certificate**:
+To create a generic Kubernetes target from the CLI, run the following command to create a Target using a **Token** or using **certificate**:
 
 ```shell Inline connection with token
 akeyless target create k8s \

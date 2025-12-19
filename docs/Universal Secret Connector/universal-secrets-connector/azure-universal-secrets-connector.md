@@ -181,7 +181,7 @@ More information and secret value can be viewed by selecting a specific secret, 
 
 Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Certificates, as well as display the following information about the Certificates:
 
-* **Name:** Certifitcate name
+* **Name:** Certificate name
 
 * **Thumbprint:** The certificate thumbprint
 

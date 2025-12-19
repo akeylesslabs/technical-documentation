@@ -60,11 +60,11 @@ Allow your users to access sensitive infrastructure resources without credential
 
 Implement a gold-standard Zero-Trust environment and make auditing a breeze.
 
-### 3rd Party Access
+### Third Party Access
 
 Provide third-party access to resources without compromising your security.
 
-### Manage Access to K8Kubernetess Clusters
+### Manage Access to Kubernetes Clusters
 
 Remote Access supports access to any flavor of Kubernetes cluster, including EKS, GKE or any other generic Kubernetes cluster.
 

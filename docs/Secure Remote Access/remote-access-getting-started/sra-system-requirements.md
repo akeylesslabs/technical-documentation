@@ -26,7 +26,7 @@ The `web-sra` component allows access to RDP/SSH/DB target hosts from the [Zero-
 
 #### SSH-SRA
 
-The `ssh-sra` component enables end-users to connect to targets that support CLI access (over SSH) from their own native Terminal or CLI tool with the `akeyless connect` command. [Read more about the commmand here](https://docs.akeyless.io/docs/remote-access-akeyless-connect).
+The `ssh-sra` component enables end-users to connect to targets that support CLI access (over SSH) from their own native Terminal or CLI tool with the `akeyless connect` command. [Read more about the command here](https://docs.akeyless.io/docs/remote-access-akeyless-connect).
 
 > Although SRA can be deployed with Docker Compose or Kubernetes, this document focuses on deploying to Kubernetes
 
