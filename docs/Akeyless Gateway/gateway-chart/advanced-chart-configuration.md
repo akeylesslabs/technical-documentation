@@ -20,7 +20,7 @@ That’s why we recommend setting up a meaningful Cluster Name for your Gateway 
 
 To do that, you can set the `clusterName="meaningful-cluster-name"` field as part of the Gateway deployment.
 
-In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL`  under the `env` section as an environment variable.
+In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` under the `env` section as an environment variable.
 
 You can also provide a custom display name for the Gateway Instance using the `initialClusterDisplayName` variable, which is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
 
@@ -142,7 +142,7 @@ And add to the `values.yaml` file the Kubernetes Secret name:
     enableTls: false
 ```
 
-To force the Cache to write only to memory without writing to the file system, you can use  `extraArgs`:
+To force the Cache to write only to memory without writing to the file system, you can use `extraArgs`:
 
 ```yaml values.yaml
   clusterCache:
@@ -301,7 +301,7 @@ To provide the settings of your Gateway deployment directly from your local K8s 
 
 > 🚧 Warning
 >
-> Providing any of those settings using an existing Kubernetes Secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
+> Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
 ```yaml values.yaml
 gatewayCredentialsExistingSecret:
@@ -339,7 +339,7 @@ fixedArtifactRepository: "artifacts.site2.akeyless.io"
 
 ## Rate Limit
 
-To set a local rate limit on your Gateway instance you can add the `GW_RATE_LIMIT`  environment variable where the value will set the maximum calls per minute. When a client reaches that threshold, this will be logged and any additional requests during that minute will be discarded on the Gateway:
+To set a local rate limit on your Gateway instance you can add the `GW_RATE_LIMIT` environment variable where the value will set the maximum calls per minute. When a client reaches that threshold, this will be logged and any additional requests during that minute will be discarded on the Gateway:
 
 ```yaml YAML
 env:

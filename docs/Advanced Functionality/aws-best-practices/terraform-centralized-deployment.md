@@ -52,7 +52,7 @@ Provision **one IAM role per AWS account**, each tied to a **unique External I
 >
 > To create the IAM role in the target account, make sure you have an AWS CLI profile configured for that account on the machine running Terraform.
 
-1. **Create an AWS Target in Akeyless** for **each account** using the **Gateway Cloud ID** option. Leave **Role ARN** blank for now or with the default ARN.  Check the **External ID** option and copy the random value.
+1. **Create an AWS Target in Akeyless** for **each account** using the **Gateway Cloud ID** option. Leave **Role ARN** blank for now or with the default ARN. Check the **External ID** option and copy the random value.
 2. **Run Terraform in each account**, supplying:  
    * `trusted_principal`The IAM role ARN the **Gateway** runs under (in the management account).
    * `external_id`The string you copied from the Akeyless **AWS Target**.

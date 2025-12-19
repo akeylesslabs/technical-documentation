@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Server Inventory discovery enables importing and managing **Local Users** from remote servers into  [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) in the Akeyless Platform.
+Akeyless Server Inventory discovery enables importing and managing **Local Users** from remote servers into [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) in the Akeyless Platform.
 
 The discovery process can work against a standalone [Windows](https://docs.akeyless.io/docs/windows-target), [SSH](https://docs.akeyless.io/docs/ssh-target), and the migration will use the Target credentials to connect to the endpoint server using `Winrm` or `ssh` correspondingly. On each server, the discovery will search for all users except the **Ignored Users List**.
 
@@ -24,7 +24,7 @@ To create the Server Inventory Migration, login to your Gateway on port `8000`, 
 
 * **Ignore the Following Local Users:** Comma-separated list of Local Usernames to exclude while migrating.
 
-* **User Name Template:** A template for the created items, where the imported Local Users will be saved as Rotated Secrets ) inside the Akeyless Platform, i.e: `Users/{{COMPUTER_NAME}}/{{USERNAME}}`,  This path includes the prefix of the Destination Folder.
+* **User Name Template:** A template for the created items, where the imported Local Users will be saved as Rotated Secrets ) inside the Akeyless Platform, for example, `Users/{{COMPUTER_NAME}}/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
 
 * **Search in Privileged Users Groups** : A list of groups to scan.
 

@@ -118,7 +118,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 ```yaml
 enable="true"
 target_log_type="aws_s3"
-target_s3_folder_prefix=""  # default value "akeyless-log"
+target_s3_folder_prefix="" # default value "akeyless-log"
 target_s3_bucket_name=""
 target_s3_aws_auth_type="" # aws_auth_type_access_key|aws_auth_type_cloud_id|aws_auth_type_assume_role
 target_s3_aws_access_id="" # aws_auth_type_access_key

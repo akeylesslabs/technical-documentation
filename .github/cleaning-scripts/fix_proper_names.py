@@ -35,7 +35,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Tuple, Optional, Any
 
 try:
-    import yaml  # PyYAML
+    import yaml # PyYAML
 except Exception as e:
     print("ERROR: PyYAML is required. Install with: pip install pyyaml", file=sys.stderr)
     raise

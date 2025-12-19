@@ -26,7 +26,7 @@ To do that, edit the `gateway.env` file:
  CLUSTER_NAME: <meaningful-cluster-name>
 ```
 
-You can also provide a custom display name for the Gateway Instance using the `INITIAL_DISPLAY_NAME`  variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
+You can also provide a custom display name for the Gateway Instance using the `INITIAL_DISPLAY_NAME` variable, but this is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
 
 ## Customer Fragment
 

@@ -105,7 +105,7 @@ Item Sharing is enabled by default on an account level. Users can also set the d
 
 #### OIDC Provider Settings
 
-This setting is enabled by default. Users can also edit the Signing Algorithm, Rotation TTL, Validation TTL, ID Token TTL, and Access Token TTL. For more information, see the docs on using the [OIDC Identity  Provider](docs:oidc-app-provider).
+This setting is enabled by default. Users can also edit the Signing Algorithm, Rotation TTL, Validation TTL, ID Token TTL, and Access Token TTL. For more information, see the docs on using the [OIDC Identity Provider](docs:oidc-app-provider).
 
 #### Item Naming Conventions
 

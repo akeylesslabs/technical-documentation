@@ -21,7 +21,7 @@ akeyless event-forwarder create email \
 --name MyForwarder \
 --email-to <comma seperated email addresses> \
 --gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
---overide-url <'https://<Your-Akeyless-GW-URL:8000/console/>'> #or use port 18888\
+--override-url <'https://<Your-Akeyless-GW-URL:8000/console/>'> #or use port 18888\
 --include-error false \ 
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*> \
@@ -36,11 +36,11 @@ The main parameters for the command are as follows:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `overide-url`  Override Akeyless default URL inside the email with your Gateway Console endpoint `https://Your-Akeyless-GW-URL:8000/console`. (or use your gateway URL at port `18888`)
+* `override-url` Override Akeyless default URL inside the email with your Gateway Console endpoint `https://Your-Akeyless-GW-URL:8000/console`. (or use your gateway URL at port `18888`)
 
 * `include-error` Boolean by default false, to include error details as part of the email.
 
-* `items-event-source-locations`: **Items** event sources to forward events about,  for example: `/MySecrets/*`
+* `items-event-source-locations`: **Items** event sources to forward events about, for example: `/MySecrets/*`
 
 * `targets-event-source-locations` **Targets** event sources to forward events about, for example: `/MyTargets/*`
 

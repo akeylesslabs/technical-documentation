@@ -28,11 +28,11 @@ To configure **Access Permissions** in your [Gateway Configuration Manager](http
 
 1. Click **New**
 
-2. Define a meaningful **Name**  for the item. e.g., **Dynamic Secrets Admin**
+2. Define a meaningful **Name** for the item. e.g., **Dynamic Secrets Admin**
 
-3. From the **Auth Method** drop-down menu, choose the relevant [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods)  and set the exact [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) identifying your users,  and click **Next**
+3. From the **Auth Method** drop-down menu, choose the relevant [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) and set the exact [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) identifying your users, and click **Next**
 
-4. In **Permission Settings**, select **Admin**  or **Custom**
+4. In **Permission Settings**, select **Admin** or **Custom**
 
 5. If you choose **Custom**, select the relevant permissions to grant that Auth Method:
 
@@ -45,13 +45,13 @@ To configure **Access Permissions** in your [Gateway Configuration Manager](http
 | **Rotated Secret**              | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets)                                                |
 | **Rotate Secret Value**         | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item. |
 | **Classic Keys**                | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys)                                                      |
-| **Kubernetes Auth**             | Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)  Auth Gateway configuration                         |
-| **LDAP Auth**                   | Management of [LDAP](https://docs.akeyless.io/docs/ldap)  Auth Gateway configuration                                         |
-| **Kerberos Auth**               | Management of [Kerberos](https://docs.akeyless.io/docs/kerberos)  Auth Gateway configuration                                  |
-| **Caching**                     | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache)  settings                            |
-| **Automatic Migration**         | Management of [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)  settings                              |
-| **Log-Forwarding**              | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding)  settings                                        |
-| **Event-Forwarding**            | Management of [Event](https://docs.akeyless.io/docs/event-center)  Forwarding settings                                        |
+| **Kubernetes Auth**             | Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Gateway configuration                         |
+| **LDAP Auth**                   | Management of [LDAP](https://docs.akeyless.io/docs/ldap) Auth Gateway configuration                                         |
+| **Kerberos Auth**               | Management of [Kerberos](https://docs.akeyless.io/docs/kerberos) Auth Gateway configuration                                  |
+| **Caching**                     | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings                            |
+| **Automatic Migration**         | Management of [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration) settings                              |
+| **Log-Forwarding**              | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings                                        |
+| **Event-Forwarding**            | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings                                        |
 | **KMIP**                        | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server)                                                       |
 | **ACME**                        | Management of [ACME Servers](https://docs.akeyless.io/docs/acme-server)                                                       |
 | **Remote Access Configuration** | Management of Remote Access configuration                                                                                     |

@@ -58,7 +58,7 @@ The main parameters for the command are as follows:
 
 * `host`: **ServiceNow** endpoint URL
 
-* `items-event-source-locations`: **Items** event sources to forward events about,  for example: `/MySecrets/*`
+* `items-event-source-locations`: **Items** event sources to forward events about, for example: `/MySecrets/*`
 
 * `targets-event-source-locations` **Targets** event sources to forward events about, for example: `/MyTargets/*`
 
@@ -98,7 +98,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Name**: The **ServiceNow** event forwarder name
 * **ServiceNow URL**: The **URL** which will receive the notifications from Akeyless
 
-Choose Authentication Type (**Password /  JWT**)
+Choose Authentication Type (**Password / JWT**)
 
 * For **Password**:
 

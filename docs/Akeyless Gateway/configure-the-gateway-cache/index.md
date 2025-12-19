@@ -70,21 +70,23 @@ To enable and configure the Proactive Cache:
 
 3. Select the **Enable Proactive Caching** checkbox.
 
-> 🚧 Using Legacy Mode
->
-> Once you disable **Legacy Mode**, you won't be able to re-enable it.
+    > 🚧 Using Legacy Mode
+    >
+    > Once you disable **Legacy Mode**, you won't be able to re-enable it.
 
 4. Set the **Refresh TTL** value. This setting instructs the system to update secrets in the cache if they are older than the specified value. By default, each secret kept in the cache for more than 5 minutes will be re-requested from the Akeyless Cloud or the local Gateway.
-5. Set the **Cleanup TTL** value.  Compares the cache with the SaaS to remove entries for secrets that have been deleted or for which the Gateway's access permissions have been revoked.
+
+5. Set the **Cleanup TTL** value. Compares the cache with the SaaS to remove entries for secrets that have been deleted or for which the Gateway's access permissions have been revoked.
+
 6. Click **Save Changes**.
 
 ## Cluster Cache Mode
 
-When deploying Gateway on Kubernetes, a Cluster Cache can be set in addition to support offline authentication, this results in an additional service that syncs all pods and has a shared storage, to keep the secrets encrypted at rest, this mode requires a Kubernetes encryption key. This feature can be set **only** during deployment.  To set this follow the installation guide under the [cache](https://docs.akeyless.io/docs/advanced-k8s-gateway-configuration#cache-configuration) section.
+When deploying Gateway on Kubernetes, a Cluster Cache can be set in addition to support offline authentication, this results in an additional service that syncs all pods and has a shared storage, to keep the secrets encrypted at rest, this mode requires a Kubernetes encryption key. This feature can be set **only** during deployment. To set this follow the installation guide under the [cache](https://docs.akeyless.io/docs/advanced-k8s-gateway-configuration#cache-configuration) section.
 
 ## Bypass Cache
 
-When Cache is enabled by default, any client that requests a secret from the relevant Gateway will receive the latest cached value of the secret. To work directly with the Akeyless SaaS, to ensure you are retrieving the latest value of the secret, you can specify the `ignore-cache`  setting as part of the request to by-pass the cache mechanism :
+When Cache is enabled by default, any client that requests a secret from the relevant Gateway will receive the latest cached value of the secret. To work directly with the Akeyless SaaS, to ensure you are retrieving the latest value of the secret, you can specify the `ignore-cache` setting as part of the request to by-pass the cache mechanism :
 
 ```shell Akeyless CLI
 akeyless get-secret-value -n /mysecret --ignore-cache true

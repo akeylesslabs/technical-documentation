@@ -26,7 +26,7 @@ On the upper left-hand side of the table, you will see a few interactive buttons
 
 Akeyless events are defined by object types, supporting:
 
-* **Items** events, for all items types e.g. [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)  and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
+* **Items** events, for all items types e.g. [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
 * [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
 * [Targets](https://docs.akeyless.io/docs/targets)
 * Gateway
@@ -37,55 +37,55 @@ The following Events are currently supported:
 
 For `items-event-source-locations`:
 
-* `certificate-pending-expiration`  When a certificate is about to expire, the users sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
+* `certificate-pending-expiration`: When a certificate is about to expire, the users sets and controls this event directly from the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or from the [Certificate](https://docs.akeyless.io/docs/certificate-storage) item.
 
-* `certificate-expired` When a certificate is expired.
+* `certificate-expired`: When a certificate is expired.
 
-* `certificate-error` When an error occurs during certificate issuance.
+* `certificate-error`: When an error occurs during certificate issuance.
 
-* `certificate-provisioning-success` When a certificate is successfully provisioned
+* `certificate-provisioning-success`: When a certificate is successfully provisioned
 
-* `certificate-provisioning-failure` Upon **certificate provisioning** failure
+* `certificate-provisioning-failure`: Upon **certificate provisioning** failure
 
-* `next-automatic-rotation` When a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) or an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) is about to rotate automatically, the user sets and controls this event directly from the items.
+* `next-automatic-rotation`: When a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) or an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) is about to rotate automatically, the user sets and controls this event directly from the items.
 
-* `rotated-secret-success` Upon successful **automatic** rotation.
+* `rotated-secret-success`: Upon successful **automatic** rotation.
 
-* `rotated-secret-failure` Upon **automatic** rotation failure, including the error details.
+* `rotated-secret-failure`: Upon **automatic** rotation failure, including the error details.
 
-* `secret-sync` Upon **automatic** sync failure, including the error details.
+* `secret-sync`: Upon **automatic** sync failure, including the error details.
 
-* `dynamic-secret-failure` On general failure of a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
+* `dynamic-secret-failure`: On general failure of a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret).
 
-* `static-secret-updated` When a [Static Secret](https://docs.akeyless.io/docs/static-secrets) is set to trigger events on value changes.
+* `static-secret-updated`: When a [Static Secret](https://docs.akeyless.io/docs/static-secrets) is set to trigger events on value changes.
 
-* `usage_unused` When a global event is set in the Account settings, for secrets that have not been used or changed within the defined interval.
+* `usage_unused`: When a global event is set in the Account settings, for secrets that have not been used or changed within the defined interval.
 
-* `usage_unrotated` When a global event is set in the Account settings, for [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) that have not been rotated within the defined interval.
+* `usage_unrotated`: When a global event is set in the Account settings, for [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) that have not been rotated within the defined interval.
 
-* `request-access` When a user requests access, either for privilege permission or for a Secure Remote Access session.  **Note**: Relevant also for `targets-event-source-locations`.
+* `request-access`: When a user requests access, either for privilege permission or for a Secure Remote Access session. **Note**: Relevant also for `targets-event-source-locations`.
 
-* `apply-justification` When the user provides a connection justification as part of the Secure Remote Access session.
+* `apply-justification`: When the user provides a connection justification as part of the Secure Remote Access session.
 
-For `auth-methods-event-source-locations` :
+For `auth-methods-event-source-locations`:
 
-* `uid-rotation-failure` On [Universal Identity](https://docs.akeyless.io/docs/universal-identity) rotation failure, to track the automatic rotation.
+* `uid-rotation-failure`: On [Universal Identity](https://docs.akeyless.io/docs/universal-identity) rotation failure, to track the automatic rotation.
 
-* `auth-method-pending-expiration` by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is about to expire can be customized.
+* `auth-method-pending-expiration`: by default **30 days** in advance before an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is about to expire can be customized.
 
-* `auth-method-expired` When an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is expired.
+* `auth-method-expired`: When an [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is expired.
 
-* `email-auth-method-approved` When the invite of user based on [Email](https://docs.akeyless.io/docs/email) Auth Method is approved.
+* `email-auth-method-approved`: When the invite of user based on [Email](https://docs.akeyless.io/docs/email) Auth Method is approved.
 
-* `multi-auth-failure`  When an auth attempt keeps failing, once blocked (after 5 consecutive attempts)
+* `multi-auth-failure`: When an auth attempt keeps failing, once blocked (after 5 consecutive attempts)
 
-* `rate-limiting`  When a client reaches the rate-limiting threshold.
+* `rate-limiting`: When a client reaches the rate-limiting threshold.
 
-* `usage-report` When the number of clients reaches the threshold (can be set via **Usage Report** screen)
+* `usage-report`: When the number of clients reaches the threshold (can be set via **Usage Report** screen)
 
 For `gateways-event-source-locations`:
 
-* `gateway-inactive` When a Gateway changes its state to inactive, it must be set on the Gateway.
+* `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
 
 ## Event Forwarders
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide outlines best practices for deploying the Akeyless [Gateway](https://docs.akeyless.io/docs/gateway-chart) following AWS security standards, with a primary focus on managing secrets cross-account AWS environments. It highlights recommended deployment models, their trade-offs, and how to manage [Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), and the [Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector)  using **only IAM roles** without relying on long-lived credentials.
+This guide outlines best practices for deploying the Akeyless [Gateway](https://docs.akeyless.io/docs/gateway-chart) following AWS security standards, with a primary focus on managing secrets cross-account AWS environments. It highlights recommended deployment models, their trade-offs, and how to manage [Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), and the [Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector) using **only IAM roles** without relying on long-lived credentials.
 
 At its core, the **Akeyless Gateway** serves as a secure execution layer that facilitates a range of operations from cryptographic processing to secure network access on behalf of the **Akeyless SaaS platform**, without exposing sensitive workloads to the public network.
 

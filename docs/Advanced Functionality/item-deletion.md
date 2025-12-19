@@ -41,7 +41,7 @@ The relevant parameters are:
 
 * `version`: Delete a specific version of the item (i.e - after a rotate-key operation, cannot be the last item version)
 
-* `delete-in-days`: The number of days to wait before deleting the item, default 7  for keys. To delete a key immediately use the value `delete-in-days=-1`.
+* `delete-in-days`: The number of days to wait before deleting the item, default seven for keys. To delete a key immediately use the value `delete-in-days=-1`.
 
 * `delete-immediately`: When trying to delete a key immediately with `delete-in-days=-1`, this flag must be supplied as well
 
