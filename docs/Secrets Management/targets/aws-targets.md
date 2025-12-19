@@ -30,7 +30,7 @@ akeyless target create aws \
 --use-gw-cloud-identity
 ```
 
-```shell Expilict creds
+```shell Explicit credentials
 akeyless target create aws \
 --name <target name> \
 --access-key-id <AWS Access ID> \

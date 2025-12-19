@@ -230,9 +230,9 @@ def create_agent():
             MongoDB credentials are from dynamic secrets (preferred).""",
             tools=[
                 get_current_time, 
-                query_mongodb_database, # Uses the dynamic creds
-                list_mongodb_collections, # Uses the dynamic creds
-                refresh_mongodb_credentials # Flushes and gets NEW dynamic creds
+                query_mongodb_database, # Uses the dynamic credentials
+                list_mongodb_collections, # Uses the dynamic credentials
+                refresh_mongodb_credentials # Flushes and gets NEW dynamic credentials
             ],
         )
         print("Agent created successfully!")

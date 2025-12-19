@@ -134,7 +134,7 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`:creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -924,9 +924,9 @@ akeyless auth-method update gcp \
 
 `-a, --audience[=akeyless.io]`: **Required**, The audience to verify in the JWT received by the client
 
-`--service-account-creds-file`: Service Account creds key file path
+`--service-account-creds-file`: Service Account credentials key file path
 
-`--service-account-creds-data`: Service Account creds data, Base64 encoded
+`--service-account-creds-data`: Service Account credentials data, Base64 encoded
 
 `--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag.
 
