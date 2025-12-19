@@ -152,7 +152,7 @@ For more information regarding `kubectl` and the `kubeconfig` file, see the [kub
 
 If the Akeyless CLI is installed on a different host as the `kubectl`, you can get a service account token from Akeyless separately, and then manually update the `kubeconfig` file that uses the token.
 
-First, let's generate the **kubeconfig** file manually as described above, with the following change:
+First, let's generate the `kubeconfig` file manually as described above, with the following change:
 
 ```yaml kubeconfig
 users:
@@ -167,8 +167,8 @@ To get the Amazon EKS Dynamic Secret value from the CLI, you should run the foll
 akeyless dynamic-secret get-value --name <Path to the dynamic secret>
 ```
 
-Then on the **kubeconfig** you need to replace the `<Dynamic Secret Value goes here >` with the response token exactly as you received it.
+Then on the `kubeconfig` you need to replace the `<Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
-> 📘 Single kubeconfig Generation
+> 📘 Single `kubeconfig` Generation
 >
-> Akeyless supports generation of a single kubeconfig file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)
+> Akeyless supports generation of a single `kubeconfig` file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)

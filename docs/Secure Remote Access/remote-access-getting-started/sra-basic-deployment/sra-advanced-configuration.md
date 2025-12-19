@@ -17,7 +17,7 @@ legacySigningAlg: "false"
 
 As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
-## RDP User Acces
+## RDP User Access
 
 Set the `usernameSubClaim` with the relevant attribute that exists inside your IdP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
 

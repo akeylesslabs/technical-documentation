@@ -76,7 +76,7 @@ env:
 
 ## RDP Configuration
 
-### RDP & SSH User Acces
+### RDP & SSH User Access
 
 For RDP connections with an [externally provided username](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console), you can configure RDP/SSH authentication to use the relevant attribute from the IdP JWT (e.g., email) to establish a connection to the target server using the authenticated username.
 
