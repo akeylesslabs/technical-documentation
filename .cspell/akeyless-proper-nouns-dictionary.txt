@@ -887,3 +887,5 @@ TDE
 Transparent Data Encryption
 ABAC
 RabbitMQ
+CIDR
+Classless Inter-Domain Routing

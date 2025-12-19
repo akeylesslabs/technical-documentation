@@ -296,9 +296,9 @@ Where:
 
 | Field              | Description                                                                                                                                                                                                                    | Example                  |
 | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------- |
-| creds              | A temporary JWT token issued and signed by Akeyless that is included in the `AkeylessCreds` header of every `POST /sync/create` and `POST /sync/revoke` request.                                                               |                          |
-| expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`               |
-| expected_item_name | (Optional) The item name of the custom dynamic secret. This can be helpful if a single Akeyless Gateway runs multiple custom Dynamic Secrets, and the custom dynamic secret implementation should only respond to one of them. | `"/custom-producer-foo"` |
+| `creds`              | A temporary JWT token issued and signed by Akeyless that is included in the `AkeylessCreds` header of every `POST /sync/create` and `POST /sync/revoke` request.                                                               |                          |
+| `expected_access_id` | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`               |
+| `expected_item_name` | (Optional) The item name of the custom dynamic secret. This can be helpful if a single Akeyless Gateway runs multiple custom Dynamic Secrets, and the custom dynamic secret implementation should only respond to one of them. | `"/custom-producer-foo"` |
 
 ### Dry-Run Mode
 

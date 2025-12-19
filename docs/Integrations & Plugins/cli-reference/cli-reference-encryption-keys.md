@@ -981,17 +981,17 @@ akeyless create-tokenizer \
 
 `-T, --template-type`: **Required**, Which template type this tokenizer is used for [SSN,CreditCard,USPhoneNumber,Custom]
 
-`--encryption-key-name`: AES key name to use in zero-knownledge tokenization
+`--encryption-key-name`: AES key name to use in zero-knowledge tokenization
 
-`--tweak-type`: The tweak type to use in zero-knownledge tokenization [Supplied, Generated, Internal, Masking]
+`--tweak-type`: The tweak type to use in zero-knowledge tokenization [Supplied, Generated, Internal, Masking]
 
-`--alphabet`: Alphabet to use in custom zero-knownledge tokenization, such as '0123456789' for credit cards.
+`--alphabet`: Alphabet to use in custom zero-knowledge tokenization, such as '0123456789' for credit cards.
 
-`--pattern`: Pattern to use in custom zero-knownledge tokenization
+`--pattern`: Pattern to use in custom zero-knowledge tokenization
 
-`--encoding-template`: The Encoding output template to use in custom zero-knownledge tokenization
+`--encoding-template`: The Encoding output template to use in custom zero-knowledge tokenization
 
-`--decoding-template`: The Decoding output template to use in custom zero-knownledge tokenization
+`--decoding-template`: The Decoding output template to use in custom zero-knowledge tokenization
 
 `--description`: Tokenizer description
 
@@ -1039,4 +1039,4 @@ akeyless tokenize \
 
 `-p, --plaintext`: **Required**, Data to be encrypted
 
-`--tweak`: Base64 encoded tweak for zero-knownledge encryption
+`--tweak`: Base64 encoded tweak for zero-knowledge encryption

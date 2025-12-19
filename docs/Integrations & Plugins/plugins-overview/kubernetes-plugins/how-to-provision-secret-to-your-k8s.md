@@ -456,7 +456,7 @@ spec:
 
 #### Override Entrypoint Automatically
 
-The injector can be set with credentials of your **private** registry using a secret reference that exists inside Akeyless, this secret should contain a JSON with creds to your registry, supporting either username & password or a simple token format, for example:
+The injector can be set with credentials of your **private** registry using a secret reference that exists inside Akeyless, this secret should contain a JSON with credentials to your registry, supporting either username & password or a simple token format, for example:
 
 ```json Username & Password
 {
@@ -939,7 +939,7 @@ The following table lists the available annotations:
       </td>
 
       <td>
-        Path to a secret for Docker registry creds, relevant for environment variable mode
+        Path to a secret for Docker registry credentials, relevant for environment variable mode
       </td>
 
       <td>
@@ -959,7 +959,7 @@ The following table lists the available annotations:
       <td>
         Limit of CPU usage  
         e.g. `600m`  
-        where the unit suffix `m` stands for core thousandth (miliCPU)
+        where the unit suffix `m` stands for core thousandth (milliCPU)
       </td>
     </tr>
 
