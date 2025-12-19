@@ -7,3 +7,4 @@ uppercased
 HANA
 tablespace
 tablespaces
+keytab

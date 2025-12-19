@@ -52,7 +52,7 @@ The full list of options for this command is:
     --uid-token                  The universal identity token, Required only for universal_identity authentication
 -h, --help                       display help information
     --json[=false]               Set output format to JSON
-    --no-creds-cleanup[=false]   Do not clean local temporary expired creds
+    --no-creds-cleanup[=false]   Do not clean local temporary expired credentials
 ```
 
 ## Create a Classic Key from the Akeyless Gateway

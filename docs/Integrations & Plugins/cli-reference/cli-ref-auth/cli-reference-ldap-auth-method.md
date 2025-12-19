@@ -44,7 +44,7 @@ akeyless auth-method create ldap \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `-p, --public-key-file-path`: A path to a public key generated for LDAP authentication method on Akeyless [RSA2048]
 
@@ -87,7 +87,7 @@ akeyless update-auth-method-ldap \
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `-p, --public-key-file-path`: A path to a public key generated for LDAP authentication method on Akeyless [RSA2048]
 

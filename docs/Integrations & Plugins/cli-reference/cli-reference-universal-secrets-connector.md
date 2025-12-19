@@ -62,7 +62,7 @@ akeyless create-usc \
 
 `--jq-expression`: jq expression to filter result output
 
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
+`--no-creds-cleanup[=false]`: Do not clean local temporary expired credentials
 
 ## USC Subcommands
 
@@ -161,7 +161,7 @@ usc get \
 
 `--jq-expression`: jq expression to filter result output
 
-`--no-creds-cleanup[=false]`:Do not clean local temporary expired creds
+`--no-creds-cleanup[=false]`:Do not clean local temporary expired credentials
 
 ### `list`
 
@@ -191,7 +191,7 @@ akeyless usc list --usc-name <USC name>
 
 `--jq-expression`: jq expression to filter result output
 
-`--no-creds-cleanup[=false]`: Do not clean local temporary expired creds
+`--no-creds-cleanup[=false]`: Do not clean local temporary expired credentials
 
 ### `update`
 

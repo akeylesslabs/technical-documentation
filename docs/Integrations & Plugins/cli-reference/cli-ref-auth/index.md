@@ -175,7 +175,7 @@ akeyless auth-method create aws-iam \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -231,7 +231,7 @@ akeyless auth-method create azure-ad \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -296,7 +296,7 @@ akeyless auth-method create cert \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -306,7 +306,7 @@ akeyless auth-method create cert \
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `--certificate-data`: The certificate data in Base64, if no file was provided
 
@@ -354,7 +354,7 @@ akeyless auth-method create email \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -396,7 +396,7 @@ akeyless auth-method create gcp \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -457,7 +457,7 @@ akeyless auth-method create oauth2 \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -465,7 +465,7 @@ akeyless auth-method create oauth2 \
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `-j, --jwks-uri`: The URL to the JSON Web Key Set (JWKS) that containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server
 
@@ -514,7 +514,7 @@ akeyless auth-method create oci \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -555,7 +555,7 @@ akeyless auth-method create oidc \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -565,7 +565,7 @@ akeyless auth-method create oidc \
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `--issuer`: Issuer URL
 `--client-id`: Client ID
@@ -610,7 +610,7 @@ akeyless auth-method create saml \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -620,7 +620,7 @@ akeyless auth-method create saml \
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false
+`--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `-u, --unique-identifier`: **Required**, A unique identifier (ID) value should be configured for OAuth2, LDAP and SAML authentication method types and is usually a value such as the email, username, or UPN for example. Whenever a user logs in with a token, these authentication types issue a "sub-claim" that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value that you configured, and is used to distinguish between different users from within the same organization
 
@@ -694,7 +694,7 @@ akeyless auth-method update api-key --name <Auth method>
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -733,7 +733,7 @@ akeyless auth-method update aws-iam \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -787,7 +787,7 @@ akeyless auth-method update azure-ad \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -850,7 +850,7 @@ akeyless auth-method update cert \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -910,7 +910,7 @@ akeyless auth-method update gcp \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -967,7 +967,7 @@ akeyless auth-method update oauth2 \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -1025,7 +1025,7 @@ akeyless auth-method update oci \
 
 `--force-sub-claims`: enforce role-association must include sub claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -1066,7 +1066,7 @@ akeyless auth-method update oidc \
 `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
@@ -1120,7 +1120,7 @@ akeyless auth-method update saml \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--jwt-ttl[=0]`: creds expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 

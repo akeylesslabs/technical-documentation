@@ -187,7 +187,7 @@ Full options list:
 -h, --help                             display help information
     --json[=false]                     Set output format to JSON
     --jq-expression                    JQ expression to filter result output
-    --no-creds-cleanup[=false]         Do not clean local temporary expired creds
+    --no-creds-cleanup[=false]         Do not clean local temporary expired credentials
 ```
 
 ## Examples

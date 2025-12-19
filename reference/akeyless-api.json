@@ -39851,7 +39851,7 @@
           "x-go-name": "ApplicationId"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -68364,7 +68364,7 @@
           "x-go-name": "ApiKey"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -68546,7 +68546,7 @@
           "x-go-name": "ApplicationId"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -68741,7 +68741,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -68864,7 +68864,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69082,7 +69082,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69191,7 +69191,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69336,7 +69336,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69463,7 +69463,7 @@
           "$ref": "#/definitions/HostProviderType"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69668,7 +69668,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69832,7 +69832,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70001,7 +70001,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70165,7 +70165,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70329,7 +70329,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70498,7 +70498,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70622,7 +70622,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70770,7 +70770,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70904,7 +70904,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -71104,7 +71104,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -71500,7 +71500,7 @@
           "x-go-name": "ApiKey"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -71689,7 +71689,7 @@
           "x-go-name": "ApplicationId"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -71891,7 +71891,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72022,7 +72022,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72252,7 +72252,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72374,7 +72374,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72531,7 +72531,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72665,7 +72665,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72877,7 +72877,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73048,7 +73048,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73224,7 +73224,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73395,7 +73395,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73566,7 +73566,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73742,7 +73742,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73873,7 +73873,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -74028,7 +74028,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -74170,7 +74170,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -74383,7 +74383,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"

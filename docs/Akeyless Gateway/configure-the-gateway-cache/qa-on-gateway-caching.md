@@ -18,7 +18,7 @@ When a Gateway with **cluster cache** is deployed, it significantly enhances res
 During normal operations, the communication flow is optimized for speed and reduced load on the Akeyless SaaS.
 
 1. **Initial Request**: The client needs a secret, sends an authenticated request to the Akeyless Gateway.
-2. **Authentication**: Gateway will forward the initial request to the SaaS auth service, and the token and creds (JWT) will be stored in the Gateway cache.
+2. **Authentication**: Gateway will forward the initial request to the SaaS auth service, and the token and credentials (JWT) will be stored in the Gateway cache.
 
 **Akeyless SaaS Outage**:\
 The primary benefit of the cluster cache is realized during a SaaS outage. The goal shifts from efficiency to business continuity.
