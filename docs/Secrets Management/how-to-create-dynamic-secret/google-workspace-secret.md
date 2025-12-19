@@ -19,7 +19,7 @@ next:
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
-* `ext_email`Subclaim exists in your IdP
+* `ext_email` sub-claim exists in your IdP
 
 * [GCP Target](https://docs.akeyless.io/docs/gcp-targets) with a **privileged service account**
 

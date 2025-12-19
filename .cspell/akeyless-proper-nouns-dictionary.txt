@@ -473,6 +473,7 @@ AES
 AES-256
 RSA
 RSA-2048
+RSASSA
 RSASSA-PSS
 ECDSA
 Ed25519
@@ -881,6 +882,7 @@ CDK for Terraform
 CDKTF
 Steampipe
 Logz.io
+Logz
 SAP HANA
 SAP HANA database
 TDE
@@ -894,3 +896,7 @@ Vault AppRole
 AppRole
 NTLM
 New Technology LAN Manager
+milliCPU
+BYOK
+certSIGN
+cRLSign

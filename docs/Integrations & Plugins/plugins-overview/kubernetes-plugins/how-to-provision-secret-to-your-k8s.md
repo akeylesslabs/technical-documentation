@@ -975,7 +975,7 @@ The following table lists the available annotations:
       <td>
         Limit of CPU request  
         e.g. `250m`  
-        where the unit suffix `m` stands for core thousandth (miliCPU)
+        where the unit suffix `m` stands for core thousandth (milliCPU)
       </td>
     </tr>
 

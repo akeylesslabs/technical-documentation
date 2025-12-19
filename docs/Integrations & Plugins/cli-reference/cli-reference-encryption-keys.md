@@ -617,7 +617,7 @@ akeyless sign-ecdsa \
 
 `--version`: The version of the key to use for signing
 
-`--prehashed`: Markes that the message is already hashed
+`--prehashed`: Marks that the message is already hashed
 
 `-m, --message`: (**Mandatory**) The input message to sign in a Base64 format
 
@@ -673,7 +673,7 @@ akeyless sign-pkcs1 \
 
 `-f, --hash-function[=sha-256]`: Hash function [sha-256,sha-384,sha-512]
 
-`--prehashed`: Markes that the message is already hashed
+`--prehashed`: Marks that the message is already hashed
 
 `-F, --input-format`: Select default assumed format for the message input. Currently supported options: [base64]
 
@@ -707,7 +707,7 @@ akeyless sign-rsassa-pss \
 
 `-m, --message`: (**Mandatory**) The input message to sign in a Base64 format
 
-`--prehashed`: Markes that the message is already hashed
+`--prehashed`: Marks that the message is already hashed
 
 ## `update-classic-key-certificate`
 

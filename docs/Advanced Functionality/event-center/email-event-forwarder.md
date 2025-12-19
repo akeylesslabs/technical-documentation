@@ -19,7 +19,7 @@ To set up a **Email** Event Forwarder, use the following command:
 ```shell
 akeyless event-forwarder create email \
 --name MyForwarder \
---email-to <comma seperated email addresses> \
+--email-to <comma separated email addresses> \
 --gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
 --override-url <'https://<Your-Akeyless-GW-URL:8000/console/>'> #or use port 18888\
 --include-error false \ 

@@ -169,9 +169,9 @@ akeyless create-pki-cert-issuer \
 
 `-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds, supported formats are `s`,`m`,`h`,`d`.
 
-`--allowed-domains`: A list of domains (comma seperated) this Issuer is allowed to issue certificates for.
+`--allowed-domains`: A list of domains (comma separated) this Issuer is allowed to issue certificates for.
 
-`--allowed-uri-sans`: A list of the allowed URIs Subject Alternative Names (comma seperated) this Issuer is allowed to issue certificate for.
+`--allowed-uri-sans`: A list of the allowed URIs Subject Alternative Names (comma separated) this Issuer is allowed to issue certificate for.
 
 `--allow-subdomains [=false]`: If set, clients can request certificates for subdomains and wildcard subdomains of the allowed domains
 
@@ -207,7 +207,7 @@ akeyless create-pki-cert-issuer \
 
 `--postal-code`: A comma-separated list of the postal code that will be set in the issued certificate.
 
-`--destination-path`: A path in Akeyless to store the generated certificates for future provisioning, renwals and expirtaion events.
+`--destination-path`: A path in Akeyless to store the generated certificates for future provisioning, renewals and expiration events.
 
 `--protect-certificates`: Whether to protect generated certificates from deletion
 

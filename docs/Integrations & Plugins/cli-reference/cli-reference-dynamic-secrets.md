@@ -198,7 +198,7 @@ akeyless dynamic-secret create aws \
 
 `--user-ttl[=60m]`: User TTL, Default = 60m
 
-`--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation, Default = flase
+`--admin-creds-rotation[=false]`: Enable automatic admin credentials rotation, Default = false
 
 `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
@@ -2635,7 +2635,7 @@ akeyless dynamic-secret update ldap \
 
 `--secure-access-rd-gateway-server`: RD Gateway server
 
-### `monogodb`
+### `mongodb`
 
 #### Usage
 
@@ -2664,7 +2664,7 @@ akeyless dynamic-secret update mongodb \
 
 `--mongodb-roles\[=\[]]`: MongoDB roles (e.g. MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`)
 
-`--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})
+`--mongodb-custom-data`: MongoDB custom data (e.g. `{team:blue}`)
 
 `--mongodb-server-uri`: MongoDB server URI (e.g. `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
 

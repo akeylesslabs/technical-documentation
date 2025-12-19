@@ -26,7 +26,7 @@ Akeyless helps avoid secret scattering across AWS Secrets Manager, Databricks se
 ### Databricks Supports
 
 * Python (natively supported by Akeyless SDK)
-* Scala & R (via spark.conf or dbutils)
+* Scala & R (via `spark.conf` or `dbutils`)
 * SQL (generally does not require secrets)
 
 ## Requirements

@@ -9,3 +9,5 @@ tablespace
 tablespaces
 keytab
 secretless
+ciphertext
+keepalives

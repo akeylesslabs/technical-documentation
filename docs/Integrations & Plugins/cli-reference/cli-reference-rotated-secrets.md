@@ -368,7 +368,7 @@ akeyless rotated-secret create gcp \
 
 `-n, --name`: **Required**, Rotated Secret name
 
-`--target-name`: **Required**, the target naƒme to associate
+`--target-name`: **Required**, the target name to associate
 
 `--rotator-type`: **Required**, The rotator type. options: [`target`/`service-account-rotator`]
 
