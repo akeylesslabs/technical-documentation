@@ -536,6 +536,7 @@ config:
       - FTP
       - FTPS
       - URL
+      - URI
       - TCP
       - UDP
       - ICMP

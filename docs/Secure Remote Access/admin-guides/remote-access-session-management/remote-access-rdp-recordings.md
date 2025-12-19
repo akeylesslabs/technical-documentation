@@ -66,7 +66,7 @@ Here are the options for storing RDP recordings:
 
 ### Local
 
-Local session recordings will be stored inside the SRA server under /home/akeyless/recordings.
+Local session recordings will be stored inside the SRA server under `/home/akeyless/recordings`.
 
 ### AWS S3
 

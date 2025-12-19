@@ -349,7 +349,7 @@ EOT
 >
 > The `policies.json` **must** be provided for the isolated web browsing to work.
 
-**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the web-access-bastion, or if your AKEYLESS\_GW\_URL is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
+**Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the `web-access-bastion`, or if your Akeyless\_GW\_URL is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
 
 1. Mount your organization's Root CA certificate to the containers (in the `docker-compose.yml`, under `services.worker.volumes`)
 2. In the `policies.json` above, uncomment the *Certificates.Install* line and set it to the relevant certificates' paths inside the container

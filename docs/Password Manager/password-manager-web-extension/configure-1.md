@@ -1,5 +1,5 @@
 ---
-title: Configure LDAP gateway url
+title: Configure LDAP gateway URL
 excerpt: ''
 deprecated: false
 hidden: false

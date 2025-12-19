@@ -96,7 +96,7 @@ Where:
 
 * **client-id:** The client ID of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage Account.
 
-* **client-secret:** The client secret of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage account.
+* **client-secret:** The client secret of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage Account.
 
 * **subscription-id:** The ID of a Subscription that contains the Azure Storage Account.
 

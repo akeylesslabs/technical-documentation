@@ -58,7 +58,7 @@ Once you've installed the Akeyless browser extension. Simply locate the Akeyless
 * SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
 * OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
-  * Configure the [LDAP gateway url](https://docs.akeyless.io/docs/configure-ldap-gateway-url) via advanced settings then login with Email option as a login type.
+  * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url) via advanced settings then login with Email option as a login type.
 * Account Alias: Support for using an account alias to simplify identification and enhance user experience.
 
 For more details about Akeyless Authentication Methods please visit this [link](https://docs.akeyless.io/docs/access-and-authentication-methods)

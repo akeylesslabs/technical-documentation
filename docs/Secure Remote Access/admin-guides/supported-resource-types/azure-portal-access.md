@@ -23,7 +23,7 @@ To enable Secure Remote Access to Azure Portal you need:
 In addition, for users to access the Azure Portal in Isolated mode, you need:
 
 * The [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
-* The Azure Portal site URL is specified as part of the `policies` section in the **values.yaml** file on the Web Access Bastion.
+* The Azure Portal site URL is specified as part of the `policies` section in the `values.yaml` file on the Web Access Bastion.
 
 ## Create an Azure Secret
 
