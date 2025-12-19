@@ -127,7 +127,7 @@ spec:
 
 Where:
 
-* `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`. (or using your gateway url at port `8081`)
+* `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`. (or using your gateway URL at port `8081`)
 
 * `authSecretRef`: References a Kubernetes Secret `akeyless-secret-creds` containing authentication credentials.
 
@@ -360,7 +360,7 @@ spec:
 
 Where:
 
-* `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`  (or using your gateway url at port `8081`).
+* `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`  (or using your gateway URL at port `8081`).
 
 * `authSecretRef`: Reference to the  [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that holds the authentication details, in our example  `akeyless-secret-creds`.
 

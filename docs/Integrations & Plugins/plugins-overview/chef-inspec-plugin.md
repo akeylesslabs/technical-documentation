@@ -18,7 +18,7 @@ An [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 
 ## Chef InSpec Plugin Configuration
 
-1. Issue an SSH Certificate from Akelyess:
+1. Issue an SSH Certificate from Akeyless:
 
 ```shell
 akeyless get-ssh-certificate -s <target_username> -c ssh-cert-issuer-name -p <path_to_public_ssh_key> && echo

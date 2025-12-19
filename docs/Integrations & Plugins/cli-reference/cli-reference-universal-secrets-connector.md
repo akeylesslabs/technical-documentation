@@ -52,7 +52,7 @@ akeyless create-usc \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
 
@@ -151,7 +151,7 @@ usc get \
 
 `-u, --gateway-url[=http://localhost:8000]`:   API Gateway URL (Configuration Management port)
 
-`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`:The universal identity token, Required only for universal_identity authentication
 
@@ -181,7 +181,7 @@ akeyless usc list --usc-name <USC name>
 
 `-u, --gateway-url[=http://localhost:8000]`:  API Gateway URL (Configuration Management port)
 
-`--profile, --token`: Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+`--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
 `--uid-token`: The universal identity token, Required only for universal_identity authentication
 

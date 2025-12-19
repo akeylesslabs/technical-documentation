@@ -61,11 +61,11 @@ akeyless configure
 
 `--cert-file-name`: Name of the certificate file to use  \n(relevant only for access-type=cert)
 
-`--cert-data`: Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type=cert in Curl Context)
+`--cert-data`: Certificate data encoded in Base64. Used if file was not provided. (relevant only for access-type=cert in Curl Context)
 
 `--key-file-name`: Name of the private key file to use  \n(relevant only for access-type=cert)
 
-`--key-data`: Private key data encoded in base64. Used if file was not provided (relevant only for access-type=cert in Curl Context)
+`--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for access-type=cert in Curl Context)
 
 ### `Delete-item`
 
@@ -248,7 +248,7 @@ akeyless update
 
 `-s, --show-changelog`: Show the changelog between the current version and the latest version
 
-`-r, --artifact-repository`: Alternative CLI repository url, for example, `https://artifacts.site2.akeyless.io`
+`-r, --artifact-repository`: Alternative CLI repository URL, for example, `https://artifacts.site2.akeyless.io`
 
 ### `Update-account-settings`
 
@@ -270,11 +270,11 @@ Note: The operation is allowed only for admin user
 
 `--postal-code`: Update Postal Code of account
 
-`--jwt-ttl-default`: default JWT ttl for Auth Method authentication (in minutes)
+`--jwt-ttl-default`: default JWT TTL for Auth Method authentication (in minutes)
 
-`--jwt-ttl-min`: minimum allowed JWT ttl for Auth Method authentication (in minutes)
+`--jwt-ttl-min`: minimum allowed JWT TTL for Auth Method authentication (in minutes)
 
-`--jwt-ttl-max`: maximum allowed JWT ttl for Auth Method authentication (in minutes)
+`--jwt-ttl-max`: maximum allowed JWT TTL for Auth Method authentication (in minutes)
 
 `--max-versions`: Maximum versions of a given item-type, valid range [`1`, `300`]. When item version exceeds this number, the oldest versions will be deleted
 
@@ -286,7 +286,7 @@ Note: The operation is allowed only for admin user
 
 `--dp-enable-classic-key-protection`: Set to update protection with classic keys state meter
 
-`--default-sharing-link-ttl`: Set to update the default ttl in minutes for sharing item, number between 60 min to 30 days (`43200` minute)
+`--default-sharing-link-ttl`: Set to update the default TTL in minutes for sharing item, number between 60 min to 30 days (`43200` minute)
 
 `--password-policy-password-length`: "13-1": "Password length between 5 - to 50 characters
 
@@ -312,13 +312,13 @@ Note: The operation is allowed only for admin user
 
 `--usage-event-interval`: Interval by days for unused objects. Default and minimum interval is 90 days
 
-`--dynamic-secret-max-ttl-enable`: Set a maximum ttl for Dynamic Secrets [true/false]
+`--dynamic-secret-max-ttl-enable`: Set a maximum TTL for Dynamic Secrets [true/false]
 
-`--dynamic-secret-max-ttl`: Set the maximum ttl for Dynamic Secrets
+`--dynamic-secret-max-ttl`: Set the maximum TTL for Dynamic Secrets
 
 `--max-rotation-interval-enable`: Set a maximum rotation interval for Rotated Secrets auto rotation settings [true/false]
 
-`--max-rotation-interval`: Set the maximum rotation interval for rotated secrets auto rotation settings
+`--max-rotation-interval`: Set the maximum rotation interval for Rotated Secrets auto rotation settings
 
 `--bound-ips`: A default list of comma-separated CIDR block that are allowed to authenticate
 
@@ -413,15 +413,15 @@ block:Flags]
 
 `--secure-access-db-name`: "The DB name (relevant only for DB Dynamic-Secret)
 
-`--secure-access-aws-account-id`: The AWS account id (relevant only for AWS Dynamic-Secret)
+`--secure-access-aws-account-id`: The AWS account ID (relevant only for AWS Dynamic-Secret)
 
 `--secure-access-aws-region`: The AWS region (relevant only for AWS Dynamic-Secret)
 
-`--secure-access-aws-native-cli`: The AWS native cli (relevant only for AWS Dynamic-Secret)
+`--secure-access-aws-native-cli`: The AWS native CLI (relevant only for AWS Dynamic-Secret)
 
 `--secure-access-cluster-endpoint`: The K8s cluster endpoint URL  \n(relevant only for EKS/GKE/K8s Dynamic-Secret)
 
-`--secure-access-dashboard-url`: The K8s dashboard url (relevant only for K8s Dynamic-Secret)
+`--secure-access-dashboard-url`: The K8s dashboard URL (relevant only for K8s Dynamic-Secret)
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access  \n(relevant only for EKS/GKE/K8s Dynamic-Secret)
 

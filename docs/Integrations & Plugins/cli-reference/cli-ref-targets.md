@@ -1925,7 +1925,7 @@ akeyless target update salesforce \
 
 `--new-name`: New target name
 
-`-u, --tenant-url`: **Required**, Url of the Salesforce tenant
+`-u, --tenant-url`: **Required**, URL of the Salesforce tenant
 
 `-i, --client-id`: **Required**, Client ID of the oauth2 app to use for connecting to Salesforce
 

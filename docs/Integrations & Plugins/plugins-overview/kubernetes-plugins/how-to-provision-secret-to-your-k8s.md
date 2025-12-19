@@ -76,7 +76,7 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
 ## Install the Injector
 
-1. Add the Akelyess Kubernetes Injector Helm repository from [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-k8s-secrets-injection) and update your Helm repositories.
+1. Add the Akeyless Kubernetes Injector Helm repository from [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-k8s-secrets-injection) and update your Helm repositories.
 
 ```shell CLI
 helm repo add akeyless https://akeylesslabs.github.io/helm-charts
