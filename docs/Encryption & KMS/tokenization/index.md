@@ -98,6 +98,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ### Tokenize and Detokenize a Secret from the CLI
 
+Tokenizers in Akeyless always operate using a zero-knowledge encryption model and do not require configuration of a storage or persistence mode.
+
 To tokenize a secret from the CLI, run the following command:
 
 ```shell

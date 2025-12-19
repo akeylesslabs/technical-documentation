@@ -1,5 +1,5 @@
 ---
-title: Vaultless SaaS Architecture
+title: Zero-Knowledge Encryption SaaS Architecture
 deprecated: false
 hidden: false
 metadata:
@@ -10,7 +10,7 @@ next:
       title: Distributed Fragments Cryptography (DFC)
       type: basic
 ---
-Akeyless uses a Vaultless architecture to perform secret, key, and certificate operations without storing sensitive material in a retrievable form. Instead of relying on a storage backend, operations are executed through distributed cryptographic workflows that never reconstruct full private key material. This eliminates the risks associated with stored secrets and removes the need to maintain vault servers or encrypted databases.
+Akeyless uses a Zero-Knowledge Encryption architecture to perform secret, key, and certificate operations without storing sensitive material in a retrievable form. Instead of relying on a storage backend, operations are executed through distributed cryptographic workflows that never reconstruct full private key material. This eliminates the risks associated with stored secrets and removes the need to maintain vault servers or encrypted databases.
 
 The architecture ensures that no complete secret or private key is ever present at rest within the platform.
 
@@ -58,7 +58,7 @@ Traditional vaults:
 * Often decrypt or reassemble keys during operations.
 * Are vulnerable if the storage or master key is compromised.
 
-Under the Vaultless model:
+Under the Zero-Knowledge Encryption model:
 
 * Secrets and keys are **not stored** and cannot be retrieved.
 * Key material is **never reconstructed** during operation execution.
@@ -78,7 +78,7 @@ The Akeyless Gateway provides access to private networks, closed environments, a
 * Remains stateless with respect to sensitive data.
 * Can be deployed in restricted, air-gapped, or isolated environments.
 
-The Gateway does not alter the Vaultless architecture; it only extends access to networks not reachable by the SaaS control plane.
+The Gateway does not alter the Zero-Knowledge Encryption architecture; it only extends access to networks not reachable by the SaaS control plane.
 
 ***
 
@@ -97,7 +97,7 @@ Capacity planning focuses on request throughput rather than storage performance.
 
 ## Security Properties
 
-Key security properties of the Vaultless architecture include:
+Key security properties of the Zero-Knowledge Encryption architecture include:
 
 * **Non-reconstruction** — Full private keys never exist in memory on any single component.
 * **Non-persistence** — Sensitive material is never written to disk.
@@ -111,4 +111,4 @@ These properties reduce the exposure surface associated with stored-secret syste
 
 ## Summary
 
-The Akeyless Vaultless architecture removes the need for a secrets or key storage backend by executing operations entirely through distributed cryptographic fragments. No secret or private key is stored or reconstructed at any time. This model provides a predictable, storage-free approach to managing secrets, keys, and certificates across distributed environments.
+The Akeyless Zero-Knowledge Encryption architecture removes the need for a secrets or key storage backend by executing operations entirely through distributed cryptographic fragments. No secret or private key is stored or reconstructed at any time. This model provides a predictable, storage-free approach to managing secrets, keys, and certificates across distributed environments.
