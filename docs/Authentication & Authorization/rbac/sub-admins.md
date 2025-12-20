@@ -16,9 +16,9 @@ While users can be added to the default **admin** role of the account using the 
 
 As the Akeyless Platform stores all objects (secrets, keys, targets, roles, auth methods, etc.) in a virtual filesystem. It allows organizing everything based on the domain each item belongs to. For example, an organization may have Dev, Operations, and Security departments, each having its own set of secrets, roles, and auth methods.
 
-In such a situation, it would make sense to have a person responsible for every department. For example, 3 users can be designated to rule their own departments: **/dev/director**, **/ops/lead**, and **/security/ciso**.
+In such a situation, it would make sense to have a person responsible for every department. For example, three users can be designated to administer their own departments: `/dev/director`, `/ops/lead`, and `/security/ciso`.
 
-To grant each one of these users full control over their department, 3 separate roles should be created, for example,**/dev/director**, **/ops/lead**, and **/security/ciso**.
+To grant each one of these users full control over their department, three separate roles should be created, for example, `/dev/director`, `/ops/lead`, and `/security/ciso`.
 
 Each role should be associated with the corresponding Auth Method to grant required permissions. Each user’s power depends on a set of permissions granted to them. There are 5 permission categories:
 
@@ -28,7 +28,7 @@ Each role should be associated with the corresponding Auth Method to grant requi
 * Targets
 * Secure Remote Access
 
-It would make sense to grant every leader full access to their departments.**/dev/director** can do any operation inside their folders, such as create new secrets, delete keys, update roles, or set up new auth methods. They can create new, limited users, that can only have a subset (but never a superset) of their own abilities.
+It would make sense to grant every leader full access to their departments. `/dev/director` can do any operation inside their folders, such as create new secrets, delete keys, update roles, or set up new auth methods. They can create new, limited users, that can only have a subset (but never a superset) of their own abilities.
 
 ## Logs and Analytics
 

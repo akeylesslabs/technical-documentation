@@ -18,3 +18,4 @@ quickstarts
 Shamir's
 superuser
 superusers
+amqps

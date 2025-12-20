@@ -36,6 +36,7 @@ ignorePaths:
   - cspell.config.yaml
   - docs/Contributing Guides/look-feel-sample-page-title.md
   - docs/Contributing Guides/technical-documentation-style-guide/index.md
+  - docs/Contributing Guides/technical-documentation-style-guide/ai-linter-rules.md
 
 dictionaryDefinitions:
   - name: akeyless-proper-nouns
@@ -51,6 +52,7 @@ overrides:
     ignoreRegExpList:
       - /`[^`]*`/
       - /```[\s\S]*?```/
+      - /^\s*slug:\s*.*$/m # Ignore front-matter slug values
 
   # Allow PostgreSQL-specific term "usename" only in selected files.
   # Adjust the filename globs to match where you discuss or show pg_stat_activity / SQL revoke statements.

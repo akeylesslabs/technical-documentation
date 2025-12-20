@@ -904,6 +904,7 @@ OCID
 OCIDs
 Oracle Cloud Identifier
 Luhn algorithm
+Luhn
 PingFederate
 Shamir's Secret Sharing
 Joint Time-Vertex Fractional Fourier Transform
@@ -919,3 +920,15 @@ Certbot
 SPID
 HKDF
 HMAC-based Key Derivation Function
+SPFILE
+Server Parameter File
+Cryptographic Module Validation Program
+CMVP
+OCI Registry As Storage
+ORAS
+Oracle PKI Tool
+orapki
+Key Version Number
+KVNO
+SPNEGO
+Simple and Protected GSS-API Negotiation Mechanism
