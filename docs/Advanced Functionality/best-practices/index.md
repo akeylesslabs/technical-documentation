@@ -59,7 +59,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON <DATABASE NAME>.<TABLE_NAME> TO '{{name}}'@'%';
 ```
 
-* [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) - This should be used as a breakglass admin static credentials, which should automatically rotate strong users' passwords. Primarily for your super users, which their passwords should be rotated automatically.
+* [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) - These should be used as a break-glass admin static credentials, which should automatically rotate strong users' passwords. Primarily for your superusers, which their passwords should be rotated automatically.
 
 * [Targets](https://docs.akeyless.io/docs/targets) - To save time during Dynamic and Rotated Secrets creation and avoid using your privileged user credentials often, you can create Targets.\
   Those items should not be shared with regular users, while those who need to use the Targets items can only have 'list' permissions.

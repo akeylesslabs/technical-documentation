@@ -20,10 +20,10 @@ This project provides a ServiceNow MID external credential resolver that retriev
 
 ## Supported Akeyless Authentication Methods
 
-* access_key: Access ID + Access Key
-* aws_iam: CloudID from AWS
-* azure_ad: CloudID from Azure
-* gcp: CloudID from GCP
+* `access_key`: Access ID + Access Key
+* `aws_iam`: CloudID from AWS
+* `azure_ad`: CloudID from Azure
+* `gcp`: CloudID from GCP
 
 For cloud-based methods, the resolver detects CloudID using the cloud environment. Ensure the MID Server is running where a CloudID can be obtained (e.g., EC2 with an instance profile, Azure VM with a managed identity, GCP VM with default credentials). For local/dev use, prefer access_key.
 
@@ -37,8 +37,8 @@ mvn -Drevision=1.0.0 clean package
 
 ### Artifacts
 
-* With -Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar
-* Without a revision property, Maven will produce akeyless-servicenow-credential-resolver-null.jar.
+* With `-Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar`
+* Without a revision property, Maven will produce `akeyless-servicenow-credential-resolver-null.jar`.
 
 ## Install the Resolver on the MID Server
 
@@ -56,36 +56,36 @@ mvn -Drevision=1.0.0 clean package
 
 Set the following MID properties on your instance (System Properties or MID Properties). Property names are case-sensitive.
 
-* ext.cred.akeyless.gw_url (string): Akeyless Gateway. Default: [https://api.akeyless.io](https://api.akeyless.io)
-* ext.cred.akeyless.access_type (string): One of access_key, aws_iam, azure_ad, gcp. Default: access_key
-* ext.cred.akeyless.access_id (string): Your Akeyless Access ID (required)
-* ext.cred.akeyless.access_key (string): Your Akeyless Access Key (required for access_key only)
+* `ext.cred.akeyless.gw_url` (string): Akeyless Gateway. Default: `https://api.akeyless.io`
+* `ext.cred.akeyless.access_type` (string): One of `access_key`, `aws_iam`, `azure_ad`, `gcp`. Default: `access_key`
+* `ext.cred.akeyless.access_id` (string): Your Akeyless Access ID (required)
+* `ext.cred.akeyless.access_key` (string): Your Akeyless Access Key (required for `access_key` only)
 
 Optional field mapping overrides for JSON secrets (see Mapping section below):
 
-* ext.cred.akeyless.map.username (default: username)
-* ext.cred.akeyless.map.password (default: password)
-* ext.cred.akeyless.map.private_key (default: private_key)
-* ext.cred.akeyless.map.passphrase (default: passphrase)
+* `ext.cred.akeyless.map.username` (default: `username`)
+* `ext.cred.akeyless.map.password` (default: `password`)
+* `ext.cred.akeyless.map.private_key` (default: `private_key`)
+* `ext.cred.akeyless.map.passphrase` (default: `passphrase`)
 
 Environment/system property alternatives
 
 * The resolver also supports the following system properties or environment variables:
-  * AKEYLESS_GW_URL
-  * AKEYLESS_ACCESS_TYPE
-  * AKEYLESS_ACCESS_ID (required)
-  * AKEYLESS_ACCESS_KEY (when using access_key)
-* As a fallback for any ext.cred.* property, an environment variable with the uppercased name and dots replaced by underscores is also read (e.g., EXT_CRED_AKEYLESS_GW_URL).
+  * `AKEYLESS_GW_URL`
+  * `AKEYLESS_ACCESS_TYPE`
+  * `AKEYLESS_ACCESS_ID` (required)
+  * `AKEYLESS_ACCESS_KEY` (when using `access_key`)
+* As a fallback for any ext.cred.* property, an environment variable with the uppercased name and dots replaced by underscores is also read (for example, `EXT_CRED_AKEYLESS_GW_URL`).
 * Precedence: MID properties override environment/system variables.
 
-## Configure MID Config.xml (Secure Local Parameters)
+## Configure MID `config.xml` (Secure Local Parameters)
 
-Add sensitive Akeyless credentials in the MID’s config.xml.
+Add sensitive Akeyless credentials in the MID’s `config.xml`.
 
 Edit the file on each MID host:
 
-* Linux: /opt/agent/config.xml
-* Windows: C:\ServiceNow\agent\config.xml
+* Linux: `/opt/agent/config.xml`
+* Windows: `C:\ServiceNow\agent\config.xml`
 
 Insert your parameters inside the `<parameters>` block:
 
@@ -122,13 +122,13 @@ net start mid
 ## Configure a Discovery Credential to Use This Resolver
 
 1. Create a new credential
-   * Navigate: Discovery → Credentials → New
-   * Choose a credential Type (e.g., Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
-   * Select “External credential store”
-   * Fully Qualified Class Name (FQCN): com.snc.discovery.CredentialResolver
-   * Credential ID: The Akeyless secret path (e.g., /prod/app/db) to fetch
+    * Navigate: Discovery → Credentials → New
+    * Choose a credential Type (e.g., Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
+    * Select “External credential store”
+    * Fully Qualified Class Name (FQCN): com.snc.discovery.CredentialResolver
+    * Credential ID: The Akeyless secret path (e.g., /prod/app/db) to fetch
 2. Save and test
-   * Click “Test credential”, select a MID Server and a target if required by the type.
+    * Click “Test credential”, select a MID Server and a target if required by the type.
 
 ## What to Store in Akeyless and How It’s Mapped
 
@@ -137,12 +137,12 @@ The resolver accepts either:
 * A plain string secret → mapped as a password/token
 * A JSON object → fields are mapped to ServiceNow credential fields as per the credential Type
 
-Default mapping (can be overridden via ext.cred.akeyless.map.*):
+Default mapping (can be overridden via `ext.cred.akeyless.map.*`):
 
-* Username field: username
-* Password field: password
-* Private key field: private_key
-* Passphrase field: passphrase
+* Username field: `username`
+* Password field: `password`
+* Private key field: `private_key`
+* Passphrase field: `passphrase`
 
 Per-Type mapping summary
 
@@ -191,8 +191,8 @@ SNMPv3:
 
 Custom field names via mapping overrides (example):
 
-* Set ext.cred.akeyless.map.username = user_name
-* Set ext.cred.akeyless.map.password = pwd
+* Set `ext.cred.akeyless.map.username = user_name`
+* Set `ext.cred.akeyless.map.password = pwd`
 
 Then a JSON like:
 

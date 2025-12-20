@@ -16,7 +16,7 @@ However, in cases where you need to use a **custom** or **predefined** username,
 
 > 👍 Note
 >
-> This feature is available only from GW version `4.34.0` and higher. Ensure you have enough randomness in your template to support the uniqueness of multiple usernames in parllel when using custom templates
+> This feature is available only from GW version `4.34.0` and higher. Ensure you have enough randomness in your template to support the uniqueness of multiple usernames in parallel when using custom templates
 
 ## Supported Functions
 

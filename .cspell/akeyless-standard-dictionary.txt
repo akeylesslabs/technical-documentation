@@ -16,3 +16,5 @@ signup
 quickstart
 quickstarts
 Shamir's
+superuser
+superusers

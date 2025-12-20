@@ -916,3 +916,6 @@ AMQP
 Advanced Message Queuing Protocol
 SQLCrypt
 Certbot
+SPID
+HKDF
+HMAC-based Key Derivation Function
