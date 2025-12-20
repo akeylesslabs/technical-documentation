@@ -16,7 +16,7 @@ Unlike solutions that rely on **external KMS** services, the **Akeyless CLM** so
 
 Akeyless integrates natively into diverse environments without requiring external secrets, leveraging its broad range of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods). Fine-grained [RBAC](https://docs.akeyless.io/docs/rbac) controls ensure each identity has the precise level of access it needs, in line with policies defined for the[PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 
-Secrets used for provisioning can be automatically [rotated](https://docs.akeyless.io/docs/rotated-secrets) out of the box, removing the overhead of managing external secret lifecycles. Operational visibility is built in, with full tracking through Akeyless [Events](https://docs.akeyless.io/docs/event-center) and [Audit Logs](https://docs.akeyless.io/docs/audit-logs).
+Secrets used for provisioning can be automatically [rotated](https://docs.akeyless.io/docs/rotated-secrets), removing the overhead of managing the lifecycle of external secrets. Operational visibility is built in, with full tracking through Akeyless [Events](https://docs.akeyless.io/docs/event-center) and [Audit Logs](https://docs.akeyless.io/docs/audit-logs).
 
 **How Akeyless Simplifies CLM**\
 Akeyless provides a centralized platform designed to streamline and automate every aspect of the certificate lifecycle, offering the following operations:

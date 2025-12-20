@@ -52,7 +52,7 @@ While by default between different sub-claims values the logic of the comma symb
 
 > 📘 Required Version
 >
-> The Logicial Operators Syntax support requires Gateway `4.19` version or higher.
+> The Logical Operators Syntax support requires Gateway `4.19` version or higher.
 
 For example:
 
