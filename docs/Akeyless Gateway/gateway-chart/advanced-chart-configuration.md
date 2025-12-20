@@ -324,7 +324,7 @@ image:
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
-You can explicitly provide the Kubernetes ecret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
+You can explicitly provide the Kubernetes Secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
 
 ```yaml
 image:
