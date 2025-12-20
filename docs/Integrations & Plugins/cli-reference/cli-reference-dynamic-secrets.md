@@ -542,7 +542,7 @@ akeyless dynamic-secret create eks \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
+`--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access.
 
@@ -607,7 +607,7 @@ akeyless dynamic-secret create gcp \
 
 `-e, --gcp-sa-email`: The email of the fixed service account to generate keys or tokens for. (relevant for service-account-type=fixed)
 
-`--role-binding`: Role binding definitions in JSON format
+`--role-binding`: RoleBinding definitions in JSON format
 
 `--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
@@ -757,7 +757,7 @@ akeyless dynamic-secret create gke \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
+`--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
@@ -867,29 +867,29 @@ akeyless dynamic-secret create k8s \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-e, --k8s-cluster-endpoint`: K8s Cluster endpoint. \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: Kubernetes Cluster endpoint. \<DNS / IP> of the cluster
 
-`-c, --k8s-cluster-ca-cert`: K8s Cluster certificate. Base 64 encoded certificate
+`-c, --k8s-cluster-ca-cert`: Kubernetes Cluster certificate. Base 64 encoded certificate
 
-`-t, --k8s-cluster-token`: K8s Cluster authentication token
+`-t, --k8s-cluster-token`: Kubernetes Cluster authentication token
 
-`-s, --k8s-service-account`: K8s ServiceAccount to extract token from
+`-s, --k8s-service-account`: Kubernetes ServiceAccount to extract token from
 
-`-i, --use-gw-service-account`: Use GW's Service Account. **Boolean**, when provided, as part of the **inline connection**.
+`-i, --use-gw-service-account`: Use Gateway's Service Account. **Boolean**, when provided, as part of the **inline connection**.
 
-`--k8s-service-account-type[=fixed]`: K8s ServiceAccount type [fixed, dynamic].
+`--k8s-service-account-type[=fixed]`: Kubernetes ServiceAccount type `[fixed, dynamic]`.
 
-`--k8s-namespace[=default]`: K8s Namespace where the ServiceAccount exists.(relevant only for service-account-type=fixed)
+`--k8s-namespace[=default]`: Kubernetes Namespace where the ServiceAccount exists.(relevant only for `service-account-type=fixed`)
 
-`--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8S namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type=dynamic)
+`--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed Kubernetes Namespaces for the generated ServiceAccount (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type=dynamic)
+`--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-predefined-role-type`: Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type=dynamic)
+`--k8s-predefined-role-type`: Specifies the type of the pre-existing Kubernetes Role `[Role, ClusterRole]` (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)
+`--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of Kubernetes Role and RoleBinding (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-cluster-name`: K8s cluster name
+`--k8s-cluster-name`: Kubernetes cluster name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -2245,7 +2245,7 @@ akeyless dynamic-secret update eks \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
+`--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
@@ -2294,7 +2294,7 @@ akeyless dynamic-secret update gcp \
 
 `-e, --gcp-sa-email`: The email of the fixed service acocunt to generate keys or tokens for. (relevant for service-account-type=fixed)
 
-`--role-binding`: Role binding definitions in JSON format
+`--role-binding`: RoleBinding definitions in JSON format
 
 `--gcp-project-id`: Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the GCP Target will be used. (Relevant only when `--access-type=sa` and `--service-account-type=dynamic`)
 
@@ -2442,7 +2442,7 @@ akeyless dynamic-secret update gke \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-cluster-endpoint`: The K8s cluster endpoint URL
+`--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
@@ -2528,29 +2528,29 @@ akeyless dynamic-secret update k8s \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-e, --k8s-cluster-endpoint`: K8s Cluster endpoint. https://, \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: Kubernetes Cluster endpoint. https://, \<DNS / IP> of the cluster
 
-`-c, --k8s-cluster-ca-cert`: K8s Cluster certificate. Base 64 encoded certificate
+`-c, --k8s-cluster-ca-cert`: Kubernetes Cluster certificate. Base 64 encoded certificate
 
-`-t, --k8s-cluster-token`: K8s Cluster authentication token
+`-t, --k8s-cluster-token`: Kubernetes Cluster authentication token
 
-`-i, --use-gw-service-account`: Use the GW's service account
+`-i, --use-gw-service-account`: Use the Gateway's service account
 
-`--k8s-service-account-type[=fixed]`: K8s ServiceAccount type [fixed, dynamic]
+`--k8s-service-account-type[=fixed]`: Kubernetes ServiceAccount type [fixed, dynamic]
 
-`-s, --k8s-service-account`: K8s ServiceAccount to extract token from
+`-s, --k8s-service-account`: Kubernetes ServiceAccount to extract token from
 
-`--k8s-namespace[=default]`: K8s Namespace where the ServiceAccount exists
+`--k8s-namespace[=default]`: Kubernetes Namespace where the ServiceAccount exists
 
-`--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8s namespaces for the generated ServiceAccount (relevant only for k8s-service-account-type=dynamic)
+`--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8s namespaces for the generated ServiceAccount (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type=dynamic)
+`--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-predefined-role-type`: Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type=dynamic)
+`--k8s-predefined-role-type`: Specifies the type of the pre-existing Kubernetes role [Role, ClusterRole] (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type=dynamic)
+`--k8s-rolebinding-yaml-def`: Path to yaml file that contains definitions of Kubernetes Role and RoleBinding (relevant only for `k8s-service-account-type=dynamic`)
 
-`--k8s-cluster-name`: K8s cluster name
+`--k8s-cluster-name`: Kubernetes cluster name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

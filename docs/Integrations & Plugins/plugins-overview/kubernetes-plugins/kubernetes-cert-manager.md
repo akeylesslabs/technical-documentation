@@ -44,7 +44,7 @@ kubectl create ns akeyless-cert-manager
 
 Using **Secretless Authentication** with a ServiceAccount, a temporary ServiceAccount token is created, **cert-manager** uses this ServiceAccount token to authenticate.
 
-In order to create the ServiceAccount token, edit a configuration file that will contain a **ServiceAccount** with a **Role** and **Role Binding** allowing Kubernetes token creation:
+In order to create the ServiceAccount token, edit a configuration file that will contain a **ServiceAccount** with a **Role** and **RoleBinding** allowing Kubernetes token creation:
 
 ```yaml k8s_sa.yaml
 apiVersion: v1

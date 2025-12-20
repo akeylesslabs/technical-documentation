@@ -43478,7 +43478,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -43999,7 +43999,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -44477,7 +44477,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -48075,7 +48075,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -48616,7 +48616,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -49109,7 +49109,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -55039,7 +55039,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -55462,7 +55462,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -56559,7 +56559,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -61771,7 +61771,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -62209,7 +62209,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -63327,7 +63327,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL",
+          "description": "The Kubernetes cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -84980,7 +84980,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The K8s cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic-Secret)",
+          "description": "The Kubernetes cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic-Secret)",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },

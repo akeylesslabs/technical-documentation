@@ -595,7 +595,7 @@ akeyless target create k8s \
 --name <Target name> \
 --k8s-cluster-endpoint <K8s Cluster endpoint> \
 --k8s-cluster-ca-cert <K8s Cluster certificate> \
---k8s-cluster-token <K8s Cluster authentication token> \
+--k8s-cluster-token <The K8s cluster endpoint URL Cluster authentication token> \
 --k8s-cluster-name <K8s cluster name> \
 --key <Key name>
 ```
