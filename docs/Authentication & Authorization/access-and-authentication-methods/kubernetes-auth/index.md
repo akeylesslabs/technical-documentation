@@ -73,7 +73,7 @@ kubectl apply -f akl_gw_sa_token_reviewer.yaml
 
 ### Create Kubernetes Auth Method
 
-Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method, The result contains an `Access Id` and a `private key` that you will need later for the K8s Auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method, The result contains an `Access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell Akeyless CLI
 akeyless auth-method create k8s -n my-k8s-auth-method --json
@@ -94,7 +94,7 @@ Upon successful creation, the response:
 
 #### Create Kubernetes Gateway Auth Config Using Gateway ServiceAccount
 
-Use the Akeyless CLI to create the K8s auth config:
+Use the Akeyless CLI to create the Kubernetes auth config:
 
 ```shell
 akeyless gateway-create-k8s-auth-config --name k8s-conf \
@@ -118,7 +118,7 @@ Where:
 
 ## Authenticate from a Pod in Your Kubernetes Cluster
 
-1. Create a Namespace in your K8s cluster:
+1. Create a Namespace in your Kubernetes cluster:
 
 ```shell
 kubectl create namespace my-namespace-a
@@ -186,7 +186,7 @@ The following list of claims can be configured within Akeyless [Access Roles (RB
 "aud"
 "pod_name" # available only when "token request projection" is enabled on your Kubernetes cluster
 "pod_uid"    # available only when "token request projection" is enabled on your Kubernetes cluster
-"config_name" # The name of the k8s auth config used for kubernetes authentication appended to the JWT
+"config_name" # The name of the Kubernetes auth config used for kubernetes authentication appended to the JWT
 ```
 
 Each claim can be enforced as part of your role association to enforce the right policy for your items.

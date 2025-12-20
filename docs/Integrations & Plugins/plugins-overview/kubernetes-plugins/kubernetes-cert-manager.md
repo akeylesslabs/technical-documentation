@@ -133,7 +133,7 @@ At this stage, all the configuration for Kubernetes authentication is set and it
 
 ### API Key Auth Method
 
-In order to use an [API Key](https://docs.akeyless.io/docs/api-key) Auth Method for generating certificate requests from the K8s cluster to Akeyless, An **Authentication Token** is required.
+In order to use an [API Key](https://docs.akeyless.io/docs/api-key) Auth Method for generating certificate requests from the Kubernetes cluster to Akeyless, An **Authentication Token** is required.
 
 The **Authentication Token** will be created using a `Secret` resource which will hold the `Access-Key` of the API Key Auth Method.
 

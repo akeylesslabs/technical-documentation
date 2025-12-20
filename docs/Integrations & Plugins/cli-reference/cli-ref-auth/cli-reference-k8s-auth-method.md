@@ -1,5 +1,5 @@
 ---
-title: CLI Reference - K8s Auth Method
+title: CLI Reference - Kubernetes Auth Method
 excerpt: ''
 deprecated: false
 hidden: false
@@ -44,13 +44,13 @@ akeyless auth-method create k8s \
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
-`--delete-protection`: Protection from accidental deletion of this object, [true/false]
+`--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for K8s authentication method is required [RSA2048]
+`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for Kubernetes authentication method is required `[RSA2048]`
 
 `--public-key`: Base64-encoded or PEM formatted public key data
 
@@ -62,7 +62,7 @@ akeyless auth-method create k8s \
 
 `--bound-namespaces`: A list of namespaces that the access is restricted to
 
-`--gen-key[=true]`: Automatically generate key-pair for K8s configuration. If set to false, a public key needs to be provided
+`--gen-key[=true]`: Automatically generate key-pair for Kubernetes configuration. If set to false, a public key needs to be provided
 
 ## `gateway-create-k8s-auth-config`
 
@@ -105,7 +105,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf \
 
 ### Flags
 
-`-n, --name`: **Required**, K8s Auth config name
+`-n, --name`: **Required**, Kubernetes Auth config name
 
 `--access-id`: **Required**, The Access ID of the Kubernetes Auth Method
 
@@ -121,27 +121,27 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf \
 
 `--k8s-ca-cert`: The CA Certificate (Base64-encoded) to use to call into the Kubernetes API server
 
-`--k8s-auth-type[=token]`: Native K8s auth type, [token/certificate]. (relevant for "native_k8s" only)
+`--k8s-auth-type[=token]`: Native Kubernetes auth type, [token/certificate]. (relevant for `native_k8s` only)
 
-`--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for "native_k8s" only)
+`--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for `native_k8s` only)
 
-`--k8s-client-certificate-file`: Path to a file that contain the K8s client certificate in PEM format (relevant for "native_k8s" only)
+`--k8s-client-certificate-file`: Path to a file that contain the Kubernetes client certificate in PEM format (relevant for `native_k8s` only)
 
-`--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format (relevant for "native_k8s" only)
+`--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format (relevant for `native_k8s` only)
 
-`--k8s-client-key-file`: Path to a file that contain the K8s client private key in PEM format (relevant for "native_k8s" only)
+`--k8s-client-key-file`: Path to a file that contain the Kubernetes client private key in PEM format (relevant for `native_k8s` only)
 
-`--token-reviewer-jwt`: A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for "native_k8s" only)
+`--token-reviewer-jwt`: A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for `native_k8s` only)
 
-`--rancher-api-key`: The API Key used to access the TokenReview API to validate other JWTs (relevant for "rancher" only)
+`--rancher-api-key`: The API Key used to access the TokenReview API to validate other JWTs (relevant for `rancher` only)
 
-`--rancher-cluster-id`: The cluster ID as defined in Rancher (relevant for "rancher" only)
+`--rancher-cluster-id`: The cluster ID as defined in Rancher (relevant for `rancher` only)
 
 `--k8s-issuer[=kubernetes/serviceaccount]`: The Kubernetes JWT issuer name. If not set, this \<Kubernetes/ServiceAccount> will be used by default
 
 `--disable-issuer-validation[=true]`: Disable issuer validation `true`/`false`
 
-`--config-encryption-key-name`: Encrypt K8s Auth config with following key
+`--config-encryption-key-name`: Encrypt Kubernetes Auth config with following key
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -177,9 +177,9 @@ akeyless update-auth-method-k8s \
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
-`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
+`--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see `get-account-settings`)
 
-`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for K8s authentication method is required [RSA2048]
+`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for Kubernetes authentication method is required [RSA2048]
 
 `--public-key`: Base64-encoded or PEM formatted public key data
 
@@ -191,7 +191,7 @@ akeyless update-auth-method-k8s \
 
 `--bound-namespaces`: A list of namespaces that the access is restricted to
 
-`--gen-key`: Automatically generate key-pair for K8s configuration. If set to false, a public key needs to be provided
+`--gen-key`: Automatically generate key-pair for Kubernetes configuration. If set to false, a public key needs to be provided
 
 ## `gateway-update-k8s-auth-config`
 
@@ -207,7 +207,7 @@ akeyless gateway-update-k8s-auth-config \
 
 ### Flags
 
-`-n, --name`: **Required**, K8s Auth config name
+`-n, --name`: **Required**, Kubernetes Auth config name
 
 `--descriptions`: Auth Method description
 
@@ -219,37 +219,37 @@ akeyless gateway-update-k8s-auth-config \
 
 `-i, --use-gw-service-account`: Use the Gateway's ServiceAccount
 
-`--cluster-api-type[=native_k8s]`: Cluster access type. options: [native_k8s, rancher]
+`--cluster-api-type[=native_k8s]`: Cluster access type. options: `[native_k8s, rancher]`
 
 `--k8s-host`: The URL of the Kubernetes API server
 
 `--k8s-ca-cert`: The CA Certificate (Base64-encoded) to use to call into the Kubernetes API server
 
-`--k8s-auth-type[=token]`: Native K8s auth type, [token/certificate]. (relevant for "native_k8s" only)
+`--k8s-auth-type[=token]`: Native Kubernetes auth type, [token/certificate]. (relevant for `native_k8s` only)
 
-`--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for "native_k8s" only)
+`--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for `native_k8s` only)
 
-`--k8s-client-certificate-file`: Path to a file that contain the K8s client certificate in PEM format (relevant for "native_k8s" only)
+`--k8s-client-certificate-file`: Path to a file that contain the Kubernetes client certificate in PEM format (relevant for `native_k8s` only)
 
-`--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format (relevant for "native_k8s" only)
+`--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format (relevant for `native_k8s` only)
 
-`--k8s-client-key-file`: Path to a file that contain the K8s client private key in PEM format (relevant for "native_k8s" only)
+`--k8s-client-key-file`: Path to a file that contain the Kubernetes client private key in PEM format (relevant for `native_k8s` only)
 
-`--token-reviewer-jwt`: A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for "native_k8s" only)
+`--token-reviewer-jwt`: A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for `native_k8s` only)
 
-`--rancher-api-key`: The API Key used to access the TokenReview API to validate other JWTs (relevant for "rancher" only)
+`--rancher-api-key`: The API Key used to access the TokenReview API to validate other JWTs (relevant for `rancher` only)
 
-`--rancher-cluster-id`: The cluster ID as define in rancher (relevant for "rancher" only)
+`--rancher-cluster-id`: The cluster ID as define in rancher (relevant for `rancher` only)
 
 `--k8s-issuer=[kubernetes/serviceaccount]`: The Kubernetes JWT issuer name. If not set, this \<Kubernetes/ServiceAccount> will be used by default.
 
 `--disable-issuer-validation[=true]`: Disable issuer validation `true`/`false`
 
-`--config-encryption-key-name`: Encrypt K8s Auth config with following key
+`--config-encryption-key-name`: Encrypt Kubernetes Auth config with following key
 
 `-u, --gateway-url=[http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--new-name`: **Required**, K8s Auth config new-name
+`--new-name`: **Required**, Kubernetes Auth config new-name
 
 `--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
@@ -263,18 +263,18 @@ Gets Gateway Kubernetes Auth config
 
 ```shell
 akeyless gateway-get-k8s-auth-config \
---name <K8s Auth config name> \
+--name <Kubernetes Auth config name> \
 --gateway-url <API Gateway URL:8000> 
 ```
 
 ### Flags
 
-`-n, --name`: **Required**, K8s Auth config name
+`-n, --name`: **Required**, Kubernetes Auth config name
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 ## `gateway-delete-k8s-auth-config`
 
-Deletes K8s Auth config
+Deletes Kubernetes Auth config
 
 ### Usage
 
@@ -286,6 +286,6 @@ akeyless gateway-delete-k8s-auth-config \
 
 ### Flags
 
-`-n, --name`: **Required**, K8s Auth config name
+`-n, --name`: **Required**, Kubernetes Auth config name
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)

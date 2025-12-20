@@ -42,7 +42,7 @@ akeyless create-usc \
 
 `-v, --azure-kv-name`: Azure Key Vault name (Relevant only for Azure targets)
 
-`-s, --k8s-namespace`: K8s Namespace (Relevant to Kubernetes targets)
+`-s, --k8s-namespace`: Kubernetes Namespace (Relevant to Kubernetes targets)
 
 `--usc-prefix`: A prefix for all secret that will be created on the USC endpoint (relevant only for AWS targets)
 
@@ -125,7 +125,7 @@ usc delete \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
+`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to get from the Universal Secrets Connector
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
@@ -145,7 +145,7 @@ usc get \
 
 `-n, --usc-name`: **Required**, USC name
 
-`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
+`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to get from the Universal Secrets Connector
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
@@ -210,7 +210,7 @@ usc update \
 
 `-n, --usc-name`: **Required**, USC name
 
-`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or K8s targets) to get from the Universal Secrets Connector
+`-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to get from the Universal Secrets Connector
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 

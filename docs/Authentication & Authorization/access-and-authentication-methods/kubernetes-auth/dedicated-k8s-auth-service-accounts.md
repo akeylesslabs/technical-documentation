@@ -179,7 +179,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf \
 --gateway-url https://<Your_Akeyless_GW_URL:8000> \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
---k8s-host https://<Your_K8s_Cluster_IP:8443> \
+--k8s-host https://<Your_Kubernetes_Cluster_IP:8443> \
 --token-reviewer-jwt $SA_JWT_TOKEN \
 --k8s-ca-cert $CA_CERT \
 --k8s-issuer $K8S_ISSUER

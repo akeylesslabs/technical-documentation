@@ -114,9 +114,9 @@ Once that's done, **in a new terminal tab** you can run `kubectl` commands as no
 
 #### Lens
 
-Similarly, after having run the `akeyless connect` command as in the previous section, to work with [Lens](https://k8slens.dev/) K8s IDE, open your Lens Settings > Proxy and set the proxy server with your localhost interface in the following format: [http://127.0.0.1:2345](http://127.0.0.1:2345).
+Similarly, after having run the `akeyless connect` command as in the previous section, to work with [Lens](https://k8slens.dev/) Kubernetes IDE, open your Lens Settings > Proxy and set the proxy server with your localhost interface in the following format: [http://127.0.0.1:2345](http://127.0.0.1:2345).
 
-Now, you can start interacting with your remote K8s API server using the tunnel.
+Now, you can start interacting with your remote Kubernetes API server using the tunnel.
 
 For example, to add a new cluster to Lens add, you can use the following `kubeconfig` reference:
 

@@ -157,7 +157,7 @@ spec:
       authSecretRef:
         kubernetesAuth:
           accessID: <AccessID>
-          k8sConfName: <K8s Conf Name>
+          k8sConfName: <Kubernetes Conf Name>
           serviceAccountRef:
             name: <ServiceAccount Name>
 ```

@@ -108,7 +108,7 @@ Edit the settings as follows:
 
 `AKEYLESS_CLI` - Akeyless CLI binary (if needed).
 
-`AKEYLESS_GW_SSH_URL` - Set your Akeyless Gateway URL for the SSH service on port `8000`. The K8s service name will start with `ssh-`.
+`AKEYLESS_GW_SSH_URL` - Set your Akeyless Gateway URL for the SSH service on port `8000`. The Kubernetes Service name will start with `ssh-`.
 
 `AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
@@ -239,11 +239,11 @@ akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -g <gw-
 Linux:
 
 ```shell
-AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -g <gw-ssh-url> -n "Path To K8s Dynamnic Secret" --ssh-extra-args "non-interactive"
+AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -g <gw-ssh-url> -n "Path To Kubernetes DynamicSecret" --ssh-extra-args "non-interactive"
 ```
 
 Windows:
 
 ```shell
-$env:AKEYLESS_PARAM = 'get pods'; .\akeyless.exe connect -t <k8 cluster endpoint> -g <gw-ssh-url> -n "Path To K8s Dynamnic Secret" --ssh-extra-args "non-interactive"
+$env:AKEYLESS_PARAM = 'get pods'; .\akeyless.exe connect -t <k8 cluster endpoint> -g <gw-ssh-url> -n "Path To Kubernetes DynamicSecret" --ssh-extra-args "non-interactive"
 ```

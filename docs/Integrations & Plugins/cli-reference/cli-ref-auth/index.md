@@ -52,11 +52,11 @@ with the relevant flags according to the `access-type` being used.
 
 `--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for `access-type=gcp`)
 
-`--gateway-url`: Gateway URL for the K8s authenticated (relevant only for `access-type=k8s`)
+`--gateway-url`: Gateway URL for the Kubernetes authenticated (relevant only for `access-type=k8s`)
 
-`--k8s-auth-config-name`: The K8s Auth config name (relevant only for `access-type=k8s`)
+`--k8s-auth-config-name`: The Kubernetes Auth config name (relevant only for `access-type=k8s`)
 
-`--k8s-service-account-token`: The K8s service account token
+`--k8s-service-account-token`: The Kubernetes service account token
 
 `--cert-file-name`: Name of the cert file to use (relevant only for `access-type=cert`)
 
@@ -96,7 +96,7 @@ with the relevant flags according to the `access-type` being used.
 
 `gcp` Creates a new GCP Auth Method
 
-`k8s` Creates a new K8s Auth Method
+`k8s` Creates a new Kubernetes Auth Method
 
 `ldap` Creates a new LDAP Auth Method
 

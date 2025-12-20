@@ -18,7 +18,7 @@ You can have [Cert Manager](https://cert-manager.io/docs/) deployed in a cluster
 
 To do so, you first need to [install Cert Manager](https://cert-manager.io/docs/installation/) custom resource definitions for your cluster to support using cert-manager.
 
-Once cert-manager is installed and running in your K8s cluster, you’ll need to create the following three K8s objects to work with the dynamic secret:
+Once cert-manager is installed and running in your Kubernetes cluster, you’ll need to create the following three Kubernetes objects to work with the dynamic secret:
 
 **Secret** - The credentials to your Akeyless account.
 

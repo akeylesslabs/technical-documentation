@@ -1,5 +1,5 @@
 ---
-title: K8s Auth Client Certificate
+title: Kubernetes Auth Client Certificate
 excerpt: ''
 deprecated: false
 hidden: false
@@ -66,9 +66,9 @@ USER_CERT=$(kubectl get csr $USER_NAME -o jsonpath='{.status.certificate}')
 akeyless create-certificate --name /k8s/Clustername/certificates/$USER_NAME --certificate-data $USER_CERT --key-data $USER_KEY --expiration-event-in 30
 ```
 
-### Kubernetes Role Binding
+### Kubernetes RoleBinding
 
-Create the **Cluster Role Binding** named `role-tokenreview-binding` for the user to review tokens:
+Create the **Cluster RoleBinding** named `role-tokenreview-binding` for the user to review tokens:
 
 ```yaml akl_gw_token_reviewer.yaml
 cat <<EOF | kubectl apply -f -
@@ -175,7 +175,7 @@ Where:
 * `signing-key`: The private key (Base64-encoded) associated with the public key defined in the Kubernetes auth\
   (The private key that was created when the Kubernetes Auth Method was created previously).
 
-* `k8s-auth-type`: K8s auth type, use `certificate`.
+* `k8s-auth-type`: Kubernetes auth type, use `certificate`.
 
 * `k8s-host`: The URL of your **Kubernetes Cluster**.
 
@@ -193,9 +193,9 @@ Upon successful creation, the response:
 K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
 ```
 
-## Authenticate from a Pod in Your K8s Cluster
+## Authenticate from a Pod in Your Kubernetes Cluster
 
-1. Create a Namespace in your K8s cluster:
+1. Create a Namespace in your Kubernetes cluster:
 
     ```shell CLI
     kubectl create namespace my-namespace-a

@@ -32,7 +32,7 @@ Once saved, users can log in to your Gateway Console on the `/console` endpoint 
 
 ## Certificate-Based Authentication
 
-To work with Certificate-Based Authentication as the default login method for your Gateway, ensure your Gateway deployment is set with `sni-proxy` enabled, as described in this [guide](https://docs.akeyless.io/docs/advance-gw-docker-configuration#setting-a-default-login) for Docker, or for K8s deployment as described [here](https://docs.akeyless.io/docs/advanced-k8s-gateway-configuration#defaults-gateway-settings).  
+To work with Certificate-Based Authentication as the default login method for your Gateway, ensure your Gateway deployment is set with `sni-proxy` enabled, as described in this [guide](https://docs.akeyless.io/docs/advance-gw-docker-configuration#setting-a-default-login) for Docker, or for Kubernetes deployment as described [here](https://docs.akeyless.io/docs/advanced-k8s-gateway-configuration#defaults-gateway-settings).  
 
 Set your users' DNS records with the cert authentication subdomain `auth-cert.akeyless.io` to point to your Gateway IP address.
 

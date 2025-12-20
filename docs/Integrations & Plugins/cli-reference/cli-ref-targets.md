@@ -593,10 +593,10 @@ Creates a new Kubernetes target in the current account
 ```shell
 akeyless target create k8s \
 --name <Target name> \
---k8s-cluster-endpoint <K8s Cluster endpoint> \
---k8s-cluster-ca-cert <K8s Cluster certificate> \
---k8s-cluster-token <The K8s cluster endpoint URL Cluster authentication token> \
---k8s-cluster-name <K8s cluster name> \
+--k8s-cluster-endpoint <Kubernetes Cluster endpoint> \
+--k8s-cluster-ca-cert <Kubernetes Cluster certificate> \
+--k8s-cluster-token <Kubernetes Cluster authentication token> \
+--k8s-cluster-name <Kubernetes cluster name> \
 --key <Key name>
 ```
 
@@ -604,24 +604,24 @@ akeyless target create k8s \
 
 `-n, --name`: **Required**, Target name
 
-`-e, --k8s-cluster-endpoint`: **Required**, K8s Cluster endpoint. `https://`, \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: **Required**, Kubernetes Cluster endpoint. `https://`, \<DNS / IP> of the cluster
 
-`-c, --k8s-cluster-ca-cert`: **Required**, K8s Cluster certificate. Base 64 encoded certificate
+`-c, --k8s-cluster-ca-cert`: **Required**, Kubernetes Cluster certificate. Base 64 encoded certificate
 
-`-t, --k8s-cluster-token`: **Required**, K8s Cluster authentication token
+`-t, --k8s-cluster-token`: **Required**, Kubernetes Cluster authentication token
 
 `-i, --use-gw-service-account`: Use GW's service account. **Boolean** when provided only `name` is required
 
-`--k8s-auth-type[=token]`: K8s auth type, [token/certificate]
+`--k8s-auth-type[=token]`: Kubernetes auth type, [token/certificate]
 `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format
 
-`--k8s-client-certificate-file`: Path to a file that contain the K8s client private key in PEM format
+`--k8s-client-certificate-file`: Path to a file that contain the Kubernetes client private key in PEM format
 
 `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format
 
-`--k8s-client-key-file`: Path to a file that contain the K8s client private key in PEM format
+`--k8s-client-key-file`: Path to a file that contain the Kubernetes client private key in PEM format
 
-`--k8s-cluster-name`: K8s cluster name
+`--k8s-cluster-name`: Kubernetes cluster name
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used.
 
@@ -1749,10 +1749,10 @@ Updates an existing Kubernetes target in the current account
 ```shell
 akeyless target update k8s \
 --name <Target Name> \
---k8s-cluster-endpoint <K8s Cluster endpoint> \
---k8s-cluster-ca-cert <K8s Cluster certificate> \
---k8s-cluster-token <K8s Cluster authentication token> \
---k8s-cluster-name <K8s cluster name> \
+--k8s-cluster-endpoint <Kubernetes Cluster endpoint> \
+--k8s-cluster-ca-cert <Kubernetes Cluster certificate> \
+--k8s-cluster-token <Kubernetes Cluster authentication token> \
+--k8s-cluster-name <Kubernetes cluster name> \
 --new-name <New target name> 
 ```
 
@@ -1760,25 +1760,25 @@ akeyless target update k8s \
 
 `-n, --name`: **Required**, Target name
 
-`-e, --k8s-cluster-endpoint`: **Required**, K8s Cluster endpoint. https://, \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: **Required**, Kubernetes Cluster endpoint. https://, \<DNS / IP> of the cluster
 
-`-c, --k8s-cluster-ca-cert`: **Required**, K8s Cluster certificate. Base 64 encoded certificate
+`-c, --k8s-cluster-ca-cert`: **Required**, Kubernetes Cluster certificate. Base 64 encoded certificate
 
-`-t, --k8s-cluster-token`: **Required**, K8s Cluster authentication token
+`-t, --k8s-cluster-token`: **Required**, Kubernetes Cluster authentication token
 
 `-i, --use-gw-service-account`: Use the Gateway's ServiceAccount
 
-`--k8s-auth-type[=token]`: K8s auth type, [token/certificate]
+`--k8s-auth-type[=token]`: Kubernetes auth type, [token/certificate]
 
 `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format
 
-`--k8s-client-certificate-file`: Path to a file that contain the K8s client certificate in PEM format
+`--k8s-client-certificate-file`: Path to a file that contain the Kubernetes client certificate in PEM format
 
 `--k8s-client-key`: Content of the k8 client private key (PEM format) in a Base64 format
 
-`--k8s-client-key-file\`: Path to a file that contain the K8s client private key in PEM format
+`--k8s-client-key-file\`: Path to a file that contain the Kubernetes client private key in PEM format
 
-`--k8s-cluster-name`: K8s-cluster-name
+`--k8s-cluster-name`: Kubernetes cluster name
 
 `--new-name`: New target name
 

@@ -138,17 +138,17 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 4. Define the remaining settings as follows:
 
-* **Description:** Optional, enter a description of the Universal Secrets Connector.
+    * **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-* **Tags:** Optional, select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+    * **Tags:** Optional, select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-* **Delete Protection:** Optional, turn on this setting to protect the item from deletion
+    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-* **Target:** Select an existing [K8s Target](https://docs.akeyless.io/docs/kubernetes-targets).
+    * **Target:** Select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets).
 
-* **Gateway:** Select the desired corresponding Gateway.
+    * **Gateway:** Select the desired corresponding Gateway.
 
-* **Namespace:** Kubernetes Namespace.
+    * **Namespace:** Kubernetes Namespace.
 
 5. Click **Finish**.
 
