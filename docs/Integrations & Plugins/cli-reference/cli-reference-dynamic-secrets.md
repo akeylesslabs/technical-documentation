@@ -605,7 +605,7 @@ akeyless dynamic-secret create gcp \
 
 `-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options[fixed, dynamic]
 
-`-e, --gcp-sa-email`: The email of the fixed service account to generate keys or tokens for. (revelant for service-account-type=fixed)
+`-e, --gcp-sa-email`: The email of the fixed service account to generate keys or tokens for. (relevant for service-account-type=fixed)
 
 `--role-binding`: Role binding definitions in JSON format
 
@@ -1885,7 +1885,7 @@ akeyless dynamic-secret update artifactory \
 
 `-s, --artifactory-token-scope`: **Required**, Token scope provided as a space-separated list, for example: member-of-groups:readers
 
-`-a, --artifactory-token-audience`: **Required**, A space-separated list of other Artifactory instances or services that should accept this token, for example: jfrt@*
+`-a, --artifactory-token-audience`: **Required**, A space-separated list of other Artifactory instances or services that should accept this token, for example: `jfrt@*`
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
@@ -2280,7 +2280,7 @@ akeyless dynamic-secret update gcp \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-t, --gcp-cred-type[=token]`: Credentials type, options are [token, key]
+`-t, --gcp-cred-type[=token]`: Credentials type, options are `[token, key]`.
 
 `--gcp-key-file-path`: Path to file with the Base64-encoded service account private key
 
@@ -2290,9 +2290,9 @@ akeyless dynamic-secret update gcp \
 
 `--gcp-key-algo`: Service account key algorithm, e.g. KEY_ALG_RSA_04
 
-`-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options[fixed, dynamic]
+`-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options: `[fixed, dynamic]`
 
-`-e, --gcp-sa-email`: The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type=fixed)
+`-e, --gcp-sa-email`: The email of the fixed service acocunt to generate keys or tokens for. (relevant for service-account-type=fixed)
 
 `--role-binding`: Role binding definitions in JSON format
 

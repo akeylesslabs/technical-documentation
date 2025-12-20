@@ -21,11 +21,11 @@ The provided script is designed to be used in a ServiceNow instance, specificall
 
 2. Initialize a New Record
 
-    * It then initializes a new record in the u\_akeyless\_event\_reciver table using GlideRecord, a ServiceNow API for database operations. This table name is specified in the script and should exist in your ServiceNow instance. If it doesn’t, you need to create it or use an existing table name.
+    * It then initializes a new record in the u\_akeyless\_event\_receiver table using GlideRecord, a ServiceNow API for database operations. This table name is specified in the script and should exist in your ServiceNow instance. If it doesn’t, you need to create it or use an existing table name.
 
 3. Set Record Fields from JSON Data
 
-    * The script sets various fields of the new record (u\_access\_id, u\_event\_id, etc.) with values extracted from the parsed JSON data. It's important that these field names match the column names in your u\_akeyless\_event\_reciver table.
+    * The script sets various fields of the new record (u\_access\_id, u\_event\_id, etc.) with values extracted from the parsed JSON data. It's important that these field names match the column names in your u\_akeyless\_event\_receiver table.
     * For fields that are expected to store complex data types like arrays or objects (u\_capabilities), the script converts them into JSON strings using JSON.stringify() before storing. This is because relational database fields typically store text or numbers and cannot directly store complex types.
 
 4. Insert the Record and Respond
@@ -36,7 +36,7 @@ The provided script is designed to be used in a ServiceNow instance, specificall
 
 ### Key Points to Note
 
-* Table and Field Names: Ensure that the table u\_akeyless\_event\_reciver and the field names like u\_access\_id, u\_event\_id, etc., exist in your ServiceNow instance. If they don't, you'll need to create them according to your data model.
+* Table and Field Names: Ensure that the table u\_akeyless\_event\_receiver and the field names like u\_access\_id, u\_event\_id, etc., exist in your ServiceNow instance. If they don't, you'll need to create them according to your data model.
 * Error Handling: The script includes basic error handling for JSON parsing and database insertion. It responds with HTTP status codes and messages that help the caller understand what went wrong.
 * Data Conversion: Complex data types are converted to JSON strings to be stored in text fields. Ensure that your application logic accounts for this when reading these fields.
 
@@ -57,7 +57,7 @@ The provided script is designed to be used in a ServiceNow instance, specificall
     }
 
     // Initialize a new record in the specified table
-    var record = new GlideRecord('u_akeyless_event_reciver'); // Ensure table name is correct
+    var record = new GlideRecord('u_akeyless_event_receiver'); // Ensure table name is correct
 
     // Manually set record fields based on the jsonData
     record.initialize();

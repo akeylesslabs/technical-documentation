@@ -124,7 +124,7 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`:Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -165,7 +165,7 @@ akeyless auth-method create aws-iam \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -221,7 +221,7 @@ akeyless auth-method create azure-ad \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -286,7 +286,7 @@ akeyless auth-method create cert \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -344,7 +344,7 @@ akeyless auth-method create email \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: A comma-separated CIDR block list to allow client access
 
@@ -386,7 +386,7 @@ akeyless auth-method create gcp \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -447,7 +447,7 @@ akeyless auth-method create oauth2 \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -502,7 +502,7 @@ akeyless auth-method create oci \
 
 `-t, --tenant-ocid`: **Required**, The Oracle Cloud tenant ID
 
-`-g, --group-oicd`: **Required**, A list of required groups ocids
+`-g, --group-ocid`: **Required**, A list of required groups ocids
 
 `--description`: Auth Method description
 
@@ -545,7 +545,7 @@ akeyless auth-method create oidc \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -600,7 +600,7 @@ akeyless auth-method create saml \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -684,7 +684,7 @@ akeyless auth-method update api-key --name <Auth method>
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -723,7 +723,7 @@ akeyless auth-method update aws-iam \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -777,7 +777,7 @@ akeyless auth-method update azure-ad \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -840,7 +840,7 @@ akeyless auth-method update cert \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -900,7 +900,7 @@ akeyless auth-method update gcp \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -957,7 +957,7 @@ akeyless auth-method update oauth2 \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -1057,7 +1057,7 @@ akeyless auth-method update oidc \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -1111,7 +1111,7 @@ akeyless auth-method update saml \
 
 `--new-name`: Auth Method new name
 `-n, --name`: **Required**, Auth Method name
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 `--bound-ips`: A comma-separated CIDR block list to allow client access

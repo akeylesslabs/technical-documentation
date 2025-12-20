@@ -209,7 +209,7 @@ To deactivate an external Account, run the following command:
 akeyless deactivate-acme-account \
 --cert-issuer-name /ACME/Server/ACMEIssuer \
 --acme-account-id <account-id> \
---delete-account true / flase
+--delete-account true / false
 ```
 
 Where:

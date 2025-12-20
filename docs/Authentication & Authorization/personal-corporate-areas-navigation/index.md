@@ -47,7 +47,7 @@ The Personal Folder is a powerful tool that can help users to securely manage th
 
 ### Enabling Personal Folders
 
-By default, Personal Folders are hiddens from users. An Administrator can enable them.
+By default, Personal Folders are hidden from users. An administrator can enable them.
 
 1. Access the **Account Settings** menu.
 2. Access the **Item Settings** submenu.

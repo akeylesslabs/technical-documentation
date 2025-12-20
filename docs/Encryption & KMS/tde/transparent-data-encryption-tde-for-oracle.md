@@ -27,7 +27,7 @@ Explanation: Configuration details such as keystore parameters can vary by versi
 
 ### Akeyless & HSM Library Requirements
 
-Step: Download the required shared library (libakeyless.so) from Akeyless.  
+Step: Download the required shared library (`libakeyless.so`) from Akeyless.  
 Explanation: This library provides the interface between Oracle TDE and the external key management (HSM) system. Ensure that you use the correct API credentials (access ID and key) so that the integration can securely communicate with Akeyless.
 
 ### File and Directory Permissions

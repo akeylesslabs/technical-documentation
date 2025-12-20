@@ -900,3 +900,19 @@ milliCPU
 BYOK
 certSIGN
 cRLSign
+OCID
+OCIDs
+Oracle Cloud Identifier
+Luhn algorithm
+PingFederate
+Shamir's Secret Sharing
+Joint Time-Vertex Fractional Fourier Transform
+JFrog
+Artifactory
+Sigstore
+OCSP
+Online Certificate Status Protocol
+AMQP
+Advanced Message Queuing Protocol
+SQLCrypt
+Certbot

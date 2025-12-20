@@ -50,7 +50,7 @@ akeyless update-rotation-settings --name &lt;key name&gt; --auto-rotate=&lt;true
 Where:
 
 * `name`:  The key name
-* `auto-rotate`: Select if you wish to autorotate the key, the default is false.
+* `auto-rotate`: Select if you wish to auto-rotate the key, the default is false.
 * `rotation-interval`: Desired rotation interval, in days.
 
 Full parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueupdate-rotation-settingsp)

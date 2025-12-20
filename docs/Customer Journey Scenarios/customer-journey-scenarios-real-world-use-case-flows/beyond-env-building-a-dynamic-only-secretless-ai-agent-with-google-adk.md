@@ -209,7 +209,7 @@ This code initializes an AI agent's credentials securely by fetching them direct
 
 When the agent starts, the initialize_credentials function is called. It:
 
-1. Fetches the Gemini API Key and immediately configures the Google AI library with it using genai.configure(api_key=...).
+1. Fetches the Gemini API Key and immediately configures the Google AI library with it using `genai.configure(api_key=...)`.
 2. Fetches dynamic, just-in-time MongoDB credentials and stores them in a global variable named mongodb_credentials.
 
 The result is that no secrets ever touch the disk. The API Key and database credentials exist only in the application's memory, where they are used directly by the agent's tools. This "secretless" approach significantly enhances security by eliminating static, stored credentials.

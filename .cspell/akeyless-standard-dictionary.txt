@@ -11,3 +11,8 @@ keytab
 secretless
 ciphertext
 keepalives
+exfiltration
+signup
+quickstart
+quickstarts
+Shamir's

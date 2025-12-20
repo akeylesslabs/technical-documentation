@@ -51,7 +51,7 @@ Result: Keystore created at the specified location.
 SQL> ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "APP_PASSWORD";
 ```
 
-Result: Keystore opened seccessfully
+Result: Keystore opened successfully
 
 ```sql
 SQL> ADMINISTER KEY MANAGEMENT ADD SECRET 'APP_PASSWORD' FOR CLIENT 'HSM_PASSWORD' IDENTIFIED BY "APP_PASSWORD" WITH BACKUP;
