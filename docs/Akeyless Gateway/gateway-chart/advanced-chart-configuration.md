@@ -66,7 +66,7 @@ customerFragmentsExistingSecret: customer-fragment
 We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
 Please note that when you're enabling TLS, you must provide a `TLS certificate` and a corresponding `TLS Private Key`.
 
-To set the TLS settings, create a [K8s Secret](https://kubernetes.io/docs/concepts/configuration/secret/) includes your **TLS certificate** in `base64-encoded` format where the `key` of the secret has to be `tls-certificate`:
+To set the TLS settings, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) includes your **TLS certificate** in `base64-encoded` format where the `key` of the secret has to be `tls-certificate`:
 
 ```yaml secret.yaml
 apiVersion: v1
@@ -324,7 +324,7 @@ image:
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
-You can explicitly provide the K8s secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
+You can explicitly provide the Kubernetes Secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
 
 ```yaml
 image:

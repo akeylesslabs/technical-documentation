@@ -12,7 +12,7 @@ next:
 ---
 ## Introduction
 
-Akeyless allows you to create a wide variety of resources in Kubernetes to utilize Dynamic Secrets, from tokens for existing Kubernetes [Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/) that are used for authentication to completely new Service Accounts complete with roles and role bindings.
+Akeyless allows you to create a wide variety of resources in Kubernetes to utilize Dynamic Secrets, from tokens for existing Kubernetes [Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/) that are used for authentication to completely new ServiceAccounts complete with Roles and RoleBindings.
 
 To know what resources to generate with and supply to Akeyless, you will first need to choose which of the following Service Account modes is best for your purposes:
 
@@ -22,7 +22,7 @@ Fixed Service Accounts are existing Kubernetes Service Accounts that Akeyless ge
 
 #### Dynamic Service Account
 
-When working in **Dynamic Mode**, you may use a predefined role and only generate and bind the Service Account. Alternatively, you may use a YAML file that contains both new Role and Role Binding information for the new Service Account to be generated.
+When working in **Dynamic Mode**, you may use a predefined role and only generate and bind the Service Account. Alternatively, you may use a YAML file that contains both new Role and RoleBinding information for the new Service Account to be generated.
 
 In addition, you must supply a list of Allowed Namespaces to exist within, to control where the Service Account will be created. If you select a pre-existing role (and not a cluster role) - it also must exist in the mentioned namespaces. It’s also possible to define the wildcard character `*` as the list of Allowed Namespaces to allow any Namespace.
 
@@ -38,7 +38,7 @@ In addition, you must supply a list of Allowed Namespaces to exist within, to co
 
 * **Fixed Mode:** A pre-defined privileged service account or a K8s user, with permission to run the Kubernetes API `RequestToken` command to generate JWT tokens for other service accounts. In our example, it will be called `token-request-sa` or `token-request-user` respectively. This entity would be used as a privileged user to generate the temporary tokens for other service accounts. In our example, it will be called `example-service-account`.
 
-* **Dynamic Mode:** A pre-defined privileged service account or a K8s user with permission to create and manage `Service Accounts`, `Role Binding` and `Roles` as well as `get` permissions to `namespaces`. In our example, it will be called `akeyless-jit`. This entity will be used as a privileged user to dynamically generate and manage temporary service accounts.
+* **Dynamic Mode:** A pre-defined privileged service account or a K8s user with permission to create and manage `Service Accounts`, `RoleBinding` and `Roles` as well as `get` permissions to `namespaces`. In our example, it will be called `akeyless-jit`. This entity will be used as a privileged user to dynamically generate and manage temporary service accounts.
 
 ## Authentication Strategies
 
@@ -344,7 +344,7 @@ roleRef:
 
 > 🚧 Warning
 >
-> While working with Role Binding using `yml` file, the `namespace` subjects are ignored and managed only via the `Allowed Namespaces` list
+> While working with RoleBinding using `yml` file, the `namespace` subjects are ignored and managed only via the `Allowed Namespaces` list
 
 If you don't have a configured [Kubernetes Targets](https://docs.akeyless.io/docs/kubernetes-targets) yet, you can use the command with your K8s Cluster connection strings inline:
 
@@ -352,7 +352,7 @@ If you don't have a configured [Kubernetes Targets](https://docs.akeyless.io/doc
 
 * `k8s-cluster-ca-cert`: The base-64 encoded CA cluster certificate.
 
-* `k8s-cluster-token`: A JWT authentication token authorized to manage Service Accounts, Roles, and Role Binding depending on the working mode.
+* `k8s-cluster-token`: A JWT authentication token authorized to manage Service Accounts, Roles, and RoleBinding depending on the working mode.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluek8sp) section.
 
@@ -445,59 +445,60 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
 4. Define the remaining parameters as follows:
 
-* **Description:** A brief description of the item.
+    * **Description:** A brief description of the item.
 
-* **Tags:** Tags you would like to attach to the item.
+    * **Tags:** Tags you would like to attach to the item.
 
-* **Delete Protection:** When enabled, it protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets) or specify details of the endpoint specifically in the next section explicitly.
+    * **Target mode:** In this section, you can either select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets) or specify details of the endpoint specifically in the next section explicitly.
 
 5. Select your Service Account mode, **Fixed** or **Dynamic**, and fill in the following parameters:
 
-*For Fixed Mode:*
+    *For Fixed Mode:*
 
-* **Service Account:** The name of the Kubernetes ServiceAccount to generate the tokens for
+    * **Service Account:** The name of the Kubernetes ServiceAccount to generate the tokens for
 
-* **Namespace:** The Namespace of the Kubernetes ServiceAccount
+    * **Namespace:** The Namespace of the Kubernetes ServiceAccount
 
-*For Dynamic Mode:*
+    *For Dynamic Mode:*
 
-* **Role Bindings:** A YAML file describing the Role, and Role Binding parameters.
+    * **RoleBindings:** A YAML file describing the Role, and RoleBinding parameters.
 
-* **Role Type:** Select if the role is a K8s Role or a Cluster Role.
+    * **Role Type:** Select if the role is a K8s Role or a Cluster Role.
 
-* **Allowed Namespaces:** A list of namespaces the secret is allowed to exist within. If the role type is a K8s Role, it must also exist within these namespaces. You can input the wildcard character `*` to allow any Namespace.
+    * **Allowed Namespaces:** A list of namespaces the secret is allowed to exist within. If the role type is a K8s Role, it must also exist within these namespaces. You can input the wildcard character `*` to allow any Namespace.
 
-* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
+    * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
 6. Fill in the remaining parameters for either type of service account:
 
-* **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
 
-* **Time Unit:** Select the time unit (`seconds`, `minutes`,`hours`) for the TTL value.
+    * **Time Unit:** Select the time unit (`seconds`, `minutes`,`hours`) for the TTL value.
 
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-If you selected the **Explicitly specify target properties** mode, click **Next**. Otherwise, select **Finish**.
+    If you selected the **Explicitly specify target properties** mode, click **Next**. Otherwise, select **Finish**.
 
 7. Fill in the parameters required:
 
-   1. **Bearer Token**
+    1. **Bearer Token**
 
-      * **Bearer Token:** Provide a JWT authentication token authorized to manage Service Account tokens, Roles, and Role Binding, depending on the working mode.
+        * **Bearer Token:** Provide a JWT authentication token authorized to manage Service Account tokens, Roles, and RoleBinding, depending on the working mode.
 
-      * **Cluster CA Certificate:**Provide the k8s cluster CA certificate (PEM format)
+        * **Cluster CA Certificate:**Provide the k8s cluster CA certificate (PEM format)
 
-      * **Cluster Endpoint URL:** Specify the URL of the cluster.
-   2. **GW Service Account** to extract the connection settings from a **Gateway** that runs on a **K8s** cluster, with a Service Account with permissions as described in the [prerequisites](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
-   3. **Client Certificate**
-      * **Client Certificate:**Provide the k8s client certificate (PEM format).
-      * **Client Private Key :** Provide the K8s client private key (PEM format).
-      * **Cluster CA Certificate:** Provide the k8s cluster CA certificate (PEM format).
-      * **Cluster Endpoint URL:** Specify the URL of the cluster.
+        * **Cluster Endpoint URL:** Specify the URL of the cluster.
+    2. **GW Service Account** to extract the connection settings from a  **Gateway** that runs on a **K8s** cluster, with a Service Account with permissions as described in the [prerequisites](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
+    3. **Client Certificate**
+        * **Client Certificate:**Provide the k8s client certificate (PEM format).
+        * **Client Private Key :** Provide the K8s client private key (PEM format).
+        * **Cluster CA Certificate:** Provide the k8s cluster CA certificate (PEM format).
+        * **Cluster Endpoint URL:** Specify the URL of the cluster.
+
 8. Select **Finish**.
 
 ### Using Dynamic Generic Kubernetes Secrets
@@ -615,9 +616,9 @@ The CLI command is `akeyless kubeconfig-generate`
 * `-uid-token` - Universal Identity token (required only with the`universal_identity` Authentication Method)
 * `-json[=false]` - Return tool output in JSON
 * `-jq-expression` - jq filter for JSON output
-* `-no-creds-cleanup[=false]` - Do not clean local temporary expired credentials
+* `-no-creds-cleanup[=false]` -  Do not clean local temporary expired credentials
 
-Remember to provide at least one selector: `--name` (one or more secret names) or `--tag` (a single tag). When both are provided, the first provided selector is used.
+Remember to provide at least one selector:  `--name` (one or more secret names) or `--tag` (a single tag). When both are provided, the first provided selector is used.
 
 ### Conflict Handling (Duplicate Cluster/context Names)
 
