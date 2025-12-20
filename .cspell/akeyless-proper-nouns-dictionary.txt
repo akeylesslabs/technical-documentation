@@ -932,3 +932,5 @@ Key Version Number
 KVNO
 SPNEGO
 Simple and Protected GSS-API Negotiation Mechanism
+Oracle Recovery Manager
+RMAN

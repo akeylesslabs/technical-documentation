@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a  [Windows](https://docs.akeyless.io/docs/windows-target) endpoint utilizing [Targets](https://docs.akeyless.io/docs/targets).
+Certificate Provisioning is a process in which a certificate is injected into a remote endpoint. Currently, Akeyless supports provisioning certificates to a [Linux](https://docs.akeyless.io/docs/ssh-target) or a [Windows](https://docs.akeyless.io/docs/windows-target) endpoint utilizing [Targets](https://docs.akeyless.io/docs/targets).
 
 Any [stored](https://docs.akeyless.io/docs/certificate-storage) certificate can be provisioned through the [Gateway](https://docs.akeyless.io/docs/api-gw), whereupon successful provisioning, future renewals of the certificate will be provisioned automatically.
 
@@ -29,7 +29,7 @@ akeyless assoc-target-item \
 --name <Certificate name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---certificate-path <Where to save the certificate>  \ 
+--certificate-path <Where to save the certificate> \ 
 --post-provision-command <"echo Akeyless">
 ```
 

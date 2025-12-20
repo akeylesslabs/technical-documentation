@@ -41,14 +41,14 @@ Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes
 You can set the relevant sub-claims to an existing role using the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli)
 
 ```shell
-akeyless assoc-role-am --role-name r1 --am-name Okta --sub-claims Groups=Engineering,Security  --sub-claims Email=james@example.com,linda@example.com
+akeyless assoc-role-am --role-name r1 --am-name Okta --sub-claims Groups=Engineering,Security --sub-claims Email=james@example.com,linda@example.com
 ```
 
 Or directly from the Akeyless Console using the [Access Roles](https://docs.akeyless.io/docs/rbac) with [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) association.
 
 ## Logical Operators Syntax
 
-While by default between different sub-claims values the logic of the comma symbol  is `OR`, it is possible to use the syntax of `OR`. In addition, to force logical `AND` between different values of a specific sub-claim, you can use the `AND` syntax.
+While by default between different sub-claims values the logic of the comma symbol is `OR`, it is possible to use the syntax of `OR`. In addition, to force logical `AND` between different values of a specific sub-claim, you can use the `AND` syntax.
 
 > 📘 Required Version
 >
@@ -89,7 +89,7 @@ And this is the original mapping in your **Identity Provider**:
 Those claims can be templated as `/{{Groups}}/{{Username}}/*` (or the relevant attribute in your IdP) for your rule path:
 
 ```shell
- akeyless set-role-rule --role-name r1 --path "/{{Groups}}/{{Username}}/*"  -c read
+ akeyless set-role-rule --role-name r1 --path "/{{Groups}}/{{Username}}/*" -c read
 ```
 
 Each user will get `read` permissions for the relevant paths, based on the sub-claims key values.

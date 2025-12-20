@@ -53,6 +53,16 @@ overrides:
       - /`[^`]*`/
       - /```[\s\S]*?```/
       - /^\s*slug:\s*.*$/m # Ignore front-matter slug values
+    words:
+      - creds
+      - sqlnet
+      - cwallet
+      - apiserver
+      - apikey
+      - sourcetype
+      - AkeylessCreds
+      - amqps
+      - dbname 
 
   # Allow PostgreSQL-specific term "usename" only in selected files.
   # Adjust the filename globs to match where you discuss or show pg_stat_activity / SQL revoke statements.
@@ -80,3 +90,15 @@ overrides:
       - "docs/Integrations & Plugins/cli-reference/cli-reference-encryption-keys.md"
     words:
       - vaultless
+
+  # "sumologic" is a parameter option
+  - filename:
+      - "docs/Akeyless Gateway/install-and-configure-the-gateway/gw-docker-log-forwarding.md"
+    words:
+      - sumologic
+
+  # "sumologic" is a parameter option
+  - filename:
+      - "docs/Advanced Functionality/automatic-migration/index.md"
+    words:
+      - secretmanager

@@ -117,7 +117,7 @@ SA_JWT_TOKEN=$(kubectl get secret gateway-token-reviewer-token \
 To extract the Kubernetes cluster CA cert used to talk to Kubernetes API run the following command:
 
 ```shell Kubernetes
-CA_CERT=$(kubectl config view --raw --minify --flatten  \
+CA_CERT=$(kubectl config view --raw --minify --flatten \
     --output 'jsonpath={.clusters[].cluster.certificate-authority-data}')
 ```
 
@@ -144,7 +144,7 @@ Upon successful creation, the response:
 
 > 👍 Note
 >
-> Save returned private key & AccessID for next steps inside an environment variables  `$PRV_KEY` and `$ACCESS_ID`.
+> Save returned private key & AccessID for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
 #### Create Kubernetes Gateway Auth Config Using Bearer Tokens
 
@@ -202,7 +202,7 @@ Where:
 
 * `name`: The config name (will be used during the authentication process).
 
-* `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 * `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
 
@@ -242,7 +242,7 @@ kubectl run mypod1 --image=nginx -n my-namespace-a
 3. Start an interactive shell session on the pod and perform the following commands in the pod:
 
 ```shell CLI
-kubectl exec --stdin=true --namespace my-namespace-a  --tty=true mypod1 -- /bin/sh
+kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
 ```
 
 4. Install Akeyless CLI inside your pod:
@@ -268,7 +268,7 @@ Where:
 
 * `access-type`: The Auth Method access type, `k8s`.
 
-* `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 * `k8s-auth-config-name`: The Kubernetes auth config name in your [Gateway](https://docs.akeyless.io/docs/api-gw).
 

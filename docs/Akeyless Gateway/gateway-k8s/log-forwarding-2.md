@@ -112,7 +112,7 @@ logandConf: |
 # target_elasticsearch_user_name="<your_user>"
 # target_elasticsearch_password="<your_pwd>"
 
-  target_elasticsearch_index="<your_index>"  # (required !)
+  target_elasticsearch_index="<your_index>" # (required !)
 
 #TLS Optional
   target_elasticsearch_enable_tls="true"

@@ -33,7 +33,7 @@ That’s why we recommend setting up a meaningful Cluster Name for your Gateway 
 
 To do that, you can set the `clusterName="meaningful-cluster-name"` field as part of the Gateway deployment.
 
-In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL`  under the `env` section as an environment variable.
+In addition, to set in advance the **Cluster URL**, you can set the `CLUSTER_URL` under the `env` section as an environment variable.
 
 You can also provide a custom display name for the Gateway Instance using the `initialClusterDisplayName` variable, which is arbitrary. This name can be changed in the Akeyless Console after the Gateway is installed.
 
@@ -119,7 +119,7 @@ defaultsConf:
   defaultSecretLocation: "</Path/To/Save/Secrets>"
 ```
 
-To work with [CBA](https://docs.akeyless.io/docs/certificate-based-authentication) flow for users login, first set your users' DNS records with the cert authentication subdomain  `auth-cert.akeyless.io` to point to your Gateway IP address.
+To work with [CBA](https://docs.akeyless.io/docs/certificate-based-authentication) flow for users login, first set your users' DNS records with the cert authentication subdomain `auth-cert.akeyless.io` to point to your Gateway IP address.
 
 And set your deployment with the following parameters:
 
@@ -136,7 +136,7 @@ defaultsConf:
 
 ## Cache Configuration
 
-You can enable caching of secrets and periodic backup of cached secrets, set the `cachingConf` setting and set the `cacheTTL` value in minutes to configure the  TTL for a secret that should be kept in the cache.
+You can enable caching of secrets and periodic backup of cached secrets, set the `cachingConf` setting and set the `cacheTTL` value in minutes to configure the TTL for a secret that should be kept in the cache.
 
 To work with proactive caching set the `proActiveCaching` to true and set the `minimumFetchingTime` to config the Gateway to update secrets in the cache if they are older than the specified value with the `dumpInterval` to set the time in minutes between the two consecutive backups.
 
@@ -181,7 +181,7 @@ To provide the settings of your Gateway deployment directly from your local K8s 
 
 > 🚧 Warning
 >
-> Providing any of those settings using an existing Kubernetes Secret,  make sure that the corresponding parameters are left empty in your `values.yaml` file.
+> Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
 ```yaml values.yaml
   adminAccessIdExistingSecret:

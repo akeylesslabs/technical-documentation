@@ -34,18 +34,18 @@ Provide an **App name**:
 * In the **Attribute Statements** section, add the following attributes:
   * `Name`: `email` ->`Value`: `user.email`
   * `Name`: `user` -> `Value`: `user.login`
-* In the  **Group Attributes Statements** section, add the following attributes:
+* In the **Group Attributes Statements** section, add the following attributes:
   * `Name`: `groups`  
   * `Filter`: `Matches regex`-> `Value`: `.*`
 
 ![](https://files.readme.io/86d982d-4.png "4.png")
 
-3. On the Feedback page,  click **Finish**.
+3. On the Feedback page, click **Finish**.
 
 ![](https://files.readme.io/7e3cf7f-5.png "5.png")
 
 4. You can either obtain your IdP Metadata URL by clicking on the **Actions** menu of the Active **SAML Signing Certificate** and copy the URL from the **View IdP Metadata** button.\
-   Alternatively, you can obtain the IdP metadata`XML`, by clicking on **View SAML setup instructions**, and in the new tab that opens, scroll down and copy the full IdP metadata`XML`  under the **Optional** section.
+   Alternatively, you can obtain the IdP metadata`XML`, by clicking on **View SAML setup instructions**, and in the new tab that opens, scroll down and copy the full IdP metadata`XML` under the **Optional** section.
 
 ![](https://files.readme.io/057d8cf-6.png "6.png")
 
@@ -73,7 +73,7 @@ Alternatively, you can create this Auth Method from the Akeyless Console.
 3. Fill in the mandatory parameters:
 
 * Name: The in-system name for the authentication method.
-* IdP Metadata URL: The  **App Federation Metadata URL** you copied from the Azure process.
+* IdP Metadata URL: The **App Federation Metadata URL** you copied from the Azure process.
 * Unique identifier: The required identifier. In this case, you can use **email**.
 
 ## Authenticate Using SAML

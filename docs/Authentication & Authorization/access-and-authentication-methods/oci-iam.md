@@ -72,7 +72,7 @@ Where:
 
 > 📘 Note:
 >
-> When the `group-ocid` explicitly provided, the authentication flow will use them, if no **group** provided, the CLI will send a preliminary request to verify that the user is a member of the same tenant,  and will extract the required **group** from the response.
+> When the `group-ocid` explicitly provided, the authentication flow will use them, if no **group** provided, the CLI will send a preliminary request to verify that the user is a member of the same tenant, and will extract the required **group** from the response.
 
 ## Create an OCI IAM Authentication Method in the Akeyless Console
 

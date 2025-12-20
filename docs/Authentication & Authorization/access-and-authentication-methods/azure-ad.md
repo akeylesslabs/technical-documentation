@@ -44,7 +44,7 @@ You can find the complete list of additional parameters for this command in the 
 To configure your CLI to work with Azure AD authentication, run the following command from an Azure VM with a system identity assigned:
 
 ```shell Akeyless CLI
-akeyless configure --profile default --access-id <AccessID>  --access-type azure_ad 
+akeyless configure --profile default --access-id <AccessID> --access-type azure_ad 
 akeyless get-cloud-identity --cloud-provider azure_ad
 ```
 

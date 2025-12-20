@@ -146,8 +146,8 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
 
 ### Approving Access Request Via ServiceNow Instance
 
-* Locate "akeyless_access_request" table in ServiceNow instance "All" menu
-  * Click on "All" and enter "akeyless_access_request" in the search field
+* Locate `akeyless_access_request` table in ServiceNow instance "All" menu
+  * Click on "All" and enter `akeyless_access_request` in the search field
   * Click on the table name
 
 <Image border={false} src="https://files.readme.io/2b9f76f-Screenshot_2023-11-29_at_17.10.35.png" />
@@ -156,7 +156,7 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
 
 <Image border={false} src="https://files.readme.io/7417bb1-image-20230206-132008_1.png" />
 
-* Admin users of the ServiceNow intense will be able to approve or decline the access request by updating the "Dession" field.
+* Admin users of the ServiceNow intense will be able to approve or decline the access request by updating the `Dession` field.
 
 <Image border={false} src="https://files.readme.io/f337a71-image-20230206-132144.png" />
 
@@ -164,7 +164,7 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
 
 ### Notifications
 
-Admins and users (requestors) can receive notifications when certain actions are performed on the "akeyless_access_request" table in the ServiceNow instance.
+Admins and users (requestors) can receive notifications when certain actions are performed on the `akeyless_access_request` table in the ServiceNow instance.
 
 Admins can receive notifications when a new access request record is created, while users (requestors) can receive notifications when their access request is approved.
 

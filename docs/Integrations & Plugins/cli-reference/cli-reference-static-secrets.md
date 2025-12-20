@@ -67,7 +67,7 @@ akeyless create-secret \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target servers for connections., For multiple values repeat this flag.
+`--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
 
 `--secure-access-ssh-user`: Override the SSH username as indicated in SSH Certificate Issuer
 

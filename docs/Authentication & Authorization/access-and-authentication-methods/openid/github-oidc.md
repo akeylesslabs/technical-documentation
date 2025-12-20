@@ -29,7 +29,7 @@ In order to use GitHub as an IdP to authenticate the Akeyless Platform via OIDC,
 ## Create an OIDC Authentication Method from the CLI
 
 ```shell Akeyless CLI
-akeyless auth-method create oidc --name 'my GitHub app' --issuer https://github.com --client-id {your-client-id}  --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
+akeyless auth-method create oidc --name 'my GitHub app' --issuer https://github.com --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
 ```
 
 The result should look like the following:

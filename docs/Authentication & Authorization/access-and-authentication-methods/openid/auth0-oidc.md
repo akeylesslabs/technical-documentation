@@ -20,7 +20,7 @@ To use Auth0 as an IdP to authenticate the Akeyless Platform via OIDC, follow th
 
 ![](https://files.readme.io/78d1964-image-20210824-110648.png "image-20210824-110648.png")
 
-3. On the Settings tab, under the **Application URIs section**, set `https://auth.akeyless.io/oidc/callback`the  on the **Allowed Callback URLs**.
+3. On the Settings tab, under the **Application URIs section**, set `https://auth.akeyless.io/oidc/callback`the on the **Allowed Callback URLs**.
 
 ![](https://files.readme.io/3edb775-image-20210824-111105.png "image-20210824-111105.png")
 
@@ -33,7 +33,7 @@ To use Auth0 as an IdP to authenticate the Akeyless Platform via OIDC, follow th
 ## Create an OIDC Authentication Method from the CLI
 
 ```shell Akeyless CLI
-akeyless auth-method create oidc --name 'My Auth0 app' --issuer https://{your-auth0-domain}.auth0.com} --client-id {your-client-id}  --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
+akeyless auth-method create oidc --name 'My Auth0 app' --issuer https://{your-auth0-domain}.auth0.com} --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
 ```
 
 ## Login With OIDC from the CLI

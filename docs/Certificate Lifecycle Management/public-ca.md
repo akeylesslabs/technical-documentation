@@ -48,7 +48,7 @@ Where:
 
 * `allowed-domains`: A list of domains that will be allowed to issue certificates for using this item.
 
-* `destination-path`:  A path in Akeyless for [Certificate Storage](https://docs.akeyless.io/docs/certificate-storage), the issued certificate will be stored under this folder.
+* `destination-path`: A path in Akeyless for [Certificate Storage](https://docs.akeyless.io/docs/certificate-storage), the issued certificate will be stored under this folder.
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use the argument multiple times: `expiration-event-in 10` `expiration-event-in 15`.
 
@@ -73,7 +73,7 @@ akeyless generate-csr \
 
 Where:
 
-* `name`:  Full name of a new [Classic Key](https://docs.akeyless.io/docs/classic-keys) that will be generated.
+* `name`: Full name of a new [Classic Key](https://docs.akeyless.io/docs/classic-keys) that will be generated.
 
 * `generate-key`: Use this flag to generate a new classic key with the CSR.
 
@@ -115,4 +115,4 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 Once the certificate issue request is processed, a validation email will be sent to the email address listed in the Target, and it will be processed automatically by the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
-The issued [Certificate item](https://docs.akeyless.io/docs/certificate-storage)  should be created under the `destination-path` storage folder inside Akeyless.
+The issued [Certificate item](https://docs.akeyless.io/docs/certificate-storage) should be created under the `destination-path` storage folder inside Akeyless.

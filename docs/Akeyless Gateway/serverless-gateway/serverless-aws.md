@@ -69,7 +69,7 @@ variable "admin_access_id" {
 }
 
 variable "allowed_access_permissions" {
-  description =  "Akeyless allowed_access_permissions"
+  description = "Akeyless allowed_access_permissions"
   type        = string
   default     = "[{\"name\": \"\", \"<Access ID>\": \"\", \"permissions\": [\"admin\"]}]"
 }
@@ -102,13 +102,13 @@ variable "allowed_access_permissions" {
 
 Where:
 
-* `admin_access_id_type`: The Auth Method type for the Gateway either  `access_key` or  `aws_iam`.
+* `admin_access_id_type`: The Auth Method type for the Gateway either `access_key` or `aws_iam`.
 
 * `admin_access_id`: The **Access ID** of the Gateway default Auth Method.
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`:  A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
 
 ### Customer Fragment
 
@@ -119,7 +119,7 @@ variable "customer_fragments"{
   type        = map(any)
   sensitive   = true
   description = ""
-  default     =  {
+  default     = {
     "customer_fragments": [
       {
         "id": "<Customer Fragment ID>",
@@ -169,7 +169,7 @@ To configure your Akeyless Serverless Gateway:
 
 For more information in regards to the **Serverless Gateway**, refer to the [Serverless Gateway repository](https://github.com/akeyless-community/akeyless-serverless-gateway)
 
-**Note:** After installing the **Serverless Gateway,** it becomes accessible as a **Lambda Function** within your **AWS account**. This enables you to access comprehensive information, monitor its performance, and gain a complete overview of its functionality,  while it's possible to edit the Gateway directly from the **Lambda function**, any changes made will be overwritten during the next `terraform apply` command.
+**Note:** After installing the **Serverless Gateway,** it becomes accessible as a **Lambda Function** within your **AWS account**. This enables you to access comprehensive information, monitor its performance, and gain a complete overview of its functionality, while it's possible to edit the Gateway directly from the **Lambda function**, any changes made will be overwritten during the next `terraform apply` command.
 
 ### AWS Configuration
 

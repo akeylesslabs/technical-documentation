@@ -93,7 +93,7 @@ EOF
 To extract the Kubernetes cluster CA cert. used to talk to the Kubernetes API, run the following command:
 
 ```shell kubectl
-CA_CERT=$(kubectl config view --raw --minify --flatten  \
+CA_CERT=$(kubectl config view --raw --minify --flatten \
     --output 'jsonpath={.clusters[].cluster.certificate-authority-data}')
 ```
 
@@ -106,7 +106,7 @@ CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/
 Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the KKubernetes8s Auth Method. The result will output an `Access ID` and `private key` that you will need later for the Kubernetes auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell Akeyless CLI
-akeyless auth-method create k8s -n my-k8s-auth-method  --json
+akeyless auth-method create k8s -n my-k8s-auth-method --json
 ```
 
 Upon successful creation, the response:
@@ -168,7 +168,7 @@ Where:
 
 * `name`: The config name (will be used during the authentication process).
 
-* `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 * `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
@@ -210,7 +210,7 @@ K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
 3. Start an interactive shell session on the pod and perform the following commands in the pod:
 
     ```shell CLI
-    kubectl exec --stdin=true --namespace my-namespace-a  --tty=true mypod1 -- /bin/sh
+    kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
     ```
 
 4. Install Akeyless CLI inside your pod:
@@ -236,7 +236,7 @@ Where:
 
 * `access-type`: The Auth Method access type, i.e. `k8s`.
 
-* `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 * `k8s-auth-config-name`: The Kubernetes auth config name in your [Gateway](https://docs.akeyless.io/docs/api-gw).
 
@@ -261,8 +261,8 @@ The following list of claims can be configured within Akeyless [Role-Based Acces
 "service_account_secret_name"
 "namespace"
 "aud"
-"pod_name"  # available only when "token request projection" is enabled on your Kubernetes cluster
-"pod_uid"   # available only when "token request projection" is enabled on your Kubernetes cluster
+"pod_name" # available only when "token request projection" is enabled on your Kubernetes cluster
+"pod_uid" # available only when "token request projection" is enabled on your Kubernetes cluster
 ```
 
 Each claim can be enforced as part of your role association to enforce the right policy for your items.

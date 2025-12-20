@@ -56,7 +56,7 @@ akeyless create-ssh-cert-issuer \
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list
 
-`--secure-access-host`: Target servers for connections., For multiple values repeat this flag.
+`--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
 
 `--secure-access-use-internal-bastion`: Use internal SSH Bastion - Relevant only for Secure Remote Access Deployment, mostly when using Dockers. Set the relevant IP address of the SSH Bastion for internal communication between ZT and SSH bastions.
 
@@ -138,7 +138,7 @@ akeyless update-ssh-cert-issuer \
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list
 
-`--secure-access-host`: Target servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target servers for connections. For multiple values repeat this flag
 
 `--secure-access-use-internal-bastion`: Use internal SSH Bastion
 

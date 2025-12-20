@@ -126,7 +126,7 @@ Here’s how it works:
 
 **Environment-Specific Storage Class**: The [storage class, like AWS EFS (efs-sc)](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html), defines the backend storage type. You will need to choose or create a storage class suited to your cloud provider or infrastructure.
 
-**Persistent Volume Reclaim Policy**: Setting this policy to `Retain` ensures that the data in the `PersistentVolume` remains intact even if the pods using it are deleted. This can be important for recovery or redeployments.
+**Persistent Volume Reclaim Policy**: Setting this policy to `Retain` ensures that the data in the `PersistentVolume` remains intact even if the pods using it are deleted. This can be important for recovery or deployment updates.
 
 ### SSH Config
 

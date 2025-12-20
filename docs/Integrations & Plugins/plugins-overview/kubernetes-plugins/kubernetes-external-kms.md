@@ -253,7 +253,7 @@ Once the plugin is up and running, the next step is to [configure `kube-apiserve
 
 To do this you will need to use the below `encryption_provider_config.yaml` file.
 
-If you want to change the location of the  socket make sure to update the plugin as well as the `encryption_provider_config.yaml` file.
+If you want to change the location of the socket make sure to update the plugin as well as the `encryption_provider_config.yaml` file.
 
 ```yaml
 apiVersion: apiserver.config.k8s.io/v1

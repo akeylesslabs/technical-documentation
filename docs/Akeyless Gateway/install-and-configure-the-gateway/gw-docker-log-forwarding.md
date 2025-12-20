@@ -17,7 +17,7 @@ To forward all Akeyless Audit Logs directly from your Akeyless Gateway, create a
 To start your Akeyless Gateway with this setting, please mount a local config file at this path: `/home/akeyless/.akeyless/logand.conf`.
 
 ```shell
-docker run -d -p 8000:8000 -v {path-to}/log_forwarding_conf_file:/home/akeyless/.akeyless/logand.conf -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_ACCESS_KEY="<YourAccessKey" --name akeyless-gw  akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -v {path-to}/log_forwarding_conf_file:/home/akeyless/.akeyless/logand.conf -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_ACCESS_KEY="<YourAccessKey" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
 ### Amazon S3

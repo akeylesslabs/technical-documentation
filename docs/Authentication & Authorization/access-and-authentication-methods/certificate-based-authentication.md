@@ -471,13 +471,13 @@ def sign_challenge(priv_key, challenge_bytes: bytes) -> bytes:
     if isinstance(priv_key, rsa.RSAPrivateKey):
         return priv_key.sign(
             challenge_bytes,
-            padding.PKCS1v15(),  # matches app’s standard path
+            padding.PKCS1v15(), # matches app’s standard path
             hashes.SHA256(),
         )
     elif isinstance(priv_key, ec.EllipticCurvePrivateKey):
         return priv_key.sign(
             challenge_bytes,
-            ec.ECDSA(hashes.SHA256()),  # ASN.1 DER signature
+            ec.ECDSA(hashes.SHA256()), # ASN.1 DER signature
         )
     else:
         raise ValueError("Unsupported private key type (use RSA or EC)")
@@ -485,7 +485,7 @@ def sign_challenge(priv_key, challenge_bytes: bytes) -> bytes:
 
 def main():
     # Required inputs
-    gateway_url = "https//:<Akeyless-GW-URL>/api/v2"; #  set your Gateway URL, e.g. https://<gateway_url>:8081
+    gateway_url = "https//:<Akeyless-GW-URL>/api/v2"; # set your Gateway URL, e.g. https://<gateway_url>:8081
     access_id = "<AccessID>" 
     cert_path = "<YOUR_CERT_PATH>"
     key_path = "<YOUR_KEY_PATH>"

@@ -90,14 +90,14 @@ Upon successful creation, the response:
 
 > 👍 Note
 >
-> Save returned private key & AccessID for next steps inside an environment variables  `$PRV_KEY` and `$ACCESS_ID`
+> Save returned private key & AccessID for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`
 
 #### Create Kubernetes Gateway Auth Config Using Gateway ServiceAccount
 
 Use the Akeyless CLI to create the K8s auth config:
 
 ```shell
-akeyless gateway-create-k8s-auth-config  --name k8s-conf \
+akeyless gateway-create-k8s-auth-config --name k8s-conf \
 --gateway-url <https://Your-Akeyless-GW-URL>:8000 \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
@@ -108,7 +108,7 @@ Where:
 
 * `name`: The config name (will be used during the authentication process).
 
-* `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 * `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
 
@@ -133,7 +133,7 @@ kubectl run mypod1 --image=nginx -n my-namespace-a
 3. Start an interactive shell session on the pod and perform the following commands in the pod:
 
 ```shell
-kubectl exec --stdin=true --namespace my-namespace-a  --tty=true mypod1 -- /bin/sh
+kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
 ```
 
 4. Install Akeyless CLI inside your pod:
@@ -159,7 +159,7 @@ Where:
 
 * `access-type`: the access type - `k8s`
 
-* `gateway-url`:  Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 * `k8s-auth-config-name`: The K8s auth config name in your [Gateway](https://docs.akeyless.io/docs/api-gw).
 
@@ -184,7 +184,7 @@ The following list of claims can be configured within Akeyless [Access Roles (RB
 "service_account_secret_name"
 "namespace"
 "aud"
-"pod_name"   # available only when "token request projection" is enabled on your Kubernetes cluster
+"pod_name" # available only when "token request projection" is enabled on your Kubernetes cluster
 "pod_uid"    # available only when "token request projection" is enabled on your Kubernetes cluster
 "config_name" # The name of the k8s auth config used for kubernetes authentication appended to the JWT
 ```

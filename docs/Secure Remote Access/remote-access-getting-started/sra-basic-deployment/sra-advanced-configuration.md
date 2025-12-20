@@ -121,7 +121,7 @@ ztbConfig:
 
 ## Concurrent Unauthenticated Connections
 
-To specify the maximum number of concurrent unauthenticated connections to the SRA Bastion, set the following `env` variable under the  `sshConfig` as follows:
+To specify the maximum number of concurrent unauthenticated connections to the SRA Bastion, set the following `env` variable under the `sshConfig` as follows:
 
 ```yaml
 sshConfig:

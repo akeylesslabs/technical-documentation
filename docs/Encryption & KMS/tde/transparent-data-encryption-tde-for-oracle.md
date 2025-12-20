@@ -128,7 +128,7 @@ mkdir -p ./hsm_wallet/tde
 ##### Explanation
 
 * Navigate to the Admin Directory:
-  * The directory $ORACLE_BASE/admin/your_db_name/ is the default location for managing database-specific files. Replace “your_db_name” with your actual database name.
+  * The directory `$ORACLE_BASE/admin/your_db_name/` is the default location for managing database-specific files. Replace `your_db_name` with your actual database name.
 * Create Wallet Directory:
   * Creating the directory for the HSM wallet ensures that the TDE configuration has a designated location to store keystore files.
 
@@ -144,9 +144,9 @@ ALTER SYSTEM SET WALLET_ROOT='/opt/oracle/admin/your_db_name/hsm_wallet' SCOPE=S
 ##### Explanation
 
 * Connecting via SQL*Plus:
-  * This gives you a SQL prompt as the system administrator (SYSDBA) to execute configuration commands.
-* WALLET_ROOT Parameter:
-  * This command sets the root location for the wallet. The SCOPE=SPFILE option ensures that the change is saved in the server parameter file and used at the next startup.
+  * This gives you a SQL prompt as the system administrator (`SYSDBA`) to execute configuration commands.
+* `WALLET_ROOT` Parameter:
+  * This command sets the root location for the wallet. The `SCOPE=SPFILE` option ensures that the change is saved in the server parameter file and used at the next startup.
 
 ### Restart the Database
 
@@ -157,7 +157,7 @@ STARTUP;
 
 #### Explanation
 
-A restart is necessary for the new parameter values (like WALLET_ROOT) to take effect.
+A restart is necessary for the new parameter values (like `WALLET_ROOT`) to take effect.
 
 ### Set TDE Configuration
 
@@ -307,7 +307,7 @@ SELECT * FROM V$ENCRYPTION_WALLET;
 * Restart the Database:
   * A restart is necessary for the new wallet configuration to fully take effect.
 * Verify Wallet Status:
-  * Running the query against V$ENCRYPTION_WALLET confirms that the wallet is open and shows the expected configuration. The output should indicate that the wallet is properly configured for auto-login.
+  * Running the query against `V$ENCRYPTION_WALLET` confirms that the wallet is open and shows the expected configuration. The output should indicate that the wallet is properly configured for auto-login.
 
 In a multi-tenant environment (CDB/PDB). Note that you may see multiple rows corresponding to each container (for example, CON_ID=0 for the CDB root, CON_ID=5 for a PDB):
 
@@ -315,15 +315,15 @@ In a multi-tenant environment (CDB/PDB). Note that you may see multiple rows cor
 
 Key Points About the Columns:
 
-* WRL_TYPE: The type of wallet location in use (e.g., FILE, HSM).
-* WRL_PARAMETER: The file system path or parameter details for the wallet (sometimes blank for HSM rows).
-* STATUS: Should be OPEN if the wallet is active and accessible.
-* WALLET_TYPE: Indicates whether it is AUTOLOGIN, HSM, or another type.
-* WALLET_OR_KEYSTORE: Shows whether it’s a PRIMARY or SECONDARY wallet. In configurations using both HSM and FILE, the file wallet often appears as PRIMARY and HSM as SECONDARY.
-* FULLY_BACK: Indicates if the wallet is fully backed up. Common values are NONE or UNDEFINED.
-* CON_ID: The container ID. 0 typically refers to the root container (CDB$ROOT), while non-zero values (5) refer to pluggable databases (PDBs).
-* STATUS: Should display “OPEN” if the keystore is accessible.  
-  Additional Note: If the keystore is open but the TDE master encryption key has not yet been created—or if the wallet is configured as an SSL wallet rather than a TDE wallet—the STATUS column may show OPEN_NO_MASTER_KEY.
+* `WRL_TYPE`: The type of wallet location in use (for example, `FILE`, `HSM`).
+* `WRL_PARAMETER`: The file system path or parameter details for the wallet (sometimes blank for `HSM` rows).
+* `STATUS`: Should be OPEN if the wallet is active and accessible.
+* `WALLET_TYPE`: Indicates whether it is `AUTOLOGIN`, `HSM`, or another type.
+* `WALLET_OR_KEYSTORE`: Shows whether it’s a `PRIMARY` or `SECONDARY` wallet. In configurations using both `HSM` and `FILE`, the file wallet often appears as `PRIMARY` and `HSM` as `SECONDARY`.
+* `FULLY_BACK`: Indicates if the wallet is fully backed up. Common values are `NONE` or `UNDEFINED`.
+* `CON_ID`: The container ID. 0 typically refers to the root container (`CDB$ROOT`), while non-zero values (5) refer to pluggable databases (PDBs).
+* `STATUS`: Should display `OPEN` if the keystore is accessible.  
+  Additional Note: If the keystore is open but the TDE master encryption key has not yet been created—or if the wallet is configured as an SSL wallet rather than a TDE wallet, the `STATUS` column may show `OPEN_NO_MASTER_KEY`.
 
 For more details on these columns, refer to the official Oracle documentation:
 

@@ -18,7 +18,7 @@ clusterName: defaultCluster
 
 Each Bastion is uniquely identified by combining the **Privilege Access ID** Authentication Method and the **Cluster Name**.
 
-It means that changing the  **Privilege Access ID** or the **Cluster Name** of your Bastion instance will create an entirely new Bastion instance.
+It means that changing the **Privilege Access ID** or the **Cluster Name** of your Bastion instance will create an entirely new Bastion instance.
 
 It is recommended to set a meaningful Cluster Name for your Bastion cluster from the very beginning. By default, your cluster name is **defaultCluster**.
 
