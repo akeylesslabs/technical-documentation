@@ -170,7 +170,7 @@ Check that the new pods are starting.
 
 ### Allowed Redirect URL(s)
 
-The Allowed Redirect URL(s) option ensures that only specific redirects (usually Remote Access  are accepted. This configuration, allows administrators to define a list of authorized URLs that will be considered valid for redirection from the Web Portal back to the remote access server. This setup enhances security by ensuring that users are only redirected to trusted URLs.
+The Allowed Redirect URL(s) option ensures that only specific redirects (usually Remote Access are accepted. This configuration, allows administrators to define a list of authorized URLs that will be considered valid for redirection from the Web Portal back to the remote access server. This setup enhances security by ensuring that users are only redirected to trusted URLs.
 
 Run the following command from the Terminal:
 

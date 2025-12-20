@@ -54,7 +54,7 @@ akeyless target create globalsign \
 --password <Password> \
 --customer-uri <Sectigo Account CustomerUri> \
 --organization-id <Sectigo Organization ID > \
---certificate-profile-id  <Sectigo Certificate Profile ID> 
+--certificate-profile-id <Sectigo Certificate Profile ID> 
 --external-requester <username of the requester>
 ```
 

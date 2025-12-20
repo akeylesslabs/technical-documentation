@@ -33,11 +33,11 @@ Akeyless Secure Remote Access provides a robust set of features designed to supp
 
 * **Audit and Session Management**: Akeyless provides full session management with auditing and recording capabilities to keep you compliant. Session recordings and transcripts can be automatically exported to remote storage systems for long-term retention.
 
-* **Granular RBAC**: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need. Users only need SRA permissions to initiate connections, without requiring any  `read` access to the underlying secrets.
+* **Granular RBAC**: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need. Users only need SRA permissions to initiate connections, without requiring any `read` access to the underlying secrets.
 
 * **Native SSO integrations**: SRA supports authentication via SSO protocols such as [OIDC](https://docs.akeyless.io/docs/openid#/), [SAML](https://docs.akeyless.io/docs/saml#/), and [LDAP](https://docs.akeyless.io/docs/ldap#/).
 
-* **Allowed SSH URL**:  SRA Supports setting SSH Service URL in the Gateway Remote Access settings.
+* **Allowed SSH URL**: SRA Supports setting SSH Service URL in the Gateway Remote Access settings.
 
 * **SRA Session TTL**: Custom TTL for SRA sessions can be set in the Gateway Remote Access settings to override the Dynamic Secret TTL
 

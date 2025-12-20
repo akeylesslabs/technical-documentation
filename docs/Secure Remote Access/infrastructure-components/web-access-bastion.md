@@ -138,7 +138,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 ### API Key Authentication
 
-To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `accessID` and the matching `accessKey`  with a list of `allowedAccessIDs` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `accessID` and the matching `accessKey` with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -158,7 +158,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
+While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:

@@ -14,7 +14,7 @@ This page discusses the creation of HashiCorp Vault [Universal Secrets Connector
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)  with **Read** permission on the target associated with the **USC**.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the target associated with the **USC**.
 
 ## Working With Universal Secrets Connector with the CLI
 

@@ -35,7 +35,7 @@ akeyless auth --access-id <Access ID> --access-type <Auth method type>
 
 To work with [Static Secrets](https://docs.akeyless.io/docs/static-secrets) edit the following **KV Settings**:
 
-For **KV engine path**, set `secret/data`.  **KV version** should be set to `v1` and **Secret path** should contain your secret full path in Akeyless.\
+For **KV engine path**, set `secret/data`. **KV version** should be set to `v1` and **Secret path** should contain your secret full path in Akeyless.\
 The final task should look like this:
 
 ```shell
@@ -58,7 +58,7 @@ After running your pipeline, you’ll see this input in the VaultReadKV step:
 
 To fetch [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) edit the following **KV Settings**:
 
-For **KV engine path** set `mysql/creds`.  **KV version** should be set to `v1` and **Secret path** should contain your secret full path in Akeyless.
+For **KV engine path** set `mysql/creds`. **KV version** should be set to `v1` and **Secret path** should contain your secret full path in Akeyless.
 
 The final task should look in this fashion:
 

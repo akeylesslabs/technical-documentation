@@ -39,7 +39,7 @@ The following Authentication Methods can be used for authentication:
 Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** using the CLI:
 
 ```shell
-akeyless create-auth-method-oauth2 --name /Dev/AzureAuth  \
+akeyless create-auth-method-oauth2 --name /Dev/AzureAuth \
 --jwks-uri https://login.microsoftonline.com/common/discovery/keys \
 --unique-identifier appid=<appid-string> \
 --force-sub-claims
@@ -49,9 +49,9 @@ Where:
 
 * `--jwks-uri` - The URL to the `JWKS` that contains the public keys that would be used for JWT verification.
 
-* `--unique identifier` - For the unique identifier, you can use the Azure service principal's `tenantid`, or `appid`. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](https://docs.akeyless.io/docs/sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization. You can find your `appid` in your Azure DevOps account in "Project settings" -> "Service connections" -> Click on your connection -> "Manage App registration".
+* `--unique identifier` - For the unique identifier, you can use the Azure service principal's `tenantid`, or `appid`. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization. You can find your `appid` in your Azure DevOps account in "Project settings" -> "Service connections" -> Click on your connection -> "Manage App registration".
 
-* `--force-sub-claims` -  Enforce role association to include sub-claims.
+* `--force-sub-claims` - Enforce role association to include sub-claims.
 
 Create an **[Access Role](https://docs.akeyless.io/docs/rbac)**:
 
@@ -69,7 +69,7 @@ Attach your `OAuth 2.0 / JWT` **Authentication Method** to the **Access Role** t
 
 ```shell
 akeyless assoc-role-am --role-name /Dev/AzureRole \
---am-name /Dev/AzureAuth  \
+--am-name /Dev/AzureAuth \
 --sub-claims appid=<appid-string>
 ```
 
@@ -119,7 +119,7 @@ steps:
 >
 > Note that we are using the `azure_jwt` output from the `AzureCLI` task to hold the JWT, then use it in the `akeyless-secret` task with `$(AzureCLI.azure_jwt)`.
 
-You will also have `$(MyAkeylessTask.first_secret)` and  `$(MyAkeylessTask.second_secret)` available in subsequent tasks of that job if needed.
+You will also have `$(MyAkeylessTask.first_secret)` and `$(MyAkeylessTask.second_secret)` available in subsequent tasks of that job if needed.
 
 ### Fetching Dynamic Secrets
 

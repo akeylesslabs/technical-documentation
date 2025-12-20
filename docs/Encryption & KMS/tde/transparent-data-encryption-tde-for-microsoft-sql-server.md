@@ -26,7 +26,7 @@ Ensure the following conditions are met before proceeding with the configuration
 
 ## Install the Akeyless EKM Provider
 
-* Download and run the Akeyless EKM provider by executing the following  `curl` command:
+* Download and run the Akeyless EKM provider by executing the following `curl` command:
 
 ```curl
 curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypto-provider/release/latest/AkeylessEkmProviderInstaller.msi --output AkeylessEkmProviderInstaller.msi
@@ -53,7 +53,7 @@ base_item_path="/sqlcrypt" \<--- base path for the keys to be created
 
 > 📘 Note
 >
-> Note: If the installer does not generate the `sqlcrypt.conf`  file, refer to the Troubleshooting section below.
+> Note: If the installer does not generate the `sqlcrypt.conf` file, refer to the Troubleshooting section below.
 
 ## Configure the Akeyless EKM Provider
 

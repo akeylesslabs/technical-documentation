@@ -12,7 +12,7 @@ next:
 ---
 The Secure Remote Access Portal is available via the main console at: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`.
 
-All Akeyless supported [Resource types](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using  the **SRA Portal**, [CLI](doc:cli) or via the [Desktop Application](doc:remote-access-desktop-application-beta).
+All Akeyless supported [Resource types](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using the **SRA Portal**, [CLI](doc:cli) or via the [Desktop Application](doc:remote-access-desktop-application-beta).
 
 Currently the SRA Portal supports the following Authentication Methods:
 
@@ -28,12 +28,12 @@ Currently the SRA Portal supports the following Authentication Methods:
 ## Connect from the Secure Remote Access Portal
 
 1. Open the SRA Portal: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
-2. Select the relevant Authentication method, the default is **SAML**, enter your SAML **Access ID**, or choose  a different method.
+2. Select the relevant Authentication method, the default is **SAML**, enter your SAML **Access ID**, or choose a different method.
 3. In case working also with the [Zero Trust Web Access](doc:web-access-on-k8s) set the **Web Application Dispatcher** with the URL of your `web-access-dispatcher` cluster service, the default is `9000`. If you are working with Secure Proxy, also set the **Web Proxy URL** with the `web-access-dispatcher` cluster service port, the default set to`19414`.
 4. Click the **Generate SAML Bookmark URL** to create a link to the completed form. The link is copied to your clipboard for you to save in a convenient place, such as your browser bookmarks, and use in the future to automatically complete the login details.
 5. Click **Sign in**.
 
-The portal shows all the [resource types](https://docs.akeyless.io/docs/supported-resource-types)  that you are authorized to access
+The portal shows all the [resource types](https://docs.akeyless.io/docs/supported-resource-types) that you are authorized to access
 
 ![A screenshot of the Akeyless Secure Remote Access product and its portal of available options.](https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png)
 
@@ -48,7 +48,7 @@ In addition to the existing hosts that are part of the allowed hosts on the [SSH
 > * **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
 
 1. On the SSH or RDP window choose **Custom Target**, and click the **+** button.
-2. Select the **Permission Profile**  i.e. [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-remote-access).
+2. Select the **Permission Profile** i.e. [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-remote-access).
 3. Enter **Hostname** or **IP Address**.
 4. Select **Confirm**.
 

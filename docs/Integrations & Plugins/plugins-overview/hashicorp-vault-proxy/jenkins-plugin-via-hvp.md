@@ -14,7 +14,7 @@ The Jenkins plugin adds a build wrapper to set Jenkins environment variables fro
 
 The Jenkins plugin can also inject credentials into a build pipeline or freestyle job for fine-grained vault interactions.
 
-To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and enter credentials for authenticating against Akeyless. In this example, we will use an  [API Key](https://docs.akeyless.io/docs/api-key) for authentication.
+To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and enter credentials for authenticating against Akeyless. In this example, we will use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication.
 
 > 👍 Note
 >
@@ -101,7 +101,7 @@ To test the plugin, in Build, click “Execute shell”:
 Provide your MySQL server IP, modify the query, etc.
 
 ```shell
-mysql --host <your MySQL server ip>  --port 3306 --user=$USER --password=$PASS -e 'show databases;'
+mysql --host <your MySQL server ip> --port 3306 --user=$USER --password=$PASS -e 'show databases;'
 exit 0
 ```
 

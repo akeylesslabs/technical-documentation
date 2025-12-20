@@ -89,7 +89,7 @@ Where:
 
 * `accessType`: The Authentication Method type.
 
-* `accessTypeParam`:  `Access Key` for **API Key** or `k8s-conf-name` for **Kubernetes**. For more options, check the official [provider](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
+* `accessTypeParam`: `Access Key` for **API Key** or `k8s-conf-name` for **Kubernetes**. For more options, check the official [provider](https://external-secrets.io/v0.5.9/provider-akeyless/#authentication) docs.
 
 Apply the configuration:
 
@@ -200,7 +200,7 @@ Where:
 
 * `refreshInterval`: The amount of time before the values are read again
 
-* `secretStoreRef`: Reference to the `SecretStore`  that was created earlier, in case of `ClusterSecretStore`  set the `Kind`  to `ClusterSecretStore`
+* `secretStoreRef`: Reference to the `SecretStore` that was created earlier, in case of `ClusterSecretStore` set the `Kind` to `ClusterSecretStore`
 
 * `target`: Name of the Kubernetes Secret to create.
 
@@ -360,9 +360,9 @@ spec:
 
 Where:
 
-* `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2`  (or using your gateway URL at port `8081`).
+* `akeylessGWApiURL`: The URL of your Gateway API v2 endpoint: `https://Your-Gateway-URL:8000/api/v2` (or using your gateway URL at port `8081`).
 
-* `authSecretRef`: Reference to the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that holds the authentication details, in our example  `akeyless-secret-creds`.
+* `authSecretRef`: Reference to the [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that holds the authentication details, in our example `akeyless-secret-creds`.
 
 Run the following command to create the **ClusterSecretStore** resource:
 

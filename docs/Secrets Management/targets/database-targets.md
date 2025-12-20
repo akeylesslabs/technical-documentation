@@ -229,7 +229,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (MSSQL)**.
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
 For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-Choose the desired mode of authenticating either **Use Credentials**,  **Use Cloud Identity**, or **Target** to utilize a domain credentials from an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target)
+Choose the desired mode of authenticating either **Use Credentials**, **Use Cloud Identity**, or **Target** to utilize a domain credentials from an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target)
 
 **DB Username:** Privilege database username with sufficient rights to create users.
 (Relevant only when using **Credentials** authenticating)
@@ -285,7 +285,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (Oracle)**.
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
 For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-**Connect Using:** Select how to connect to Oracle DB either using **Explicit Credentials**, or using  **Wallet**.
+**Connect Using:** Select how to connect to Oracle DB either using **Explicit Credentials**, or using **Wallet**.
 
 For **Explicit Credentials** provide the following:
 

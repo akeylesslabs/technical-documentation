@@ -56,7 +56,7 @@ git push -u origin main
 
 1. On GitHub, navigate to the main page of the repository, and select **Settings** > **Secrets** > **New repository secret**.
 
-2. Name the secret  **VAULT\_TOKEN**.
+2. Name the secret **VAULT\_TOKEN**.
 
 3. Set the secret value in the following format : **\<access\_id>..\<access\_key>**. For example:
 
@@ -113,7 +113,7 @@ jobs:
 
 Note that the token used to authenticate is set to the **VAULT\_TOKEN** secret you defined in the GitHub repository.
 
-where **secret/data** is a required prefix, followed by the secret path.  In this example, the secret `actions` in the Akeyless Platform is stored in the `/ci/Gitsecret/` folder. Therefore, the secret path is `/ci/Gitsecret/actions`, the selector is `ci/Gitsecret/actions`, and `action` is an environment variable that can be used in the workflow.
+where **secret/data** is a required prefix, followed by the secret path. In this example, the secret `actions` in the Akeyless Platform is stored in the `/ci/Gitsecret/` folder. Therefore, the secret path is `/ci/Gitsecret/actions`, the selector is `ci/Gitsecret/actions`, and `action` is an environment variable that can be used in the workflow.
 
 > 🚧 Warning
 >

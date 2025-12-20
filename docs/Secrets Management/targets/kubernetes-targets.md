@@ -40,7 +40,7 @@ Where:
 
 * `eks-cluster-endpoint`: The Amazon EKS cluster endpoint.
 
-* `eks-cluster-ca-cert`: The Amazon EKS cluster  Base64-encoded certificate.
+* `eks-cluster-ca-cert`: The Amazon EKS cluster Base64-encoded certificate.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueeksp) section.
 
@@ -239,7 +239,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
       * **Cluster CA Certificate:** Provide the Kubernetes cluster CA certificate (PEM format).
       * **Cluster Endpoint URL:** Specify the URL of the cluster.
       * **Cluster Name:** Optional. Set the Kubernetes cluster name.
-   3. **GW Service Account** to extract the connection settings from a  **Gateway** that is running on a Kubernetes cluster, with a ServiceAccount with permissions as described in the [prerequisites](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
+   3. **GW Service Account** to extract the connection settings from a **Gateway** that is running on a Kubernetes cluster, with a ServiceAccount with permissions as described in the [prerequisites](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
       * **Cluster Name:** Optional. Set the Kubernetes cluster name.
       * **Cluster Endpoint URL:** Specify the URL of the cluster.
 

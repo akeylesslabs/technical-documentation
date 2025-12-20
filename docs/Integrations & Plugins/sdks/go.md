@@ -147,7 +147,7 @@ func main() {
 
 	out, _, err := client.GetDynamicSecretValue(context.Background()).
 		Body(akeyless.GetDynamicSecretValue{
-			Name:  "my-secret",
+			Name: "my-secret",
 			Token: akeyless.PtrString(authToken),
 		}).Execute()
 	if err != nil {

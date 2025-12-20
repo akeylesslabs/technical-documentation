@@ -94,17 +94,17 @@ Where:
 
 * `ttl`: The time to live of the issued certificates supported units are `s,m,h,d`.
 
-* `destination-path`:  A path in Akeyless to save generated certificates using the issued certs under this path, to work with advanced features and events. Required for **CRL**.
+* `destination-path`: A path in Akeyless to save generated certificates using the issued certs under this path, to work with advanced features and events. Required for **CRL**.
 
 * `create-public-crl`: Optional, to maintain a public CRL at: `https://vault.akeyless.io/crl/<account-id>/<cert-issuer-display-id>`.
 
-* `create-private-crl`  Optional, creates the CRL endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at: `https://<gatewayURL>/crl/<cert-issuer-display-id>`.
+* `create-private-crl` Optional, creates the CRL endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at: `https://<gatewayURL>/crl/<cert-issuer-display-id>`.
 
-* `gw-cluster-url`  Akeyless Gateway Configuration Manager URL (port 8000). Required for **private CRL**.
+* `gw-cluster-url` Akeyless Gateway Configuration Manager URL (port 8000). Required for **private CRL**.
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use the argument multiple times: --expiration-event-in 30 --expiration-event-in 60 to get events 60 and 30 days in advance.
 
-* `allowed-extra-extensions`:  A `json` string that defines the allowed extra extensions for the PKI cert issuer, e.g. `'{"1.2.3":["test"]}'`.
+* `allowed-extra-extensions`: A `json` string that defines the allowed extra extensions for the PKI cert issuer, e.g. `'{"1.2.3":["test"]}'`.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
 
@@ -132,7 +132,7 @@ akeyless generate-csr \
 
 Where:
 
-* `name`:  Full name of a new [Classic Key](https://docs.akeyless.io/docs/classic-keys) or DFC Key that will be generated.
+* `name`: Full name of a new [Classic Key](https://docs.akeyless.io/docs/classic-keys) or DFC Key that will be generated.
 
 * `generate-key`: Use this flag to generate a new classic key or dfc key with the CSR.
 

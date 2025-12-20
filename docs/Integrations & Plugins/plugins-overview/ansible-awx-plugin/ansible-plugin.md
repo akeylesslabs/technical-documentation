@@ -155,7 +155,7 @@ login:
 
 Where:
 
-* `akeyless_api_url`:  Gateway URL API V2 endpoint i.e. `https://Your_GW_URL:8000/api/v2`.
+* `akeyless_api_url`: Gateway URL API V2 endpoint i.e. `https://Your_GW_URL:8000/api/v2`.
 
 * `access_id`: The `Access ID` of the Auth Method being used.
 
@@ -240,7 +240,7 @@ The following will fetch a [Static Secret](https://docs.akeyless.io/docs/static-
 
 Where:
 
-* `akeyless_api_url`:  Gateway URL API V2 endpoint i.e. `https://Your_GW_URL:8000/api/v2`.
+* `akeyless_api_url`: Gateway URL API V2 endpoint i.e. `https://Your_GW_URL:8000/api/v2`.
 
 * `names`: The name of the secret.
 

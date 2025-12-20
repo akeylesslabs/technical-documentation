@@ -270,7 +270,7 @@ akeyless update-secret-val \
 
 `--last-version`: The last version number before the update
 
-`--new-version`:  [Deprecated: Use keep-prev-version instead] Whether to create a new version
+`--new-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 

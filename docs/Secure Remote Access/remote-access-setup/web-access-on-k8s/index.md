@@ -129,7 +129,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 ### API Key Authentication
 
-To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `accessID` and the matching `accessKey`  with a list of `allowedAccessIDs` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `accessID` and the matching `accessKey` with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -181,5 +181,5 @@ Verify that both deployments are up and running:
 
 ```shell
 kubectl describe deploy web-worker-deployment -n <namespace>
-kubectl describe deploy web-dispatcher-deployment  -n <namespace>
+kubectl describe deploy web-dispatcher-deployment -n <namespace>
 ```

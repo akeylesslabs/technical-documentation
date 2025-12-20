@@ -146,7 +146,7 @@ To work with your native SSH tools, you can run a local tunnel on your host:
 
 ```shell
 akeyless connect -t <user>@<targetServer> \
- --via-sra: sra-host:port [for example, 2222]  \
+ --via-sra: sra-host:port [for example, 2222] \
 --tunnel='-L 127.0.0.1:<localPort>:<targetServer>:<targetPort>'
 ```
 

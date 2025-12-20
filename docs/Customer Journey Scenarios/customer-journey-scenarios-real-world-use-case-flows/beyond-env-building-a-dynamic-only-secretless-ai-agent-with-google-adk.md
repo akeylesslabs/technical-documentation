@@ -179,7 +179,7 @@ def initialize_credentials():
         # 1. Fetch and configure the Gemini API Key
         if api_key is None:
             print("Initializing API key from Akeyless...")
-            api_key = fetch_api_key_from_akeyless()  # Sets the global variable
+            api_key = fetch_api_key_from_akeyless() # Sets the global variable
             if not api_key:
                 print("Failed to fetch Gemini API key.")
                 return False

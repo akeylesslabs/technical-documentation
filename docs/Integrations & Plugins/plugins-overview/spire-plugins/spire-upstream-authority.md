@@ -60,7 +60,7 @@ akeyless set-role-rule --role-name /Dev/Spire-Role \
 
 Log into the console using a Gateway admin account, navigate to the **Gateways** tab, and choose the relevant **Gateway**.
 
-Click on **Access Permissions** and click on  **New**:
+Click on **Access Permissions** and click on **New**:
 
 Give it a meaningful **Name**, choose the **Auth Method**, and click next.
 

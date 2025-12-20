@@ -20,7 +20,7 @@ Each job has a [JSON Web Token (JWT)](https://docs.gitlab.com/ee/ci/secrets/id_t
 
 > 👍 Note
 >
-> **GitLab v16 and higher** - `CI_JOB_JWT_V2` is replaced by [ID tokens](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens)  which are the JSON Web Tokens (JWTs) that can be added to a GitLab CI/CD job.
+> **GitLab v16 and higher** - `CI_JOB_JWT_V2` is replaced by [ID tokens](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#id-tokens) which are the JSON Web Tokens (JWTs) that can be added to a GitLab CI/CD job.
 
 The token is valid only while the pipeline job is running. After the job finishes, you can’t use the token anymore.
 
@@ -63,7 +63,7 @@ akeyless assoc-role-am --role-name /Dev/GitLabRole \
 >
 > **Sub Claims** - It is mandatory to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the available [GitLab claims](https://docs.gitlab.com/ci/secrets/hashicorp_vault/) to prevent access of unauthorized users.
 
-Set `Read` and `List`  permissions for **Items**:
+Set `Read` and `List` permissions for **Items**:
 
 ```shell
 akeyless set-role-rule --role-name /Dev/GitLabRole \ 
@@ -172,7 +172,7 @@ where the plugin can be used in the following modes:
 
 * `env-file`: This mode stores **secrets** in environment variables, which are stored inside an `env` file for future usage across jobs, this mode has character and structure limitations, for example, it's not possible to fetch **certificates** items.
 
-* `json`:  This mode stores **secrets** and **certificates** in a `json` file where any format can be fetched. It is recommended to use with `jq` for easier parsing of the`JSON` content.
+* `json`: This mode stores **secrets** and **certificates** in a `json` file where any format can be fetched. It is recommended to use with `jq` for easier parsing of the`JSON` content.
 
 Your secrets are stored either in `akeyless.env` or `akeyless.json` accordingly, enabling secret usage across different jobs.
 
@@ -224,7 +224,7 @@ In this example, we demonstrated using both [Static](https://docs.akeyless.io/do
 >
 > Use [GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/#for-a-project) to store your **Access ID** for easier future reference.
 
-In this example, we will use the `json` mode by setting the `env-file` setting to `false`  in order to fetch [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or [SSH](https://docs.akeyless.io/docs/ssh-certificates#issuing-a-certificate) certificates:
+In this example, we will use the `json` mode by setting the `env-file` setting to `false` in order to fetch [PKI](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) or [SSH](https://docs.akeyless.io/docs/ssh-certificates#issuing-a-certificate) certificates:
 
 ```yaml PKI
 stages:
@@ -301,4 +301,4 @@ Where:
 
 ## Working With Gateway
 
-To work directly with your Gateway URL  you can set  the variable `api_url` with the Rest API V2 endpoint i.e. port `8081`. When working with a self-signed certificate you can provide your `gateway_ca_certificate` as well.
+To work directly with your Gateway URL you can set the variable `api_url` with the Rest API V2 endpoint i.e. port `8081`. When working with a self-signed certificate you can provide your `gateway_ca_certificate` as well.

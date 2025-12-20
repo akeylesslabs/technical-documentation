@@ -234,7 +234,7 @@ akeyless set-role-rule \
 
 `--ttl`: The time (in minutes) until the rule expires. If not used the rule will apply until manually removed
 
-`-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This  replaces the `capability`, `path` and `rule-type`
+`-f, --file`: Path to a JSON file containing the multiple rules as described [here](https://docs.akeyless.io/docs/rbac#multiple-rules). This replaces the `capability`, `path` and `rule-type`
 
 ## `update-assoc`
 

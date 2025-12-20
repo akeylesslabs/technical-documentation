@@ -51,9 +51,9 @@ For example:
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
 
-* A GCP [privileged service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts)  to generate keys and access tokens.
+* A GCP [privileged service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) to generate keys and access tokens.
 
-* A [privileged service account roles](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) includes  `Service Account Key Admin` and `Service Account Token Creator`.
+* A [privileged service account roles](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) includes `Service Account Key Admin` and `Service Account Token Creator`.
 
 * A [key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) of the privilege service account.
 
@@ -142,7 +142,7 @@ Where:
 
 * `gcp-cred-type`: Credentials type. Available options are: `token`, `key`.
 
-* `gcp-token-scopes`:  Access token scopes list.
+* `gcp-token-scopes`: Access token scopes list.
 
 * `gcp-key-algo`: Service account key algorithm, e.g. `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`.
 
@@ -154,7 +154,7 @@ Where:
 
 ### Inline Connection String
 
-If you don't have a [GCP Target](https://docs.akeyless.io/docs/gcp-targets)  yet, you can use the command with your GCP connection strings:
+If you don't have a [GCP Target](https://docs.akeyless.io/docs/gcp-targets) yet, you can use the command with your GCP connection strings:
 
 * `gcp-sa-email`: privileged service account email.
 
@@ -192,7 +192,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Check the **Explicitly specify target properties** to provide details of the GCP target in the next step.
 
-* **Fixed SA:** A fixed Service Account. with **Service Account  Email** to create JIT Keys/Tokens for.
+* **Fixed SA:** A fixed Service Account. with **Service Account Email** to create JIT Keys/Tokens for.
 
 * **Dynamic SA:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
   * **Project ID:** Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used . (Relevant only for **Dynamic SA** mode).

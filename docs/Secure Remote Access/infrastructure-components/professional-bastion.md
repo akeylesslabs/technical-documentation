@@ -76,17 +76,17 @@ The following parameters are mandatory:
 | dockerRepositoryCreds | N\A                                                  | Credentials to access Akeyless private image                                                                                                                                 |
 | apiGatewayURL         | [https://rest.akeyless.io](https://rest.akeyless.io) | A full URL of Akeyless API GW                                                                                                                                                |
 | CAPublicKey           | N\A                                                  | SSH Cert Issuer CA Public key                                                                                                                                                |
-| privilegedAccess      | N\A                                                  | Credentials for zero-trust access: If provided, it is possible for end users to have  only "list" permissions on Akeyless items if privileged credentials have "read" access |
+| privilegedAccess      | N\A                                                  | Credentials for zero-trust access: If provided, it is possible for end users to have only "list" permissions on Akeyless items if privileged credentials have "read" access |
 
 > 👍 Tip
 >
 > Akeyless supports session termination, which can be configured as part of this chart deployment.
-> To enable session termination please set your Okta\Keycloak  `apiURL` and `apiToken` under `sessionTermination` section.
+> To enable session termination please set your Okta\Keycloak `apiURL` and `apiToken` under `sessionTermination` section.
 
 Install the chart:
 
 ```shell
-helm install <RELEASE NAME>  akeyless/akeyless-ssh-proxy -f values.yaml
+helm install <RELEASE NAME> akeyless/akeyless-ssh-proxy -f values.yaml
 ```
 
 Validate that Akeyless SSH pod is running.

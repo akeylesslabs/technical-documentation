@@ -42,7 +42,7 @@ akeyless auth-method create k8s \
 
 `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
 
-`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -50,7 +50,7 @@ akeyless auth-method create k8s \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`-p, --public-key-file-path`: In case the gen-key  set to false, path to a public key for K8s authentication method is required [RSA2048]
+`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for K8s authentication method is required [RSA2048]
 
 `--public-key`: Base64-encoded or PEM formatted public key data
 
@@ -83,7 +83,7 @@ akeyless gateway-create-k8s-auth-config \
 ```
 
 ```shell Rancher
-akeyless gateway-create-k8s-auth-config  --name k8s-conf-rancher \
+akeyless gateway-create-k8s-auth-config --name k8s-conf-rancher \
 --gateway-url <https://Your-GW-URL>:8000 \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
@@ -96,7 +96,7 @@ akeyless gateway-create-k8s-auth-config  --name k8s-conf-rancher \
 ```
 
 ```shell Gateway Service Account
-akeyless gateway-create-k8s-auth-config  --name k8s-conf \
+akeyless gateway-create-k8s-auth-config --name k8s-conf \
 --gateway-url <API Gateway URL:8000> \
 --access-id <Access_ID> \
 --signing-key <Private_Key> \
@@ -173,13 +173,13 @@ akeyless update-auth-method-k8s \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`-p, --public-key-file-path`: In case the gen-key  set to false, path to a public key for K8s authentication method is required [RSA2048]
+`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for K8s authentication method is required [RSA2048]
 
 `--public-key`: Base64-encoded or PEM formatted public key data
 
@@ -251,7 +251,7 @@ akeyless gateway-update-k8s-auth-config \
 
 `--new-name`: **Required**, K8s Auth config new-name
 
-`--audit-logs-claims`:  Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 

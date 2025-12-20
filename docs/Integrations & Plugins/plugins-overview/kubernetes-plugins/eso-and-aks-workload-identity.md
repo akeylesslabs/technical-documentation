@@ -97,7 +97,7 @@ type: Opaque
 stringData:
   accessId: "p-xxxxx"
   accessType: "azure_ad"
-  accessTypeParam: ""   # optional when using sub‑claims
+  accessTypeParam: "" # optional when using sub‑claims
 ```
 
 ### SecretStore Using Azure AD

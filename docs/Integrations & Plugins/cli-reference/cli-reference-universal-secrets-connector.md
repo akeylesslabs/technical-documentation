@@ -40,7 +40,7 @@ akeyless create-usc \
 
 `-t, --tag`: List of the tags attached to this Universal Secrets Connector. To specify multiple tags use the argument multiple times: -t Tag1 -t Tag2
 
-`-v, --azure-kv-name`:   Azure Key Vault name (Relevant only for Azure targets)
+`-v, --azure-kv-name`: Azure Key Vault name (Relevant only for Azure targets)
 
 `-s, --k8s-namespace`: K8s Namespace (Relevant to Kubernetes targets)
 
@@ -87,7 +87,7 @@ usc create \
 
 #### Flags
 
-`-n, --usc-name`:  **Required**, USC name
+`-n, --usc-name`: **Required**, USC name
 
 `-u, --gateway-url[=http://localhost:8000]`:API Gateway URL (Configuration Management port)
 
@@ -149,7 +149,7 @@ usc get \
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
-`-u, --gateway-url[=http://localhost:8000]`:   API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 
@@ -179,7 +179,7 @@ akeyless usc list --usc-name <USC name>
 
 `--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
 
-`-u, --gateway-url[=http://localhost:8000]`:  API Gateway URL (Configuration Management port)
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temp access token
 

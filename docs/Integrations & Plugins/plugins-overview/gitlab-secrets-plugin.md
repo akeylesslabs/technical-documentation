@@ -16,7 +16,7 @@ Using GitLab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab
 
 ## Prerequisites
 
-* GitLab Version  **17.4** or higher.
+* GitLab Version **17.4** or higher.
 
 > 📘 Enable Akeyless CI Secret Plugin
 >
@@ -37,7 +37,7 @@ This plugin supports the following Authentication Methods:
 
 To utilized the plugin you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless.
 
-By default, when using `ID_TOKEN` the `akeyless_access_type` will be set to `jwt`.  Where the Auth Method `Access ID`  should be stored inside a GitLab **CI/CD** variable.
+By default, when using `ID_TOKEN` the `akeyless_access_type` will be set to `jwt`. Where the Auth Method `Access ID` should be stored inside a GitLab **CI/CD** variable.
 
 For example:
 
@@ -129,7 +129,7 @@ Where make sure to set the relevant `access_type` according to the Auth Method t
 
 ## Usage
 
-Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml`  and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Auth Method.
+Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml` and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Auth Method.
 
 > 📘 Tip
 >
@@ -154,7 +154,7 @@ job:
 
 Where:
 
-* `AKEYLESS_JWT`:  An environment variable to store the JWT to authenticate with Akeyless. It's configured with an `audience` field set to `https://gitlab.com`, if you are running your instance, make sure to adjust it accordingly
+* `AKEYLESS_JWT`: An environment variable to store the JWT to authenticate with Akeyless. It's configured with an `audience` field set to `https://gitlab.com`, if you are running your instance, make sure to adjust it accordingly
 
 * `AKEYLESS_SECRET`: An environment variable that will store the fetched secret.
 

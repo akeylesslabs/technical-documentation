@@ -47,7 +47,7 @@ curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/
 .\akeyless.exe
 ```
 
-Alternatively, you can install it using a package manager, such as: `brew`,  `apt`  `yum` or `dnf` :
+Alternatively, you can install it using a package manager, such as: `brew`, `apt` `yum` or `dnf` :
 
 ```shell brew
 brew install akeylesslabs/tap/akeyless
@@ -128,10 +128,10 @@ At the prompt `Would you like to configure a profile? (Y/n)` line, type `Y`. Typ
 
 ```shell
 Would you like to configure a profile? (Y/n) Y
-Profile Name:  (Default: default)
+Profile Name: (Default: default)
 ```
 
-Choose an <Anchor label="Authentication Method" target="_blank" href="https://docs.akeyless.io/docs/access-and-authentication-methods">Authentication Method</Anchor>  from the list to configure the profile with. Press `Enter` to use the default  [API Key](https://docs.akeyless.io/docs/api-key) method. Set the relevant **Access ID** and **Access Key**:
+Choose an <Anchor label="Authentication Method" target="_blank" href="https://docs.akeyless.io/docs/access-and-authentication-methods">Authentication Method</Anchor> from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/api-key) method. Set the relevant **Access ID** and **Access Key**:
 
 ```shell Shell
 Access ID: '<Access-ID>' 
@@ -187,7 +187,7 @@ setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permenantly)
 
 > 👍 Note
 >
-> The CLI updates the path env for the **current user only**.  This change only takes effect after the user logs off and logs back on.
+> The CLI updates the path env for the **current user only**. This change only takes effect after the user logs off and logs back on.
 
 Copy and run the relevant command for your purpose (`permanent` or `current session`), after that, The CLI should be ready to use.
 
@@ -200,7 +200,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 ### Non-Interactive Mode
 
 To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
-If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
+If you're working with a different tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
 ```shell
@@ -225,7 +225,7 @@ The CLI supports various types of [Authentication Methods](https://docs.akeyless
 For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.
 
 To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
-If you're working with a different  tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
+If you're working with a different tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
 ```shell
@@ -252,7 +252,7 @@ After you've created an additional profile, add the `--profile` parameter with t
 
 ### Advanced Configuration
 
-When creating a profile with the CLI, the profile contains only the Authentication Method settings, such as `Access ID`,  and `Access Type`.
+When creating a profile with the CLI, the profile contains only the Authentication Method settings, such as `Access ID`, and `Access Type`.
 
 However, you can configure additional parameters as defaults in your profile. Once set, these default parameters will automatically be used for your commands unless you choose to override them explicitly.
 
@@ -272,11 +272,11 @@ Where:
 
 * `gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `default_location_prefix`:  A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder.
+* `default_location_prefix`: A global default prefix for the `name` flag, relevant for all types of objects in the account. In the example above, all commands will be performed on `/non-production` folder.
 
 * `cert_issuer_name`: The default name of an [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) to use.
 
-* `cert_username`:  The username the SSH certificate Issuer will issue the certificate for, e.g `ubuntu`.
+* `cert_username`: The username the SSH certificate Issuer will issue the certificate for, e.g `ubuntu`.
 
 * `public_key_file_path`: Path to the file containing the SSH public key.
 
@@ -306,7 +306,7 @@ However, if the `AKEYLESS_GATEWAY_URL` environment variable is set, Akeyless wil
 
 Settings can be found in various locations, such as environment variables, the `profile` configuration file, or directly as command-line parameters. Some locations have higher precedence than others, in this order:
 
-1. **Command line options**:  Overrides settings in any other location, including environment variables and profile configuration file.
+1. **Command line options**: Overrides settings in any other location, including environment variables and profile configuration file.
 
 2. **Environment variables**: Overrides settings in the profile configuration file.
 

@@ -34,7 +34,7 @@ Using a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an
 
 ### Creating a Root CA Signer Key
 
-Let's create  [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **Root CA** with a self-signed certificate, first let's create the **CSR** conf file:
+Let's create [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **Root CA** with a self-signed certificate, first let's create the **CSR** conf file:
 
 ```shell
 cat <<EOF > csr.conf
@@ -53,7 +53,7 @@ EOF
 
 Where:
 
-* `CA:TRUE`:  Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
+* `CA:TRUE`: Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
 
 * `digitalSignature`,`KeyCertSign`,`cRLSign`: Key Usage for CA certificates.
 
@@ -95,7 +95,7 @@ Run the following command to create the Root PKI Issuer:
 ```shell
 akeyless create-pki-cert-issuer \
 --name /Chain/Root/RootIssuer \
---signer-key-name /Chain/Root/CA  \
+--signer-key-name /Chain/Root/CA \
 --gw-cluster-url $MY_GW \
 --allowed-domains example.com \
 --destination-path /Chain/Intermediate/Certificates \
@@ -115,7 +115,7 @@ At this point, we have created the following:
 * **Root CA Key**: A Singer Key with a Self Signed Certificate.
 * **Root PKI Cert Issuer**: To sign new Intermediate CA.
 
-Where **only** certificate with the domain`example.com`  will be accepted and valid for 100 days, they will be automatically stored under the `/MyChain/IntermediateCertificates/`  folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage**, **OU** and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+Where **only** certificate with the domain`example.com` will be accepted and valid for 100 days, they will be automatically stored under the `/MyChain/IntermediateCertificates/` folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage**, **OU** and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
 
@@ -127,7 +127,7 @@ Intermediate certificates act as a middle-man between the secure root certificat
 
 ### Create an Intermediate Signer Key
 
-Run the following command to create a **CSR** and a **Key** that will be used as our  **Intermediate Signer Key**:
+Run the following command to create a **CSR** and a **Key** that will be used as our **Intermediate Signer Key**:
 
 ```shell
 akeyless generate-csr \
@@ -136,7 +136,7 @@ akeyless generate-csr \
 --key-type classic-key \
 --gateway-url $MY_GW \
 --alg RSA2048 \
---common-name example.com  >> intermediate.csr
+--common-name example.com >> intermediate.csr
 ```
 
 Now let's issue the certificate using the **Root PKI Issuer** which we created earlier:
@@ -155,7 +155,7 @@ akeyless update-classic-key-certificate \
 --cert-file-path ./intermediate.crt
 ```
 
-Now, we have our  **Intermediate Signer Key** which has a certificate signed by our **Root CA**, let's create the **Intermediate PKI Issuer** to start issuing leaf certificates.
+Now, we have our **Intermediate Signer Key** which has a certificate signed by our **Root CA**, let's create the **Intermediate PKI Issuer** to start issuing leaf certificates.
 
 ### Create an Intermediate PKI Cert Issuer
 
@@ -178,7 +178,7 @@ akeyless create-pki-cert-issuer \
 --locality NY 
 ```
 
-Where **only** certificate with the domain`myexample.com`  will be accepted and valid for 30 days, and it will be automatically stored under the `/MyChain/Intermediate/Leaf/`  folder, with the **Extended key Usage** of `client auth`, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
+Where **only** certificate with the domain`myexample.com` will be accepted and valid for 30 days, and it will be automatically stored under the `/MyChain/Intermediate/Leaf/` folder, with the **Extended key Usage** of `client auth`, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
 ## Issuing a Leaf Certificate
 
@@ -198,7 +198,7 @@ akeyless generate-csr \
 Generate a certificate using the **Intermediate PKI Cert Issuer**:
 
 ```shell
-akeyless get-pki-certificate  \
+akeyless get-pki-certificate \
 --cert-issuer-name /Chain/Intermediate/InterPKIIssuer \
 --csr-file-path leaf.csr
 ```

@@ -15,7 +15,7 @@ You can define a dynamic AWS secret to generate AWS access credentials based on 
 You can create dynamic access credentials for AWS in two modes:
 
 * **iam_user** mode: When a client requests a dynamic secret value, a **temporary** IAM user is created for the requested AWS account, and an access key is returned to the client. The temporary users should be assigned to an existing policy in the AWS account. Temporary IAM users can only be created with access to a single AWS account. If you have multiple AWS accounts, you will need to create a separate dynamic secret for each account for IAM user mode.
-* **assumed_role** mode: When a client requests the dynamic secret value, an [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) operation is performed to return an access key, secret key, and session token.  Although a single dynamic secret can assume roles for multiple accounts, due to AWS limitations, once access is granted, it cannot be revoked before its defined expiration time (a minimum of 15 minutes and a maximum of 12 hours). Assume role is more convenient for immediate actions, as the **STS** credentials are available immediately as described in AWS [official](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) docs.
+* **assumed_role** mode: When a client requests the dynamic secret value, an [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) operation is performed to return an access key, secret key, and session token. Although a single dynamic secret can assume roles for multiple accounts, due to AWS limitations, once access is granted, it cannot be revoked before its defined expiration time (a minimum of 15 minutes and a maximum of 12 hours). Assume role is more convenient for immediate actions, as the **STS** credentials are available immediately as described in AWS [official](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) docs.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ This role will grant the dynamic secret permissions to manage the lifecycle of t
 
 **Note:** the `tmp.*` is the default template prefix of the temporary users Akeyless will create. In case you are working with [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating), make sure to adjust the allowed resource accordingly.
 
-* If you are using `assumed_role` mode, grant the user **AssumeRole** permissions to the requested  IAM roles. For more information, see the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/" target="_blank">AWS Assume Role</a> documentation. The required policy for the user should include the following permissions:
+* If you are using `assumed_role` mode, grant the user **AssumeRole** permissions to the requested IAM roles. For more information, see the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/" target="_blank">AWS Assume Role</a> documentation. The required policy for the user should include the following permissions:
 
 ```json
 {
@@ -123,7 +123,7 @@ Where:
 
   `iam_user` or `assume_role`.
 
-* `aws-user-policies`: Policy ARN(s). Multiple values should be separated by a comma.  User will be granted these policies when the dynamic secret is created.
+* `aws-user-policies`: Policy ARN(s). Multiple values should be separated by a comma. User will be granted these policies when the dynamic secret is created.
 
 * `aws-user-groups`: UserGroup name(s). Multiple values should be separated by a comma.
 

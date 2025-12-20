@@ -292,7 +292,7 @@ $ For more info please visit: https://docs.akeyless.io/docs/cli
 $ Enter Akeyless URL (Default: vault.akeyless.io) vault.wmt.akeyless.io
 ```
 
-At the prompt `Would you like to configure a profile (Y/n)` line, type `Y`.  Then, type a name to rename the default profile, or press `Enter` to leave the name as `default`.
+At the prompt `Would you like to configure a profile (Y/n)` line, type `Y`. Then, type a name to rename the default profile, or press `Enter` to leave the name as `default`.
 
 You can configure different types of authentication methods from the CLI:
 
@@ -322,7 +322,7 @@ Access Key: <type your access key here>
 
 ```shell LDAP
 akeyless configure --access-type ldap
-Access ID:  p-abc12de
+Access ID: p-abc12de
 Ldap Proxy URL: https://Akeyless.GW
 Profile ldap successfully configured
 ```

@@ -86,7 +86,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ### Creating a Classic Key
 
-1. In the Akeyless Console, select **Items** >  **New** > **Encryption Key** > **Classic**.
+1. In the Akeyless Console, select **Items** > **New** > **Encryption Key** > **Classic**.
 
 2. Define the following:
 
@@ -199,7 +199,7 @@ client, err := kms.NewKeyManagementClient(ctx, option.WithCredentialsJSON(creds)
 if err != nil { panic(err) }
 
 cipher, _ := base64.StdEncoding.DecodeString("<key from JSON>")
-iv,     _ := base64.StdEncoding.DecodeString("<iv  from JSON>")
+iv,     _ := base64.StdEncoding.DecodeString("<iv from JSON>")
 
 resp, err := client.RawDecrypt(ctx, &kmspb.RawDecryptRequest{
     Name:                 "projects/.../locations/.../keyRings/.../cryptoKeys/kek-name/cryptoKeyVersions/1",

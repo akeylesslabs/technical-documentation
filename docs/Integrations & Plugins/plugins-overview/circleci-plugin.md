@@ -39,9 +39,9 @@ akeyless create-auth-method-oauth2 --name /Dev/CI/CircleCIAuth \
 
 Where:
 
-* `--jwks-uri` - The CircleCI OIDC  `JWKS` URL contains the public keys that should be used for JWT verification. Make sure to replace the `ORGANIZATION ID`  with your organization ID.
+* `--jwks-uri` - The CircleCI OIDC `JWKS` URL contains the public keys that should be used for JWT verification. Make sure to replace the `ORGANIZATION ID` with your organization ID.
 
-* `--unique-identifier` - A unique claim name that contains details uniquely identifying the request. In the following example, we will use the **CircleCI** OIDC  `iss` claim.
+* `--unique-identifier` - A unique claim name that contains details uniquely identifying the request. In the following example, we will use the **CircleCI** OIDC `iss` claim.
 
 * `--force-sub-claims` - Enforce [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) on role association.
 
@@ -88,7 +88,7 @@ While working with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero
 In jobs using a context, CircleCI provides OpenID Connect ID (OIDC) tokens in environment variables. A job can use these tokens to access Akeyless without storing long-lived credentials in CircleCI.
 
 Go to **Organization Settings** > **Contexts** > **Add a context**
-Name it  `akeyless`, we will later add this context to a job by adding the context key to the workflows section of your `circleci/config.yml` file.
+Name it `akeyless`, we will later add this context to a job by adding the context key to the workflows section of your `circleci/config.yml` file.
 
 ## Usage
 

@@ -155,7 +155,7 @@ Callout:
 
 Recipe (use these for complicated codeblock walkthroughs:
 
-<Recipe slug="python-aws_iam" title="Python  - AWS_IAM" />
+<Recipe slug="python-aws_iam" title="Python - AWS_IAM" />
 
 Mermaid Diagram:
 

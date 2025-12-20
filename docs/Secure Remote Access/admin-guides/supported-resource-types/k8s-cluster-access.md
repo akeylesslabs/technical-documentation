@@ -20,7 +20,7 @@ You can enable Secure Remote Access to a Kubernetes cluster based on the dynamic
 
 * [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect)
 
-* An  [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
+* An [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates).
 
 ## Set Up Remote Access to a Kubernetes Cluster from the Akeyless CLI
 
@@ -32,7 +32,7 @@ Run the relevant command to define the following fields to the secret that speci
 akeyless dynamic-secret update k8s \
 --name <Kubernetes dynamic secret name> \
 --secure-access-enable true \
---secure-access-certificate-issuer </Path/to/SSH/Cert/Issuer>  \
+--secure-access-certificate-issuer </Path/to/SSH/Cert/Issuer> \
 --secure-access-cluster-endpoint <Kubernetes cluster endpoint URL> \
 --secure-access-allow-port-forwading <true/false>
 ```

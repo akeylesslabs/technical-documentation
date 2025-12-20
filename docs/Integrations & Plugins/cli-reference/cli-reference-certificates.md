@@ -213,7 +213,7 @@ akeyless create-pki-cert-issuer \
 
 `--is-ca [=false]`: If set, the basic constraints extension will be added to the issued certificate
 
-`--max-path-len[=-1]`:  The maximum path length for the generated certificate. `-1`, means unlimited
+`--max-path-len[=-1]`: The maximum path length for the generated certificate. `-1`, means unlimited
 
 `--enable-acme`: If set, the cert issuer will support the ACME protocol
 
@@ -265,7 +265,7 @@ akeyless generate-csr \
 
 `-a, --alg`: Algorithm to use for generating the new key (`RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`, `EC256`, `EC384`)
 
-`--hash-algorithm[=SHA256]`:  Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] (only for **RSA** and **EC** keys)
+`--hash-algorithm[=SHA256]`: Specifies the hash algorithm used for the encryption key's operations, available options: [`SHA256`, `SHA384`, `SHA512`] (only for **RSA** and **EC** keys)
 
 `-c, --common-name`: **Required**, common name to be included in the CSR certificate
 
@@ -432,7 +432,7 @@ akeyless update-pki-cert-issuer \
 
 `-s, --signer-key-name`: A key to sign the certificate with
 
-`-t, --ttl`: **Required**, The maximum requested Time To Live for issued certificate by `default` in seconds, supported formats are `s`,`m`,`h`,`d`.  In case of Public CA, this is based on the CA target's supported maximum TTLs
+`-t, --ttl`: **Required**, The maximum requested Time To Live for issued certificate by `default` in seconds, supported formats are `s`,`m`,`h`,`d`. In case of Public CA, this is based on the CA target's supported maximum TTLs
 
 `--gw-cluster-url`: The GW cluster URL to issue the certificate from, required in Public CA mode
 
@@ -476,7 +476,7 @@ akeyless update-pki-cert-issuer \
 
 `--is-ca`: If set, the basic constraints extension will be added to the certificate
 
-`--max-path-len[=-1]`:  The maximum path length for the generated certificate. `-1`, means unlimited
+`--max-path-len[=-1]`: The maximum path length for the generated certificate. `-1`, means unlimited
 
 `--enable-acme`: If set, the cert issuer will support the ACME protocol
 
@@ -526,7 +526,7 @@ akeyless create-certificate \
 
 `-c, --certificate`: **Required**, Path to a file that contain the certificate. Supported formats are: pem,cer,crt,pfx,p12.
 
-`--certificate-data`: Content of the certificate PEM/CER/CRT/PFX/P12 in a Base64 format. It is mandatory to add this  **OR** the `--certificate`
+`--certificate-data`: Content of the certificate PEM/CER/CRT/PFX/P12 in a Base64 format. It is mandatory to add this **OR** the `--certificate`
 
 `--format[=pem]`: Certificate Format of the certificate and private key, possible values: `cer,crt,pem,pfx,p12`
 
@@ -534,7 +534,7 @@ akeyless create-certificate \
 
 `-p, --private-key`: Path to the file with the certificate's private key. Certificate Format should be the same as provided for the certificate
 
-`--key-data`: Content of the certificate's private key PEM in a Base64 format.  If this  is defined `--private-key` is disabled.
+`--key-data`: Content of the certificate's private key PEM in a Base64 format. If this is defined `--private-key` is disabled.
 
 `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: --expiration-event-in 1 --expiration-event-in 5
 
@@ -630,7 +630,7 @@ akeyless update-certificate-value \
 
 `-c, --certificate`: Path to a file that contain the certificate. Supported formats are: `pem,cer,crt,pfx,p12`
 
-`--certificate-data`: Content of the certificate PEM in a Base64 format. It is mandatory to add this  **OR** the `--certificate`
+`--certificate-data`: Content of the certificate PEM in a Base64 format. It is mandatory to add this **OR** the `--certificate`
 
 `--format[=pem]`: Certificate Format of the certificate and private key, possible values: `cer,crt,pem,pfx,p12`
 
@@ -638,7 +638,7 @@ akeyless update-certificate-value \
 
 `-p, --private-key`: Path to the file with the certificate's private key. Certificate Format should be the same as provided for the certificate
 
-`--key-data`: Content of the certificate's private key PEM in a Base64 format.  If this  is defined `--private-key` is disabled.
+`--key-data`: Content of the certificate's private key PEM in a Base64 format. If this is defined `--private-key` is disabled.
 
 `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: --expiration-event-in 1 --expiration-event-in 5
 

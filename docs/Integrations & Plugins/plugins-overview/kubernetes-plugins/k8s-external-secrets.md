@@ -50,7 +50,7 @@ AKEYLESS_ACCESS_TYPE_PARAM:
 > * If you use a customer fragment, define the value of `AKEYLESS_API_ENDPOINT` as the URL of your Akeyless Gateway in the following format: **https\:/your.akeyless.gw:8080/v2**.
 >
 > * If you define the value of `AKEYLESS_ACCESS_TYPE` as **api\_key**, define the\
->    value of  `AKEYLESS_ACCESS_TYPE_PARAM` as your access key.
+>    value of `AKEYLESS_ACCESS_TYPE_PARAM` as your access key.
 
 3. Deploy the Helm chart by running:
 

@@ -14,7 +14,7 @@ next:
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.40.0` or later
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with `Read` permission for **Items**
-* **Certificate Item** stored in Akeyless Platform containing the  `certificate` and `private_key` in `pem` format.
+* **Certificate Item** stored in Akeyless Platform containing the `certificate` and `private_key` in `pem` format.
 
 ## Authentication
 
@@ -77,7 +77,7 @@ akeyless create-certificate \
  Use the following command to download the **AkeylessUpstreamAuthority SM** plugin:
 
 ```Text shell
-curl -o AkeylessUpstreamAuthority-sm  https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-sm-amd64-linux-v0.0.1
+curl -o AkeylessUpstreamAuthority-sm https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-sm-amd64-linux-v0.0.1
 ```
 
 Change the file permissions so it will be executable:

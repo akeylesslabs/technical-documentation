@@ -10,12 +10,12 @@ metadata:
 next:
   description: ''
 ---
-You can define a GitLab Dynamic Secret to generate Just-in-Time Access tokens, those access tokens will be associated with a [scope](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes)  and a [role](https://docs.gitlab.com/ee/user/permissions.html), which will define their permissions.
+You can define a GitLab Dynamic Secret to generate Just-in-Time Access tokens, those access tokens will be associated with a [scope](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes) and a [role](https://docs.gitlab.com/ee/user/permissions.html), which will define their permissions.
 
 There are two modes for this Dynamic Secret:
 
 * [Group Access Token](https://docs.gitlab.com/ee/user/group/settings/group_access_tokens.html) - an access token that is used to perform actions for groups and manage projects within the group.
-* [Project Access Token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html)  - an access token that is scoped to a project, and cannot be used to access resources from other projects.
+* [Project Access Token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) - an access token that is scoped to a project, and cannot be used to access resources from other projects.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `gitlab-access-type`: the `access-type` to create the access token to, Available options are:  `project` / `group`
+* `gitlab-access-type`: the `access-type` to create the access token to, Available options are: `project` / `group`
 
 * `project-name` Name of the project to assign the access token to, Relevant only for `project` access-type
 
@@ -109,9 +109,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * Select the **Explicitly specify target properties** option, to provide details of the target GitLab repository in the next step.
 * **Access Type**: Choose one of the following Access-Types:
-  * **Group**:  Creates an access token for [GitLab Groups](https://docs.gitlab.com/ee/user/group/)
+  * **Group**: Creates an access token for [GitLab Groups](https://docs.gitlab.com/ee/user/group/)
   * **Project**: Creates an access token for [GitLab Project](https://docs.gitlab.com/ee/user/get_started/get_started_projects.html)
-* **Scopes**:  Provide a comma-separated list of [GitLab Scopes](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes)  to be assigned to the access token
+* **Scopes**: Provide a comma-separated list of [GitLab Scopes](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes) to be assigned to the access token
 * **Role**: [GitLab Role](https://docs.gitlab.com/ee/user/permissions.html) to be assigned to the access token
 * **Group Name**: Name of the group, Relevant for `group` Access Type
 * **Project Name**: Name of the project, Relevant for `project` Access Type

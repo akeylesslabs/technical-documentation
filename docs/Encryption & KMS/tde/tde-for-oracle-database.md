@@ -115,7 +115,7 @@ Where:
 
 Optional:
 
-* `customer_fragment_id` - Relevant Customer Fragment ID for  [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge).
+* `customer_fragment_id` - Relevant Customer Fragment ID for [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge).
 
 * `split_level` - Defines the requested split level. By default, split level set with `2`.
 

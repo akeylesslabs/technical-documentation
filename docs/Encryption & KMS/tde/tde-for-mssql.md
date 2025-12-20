@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver16)) encrypts SQL Server data files. This encryption is known as encrypting data at rest. The encryption uses a database encryption key (**DEK**). The database boot record stores the key for availability during recovery. The **DEK** is a symmetric key, and is secured by a certificate that the server's master database stores or by an asymmetric key that an [EKM](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm?view=sql-server-ver16)  module protects.
+Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver16)) encrypts SQL Server data files. This encryption is known as encrypting data at rest. The encryption uses a database encryption key (**DEK**). The database boot record stores the key for availability during recovery. The **DEK** is a symmetric key, and is secured by a certificate that the server's master database stores or by an asymmetric key that an [EKM](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm?view=sql-server-ver16) module protects.
 
 **TDE** protects data at rest, which is the data and log files. It lets you follow many laws, regulations, and guidelines established in various industries. This ability lets software developers encrypt data by using **AES** and **3DES** encryption algorithms without changing existing applications.
 
@@ -36,9 +36,9 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
   curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypto-provider/release/latest/AkeylessEkmProviderInstaller.msi --output AkeylessEkmProviderInstaller.msi
   ```
 
-2. Follow the wizard installation steps - enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL using the `/api/v2` endpoint (previously port  `8081`), and choose a path in the Akeyless Platform to store the keys.
+2. Follow the wizard installation steps - enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL using the `/api/v2` endpoint (previously port `8081`), and choose a path in the Akeyless Platform to store the keys.
 
-  Choose the OS installation path and save it for later. This will copy the `dll`  files, and also creates a configuration file that can be edited later.
+  Choose the OS installation path and save it for later. This will copy the `dll` files, and also creates a configuration file that can be edited later.
 
   The file should be formatted as follows:
 
@@ -110,7 +110,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
 
       The API Key (or other Auth Method) used in **`akeyless_tde`** **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
 
-      When working **Classic Keys**, make sure you also  grant the Auth Method the appropriate Gateway “[Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions)” to manage “**Classic Keys**”
+      When working **Classic Keys**, make sure you also grant the Auth Method the appropriate Gateway “[Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions)” to manage “**Classic Keys**”
     </Callout>
 
 4. Add the credential to a privileged user, in the following example replace the [`DOMAIN\login`] with your privileged username format and add the SQL `CREDENTIAL`:
@@ -121,7 +121,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     GO
     ```
 
-5. Create an asymmetric key for the **EKM** provider.  This will create a key in Akeyless named `SQL_Server_Key` in the path defined in the configuration file `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` parameter `base_item_path` (e.g. `/path/to/keys/SQL_Server_Key`. To work with an existing key add the `CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`:
+5. Create an asymmetric key for the **EKM** provider. This will create a key in Akeyless named `SQL_Server_Key` in the path defined in the configuration file `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` parameter `base_item_path` (e.g. `/path/to/keys/SQL_Server_Key`. To work with an existing key add the `CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`:
 
     ```sql
     CREATE ASYMMETRIC KEY akls_ekm_login_key
@@ -161,7 +161,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     GO  
     ```
 
-8. Create the database encryption key that will be used for **TDE**.  In the following example `AdventureWorks` is a placeholder for the database name. Supported algorithms are `AES_128` or `AES_256`.
+8. Create the database encryption key that will be used for **TDE**. In the following example `AdventureWorks` is a placeholder for the database name. Supported algorithms are `AES_128` or `AES_256`.
 
     ```sql
     USE [AdventureWorks] ;

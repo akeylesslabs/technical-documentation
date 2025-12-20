@@ -492,7 +492,7 @@ If you selected the **Explicitly specify target properties** mode, click **Next*
       * **Cluster CA Certificate:**Provide the k8s cluster CA certificate (PEM format)
 
       * **Cluster Endpoint URL:** Specify the URL of the cluster.
-   2. **GW Service Account** to extract the connection settings from a  **Gateway** that runs on a **K8s** cluster, with a Service Account with permissions as described in the [prerequisites](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
+   2. **GW Service Account** to extract the connection settings from a **Gateway** that runs on a **K8s** cluster, with a Service Account with permissions as described in the [prerequisites](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
    3. **Client Certificate**
       * **Client Certificate:**Provide the k8s client certificate (PEM format).
       * **Client Private Key :** Provide the K8s client private key (PEM format).
@@ -615,9 +615,9 @@ The CLI command is `akeyless kubeconfig-generate`
 * `-uid-token` - Universal Identity token (required only with the`universal_identity` Authentication Method)
 * `-json[=false]` - Return tool output in JSON
 * `-jq-expression` - jq filter for JSON output
-* `-no-creds-cleanup[=false]` -  Do not clean local temporary expired credentials
+* `-no-creds-cleanup[=false]` - Do not clean local temporary expired credentials
 
-Remember to provide at least one selector:  `--name` (one or more secret names) or `--tag` (a single tag). When both are provided, the first provided selector is used.
+Remember to provide at least one selector: `--name` (one or more secret names) or `--tag` (a single tag). When both are provided, the first provided selector is used.
 
 ### Conflict Handling (Duplicate Cluster/context Names)
 

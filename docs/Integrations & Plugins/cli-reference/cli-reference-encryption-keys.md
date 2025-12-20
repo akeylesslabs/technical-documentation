@@ -77,7 +77,7 @@ akeyless create-classic-key \
 
 ### Flags
 
-`-n, --name`: **Required**,  Classic key name/path.
+`-n, --name`: **Required**, Classic key name/path.
 
 `-a, --alg`: **Required**, Key type; options: `[AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]`
 
@@ -149,7 +149,7 @@ akeyless create-dfc-key \
 
 ### Flags
 
-`-n, --name`: **Required**,  DFCKey name
+`-n, --name`: **Required**, DFCKey name
 
 `-a, --alg`: **Required**, DFCKey type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, AES128CBC, AES256CBC, RSA1024, RSA2048, RSA3072, RSA4096]
 
@@ -491,7 +491,7 @@ akeyless gen-customer-fragment \
 
 `-t, --type[=standard]`: Customer fragment type [`standard`/`hsm_wrapped`/`hsm_secured`]
 
-`-k, --hsm-key-label`:  The label of the hsm key to use for customer fragment operations (relevant for `hsm_wrapped`/`hsm_secured` customer fragments)
+`-k, --hsm-key-label`: The label of the hsm key to use for customer fragment operations (relevant for `hsm_wrapped`/`hsm_secured` customer fragments)
 
 ## `get-rsa-public`
 
@@ -766,7 +766,7 @@ Upload a PKCS#12 key and certificates
 ```shell
 akeyless upload-pkcs12 \
 --name <Key name> \
---in <Input file (private key and certificate only>  \
+--in <Input file (private key and certificate only> \
 --passphrase <Passphrase> \
 --description <Key description> 
 ```
@@ -787,7 +787,7 @@ akeyless upload-pkcs12 \
 
 `-f, --customer-frg-id`: The customer fragment ID that will be used to split the key (if empty, the key will be created independently of a customer fragment)
 
-`-c, --cert`: Path to a file that contain the certificate in a PEM format. If this  is not empty, the certificate will be taken from here and not from the PKCS#12 input file
+`-c, --cert`: Path to a file that contain the certificate in a PEM format. If this is not empty, the certificate will be taken from here and not from the PKCS#12 input file
 
 `--delete-protection[=false]`: Protection from accidental deletion of this item, [true/false]
 

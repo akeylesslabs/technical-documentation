@@ -46,7 +46,7 @@ akeyless share-item --item-name <item name> --action share --email <email addres
 
 Where:
 
-* `item-name`:  The name of the item to examine, this parameter is mandatory
+* `item-name`: The name of the item to examine, this parameter is mandatory
 
 * `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
 
@@ -60,7 +60,7 @@ akeyless share-item --item-name <item name> --action <action to perform> --share
 
 Where:
 
-* `item-name`:  The name of the item to examine, this parameter is mandatory
+* `item-name`: The name of the item to examine, this parameter is mandatory
 * `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
 * `share-type`: The share type set to `token`, by default set to `email`.
 

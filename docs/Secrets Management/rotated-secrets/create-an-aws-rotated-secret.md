@@ -79,7 +79,7 @@ Where:
   * `api-key` - to rotate the Access Key specified in the Rotated Secret.
   * `target` - to rotate the Access Key for the user specified in the [AWS Target](https://docs.akeyless.io/docs/aws-targets).
 
-* `api-id`: The Access Key ID of the AWS user whose Access Key should be rotated. If left empty, the Rotated Secret will create a new key and manage its rotation. **Note** When  `api-id` is not provided, upon successful creation, the AWS Access Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. The AWS Access Key will be deleted from the cloud as well.
+* `api-id`: The Access Key ID of the AWS user whose Access Key should be rotated. If left empty, the Rotated Secret will create a new key and manage its rotation. **Note** When `api-id` is not provided, upon successful creation, the AWS Access Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. The AWS Access Key will be deleted from the cloud as well.
 
 * `api-key`: The Access Key to rotate.
 

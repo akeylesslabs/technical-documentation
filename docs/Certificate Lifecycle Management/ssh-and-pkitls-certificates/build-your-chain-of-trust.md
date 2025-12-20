@@ -61,7 +61,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-Running the command above will create  a **Certificate Chain** under **/My-First-Chain** folder, where certificates for `example.com` domain can be issued with a `TTL` of 10 days.
+Running the command above will create a **Certificate Chain** under **/My-First-Chain** folder, where certificates for `example.com` domain can be issued with a `TTL` of 10 days.
 
 > 👍 Tip
 >
@@ -75,7 +75,7 @@ The following is the structure of the items related to the newly created CA:
 
 * **PKI** - A root folder that will contain all **Certs**, **Issuers** and **Keys**.
 * **Certs** - Contains the certificate for both **Root** and **Intermediate** issuers.
-* **Issuers** -  Contains the both **Root** and **Intermediate** issuers.
+* **Issuers** - Contains the both **Root** and **Intermediate** issuers.
 * **Keys** - Contains the signer keys for both **Root** and **Intermediate** issuers.
 
 Once the certificate is generated, a new folder named **certificates** will be created, containing the newly generated certificate.

@@ -79,7 +79,7 @@ akeyless delete-item -n <Item name>
 
 #### Flags
 
-`-n, --name`: Required,  Item name
+`-n, --name`: Required, Item name
 
 `--version[=-1]`: The specific version you want to delete - 0=last version, -1=entire item with all versions (default)
 
@@ -101,7 +101,7 @@ akeyless delete-items -p <Path\do\delete\items>
 
 #### Flags
 
-`-p, --path`: Required,  Path to delete the items from
+`-p, --path`: Required, Path to delete the items from
 
 ### `Describe-item`
 
@@ -149,7 +149,7 @@ akeyless get-tags --name <Item Name>
 
 #### Flags
 
-`-n, --name`: Required,  The item name
+`-n, --name`: Required, The item name
 
 ### `List-items`
 
@@ -199,9 +199,9 @@ akeyless move-objects --source <Source path to move the objects from> \
 
 #### Flags
 
-`-s, --source`: Required,  Source path to move the objects from
+`-s, --source`: Required, Source path to move the objects from
 
-`--t, --target`: Required,  Target path to move the objects to
+`--t, --target`: Required, Target path to move the objects to
 
 `-o, --objects-type[=item]`: The objects type to move (item/auth_method/role)
 
@@ -218,9 +218,9 @@ akeyless set-item-state --name <Current item name> \
 
 #### Flags
 
-`-n, --name`: Required,  Current item name
+`-n, --name`: Required, Current item name
 
-`-s, --desired-state`: Required,  Desired item state
+`-s, --desired-state`: Required, Desired item state
 
 ### `Unconfigure`
 
@@ -334,7 +334,7 @@ Note: The operation is allowed only for admin user
 
 `--password-expiration-notification-days`: Specifies the number of days before a user receives notification that their password will expire. A default value of 14 days is used
 
-`--hide-personal-folder`: Controls the visibility of the personal folder, this setting hides the personal folder  for users.
+`--hide-personal-folder`: Controls the visibility of the personal folder, this setting hides the personal folder for users.
 
 `--hide-static-password`: Hide static secret's password type [`true`/`false`].
 
@@ -363,7 +363,7 @@ akeyless update-item --name <Item name> \
 
 block:Flags]
 
-`-n, --name`: Required,  Current item name
+`-n, --name`: Required, Current item name
 
 `--new-name`: New item name
 
@@ -437,7 +437,7 @@ block:Flags]
 
 `--certificate-format`: The format of the returned certificate [`pem`/`der`]
 
-`--accessibility  \"data\":` In case of an item in a user's personal folder
+`--accessibility \"data\":` In case of an item in a user's personal folder
 
 ### `Folder Management`
 

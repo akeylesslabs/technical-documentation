@@ -14,7 +14,7 @@ Akeyless connect provides you with secure CLI access to resources or a secure tu
 
 ## Prerequisites
 
-To use Akeyless Connect  you need:
+To use Akeyless Connect you need:
 
 * Akeyless CLI v1.42.0 or higher.
 
@@ -167,7 +167,7 @@ Full options list:
 -v, --via-bastion                      Bastion host, which the connection will go through. e.g.: bastion-host:port.
 -g, --gateway-url                      The Gateway URL (configuration management) address of the ssh service, e.g. http://localhost:8000
 -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified will be taken from ~/.akeyless-connect.rc 
--i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
+-i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read. The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
 -n, --name                             Path to Secret, based on the required connection
     --ssh-extra-args                   Additional SSH arguments (except -i)
     --bastion-ctrl-proto[=http]        Bastion API Protocol [http/https]

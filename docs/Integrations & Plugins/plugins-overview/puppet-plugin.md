@@ -27,7 +27,7 @@ puppet module install puppet/vault_lookup
 
 ## Create a Sample Module
 
-Create `init.pp`  on your Puppet server as follows:
+Create `init.pp` on your Puppet server as follows:
 
 ```shell
 $variables = {
