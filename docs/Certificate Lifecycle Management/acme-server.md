@@ -24,7 +24,7 @@ In this guide, we will create a **PKI Cert Issuer** with **ACME Server** where w
 
 ### Create a Signer Key
 
-Let's create [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **PKI Cert Issuer** with a self-signed certificate, first let's create the **CSR** conf file:
+Let's create a [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **PKI Cert Issuer** with a self-signed certificate, first let's create the **CSR** conf file:
 
 ```shell
 cat <<EOF > csr.conf
