@@ -48,7 +48,7 @@ This guide will take you through the steps to set up SAML authentication with Az
 >
 > **Customize SAML token claims**
 >
-> You can customize your SAML token claims in Azure as decsribed in [this](https://learn.microsoft.com/en-us/azure/active-directory/develop/saml-claims-customization#edit-nameid) guide.
+> You can customize your SAML token claims in Azure as described in [this](https://learn.microsoft.com/en-us/azure/active-directory/develop/saml-claims-customization#edit-nameid) guide.
 
 10. Select **Add a group claim** - Configure the group claim according to the instructions provided in [here](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-fed-group-claims#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). See the following example:
 

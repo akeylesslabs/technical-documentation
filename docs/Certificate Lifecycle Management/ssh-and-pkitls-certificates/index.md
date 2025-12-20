@@ -199,7 +199,7 @@ Here you can provide a certificate full name, or use the`item-id` or the certifi
 
 > 📘 Note
 >
-> In order to view the **Certificate Revocation List**, the **PKI Cert Issuer's** signing key **must** include the `cRLSign` extention.
+> In order to view the **Certificate Revocation List**, the **PKI Cert Issuer's** signing key **must** include the `cRLSign` extension.
 
 ## Working With Certificates in the Console
 

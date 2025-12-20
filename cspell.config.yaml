@@ -35,6 +35,7 @@ ignorePaths:
   - .gitignore
   - cspell.config.yaml
   - docs/Contributing Guides/look-feel-sample-page-title.md
+  - docs/Contributing Guides/technical-documentation-style-guide/index.md
 
 dictionaryDefinitions:
   - name: akeyless-proper-nouns

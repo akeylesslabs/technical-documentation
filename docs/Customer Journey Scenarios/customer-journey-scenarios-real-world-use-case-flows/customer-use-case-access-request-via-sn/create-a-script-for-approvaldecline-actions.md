@@ -41,7 +41,7 @@ Creating an action with inputs and scripts in ServiceNow's Action Designer allow
 
 * Access the Scripting Area: In the action configuration, there should be a section or tab for scripting. This is where you will write the custom logic for your action.
 * Write Your Script: Using JavaScript, write the script that defines what the action will do. Utilize the inputs you defined earlier in the script to make your action dynamic and adaptable to different data passed from the flow.
-* For our use case the script is goin to take the u\_event\_id and the u\_decision values from our [event table previously created](https://docs.akeyless.io/docs/create-a-table-in-servicenow)
+* For our use case the script is going to take the u\_event\_id and the u\_decision values from our [event table previously created](https://docs.akeyless.io/docs/create-a-table-in-servicenow)
 * Script example
 
 ```Text JavaScript

@@ -22,7 +22,7 @@ Creating a gateway within the Akeyless system is a fundamental step for leveragi
 
 ## Step 3: Create a New Gateway
 
-* In the Gateways section, you will see an option to create new Gateway by clicking the New nutton. Click on this to start the process of setting up a new gateway.
+* In the Gateways section, you will see an option to create new Gateway by clicking the New Button. Click on this to start the process of setting up a new gateway.
 * You will be prompted to installation guide :
 
 ![](https://files.readme.io/fc7e669-Screenshot_2024-03-05_at_9.55.48.png)

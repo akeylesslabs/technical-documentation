@@ -30,7 +30,7 @@ akeyless auth-method create universal-identity \
 
 `-n, --name`: **Required** Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -155,7 +155,7 @@ akeyless auth-method update universal-identity \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 

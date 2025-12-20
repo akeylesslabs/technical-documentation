@@ -34,7 +34,7 @@ akeyless auth-method create k8s \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -163,7 +163,7 @@ akeyless update-auth-method-k8s \
 
 `-n, --name`: **Required**, Auth Method name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-expires[=0]`: Access expiration date in Unix timestamp (select 0 for access without expiry date)
 
@@ -209,7 +209,7 @@ akeyless gateway-update-k8s-auth-config \
 
 `-n, --name`: **Required**, K8s Auth config name
 
-`--descrpition`: Auth Method description
+`--descriptions`: Auth Method description
 
 `--access-id`: **Required**, The access ID of the Kubernetes Auth Method
 

@@ -16,7 +16,7 @@ Our patented technology, Akeyless Distributed Fragments Cryptography™ (DFC), e
 
 <Image align="center" alt="An image of a physical key is split into three parts. Each part is associated with a cloud provider: Azure, GCP, and AWS." border={false} caption="Fragments of a single Encryption Key that are stored in different cloud providers and are NEVER combined" title="DFC.png" src="https://files.readme.io/0ef2ecb-DFC.png" width="80%" />
 
-_**Q: So you're basically using key-split? Shamir's secret sharing?**_
+_**Q: So you're basically using key-split? Shamir's Secret Sharing?**_
 
 * Answer: **NO. We're definitely not**. The known weakness of any split method is that whenever you wish to encrypt/decrypt any data, you MUST combine the fragments of the key. When you do so, a malicious attacker could potentially gain access to your constructed key, and then your key is compromised. Your data and applications are now at risk. This is why, using Akeyless DFC, the key is never constructed, not even during the encryption/decryption process, meaning, the key never exists as a whole.
 

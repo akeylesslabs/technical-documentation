@@ -457,7 +457,7 @@ akeyless target create globalsign \
 
 `-u, --username`: **Required**, Username of the GlobalSign GCC account
 
-`-p, --password`: **Required**, Passwordof the GlobalSign GCC account
+`-p, --password`: **Required**, Password of the GlobalSign GCC account
 
 `-i, --profile-id`: **Required**, Profile ID of the GlobalSign GCC account
 
@@ -532,9 +532,9 @@ akeyless target create godaddy \
 
 `-n, --name`: **Required**, Target name
 
-`-a, --api-key`: **Required**, Key of the API credentials to the Godaddy account
+`-a, --api-key`: **Required**, Key of the API credentials to the GoDaddy account
 
-`-s, --secret`: **Required**, Secret of the API credentials to the Godaddy account
+`-s, --secret`: **Required**, Secret of the API credentials to the GoDaddy account
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 
@@ -892,7 +892,7 @@ akeyless target create ssh \
 
 `-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
-`--description`: Target desctiption
+`--description`: Target description
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
@@ -1685,9 +1685,9 @@ akeyless target update-godaddy-target \
 
 `--new-name`: New target name
 
-`-a, --api-key`: **Required**, Key of the API credentials to the Godaddy account
+`-a, --api-key`: **Required**, Key of the API credentials to the GoDaddy account
 
-`-s, --secret`: **Required**, Secret of the API credentials to the Godaddy account
+`-s, --secret`: **Required**, Secret of the API credentials to the GoDaddy account
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 
