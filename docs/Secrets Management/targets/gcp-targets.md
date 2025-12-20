@@ -56,8 +56,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 5. Define the remaining parameters as follows:
 
-* **Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the super-user service account email that will be used to authenticate Akeyless with GCP.
+* **Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the superuser service account email that will be used to authenticate Akeyless with GCP.
 
-* **Service Account Key:** Provide a Base64-encoded private key of the super-user service account.
+* **Service Account Key:** Provide a Base64-encoded private key of the superuser service account.
 
 6. Click **Finish**.

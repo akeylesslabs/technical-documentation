@@ -70,7 +70,7 @@ with the relevant flags according to the `access-type` being used.
 
 `--cert-challenge`: Certificate challenge encoded in Base64. (relevant only for `access-type=cert`)
 
-`--oci-auth-type[=apikey]`: The type of the OCI configuration to use [instance/apikey/resource] (relevant only for `access-type=oci`)
+`--oci-auth-type[=apikey]`: The type of the OCI configuration to use `[instance/apikey/resource]` (relevant only for `access-type=oci`)
 
 `--oci-group-ocid`: A list of Oracle Cloud IDs groups (relevant only for `access-type=oci`)
 
@@ -654,13 +654,13 @@ akeyless get-cloud-identity \
 
 `--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for access-type=`gcp`)
 
-`--oci-auth-type[=apikey]`: The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type=`oci`)
+`--oci-auth-type[=apikey]`: The type of the OCI configuration to use `[instance/apikey/resource]` (relevant only for access-type=`oci`)
 
 `--describe-sub-claims`: Describe the cloud identity sub-claims
 
-`--oci-group-ocid`: A list of required groups ocids (relevant only for access-type=`oci`)
+`--oci-group-ocid`: A list of required groups ocids (relevant only for `access-type=oci`)
 
-`--url_safe`: Escapes the token so it can be safely placed inside a URL query"
+`--url_safe`: Escapes the token so it can be safely placed inside a URL query
 
 `--debug[=false]`: Turn on debug logging
 

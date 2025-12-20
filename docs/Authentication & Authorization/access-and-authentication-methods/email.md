@@ -42,24 +42,24 @@ You can find the complete list of additional parameters for this command in the 
 
 3. Define the remaining parameters as follows:
 
-* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+    * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-* **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
+    * **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `Web UI`,`SDK`,`Gateway Admin`, `Mobile`, `Extension`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `Web UI`,`SDK`,`Gateway Admin`, `Mobile`, `Extension`.
 
-* **JWT TTL (in minutes):** The timespan from acceptance of the invitation to the JWT expiration.
+    * **JWT TTL (in minutes):** The time span from acceptance of the invitation to the JWT expiration.
 
-On the **Email Configuration** step define the following:
+    On the **Email Configuration** step define the following:
 
-* **Email:** The email address of the invite recipient.
+    * **Email:** The email address of the invite recipient.
 
-* **Set Two-Factor Authentication:** Optional, Select to set 2-Factor Authentication.
+    * **Set Two-Factor Authentication:** Optional, Select to set 2-Factor Authentication.
 
 4. Click **Finish**.
 
-Saving will automatically send an invitation email to the specified address with a link to set a password and log in to the account.
+    Saving will automatically send an invitation email to the specified address with a link to set a password and log in to the account.

@@ -97,7 +97,7 @@ Delete a rule from a role
 ### Usage
 
 ```shell
-akeyelss delete-role-rule \
+akeyless delete-role-rule \
 --role-name <Role Name> \
 --path <Role Path>
 ```

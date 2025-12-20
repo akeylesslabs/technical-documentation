@@ -109,7 +109,7 @@ Where:
 
 `assertion`: The `token` you received when running `akeyless auth`.
 
-`grant_type`: This should always be `urn:ietf:params:oauth:grant-type:token-exchange` to indicate a token exchange between an Akeyelss `token` and `OIDC token`.
+`grant_type`: This should always be `urn:ietf:params:oauth:grant-type:token-exchange` to indicate a token exchange between an Akeyless `token` and `OIDC token`.
 
 Optional:
 

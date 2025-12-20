@@ -149,9 +149,9 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 4. Define the remaining parameters as follows:
 
-* **Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the super-user service account email that will be used to authenticate Akeyless with GCP.
+* **Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the superuser service account email that will be used to authenticate Akeyless with GCP.
 
-* **Service Account Key:** Provide a Base64-encoded private key of the super-user service account.
+* **Service Account Key:** Provide a Base64-encoded private key of the superuser service account.
 
 * **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
