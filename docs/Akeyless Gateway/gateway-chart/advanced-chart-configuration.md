@@ -289,7 +289,7 @@ To control the cache settings, you should [configure the cache](https://docs.ake
 
 ## Working With Kubernetes Secrets
 
-To provide the settings of your Gateway deployment directly from your local K8s secrets store, you can set the following settings:
+To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings:
 
 * `gateway-access-key`
 * `gateway-uid-init-token`
@@ -324,7 +324,7 @@ image:
 fixedArtifactRepository: "artifacts.site2.akeyless.io"
 ```
 
-You can explicitly provide the Kubernetes Secret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
+You can explicitly provide the Kubernetes ecret name that contains the credentials for the private registry if needed using the `imagePullSecrets` setting:
 
 ```yaml
 image:

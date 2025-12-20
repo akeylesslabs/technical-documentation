@@ -15,7 +15,7 @@ next:
       title: Advanced Configuration
     - type: basic
       slug: gateway-k8s
-      title: Gateway on K8s
+      title: Gateway on Kubernetes
 ---
 ## Prerequisites
 

@@ -1,5 +1,5 @@
 ---
-title: K8s Secrets Store CSI Driver
+title: Kubernetes Secrets Store CSI Driver
 excerpt: Kubernetes Secrets Store Container Storage Interface (CSI) Driver
 deprecated: false
 hidden: false
@@ -10,24 +10,24 @@ metadata:
 next:
   description: ''
 ---
-[Secrets Store CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) for K8s secrets - Integrates secret stores with K8s via a Container Storage Interface (CSI) volume.
+[Secrets Store CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) for Kubernetes secrets - Integrates secret stores with Kubernetes via a Container Storage Interface (CSI) volume.
 
-The Secrets Store CSI Driver `secrets-store.csi.k8s.io` allows K8s to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the volume is attached, the data is mounted into the container's file system.
+The Secrets Store CSI Driver `secrets-store.csi.k8s.io` allows Kubernetes to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the volume is attached, the data is mounted into the container's file system.
 
 > 👍 Note
 >
-> K8s Secrets Store CSI Provider supports Static Secrets, Rotated Secrets and Certificates
+> Kubernetes Secrets Store CSI Provider supports Static Secrets, Rotated Secrets and Certificates
 
-[Akeyless provider](https://github.com/akeylesslabs/akeyless-csi-provider) for the Secrets Store CSI driver allows you to fetch existing secrets that are stored in Akeyless and use the Secrets Store CSI driver interface to mount them into K8s pods.
+[Akeyless provider](https://github.com/akeylesslabs/akeyless-csi-provider) for the Secrets Store CSI driver allows you to fetch existing secrets that are stored in Akeyless and use the Secrets Store CSI driver interface to mount them into Kubernetes pods.
 
-Similar to K8s secrets, upon pod start, the Secrets Store CSI driver communicates with the provider using gRPC to retrieve the secret content from the external Secrets Store specified in the `SecretProviderClass` custom resource.
+Similar to Kubernetes secrets, upon pod start, the Secrets Store CSI driver communicates with the provider using gRPC to retrieve the secret content from the external Secrets Store specified in the `SecretProviderClass` custom resource.
 
 Then the volume is mounted in the pod as `tmpfs` and the secret value is written to the volume.\
 Upon pod deletion, the corresponding volume is cleaned up and deleted.
 
 ## Prerequisites
 
-* K8s v1.16 or higher.
+* Kubernetes v1.16 or higher.
 
 * [Secrets store CSI driver](https://secrets-store-csi-driver.sigs.k8s.io/getting-started/installation.html) installed.
 

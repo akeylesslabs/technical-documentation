@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports multiple options to authenticate your K8s cluster with Akeyless Platform:
+Akeyless supports multiple options to authenticate your Kubernetes cluster with Akeyless Platform:
 
 * **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/kubernetes-auth)**
 * **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)** Not supported by the External Secret Operator (ESO).
@@ -26,7 +26,7 @@ Akeyless supports multiple options to authenticate your K8s cluster with Akeyles
 >
 > Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth).
 
-To use the K8s Auth Method for authentication:
+To use the Kubernetes Auth Method for authentication:
 
 ```yaml YAML
 AKEYLESS_ACCESS_TYPE: "k8s"

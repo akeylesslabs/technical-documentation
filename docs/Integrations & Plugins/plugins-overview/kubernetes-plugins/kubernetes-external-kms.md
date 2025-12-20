@@ -1,5 +1,5 @@
 ---
-title: K8s External KMS
+title: Kubernetes External KMS
 excerpt: Kubernetes (K8s) External Key Management Service (KMS)
 deprecated: false
 hidden: true
@@ -16,9 +16,9 @@ By default, Secrets are not encrypted at rest and are open to attack, either via
 
 ## Prerequisites
 
-* K8s v1.10 or higher.
+* Kubernetes v1.10 or higher.
 
-* Direct access to K8s control plane.
+* Direct access to Kubernetes control plane.
 
 * `kube-apiserver` must be restarted after the External KMS plugin has been configured and started.
 
@@ -28,7 +28,7 @@ By default, Secrets are not encrypted at rest and are open to attack, either via
 
 ## Usage
 
-K8s external KMS plugin can be deployed using a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) or a standalone Docker container both methods require direct access to the K8s master nodes on the control plane where the `kube-apiserver` is running:
+Kubernetes external KMS plugin can be deployed using a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/) or a standalone Docker container both methods require direct access to the Kubernetes master nodes on the control plane where the `kube-apiserver` is running:
 
 > 👍 Note
 >

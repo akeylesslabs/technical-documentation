@@ -132,7 +132,7 @@ Where:
 
 For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as well:
 
-* `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
+* `k8s_auth_config_name`- Kubernetes Auth Config name as created under your Gateway
 
 * `gcp_audience`- The audience to verify the JWT received by the client. By default, `akeyless.io`
 

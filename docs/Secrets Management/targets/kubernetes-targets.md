@@ -162,7 +162,7 @@ In both cases of **Bearer Token** and **GW Service Account**, the Service Accoun
 
 > 📘 Note
 >
-> K8s Client Certificate is not supported by EKS
+> Kubernetes Client Certificate is not supported by EKS
 
 ### Create a Generic Kubernetes Target with the CLI
 
@@ -179,8 +179,8 @@ akeyless target create k8s \
 ```shell Inline connection with certificate
 akeyless target create k8s \
 --name <Target name> \
---k8s-cluster-endpoint <K8s Cluster endpoint> \
---k8s-cluster-ca-cert <K8s Cluster certificate> \
+--k8s-cluster-endpoint <Kubernetes Cluster endpoint> \
+--k8s-cluster-ca-cert <Kubernetes Cluster certificate> \
 --k8s-auth-type certificate
 --k8s-client-certificate <Base64 PEM encoded client cert>
 --k8s-client-key <Base64 PEM encoded client key>
@@ -226,7 +226,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
    1. **Bearer Token**
 
-      * **Bearer Token:** Provide a JWT authentication token authorized to manage ServiceAccount tokens, Roles, and Role Binding, depending on the working mode.
+      * **Bearer Token:** Provide a JWT authentication token authorized to manage ServiceAccount tokens, Roles, and RoleBinding, depending on the working mode.
 
       * **Cluster CA Certificate:** Provide the Kubernetes cluster CA certificate (PEM format)
 

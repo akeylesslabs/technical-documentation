@@ -28,7 +28,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 ## HSM Configuration
 
-To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the `pkcs11.so` file, you can either create a PVC manually and provide it using the `existingClaim` or set the `storageClass` for automatic provisioning with your K8s provider. The `accessMode` should be `ReadWriteMany`.
+To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the `pkcs11.so` file, you can either create a PVC manually and provide it using the `existingClaim` or set the `storageClass` for automatic provisioning with your Kubernetes provider. The `accessMode` should be `ReadWriteMany`.
 
 In addition, the **HSM pin** must be provided using a **Kubernetes Secret** which holds the `pin`, **note** the **Kubernetes Secret** key name must be set to `pin`
 
@@ -64,7 +64,7 @@ persistence:
 
 Where:
 
-* `pinExistingSecret` - A K8s secret which includes the **HSM** pin, the secret key must be `pin`.
+* `pinExistingSecret` - A Kubernetes Secret which includes the **HSM** pin, the secret key must be `pin`.
 
 * `pin` - The **HSM** PIN for login, for example a `user:pass` or `wwwww-xxxx-yyyy-zzzz`.
 
@@ -103,4 +103,4 @@ Where:
 
 * `hsm-key-label`: The label of the key inside the **HSM**.
 
-Save the output in a new file called `customer_fragments.json` in a directory of your choice. Once you have your `customer_fragments.json` file saved, you'll need to save it as a K8s secret to upload them to your Gateway as described [here](https://docs.akeyless.io/docs/advanced-chart-configuration#customer-fragment)
+Save the output in a new file called `customer_fragments.json` in a directory of your choice. Once you have your `customer_fragments.json` file saved, you'll need to save it as a Kubernetes Secret to upload them to your Gateway as described [here](https://docs.akeyless.io/docs/advanced-chart-configuration#customer-fragment)

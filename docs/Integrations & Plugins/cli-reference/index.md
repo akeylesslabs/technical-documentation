@@ -41,31 +41,31 @@ akeyless configure
 
 `--access-key`: Access Key
 
-`--access-type[=access_key]`: Access Type, options: (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s)
+`--access-type[=access_key]`: Access Type, options: `[access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s]`
 
-`--admin-password`: Password (relevant only for access-type=password)
+`--admin-password`: Password (relevant only for `access-type=password`)
 
-`--admin-email`: Email (relevant only for access-type=password)
+`--admin-email`: Email (relevant only for `access-type=password`)
 
-`--oidc-sp`: OIDC Service Provider (relevant only for access-type=oidc, inferred if empty), supported SPs: google, github
+`--oidc-sp`: OIDC Service Provider (relevant only for `access-type=oidc`, inferred if empty), supported SPs: google, github
 
 `--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for access-type=azure_ad)
 
 `--gcp-audience`: GCP audience to use in signed JWT (relevant only for access-type=gcp)
 
-`--gateway-url`: Gateway URL for the K8S authenticated (relevant only for access-type=k8s)
+`--gateway-url`: Gateway URL for the Kubernetes authenticated (relevant only for `access-type=k8s`)
 
-`--k8s-auth-config-name`: The K8S Auth config name (relevant only for access-type=k8s)
+`--k8s-auth-config-name`: The Kubernetes Auth config name (relevant only for `access-type=k8s`)
 
-`--k8s-token-path[=/var/run/secrets/kubernetes.io/serviceaccount/token]`: An optional path to a projected service account token inside the pod, for use instead of the default service account token (relevant only for access-type=k8s)
+`--k8s-token-path[=/var/run/secrets/kubernetes.io/serviceaccount/token]`: An optional path to a projected service account token inside the pod, for use instead of the default service account token (relevant only for `access-type=k8s`)
 
-`--cert-file-name`: Name of the certificate file to use (relevant only for access-type=cert)
+`--cert-file-name`: Name of the certificate file to use (relevant only for `access-type=cert`)
 
-`--cert-data`: Certificate data encoded in Base64. Used if file was not provided. (relevant only for access-type=cert in Curl Context)
+`--cert-data`: Certificate data encoded in Base64. Used if file was not provided. (relevant only for `access-type=cert` in Curl Context)
 
-`--key-file-name`: Name of the private key file to use (relevant only for access-type=cert)
+`--key-file-name`: Name of the private key file to use (relevant only for `access-type=cert`)
 
-`--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for access-type=cert in Curl Context)
+`--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for `access-type=cert` in Curl Context)
 
 ### `Delete-item`
 

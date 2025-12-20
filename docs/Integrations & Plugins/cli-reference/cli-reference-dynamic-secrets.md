@@ -901,9 +901,9 @@ akeyless dynamic-secret create k8s \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-cluster-endpoint`: The K8s cluster endpoint
+`--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint
 
-`--secure-access-dashboard-url`: The K8s dashboard url
+`--secure-access-dashboard-url`: The Kubernetes dashboard url
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
@@ -2542,7 +2542,7 @@ akeyless dynamic-secret update k8s \
 
 `--k8s-namespace[=default]`: Kubernetes Namespace where the ServiceAccount exists
 
-`--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed K8s namespaces for the generated ServiceAccount (relevant only for `k8s-service-account-type=dynamic`)
+`--k8s-allowed-namespaces[=*]`: Comma-separated list of allowed Kubernetes Namespaces for the generated ServiceAccount (relevant only for `k8s-service-account-type=dynamic`)
 
 `--k8s-predefined-role-name`: The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for `k8s-service-account-type=dynamic`)
 
@@ -2562,7 +2562,7 @@ akeyless dynamic-secret update k8s \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-cluster-endpoint`: The K8s cluster endpoint
+`--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
@@ -2574,7 +2574,7 @@ akeyless dynamic-secret update k8s \
 
 `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
 
-`--secure-access-dashboard-url`: The K8s dashboard url
+`--secure-access-dashboard-url`: The Kubernetes dashboard url
 
 ### `ldap`
 

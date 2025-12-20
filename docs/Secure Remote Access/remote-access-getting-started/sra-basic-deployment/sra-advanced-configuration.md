@@ -89,7 +89,7 @@ config:
       existingSecret: ""
 ```
 
-To authenticate using an explicit **AWS Key** provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **K8s Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
+To authenticate using an explicit **AWS Key** provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **Kubernetes Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
 
 To store local recordings inside your Bastion server, set the `KeepLocalRecording` with `true`, session recordings will be stored inside the bastion under `/home/akeyless/recordings`.
 

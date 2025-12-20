@@ -78,107 +78,107 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
 1. Add the Akeyless Kubernetes Injector Helm repository from [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-k8s-secrets-injection) and update your Helm repositories.
 
-```shell CLI
-helm repo add akeyless https://akeylesslabs.github.io/helm-charts
-helm repo update
-```
+    ```shell CLI
+    helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+    helm repo update
+    ```
 
 2. Fetch the **values.yaml** file locally:
 
-```shell CLI
-helm show values akeyless/akeyless-secrets-injection > values.yaml
-```
+    ```shell CLI
+    helm show values akeyless/akeyless-secrets-injection > values.yaml
+    ```
 
-Modify the following values under the `env` section as follows:
+    Modify the following values under the `env` section as follows:
 
-* Set `AKEYLESS_ACCESS_ID` to the Access ID of the Auth Method with access to the secret.
+    * Set `AKEYLESS_ACCESS_ID` to the Access ID of the Auth Method with access to the secret.
 
-* Set `AKEYLESS_ACCESS_TYPE` to `k8s`. Or with any other supported [Authentication Methods for Kubernetes](https://docs.akeyless.io/docs/auth-meth-k8s).
+    * Set `AKEYLESS_ACCESS_TYPE` to `k8s`. Or with any other supported [Authentication Methods for Kubernetes](https://docs.akeyless.io/docs/auth-meth-k8s).
 
-* Set `AKEYLESS_K8S_AUTH_CONF_NAME` with your Gateway Kubernetes Auth name. Relevant **only** for Access type of `k8s`.
+    * Set `AKEYLESS_K8S_AUTH_CONF_NAME` with your Gateway Kubernetes Auth name. Relevant **only** for Access type of `k8s`.
 
-* Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
+    * Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
 
-* Optional `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list).
+    * Optional `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list).
 
-* Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
+    * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
 
-* `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
+    * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
 
-* Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
+    * Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
 
-* Optional `INIT_RUN_AS_USER`: To apply a [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to your init container, set the following environment variable, `INIT_RUN_AS_USER: "id=65534"`.
+    * Optional `INIT_RUN_AS_USER`: To apply a [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to your init container, set the following environment variable, `INIT_RUN_AS_USER: "id=65534"`.
 
-```yaml
- restartRollout:
-  enabled: false
-  interval: 1m
-  
-env:
-  AKEYLESS_ACCESS_ID: "<AccessID>"
-  AKEYLESS_ACCESS_TYPE: "k8s"
-  AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_Auth_Name"
-  AKEYLESS_API_GW_URL: "https://Your-Gateway-URL:8000/api/v1" 
- # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
- # AKEYLESS_IGNORE_CACHE: "enable"
-```
+    ```yaml
+    restartRollout:
+    enabled: false
+    interval: 1m
+    
+    env:
+    AKEYLESS_ACCESS_ID: "<AccessID>"
+    AKEYLESS_ACCESS_TYPE: "k8s"
+    AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_Auth_Name"
+    AKEYLESS_API_GW_URL: "https://Your-Gateway-URL:8000/api/v1" 
+    # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
+    # AKEYLESS_IGNORE_CACHE: "enable"
+    ```
 
-> 👍 Note
->
-> 1. When working with Red Hat OpenShift, enable the OpenShift flag in the **values.yaml** chart file: `openshiftEnabled: true`
->
-> 2. Injecting secrets into the Namespace where the `k8s injector` plugin is installed is unsupported.
+    > 👍 Note
+    >
+    > 1. When working with Red Hat OpenShift, enable the OpenShift flag in the **values.yaml** chart file: `openshiftEnabled: true`
+    >
+    > 2. Injecting secrets into the Namespace where the `k8s injector` plugin is installed is unsupported.
 
-3. On your K8s cluster, create and label a Namespace for Akeyless.
+3. On your Kubernetes cluster, create and label a Namespace for Akeyless.
 
-```shell CLI
-kubectl create namespace akeyless
-kubectl label namespace akeyless name=akeyless
-```
+    ```shell CLI
+    kubectl create namespace akeyless
+    kubectl label namespace akeyless name=akeyless
+    ```
 
-Alternatively, for Red Hat OpenShift:
+    Alternatively, for Red Hat OpenShift:
 
-```shell CLI
-oc create namespace akeyless
-oc label namespace akeyless name=akeyless
-```
+    ```shell CLI
+    oc create namespace akeyless
+    oc label namespace akeyless name=akeyless
+    ```
 
 4. Deploy the Helm chart to the selected Namespace.
 
-```shell CLI
-helm install injector akeyless/akeyless-secrets-injection --namespace akeyless -f values.yaml
-```
+    ```shell CLI
+    helm install injector akeyless/akeyless-secrets-injection --namespace akeyless -f values.yaml
+    ```
 
 5. Validate the deployment state.
 
-```shell CLI
-kubectl get all -n akeyless
-```
+    ```shell CLI
+    kubectl get all -n akeyless
+    ```
 
-Alternatively, for Red Hat OpenShift:
+    Alternatively, for Red Hat OpenShift:
 
-```text CLI
-oc get all -n akeyless
-```
+    ```text CLI
+    oc get all -n akeyless
+    ```
 
-The following is an example of the output:
+    The following is an example of the output:
 
-```shell CLI
-kubectl get all -n akeyless
+    ```shell CLI
+    kubectl get all -n akeyless
 
-NAME                                                        READY      STATUS         RESTARTS     AGE
-pod/injector-akeyless-secrets-injection-77c857d496-r5xth         1/1        Running        1 (73s ago)  1d
-pod/injector-akeyless-secrets-injection-85c857e421-x6opa         1/1        Running        1 (73s ago)  1d
+    NAME                                                        READY      STATUS         RESTARTS     AGE
+    pod/injector-akeyless-secrets-injection-77c857d496-r5xth         1/1        Running        1 (73s ago)  1d
+    pod/injector-akeyless-secrets-injection-85c857e421-x6opa         1/1        Running        1 (73s ago)  1d
 
-NAME                                                        TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)   AGE
-service/injector-akeyless-secrets-injection                      ClusterIP  10.97.228.133  <none>       443/TCP   1d
+    NAME                                                        TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)   AGE
+    service/injector-akeyless-secrets-injection                      ClusterIP  10.97.228.133  <none>       443/TCP   1d
 
-NAME                                                        READY      UP-TO-DATE     AVAILABLE    AGE
-deployment.apps/injector-akeyless-secrets-injection              2/2        2              2            1d
+    NAME                                                        READY      UP-TO-DATE     AVAILABLE    AGE
+    deployment.apps/injector-akeyless-secrets-injection              2/2        2              2            1d
 
-NAME                                                        DESIRED    CURRENT        READY        AGE
-replicaset.apps/injector-akeyless-secrets-injection-77c857d496   2          2              2           1d
-```
+    NAME                                                        DESIRED    CURRENT        READY        AGE
+    replicaset.apps/injector-akeyless-secrets-injection-77c857d496   2          2              2           1d
+    ```
 
 ## Launch an Application
 
@@ -1061,15 +1061,15 @@ When you are working with a GKE cluster, make sure that port **8443** is opened 
 
 1. Review the firewall rule for access:
 
-```shell CLI
-gcloud compute firewall-rules list
-```
+    ```shell CLI
+    gcloud compute firewall-rules list
+    ```
 
 2. Replace the existing rule and allow access:
 
-```shell CLI
-gcloud compute firewall-rules update <firewall-rule-name> --allow tcp:10250,tcp:443,tcp:8443
-```
+    ```shell CLI
+    gcloud compute firewall-rules update <firewall-rule-name> --allow tcp:10250,tcp:443,tcp:8443
+    ```
 
 ## Tutorial
 

@@ -105,10 +105,10 @@ spec:
       description: 'Azure Active Directory ObjectId (relevant only for access-type=azure_ad)'
       default: ''
     k8s-service-account:
-      description: 'The K8S service account token'
+      description: 'The Kubernetes ServiceAccount token'
       default: ''
     k8s-auth-config-name:
-      description: 'The K8S Auth config name (relevant only for access-type=k8s)'
+      description: 'The Kubernetes Auth config name (relevant only for `access-type=k8s`)'
       default: ''
     gateway-ca-cert:
       description: 'The CA certificate for the authentication to gateway'

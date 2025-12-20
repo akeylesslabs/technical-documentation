@@ -77,6 +77,6 @@ Let's set up remote access to the web application from the Akeyless Console. If 
 
 ### Secure Web Browsing (Isolated)
 
-Secure Web Browsing available for applications any web application, includes, self managed K8s dashboard URL, AWS and Azure Portal, those application can be accessed in isolated mode. This method adds an extra layer of security in the usage of credentials injection. This mode requires A [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+Secure Web Browsing available for applications any web application, includes, self managed Kubernetes dashboard URL, AWS and Azure Portal, those application can be accessed in isolated mode. This method adds an extra layer of security in the usage of credentials injection. This mode requires A [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 All secrets which have **Secure Web Browsing** option enabled are marked with a badge in the Akeyless Secure Remote Access Portal.

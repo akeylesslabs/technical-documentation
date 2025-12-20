@@ -168,7 +168,7 @@ cachingConf:
 
 ## Working With Kubernetes Secrets
 
-To provide the settings of your Gateway deployment directly from your local K8s secrets store, you can set the following settings with the corresponding `Kubernetes Secrets names`:
+To provide the settings of your Gateway deployment directly from your local Kubernetes SecretsStore, you can set the following settings with the corresponding `Kubernetes Secrets names`:
 
 * `admin-access-id`
 * `admin-access-key`
