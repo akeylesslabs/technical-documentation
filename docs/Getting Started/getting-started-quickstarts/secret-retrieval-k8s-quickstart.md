@@ -61,7 +61,7 @@ _Sample File Section_:
 env:
   AKEYLESS_URL: "https://vault.akeyless.io"
   AKEYLESS_ACCESS_ID: "p-h8kyauyqvow2am" 
-  AKEYLESS_ACCESS_TYPE: "api_key"  # azure_ad/aws_iam/api_key/k8s
+  AKEYLESS_ACCESS_TYPE: "api_key" # azure_ad/aws_iam/api_key/k8s
   
  # AKEYLESS_API_GW_URL: "https://api-gw-url"
  # AKEYLESS_POD_ACCESS_PATH: "<location-to-access-secrets-per-pod-name>"

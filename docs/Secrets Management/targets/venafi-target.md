@@ -33,7 +33,7 @@ next:
 
      * **Base URL:** Base URL of the Venafi Cloud environment (Default is [https://venafi.cloud/](https://venafi.cloud/)).
 
-   * For  **Trust Protection Platform** set the following:
+   * For **Trust Protection Platform** set the following:
 
      * **Access Token:** Venafi Access Token to use to access the TPP environment
 

@@ -112,7 +112,7 @@ Where:
 
 `allowed-domains`: List of allowed-domains.
 
-`allow-subdomains`:  whether subdomains are allowed or not.
+`allow-subdomains`: whether subdomains are allowed or not.
 
 `-user-ttl`: User TTL.
 

@@ -16,11 +16,11 @@ next:
 ---
 ## Overview
 
-The Akeyless Kubernetes Secrets Injector plugin enables Kubernetes applications and workloads to use [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-storage)  and [USC](https://docs.akeyless.io/docs/universal-secrets-connector) sourced from the Akeyless Platform.
+The Akeyless Kubernetes Secrets Injector plugin enables Kubernetes applications and workloads to use [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets), and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets as well as [Certificates](https://docs.akeyless.io/docs/certificate-storage) and [USC](https://docs.akeyless.io/docs/universal-secrets-connector) sourced from the Akeyless Platform.
 
 This injector leverages the Kubernetes `MutatingAdmissionWebhook` to intercept and augment specifically annotated pod configurations for secrets injection. By doing so, the user benefits as the applications remain ״Akeyless unaware״ as the secrets are stored either as an **environment variable** or as a file at a **filesystem path** in their container.
 
-Before the application starts, the injector deploys an **init** container to fetch and inject secrets at pod start-up, after which the init-container shuts down. To apply an automatic [rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/) to your deployments upon **any** change to your secrets, you can use the Injector with restart-rollout mode, which can track any changes of [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and  [Certificates](https://docs.akeyless.io/docs/certificate-storage).
+Before the application starts, the injector deploys an **init** container to fetch and inject secrets at pod start-up, after which the init-container shuts down. To apply an automatic [rollout restart](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/) to your deployments upon **any** change to your secrets, you can use the Injector with restart-rollout mode, which can track any changes of [Static](https://docs.akeyless.io/docs/static-secrets), [Rotated](https://docs.akeyless.io/docs/rotated-secrets) and [Certificates](https://docs.akeyless.io/docs/certificate-storage).
 
 If the application consumes secrets which regularly change, an annotation can be used to deploy an additional **Sidecar** container which runs alongside the application to monitor changes in secrets. The **Sidecar** tracks and updates secrets within injected files inside the pods, according to specifically annotated pod configurations, and will remain up for the entire application lifecycle. Relevant for cases where the app can watch for live changes in files.
 
@@ -47,7 +47,7 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 
 ### Create a Secret in Akeyless
 
-For example, the following command creates a static secret called **my_k8s_secret** inside  **K8s** folder.
+For example, the following command creates a static secret called **my_k8s_secret** inside **K8s** folder.
 
 ```shell Akeyless CLI
 akeyless create-secret --name /K8s/my_k8s_secret --value myPassword
@@ -99,15 +99,15 @@ Modify the following values under the `env` section as follows:
 
 * Set `AKEYLESS_API_GW_URL` with the URL of your Gateway API v1 endpoint: `/8000/api/v1` or port `8080`.
 
-* Optional  `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list).
+* Optional `AKEYLESS_CRASH_POD_ON_ERROR` Upon any failure, a pod that tries to fetch a secret and fails will crash. By default this option is disabled. Can be controlled globally or at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list).
 
-* Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`.  To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
+* Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
 
 * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
 
-* Optional `AKEYLESS_IGNORE_CACHE`:  to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
+* Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
 
-* Optional `INIT_RUN_AS_USER`: To apply a [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to your init container, set the following environment variable,  `INIT_RUN_AS_USER: "id=65534"`.
+* Optional `INIT_RUN_AS_USER`: To apply a [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to your init container, set the following environment variable, `INIT_RUN_AS_USER: "id=65534"`.
 
 ```yaml
  restartRollout:
@@ -194,7 +194,7 @@ Enable the plugin under the `annotations` section, in your app deployment file:
 akeyless/enabled: "true"
 ```
 
-To inject your secret into your pod environment variable during the `init` phase, the value of your `env` should be set with  `akeyless:/Path/to/secret`.
+To inject your secret into your pod environment variable during the `init` phase, the value of your `env` should be set with `akeyless:/Path/to/secret`.
 
 The following example demonstrates Akeyless secret injection as an **Environment Variable** into an alpine deployment:
 
@@ -378,7 +378,7 @@ kubectl apply -f MySQLWordPress.yaml
 kubectl apply -f Wordpress.yaml
 ```
 
-Another example demonstrates fetching secret specific versions for example `version=2` of the secret `my_k8s_secret` in the `K8s` folder,  decode in Base64:
+Another example demonstrates fetching secret specific versions for example `version=2` of the secret `my_k8s_secret` in the `K8s` folder, decode in Base64:
 
 ```yaml
 - name:  MY_SECRET
@@ -399,7 +399,7 @@ Alternatively, you can parse the entire `JSON` keys automatically into environme
   value: 'akeyless:/K8s/secret-json|parse_json_secret=true'        
 ```
 
-This will create an environment variable per **each** key that exists within the `JSON`  using the following format:`MY_JSON_SECRET_JSON_KEY_NAME`.
+This will create an environment variable per **each** key that exists within the `JSON` using the following format:`MY_JSON_SECRET_JSON_KEY_NAME`.
 
 To create the environment variables without the prefix you can use the `parse_json_without_prefix` flag instead.
 
@@ -566,7 +566,7 @@ kubectl apply -f Injectfile.yaml
 
 To keep track of secret changes while reflecting them into your pods during their lifetime, you can use the **Sidecar** mode, for example, while working with **Dynamic** or **Rotated** secrets.
 
-Enable the plugin under the `annotations` section, in your app deployment file and enable the sidecar mode  by adding the following annotations:
+Enable the plugin under the `annotations` section, in your app deployment file and enable the sidecar mode by adding the following annotations:
 
 ```yaml
 akeyless/enabled: "true"

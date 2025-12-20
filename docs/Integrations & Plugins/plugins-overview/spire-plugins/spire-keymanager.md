@@ -60,7 +60,7 @@ akeyless set-role-rule --role-name /Dev/Spire-Server-Role \
 
 Log into the console using a Gateway admin account, navigate to the **Gateways** tab, and choose the relevant **Gateway**.
 
-Click on **Access Permissions** and click on  **New**:
+Click on **Access Permissions** and click on **New**:
 
 Give it a meaningful **Name**, choose the **Auth Method**, and click next.
 
@@ -120,7 +120,7 @@ Where:
 
 * `plugin_checksum` - sha256 of the binary.
 
-* `akeyless_gateway_url` -  Akeyless Gateway URL API v2 endpoint.
+* `akeyless_gateway_url` - Akeyless Gateway URL API v2 endpoint.
 
 * `access_id` - The **Auth Method** `AccessID`
 
@@ -134,7 +134,7 @@ For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as 
 
 * `k8s_auth_config_name`- K8s Auth Config name as created under your Gateway
 
-* `gcp_audience`-  The audience to verify the JWT received by the client. By default, `akeyless.io`
+* `gcp_audience`- The audience to verify the JWT received by the client. By default, `akeyless.io`
 
 * `azure_object_id` - Optional for Azure, `objectID`
 

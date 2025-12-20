@@ -114,7 +114,7 @@ akeyless rotated-secret create aws \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--secure-access-aws-account-id`: The **AWS account ID**
 
@@ -156,7 +156,7 @@ akeyless rotated-secret create azure \
 
 `--storage-account-key-name`: The name of the Storage Account key to rotate [`key1`/`key2`/`kerb1`/`kerb2`] (relevant to `azure-storage-account`)
 
-`--username`:  The user principal name to rotate his password (relevant only for `rotator-type`=`password`)
+`--username`: The user principal name to rotate his password (relevant only for `rotator-type`=`password`)
 
 `--explicitly-set-sa[=false]`: If set, explicitly provide the Storage Account details [`true`/`false`]
 
@@ -289,7 +289,7 @@ akeyless rotated-secret create custom \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -572,7 +572,7 @@ akeyless rotated-secret create mongodb \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
@@ -630,7 +630,7 @@ akeyless rotated-secret create mssql \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--secure-access-db-schema`: The DB scheme
 
@@ -690,7 +690,7 @@ akeyless rotated-secret create mysql \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `-t, --tag`: Add tags attached to this object. To specify multiple tags use the argument multiple times: `--tag Tag1` `-t Tag2`
 
@@ -1012,7 +1012,7 @@ akeyless rotated-secret create ssh \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1185,7 +1185,7 @@ akeyless rotated-secret update aws \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--secure-access-aws-account-id`: The **AWS account ID**
 
@@ -1350,7 +1350,7 @@ akeyless rotated-secret update custom \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -1633,7 +1633,7 @@ akeyless rotated-secret update mongodb \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use the argument multiple times: `--add-tag Tag1` `--add-tag Tag2`
 
@@ -1648,7 +1648,7 @@ akeyless rotated-secret update mongodb \
 #### Usage
 
 ```shell
-akeyless rotated-secret update  mssql \
+akeyless rotated-secret update mssql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
@@ -1690,7 +1690,7 @@ akeyless rotated-secret update  mssql \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use the argument multiple times: `--add-tag Tag1` `--add-tag Tag2`
 
@@ -1747,7 +1747,7 @@ akeyless rotated-secret update mysql \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use the argument multiple times: `--add-tag Tag1` `--add-tag Tag2`
 
@@ -2066,7 +2066,7 @@ akeyless rotated-secret update ssh \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends [`true`/`false`]
 
-`--secure-access-bastion-issuer`:  Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
+`--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
 

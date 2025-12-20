@@ -540,7 +540,7 @@ akeyless target create godaddy \
 
 `-u, --imap-username`: **Required**, Username to access the IMAP service
 
-`-p, --imap-password`:  **Required**, Password to access the IMAP service
+`-p, --imap-password`: **Required**, Password to access the IMAP service
 
 `--imap-fqdn`: **Required**, FQDN of the IMAP service
 
@@ -793,9 +793,9 @@ akeyless target create salesforce \
 
 `--app-private-key-data`: Base64-encoded PEM of the connected app private key (relevant for JWT auth only)
 
-`-p, --password`: The password of the user attached to the OAuth2 app used for connecting to Salesforce  (required for user-password flow)
+`-p, --password`: The password of the user attached to the OAuth2 app used for connecting to Salesforce (required for user-password flow)
 
-`-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
+`-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce (required for user-password flow)
 
 `--ca-cert-file-name`: Name of a file containing a PEM certificate to use when uploading new key to Salesforce
 
@@ -939,7 +939,7 @@ akeyless target create windows \
 
 `-n, --name`: **Required**, Name for the Windows target
 
-`-s, --hostname`: **Required**,  Server hostname or IP Address
+`-s, --hostname`: **Required**, Server hostname or IP Address
 
 `-u, --username`: **Required**, Privileged username
 
@@ -987,7 +987,7 @@ akeyless target create zerossl \
 
 `--imap-fqdn`: **Required** IMAP FQDN, for example: `imap.gmail.com`
 
-`--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`,  `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com`
+`--imap-validation-email`: The domain owner email address that certificate validation mail will be sent to, needs to be one of the following: `admin@domain.com`, `administrator@domain.com`, `hostmaster@domain.com`, `postmaster@domain.com`, `webmaster@domain.com`
 
 `-timeout[=5m]-`: Timeout for certificate validation.
 
@@ -1693,7 +1693,7 @@ akeyless target update-godaddy-target \
 
 `-u, --imap-username`: **Required**, Username to access the IMAP service
 
-`-p, --imap-password`:  **Required**, Password to access the IMAP service
+`-p, --imap-password`: **Required**, Password to access the IMAP service
 
 `--imap-fqdn`: **Required**, FQDN of the IMAP service
 
@@ -1939,9 +1939,9 @@ akeyless target update salesforce \
 
 `--app-private-key-data`: Base64-encoded PEM of the connected app private key (relevant for JWT auth only)
 
-`-p, --password`: The password of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
+`-p, --password`: The password of the user attached to the oauth2 app used for connecting to Salesforce (required for user-password flow)
 
-`-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow)
+`-o, --security-token`: The security token of the user attached to the oauth2 app used for connecting to Salesforce (required for user-password flow)
 
 `--ca-cert-file-name`: Name of a file containing a PEM certificate to use when uploading new key to Salesforce
 

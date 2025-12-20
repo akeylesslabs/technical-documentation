@@ -49,7 +49,7 @@ akeyless update-rotation-settings --name &lt;key name&gt; --auto-rotate=&lt;true
 
 Where:
 
-* `name`:  The key name
+* `name`: The key name
 * `auto-rotate`: Select if you wish to auto-rotate the key, the default is false.
 * `rotation-interval`: Desired rotation interval, in days.
 

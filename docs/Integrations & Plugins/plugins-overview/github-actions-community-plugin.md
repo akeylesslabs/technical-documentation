@@ -45,7 +45,7 @@ The following Authentication Methods can be used for authentication:
 Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** using the CLI:
 
 ```shell
-akeyless create-auth-method-oauth2 --name /Dev/GitHubAuth  \
+akeyless create-auth-method-oauth2 --name /Dev/GitHubAuth \
 --jwks-uri https://token.actions.githubusercontent.com/.well-known/jwks \
 --unique-identifier repository \
 --force-sub-claims
@@ -55,9 +55,9 @@ Where:
 
 * `--jwks-uri` - The URL to the `JWKS` that contains the public keys that would be used for JWT verification.
 
-* `--unique identifier`, A unique ID, usually a value such as `email`, `username` or `upn` for example. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](https://docs.akeyless.io/docs/sub-claims)  that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization.
+* `--unique identifier`, A unique ID, usually a value such as `email`, `username` or `upn` for example. Whenever a user logs in with a token, these authentication types issue [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) that contains details uniquely identifying that user. This sub-claim includes a key containing the ID value you configured and is used to distinguish between users from within the same organization.
 
-* `--force-sub-claims` -  Enforce role association to include sub-claims.
+* `--force-sub-claims` - Enforce role association to include sub-claims.
 
 Create an **[Access Role](https://docs.akeyless.io/docs/rbac)**:
 
@@ -75,7 +75,7 @@ Attach your `OAuth 2.0 / JWT` **Authentication Method** to the **Access Role** t
 
 ```shell
 akeyless assoc-role-am --role-name /Dev/GitHubRole \
---am-name /Dev/GitHubAuth  \
+--am-name /Dev/GitHubAuth \
 --sub-claims repository=<octo-org/octo-repo>
 ```
 
@@ -93,11 +93,11 @@ Create an [AWS IAM](https://docs.akeyless.io/docs/aws-iam) **Authentication Meth
 
 ```shell
 akeyless create-auth-method-aws-iam \
---name /Dev/AWSAuth  \
+--name /Dev/AWSAuth \
 --bound-aws-account-id <AWS Account ID>
 ```
 
-Create an  [Access Role](https://docs.akeyless.io/docs/rbac):
+Create an [Access Role](https://docs.akeyless.io/docs/rbac):
 
 ```shell
 akeyless create-role --name /Dev/AWSRole
@@ -122,7 +122,7 @@ akeyless set-role-rule --role-name /Dev/AWSRole \
 
 Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners):
 
-* In GitHub - navigate to the main page of the repository and select  **Settings > Actions > Runners > New self-hosted runner**.
+* In GitHub - navigate to the main page of the repository and select **Settings > Actions > Runners > New self-hosted runner**.
 * Select the operating system and architecture of your self-hosted-runner machine.
 * Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
 * Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.

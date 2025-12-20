@@ -40,7 +40,7 @@ Where:
 
 `venafi-api-key`: Venafi API Key.
 
-`venafi-zone`:  The Venafi zone to use when issuing new certificates (policies will be pulled from here) - for example: `<Application_Name>/<Issuing_template_name>`
+`venafi-zone`: The Venafi zone to use when issuing new certificates (policies will be pulled from here) - for example: `<Application_Name>/<Issuing_template_name>`
 
 ### Akeyless Issuer
 
@@ -96,7 +96,7 @@ Where:
 
 `venafi-api-key`: Venafi-API-Key.
 
-`venafi-zone`:  Venafi zone.
+`venafi-zone`: Venafi zone.
 
 `allowed-domains:` List of allowed-domains.
 

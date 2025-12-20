@@ -89,7 +89,7 @@ Where:
 - `custom-payload`: A secret payload to be sent with a rotation request.
 
 - `custom-password-policy[=false]`: A boolean flag to set the policy for the rotated password, the endpoint must provide a new password according to the following settings:
-  - `password-length`:  Password length.
+  - `password-length`: Password length.
   - `PasswordLowercaseChar`: A boolean flag specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z).
   - `PasswordUppercaseChar`: A boolean flag specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z).
   - `PasswordRequireNumbers`: A boolean flag specifies whether the generated temporary password must contain at least one numeric character (0 to 9)

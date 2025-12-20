@@ -103,7 +103,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 
 ```yaml
 target_log_type="aws_s3"
-target_s3_folder_prefix=""  # default value "akeyless-log"
+target_s3_folder_prefix="" # default value "akeyless-log"
 target_s3_bucket_name=""
 target_s3_aws_access_id=""
 target_s3_aws_access_key=""

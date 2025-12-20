@@ -112,7 +112,7 @@ To use Akeyless Connect you need:
 
     `BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
 
-    `BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra`  cluster service port.
+    `BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra` cluster service port.
 
     **Optional** when working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
 
@@ -138,7 +138,7 @@ To use Akeyless Connect you need:
     -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
       -v, --via-bastion                      Bastion host, which the connection will go through. e.g.: bastion-host:port. 
       -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified will be taken from ~/.akeyless-connect.rc 
-      -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
+      -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read. The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
       -n, --name                             Path to Secret, based on the required connection
           --ssh-extra-args                   Additional SSH arguments (except -i)
           --bastion-ctrl-proto[=http]        Bastion API Protocol [http/https]

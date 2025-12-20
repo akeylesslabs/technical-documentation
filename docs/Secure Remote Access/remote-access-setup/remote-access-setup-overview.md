@@ -19,7 +19,7 @@ The Remote Access solution can be deployed in one of two methods:
 
 In this section, we will cover how to deploy Remote Access on each solution along with advanced configuration options.
 
-We will also cover deploying the [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s)  component for connecting to web application targets from within an isolated browser.
+We will also cover deploying the [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s) component for connecting to web application targets from within an isolated browser.
 
 Other features in this section include:
 

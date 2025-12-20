@@ -235,7 +235,7 @@ akeyless event-forwarder create webhook \
 
 `--client-cert-data`: `Base64-encoded PEM certificate`, relevant for `certificate` auth-type
 
-`--private-key-file-name`: Name of a file containing a `PEM RSA Private Key`, relevant for `certificate`  auth-type
+`--private-key-file-name`: Name of a file containing a `PEM RSA Private Key`, relevant for `certificate` auth-type
 
 `--private-key-data`: `Base64-encoded PEM RSA Private Key`, relevant for `certificate` auth-type
 

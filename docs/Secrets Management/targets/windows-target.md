@@ -61,7 +61,7 @@ You can find the complete list of parameters for this command at the [CLI Refere
 
 ## Troubleshooting
 
-While facing connection errors, make sure that WinRM is enabled and that the relevant port is opened  i.e. `5985` for WinRM or `5986` for winRM over TLS and not blocked by a Firewall rule.
+While facing connection errors, make sure that WinRM is enabled and that the relevant port is opened i.e. `5985` for WinRM or `5986` for winRM over TLS and not blocked by a Firewall rule.
 
 **Check WinRM Service Status**:
 

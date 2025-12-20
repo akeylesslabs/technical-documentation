@@ -18,7 +18,7 @@ next:
 
 Some of Vault’s plugins support only AppRole authentication.
 
-For those types of plugins, you’ll need to specify `role_id` & `secret_id`, for using HVP you’ll need to use `Access Id` &  `Access key` replacing `role_id` & `secret_id`correspondingly.
+For those types of plugins, you’ll need to specify `role_id` & `secret_id`, for using HVP you’ll need to use `Access Id` & `Access key` replacing `role_id` & `secret_id`correspondingly.
 
 For example, Vault AppRole authentication using HVP:
 
@@ -42,4 +42,4 @@ job:
       aud: https://gitlab.com
 ```
 
-set the `VAULT_AUTH_ROLE` with your Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods)  `Access ID`  and the `VAULT_AUTH_PATH` with `jwt`. In general, the Vault role should be set with your `Aceess ID`.
+set the `VAULT_AUTH_ROLE` with your Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID` and the `VAULT_AUTH_PATH` with `jwt`. In general, the Vault role should be set with your `Aceess ID`.

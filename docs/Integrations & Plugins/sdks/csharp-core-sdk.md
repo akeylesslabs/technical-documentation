@@ -62,7 +62,7 @@ Make sure to set your `Access Id` and `Access Key` in the relevant places. The r
 
 ### Using Cloud ID
 
-To work with a Cloud-based Auth,  Add the Akeyless [Cloud ID package](https://github.com/akeylesslabs/akeyless-netcore-cloud-id) for **C#** :
+To work with a Cloud-based Auth, Add the Akeyless [Cloud ID package](https://github.com/akeylesslabs/akeyless-netcore-cloud-id) for **C#** :
 
 ```csharp
 dotnet add package akeyless-dotnet-cloudid

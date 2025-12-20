@@ -36,7 +36,7 @@ Where:
 
 > 👍 Format restrictions
 >
-> Kubernetes & HashiCorp target enforces that secrets will be in a JSON format, meaning that a valid jq filter would be for example:  `{"password": .password}`
+> Kubernetes & HashiCorp target enforces that secrets will be in a JSON format, meaning that a valid jq filter would be for example: `{"password": .password}`
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#sync) section.
 
@@ -54,7 +54,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Format restrictions
 >
-> Kubernetes & HashiCorp target enforces that secrets will be in a JSON format, meaning that a valid jq filter would be for example:  `{"password": .password}`
+> Kubernetes & HashiCorp target enforces that secrets will be in a JSON format, meaning that a valid jq filter would be for example: `{"password": .password}`
 
 Click on **Save** to synchronize the rotated secret.
 

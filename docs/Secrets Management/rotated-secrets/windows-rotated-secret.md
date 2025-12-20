@@ -50,7 +50,7 @@ Where:
 >
 > Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](https://docs.akeyless.io/docs/windows-target) user is required to change the password on behalf of the Rotated Secret user.
 
-* `password-length`: **Optional**,  The user's password length.
+* `password-length`: **Optional**, The user's password length.
 * `rotator-type`: The type of credentials to be rotated. For [Windows Target](https://docs.akeyless.io/docs/windows-target), choose:
   * `password` - to rotate the Windows user password specified in the Rotated Secret.
   * `target` - to rotate the password for the user specified in the [Windows Target](https://docs.akeyless.io/docs/windows-target)

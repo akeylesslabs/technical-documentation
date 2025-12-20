@@ -83,7 +83,7 @@ helm repo update
 2. Install ESO (default configuration):
 
 ```shell
-helm install external-secrets external-secrets/external-secrets   --namespace external-secrets --create-namespace
+helm install external-secrets external-secrets/external-secrets --namespace external-secrets --create-namespace
 ```
 
 The ESO controller pods running in the `external-secrets` Namespace should now be running.
@@ -558,7 +558,7 @@ metadata:
 type: Opaque
 stringData:
   accessId: "p-xxxxx"
-  accessType: "azure_ad"   # Use Azure AD Auth Method
+  accessType: "azure_ad" # Use Azure AD Auth Method
   accessTypeParam: ""      # Required field; can be empty when binding via sub-claims
 ```
 

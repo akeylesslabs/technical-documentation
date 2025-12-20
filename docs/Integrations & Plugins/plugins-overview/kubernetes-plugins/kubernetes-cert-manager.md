@@ -16,7 +16,7 @@ next:
 
 The process of generating a certificate request from a Kubernetes cluster to Akeyless is divided into three steps:
 
-* Generating **Authentication Token** either using an [API Key](https://docs.akeyless.io/docs/api-key) or using [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) ServiceAccount token  -  This token will be used for authenticating to Akeyless.
+* Generating **Authentication Token** either using an [API Key](https://docs.akeyless.io/docs/api-key) or using [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) ServiceAccount token - This token will be used for authenticating to Akeyless.
 * Configuring an **Issuer** - A Kubernetes resource that represents the Certificate Authority (CA).
 * Configuring the **Certificate Signing Request (CSR)** - A file that contains the data for the certificate
 
@@ -44,7 +44,7 @@ kubectl create ns akeyless-cert-manager
 
 Using **Secretless Authentication** with a ServiceAccount, a temporary ServiceAccount token is created, **cert-manager** uses this ServiceAccount token to authenticate.
 
-In order to create the ServiceAccount token, edit a configuration file that will contain a  **ServiceAccount** with a **Role** and **Role Binding** allowing Kubernetes token creation:
+In order to create the ServiceAccount token, edit a configuration file that will contain a **ServiceAccount** with a **Role** and **Role Binding** allowing Kubernetes token creation:
 
 ```yaml k8s_sa.yaml
 apiVersion: v1
@@ -115,7 +115,7 @@ spec:
 
 Where:
 
-* `path` - The path to the [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) in Akeyless, where `/pki/sign/` is a **mandatory** prefix. In our example, the PKI Issuer name is  `Pki_Cert_Issuer` which is  located under `/dev/` folder
+* `path` - The path to the [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) in Akeyless, where `/pki/sign/` is a **mandatory** prefix. In our example, the PKI Issuer name is `Pki_Cert_Issuer` which is located under `/dev/` folder
 * `server` - The URL of the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) HVP endpoint `https://Your_Akeyless_GW_URL:8000/hvp` (or using your gateway URL at port 8200)
 * `role` - `<Access-ID..K8s Auth Config Name>` in Base64-encoded format. Note the Kubernetes Auth config name can be found in the Gateway config-manager (port 8000), under the "Kubernetes Auth" menu.
 
@@ -129,7 +129,7 @@ Create the Issuer:
 kubectl apply -f issuer.yaml
 ```
 
-At this stage, all the configuration for Kubernetes authentication is set and it is possible to proceed to the next step to  [create the certificate request](https://docs.akeyless.io/docs/kubernetes-cert-manager#create-a-certificate-request).
+At this stage, all the configuration for Kubernetes authentication is set and it is possible to proceed to the next step to [create the certificate request](https://docs.akeyless.io/docs/kubernetes-cert-manager#create-a-certificate-request).
 
 ### API Key Auth Method
 
@@ -185,9 +185,9 @@ spec:
 
 Where:
 
-* `path` - The path to the [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) in Akeyless, where `/pki/sign/` is a **mandatory** prefix, in our example, the PKI Issuer name is  `Pki_Cert_Issuer` which is  located under `/dev/` folder
+* `path` - The path to the [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) in Akeyless, where `/pki/sign/` is a **mandatory** prefix, in our example, the PKI Issuer name is `Pki_Cert_Issuer` which is located under `/dev/` folder
 * `server` - The URL of the Akeyless Gateway on port `8200`
-* `roleId` - `Access-ID`  of the **API Key** Auth Method
+* `roleId` - `Access-ID` of the **API Key** Auth Method
 
 Create the Issuer:
 

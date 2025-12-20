@@ -14,7 +14,7 @@ This page discusses the creation of GCP [Universal Secrets Connectors](https://d
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)  with **Read** permission on the target associated with the **USC**.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the target associated with the **USC**.
 * [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Secret Manager Admin](https://cloud.google.com/secret-manager/docs/access-control) role assigned, to allow selecting a KMS encryption key for the secret, add the following roles: [Cloud KMS Viewer](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.viewer) and [Cloud KMS CryptoKey Encrypter and Decrypter](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#cloudkms.cryptoKeyEncrypterDecrypter).
 
 ## Working With Universal Secrets Connector from the Console
@@ -94,7 +94,7 @@ The output should look as follows:
 To create a new secret in your USC, use the following command:
 
 ```shell
-akeyless usc create  --usc-name <USC name> --secret-id <secret id> --value <new secret value>
+akeyless usc create --usc-name <USC name> --secret-id <secret id> --value <new secret value>
 ```
 
 The main parameters are:
@@ -112,7 +112,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 To update an existing secret in your USC, use the following command:
 
 ```shell
-akeyless usc update  --usc-name <USC name> --secret-id <secret id> --value <new secret value>
+akeyless usc update --usc-name <USC name> --secret-id <secret id> --value <new secret value>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).

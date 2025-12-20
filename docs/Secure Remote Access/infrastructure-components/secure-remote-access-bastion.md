@@ -148,7 +148,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 ### API Key Authentication
 
-To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `accessID` and the matching `accessKey`  with a list of `allowedAccessIDs` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `accessID` and the matching `accessKey` with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -170,7 +170,7 @@ AWS IAM can be used in the following approaches:
 
 * Service Account IAM Role
 
-While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID`  as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -218,7 +218,7 @@ Use the existing IAM service account as provided in your [GCP GCE](https://docs.
 >
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
 >
-> To work with the GKE Workload Identity with `bounded rules`, please configure **only** the `Bound Service Accounts`  field in your [GCP Auth Method](https://docs.akeyless.io/docs/gcp-auth-method).
+> To work with the GKE Workload Identity with `bounded rules`, please configure **only** the `Bound Service Accounts` field in your [GCP Auth Method](https://docs.akeyless.io/docs/gcp-auth-method).
 
 Allow the Kubernetes ServiceAccount to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes ServiceAccount to act as the IAM service account.
 
@@ -245,7 +245,7 @@ kubectl annotate serviceaccount KSA_NAME \
 
 Set the relevant K8s `serviceAccountName` or leave it empty to use the `default` K8s Service Account, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes ServiceAccount.
 
-And set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `adminAccessId` and at least one another `Access ID` in the `allowedAccessIDs` list.
+And set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID` as your `adminAccessId` and at least one another `Access ID` in the `allowedAccessIDs` list.
 
 ```yaml values.yaml
 privilegedAccess:
@@ -287,7 +287,7 @@ Verify that both `ssh-sra-akeyless` and `web-sra-akeyless` pods are up and runni
 > 👍 Note
 >
 > Akeyless supports session termination, which can be configured as part of this chart deployment.
-> To enable session termination, please set your Gateway URL or your Okta\Keycloak  `apiURL` and `apiToken` under `sessionTermination` section.
+> To enable session termination, please set your Gateway URL or your Okta\Keycloak `apiURL` and `apiToken` under `sessionTermination` section.
 
 ## Upgrade SRA Bastion
 

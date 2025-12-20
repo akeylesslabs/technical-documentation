@@ -91,7 +91,7 @@ variables:
 
 akeyless:
   image: 
-    name:  akeyless/ci_base:latest-alpine
+    name: akeyless/ci_base:latest-alpine
   before_script:
     - export MY_SECRET=akeyless://path/to/secret # Static / Dynamic secret
     - export TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $CI_JOB_JWT_V2 --json --jq-expression='.token') 
@@ -110,7 +110,7 @@ akeyless:
    FIRST_ID_TOKEN:
     aud: https://gitlab.com
   image:
-    name:  akeyless/ci_base:latest-alpine
+    name: akeyless/ci_base:latest-alpine
   before_script:
     - export MY_SECRET=akeyless://gitlab/mySecret
     - export TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $FIRST_ID_TOKEN --json --jq-expression='.token')

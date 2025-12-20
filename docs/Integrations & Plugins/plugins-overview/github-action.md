@@ -32,7 +32,7 @@ jobs:
 
 Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners):
 
-* In GitHub - navigate to the main page of the repository and select  **Settings > Actions > Runners > New self-hosted runner**.
+* In GitHub - navigate to the main page of the repository and select **Settings > Actions > Runners > New self-hosted runner**.
 * Select the operating system and architecture of your self-hosted-runner machine.
 * Follow the instructions in the **Download** section to prepare a directory for the GitHub runner, and then download the runner.
 * Follow the instructions in the **Configure** section to configure the runner to connect to GitHub with a token GitHub generates for the runner.
@@ -56,7 +56,7 @@ You can store the `Access ID` as a GitHub variable inside the repository to use 
 
 In the following examples, instead of explicitly specifying the `Access ID` of the **Authentication Method** inside the workflow, we store it as a variable in the repository called `AKEYLESS_ACCESS_ID`.
 
-* On GitHub, navigate to the main page of the repository, and select **Settings > Secrets and variables > Actions > Variables tab >  New repository variable**.
+* On GitHub, navigate to the main page of the repository, and select **Settings > Secrets and variables > Actions > Variables tab > New repository variable**.
 * Enter the name for the variable (for example, `AKEYLESS_ACCESS_ID` ) and set the value to your Auth Method **Access ID**.
 * Select **Add Variable**.
 
@@ -157,7 +157,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
 For example, Create and Associate your Authentication Method with an Access Role to grant the relevant permissions within Akeyless.
 
 ```shell Oauth2.0
-akeyless create-auth-method-oauth2 --name /Dev/GitHubAuth  \
+akeyless create-auth-method-oauth2 --name /Dev/GitHubAuth \
 --jwks-uri https://token.actions.githubusercontent.com/.well-known/jwks \
 --unique-identifier repository \
 --force-sub-claims
@@ -175,7 +175,7 @@ Although this repository's workflows use placeholder values, it is still a real 
 
 > 👍 Zero-Knowledge Encryption
 >
-> If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint e.g.  `<https://Your_GW_URL:8000/api/v2>` (or using your gateway URL at port `8081`).
+> If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint e.g. `<https://Your_GW_URL:8000/api/v2>` (or using your gateway URL at port `8081`).
 
 ### Static Secrets Example
 
@@ -238,7 +238,7 @@ In this example, you will fetch an AWS Dynamic Secret from Akeyless, called `aws
           - name: "/path/to/dynamic/aws/secret"
             output-name: "aws_dynamic_secret"
         
-# ********* KEY TAKEAWAY  ********* #
+# ********* KEY TAKEAWAY ********* #
 # STEP 1 - Export Dynamic Secret's keys to env vars
     - name: Export Secrets to Environment
       run: |

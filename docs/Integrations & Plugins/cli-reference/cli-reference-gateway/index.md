@@ -33,9 +33,9 @@ akeyless add-gw-access-id \
 
 #### Flags
 
-`-c, --cluster-name`: **Required**,  The name of the updated cluster
+`-c, --cluster-name`: **Required**, The name of the updated cluster
 
-`-a, --access-id`: **Required**,  The `Access ID` to be able to access the gateway
+`-a, --access-id`: **Required**, The `Access ID` to be able to access the gateway
 
 `-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
 
@@ -75,9 +75,9 @@ akeyless gateway-create-allowed-access \
 
 #### Flags
 
-`-n, --name`: **Required**,  Allowed access name
+`-n, --name`: **Required**, Allowed access name
 
-`--access-id`: **Required**,  The `Access ID` to be attached to this allowed access
+`--access-id`: **Required**, The `Access ID` to be attached to this allowed access
 
 `--description`: Allowed access description
 
@@ -108,9 +108,9 @@ akeyless gateway-update-allowed-access \
 
 #### Flags
 
-`-n, --name`: **Required**,  Allowed access name
+`-n, --name`: **Required**, Allowed access name
 
-`--access-id`: **Required**,  The `Access ID` to be attached to this allowed access
+`--access-id`: **Required**, The `Access ID` to be attached to this allowed access
 
 `--new-name`: New allowed access name
 
@@ -140,7 +140,7 @@ akeyless delete-gateway-cluster \
 
 #### Flags
 
-`-c, --cluster-name`: **Required**,  Gateway Cluster, e.g. `acc-abcd12345678/p-123456789012/defaultCluster`
+`-c, --cluster-name`: **Required**, Gateway Cluster, e.g. `acc-abcd12345678/p-123456789012/defaultCluster`
 
 `--force`: Deletes cluster even if there is an active gateway or associated secrets. All Gateway secrets will be deleted
 

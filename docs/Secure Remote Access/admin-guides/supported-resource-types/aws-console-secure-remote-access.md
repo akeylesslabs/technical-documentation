@@ -62,7 +62,7 @@ akeyless rotated-secret update aws \
 where:
 
 * **secure-access-aws-account-id:** The AWS account ID, as defined in the dynamic secret.
-* **secure-access-aws-region:** Optional, only required to enable CLI access.  the AWS region the user is permitted to access.
+* **secure-access-aws-region:** Optional, only required to enable CLI access. the AWS region the user is permitted to access.
 * **secure-access-aws-native-cli:** Optional, specifies to use the native AWS CLI wrapper.
 * **secure-access-certificate-issuer:** Optional, only required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
 * **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.

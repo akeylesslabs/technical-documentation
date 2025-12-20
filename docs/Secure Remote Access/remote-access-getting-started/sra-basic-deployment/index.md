@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-Akeyless Secure Remote Access (SRA) is the Akeyless capability that enables controlled, auditable access to private infrastructure and resources  without exposing your environments to the public internet or relying on traditional VPN jump-host models. Delivered as part of the Akeyless Gateway deployment, SRA uses the Gateway as a secure access plane inside your target networks (cloud VPC/VNet, data center, Kubernetes, etc.), so users can reach protected resources through a centrally governed policy layer.
+Akeyless Secure Remote Access (SRA) is the Akeyless capability that enables controlled, auditable access to private infrastructure and resources without exposing your environments to the public internet or relying on traditional VPN jump-host models. Delivered as part of the Akeyless Gateway deployment, SRA uses the Gateway as a secure access plane inside your target networks (cloud VPC/VNet, data center, Kubernetes, etc.), so users can reach protected resources through a centrally governed policy layer.
 
 In this guide, we will deploy SRA using the most basic configuration on a Kubernetes cluster with an **existing Gateway**. If you do not already have a Gateway, please [deploy](https://docs.akeyless.io/docs/gateway-chart#/) one first.
 
@@ -13,7 +13,7 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
 * Akeyless Gateway deployed on [Kubernetes](https://docs.akeyless.io/docs/gateway-chart#/). If deploying the Kubernetes cluster on GKE, Autopilot mode is not supported for SRA.
 
-* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_`  username .
+* [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access with `session_` username .
 
 * Minimum 1 vCPU available with 2 GB RAM per resource. This can be explicitly specified inside the chart for the Zero Trust bastion `ztbConfig` section and the SSH bastion under `sshConfig`.
 
@@ -33,7 +33,7 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
   * **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
 
-  * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html). For **GKE** environment  the default service timeout is `30s`. Increase via [BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [Read more about the configuration](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration).
+  * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html). For **GKE** environment the default service timeout is `30s`. Increase via [BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [Read more about the configuration](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration).
 
   When using SSH sessions behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, so we recommend increasing it to a reasonably high value or even unlimited. [Read more about configuring Amazon ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
@@ -72,7 +72,7 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
 akeyless get-rsa-public --name /path/to/SSHSignerKey --json --jq-expression='.ssh' 
 ```
 
-2. Enable **Remote Access** on your Gateway, enable the `sra`  and add the public key of your SSH Cert Issuer:
+2. Enable **Remote Access** on your Gateway, enable the `sra` and add the public key of your SSH Cert Issuer:
 
 ```shell
 sra:

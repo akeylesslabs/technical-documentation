@@ -113,7 +113,7 @@ Where:
 
 * `access_id` - The Auth Method **Access ID**.  
 
-* `access_key` - Relevant only for  [API Key](https://docs.akeyless.io/docs/api-key) Auth Method.
+* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth Method.
 
 * `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Method.
 
@@ -123,7 +123,7 @@ The Notary project specified the [requirements](https://github.com/notaryproject
 
 > 📘 Note
 >
-> It is possible to work with Akeyless  [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)  to generate the certificates, the PKI Issuer must be set with the `Code Signing` flag, and `Key Usage List` of `critical,DigitalSignature`.
+> It is possible to work with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) to generate the certificates, the PKI Issuer must be set with the `Code Signing` flag, and `Key Usage List` of `critical,DigitalSignature`.
 
 Akeyless Supports both **EC** and **RSA** algorithms, run the following commands to create a key with a self signed certificate.
 
@@ -153,7 +153,7 @@ akeyless create-dfc-key -n CodeSign -a RSA2048 --generate-self-signed-certificat
 ### Set Notation Default Key
 
 ```shell
-notation key add  --plugin akeyless  --id /CodeSign --default Akeyless
+notation key add --plugin akeyless --id /CodeSign --default Akeyless
 ```
 
 Where:
@@ -176,7 +176,7 @@ For the simplicity of this example, the following steps will demonstrate the sim
 docker run -d -p 5001:5000 ghcr.io/oras-project/registry:v1.0.0-rc.4
 ```
 
-Use `docker build`  and `docker push` to build and push a sample image to your registry.
+Use `docker build` and `docker push` to build and push a sample image to your registry.
 
 ```shell
 docker build -t localhost:5001/net-monitor:v1 https://github.com/wabbit-networks/net-monitor.git#main

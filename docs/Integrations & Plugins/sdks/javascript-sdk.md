@@ -42,7 +42,7 @@ The Akeyless **JavaScript** SDK supports multiple [Authentication Methods](https
 
 ### Using Cloud ID
 
-To work with a Cloud-based Auth,  Add the Akeyless [Cloud ID library](https://github.com/akeylesslabs/akeyless-js-cloud-id) for **JavaScript** and set the relevant `access-type` based on your cloud provide, the following example uses `azure_ad`:
+To work with a Cloud-based Auth, Add the Akeyless [Cloud ID library](https://github.com/akeylesslabs/akeyless-js-cloud-id) for **JavaScript** and set the relevant `access-type` based on your cloud provide, the following example uses `azure_ad`:
 
 ```javascript
 const akeyless = require('akeyless')

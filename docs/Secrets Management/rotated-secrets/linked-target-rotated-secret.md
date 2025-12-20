@@ -12,7 +12,7 @@ next:
 ---
 A Rotated Secret that is associated with a [Linked Target](https://docs.akeyless.io/docs/linked-target) offers an easier way to manage automated password rotation for Local users with the same login credentials across different servers simultaneously.
 
-This type of Linked Target by default **Authenticates** using the **Parent** Target credentials, supporting only   **Rotator Types** of **Password** or **Target**.
+This type of Linked Target by default **Authenticates** using the **Parent** Target credentials, supporting only **Rotator Types** of **Password** or **Target**.
 
 When using **Password** as the **Rotator Type**, the Rotated Secret's **username & password** will be rotated on all hosts that are listed inside the [Linked Target](https://docs.akeyless.io/docs/linked-target), where you can choose to either rotate those **Local** users to all have the **same** password or give each of them a **different** password to ensure the best practices of periodic rotation for users across different machines. In this mode, the **Parent Target** credentials will not be rotated as part of the **Linked Target** rotation. Those credentials should be rotated using a dedicated [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) for that Target.
 
@@ -52,7 +52,7 @@ akeyless create-ssh-target \
 >
 > To Rotate the **Domain user** password, best practice is to create a dedicated Rotated Secret for that Target.
 
-Create a [Linked Target](https://docs.akeyless.io/docs/linked-target)  with the relevant **hosts** to rotate your **Local users'** passwords :
+Create a [Linked Target](https://docs.akeyless.io/docs/linked-target) with the relevant **hosts** to rotate your **Local users'** passwords :
 
 ```shell Windows Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <hosts>
@@ -119,7 +119,7 @@ akeyless create-ssh-target \
 --ssh-password <SSH password>
 ```
 
-Create a [Linked Target](https://docs.akeyless.io/docs/linked-target)  with the relevant **hosts** to rotate your **local users'** passwords :
+Create a [Linked Target](https://docs.akeyless.io/docs/linked-target) with the relevant **hosts** to rotate your **local users'** passwords :
 
 ```shell Windows Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <hosts>
@@ -179,7 +179,7 @@ akeyless get-rotated-secret-value -name <Rotated secret name>
 }
 ```
 
-Where you can filter the exact host using `--host <host>`  as part of the `get-rotated-secret-value` command.  For example:
+Where you can filter the exact host using `--host <host>` as part of the `get-rotated-secret-value` command. For example:
 
 ```shell
 akeyless get-rotated-secret-value -n <Rotated secret name> --host server02.example:22

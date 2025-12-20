@@ -75,7 +75,7 @@ Where:
 
 * `role`: The role to assign to the temporary user.
 
-* `warehouse`:  A Snowflake target Warehouse name.
+* `warehouse`: A Snowflake target Warehouse name.
 
 * `password-length`: **Optional** The temporary user password length.
 

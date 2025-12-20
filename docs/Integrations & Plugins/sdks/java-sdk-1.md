@@ -100,7 +100,7 @@ Make sure to set your `Access Id` and `Access Key` in the relevant places. The r
 
 ### Using Cloud ID
 
-To work with a Cloud-based Auth,  Add the Akeyless [Cloud ID library](https://akeyless.jfrog.io/ui/native/akeyless-java/io/akeyless/cloudid) for **Java** and set the following dependency on your project's `pom`:
+To work with a Cloud-based Auth, Add the Akeyless [Cloud ID library](https://akeyless.jfrog.io/ui/native/akeyless-java/io/akeyless/cloudid) for **Java** and set the following dependency on your project's `pom`:
 
 ```java
 <dependency>

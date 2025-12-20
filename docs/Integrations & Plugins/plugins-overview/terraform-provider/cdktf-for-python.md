@@ -14,8 +14,8 @@ The Cloud Development Kit for Terraform (CDKTF) allows you to manage your Akeyle
 
 ## Prerequisites
 
-* [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)  (1.2+)
-* [Node.js](https://nodejs.org/en)  and npm (v16)+
+* [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (1.2+)
+* [Node.js](https://nodejs.org/en) and npm (v16)+
 * [CDK for Terraform](https://developer.hashicorp.com/terraform/tutorials/cdktf/cdktf-install)
 
 ## Configuration

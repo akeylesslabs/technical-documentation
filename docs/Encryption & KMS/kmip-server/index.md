@@ -237,12 +237,12 @@ Example `mongod.conf` Configuration
 
 # Storage Configuration
 storage:
-  dbPath: "/data/db"  # MongoDB data path
+  dbPath: "/data/db" # MongoDB data path
 
 # Enable Encryption and KMIP Configuration
 security:
   enableEncryption: true
-  encryptionCipherMode: AES256-CBC  # GCM is not supported in newer MongoDB versions
+  encryptionCipherMode: AES256-CBC # GCM is not supported in newer MongoDB versions
   kmip:
     keyIdentifier: "<your_kmip_key_id>"  # Replace with your actual KMIP key ID
     serverName: "<your_host_ip>"         # Replace with your KMIP server IP or hostname

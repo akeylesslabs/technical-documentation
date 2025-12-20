@@ -78,7 +78,7 @@ Where:
   * `password` - to rotate a user password in Azure Entra
   * `azure-storage-account` - to rotate Azure Storage Account Key
 
-* `api-id`: The client secret ID of the Azure App whose client secret should be rotated.  If left empty, the rotated secret will try to create a new secret and manage its rotation only. **Note** when  `api-id` is not provided, upon successful creation, the Azure Secret Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. The Azure Secret Key will be deleted from the cloud as well.
+* `api-id`: The client secret ID of the Azure App whose client secret should be rotated. If left empty, the rotated secret will try to create a new secret and manage its rotation only. **Note** when `api-id` is not provided, upon successful creation, the Azure Secret Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. The Azure Secret Key will be deleted from the cloud as well.
 
 * `api-key`: The client's secret to rotate.
 
@@ -92,7 +92,7 @@ Where:
   * `resource-group-name`: The resource group name (only relevant when `explicitly-set-sa=true`)
   * `resource-name`: The name of the Storage Account (only relevant when `explicitly-set-sa=true`)
 
-* `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created - to maintain 2 values at the same time.  Relevant only for **Client Secret**.
+* `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created - to maintain 2 values at the same time. Relevant only for **Client Secret**.
 
 * `auto-rotate`: Enable auto-rotation if you need to update the secret regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
   * `grace-rotation-interval` and `grace-rotation-hour` relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
@@ -141,7 +141,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
   * **Username**: The user's principal name to rotate his password (relevant only for **Password Rotator type**)
 
-  * **Storage Account Key Name** :  Defines the Storage Account Key name (relevant only for **Azure Storage Account**)
+  * **Storage Account Key Name** : Defines the Storage Account Key name (relevant only for **Azure Storage Account**)
     * **Resource Group Name** : Resource group name, relevant only when **Storage Account Details** are provided explicitly.
     * **Resource Name** : Resource name, relevant only when **Storage Account Details** are provided explicitly.
 
@@ -153,7 +153,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
   * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-  * **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created to maintain 2 values at the same time.  Relevant only for **Client Secret**.
+  * **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created to maintain 2 values at the same time. Relevant only for **Client Secret**.
 
   * **Auto rotate:** Determines if automatic rotation is enabled.
 

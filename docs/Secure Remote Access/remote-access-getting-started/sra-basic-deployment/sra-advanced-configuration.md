@@ -133,7 +133,7 @@ sshConfig:
 ## SSH Fingerprint
 
 To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.  
-Note, please  ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
+Note, please ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
 
 ```yaml
 sshConfig:

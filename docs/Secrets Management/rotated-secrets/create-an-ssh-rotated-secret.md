@@ -114,7 +114,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ***
 
-* **Public Key Remote Path:** the path to the public key that will be rotated on the server.  By Default: `~/.ssh/authorized_keys` (Relevant only for **Key** mode).
+* **Public Key Remote Path:** the path to the public key that will be rotated on the server. By Default: `~/.ssh/authorized_keys` (Relevant only for **Key** mode).
 * **Private Key:** The private key that will be rotated (Relevant only for **Key** mode).
 * **Rotation Statement:** In this field you can provide a [Custom Rotation Statement](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement).
 * **Password Length**: Set the user's password length.
@@ -162,7 +162,7 @@ echo '{{USERNAME}}:{{NEW_PASSWORD}}'| chpasswd
 Another example of rotating Windows service password :
 
 ```shell
-net user /domain "{{USERNAME}}" {{NEW_PASSWORD}} && sc config "lfsvc" obj= "ad\{{USERNAME}}" password=  "{{NEW_PASSWORD}}" && net stop lfsvc && net start lfsvc
+net user /domain "{{USERNAME}}" {{NEW_PASSWORD}} && sc config "lfsvc" obj= "ad\{{USERNAME}}" password= "{{NEW_PASSWORD}}" && net stop lfsvc && net start lfsvc
 ```
 
 ## Tutorial

@@ -73,7 +73,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 ### API Key Authentication
 
-To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY`  with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -91,7 +91,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
   -e PRIVILEGED_ACCESS_ID="<AccessID>" \
   -e PRIVILEGED_ACCESS_KEY="<AccessKey>" \
-  -e ALLOWED_ACCESS_IDS="<AccessIDs>"  \
+  -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e CA_PUB="<CA Public Key>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
@@ -119,7 +119,7 @@ docker run --name web-bastion -d -p 8888:8888  \
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
   -e PRIVILEGED_ACCESS_ID="<AccessID>" \
-  -e ALLOWED_ACCESS_IDS="<AccessIDs>"  \
+  -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e CA_PUB="<CA Public Key>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
@@ -128,7 +128,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 ### GCP GCE
 
 Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP.\
-Set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID`  as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
+Set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID` as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -145,7 +145,7 @@ docker run --name web-bastion -d -p 8888:8888  \
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
   -e PRIVILEGED_ACCESS_ID="<AccessID>" \
-  -e ALLOWED_ACCESS_IDS="<AccessIDs>"  \
+  -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e CA_PUB="<CA Public Key>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
@@ -171,7 +171,7 @@ docker run --name web-bastion -d -p 8888:8888  \
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL = "https://rest.akeyless.io" \
   -e PRIVILEGED_ACCESS_ID="<AccessID>" \
-  -e ALLOWED_ACCESS_IDS="<AccessIDs>"  \
+  -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e CA_PUB="<CA Public Key>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
@@ -260,7 +260,7 @@ To forward all your users session logs from the `ssh-bastion`, mount a local fil
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
   -e PRIVILEGED_ACCESS_ID="<AccessID>" \
-  -e ALLOWED_ACCESS_IDS="<AccessIDs>"  \
+  -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e CA_PUB="<CA Public Key>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   -v &PWD/log_forwarding.conf:/var/akeyless/conf/logand.conf \
@@ -299,7 +299,7 @@ To specify the maximum number of concurrent unauthenticated connections to the S
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
   -e PRIVILEGED_ACCESS_ID="<AccessID>" \
-  -e ALLOWED_ACCESS_IDS="<AccessIDs>"  \
+  -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e CA_PUB="<CA Public Key>" \
   -e CONFIG_MAX_STARTUPS="200:30:300" \
   -e CLUSTER_NAME="Akeyless Bastion" \
@@ -312,13 +312,13 @@ Verify that both `web-bastion` and `ssh-bastion` containers are up and running.
 ### SSH Fingerprint
 
 To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the Docker deployment with a dedicated folder within your Akeyless account. The SSH bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.\
-Note, please  ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
+Note, please ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
 
 ```shell
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
   -e PRIVILEGED_ACCESS_ID="<AccessID>" \
-  -e ALLOWED_ACCESS_IDS="<AccessIDs>"  \
+  -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e CA_PUB="<CA Public Key>" \
   -e CONFIG_MAX_STARTUPS="200:30:300" \
   -e CLUSTER_NAME="Akeyless Bastion" \

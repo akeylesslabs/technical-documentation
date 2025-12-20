@@ -105,7 +105,7 @@ Akeyless SCP enables secure copy via [Secure Remote Access Bastion](https://docs
 
     `BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
 
-    `BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra`  cluster service port.
+    `BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra` cluster service port.
 
     **Optional** when working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
 

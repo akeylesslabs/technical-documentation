@@ -32,7 +32,7 @@ Or directly through your [Gateway](https://docs.akeyless.io/docs/api-gw) on port
 HashiCorp Vault`V1` secret engine proxy will be available using this prefix: `v1/kv`
 
 ```curl Vault Proxy V1
-curl --header "X-Vault-Token: XXXXX"  https://hvp.akeyless.io/v1/kv/{secret-name}
+curl --header "X-Vault-Token: XXXXX" https://hvp.akeyless.io/v1/kv/{secret-name}
 ```
 
 HashiCorp Vault`V2` secret engine will be available using this prefix: `v1/secret/data`

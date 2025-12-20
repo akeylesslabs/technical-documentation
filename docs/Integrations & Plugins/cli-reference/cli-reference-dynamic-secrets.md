@@ -95,7 +95,7 @@ Creates Artifactory Dynamic Secret
 #### Usage
 
 ```shell Using Target
-akeyless dynamic-secret create artifactory  \
+akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
 --artifactory-token-scope <Space-separated list of scopes> \
 --artifactory-token-audience <Space-separated list of instances> \
@@ -312,14 +312,14 @@ Create Cassandra Dynamic Secret
 #### Usage
 
 ```shell Using target
-akeyless dynamic-secret create cassandra  \
+akeyless dynamic-secret create cassandra \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --cassandra-statements CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';
 ```
 ```shell Inline connection
-akeyless dynamic-secret create cassandra  \
+akeyless dynamic-secret create cassandra \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --cassandra-hosts <Cassandra host> \
@@ -645,7 +645,7 @@ akeyless dynamic-secret create google-workspace \
 
 `--group-email`: Email address of the group to add the user to (relevant only for `group access-mode`)
 
-`--group-role`:  Group role [`OWNER`/`MANAGER`/`MEMBER`], (relevant only for `group access-mode`)
+`--group-role`: Group role [`OWNER`/`MANAGER`/`MEMBER`], (relevant only for `group access-mode`)
 
 `--role-name`: Name of the admin role the user will be assign to, (relevant only for `role access-mode`)
 
@@ -725,7 +725,7 @@ akeyless dynamic-secret create gke \
 ```shell Inline connection
 akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'  \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --gke-account-email <GKE service account email> \
 --gke-account-key <GKE service account Key> \
 --gke-cluster-endpoint <GKE cluster endpoint URL> \
@@ -1270,7 +1270,7 @@ akeyless dynamic-secret create oracledb \
 
 Creates a Ping dynamic secret Dynamic Secret
 
-There are  possible ways to run this command - using a target or an inline connection
+There are possible ways to run this command - using a target or an inline connection
 
 #### Usage
 
@@ -2337,7 +2337,7 @@ akeyless dynamic-secret update google-workspace \
 
 `--group-email`: Email address of the group to add the user to (relevant only for `group access-mode`)
 
-`--group-role`:  Group role [`OWNER`/`MANAGER`/`MEMBER`], (relevant only for `group access-mode`)
+`--group-role`: Group role [`OWNER`/`MANAGER`/`MEMBER`], (relevant only for `group access-mode`)
 
 `--role-name`: Name of the admin role the user will be assign to, (relevant only for `role access-mode`)
 
@@ -3225,7 +3225,7 @@ akeyless dynamic-secret update snowflake \
 #### Usage
 
 ```shell
-akeyless dynamic-secret update venafi  \
+akeyless dynamic-secret update venafi \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \

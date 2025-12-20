@@ -50,7 +50,7 @@ akeyless dynamic-secret create mysql \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --mysql-statements "CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON *.* TO '{{name}}'@'%';" \
---mysql-revocation-statements  "REVOKE ALL PRIVILEGES, GRANT OPTION FROM '{{name}}'@'%'; DROP USER '{{name}}'@'%';" \
+--mysql-revocation-statements "REVOKE ALL PRIVILEGES, GRANT OPTION FROM '{{name}}'@'%'; DROP USER '{{name}}'@'%';" \
 --password-length 16
 ```
 
@@ -124,7 +124,7 @@ akeyless dynamic-secret create oracledb \
 ```
 
 ```shell Cassandra
-akeyless dynamic-secret create cassandra  \
+akeyless dynamic-secret create cassandra \
 --name <New Secret Name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
@@ -262,7 +262,7 @@ akeyless dynamic-secret create oracledb \
 ```
 
 ```shell Cassandra
-akeyless dynamic-secret create cassandra  \
+akeyless dynamic-secret create cassandra \
 --name <path to your secret> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --cassandra-hosts <Cassandra host> \

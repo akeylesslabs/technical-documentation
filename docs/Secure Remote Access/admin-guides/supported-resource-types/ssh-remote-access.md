@@ -26,7 +26,7 @@ In this guide, we will connect to a remote target using an [SSH Certificate](htt
 
 * The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
 
-* An  [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
+* An [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
 * SSH sessions behind a GKE HTTP(S) Load Balancer may disconnect after `30` seconds due to the default backend timeout. You can increase it by configuring a BackendConfig (`spec.timeoutSec`) and annotating your Service as described in the GCP docs on [backend service timeouts](https://docs.cloud.google.com/load-balancing/docs/backend-service#timeout-setting) and [Ingress BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration#backendconfig).
 
@@ -69,7 +69,7 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 * Choose the right mode to work with either:
 
-  * `Explicit Hosts`:  The hostnames (or IP addresses) of your SSH target servers.
+  * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
 
   * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
 
@@ -139,7 +139,7 @@ DISPLAY_STAGES=yes
 3. Use `akeyless connect` command to perform SSH authentication to the target server via Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
 
 ```shell General template
-akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
+akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
 ```
 
 > 🚧 Compatibility Issue with Legacy SSH Versions (7.4 & 7.6)
@@ -173,7 +173,7 @@ Run the `update-item` command to set the following fields on the static secret t
 ```shell Akeyless CLI
 akeyless update-item --name <Path/to/static/secret> \
 --secure-access-enable true \
---secure-access-ssh-creds  <password/private-key> \
+--secure-access-ssh-creds <password/private-key> \
 --secure-access-bastion-issuer </Path/of/SSH Cert Issuer> \
 --secure-access-host <Target SSH host>
 ```
@@ -187,7 +187,7 @@ Where:
 Now, you can connect to your target SSH host via the `akeyless connect` command:
 
 ```shell
-akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/secret] -v <professional-bastion-hostname/ip[:port]>
+akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/secret] -v <professional-bastion-hostname/ip[:port]>
 ```
 
 ## Upload/Download Files Using SSH

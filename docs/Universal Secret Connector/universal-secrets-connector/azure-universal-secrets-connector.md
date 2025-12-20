@@ -14,7 +14,7 @@ This page discusses the creation of Azure [Universal Secrets Connectors](https:/
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)  with **Read** permission on the target associated with the **USC**.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with **Read** permission on the target associated with the **USC**.
 * Azure [Registered Application](https://learn.microsoft.com/en-us/security/zero-trust/develop/app-registration) with the [Key Vault Secrets Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role assigned. If you wish to work with Certificates, assign the [Certificate Officer](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) role.
 
 ## Working With Universal Secrets Connector from the Console
@@ -115,7 +115,7 @@ The main parameters are:
 
 * `value`: The value of the secret you would like to create, plaintext or Base64-encoded.
 
-* `object-type[=secret]`: Either `secret` or `certificate`, when set to `certificate` -  Provide a Base64-encoded certificate file that includes the private key.
+* `object-type[=secret]`: Either `secret` or `certificate`, when set to `certificate` - Provide a Base64-encoded certificate file that includes the private key.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
