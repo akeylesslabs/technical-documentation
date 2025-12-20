@@ -97,7 +97,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: access-key
-  namespace: akeyless  # Change this to your actual namespace
+  namespace: akeyless # Change this to your actual namespace
 type: Opaque
 data:
   gateway-access-key: <Base64-encoded value>
@@ -495,7 +495,7 @@ Full list of available permissions:
       </td>
 
       <td>
-        Management of  [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings
+        Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings
       </td>
     </tr>
 

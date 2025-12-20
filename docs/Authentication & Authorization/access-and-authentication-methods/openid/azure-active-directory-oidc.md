@@ -37,7 +37,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
 ![](https://files.readme.io/cb76d3c-image-20210902-151402.png "image-20210902-151402.png")
 
-4. In order to add the  AD group as a sub-claim, go to **Token configuration > Add Groups Claim**:
+4. In order to add the AD group as a sub-claim, go to **Token configuration > Add Groups Claim**:
 
 ![](https://files.readme.io/938b863-image-20210902-155120.png "image-20210902-155120.png")
 
@@ -46,7 +46,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 ## Create an OIDC Authentication Method from the CLI
 
 ```shell
-akeyless auth-method create oidc --name 'my Azure app' --issuer https://{your-issuer-url} --client-id {your-client-id}  --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
+akeyless auth-method create oidc --name 'my Azure app' --issuer https://{your-issuer-url} --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
 ```
 
 This can also be done from the Console UI by creating a New OIDC Auth Method and filling in the same required parameters.
@@ -61,7 +61,7 @@ To log in with SSO to Akeyless with your new Azure AD OIDC Auth Method, login to
 You should configure a new profile with your Access-ID from the previous step and OIDC type (if no profile name is provided the default will be configured):
 
 ```shell
-akeyless configure --access-id <your access ID >  --access-type oidc --profile 'azure-app'
+akeyless configure --access-id <your access ID > --access-type oidc --profile 'azure-app'
 ```
 
 Now, you can run any Akeyless CLI command and be authenticated with the Azure application:

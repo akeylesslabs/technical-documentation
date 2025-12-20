@@ -150,7 +150,7 @@ Once done, continue with creating a Kerberos Authentication Method:
 ```shell
 akeyless auth-method create kerberos \
 --name <Auth Method Name> \      
---krb5conf-file-path /path/to/krb5.conf  \                        
+--krb5conf-file-path /path/to/krb5.conf \                        
 --keytab-file-path /path/to/.keytab \
 --ldap-url <LDAP server URL> \
 --bind-dn CN=user,CN=Users,DC=TEST,DC=COM \   

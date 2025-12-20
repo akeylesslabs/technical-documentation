@@ -293,7 +293,7 @@ docker run --name web-bastion -d -p 8888:8888  \
 
 ### Concurrent Unauthenticated Connections
 
-To specify the maximum number of concurrent unauthenticated connections to the SSH Bastion, set the  `CONFIG_MAX_STARTUPS` variable:
+To specify the maximum number of concurrent unauthenticated connections to the SSH Bastion, set the `CONFIG_MAX_STARTUPS` variable:
 
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \

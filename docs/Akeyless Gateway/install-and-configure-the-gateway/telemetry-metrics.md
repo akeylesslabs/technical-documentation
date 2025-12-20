@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** or **Prometheus**.  You can find a full list of supported endpoints on the official page of the Open Telemetry [project](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
+Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and alerting solutions, such as **Datadog** or **Prometheus**. You can find a full list of supported endpoints on the official page of the Open Telemetry [project](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter).
 
 The Telemetry Metrics are based on time series telemetry data metrics from the application and the runtime environment, storing them in a unique database or index, and analyzing data trends over time.
 
@@ -57,7 +57,7 @@ Set the relevant `API Key` of your **Datadog** server, and set the relevant site
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
-Alternatively, you can use an environment variable `METRICS_CONFIG_BASE64` to provide those settings in Base64, for example:  `base64 -w 0 otel-config.yaml`.
+Alternatively, you can use an environment variable `METRICS_CONFIG_BASE64` to provide those settings in Base64, for example: `base64 -w 0 otel-config.yaml`.
 
 ### Dashboard Setup
 
@@ -112,7 +112,7 @@ Import the Akeyless GW dashboard for your Grafana instance using [this](https://
 
 ## Gateway Application Log Forwarding
 
-To collect the Gateway application logs with the metrics you can set an additional `exporter` endpoint and  `service`, for example:
+To collect the Gateway application logs with the metrics you can set an additional `exporter` endpoint and `service`, for example:
 
 Edit the `otel-config.yaml` file as described below:
 
@@ -134,12 +134,12 @@ service:
       exporters: [loki]
 ```
 
-Where the new **Loki** `endpoint`  is set with a new `service` for logs, using `filelog` as the `receiver` and `loki` as the `exporter`.  Note, that this example uses local [Loki](https://grafana.com/docs/loki/latest/setup/install/docker/) on Docker.
+Where the new **Loki** `endpoint` is set with a new `service` for logs, using `filelog` as the `receiver` and `loki` as the `exporter`. Note, that this example uses local [Loki](https://grafana.com/docs/loki/latest/setup/install/docker/) on Docker.
 
 To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_APP_LOG="true"` environment variable and mount the Telemetry config file:
 
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -e FORWARD_GW_APP_LOG="true"  -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -e FORWARD_GW_APP_LOG="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
 **Application Logs** from all instances of this gateway will be forwarded using this format: `<date> <time> <gw-clustername-instance-id> <log>`.

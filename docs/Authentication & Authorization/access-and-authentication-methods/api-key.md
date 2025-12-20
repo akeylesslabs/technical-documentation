@@ -41,7 +41,7 @@ You can find the complete list of additional parameters for this command in the 
 To configure your CLI to work with API Key authentication, run the following command:
 
 ```shell Akeyless CLI
-akeyless configure --profile default --access-id <AccessID>  --access-key < API Key>
+akeyless configure --profile default --access-id <AccessID> --access-key < API Key>
 ```
 
 ## Create an API Key Authentication Method in the Akeyless Console

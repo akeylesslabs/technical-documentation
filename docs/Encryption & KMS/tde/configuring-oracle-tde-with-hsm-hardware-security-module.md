@@ -15,7 +15,7 @@ This document outlines the steps to set up Transparent Data Encryption (TDE) on 
 ## Directory Creation
 
 • Create the folder and subfolder `/tde.\`
-• No changes required to sqlnet.ora for Oracle Database 19c and up.
+• No changes required to `sqlnet.ora` for Oracle Database 19c and up.
 
 ## Configuration Steps
 
@@ -33,7 +33,7 @@ Perform the following commands in SQL\*Plus or another Oracle SQL interface:
 SQL> ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY akeyless;
 ```
 
-Result: Keysotre closed successfully
+Result: Keystore closed successfully
 
 ```sql
 SQL> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=FILE";

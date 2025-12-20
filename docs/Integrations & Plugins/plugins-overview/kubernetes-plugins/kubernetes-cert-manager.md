@@ -81,7 +81,7 @@ roleRef:
   name: akeyless-issuer
 ```
 
-Create the  **ServiceAccount** :
+Create the **ServiceAccount** :
 
 ```shell
 kubectl apply -f k8s_sa.yaml

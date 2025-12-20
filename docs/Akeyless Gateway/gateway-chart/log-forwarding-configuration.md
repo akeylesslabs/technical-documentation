@@ -173,8 +173,8 @@ Setting log forwarding to Sumo Logic:
 akeyless gateway update log-forwarding sumologic \
 --gateway-url 'https://Your-Akeyless-GW-URL:8000' \
 --endpoint <endpoint url> \
---sumologic-tags <sumologic tags> \
---host <sumologic host>
+--sumologic-tags <Sumo Logic tags> \
+--host <Sumo Logic host>
 ```
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluesumologicp) section.

@@ -47,7 +47,7 @@ The options for this are:
 
 ### Concurrent Unauthenticated Connections
 
-To specify the maximum number of concurrent unauthenticated connections to the SSH component, set the  `CONFIG_MAX_STARTUPS` variable:
+To specify the maximum number of concurrent unauthenticated connections to the SSH component, set the `CONFIG_MAX_STARTUPS` variable:
 
 ```yaml
 CONFIG_MAX_STARTUPS="200:30:300"

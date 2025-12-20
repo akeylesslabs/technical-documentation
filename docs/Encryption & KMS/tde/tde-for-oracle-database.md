@@ -425,7 +425,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
     ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/u01/app/oracle/admin/ORCL/wallet' IDENTIFIED BY "YourWalletPassword";
     ```
 
-7. After conversion, you should verify that the auto-login keystore was created successfully. Check that the cwallet.sso file exists in the keystore directory:
+7. After conversion, you should verify that the auto-login keystore was created successfully. Check that the `cwallet.sso` file exists in the keystore directory:
 
     ```sql sql
     ls -l /u01/app/oracle/admin/ORCL/wallet/
@@ -435,7 +435,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 8. With the auto-login keystore in place, you now need to configure Oracle TDE to use it. This ensures that the wallet is automatically opened during database startup.
 
-9. Modify the sqlnet.ora file to specify the location of the keystore. Add or update the following entry:
+9. Modify the `sqlnet.ora` file to specify the location of the keystore. Add or update the following entry:
 
     ```sql plaintext
     ENCRYPTION_WALLET_LOCATION=

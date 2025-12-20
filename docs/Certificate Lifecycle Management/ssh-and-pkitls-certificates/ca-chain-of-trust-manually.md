@@ -155,7 +155,7 @@ akeyless update-classic-key-certificate \
 --cert-file-path ./intermediate.crt
 ```
 
-Now, we have our  **Intermediate Signer Key** which has a certificate signed by our **Root CA**, let's create the  **Intermediate PKI Issuer** to start issuing leaf certificates.
+Now, we have our  **Intermediate Signer Key** which has a certificate signed by our **Root CA**, let's create the **Intermediate PKI Issuer** to start issuing leaf certificates.
 
 ### Create an Intermediate PKI Cert Issuer
 
@@ -195,7 +195,7 @@ akeyless generate-csr \
 --common-name myexample.com >> leaf.csr
 ```
 
-Generate a certificate using the  **Intermediate PKI Cert Issuer**:
+Generate a certificate using the **Intermediate PKI Cert Issuer**:
 
 ```shell
 akeyless get-pki-certificate  \

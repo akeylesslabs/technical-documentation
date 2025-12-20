@@ -65,7 +65,7 @@ chmod +x notation-akeyless
 ```
 
 ```shell Windows
-cd  %AppData%/notation/plugins
+cd %AppData%/notation/plugins
 curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/Windows/notation-akeyless/notation-akeyless-windows-amd64.exe
 ```
 
@@ -107,7 +107,7 @@ echo access_type="access_key" >> notation.conf
 
 Where:
 
-* `akeyless_url` - Your Akeyless Gateway `API v2` endpoint `8000/api/v2` (or using your gateway URL at port `8081`).,  if not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`.
+* `akeyless_url` - Your Akeyless Gateway `API v2` endpoint `8000/api/v2` (or using your gateway URL at port `8081`). If not set, by default will work with Akeyless public API endpoint `https://api.akeyless.io`.
 
 * `access_type` - The [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) type, supporting:`access_key`,`aws_iam`,`gcp`,`azure_ad` `certificate`,`jwt` and `k8s`.
 

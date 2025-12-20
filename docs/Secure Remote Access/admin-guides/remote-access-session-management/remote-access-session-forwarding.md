@@ -147,9 +147,9 @@ akeyless gateway update remote-access-session-forwarding sumologic \
 --gateway-url https://<your-gateway-url>:8000 \
 --output-format <text|json> \
 --pull-interval <in seconds> \
---endpoint <sumologic-endpoint-url> \
+--endpoint <Sumo Logic endpoint URL> \
 --sumologic-tags <comma-separated-list> \
---host <sumologic-host>
+--host <Sumo Logic host>
 ```
 
 ```shell Syslog

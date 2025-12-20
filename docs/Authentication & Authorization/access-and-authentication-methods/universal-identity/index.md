@@ -119,7 +119,7 @@ curl https://<Gateway-URL>:8080 -d "cmd=rotate-token&&token=u-XXXXX"
 
 ### Create a Child Token
 
-Child tokens are not mandatory.  They are optional and meant for users who want to use the token with a tree structure to control and monitor multiple services.
+Child tokens are not mandatory. They are optional and meant for users who want to use the token with a tree structure to control and monitor multiple services.
 
 When using the following command:
 

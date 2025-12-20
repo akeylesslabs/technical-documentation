@@ -20,11 +20,11 @@ Before proceeding, ensure you have permission to manage **ACME** on your Gateway
 
 ## Enable ACME Server
 
-In this guide, we will create a **PKI Cert Issuer** with  **ACME Server** where we will register [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows) as an **ACME Client** using External Account Binding.
+In this guide, we will create a **PKI Cert Issuer** with **ACME Server** where we will register [CertBot](https://certbot.eff.org/instructions?ws=other\&os=windows) as an **ACME Client** using External Account Binding.
 
 ### Create a Signer Key
 
-Let's create  [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **PKI Cert Issuer** with a self-signed certificate, first let's create the **CSR** conf file:
+Let's create [DFC Key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) for our **PKI Cert Issuer** with a self-signed certificate, first let's create the **CSR** conf file:
 
 ```shell
 cat <<EOF > csr.conf
@@ -43,9 +43,9 @@ EOF
 
 Where:
 
-* `basicConstraints`:   Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
+* `basicConstraints`: Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
 
-* `keyUsage`: Key Usage for CA certificate with  `digitalSignature`,`KeyCertSign`,`cRLSign`.
+* `keyUsage`: Key Usage for CA certificate with `digitalSignature`,`KeyCertSign`,`cRLSign`.
 
 Run the following command to create the **Signer Key**:
 
@@ -104,13 +104,13 @@ Where:
 
 * `allowed-domains`: Allowed domains that clients can request to be included in the certificate.
 
-* `enable-acme`: Enable  **ACME Server**.
+* `enable-acme`: Enable **ACME Server**.
 
-Upon successful creation,  the generated **ACME Server** URL will use the following format:
+Upon successful creation, the generated **ACME Server** URL will use the following format:
 
 `https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory`
 
-To extract the `issuer-display-id`  from the CLI, run the following command:
+To extract the `issuer-display-id` from the CLI, run the following command:
 
 ```shell
 akeyless describe-item \
@@ -150,10 +150,10 @@ This external account binding token will be used to register an **ACME client** 
 
 ### Request a Certificate
 
-In the following example, we will request a certificate from the  **ACME server**, using  **Certbot**:
+In the following example, we will request a certificate from the **ACME server**, using **Certbot**:
 
 ```shell Windows
-certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir  C:\Users\<username>\certbot\conf --work-dir C:\Users\<username>\certbot\work --logs-dir C:\Users\<username>\certbot\logs
+certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir C:\Users\<username>\certbot\conf --work-dir C:\Users\<username>\certbot\work --logs-dir C:\Users\<username>\certbot\logs
 ```
 
 ```shell Linux
@@ -166,7 +166,7 @@ Where:
 
 * `domain`: The domain name for which you want to issue the certificate, must be listed in the [PKI Cert Issuer](https://docs.akeyless.io/docs/acme-server#create-a-pki-cert-issuer) under the `Allowed domains list` field.
 
-* `eab-kid`: The external accounts binding  **Key Identifier** .
+* `eab-kid`: The external accounts binding **Key Identifier** .
 
 * `eab-hmac-key`: The external account binding **HMAC key**.
 

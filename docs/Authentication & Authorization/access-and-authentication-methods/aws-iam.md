@@ -41,7 +41,7 @@ You can find the complete list of additional parameters for this command in the 
 To configure your CLI to work with AWS IAM authentication, run the following command **from an AWS resource**:
 
 ```shell Akeyless CLI
-akeyless configure --profile default --access-id <AccessID>  --access-type aws_iam 
+akeyless configure --profile default --access-id <AccessID> --access-type aws_iam 
 akeyless get-cloud-identity --cloud-provider aws_iam
 ```
 
@@ -69,7 +69,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 * **Bounded AWS Account IDs:** Enter a comma-separated list of AWS account IDs for which access is allowed.
 
-* **Bounded ARNs:** Enter a comma-separated list of full IAM role ARNs for which access is allowed. For example: `arn:aws:sts:{account-id}:assumed-role/{role-name}/{resource-id}, arn:aws:iam::{account-id}:user/{user-name}`. Or use wildcard characters like `*` or `?`  to grant multiple roles within a single ARN Role. For example,`arn:aws:sts:us-east-?:123456789012:*` would allow any IAM role in the AWS account to login to `us-east` regions. This parameter is optional. Leave it empty for unrestricted access.
+* **Bounded ARNs:** Enter a comma-separated list of full IAM role ARNs for which access is allowed. For example: `arn:aws:sts:{account-id}:assumed-role/{role-name}/{resource-id}, arn:aws:iam::{account-id}:user/{user-name}`. Or use wildcard characters like `*` or `?` to grant multiple roles within a single ARN Role. For example,`arn:aws:sts:us-east-?:123456789012:*` would allow any IAM role in the AWS account to login to `us-east` regions. This parameter is optional. Leave it empty for unrestricted access.
 
 * **Bounded Role Names:** Enter a comma-separated list of AWS role names for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 
@@ -95,7 +95,7 @@ The following command increases Hop Limit to `2`:
 
 ```shell
 aws ec2 modify-instance-metadata-options \
-  --instance-id <instance-id>  \
+  --instance-id <instance-id> \
   --http-put-response-hop-limit 2
 ```
 

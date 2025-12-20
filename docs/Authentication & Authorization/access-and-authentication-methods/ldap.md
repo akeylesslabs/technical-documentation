@@ -63,7 +63,7 @@ On the **Search Configuration** step define the following:
 
 The following **Search Configuration** steps are **Optional**:
 
-* **LDAP User Attribute:** LDAP attribute on user object returned by user authentication, default is `cn`  attribute value. e.g. `uid`.
+* **LDAP User Attribute:** LDAP attribute on user object returned by user authentication, default is `cn` attribute value. e.g. `uid`.
 
 * **Group Base DN:** Base DN to perform group membership search, e.g. `ou=groups,dc=planetexpress,dc=com`.
 

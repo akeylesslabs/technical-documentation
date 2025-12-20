@@ -23,7 +23,7 @@ There are a few important features to note when selecting a package:
 
 * **Support**: The free tier is not eligible for special customer support, and our team might take some time to respond to tickets. The Team tier is eligible for our Silver-level support, which offers more thorough support, And the Enterprise tier offers 24/7 support and preferred status.
 
-* **Customisability**: The higher up the ties you go, the more you will be able to customize and narrow down the access and permissions of different entities in your system to allow maximum efficiency with minimum redundancy. If you wish to have accurately and cleanly defined roles, you may want to consider the Team or Enterprise tier.
+* **Customizability**: The higher up the ties you go, the more you will be able to customize and narrow down the access and permissions of different entities in your system to allow maximum efficiency with minimum redundancy. If you wish to have accurately and cleanly defined roles, you may want to consider the Team or Enterprise tier.
 
 * **Gateways**: The Akeyless Gateway adds extra protection between your private network and the cloud, acting as a SaaS extension of our core services, the stateless Gateway ensures service continuity and recovery. There is no need to alter any network infrastructure to work with your internal organizational resources. Lower-tier accounts can create a single gateway. While a single gateway might be enough for smaller organizations, we recommend considering creating a cluster of gateways when scaling up.
 

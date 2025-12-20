@@ -70,7 +70,7 @@ using 'main.bicep'
 param initial_display_name = 'Akeyless Serverless'
 
 @description('''This is the url for Akeyless service,
-available inputs are https://vault.akeyless.io or  https://vault.eu.akeyless.io''')
+available inputs are https://vault.akeyless.io or https://vault.eu.akeyless.io''')
 param akeyless_url = 'https://vault.akeyless.io'
 
 @description('Cluster Name')
@@ -125,7 +125,7 @@ using 'main.bicep'
 param initial_display_name = 'Akeyless Serverless'
 
 @description('''This is the url for Akeyless service,
-available inputs are https://vault.akeyless.io or  https://vault.eu.akeyless.io''')
+available inputs are https://vault.akeyless.io or https://vault.eu.akeyless.io''')
 param akeyless_url = 'https://vault.akeyless.io'
 
 @description('Cluster Name')
@@ -176,19 +176,19 @@ param docker_tag = 'latest'
 
 Where:
 
-* `admin_access_id_type`: The Auth Method type for the Gateway either  `access_key` or  `azure`.
+* `admin_access_id_type`: The Auth Method type for the Gateway either `access_key` or `azure`.
 
 * `admin_access_id`: The **Access ID** of the Gateway default Auth Method.
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`:  A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
 
 * `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
 
 ### Customer Fragment
 
-To work with [Zero-Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments`  param as follows:
+To work with [Zero-Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) edit the `customer_fragments` param as follows:
 
 ```shell
 "customer_fragments": [{"id": "<Customer Fragment ID>","value": "<Customer Fragment Value>","description": "My Serverless Fragment","name": "ServerLessFragment"}]

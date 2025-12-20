@@ -57,7 +57,7 @@ Where:
 
 * `audience`: The audience to verify the JWT received by the client. By default, `akeyless.io`.
 
-* `bound-projects`:  A list of GCP Project IDs.
+* `bound-projects`: A list of GCP Project IDs.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorbluegcpp) section.
 
@@ -66,7 +66,7 @@ You can find the complete list of additional parameters for this command in the 
 To configure your CLI to work with GCP authentication, run the following command from a GCP resource:
 
 ```shell Akeyless CLI
-akeyless configure --profile default --access-id <AccessID>  --access-type gcp --gcp-audience akeyless.io
+akeyless configure --profile default --access-id <AccessID> --access-type gcp --gcp-audience akeyless.io
 akeyless get-cloud-identity --cloud-provider gcp
 ```
 

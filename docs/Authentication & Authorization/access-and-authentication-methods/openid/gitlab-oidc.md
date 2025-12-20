@@ -16,7 +16,7 @@ To use GitLabs as an IdP to authenticate the Akeyless Platform via OIDC, follow 
 
 1. In your GitLab account, go to **Edit profile > Applications.**
 
-2. For **Redirect URI** set  `https://auth.akeyless.io/oidc/callback`, select the **"openid", “profile”** and **“email“** scope and click **Save application**.
+2. For **Redirect URI** set `https://auth.akeyless.io/oidc/callback`, select the **"openid", “profile”** and **“email“** scope and click **Save application**.
 
 ![](https://files.readme.io/0f670ff-image-20210825-084902.png "image-20210825-084902.png")
 
@@ -29,7 +29,7 @@ To use GitLabs as an IdP to authenticate the Akeyless Platform via OIDC, follow 
 ## Create an OIDC Authentication Method from the CLI
 
 ```shell Akeyless CLI
-akeyless auth-method create oidc --name 'my Gitlab app' --issuer https://gitlab.com --client-id {your-client-id}  --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
+akeyless auth-method create oidc --name 'my Gitlab app' --issuer https://gitlab.com --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
 ```
 
 ## Login With OIDC from the CLI

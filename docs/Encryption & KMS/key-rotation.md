@@ -108,7 +108,7 @@ akeyless describe-item -n MyAES256SIVKey --show-versions
 }
 ```
 
-To delete a specific key version, use these parameters on the  **Delete Item** command:
+To delete a specific key version, use these parameters on the **Delete Item** command:
 
 * `name`: The key name.
 * `version`: The version of the key you wish to delete.

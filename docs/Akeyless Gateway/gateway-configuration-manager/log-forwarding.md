@@ -243,7 +243,7 @@ input {
 
 4. **Audit Log Server** - Insert `https://audit.akeyless.io/`
 
-5. From the **Log Service** dropdown list, select  `Standard Output`.
+5. From the **Log Service** dropdown list, select `Standard Output`.
 
 ## Sumo Logic
 
@@ -255,7 +255,7 @@ input {
 
 4. Audit Log Server insert: `https://audit.akeyless.io/`.
 
-5. From the **Log Service** dropdown list, select  `Sumo Logic`.
+5. From the **Log Service** dropdown list, select `Sumo Logic`.
 
 6. Insert the [Endpoint address](https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/).
 

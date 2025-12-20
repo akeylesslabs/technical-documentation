@@ -28,8 +28,8 @@ akeyless renew-certificate \
 
 Where:
 
-* `name` :  The certificate full name, alternatively can be provided using `item-id` instead.
-* `generate-key` : Generate a new key as part of the certificate renewal, if not provided, the certificate private  key will be used when exists (i.e. stored on the certificate item).
+* `name` : The certificate full name, alternatively can be provided using `item-id` instead.
+* `generate-key` : Generate a new key as part of the certificate renewal, if not provided, the certificate private key will be used when exists (i.e. stored on the certificate item).
 
 Upon successful renewal a new version will be created on the certificate item itself, and automatic provisioning will be triggered based on the existing settings.
 
@@ -40,7 +40,7 @@ You can find the complete list of additional parameters for this command in the 
 Certificates can be renewed, either from the item or the event itself. the following flow will describe the renewal flow from the certificate item itself:
 
 1. Log in to the Akeyless Console, and go to Items, find the certificate you wish to renew.
-2. Click on the **Certificate**, open the **Action Menu**, and click  **Certificate Renewal**.
+2. Click on the **Certificate**, open the **Action Menu**, and click **Certificate Renewal**.
 3. You will be asked to either **Generate new CSR and Key** or **Use an existing Key** when applicable.
 4. Click **Renew** to renew the certificate, once done, a pop-up with the **Certificate** and **Private Key** will appear.
 

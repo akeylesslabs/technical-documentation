@@ -826,7 +826,7 @@ akeyless dynamic-secret create hanadb \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag.
 
 `--secure-access-db-schema`: The db schema
 
@@ -1057,7 +1057,7 @@ akeyless dynamic-secret create mongodb \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag.
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -1122,7 +1122,7 @@ akeyless dynamic-secret create mssql \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
 `--secure-access-db-schema`: The db schema
 
@@ -1262,7 +1262,7 @@ akeyless dynamic-secret create oracledb \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag.
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -1403,7 +1403,7 @@ akeyless dynamic-secret create postgresql \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion.
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag.
 
 `--secure-access-db-schema`: The db schema
 
@@ -1541,7 +1541,7 @@ akeyless dynamic-secret create rdp \
 
 `--secure-access-rdp-user`: Override the RDP Domain username
 
-`--secure-access-host`: Target servers for connections., For multiple values repeat this flag.
+`--secure-access-host`: Target servers for connections. For multiple values repeat this flag.
 
 `--secure-access-rd-gateway-server`: RD Gateway server
 
@@ -1650,7 +1650,7 @@ akeyless dynamic-secret create redshift \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag.
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag.
 
 ### `snowflake`
 
@@ -2503,7 +2503,7 @@ akeyless dynamic-secret update hanadb \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
 `--secure-access-db-schema`: The db schema
 
@@ -2698,7 +2698,7 @@ akeyless dynamic-secret update mongodb \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -2755,7 +2755,7 @@ akeyless dynamic-secret update mssql \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
 `--secure-access-db-schema`: The db schema
 
@@ -2821,7 +2821,7 @@ akeyless dynamic-secret update mysql \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -2881,7 +2881,7 @@ akeyless dynamic-secret update oracledb \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -2943,7 +2943,7 @@ akeyless dynamic-secret update postgresql \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
 `--secure-access-db-schema`: The db schema
 
@@ -3059,7 +3059,7 @@ akeyless dynamic-secret update rdp \
 
 `--secure-access-rdp-user`: Override the RDP Domain username
 
-`--secure-access-host`: Target servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target servers for connections. For multiple values repeat this flag
 
 `--secure-access-rd-gateway-server`: RD Gateway server
 
@@ -3163,7 +3163,7 @@ akeyless dynamic-secret update redshift \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-host`: Target DB servers for connections., For multiple values repeat this flag
+`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag
 
 ### `snowflake`
 

@@ -14,7 +14,7 @@ Akeyless enables you to proactively revoke certificates before their scheduled e
 
 > 📘 Note
 >
-> Your PKI Issuer **Signer Key** must be set with the `keyusage:critical,cRLSign` extension to maintain a  **CRL** and support self-signed certificate revocation.
+> Your PKI Issuer **Signer Key** must be set with the `keyusage:critical,cRLSign` extension to maintain a **CRL** and support self-signed certificate revocation.
 
 ## Revoke a Certificate Using the Akeyless CLI
 
@@ -54,4 +54,4 @@ Once the certificate is revoked, it is added to the **Certificate Revocation Lis
 
 **Private OCSP** endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at `https://<gatewayURL:8000>/ocsp/<cert-issuer-display-id>`.
 
-To view any existing **Certificate Revocation List** information on a **Certificate Item** click the  **View Certificate Details** and scroll down to **CRL Distribution points**, where the **CRL Endpoints** will be listed.
+To view any existing **Certificate Revocation List** information on a **Certificate Item** click the **View Certificate Details** and scroll down to **CRL Distribution points**, where the **CRL Endpoints** will be listed.

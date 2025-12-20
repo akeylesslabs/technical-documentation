@@ -280,7 +280,7 @@ Where:
 
 * `public_key_file_path`: Path to the file containing the SSH public key.
 
-* `legacy_signing_alg`: Set this option to use the  SSH legacy signing algorithm.
+* `legacy_signing_alg`: Set this option to use the SSH legacy signing algorithm.
 
 ## Working With the Gateway
 

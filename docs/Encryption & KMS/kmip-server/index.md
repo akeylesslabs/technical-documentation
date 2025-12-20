@@ -219,16 +219,16 @@ The command output shows the created KMIP key ID:
 >
 > If you see the following error when starting MongoDB:
 >
-> "errmsg": "Cannot parse attribute: Unique Identifier. Not implemented."
+> `errmsg: Cannot parse attribute: Unique Identifier. Not implemented.`
 >
-> This means the KMIP server is returning the key ID in a format MongoDB doesn’t support (e.g., as a ByteString instead of TextString).
+> This means the KMIP server is returning the key ID in a format MongoDB doesn’t support (for example, as a `ByteString` instead of `TextString`).
 
 Resolution Steps
 
 1. Avoid using .system as the default KMIP key.
 2. Create a new AES256-CBC key in Akeyless (do not use AES256-GCM unless using MongoDB ≤ 4.2).
 3. Specify the correct key ID in the MongoDB config file using keyIdentifier.
-4. Ensure the Akeyless Gateway returns the Unique Identifier as a TextString. If not, please contact Akeyless Support.
+4. Ensure the Akeyless Gateway returns the Unique Identifier as a `TextString`. If not, please contact Akeyless Support.
 
 Example `mongod.conf` Configuration
 
