@@ -38,6 +38,8 @@ This will take effect on all SSH-based sessions, both for RDP and Linux-based sy
 
 To configure your proxy settings, you can set several parameters, including proxy settings for HTTP traffic, HTTPS traffic, and Ignore Hosts, using the `no_proxy` field, to prevent local traffic from going through your proxy server.
 
+For environments with proxy servers, the `no_proxy` field needs to be set with the following addresses: `svc.cluster.local` and `*.svc.cluster.local`.
+
 ```yaml
 # Linux system HTTP Proxy
 httpProxySettings:
