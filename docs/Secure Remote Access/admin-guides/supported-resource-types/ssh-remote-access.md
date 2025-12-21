@@ -16,9 +16,9 @@ Akeyless SSH Secure Remote Access enables traffic connections to servers that ar
 
 In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
 
-> 👍 Note
+> 👍 Legacy Mode
 >
-> **Legacy Mode**
+>
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
 > For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
 
