@@ -141,7 +141,7 @@ DISPLAY_STAGES=yes
 akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
 ```
 
-# Legacy SSH Versions (7.4 & 7.6)
+# Legacy SSH Versions 
 
 Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)to access remote machines running OpenSSH version `7.4` or `7.6`. This occurs both in CLI and the Web portal.
 
@@ -157,13 +157,13 @@ This workaround explicitly enables legacy SSH key types that are deprecated and 
 
 ## Legacy Mode
 
-> ❗️ Critical
->
-> SSH password authentication brings with it risks. Please make sure you are connecting to the correct target server.
-
 To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion via SSH certificate, and the Akeyless SRA bastion will utilize your SSH keys\password to connect to your legacy server.
 
 To work with SSH keys, you will have to create a static secret in an Akeyless to store your SSH private key or SSH password. i.e., the secret value should be either your SSH password or your SSH private key.
+
+> 🚧 Note
+>
+> SSH password authentication brings with it risks. Please make sure you are connecting to the correct target server.
 
 To enable Secure SSH Access for your target, set the following fields on your secret:
 
@@ -179,9 +179,9 @@ akeyless update-item --name <Path/to/static/secret> \
 
 Where:
 
-* **secure-access-ssh-creds:** Static-Secret values contain SSH Credentials, either Private Key or Password [password/private-key].
-* **--secure-access-certificate-issuer** Path to the SSH Certificate Issuer for your Akeyless SRA.
-* **secure-access-host:** Target servers for connections. For multiple values, repeat this flag.
+* `secure-access-ssh-creds`: Static-Secret values contain SSH Credentials, either Private Key or Password [`password`/`private-key`].
+* `secure-access-certificate-issuer`: Path to the SSH Certificate Issuer for your Akeyless SRA.
+* `secure-access-host`: Target servers for connections. For multiple values, repeat this flag.
 
 Now, you can connect to your target SSH host via the `akeyless connect` command:
 
