@@ -21,7 +21,7 @@ In this guide, we will connect to a remote target using an [SSH Certificate](htt
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
 > For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
 
-## Prerequisites
+# Prerequisites
 
 * [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployment.
 
@@ -141,19 +141,19 @@ DISPLAY_STAGES=yes
 akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
 ```
 
-> 🚧 Compatibility Issue with Legacy SSH Versions (7.4 & 7.6)
->
-> Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using Akeyless Connect to access remote machines running OpenSSH version 7.4 or 7.6. This occurs both in CLI and the Web portal.
->
-> It is possible to bypass this issue by setting the following environment variable in the SSH & Web bastion deployments, to all outgoing SSH connections:
->
-> ```shell values.yaml
-> env:
->   - name: SSH_EXTRA_ARGS
->     value: -o PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com
-> ```
->
-> NOTE that this workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
+# Legacy SSH Versions (7.4 & 7.6)
+
+Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)to access remote machines running OpenSSH version `7.4` or `7.6`. This occurs both in CLI and the Web portal.
+
+It is possible to bypass this issue by setting the following environment variable in the SSH & Web bastion deployments, to all outgoing SSH connections:
+
+```shell values.yaml
+env:
+  - name: SSH_EXTRA_ARGS
+    value: -o PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com
+```
+
+This workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
 
 ## Legacy Mode
 
