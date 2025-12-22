@@ -77,13 +77,13 @@ where the `<RoleName>` should be replaced with the role that will be assumed.
 
 **Note:** Make sure that the target AWS role that will be part of the roles that this dynamic secret should be able to assume must include a trust policy with the principal of the role you created.
 
-## Create a Dynamic AWS Secret from the CLI
+## Create a Dynamic AWS Secret with the CLI
 
 > 👍 Note
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/aws-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/aws-targets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic AWS secret from the CLI using an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets), run the following command:
+To create a dynamic AWS secret with the CLI using an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets), run the following command:
 
 ```shell
 akeyless dynamic-secret create aws \
@@ -141,9 +141,9 @@ If you don't have an [AWS Target](https://docs.akeyless.io/docs/aws-targets) yet
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueawsp) section.
 
-## Fetch a Dynamic AWS Secret Value from the CLI
+## Fetch a Dynamic AWS Secret Value with the CLI
 
-To fetch a dynamic AWS secret value from the CLI, run the following command:
+To fetch a dynamic AWS secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

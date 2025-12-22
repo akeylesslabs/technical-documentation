@@ -308,11 +308,11 @@ Ensure that your custom dynamic secret implementation can handle these requests 
 
 This ID is sent to the `POST /sync/revoke` endpoint, which should also be configured to handle dry-run mode correctly.
 
-## Create a Custom Dynamic Secret from the CLI
+## Create a Custom Dynamic Secret with the CLI
 
 Once you have a custom dynamic implementation that follows these specifications, create a new custom dynamic secret from the Akeyless CLI.
 
-To create a custom dynamic secret from the CLI, run the following command:
+To create a custom dynamic secret with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret create \

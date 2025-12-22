@@ -12,9 +12,9 @@ next:
 ---
 Akeyless is an OpenID Connect (OIDC) identity provider enabling client applications full support of the OIDC protocol to leverage all Akeyless supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) as a source of identity when authenticating end-users. Client applications can configure their authentication logic to talk to Akeyless. Once enabled, Akeyless will act as the bridge to other identity providers via its existing Authentication Methods.
 
-## Creating an OIDC App from the CLI
+## Creating an OIDC App with the CLI
 
-To create an OIDC Application from the CLI, run the following command:
+To create an OIDC Application with the CLI, run the following command:
 
 ```shell Shell
 akeyless create-oidc-app \
@@ -129,7 +129,7 @@ After running this **POST** request, you will receive an OIDC token back:
 
 You can now use that OIDC `access_token` to authenticate with another resource or application.
 
-## Updating an OIDC App from the CLI
+## Updating an OIDC App with the CLI
 
 Use the following command to update an OIDC App:
 

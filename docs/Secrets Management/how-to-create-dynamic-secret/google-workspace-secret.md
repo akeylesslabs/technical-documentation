@@ -49,13 +49,13 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
      https://www.googleapis.com/auth/admin.directory.customer.readonly
      ```
 
-## Create a Dynamic Google Workspace Secret from the CLI
+## Create a Dynamic Google Workspace Secret with the CLI
 
 > 👍 Note
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a Target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used. Using inline will force you to change the credentials in each individual item instead of just the Target.
 
-To create a dynamic Google Workspace secret from the CLI using an existing GCP target, run the following command:
+To create a dynamic Google Workspace secret with the CLI using an existing GCP target, run the following command:
 
 ```shell
 akeyless dynamic-secret create google-workspace \
@@ -114,9 +114,9 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#/google-workspace) section.
 
-## Fetch a Dynamic Google Workspace Secret Value from the CLI
+## Fetch a Dynamic Google Workspace Secret Value with the CLI
 
-To fetch a dynamic Google Workspace secret value from the CLI, run the following command:
+To fetch a dynamic Google Workspace secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

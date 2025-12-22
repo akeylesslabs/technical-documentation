@@ -45,11 +45,11 @@ You can create and manage your Classic Keys in both the Akeyless CLI and the Con
 >
 > If you are going to share the Classic Key with a Cloud KMS, you need to create a [target](https://docs.akeyless.io/docs/targets) for the key to later be associated with.
 
-## Managing a Classic Key from the CLI
+## Managing a Classic Key with the CLI
 
 ### Creating a Classic Key
 
-To create a Classic Key from the CLI, use this command with the following parameters:
+To create a Classic Key with the CLI, use this command with the following parameters:
 
 * `name`: The name of the Classic Key. The name can include the path to the virtual folder in which you want to create the new key, using the slash `/` separators. If the folder does not exist, it will be created together with the key.
 * `alg`: The type of key to be created.

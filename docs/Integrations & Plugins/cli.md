@@ -290,7 +290,7 @@ In case your Gateway uses a self-signed certificate not trusted by your machine,
 
 ## Working With Zero-Knowledge Encryption
 
-You can work with items that are protected by [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) from the CLI without specifying the Gateway, as Akeyless will automatically detect it based on the **Customer Fragment ID**.
+You can work with items that are protected by [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) with the CLI without specifying the Gateway, as Akeyless will automatically detect it based on the **Customer Fragment ID**.
 
 However, if the `AKEYLESS_GATEWAY_URL` environment variable is set, Akeyless will use the Gateway from that variable, and the automatic detection won't work.
 

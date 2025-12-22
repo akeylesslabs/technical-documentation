@@ -16,7 +16,7 @@ Items that can be changed range from the look and feel of the UI to how users in
 
 ## Update Account Settings from the Akeyless CLI
 
-To view `Account Settings` options from the CLI, use the following command:
+To view `Account Settings` options with the CLI, use the following command:
 
 ```shell
 akeyless update-account-settings -h

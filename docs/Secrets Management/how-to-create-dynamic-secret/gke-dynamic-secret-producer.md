@@ -20,13 +20,13 @@ You can create a dynamic Google Kubernetes Engine (GKE) secret to allow users re
 
 To use a dynamic GKE secret, your GCP administrator needs to create a GCP IAM service account with the desired [Kubernetes Engine role](https://cloud.google.com/iam/docs/understanding-roles#kubernetes-engine-roles) that should be given to users. The service account itself will serve as the user for each individual connection, with access tokens that will last for 60 minutes.
 
-## Create a Dynamic GKE Secret from the CLI
+## Create a Dynamic GKE Secret with the CLI
 
 > 👍 Note
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-targets#gke). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gke-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic GKE secret from the CLI using an existing [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke), run the following command:
+To create a dynamic GKE secret with the CLI using an existing [GKE Target](https://docs.akeyless.io/docs/kubernetes-targets#gke), run the following command:
 
 ```shell
 akeyless dynamic-secret create gke \
@@ -141,7 +141,7 @@ users:
     token: < Dynamic Secret Value goes here >
 ```
 
-To get the dynamic GKE secret value from the CLI, you should run the following command:
+To get the dynamic GKE secret value with the CLI, you should run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to the dynamic secret>

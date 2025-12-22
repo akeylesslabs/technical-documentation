@@ -18,7 +18,7 @@ Akeyless enables you to proactively revoke certificates before their scheduled e
 
 ## Revoke a Certificate Using the Akeyless CLI
 
-To revoke a certificate from the CLI, run the following command:
+To revoke a certificate with the CLI, run the following command:
 
 ```shell
 akeyless revoke-certificate \

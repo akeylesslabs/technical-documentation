@@ -36,13 +36,13 @@ Akeyless provides built-in tokenization templates for the following data types:
 
 Custom tokenization templates are also supported, allowing you to define a custom alphabet, tokenization pattern, and data output format.
 
-## Working With a Tokenizer from the CLI
+## Working With a Tokenizer with the CLI
 
 This section of the guide explains the workflow with the Akeyless CLI. If you wish to work from the Akeyless Console UI, go to [this section](https://docs.akeyless.io/docs/tokenization#working-with-a-tokenizer-from-the-console).
 
-### Create a Tokenizer from the CLI
+### Create a Tokenizer with the CLI
 
-To create a Tokenizer from the CLI, run the following command:
+To create a Tokenizer with the CLI, run the following command:
 
 > 👍 Note
 >
@@ -95,11 +95,11 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-tokenizerp) section.
 
-### Tokenize and Detokenize a Secret from the CLI
+### Tokenize and Detokenize a Secret with the CLI
 
 Tokenizers in Akeyless always operate using a zero-knowledge encryption model and do not require configuration of a storage or persistence mode.
 
-To tokenize a secret from the CLI, run the following command:
+To tokenize a secret with the CLI, run the following command:
 
 ```shell
 akeyless tokenize \
@@ -108,7 +108,7 @@ akeyless tokenize \
 --tweak <Base64-encoded tweak value>
 ```
 
-To detokenize a secret from the CLI, use this command:
+To detokenize a secret with the CLI, use this command:
 
 ```shell
 akeyless detokenize \

@@ -19,7 +19,7 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 * [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Service Account Key Admin](https://cloud.google.com/iam/docs/understanding-roles#iam.serviceAccountKeyAdmin) role assigned
 
-## Create a Rotated GCP Service Account Secret from the CLI
+## Create a Rotated GCP Service Account Secret with the CLI
 
 To create a Rotated GCP Secret using the Akeyless CLI, run the following command:
 

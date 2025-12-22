@@ -22,13 +22,13 @@ There are two modes for this Dynamic Secret:
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 * **Access Token** - Access Token that will be used for authentication with GitLab
 
-## Create a Dynamic GitLab Secret from the CLI
+## Create a Dynamic GitLab Secret with the CLI
 
 > 👍 Note
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic GitLab secret from the CLI using an existing [GitLab Target](https://docs.akeyless.io/docs/gitlab-target), run the following command:
+To create a dynamic GitLab secret with the CLI using an existing [GitLab Target](https://docs.akeyless.io/docs/gitlab-target), run the following command:
 
 ```shell
 akeyless dynamic-secret create gitlab \ 
@@ -80,9 +80,9 @@ If you don't have [GitLab Target](https://docs.akeyless.io/docs/gitlab-target) y
 
 * `gitlab-access-token`: **Required,** Access Token that will be used for authentication
 
-## Fetch a Dynamic GitLab Secret Value from the CLI
+## Fetch a Dynamic GitLab Secret Value with the CLI
 
-To fetch a dynamic GitLab secret value from the CLI, run the following command:
+To fetch a dynamic GitLab secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

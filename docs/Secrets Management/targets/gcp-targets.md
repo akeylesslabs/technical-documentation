@@ -14,7 +14,7 @@ You can define a GCP target to be used with [GCP Dynamic Secrets](https://docs.a
 
 ## Create a GCP Target with the CLI
 
-To create a GCP target from the CLI, run the following command:
+To create a GCP target with the CLI, run the following command:
 
 ```shell
 akeyless target create gcp \

@@ -43,7 +43,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
 5. In order to bind the Azure application with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
 
-## Create an OIDC Authentication Method from the CLI
+## Create an OIDC Authentication Method with the CLI
 
 ```shell
 akeyless auth-method create oidc --name 'my Azure app' --issuer https://{your-issuer-url} --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
@@ -56,7 +56,7 @@ If you wish to use a field such as **email** instead, make sure to first **Add o
 
 To log in with SSO to Akeyless with your new Azure AD OIDC Auth Method, login to the Console, browse to Auth Methods, select the newly created OIDC Auth Method, and hit the "**Generate OIDC Bookmark URL**" - this will provide you with the SSO link.
 
-## Login With OIDC from the CLI
+## Login With OIDC with the CLI
 
 You should configure a new profile with your Access-ID from the previous step and OIDC type (if no profile name is provided the default will be configured):
 

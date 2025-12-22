@@ -86,7 +86,7 @@ You can define a GKE target to be used with [GKE Dynamic Secrets](https://docs.a
 
 ### Create a GKE Target with the CLI
 
-To create a GKE target from the CLI, run the following command:
+To create a GKE target with the CLI, run the following command:
 
 ```shell
 akeyless target create gke \
@@ -166,7 +166,7 @@ In both cases of **Bearer Token** and **GW Service Account**, the Service Accoun
 
 ### Create a Generic Kubernetes Target with the CLI
 
-To create a generic Kubernetes target from the CLI, run the following command to create a Target using a **Token** or using **certificate**:
+To create a generic Kubernetes target with the CLI, run the following command to create a Target using a **Token** or using **certificate**:
 
 ```shell Inline connection with Token
 akeyless target create k8s \

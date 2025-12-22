@@ -14,7 +14,7 @@ You can define a HashiCorp Vault target to be used with [HashiCorp Vault Univers
 
 ## Create a HashiCorp Vault Target with the CLI
 
-To create an **HashiCorp Vault** target from the CLI, run the following command:
+To create an **HashiCorp Vault** target with the CLI, run the following command:
 
 ```shell
 akeyless target create hashi-vault \

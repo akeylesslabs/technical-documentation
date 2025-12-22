@@ -18,13 +18,13 @@ You can define a dynamic LDAP secret to dynamically generate LDAP access credent
 
 * LDAP server with a privileged LDAP User.
 
-## Create a Dynamic LDAP Secret from the CLI
+## Create a Dynamic LDAP Secret with the CLI
 
 > 👍 Note
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/ldap-dynamic-secret#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic LDAP secret from the CLI using an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target), run the following command:
+To create a dynamic LDAP secret with the CLI using an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target), run the following command:
 
 ```shell
 akeyless dynamic-secret create ldap \
@@ -78,9 +78,9 @@ If you don't have [LDAP Target](https://docs.akeyless.io/docs/ldap-target) yet, 
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueldapp) section.
 
-## Fetch a Dynamic LDAP Secret Value from the CLI
+## Fetch a Dynamic LDAP Secret Value with the CLI
 
-To fetch a dynamic LDAP secret value from the CLI, run the following command:
+To fetch a dynamic LDAP secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

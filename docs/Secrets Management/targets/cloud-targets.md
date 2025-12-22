@@ -14,9 +14,9 @@ next:
 
 You can define an Azure AD target to be used with [Azure AD Dynamic Secrets](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) or [Azure AD Rotated Secrets](https://docs.akeyless.io/docs/create-an-azure-rotated-secret).
 
-### Create an Azure AD Target from the CLI
+### Create an Azure AD Target with the CLI
 
-To create an Azure AD target from the CLI, run the following command:
+To create an Azure AD target with the CLI, run the following command:
 
 ```shell
 akeyless create-azure-target \
@@ -73,7 +73,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 5. Click **Save**.
 
-### Create an Azure Storage Account Target from the CLI
+### Create an Azure Storage Account Target with the CLI
 
 To create a new Azure Target for an Azure Storage Account, run the following command with the CLI:
 
@@ -108,9 +108,9 @@ Where:
 
 You can define a GCP target to be used with [GCP Dynamic Secrets](https://docs.akeyless.io/docs/gcp-dynamic-secrets).
 
-### Create a GCP Target from the CLI
+### Create a GCP Target with the CLI
 
-To create a GCP target from the CLI, run the following command:
+To create a GCP target with the CLI, run the following command:
 
 ```shell
 akeyless create-gcp-target \

@@ -14,7 +14,7 @@ When updating a static secret, you can update the current version, create a new 
 
 Let’s update a static secret using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/staticversions?isFramePreview=true#updates-and-versions-from-the-ui) instead.
 
-## Update a Static Secret from the CLI
+## Update a Static Secret with the CLI
 
 The CLI command to update a static secret is:
 

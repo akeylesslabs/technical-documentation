@@ -19,7 +19,7 @@ While this flow is simple and easy to use, we recommend you mainly use it for ba
 
 Let's create a new Email authentication method using the Akeyless CLI. (You can do this also from the Akeyless Console.)
 
-To create an email authentication method from the CLI, run the following command:
+To create an email authentication method with the CLI, run the following command:
 
 ```shell
 akeyless auth-method create email \

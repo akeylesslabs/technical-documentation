@@ -40,7 +40,7 @@ Where:
 
 For more information, see the Microsoft Graph [permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference).
 
-## Create a Rotated Azure Secret from the CLI
+## Create a Rotated Azure Secret with the CLI
 
 To create a Rotated Azure Secret using the Akeyless CLI, run the following command:
 

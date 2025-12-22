@@ -40,9 +40,9 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/database-targets). While it saves time for multiple secret level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the DB used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-## Create a Dynamic Database Secret from the CLI
+## Create a Dynamic Database Secret with the CLI
 
-To create a dynamic database secret from the CLI using an existing [Target](https://docs.akeyless.io/docs/targets), run the following command:
+To create a dynamic database secret with the CLI using an existing [Target](https://docs.akeyless.io/docs/targets), run the following command:
 
 ```shell MySQL/MariaDB
 akeyless dynamic-secret create mysql \
@@ -337,9 +337,9 @@ Depending on your database type, provide a **privileged username** that has enou
 
 You can find the complete list of parameters for these commands in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets) section.
 
-## Fetch a Dynamic Database Secret Value from the CLI
+## Fetch a Dynamic Database Secret Value with the CLI
 
-To fetch a dynamic database secret value from the CLI, run the following command:
+To fetch a dynamic database secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

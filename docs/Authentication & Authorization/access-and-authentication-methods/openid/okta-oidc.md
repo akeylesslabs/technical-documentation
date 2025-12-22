@@ -37,7 +37,7 @@ To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follo
 
 5. In order to bind the Okta application with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
 
-## Create an OIDC Authentication Method from the CLI
+## Create an OIDC Authentication Method with the CLI
 
 ```shell
 akeyless auth-method create oidc --name 'My Okta app' --issuer https://{your-okta-domain}.okta.com --client-id {your-client-id} --client-secret {your-client-secret} --required-scopes groups --unique-identifier {your-unique-identifier (e.g 'email' or 'username')}

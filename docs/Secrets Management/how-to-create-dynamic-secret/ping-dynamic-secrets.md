@@ -16,11 +16,11 @@ You can create a PingFederate secret to allow users to dynamically receive short
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/ping-target). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-## Working With Ping Dynamic Secrets from the CLI
+## Working With Ping Dynamic Secrets with the CLI
 
 ### Create a Dynamic Ping Secret
 
-To create a dynamic Ping secret from the CLI using an existing [Ping Target](https://docs.akeyless.io/docs/ping-target), run the following command:
+To create a dynamic Ping secret with the CLI using an existing [Ping Target](https://docs.akeyless.io/docs/ping-target), run the following command:
 
 ```shell
 akeyless dynamic-secret create ping \
@@ -84,7 +84,7 @@ akeyless dynamic-secret updateakeyless dynamic-secret get-value ping
 >
 > `-e PING_FEDERATE_CERTIFICATE= <Your Ping Federate server Certificate encoded in base64>`
 
-To fetch a dynamic Ping secret value from the CLI, run the following command:
+To fetch a dynamic Ping secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

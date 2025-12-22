@@ -56,9 +56,9 @@ Where:
 | expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`              |
 | expected_item_name | (Optional) The item name of the custom Rotated Secret. This can be helpful if a single Akeyless Gateway runs multiple custom Rotated Secrets, and the custom Rotated Secret implementation should only respond to one of them. | `"/custom-rotated-foo"` |
 
-### Create a Custom Rotated Secret from the CLI
+### Create a Custom Rotated Secret with the CLI
 
-To create a custom Rotated Secret from the CLI, run the following command:
+To create a custom Rotated Secret with the CLI, run the following command:
 
 ```shell
 akeyless rotated-secret create custom \

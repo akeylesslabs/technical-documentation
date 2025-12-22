@@ -38,7 +38,7 @@ You can create a Rotated Secret for a database user. Currently, Akeyless Rotated
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the database server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target database.
 
-## Create a Rotated Database Secret from the CLI
+## Create a Rotated Database Secret with the CLI
 
 To create a rotated database secret using the Akeyless CLI, run the following command:
 

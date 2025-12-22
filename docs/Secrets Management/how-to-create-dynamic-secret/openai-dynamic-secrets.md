@@ -12,13 +12,13 @@ You can use Akeyless Dynamic Secrets to generate short-lived credentials that le
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw#/)
 * an [Admin API Key](https://platform.openai.com/docs/api-reference/admin-api-keys)
 
-## Create an OpenAI Dynamic Secret from the CLI
+## Create an OpenAI Dynamic Secret with the CLI
 
 <Callout icon="👍" theme="okay">
   We recommend using Dynamic Secrets with Targets. While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 </Callout>
 
-To create a Dynamic Secret for OpenAI from the CLI using an existing OpenAI target, run the following command:
+To create a Dynamic Secret for OpenAI with the CLI using an existing OpenAI target, run the following command:
 
 ```shell
 akeyless dynamic-secret create openai \

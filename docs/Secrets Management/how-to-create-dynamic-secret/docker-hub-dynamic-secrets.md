@@ -18,13 +18,13 @@ You can define a Docker Hub Dynamic Secret to generate just-in-time personal acc
 
 * A Docker privileged user to be used to generate access tokens
 
-## Create a Dynamic Docker Hub Secret from the CLI
+## Create a Dynamic Docker Hub Secret with the CLI
 
 > 👍 Note
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Docker Hub secret from the CLI using an existing [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target), run the following command:
+To create a dynamic Docker Hub secret with the CLI using an existing [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target), run the following command:
 
 ```shell
 akeyless dynamic-secret create dockerhub \
@@ -71,9 +71,9 @@ If you don't have [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-t
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluedockerhubp) section.
 
-## Fetch a Dynamic Docker Hub Secret Value from the CLI
+## Fetch a Dynamic Docker Hub Secret Value with the CLI
 
-To fetch a dynamic Docker Hub secret value from the CLI, run the following command:
+To fetch a dynamic Docker Hub secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

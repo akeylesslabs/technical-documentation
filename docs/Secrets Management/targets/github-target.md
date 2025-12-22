@@ -14,7 +14,7 @@ You can define a GitHub target to be used with [GitHub Dynamic Secret](https://d
 
 ## Create a GitHub Target with the CLI
 
-To create a GitHub target from the CLI, run the following command:
+To create a GitHub target with the CLI, run the following command:
 
 ```shell GitHub Target
 akeyless target create github \
