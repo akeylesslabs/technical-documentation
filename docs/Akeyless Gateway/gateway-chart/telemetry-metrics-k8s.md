@@ -212,3 +212,9 @@ After starting the Docker container, you can utilize [Loki Grafana](https://graf
 This will enable you to monitor and analyze your application logs seamlessly.
 
 Alternatively, you can store a Kubernetes Secret to store the relevant `otel-config.yaml` as described in the [Using Kubernetes Secret](https://docs.akeyless.io/docs/telemetry-metrics-k8s#using-k8s-secret).
+
+# Metric Tag Configuration
+
+You can also add tags to metrics using OpenTelemetry semantic conventions, more information can be found [here](https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/?tab=datadogexporter#metrics-attribute-mapping).
+
+<br />
