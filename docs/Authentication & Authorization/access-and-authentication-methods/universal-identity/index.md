@@ -51,7 +51,7 @@ In order to use a Universal Identity token, it must be associated with a Role.
 
 To use it with the Akeyless CLI, add it to your Akeyless commands in one of the following ways:
 
-```shell CLI
+```shell
 akeyless list-items --uid-token u-XXXXXXXX
 akeyless get-secret-value -n MyFirstSecret --uid-token u-XXXXXXXX
 ```
@@ -65,7 +65,7 @@ curl https://<Gateway-URL>:8080 -d "cmd=list-items&&uid-token=u-XXXXX"
 
 To disable the permissions of a certain token, use the following command:
 
-```shell CLI
+```shell
 akeyless uid-revoke-token --revoke-token <u-XXXX> --revoke-type revokeSelf --auth-method-name <UID Name>
 ```
 
@@ -77,7 +77,7 @@ Like with secrets and encryption keys, tokens can also be rotated. Once the toke
 
 To rotate a token use the following command:
 
-```shell CLI
+```shell
 akeyless uid-rotate-token --uid-token u-XXXXXXXX
 ```
 
@@ -109,7 +109,7 @@ akeyless uid-rotate-token -i /tmp/token -o /tmp/token
 
 To rotate a token with backward compatibility:
 
-```shell CLI
+```shell
 akeyless rotate-token --token u-XXXXXXXX
 ```
 
@@ -123,7 +123,7 @@ Child tokens are not mandatory. They are optional and meant for users who want t
 
 When using the following command:
 
-```shell CLI
+```shell
 akeyless uid-create-child-token --uid-token u-XXXXXXXX
 ```
 
@@ -139,7 +139,7 @@ You can find the complete list of additional parameters for this command in the 
 
 If you use child tokens and want to see the structure of your token tree, use the following command:
 
-```shell CLI
+```shell
 akeyless uid-list-children --uid-token u-XXXXXXXX
 ```
 ```shell Result

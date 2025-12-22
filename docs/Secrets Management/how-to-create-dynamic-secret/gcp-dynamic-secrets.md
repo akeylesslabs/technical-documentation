@@ -112,7 +112,7 @@ akeyless dynamic-secret create gcp \
 
 Or using an inline connection string:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
@@ -164,7 +164,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To fetch a dynamic GCP secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

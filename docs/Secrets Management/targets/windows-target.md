@@ -16,7 +16,7 @@ You can define a Windows target to be used with an RDP [Rotated Secrets](https:/
 
 To create a Windows target with the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless target create windows \
 --name <target name> \ 
 --hostname <Windows Hostname\IP> \

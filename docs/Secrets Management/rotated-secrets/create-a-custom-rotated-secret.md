@@ -26,7 +26,7 @@ First, you must create a [Web Target](https://docs.akeyless.io/docs/web-targets)
 
 To create a [Web Target](https://docs.akeyless.io/docs/web-targets) using the Akeyless CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless create-web-target -n &lt;your web target name&gt; \
 -u https://my.web.server/rotate
 ```
@@ -60,7 +60,7 @@ Where:
 
 To create a custom Rotated Secret from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless rotated-secret create custom \
 --name &lt;Rotated Secret name&gt;
 --gateway-url 'https://&lt;Your-Akeyless-GW-URL:8000&gt;' \

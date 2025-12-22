@@ -28,7 +28,7 @@ Let's set up remote access to a Kubernetes cluster using the Akeyless CLI. If yo
 
 Run the relevant command to define the following fields to the secret that specifies the Kubernetes cluster details and access credentials:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret update k8s \
 --name <Kubernetes dynamic secret name> \
 --secure-access-enable true \

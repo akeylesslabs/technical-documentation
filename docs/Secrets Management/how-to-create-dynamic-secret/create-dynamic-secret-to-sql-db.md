@@ -341,7 +341,7 @@ You can find the complete list of parameters for these commands in the [CLI Refe
 
 To fetch a dynamic database secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

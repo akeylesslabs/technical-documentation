@@ -16,7 +16,7 @@ You can define an LDAP target to be used with [LDAP Dynamic Secrets](https://doc
 
 To create an LDAP target with the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless target create ldap \
 --name <target name> \
 --ldap-url <LDAP server URL> \

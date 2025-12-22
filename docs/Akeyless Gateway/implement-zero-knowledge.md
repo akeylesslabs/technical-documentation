@@ -32,13 +32,13 @@ Using our unique Zero-Knowledge architecture, you can deploy multiple [Gateway](
 
 To generate a Customer Fragment, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless gen-customer-fragment --name <CF-Name> --description MyFirstCF --json
 ```
 
 You'll get the following output:
 
-```shell Akeyless CLI
+```json
 {
     "customer_fragments": [
         {
@@ -89,7 +89,7 @@ To create a DFC Encryption Key:
 
 To generate a key using a Customer Fragment, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless create-dfc-key --name MyKeyWithMyCF --alg AES256GCM -f <customer-fragment-id>
 ```
 
@@ -101,7 +101,7 @@ Where:
 
 You'll get the following output:
 
-```shell Akeyless CLI
+```text
 A new AES256GCM key named MyKeyWithMyCF was successfully created
 ```
 

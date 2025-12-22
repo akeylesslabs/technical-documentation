@@ -168,7 +168,7 @@ To use Akeyless Connect you need:
 
 For SSH access through the bastion, please use both `-v ssh-bastion` and the `-c cert_issuer_name` option. Notice the end-users require `read` permission on the cert issuer item which enables them access to the bastion.
 
-```shell Akeyless connect for SSH
+```shell
 akeyless connect -t user@ssh-server[:port] -v <via-sra-bastion-ssh-service> -c "<Path to SSH Cert Issuer>"
 ```
 
@@ -178,31 +178,31 @@ akeyless connect -t user@ssh-server[:port] -v <via-sra-bastion-ssh-service> -c "
 
 #### AWS
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -v <via-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
 In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file you can use:
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t us-east-1 -v <via-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
 #### MongoDB
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t <mongo server IP>:27017 -v <via-sra-bastion-ssh-service>:<port> -n "<Path to MongoDB Dynamic Secret>"
 ```
 
 #### MySQL
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t <mysql-server>:3306 -v <via-sra-bastion-ssh-service>:<port> -n "<Path to MySQL Dynamic Secret>"
 ```
 
 #### Amazon EKS
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -v <via-sra-bastion-ssh-service>:<port> -n "<Path to EKS Dynamic secret>"
 ```
 

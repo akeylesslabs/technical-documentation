@@ -26,7 +26,7 @@ You can use Akeyless Dynamic Secrets to generate access credentials for Snowflak
 
 To create a dynamic Snowflake secret from the CLI using the existing [Snowflake Target](https://docs.akeyless.io/docs/database-targets#snowflake), run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create snowflake \
 --name <New Secret Name> \
 --target-name <Target Name> \
@@ -104,7 +104,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To fetch a dynamic Snowflake secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

@@ -149,10 +149,10 @@ The secret value format of the Linked Target Rotated Secret is a **key/value** m
 
 To fetch a Rotated Secret value run the following command:
 
-```shell CLI Command
+```shell
 akeyless get-rotated-secret-value -name <Rotated secret name>
 ```
-```shell Sample Output
+```json Sample Output
 {
     "value":
     {

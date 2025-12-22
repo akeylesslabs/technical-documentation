@@ -28,7 +28,7 @@ For more information on how to use installation access tokens in GitHub, see the
 
 To create a dynamic GitHub secret from the CLI using an existing GitHub target, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create github \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
@@ -38,7 +38,7 @@ akeyless dynamic-secret create github \
 
 Or using an inline connection string:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create github \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
@@ -78,7 +78,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To fetch a dynamic GitHub secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

@@ -16,7 +16,7 @@ You can define a Salesforce target to be used in the [Akeyless KMS integration w
 
 To create a Salesforce target using the Akeyless CLI, use the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless target create salesforce \
 --name <target name> \
 --tenant-url <Salesforce tenant URL> \

@@ -14,13 +14,13 @@ next:
 
 1. From Akeyless CLI - enable the KMIP server:
 
-  ```shell Akeyless CLI
+  ```shell
   akeyless kmip-server-setup --hostname <akeyless.gateway.hostname> --gateway-url <Your_Akeyless_GW_URL> --root /kmip/default
   ```
 
 2. Create KMIP client:
 
-  ```shell Akeyless CLI
+  ```shell
   akeyless kmip-create-client --name myVCenter --gateway-url <Your_Akeyless_GW_URL>
   ```
 
@@ -44,7 +44,7 @@ next:
 
 4. By default, KMIP clients have no permissions. To grant your KMIP client minimal access permissions, execute the following command:
 
-  ```shell Akeyless CLI
+  ```shell
   akeyless kmip-client-set-rule --gateway-url <Your_Akeyless_GW_URL> --client-id <From step 2, kc-TmA3...VM2u> \
     --path "/*" \
     --capability CREATE \

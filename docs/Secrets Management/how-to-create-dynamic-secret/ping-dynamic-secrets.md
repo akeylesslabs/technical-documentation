@@ -22,7 +22,7 @@ You can create a PingFederate secret to allow users to dynamically receive short
 
 To create a dynamic Ping secret from the CLI using an existing [Ping Target](https://docs.akeyless.io/docs/ping-target), run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create ping \
 --name <Producer Name> \
 --target-name <Target Name> \
@@ -48,7 +48,7 @@ Where:
 
 To create a Ping Dynamic Secret without using an existing target, amend the command to show as follows:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create ping \
 --name <Producer Name> \
 --gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
@@ -72,7 +72,7 @@ All other parameters have the same meaning whether or not you choose to use a ta
 
 You may update the Dynamic Secret information using the following command with the same parameters:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret updateakeyless dynamic-secret get-value ping
 ```
 
@@ -86,7 +86,7 @@ akeyless dynamic-secret updateakeyless dynamic-secret get-value ping
 
 To fetch a dynamic Ping secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

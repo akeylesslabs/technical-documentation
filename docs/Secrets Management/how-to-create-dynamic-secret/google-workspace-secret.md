@@ -57,7 +57,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
 
 To create a dynamic Google Workspace secret from the CLI using an existing GCP target, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create google-workspace \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
@@ -72,7 +72,7 @@ akeyless dynamic-secret create google-workspace \
 
 **Or using an inline connection string**:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create google-workspace \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
@@ -118,7 +118,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To fetch a dynamic Google Workspace secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

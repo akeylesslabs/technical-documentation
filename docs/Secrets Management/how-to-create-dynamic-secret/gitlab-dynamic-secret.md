@@ -30,7 +30,7 @@ There are two modes for this Dynamic Secret:
 
 To create a dynamic GitLab secret from the CLI using an existing [GitLab Target](https://docs.akeyless.io/docs/gitlab-target), run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create gitlab \ 
 --name <Dynamic Secret Name>
 --target-name <Target Name>
@@ -44,7 +44,7 @@ akeyless dynamic-secret create gitlab \
 
  Or using an inline connection string:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create gitlab \ 
 --name <Dynamic Secret Name>
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
@@ -84,7 +84,7 @@ If you don't have [GitLab Target](https://docs.akeyless.io/docs/gitlab-target) y
 
 To fetch a dynamic GitLab secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

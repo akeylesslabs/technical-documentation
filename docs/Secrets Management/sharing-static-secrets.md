@@ -40,7 +40,7 @@ To view the secret that was wrapped by the temporary token, you can run the `unw
 
 To share an item via **Email**, use the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless share-item --item-name <item name> --action share --email <email address>
 ```
 
@@ -54,7 +54,7 @@ Where:
 
 To share an item via **Token** run the following:
 
-```shell Akeyless CLI
+```shell
 akeyless share-item --item-name <item name> --action <action to perform> --share-type token
 ```
 

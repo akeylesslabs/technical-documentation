@@ -24,7 +24,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 To create a dynamic Artifactory secret from the CLI using an existing [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets), run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
@@ -35,7 +35,7 @@ akeyless dynamic-secret create artifactory \
 
 Or using an inline connection string:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
@@ -75,7 +75,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To fetch a dynamic Artifactory secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

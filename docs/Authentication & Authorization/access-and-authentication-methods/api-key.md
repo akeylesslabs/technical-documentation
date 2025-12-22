@@ -40,7 +40,7 @@ You can find the complete list of additional parameters for this command in the 
 
 To configure your CLI to work with API Key authentication, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless configure --profile default --access-id <AccessID> --access-key < API Key>
 ```
 

@@ -16,7 +16,7 @@ You can define a HashiCorp Vault target to be used with [HashiCorp Vault Univers
 
 To create an **HashiCorp Vault** target from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless target create hashi-vault \
 --name <target name> \
 --hashi-url 'https://<your-vault-api-url:8200>' \

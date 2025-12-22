@@ -75,7 +75,7 @@ kubectl apply -f akl_gw_sa_token_reviewer.yaml
 
 Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method, The result contains an `Access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
-```shell Akeyless CLI
+```shell
 akeyless auth-method create k8s -n my-k8s-auth-method --json
 ```
 

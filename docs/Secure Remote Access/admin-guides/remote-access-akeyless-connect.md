@@ -206,31 +206,31 @@ akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert
 
 ### AWS
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
 In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file you can use:
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t us-east-1 -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
 ### MongoDB
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t <mongo server IP>:27017 -g <gw-ssh-url>:<port> -n "<Path to MongoDB Dynamic Secret>"
 ```
 
 ### MySQL
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t <mysql-server>:3306 -g <gw-ssh-url>:<port> -n "<Path to MySQL Dynamic Secret>"
 ```
 
 ### Amazon EKS
 
-```shell Akeyless CLI
+```shell
 akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -g <gw-ssh-url>:<port> -n "<Path to EKS Dynamic secret>"
 ```
 

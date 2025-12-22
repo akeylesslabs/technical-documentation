@@ -35,13 +35,13 @@ compute.instanceGroups.list
 >
 > Be sure to follow the <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity" target="_blank">GKE Guide</a> when configuring the GKE Workload Identity.
 
-## Create a GCP Authentication Method from the CLI
+## Create a GCP Authentication Method with the CLI
 
 Let's create a new GCP authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://akeyless.readme.io/docs/gcp-auth-method#create-a-gcp-authentication-method-in-the-akeyless-console).)
 
-To create a GCP authentication method from the CLI, run the following command:
+To create a GCP authentication method with the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless auth-method create gcp \
 --name <Auth Method Name> \
 --type <iam|gce> \
@@ -65,7 +65,7 @@ You can find the complete list of additional parameters for this command in the 
 
 To configure your CLI to work with GCP authentication, run the following command from a GCP resource:
 
-```shell Akeyless CLI
+```shell
 akeyless configure --profile default --access-id <AccessID> --access-type gcp --gcp-audience akeyless.io
 akeyless get-cloud-identity --cloud-provider gcp
 ```

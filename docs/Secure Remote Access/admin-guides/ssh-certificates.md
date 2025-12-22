@@ -154,7 +154,7 @@ The following command will create a new SSH Cert Issuer in the Akeyless Platform
 
 * `extensions`: A specific set of SSH Certificate extensions (this parameter is also optional, if not stated the default extensions are: permit-X11-forwarding, permit-agent-forwarding, permit-port-forwarding, permit-pty, permit-user-rc)
 
-```shell CLI
+```shell
 akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /path/to/MyRSA --allowed-users 'ubuntu,root' --ttl 300
 ```
 
@@ -174,7 +174,7 @@ After setting up a key and a certificate issuer, the following command will gene
 
 * `public-key-file-path`: The path to the file containing your SSH public key.
 
-```shell CLI
+```shell
 akeyless get-ssh-certificate --cert-username ubuntu --cert-issuer-name /prod/ssh-cert-issuer --public-key-file-path ~/.ssh/id_rsa.pub
 ```
 

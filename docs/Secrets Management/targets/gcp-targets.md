@@ -16,7 +16,7 @@ You can define a GCP target to be used with [GCP Dynamic Secrets](https://docs.a
 
 To create a GCP target from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless target create gcp \
 --name <target name> \
 --gcp-key-file-path <Path to the service account private key> \

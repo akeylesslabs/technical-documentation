@@ -42,7 +42,7 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 To create a rotated database secret using the Akeyless CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless rotated-secret create <DB type> \
 --name <Rotated Secret name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \

@@ -24,7 +24,7 @@ Let’s create a static secret using the Akeyless CLI. If you’d prefer, see ho
 
 The CLI command to create a static secret is:
 
-```shell Akeyless CLI
+```shell
 akeyless create-secret --name &lt;secret name&gt; --value &lt;secret value&gt;
 ```
 
@@ -36,7 +36,7 @@ where:
 
 For example, to create a secret in the **Admin** folder called **AdminCredentials** with the value **Admin101!**, type:
 
-```shell Akeyless CLI
+```shell
 akeyless create-secret --name /Admin/AdminCredentials --value Admin101!
 ```
 
