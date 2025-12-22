@@ -153,3 +153,7 @@ After starting the container, you can utilize [Loki Grafana](https://grafana.com
 * In the Label Filter, select **Exporter** and [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) to filter the logs accordingly
 
 This will enable you to monitor and analyze your application logs seamlessly.
+
+# Metric Tag Configuration
+
+You can also add tags to metrics using OpenTelemetry semantic conventions, more information can be found [here](https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/?tab=datadogexporter#metrics-attribute-mapping).
