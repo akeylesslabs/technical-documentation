@@ -34,7 +34,7 @@ The following options are available when importing secrets from other identity s
 
 * **Target location:** This is where secrets are created in Akeyless.
 
-For example, when importing secrets from Kubernetes, it may be a good idea to put them all under the `/kubernetes` path. Or if there are multiple Kubernetes clusters, under `/kubernetes/staging` or similar.
+For example, when importing secrets from Kubernetes, it may be a good idea to put them all under the `/kubernetes` path. This is also recommended if there are multiple Kubernetes clusters, under `/kubernetes/staging` or similar.
 
 After the migration, new secrets will be available under the specified path. If the location is not provided, the secrets will be created in the root `/` folder of your account.
 

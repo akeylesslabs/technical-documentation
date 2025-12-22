@@ -81,7 +81,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm repo update
 ```
 
-The `values.yaml` file holds default values. [Copy the file from GitHub](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-secure-remote-access). Or run the following Helm command to generate the values file locally:
+The `values.yaml` file holds default values. [Copy the file from GitHub](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-secure-remote-access) or run the following Helm command to generate the values file locally:
 
 ```shell
 helm show values akeyless/akeyless-sra > values.yaml

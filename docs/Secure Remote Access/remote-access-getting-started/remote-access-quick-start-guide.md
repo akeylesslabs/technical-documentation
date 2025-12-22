@@ -59,7 +59,7 @@ akeyless configure --profile default --access-id <Your API Key Auth AccessID> --
 
 ## Create Your Access Role
 
-Follow this tutorial to create an Access Role and associate your Authentication Method. Or you can follow the below CLI commands:
+Follow this tutorial to create an Access Role and associate your Authentication Method or you can follow the below CLI commands:
 
 1. Create a new access role:
 

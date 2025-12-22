@@ -70,7 +70,7 @@ akeyless dynamic-secret create google-workspace \
 --role-scope[=CUSTOMER] <[CUSTOMER/ORG_UNIT]>
 ```
 
-**Or using an inline connection string**:
+Or using an inline connection string:
 
 ```shell
 akeyless dynamic-secret create google-workspace \
