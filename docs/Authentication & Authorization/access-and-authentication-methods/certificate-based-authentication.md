@@ -38,7 +38,7 @@ A `unique identifier` acts as a <a href="https://docs.akeyless.io/docs/sub-claim
 
 To create a certificate-based authentication method, run the following command:
 
-```shell CLI
+```shell
 akeyless auth-method create cert \
 --name <Auth Method name> \
 --unique-identifier 'common_name' \
@@ -59,7 +59,7 @@ You can find the complete list of additional parameters for this command in the 
 
 To authenticate using the new certificate-based authentication method, run the following command:
 
-```shell CLI
+```shell
 akeyless auth \
 --access-id <Access ID> \
 --access-type cert \

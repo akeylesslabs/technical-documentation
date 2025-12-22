@@ -26,7 +26,7 @@ To create the Server Inventory Migration, login to your Gateway on port `8000`, 
 
 * **User Name Template:** A template for the created items, where the imported Local Users will be saved as Rotated Secrets ) inside the Akeyless Platform, for example, `Users/{{COMPUTER_NAME}}/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
 
-* **Search in Privileged Users Groups** : A list of groups to scan.
+* **Search in Privileged Users Groups**: A list of groups to scan.
 
 * **Target Location:** Destination folder path inside the Akeyless Platform for the migrated users. Make sure your Gateway has enough permissions to create Secrets under this location. The migrated [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) of your Local Users will be saved under this location.
 

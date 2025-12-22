@@ -123,17 +123,17 @@ Optional:
   * `network` - Either **TCP** or **UDP**
   * `url` - Syslog server URL.
 
-Set the relevant permission on the `pkcs11.conf` file for your `oracle` user & group :
+Set the relevant permission on the `pkcs11.conf` file for your Oracle user & group:
 
 ```shell
 chown -R oracle:dba /var/akeyless/conf/pkcs11.conf
 ```
 
-Edit the `sqlnet.ora` file under `$ORACLE_HOME/network/admin/sqlnet.ora` where `$ORACLE_HOME` is your `oracle` user home directory.
+Edit the `sqlnet.ora` file under `$ORACLE_HOME/network/admin/sqlnet.ora` where `$ORACLE_HOME` is your Oracle user home directory.
 
 For Docker setup, the file location is `/u01/app/oracle/product/12.2.0/dbhome_1/admin/ORCLCDB/sqlnet.ora`
 
-Add the following line to set your `Oracle` wallet:
+Add the following line to set your Oracle wallet:
 
 ```shell
 ENCRYPTION_WALLET_LOCATION=(SOURCE=(METHOD=HSM))
@@ -168,7 +168,7 @@ ENCRYPTION_WALLET_LOCATION=(SOURCE=(METHOD=HSM))
 
 ## Encrypting Tablespaces
 
-Login to your `Oracle` DB, and run the following commands to create a wallet and a master encryption key:
+Login to your Oracle DB, and run the following commands to create a wallet and a master encryption key:
 
 ```sql Oracle
 administer key management set keystore open identified by "akeyless";

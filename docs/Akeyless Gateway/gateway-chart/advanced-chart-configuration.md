@@ -78,7 +78,7 @@ data:
   tlsCertificate: <base64-encoded-tls-certificate.pem>
   tlsPrivateKey: <base64-encoded-tls-certificate-key.pem>
 ```
-```Text shell
+```shell
 kubectl create secret generic tls-certificate \
   --from-file=tlsCertificate=/path/to/certificate.pem \
   --from-file=tlsPrivateKey=/path/to/private-key.pem \
@@ -121,7 +121,7 @@ To set an internal TLS between the Gateway and cache service, set the `enableTls
     enableTls: false
 ```
 
-To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded :
+To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded:
 
 ```shell
 kubectl create secret generic cache-configuration \
@@ -183,7 +183,7 @@ While the **Cache** setup can address many cases for some environments, there is
 >
 > This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
 
-To set the default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded :
+To set the default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded:
 
 ```yaml
 kubectl create secret generic cache-configuration \

@@ -52,7 +52,7 @@ The Proactive Cache fetches all secrets from the Akeyless Cloud and stores them 
 
 The Gateway utilizes a proactive caching model with a delta-based update process to avoid the resource-intensive task of re-fetching all secrets periodically. This is managed by two parallel background processes:
 
-* **Refresh-TTL Ticker** : This process runs at a configurable interval (by default every 5 minutes) and queries the Akeyless SaaS platform only for secrets that have been modified within that time window. By checking just for the delta of updated secrets, the Gateway significantly reduces the overhead of keeping the cache synchronized.
+* **Refresh-TTL Ticker**: This process runs at a configurable interval (by default every 5 minutes) and queries the Akeyless SaaS platform only for secrets that have been modified within that time window. By checking just for the delta of updated secrets, the Gateway significantly reduces the overhead of keeping the cache synchronized.
 * **Cleanup-TTL Ticker:** This independent process periodically compares the cache with the SaaS to remove entries for secrets that have been deleted or for which the Gateway's access permissions have been revoked.
 
 This dual-ticker system ensures the cache remains fresh and accurate with minimal performance impact. When a user updates a secret in the Akeyless UI, the change is picked up by the next refresh cycle, and the updated value is propagated to the cache and subsequently to the workload without requiring any manual intervention. This provides a highly efficient and scalable solution for secrets management.
@@ -86,8 +86,8 @@ When deploying Gateway on Kubernetes, a Cluster Cache can be set in addition to 
 
 ## Bypass Cache
 
-When Cache is enabled by default, any client that requests a secret from the relevant Gateway will receive the latest cached value of the secret. To work directly with the Akeyless SaaS, to ensure you are retrieving the latest value of the secret, you can specify the `ignore-cache` setting as part of the request to by-pass the cache mechanism :
+When Cache is enabled by default, any client that requests a secret from the relevant Gateway will receive the latest cached value of the secret. To work directly with the Akeyless SaaS, to ensure you are retrieving the latest value of the secret, you can specify the `ignore-cache` setting as part of the request to by-pass the cache mechanism:
 
-```shell Akeyless CLI
+```shell
 akeyless get-secret-value -n /mysecret --ignore-cache true
 ```

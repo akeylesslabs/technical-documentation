@@ -49,7 +49,9 @@ Where:
 * **cert-issuer-name:** Optional. If already configured inside `akeyless-connect.rc` file, alternativity provide\
   the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion.
 
-* **name :** Full name of the secret item to use in order to connect. i.e. Dynamic or a Rotated Secret for Database,RDP etc. Or a static secret which contains the credentials of the target system.
+* **name
+
+:** Full name of the secret item to use in order to connect. i.e. Dynamic or a Rotated Secret for Database,RDP etc. Or a static secret which contains the credentials of the target system.
 
 * **command:** Command to execute on the target remote host (useful for non-interactive mode). e.g. `-C='ls -al'`
 

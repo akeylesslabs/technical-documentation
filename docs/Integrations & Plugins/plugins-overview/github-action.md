@@ -440,7 +440,7 @@ Using the following inside your `yaml`:
 
 In this example, the output in `secrets.txt` will be:
 
-```Text secrets.txt
+```text secrets.txt
 key1:val1
 key2:val2
 key1:val1
@@ -464,7 +464,7 @@ If you don't want the prefix to be the secret name, you can add `prefix-json-sec
 
 In this example, the output in `secrets.txt` will be:
 
-```Text secrets.txt
+```text secrets.txt
 key1 == val1 
 key2 == val2
 ```

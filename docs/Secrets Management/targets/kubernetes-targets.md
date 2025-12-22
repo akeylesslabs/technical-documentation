@@ -234,7 +234,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
       * **Cluster Name:** Optional. Set the Kubernetes cluster name.
    2. **Client Certificate**
       * **Client Certificate:** Provide the Kubernetes client certificate (PEM format).
-      * **Client Private Key :** Provide the Kubernetes client private key (PEM format).
+      * **Client Private Key:** Provide the Kubernetes client private key (PEM format).
       * **Cluster CA Certificate:** Provide the Kubernetes cluster CA certificate (PEM format).
       * **Cluster Endpoint URL:** Specify the URL of the cluster.
       * **Cluster Name:** Optional. Set the Kubernetes cluster name.

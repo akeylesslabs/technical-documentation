@@ -43,7 +43,7 @@ You can either use Akeyless [API Key](https://docs.akeyless.io/docs/api-key) in 
 
 A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter i.e.: `< Access ID >..< Access Key >`.
 
-Alternatively, to extract your authorization tokens directly using the [Akeyless CLI](https://docs.akeyless.io/docs/cli) `auth` command as part of your workflow variables :
+Alternatively, to extract your authorization tokens directly using the [Akeyless CLI](https://docs.akeyless.io/docs/cli) `auth` command as part of your workflow variables:
 
 ```shell
 VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}')
@@ -89,13 +89,13 @@ The **Key names** can be: `username` and `password` where the **Path** is `secre
 
 To work with **KV 2** use the following format:
 
-To fetch the secret **/DevOps/Ansible** :
+To fetch the secret **/DevOps/Ansible**:
 
  The **Path** is `secret/DevOps/Ansible`, where the Key in the returned JSON name is `DevOps/Ansible` without the `/` prefix.
 
 ![](https://files.readme.io/486bb56-Ansible7.png "Ansible7.png")
 
-For example, to fetch the secret **/DevOps/AnsibleJson** :
+For example, to fetch the secret **/DevOps/AnsibleJson**:
 
 The **Path** should be `secret/DevOps/AnsibleJson`, and the **Key name** should be set with the relevant JSON keys.
 

@@ -16,7 +16,9 @@ Log forwarding to your bastions can be done for:
 
 SSH Access: [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion)
 
-Web Application Access : [Web Access Bastion](https://docs.akeyless.io/docs/web-access-bastion)
+Web Application Access
+
+: [Web Access Bastion](https://docs.akeyless.io/docs/web-access-bastion)
 
 ## Syslog
 

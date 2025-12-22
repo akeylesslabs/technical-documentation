@@ -28,8 +28,8 @@ akeyless renew-certificate \
 
 Where:
 
-* `name` : The certificate full name, alternatively can be provided using `item-id` instead.
-* `generate-key` : Generate a new key as part of the certificate renewal, if not provided, the certificate private key will be used when exists (i.e. stored on the certificate item).
+* `name`: The certificate full name, alternatively can be provided using `item-id` instead.
+* `generate-key`: Generate a new key as part of the certificate renewal, if not provided, the certificate private key will be used when exists (i.e. stored on the certificate item).
 
 Upon successful renewal a new version will be created on the certificate item itself, and automatic provisioning will be triggered based on the existing settings.
 

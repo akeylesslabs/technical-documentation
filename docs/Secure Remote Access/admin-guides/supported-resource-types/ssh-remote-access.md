@@ -93,7 +93,8 @@ Akeyless enables CLI access from any Unix terminal.
 
 1. Download and install the latest version of [Akeyless CLI](https://docs.akeyless.io/docs/cli).
 
-2. Create your `~/.akeyless-connect.rc` :
+2. Create your `~/.akeyless-connect.rc`
+:
 
 ```shell
 # ---------------------------------------------------------------------

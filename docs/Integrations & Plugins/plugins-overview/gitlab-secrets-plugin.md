@@ -163,7 +163,7 @@ Where:
 
 ### JSON Example
 
-The following examples fetch a static secret named `/JSON/Secret` with a JSON key named: `imp` :
+The following examples fetch a static secret named `/JSON/Secret` with a JSON key named: `imp`:
 
 ```yaml
 job:

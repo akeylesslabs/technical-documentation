@@ -30,7 +30,7 @@ export VAULT_ADDR=https://hvp.akeyless.io
 You can either use Akeyless [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:\
 A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter: `< Access ID >..< Access Key >`, For example:`p-xxxxx..accessKey`
 
-Alternatively, to extract your authorization tokens directly using the [Akeyless CLI](https://docs.akeyless.io/docs/cli) `auth` command :
+Alternatively, to extract your authorization tokens directly using the [Akeyless CLI](https://docs.akeyless.io/docs/cli) `auth` command:
 
 ```shell
 akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}'>> ~/.vault-token

@@ -31,7 +31,7 @@ On the **Certificate Expiry** graph, click on the **Overview** button in the top
 
 To get the Analytic data using a CLI command run the following command:
 
-```shell CLI
+```shell
 akeyless get-analytics-data
 ```
 

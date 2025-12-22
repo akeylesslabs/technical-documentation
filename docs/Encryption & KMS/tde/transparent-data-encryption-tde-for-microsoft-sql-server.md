@@ -45,7 +45,7 @@ The location of the `sqlcrypt.conf` file is depended on the installation path, D
 
 The format of the file should look like this:
 
-```Text sqlcrypt.conf
+```text sqlcrypt.conf
 log_level="error"
 akeyless_url="https://api.akeyless.io" \<---- api v2 (8081 or 8000/api/v2)
 base_item_path="/sqlcrypt" \<--- base path for the keys to be created
@@ -59,7 +59,7 @@ base_item_path="/sqlcrypt" \<--- base path for the keys to be created
 
 * Enable the EKM provider on the MSSQL server:
 
-```curl SQL
+```sql
 USE master;
 GO
 sp_configure 'show advanced', 1;

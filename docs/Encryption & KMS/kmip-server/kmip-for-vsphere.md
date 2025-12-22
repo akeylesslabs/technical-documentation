@@ -71,7 +71,7 @@ next:
 
   ![](https://files.readme.io/2b8e7a9-image-20210914-152306.png "image-20210914-152306.png")
 
-6. For a method, choose **KMS certificate and private key** :
+6. For a method, choose **KMS certificate and private key**:
 
   ![](https://files.readme.io/4d64c95-image-20210914-152556.png "image-20210914-152556.png")
 

@@ -185,7 +185,7 @@ The following table describes the main functionality of Akeyless microservices:
 
     <tr>
       <td>
-        * *Audit** : [https://audit.wmt.akeyless.io](https://audit.wmt.akeyless.io)
+        * *Audit**: [https://audit.wmt.akeyless.io](https://audit.wmt.akeyless.io)
       </td>
 
       <td>

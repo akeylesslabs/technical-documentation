@@ -43,7 +43,6 @@ akeyless dynamic-secret update azure \
 --secure-access-enable true \
 --secure-access-web-browsing <true/false>
 ```
-
 ```shell Rotated Secret
 akeyless rotated-secret update azure \
 --name <rotated secret name> \

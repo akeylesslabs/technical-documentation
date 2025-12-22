@@ -21,7 +21,7 @@ The primary goal is to enhance the existing tokenization service by integrating 
 * Modification: The existing tokenize function will be updated to accept an array of data entries (or a similar bulk format) instead of processing single data entries individually.
 * Format: Data will be in a batch format such as
 
-```shell JSON
+```json
 {
   "token": "your_token",
   "batch-data": "[{\"item_id\": 758, \"data\": \"4818199332\", \"tweak\": \"YXNkZmdobg==\"}, {\"item_id\": 758, \"data\": \"901347774\", \"tweak\": \"YXNkZmdobg==\"}]"

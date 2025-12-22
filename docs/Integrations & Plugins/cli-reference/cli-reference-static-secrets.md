@@ -100,7 +100,7 @@ akeyless describe-item \
 
 `-I, --item-id`: Item ID of the item
 
-`--show-versions[=false]` : Include all item versions in reply
+`--show-versions[=false]`: Include all item versions in reply
 
 `--gateway-details[=false]`: Output will include additional gateway details (e.g cluster URL)
 
@@ -147,7 +147,7 @@ akeyless import-passwords \
 --import-path <Path/to/CSV/Filee> \
 --format <source format>
 ```
-```Text ExampleChromeFormatCSV.csv
+```text ExampleChromeFormatCSV.csv
 name,url,username,password,description
 /path/to/Example Email,https://mail.example.com,alice@example.com,P@ssword123,Primary email account for personal use
 /full/path/to/Example Bank,https://bank.example.com,alice_bank,P@ssw0rd!,Banking account login details

@@ -44,7 +44,7 @@ Creating an action with inputs and scripts in ServiceNow's Action Designer allow
 * For our use case the script is going to take the u\_event\_id and the u\_decision values from our [event table previously created](https://docs.akeyless.io/docs/create-a-table-in-servicenow)
 * Script example
 
-```Text JavaScript
+```js
 (function execute(inputs, outputs) { 
     // Function to authenticate and get a token
     function authenticateAndGetToken() {

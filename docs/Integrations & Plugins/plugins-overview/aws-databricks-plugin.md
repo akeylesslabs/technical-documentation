@@ -158,7 +158,7 @@ You’ll need:
 
 Example trust policy (EC2 role):
 
-```shell JSON
+```json
 {
   "Effect": "Allow",
   "Principal": {
@@ -170,7 +170,7 @@ Example trust policy (EC2 role):
 
 Example trust policy (cross-account):
 
-```shell JSON
+```json
 {
   "Effect": "Allow",
   "Principal": {

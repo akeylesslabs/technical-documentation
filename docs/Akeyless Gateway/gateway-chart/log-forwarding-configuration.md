@@ -36,7 +36,7 @@ You can find the complete list of additional parameters for this command in the 
 
 ## Splunk
 
-You can forward the Gateway logs to an existing Splunk [HTTP Event Collector](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/9.4/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web) :
+You can forward the Gateway logs to an existing Splunk [HTTP Event Collector](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/9.4/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web):
 
 ```shell
 akeyless gateway update log-forwarding splunk \
@@ -114,8 +114,8 @@ Run the following CLI command:
 ```shell
 akeyless gateway update log-forwarding aws-s3 \
 --gateway-url 'https://Your-Akeyless-GW-URL:8000' \
---log-folder <s3 destination folder> \
---bucket-name <s3 bucker name> \
+--log-folder <S3 destination folder> \
+--bucket-name <S3 bucket name> \
 --auth-type <access_key/cloud_id/assume_role> \
 --access-id <aws access-id> \
 --access-key <aws access-key> \

@@ -35,13 +35,13 @@ akeyless assoc-target-item \
 
 Where:
 
-* `name` : The **Certificate** item name.
+* `name`: The **Certificate** item name.
 
 * `target-name` The **Target** item name, to provision the certificate.
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `certificate-path` :A path on the **Target** to save the certificate PEM file can be used as well with `chain-path` and `private-key-path` flags to save those on different locations.
+* `certificate-path`: A path on the **Target** to save the certificate PEM file can be used as well with `chain-path` and `private-key-path` flags to save those on different locations.
 
 * `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning e.g. restarting a service.
 

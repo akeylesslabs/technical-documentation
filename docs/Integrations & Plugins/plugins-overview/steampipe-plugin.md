@@ -39,7 +39,7 @@ The Steampipe plugin supports the following Authentication Methods:
 
 Edit the `akeyless.spc` file with your chosen Authentication Method. The only required fields are `access_type` and `access_id`:
 
-```Text JWT
+```text JWT
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -49,7 +49,7 @@ connection "akeyless" {
   
   jwt = "<your-akeyless-jwt-token>"
 ```
-```yaml AWS IAM
+```text AWS IAM
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -57,7 +57,7 @@ connection "akeyless" {
 
   access_id = "<your-aws-iam-access-id>"
 ```
-```yaml Azure
+```text Azure
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -67,7 +67,7 @@ connection "akeyless" {
   
   azure_object_id = "<your-azure-object-id>"
 ```
-```yaml GCP
+```text GCP
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -77,7 +77,7 @@ connection "akeyless" {
   
   gcp_audience = "<your-gcp-audience>"
 ```
-```yaml Kubernetes
+```text Kubernetes
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -94,7 +94,7 @@ connection "akeyless" {
   # Optional, when working with a self-signed certifiate. CA certificate for TLS verification of the Akeyless Gateway.
   #gateway_ca_cert = ""
 ```
-```yaml Universal Identity
+```text Universal Identity
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -104,7 +104,7 @@ connection "akeyless" {
 
   uid_token = "<your-uid-token>"
 ```
-```Text Access Key
+```text Access Key
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 

@@ -51,7 +51,7 @@ akeyless create-ssh-target \
 >
 > To Rotate the **Domain user** password, best practice is to create a dedicated Rotated Secret for that Target.
 
-Create a [Linked Target](https://docs.akeyless.io/docs/linked-target) with the relevant **hosts** to rotate your **Local users'** passwords :
+Create a [Linked Target](https://docs.akeyless.io/docs/linked-target) with the relevant **hosts** to rotate your **Local users'** passwords:
 
 ```shell Windows Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <hosts>
@@ -115,7 +115,7 @@ akeyless create-ssh-target \
 --ssh-password <SSH password>
 ```
 
-Create a [Linked Target](https://docs.akeyless.io/docs/linked-target) with the relevant **hosts** to rotate your **local users'** passwords :
+Create a [Linked Target](https://docs.akeyless.io/docs/linked-target) with the relevant **hosts** to rotate your **local users'** passwords:
 
 ```shell Windows Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <hosts>

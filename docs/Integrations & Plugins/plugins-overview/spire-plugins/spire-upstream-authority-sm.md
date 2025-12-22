@@ -61,7 +61,7 @@ akeyless set-role-rule --role-name /Dev/Spire-Role \
 
 Run the following command to download and unpack pre-built `spire-server` and `spire-agent` executable and example configuration files in a `spire-1.7.0` directory:
 
-```Text Shell
+```shell
 curl -s -N -L https://github.com/spiffe/spire/releases/download/v1.7.0/spire-1.7.0-linux-amd64-glibc.tar.gz | tar xz
 ```
 
@@ -76,7 +76,7 @@ akeyless create-certificate \
 
  Use the following command to download the **AkeylessUpstreamAuthority SM** plugin:
 
-```Text shell
+```shell
 curl -o AkeylessUpstreamAuthority-sm https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-sm-amd64-linux-v0.0.1
 ```
 

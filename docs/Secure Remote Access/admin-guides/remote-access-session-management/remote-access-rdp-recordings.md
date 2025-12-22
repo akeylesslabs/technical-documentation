@@ -119,8 +119,8 @@ akeyless gateway update remote-access-rdp-recording \
 --rdp-session-storage aws \
 --gateway-url https://<your-gateway-url>:8000 \
 --aws-storage-region <your-region> \
---aws-storage-bucket-name <s3-bucket-name> \
---aws-storage-bucket-prefix <s3-bucket-prefix> \
+--aws-storage-bucket-name <S3-bucket-name> \
+--aws-storage-bucket-prefix <S3-bucket-prefix> \
 --aws-storage-access-key-id <optional-explicit-key-id> \
 --aws-storage-secret-access-key <optional-explicit-access-key>
 ```

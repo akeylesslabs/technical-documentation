@@ -32,7 +32,7 @@ Where:
 * `permission-assignment-file`: Instead of a string, users can add this flag in order to pass a JSON file, using the same formatting, with a path to the file. Groups are allowed.
 * `redirect-uris` (Optional): A list of URIs that the user will be directed back to after authenticating and consenting at the OIDC App.
 * `scopes` (Optional): A list of scopes that third-party applications are allowed to request. These scopes (excluding special scopes) will be copied from the `sub-claims` in Akeyless to the OIDC Token. Scopes can include Groups as well.
-* `audience` (Optional) : A list of audiences that third-party applications are allowed to request. This will only affect the `access token` (the `audience` for the `id token` is always the `client id` ).
+* `audience` (Optional): A list of audiences that third-party applications are allowed to request. This will only affect the `access token` (the `audience` for the `id token` is always the `client id` ).
 
 ### Client Type
 
