@@ -65,7 +65,6 @@ pipelines:
           - echo "MY_JSON_VALUE=$MY_JSON_VALUE"
 
 ```
-
 ```yaml Dynamic
 pipelines:
   default:
@@ -92,7 +91,6 @@ pipelines:
           - echo "MY_JSON_VALUE=$MY_JSON_VALUE"
 
 ```
-
 ```yaml Rotated
 pipelines:
   default:
@@ -147,7 +145,6 @@ pipelines:
           - echo "The PKI certificate is $MY_SSL_CERT"
 
 ```
-
 ```yaml SSH Certificate
 pipelines:
   default:

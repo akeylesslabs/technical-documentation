@@ -839,7 +839,6 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   ]
 }
 ```
-
 ```json Azure
 {
   "args": [
@@ -849,7 +848,6 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   ]
 }
 ```
-
 ```json GCP
 {
   "args": [
@@ -985,7 +983,6 @@ akeyless auth --access-id "your-access-id" --access-key "your-access-key"
 # Test connectivity
 curl -I https://api.akeyless.io
 ```
-
 ```Text Sample Output
 HTTP/2 405 
 date: Fri, 03 Oct 2025 20:36:32 GMT

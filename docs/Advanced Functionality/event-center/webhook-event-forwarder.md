@@ -32,7 +32,6 @@ akeyless event-forwarder create webhook \
 --runner-type[=immediate] <immediate, periodic> \
 --every <1-24 hours> \
 ```
-
 ```shell Token
 akeyless event-forwarder create webhook \
 --name MyForwarder \
@@ -46,7 +45,6 @@ akeyless event-forwarder create webhook \
 --runner-type[=immediate] <immediate, periodic> \
 --every <1-24 hours> \
 ```
-
 ```shell Certificate
 akeyless event-forwarder create webhook \
 --name MyForwarder \

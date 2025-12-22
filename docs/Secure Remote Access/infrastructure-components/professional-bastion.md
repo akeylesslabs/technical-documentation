@@ -107,14 +107,12 @@ ssh-rsa AAAAB3NzaC1yc2EAAAA...
 https://rest.akeyless.io
 cmd=auth&access-id=<access-ID>&<access-key>
 ```
-
-```shell MacOS
+```shell macOS
 docker run --name ssh_bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900 \
        -v </path/to/akeyless_config_file/>:/var/akeyless/creds \
        --cap-add=SYS_ADMIN akeyless/ssh-proxy:latest
 ```
-
-```text Ubuntu
+```shell Ubuntu
 docker run --name ssh_bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900 \
        -v </path/to/akeyless_config_file/>:/var/akeyless/creds \
        --privileged akeyless/ssh-proxy:latest

@@ -49,7 +49,6 @@ akeyless dynamic-secret update <mongodb/mssql/mysql/oracledb/postgresql/redshift
 --secure-access-db-schema <schema-name> \
 --secure-access-certificate-issuer </Path/to/SSH/Cert/Issuer>
 ```
-
 ```shell Rotated Secret
 akeyless rotated-secret update <mongodb/mssql/mysql/oracledb/postgresql/redshift/snowflake> \
 --name <rotated secret name> \

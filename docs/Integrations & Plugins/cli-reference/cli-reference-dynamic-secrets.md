@@ -556,7 +556,7 @@ Creates Google Cloud Provider (GCP) Dynamic Secret
 
 #### Usage
 
-```shell Using target
+```shell Using Target
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --service-account-type <fixed/dynamic> \
@@ -567,7 +567,6 @@ akeyless dynamic-secret create gcp \
 --gcp-token-scopes <Token Scopes> \
 --gcp-key-algo <Service Key Algorithm>
 ```
-
 ```shell Inline Connection
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
@@ -1345,7 +1344,7 @@ Creates PostgreSQL Dynamic Secret
 
 #### Usage
 
-```shell Using target
+```shell Using Target
 akeyless dynamic-secret create postgresql \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
@@ -1353,7 +1352,6 @@ akeyless dynamic-secret create postgresql \
 --postgresql-statements 'CREATE USER {{name}} WITH PASSWORD {{password}}; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{name}}; GRANT CONNECT ON DATABASE postgres TO {{name}}; GRANT USAGE ON SCHEMA public TO {{name}};' \
 --postgresql-revoke-statement 'REASSIGN OWNED BY {{name}} TO {{userHost}}; DROP OWNED BY {{name}}; SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = {{name}}; DROP USER {{name}};'
 ```
-
 ```shell Inline connection
 akeyless dynamic-secret create postgresql \
 --name <Dynamic Secret Name> \

@@ -156,7 +156,6 @@ Next, [download](https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plu
 ```shell AMD64
 curl -o AkeylessUpstreamAuthority https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-amd64-linux-v0.0.4
 ```
-
 ```shell ARM64
 curl -o AkeylessUpstreamAuthority https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-upstream-arm64-linux-v0.0.4
 ```

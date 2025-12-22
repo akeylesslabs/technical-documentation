@@ -55,7 +55,6 @@ secrets:
         akeyless_api_url: '<https://Your-Gateway-URL:8080/v2>'
         name: '</SecretName>'
 ```
-
 ```yaml API Key
 secrets:
     AKEYLESS_SECRET:
@@ -64,7 +63,6 @@ secrets:
         akeyless_access_type: 'api_key'
         access_key: $AKEYLESS_ACCESS_KEY
 ```
-
 ```yaml AWS IAM
 secrets:
     AKEYLESS_SECRET:
@@ -72,7 +70,6 @@ secrets:
         name: '</SecretName>'
         akeyless_access_type: 'aws_iam'
 ```
-
 ```yaml Azure
 secrets:
     AKEYLESS_SECRET:
@@ -81,7 +78,6 @@ secrets:
         akeyless_access_type: 'azure_ad'
         azure_object_id: 'azure_object_id'
 ```
-
 ```yaml GCP
 secrets:
     AKEYLESS_SECRET:
@@ -90,8 +86,7 @@ secrets:
         akeyless_access_type: 'gcp'
         gcp_audience: 'gcp_audience'
 ```
-
-```yaml K8s
+```yaml Kubernetes
 secrets:
     AKEYLESS_SECRET:
       akeyless:
@@ -101,7 +96,6 @@ secrets:
         k8s_auth_config_name: 'k8s_auth_config_name'
         akeyless_api_url: '<https://Your-Gateway-URL:8080/v2>'
 ```
-
 ```yaml Universal Identity
 secrets:
     AKEYLESS_SECRET:
@@ -110,7 +104,6 @@ secrets:
         akeyless_access_type: 'universal_identity'
         uid_token: 'uid_token'
 ```
-
 ```yaml Akeyless Token
 secrets:
     AKEYLESS_SECRET:

@@ -117,7 +117,6 @@ param docker_img = ''
 @description('docker tag')
 param docker_tag = 'latest'
 ```
-
 ```shell API Key
 using 'main.bicep'
 

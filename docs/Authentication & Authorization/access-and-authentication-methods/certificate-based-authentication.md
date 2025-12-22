@@ -316,7 +316,6 @@ func asRSA(k interface{}) (*rsa.PrivateKey, bool)     { v, ok := k.(*rsa.Private
 func asECDSA(k interface{}) (*ecdsa.PrivateKey, bool) { v, ok := k.(*ecdsa.PrivateKey); return v, ok }
 
 ```
-
 ```csharp
 using System.Security.Cryptography;
 using akeyless.Model;
@@ -448,7 +447,6 @@ namespace Playground
   }
 }
 ```
-
 ```python
 import base64
 from pathlib import Path

@@ -492,6 +492,7 @@ config:
   MD030: false
 
   # MD031: Fenced code blocks surrounded by blank lines
+  # DO NOT USE. This is incompatible with how ReadMe.com handles code block tabbing.
   # Knobs:
   #   - severity: error|warning|info
   MD031: false

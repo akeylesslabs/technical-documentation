@@ -85,7 +85,6 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e USERNAME_SUB_CLAIM="FIXED_USER_KEY_NAME" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
-
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -114,7 +113,6 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
-
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -140,7 +138,6 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
-
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -166,7 +163,6 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
-
 ```shell ssh-bastion
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -e AKEYLESS_GW_URL = "https://rest.akeyless.io" \
@@ -193,8 +189,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
-
-```shell s3-Inline connection string
+```shell S3-Inline connection string
 docker run --name web-bastion -d -p 8888:8888  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
   -e PRIVILEGED_ACCESS_ID="<AccessID>" \
@@ -208,7 +203,6 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
-
 ```shell Azure Blob
 docker run --name web-bastion -d -p 8888:8888  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -220,7 +214,6 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
-
 ```shell Azure Blob-Inline connection string
 docker run --name web-bastion -d -p 8888:8888  \
   -e AKEYLESS_GW_URL="https://rest.akeyless.io" \
@@ -266,7 +259,6 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
   -v &PWD/log_forwarding.conf:/var/akeyless/conf/logand.conf \
   --cap-add=SYS_ADMIN --privileged --restart unless-stopped akeyless/ssh-proxy:latest
 ```
-
 ```shell log_forwarding.conf
 cat <<EOT>> log_forwarding.conf
 enable="true"

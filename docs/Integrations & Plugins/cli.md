@@ -23,25 +23,21 @@ curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/prod
 chmod +x akeyless
 ./akeyless
 ```
-
 ```shell Linux ARM
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-arm64
 chmod +x akeyless
 ./akeyless
 ```
-
 ```shell macOS Intel
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-darwin-amd64
 chmod +x akeyless
 ./akeyless
 ```
-
 ```shell macOS Apple Silicon
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/cli-darwin-arm64
 chmod +x akeyless
 ./akeyless
 ```
-
 ```powershell Windows
 curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-windows-amd64.exe
 .\akeyless.exe
@@ -52,7 +48,6 @@ Alternatively, you can install it using a package manager, such as: `brew`, `apt
 ```shell brew
 brew install akeylesslabs/tap/akeyless
 ```
-
 ```shell apt
 apt-get update && apt-get install -y curl gnupg 
 
@@ -66,7 +61,6 @@ tee /etc/apt/sources.list.d/akeyless.list
 apt-get update 
 apt-get install -y akeyless
 ```
-
 ```shell yum
 yum install -y curl gnupg2
 
@@ -88,7 +82,6 @@ yum clean all
 yum makecache
 yum install -y akeyless
 ```
-
 ```shell dnf
 dnf install -y curl gnupg2 
 
@@ -289,7 +282,6 @@ To re-route the entire traffic directly via your [Gateway](https://docs.akeyless
 ```shell Linux
 export AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8000/api/v1> 
 ```
-
 ```shell Windows
 set AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8080>
 ```

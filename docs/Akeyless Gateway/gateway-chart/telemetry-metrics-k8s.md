@@ -123,7 +123,6 @@ service:
     metrics:
       exporters: [datadog]
 ```
-
 ```yaml Prometheus
 exporters:
   prometheus:

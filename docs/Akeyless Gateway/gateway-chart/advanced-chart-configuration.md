@@ -78,7 +78,6 @@ data:
   tlsCertificate: <base64-encoded-tls-certificate.pem>
   tlsPrivateKey: <base64-encoded-tls-certificate-key.pem>
 ```
-
 ```Text shell
 kubectl create secret generic tls-certificate \
   --from-file=tlsCertificate=/path/to/certificate.pem \
@@ -122,11 +121,6 @@ To set an internal TLS between the Gateway and cache service, set the `enableTls
     enableTls: false
 ```
 
-```
-  clusterCache:
-    enabled: true
-```
-
 To set the cache on your gateway with a default encryption key to support full offline mode, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your `cluster-cache-encryption-key` Base64-encoded :
 
 ```shell
@@ -156,7 +150,7 @@ To force the Cache to write only to memory without writing to the file system, y
 
 To set a persistence volume you can set this with your [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, or using `emptyDir`:
 
-```yaml values.yaml
+```yaml values.yaml with storageClass
   clusterCache:
     enabled: true
     persistence:
@@ -166,8 +160,7 @@ To set a persistence volume you can set this with your [storage class](https://k
        storageClass: ""
        size: 10Gi
 ```
-
-```yaml empty dir
+```yaml values.yaml with empty dir
   clusterCache:
     enabled: true
     persistence:
@@ -211,7 +204,6 @@ parameters:
   type: gp3
   encrypted: "true"
 ```
-
 ```yaml Azure
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -224,7 +216,6 @@ parameters:
   skuName: Premium_LRS
   cachingMode: ReadOnly
 ```
-
 ```yaml GCP
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -236,7 +227,6 @@ allowVolumeExpansion: true
 parameters:
   type: pd-balanced
 ```
-
 ```yaml Ceph
 apiVersion: storage.k8s.io/v1
 kind: StorageClass

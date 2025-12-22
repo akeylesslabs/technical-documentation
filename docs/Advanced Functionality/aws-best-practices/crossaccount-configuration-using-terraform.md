@@ -179,7 +179,6 @@ output "role_arn" {
 }
 
 ```
-
 ```yaml vars.tf
 variable "management_account" {
   description = "AWS Management Account ID"
@@ -413,7 +412,6 @@ output "role_arn" {
 }
 
 ```
-
 ```yaml vars.tf
 variable "role_name" {
   description = "IAM role name for Destination Account (the one being created)"

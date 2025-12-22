@@ -36,7 +36,6 @@ akeyless create-windows-target \
 --password <Password>
 --domain <YourDomain>
 ```
-
 ```shell SSH Target
 akeyless create-ssh-target \
 --name <SSHTargetName> \
@@ -57,7 +56,6 @@ Create a [Linked Target](https://docs.akeyless.io/docs/linked-target) with the r
 ```shell Windows Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <hosts>
 ```
-
 ```shell SSH Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <SSHTargetName> -s <hosts> 
 ```
@@ -78,7 +76,6 @@ akeyless rotated-secret create windows \
 --rotation-interval <1-365> \
 --rotation-hour <hour in UTC>
 ```
-
 ```shell SSH
 akeyless rotated-secret create ssh \
 --name <Rotated secret name> \
@@ -109,7 +106,6 @@ akeyless create-windows-target \
 --username <Windows Local Username> \
 --password <Password>
 ```
-
 ```shell SSH Target
 akeyless create-ssh-target \
 --name <SSHTargetName> \
@@ -124,7 +120,6 @@ Create a [Linked Target](https://docs.akeyless.io/docs/linked-target) with the r
 ```shell Windows Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <WindowsTargetName> -s <hosts>
 ```
-
 ```shell SSH Linked Target
 akeyless create-linked-target -n <LinkedTargetName> -p <SSHTargetName> -s <hosts> 
 ```
@@ -154,11 +149,10 @@ The secret value format of the Linked Target Rotated Secret is a **key/value** m
 
 To fetch a Rotated Secret value run the following command:
 
-```shell
+```shell CLI Command
 akeyless get-rotated-secret-value -name <Rotated secret name>
 ```
-
-```shell Output
+```shell Sample Output
 {
     "value":
     {

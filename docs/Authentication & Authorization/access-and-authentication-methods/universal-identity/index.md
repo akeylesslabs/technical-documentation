@@ -142,7 +142,6 @@ If you use child tokens and want to see the structure of your token tree, use th
 ```shell CLI
 akeyless uid-list-children --uid-token u-XXXXXXXX
 ```
-
 ```shell Result
 akeyless uid-list-children --uid-token u-XXXXXXXX
 Universal Identity Details:

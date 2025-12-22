@@ -257,7 +257,6 @@ Outputs:
     Value: !GetAtt DockerInstanceRole.Arn
 
 ```
-
 ```yaml Gateway With Exmaples
 AWSTemplateFormatVersion: '2010-09-09'
 

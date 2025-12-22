@@ -177,7 +177,6 @@ jobs:
         echo "Environment Variables"
         echo "MY_SECRET: ${{ env.MY_SECRET }}"
 ```
-
 ```yaml AWS_IAM
 name: 'Static-Secret'
 on: push
@@ -241,7 +240,6 @@ jobs:
         echo "secret_access_key: ${{ env.JWT_secret_access_key }}"
         echo "type: ${{ env.JWT_type }}"
 ```
-
 ```yaml Parsed
 name: 'MyDynamicSecret'
 on: push

@@ -41,11 +41,9 @@ Create a folder for the Akeyless Notation plugin configuration:
 ```shell Ubuntu
 mkdir -p ~/.config/notation/plugins/akeyless
 ```
-
 ```shell MacOS
 mkdir -p $HOME/Library/Application\ Support/notation/plugins/akeyless
 ```
-
 ```shell Windows
 mkdir %AppData%/notation/plugins
 ```
@@ -57,13 +55,11 @@ cd ~/.config/notation/plugins/akeyless
 curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/Linux/notation-akeyless/notation-akeyless-linux-amd64
 chmod +x notation-akeyless
 ```
-
-```shell MacOS
+```shell macOS
 cd $HOME/Library/Application\ Support/notation/plugins/akeyless
 curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/MacOS/notation-akeyless/notation-akeyless-darwin-arm64
 chmod +x notation-akeyless
 ```
-
 ```shell Windows
 cd %AppData%/notation/plugins
 curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/Windows/notation-akeyless/notation-akeyless-windows-amd64.exe
@@ -85,7 +81,7 @@ Notation Plugins configuration supports the use of environment variables or stat
 
 Depending on your OS type create the relevant config file accordingly:
 
-```shell Linux \ MacOS
+```shell Linux & macOS
 cd /var/akeyless/conf
 cat <<EOF > notation.conf
 akeyless_url="https://<Your Gateway URL>:8000/api/v2 # Or using port :8081"
@@ -95,7 +91,6 @@ access_key="<AccessKey>"
 access_type="access_key"
 EOF
 ```
-
 ```shell Windows
 cd C:\Users\<USER>\.akeyless\profiles
 echo akeyless_url="https://<Your Gateway URL>:8081" > notation.conf

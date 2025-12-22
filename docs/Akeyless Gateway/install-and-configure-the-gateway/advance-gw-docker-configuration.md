@@ -65,7 +65,6 @@ To set your Gateway default authentication based on [API Key](https://docs.akeyl
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxx" -e ADMIN_ACCESS_KEY="62Hu...xxx....qlg=" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -79,7 +78,6 @@ Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods](http
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy Command
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -105,7 +103,6 @@ With a list of users that will be able to manage your Gateway configuration usin
 ```shell CLI
 docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e GATEWAY_CERTIFICATE="base64-cert" -e GATEWAY_CERTIFICATE_KEY="base64-cert-key" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy Command
 docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_CERTIFICATE="base64-cert" -e ADMIN_CERTIFICATE_KEY="base64-cert-key" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -115,7 +112,6 @@ Alternatively, you can mount the certificate and key directly into the Docker im
 ```shell CLI
 docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-admin-cert.key -v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-admin-cert.crt -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy Command
 docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-admin-cert.key -v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-admin-cert.crt -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -129,13 +125,11 @@ e.g.
 ```shell CLI
 ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}]'
 ```
-
-```shell Legacy Command
-ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}]'
-```
-
 ```powershell Powershell
 ALLOWED_ACCESS_PERMISSIONS='[{\"name\": \"Administrators\", \"access_id\": \"Access ID\", \"permissions\": [\"admin\"]}]' --name akeyless-gateway akeyless/base:latest-akeyless
+```
+```shell Legacy Command
+ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}]'
 ```
 
 Run the following:
@@ -143,7 +137,6 @@ Run the following:
 ```shell Example
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Format
 docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-csp-access-id" -e GATEWAY_AUTHORIZED_ACCESS_ID='[ {"name": "access1", "access_id": "p-xxxxxxx", "sub_claims": {"username": ["username1", "username2"], "group": ["IT"]}, "permissions": ["admin"]},\n {"name": "access2", "access_id": "p-yyyyyy", "sub_claims": {"username": ["username1"], "group": ["rnd"]}, "permissions": ["targets", "defaults"]}, {"name": "access3", "access_id": "p-zzzzzzz", "sub_claims": {"email": ["xxx@example.com", "zzz@example.com"]}, "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -364,7 +357,6 @@ To do that, you can set the `CLUSTER_NAME="meaningful-cluster-name"` variable. I
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy Command
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e ADMIN_ACCESS_KEY="matching-access-key" -e CLUSTER_NAME="meaningful-cluster-name" -e INITIAL_DISPLAY_NAME="display-name" -e CLUSTER_URL="https://<GW_URL>" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -379,7 +371,6 @@ To choose an [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) to 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy Command
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxxxxxxx" -e ADMIN_ACCESS_KEY="62Hu...xxx....qlg=" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -395,7 +386,6 @@ Note: When adding multiple Customer Fragments to the Gateway, make sure they are
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -v {full-path-to}/customer_fragments.json:/home/akeyless/.akeyless/customer_fragments.json -e CLUSTER_NAME="test-cluster" -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e GATEWAY_ACCESS_KEY="<YourAccessKey" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -v {full-path-to}/customer_fragments.json:/home/akeyless/.akeyless/customer_fragments.json -e CLUSTER_NAME="test-cluster" -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_ACCESS_KEY="<YourAccessKey" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -406,7 +396,6 @@ Alternatively, you can use the environment variable to pass the customer fragmen
 export CUSTOMER_FRAGMENTS=$(cat customer_fragments.json)
 docker run -d -p 8000:8000 -p 5696:5696 -e CUSTOMER_FRAGMENTS="$CUSTOMER_FRAGMENTS" -e CLUSTER_NAME="test-cluster" -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e GATEWAY_ACCESS_KEY="<YourAccessKey" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy
 export CUSTOMER_FRAGMENTS=$(cat customer_fragments.json)
 docker run -d -p 8000:8000 -p 5696:5696 -e CUSTOMER_FRAGMENTS="$CUSTOMER_FRAGMENTS" -e CLUSTER_NAME="test-cluster" -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ADMIN_ACCESS_KEY="<YourAccessKey" -e CONFIG_PROTECTION_KEY_NAME="My-Encryption-Key" --name akeyless-gw akeyless/base:latest-akeyless
@@ -419,7 +408,6 @@ To work with a specific Gateway version use the `VERSION` variable to install a 
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e VERSION="gw-app-version" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e ADMIN_ACCESS_KEY="matching-access-key" -e VERSION="gw-app-version" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -432,13 +420,11 @@ Please note that when you're enabling TLS, you must provide a TLS certificate an
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e ENABLE_TLS="true" -e ENABLE_TLS_CONFIGURE="true" -e ENABLE_TLS_CURL="true" -e ENABLE_TLS_HVP="true" -e MIN_TLS_VERSION="TLSv1.3" -v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-api-cert.crt -v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
-```shell Legacy
-docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e ADMIN_ACCESS_KEY="matching-access-key" -e ENABLE_TLS="true" -e ENABLE_TLS_CONFIGURE="true" -e ENABLE_TLS_CURL="true" -e ENABLE_TLS_HVP="true" -e MIN_TLS_VERSION="TLSv1.3" -v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-api-cert.crt -v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key --name akeyless-gw akeyless/base:latest-akeyless
-```
-
 ```shell root-image
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e ENABLE_TLS="true" -e ENABLE_TLS_CONFIGURE="true" -e ENABLE_TLS_CURL="true" -e ENABLE_TLS_HVP="true" -e MIN_TLS_VERSION="TLSv1.3" -v $PWD/cert.crt:/var/akeyless/conf/api-proxy/akeyless-api-cert.crt -v $PWD/private.key:/var/akeyless/conf/api-proxy/akeyless-api-cert.key --name akeyless-gw akeyless/base:latest-akeyless
+```
+```shell Legacy
+docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="your-access-id" -e ADMIN_ACCESS_KEY="matching-access-key" -e ENABLE_TLS="true" -e ENABLE_TLS_CONFIGURE="true" -e ENABLE_TLS_CURL="true" -e ENABLE_TLS_HVP="true" -e MIN_TLS_VERSION="TLSv1.3" -v $PWD/cert.crt:/home/akeyless/.akeyless/akeyless-api-cert.crt -v $PWD/key.pem:/home/akeyless/.akeyless/akeyless-api-cert.key --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
 In the example above,
@@ -470,7 +456,6 @@ You can enable **Local In-Memory** caching of secrets and the periodic backup of
 ```shell Example
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxxxxxxx" -e GATEWAY_ACCESS_KEY="62Hu...xxx....qlg=" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="60" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="5" -e PROACTIVE_CACHE_DUMP_INTERVAL="1" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Format
 docker run -d -p 8000:8000 -p 8200:8200 -p 5696:5696 -e GATEWAY_ACCESS_ID="your-access-id" -e GATEWAY_ACCESS_KEY="matching-access-key" -e CACHE_ENABLE="true" -e PROACTIVE_CACHE_ENABLE="true" -e CACHE_TTL="number-of-minutes" -e PROACTIVE_CACHE_MINIMUM_FETCHING_TIME="number-of-minutes" -e PROACTIVE_CACHE_DUMP_INTERVAL="number-of-minutes" --name akeyless-gw akeyless/base
 ```
@@ -492,7 +477,6 @@ To restrict access to Gateway services, you can specify exactly which `AccessIDs
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -507,7 +491,6 @@ To set a default existing key that will be used to encrypt any secret created th
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_ENCRYPTION_KEY="existing encryption key name" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_ENCRYPTION_KEY="existing encryption key name" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -519,7 +502,6 @@ To set a default location to which any secret created through the gateway will b
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_SECRET_LOCATION="path to relevant folder" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_SECRET_LOCATION="path to relevant folder" --name akeyless-gw akeyless/base:latest-akeyless
 ```
@@ -551,7 +533,6 @@ In the following way:
 ```shell CLI
 docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e DEFAULT_CERTIFICATE_ACCESS_ID="access-id" -e ENABLE_SNI_PROXY="true" --name akeyless-gw akeyless/base:latest-akeyless
 ```
-
 ```shell Legacy
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e DEFAULT_CERTIFICATE_ACCESS_ID="access-id" -e ENABLE_SNI_PROXY="true" --name akeyless-gw akeyless/base:latest-akeyless
 ```

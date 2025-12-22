@@ -55,8 +55,7 @@ akeyless create-tokenizer \
 --template-type <SSN, CreditCard, USPhoneNumber, Custom> \
 --tweak-type <Supplied, Generated, Internal, Masking>
 ```
-
-```text Custom Tokenization
+```shell Custom Tokenization
 akeyless create-tokenizer \
 --name <Tokenizer name> \
 --tokenizer-type <vaultless> \

@@ -147,7 +147,6 @@ akeyless import-passwords \
 --import-path <Path/to/CSV/Filee> \
 --format <source format>
 ```
-
 ```Text ExampleChromeFormatCSV.csv
 name,url,username,password,description
 /path/to/Example Email,https://mail.example.com,alice@example.com,P@ssword123,Primary email account for personal use

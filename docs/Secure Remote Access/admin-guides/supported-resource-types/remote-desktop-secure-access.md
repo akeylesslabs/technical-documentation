@@ -37,7 +37,6 @@ akeyless dynamic-secret update rdp \
 --secure-access-host <hostname or IP> \
 --secure-access-rdp-domain <domain name>
 ```
-
 ```shell Rotated Secret
 akeyless rotated-secret update windows \
 --name <rotated secret name> \

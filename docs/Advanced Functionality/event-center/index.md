@@ -122,7 +122,6 @@ The following JSON structure describes the forwarded event's format:
 	}
 }
 ```
-
 ```json Certificate Event Format
 {
   "Certificate_Expired": [
