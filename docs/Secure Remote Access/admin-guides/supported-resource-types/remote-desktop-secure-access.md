@@ -81,8 +81,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select **Remote Desktop**.
 
-2. Select the Windows machine hostname or IP address, then select **Connect**.\
-   A new tab opens, in which you can interact with the Windows machine according to your permissions.
+2. Select the Windows machine hostname or IP address, then select **Connect**. A new tab opens, in which you can interact with the Windows machine according to your permissions.
 
 3. To lock the RDP screen, you can leverage the **On-Screen Keyboard (OSK)**- when using your own keyboard, press “Ctrl + Alt” and hit “Del” on the OSK inside your RDP session. Alternatively, you can simply close the relevant tab to disconnect the session.
 
@@ -108,5 +107,5 @@ To download files from a remote server, simply drag the desired files into the `
 
 > 📘 Info
 >
-> **Mounted Folder**\
+> **Mounted Folder**
 > Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.

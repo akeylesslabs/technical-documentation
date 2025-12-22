@@ -64,12 +64,11 @@ For security reasons, please limit the PersistentVolumes`mount permissions to`06
 
 ### Horizontal Auto-Scaling
 
-Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.\
-For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server).
+Horizontal auto-scaling is based on the HorizontalPodAutoscaler object. For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server).
 
 > 🚧 Warning
 >
-> To enable Secure Remote Access features you will have to get an access-key to Akeyless private repository. Please contact your Account Manager for more details.
+> To enable Secure Remote Access features you will have to get an access-key to the Akeyless private repository. Please contact your Account Manager for more details.
 
 ## Installing the Chart
 

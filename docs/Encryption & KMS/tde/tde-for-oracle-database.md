@@ -236,7 +236,7 @@ Replace your\_username with your actual username and your\_database with the dat
 
 Once connected, you can enable encryption on a table by creating a table with an encrypted column. The encryption is specified using the ENCRYPT clause in the CREATE TABLE statement.
 
-```sql sql
+```sql
 CREATE TABLE employee (
     first_name VARCHAR2(128),
     last_name VARCHAR2(128),
@@ -264,7 +264,7 @@ This command inserts a record into the employee table, where the salary value of
 
 To verify which columns in your database are encrypted, you can query the DBA\_ENCRYPTED\_COLUMNS view. This view provides details about the encrypted columns, including the encryption algorithm used, whether salt is applied, and the integrity algorithm
 
-```sql sql
+```sql
 SELECT * FROM dba_encrypted_columns;
 ```
 
@@ -299,13 +299,13 @@ Before creating an encrypted tablespace, ensure that the COMPATIBLE parameter is
 
 ### Check the Current COMPATIBLE Setting
 
-```sql sql
+```sql
 SHOW PARAMETER COMPATIBLE;
 ```
 
 You should see output similar to:
 
-```sql sql
+```sql
 NAME                        TYPE        VALUE
 --------------------------- ----------- -----------
 compatible                  string      11.2.0.0
@@ -316,7 +316,7 @@ If the COMPATIBLE value is below 11.2.0.0, proceed with the following steps.
 
 ### Update the COMPATIBLE Parameter (if needed)
 
-```sql sql
+```sql
 ALTER SYSTEM SET COMPATIBLE='11.2.0.0' SCOPE=SPFILE;
 SHUTDOWN IMMEDIATE;
 STARTUP;
@@ -326,7 +326,7 @@ STARTUP;
 
 With the COMPATIBLE parameter correctly set, you can now create a new encrypted tablespace. Use the CREATE TABLESPACE statement along with the ENCRYPT clause to specify the encryption algorithm.
 
-```sql sql
+```sql
 CREATE TABLESPACE encrypted_ts
 DATAFILE '<PATH_TO_DATAFILE>/encrypted_ts01.dbf' SIZE 128K
 AUTOEXTEND ON NEXT 64K
@@ -340,7 +340,7 @@ The tablespace is encrypted using the AES256 encryption algorithm.
 
 Grant Unlimited Quota on the Encrypted Tablespace:
 
-```sql sql
+```sql
 ALTER USER test QUOTA UNLIMITED ON encrypted_ts;
 ```
 
@@ -348,7 +348,7 @@ ALTER USER test QUOTA UNLIMITED ON encrypted_ts;
 
 Now that the encrypted tablespace is set up, create a table within it to verify the encryption.
 
-```sql sql
+```sql
 CREATE TABLE ets_test (
     id NUMBER(10),
     data VARCHAR2(50)
@@ -362,7 +362,7 @@ This creates a table named ets\_test in the encrypted\_ts tablespace.
 
 After creating the table, insert data to see how it is stored in the encrypted tablespace.
 
-```sql sql
+```sql
 INSERT INTO ets_test (id, data) VALUES (1, 'This is a secret!');
 COMMIT;
 ```
@@ -371,13 +371,13 @@ COMMIT;
 
 To confirm that the tablespace is indeed encrypted, query the DBA\_TABLESPACES or USER\_TABLESPACES views.
 
-```sql sql
+```sql
 SELECT tablespace_name, encrypted FROM dba_tablespaces;
 ```
 
 The output will indicate whether each tablespace is encrypted:
 
-```sql sql
+```sql
 TABLESPACE_NAME             ENC
 --------------------------- ---
 SYSTEM                      NO
@@ -420,13 +420,13 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 6. Execute the following command to create the auto-login keystore:
 
-    ```sql sql
+    ```sql
     ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/u01/app/oracle/admin/ORCL/wallet' IDENTIFIED BY "YourWalletPassword";
     ```
 
 7. After conversion, you should verify that the auto-login keystore was created successfully. Check that the `cwallet.sso` file exists in the keystore directory:
 
-    ```sql sql
+    ```sql
     ls -l /u01/app/oracle/admin/ORCL/wallet/
     ```
 
@@ -448,7 +448,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 10. Test the auto-login functionality by closing and reopening the keystore. The wallet should open automatically without requiring a password.
 
-    ```sql sql
+    ```sql
     ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE;
     ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
     ```
@@ -464,7 +464,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 13. Use the following query to check the wallet status:
 
-    ```sql sql
+    ```sql
     SELECT * FROM V$ENCRYPTION_WALLET;
     ```
 
@@ -474,7 +474,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 14. Ensure that you can access encrypted tablespaces and columns without manually opening the wallet.
 
-    ```sql sql
+    ```sql
     SELECT * FROM encrypted_table;
     ```
 

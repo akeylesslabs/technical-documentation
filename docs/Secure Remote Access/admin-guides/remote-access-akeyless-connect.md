@@ -33,7 +33,7 @@ To use Akeyless Connect you need:
 
 ## Set Up Akeyless Connect
 
-Install the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli). Or run `akeyless update` to ensure you're using the latest version.
+Install the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli) or run `akeyless update` to ensure you're using the latest version.
 
 **Optional**: Download the `akeyless-connect.rc` file from [https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs. If you prefer to get started without this, go straight to the Usage section below.
 

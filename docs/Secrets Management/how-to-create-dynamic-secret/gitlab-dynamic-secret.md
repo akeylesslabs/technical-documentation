@@ -42,7 +42,7 @@ akeyless dynamic-secret create gitlab \
 --gitlab-token-role <Access Token Role>
 ```
 
- Or using an inline connection string:
+Or using an inline connection string:
 
 ```shell
 akeyless dynamic-secret create gitlab \ 
