@@ -68,7 +68,6 @@ stringData:
   accessType: api_key
   accessTypeParam: <Access Key>
 ```
-
 ```yaml Kubernetes Auth
 apiVersion: v1
 kind: Secret
@@ -318,7 +317,6 @@ Getting the Kubernetes Secret:
 ```shell Certificate
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.crt}' | base64 -d 
 ```
-
 ```shell Private Key
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.key}' | base64 -d 
 ```

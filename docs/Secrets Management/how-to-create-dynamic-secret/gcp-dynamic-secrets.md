@@ -89,7 +89,6 @@ akeyless dynamic-secret create gcp \
 --gcp-token-scopes <Token Scopes> \
 --gcp-key-algo <Service Key Algorithm>
 ```
-
 ```shell Dynamic Service Account
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
@@ -101,7 +100,6 @@ akeyless dynamic-secret create gcp \
 --gcp-token-scopes <Token Scopes> \
 --gcp-key-algo <Service Key Algorithm>
 ```
-
 ```shell Fixed User
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \

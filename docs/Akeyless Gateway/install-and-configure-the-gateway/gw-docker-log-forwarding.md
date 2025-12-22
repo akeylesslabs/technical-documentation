@@ -36,7 +36,6 @@ The following permissions are required to forward the Audit Logs to an Amazon S3
   ]
 }
 ```
-
 ```yaml
 enable="true"
 target_log_type="aws_s3"

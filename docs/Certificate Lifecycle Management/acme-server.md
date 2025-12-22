@@ -155,7 +155,6 @@ In the following example, we will request a certificate from the **ACME server**
 ```shell Windows
 certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir C:\Users\<username>\certbot\conf --work-dir C:\Users\<username>\certbot\work --logs-dir C:\Users\<username>\certbot\logs
 ```
-
 ```shell Linux
 certbot certonly --standalone --server https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory --domain acme.com --eab-kid <kid> --eab-hmac-key <mac key> --config-dir /home/ubuntu/certbot/conf --work-dir /home/ubuntu/certbot/work --logs-dir /home/ubuntu/certbot/logs
 ```

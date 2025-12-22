@@ -123,7 +123,6 @@ principal1
 principal2
 admin
 ```
-
 ```shell /etc/ssh/sshd_config
 AuthorizedPrincipalsFile /etc/ssh/principals
 ```

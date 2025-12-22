@@ -36,7 +36,6 @@ akeyless dynamic-secret update ldap \
 --secure-access-enable true \
 --secure-access-host <hostname or IP>
 ```
-
 ```shell Rotated Secret
 akeyless rotated-secret update ldap \
 --name <rotated secret name> \

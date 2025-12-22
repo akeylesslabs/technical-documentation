@@ -960,7 +960,6 @@ akeyless create-tokenizer \
 --template-type <SSN,CreditCard,USPhoneNumber,Custom> \
 --tweak-type <Supplied, Generated, Internal, Masking>
 ```
-
 ```shell Custom Tokenization
 akeyless create-tokenizer \
 --name *<Tokenizer name> \

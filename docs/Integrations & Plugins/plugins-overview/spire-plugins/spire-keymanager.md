@@ -84,7 +84,6 @@ Next, [download](https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plu
 curl -o AkeylessKeyManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms-amd64-linux-v0.0.8
 chmod +x AkeylessKeyManager
 ```
-
 ```shell ARM64
 curl -o AkeylessKeyManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/server/spire-kms-arm64-linux-v0.0.6
 chmod +x AkeylessKeyManager

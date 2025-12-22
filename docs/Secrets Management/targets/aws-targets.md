@@ -29,7 +29,6 @@ akeyless target create aws \
 --name <target name> \
 --use-gw-cloud-identity
 ```
-
 ```shell Explicit credentials
 akeyless target create aws \
 --name <target name> \

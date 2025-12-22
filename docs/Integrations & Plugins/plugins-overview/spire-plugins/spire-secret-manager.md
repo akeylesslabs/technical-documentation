@@ -70,7 +70,6 @@ Next, [download](https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plu
 curl -o AkeylessSecretManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-sm-amd64-linux-v0.0.6
 chmod +x AkeylessSecretManager
 ```
-
 ```shell ARM64
 curl -o AkeylessSecretManager https://download.akeyless.io/Akeyless_Artifacts/Linux/spire/plugin/agent/spire-sm-arm64-linux-v0.0.6
 chmod +x AkeylessSecretManager

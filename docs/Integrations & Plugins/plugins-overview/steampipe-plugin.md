@@ -49,8 +49,7 @@ connection "akeyless" {
   
   jwt = "<your-akeyless-jwt-token>"
 ```
-
-```YAML AWS IAM
+```yaml AWS IAM
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -58,8 +57,7 @@ connection "akeyless" {
 
   access_id = "<your-aws-iam-access-id>"
 ```
-
-```YAML Azure
+```yaml Azure
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -69,8 +67,7 @@ connection "akeyless" {
   
   azure_object_id = "<your-azure-object-id>"
 ```
-
-```YAML GCP
+```yaml GCP
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -80,8 +77,7 @@ connection "akeyless" {
   
   gcp_audience = "<your-gcp-audience>"
 ```
-
-```YAML K8s
+```yaml Kubernetes
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -98,8 +94,7 @@ connection "akeyless" {
   # Optional, when working with a self-signed certifiate. CA certificate for TLS verification of the Akeyless Gateway.
   #gateway_ca_cert = ""
 ```
-
-```YAML Universal Identity
+```yaml Universal Identity
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  
 
@@ -109,7 +104,6 @@ connection "akeyless" {
 
   uid_token = "<your-uid-token>"
 ```
-
 ```Text Access Key
 connection "akeyless" {
   plugin = "akeyless-community/akeyless"  

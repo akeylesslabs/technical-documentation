@@ -48,7 +48,6 @@ akeyless dynamic-secret update aws \
 --secure-access-aws-native-cli <true/false> \
 --secure-access-certificate-issuer </Path/to/SSH/Cert/Issuer>
 ```
-
 ```shell Rotated Secret
 akeyless rotated-secret update aws \
 --name <rotated secret name> \

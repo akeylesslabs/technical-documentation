@@ -100,7 +100,6 @@ akeyless:
   script:
     - echo "Fetching Secrets is Easy [$MY_SECRET]"
 ```
-
 ```yaml v16_gitlab-ci.yml
 variables:
   ACCESS_ID: <AccessID>

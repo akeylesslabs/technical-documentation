@@ -124,7 +124,6 @@ akeyless gateway update remote-access-rdp-recording \
 --aws-storage-access-key-id <optional-explicit-key-id> \
 --aws-storage-secret-access-key <optional-explicit-access-key>
 ```
-
 ```shell Azure Blob
 akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \
@@ -136,7 +135,6 @@ akeyless gateway update remote-access-rdp-recording \
 --azure-storage-client-secret <optional-client-secret> \
 --azure-storage-tenant-id <optional-tenant-id> \
 ```
-
 ```shell Local
 akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \

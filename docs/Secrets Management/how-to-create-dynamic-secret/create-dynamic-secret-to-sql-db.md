@@ -53,7 +53,6 @@ akeyless dynamic-secret create mysql \
 --mysql-revocation-statements "REVOKE ALL PRIVILEGES, GRANT OPTION FROM '{{name}}'@'%'; DROP USER '{{name}}'@'%';" \
 --password-length 16
 ```
-
 ```shell PostgreSQL
 akeyless dynamic-secret create postgresql \
 --name <New Secret Name> \
@@ -63,7 +62,6 @@ akeyless dynamic-secret create postgresql \
 --postgresql-revoke-statement "REASSIGN OWNED BY \"{{name}}\" TO {{userHost}}; DROP OWNED BY \"{{name}}\"; SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = '{{name}}'; DROP USER \"{{name}}\";" \
 --password-length 16
 ```
-
 ```shell Redshift
 akeyless dynamic-secret create redshift \
 --name <New Secret Name> \
@@ -73,7 +71,6 @@ akeyless dynamic-secret create redshift \
 --ssl "<false|true>" \
 --password-length 16
 ```
-
 ```shell MSSQL
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
@@ -83,7 +80,6 @@ akeyless dynamic-secret create mssql \
 --mssql-revocation-statements "DROP LOGIN '{{name}}';" \
 --password-length 16
 ```
-
 ```shell MSSQL RDS
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
@@ -94,7 +90,6 @@ akeyless dynamic-secret create mssql \
 --mssql-revocation-statements " DROP USER [{{name}}]; DROP LOGIN [{{name}}];" \
 --password-length 16
 ```
-
 ```shell Azure SQL
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
@@ -104,7 +99,6 @@ akeyless dynamic-secret create mssql \
 --mssql-revocation-statements "DROP USER IF EXISTS [{{name}}]" \
 --password-length 16
 ```
-
 ```shell MongoDB
 akeyless dynamic-secret create mongodb \
 --name <New Secret Name> \
@@ -113,7 +107,6 @@ akeyless dynamic-secret create mongodb \
 --mongodb-roles <New User Role> \
 --password-length 16
 ```
-
 ```shell Oracle
 akeyless dynamic-secret create oracledb \
 --name <New Secret Name> \
@@ -122,7 +115,6 @@ akeyless dynamic-secret create oracledb \
 --oracle-statements 'CREATE USER {{username}} IDENTIFIED BY "{{password}}"; GRANT CONNECT TO {{username}}; GRANT CREATE SESSION TO {{username}};' \
 --password-length 16
 ```
-
 ```shell Cassandra
 akeyless dynamic-secret create cassandra \
 --name <New Secret Name> \
@@ -131,7 +123,6 @@ akeyless dynamic-secret create cassandra \
 --cassandra-statements "CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';" \
 --password-length 16
 ```
-
 ```shell SAP HanaDB
 akeyless dynamic-secret create hanadb \
 --name <New Secret Name> \
@@ -141,7 +132,6 @@ akeyless dynamic-secret create hanadb \
 --hanadb-revocation-statements "DROP USER {{name}};" \
 --password-length 16
 ```
-
 ```shell Vertica
 #Vertica uses similar structures to PostgreSQL and so uses the same command in Akeyless with select changes
 
@@ -153,7 +143,6 @@ akeyless dynamic-secret create postgresql \
 --postgresql-revoke-statement 'DROP USER "{{name}}";' \
 --password-length 16
 ```
-
 ```shell Redis
 akeyless dynamic-secret create redis \
 --name <New Secret Name> \

@@ -89,13 +89,11 @@ GATEWAY_ACCESS_ID=<AccessID>
 GATEWAY_ACCESS_TYPE=aws_iam 
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<AccessID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
-
 ```shell GCP_GCE
 GATEWAY_ACCESS_ID=<Access ID>
 GATEWAY_ACCESS_TYPE=gcp_gce
 ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<Access ID>","name":"<Allowed Method Name>", "permissions": ["admin"]}]'
 ```
-
 ```shell Azure_AD
 GATEWAY_ACCESS_ID=<Access ID>
 GATEWAY_ACCESS_TYPE=azure_ad 

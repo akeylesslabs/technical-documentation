@@ -25,7 +25,6 @@ Once the group is created, a policy needs to be added to it:
 allow dynamic-group <Dynamic-Group-Name> to {AUTHENTICATION_INSPECT} in tenancy
 allow dynamic-group <Dynamic-Group-Name> to {GROUP_MEMBERSHIP_INSPECT} in tenancy
 ```
-
 ```shell Group
 allow group <Group-Name> to {AUTHENTICATION_INSPECT} in tenancy
 allow group <Group-Name> to {GROUP_MEMBERSHIP_INSPECT} in tenancy

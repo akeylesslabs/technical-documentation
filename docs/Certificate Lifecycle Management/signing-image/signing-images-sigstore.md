@@ -49,14 +49,13 @@ Create a folder for the Akeyless **Sigstore** plugin configuration:
 ```shell Ubuntu
 mkdir /var/akeyless/conf/
 ```
-
-```shell MacOS
+```shell macOS
 mkdir -p /var/akeyless/conf/
 ```
 
 Create a file named `/var/akeyless/conf/sigstore.conf` that will store the credentials for authenticating with Akeyless:
 
-```shell Linux \ MacOS
+```shell Linux \ macOS
 cat <<EOF > sigstore.conf
 akeyless_url="https://<Your Gateway URL>:8081"
 [auth]
@@ -65,7 +64,6 @@ access_key="<Access_Key>"
 access_type="access_key"
 EOF
 ```
-
 ```shell Windows
 cd C:\Users\<USER>\.akeyless\profiles
 echo akeyless_url="https://<Your Gateway URL>:8081" > sigstore.conf

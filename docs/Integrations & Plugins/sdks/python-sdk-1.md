@@ -92,7 +92,6 @@ body = akeyless.Auth(access_id='Access Id', access_type='aws_iam', cloud_id=clou
 res = api.auth(body)
 token = res.token
 ```
-
 ```python GCP
 from akeyless_cloud_id import CloudId
 
@@ -103,7 +102,6 @@ body = akeyless.Auth(access_id='Access Id', access_type='gcp', cloud_id=cloud_id
 res = api.auth(body)
 token = res.token
 ```
-
 ```python Azure
 from akeyless_cloud_id import CloudId
 

@@ -96,7 +96,6 @@ To extract the Kubernetes cluster CA cert. used to talk to the Kubernetes API, r
 CA_CERT=$(kubectl config view --raw --minify --flatten \
     --output 'jsonpath={.clusters[].cluster.certificate-authority-data}')
 ```
-
 ```shell Rancher
 CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/ p' | base64)
 ```

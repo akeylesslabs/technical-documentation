@@ -92,7 +92,6 @@ config:
       # Specifies an existing secret to be used for bastion, management AWS credentials
       existingSecret: ""
 ```
-
 ```yaml Azure Blob
 config:
     rdpRecord:

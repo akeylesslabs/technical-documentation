@@ -162,21 +162,20 @@ In both cases of **Bearer Token** and **GW Service Account**, the Service Accoun
 
 > 📘 Note
 >
-> Kubernetes Client Certificate is not supported by EKS
+> Kubernetes Client Certificate is not supported by Amazon EKS
 
 ### Create a Generic Kubernetes Target with the CLI
 
 To create a generic Kubernetes target from the CLI, run the following command to create a Target using a **Token** or using **certificate**:
 
-```shell Inline connection with token
+```shell Inline connection with Token
 akeyless target create k8s \
 --name <Target name> \
 --k8s-cluster-endpoint <Kubernetes Cluster endpoint> \
 --k8s-cluster-ca-cert <Kubernetes Cluster certificate> \
 --k8s-cluster-token <Kubernetes Cluster authentication token>
 ```
-
-```shell Inline connection with certificate
+```shell Inline connection with Certificate
 akeyless target create k8s \
 --name <Target name> \
 --k8s-cluster-endpoint <Kubernetes Cluster endpoint> \

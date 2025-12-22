@@ -257,7 +257,6 @@ use_secret:
   script:    
     - echo "Fetching certificates from Akeyless" 
 ```
-
 ```yaml SSH
 stages:
   - get-akeyless-secret

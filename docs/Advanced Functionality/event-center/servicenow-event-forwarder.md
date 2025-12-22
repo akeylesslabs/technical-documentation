@@ -37,7 +37,6 @@ akeyless event-forwarder create servicenow \
 --runner-type[=immediate] <immediate, periodic> \
 --every <1-24 hours> \
 ```
-
 ```shell User-Pass
 akeyless event-forwarder create servicenow \
 --name MyForwarder \

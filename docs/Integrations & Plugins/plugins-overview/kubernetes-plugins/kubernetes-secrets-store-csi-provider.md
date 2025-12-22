@@ -86,8 +86,7 @@ spec:
       - secretPath: "/path/to/secret/bar"
         fileName: "bar"
 ```
-
-```yaml K8s
+```yaml Kubernetes
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -105,7 +104,6 @@ spec:
       - secretPath: "/path/to/secret/bar"
         fileName: "bar"
 ```
-
 ```yaml AWS IAM
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
@@ -123,7 +121,6 @@ spec:
       - secretPath: "/path/to/secret/bar"
         fileName: "bar"
 ```
-
 ```yaml Azure AD
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
@@ -142,7 +139,6 @@ spec:
       - secretPath: "/path/to/secret/bar"
         fileName: "bar"
 ```
-
 ```yaml GCP
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass

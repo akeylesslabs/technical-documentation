@@ -301,7 +301,6 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pv-claim
 ```
-
 ```yaml Wordpress.yaml
 apiVersion: v1
 kind: Service
@@ -464,7 +463,6 @@ The injector can be set with credentials of your **private** registry using a se
   "password": ""
 }
 ```
-
 ```json Token
 {
   "token": "<value>"
