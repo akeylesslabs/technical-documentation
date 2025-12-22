@@ -30,8 +30,8 @@ akeyless gateway update remote-access-session-forwarding aws-s3 \
 --gateway-url https://<your-gateway-url>:8000 \
 --output-format <text|json> \
 --pull-interval <in seconds> \
---log-folder <s3-folder> \
---bucket-name <s3-bucket-name> \
+--log-folder <S3-folder> \
+--bucket-name <S3-bucket-name> \
 --auth-type <access_key/cloud_id/assume_role> \
 --access-id <aws-access-id> \ # relevant only for access_key auth-type
 --access-key <aws-access-key> \ # relevant only for access_key auth-type

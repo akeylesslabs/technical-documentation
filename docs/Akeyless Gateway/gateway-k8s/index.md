@@ -89,7 +89,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 ### API Key Authentication
 
-To set your Gateway default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), provide the relevant `Access ID` and `Access Key` :
+To set your Gateway default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), provide the relevant `Access ID` and `Access Key`:
 
 ```yaml values.yaml
 akeylessUserAuth:

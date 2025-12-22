@@ -103,7 +103,7 @@ Create an [Access Role](https://docs.akeyless.io/docs/rbac):
 akeyless create-role --name /Dev/AWSRole
 ```
 
-Attach the AWS IAM **Authentication Method** to the **Access Role** :
+Attach the AWS IAM **Authentication Method** to the **Access Role**:
 
 ```shell
 akeyless assoc-role-am --role-name /Dev/AWSRole \

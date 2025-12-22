@@ -121,7 +121,7 @@ The output should look as follows:
 * **Target mode:** In this section, you can either select an existing [Ping Target](https://docs.akeyless.io/docs/ping-target) or specify details you would fill in the target creation.
 * **Client Authentication Type**: OAuth Client Authentication Type.
 * **Redirect URIs**: List URIs to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained.
-* **Grant Types** : The grant type (or list of types) given to the OAuth client.
+* **Grant Types**: The grant type (or list of types) given to the OAuth client.
 * **Access Token Manager Instance ID**: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM ID. If no explicit value is given, the default PingFederate server ATM will be set.
 * **Restricted Scopes**: Limit the OAuth client to specific scopes.
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.

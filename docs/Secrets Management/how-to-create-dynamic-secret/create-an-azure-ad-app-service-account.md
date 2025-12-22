@@ -30,7 +30,7 @@ Create a "New Registration" which will be use as a Service Account for Akeyless 
 
 ![1348](https://files.readme.io/70a9789-image-20210204-102713.png "image-20210204-102713.png")
 
-2. On the **Request API Permissions** select **Application permission** :
+2. On the **Request API Permissions** select **Application permission**:
 
 ![1024](https://files.readme.io/b8a7809-image-20210204-102948.png "image-20210204-102948.png")
 

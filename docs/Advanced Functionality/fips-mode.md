@@ -24,7 +24,7 @@ While working within a FIPS compliant environment, the following features are **
 
 To run your Gateway in a FIPS compliant environment, run your Gateway deployment with this setting enabled:
 
-For Docker, run the following command with the variable `FIPS=true` :
+For Docker, run the following command with the variable `FIPS=true`:
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e FIPS=true --name akeyless-gw akeyless/base

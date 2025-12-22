@@ -965,7 +965,7 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
 3. Ensure proper permissions are assigned
 4. Verify gateway URL is accessible
 
-```shell CLI
+```shell
 # Test authentication manually
 akeyless auth --access-id "your-access-id" --access-key "your-access-key"
 ```
@@ -979,11 +979,11 @@ akeyless auth --access-id "your-access-id" --access-key "your-access-key"
 * Check firewall settings
 * Test with curl or wget:
 
-```shell CLI
+```shell
 # Test connectivity
 curl -I https://api.akeyless.io
 ```
-```Text Sample Output
+```text Sample Output
 HTTP/2 405 
 date: Fri, 03 Oct 2025 20:36:32 GMT
 content-type: application/json

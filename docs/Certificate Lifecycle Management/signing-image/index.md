@@ -41,7 +41,7 @@ Create a folder for the Akeyless Notation plugin configuration:
 ```shell Ubuntu
 mkdir -p ~/.config/notation/plugins/akeyless
 ```
-```shell MacOS
+```shell macOS
 mkdir -p $HOME/Library/Application\ Support/notation/plugins/akeyless
 ```
 ```shell Windows
@@ -84,7 +84,7 @@ Depending on your OS type create the relevant config file accordingly:
 ```shell Linux & macOS
 cd /var/akeyless/conf
 cat <<EOF > notation.conf
-akeyless_url="https://<Your Gateway URL>:8000/api/v2 # Or using port :8081"
+akeyless_url="https://<Your Gateway URL>:8000/api/v2 # Or using port 8081"
 [auth]
 access_id="<AccessID>"
 access_key="<AccessKey>"
@@ -223,7 +223,7 @@ Note: this is a very permissive trust policy. Read more on creating trust polici
          "name": "trust-policy-example",
          "registryScopes": [ "*" ],
          "signatureVerification": {
-             "level" : "strict" 
+             "level": "strict" 
          },
          "trustStores": [ "ca:selfSigned" ],
          "trustedIdentities": [

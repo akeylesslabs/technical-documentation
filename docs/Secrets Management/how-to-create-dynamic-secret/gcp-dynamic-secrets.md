@@ -30,7 +30,7 @@ Service Accounts role bindings define a list of resources and the associated IAM
 
 ```json
 {
-  "/path/to/resource" : ['roles/rolename']
+  "/path/to/resource": ['roles/rolename']
 }
 ```
 
@@ -221,7 +221,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
 
-6. Provide the connection string to your GCP :
+6. Provide the connection string to your GCP:
 
 * **Service Account Email:** privileged service account email.
 

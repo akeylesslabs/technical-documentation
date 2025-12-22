@@ -19,7 +19,7 @@ To install and configure a standalone instance of Akeyless Gateway using Docker,
   * Execute the following Docker command to install and run a standalone instance of the Akeyless Gateway:
   * This command downloads the Akeyless Gateway image from the Docker repository (if not already present) and runs it as a container named `akeyless-gateway`. It maps multiple ports to ensure full functionality of the Akeyless Gateway, including the management interface and various service endpoints.
 
-```Text Yaml
+```shell
 docker run -d -p 8000:8000 -p 8200:8200 -p 18888:18888 -p 8080:8080 -p 8081:8081 -p 5696:5696 --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 
@@ -29,7 +29,7 @@ docker run -d -p 8000:8000 -p 8200:8200 -p 18888:18888 -p 8080:8080 -p 8081:8081
   * To upgrade your Akeyless Gateway to the latest version, simply restart the container with the command:
   * Docker will ensure that the container uses the latest image version tagged `latest-akeyless`.
 
-```Text Yaml
+```shell
 docker restart akeyless-gateway
 ```
 

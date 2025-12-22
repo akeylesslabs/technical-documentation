@@ -32,11 +32,11 @@ akeyless create-usc \
 
 `-n, --name`: **Required**, Universal Secrets Connector name
 
-`-a, --target-to-associate` :**Required**, Target Universal Secrets Connector to connect
+`-a, --target-to-associate`: **Required**, Target Universal Secrets Connector to connect
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--description` :Description of the Universal Secrets Connector
+`--description`: Description of the Universal Secrets Connector
 
 `-t, --tag`: List of the tags attached to this Universal Secrets Connector. To specify multiple tags use the argument multiple times: -t Tag1 -t Tag2
 

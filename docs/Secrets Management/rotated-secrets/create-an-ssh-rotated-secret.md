@@ -159,7 +159,7 @@ For example, to rotate a user on some Linux distribution like **RedHat**, the fo
 echo '{{USERNAME}}:{{NEW_PASSWORD}}'| chpasswd
 ```
 
-Another example of rotating Windows service password :
+Another example of rotating Windows service password:
 
 ```shell
 net user /domain "{{USERNAME}}" {{NEW_PASSWORD}} && sc config "lfsvc" obj= "ad\{{USERNAME}}" password= "{{NEW_PASSWORD}}" && net stop lfsvc && net start lfsvc

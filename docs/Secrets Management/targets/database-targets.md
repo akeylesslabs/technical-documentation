@@ -60,7 +60,6 @@ akeyless target create db \
 --user-name <Database user name> \
 --db-name <Database name>
 ```
-
 ```shell PostgresSQL
 akeyless target create db \
 --name <Target name> \
@@ -71,7 +70,6 @@ akeyless target create db \
 --user-name <Database user name> \
 --db-name <Database name>
 ```
-
 ```shell MSSQL
 akeyless target create db \
 --name <Target name> \
@@ -82,7 +80,6 @@ akeyless target create db \
 --port <Database port> \
 --db-name <Database name> 
 ```
-
 ```shell Redshift
 akeyless target create db \
 --name <Target name> \
@@ -93,7 +90,6 @@ akeyless target create db \
 --user-name <Database user name> \
 --db-name <Database name>
 ```
-
 ```shell Oracle
 akeyless target create db \
 --name <Target name> \
@@ -104,7 +100,6 @@ akeyless target create db \
 --user-name <Database user name> \
 --oracle-service-name <oracle db service name>
 ```
-
 ```shell MongoDB
 akeyless target create db \
 --name <Target name> \
@@ -115,8 +110,7 @@ akeyless target create db \
 --port <Database port> \
 --user-name <Database user name> 
 ```
-
-```Text MongoDB Atlas
+```shell MongoDB Atlas
 akeyless target create db \
 --name <Target name> \
 --db-type mongodb \
@@ -126,7 +120,6 @@ akeyless target create db \
 --mongodb-atlas-api-public-key <MongoDB Atlas public key> \
 --mongodb-atlas-api-private-key <MongoDB Atlas private key>
 ```
-
 ```shell Snowflake
 akeyless target create db \
 --name <Target name> \
@@ -138,7 +131,6 @@ akeyless target create db \
 --db-name <Database name> \
 --snowflake-account <Snowflake account name>
 ```
-
 ```shell Cassandra
 akeyless target create db \
 --name <Target name> \
@@ -148,7 +140,6 @@ akeyless target create db \
 --port <Database port> \
 --user-name <Database user name>
 ```
-
 ```shell SAP HanaDB
 akeyless target create db \
 --name <Target name> \
@@ -159,7 +150,6 @@ akeyless target create db \
 --user-name <Database user name> \
 --db-name <Database name>
 ```
-
 ```shell Redis
 akeyless target create db \
 --name <Target name> \

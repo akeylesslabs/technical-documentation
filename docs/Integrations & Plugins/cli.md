@@ -43,7 +43,7 @@ curl -o akeyless.exe https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/
 .\akeyless.exe
 ```
 
-Alternatively, you can install it using a package manager, such as: `brew`, `apt` `yum` or `dnf` :
+Alternatively, you can install it using a package manager, such as: `brew`, `apt` `yum` or `dnf`:
 
 ```shell brew
 brew install akeylesslabs/tap/akeyless
@@ -136,7 +136,7 @@ Continue with installing the Akeyless CLI, depending on your operating system
 
 ### Linux \ Mac
 
-Once the authentication succeeds, follow the prompt to add the CLI executable to your `$PATH` :
+Once the authentication succeeds, follow the prompt to add the CLI executable to your `$PATH`:
 
 ```shell
 Would you like to move 'akeyless' binary to: /home/username/.akeyless/bin/akeyless? (Y/n) 

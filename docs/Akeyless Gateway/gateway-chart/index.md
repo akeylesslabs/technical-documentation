@@ -208,7 +208,7 @@ kubectl annotate serviceaccount KSA_NAME \
 
 Set the relevant Kubernetes `serviceAccountName` or leave it empty to use the `default` Kubernetes ServiceAccount, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes ServiceAccount.
 
-And set your [GCP](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) :
+And set your [GCP](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins):
 
 ```yaml Deployment
 globalConfig:

@@ -117,9 +117,9 @@ akeyless create-classic-key \
 
 `--conf-file-data`: The CSR config data in Base64 encoding
 
-`--certificate-format` : The format of the returned certificate can be pem or der.
+`--certificate-format`: The format of the returned certificate can be pem or der.
 
-`-e, --expiration-event-in` : How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1 --expiration-event-in 5`
+`-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1 --expiration-event-in 5`
 
 `--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
 
@@ -181,9 +181,9 @@ akeyless create-dfc-key \
 
 `--conf-file-data`: The CSR config data in Base64 encoding
 
-`--certificate-format` : The format of the returned certificate can be pem or der.
+`--certificate-format`: The format of the returned certificate can be pem or der.
 
-`-e, --expiration-event-in` : How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1 --expiration-event-in 5`
+`-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1 --expiration-event-in 5`
 
 `--auto-rotate`: Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
 

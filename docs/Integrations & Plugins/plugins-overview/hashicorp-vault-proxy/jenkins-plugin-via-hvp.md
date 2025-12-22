@@ -140,13 +140,13 @@ The **Key names** can be: `username` and `password` where the **Path** is `secre
 
 To work with **KV 2** use the following format:
 
-To fetch the secret **/DevOps/Jenkins** :
+To fetch the secret **/DevOps/Jenkins**:
 
  The **Path** is `secret/DevOps/Jenkins`, where the Key in the returned JSON name is `DevOps/Jenkins` without the `/` prefix.
 
 ![](https://files.readme.io/31a52cd-Screenshot_at_Jan_05_21-12-04.png "Screenshot at Jan 05 21-12-04.png")
 
-For example, to fetch the secret **/DevOps/JenkinsJson** :
+For example, to fetch the secret **/DevOps/JenkinsJson**:
 
 The **Path** should be `secret/DevOps/JenkinsJson`, and the **Key name** should be set with the relevant JSON keys.
 

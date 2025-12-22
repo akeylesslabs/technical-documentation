@@ -70,7 +70,7 @@ akeyless dynamic-secret create google-workspace \
 --role-scope[=CUSTOMER] <[CUSTOMER/ORG_UNIT]>
 ```
 
-**Or using an inline connection string** :
+**Or using an inline connection string**:
 
 ```shell Akeyless CLI
 akeyless dynamic-secret create google-workspace \
@@ -149,7 +149,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Group Role**: **Owner, Manager or Member**
 * **Role Name**: Name of the admin role to assign to the user.
 * **Scope**: The scope in which this role is assigned **CUSTOMER**/**ORG_UNIT**.
-* **Admin Email** : The email of the Google Workspace Account.
+* **Admin Email**: The email of the Google Workspace Account.
 * **Sub Claim Name**: From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_email`
 * **User TTL**: Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Time Unit**: Select the time unit (seconds, minutes, hours) for the TTL value.

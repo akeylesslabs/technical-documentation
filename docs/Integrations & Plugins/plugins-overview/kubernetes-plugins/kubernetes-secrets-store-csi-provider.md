@@ -52,7 +52,7 @@ kubectl apply -f deployment/akeyless-csi-provider.yaml
 
 The `SecretProviderClass` is a namespaced resource in Secrets Store CSI Provider that is used to provide configurations and provider-specific parameters to the CSI provider.
 
-Supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) :
+Supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
 * [API Key](https://docs.akeyless.io/docs/api-key)  
 * [Kubernetes (K8s)](https://docs.akeyless.io/docs/kubernetes-auth)
@@ -60,7 +60,9 @@ Supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-auth
 * [Azure AD](https://docs.akeyless.io/docs/azure-ad)
 * [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
 
-`SecretProviderClass` custom resource should state the `akeylessAccessType`- which can be one of the supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) : `access_key`, `aws_iam`, `azure_ad`, `gcp`, `universal_identity`.
+`SecretProviderClass` custom resource should state the `akeylessAccessType`- which can be one of the supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
+
+: `access_key`, `aws_iam`, `azure_ad`, `gcp`, `universal_identity`.
 
 While using `k8s`,`azure_ad`, or `gcp`, the following parameters should be provided accordingly:
 

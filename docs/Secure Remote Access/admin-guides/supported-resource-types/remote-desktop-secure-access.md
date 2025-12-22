@@ -53,8 +53,8 @@ Where:
 
 Optional:
 
-* **secure-access-rdp-user :** Override the RDP Domain username.
-* **secure-access-allow-external-user:** Allow providing external user for a domain users \[true/false].
+* **secure-access-rdp-user:** Override the RDP Domain username.
+* **secure-access-allow-external-user:** Allow providing external user for a domain users [true/false].
 * **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 * **secure-access-rd-gateway-server:** Optional for Dynamic Secret, to connect from SRA to the remote host via an RD-Gateway server.
 

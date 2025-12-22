@@ -47,7 +47,7 @@ To create the migration from your Active Directory, login to your Gateway on por
 
 * **Target:** Select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) in Akeyless, where the `Server type` should be `Active Directory`.
 
-* **Discovery Type** : Set the desired discovery mode. Supported options are **Domain Users**, **Local Users**, and **Computers**.
+* **Discovery Type**: Set the desired discovery mode. Supported options are **Domain Users**, **Local Users**, and **Computers**.
 
 * **Destination Folder:** Destination folder path inside the Akeyless Platform for the migrated items. Make sure your Gateway has enough permissions to create items under this location. All migrated items, both [Targets](https://docs.akeyless.io/docs/targets)and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) of your Domain Servers and domain\local Users will be saved under this folder.
 

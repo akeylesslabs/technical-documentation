@@ -176,7 +176,7 @@ akeyless export-classic-key \
 ```shell
 {
   "key": "<base64 ciphertext>",
-  "iv" : "<base64 gcm nonce>"
+  "iv": "<base64 gcm nonce>"
 }
 ```
 

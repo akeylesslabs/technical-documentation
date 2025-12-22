@@ -40,7 +40,7 @@ POST http://localhost:8081/create-passkey
 
 *Request Payload:*
 
-```shell JSON
+```json
 {
     "token": "t-...",
     "name": "/testpasskey5",

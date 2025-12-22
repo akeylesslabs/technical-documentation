@@ -227,25 +227,25 @@ When the cluster access type is **Rancher**, add the following parameters:
 
 1. Create a Namespace in your Kubernetes cluster:
 
-```shell CLI
+```shell
 kubectl create namespace my-namespace-a
 ```
 
 2. In this Namespace create a pod:
 
-```shell CLI
+```shell
 kubectl run mypod1 --image=nginx -n my-namespace-a
 ```
 
 3. Start an interactive shell session on the pod and perform the following commands in the pod:
 
-```shell CLI
+```shell
 kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
 ```
 
 4. Install Akeyless CLI inside your pod:
 
-```shell CLI
+```shell
 curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
 chmod +x akeyless
 ./akeyless --init
@@ -253,7 +253,7 @@ chmod +x akeyless
 
 5. Authenticate via your Kubernetes Auth Method with the following parameters:
 
-```shell Akeyless CLI
+```shell
 ./akeyless auth --access-id $ACCESS_ID \
     --access-type k8s \
     --gateway-url https://<Your_Akeyless_GW_URL:8000> \
