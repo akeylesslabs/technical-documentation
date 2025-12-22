@@ -16,19 +16,18 @@ Akeyless SSH Secure Remote Access enables traffic connections to servers that ar
 
 In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
 
-> 👍 Note
+> 👍 Legacy Mode
 >
-> **Legacy Mode**
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
 > For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
 
-## Prerequisites
+# Prerequisites
 
-* The [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview).
+* [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployment.
 
 * An [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
 
-* SSH sessions behind a GKE HTTP(S) Load Balancer may disconnect after `30` seconds due to the default backend timeout. You can increase it by configuring a BackendConfig (`spec.timeoutSec`) and annotating your Service as described in the GCP docs on [backend service timeouts](https://docs.cloud.google.com/load-balancing/docs/backend-service#timeout-setting) and [Ingress BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration#backendconfig).
+* SSH sessions behind a **GKE HTTP(S)** Load Balancer may disconnect after `30` seconds due to the default backend timeout. You can increase it by configuring a BackendConfig (`spec.timeoutSec`) and annotating your Service as described in the GCP docs on [backend service timeouts](https://docs.cloud.google.com/load-balancing/docs/backend-service#timeout-setting) and [Ingress BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration#backendconfig).
 
 ## Set Up Certificate-Based SSH Access from the Akeyless CLI
 
@@ -92,9 +91,9 @@ Akeyless enables CLI access from any Unix terminal.
 >
 > To work with `Akeyless connect` command from Windows machine, place the `.akeyless-connect.rc` script on your home directory.
 
-1. Download and install the latest version of Akeyless CLI.
+1. Download and install the latest version of [Akeyless CLI](https://docs.akeyless.io/docs/cli).
 
-2. Create your ~/.akeyless-connect.rc :
+2. Create your `~/.akeyless-connect.rc` :
 
 ```shell
 # ---------------------------------------------------------------------
@@ -142,29 +141,29 @@ DISPLAY_STAGES=yes
 akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
 ```
 
-> 🚧 Compatibility Issue with Legacy SSH Versions (7.4 & 7.6)
->
-> Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using Akeyless Connect to access remote machines running OpenSSH version 7.4 or 7.6. This occurs both in CLI and the Web portal.
->
-> It is possible to bypass this issue by setting the following environment variable in the SSH & Web bastion deployments, to all outgoing SSH connections:
->
-> ```shell values.yaml
-> env:
->   - name: SSH_EXTRA_ARGS
->     value: -o PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com
-> ```
->
-> NOTE that this workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
+# Legacy SSH Versions
+
+Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)to access remote machines running OpenSSH version `7.4` or `7.6`. This occurs both in CLI and the Web portal.
+
+It is possible to bypass this issue by setting the following environment variable in the SSH & Web bastion deployments, to all outgoing SSH connections:
+
+```shell values.yaml
+env:
+  - name: SSH_EXTRA_ARGS
+    value: -o PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com
+```
+
+This workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
 
 ## Legacy Mode
-
-> ❗️ Critical
->
-> SSH password authentication brings with it risks. Please make sure you are connecting to the correct target server.
 
 To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion via SSH certificate, and the Akeyless SRA bastion will utilize your SSH keys\password to connect to your legacy server.
 
 To work with SSH keys, you will have to create a static secret in an Akeyless to store your SSH private key or SSH password. i.e., the secret value should be either your SSH password or your SSH private key.
+
+> 🚧 Note
+>
+> SSH password authentication brings with it risks. Please make sure you are connecting to the correct target server.
 
 To enable Secure SSH Access for your target, set the following fields on your secret:
 
@@ -180,9 +179,9 @@ akeyless update-item --name <Path/to/static/secret> \
 
 Where:
 
-* **secure-access-ssh-creds:** Static-Secret values contain SSH Credentials, either Private Key or Password [password/private-key].
-* **--secure-access-certificate-issuer** Path to the SSH Certificate Issuer for your Akeyless SRA.
-* **secure-access-host:** Target servers for connections. For multiple values, repeat this flag.
+* `secure-access-ssh-creds`: Static-Secret values contain SSH Credentials, either Private Key or Password [`password`/`private-key`].
+* `secure-access-certificate-issuer`: Path to the SSH Certificate Issuer for your Akeyless SRA.
+* `secure-access-host`: Target servers for connections. For multiple values, repeat this flag.
 
 Now, you can connect to your target SSH host via the `akeyless connect` command:
 
