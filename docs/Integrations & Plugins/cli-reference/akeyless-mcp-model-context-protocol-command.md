@@ -52,8 +52,7 @@ akeyless mcp --profile <profile-name> --gateway-url https://api.akeyless.io
 (access_key / password / saml / ldap / k8s / azure_ad / oidc / aws_iam / universal_identity / jwt / gcp / cert / oci / kerberos)
 ```
 
-The MCP command accepts the same authentication parameters as standard Akeyless CLI auth commands.\
-For more details, see [Akeyless Authentication Documentation](https://docs.akeyless.io/docs/access-and-authentication-methods)
+The `mcp` command accepts the same authentication parameters as standard Akeyless CLI auth commands. For more details, see [Akeyless Authentication Documentation](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
 ## Common Parameters
 

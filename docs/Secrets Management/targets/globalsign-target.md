@@ -64,25 +64,24 @@ You can find the complete list of parameters for this command in the [CLI refere
 
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-* **Profile ID:** Profile ID of the GlobalSign GCC account
+    * **Profile ID:** Profile ID of the GlobalSign GCC account
 
-* **Username:** Username of the GlobalSign GCC account
+    * **Username:** Username of the GlobalSign GCC account
 
-* **Password:** Password of the GlobalSign GCC account
+    * **Password:** Password of the GlobalSign GCC account
 
-* **First Name:** First name of the GlobalSign GCC account contact
+    * **First Name:** First name of the GlobalSign GCC account contact
 
-* **Last Name:** Last name of the GlobalSign GCC account contact
+    * **Last Name:** Last name of the GlobalSign GCC account contact
 
-* **Phone:** Telephone of the GlobalSign GCC account contact
+    * **Phone:** Telephone of the GlobalSign GCC account contact
 
-* **Email:** Email of the GlobalSign GCC account contact
+    * **Email:** Email of the GlobalSign GCC account contact
 
-* **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
+    * **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
 
 5. Click **Finish**.

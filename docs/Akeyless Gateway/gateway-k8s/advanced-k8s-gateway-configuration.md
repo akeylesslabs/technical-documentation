@@ -69,7 +69,7 @@ customerFragments: |
 
 You can also [configure TLS settings using the Web interface](https://docs.akeyless.io/docs/tls-certificate) of the Gateway Configuration Manager.
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.\
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
 Please note that when you're enabling TLS, you must provide a TLS certificate and a TLS Private Key.
 
 To set the relevant service to use TLS and the minimum TLS version that will be used by default, set the following:

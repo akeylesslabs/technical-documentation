@@ -141,15 +141,15 @@ akeyless create-classic-key \
     --description "KEK used to wrap DEKs for GCP"
 ```
 
-You now have an AES-256-GCM “classic key” called kek-name.
+You now have an AES-256-GCM “classic key” called `kek-name`.
 
 #### Tell Akeyless That This KEK Belongs to Google Cloud
 
 1. In the Akeyless UI or CLI, create a GCP target (pointing to your project, location, key-ring and key).
 2. Set the purpose to “raw encrypt / raw decrypt.”
 3. List the algorithms you’ll allow, usually `aes\_256\_gcm` (add `aes\_128\_gcm` if you also need it).
-4. Most importantly, pass the flag --wrapping-key-name kek-name (or pick kek-name in the UI).\
-   This links your Akeyless key to Google’s KMS key so Akeyless can ask GCP to wrap or unwrap.
+4. Most importantly, pass the flag `--wrapping-key-name kek-name` (or pick `kek-name` in the UI).
+    This links your Akeyless key to Google’s KMS key so Akeyless can ask GCP to wrap or unwrap.
 
 #### Create a Data-Encryption Key (DEK)
 
@@ -180,8 +180,8 @@ akeyless export-classic-key \
 }
 ```
 
-* key is the DEK, encrypted with the KEK.
-* iv is the 12-byte GCM nonce Google needs to decrypt.
+* `key` is the DEK, encrypted with the KEK.
+* `iv` is the 12-byte GCM nonce Google needs to decrypt.
 
 ##### Unwrap (Decrypt) the DEK Inside Your Application Code (Using GCP GO SDK)
 

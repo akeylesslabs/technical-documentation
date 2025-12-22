@@ -18,8 +18,8 @@ Installing and activating the Event Management Plugin in ServiceNow involves a s
 
 ## Step 2: Navigate to the Plugin Module
 
-* Open the Application Navigator: On the left-hand side of the ServiceNow interface, locate the Application Navigator.\
-  Find "Plugins": Type “Plugins” in the Application Navigator's search bar, and select the “Plugins” menu item from the search results.
+* Open the Application Navigator: On the left-hand side of the ServiceNow interface, locate the Application Navigator.
+    Find "Plugins": Type “Plugins” in the Application Navigator's search bar, and select the “Plugins” menu item from the search results.
 
 ![](https://files.readme.io/9054505-Screenshot_2024-03-05_at_12.02.10.png)
 

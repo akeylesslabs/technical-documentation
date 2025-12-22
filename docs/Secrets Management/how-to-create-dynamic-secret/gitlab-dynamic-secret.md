@@ -39,7 +39,7 @@ akeyless dynamic-secret create gitlab \
 --project-name <Project Name> \                           
 --group-name <Group Name> \  
 --gitlab-token-scopes <Access Token Scopes> \
---gitlab-token-role <Access Token Role> \
+--gitlab-token-role <Access Token Role>
 ```
 
  Or using an inline connection string:
@@ -53,7 +53,7 @@ akeyless dynamic-secret create gitlab \
 --group-name <Group Name> \  
 --gitlab-token-scopes <Accesds Token Scopes> \
 --gitlab-token-role <Accesds Token Role> \
---gitlab-access-token <GitLab Token> \
+--gitlab-access-token <GitLab Token>
 ```
 
 Where:

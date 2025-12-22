@@ -48,7 +48,7 @@ VERSION: x.y.z
 
 ## TLS Configuration
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.\
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
 Please note that when you're enabling TLS, you must provide a `TLS certificate` and a `TLS Private Key` in `PEM` format.
 
 Add the following to the `gateway.env` file to use TLS Certificate:
@@ -116,7 +116,7 @@ In the above example, in addition to your Gateway admin lists, you are limiting 
 
 ## Default Secret Encryption
 
-While the **Encryption Key** section discusses the encryption of the configuration file, this section discusses the secrets created when using the Gateway.\
+While the **Encryption Key** section discusses the encryption of the configuration file, this section discusses the secrets created when using the Gateway.
 To set a default existing key that will be used to encrypt any secret created through the gateway, add the parameter `DEFAULT_ENCRYPTION_KEY` in the following way:
 
 ```yaml docker-compose.yaml
@@ -125,7 +125,7 @@ DEFAULT_ENCRYPTION_KEY: <"existing encryption key name">
 
 ## Setting a Default Login
 
-When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console`, a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML & OIDC](https://docs.akeyless.io/docs/gateway-authentication).\
+When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console`, a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML & OIDC](https://docs.akeyless.io/docs/gateway-authentication).
 When configuring your gateway, you may supply a default value for either OIDC, SAML, or both, using the following parameters:
 
 * `DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`

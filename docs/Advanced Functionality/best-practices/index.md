@@ -52,8 +52,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * [SSH certificates](https://docs.akeyless.io/docs/ssh-certificates) - Should **not** be set with `*` on the `principals` field. Instead, this field should be utilized for special use cases where your users need special permissions. In addition, SSH certificates should be used with a `list of allowed users` who will be able to log in using those certificates.
 
-* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) - Should be used and set while following the Principle Of Least Privileges (PoLP). Each dynamic secret has its permission profile which will determine your temporary users' access level.\
-  E.g., Databases Dynamic secret should be used with the minimum permissions for your users based on the `creation statement`, where you should limit the access to a specific database and table.
+* [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) - Should be used and set while following the Principle Of Least Privileges (PoLP). Each Dynamic Secret has its permission profile which will determine your temporary users' access level. For example, a database's Dynamic Secret should be used with the minimum permissions for your users based on the `creation statement`, where you should limit the access to a specific database and table.
 
 ```sql
 CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON <DATABASE NAME>.<TABLE_NAME> TO '{{name}}'@'%';
@@ -61,8 +60,7 @@ CREATE USER '{{name}}'@'%' IDENTIFIED WITH mysql_native_password BY '{{password}
 
 * [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) - These should be used as a break-glass admin static credentials, which should automatically rotate strong users' passwords. Primarily for your superusers, which their passwords should be rotated automatically.
 
-* [Targets](https://docs.akeyless.io/docs/targets) - To save time during Dynamic and Rotated Secrets creation and avoid using your privileged user credentials often, you can create Targets.\
-  Those items should not be shared with regular users, while those who need to use the Targets items can only have 'list' permissions.
+* [Targets](https://docs.akeyless.io/docs/targets) - To save time during Dynamic and Rotated Secrets creation and avoid using your privileged user credentials often, you can create Targets. Those items should not be shared with regular users, while those who need to use the Targets items can only have 'list' permissions.
 
 ## System Prerequisites: Kubernetes Versioning
 

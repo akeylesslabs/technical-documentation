@@ -244,7 +244,7 @@ Creates a new custom rotated secret item
 akeyless rotated-secret create custom \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
 #### Flags
@@ -323,7 +323,7 @@ Creates a new Docker Hub rotated secret item
 akeyless rotated-secret create dockerhub \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
 #### Flags
@@ -1203,7 +1203,7 @@ akeyless rotated-secret update aws \
 akeyless rotated-secret update azure \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
 #### Flags
@@ -1260,7 +1260,7 @@ akeyless rotated-secret update azure \
  akeyless rotated-secret update cassandra \
 --name <Rotated Secret name> \
 --new-name <New-Item name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
 #### Flags
@@ -1708,7 +1708,7 @@ akeyless rotated-secret update mssql \
 akeyless rotated-secret update mysql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
 #### Flags
@@ -2152,7 +2152,7 @@ akeyless rotated-secret update windows \
 ```shell
 akeyless rotated-secret get-value \
 --name <Rotated Secret name> \
---version <Rotated Secret version> \
+--version <Rotated Secret version>
 ```
 
 ### Flags

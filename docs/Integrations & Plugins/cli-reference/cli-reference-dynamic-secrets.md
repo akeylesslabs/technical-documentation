@@ -3333,7 +3333,7 @@ Get dynamic secret value
 akeyless dynamic-secret get-value \
 --name <Dynamic Secret name> \
 --host <Host> \
---target <Taget name> \
+--target <Taget name>
 ```
 
 ### Flags

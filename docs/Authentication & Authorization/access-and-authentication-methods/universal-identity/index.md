@@ -102,7 +102,7 @@ If you wish to write your own script, here are some useful parts you might want 
 
 To read a token from a file or to write a token to a file:
 
-```shell Shell
+```shell
 echo u-XXXXXXXX > /tmp/token
 akeyless uid-rotate-token -i /tmp/token -o /tmp/token
 ```

@@ -248,14 +248,13 @@ CREATE TABLE employee (
 
 In this example:
 
-The first\_name, last\_name, and empID columns are created as normal.\
-The salary column is encrypted using Oracle's Transparent Data Encryption (TDE) by adding the ENCRYPT clause.
+The `first_name`, `last_name`, and `empID` columns are created as normal. The salary column is encrypted using Oracle's Transparent Data Encryption (TDE) by adding the ENCRYPT clause.
 
 ### Insert Data into the Encrypted Table
 
 After creating the table with the encrypted column, you can insert data into it. The data in the encrypted column will be automatically encrypted by Oracle TDE.
 
-```sql sql
+```sql
 INSERT INTO employee VALUES ('JOHN', 'SMITH', 001, 10000);
 ```
 
@@ -279,7 +278,7 @@ OE     EMPLOYEE   SALARY      AES 192 bits   YES  SHA-1
 
 In this example:
 
-The SALARY column in the EMPLOYEE table is encrypted using the AES 192 bits algorithm.\
+The SALARY column in the EMPLOYEE table is encrypted using the AES 192 bits algorithm.
 SALT is applied, and the integrity algorithm used is SHA-1.For more details about encryption options, such as how to specify different encryption algorithms or disable the use of salt, you can refer to the [Oracle documentation on Transparent Data Encryption (TDE)](https://docs.oracle.com/database/121/TDPSG/GUID-61259237-5514-4531-AFB4-CF716F93F1E5.htm#TDPSG44324). This documentation provides comprehensive guidelines on using TDE to secure sensitive data at rest within your Oracle Database.
 
 ## Testing Tablespace Encryption
@@ -292,7 +291,7 @@ Start by connecting to your Oracle Database using SQL\_Plus as a non-sysadmin us
 sqlplus your_username@your_database
 ```
 
-Replace your\_username with your actual username and your\_database with the appropriate database service name.
+Replace `your_username` with your actual username and `your_database` with the appropriate database service name.
 
 ### Verify and Set the COMPATIBLE Initialization Parameter
 

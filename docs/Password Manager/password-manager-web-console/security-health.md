@@ -18,21 +18,21 @@ The Security Health Dashboard provides users with an overview of the strength an
 
 ## Dashboard Layout
 
-1. **Upper Section: Gauges**\
-   This section contains visual gauges that display the overall health of passwords:
+1. **Upper Section: Gauges**
+    This section contains visual gauges that display the overall health of passwords:
 
-* Security Score Gauge: Represents an overall security score for all stored passwords. This score is a composite of various factors such as length, complexity, and rotation policy. The gauge's colors range from red (low score) to green (high score).
-* Weak Passwords Gauge: Displays the number of weak passwords as a fraction of the total passwords. Weak passwords are identified based on their lack of complexity and length.
-* Breached Passwords Gauge: Shows the number of passwords that have been compromised in known breaches. This gauge helps users identify vulnerable passwords that should be updated or replaced immediately.
+    * Security Score Gauge: Represents an overall security score for all stored passwords. This score is a composite of various factors such as length, complexity, and rotation policy. The gauge's colors range from red (low score) to green (high score).
+    * Weak Passwords Gauge: Displays the number of weak passwords as a fraction of the total passwords. Weak passwords are identified based on their lack of complexity and length.
+    * Breached Passwords Gauge: Shows the number of passwords that have been compromised in known breaches. This gauge helps users identify vulnerable passwords that should be updated or replaced immediately.
 
-2. **Lower Section: Password List**\
-   Below the gauges is a detailed table listing all passwords, providing users with key information and actionable suggestions:
+2. **Lower Section: Password List**
+    Below the gauges is a detailed table listing all passwords, providing users with key information and actionable suggestions:
 
-* Password Location: The service or app where the password is used.
-* Name of the Password: The name or identifier for the password.
-* Score: A graphical representation of the password's strength (e.g., weak, medium, strong).
-* Suggestion: Provides recommendations for improving password strength.
-* Last Updated: The date when the password was last changed.
+    * Password Location: The service or app where the password is used.
+    * Name of the Password: The name or identifier for the password.
+    * Score: A graphical representation of the password's strength (e.g., weak, medium, strong).
+    * Suggestion: Provides recommendations for improving password strength.
+    * Last Updated: The date when the password was last changed.
 
 ## Enhanced Filtering Options
 
@@ -47,8 +47,8 @@ Users can apply filters to view specific types of passwords:
 A toggle button has been added to allow users to enable or disable the password score feature in their account settings:
 
 * **Toggle Button:** Located under "Password Management," the button controls whether the password score is displayed.
-* **Default Setting:** The feature is disabled by default.\
-  Functionality: When enabled, password scores are calculated and displayed; when disabled, scores are hidden.
+* **Default Setting:** The feature is disabled by default.
+* **Functionality:** When enabled, password scores are calculated and displayed; when disabled, scores are hidden.
 
 ## Compromised Password Check
 

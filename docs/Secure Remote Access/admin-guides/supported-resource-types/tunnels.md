@@ -42,16 +42,13 @@ Where:
 * **target:** The target resource, e.g. `user@ssh-server[:port]`, `us-east-2`, `mysql-server:3306`, etc.
 
 * **--via-sra:** SRA host, which the connection will go through. e.g.: sra-host:port\`.
-  * NOTE - With unified Gateway, you should be using `-g <your-gateway-ip[:port]>`instead of `--via-sra`
+    * NOTE - With unified Gateway, you should be using `-g <your-gateway-ip[:port]>`instead of `--via-sra`
 
 * **tunnel:** SSH tunnel setting e.g. `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
 
-* **cert-issuer-name:** Optional. If already configured inside `akeyless-connect.rc` file, alternativity provide\
-  the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion.
+* **cert-issuer-name:** Optional. If already configured inside `akeyless-connect.rc` file, alternativity provide the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion.
 
-* **name
-
-:** Full name of the secret item to use in order to connect. i.e. Dynamic or a Rotated Secret for Database,RDP etc. Or a static secret which contains the credentials of the target system.
+* **name:** Full name of the secret item to use in order to connect. i.e. Dynamic or a Rotated Secret for Database,RDP etc. Or a static secret which contains the credentials of the target system.
 
 * **command:** Command to execute on the target remote host (useful for non-interactive mode). e.g. `-C='ls -al'`
 

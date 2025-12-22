@@ -35,7 +35,7 @@ akeyless event-forwarder create servicenow \
 --app-private-key-file-path <RSA Private Key>
 --event-types <event types> \
 --runner-type[=immediate] <immediate, periodic> \
---every <1-24 hours> \
+--every <1-24 hours>
 ```
 ```shell User-Pass
 akeyless event-forwarder create servicenow \

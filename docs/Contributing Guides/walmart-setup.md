@@ -226,7 +226,7 @@ The following table describes the main functionality of Akeyless microservices:
     <tr>
       <td>
         * *KFM**:  
-          [https://kfm1.wmt.akeyless.io](https://kfm1.wmt.akeyless.io),\
+          [https://kfm1.wmt.akeyless.io](https://kfm1.wmt.akeyless.io),
 
         [https://kfm2.wmt.akeyless.io](https://kfm2.wmt.akeyless.io),
 

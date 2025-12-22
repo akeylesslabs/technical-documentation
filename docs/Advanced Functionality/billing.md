@@ -16,8 +16,7 @@ Akeyless is priced monthly, based on the package you select. The package types a
 
 ### How to Select a Package
 
-The three packages are tiered, meaning the higher up you go, the more features and options you open.\
-There are a few important features to note when selecting a package:
+The three packages are tiered, meaning the higher up you go, the more features and options you open. There are a few important features to note when selecting a package:
 
 * **Clients**: An Akeyless Client is a unique identity, such as an application, user, or machine, which consumes secrets and/or authenticates itself through the Akeyless Secret Orchestration. If you wish to try out the system and see if it fits your organization, you might not need many clients, however, if you scale up, you will eventually need to use more. Please note that registration and reception of the same uniquely identified client are counted as one client per month.
 
@@ -29,7 +28,7 @@ There are a few important features to note when selecting a package:
 
 ## Checking and Updating Your Billing in the Akeyless Console
 
-On the top right corner of the screen, you will see your icon.\
+On the top right corner of the screen, you will see your icon.
 Tap the icon and select account settings. After selecting this, you will be transferred to a screen with a "Billing Information" label. Selecting this will lead you to your billing area.
 
 ### First Time Purchases

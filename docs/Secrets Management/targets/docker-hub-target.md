@@ -20,7 +20,7 @@ To create a Docker Hub target with the CLI, run the following command:
 akeyless target create dockerhub \
 --name <target name> \
 --dockerhub-username <Docker Hub username> \
---dockerhub-password <Docker Hub password> \
+--dockerhub-password <Docker Hub password>
 ```
 
 Where:
@@ -39,13 +39,12 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-* **Username:** Provide the username of the Docker repository user with privileges to create temporary access tokens.
+    * **Username:** Provide the username of the Docker repository user with privileges to create temporary access tokens.
 
-* **Password:** Provide the password of the privileged user.
+    * **Password:** Provide the password of the privileged user.
 
 5. Click **Finish**.

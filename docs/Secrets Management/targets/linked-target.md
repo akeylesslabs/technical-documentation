@@ -68,8 +68,7 @@ To create a Linked Target follow these steps:
 
 2. Define a **Name** for the Linked Target, and specify the **Location** as a path to the virtual folder where you want to create the new Linked Target, using slash `/` separators. If the folder does not exist, it will be created together with the Linked Target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-    For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Fill in these parameters:
 

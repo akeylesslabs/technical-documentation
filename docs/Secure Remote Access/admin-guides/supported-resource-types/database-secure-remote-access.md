@@ -79,17 +79,17 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
 
-* `Host(s)`: The hostname (or IP address) and port for accessing the database as defined in the dynamic secret.
-* `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+    * `Host(s)`: The hostname (or IP address) and port for accessing the database as defined in the dynamic secret.
+    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
-For **Web Access**, define the following fields:
+    * For **Web Access**, define the following fields:
 
-* `DB Name`: The name of the database as defined in the dynamic secret.
-* `Schema`: Optional, only supported for MSSQL and PostgreSQL database Dynamic Secrets.
+        * `DB Name`: The name of the database as defined in the dynamic secret.
+        * `Schema`: Optional, only supported for MSSQL and PostgreSQL database Dynamic Secrets.
 
-For **CLI Access**, define the following field:
+    * For **CLI Access**, define the following field:
 
-* `SSH Cert Issuer`: The path to the SSH Certificate Issuer that should be used for certificate authentication.
+        * `SSH Cert Issuer`: The path to the SSH Certificate Issuer that should be used for certificate authentication.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
@@ -101,21 +101,19 @@ For **CLI Access**, define the following field:
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select the database type to which you want to connect.
 
-2. Select the database hostname or IP address, then select **Web**.\
-   Adminer opens in a new tab, from which you can interact with the database according to your permissions.
+2. Select the database hostname or IP address, then select **Web**. Adminer opens in a new tab, from which you can interact with the database according to your permissions.
 
 ## Access a Database Using CLI from the Secure Remote Access Portal
 
 1. [Log in](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal) to the Secure Remote Access Portal and select the database type to which you want to connect.
 
-2. Select the database hostname or IP address, then select **CLI**.\
-   A new tab opens, showing that you are connected to the database.
+2. Select the database hostname or IP address, then select **CLI**. A new tab opens, showing that you are connected to the database.
 
 ## Access a Database Using Akeyless Connect Command
 
 [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) command enables application native CLI access:
 
-```shell Akeyless connect
+```shell
 akeyless connect -t <mysql-server>:3306 -g <your-gateway-ip[:port]> -n "Path/to/Secret"
 ```
 

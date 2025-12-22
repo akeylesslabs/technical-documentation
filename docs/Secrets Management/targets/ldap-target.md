@@ -42,17 +42,16 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Define a **Name** of the target, and specify the **Location** as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-4. Define the remaining parameters as follows:
+    4. Define the remaining parameters as follows:
 
-* **LDAP Server URL:** Specify the LDAP Server URL.
+    * **LDAP Server URL:** Specify the LDAP Server URL.
 
-* **CA Certificate File Content:** Provide the Base64-encoded CA Certificate to enable the secure connection.
+    * **CA Certificate File Content:** Provide the Base64-encoded CA Certificate to enable the secure connection.
 
-* **LDAP Bind DN:** Provide Bind DN for authentication of a privileged user.
+    * **LDAP Bind DN:** Provide Bind DN for authentication of a privileged user.
 
-* **Password for LDAP Bind DN:** Provide the password of the privileged user for authentication.
+    * **Password for LDAP Bind DN:** Provide the password of the privileged user for authentication.
 
 5. Click **Finish**.

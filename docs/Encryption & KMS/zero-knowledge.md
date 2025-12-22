@@ -26,5 +26,5 @@ Therefore, in order to enable Zero-Knowledge Encryption, all you need is your ow
 
 > 📘 Info
 >
-> **Implementing Zero Knowledge**\
+> **Implementing Zero Knowledge**
 > In order to implement the Zero Knowledge Encryption solution on your gateway, refer to the [Implementing Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) guide.

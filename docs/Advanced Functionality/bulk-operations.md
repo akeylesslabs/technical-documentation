@@ -12,7 +12,7 @@ next:
 ---
 ## Delete Items
 
-This command deletes an entire items folder with its contents\
+This command deletes an entire items folder with its contents.
 The user running the command must have `Get`, `List`, and `Delete` permissions on the designated path and recursively on each item inside it.
 
 Only items visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not `Delete` on some of the items inside the path.
@@ -113,7 +113,7 @@ Failed to delete items from path /folder. Error: Desc: Failed to delete items in
 
 ## Delete Auth Methods
 
-This command deletes an entire Auth Methods folder with its contents\
+This command deletes an entire Auth Methods folder with its contents.
 The user running the command must have `Get`, `List`, and `Delete` permissions on the designated path and recursively on each Auth Method inside it.
 
 Only Auth Methods visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not `Delete` on some of the Auth Methods inside the path.
@@ -180,7 +180,7 @@ Auth Method(s) deleted successfully from /folder
 
 ## Delete Roles
 
-This command deletes an entire Roles folder with its contents\
+This command deletes an entire Roles folder with its contents.
 The user running the command must have `Get`, `List`, and `Delete` permissions on the designated path and recursively on each role inside it.
 
 Only Roles visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not Delete on some of the roles inside the path.
@@ -221,7 +221,7 @@ Role(s) deleted successfully from /folder
 
 ## Move Objects
 
-The move-objects flow can move multiple items, Auth Methods, or Roles from a specific folder to a different one or similarly rename a folder.\
+The move-objects flow can move multiple items, Auth Methods, or Roles from a specific folder to a different one or similarly rename a folder.
 The user running the command must have `Get`, `List`, and `Update` permissions on the designated source path and recursively on each role inside and on the target path.
 
 Only objects visible to the user making the action will be moved. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not `Update` on some of the objects inside the source path.

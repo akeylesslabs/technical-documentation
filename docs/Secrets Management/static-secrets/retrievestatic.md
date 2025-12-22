@@ -22,7 +22,7 @@ Let’s retrieve a static secret value using the Akeyless CLI. If you’d prefer
 
 The CLI command to retrieve a Static Secret value is:
 
-```shell Shell
+```shell
 akeyless get-secret-value --name <secret name> --version <version number>
 ```
 
@@ -34,7 +34,7 @@ where:
 
 For example, to retrieve the value of the **MyFirstSecret** static secret, type:
 
-```shell Shell
+```shell
 akeyless get-secret-value --name MyFirstSecret
 ```
 

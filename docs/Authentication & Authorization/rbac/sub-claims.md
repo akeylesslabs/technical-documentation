@@ -34,8 +34,8 @@ Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes
 
 > 📘 Info
 >
-> You may also use wildcard characters to allow a wider range of permissions. The supported wildcard characters are:\
-> `?`: Replaces one character. For example, the string `1?1` will accept `121` but not `1231`.\
+> You may also use wildcard characters to allow a wider range of permissions. The supported wildcard characters are:
+> `?`: Replaces one character. For example, the string `1?1` will accept `121` but not `1231`.
 > `*`: Replaces any amount of characters. For example, the string `*@example.com` will accept any address in that domain.
 
 You can set the relevant sub-claims to an existing role using the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli)

@@ -26,7 +26,7 @@ To use Akeyless Connect you need:
 
 > 👍 Note
 >
-> Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."\
+> Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."
 > This feature enables users to utilize their Windows OS environment as a Unix-like system.
 >
 > To work with the `akeyless-connect` command from a Windows machine, place the `.akeyless-connect.rc` script in your home directory.
@@ -196,7 +196,7 @@ Full options list:
 
 For SSH access through the SSH component, please use both the `-g <gw-ssh-url>` and `-c <cert-issuer-name>` options. Note that end-users require `read` permission on the cert issuer item which enables them access to the service.
 
-```shell Akeyless connect for SSH
+```shell
 akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert Issuer>"
 ```
 

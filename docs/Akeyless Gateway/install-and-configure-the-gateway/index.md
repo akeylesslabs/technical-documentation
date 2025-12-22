@@ -45,7 +45,7 @@ next:
 
 To install a standalone instance of Akeyless Gateway, run the following command:
 
-```shell Shell
+```shell
 docker run -d -p 8000:8000 -p 5696:5696 --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 

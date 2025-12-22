@@ -22,8 +22,7 @@ The Secrets Store CSI Driver `secrets-store.csi.k8s.io` allows Kubernetes to mou
 
 Similar to Kubernetes secrets, upon pod start, the Secrets Store CSI driver communicates with the provider using gRPC to retrieve the secret content from the external Secrets Store specified in the `SecretProviderClass` custom resource.
 
-Then the volume is mounted in the pod as `tmpfs` and the secret value is written to the volume.\
-Upon pod deletion, the corresponding volume is cleaned up and deleted.
+Then the volume is mounted in the pod as `tmpfs` and the secret value is written to the volume. Upon pod deletion, the corresponding volume is cleaned up and deleted.
 
 ## Prerequisites
 

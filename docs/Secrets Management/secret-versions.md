@@ -20,7 +20,7 @@ You can set the **Maximum** number of older versions that will be stored automat
 
 > 🚧 Warning
 >
-> Setting a new **Maximum** number of versions will affect your existing versions of secret.\
+> Setting a new **Maximum** number of versions will affect your existing versions of secret.
 > Setting a lower number than your current items versions amount will delete the older versions upon the next version update.
 
 Once a secret has more than one version, a list of all previous values is available within the secret at the bottom of the configurations. Click the arrow to open and close the list and view older versions.

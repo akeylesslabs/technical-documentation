@@ -49,7 +49,7 @@ Encryption command:
 akeyless encrypt-gpg -k <Key name> \
 --display-id <Display id of the key to use in the encryption process \
 --item-id <Item id of the key to use in the encryption process> \
---in <Path to the file to be encrypted in base64 format> \
+--in <Path to the file to be encrypted in base64 format>
 ```
 
 The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueencrypt-gpgp).

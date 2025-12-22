@@ -52,7 +52,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> **Use Gateway's Cloud Identity** relevant for cases where your Gateway uses Azure service principal to authenticate against Akeyless.\
+> **Use Gateway's Cloud Identity** relevant for cases where your Gateway uses Azure service principal to authenticate against Akeyless.
 > For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) for Azure, the target can be used for the temporary Azure service principals creation.
 
 4. Define the remaining parameters as follows:
