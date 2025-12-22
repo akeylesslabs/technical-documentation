@@ -91,9 +91,9 @@ Akeyless enables CLI access from any Unix terminal.
 >
 > To work with `Akeyless connect` command from Windows machine, place the `.akeyless-connect.rc` script on your home directory.
 
-1. Download and install the latest version of Akeyless CLI.
+1. Download and install the latest version of [Akeyless CLI](https://docs.akeyless.io/docs/cli).
 
-2. Create your ~/.akeyless-connect.rc :
+2. Create your `~/.akeyless-connect.rc` :
 
 ```shell
 # ---------------------------------------------------------------------
@@ -141,7 +141,7 @@ DISPLAY_STAGES=yes
 akeyless connect -t  <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
 ```
 
-# Legacy SSH Versions 
+# Legacy SSH Versions
 
 Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)to access remote machines running OpenSSH version `7.4` or `7.6`. This occurs both in CLI and the Web portal.
 
