@@ -18,7 +18,7 @@ next:
 
 Let's create a new OIDC authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/openid#create-oidc-authentication-method-in-the-akeyless-console).)
 
-To create an OIDC authentication method from the CLI, run the following command:
+To create an OIDC authentication method with the CLI, run the following command:
 
 ```shell
 akeyless auth-method create oidc --name <Auth Method Name> \

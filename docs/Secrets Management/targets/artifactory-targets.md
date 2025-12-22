@@ -14,7 +14,7 @@ You can define an Artifactory target to be used with [Artifactory Dynamic Secret
 
 ## Create an Artifactory Target with the CLI
 
-To create an Artifactory target from the CLI, run the following command:
+To create an Artifactory target with the CLI, run the following command:
 
 ```shell
 akeyless target create artifactory \

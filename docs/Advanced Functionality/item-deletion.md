@@ -12,7 +12,7 @@ next:
 ---
 ## Introduction
 
-Item deletion is pretty similar, using the same command formats, with a default of immediate deletion. Items can be set for a scheduled deletion instead.\
+Item deletion is pretty similar, using the same command formats, with a default of immediate deletion. Items can be set for a scheduled deletion instead.
 Some types of items or deletion flows have special rules for their deletion:
 
 * If the item is an `AES` or `RSA` key, By default, there will be a waiting period of 7 days before deleting the item with all its versions. This can be adjusted.
@@ -27,7 +27,7 @@ Some types of items or deletion flows have special rules for their deletion:
 
 ## Deleting an Item with the CLI
 
-When deleting an item from the CLI, there are two main things to consider, which item to delete and when.
+When deleting an item with the CLI, there are two main things to consider, which item to delete and when.
 
 Which:
 
@@ -35,8 +35,8 @@ Which:
 
 * If you are deleting multiple items, use the parameter `-p` and insert the path to the items you wish to delete.
 
-When:\
-Scheduling a future deletion can only be done for **single key deletion**.\
+When:
+Scheduling a future deletion can only be done for **single key deletion**.
 The relevant parameters are:
 
 * `version`: Delete a specific version of the item (i.e - after a rotate-key operation, cannot be the last item version)
@@ -113,4 +113,4 @@ akeyless delete-items --item /Path/To/ItemA --item /Path/To/ItemB --item /Differ
 
 4. **For keys only**, Select if you wish to delete the key immediately or within a specific number of days.
 
-5. Select **Delete \{item type}**.
+5. Select **Delete {item type}**.

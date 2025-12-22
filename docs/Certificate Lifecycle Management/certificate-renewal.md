@@ -18,7 +18,7 @@ Upon successful renewal, in case [provisioning](https://docs.akeyless.io/docs/ce
 
 ## Renew a Certificate Using the Akeyless CLI
 
-Run the following command to renew a certificate from the CLI:
+Run the following command to renew a certificate with the CLI:
 
 ```shell
 akeyless renew-certificate \

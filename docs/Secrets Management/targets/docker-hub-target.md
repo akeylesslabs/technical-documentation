@@ -14,7 +14,7 @@ You can define a Docker Hub target to be used with [Docker Hub Dynamic Secrets](
 
 ## Create a Docker Hub Target with the CLI
 
-To create a Docker Hub target from the CLI, run the following command:
+To create a Docker Hub target with the CLI, run the following command:
 
 ```shell Docker Hub Target
 akeyless target create dockerhub \

@@ -18,13 +18,13 @@ You can use Akeyless Dynamic Secrets to generate access credentials for Snowflak
 
 * Snowflake privileged account: To create a Snowflake dynamic secret, ensure that you have a Snowflake account and credentials for the admin user (with the `USERADMIN` role or higher)
 
-## Create a Snowflake Dynamic Secret from the CLI
+## Create a Snowflake Dynamic Secret with the CLI
 
 > 👍 Note
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/snowflake-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic Snowflake secret from the CLI using the existing [Snowflake Target](https://docs.akeyless.io/docs/database-targets#snowflake), run the following command:
+To create a dynamic Snowflake secret with the CLI using the existing [Snowflake Target](https://docs.akeyless.io/docs/database-targets#snowflake), run the following command:
 
 ```shell
 akeyless dynamic-secret create snowflake \
@@ -100,9 +100,9 @@ another alternative to the Snowflake login is to use a private RSA key:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluesnowflakep) section.
 
-## Fetch a Dynamic Snowflake Secret Value from the CLI
+## Fetch a Dynamic Snowflake Secret Value with the CLI
 
-To fetch a dynamic Snowflake secret value from the CLI, run the following command:
+To fetch a dynamic Snowflake secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

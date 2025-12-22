@@ -45,7 +45,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 To create your API Key follow the below CLI commands:
 
-1. Create an API Key authentication method from the CLI, run the following command:
+1. Create an API Key authentication method with the CLI, run the following command:
 
 ```shell
 akeyless auth-method create api-key --name MyFirstAPIKey

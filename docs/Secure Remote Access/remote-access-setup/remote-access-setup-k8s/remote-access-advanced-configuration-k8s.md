@@ -94,7 +94,7 @@ SSH:
 akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
 ```
 
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access** or from the CLI.
+This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access** or with the CLI.
 
 ### Support for Other Keyboard Layouts
 

@@ -14,7 +14,7 @@ You can define an Azure AD target to be used with [Azure AD Dynamic Secrets](htt
 
 ## Create an Azure AD Target with the CLI
 
-To create an Azure AD target from the CLI, run the following command:
+To create an Azure AD target with the CLI, run the following command:
 
 ```shell
 akeyless target create azure \

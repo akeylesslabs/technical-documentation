@@ -14,7 +14,7 @@ You can create a Rotated Secret for a Windows user password. Before you get star
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the Windows Server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target server.
 
-## Create a Rotated Windows Secret from the CLI
+## Create a Rotated Windows Secret with the CLI
 
 To create a Rotated Windows Secret using the Akeyless CLI, run the following command:
 

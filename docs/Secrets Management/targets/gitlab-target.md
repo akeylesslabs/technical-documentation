@@ -14,7 +14,7 @@ You can define a GitLab target to be used with [GitLab Dynamic Secret](https://d
 
 ## Create a GitLab Target with the CLI
 
-To create a GitLab target from the CLI, run the following command:
+To create a GitLab target with the CLI, run the following command:
 
 ```shell GitLab Target
 akeyless target create gitlab \

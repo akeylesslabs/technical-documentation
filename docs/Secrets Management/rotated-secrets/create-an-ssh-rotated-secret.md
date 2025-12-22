@@ -24,7 +24,7 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 >
 > While the Akeyless Rotated Secret can work by default with many popular Unix OS, some distributions like **RedHat** etc, requires a customization of the default rotation statement. For those cases you can set a **Custom Rotation** command as described [here](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement)
 
-## Create a Rotated SSH Secret from the CLI
+## Create a Rotated SSH Secret with the CLI
 
 To create a Rotated SSH Secret using the Akeyless CLI, run the following command:
 

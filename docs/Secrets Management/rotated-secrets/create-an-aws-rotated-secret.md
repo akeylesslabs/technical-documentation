@@ -40,7 +40,7 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 Where those permissions are required to rotate the IAM user AccessKeys, Akeyless Rotated secret will create a new Access Key, and revoke the old Access Key, depending on the rotation settings.
 
-## Create a Rotated AWS Secret from the CLI
+## Create a Rotated AWS Secret with the CLI
 
 To create a Rotated AWS Secret using the Akeyless CLI, run the following command:
 

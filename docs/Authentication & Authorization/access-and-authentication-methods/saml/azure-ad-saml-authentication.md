@@ -66,7 +66,7 @@ Now for the Akeyless side:
 
 ## Create SAML Authentication Method
 
-The Akeyless side of the setup can be done either from the CLI or the console. Choose whichever you find preferable.
+The Akeyless side of the setup can be done either with the CLI or the console. Choose whichever you find preferable.
 
 ### Using the Akeyless CLI
 

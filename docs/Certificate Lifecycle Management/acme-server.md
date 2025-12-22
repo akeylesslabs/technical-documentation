@@ -110,7 +110,7 @@ Upon successful creation, the generated **ACME Server** URL will use the followi
 
 `https://<Your-Akeyless-GW-URL:8000/acme/<issuer-display-id>/directory`
 
-To extract the `issuer-display-id` from the CLI, run the following command:
+To extract the `issuer-display-id` with the CLI, run the following command:
 
 ```shell
 akeyless describe-item \

@@ -26,13 +26,13 @@ To use GitLabs as an IdP to authenticate the Akeyless Platform via OIDC, follow 
 
 4. In order to bind the GitLab Client ID with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
 
-## Create an OIDC Authentication Method from the CLI
+## Create an OIDC Authentication Method with the CLI
 
 ```shell
 akeyless auth-method create oidc --name 'my Gitlab app' --issuer https://gitlab.com --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
 ```
 
-## Login With OIDC from the CLI
+## Login With OIDC with the CLI
 
 1. You should configure a new profile with your Access-ID from the previous step and OIDC type (if no profile name is provided the default will be configured):
 

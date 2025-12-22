@@ -261,7 +261,7 @@ If you haven't done so already, you can now create a [Generic Kubernetes Target]
 
 ### Create a Dynamic Generic Kubernetes Secret
 
-**Fixed Mode:** To create a dynamic generic Kubernetes Secret from the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Fixed Mode**, use the following command:
+**Fixed Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Fixed Mode**, use the following command:
 
 ```shell Fixed Mode
 akeyless dynamic-secret create k8s \ 
@@ -287,7 +287,7 @@ Where:
 
 * `k8s-namespace`: The name of the Kubernetes Namespace where the example Kubernetes ServiceAccount exists.
 
-**Dynamic Mode:** To create a dynamic generic Kubernetes Secret from the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Dynamic Mode**, use the following command (note parameters will change if you choose to create a ServiceAccount using an existing Role, or if you choose to generate everything from scratch):
+**Dynamic Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Dynamic Mode**, use the following command (note parameters will change if you choose to create a ServiceAccount using an existing Role, or if you choose to generate everything from scratch):
 
 ```shell Existing Role
 akeyless dynamic-secret create k8s \ 
@@ -414,7 +414,7 @@ users:
     token: < Dynamic Secret Value goes here >
 ```
 
-To get the dynamic generic Kubernetes Secret value from the CLI, you should run the following command:
+To get the dynamic generic Kubernetes Secret value with the CLI, you should run the following command:
 
 ```shell Fixed
 akeyless get-dynamic-secret-value --name <Path to the dynamic secret>

@@ -71,13 +71,13 @@ iam.serviceAccountKeys.get
 iam.serviceAccountKeys.list
 ```
 
-## Create a Dynamic GCP Secret from the CLI
+## Create a Dynamic GCP Secret with the CLI
 
 > 👍 Note
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/gcp-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/gcp-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
-To create a dynamic GCP secret from the CLI using an existing [GCP Targets](https://docs.akeyless.io/docs/gcp-targets), run the following command:
+To create a dynamic GCP secret with the CLI using an existing [GCP Targets](https://docs.akeyless.io/docs/gcp-targets), run the following command:
 
 ```shell Fixed Service Account
 akeyless dynamic-secret create gcp \
@@ -160,9 +160,9 @@ If you don't have a [GCP Target](https://docs.akeyless.io/docs/gcp-targets) yet,
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegcpp) section.
 
-## Fetch a Dynamic GCP Secret Value from the CLI
+## Fetch a Dynamic GCP Secret Value with the CLI
 
-To fetch a dynamic GCP secret value from the CLI, run the following command:
+To fetch a dynamic GCP secret value with the CLI, run the following command:
 
 ```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>

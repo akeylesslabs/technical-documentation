@@ -16,7 +16,7 @@ You can define a Ping target to be used with [Ping Dynamic Secrets](https://docs
 
 ### Create a Ping Target with the CLI
 
-To create a Ping target from the CLI, run the following command:
+To create a Ping target with the CLI, run the following command:
 
 ```shell
 akeyless target create ping \

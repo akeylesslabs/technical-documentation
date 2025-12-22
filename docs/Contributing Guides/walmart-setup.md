@@ -292,7 +292,7 @@ $ Enter Akeyless URL (Default: vault.akeyless.io) vault.wmt.akeyless.io
 
 At the prompt `Would you like to configure a profile (Y/n)` line, type `Y`. Then, type a name to rename the default profile, or press `Enter` to leave the name as `default`.
 
-You can configure different types of authentication methods from the CLI:
+You can configure different types of authentication methods with the CLI:
 
 1. [API Key](https://docs.akeyless.io/docs/api-key) (`access_key`)
 2. [AWS IAM](https://docs.akeyless.io/docs/aws-iam) (`aws_iam`)
