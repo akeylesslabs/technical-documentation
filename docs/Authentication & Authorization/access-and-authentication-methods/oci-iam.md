@@ -34,11 +34,11 @@ More information about the policies can be found [here](https://docs.oracle.com/
 
 Once set, you can continue creating the authentication method.
 
-## Create an OCI IAM Authentication Method from the CLI
+## Create an OCI IAM Authentication Method with the CLI
 
-To create an OCI IAM authentication method from the CLI, run the following command:
+To create an OCI IAM authentication method with the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless auth-method create oci \
 --name <Auth Method Name> \
 --tenant-ocid <Oracle Tenant Id> \
@@ -59,7 +59,7 @@ You can find the complete list of additional parameters for this command in the 
 
 To configure your CLI to work with OCI IAM authentication, run the following command **from an Oracle Cloud resource**:
 
-```shell Akeyless CLI
+```shell
 akeyless configure --profile default --access-id <AccessID> --access-type oci --oci-auth-type apikey 
 
 akeyless get-cloud-identity --oci-auth-type apikey 

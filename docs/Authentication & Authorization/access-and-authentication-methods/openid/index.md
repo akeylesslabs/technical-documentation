@@ -20,7 +20,7 @@ Let's create a new OIDC authentication method using the Akeyless CLI. (You can d
 
 To create an OIDC authentication method from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless auth-method create oidc --name <Auth Method Name> \
 --issuer <https://Idp-issuer-url> \
 --client-id <client-id> \

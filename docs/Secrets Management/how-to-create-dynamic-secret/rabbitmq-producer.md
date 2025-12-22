@@ -30,7 +30,7 @@ Before creating a dynamic RabbitMQ secret, ensure that the RabbitMQ user has suf
 
 To create a dynamic RabbitMQ secret from the CLI using an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets), run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create rabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
@@ -43,7 +43,7 @@ akeyless dynamic-secret create rabbitmq \
 
 Or using an inline connection string:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create akeyless dynamic-secret get-valuerabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
@@ -88,7 +88,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To fetch a dynamic RabbitMQ secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

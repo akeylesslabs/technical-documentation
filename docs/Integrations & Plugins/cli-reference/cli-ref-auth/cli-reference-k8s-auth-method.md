@@ -70,7 +70,7 @@ Creates Kubernetes Auth config on Gateway
 
 ### Usage
 
-```shell Akeyless CLI
+```shell
 akeyless gateway-create-k8s-auth-config \
 --name <k8s-conf name> \
 --access-id <Access_ID> \

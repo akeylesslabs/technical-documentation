@@ -44,7 +44,7 @@ For more information, see the Microsoft Graph [permissions reference](https://le
 
 To create a Rotated Azure Secret using the Akeyless CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless rotated-secret create azure \
 --name <Rotated Secret name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \

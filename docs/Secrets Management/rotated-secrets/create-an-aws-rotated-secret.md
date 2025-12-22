@@ -44,7 +44,7 @@ Where those permissions are required to rotate the IAM user AccessKeys, Akeyless
 
 To create a Rotated AWS Secret using the Akeyless CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless rotated-secret create aws \
 --name <Rotated secret name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \

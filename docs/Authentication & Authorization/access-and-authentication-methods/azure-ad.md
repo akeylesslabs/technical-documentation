@@ -18,14 +18,14 @@ Azure AD Authentication method enables authentication to Akeyless. Akeyless trea
 
 Depending on the Azure Identity type, enable the relevant [identity type](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) on your Azure resource.
 
-## Create an Azure AD Authentication Method from the CLI
+## Create an Azure AD Authentication Method with the CLI
 
 Let's create a new Azure AD authentication method using the Akeyless CLI.
 (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad#create-an-azure-active-directory-authentication-method-in-the-akeyless-console).)
 
-To create an Azure AD authentication method from the CLI, run the following command:
+To create an Azure AD authentication method with the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless auth-method create azure-ad \
 --name <Auth Method Name> \
 --bound-tenant-id <Azure Tenant Id>
@@ -43,7 +43,7 @@ You can find the complete list of additional parameters for this command in the 
 
 To configure your CLI to work with Azure AD authentication, run the following command from an Azure VM with a system identity assigned:
 
-```shell Akeyless CLI
+```shell
 akeyless configure --profile default --access-id <AccessID> --access-type azure_ad 
 akeyless get-cloud-identity --cloud-provider azure_ad
 ```

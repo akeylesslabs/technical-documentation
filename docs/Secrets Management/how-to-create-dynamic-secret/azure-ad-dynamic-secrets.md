@@ -49,7 +49,7 @@ For example, the `microsoft.directory/applications/credentials/update` permissio
 
 To create a dynamic Azure AD secret from the CLI using an existing [Azure Target](https://docs.akeyless.io/docs/azure-targets), run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
@@ -65,7 +65,7 @@ akeyless dynamic-secret create azure \
 
 Or using an inline connection string:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
@@ -118,7 +118,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To fetch a dynamic Azure AD secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

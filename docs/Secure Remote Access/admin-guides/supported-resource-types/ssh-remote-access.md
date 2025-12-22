@@ -35,7 +35,7 @@ Let's set up remote access to an SSH host using the Akeyless CLI.
 
 1. Run the `update-item` command to set the following fields on the SSH Certificate Issuer item:
 
-```shell Akeyless CLI
+```shell
 akeyless update-ssh-cert-issuer \
 --name <SSH Cert Issuer Name > \
 --secure-access-enable true \
@@ -170,7 +170,7 @@ To enable Secure SSH Access for your target, set the following fields on your se
 
 Run the `update-item` command to set the following fields on the static secret that stores the SSH password or private key details:
 
-```shell Akeyless CLI
+```shell
 akeyless update-item --name <Path/to/static/secret> \
 --secure-access-enable true \
 --secure-access-ssh-creds <password/private-key> \

@@ -85,7 +85,7 @@ where the `<RoleName>` should be replaced with the role that will be assumed.
 
 To create a dynamic AWS secret from the CLI using an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets), run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create aws \
 --name <secret name> \
 --target-name <Target Name> \
@@ -98,7 +98,7 @@ akeyless dynamic-secret create aws \
 
 Or using an inline connection string:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create aws \
 --name <secret name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
@@ -145,7 +145,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To fetch a dynamic AWS secret value from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 ```
 

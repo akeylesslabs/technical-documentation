@@ -36,7 +36,7 @@ In addition to retrieving secrets from Akeyless to your Kubernetes cluster, you 
 
 Add External Secrets [official repository](https://github.com/external-secrets/external-secrets) to your Helm and install:
 
-```shell CLI
+```shell
 helm repo add external-secrets https://charts.external-secrets.io
 helm install external-secrets external-secrets/external-secrets
 ```
@@ -92,7 +92,7 @@ Where:
 
 Apply the configuration:
 
-```shell CLI
+```shell
 kubectl apply -f akeylesscreds.yaml
 ```
 
@@ -215,7 +215,7 @@ kubectl apply -f externalsecret.yaml
 
 Getting the Kubernetes Secret:
 
-```shell CLI
+```shell
 kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.secretKey}' | base64 -d
 ```
 
@@ -308,7 +308,7 @@ Where:
 
 Apply the configuration:
 
-```shell CLI
+```shell
 kubectl apply -f externalsecret.yaml
 ```
 

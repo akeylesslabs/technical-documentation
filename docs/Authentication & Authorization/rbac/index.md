@@ -22,19 +22,19 @@ To set permission for a user to work with any item in the Platform, an appropria
 
 To associate an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with a role from the Akeyless [Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli), first run the following command to create an [API Key](https://docs.akeyless.io/docs/api-key):
 
-```shell CLI
+```shell
 akeyless auth-method create api-key --name client1
 ```
 
 Create a new access role:
 
-```shell CLI
+```shell
 akeyless create-role --name role1
 ```
 
 To set all authentication methods associated with a specific role access to all **Items** under **/path/to/folder/** with read, create, and update permissions, use:
 
-```shell CLI
+```shell
 akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --capability read --capability create --capability update
 ```
 
@@ -55,13 +55,13 @@ akeyless set-role-rule --role-name role1 --path "/path/to/folder/*" --rule-type 
 
 Despite the fact that users do not have access to items unless granted explicitly, to protect sensitive items from access, you can **deny** all the authentication methods associated with a role to access the relevant item, for example **/path/to/folder/topSecret** (does not include Secure Remote Access):
 
-```shell CLI
+```shell
 akeyless set-role-rule --role-name role1 --path /path/to/folder/topSecret --capability deny
 ```
 
 Add **client1** to the **role1**, so client1 will be able to access all items under **/path/to/folder/** apart from **/path/to/folder/topSecret**:
 
-```shell CLI
+```shell
 akeyless assoc-role-am --role-name role1 --am-name client1
 ```
 

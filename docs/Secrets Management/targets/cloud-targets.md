@@ -18,7 +18,7 @@ You can define an Azure AD target to be used with [Azure AD Dynamic Secrets](htt
 
 To create an Azure AD target from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless create-azure-target \
 --name <target name> \
 --client-id <Azure client/application id> \
@@ -112,7 +112,7 @@ You can define a GCP target to be used with [GCP Dynamic Secrets](https://docs.a
 
 To create a GCP target from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless create-gcp-target \
 --name <target name> \
 --gcp-key-file-path <Path to the service account private key> \

@@ -177,7 +177,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 To revoke an existing certificate run the following command:
 
-```shell CLI
+```shell
 akeyless revoke-certificate \
 --name <certificate name> \
 --item-id <certificate item id> \

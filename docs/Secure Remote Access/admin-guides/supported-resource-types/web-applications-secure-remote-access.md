@@ -38,7 +38,7 @@ Let's set up remote access to your web application using the Akeyless CLI. If yo
 
 Run the `update-item` command to define the following fields on the static secret that specifies the web application access credentials:
 
-```shell Akeyless CLI
+```shell
 akeyless update-item --name <static secret name> /
 --secure-access-enable true /
 --secure-access-url <Web Application URL> / 

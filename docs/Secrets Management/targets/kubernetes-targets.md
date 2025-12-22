@@ -24,7 +24,7 @@ You can define an Amazon EKS target to be used with [EKS Dynamic Secrets](https:
 
 To create an Amazon EKS target with the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless target create eks \
 --name <Target name> \
 --eks-cluster-name <EKS cluster name> \

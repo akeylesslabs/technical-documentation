@@ -49,13 +49,13 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 
 For example, the following command creates a static secret called **my_k8s_secret** inside **K8s** folder.
 
-```shell Akeyless CLI
+```shell
 akeyless create-secret --name /K8s/my_k8s_secret --value myPassword
 ```
 
 Alternatively, a secret can contain `JSON` structured data, for example:
 
-```shell Akeyless CLI
+```shell
 akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234","aws_key_id":"abcd"}'
 ```
 
@@ -68,7 +68,7 @@ akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234"
 Create an [Access Role](https://docs.akeyless.io/docs/rbac) associate the role with an **Auth Method** and grant access to the secret.  
 For example, the following command creates **K8s_role** role, the role is associated to **K8s_Auth** Auth Method, and grant **read** and **list** access to all the secrets in **K8s** folder
 
-```shell Akeyless CLI
+```shell
 akeyless create-role --name /K8s/K8s_Role
 akeyless assoc-role-am --role-name /K8s/K8s_Role --am-name K8s/K8s_Auth
 akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability read --capability list
@@ -78,14 +78,14 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
 1. Add the Akeyless Kubernetes Injector Helm repository from [here](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-k8s-secrets-injection) and update your Helm repositories.
 
-    ```shell CLI
+    ```shell
     helm repo add akeyless https://akeylesslabs.github.io/helm-charts
     helm repo update
     ```
 
 2. Fetch the **values.yaml** file locally:
 
-    ```shell CLI
+    ```shell
     helm show values akeyless/akeyless-secrets-injection > values.yaml
     ```
 
@@ -131,27 +131,27 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
 3. On your Kubernetes cluster, create and label a Namespace for Akeyless.
 
-    ```shell CLI
+    ```shell
     kubectl create namespace akeyless
     kubectl label namespace akeyless name=akeyless
     ```
 
     Alternatively, for Red Hat OpenShift:
 
-    ```shell CLI
+    ```shell
     oc create namespace akeyless
     oc label namespace akeyless name=akeyless
     ```
 
 4. Deploy the Helm chart to the selected Namespace.
 
-    ```shell CLI
+    ```shell
     helm install injector akeyless/akeyless-secrets-injection --namespace akeyless -f values.yaml
     ```
 
 5. Validate the deployment state.
 
-    ```shell CLI
+    ```shell
     kubectl get all -n akeyless
     ```
 
@@ -163,7 +163,7 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
     The following is an example of the output:
 
-    ```shell CLI
+    ```shell
     kubectl get all -n akeyless
 
     NAME                                                        READY      STATUS         RESTARTS     AGE
@@ -1059,13 +1059,13 @@ When you are working with a GKE cluster, make sure that port **8443** is opened 
 
 1. Review the firewall rule for access:
 
-    ```shell CLI
+    ```shell
     gcloud compute firewall-rules list
     ```
 
 2. Replace the existing rule and allow access:
 
-    ```shell CLI
+    ```shell
     gcloud compute firewall-rules update <firewall-rule-name> --allow tcp:10250,tcp:443,tcp:8443
     ```
 

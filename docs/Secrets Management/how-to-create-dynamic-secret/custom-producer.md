@@ -314,7 +314,7 @@ Once you have a custom dynamic implementation that follows these specifications,
 
 To create a custom dynamic secret from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret create \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \

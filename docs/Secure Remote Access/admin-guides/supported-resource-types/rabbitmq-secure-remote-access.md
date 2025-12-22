@@ -30,7 +30,7 @@ Let's set up remote access to RabbitMQ using the Akeyless CLI. If you’d prefer
 
 Run the relevant command to define the following fields to the secret that specifies the RabbitMQ details and access credentials:
 
-```shell Akeyless CLI
+```shell
 akeyless dynamic-secret update rabbitmq \
 --name <dynamic secret name> \
 --secure-access-enable true \

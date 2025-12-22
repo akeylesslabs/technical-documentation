@@ -24,7 +24,7 @@ Setting up certificate provisioning requires **Target** permissions on the Gatew
 
 Run the following CLI command to provision a certificate:
 
-```shell Akeyless CLI
+```shell
 akeyless assoc-target-item \
 --name <Certificate name> \
 --target-name <Target Name> \

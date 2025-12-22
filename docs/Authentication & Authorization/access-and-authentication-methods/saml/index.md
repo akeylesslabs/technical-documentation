@@ -20,7 +20,7 @@ Let's create a new SAML authentication method using the Akeyless CLI. You can al
 
 To create a SAML authentication method from the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless auth-method create saml \
 --name saml-am \
 --idp-metadata-url your-idp-metadata-url \

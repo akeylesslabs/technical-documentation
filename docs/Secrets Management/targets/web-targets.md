@@ -16,7 +16,7 @@ You can define a Web target to be used with [custom Dynamic Secrets](https://doc
 
 To create a Web target with the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless target create web \
 --name <target name> \
 --url <url of your web application>

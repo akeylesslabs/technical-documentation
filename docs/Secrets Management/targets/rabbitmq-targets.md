@@ -16,7 +16,7 @@ You can define a RabbitMQ target to be used with [RabbitMQ Dynamic Secrets](http
 
 To create a RabbitMQ target with the CLI, run the following command:
 
-```shell Akeyless CLI
+```shell
 akeyless target create rabbitmq \
 --name <target name> \
 --user <RabbitMQ server user> \
