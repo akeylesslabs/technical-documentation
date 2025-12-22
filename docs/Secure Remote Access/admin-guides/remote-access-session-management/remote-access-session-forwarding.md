@@ -130,7 +130,7 @@ akeyless gateway update remote-access-session-forwarding stdout \
 --enable \
 --gateway-url https://<your-gateway-url>:8000 \
 --output-format <text|json> \
---pull-interval <in seconds> \
+--pull-interval <in seconds>
 ```
 ```shell Sumo Logic
 akeyless gateway update remote-access-session-forwarding sumologic \

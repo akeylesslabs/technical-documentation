@@ -275,7 +275,7 @@ Create a new Auth Method that will be able to authenticate using a client certif
 
 #### Usage
 
-```shell Shell
+```shell
 akeyless auth-method create cert \
 --name <Auth method name> \
 --unique-identifier <Unique ID> \

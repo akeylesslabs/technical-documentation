@@ -553,19 +553,19 @@ subjects:
 
 1. Extract the service account token (secret) name by running:
 
-    ```shell Shell
+    ```shell
     TOKENNAME=`kubectl -n kubernetes-dashboard get serviceaccount/token-request-sa -o jsonpath='{.secrets[0].name}'`
     ```
 
 2. Extract the service account token by running:
 
-    ```shell Shell
+    ```shell
     TOKEN=`kubectl -n kubernetes-dashboard get secret $TOKENNAME -o jsonpath='{.data.token}'| base64 --decode`
     ```
 
 3. Create a Kubernetes generic dynamic secret called **K8s-dashboard-producer** by running:
 
-    ```shell Shell
+    ```shell
     akeyless dynamic-secret create k8s -n k8s-dashboard-producer \
     --gateway-url <http://YourGWURL:8000> \
     --k8s-cluster-endpoint <cluster DNS/IP address> \

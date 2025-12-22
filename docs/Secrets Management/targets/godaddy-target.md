@@ -58,25 +58,24 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 2. Define a **Name** of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.\
-   For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
-* **API Key:** **GoDaddy API Key**.
+    * **API Key:** **GoDaddy API Key**.
 
-* **API Secret:** **GoDaddy API Key Secret**.
+    * **API Secret:** **GoDaddy API Key Secret**.
 
-* **Customer ID:** **GoDaddy Customer ID**, required for certificate renewals.
+    * **Customer ID:** **GoDaddy Customer ID**, required for certificate renewals.
 
-* **IMAP Username:** An email address of the user registered to the IMAP service
+    * **IMAP Username:** An email address of the user registered to the IMAP service
 
-* **IMAP Password:** **IMAP APP-Password**, for example, on **Gmail**, under **Settings -> Security**, click on **2-Step Verification** and generate **APP-Password** (2-Step verification must be enabled)
+    * **IMAP Password:** **IMAP APP-Password**, for example, on **Gmail**, under **Settings -> Security**, click on **2-Step Verification** and generate **APP-Password** (2-Step verification must be enabled)
 
-* **IMAP FQDN:** A FQDN of an IMAP service, For example, `imap.gmail.com`
+    * **IMAP FQDN:** A FQDN of an IMAP service, For example, `imap.gmail.com`
 
-* **IMAP Port:** IMAP service port, default is `993`
+    * **IMAP Port:** IMAP service port, default is `993`
 
-* **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
+    * **Timeout (seconds):** Timeout in seconds waiting for certificate validation (min: 300, max: 3600, default is 300)
 
 5. Click **Finish**.

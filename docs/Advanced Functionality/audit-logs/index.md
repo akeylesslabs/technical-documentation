@@ -34,7 +34,7 @@ You will be able to filter your logs based on any of these rubrics or tags insid
 
 ## Reading the Raw Logs
 
-Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, etc.\
+Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, etc.
 The logs will show up as a line of text, from which you will be able to read the following information:
 
 | Log Line             | Description                                                                                                                                                                               |

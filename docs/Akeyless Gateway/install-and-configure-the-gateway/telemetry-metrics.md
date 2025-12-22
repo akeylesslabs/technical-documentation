@@ -53,7 +53,7 @@ service:
 
 Set the relevant `API Key` of your **Datadog** server, and set the relevant site. If your Datadog server is running in the `EU` site, add site: `datadoghq.eu`. By default it is set to the `US` site.
 
-```shell Shell
+```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="Access-id" -e ADMIN_ACCESS_KEY="Access-key" -e ENABLE_METRICS="true" -v $PWD/otel-config.yaml:/akeyless/otel-config.yaml --name akeyless-gateway akeyless/base:latest-akeyless
 ```
 

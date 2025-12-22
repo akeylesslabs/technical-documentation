@@ -24,7 +24,7 @@ Access Roles provide clients (users or machines) with permissions to work with s
 
 Static Secrets can be created with the Akeyless CLI:
 
-```shell Shell
+```shell
 akeyless set-role-rule \
   --role-name <role name> \
   --path <secret name with path> \
@@ -44,7 +44,7 @@ where:
 
 For example, to add the **AdminCredentials** secret in the **Admin** folder to the **SystemAdmin** access role, also in the **Admin** folder, with **Read** and **List** permissions, type:
 
-```shell Shell
+```shell
 akeyless set-role-rule \
   --role-name /Admin/SystemAdmin \
   --path /Admin/AdminCredentials \

@@ -39,8 +39,8 @@ Creating a table in ServiceNow involves defining a new data structure to store i
 
 ## Step 5: Save the Table
 
-* Once you've configured your table and added the desired fields, click the Submit button to save your new table.\
-  Your new table will now be created in the database, and you can start adding or importing records.
+* Once you've configured your table and added the desired fields, click the Submit button to save your new table.
+    Your new table will now be created in the database, and you can start adding or importing records.
 
 ## Step 6: Accessing and Using Your New Table
 

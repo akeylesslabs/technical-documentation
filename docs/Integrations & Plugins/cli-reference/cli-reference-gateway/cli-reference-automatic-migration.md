@@ -199,7 +199,7 @@ akeyless gateway-migrate-personal-items \
 --1password-url <Account Address> \
 --1password-email <User Email> \
 --1password-password <Users Password> \
---1password-secret-key <Secret Key> \
+--1password-secret-key <Secret Key>
 ```
 
 ### Flags

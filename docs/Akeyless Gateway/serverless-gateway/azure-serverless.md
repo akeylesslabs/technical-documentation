@@ -40,7 +40,7 @@ For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/
 
 Clone the **Serverless Gateway** repository locally:
 
-```shell Shell
+```shell
 gh repo clone akeyless-community/akeyless-serverless-gateway
 ```
 
@@ -235,7 +235,7 @@ To install the module, run the following commands from the cloned directory
 
 Create a [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal):
 
-```shell Shell
+```shell
 az group create -l <location> -n <resource_group>
 ```
 

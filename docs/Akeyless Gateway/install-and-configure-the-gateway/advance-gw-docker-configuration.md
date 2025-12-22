@@ -153,7 +153,7 @@ To work with [API Key](https://docs.akeyless.io/docs/api-key) as an `ALLOWED_ACC
 
 To delegate the exact permissions users will have on your Gateway components you can explicitly grant permissions, for example, to grant permissions to a user to manage only your Gateway [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings:
 
-```shell CLI
+```json
 ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]},\\n {"name": "LogForwarding", "access_id": "p-xxxxxx", "sub_claims": {"email": ["test03@testhost.com"]}, "permissions": ["log_forwarding"]}]'
 ```
 

@@ -14,18 +14,18 @@ next:
 
 When a Gateway with **cluster cache** is deployed, it significantly enhances resilience and efficiency by acting as a high-availability layer in front of the Gateway. The client's primary point of contact remains the Gateway, but the behavior changes to prioritize the cache. Here’s how communication and authentication are handled in different situations.
 
-**Business As Usual (BAU) Operations**:\
+**Business As Usual (BAU) Operations**:
 During normal operations, the communication flow is optimized for speed and reduced load on the Akeyless SaaS.
 
 1. **Initial Request**: The client needs a secret, sends an authenticated request to the Akeyless Gateway.
 2. **Authentication**: Gateway will forward the initial request to the SaaS auth service, and the token and credentials (JWT) will be stored in the Gateway cache.
 
-**Akeyless SaaS Outage**:\
+**Akeyless SaaS Outage**:
 The primary benefit of the cluster cache is realized during a SaaS outage. The goal shifts from efficiency to business continuity.
 
 1. **Initial Request**: The client needs a secret and sends an authenticated request to the Akeyless Gateway
-2. **Authentication**: Authentication requests to the Gateway will still succeed. Since the client’s authentication information is already stored in the cache, the gateway can successfully validate the client.\
-   However, generating new `tokens` isn’t possible during the outage, as this capability resides with the SaaS. The system can only issue tokens that were previously retrieved and cached before the outage occurred.
+2. **Authentication**: Authentication requests to the Gateway will still succeed. Since the client’s authentication information is already stored in the cache, the gateway can successfully validate the client.
+    However, generating new `tokens` isn’t possible during the outage, as this capability resides with the SaaS. The system can only issue tokens that were previously retrieved and cached before the outage occurred.
 
 ## What Are the Supported Cache Types?
 
@@ -50,12 +50,12 @@ The two tickers run in parallel. If the Akeyless cloud services become unreachab
 
 ### Local In-Memory Cache
 
-Behavior: If a single Gateway instance goes down, its in-memory cache is lost. Any secrets and authentication data stored solely in that instance's local cache will become unavailable until a new or surviving Gateway instance can fetch them.\
+Behavior: If a single Gateway instance goes down, its in-memory cache is lost. Any secrets and authentication data stored solely in that instance's local cache will become unavailable until a new or surviving Gateway instance can fetch them.
 Impact: Clients (Injector, ESO, or direct API calls) attempting to reach this specific downed Gateway instance will fail. If there are other healthy Gateway instances, requests will be routed to them. If the failed Gateway was the only one, or if all Gateway instances in a standalone setup fail, all requests will fail until a Gateway is restored.
 
 ### Cluster Cache
 
-Behavior: If a Gateway instance in a cluster fails, the shared cluster cache remains available to other healthy Gateway instances. Secrets and authentication data persisted in the cluster cache are not lost.\
+Behavior: If a Gateway instance in a cluster fails, the shared cluster cache remains available to other healthy Gateway instances. Secrets and authentication data persisted in the cluster cache are not lost.
 Impact: Other active Gateway instances can continue to serve requests by retrieving data from the cluster cache. This significantly enhances the high availability of the Gateway layer. Clients communicating with the healthy Gateway instances will experience continuous service for cached data.
 
 ## What Would Be the Behavior of Each Caching Mechanism During a SaaS Outage?
@@ -97,7 +97,7 @@ The different Gateway Cache configuration options related to caching are:
 | `CACHE_MAX_ITEMS`            | Control the maximum amount of proactive cache items. This will override the default value of 50K objects |
 | `IGNORE_REDIS_HEALTH`        | `/health` check will ignore if Redis is down, and reply with `Health Check Ok` and `200 OK`              |
 
-There are no differences between the `Kubernetes/Helm chart` options and the `VM-based/Docker` deployment methods. All configurations listed above can be used and function identically in both deployment types.\
+There are no differences between the `Kubernetes/Helm chart` options and the `VM-based/Docker` deployment methods. All configurations listed above can be used and function identically in both deployment types.
 Additional specific settings could be found in the Gateway Kubernetes configuration page
 
 ## What's the Behavior When Caching Is Enabled and a User Updates the Secret in UI?
@@ -114,8 +114,8 @@ The gateway continuously monitors its connection to the SaaS. If a connectivity 
 
 ## The Behavior of "Ignore Cache" in Disconnected Mode
 
-By default, Akeyless Gateways cache secrets in memory to enhance performance and provide resiliency. This caching mechanism is crucial as it allows secrets to remain available even during network interruptions that lead to a disconnected (offline) mode. The `Ignore Cache` option is intended to force the Gateway to bypass its local cache and fetch a fresh version of the secret directly from the Akeyless SaaS platform. This ensures the client receives the most up-to-date value.\
-However, this behavior is conditional on the Gateway's ability to communicate with the SaaS. In a disconnected mode, the Gateway's primary function is to maintain availability. Since there is no communication with the SaaS, the Gateway cannot fulfill a request for a fresh secret.\
+By default, Akeyless Gateways cache secrets in memory to enhance performance and provide resiliency. This caching mechanism is crucial as it allows secrets to remain available even during network interruptions that lead to a disconnected (offline) mode. The `Ignore Cache` option is intended to force the Gateway to bypass its local cache and fetch a fresh version of the secret directly from the Akeyless SaaS platform. This ensures the client receives the most up-to-date value.
+However, this behavior is conditional on the Gateway's ability to communicate with the SaaS. In a disconnected mode, the Gateway's primary function is to maintain availability. Since there is no communication with the SaaS, the Gateway cannot fulfill a request for a fresh secret.
 Consequently, when the Gateway is disconnected:
 
 * Even if a request is sent with the `Ignore Cache` flag enabled, the Gateway will first check its local cache.

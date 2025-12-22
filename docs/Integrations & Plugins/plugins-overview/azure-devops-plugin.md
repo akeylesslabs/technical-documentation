@@ -16,16 +16,17 @@ To install this plugin you'll have to add the Vault Interaction task to your org
 
 In your project, under Pipelines, select the relevant pipeline and click "Edit".
 
-1. Search for the "Vault - Read KV Secrets" Task, select it and configure it as follows:
+Search for the "Vault - Read KV Secrets" Task, select it and configure it as follows:
 
-Under **Vault Server Settings**: add the following Akeyless host as your Vault URL: `https://hvp.akeyless.io`, to work with your own [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) set the Vault URL URL of your Gateway HVP endpoint: `https://Your-Gateway-URL:8000/hvp` (or using your gateway URL at port 8200)
+Under **Vault Server Settings**: add the following Akeyless host as your Vault URL: `https://hvp.akeyless.io`, to work with your own [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) set the Vault URL URL of your Gateway HashiCorp Vault Proxy endpoint: `https://Your-Gateway-URL:8000/hvp` (or using your gateway URL at port 8200)
 
 > 👍 Note
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
-Under **Authentication Method**: choose **Client Token** and provide the Akeyless token following this format:\
-The Token value can be a concatenation of your Access ID and your Access Key for an [API Key](https://docs.akeyless.io/docs/api-key) authentication in the following format: `< Access ID >".."< Access Key >`. And should be used more securely as an environment variable.
+Under **Authentication Method**: choose **Client Token** and provide the Akeyless token following this format:
+
+* The Token value can be a concatenation of your Access ID and your Access Key for an [API Key](https://docs.akeyless.io/docs/api-key) authentication in the following format: `< Access ID >".."< Access Key >`. It should be used more securely as an environment variable.
 
 Alternatively, to work with any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) you can extract your token using Akeyless `auth` command:
 
@@ -35,8 +36,7 @@ akeyless auth --access-id <Access ID> --access-type <Auth method type>
 
 To work with [Static Secrets](https://docs.akeyless.io/docs/static-secrets) edit the following **KV Settings**:
 
-For **KV engine path**, set `secret/data`. **KV version** should be set to `v1` and **Secret path** should contain your secret full path in Akeyless.\
-The final task should look like this:
+For **KV engine path**, set `secret/data`. **KV version** should be set to `v1` and **Secret path** should contain your secret full path in Akeyless. The final task should look like this:
 
 ```shell
 - task: VaultReadKV@2

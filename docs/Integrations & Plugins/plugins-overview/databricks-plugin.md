@@ -16,9 +16,10 @@ Easily manage secrets across Databricks DataOps / MLOps pipelines using Akeyless
 
 Azure Databricks allows secret management via its native secret scope or integration with Azure Key Vault. However, organizations operating across clouds or teams often face challenges such as:
 
-Secret sprawl across environments\
-Cloud vendor lock-in\
-Inconsistent RBAC policies\
+* Secret sprawl across environments
+* Cloud vendor lock-in
+* Inconsistent RBAC policies
+
 Akeyless provides a centralized, cloud-agnostic vault for managing secrets securely and consistently — making it ideal for managing secrets in Databricks DLT (delta live table) and non-DLT workloads, across Azure and AWS.
 
 ## Use Case

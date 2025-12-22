@@ -38,7 +38,7 @@ For example, to get to the `/api/v2` service, use this endpoint: `https://<your_
 
 Clone the **Serverless Gateway** repository locally:
 
-```shell Shell
+```shell
 git clone https://github.com/akeyless-community/akeyless-serverless-gateway.git
 ```
 
@@ -135,14 +135,14 @@ variable "customer_fragments"{
 
 To install the module, run the following commands:
 
-```shell Shell
+```shell
 terraform init
 terraform apply
 ```
 
 Upon successful installation of the **Akeyless Serverless Gateway**, the following output will be generated:
 
-```shell Shell
+```shell
 Outputs:
 
 akeyless_serverless_gateway_url = "https://uh4i3r4.execute-api.<region>.amazonaws.com/default/console"

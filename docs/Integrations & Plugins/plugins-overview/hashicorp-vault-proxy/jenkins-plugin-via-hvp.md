@@ -54,7 +54,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
   > 📘 Info
   >
-  > The **Token** value is a concatenation of your Access ID and your Access Key in the following format:\
+  > The **Token** value is a concatenation of your Access ID and your Access Key in the following format:
   > `< Access ID >..< Access Key >`
   >
   > For example:`p-xxxxxx..accessKey`
@@ -105,7 +105,7 @@ mysql --host <your MySQL server ip> --port 3306 --user=$USER --password=$PASS -e
 exit 0
 ```
 
-Click “Apply” and “Save”.\
+Click “Apply” and “Save”.
 Click “Build Now” and expect to see the following Console Output:
 
 ![](https://files.readme.io/6f82e9a-Screenshot_at_Feb_24_18-18-31.png "Screenshot at Feb 24 18-18-31.png")

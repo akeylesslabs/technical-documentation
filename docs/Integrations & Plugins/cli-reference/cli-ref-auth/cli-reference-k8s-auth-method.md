@@ -91,7 +91,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf-rancher \
 --k8s-ca-cert $CA_CERT \
 --k8s-issuer $K8S_ISSUER \
 --rancher-api-key <API_KEY> \
---rancher-cluster-id <CLUSTER_ID> \
+--rancher-cluster-id <CLUSTER_ID>
 ```
 ```shell Gateway Service Account
 akeyless gateway-create-k8s-auth-config --name k8s-conf \

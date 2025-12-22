@@ -1418,7 +1418,7 @@ akeyless target update eks \
 --eks-cluster-ca-cert <EKS Cluster Certificate \
 --eks-access-key-id <EKS Access ID> \
 --eks-secret-access-key <EKS Secret Access Key> \
---new-name <New target name> \
+--new-name <New target name>
 ```
 
 ##### Flags

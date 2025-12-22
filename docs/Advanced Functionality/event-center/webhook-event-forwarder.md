@@ -30,7 +30,7 @@ akeyless event-forwarder create webhook \
 --password <Password> \
 --event-types <event type> \
 --runner-type[=immediate] <immediate, periodic> \
---every <1-24 hours> \
+--every <1-24 hours>
 ```
 ```shell Token
 akeyless event-forwarder create webhook \
@@ -43,7 +43,7 @@ akeyless event-forwarder create webhook \
 --auth-token <Base64-encoded Token string> \
 --event-types <event type> \
 --runner-type[=immediate] <immediate, periodic> \
---every <1-24 hours> \
+--every <1-24 hours>
 ```
 ```shell Certificate
 akeyless event-forwarder create webhook \
@@ -59,7 +59,7 @@ akeyless event-forwarder create webhook \
 --private-key-data <Base64-encoded PEM RSA Private Key> \
 --event-types <event type> \
 --runner-type[=immediate] <immediate, periodic> \
---every <1-24 hours> \
+--every <1-24 hours>
 ```
 
 The main parameters for the command are as follows:

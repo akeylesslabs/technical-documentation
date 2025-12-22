@@ -35,7 +35,7 @@ Akeyless supports a wide range of encryption keys, including:
 
 ### Key States
 
-A key can be in one of three states, **Enabled**, **Disabled**, or **Pending Deletion**. The default state of a key is enabled unless stated otherwise, and can be transferred between states by any user with the appropriate permissions.\
+A key can be in one of three states, **Enabled**, **Disabled**, or **Pending Deletion**. The default state of a key is enabled unless stated otherwise, and can be transferred between states by any user with the appropriate permissions.
 Any keys that are not in an **Enabled** state cannot be used for any cryptographic operations (**Encrypt** or **Decrypt**). Attempting to set a key that is protecting a different item in the system into a **Disabled** or **Pending Deletion** state will fail.
 
 ## Key Use in CLI
@@ -44,7 +44,7 @@ Any keys that are not in an **Enabled** state cannot be used for any cryptograph
 
 To create an encryption key, use these commands with the following parameters:
 
-`n`: The desired name for the key\
+`n`: The desired name for the key
 `a`: The desired encryption algorithm for the key
 
 ```shell AES128GCM
@@ -129,9 +129,10 @@ AQAAAAEIAacq7xBbq3PYFnTmuUwqdRHclYjti/5u/MvVacv7mtFjlJQtUIpY13YF
 AQAAAAEIAWj/BDSTdvCHMG1aqBW+r+u41nEvN1qTRQ==
 ```
 
-Similarly, you can use it in order to Decrypt values using this command with the following parameters:\
-`k`: The name of the key to encrypt with.\
-`c`: The string to decrypt.
+Similarly, you can use it in order to Decrypt values using this command with the following parameters:
+
+* `k`: The name of the key to encrypt with.
+* `c`: The string to decrypt.
 
 ```shell AES128GCM
 akeyless decrypt -k MyAES256GCMKey -c AQAAAAEIAacq7xBbq3PYFnTmuUwqdRHclYjti/5u/MvVacv7mtFjlJQtUIpY13YF
@@ -149,7 +150,7 @@ The output should be the message you encrypted beforehand:
 12345
 ```
 
-Using **HMAC** with encryption:\
+Using **HMAC** with encryption:
 You may choose to add a hash function encryption over a key with the following command:
 
 ```shell
@@ -183,8 +184,7 @@ selecting a hash function between sha-256 and sha-512. The full parameters for t
 
 * **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
 
-* **Protection level (For classic keys targeting GCP):** Users can select either "software" (default) or "hardware" (HSM) options for key creation. Choosing "hardware" generates keys within a Hardware Security Module for enhanced security. For classic keys targeting GCP, you can select the protection level (hardware or software) after creating the key. In the "Provision to an external KMS" section, click "Attach," select the GCP target, and choose the appropriate protection level.\
-  .
+* **Protection level (For classic keys targeting GCP):** Users can select either "software" (default) or "hardware" (HSM) options for key creation. Choosing "hardware" generates keys within a Hardware Security Module for enhanced security. For classic keys targeting GCP, you can select the protection level (hardware or software) after creating the key. In the "Provision to an external KMS" section, click "Attach," select the GCP target, and choose the appropriate protection level.
 
 ### Managing an Encryption Key
 

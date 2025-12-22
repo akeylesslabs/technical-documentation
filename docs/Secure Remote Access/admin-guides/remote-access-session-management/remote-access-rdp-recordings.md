@@ -133,10 +133,10 @@ akeyless gateway update remote-access-rdp-recording \
 --azure-storage-container-name <your-storage-container-name> \
 --azure-storage-client-id  <optional-client-id> \
 --azure-storage-client-secret <optional-client-secret> \
---azure-storage-tenant-id <optional-tenant-id> \
+--azure-storage-tenant-id <optional-tenant-id>
 ```
 ```shell Local
 akeyless gateway update remote-access-rdp-recording \
 --rdp-session-recording true \
---rdp-session-storage local \
+--rdp-session-storage local
 ```

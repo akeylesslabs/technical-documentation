@@ -30,7 +30,7 @@ The OpenID Connect ID tokens issued by CircleCI have a fixed audience which is a
 
 In Akeyless Platform, create a new [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Authentication Method with the following settings:
 
-```shell Shell
+```shell
 akeyless create-auth-method-oauth2 --name /Dev/CI/CircleCIAuth \ 
 --jwks-uri https://oidc.circleci.com/org/&lt;ORGANIZATION ID&gt;/.well-known/jwks-pub.json \
 --unique-identifier iss \
