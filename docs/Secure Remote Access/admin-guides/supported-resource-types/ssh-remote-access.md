@@ -93,31 +93,12 @@ Akeyless enables CLI access from any Unix terminal.
 
 1. Download and install the latest version of [Akeyless CLI](https://docs.akeyless.io/docs/cli).
 
-2. Create your `~/.akeyless-connect.rc`
-:
+2. Create your `~/.akeyless-connect.rc`:
 
 ```shell
-# ---------------------------------------------------------------------
-# Copyright © 2023  Akeyless Security LTD.
-#
-# All rights reserved
-# ----------------------------------------------------------------------
-
-#
-# This file is a user-specific configuration file for akeyles-connect Secure Remote Access
-# it should be located in user home directory named .akeyless-connect.rc
-#
-
-# IDENTITY_FILE - the path to the ssh-key to be signed and used for Zero Trust session (if empty, default ssh-key is used)
 IDENTITY_FILE=""
-
-# CERT_ISSUER_NAME - full path to the Akeyless SSH Cert Issuer to use for Zero Trust session
 CERT_ISSUER_NAME=""
-
-# AKEYLESS_PROFILE - Akeyless CLI profile to be used
 AKEYLESS_PROFILE="default"
-
-# AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (RestAPI)
 AKEYLESS_GW_REST_API=""
 
 # Following are used for control service, to configure the temporary session:
@@ -135,6 +116,14 @@ SESSION_CACHING=no
 # Display connection stages
 DISPLAY_STAGES=yes
 ```
+
+Where:
+
+* `IDENTITY_FILE`: The path to the ssh-key to be signed and used for Zero Trust session (if empty, default ssh-key is used).
+* `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
+* `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
+* `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (RestAPI).
+* <br />
 
 3. Use `akeyless connect` command to perform SSH authentication to the target server via Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
 
