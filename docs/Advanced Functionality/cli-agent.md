@@ -90,7 +90,7 @@ Where:
 
 * `render_interval`: The interval for provisioning the secrets, by default set to `15m`, the minimum is `1s`.
 
-* `allow_missing_keys_in_template`: If one secret (or more) fails to be provisioned, continue with provision the rest, by default set to `true`.
+* `allow_missing_keys_in_template`: If one secret (or more) fails to be provisioned, continue provisioning, by default set to `true`.
 
 ## Template Examples
 

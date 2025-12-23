@@ -22,7 +22,7 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 
 1. Navigate to Manage Jenkins → Plugins.
 2. Go to Available Plugins and search for Akeyless.
-3. Check the plugin and press Install
+3. Check the plugin and select Install
 
 ## Supported Authentication Methods
 
@@ -39,12 +39,12 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 
 ### To Configure the Akeyless Plugin in Jenkins
 
-1. From the Jenkins Dashboard, press New Item, choose Freestyle Project, give it a name and press ok.
+1. From the Jenkins Dashboard, select New Item, choose Freestyle Project, give it a name and select ok.
 2. Scroll down to Environment and check Akeyless Plugin
 3. Set the Akeyless URL to your gateway URL, with the /api/v2 endpoint.
 4. Add a new Access Mode:
 
-* Under Vault Credential, press Add > Jenkins.
+* Under Vault Credential, select Add > Jenkins.
 
 * #### Choose the Authentication Method from the Kind drop-down
 

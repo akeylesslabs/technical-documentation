@@ -73,7 +73,7 @@ To import secrets from Azure Key Vault, you need to create an [Azure AD app with
 To upload a CSV file containing passwords into your Akeyless, you will need to run the following command in the Akeyless CLI:
 
 ```shell
-akeyless import-passwords --import-path &lt;path to file&gt; --format &lt;source format&gt;
+akeyless import-passwords --import-path <path to file> --format <source format>
 ```
 
 The main parameters for this command are:

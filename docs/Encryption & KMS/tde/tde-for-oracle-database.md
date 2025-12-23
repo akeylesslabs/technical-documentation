@@ -208,7 +208,7 @@ CREATE TABLE my_table (
 > 2. Migrate the encryption key:
 >
 >   ```sql
->   ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "Akeyless" MIGRATE USING "&lt;old file based tde password&gt;" WITH BACKUP;
+>   ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "Akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
 >   ```
 >
 > Ensure to replace `<old file based tde password>` with the appropriate password.

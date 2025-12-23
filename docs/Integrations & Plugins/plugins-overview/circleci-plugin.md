@@ -32,7 +32,7 @@ In Akeyless Platform, create a new [OAuth2.0/JWT](https://docs.akeyless.io/docs/
 
 ```shell
 akeyless create-auth-method-oauth2 --name /Dev/CI/CircleCIAuth \ 
---jwks-uri https://oidc.circleci.com/org/&lt;ORGANIZATION ID&gt;/.well-known/jwks-pub.json \
+--jwks-uri https://oidc.circleci.com/org/<ORGANIZATION ID>/.well-known/jwks-pub.json \
 --unique-identifier iss \
 --force-sub-claims
 ```

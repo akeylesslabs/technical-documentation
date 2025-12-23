@@ -32,7 +32,7 @@ target_syslog_host="<host>:<port>"
 target_syslog_formatter="[default=text]|cef"
 ```
 
-**Note:**
+_Note:_
 The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
 
 Default format: `<date > <time> <host name> <log level> <message>`.

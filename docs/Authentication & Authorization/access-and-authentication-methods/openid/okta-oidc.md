@@ -16,7 +16,7 @@ To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follo
 
 1. In your Okta account, go to **Applications > Add Application > Create App Integration**.
 
-2. For **Sign-in method**, select **OIDC - OpenID Connect** and for Application type, select **Web Application** and press **Next**.
+2. For **Sign-in method**, select **OIDC - OpenID Connect** and for Application type, select **Web Application** and select **Next**.
 
 ![](https://files.readme.io/b6c2478-okta-oidc1.png "okta-oidc1.png")
 

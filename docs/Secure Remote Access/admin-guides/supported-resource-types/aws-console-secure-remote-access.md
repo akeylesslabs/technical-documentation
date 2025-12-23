@@ -58,22 +58,22 @@ akeyless rotated-secret update aws \
 --rotate-after-disconnect <true|false>
 ```
 
-where:
+Where:
 
-* **secure-access-aws-account-id:** The AWS account ID, as defined in the dynamic secret.
-* **secure-access-aws-region:** Optional, only required to enable CLI access. the AWS region the user is permitted to access.
-* **secure-access-aws-native-cli:** Optional, specifies to use the native AWS CLI wrapper.
-* **secure-access-certificate-issuer:** Optional, only required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
-* **rotate-after-disconnect:** Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+* `secure-access-aws-account-id`: The AWS account ID, as defined in the dynamic secret.
+* `secure-access-aws-region`: Optional, only required to enable CLI access. the AWS region the user is permitted to access.
+* `secure-access-aws-native-cli`: Optional, specifies to use the native AWS CLI wrapper.
+* `secure-access-certificate-issuer`: Optional, only required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
+* `rotate-after-disconnect`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
 By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Web Access](https://docs.akeyless.io/docs/web-access-bastion) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
-* **secure-access-web-browsing:** Optional, secure browser via Akeyless Web Access Zero trust Web Access.
+* `secure-access-web-browsing`: Optional, secure browser via Akeyless Web Access Zero trust Web Access.
 
 Alternatively, in case you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
 
-* **secure-access-web-proxy:** Optional, web-proxy via Akeyless Zero trust Web Access.
-* **secure-access-delay:** The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
+* `secure-access-web-proxy`: Optional, web-proxy via Akeyless Zero trust Web Access.
+* `secure-access-delay`: The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
 ## Set Up Remote Access to the AWS Console from the Akeyless Console
 

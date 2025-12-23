@@ -50,9 +50,9 @@ Where:
 
 To upload certificates to your gateway using the UI, follow these steps:
 
-1. From the console, go to **Gateways**, choose the relevant Gateway, and press **Manage Gateway**.
+1. From the console, go to **Gateways**, choose the relevant Gateway, and select **Manage Gateway**.
 
-2. Go to **Certificate Store** and press **Add**.
+2. Go to **Certificate Store** and select **Add**.
 
 3. Type the **Display Name** and add the certificate content under **Certificate**.
 
@@ -60,8 +60,8 @@ To upload certificates to your gateway using the UI, follow these steps:
 
 To remove certificates from your gateway using the UI, follow these steps:
 
-1. From the console, go to **Gateways**, choose the relevant Gateway, and press **Manage Gateway**.
+1. From the console, go to **Gateways**, choose the relevant Gateway, and select **Manage Gateway**.
 
 2. Go to **Certificate Store**.
 
-3. Choose the certificate you wish to remove and press the **Action Menu** > **Delete**.
+3. Choose the certificate you wish to remove and select the **Action Menu** > **Delete**.

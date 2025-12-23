@@ -50,86 +50,10 @@ The value of the `--purpose` parameter depends on the key type:
 
 The value of the `--kms-algorithm` parameter depends on the key type, key size, and the selected purpose:
 
-<Table align={["left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Key Type + Purpose
-      </th>
-
-      <th>
-        KMS Algorithm
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        `AES ENCRYPT_DECRYPT`
-      </td>
-
-      <td>
-        `GOOGLE_SYMMETRIC_ENCRYPTION`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `AES MAC`
-      </td>
-
-      <td>
-        `HMAC_SHA256`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `RSA ASYMMETRIC_SIGN`
-      </td>
-
-      <td>
-        `RSA_SIGN_PSS_2048_SHA256`\
-        `RSA_SIGN_PSS_3072_SHA256`\
-        `RSA_SIGN_PSS_4096_SHA256`\
-        `RSA_SIGN_PSS_4096_SHA512`\
-        `RSA_SIGN_PKCS1_2048_SHA256`\
-        `RSA_SIGN_PKCS1_3072_SHA256`\
-        `RSA_SIGN_PKCS1_4096_SHA256`\
-        `RSA_SIGN_PKCS1_4096_SHA256`\
-        `RSA_SIGN_PKCS1_4096_SHA512`\
-        `RSA_SIGN_RAW_PKCS1_2048`\
-        `RSA_SIGN_RAW_PKCS1_3072`\
-        `RSA_SIGN_RAW_PKCS1_4096`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `RSA ASYMMETRIC_DECRYPT`
-      </td>
-
-      <td>
-        `RSA_DECRYPT_OAEP_2048_SHA256`\
-        `RSA_DECRYPT_OAEP_3072_SHA256`\
-        `RSA_DECRYPT_OAEP_4096_SHA256`\
-        `RSA_DECRYPT_OAEP_4096_SHA512`\
-        `RSA_DECRYPT_OAEP_2048_SHA1`\
-        `RSA_DECRYPT_OAEP_3072_SHA1`\
-        `RSA_DECRYPT_OAEP_4096_SHA1`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `ECC SYMMETRIC_SIGN`
-      </td>
-
-      <td>
-        `EC_SIGN_P256_SHA256`\
-        `EC_SIGN_P384_SHA384`
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Key Type + Purpose | KMS Algorithm |
+|---|---|
+| `AES ENCRYPT_DECRYPT` | `GOOGLE_SYMMETRIC_ENCRYPTION` |
+| `AES MAC` | `HMAC_SHA256` |
+| `RSA ASYMMETRIC_SIGN` | `RSA_SIGN_PSS_2048_SHA256`, `RSA_SIGN_PSS_3072_SHA256`, `RSA_SIGN_PSS_4096_SHA256`, `RSA_SIGN_PSS_4096_SHA512`, `RSA_SIGN_PKCS1_2048_SHA256`, `RSA_SIGN_PKCS1_3072_SHA256`, `RSA_SIGN_PKCS1_4096_SHA256`, `RSA_SIGN_PKCS1_4096_SHA256`, `RSA_SIGN_PKCS1_4096_SHA512`, `RSA_SIGN_RAW_PKCS1_2048`, `RSA_SIGN_RAW_PKCS1_3072`, `RSA_SIGN_RAW_PKCS1_4096` |
+| `RSA ASYMMETRIC_DECRYPT` | `RSA_DECRYPT_OAEP_2048_SHA256`, `RSA_DECRYPT_OAEP_3072_SHA256`, `RSA_DECRYPT_OAEP_4096_SHA256`, `RSA_DECRYPT_OAEP_4096_SHA512`, `RSA_DECRYPT_OAEP_2048_SHA1`, `RSA_DECRYPT_OAEP_3072_SHA1`, `RSA_DECRYPT_OAEP_4096_SHA1` |
+| `ECC SYMMETRIC_SIGN` | `EC_SIGN_P256_SHA256`, `EC_SIGN_P384_SHA384` |

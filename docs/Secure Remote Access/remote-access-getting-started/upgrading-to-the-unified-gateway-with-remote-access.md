@@ -53,67 +53,18 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
 4. **Unification of endpoints (ports)**
   The unified Gateway with Remote Access has simplified access to the various components by creating internal mapping of the endpoints. All endpoints can be accessed through the Gateway as follows:
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>Service</th>
-      <th>Old Port</th>
-      <th>New Port/Endpoint</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>[Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager)</td>
-      <td>8000</td>
-      <td>8000</td>
-    </tr>
-    <tr>
-      <td>Akeyless Gateway Console</td>
-      <td>1888</td>
-      <td>&lt;gateway-url&gt;:8000/console</td>
-    </tr>
-    <tr>
-      <td>Remote Access Portal</td>
-      <td>-</td>
-      <td>&lt;gateway-url&gt;:8000/sra/portal</td>
-    </tr>
-    <tr>
-      <td>Remote Access Web Client</td>
-      <td>8888</td>
-      <td>&lt;gateway-url&gt;:8000/sra/web-client</td>
-    </tr>
-    <tr>
-      <td>Remote Access SSH Config</td>
-      <td>9900</td>
-      <td>&lt;gateway-url&gt;:8000/sra/ssh-config</td>
-    </tr>
-    <tr>
-      <td>HashiCorp Vault Proxy</td>
-      <td>8200</td>
-      <td>&lt;gateway-url&gt;:8000/hvp</td>
-    </tr>
-    <tr>
-      <td>Akeyless V1 REST API</td>
-      <td>8080</td>
-      <td>&lt;gateway-url&gt;:8000/api/v1</td>
-    </tr>
-    <tr>
-      <td>Akeyless V2 REST API</td>
-      <td>8081</td>
-      <td>&lt;gateway-url&gt;:8000/api/v2</td>
-    </tr>
-    <tr>
-      <td>KMIP Server</td>
-      <td>5696</td>
-      <td>5696</td>
-    </tr>
-    <tr>
-      <td>GRPC</td>
-      <td>8085</td>
-      <td>8085</td>
-    </tr>
-  </tbody>
-</Table>
+| Service | Old Port | New Port/Endpoint |
+|---|---:|---|
+| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 | 8000 |
+| Akeyless Gateway Console | 1888 | `<gateway-url>:8000/console` |
+| Remote Access Portal | - | `<gateway-url>:8000/sra/portal` |
+| Remote Access Web Client | 8888 | `<gateway-url>:8000/sra/web-client` |
+| Remote Access SSH Config | 9900 | `<gateway-url>:8000/sra/ssh-config` |
+| HashiCorp Vault Proxy | 8200 | `<gateway-url>:8000/hvp` |
+| Akeyless V1 REST API | 8080 | `<gateway-url>:8000/api/v1` |
+| Akeyless V2 REST API | 8081 | `<gateway-url>:8000/api/v2` |
+| KMIP Server | 5696 | 5696 |
+| gRPC | 8085 | 8085 |
 
 ## Additional Notes
 

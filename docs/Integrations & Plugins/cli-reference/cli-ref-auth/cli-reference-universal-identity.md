@@ -22,8 +22,8 @@ Create a new Auth Method that will be able to authenticate using Akeyless Univer
 
 ```shell
 akeyless auth-method create universal-identity \
---name &lt;Auth method name&gt; \
---ttl &lt;Token TTL&gt;
+--name <Auth method name> \
+--ttl <Token TTL>
 ```
 
 ### Flags
@@ -85,7 +85,7 @@ Generate a new token using Akeyless Universal Identity
 ### Usage
 
 ```shell
-akeyless uid-generate-token --auth-method-name &lt;Auth method name&gt;
+akeyless uid-generate-token --auth-method-name <Auth method name>
 ```
 
 ## `uid-list-children`
@@ -95,7 +95,7 @@ List the token children ids of Akeyless Universal Identity
 ### Usage
 
 ```shell
-akeyless uid-list-children --auth-method-name &lt;UID Auth Method Name&gt;
+akeyless uid-list-children --auth-method-name <UID Auth Method Name>
 ```
 
 ## `uid-revoke-token`
@@ -145,8 +145,8 @@ Update a new Auth Method that will be able to authenticate using Akeyless Univer
 
 ```shell
 akeyless auth-method update universal-identity \
---name &lt;Auth method name&gt; \
---new-name &lt;Auth method new name&gt;
+--name <Auth method name> \
+--new-name <Auth method new name>
 ```
 
 ### Flags

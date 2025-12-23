@@ -119,7 +119,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf \
 
 `--k8s-ca-cert`: The CA Certificate (Base64-encoded) to use to call into the Kubernetes API server
 
-`--k8s-auth-type[=token]`: Native Kubernetes auth type, [token/certificate]. (relevant for `native_k8s` only)
+`--k8s-auth-type[=token]`: Native Kubernetes auth type, `[token/certificate]`. (relevant for `native_k8s` only)
 
 `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for `native_k8s` only)
 
@@ -223,7 +223,7 @@ akeyless gateway-update-k8s-auth-config \
 
 `--k8s-ca-cert`: The CA Certificate (Base64-encoded) to use to call into the Kubernetes API server
 
-`--k8s-auth-type[=token]`: Native Kubernetes auth type, [token/certificate]. (relevant for `native_k8s` only)
+`--k8s-auth-type[=token]`: Native Kubernetes auth type, `[token/certificate]`. (relevant for `native_k8s` only)
 
 `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format (relevant for `native_k8s` only)
 

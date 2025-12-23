@@ -54,22 +54,22 @@ The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Hel
 
 1. Add the following repository to your Helm repository list:
 
-```shell
-helm repo add akeyless https://akeylesslabs.github.io/helm-charts
-helm repo update
-```
+    ```shell
+    helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+    helm repo update
+    ```
 
 2. Fetch the `values.yaml` file from Akeyless repository:
 
-```shell
-helm show values akeyless/akeyless-api-gateway > values.yaml
-```
+    ```shell
+    helm show values akeyless/akeyless-api-gateway > values.yaml
+    ```
 
 3. Use your favorite editor to set the relevant parameters in the `values.yaml` file:
 
-```shell
-vi values.yaml
-```
+    ```shell
+    vi values.yaml
+    ```
 
 ## Authentication
 
@@ -328,182 +328,24 @@ In the above example, your Gateway **Admins** are `test01@testhost.com,test01@te
 
 Full list of available permissions:
 
-<Table align={["left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Permission
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        `defaults`
-      </td>
-
-      <td>
-        Management of the defaults settings of your Gateway
-        Including `Default Encryption Key` & `Default AccessID` for login.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `targets`
-      </td>
-
-      <td>
-        Management of all Targets items that were created using your Gateway
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `classic_keys`
-      </td>
-
-      <td>
-        Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `automatic_migration`
-      </td>
-
-      <td>
-        Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `dynamic_secret`
-      </td>
-
-      <td>
-        Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `rotated_secret`
-      </td>
-
-      <td>
-        Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `rotate_secret_value`
-      </td>
-
-      <td>
-        Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `log_forwarding`
-      </td>
-
-      <td>
-        Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `zero_knowledge_encryption`
-      </td>
-
-      <td>
-        Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `caching`
-      </td>
-
-      <td>
-        Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `event_forwarding`
-      </td>
-
-      <td>
-        Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `ladp_auth`
-      </td>
-
-      <td>
-        Management of [LDAP](https://docs.akeyless.io/docs/ldap) Auth Gateway configuration.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `k8s_auth`
-      </td>
-
-      <td>
-        Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Gateway configuration
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `kmip`
-      </td>
-
-      <td>
-        Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `general`
-      </td>
-
-      <td>
-        Management of Gateway General settings including `GatewayUrl`,`TLS`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `admin`
-      </td>
-
-      <td>
-        Admin permission can manage all Gateway components, including **Access Permissions**
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Permission | Description |
+|---|---|
+| `defaults` | Management of the defaults settings of your Gateway including `Default Encryption Key` & `Default AccessID` for login. |
+| `targets` | Management of all Targets items that were created using your Gateway |
+| `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
+| `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |
+| `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
+| `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
+| `rotate_secret_value` | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item |
+| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings |
+| `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
+| `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings |
+| `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
+| `ladp_auth` | Management of [LDAP](https://docs.akeyless.io/docs/ldap) Auth Gateway configuration. |
+| `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Gateway configuration |
+| `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
+| `general` | Management of Gateway General settings including `GatewayUrl`,`TLS` |
+| `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
 
 > 👍 Note
 >
@@ -528,19 +370,19 @@ TLSConf:
 
 1. To install the Gateway using the edited `values.yaml` file, run the following command:
 
-```shell
-helm install gw akeyless/akeyless-api-gateway -f values.yaml
-```
+    ```shell
+    helm install gw akeyless/akeyless-api-gateway -f values.yaml
+    ```
 
 2. Check if the pods are up and running:
 
-```shell
-kubectl get pod
+    ```shell
+    kubectl get pod
 
-NAME                                       READY   STATUS    RESTARTS       AGE
-gw-akeyless-gateway-6554f7c66c-56fgs   1/1     Running   0   						5s
-gw-akeyless-gateway-6554f7c66c-7jt8r   1/1     Running   0              5s
-```
+    NAME                                       READY   STATUS    RESTARTS       AGE
+    gw-akeyless-gateway-6554f7c66c-56fgs   1/1     Running   0   						5s
+    gw-akeyless-gateway-6554f7c66c-7jt8r   1/1     Running   0              5s
+    ```
 
 3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000`) with your Gateway admin credentials.
 

@@ -124,7 +124,7 @@ Here’s how it works:
 
 **ReadWriteMany** Access Mode: This allows multiple pods to both read from and write to the same storage volume at the same time, ensuring that data remains consistent across the cluster.
 
-**Environment-Specific StorageClass**: The [StorageClass, like Amazon EFS (efs-sc)](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html), defines the backend storage type. You will need to choose or create a StorageClass suited to your cloud provider or infrastructure.
+**Environment-Specific StorageClass**: The [StorageClass, like Amazon EFS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) (`efs-sc`), defines the backend storage type. You will need to choose or create a StorageClass suited to your cloud provider or infrastructure.
 
 **Persistent Volume Reclaim Policy**: Setting this policy to `Retain` ensures that the data in the `PersistentVolume` remains intact even if the pods using it are deleted. This can be important for recovery or deployment updates.
 

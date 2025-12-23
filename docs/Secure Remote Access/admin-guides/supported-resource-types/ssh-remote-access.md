@@ -119,7 +119,7 @@ DISPLAY_STAGES=yes
 
 Where:
 
-* `IDENTITY_FILE`: The path to the ssh-key to be signed and used for Zero Trust session (if empty, default ssh-key is used).
+* `IDENTITY_FILE`: The path to the `ssh-key` to be signed and used for Zero Trust session (if empty, a default of `ssh-key` is used).
 * `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
 * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
 * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (RestAPI).

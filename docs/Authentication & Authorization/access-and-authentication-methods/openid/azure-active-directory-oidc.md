@@ -18,7 +18,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
 ![](https://files.readme.io/c9edb74-image-20210902-145138.png "image-20210902-145138.png")
 
-2. For **Redirect URI**, type select **Web** for **Application type**. Set `https://auth.akeyless.io/oidc/callback` as a value and press **Register**.
+2. For **Redirect URI**, type select **Web** for **Application type**. Set `https://auth.akeyless.io/oidc/callback` as a value and select **Register**.
 
 ![](https://files.readme.io/d399957-image-20210902-145556.png "image-20210902-145556.png")
 

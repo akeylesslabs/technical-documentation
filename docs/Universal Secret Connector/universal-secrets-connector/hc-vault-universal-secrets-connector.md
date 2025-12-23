@@ -163,4 +163,4 @@ Once connected to a Target, you will be able to access a Universal Secrets Conne
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
 
-**Note:** The **KV Secrets Engine v1** is not supported. Please use **KV Secrets Engine v2** when working with the Vault Universal Secrets Connector.
+_Note:_ The **KV Secrets Engine v1** is not supported. Please use **KV Secrets Engine v2** when working with the Vault Universal Secrets Connector.

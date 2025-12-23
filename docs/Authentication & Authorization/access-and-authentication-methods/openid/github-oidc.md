@@ -14,7 +14,7 @@ In order to use GitHub as an IdP to authenticate the Akeyless Platform via OIDC,
 
 ## Create an OAuth Apps
 
-1. In your GitHub account, go to **Settings > Developer settings** and press **New OAuth App**.
+1. In your GitHub account, go to **Settings > Developer settings** and select **New OAuth App**.
 
 2. For **Homepage URL** set `https://console.akeyless.io`, for **Authorization callback URL** set `https://auth.akeyless.io/oidc/callback` and click **Register application**.
 

@@ -24,7 +24,7 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 > * Demo/POC workflows (API, Web SRA, SSH proxy)
 > * Small pilots with limited users/targets where downtime is acceptable
 >
-> For more information please refer to [Readme.md](https://github.com/akeylesslabs/docker-compose/blob/main/README.md) file
+> For more information please refer to  the [ReadMe](https://github.com/akeylesslabs/docker-compose/blob/main/README.md) file
 
 * Docker Installed (version 20.10 or later)
 * Docker Compose (version 1.29 or later)

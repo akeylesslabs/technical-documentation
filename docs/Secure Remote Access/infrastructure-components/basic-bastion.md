@@ -40,7 +40,7 @@ To spin an Akeyless Basic Bastion using Docker please refer to the last section 
 
 ### Network
 
-Currently, when using DB application (MySQL, mongodb.mssql) via the Basic Bastion, it'll only work properly when using load balancer with "sticky" session:
+Currently, when using DB application (MySQL, MongoDB) via the Basic Bastion, it'll only work properly when using load balancer with "sticky" session:
 
 * Ingress - Make sure to use sticky session annotation, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"` in NGINX
 
@@ -69,83 +69,12 @@ helm show values akeyless/akeyless-zero-trust-bastion > values.yaml
 
 And replace the values with the ones from your environment where needed. The following parameters are mandatory:
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
-
-      <th>
-        Default Value
-      </th>
-
-      <th>
-        Info
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        dockerRepositoryCreds
-      </td>
-
-      <td>
-        N\A
-      </td>
-
-      <td>
-        Credentials to access Akeyless internal image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        apiGatewayURL
-      </td>
-
-      <td>
-        `https://rest.akeyless.io`
-      </td>
-
-      <td>
-        A full URL of Akeyless Gateway.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        privilegedAccess
-      </td>
-
-      <td>
-        N\A
-      </td>
-
-      <td>
-        Optional credentials for zero-trust access: if provided, it is possible for end users to have only "list" permissions on Akeyless item.  
-        Currently supported AWS IAM.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        allowedAccessIDs
-      </td>
-
-      <td>
-        [bl
-      </td>
-
-      <td>
-        Limit access to privileged items only for these end user access ID.  
-        If left empty, all access Id are allowed
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Parameter | Default Value | Info |
+|---|---|---|
+| `dockerRepositoryCreds` | N/A | Credentials to access Akeyless internal image |
+| `apiGatewayURL` | `https://rest.akeyless.io` | A full URL of Akeyless Gateway. |
+| `privilegedAccess` | N/A | Optional credentials for zero-trust access: if provided, it is possible for end users to have only "list" permissions on an Akeyless item. Currently supported: AWS IAM. |
+| `allowedAccessIDs` | `[bl` | Limit access to privileged items only for these end user access IDs. If left empty, all access IDs are allowed. |
 
 Install the chart:
 

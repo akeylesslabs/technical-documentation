@@ -220,16 +220,16 @@ Once finish, you will have a new role in the source Account that trusts itself a
 
 In order to work with this role from Akeyless, an [AWS Target](https://docs.akeyless.io/docs/aws-targets) is required:
 
-1. Navigate to **Targets** > **New** > **AWS**, press **Next**.
-2. Give the Target a **Name** and optionally, a **Location**, Press **Next**.
+1. Navigate to **Targets** > **New** > **AWS**. Press **Next**.
+2. Give the Target a **Name** and optionally, a **Location**. Press **Next**.
 3. Choose **Use Gateway's Cloud Identity** and click **Finish**
 
 ## Destination Account Configuration
 
 In order to have a centralized Gateway that will be able to manage resources in multiple AWS Accounts, A target in Akeyless with an [External ID](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/) is required.
 
-1. Navigate to **Targets** > **New** > **AWS**, press **Next**.
-2. Give the Target a **Name** and optionally, a **Location**, Press **Next**.
+1. Navigate to **Targets** > **New** > **AWS**. Press **Next**.
+2. Give the Target a **Name** and optionally, a **Location**. Press **Next**.
 3. Choose **Use Gateway's Cloud Identity** and check the **External ID** option.
 
 A new **External ID** will be generated.
@@ -487,12 +487,12 @@ This example will use **IAM\_USER** mode, this will create a new temporary user 
 
 In Akeyless, Navigate to **Items** > **New** > **Dynamic Secret** > **AWS**.
 
-1. Give the Dynamic Secret a name and press **Next**.
+1. Give the Dynamic Secret a name and select **Next**.
 2. Choose the **Target** that was created with the **External ID**.
 3. For **Access Mode**, choose **IAM\_USER**.
 4. For **Gateway**, choose **This Gateway** and click **Finish**.
 
-Once the Dynamic Secret is created, press **Get Dynamic Secret**
+Once the Dynamic Secret is created, select **Get Dynamic Secret**.
 
 You will get the credentials of the new temporary user that was created in the destination account, save the credentials as it will be used for the next step.
 
@@ -502,11 +502,11 @@ Now, we will use an AWS [Rotated Secret](https://docs.akeyless.io/docs/create-an
 
 In Akeyless, Navigate to **Items** > **New** > **Rotated Secret** > **AWS**.
 
-1. Give the Dynamic Secret a name and press **Next**.
+1. Give the Dynamic Secret a name and select **Next**.
 2. Choose the **Target** that was created with the **External ID**.
 3. For **Rotator Type**, choose **API Key**.
 4. For **Authenticate with the following credentials**, choose **Target Credentials**.
 5. Enter the **Access Key ID** and the **Access Key** from the last step.
 6. For **Gateway**, choose **This Gateway** and click **Finish**.
 
-Once the Rotated Secret is created, press **Rotate Secret**, and the credentials of the user that was created earlier will be rotated.
+Once the Rotated Secret is created, select **Rotate Secret**, and the credentials of the user that was created earlier will be rotated.

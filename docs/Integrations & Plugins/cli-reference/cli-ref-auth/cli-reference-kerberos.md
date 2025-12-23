@@ -44,7 +44,7 @@ akeyless auth-method create kerberos \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+`--product-type`: Choose the relevant product type for the auth method `[sm, sra, pm, dp, ca]`
 
 `--audit-logs-claims`: Sub-claims to include in Audit Logs. e.g `--audit-logs-claims email --audit-logs-claims username`
 
@@ -119,7 +119,7 @@ akeyless auth-method update kerberos \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`--product-type`: Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+`--product-type`: Choose the relevant product type for the auth method `[sm, sra, pm, dp, ca]`
 
 `--audit-logs-claims`: Sub-claims to include in Audit Logs. e.g `--audit-logs-claims email --audit-logs-claims username`
 

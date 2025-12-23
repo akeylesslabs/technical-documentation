@@ -50,4 +50,4 @@ This could be a secure note, an API Key, or any other sensitive information that
 
 ## Step 6: Save the Newly Created Secret
 
-Saving the Secret: After reviewing the details you’ve entered, press the 'Save' button once you're satisfied that everything is correct. This action securely stores the new secret within the Akeyless app.
+Saving the Secret: After reviewing the details you’ve entered, select the 'Save' button once you're satisfied that everything is correct. This action securely stores the new secret within the Akeyless app.

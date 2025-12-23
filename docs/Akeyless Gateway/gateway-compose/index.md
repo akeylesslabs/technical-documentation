@@ -149,162 +149,22 @@ In the above example, your Gateway **Admins** are `test01@testhost.com,test01@te
 
 Full list of available permissions:
 
-<Table align={["left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Permission
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        `admin`
-      </td>
-
-      <td>
-        Admin permission can manage all Gateway components, including **Access Permissions**
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `defaults`
-      </td>
-
-      <td>
-        Management of the defaults settings of your Gateway
-        Including `GatewayUrl`,`TLS`, `Defualt Encryption Key` & `Defualt AccessID` for login.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `dynamic_secret`
-      </td>
-
-      <td>
-        Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `rotated_secret`
-      </td>
-
-      <td>
-        Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `rotate_secret_value`
-      </td>
-
-      <td>
-        Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `targets`
-      </td>
-
-      <td>
-        Management of all Targets items that were created using your Gateway
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `classic_keys`
-      </td>
-
-      <td>
-        Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `log_forwarding`
-      </td>
-
-      <td>
-        Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `zero_knowledge_encryption`
-      </td>
-
-      <td>
-        Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `caching`
-      </td>
-
-      <td>
-        Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `event_forwarding`
-      </td>
-
-      <td>
-        Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `ldap_auth`
-      </td>
-
-      <td>
-        Management of [LDAP](https://docs.akeyless.io/docs/ldap) Auth Gateway configuration.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `k8s_auth`
-      </td>
-
-      <td>
-        Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Gateway configuration
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `kmip`
-      </td>
-
-      <td>
-        Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server)
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Permission | Description |
+|---|---|
+| `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
+| `defaults` | Management of the defaults settings of your Gateway, including `GatewayUrl`, `TLS`, `Defualt Encryption Key` & `Defualt AccessID` for login. |
+| `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
+| `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
+| `rotate_secret_value` | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item |
+| `targets` | Management of all Targets items that were created using your Gateway |
+| `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
+| `log_forwarding` | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings |
+| `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
+| `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings |
+| `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
+| `ldap_auth` | Management of [LDAP](https://docs.akeyless.io/docs/ldap) Auth Gateway configuration. |
+| `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Gateway configuration |
+| `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
 
 > 👍 Note
 >

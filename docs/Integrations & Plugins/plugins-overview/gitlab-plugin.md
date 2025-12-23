@@ -58,7 +58,7 @@ Associate your new Role with the created Authentication Method, and assign it Su
 ```shell
 akeyless assoc-role-am --role-name /Dev/GitLabRole \ 
 --am-name /Dev/GitLabAuth \ 
---sub-claims user_login=&lt;YOUR GitLab USERNAME&gt;
+--sub-claims user_login=<YOUR GitLab USERNAME>
 ```
 
 > 🚧 Warning

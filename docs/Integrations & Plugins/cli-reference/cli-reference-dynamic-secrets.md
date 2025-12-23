@@ -522,7 +522,7 @@ akeyless dynamic-secret create eks \
 
 `--eks-cluster-name`: EKS cluster name. Must match the EKS cluster name you want to connect to
 
-`--eks-cluster-endpoint`: EKS Cluster endpoint. `https://`, \<DNS / IP> of the cluster
+`--eks-cluster-endpoint`: EKS Cluster endpoint. `https://<DNS / IP>` of the cluster
 
 `--eks-cluster-ca-cert`: EKS Cluster certificate. Base 64 encoded certificate
 

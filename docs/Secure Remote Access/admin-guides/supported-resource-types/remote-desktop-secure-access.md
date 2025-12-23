@@ -83,7 +83,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 2. Select the Windows machine hostname or IP address, then select **Connect**. A new tab opens, in which you can interact with the Windows machine according to your permissions.
 
-3. To lock the RDP screen, you can leverage the **On-Screen Keyboard (OSK)**- when using your own keyboard, press “Ctrl + Alt” and hit “Del” on the OSK inside your RDP session. Alternatively, you can simply close the relevant tab to disconnect the session.
+3. To lock the RDP screen, you can leverage the **On-Screen Keyboard (OSK)**- when using your own keyboard, type “Ctrl + Alt” and hit “Del” on the OSK inside your RDP session. Alternatively, you can simply close the relevant tab to disconnect the session.
 
 4. If you are locked out of a session, click on the "Unlock" button at the top of your screen and you will be given the option to reconnect to your session. **IMPORTANT** This option is only supported with the installation of our [Remote Access (SRA) Web Extension](https://chromewebstore.google.com/search/Akeyless%20SRA) on your browser.
 

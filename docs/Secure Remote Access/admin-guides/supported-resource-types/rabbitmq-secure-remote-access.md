@@ -40,8 +40,8 @@ akeyless dynamic-secret update rabbitmq \
 
 Where:
 
-* **secure-access-url:** The RabbitMQ URL to inject credentials.
-* **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `secure-access-url`: The RabbitMQ URL to inject credentials.
+* `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 ## Set Up Remote Access to RabbitMQ from the Akeyless Console
 
