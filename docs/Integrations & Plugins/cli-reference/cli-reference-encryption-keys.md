@@ -222,7 +222,7 @@ akeyless decrypt \
 
 `-X, --encryption-context`: The encryption context. If this was specified in the encrypt command, it must be specified here or the decryption operation will fail
 
-`-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
+`-F, --output-format`: If specified, the output will be formatted accordingly. options: `[base64]`
 
 ## `decrypt-file`
 
@@ -251,7 +251,7 @@ akeyless decrypt-file \
 
 `-o, --out`: Path to the output file. If not provided, the output will be sent to stdout
 
-`-F, --output-format[=base64]`: The output will be formatted accordingly. options: [base64, raw]
+`-F, --output-format[=base64]`: The output will be formatted accordingly. options: `[base64, raw]`
 
 `-X, --encryption-context`: The encryption context. If this was specified in the encrypt command, it must be specified here or the decryption operation will fail
 
@@ -288,7 +288,7 @@ akeyless decrypt-gpg \
 
 `-p, --passphrase`: Passphrase to decrypt the message
 
-`-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
+`-F, --output-format`: If specified, the output will be formatted accordingly. options: `[base64]`
 
 ## `decrypt-pkcs1`
 
@@ -314,7 +314,7 @@ akeyless decrypt-pkcs1 \
 
 `-c, --ciphertext`: **Required**, Ciphertext to be decrypted in Base64-encoded format
 
-`-F, --output-format`: If specified, the output will be formatted accordingly. options: [base64]
+`-F, --output-format`: If specified, the output will be formatted accordingly. options: `[base64]`
 
 ## `encrypt`
 
@@ -346,7 +346,7 @@ akeyless encrypt \
 
 `-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
 
-`-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
+`-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: `[base64]`
 
 ## `encrypt-file`
 
@@ -374,7 +374,7 @@ akeyless encrypt-file \
 
 `-o, --out`: **Required**, Path to the output file. If not provided, the output will be sent to stdout
 
-`-F, --output-format[=base64]`: The output will be formatted accordingly. options: [base64, raw]
+`-F, --output-format[=base64]`: The output will be formatted accordingly. options: `[base64, raw]`
 
 `-X, --encryption-context`: name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the decrypt command or decryption will fail
 
@@ -406,7 +406,7 @@ akeyless encrypt-gpg \
 
 `-p, --plaintext`: Data to be encrypted, if a file was not provided
 
-`-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: [base64]
+`-F, --input-format`: If specified, the plaintext input is assumed to be formatted accordingly. Current supported options: `[base64]`
 
 ## `encrypt-pkcs1`
 
@@ -536,7 +536,7 @@ akeyless hmac \
 
 `-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-512`
 
-`-F, --input-format`: Select the default assumed format for any plaintext input. Currently supported options: [base64]
+`-F, --input-format`: Select the default assumed format for any plaintext input. Currently supported options: `[base64]`
 
 ## `refresh-key`
 
@@ -675,7 +675,7 @@ akeyless sign-pkcs1 \
 
 `--prehashed`: Marks that the message is already hashed
 
-`-F, --input-format`: Select default assumed format for the message input. Currently supported options: [base64]
+`-F, --input-format`: Select default assumed format for the message input. Currently supported options: `[base64]`
 
 `-m, --message`: **Required**, The message to be signed
 

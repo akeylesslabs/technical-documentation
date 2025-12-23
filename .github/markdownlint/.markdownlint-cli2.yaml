@@ -1,4 +1,5 @@
 # npx markdownlint-cli2 --fix --config .github/markdownlint/.markdownlint-cli2.yaml 'docs/**/*.md'
+# npx markdownlint-cli2 --config .github/markdownlint/.markdownlint-cli2.yaml 'docs/**/*.md'
 
 # Load Akeyless custom rules
 customRules:

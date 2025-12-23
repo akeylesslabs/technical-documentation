@@ -652,7 +652,6 @@ Cloud Spanner
 Snowflake
 BigQuery
 Redshift
-ElasticSearch
 Elasticsearch
 OpenSearch
 DBeaver

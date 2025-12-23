@@ -90,7 +90,7 @@ target_logstash_tls_certificate="<Based64 PEM encoded Cert>"
 Configure your Logstash to use the same port and protocol:
 Add the following to the `logstash.conf` file: `input { tcp { port => 8911 codec => json } }`
 
-### ELK - ElasticSearch
+### ELK - Elasticsearch
 
 ```yaml
 logandConf: |

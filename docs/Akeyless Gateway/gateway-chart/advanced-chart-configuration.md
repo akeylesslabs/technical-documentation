@@ -177,7 +177,7 @@ To control the cache settings, you can [configure the cache](https://docs.akeyle
 
 ### High Availability Cache
 
-While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a storage class with the `ReadWriteOnce` access mode.
+While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a  with the `ReadWriteOnce` access mode.
 
 > 📘 Note
 >

@@ -44,7 +44,7 @@ For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticl
 
 To be able to make more than 1 SSH-bastion pod work, the chart requires a persistent storage, with the `ReadWriteMany` access mode.
 
-Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the chart's `values.yaml` file
+Since a storage class is more environment-specific, you will need to provide one before proceeding. In addition, please provide a **PersistentVolumes** with `persistentVolumeReclaimPolicy: retain` and reference those PersistentVolumes in the chart's `values.yaml` file
 
 ```yaml
 persistence: 

@@ -12,7 +12,7 @@ next:
 ---
 Certificate-based authentication eliminates the need to approve and distribute keys. Instead of scattering public keys across static files, you bind a public key to a username with a certificate.
 
-Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible via SSH but directed through a ssh-sra host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
+Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible via SSH but directed through a `ssh-sra` host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
 
 In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
 
@@ -21,7 +21,7 @@ In this guide, we will connect to a remote target using an [SSH Certificate](htt
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
 > For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
 
-# Prerequisites
+## Prerequisites
 
 * [Secure Remote Access](https://docs.akeyless.io/docs/remote-access-setup-overview) deployment.
 
