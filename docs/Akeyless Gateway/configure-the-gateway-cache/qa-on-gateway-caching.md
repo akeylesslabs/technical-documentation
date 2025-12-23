@@ -34,7 +34,7 @@ The Akeyless Gateway utilizes two distinct types of caches to ensure both high p
 The types of caches are:
 
 1. **Local In Memory Cache** Speed up day-to-day secret retrieval by keeping the last value locally.
-2. **Cluster Cache Mode (Kubernetes only)**: Provide a shared, highly available, encrypted cache service for all Gateway pods in a Kubernetes Deployment. Helm chart spins up a `cache` service, all pods `read/write` through it, so every pod sees the same cached objects. Secrets are stored encrypted at rest, you supply a `Kubernetes` Secret cluster cache encryption key (and optional TLS between pod and cache). Because the cache is external to any single pod, rolling upgrades or pod restarts do not clear the cache. An optional cache HA flag turns the service itself into a multi-replica set backed by a `ReadWriteOnce` storage class (`Gateway version v4.34 and higher`).
+2. **Cluster Cache Mode (Kubernetes only)**: Provide a shared, highly available, encrypted cache service for all Gateway pods in a Kubernetes Deployment. Helm chart spins up a `cache` service, all pods `read/write` through it, so every pod sees the same cached objects. Secrets are stored encrypted at rest, you supply a `Kubernetes` Secret cluster cache encryption key (and optional TLS between pod and cache). Because the cache is external to any single pod, rolling upgrades or pod restarts do not clear the cache. An optional cache HA flag turns the service itself into a multi-replica set backed by a `ReadWriteOnce` StorageClass (`Gateway version v4.34 and higher`).
 
 ## How Proactive Cache Works?
 

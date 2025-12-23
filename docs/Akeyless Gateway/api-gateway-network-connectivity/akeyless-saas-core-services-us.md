@@ -271,7 +271,7 @@ The following table describes the main functionality of Akeyless microservices i
 
     <tr>
       <td style={{ textAlign: "left" }}>
-        Public HVP
+        Public HashiCorp Vault Proxy
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -287,7 +287,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Optional Public HVP endpoint
+        Optional Public HashiCorp Vault Proxy endpoint
       </td>
     </tr>
 

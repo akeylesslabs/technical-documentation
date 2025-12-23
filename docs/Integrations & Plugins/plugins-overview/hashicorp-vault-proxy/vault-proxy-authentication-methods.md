@@ -18,9 +18,9 @@ next:
 
 Some of Vault’s plugins support only AppRole authentication.
 
-For those types of plugins, you’ll need to specify `role_id` & `secret_id`, for using HVP you’ll need to use `Access Id` & `Access key` replacing `role_id` & `secret_id`correspondingly.
+For those types of plugins, you’ll need to specify `role_id` & `secret_id`, for using HashiCorp Vault Proxy you’ll need to use `Access Id` & `Access key` replacing `role_id` & `secret_id`correspondingly.
 
-For example, Vault AppRole authentication using HVP:
+For example, Vault AppRole authentication using HashiCorp Vault Proxy:
 
 ```shell
 export VAULT_ADDR='https://hvp.akeyless.io'

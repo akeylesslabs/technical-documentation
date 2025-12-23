@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions via HVP
+title: GitHub Actions via HashiCorp Vault Proxy
 excerpt: ''
 deprecated: false
 hidden: false
@@ -111,7 +111,7 @@ jobs:
 
 > 📘
 >
-> If you are working with your own Akeyless Gateway, set the value of the **url** field as your Akeyless Gateway URL of your Gateway HVP endpoint `https://Your-Gateway-URL:8000/hvp` (or using your gateway url at port 8200)
+> If you are working with your own Akeyless Gateway, set the value of the `url` field as your Akeyless Gateway URL of your Gateway HashiCorp Vault Proxy endpoint `https://Your-Gateway-URL:8000/hvp` (or using your gateway url at port 8200)
 
 Note that the token used to authenticate is set to the **VAULT\_TOKEN** secret you defined in the GitHub repository.
 

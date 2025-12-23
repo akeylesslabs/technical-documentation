@@ -61,7 +61,7 @@ akeyless gateway update log-forwarding logstash \
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluelogstashp) section.
 
-## ELK - ElasticSearch
+## ELK - Elasticsearch
 
 ```shell
 akeyless gateway update log-forwarding elasticsearch \

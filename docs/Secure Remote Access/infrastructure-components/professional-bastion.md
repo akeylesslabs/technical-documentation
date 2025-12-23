@@ -34,10 +34,7 @@ To spin Akeyless Professional-Bastion using Docker please refer to the last sect
 
 ### Storage
 
-Currently, the Helm chart requires a storage class with ReadWriteMany access modes.
-Since a storage class is more environment specific, you will need to provide one before proceeding. In addition, please provide 2 PersistentVolumes with `persistentVolumeReclaimPolicy: retain` and reference those PVs in the `values.yaml` file
-
-e.g when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
+Currently, the Helm chart requires a StorageClass with `ReadWriteMany` access modes. Since a StorageClass is environment specific, you will need to provide one before proceeding. In addition, please provide two PersistentVolumes with `persistentVolumeReclaimPolicy: retain` and reference those PersistentVolumes in the `values.yaml` file. For example, when using Amazon EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
 ### Network
 

@@ -45,7 +45,7 @@ The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Hel
 | :----------------------------------------------------------------- | :---- |
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000  |
 | Gateway Console                                                    | 18888 |
-| [HVP](https://docs.akeyless.io/docs/hashicorp-vault-proxy)                                   | 8200  |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)                                   | 8200  |
 | Akeyless V1 REST API                                               | 8080  |
 | [Akeyless V2 REST API](https://docs.akeyless.io/reference)         | 8081  |
 | [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                                     | 5696  |

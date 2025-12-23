@@ -77,7 +77,7 @@ Creates a new Artifactory target in the current account
 ```shell
 akeyless target create artifactory \
 --name <Target name> \
---base-url <Artifactory REST URL, must end with artifactory postfix> \
+--base-url <Artifactory REST URL, must end with "artifactory" postfix> \
 --artifactory-admin-name <Admin name> \
 --artifactory-admin-pwd <Admin API Key/Password> \
 --key <Key name>
@@ -87,7 +87,7 @@ akeyless target create artifactory \
 
 `-n, --name`: **Required**, Target name
 
-`-b, --base-url`: **Required**, Artifactory REST URL, must end with artifactory postfix
+`-b, --base-url`: **Required**, Artifactory REST URL, must end with `artifactory` postfix
 
 `-a, --artifactory-admin-name`: **Required**, Admin name
 
@@ -1167,7 +1167,7 @@ List of all targets in the account
 
 ### `artifactory`
 
-updates an existing artifactory target in the current account
+Updates an existing Artifactory target in the current account
 
 #### Usage
 
@@ -1187,7 +1187,7 @@ akeyless target update artifactory \
 
 `--new-name`: New target name
 
-`-b, --base-url`: **Required**, Artifactory REST URL, must end with artifactory postfix
+`-b, --base-url`: **Required**, Artifactory REST URL, must end with `artifactory` postfix
 
 `-a, --artifactory-admin-name`: **Required**, Admin name
 

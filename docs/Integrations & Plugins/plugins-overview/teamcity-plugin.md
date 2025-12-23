@@ -64,7 +64,7 @@ When performing integration tests and deployments, build scripts need credential
 
 Where:
 
-* **Vault URL:** Specify your Gateway URL with the HVP port: `https://<Your-Gateway-URL>:8200` or use the public endpoint of Akeyless HVP: `https://hvp.akeyless.io`.
+* **Vault URL:** Specify your Gateway URL with the HashiCorp Vault Proxy port: `https://<Your-Gateway-URL>:8200` or use the public endpoint of Akeyless HashiCorp Vault Proxy: `https://hvp.akeyless.io`.
 
 * **Authentication method:** Select the authentication method to use when authenticating with Akeyless.
 

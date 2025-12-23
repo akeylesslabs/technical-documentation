@@ -148,7 +148,7 @@ To force the Cache to write only to memory without writing to the file system, y
      - "no"
 ```
 
-To set a persistence volume you can set this with your [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, or using `emptyDir`:
+To set a persistence volume you can set this with your [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, or using `emptyDir`:
 
 ```yaml values.yaml with storageClass
   clusterCache:
@@ -190,7 +190,7 @@ kubectl create secret generic cache-configuration \
   --from-literal=cluster-cache-encryption-key=<base64-encoded-cluster-cache-encryption-key>
 ```
 
-Set your [storage class](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, for example:
+Set your [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) according to your environment, for example:
 
 ```yaml AWS
 apiVersion: storage.k8s.io/v1
