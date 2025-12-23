@@ -17,11 +17,8 @@ Akeyless connect provides you with secure CLI access to resources or a secure tu
 To use Akeyless Connect you need:
 
 * Akeyless CLI v1.42.0 or higher.
-
 * An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
-
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with Remote Access enabled.
-
 * OpenSSH v7.2 or higher on target servers.
 
 > 👍 Note
@@ -35,11 +32,12 @@ To use Akeyless Connect you need:
 
 Install the latest version of [Akeyless Command Line Interface (CLI)](https://docs.akeyless.io/docs/cli) or run `akeyless update` to ensure you're using the latest version.
 
-**Optional**: Download the `akeyless-connect.rc` file from [https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs. If you prefer to get started without this, go straight to the Usage section below.
+**Optional**: Download the [`akeyless-connect.rc` file](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs.
 
-> 📘 RC file location
+> 📘 RC File Notes
 >
-> Note that the `~/.akeyless-connect.rc` file must be placed in your local $HOME directory to work.
+> The `~/.akeyless-connect.rc` file must be placed in your local `$HOME` directory to work.
+>  The RC file still uses `BASTION_*` variable names for historical reasons, but the CLI flags are now `--sra-ctrl-*`.
 
 ```shell akeyless-connect.rc
 # ---------------------------------------------------------------------
@@ -112,17 +110,17 @@ Edit the settings as follows:
 
 `AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
-`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS.  
+`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS. This corresponds to the SRA control API protocol (CLI flag `--sra-ctrl-proto`).  
 
-`BASTION_API_PORT` - Default is set to `9900`. Set your matching `ssh-sra` cluster service port.
+`BASTION_API_PORT` - Default is `9900`. Set your matching `ssh-sra` cluster service port. This corresponds to the SRA control API port (CLI flag `--sra-ctrl-port`).
 
 `BASTION_SSH_PORT` - Default is set to `22`. Set your matching `ssh-sra` cluster service port.
 
 **Optional**: When working with Application Load Balancers, you can set the exact path of your `ssh-sra` service, which listens to the bastion `api` control port:
 
-`BASTION_API_PREFIX` - Set your path prefix as your load balancer settings.
+`BASTION_API_PREFIX` - Set your path prefix as your load balancer settings. This corresponds to the SRA control API port (CLI flag `--sra-ctrl-subdomain`).
 
-`BASTION_API_PATH` - Set your path as your load balancer settings.
+`BASTION_API_PATH` - Set your path as your load balancer settings. This corresponds to the SRA control API port (CLI flag `--sra-ctrl-path`).
 
 Where the URL will be set as follows:
 
@@ -162,32 +160,39 @@ akeyless connect -t <[user@]target/hostname/ip[:port]> -g <your-gateway-ip[:port
 
 Full options list:
 
-```shell akeyless connect -h
--t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
--v, --via-bastion                      Bastion host, which the connection will go through. e.g.: bastion-host:port.
--g, --gateway-url                      The Gateway URL (configuration management) address of the ssh service, e.g. http://localhost:8000
--c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified will be taken from ~/.akeyless-connect.rc 
--i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read. The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
--n, --name                             Path to Secret, based on the required connection
-    --ssh-extra-args                   Additional SSH arguments (except -i)
-    --bastion-ctrl-proto[=http]        Bastion API Protocol [http/https]
-    --bastion-ctrl-subdomain           Bastion control API URL prefix. e.g. https://<prefix>.bastion-host
-    --bastion-ctrl-path                Bastion control API path. e.g. https://bastion-host/<path>
-    --bastion-ctrl-port[=9900]         Bastion control API port. e.g. https://bastion-host:<7777>
-    --gateway-rest-endpoint            Gateway RestAPI URL. e.g. https://rest.akeyless.io
--V, --ssh-version                      Output local SSH client version
-    --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
-    --ssh-command                      Path to SSH executable. e.g. /usr/bin/ssh
--T, --tunnel                           SSH tunnel param. e.g. -T='-L :5555:0.0.0.0:5555' 
--C, --command                          Command to execute on the target (useful for non interactive-mode). e.g. -C='ls -al'
--J, --justification                    User connection justification    
-    --debug                            Output debug prints
-    --profile, --token                 Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
-    --uid-token                        The universal identity token, Required only for universal_identity authentication
--h, --help                             display help information
-    --json[=false]                     Set output format to JSON
-    --jq-expression                    JQ expression to filter result output
-    --no-creds-cleanup[=false]         Do not clean local temporary expired credentials
+```shell
+akeyless connect -h
+Perform secure remote access
+
+Options:
+
+  -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
+  -v, --via-sra                          SRA host, which the connection will go through. e.g.: sra-host:port.
+  -g, --gateway-url                      The Gateway URL (configuration management) address, e.g. http://localhost:8000
+  -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified it will be taken from ~/.akeyless-connect.rc. If not specified it will be taken from item details
+  -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
+      --generate-key                     Generates a one-time RSA private key for the session, deleted when done
+  -n, --name                             Path to Secret, based on the required connection
+      --ssh-extra-args                   Additional SSH arguments (except -i)
+      --sra-ctrl-proto[=http]            SRA API Protocol [http/https]
+      --sra-ctrl-subdomain               SRA control API URL prefix. e.g. https://<prefix>.sra-host
+      --sra-ctrl-path                    SRA control API path. e.g. https://sra-host/<path>
+      --sra-ctrl-port[=9900]             SRA control API port. e.g. https://sra-host:<7777>
+      --gateway-rest-endpoint            Gateway RestAPI URL. e.g. https://rest.akeyless.io
+  -V, --ssh-version                      Output local SSH client version
+      --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
+      --ssh-command                      Path to SSH executable. e.g. /usr/bin/ssh
+  -T, --tunnel                           SSH tunnel param. e.g. -T='-L :5555:0.0.0.0:5555' 
+  -C, --command                          Command to execute on the target (useful for non interactive-mode). e.g. -C='ls -al'
+      --k8s-tunnel                       Create an SSH tunnel with a k8s proxy on a specific local port (1024-65535) (if provided, "command" & "tunnel" flags are ignored)
+  -J, --justification                    User connection justification
+      --debug                            Output debug prints
+      --profile, --token                 Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
+      --uid-token                        The universal identity token, Required only for universal_identity authentication
+  -h, --help                             display help information
+      --json[=false]                     Set output format to JSON
+      --jq-expression                    JQ expression to filter result output
+      --no-creds-cleanup[=false]         Do not clean local temporary expired creds
 ```
 
 ## Examples
@@ -202,7 +207,7 @@ akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert
 
 > 📘 Info
 >
-> For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert-issuer-name` for the **other** cert-issuer. This will enable access through the bastion based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
+> For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert-issuer-name` for the **other** cert-issuer. This will enable access through SRA based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
 
 ### AWS
 
