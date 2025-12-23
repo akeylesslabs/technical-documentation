@@ -28,7 +28,7 @@ Each access request triggers the creation of a dedicated record in ServiceNow Ak
 
 System administrators receive immediate email or notification alerts upon new access requests. This notification mechanism ensures that requests are promptly reviewed and evaluated, minimizing delays in access provisioning.
 
-**Note:** Notifications will need to be configured by ServiceNow Admin on the instance level for recorded addition or record update of the Akeyless ServiceNow application "access request" table.
+_Note:_ Notifications will need to be configured by ServiceNow Admin on the instance level for recorded addition or record update of the Akeyless ServiceNow application "access request" table.
 
 ### Streamlined Approval/Decline Process
 
@@ -46,7 +46,7 @@ Upon approval, ServiceNow Akeyless integration seamlessly generates temporary ac
 
 Requestors receive timely notifications regarding the status of their access requests. This communication keeps users informed and enhances their overall experience with the access management process.
 
-**Note:** Notifications will need to be configured by ServiceNow Admin on the instance level for recorded addition or record update of the Akeyless ServiceNow application "access request" table.
+_Note:_ Notifications will need to be configured by ServiceNow Admin on the instance level for recorded addition or record update of the Akeyless ServiceNow application "access request" table.
 
 ## Required Configuration on Akeyless System
 
@@ -114,7 +114,7 @@ Add JWT authentication in ServiceNow:
 
 <Image border={false} src="https://files.readme.io/c1d69ce-Screenshot_2024-07-14_at_15.33.14.png" />
 
-* Scroll down to “JWT Verifier Maps”, press New.
+* Scroll down to “JWT Verifier Maps”. Select **New**.
 
 <Image border={false} src="https://files.readme.io/8af87f5-Screenshot_2024-07-14_at_15.33.39.png" />
 
@@ -127,7 +127,7 @@ Add JWT authentication in ServiceNow:
 
 <Image border={false} src="https://files.readme.io/b22ab87-Screenshot_2024-07-14_at_15.45.00.png" />
 
-* Scroll down to Roles and press Edit:
+* Scroll down to Roles and select Edit:
 
 <Image border={false} src="https://files.readme.io/010f9ce-Screenshot_2024-07-14_at_15.49.21.png" />
 

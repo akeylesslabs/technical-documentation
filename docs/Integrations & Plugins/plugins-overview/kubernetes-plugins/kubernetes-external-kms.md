@@ -36,139 +36,16 @@ Kubernetes external KMS plugin can be deployed using a [static pod](https://kube
 
 ## Akeyless Environment Variables
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-
-      <th>
-        Value
-      </th>
-
-      <th>
-        Default
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        `AKEYLESS_URL`
-      </td>
-
-      <td>
-        URL of the Akeyless RestAPI Gateway  
-        (port 8081)
-      </td>
-
-      <td>
-        [https://api.akeyless.io](https://api.akeyless.io)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `AKEYLESS_UNIX_SOCKET`
-      </td>
-
-      <td>
-        Path to listen on Unix socket
-      </td>
-
-      <td>
-        `/tmp/akeyless_kms_plugin.sock`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `AKEYLESS_KEY_ENCRYPTION_KEY`
-      </td>
-
-      <td>
-        The key used for encryption  
-        (decryption is handled automatically)
-      </td>
-
-      <td>
-        N\A
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `AKEYLESS_ACCESS_ID`
-      </td>
-
-      <td>
-        Access ID of the auth method used
-      </td>
-
-      <td>
-
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `AKEYLESS_ACCESS_KEY`
-      </td>
-
-      <td>
-        Access Key if access_key auth method is used
-      </td>
-
-      <td>
-
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `AKEYLESS_AZURE_OBJECT_ID`
-      </td>
-
-      <td>
-        Azure Object ID if azure_ad auth method is used
-      </td>
-
-      <td>
-
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `AKEYLESS_GCP_AUDIENCE`
-      </td>
-
-      <td>
-        GCP Audience if gcp auth method is used
-      </td>
-
-      <td>
-        `akeyless.io`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `AKEYLESS_UID_INIT_TOKEN`
-      </td>
-
-      <td>
-        Universal Identity init token if universal_identity auth method is used
-      </td>
-
-      <td>
-
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Name | Value | Default |
+|---|---|---|
+| `AKEYLESS_URL` | URL of the Akeyless REST API Gateway (port 8081) | [https://api.akeyless.io](https://api.akeyless.io) |
+| `AKEYLESS_UNIX_SOCKET` | Path to listen on Unix socket | `/tmp/akeyless_kms_plugin.sock` |
+| `AKEYLESS_KEY_ENCRYPTION_KEY` | The key used for encryption (decryption is handled automatically) | N/A |
+| `AKEYLESS_ACCESS_ID` | Access ID of the auth method used |  |
+| `AKEYLESS_ACCESS_KEY` | Access Key if `access_key` auth method is used |  |
+| `AKEYLESS_AZURE_OBJECT_ID` | Azure Object ID if `azure_ad` auth method is used |  |
+| `AKEYLESS_GCP_AUDIENCE` | GCP Audience if `gcp` auth method is used | `akeyless.io` |
+| `AKEYLESS_UID_INIT_TOKEN` | Universal Identity init token if `universal_identity` auth method is used |  |
 
 ## Standalone Docker Container
 

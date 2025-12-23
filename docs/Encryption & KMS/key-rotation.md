@@ -43,8 +43,8 @@ Where:
 If you wish to add a rotation schedule, use the following command:
 
 ```shell MyAES256SIVKey
-akeyless update-rotation-settings --name &lt;key name&gt; --auto-rotate=&lt;true/false&gt;\
---rotation-interval &lt;days between rotation&gt;
+akeyless update-rotation-settings --name <key name> --auto-rotate=<true/false>\
+--rotation-interval <days between rotation>
 ```
 
 Where:

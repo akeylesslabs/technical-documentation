@@ -36,7 +36,7 @@ In the first field labeled 'Password Name,' enter a unique and easily recognizab
 
 Optionally, you can specify the 'Location' of the password by utilizing the drop-down button located on the right area of the 'Location' field.
 
-If the desired folder does not exist, you will be able to create a new folder within the password location window, press the "Create New Folder" button to create a new folder.
+If the desired folder does not exist, you will be able to create a new folder within the password location window, select the "Create New Folder" button to create a new folder.
 
 ### Step 4: Enhance Security and Add Context
 
@@ -57,7 +57,7 @@ In the 'Password' field, you have two options:
 
 ### Step 6: Save the Newly Created Password
 
-Saving the Password: Review the details you’ve entered. Once you're satisfied that everything is correct, press the 'Save' button. This action securely stores the new password within the Akeyless app.
+Saving the Password: Review the details you’ve entered. Once you're satisfied that everything is correct, select the 'Save' button. This action securely stores the new password within the Akeyless app.
 
 Confirmation: The app will confirm that your password has been saved. It's now securely stored and accessible within the app, ready for use whenever you need it.
 

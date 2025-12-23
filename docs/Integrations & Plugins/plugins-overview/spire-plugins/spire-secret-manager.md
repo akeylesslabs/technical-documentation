@@ -112,7 +112,7 @@ Where:
 
 * `target_folder` - A path to save all items inside Akeyless where the generated `SVIDs` will be stored
 
-For **K8s**,**GCP** or **AzureAD** Auth Method set the following settings as well:
+For **Kubernetes**, **GCP** or **AzureAD** Auth Method set the following settings as well:
 
 * `k8s_auth_config_name`- Kubernetes Auth Config name as created under your Gateway
 

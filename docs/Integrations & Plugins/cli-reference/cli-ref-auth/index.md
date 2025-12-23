@@ -493,7 +493,7 @@ Create a new Oracle Auth Method that will be used in the account using OCI princ
 akeyless auth-method create oci \
 --name <Auth Method name> \
 --tenant-ocid <Oracle Cloud tenant ID> \
---group-ocid <required groups ocids>
+--group-ocid <required groups OCIDs>
 ```
 
 ##### Flags
@@ -502,7 +502,7 @@ akeyless auth-method create oci \
 
 `-t, --tenant-ocid`: **Required**, The Oracle Cloud tenant ID
 
-`-g, --group-ocid`: **Required**, A list of required groups ocids
+`-g, --group-ocid`: **Required**, A list of required groups OCIDs
 
 `--description`: Auth Method description
 
@@ -650,15 +650,15 @@ akeyless get-cloud-identity \
 
 `--cloud-provider`: Cloud provider (`azure_ad`/`aws_iam`/`gcp`)
 
-`--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for access-type=`azure_ad`)
+`--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for `access-type=azure_ad`)
 
-`--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for access-type=`gcp`)
+`--gcp-audience[=akeyless.io]`: GCP audience to use in signed JWT (relevant only for `access-type=gcp`)
 
-`--oci-auth-type[=apikey]`: The type of the OCI configuration to use `[instance/apikey/resource]` (relevant only for access-type=`oci`)
+`--oci-auth-type[=apikey]`: The type of the OCI configuration to use `[instance/apikey/resource]` (relevant only for `access-type=oci`)
 
 `--describe-sub-claims`: Describe the cloud identity sub-claims
 
-`--oci-group-ocid`: A list of required groups ocids (relevant only for `access-type=oci`)
+`--oci-group-ocid`: A list of required groups OCIDs (relevant only for `access-type=oci`)
 
 `--url_safe`: Escapes the token so it can be safely placed inside a URL query
 
@@ -1002,7 +1002,7 @@ akeyless auth-method update oci \
 --name <Auth Method name> \
 --new-name <Auth Method new name> \
 --tenant-ocid <Oracle Cloud tenant ID> \
---group-ocid <required groups ocids>
+--group-ocid <required groups OCIDs>
 ```
 
 ##### Flags
@@ -1011,7 +1011,7 @@ akeyless auth-method update oci \
 
 `-t, --tenant-ocid`: **Required**, The Oracle Cloud tenant ID
 
-`-g, --group-oicd`: **Required**, A list of required groups ocids
+`-g, --group-oicd`: **Required**, A list of required groups OCIDs
 
 `--new-name`: Auth Method new name
 

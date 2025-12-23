@@ -28,13 +28,13 @@ akeyless create-azure-target \
 
 Where:
 
-* **name:** A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+* `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-* **client-id:** The Application ID of the admin user that will be used to authenticate Akeyless with Azure.
+* `client-id`: The Application ID of the admin user that will be used to authenticate Akeyless with Azure.
 
-* **client-secret:** The client secret of the admin user that will be used to authenticate Akeyless with Azure.
+* `client-secret`: The client secret of the admin user that will be used to authenticate Akeyless with Azure.
 
-* **tenant-id:** Your Azure Tenant ID.
+* `tenant-id`: Your Azure Tenant ID.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Targets](https://docs.akeyless.io/docs/cli-ref-targets#/azure) section.
 
@@ -90,19 +90,19 @@ akeyless create-azure-target \
 
 Where:
 
-* **name:** A unique name of the target. The name can include the path to the virtual folder where you want to create the new secret, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+* `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new secret, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-* **tenant-id:** The ID of your Azure tenant.
+* `tenant-id`: The ID of your Azure tenant.
 
-* **client-id:** The client ID of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage Account.
+* `client-id`: The client ID of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage Account.
 
-* **client-secret:** The client secret of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage Account.
+* `client-secret`: The client secret of the App with the “Storage Account Key Operator Service Role“ permissions that is assigned to the Azure Storage Account.
 
-* **subscription-id:** The ID of a Subscription that contains the Azure Storage Account.
+* `subscription-id`: The ID of a Subscription that contains the Azure Storage Account.
 
-* **resource-group-name:** The name of the Resource Group to which your Azure Storage Account belongs.
+* `resource-group-name`: The name of the Resource Group to which your Azure Storage Account belongs.
 
-* **resource-name:** The name of the Azure Storage Account.
+* `resource-name`: The name of the Azure Storage Account.
 
 ## GCP
 
@@ -121,11 +121,11 @@ akeyless create-gcp-target \
 
 Where:
 
-* **name:** A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+* `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-* **gcp-key-file-path:** A path to the file with the base64-encoded private key of the service account.
+* `gcp-key-file-path`: A path to the file with the base64-encoded private key of the service account.
 
-* **gcp-sa-email:** The GCP service account email.
+* `gcp-sa-email`: The GCP service account email.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Targets](https://docs.akeyless.io/docs/cli-ref-targets#/gcp) section.
 

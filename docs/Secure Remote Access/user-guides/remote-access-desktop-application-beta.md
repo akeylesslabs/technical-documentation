@@ -109,7 +109,7 @@ You should be able to see a list of the resources you can connect to, upon your 
 
 > 🚧 Multiple Hosts / Linked Targets
 >
-> The Desktop Application supports the use of multiple hosts / linked targets. You can easily add / remove hosts you wish to connect to and press on `Confirm`.
+> The Desktop Application supports the use of multiple hosts / linked targets. You can easily add / remove hosts you wish to connect to and select on `Confirm`.
 >
 > > Note: Removing host from the list only removes it from the list of hosts in the desktop application.
 

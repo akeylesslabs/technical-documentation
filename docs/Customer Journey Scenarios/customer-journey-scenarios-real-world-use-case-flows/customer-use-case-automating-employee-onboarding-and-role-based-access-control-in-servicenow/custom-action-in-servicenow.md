@@ -63,7 +63,7 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 * In the action editor, add a new step and choose the type that allows you to execute a script, often labeled as Run Script or something similar.
 * In the script step, you will write the code to make the POST request to the external API. ServiceNow provides a RESTMessageV2 class for this purpose.
-* To add a place where you will be able to write a script press the blue plus button.
+* To add a place where you will be able to write a script select the blue plus button.
 
 ![](https://files.readme.io/b18117b-Screenshot_2024-02-29_at_19.11.03.png)
 

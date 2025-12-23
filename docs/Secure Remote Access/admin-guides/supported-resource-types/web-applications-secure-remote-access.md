@@ -47,9 +47,9 @@ akeyless update-item --name <static secret name> /
 
 Where:
 
-* **secure-access-url:** The web application login URL to inject secret.
-* **secure-access-web-browsing:** Optional, secure web browsing over isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
-* **secure-access-web-proxy:** Optional, secure web-proxy,**available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `secure-access-url`: The web application login URL to inject secret.
+* `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `secure-access-web-proxy`: Optional, secure web-proxy, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 > 🚧 Warning
 >

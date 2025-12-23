@@ -27,7 +27,7 @@ First, you must create a [Web Target](https://docs.akeyless.io/docs/web-targets)
 To create a [Web Target](https://docs.akeyless.io/docs/web-targets) using the Akeyless CLI, run the following command:
 
 ```shell
-akeyless create-web-target -n &lt;your web target name&gt; \
+akeyless create-web-target -n <your web target name> \
 -u https://my.web.server/rotate
 ```
 
@@ -42,7 +42,7 @@ Use the following endpoint to verify all requests:
 ```http
 POST auth.akeyless.io/validate-producer-credentials
 {
-  "creds": "&lt;redacted jwt token&gt;",
+  "creds": "<redacted jwt token>",
   "expected_access_id": "p-1234",
   "expected_item_name": "/custom-rotated-foo",
 }
@@ -62,15 +62,15 @@ To create a custom Rotated Secret with the CLI, run the following command:
 
 ```shell
 akeyless rotated-secret create custom \
---name &lt;Rotated Secret name&gt;
---gateway-url 'https://&lt;Your-Akeyless-GW-URL:8000&gt;' \
---target-name &lt;Web Target item name&gt; \
---authentication-credentials &lt;use-user-creds&gt; \
+--name <Rotated Secret name>
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--target-name <Web Target item name> \
+--authentication-credentials <use-user-creds> \
 --password-length 16
 --rotator-type custom \
---custom-payload &lt;Secret payload to be sent with rotation request&gt; \
---auto-rotate &lt;true|false&gt; \
---rotation-interval &lt;1-365&gt;
+--custom-payload <Secret payload to be sent with rotation request> \
+--auto-rotate <true|false> \
+--rotation-interval <1-365>
 ```
 
 Where:

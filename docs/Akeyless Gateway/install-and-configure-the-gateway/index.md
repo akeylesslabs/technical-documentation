@@ -22,7 +22,7 @@ next:
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) & [Targets](https://docs.akeyless.io/docs/targets).
 
 <Callout icon="👍" theme="okay">
-  _**Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Using the account owner's email and password which has superuser privileges on the account._
+  __Note:_ The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Using the account owner's email and password which has superuser privileges on the account._
 </Callout>
 
 * A Linux or a Windows machine with [Docker Engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2 GB RAM.

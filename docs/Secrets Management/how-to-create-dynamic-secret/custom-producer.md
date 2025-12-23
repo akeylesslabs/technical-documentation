@@ -131,7 +131,7 @@ Where:
 </td>
   <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A JSON object that includes any fields required by the particular use case.</p>
 </td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;cert&quot;:&quot;&lt;redacted&gt;&quot;,   &quot;private_key&quot;:&quot;&lt;redacted&gt;&quot; }`</p>
+  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;cert&quot;:&quot;<redacted>&quot;,   &quot;private_key&quot;:&quot;<redacted>&quot; }`</p>
 <p>`{&quot;password&quot;:&quot;`strongpassword!`&quot;}`</p>
 </td>
 </tr>
@@ -325,15 +325,15 @@ akeyless dynamic-secret create \
 
 Where:
 
-- **name:** A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+* `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
-- **gateway-url:** Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- **create-sync-url:** The URL of an endpoint that implements the /sync/create method.
+* `create-sync-url`: The URL of an endpoint that implements the /sync/create method.
 
-- **revoke-sync-url:** The URL of an endpoint that implements the /sync/revoke method.
+* `revoke-sync-url`: The URL of an endpoint that implements the /sync/revoke method.
 
-- **rotate-sync-url:** The URL of an endpoint that implements the /sync/rotate method.
+* `rotate-sync-url`: The URL of an endpoint that implements the /sync/rotate method.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluecustomp) section.
 
@@ -343,6 +343,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Usage Examples
 
-You can find examples of custom dynamic secret implementations in this <a href="https://github.com/akeylesslabs/custom-producer" target="_blank">GitHub Repository</a>.
+You can find examples of custom dynamic secret implementations in this [GitHub repository](https://github.com/akeylesslabs/custom-producer).
 
 The repository includes sample authentication code, deployment examples (using a Docker image, or [AWS Lambda function](https://github.com/akeylesslabs/custom-producer/tree/master/go/echoserver#setting-up-aws-lambda), or similar) and actual dynamic secret implementations, such as [Let’s Encrypt](https://github.com/akeylesslabs/custom-producer/tree/master/go/letsencrypt).

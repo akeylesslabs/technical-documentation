@@ -24,10 +24,10 @@ Delete an RBAC rule from a client
 
 ```shell
 akeyless kmip-client-delete-rule \
---path &lt;Access path&gt; \
---name &lt;KMIP client name&gt; \
---client-id &lt;KMIP client ID&gt; \
---gateway-url &lt;API Gateway URL:8000&gt;
+--path <Access path> \
+--name <KMIP client name> \
+--client-id <KMIP client ID> \
+--gateway-url <API Gateway URL:8000>
 ```
 
 #### Flags
@@ -60,11 +60,11 @@ Supported capabilities are:
 
 ```shell
 akeyless kmip-client-set-rule \
---path &lt;Access path&gt; \
---capability &lt;Access capability&gt; \
---name &lt;KMIP client name&gt; \
---client-id &lt;KMIP client ID&gt; \
---gateway-url &lt;API Gateway URL:8000&gt;
+--path <Access path> \
+--capability <Access capability> \
+--name <KMIP client name> \
+--client-id <KMIP client ID> \
+--gateway-url <API Gateway URL:8000>
 ```
 
 #### Flags
@@ -87,9 +87,9 @@ Create a new KMIP client
 
 ```shell
 akeyless kmip-create-client \
---name &lt;Client name&gt; \
---certificate-ttl &lt;Server certificate TTL in days (Deafult = 90)&gt; \
---gateway-url &lt;API Gateway URL:8000&gt;
+--name <Client name> \
+--certificate-ttl <Server certificate TTL in days (Deafult = 90)> \
+--gateway-url <API Gateway URL:8000>
 ```
 
 #### Flags
@@ -182,15 +182,15 @@ Move the root location of the kmip server and all associated items to a new root
 
 ```shell
 akeyless kmip-server-move \
---new-root &lt;New root for the kmip server&gt; \
---gateway-url &lt;API Gateway URL:8000&gt;
+--new-root <New root for the KMIP server> \
+--gateway-url <API Gateway URL:8000>
 ```
 
 #### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port).
 
-`-n, --new-root`: **Required**, New root for the kmip server
+`-n, --new-root`: **Required**, New root for the KMIP server
 
 ### `kmip-server-setup`
 
@@ -200,10 +200,10 @@ Create a new KMIP environment
 
 ```shell
 akeyless kmip-server-setup \
---hostname &lt;KMPI server hostname&gt; \
---certificate-ttl &lt;Server certificate TTL in days (Deafult = 90)&gt; \
---root &lt;Root path of KMIP Objects&gt; \
---gateway-url &lt;API Gateway URL:8000&gt;
+--hostname <KMPI server hostname> \
+--certificate-ttl <Server certificate TTL in days (Deafult = 90)> \
+--root <Root path of KMIP Objects> \
+--gateway-url <API Gateway URL:8000>
 ```
 
 #### Flags
@@ -226,8 +226,8 @@ Set the server state to enabled/disabled
 
 ```shell
 akeyless kmip-set-server-state \ 
---state &lt;Enabled / Disabled&gt; \
---gateway-url &lt;API Gateway URL:8000&gt;
+--state <Enabled / Disabled> \
+--gateway-url <API Gateway URL:8000>
 ```
 
 #### Flags

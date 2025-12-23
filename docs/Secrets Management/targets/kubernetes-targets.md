@@ -195,11 +195,11 @@ Where:
 
 * `k8s-cluster-token`: A JWT authentication token authorized to create service account tokens.
 
-* `k8s-auth-type`: Kubernetes auth type, either **token** (default) or **certificate**.
+* `k8s-auth-type`: Kubernetes auth type, either `token` (default) or `certificate`.
 
-* `k8s-client-certificate`: Kubernetes client certificate (PEM format) in Base64, relevant only for **k8s-auth-type=certificate**.
+* `k8s-client-certificate`: Kubernetes client certificate (PEM format) in Base64, relevant only for `k8s-auth-type=certificate`.
 
-* `k8s-client-key`: Kubernetes client private key (PEM format) in Base64, relevant only for **k8s-auth-type=certificate**
+* `k8s-client-key`: Kubernetes client private key (PEM format) in Base64, relevant only for `k8s-auth-type=certificate`
 
 Or using your [Gateway](https://docs.akeyless.io/docs/gateway-k8s) **Service Account**:
 

@@ -629,7 +629,7 @@ To sync the **Rotated Secret** that was just created with the **AWS Secret Manag
 
 1. Choose the **Rotated Secret** item.
 
-2. Go to **Sync** tab, press **Add** and fill the following parameters:
+2. Go to **Sync** tab. Select **Add** and fill the following parameters:
 
    1. **Universal Secret Connector Name** - The name of the **AWS Universal Secret Connector**.
 

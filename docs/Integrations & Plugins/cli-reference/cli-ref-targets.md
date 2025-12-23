@@ -604,7 +604,7 @@ akeyless target create k8s \
 
 `-n, --name`: **Required**, Target name
 
-`-e, --k8s-cluster-endpoint`: **Required**, Kubernetes Cluster endpoint. `https://`, \<DNS / IP> of the cluster
+`-e, --k8s-cluster-endpoint`: **Required**, Kubernetes Cluster endpoint. `https://<DNS / IP>` of the cluster
 
 `-c, --k8s-cluster-ca-cert`: **Required**, Kubernetes Cluster certificate. Base 64 encoded certificate
 
@@ -612,8 +612,9 @@ akeyless target create k8s \
 
 `-i, --use-gw-service-account`: Use GW's service account. **Boolean** when provided only `name` is required
 
-`--k8s-auth-type[=token]`: Kubernetes auth type, [token/certificate]
-`--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format
+`--k8s-auth-type[=token]`: Kubernetes auth type, `[token/certificate]`
+
+`--k8s-client-certificate`: Content of the Kubernetes client certificate (PEM format) in a Base64 format
 
 `--k8s-client-certificate-file`: Path to a file that contain the Kubernetes client private key in PEM format
 
@@ -1322,7 +1323,7 @@ akeyless update-db-target \
 
 `-n, --name`: **Required**, Target name
 
-`-t, --db-type`: **Required**, Database type: mysql/mssql/postgres/mongodb/snowflake/cassandra/oracle/redshift/redis
+`-t, --db-type`: **Required**, Database type: `[mysql/mssql/postgres/mongodb/snowflake/cassandra/oracle/redshift/redis]`
 
 `--new-name`: New target name
 
@@ -1499,7 +1500,7 @@ updates a new GitHub target in the current account
 akeyless target update github \
 --name <Target Name> \
 --new-name <New target name> \
---github-app-id <Github application id> \
+--github-app-id <Github application ID> \
 --github-app-private-key <Github application private key> \
 --github-base-url <Github base url (Deafult = https://api.github.com>
 ```
@@ -1514,7 +1515,7 @@ akeyless target update github \
 
 `--github-app-private-key`: GitHub application private key (Base64-encoded key)
 
-`--github-base-url[=https://api.github.com/]`: GitHub base url
+`--github-base-url[=https://api.github.com/]`: GitHub base URL
 
 `--description`: Target description
 
@@ -1768,7 +1769,7 @@ akeyless target update k8s \
 
 `-i, --use-gw-service-account`: Use the Gateway's ServiceAccount
 
-`--k8s-auth-type[=token]`: Kubernetes auth type, [token/certificate]
+`--k8s-auth-type[=token]`: Kubernetes auth type, `[token/certificate]`
 
 `--k8s-client-certificate`: Content of the k8 client certificate (PEM format) in a Base64 format
 

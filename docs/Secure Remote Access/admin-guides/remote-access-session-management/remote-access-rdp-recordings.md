@@ -47,7 +47,7 @@ The final file name indicates which operations were applied:
 * **Encrypted (no compression):** `*.enc`
 * **Compressed, then encrypted:** `*.enc.gzip`
 
-> **Note:** Compression occurs before encryption to preserve compression efficiency; the final artifact reflects both operations in its suffix.
+> _Note:_ Compression occurs before encryption to preserve compression efficiency; the final artifact reflects both operations in its suffix.
 
 #### How Encoding Runs
 

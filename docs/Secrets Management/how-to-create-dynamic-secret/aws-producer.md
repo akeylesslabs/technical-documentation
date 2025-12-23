@@ -56,7 +56,7 @@ You can create dynamic access credentials for AWS in two modes:
 
 This role will grant the dynamic secret permissions to manage the lifecycle of the temporary IAM users' Access Keys, including creation and deletion. It will also support the setup of a temporary user with console login, adding users to groups, and utilizing AWS tags as well.
 
-**Note:** the `tmp.*` is the default template prefix of the temporary users Akeyless will create. In case you are working with [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating), make sure to adjust the allowed resource accordingly.
+_Note:_ the `tmp.*` is the default template prefix of the temporary users Akeyless will create. In case you are working with [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating), make sure to adjust the allowed resource accordingly.
 
 * If you are using `assumed_role` mode, grant the user **AssumeRole** permissions to the requested IAM roles. For more information, see the <a href="https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/" target="_blank">AWS Assume Role</a> documentation. The required policy for the user should include the following permissions:
 
@@ -75,7 +75,7 @@ This role will grant the dynamic secret permissions to manage the lifecycle of t
 
 where the `<RoleName>` should be replaced with the role that will be assumed.
 
-**Note:** Make sure that the target AWS role that will be part of the roles that this dynamic secret should be able to assume must include a trust policy with the principal of the role you created.
+_Note:_ Make sure that the target AWS role that will be part of the roles that this dynamic secret should be able to assume must include a trust policy with the principal of the role you created.
 
 ## Create a Dynamic AWS Secret with the CLI
 
