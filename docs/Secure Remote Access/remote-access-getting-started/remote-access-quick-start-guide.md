@@ -245,7 +245,7 @@ akeyless assoc-role-am --role-name MySamlRole --am-name MySamlAuth
 ```
 
 5. Next, open your browser and go to your Remote Access internal endpoint: `http://\<Your-Akeyless-GW-URL:8000>>/sra/portal`
-6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that it will redirect you to a page with the various types of resources you can set at a later time (see below image). Congrats!
+6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that will redirect you to a page with various resources you can set at a later time (refer to the following image). Congrats!
 
 <Image align="center" border={false} src="https://files.readme.io/e0af62a-sra.png" />
 

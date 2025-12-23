@@ -56,14 +56,14 @@ where:
 
 By default, access to the Azure portal will use direct network access mode. To work with Akeyless [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
-* **secure-access-web-browsing:** Optional, secure browser via Akeyless Web Access Bastion.
+* `secure-access-web-browsing`: Optional, secure browser via Akeyless Web Access Bastion.
 
 Alternatively, in case you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
 
-* **secure-access-web-proxy:** Optional, web-proxy via Akeyless Web Access Bastion.
-* **secure-access-url:** Required for Rotated Secret. The target URL where credentials will be injected.
-* **rotate-after-disconnect:** Optional for Rotated Secret. You can enable an automatic Secret Rotation after a session ends.
-* **secure-access-delay:** The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
+* `secure-access-web-proxy`: Optional, web-proxy via Akeyless Web Access Bastion.
+* `secure-access-url`: Required for Rotated Secret. The target URL where credentials will be injected.
+* `rotate-after-disconnect`: Optional for Rotated Secret. You can enable an automatic Secret Rotation after a session ends.
+* `secure-access-delay`: The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
 ## Set Up Remote Access to the Azure Portal from the Akeyless Console
 

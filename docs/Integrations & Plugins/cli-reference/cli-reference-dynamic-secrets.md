@@ -902,7 +902,7 @@ akeyless dynamic-secret create k8s \
 
 `--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint
 
-`--secure-access-dashboard-url`: The Kubernetes dashboard url
+`--secure-access-dashboard-url`: The Kubernetes dashboard URL
 
 `--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access
 
@@ -2572,7 +2572,7 @@ akeyless dynamic-secret update k8s \
 
 `--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
 
-`--secure-access-dashboard-url`: The Kubernetes dashboard url
+`--secure-access-dashboard-url`: The Kubernetes dashboard URL
 
 ### `ldap`
 

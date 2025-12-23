@@ -244,7 +244,7 @@ Each Bastion is uniquely identified by combining the **Privilege Access ID** Aut
 
 It means that changing the **Privilege Access ID** or the **Cluster Name** of your Bastion instance will create an entirely new Bastion instance.
 
-It is recommended to set a meaningful Cluster Name for your Bastion cluster from the very beginning. By default, your cluster name is **compose-ztwa**.
+It is recommended to set a meaningful Cluster Name for your Bastion cluster from the very beginning. By default, your cluster name is `compose-ztwa`.
 
 To do that, you can set the `clusterName="meaningful-cluster-name"` field as part of the Bastion Docker Compose `yaml` file.
 
