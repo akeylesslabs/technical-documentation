@@ -433,7 +433,7 @@ In the example above,
 
 * The `ENABLE_TLS_CONFIGURE` variable enables TLS for the Gateway Configuration Manager.
 
-* The `ENABLE_TLS_HVP` variable enables TLS for the HVP service.
+* The `ENABLE_TLS_HVP` variable enables TLS for the HashiCorp Vault Proxy service.
 
 * The `ENABLE_TLS_CURL` variable enables TLS for the Akeyless API Services.
 

@@ -12,7 +12,7 @@ next:
 ---
 ## Configuring HashiCorp Vault Proxy
 
-1. Set Akeyless HVP URL in: `VAULT_ADDR` environment variable:
+1. Set Akeyless HashiCorp Vault Proxy URL in: `VAULT_ADDR` environment variable:
 
 ```shell
 export VAULT_ADDR=https://hvp.akeyless.io

@@ -100,14 +100,14 @@ akeyless dynamic-secret create artifactory \
 --artifactory-token-scope <Space-separated list of scopes> \
 --artifactory-token-audience <Space-separated list of instances> \
 --target-name <Target Name> \
---gateway-url <Artifactory REST URL:8000 must end with artifactory postfix) 
+--gateway-url <Artifactory REST URL:8000 must end with "artifactory" postfix) 
 ```
 ```shell Inline connection
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
 --artifactory-token-scope *<Space-separated list of scopes> \
 --artifactory-token-audience *<Space-separated list of instances> \
---gateway-url <Artifactory REST URL:8000 must end with artifactory postfix) \
+--gateway-url <Artifactory REST URL:8000 must end with "artifactory" postfix) \
 --base-url <Artifactory REST URL> \
 --artifactory-admin-name <Artifactory Admin username> \
 --artifactory-admin-pwd <Artifactory Admin API Key or password>
@@ -123,7 +123,7 @@ akeyless dynamic-secret create artifactory \
 
 `--target-name`: Name of existing target to use in Dynamic Secret creation
 
-`-b, --base-url`: Artifactory REST URL, must end with artifactory postfix
+`-b, --base-url`: Artifactory REST URL, must end with `artifactory` postfix
 
 `-r, --artifactory-admin-name`: Admin name
 

@@ -88,7 +88,7 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
       <td>&lt;gateway-url&gt;:8000/sra/ssh-config</td>
     </tr>
     <tr>
-      <td>HVP</td>
+      <td>HashiCorp Vault Proxy</td>
       <td>8200</td>
       <td>&lt;gateway-url&gt;:8000/hvp</td>
     </tr>

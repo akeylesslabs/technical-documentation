@@ -62,7 +62,7 @@ target_logstash_protocol="tcp"
 
 Configure your Logstash to use the same port and protocol.  Add the following to the `logstash.conf` file `input \{ tcp \{ port => 8911 codec => json } }`
 
-## ELK ElasticSearch
+## ELK Elasticsearch
 
 ```yaml
 target_log_type="elasticSearch"

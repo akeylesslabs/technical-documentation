@@ -18,7 +18,7 @@ You can export the Audit Logs from the Akeyless Gateway to any of the following 
 
 * [Datadog](https://docs.akeyless.io/docs/log-forwarding#datadog)
 
-* [ElasticSearch](https://docs.akeyless.io/docs/log-forwarding#elasticsearch)
+* [Elasticsearch](https://docs.akeyless.io/docs/log-forwarding#elasticsearch)
 
 * [Google Chronicle](https://docs.akeyless.io/docs/log-forwarding#google-chronicle)
 
@@ -120,7 +120,7 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 10. Optional - Define **Log Service**, default value `akeyless-gateway`.
 
-## ElasticSearch
+## Elasticsearch
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 
@@ -132,11 +132,11 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 5. From the **Log Service** dropdown list, select `Elasticsearch`.
 
-6. Define the **ElasticSearch Server**. It can be set either as **Node** or **Cloud ID**.
+6. Define the **Elasticsearch Server**. It can be set either as **Node** or **Cloud ID**.
 
-7. Define the **ElasticSearch Authentication**. It can be set as **API Key** or **Username & Password**.
+7. Define the **Elasticsearch Authentication**. It can be set as **API Key** or **Username & Password**.
 
-8. Define the **ElasticSearch Index**.
+8. Define the **Elasticsearch Index**.
 
 9. Optional, check **TLS** and upload the **TLS Certificate** of your log server.
 

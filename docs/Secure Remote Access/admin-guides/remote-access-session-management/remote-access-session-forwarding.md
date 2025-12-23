@@ -12,7 +12,7 @@ next:
 ---
 Remote Access supports the forwarding of SSH, Database, and Kubernetes session logs.
 
-These terminal-based sessions provide a full transcript of input commands and output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, ElasticSearch, or just using Syslog).
+These terminal-based sessions provide a full transcript of input commands and output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, Elasticsearch, or just using Syslog).
 
 ## Configure
 

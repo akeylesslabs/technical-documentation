@@ -164,7 +164,7 @@ akeyless gateway update log-forwarding datadog \
 
 ### `elasticsearch`
 
-Updates Log Forwarding config for ElasticSearch
+Updates Log Forwarding config for Elasticsearch
 
 #### Usage
 
@@ -197,27 +197,27 @@ akeyless gateway update log-forwarding elasticsearch \
 
 `-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
 
-`--index`: ElasticSearch index
+`--index`: Elasticsearch index
 
-`--server-type`: ElasticSearch server type [`nodes`/`cloud`]
+`--server-type`: Elasticsearch server type [`nodes`/`cloud`]
 
-`--nodes`: ElasticSearch nodes relevant only for `nodes` server-type
+`--nodes`: Elasticsearch nodes relevant only for `nodes` server-type
 
-`--cloud-id`: ElasticSearch cloud ID relevant only for `cloud` server-type
+`--cloud-id`: Elasticsearch cloud ID relevant only for `cloud` server-type
 
-`--auth-type`: ElasticSearch auth type [`api_key`/`password`]
+`--auth-type`: Elasticsearch auth type [`api_key`/`password`]
 
-`--api-key`: ElasticSearch API Key relevant only for `api_key` auth-type
+`--api-key`: Elasticsearch API Key relevant only for `api_key` auth-type
 
-`--user-name`: ElasticSearch user name relevant only for `password` auth-type
+`--user-name`: Elasticsearch user name relevant only for `password` auth-type
 
-`--password`: ElasticSearch password relevant only for `password` auth-type
+`--password`: Elasticsearch password relevant only for `password` auth-type
 
 `--enable-tls`: enable-TLS
 
-`--certificate-file`: Path to a file that contain ElasticSearch certificate in `PEM` format
+`--certificate-file`: Path to a file that contain Elasticsearch certificate in `PEM` format
 
-`--tls-certificate[=use-existing]`: ElasticSearch TLS certificate (`PEM format`) in a Base64 format
+`--tls-certificate[=use-existing]`: Elasticsearch TLS certificate (`PEM format`) in a Base64 format
 
 ### `google-chronicle`
 

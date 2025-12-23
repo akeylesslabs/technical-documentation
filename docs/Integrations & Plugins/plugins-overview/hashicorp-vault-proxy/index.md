@@ -1,6 +1,6 @@
 ---
 title: HashiCorp Vault Proxy
-excerpt: HashiCorp Vault Proxy (HVP)
+excerpt: HashiCorp Vault Proxy
 deprecated: false
 hidden: false
 metadata:

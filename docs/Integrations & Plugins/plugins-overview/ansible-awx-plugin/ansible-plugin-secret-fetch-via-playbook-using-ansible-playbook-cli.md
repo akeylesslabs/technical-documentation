@@ -1,5 +1,5 @@
 ---
-title: Ansible HVP Plugin
+title: Ansible HashiCorp Vault Proxy Plugin
 excerpt: ''
 deprecated: false
 hidden: true

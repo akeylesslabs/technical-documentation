@@ -1,5 +1,5 @@
 ---
-title: Jenkins Plugin via HVP
+title: Jenkins Plugin via HashiCorp Vault Proxy
 excerpt: ''
 deprecated: false
 hidden: false

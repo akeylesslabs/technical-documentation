@@ -39,9 +39,9 @@ e.g, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalan
 
 ### Storage
 
-To be able to download files to your local machine, the chart requires a storage class with `ReadWriteMany` access mode.
+To be able to download files to your local machine, the chart requires a StorageClass with `ReadWriteMany` access mode.
 
-Since a storage class is more environment specific, you will need to provide one before proceeding. In addition, please provide a `PersistentVolumes` with reference under the `persistence` section in the `values.yaml` file.
+Since a StorageClass is environment specific, you will need to provide one before proceeding. In addition, please provide a `PersistentVolumes` with reference under the `persistence` section in the `values.yaml` file.
 
 ```yaml
 persistence: 
