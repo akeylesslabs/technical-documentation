@@ -976,7 +976,7 @@ akeyless create-tokenizer \
 
 `-n, --name`: **Required**, Tokenizer name
 
-`-y, --tokenizer-type[=vaultless]`: **Required**, Tokenizer type(vaultless)
+`-y, --tokenizer-type[=vaultless]`: **Required**, Tokenizer type (`vaultless`)
 
 `-T, --template-type`: **Required**, Which template type this tokenizer is used for [SSN,CreditCard,USPhoneNumber,Custom]
 
