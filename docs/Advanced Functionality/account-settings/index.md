@@ -131,7 +131,7 @@ This option will force authentication of the Owner of the account. Please note t
 
 #### Allowed Client IPs
 
-Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, etc. This parameter is optional. Leave it empty for unrestricted access. If needed, you can lock this list globally.
+Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access. If needed, you can lock this list globally.
 
 #### Allowed Trusted Gateway IPs
 

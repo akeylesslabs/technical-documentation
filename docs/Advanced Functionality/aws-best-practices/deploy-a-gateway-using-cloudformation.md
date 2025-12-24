@@ -635,6 +635,6 @@ To sync the **Rotated Secret** that was just created with the **AWS Secret Manag
 
    2. **Remote Secret Name** - Enter the name of the secret that will be created or updated on your **AWS Secret Manager**.
 
-   3. **Filter secret value (jq)** - Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` etc.
+   3. **Filter secret value (jq)** - Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` and so on.
 
 Once completed, if the secret is rotated in **Akeyless**, its value will be automatically updated in **AWS**.

@@ -12,7 +12,7 @@ next:
 ---
 Akeyless allows users to request temporary access or to elevate their current permissions for specific items using a built-in approval workflow which requires approval from the system admin.
 
-Admins can view, and either approve or decline those requests directly from the Akeyless [Event Center](https://docs.akeyless.io/docs/event-center) where you can forward those events to any of the supported endpoints like ServiceNow, etc.
+Admins can view, and either approve or decline those requests directly from the Akeyless [Event Center](https://docs.akeyless.io/docs/event-center) where you can forward those events to any of the supported endpoints like ServiceNow, and so on.
 
 This option needs to be enabled by an admin in the account under Account settings navigate to **Settings > Items Settings > Request access**.
 

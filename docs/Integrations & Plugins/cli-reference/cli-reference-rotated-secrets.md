@@ -2159,7 +2159,7 @@ akeyless rotated-secret get-value \
 
 `--host`: Get rotated secret value of specific Host (relevant only for Linked Target)
 
-`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
+`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the REST API
 
 ## `list`
 

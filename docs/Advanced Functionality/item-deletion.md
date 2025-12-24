@@ -17,7 +17,7 @@ Some types of items or deletion flows have special rules for their deletion:
 
 * If the item is an `AES` or `RSA` key, By default, there will be a waiting period of 7 days before deleting the item with all its versions. This can be adjusted.
 
-* If the item is a key that encrypts a different item in the system (Static Secret, Dynamic Secret, Certificate Issuer, etc.), it cannot be deleted until items that are encrypted with it are also deleted.
+* If the item is a key that encrypts a different item in the system (Static Secret, Dynamic Secret, Certificate Issuer, and so on), it cannot be deleted until items that are encrypted with it are also deleted.
 
 * If you have a key that is pending deletion but has not yet been deleted, you may cancel this deletion with the [Set Item State](https://docs.akeyless.io/docs/cli-reference-encryption-keys#/set-item-state) command.
 

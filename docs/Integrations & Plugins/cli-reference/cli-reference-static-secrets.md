@@ -128,7 +128,7 @@ akeyless get-secret-value --name <Secret Name>
 
 `--version`: Secret version, if negative value N is provided (--version=-N) the last N versions will return (maximum 20)
 
-`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the RestAPI
+`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the REST API
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
