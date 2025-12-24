@@ -235,10 +235,10 @@ config:
         example_from: "Add the user to the whitelist."
         example_to: "Add the user to the allowlist."
 
-      - term: "master"
-        replacement: "primary"
-        example_from: "Promote the master node."
-        example_to: "Promote the primary node."
+      #- term: "master"
+      #  replacement: "primary"
+      #  example_from: "Promote the master node."
+      #  example_to: "Promote the primary node."
 
       - term: "slave"
         replacement: "replica"

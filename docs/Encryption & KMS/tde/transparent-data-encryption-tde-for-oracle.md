@@ -100,9 +100,8 @@ access_key="oLw05FzH3Rgmca.............lcijrsReM="
 
 * This file defines how the Oracle DB will interact with the Akeyless service. It includes logging settings, the Akeyless API Gateway URL (to use a local Gateway, reference the `/api/v2` endpoint), and the Authentication Method (supported auth methods also include `aws_iam`, `azure_ad`, `gcp`).
 * Ensure your Auth Method is associated with an Access Roles granting it permissions to create and access items under the desired items folder (base_item_path)
-* Notice: to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) (the default is otherwise DFC) you can add the following setting (in the top section):  
-  `use_classic_keys="true"`
-  * To work with Classic Keys make sure you work against your own Gateway (on the API v2 endpoint), and grant the above Auth Method “Access Permissions” to said Gateway to manage “Classic Keys”
+* Notice: to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) (the default is otherwise DFC) you can add the following setting (in the top section): `use_classic_keys="true"`
+    * To work with Classic Keys make sure you work against your own Gateway (on the API v2 endpoint), and grant the above Auth Method “Access Permissions” to said Gateway to manage “Classic Keys”
 
 Set proper file permissions:
 
@@ -128,9 +127,9 @@ mkdir -p ./hsm_wallet/tde
 ##### Explanation
 
 * Navigate to the Admin Directory:
-  * The directory `$ORACLE_BASE/admin/your_db_name/` is the default location for managing database-specific files. Replace `your_db_name` with your actual database name.
+    * The directory `$ORACLE_BASE/admin/your_db_name/` is the default location for managing database-specific files. Replace `your_db_name` with your actual database name.
 * Create Wallet Directory:
-  * Creating the directory for the HSM wallet ensures that the TDE configuration has a designated location to store keystore files.
+    * Creating the directory for the HSM wallet ensures that the TDE configuration has a designated location to store keystore files.
 
 ### Connect to the Database and Set Initial Parameters
 
@@ -144,9 +143,9 @@ ALTER SYSTEM SET WALLET_ROOT='/opt/oracle/admin/your_db_name/hsm_wallet' SCOPE=S
 ##### Explanation
 
 * Connecting via SQL*Plus:
-  * This gives you a SQL prompt as the system administrator (`SYSDBA`) to execute configuration commands.
+    * This gives you a SQL prompt as the system administrator (`SYSDBA`) to execute configuration commands.
 * `WALLET_ROOT` Parameter:
-  * This command sets the root location for the wallet. The `SCOPE=SPFILE` option ensures that the change is saved in the server parameter file and used at the next startup.
+    * This command sets the root location for the wallet. The `SCOPE=SPFILE` option ensures that the change is saved in the server parameter file and used at the next startup.
 
 ### Restart the Database
 
@@ -168,7 +167,7 @@ ALTER SYSTEM SET TDE_CONFIGURATION='KEYSTORE_CONFIGURATION=HSM' SCOPE=BOTH;
 #### Explanation
 
 * TDE_CONFIGURATION Parameter:
-  * This command instructs Oracle TDE to use a keystore that is configured with HSM. The SCOPE=BOTH option applies the parameter change to both the in-memory environment and the spfile.
+    * This command instructs Oracle TDE to use a keystore that is configured with HSM. The SCOPE=BOTH option applies the parameter change to both the in-memory environment and the spfile.
 
 ### Create and Open the HSM Wallet
 
@@ -182,11 +181,11 @@ ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 ##### Explanation
 
 * Opening the Keystore:
-  * The first command opens the keystore using the provided password (`AKEYLESS`).
+    * The first command opens the keystore using the provided password (`AKEYLESS`).
 * Setting the Master Key:
-  * The second command sets the TDE master encryption key. The `CONTAINER=ALL` option applies this change to the entire multi-tenant environment (both the container database and all pluggable databases).
+    * The second command sets the TDE master encryption key. The `CONTAINER=ALL` option applies this change to the entire multi-tenant environment (both the container database and all pluggable databases).
 * Verification:
-  * You should verify in the Akeyless management console or by checking Oracle's views that the key has been created successfully.
+    * You should verify in the Akeyless management console or by checking Oracle's views that the key has been created successfully.
 
 ### Enabling Auto Login
 
@@ -323,7 +322,7 @@ Key Points About the Columns:
 * `FULLY_BACK`: Indicates if the wallet is fully backed up. Common values are `NONE` or `UNDEFINED`.
 * `CON_ID`: The container ID. 0 typically refers to the root container (`CDB$ROOT`), while non-zero values (5) refer to pluggable databases (PDBs).
 * `STATUS`: Should display `OPEN` if the keystore is accessible.  
-  Additional Note: If the keystore is open but the TDE master encryption key has not yet been created—or if the wallet is configured as an SSL wallet rather than a TDE wallet, the `STATUS` column may show `OPEN_NO_MASTER_KEY`.
+    Additional Note: If the keystore is open but the TDE master encryption key has not yet been created—or if the wallet is configured as an SSL wallet rather than a TDE wallet, the `STATUS` column may show `OPEN_NO_MASTER_KEY`.
 
 For more details on these columns, refer to the official Oracle documentation:
 

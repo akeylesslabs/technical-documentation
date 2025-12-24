@@ -84,14 +84,14 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 | `command` | Path to the Akeyless CLI binary | Yes | (none) |
 | `args.--access-id` | The Akeyless access ID to authenticate with | Yes* (if using the `access_key` access type) | (none) |
 | `args.--access-key` | The Akeyless access key to authenticate with | Yes* (if using the `access_key` access type) | (none) |
-| `args.--access-type` | Authentication method type to use. Acceptable values are:<br><br>- [`access_key`](https://docs.akeyless.io/update/docs/api-key#/)  <br>- [`aws_iam`](https://docs.akeyless.io/update/docs/aws-iam#/)  <br>- [`azure_ad`](http://docs.akeyless.io/update/docs/azure-ad#/)  <br>- [`cert`](https://docs.akeyless.io/update/docs/certificate-based-authentication#/)  <br>- [`gcp`](https://docs.akeyless.io/update/docs/gcp-auth-method#/)  <br>- [`jwt`](https://docs.akeyless.io/update/docs/oauth20jwt#/)  <br>- [`k8s`](https://docs.akeyless.io/update/docs/kubernetes-auth#/)  <br>- [`kerberos`](https://docs.akeyless.io/update/docs/kerberos#/)  <br>- [`ldap`](https://docs.akeyless.io/update/docs/ldap#/)  <br>- [`oci`](https://docs.akeyless.io/update/docs/oci-iam#/)  <br>- [`oidc`](https://docs.akeyless.io/update/docs/openid#/)  <br>- [`password`](https://docs.akeyless.io/update/docs/email#/)  <br>- [`saml`](https://docs.akeyless.io/update/docs/saml#/)  <br>- [`universal_identity`](https://docs.akeyless.io/update/docs/universal-identity#/) | Yes | `access_key` |
+| `args.--access-type` | Authentication method type to use. See [Access type values](#access-type-values). | Yes | `access_key` |
 | `args.--account-id` | Used to select which Akeyless account to use if the `--admin-email` is associated with more than one account | No | (none) |
 | `args.--admin-password` | The Akeyless account password to authenticate with | Yes* (if using the `password` access type) | (none) |
 | `args.--admin-email` | The Akeyless account email address to authenticate with | Yes* (if using the `password` access type) | (none) |
 | `args.--cert-challenge` | Certificate challenge encoded in base64 (relevant only for the `cert` access type) | Yes* (if using the `cert` access type and `args.--key-file-name` or `args.--key-data` is not used) | (none) |
-| `args.--cert-data` | Certificate data encoded in base64, used if file was not provided (relevant only for the `cert` access-type) | Yes* (if using the `cert` access type and `args.--cert-file-name` is not used) | (none) |
+| `args.--cert-data` | Certificate data encoded in base64, used if a file was not provided (relevant only for the `cert` access type) | Yes* (if using the `cert` access type and `args.--cert-file-name` is not used) | (none) |
 | `args.--cert-file-name` | Path to where the certificate file for certificate authentication is located | Yes* (if using the `cert` access type and `args.--cert-data` is not used) | (none) |
-| `args.--cloud-id` | The identity for the chosen cloud provider:<br><br>- `aws_iam`<br>- `azure_id`<br>- `gcp`<br>- `oci` | Yes* (if using the `aws_iam`, `azure_id`, `gcp`, or `oci` access types) | (none) |
+| `args.--cloud-id` | The identity for the chosen cloud provider. See [Cloud ID values](#cloud-id-values). | Yes* (if using the `aws_iam`, `azure_id`, `gcp`, or `oci` access types) | (none) |
 | `args.--debug` | Enable debug logging | No | `false` |
 | `args.--disable-kerberos-fast` | Disable Kerberos FAST negotiation | No | `true` |
 | `args.--gateway-spn` | The service principal name of the gateway as registered in LDAP | No | (none) |
@@ -106,18 +106,54 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 | `args.--key-file-name` | Path to where the key file is located | Yes* (if using the `cert` access type and `args.--key-data` or `args.--cert-challenge` is not used) | (none) |
 | `args.--keytab-file-data` | Base64-encoded content of a valid keytab file, containing the service account's entry | Yes* (if using the `kerberos` access type and `args.--keytab-file-path` is not used) | (none) |
 | `args.--keytab-file-path` | The path to a valid keytab file, containing the user entry | Yes* (if using the `kerberos` access type and `args.--keytab-file-data` is not used) | (none) |
-| `args.--krb5conf-file-data` | The path to a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication | Yes* (if using the `kerberos` access type and `args.--krb5conf-file-path` is not used) | (none) |
-| `args.--krb5conf-file-path` | The path to a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication | Yes* (if using the `kerberos` access type and `args.--krb5conf-file-data` is not used) | (none) |
+| `args.--krb5conf-file-data` | Base64-encoded content of a valid `krb5.conf` file, specifying the settings and parameters required for Kerberos authentication | Yes* (if using the `kerberos` access type and `args.--krb5conf-file-path` is not used) | (none) |
+| `args.--krb5conf-file-path` | Path to a valid `krb5.conf` file, specifying the settings and parameters required for Kerberos authentication | Yes* (if using the `kerberos` access type and `args.--krb5conf-file-data` is not used) | (none) |
 | `args.--ldap-proxy-url` | Address URL for LDAP proxy | Yes* (if using the `ldap` access type) | (none) |
-| `args.--oci-auth-type` | The type of the OCI configuration to use:<br><br>- `apikey`<br>- `instance`<br>- `resource` | No | `apikey` |
+| `args.--oci-auth-type` | The type of the OCI configuration to use. See [OCI auth type values](#oci-auth-type-values). | No | `apikey` |
 | `args.--oci-group-ocid` | A list of Oracle Cloud IDs groups | Yes* (if using the `oci` access type) | (none) |
-| `args.--oidc-sp` | OIDC Service Provider (relevant only for the `oidc` access type). Inferred if empty. Supported SPs: `google`, `github` | No | (inferred) |
+| `args.--oidc-sp` | OIDC Service Provider (relevant only for the `oidc` access type). Inferred if empty. Supported SPs: `google`, `github`. | No | (inferred) |
 | `args.--password` | LDAP password | Yes* (if using the `ldap` access type) | (none) |
 | `args.--profile` | The CLI profile name to use | No | `default` |
 | `args.--signed-cert-challenge` | Signed certificate challenge encoded in base64 (relevant only for the `cert` access type) | No | (none) |
 | `args.--uid-token` | The Universal Identity token | Yes* (if using the `universal_identity` access type) | (none) |
-| `args.--use-remote-browser` | Returns a link to complete the authentication remotely (relevant only for the `saml` and `oidc` access types). | No | (none) |
+| `args.--use-remote-browser` | Returns a link to complete authentication remotely (relevant only for the `saml` and `oidc` access types) | No | (none) |
 | `args.--username` | LDAP username | Yes* (if using the `ldap` access type) | (none) |
+
+##### Access type values
+
+Acceptable values for `args.--access-type`:
+
+- [`access_key`](https://docs.akeyless.io/update/docs/api-key#/)
+- [`aws_iam`](https://docs.akeyless.io/update/docs/aws-iam#/)
+- [`azure_ad`](http://docs.akeyless.io/update/docs/azure-ad#/)
+- [`cert`](https://docs.akeyless.io/update/docs/certificate-based-authentication#/)
+- [`gcp`](https://docs.akeyless.io/update/docs/gcp-auth-method#/)
+- [`jwt`](https://docs.akeyless.io/update/docs/oauth20jwt#/)
+- [`k8s`](https://docs.akeyless.io/update/docs/kubernetes-auth#/)
+- [`kerberos`](https://docs.akeyless.io/update/docs/kerberos#/)
+- [`ldap`](https://docs.akeyless.io/update/docs/ldap#/)
+- [`oci`](https://docs.akeyless.io/update/docs/oci-iam#/)
+- [`oidc`](https://docs.akeyless.io/update/docs/openid#/)
+- [`password`](https://docs.akeyless.io/update/docs/email#/)
+- [`saml`](https://docs.akeyless.io/update/docs/saml#/)
+- [`universal_identity`](https://docs.akeyless.io/update/docs/universal-identity#/)
+
+##### Cloud ID values
+
+Acceptable values for `args.--cloud-id`:
+
+- `aws_iam`
+- `azure_id`
+- `gcp`
+- `oci`
+
+##### OCI auth type values
+
+Acceptable values for `args.--oci-auth-type`:
+
+- `apikey`
+- `instance`
+- `resource`
 
 #### Example Authentication Method Configurations
 

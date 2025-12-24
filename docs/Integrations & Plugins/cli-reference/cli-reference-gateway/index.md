@@ -269,15 +269,15 @@ akeyless gateway update defaults \
 
 #### Flags
 
-`--saml-access-id[=use-existing]`: Default SAML access-id for UI login
+`--saml-access-id[=use-existing]`: Default SAML `access-id` for UI login
 
-`--oidc-access-id[=use-existing]`: Default OIDC access-id for UI login
+`--oidc-access-id[=use-existing]`: Default OIDC `access-id` for UI login
 
-`--cert-access-id[=use-existing]`: Default Certificate access-id for UI login
+`--cert-access-id[=use-existing]`: Default Certificate `access-id` for UI login
 
 `--key[=Default]`: The name of the gateway default encryption key
 
-`--hvp-route-version`: Hvp route version to use [`1`/`2`]
+`--hvp-route-version`: HashiCorp Vault Proxy route version to use [`1`/`2`]
 
 `--event-on-status-change`: Trigger an event when Gateway status is changed [`true`/`false`]
 

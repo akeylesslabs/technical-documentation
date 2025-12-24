@@ -627,20 +627,20 @@ The following table lists the available annotations:
 
 | Annotation | Options | Description |
 |---|---|---|
-| `akeyless/enabled: "true"` | `"true"` or `"false"` | Enable the Kubernetes plugin |
-| `akeyless/side_car_enabled: "true"` | `"true"` or `"false"` | Set the Kubernetes plugin to work in sidecar mode |
-| `akeyless/disable_restart_rollout: "true"` | `"true"` or `"false"` | Disable the restart-rollout on a specific deployment |
-| `akeyless/side_car_refresh_interval: "30m"` | `Int` followed by `"s"`, `"m"`, or `"h"` units | Set the desired refresh time interval for the Akeyless sidecar. By default, set to `30m`. |
-| `akeyless/side_car_versions_to_retrieve: "2"` | `"2"` or higher | Fetch the last X versions of your secret |
-| `akeyless/inject_file: "/mysecret/|location=/path to save secret name"` | `location=/path to save secret name` | Set the location for your secrets to be saved within your pod file system.<br><br>**Note:** Available for files only |
-| `akeyless/inject_file: "/mysecret|permission=0644"` | `permission=0644` | Set the permission of the file that contains your secret value.<br><br>Default is `0644`.<br><br>**Note:** Available for files only |
-| `akeyless/inject_file: "/mysecret|version=1"` | `version={version number}` | Fetch a specific version of your secret.<br><br>The default value is set to the latest version.<br><br>**Note:** Available for environment variables as well |
-| `akeyless/inject_file: "/mysecret|decode=base64"` | `decode=none` or `base64` | Set the decoding for your encoded secret values.<br><br>Default is `none`.<br><br>**Note:** Available for environment variables as well |
-| `akeyless/inject_file: "/mysecret|jq={jq-expression}"` | `jq` expression | `jq={jq-expression}` (for example, secret items that contain JSON structure can be parsed directly) |
-| `akeyless/inject_folder: "/prod/my-secrets-folder/|permission=0644"` | `permission=0644` | Set the permission of the folder that contains your secret value.<br><br>Default is `0644`.<br><br>**Note:** Available for files only |
-| `akeyless/inject_folder: "/prod/my-secrets-folder/|location=/tmp/secrets/|track-folder-changes=true"` | `track-folder-changes=true` or `false` | Track injected folder changes to sync new secrets |
-| `akeyless/volume: "<Volume Name>"` | Volume name | Work with a custom volume. `MountPath` should also be set in the prefix of the injected secret location. Volume required permissions: `read/write`. |
-| `akeyless/post_inject_script: \|`<br>`#!/bin/bash`<br>`echo Hello > /akeyless/secrets/hello.txt` | Script to execute post-fetching the secret | **Note:** Execution occurs in the init container and in the sidecar container (if set). |
+| `akeyless/enabled: "true"` | `"true"` or `"false"` | Enable the Kubernetes plugin. |
+| `akeyless/side_car_enabled: "true"` | `"true"` or `"false"` | Set the Kubernetes plugin to work in sidecar mode. |
+| `akeyless/disable_restart_rollout: "true"` | `"true"` or `"false"` | Disable the restart-rollout on a specific deployment. |
+| `akeyless/side_car_refresh_interval: "30m"` | `Int` followed by `"s"`, `"m"`, or `"h"` units | Set the desired refresh time interval for the Akeyless sidecar. Default is `30m`. |
+| `akeyless/side_car_versions_to_retrieve: "2"` | `"2"` or higher | Fetch the last X versions of your secret. |
+| `akeyless/inject_file: "/mysecret/\|location=/path to save secret name"` | `location=/path to save secret name` | Set the location for your secrets to be saved within your pod file system. **Note:** Available for files only. |
+| `akeyless/inject_file: "/mysecret\|permission=0644"` | `permission=0644` | Set the permission of the file that contains your secret value. Default is `0644`. **Note:** Available for files only. |
+| `akeyless/inject_file: "/mysecret\|version=1"` | `version={version number}` | Fetch a specific version of your secret. Default is the latest version. **Note:** Available for environment variables as well. |
+| `akeyless/inject_file: "/mysecret\|decode=base64"` | `decode=none` or `base64` | Set the decoding for your encoded secret values. Default is `none`. **Note:** Available for environment variables as well. |
+| `akeyless/inject_file: "/mysecret\|jq={jq-expression}"` | `jq` expression | Use `jq={jq-expression}` (for example, secret items that contain a JSON structure can be parsed directly). |
+| `akeyless/inject_folder: "/prod/my-secrets-folder/\|permission=0644"` | `permission=0644` | Set the permission of the folder that contains your secret value. Default is `0644`. **Note:** Available for files only. |
+| `akeyless/inject_folder: "/prod/my-secrets-folder/\|location=/tmp/secrets/\|track-folder-changes=true"` | `track-folder-changes=true` or `false` | Track injected folder changes to sync new secrets. |
+| `akeyless/volume: "<Volume Name>"` | Volume name | Work with a custom volume. `MountPath` must also be set in the prefix of the injected secret location. Volume required permissions: `read/write`. |
+| `akeyless/post_inject_script: \|` `#!/bin/bash` `echo Hello > /akeyless/secrets/hello.txt` | Script to execute post-fetching the secret | **Note:** Execution occurs in the init container and in the sidecar container (if set). |
 | `akeyless:/<usc name>\|usc_remote_secret_name=<remote name>` | USC remote secret name (`string`) | Name of the remote secret to inject. Relevant only when working with Universal Secrets Connector. |
 | `akeyless:/<usc name>\|usc_remote_secret_name=<remote name>\|usc_remote_secret_version=1` | USC remote secret version (`int`) | Remote secret version to inject. Relevant only when working with Universal Secrets Connector. |
 | `akeyless:/<usc name>\|usc_remote_secret_name=<remote name>\|usc_remote_secret_namespace=default` | USC remote secret namespace (`string`) | Remote secret namespace. Relevant only when working with Universal Secrets Connector. |
