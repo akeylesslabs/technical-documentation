@@ -34,7 +34,7 @@ The latest version of the Gateway allows administrators to directly apply most o
 
 ### Access to Enhanced Features and Capabilities
 
-The unified edition introduces powerful new Remote Access functionalities that will only be available in this unified environment, such as [Session Management](https://docs.akeyless.io/docs/remote-access-session-management) capabilities, which enable managers and auditors to better control and monitor activities involving remote access, adding another layer of security and compliance.
+The unified edition introduces powerful new Remote Access functionalities that will only be available in this unified environment. An example is [Session Management](https://docs.akeyless.io/docs/remote-access-session-management) capabilities which enable managers and auditors to better control and monitor activities involving remote access. This adds another layer of security and compliance.
 
 ## What Does the Unification Include?
 
@@ -44,7 +44,7 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
   Organizations have the ability to deploy a Gateway with or without the Remote Access component.
 
 2. **Supports Kubernetes and Docker Compose Deployments**
-  The unified version supports both the Kubernetes and Docker Compose deployments. For Kubernetes, the deployment consists of different services and pods for each component (Gateway, Web Remote Access, SSH Remote Access).
+  The unified version supports both Kubernetes and Docker Compose deployments. For Kubernetes, the deployment consists of different services and pods for each component (Gateway, Web Remote Access, and SSH Remote Access).
   For users only leveraging the Gateway in a standalone deployment, they can simply configure the Helm Chart with `SRA=false`, or deploy standalone via Docker Compose.
 
 3. **Planning the Migration**

@@ -168,7 +168,7 @@ akeyless get-target --name my-openai-target
 
 To verify that the gateway is configured for AI Insights, run the following command:
 
-```
+```shell
 curl -X GET http://localhost:8000/config/ai-insights
 ```
 

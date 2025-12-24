@@ -72,7 +72,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 * Code blocks: Use triple backticks with language identifiers:
 
-  ```bash
+  ```shell
   git clone https://github.com/example/repo.git
   ```
 
@@ -175,22 +175,22 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
     * For example, represent `--access-type` from the below example as `args.--access-type`.
 
     * ```json
-    {
-      "args": [
-        "mcp",
-        "--access-type", "cert",
-        "--cert-file-name", "/path/to/cert.pem",
-        "--key-file-name", "/path/to/key.pem"
-      ]
-    }
-    ```
-    ```yaml
-    args:
-      - mcp
-      - --access-type=cert
-      - --cert-file-name=/path/to/cert.pem
-      - --key-file-name=/path/to/key.pem
-    ```
+      {
+        "args": [
+          "mcp",
+          "--access-type", "cert",
+          "--cert-file-name", "/path/to/cert.pem",
+          "--key-file-name", "/path/to/key.pem"
+        ]
+      }
+      ```
+      ```yaml
+      args:
+        - mcp
+        - --access-type=cert
+        - --cert-file-name=/path/to/cert.pem
+        - --key-file-name=/path/to/key.pem
+      ```
 
 ## Accessibility
 

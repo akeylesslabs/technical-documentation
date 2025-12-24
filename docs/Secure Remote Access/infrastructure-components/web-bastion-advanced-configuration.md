@@ -101,7 +101,7 @@ webWorker:
 
 1. Mount your organization's Root CA certificate to the pods. For the **Gateway** specifically, in the Helm chart's configuration file, you can specify an existing Kubernetes Secret for the gateway TLS certificate under `apiGatewayCert.tlsCertsSecretName`. [Review the configuration file on GitHub](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-zero-trust-web-access/values.yaml).
 
-2. In the `policies.json` above, uncomment the *Certificates.Install* line and set it to the relevant certificates' paths inside the pod
+2. In the `policies.json` above, uncomment the _Certificates.Install_ line and set it to the relevant certificates' paths inside the pod
 
 ## DLP
 

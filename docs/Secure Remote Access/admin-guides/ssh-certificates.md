@@ -125,13 +125,13 @@ The structure of the `AuthorizedPrincipalsFile` is simple. Each line within the 
 
 For instance:
 
-```bash /etc/ssh/principals
+```text /etc/ssh/principals
 principal1
 principal2
 admin
 ```
 
-```shell /etc/ssh/sshd_config
+```text /etc/ssh/sshd_config
 AuthorizedPrincipalsFile /etc/ssh/principals
 ```
 

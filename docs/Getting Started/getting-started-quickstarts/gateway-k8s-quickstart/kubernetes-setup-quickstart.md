@@ -66,7 +66,7 @@ kubectl version --client
 
 _Sample Output:_
 
-```
+```text
 Client Version: v1.34.1
 Kustomize Version: v5.7.1
 ```
@@ -80,7 +80,7 @@ kubectl config use-context docker-desktop
 
 _Sample Output:_
 
-```
+```text
 CURRENT   NAME             CLUSTER          AUTHINFO         NAMESPACE
 *         docker-desktop   docker-desktop   docker-desktop   
 ```
@@ -93,7 +93,7 @@ kubectl get nodes
 
 _Sample Output:_
 
-```
+```text
 NAME             STATUS   ROLES           AGE   VERSION
 docker-desktop   Ready    control-plane   51d   v1.34.1
 ```
@@ -109,7 +109,7 @@ helm version
 
 _Sample Output:_
 
-```
+```text
 version.BuildInfo{Version:"v4.0.0", GitCommit:"99cd1964357c793351be481d55abbe21c6b2f4ec", GitTreeState:"clean", GoVersion:"go1.25.4", KubeClientVersion:"v1.34"}
 ```
 
@@ -123,7 +123,7 @@ kubectl run curl-test --image=curlimages/curl --restart=Never --command --   cur
 
 _Sample Output:_
 
-```
+```text
 pod/curl-test created
 ```
 
@@ -135,7 +135,7 @@ kubectl logs curl-test
 
 _Sample Output:_
 
-```
+```text
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 HTTP/2 200 
@@ -173,7 +173,7 @@ kubectl delete pod curl-test
 
 _Sample Output_:
 
-```
+```text
 pod "curl-test" deleted from default namespace
 ```
 
@@ -187,7 +187,7 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/late
 
 _Sample Output:_
 
-```
+```text
 /releases/latest/download/components.yaml
 serviceaccount/metrics-server created
 clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader created
@@ -212,7 +212,7 @@ Wait for the `metrics-server` deployment to show `1/1` ready. This should take a
 
 _Sample Output:_
 
-```
+```text
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 metrics-server   1/1     1            1           2m
 ```
@@ -236,7 +236,7 @@ kubectl top nodes
 
 _Sample Output:_
 
-```
+```text
 NAME             CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
 docker-desktop   130m         0%       1550Mi          20%    
 ```

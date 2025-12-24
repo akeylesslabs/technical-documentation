@@ -24,13 +24,13 @@ This guide provides guidance for the deployment of the Akeyless-Web-Access-Basti
 
 * Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and  1 vCPU available with 1 GB RAM for the `WebDispatcher`.
 
-***Network***
+_**Network**_
 
 When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
 
 For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
-***Storage***
+_**Storage**_
 
 To be able to download files to your local machine, the Docker Engine requires mounted volumes. For example, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
@@ -351,7 +351,7 @@ EOT
 **Notice:** If your organization uses private certificate authorities (CAs) to issue certificates for your internal web apps, and you either wish to access those websites through the `web-access-bastion`, or if your `AKEYLESS_GW_URL` is pointing to a **Gateway** that uses such a certificate, you must configure the WebWorkers as follows:
 
 1. Mount your organization's Root CA certificate to the containers (in the `docker-compose.yml`, under `services.worker.volumes`).
-2. In the `policies.json` above, uncomment the *Certificates.Install* line and set it to the relevant certificates' paths inside the container.
+2. In the `policies.json` above, uncomment the _Certificates.Install_ line and set it to the relevant certificates' paths inside the container.
 
 ### DLP
 
