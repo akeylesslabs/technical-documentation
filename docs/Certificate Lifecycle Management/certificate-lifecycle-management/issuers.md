@@ -16,9 +16,9 @@ The Issuers tab provides a comprehensive overview of the Certificate Issuers in 
 
 * **Type**: Indicates whether the issuer is:
 
-  * **Private CA**: Issues internal certificates for securing your organization.
+    * **Private CA**: Issues internal certificates for securing your organization.
 
-  * **Public CA**: Integrated with a trusted Certificate Authority, issuing certificates signed by the trusted authority.
+    * **Public CA**: Integrated with a trusted Certificate Authority, issuing certificates signed by the trusted authority.
 
 * **CA Level**: Specifies if the issuer is a Root or Intermediate Certificate Authority.
 

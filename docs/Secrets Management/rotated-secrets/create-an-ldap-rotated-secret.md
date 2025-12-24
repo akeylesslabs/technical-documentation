@@ -43,12 +43,12 @@ Where:
 * `target-name`: The name of the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target server.
-  * `use-target-creds` - Use the credentials defined on the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) item. For LDAP targets, this is the only available option.
+    * `use-target-creds` - Use the credentials defined on the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) item. For LDAP targets, this is the only available option.
 
 * `password-length`: **Optional**, the user's password length.
 
 * `rotator-type`: The type of credentials to be rotated. For [LDAP Target](https://docs.akeyless.io/docs/ldap-target), choose:
-  * `ldap` - to rotate the password for the user specified in the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
+    * `ldap` - to rotate the password for the user specified in the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
 * `rotated-username`: The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`.
 
@@ -75,12 +75,12 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Target:** Defines the name of the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target server:
-  * **Target credentials:** Use the credentials defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) item. For LDAP targets, this is the only available option.
+    * **Target credentials:** Use the credentials defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) item. For LDAP targets, this is the only available option.
 
 * **Password Length**: Set the user's password length.
 
 * **Rotator type:** Determines the rotator type:
-  * **LDAP**: Rotates the password defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
+    * **LDAP**: Rotates the password defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
 * **Username:** The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`.
 

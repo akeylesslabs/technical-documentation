@@ -64,10 +64,10 @@ At a high level:
 * A running Kubernetes cluster, **v1.16+** (ESO requirement).
 * **Helm** installed locally.
 * An Akeyless tenant with:
-  * At least one **Authentication Method** (API Key, Kubernetes Auth, Azure AD, AWS IAM, or GCP).
-  * An **Access Role** that grants read or write permissions to the relevant secrets.
+    * At least one **Authentication Method** (API Key, Kubernetes Auth, Azure AD, AWS IAM, or GCP).
+    * An **Access Role** that grants read or write permissions to the relevant secrets.
 * For Kubernetes Auth, private deployments, or hybrid deployments:
-  * An **Akeyless Gateway** with network access to the Kubernetes API server.
+    * An **Akeyless Gateway** with network access to the Kubernetes API server.
 
 ***
 
@@ -114,7 +114,7 @@ Each Authentication Method in Akeyless exposes an **Access ID**, and for some me
 * **API Key** → `accessTypeParam`: Akeyless Access Key
 * **Kubernetes Auth** → `accessTypeParam`: Kubernetes Auth config name
 * **Azure AD** → `accessTypeParam`: Azure Object ID (optional)
-  * See [ESO and AKS Workload Identity](https://docs.akeyless.io/docs/eso-and-aks-workload-identity) for more information.
+    * See [ESO and AKS Workload Identity](https://docs.akeyless.io/docs/eso-and-aks-workload-identity) for more information.
 * **GCP** → `accessTypeParam`: GCP audience
 * **AWS IAM** → `accessTypeParam`: not required
 

@@ -71,7 +71,7 @@ Please configure the following permissions:
 Creating basic auth credentials via ServiceNow instance.
 
 * Locate credentials in ServiceNow instance "All" menu
-  * Click on "All" and enter "credentials" in the search field
+    * Click on "All" and enter "credentials" in the search field
 
 <Image border={false} src="https://files.readme.io/518fa68-image-20221129-151725.png" />
 
@@ -96,13 +96,13 @@ Add JWT authentication in ServiceNow:
   (example: openssl req -new -x509 -key service_now.pem -out service_now_cert.pem -days 30)
 * Store the certificate in ServiceNow:
 
-  * Open “X.509 Certificate” table.
-  * Insert name, paste the certificate in field “PEM Certificate”, ensure “Active” is set, and Submit.
+    * Open “X.509 Certificate” table.
+    * Insert name, paste the certificate in field “PEM Certificate”, ensure “Active” is set, and Submit.
 
   <Image border={false} src="https://files.readme.io/b60bfff-Screenshot_2024-07-14_at_15.17.26.png" />
 
 * Create OAuth Application Registry:
-  * Choose the option "Create an OAuth JWT API endpoint for external clients":
+    * Choose the option "Create an OAuth JWT API endpoint for external clients":
 
 <Image border={false} src="https://files.readme.io/25c6457-Screenshot_2024-07-14_at_15.21.19.png" />
 
@@ -123,7 +123,7 @@ Add JWT authentication in ServiceNow:
 <Image border={false} src="https://files.readme.io/d32f15b-Screenshot_2024-07-14_at_15.36.45.png" />
 
 * Create user with Akeyless role:
-  * Create user in “Users” table:
+    * Create user in “Users” table:
 
 <Image border={false} src="https://files.readme.io/b22ab87-Screenshot_2024-07-14_at_15.45.00.png" />
 
@@ -136,7 +136,7 @@ Add JWT authentication in ServiceNow:
 <Image border={false} src="https://files.readme.io/e47d4a5-Screenshot_2024-07-14_at_15.49.00.png" />
 
 * Configure ServiceNow Event Forwarder in Akeyless:
-  * Create new event forwarder:
+    * Create new event forwarder:
 
 <Image border={false} src="https://files.readme.io/b1a5f9b-Screenshot_2024-07-14_at_15.56.29.png" />
 
@@ -147,8 +147,8 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
 ### Approving Access Request Via ServiceNow Instance
 
 * Locate `akeyless_access_request` table in ServiceNow instance "All" menu
-  * Click on "All" and enter `akeyless_access_request` in the search field
-  * Click on the table name
+    * Click on "All" and enter `akeyless_access_request` in the search field
+    * Click on the table name
 
 <Image border={false} src="https://files.readme.io/2b9f76f-Screenshot_2023-11-29_at_17.10.35.png" />
 

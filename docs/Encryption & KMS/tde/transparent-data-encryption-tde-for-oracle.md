@@ -203,9 +203,9 @@ ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=FILE";
 ##### Explanation
 
 * Close the Keystore:
-  * This command closes the HSM-based keystore in preparation for creating a file-based wallet for auto-login.
+    * This command closes the HSM-based keystore in preparation for creating a file-based wallet for auto-login.
 * Switch TDE Configuration:
-  * Changing the parameter to "KEYSTORE_CONFIGURATION=FILE" directs Oracle to use a file-based keystore for subsequent operations.
+    * Changing the parameter to "KEYSTORE_CONFIGURATION=FILE" directs Oracle to use a file-based keystore for subsequent operations.
 
 ### Create a File-Based Keystore and Enable Auto Login
 
@@ -304,9 +304,9 @@ SELECT * FROM V$ENCRYPTION_WALLET;
 ##### Explanation
 
 * Restart the Database:
-  * A restart is necessary for the new wallet configuration to fully take effect.
+    * A restart is necessary for the new wallet configuration to fully take effect.
 * Verify Wallet Status:
-  * Running the query against `V$ENCRYPTION_WALLET` confirms that the wallet is open and shows the expected configuration. The output should indicate that the wallet is properly configured for auto-login.
+    * Running the query against `V$ENCRYPTION_WALLET` confirms that the wallet is open and shows the expected configuration. The output should indicate that the wallet is properly configured for auto-login.
 
 In a multi-tenant environment (CDB/PDB). Note that you may see multiple rows corresponding to each container (for example, CON_ID=0 for the CDB root, CON_ID=5 for a PDB):
 

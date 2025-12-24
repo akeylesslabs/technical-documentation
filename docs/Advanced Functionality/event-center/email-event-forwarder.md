@@ -70,8 +70,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Override Event Link URL**: Check to override Akeyless default URL with your Gateway URL (Port `18888`)
 * Choose either to:
 
-  * **Forward Events Immediately**: Forward events as soon as the event occurs
+    * **Forward Events Immediately**: Forward events as soon as the event occurs
 
-  * **Forward Events Every**: choose when to forward events, in **hours**
+    * **Forward Events Every**: choose when to forward events, in **hours**
 * **Event Sources**: Select the **Items / Auth Methods / Targets / Gateways** you would like to get events on based on their locations
 * **Event Type**: Choose the relevant event to be notified about [from the following list](https://docs.akeyless.io/docs/event-center#event-types)

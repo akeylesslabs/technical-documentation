@@ -67,7 +67,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Password Length**: Set the length of the user's password
 
 * **Rotator type:** Determines the rotator type:
-  * **Target**: Rotates the privileged user credentials defined inside the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) item.
+    * **Target**: Rotates the privileged user credentials defined inside the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) item.
 
 > 👍 Note
 >

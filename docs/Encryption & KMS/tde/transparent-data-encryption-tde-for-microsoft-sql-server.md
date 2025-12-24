@@ -17,10 +17,10 @@ Transparent Data Encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 Ensure the following conditions are met before proceeding with the configuration:
 
 * MSSQL is deployed directly on a Windows Server environment.
-  * TDE does not support:
-    * MSSQL running in Docker (not supported by Microsoft).
-    * Azure SQL Managed Databases or Managed Instances (only support Azure Key Vault, not external KMS options).
-  * However, SQL Virtual Machine (VM) in Azure is supported, as it behaves similarly to running SQL Server on a VM.
+    * TDE does not support:
+        * MSSQL running in Docker (not supported by Microsoft).
+        * Azure SQL Managed Databases or Managed Instances (only support Azure Key Vault, not external KMS options).
+    * However, SQL Virtual Machine (VM) in Azure is supported, as it behaves similarly to running SQL Server on a VM.
 * Ensure you have Administrator privileges on the Windows Server and MSSQL.
 * Install the required .NET Framework to avoid issues with the `sqlcrypt.conf` file generation.
 
@@ -33,11 +33,11 @@ curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypt
 ```
 
 * Run the MSI installer and follow the wizard installation steps:
-  * Enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL (port 8081) when prompted.
-  * Choose the path in Akeyless to store the keys.
-  * Choose the OS installation path and save it for later reference. This process will:
-    * Copy the .dll files.
-    * Create the configuration file (`sqlcrypt.conf`), which can be edited later.
+    * Enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL (port 8081) when prompted.
+    * Choose the path in Akeyless to store the keys.
+    * Choose the OS installation path and save it for later reference. This process will:
+        * Copy the .dll files.
+        * Create the configuration file (`sqlcrypt.conf`), which can be edited later.
 
 The location of the `sqlcrypt.conf` file is depended on the installation path, Default location is:
 
@@ -191,10 +191,10 @@ For example, the result should look similar to:
 If you encounter issues during the installation or configuration, follow these steps:
 
 * Missing `sqlcrypt.conf` File:
-  * If the `sqlcrypt.conf` file was not created during installation, it could be due to a .NET Framework issue. The file is generated using a C# utility, so ensure that the correct version of .NET Framework is installed.
+    * If the `sqlcrypt.conf` file was not created during installation, it could be due to a .NET Framework issue. The file is generated using a C# utility, so ensure that the correct version of .NET Framework is installed.
 * Check Windows Event Viewer Logs:
-  * All errors encountered during installation and configuration will be logged in the **Windows Event Viewer Logs.** This is useful for diagnosing the issue.
+    * All errors encountered during installation and configuration will be logged in the **Windows Event Viewer Logs.** This is useful for diagnosing the issue.
 * Default Configuration Values:
-  * If the `sqlcrypt.conf` file is missing, the system defaults to using the **Akeyless public gateway** `https://api.akeyless.io` and the default **root base path** (/).
+    * If the `sqlcrypt.conf` file is missing, the system defaults to using the **Akeyless public gateway** `https://api.akeyless.io` and the default **root base path** (/).
 * Configuration Changes:
-  * Any changes made to the `sqlcrypt.conf` file after it is created **require a restart of the “SQL Server (MSSQLSERVER)**” service for the changes to take effect.
+    * Any changes made to the `sqlcrypt.conf` file after it is created **require a restart of the “SQL Server (MSSQLSERVER)**” service for the changes to take effect.

@@ -86,11 +86,11 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     GO
     ```
 
-    If you wish to utilize [Azure AD authentication](https://docs.akeyless.io/docs/azure-ad) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any dummy value:
+    If you wish to utilize [Azure AD authentication](https://docs.akeyless.io/docs/azure-ad) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any placeholder value:
 
     ```sql
     CREATE CREDENTIAL akeyless_tde
-    WITH IDENTITY = '<AZURE_AD_ACCESS_ID>', SECRET = 'dummy'
+    WITH IDENTITY = '<AZURE_AD_ACCESS_ID>', SECRET = 'placeholder'
     FOR CRYPTOGRAPHIC PROVIDER Akeyless ;
     GO
     ```
@@ -190,5 +190,5 @@ If you're running into issues getting TDE with Akeyless set up on MSSQL, here ar
 * After you first run the installer, any future changes to the configuration file (which by default will be located under: `C:\\Program Files\\Akeyless\\Akeyless Ekm Provider\\sqlcrypt.conf`) will only take effect after restarting the `SQL Server (MSSQLSERVER)` Windows service.
 * If no config file is found, the setup will default to using `https://api.akeyless.io` as the Akeyless Gateway URL and the root path / for key creation.
 * Make sure the key was created at the specified path in Akeyless. If not:
-  * Confirm that the TDE Auth Method you created has an Access Role permitting access to that path.
-  * If you are using Classic Keys (instead of DFC), ensure the Auth Method also has Gateway Access Permissions to manage Classic Keys.
+    * Confirm that the TDE Auth Method you created has an Access Role permitting access to that path.
+    * If you are using Classic Keys (instead of DFC), ensure the Auth Method also has Gateway Access Permissions to manage Classic Keys.

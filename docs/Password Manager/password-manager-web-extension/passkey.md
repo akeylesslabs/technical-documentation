@@ -33,12 +33,12 @@ The following steps guide users on how to log in using an existing passkey for a
 ### Steps
 
 * Navigate to a Passkey-supported website:
-  * Example: Adobe Account Security
+    * Example: Adobe Account Security
 * Attempt to Sign In:
-  * Try logging in to the website.
+    * Try logging in to the website.
 * If a passkey exists for the website:
-  * A list of available passkeys will be shown.
-  * Users can select the relevant passkey to sign in.
+    * A list of available passkeys will be shown.
+    * Users can select the relevant passkey to sign in.
 
 ### Example Flow
 
@@ -51,17 +51,17 @@ Users can create a new passkey for a supported website. Follow the steps below t
 ### Steps
 
 * Navigate to the Passkey creation page on a supported website:
-  * Example: Adobe Account Security
+    * Example: Adobe Account Security
 * Click on "Add Passkey".
 * Authenticate:
-  * If logged in to the website (For example, Adobe), proceed with passkey creation.
-  * If not logged in, authenticate first.
+    * If logged in to the website (For example, Adobe), proceed with passkey creation.
+    * If not logged in, authenticate first.
 * Passkey Status:
-  * If the passkey already exists for the website, the user will be given the option to update or create a new passkey.
-  * If no passkey exists, a new passkey will be created.
+    * If the passkey already exists for the website, the user will be given the option to update or create a new passkey.
+    * If no passkey exists, a new passkey will be created.
 * Save the Passkey:
-  * If saving the passkey is successful, a Success Message will be shown.
-  * If there is an error during the process, an Error Message will be displayed.
+    * If saving the passkey is successful, a Success Message will be shown.
+    * If there is an error during the process, an Error Message will be displayed.
 
 #### Example Flow
 

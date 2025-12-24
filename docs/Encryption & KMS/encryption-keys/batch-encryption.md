@@ -27,21 +27,21 @@ The primary objective is to efficiently decrypt a substantial number of credit c
 * Algorithm: AES256 with CBC mode.
 * Data Length: 16-digit credit card numbers.
 * Key Management:
-  * Up to 5 active keys are maintained per year.
-  * Keys are stored for a duration of 5 years, potentially involving up to 25 different keys per batch.
+    * Up to 5 active keys are maintained per year.
+    * Keys are stored for a duration of 5 years, potentially involving up to 25 different keys per batch.
 
 ### Key Specifications
 
 * Encryption Algorithm: AES256 CBC.
 * Keys: AES256 keys are used for encryption/decryption.
 * Batch Processing:
-  * Up to 25 different keys per batch, depending on the key version and key\_id.
+    * Up to 25 different keys per batch, depending on the key version and key\_id.
 
 ### Workflow
 
 * The encryption/decryption service will be provided via an API supporting:
-  * ingle value encryption/decryption.
-  * Batch processing for encryption/decryption.
+    * ingle value encryption/decryption.
+    * Batch processing for encryption/decryption.
 * The initial phase will focus on batch processing using a classic key (AES256) through a gateway, without involving asymmetric keys.
 
 ## Command References

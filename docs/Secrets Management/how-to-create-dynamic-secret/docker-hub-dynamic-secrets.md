@@ -96,9 +96,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing Docker Hub Target or specify details of the target Docker repository explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing Docker Hub Target.
+    * Use the **Choose an existing target** drop-down list to select the existing Docker Hub Target.
 
-  * Select the **Explicitly specify target properties** option, to provide details of the target Docker repository in the next step.
+    * Select the **Explicitly specify target properties** option, to provide details of the target Docker repository in the next step.
 * **Token Scopes:** Select permission scopes to assign to the token. Each permission scope includes lower-permission scopes, i.e., **Admin** includes all the rest of the permission scopes, **Write** contains **Read** and **Public**, etc.
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Time Unit:** Select the time unit (`seconds`,`minutes`, `hours`) for the TTL value.

@@ -43,7 +43,7 @@ After the migration, new secrets will be available under the specified path. If 
 > 👍 Note
 >
 > If there are existing secrets under the **Target location**, their values will be replaced in case of conflict. This can happen if you leave the "Target location" field blank and a new secret has the same name as the existing one.
-
+>
 > 👍 Tip
 >
 > Before getting started, ensure that the platform where the secrets are stored is accessible over the network from the Akeyless Gateway server. Depending on the deployment, it might require adding an Akeyless Gateway IP address to a security group or a firewall.

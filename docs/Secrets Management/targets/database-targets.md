@@ -38,11 +38,9 @@ Available database targets:
 
 ## Create a Database Target with the CLI
 
-> 👍 Note
+> 📘 Notes
 >
 > To create a database target from Akeyless CLI, choose the database type within the `create-db-target` command
-
-> 📘 Info
 >
 > `create-db-target` command includes all available databases targets, please follow the relevant database section for the relevant fields.
 

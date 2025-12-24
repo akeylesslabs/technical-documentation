@@ -37,7 +37,7 @@ Install the latest version of [Akeyless Command Line Interface (CLI)](https://do
 > 📘 RC File Notes
 >
 > The `~/.akeyless-connect.rc` file must be placed in your local `$HOME` directory to work.
->  The RC file still uses `BASTION_*` variable names for historical reasons, but the CLI flags are now `--sra-ctrl-*`.
+> The RC file still uses `BASTION_*` variable names for historical reasons, but the CLI flags are now `--sra-ctrl-*`.
 
 ```shell akeyless-connect.rc
 # ---------------------------------------------------------------------

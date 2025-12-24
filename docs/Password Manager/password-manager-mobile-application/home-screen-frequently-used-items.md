@@ -37,6 +37,6 @@ This addition to the home screen is designed to put your most used passwords and
 
 * Purpose: To provide quick access to the passwords and secrets you use most frequently, making your daily routines smoother and more efficient.
 * Criteria for "Most Used": This section dynamically updates based on your actions, including:
-  * Injected Passwords: Passwords you've used to log in automatically to websites and apps.
-  * Copied Passwords: Credentials you've copied to the clipboard for use in different contexts.
-  * Shared Passwords: Passwords and secrets you've shared with trusted contacts for collaborative work or emergency access.
+    * Injected Passwords: Passwords you've used to log in automatically to websites and apps.
+    * Copied Passwords: Credentials you've copied to the clipboard for use in different contexts.
+    * Shared Passwords: Passwords and secrets you've shared with trusted contacts for collaborative work or emergency access.

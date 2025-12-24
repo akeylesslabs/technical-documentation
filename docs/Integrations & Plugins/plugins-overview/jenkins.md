@@ -48,12 +48,12 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 
 * #### Choose the Authentication Method from the Kind drop-down
 
-  * Username with password - Email Authentication Method.
-  * Akeyless Access Key Credentials - API Key Authentication Method.
-  * Akeyless Certificate Credentials - Certificate Authentication Method.
-  * Akeyless Cloud Provider Credentials - AWS, Azure or GCP Authentication Method.
-  * Akeyless Universal Identity Credentials - Universal Identity Authentication Method.
-  * Akeyless t-Token Credentials - t-Token.
+    * Username with password - Email Authentication Method.
+    * Akeyless Access Key Credentials - API Key Authentication Method.
+    * Akeyless Certificate Credentials - Certificate Authentication Method.
+    * Akeyless Cloud Provider Credentials - AWS, Azure or GCP Authentication Method.
+    * Akeyless Universal Identity Credentials - Universal Identity Authentication Method.
+    * Akeyless t-Token Credentials - t-Token.
 * Click Add to save the configuration.
 
 ## Retrieving Items

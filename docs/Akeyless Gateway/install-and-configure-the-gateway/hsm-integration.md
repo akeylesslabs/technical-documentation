@@ -74,9 +74,9 @@ Where:
 
 * `type`: The **HSM** mode for the **Customer Fragment** either:
 
-  * `hsm_wrapped`: Will derive the fragment once, when the gateway starts up, and keep the result in memory
+    * `hsm_wrapped`: Will derive the fragment once, when the gateway starts up, and keep the result in memory
 
-  * `hsm_secured`: Will derive the value on each use of the key, and will not save the value.
+    * `hsm_secured`: Will derive the value on each use of the key, and will not save the value.
 
 * `hsm-key-label`: The label of the key inside the **HSM**.
 

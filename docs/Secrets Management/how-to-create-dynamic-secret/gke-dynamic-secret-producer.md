@@ -149,10 +149,8 @@ akeyless dynamic-secret get-value --name <Path to the dynamic secret>
 
 Then you need to replace under the **kubeconfig** `< Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
-> 👍 Note
+> 📘 Notes
 >
 > To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
-
-> 📘 Single kubeconfig Generation
 >
 > Akeyless supports generation of a single kubeconfig file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)

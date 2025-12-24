@@ -103,14 +103,14 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) or specify details of the target LDAP server explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
+    * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
-  * Check the **Explicitly specify target properties** to provide details of the target LDAP Server in the next step.
+    * Check the **Explicitly specify target properties** to provide details of the target LDAP Server in the next step.
 * **User Base DN:** Specify user base DN settings.
 * **LDAP User Attribute:** Specify the default value CN.
 * **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IdP.
-  * **Override:** Explicitly enter the username.
-  * **Extract:** Extract the user from a Sub Claim configured on your IdP, where the default value is `ext_username`
+    * **Override:** Explicitly enter the username.
+    * **Extract:** Extract the user from a Sub Claim configured on your IdP, where the default value is `ext_username`
 * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only when **not using** externally provided username).
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Temporary Password Length** Set the length of the temporary password.

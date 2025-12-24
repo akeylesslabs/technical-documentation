@@ -144,9 +144,9 @@ Where:
 
 * `ingress` - Either **External** or **Internal**:
 
-  * **External**: Accepts traffic from both the public internet and your container app's internal environment.
+    * **External**: Accepts traffic from both the public internet and your container app's internal environment.
 
-  * **Internal**: Allows only internal access from within your container app's environment.
+    * **Internal**: Allows only internal access from within your container app's environment.
 
 * `target-port` - The app inside the container listens on port `8000` for incoming traffic.
 

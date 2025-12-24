@@ -68,16 +68,16 @@ Where:
 * `target-name`: The name of the [AWS Target](https://docs.akeyless.io/docs/aws-targets) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target AWS account.
-  * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
+    * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
+    * `use-target-creds` - Use the credentials defined on the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
 
 > 👍 Note
 >
 > Select `use-target-creds` if the Rotated Secret user is not authorized to change their own Access Key, and a privileged AWS IAM principal, like the [AWS Target](https://docs.akeyless.io/docs/aws-targets), is required to change the Access Key on behalf of the Rotated Secret user.
 
 * `rotator-type`: The type of credentials to be rotated. For [AWS Targets](https://docs.akeyless.io/docs/aws-targets), choose:
-  * `api-key` - to rotate the Access Key specified in the Rotated Secret.
-  * `target` - to rotate the Access Key for the user specified in the [AWS Target](https://docs.akeyless.io/docs/aws-targets).
+    * `api-key` - to rotate the Access Key specified in the Rotated Secret.
+    * `target` - to rotate the Access Key for the user specified in the [AWS Target](https://docs.akeyless.io/docs/aws-targets).
 
 * `api-id`: The Access Key ID of the AWS user whose Access Key should be rotated. If left empty, the Rotated Secret will create a new key and manage its rotation. **Note** When `api-id` is not provided, upon successful creation, the AWS Access Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. The AWS Access Key will be deleted from the cloud as well.
 
@@ -86,7 +86,7 @@ Where:
 * `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created - to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
 
 * `auto-rotate`: Enable auto-rotation if you need to update the Access Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
-  * `grace-rotation-interval` and `grace-rotation-hour` defines the 2nd interval following the main rotation settings, relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
+    * `grace-rotation-interval` and `grace-rotation-hour` defines the 2nd interval following the main rotation settings, relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueawsp) section.
 
@@ -107,16 +107,16 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Target:** Defines the name of the [AWS Target](https://docs.akeyless.io/docs/aws-targets) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target AWS account:
-  * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
+    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+    * **Target credentials:** Use the credentials defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
 
 > 👍 Note
 >
 > Select **Target credentials** if the Rotated Secret user is not authorized to change their own Access Key, and a privileged AWS IAM principal, like the [AWS Target](https://docs.akeyless.io/docs/aws-targets) user, is required to change the Access Key on behalf of the Rotated Secret user.
 
 * **Rotator type:** Determines the rotator type:
-  * **API Key**: Rotates the Access Key defined inside the Rotated Secret item.
-  * **Target**: Rotates the Access Key defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
+    * **API Key**: Rotates the Access Key defined inside the Rotated Secret item.
+    * **Target**: Rotates the Access Key defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
 
 * **Access Key ID:** Defines the Access Key ID of the AWS user whose Access Key should be rotated.
 

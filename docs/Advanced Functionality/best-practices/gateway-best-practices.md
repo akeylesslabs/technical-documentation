@@ -23,9 +23,9 @@ next:
 
 * **Gateway Authentication method** - Should be used with a dedicated authentication method, stored under a path that only your admin users can access. When creating items associated with the Gateway, the Gateway's authentication method needs to have the following permissions:
 
-  * For **Dynamic and Rotated Secrets** - List, Read, and Update permissions are required both on the secret item and on the target associated with the secret.
+    * For **Dynamic and Rotated Secrets** - List, Read, and Update permissions are required both on the secret item and on the target associated with the secret.
 
-  * For **Universal Secret Connector** - Read permission is required both on the USC item and on the target associated with the USC.
+    * For **Universal Secret Connector** - Read permission is required both on the USC item and on the target associated with the USC.
 
 * **Dedicated environment** - GW should be the only application running on the machine. This can be done using a dedicated Docker that runs on that machine or a dedicated Kubernetes (K8s) cluster. This reduces the risk that another process running on the same machine is compromised and can interact with your GW.
 

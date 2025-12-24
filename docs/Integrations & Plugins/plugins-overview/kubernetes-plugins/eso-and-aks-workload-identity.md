@@ -38,8 +38,8 @@ When an Azure AD Auth Method is configured in Akeyless, it validates Azure token
 * JWKS validation via the Microsoft discovery endpoint
 * Tenant ID
 * Optional sub‑claims such as:
-  * `xms_mirid` (Managed Identity resource ID)
-  * `oid` (Azure object ID for MI / SPN / user accounts)
+    * `xms_mirid` (Managed Identity resource ID)
+    * `oid` (Azure object ID for MI / SPN / user accounts)
 
 This enables very fine-grained identity binding between AKS workloads and Akeyless roles.
 
@@ -67,7 +67,7 @@ In Azure, the federated credential must trust:
 
 * The AKS OIDC issuer
 * The exact ServiceAccount identity:
-  * `system:serviceaccount:<namespace>:<sa-name>`
+    * `system:serviceaccount:<namespace>:<sa-name>`
 
 This is what enables Azure to issue the correct identity token to ESO.
 
@@ -192,10 +192,10 @@ If it fails:
 
 * The pod is not being issued a correct Azure token.
 * Re-check:
-  * Federated credential settings
-  * ServiceAccount annotations
-  * AKS OIDC issuer
-  * Namespace/name used in federation
+    * Federated credential settings
+    * ServiceAccount annotations
+    * AKS OIDC issuer
+    * Namespace/name used in federation
 
 ***
 

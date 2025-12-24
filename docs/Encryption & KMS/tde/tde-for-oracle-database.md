@@ -120,8 +120,8 @@ Optional:
 * `split_level` - Defines the requested split level. By default, split level set with `2`.
 
 * `[syslog]` Section can be added, to set the destination Syslog server settings:
-  * `network` - Either **TCP** or **UDP**
-  * `url` - Syslog server URL.
+    * `network` - Either **TCP** or **UDP**
+    * `url` - Syslog server URL.
 
 Set the relevant permission on the `pkcs11.conf` file for your Oracle user & group:
 
@@ -201,14 +201,14 @@ CREATE TABLE my_table (
 >
 > 1. Set the TDE configuration:
 >
->   ```sql
->   ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
+> ```sql
+> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
 >   ```
 >
 > 2. Migrate the encryption key:
 >
->   ```sql
->   ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "Akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
+> ```sql
+> ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "Akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
 >   ```
 >
 > Ensure to replace `<old file based tde password>` with the appropriate password.

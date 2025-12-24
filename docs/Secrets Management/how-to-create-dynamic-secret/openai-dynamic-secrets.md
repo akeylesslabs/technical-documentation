@@ -77,8 +77,8 @@ Where:
 
 * **Target mode:** In this section, you can either select an existing OpenAI Target or specify details of the target OpenAI account explicitly.ֿ
 
-  * Use the **Choose an existing target** drop-down list to select the existing OpenAI Target .
-  * Check the **Explicitly specify target properties** to provide details of the target OpenAI account in the next step.
+    * Use the **Choose an existing target** drop-down list to select the existing OpenAI Target .
+    * Check the **Explicitly specify target properties** to provide details of the target OpenAI account in the next step.
 
 * **Project ID** The Project ID where the new API Key will be created.
 

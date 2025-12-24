@@ -75,26 +75,26 @@ akeyless rotated-secret create custom \
 
 Where:
 
-- `name`: A unique name of the Rotated Secret. The name can include the path to the virtual folder where you want to create the new Rotated Secret, using slash `/` separators. If the folder does not exist, it will be created together with the Rotated Secret.
+* `name`: A unique name of the Rotated Secret. The name can include the path to the virtual folder where you want to create the new Rotated Secret, using slash `/` separators. If the folder does not exist, it will be created together with the Rotated Secret.
 
-- `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-- `target-name`: The name of the [Web Target](https://docs.akeyless.io/docs/web-targets) with which the custom Rotated Secret should be associated.
+* `target-name`: The name of the [Web Target](https://docs.akeyless.io/docs/web-targets) with which the custom Rotated Secret should be associated.
 
-- `authentication-credentials`: Determines how to connect to the target.
-  - `use-user-creds`: Use the credentials defined on the Rotated Secret item.
+* `authentication-credentials`: Determines how to connect to the target.
+    * `use-user-creds`: Use the credentials defined on the Rotated Secret item.
 
-- `rotator-type`: The type of credentials to be rotated. For [Web Target](https://docs.akeyless.io/docs/web-targets), should be `custom`.
+* `rotator-type`: The type of credentials to be rotated. For [Web Target](https://docs.akeyless.io/docs/web-targets), should be `custom`.
 
-- `custom-payload`: A secret payload to be sent with a rotation request.
+* `custom-payload`: A secret payload to be sent with a rotation request.
 
-- `custom-password-policy[=false]`: A boolean flag to set the policy for the rotated password, the endpoint must provide a new password according to the following settings:
-  - `password-length`: Password length.
-  - `PasswordLowercaseChar`: A boolean flag specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z).
-  - `PasswordUppercaseChar`: A boolean flag specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z).
-  - `PasswordRequireNumbers`: A boolean flag specifies whether the generated temporary password must contain at least one numeric character (0 to 9)
-  - `PasswordRequireSymbols`: A boolean flag specifies whether the generated temporary password must contain at least one of non-alphanumeric characters. i.e. "! @ # $".
+* `custom-password-policy[=false]`: A boolean flag to set the policy for the rotated password, the endpoint must provide a new password according to the following settings:
+    * `password-length`: Password length.
+    * `PasswordLowercaseChar`: A boolean flag specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z).
+    * `PasswordUppercaseChar`: A boolean flag specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z).
+    * `PasswordRequireNumbers`: A boolean flag specifies whether the generated temporary password must contain at least one numeric character (0 to 9)
+    * `PasswordRequireSymbols`: A boolean flag specifies whether the generated temporary password must contain at least one of non-alphanumeric characters. i.e. "! @ # $".
 
-- `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days.
+* `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluecustomp) section.

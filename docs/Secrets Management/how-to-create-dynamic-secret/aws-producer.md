@@ -167,9 +167,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Target mode:** In this section, you can either select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) or specify details of the target AWS account explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) .
+    * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) .
 
-  * Check the **Explicitly specify target properties** to provide details of the target AWS account in the next step.
+    * Check the **Explicitly specify target properties** to provide details of the target AWS account in the next step.
 
 * **Access Mode:** Select the AWS access mode, either **IAM User** or **Assume Role**.
 

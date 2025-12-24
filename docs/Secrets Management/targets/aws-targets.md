@@ -42,8 +42,8 @@ Where:
 * `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 * `use-gw-cloud-identity`: A boolean flag to use the Gateway cloud ID to use an existing IAM role.
-  * `generate-external-id[=false]`: Optional, a unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless. Relevant only when using the Gateway cloud ID.
-  * `role-arn`: Optional, AWS IAM role identifier that Gateway will assume in your AWS account, relevant only when using an external ID
+    * `generate-external-id[=false]`: Optional, a unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless. Relevant only when using the Gateway cloud ID.
+    * `role-arn`: Optional, AWS IAM role identifier that Gateway will assume in your AWS account, relevant only when using an external ID
 
 Alternatively, to use IAM explicit credentials:
 
