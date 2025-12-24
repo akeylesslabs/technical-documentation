@@ -271,8 +271,13 @@ module.exports = [
   },
 
   /**
-   * AKY006: Disallow Latin abbreviations/phrases in prose (e.g., e.g., i.e., ad hoc)
-   * Style guide: Avoid Latin phrases and abbreviations. :contentReference[oaicite:6]{index=6}
+   * AKY006: Disallow Latin abbreviations/phrases in prose (expanded)
+   * Style guide: Avoid Latin phrases and abbreviations.
+   *
+   * Notes:
+   * - Skips fenced/indented code blocks and inline code spans.
+   * - Case-insensitive.
+   * - Tries to be resilient to dot/no-dot variants (e.g., "e.g." vs "eg").
    */
   {
     names: ["AKY006", "no-latin-abbreviations"],
@@ -281,7 +286,90 @@ module.exports = [
     function: function (params, onError) {
       const codeLines = getCodeBlockLineSet(params.tokens);
       const lines = params.lines || [];
-      const re = /\b(e\.g\.|i\.e\.|ad hoc)\b/gi;
+
+      /**
+       * Latin / Latin-derived abbreviations and phrases to flag.
+       *
+       * Why we do this:
+       * - JavaScript RegExp literals do NOT support verbose mode (no newlines/comments).
+       * - Maintaining one huge regex literal becomes hard to edit and error-prone.
+       *
+       * How it works:
+       * - We store each pattern as a string (already escaped for RegExp).
+       * - Then we join them with | into a single alternation group.
+       * - We wrap with word boundaries (\b) so we don’t match inside other words.
+       *
+       * Notes on patterns:
+       * - Dot/no-dot variants are supported for common abbreviations (e.g., e.g. vs eg).
+       * - Flexible whitespace is allowed in abbreviations that may be typed with spaces (e.g., "a k a").
+       * - Multi-word phrases are encoded with `\s+` to allow any whitespace.
+       *
+       * Extending:
+       * - Add new entries to `latinPatterns`.
+       * - Prefer explicit patterns rather than “too clever” ones to avoid false positives.
+       */
+      const latinPatterns = [
+        // Common abbreviation forms (dot/no-dot variants)
+        "e\\.?\\s?g\\.?",              // e.g., eg
+        "i\\.?\\s?e\\.?",              // i.e., ie
+        "etc\\.?",                     // etc, etc.
+        "cf\\.?",                      // cf, cf.
+        "vs\\.?",                      // vs, vs.
+        "viz\\.?",                     // viz, viz.
+
+        // Commonly misused in technical documentation, often unnecessary
+        "ad\\s+hoc",                   // ad hoc
+        "et\\s+al\\.?",                // et al, et al.
+        "per\\s+se",                   // per se
+        "de\\s+facto",                 // de facto
+        "de\\s+jure",                  // de jure
+        "ipso\\s+facto",               // ipso facto
+        "status\\s+quo",               // status quo
+        "in\\s+situ",                  // in situ
+        "a\\s+priori",                 // a priori
+        "a\\s+posteriori",             // a posteriori
+
+        // Less common but still appears in docs
+        "bona\\s+fide",                // bona fide
+        "caveat(?:\\s+emptor)?",       // caveat, caveat emptor
+        "inter\\s+alia",               // inter alia
+        "mutatis\\s+mutandis",         // mutatis mutandis
+        "prima\\s+facie",              // prima facie
+        "pro\\s+rata",                 // pro rata
+        "quid\\s+pro\\s+quo",          // quid pro quo
+        "sui\\s+generis",              // sui generis
+        "vice\\s+versa",               // vice versa
+        "in\\s+re",                    // in re
+
+        // Misc
+        "n\\.?\\s?b\\.?",              // n.b., nb
+        "ibid\\.?",                    // ibid, ibid.
+        "ibidem",                      // ibidem
+        "idem",                        // idem
+
+        // Time abbreviations (optional: remove if you don’t want these)
+        "a\\.?\\s?m\\.?",              // a.m., am
+        "p\\.?\\s?m\\.?",              // p.m., pm
+
+        // Also optional; used in narrative/marketing text
+        "a\\.?\\s?k\\.?\\s?a\\.?"      // a.k.a., aka
+      ];
+
+      /**
+       * Combine patterns into a single regex.
+       *
+       * The final structure is:
+       *   \b(?:pattern1|pattern2|pattern3)\b
+       *
+       * Flags:
+       * - g: global (find all matches)
+       * - i: case-insensitive
+       *
+       * We keep `\b` word boundaries so:
+       * - "etc" matches as a token
+       * - but "etcetera" does NOT trigger for "etc"
+       */
+      const re = new RegExp(`\\b(?:${latinPatterns.join("|")})\\b`, "gi");
 
       for (let i = 0; i < lines.length; i++) {
         const ln = i + 1;
@@ -290,7 +378,12 @@ module.exports = [
         const text = stripInlineCode(lines[i]);
         const m = text.match(re);
         if (m) {
-          report(onError, ln, "Avoid Latin abbreviations/phrases; rewrite using plain language.", m[0]);
+          report(
+            onError,
+            ln,
+            "Avoid Latin abbreviations/phrases; rewrite using plain language.",
+            m[0]
+          );
         }
       }
     }
