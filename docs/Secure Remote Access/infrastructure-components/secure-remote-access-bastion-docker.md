@@ -48,10 +48,10 @@ Currently, this setup requires a **Volume** storage mechanism of [Docker](https:
 
 The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
 
-Users can have only `list` permissions on their secrets. Upon successful authentication against your IdP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
+Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
 To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` that will be authorized to request access.
 
-For RDP access that uses the **Fixed user** feature, rely on the username sub-claims to figure out **Windows** username to use. If you use a different sub-claim, it should be specified at deployment time using `USERNAME_SUB_CLAIM` environment variable. To use this mode, separately for either `SSH` or for `RDP` only, you can use instead `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM` correspondingly.
+For RDP access that uses the **Fixed user** feature, rely on the username sub-claim to determine which **Windows** username to use. If you use a different sub-claim, specify it at deployment time using the `USERNAME_SUB_CLAIM` environment variable. To configure this behavior independently for SSH and RDP, use `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM`, respectively.
 
 To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 

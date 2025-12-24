@@ -80,7 +80,7 @@ env:
 
 For RDP connections with an [externally provided username](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console), you can configure RDP/SSH authentication to use the relevant attribute from the IdP JWT (For example, email) to establish a connection to the target server using the authenticated username.
 
-This will take effect on all SSH-based sessions, both for RDP and Linux-based systems.
+This applies to all SSH-based sessions, including RDP and Linux systems.
 
 RDP:
 

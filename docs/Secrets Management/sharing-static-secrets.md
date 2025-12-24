@@ -28,9 +28,9 @@ You can define a list of allowed email domains in the **Global Settings**. Secre
 
 3. Choose the share flow either **Email** or via **Token**
 
-4. Choose when the link expires and who to share it with. If you choose to share the item with only some people via **Email**, enter each email address and press Return or Enter
+4. Choose when the link expires and who to share it with. If you want to share the item with only specific people by email, enter each email address, then press **Enter**.
 
-5. Click Copy, then send the link or token to the recipient you want to share the item with. When sharing via **Email** the recipients must verify their email address first, to get access to the item.
+5. Click **Copy**, then send the link or token to the recipient you want to share the item with. If you share the item by email, recipients must verify their email address before they can access it.
 
 To view an email-based shared item, click or tap the link you were sent to open it in your browser. After you’ve verified your email address, you can view and copy the item or other item details that were shared with you until the link expires.
 

@@ -83,7 +83,7 @@ akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim
 
 This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**
 
-This will take effect on all SSH-based sessions, both for RDP and Linux-based systems.
+This applies to all SSH-based sessions, including RDP and Linux systems.
 
 ### Support for Other Keyboard Layouts
 

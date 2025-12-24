@@ -77,7 +77,7 @@ Let's set up remote access to a database from the Akeyless Console. If you'd pre
 
 2. Select the Dynamic Secret or Rotated Secret that specifies the database details and access credentials.
 
-3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
+3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
     * `Host(s)`: The hostname (or IP address) and port for accessing the database as defined in the dynamic secret.
     * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.

@@ -64,7 +64,7 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 2. Select the SSH Cert Issuer item that specifies the SSH host details and access credentials.
 
-3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
+3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
 * Choose the right mode to work with either:
 

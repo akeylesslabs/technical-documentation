@@ -19,7 +19,7 @@ As both classic SSH and RDP access are based on SSH certificates, to support leg
 
 ## RDP User Access
 
-Set the `usernameSubClaim` with the relevant attribute that exists inside your IdP JWT, for example, `email`, to set the connection to your target server using the current authenticated username.
+Set the `usernameSubClaim` with the relevant attribute that exists inside your IdP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
 
 ```yaml
 ############
@@ -32,7 +32,7 @@ RDPusernameSubClaim:
 SSHusernameSubClaim:
 ```
 
-This will take effect on all SSH-based sessions, both for RDP and Linux-based systems. To split the use case when to extract the `usernameSubClaim` you can set instead a dedicated setting for each type.
+This applies to all SSH-based sessions, including RDP and Linux systems. If you need different behavior for extracting `usernameSubClaim`, configure a separate setting for each session type.
 
 ## Proxy
 

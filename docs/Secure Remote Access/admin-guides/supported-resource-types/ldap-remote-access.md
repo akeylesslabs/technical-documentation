@@ -62,7 +62,7 @@ Let's set up remote access to a LDAP server from the Akeyless Console. If you'd 
 
 2. Select the Dynamic Secret or the Rotated Secret that specifies the LDAP server details and access credentials.
 
-3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
+3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
 * `Host(s)`: The hostname (or IP address) for accessing the LDAP server as defined in the secret.
 * `Externally Provided Username`: Optional for Dynamic Secret. Select to enable an external username to log into the target host.
