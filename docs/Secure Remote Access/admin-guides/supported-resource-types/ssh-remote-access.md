@@ -122,8 +122,7 @@ Where:
 * `IDENTITY_FILE`: The path to the `ssh-key` to be signed and used for Zero Trust session (if empty, a default of `ssh-key` is used).
 * `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
 * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
-* `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (RestAPI).
-* <br />
+* `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
 
 3. Use `akeyless connect` command to perform SSH authentication to the target server via Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
 
@@ -131,7 +130,7 @@ Where:
 akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
 ```
 
-# Legacy SSH Versions
+## Legacy SSH Versions
 
 Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)to access remote machines running OpenSSH version `7.4` or `7.6`. This occurs both in CLI and the Web portal.
 

@@ -67,7 +67,7 @@ To use Akeyless Connect you need:
     # Akeyless CLI binary (if needed)
     AKEYLESS_CLI=akeyless
 
-    # AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (RestAPI)
+    # AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (REST API)
     AKEYLESS_GW_REST_API=""
 
     # Following are used for control service, to configure the temporary session:
@@ -145,7 +145,7 @@ To use Akeyless Connect you need:
           --bastion-ctrl-subdomain           Bastion control API URL prefix. For example, https://<prefix>.bastion-host
           --bastion-ctrl-path                Bastion control API path. For example, https://bastion-host/<path>
           --bastion-ctrl-port[=9900]         Bastion control API port. For example, https://bastion-host:<7777>
-          --gateway-rest-endpoint            Gateway RestAPI URL. For example, https://rest.akeyless.io
+          --gateway-rest-endpoint            Gateway REST API URL. For example, https://rest.akeyless.io
       -V, --ssh-version                      Output local SSH client version
           --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
           --use-ssh-agent										 Enable ssh-agent

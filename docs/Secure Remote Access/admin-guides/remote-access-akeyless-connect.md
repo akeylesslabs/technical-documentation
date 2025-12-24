@@ -63,10 +63,10 @@ AKEYLESS_PROFILE="default"
 # Akeyless CLI binary (if needed)
 AKEYLESS_CLI=akeyless
 
-# AKEYLESS_GW_SSH_URL - URL for Akeyless GW SSH service
+# AKEYLESS_GW_SSH_URL - URL for Akeyless Gateyway SSH service
 AKEYLESS_GW_SSH_URL=""
 
-# AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (RestAPI)
+# AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (REST API)
 AKEYLESS_GW_REST_API=""
 
 # Following are used for control service, to configure the temporary session:
@@ -178,7 +178,7 @@ Options:
       --sra-ctrl-subdomain               SRA control API URL prefix. For example, https://<prefix>.sra-host
       --sra-ctrl-path                    SRA control API path. For example, https://sra-host/<path>
       --sra-ctrl-port[=9900]             SRA control API port. For example, https://sra-host:<7777>
-      --gateway-rest-endpoint            Gateway RestAPI URL. For example, https://rest.akeyless.io
+      --gateway-rest-endpoint            Gateway REST API URL. For example, https://rest.akeyless.io
   -V, --ssh-version                      Output local SSH client version
       --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
       --ssh-command                      Path to SSH executable. For example, /usr/bin/ssh

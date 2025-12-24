@@ -60,7 +60,7 @@ Akeyless SCP enables secure copy via [Secure Remote Access Bastion](https://docs
     # Akeyless CLI binary (if needed)
     AKEYLESS_CLI=akeyless
 
-    # AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (RestAPI)
+    # AKEYLESS_GW_REST_API - URL for Akeyless API Gateway (REST API)
     AKEYLESS_GW_REST_API=""
 
     # Following are used for control service, to configure the temporary session:

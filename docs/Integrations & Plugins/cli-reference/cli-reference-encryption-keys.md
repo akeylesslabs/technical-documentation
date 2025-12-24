@@ -455,7 +455,7 @@ akeyless export-classic-key \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the RestAPI
+`--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache. This flag is only relevant when using the REST API
 
 `--wrapping-key-name`: Classic key name to wrap the key material with. This feature enables users to specify the name of a Key Encryption Key (KEK) to encrypt a Data Encryption Key (DEK) during the export process.
 
