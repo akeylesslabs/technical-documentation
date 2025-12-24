@@ -43,7 +43,7 @@ This guide defines standards for writing clear, consistent, and professional tec
 
 * Professional yet approachable.
 * Avoid slang, jargon, or overly casual language.
-* Use inclusive language (e.g., "they" instead of "he/she").
+* Use inclusive language (For example, "they" instead of "he/she").
 * Maintain a neutral and instructional tone.
 
 ## Markdown Structure
@@ -115,15 +115,15 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
 
 ## Terminology
 
-* Capitalize proper nouns and feature names (e.g., Akeyless MCP Server).
-* When using abbreviations, unless they are widely known (e.g., "API," "URL"), always define them on first use.
+* Capitalize proper nouns and feature names (For example, Akeyless MCP Server).
+* When using abbreviations, unless they are widely known (For example, "API," "URL"), always define them on first use.
   * For example, "Our API supports CRUD (Create, Read, Update, and Delete) operations."
-* Provide expansions for the first use of acronyms (e.g., Akeyless Model Client Protocol (MCP) Server).
+* Provide expansions for the first use of acronyms (For example, Akeyless Model Client Protocol (MCP) Server).
 
 ### Akeyless Specific Terms
 
 * Always use the product’s official names.
-* Avoid having Akeyless become possessive where possible. For example, "Akeyless' technology does great things." Instead, reword the sentence to avoid that scenario (e.g, "The innovative technology of Akeyless does great things.")
+* Avoid having Akeyless become possessive where possible. For example, "Akeyless' technology does great things." Instead, reword the sentence to avoid that scenario (For example, "The innovative technology of Akeyless does great things.")
 * Akeyless is an "identity security platform". Previously it was acceptable to refer to it as a "secrets management platform". This is no longer the case.
 
 ### Third-Party Terms
@@ -164,13 +164,13 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 ## Style Conventions
 
 * Dates: `YYYY-MM-DD` (ISO 8601).
-* Time: Use UTC when relevant (e.g., `14:00 UTC`).
-* Numbers: Use numerals for all numbers (e.g., "3 files," not "three files").
+* Time: Use UTC when relevant (For example, `14:00 UTC`).
+* Numbers: Use numerals for all numbers (For example, "3 files," not "three files").
 * Units:
-  * Use SI units (e.g., "MB," "ms").
-  * Use a space between the value and unit (e.g., "10 GB", "12 ms").
-  * GB (gigabytes) is not the same abbreviation as Gb (gigabits). This applies with all SI prefixes with bytes and bits (e.g., KB/Kb, MB/Mb, TB/Tb).
-* File paths: Use `/` for paths (e.g., `/usr/local/bin`).
+  * Use SI units (For example, "MB," "ms").
+  * Use a space between the value and unit (For example, "10 GB", "12 ms").
+  * GB (gigabytes) is not the same abbreviation as Gb (gigabits). This applies with all SI prefixes with bytes and bits (For example, KB/Kb, MB/Mb, TB/Tb).
+* File paths: Use `/` for paths (For example, `/usr/local/bin`).
 * Data Structures: When representing child elements outside of a full object notation file, use a period to represent child elements in relation to their parents.
   * For example, represent `--access-type` from the below example as `args.--access-type`.
 

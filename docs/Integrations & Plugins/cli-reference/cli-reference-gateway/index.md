@@ -37,7 +37,7 @@ akeyless add-gw-access-id \
 
 `-a, --access-id`: **Required**, The `Access ID` to be able to access the gateway
 
-`-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
+`-s, --sub-claims`: `key/val` of sub-claims, for example, `group=admins,developers`
 
 ### `delete-gw-access-id`
 
@@ -81,7 +81,7 @@ akeyless gateway-create-allowed-access \
 
 `--description`: Allowed access description
 
-`-s, --sub-claims`: `key/val` of sub-claims, e.g `group=admins,developers`
+`-s, --sub-claims`: `key/val` of sub-claims, for example, `group=admins,developers`
 
 `-p, --permissions`: Comma-separated list of permissions for this allowed access. Available permissions: [`defaults`,`targets`,`classic_keys`,`automatic_migration`,`ldap_auth`,`dynamic_secret`,`k8s_auth`,`log_forwarding`,`zero_knowledge_encryption`,`rotated_secret`,`caching,event_forwarding`,`admin`,`kmip`,`general`, `rotate_secret_value`]
 
@@ -116,7 +116,7 @@ akeyless gateway-update-allowed-access \
 
 `--description`: Allowed access description
 
-`-s, --sub-claims`: `key/val` of sub claims, e.g `group=admins,developers`
+`-s, --sub-claims`: `key/val` of sub claims, for example, `group=admins,developers`
 
 `-p, --permissions`: Comma-separated list of permissions for this allowed access. Available permissions: [`defaults`,`targets`,`classic_keys`,`automatic_migration`,`ldap_auth`,`dynamic_secret`,`k8s_auth`,`log_forwarding`,`zero_knowledge_encryption`,`rotated_secret`,`caching`,`event_forwarding`,`admin`,`kmip`,`general`]
 
@@ -140,7 +140,7 @@ akeyless delete-gateway-cluster \
 
 #### Flags
 
-`-c, --cluster-name`: **Required**, Gateway Cluster, e.g. `acc-abcd12345678/p-123456789012/defaultCluster`
+`-c, --cluster-name`: **Required**, Gateway Cluster, for example, `acc-abcd12345678/p-123456789012/defaultCluster`
 
 `--force`: Deletes cluster even if there is an active gateway or associated secrets. All Gateway secrets will be deleted
 

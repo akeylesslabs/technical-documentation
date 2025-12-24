@@ -189,7 +189,7 @@ akeyless export-classic-key \
 >
 > • Cloud KMS is enabled in your Google Cloud project.
 > • The referenced key version (`projects/.../cryptoKeyVersions/1`) is active.
-> • The service account in credentials holds RawDecrypt permission (e.g., Cloud KMS CryptoKey Decrypter role).
+> • The service account in credentials holds RawDecrypt permission (For example, Cloud KMS CryptoKey Decrypter role).
 > • Your code imports `cloud.Google.com/go/kms` and can reach `cloudkms.googleapis.com`.
 
 ```shell

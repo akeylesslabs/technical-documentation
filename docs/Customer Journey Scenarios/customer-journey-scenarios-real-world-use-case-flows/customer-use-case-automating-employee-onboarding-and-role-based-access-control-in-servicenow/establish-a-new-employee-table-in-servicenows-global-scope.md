@@ -46,7 +46,7 @@ To ensure that you are creating your new employee table in the global scope with
 
 ## Fields for Authentication Method Creation
 
-**Auth Name:** A string field to store the name or title of the authentication method assigned to the employee. This could be a descriptive name indicating the type of authentication (e.g., "OAuth Token", "Biometric").
+**Auth Name:** A string field to store the name or title of the authentication method assigned to the employee. This could be a descriptive name indicating the type of authentication (For example, "OAuth Token", "Biometric").
 
 **Metadata URL:** A URL field to store the address of a metadata resource or an endpoint that contains additional information about the authentication method. This URL could link to documentation or APIs related to the Auth Method.
 

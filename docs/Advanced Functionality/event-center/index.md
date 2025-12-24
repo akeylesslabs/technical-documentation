@@ -26,7 +26,7 @@ On the upper left-hand side of the table, you will see a few interactive buttons
 
 Akeyless events are defined by object types, supporting:
 
-* **Items** events, for all items types e.g. [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
+* **Items** events, for all items types, for example, [Static Secrets](https://docs.akeyless.io/docs/static-secrets), [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) and [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets), [Certificates](https://docs.akeyless.io/docs/certificate-storage)
 * [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
 * [Targets](https://docs.akeyless.io/docs/targets)
 * Gateway
@@ -89,7 +89,7 @@ For `gateways-event-source-locations`:
 
 ## Event Forwarders
 
-Event forwarders are tools you can configure through the Event Center to get notified on other platforms (e.g. email) when a certain event type happens. For example, one might want to be notified every time a certain [Certificate](https://docs.akeyless.io/docs/certificate-storage) is about to expire or when a user requests to access an item you have in your Akeyless Platform.
+Event forwarders are tools you can configure through the Event Center to get notified on other platforms (For example, email) when a certain event type happens. For example, one might want to be notified every time a certain [Certificate](https://docs.akeyless.io/docs/certificate-storage) is about to expire or when a user requests to access an item you have in your Akeyless Platform.
 
 Event Forwarders can only be managed by **Admins** or by users with explicit [permissions](https://docs.akeyless.io/docs/rbac).
 

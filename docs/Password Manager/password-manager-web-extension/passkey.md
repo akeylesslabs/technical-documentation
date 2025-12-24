@@ -54,7 +54,7 @@ Users can create a new passkey for a supported website. Follow the steps below t
   * Example: Adobe Account Security
 * Click on "Add Passkey".
 * Authenticate:
-  * If logged in to the website (e.g., Adobe), proceed with passkey creation.
+  * If logged in to the website (For example, Adobe), proceed with passkey creation.
   * If not logged in, authenticate first.
 * Passkey Status:
   * If the passkey already exists for the website, the user will be given the option to update or create a new passkey.

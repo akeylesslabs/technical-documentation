@@ -82,7 +82,7 @@ TLSConf:
   configurationManager: true
   # minimumTlsVersion can be one of the following <TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>
   minimumTlsVersion: "TLSv1.2"
-  # excludeCipherSuites: Comma separated list of cipher suites to exclude (e.g. "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA")
+  # excludeCipherSuites: Comma separated list of cipher suites to exclude (For example, "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA")
   tlsCertificate: |-
    -----BEGIN CERTIFICATE-----
    -----END CERTIFICATE-----

@@ -269,7 +269,7 @@ Where:
 
 * `cert_issuer_name`: The default name of an [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) to use.
 
-* `cert_username`: The username the SSH certificate Issuer will issue the certificate for, e.g `ubuntu`.
+* `cert_username`: The username the SSH certificate Issuer will issue the certificate for, for example, `ubuntu`.
 
 * `public_key_file_path`: Path to the file containing the SSH public key.
 

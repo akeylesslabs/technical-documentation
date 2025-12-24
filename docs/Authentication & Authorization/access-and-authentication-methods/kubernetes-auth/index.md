@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Kubernetes (K8s) Auth Method uses Kubernetes JWTs in order to authenticate the Kubernetes application (e.g. a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
+The Kubernetes (K8s) Auth Method uses Kubernetes JWTs in order to authenticate the Kubernetes application (For example, a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
 
 <Image align="center" src="https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png" />
 

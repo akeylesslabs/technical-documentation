@@ -138,7 +138,7 @@ akeyless gateway update log-forwarding azure-analytics \
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorblueazure-analyticsp) section.
 
-## STDOUT
+## stdout
 
 Setting log forwarding to stdout:
 

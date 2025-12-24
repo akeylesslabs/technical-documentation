@@ -28,7 +28,7 @@ To configure **Access Permissions** in your [Gateway Configuration Manager](http
 
 1. Click **New**
 
-2. Define a meaningful **Name** for the item. e.g., **Dynamic Secrets Admin**
+2. Define a meaningful **Name** for the item. For example, **Dynamic Secrets Admin**
 
 3. From the **Auth Method** drop-down menu, choose the relevant [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) and set the exact [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) identifying your users, and click **Next**
 

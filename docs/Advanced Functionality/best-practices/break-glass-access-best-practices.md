@@ -12,7 +12,7 @@ In scenarios requiring emergency or "break-glass" access to critical systems or 
 To safeguard against unauthorized use, apply layered controls to the dedicated Auth Method:
 
 * IP Range Restrictions: Limit access to the Auth Method by configuring it to accept authentication attempts only from a predefined IP address range. This ensures that break-glass access can only be initiated from trusted locations, such as a secure operations center or specific on-premises networks.
-* High-Level Alerting: Enable monitoring and alerting mechanisms to trigger notifications (e.g., via email, Slack, or integrated SIEM tools) whenever the break-glass Auth Method is accessed. This provides immediate visibility into emergency usage, allowing for rapid response and audit.
+* High-Level Alerting: Enable monitoring and alerting mechanisms to trigger notifications (For example, via email, Slack, or integrated SIEM tools) whenever the break-glass Auth Method is accessed. This provides immediate visibility into emergency usage, allowing for rapid response and audit.
 
 ## Dual-Control Authentication With MFA
 
@@ -20,7 +20,7 @@ For heightened security, consider using a **User and Password** Auth Method comb
 
 * Split the credentials across multiple individuals or groups. For example:
 * Assign the password to one trusted user or team.
-* Assign control of the MFA factor (e.g., email-based OTP or authenticator app) to a different user or team.
+* Assign control of the MFA factor (For example, email-based OTP or authenticator app) to a different user or team.
 
 This setup requires collaboration between at least two parties to authenticate successfully, reducing the risk of insider threats or unauthorized access.
 

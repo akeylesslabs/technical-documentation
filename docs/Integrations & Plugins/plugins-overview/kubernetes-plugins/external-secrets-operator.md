@@ -53,7 +53,7 @@ At a high level:
 
 ### Akeyless Side
 
-* Akeyless **Authentication Methods** define how Kubernetes workloads authenticate (e.g., API Key, Kubernetes Auth, Azure AD, AWS IAM, GCP).
+* Akeyless **Authentication Methods** define how Kubernetes workloads authenticate (For example, API Key, Kubernetes Auth, Azure AD, AWS IAM, GCP).
 * **Access Roles** control which Akeyless items (paths) a given authentication identity may access.
 * ESO uses an **Access ID** (and additional auth parameters) to obtain a token and read or write secrets.
 

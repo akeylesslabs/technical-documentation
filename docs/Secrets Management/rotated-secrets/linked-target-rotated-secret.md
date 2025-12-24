@@ -22,11 +22,11 @@ When a new server is created in your environment, simply add the relevant hostna
 
 > 📘 Info
 >
-> Only Windows/SSH Target are currently supported for Rotated Secrets with Linked Target. In case one of the hosts in a Linked Target item is accessible over a different port from the one that is configured in the Parent Target, make sure to specify the port as part of the host in the Linked Target. e.g: `server01.com:443`.
+> Only Windows/SSH Target are currently supported for Rotated Secrets with Linked Target. In case one of the hosts in a Linked Target item is accessible over a different port from the one that is configured in the Parent Target, make sure to specify the port as part of the host in the Linked Target. For example: `server01.com:443`.
 
 ## Rotator Type Password
 
-To rotate **Local users** e.g. `ubuntu` or `administrator`, across your servers using a **privileged Domain user** which has access to all servers found in the [Linked Target](https://docs.akeyless.io/docs/linked-target), start by creating an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target to store your **Domain user** credentials:
+To rotate **Local users**, for example, `ubuntu` or `administrator`, across your servers using a **privileged Domain user** which has access to all servers found in the [Linked Target](https://docs.akeyless.io/docs/linked-target), start by creating an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://docs.akeyless.io/docs/windows-target) Target to store your **Domain user** credentials:
 
 ```shell Windows Target
 akeyless create-windows-target \

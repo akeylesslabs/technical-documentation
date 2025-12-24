@@ -49,7 +49,7 @@ Creating a form in ServiceNow to add new records to a table simplifies data entr
 
 * **Test the Form:** It’s important to test the form by attempting to add a new record. Navigate to the section of ServiceNow where your table records are displayed, and use the form to add a new record. Check that all fields function as expected and that the record is correctly added to the table.
 * Step 1: Identify the Table Linked to Your Form
-  * Every form in ServiceNow is associated with a specific table. Recall the name of the table for which you created the form. This could be a custom table you created (e.g., "New Employee Onboarding") or a standard ServiceNow table (e.g., "Incident").
+  * Every form in ServiceNow is associated with a specific table. Recall the name of the table for which you created the form. This could be a custom table you created (For example, "New Employee Onboarding") or a standard ServiceNow table (For example, "Incident").
 
 ![](https://files.readme.io/bf26169-Screenshot_2024-02-29_at_16.08.30.png)
 

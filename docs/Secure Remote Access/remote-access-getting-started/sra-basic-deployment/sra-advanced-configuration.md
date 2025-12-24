@@ -19,7 +19,7 @@ As both classic SSH and RDP access are based on SSH certificates, to support leg
 
 ## RDP User Access
 
-Set the `usernameSubClaim` with the relevant attribute that exists inside your IdP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
+Set the `usernameSubClaim` with the relevant attribute that exists inside your IdP JWT, for example, `email`, to set the connection to your target server using the current authenticated username.
 
 ```yaml
 ############

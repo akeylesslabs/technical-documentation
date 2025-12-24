@@ -36,7 +36,7 @@ Create a New API
 
 Add a Resource
 
-* Within your API, you'll need at least one resource. Click New to create a resource. Here, you define the resource name, HTTP method (e.g., GET for retrieving data, POST for creating data), and the URL suffix (path) that, combined with the base path, defines the full URL to access the resource.
+* Within your API, you'll need at least one resource. Click New to create a resource. Here, you define the resource name, HTTP method (For example, GET for retrieving data, POST for creating data), and the URL suffix (path) that, combined with the base path, defines the full URL to access the resource.
 
 ![](https://files.readme.io/f5c135f-Screenshot_2024-03-05_at_12.16.08.png)
 

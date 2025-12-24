@@ -28,7 +28,7 @@ Any Akeyless API operations performed by this extension will be registered as `S
 
 To get started, you need to install the Akeyless Azure DevOps Extension from the Visual Studio Marketplace into your Azure DevOps organization.
 
-1. Navigate to your Azure DevOps organization, e.g. [https://dev.azure.com/$YOUR\_ORG](https://dev.azure.com/$YOUR_ORG).
+1. Navigate to your Azure DevOps organization, for example, [https://dev.azure.com/$YOUR\_ORG](https://dev.azure.com/$YOUR_ORG).
 2. Click on the _Organization_ settings icon (bottom-left corner).
 3. Under _Extensions_, click on _Extensions_.
 4. Click on _Browse marketplace_.
@@ -47,9 +47,9 @@ Before using the task in your pipelines, you need to configure a [Service Connec
 5. Search for and select the Akeyless service connection type.
 6. Click Next.
 7. Configure the service connection parameters:
-   1. Server URL (Base Path): Enter the base URL of your Akeyless Gateway or Akeyless SaaS API (e.g., `https://api.akeyless.io`, `https://my.gw/api/v2`).
+   1. Server URL (Base Path): Enter the base URL of your Akeyless Gateway or Akeyless SaaS API (For example, `https://api.akeyless.io`, `https://my.gw/api/v2`).
    2. Access ID: Your Akeyless Access ID.
-   3. Service connection name: Give your connection a descriptive name (e.g., 'my-akeyless-vault,' 'mge_prod'). This name will be used in your pipeline YAML.
+   3. Service connection name: Give your connection a descriptive name (For example, 'my-akeyless-vault,' 'mge_prod'). This name will be used in your pipeline YAML.
    4. Description: (Optional) Provide a brief description.
    5. Grant access permission to all pipelines: (Recommended for ease of use, or configure specific pipeline permissions later).
 8. Click Save to create the service connection.
@@ -211,7 +211,7 @@ steps:
 #### Key Points
 
 * Dynamic secrets generate credentials on-demand and are typically time-limited.
-* The `target` parameter specifies the type of dynamic secret (e.g., 'postgresql', 'mysql', 'aws')
+* The `target` parameter specifies the type of dynamic secret (For example, 'postgresql', 'mysql', 'aws')
 * The `args` parameter can pass additional arguments to customize the generated credentials
 * The `timeout` parameter controls how long to wait for the dynamic secret generation
 * Dynamic secret values are automatically marked as secret variables in the pipeline

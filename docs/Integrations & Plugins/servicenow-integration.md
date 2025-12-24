@@ -81,7 +81,7 @@ Creating basic auth credentials via ServiceNow instance.
 
 <Image border={false} src="https://files.readme.io/6e7a131-Screenshot_2023-11-29_at_13.50.06.png" />
 
-* In “Basic Auth Credentials” Form, insert name (e.g. “akeyless_basic_auth_creds”), insert the access-id as the User name, and the access-key as the Password, and submit:
+* In “Basic Auth Credentials” Form, insert name (For example, “akeyless_basic_auth_creds”), insert the access-id as the User name, and the access-key as the Password, and submit:
 
 <Image border={false} src="https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png" />
 

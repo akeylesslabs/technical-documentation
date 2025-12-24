@@ -165,7 +165,7 @@ akeyless auth-method update universal-identity \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 

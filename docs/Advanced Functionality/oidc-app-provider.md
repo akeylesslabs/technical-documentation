@@ -38,8 +38,8 @@ Where:
 
 OAuth defines two client types, based on their ability to authenticate securely with the authorization server (i.e., the ability to maintain the confidentiality of their client credentials):
 
-* **Confidential** Clients capable of maintaining the confidentiality of their credentials (e.g., client implemented on a secure server with restricted access to the client credentials), or capable of secure client authentication using other means. By default, an Akeyless OIDC App will be created for this client type.
-* **Public** Clients are incapable of maintaining the confidentiality of their credentials (e.g., clients executing on the device used by the resource owner, such as an installed native application or a web browser-based application), and incapable of secure client authentication via any other means. To create an Akeyless OIDC App for **Public** client type use the `public` flag as part of the creation command.
+* **Confidential** Clients capable of maintaining the confidentiality of their credentials (For example, client implemented on a secure server with restricted access to the client credentials), or capable of secure client authentication using other means. By default, an Akeyless OIDC App will be created for this client type.
+* **Public** Clients are incapable of maintaining the confidentiality of their credentials (For example, clients executing on the device used by the resource owner, such as an installed native application or a web browser-based application), and incapable of secure client authentication via any other means. To create an Akeyless OIDC App for **Public** client type use the `public` flag as part of the creation command.
 
 > 👍 Note
 >

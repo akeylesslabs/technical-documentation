@@ -43,7 +43,7 @@ Where:
 
 * `certificate-path`: A path on the **Target** to save the certificate PEM file can be used as well with `chain-path` and `private-key-path` flags to save those on different locations.
 
-* `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning e.g. restarting a service.
+* `post-provision-command`: Optional, a custom command to run on the remote target after successful provisioning, for example, restarting a service.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueassoc-target-itemp) section.
 

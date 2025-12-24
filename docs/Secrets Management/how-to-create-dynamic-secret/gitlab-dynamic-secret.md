@@ -103,7 +103,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing GitLab Target or specify details of the target GitLab repository explicitly (e.g., if you are not authorized to create and access Targets in the Akeyless Console).
+* **Target mode:** In this section, you can either select an existing GitLab Target or specify details of the target GitLab repository explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
 
   * Use the **Choose an existing target** drop-down list to select the existing GitLab Target.
 

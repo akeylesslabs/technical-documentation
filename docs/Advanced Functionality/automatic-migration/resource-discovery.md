@@ -54,9 +54,9 @@ To create the migration from your Active Directory, login to your Gateway on por
 * **Domain Name:** Active Directory Domain Name.
 
 * **User Base DN:** Distinguished Name of User objects to search in Active Directory  
-  (e.g: `OU=OU_Name`, `CN=Users`,`DC=example`,`DC=com`or `OU=User_Name,DC=example,DC=com`).
+  (For example: `OU=OU_Name`, `CN=Users`,`DC=example`,`DC=com`or `OU=User_Name,DC=example,DC=com`).
 
-* **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, e.g: `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
+* **Domain User Name Template:** A template for the created items, where the imported Domain Users will be saved as Rotated Secrets inside the Akeyless Platform, for example, `/DomainUsers/{{USERNAME}}`. This path includes the prefix of the Destination Folder.
 
 * **Search in Privileged Users Groups:** Comma-separated list of domain groups from which privileged domain users will be migrated.
 
@@ -70,7 +70,7 @@ To create the migration from your Active Directory, login to your Gateway on por
 >
 > Discover Local Users might require further installations of SSH on the servers, based on the supplied Computer Base DN. This will be done automatically by the migration process
 
-* **Computer Base DN:** Distinguished Name of Computer (server) objects to search in Active Directory, e.g. `CN=Computers`,`DC=example`,`DC=com`.
+* **Computer Base DN:** Distinguished Name of Computer (server) objects to search in Active Directory, for example, `CN=Computers`,`DC=example`,`DC=com`.
 
 * **Target Name Template:** A template for the created items, where the imported Domain Servers will be saved as [SSH Targets](https://docs.akeyless.io/docs/ssh-target) inside the Akeyless Platform, for example, `/Servers/{{COMPUTER_NAME}}`. This path includes the prefix of the Destination Folder.
 

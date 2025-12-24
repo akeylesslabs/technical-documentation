@@ -142,7 +142,7 @@ Where:
 
 * `gcp-token-scopes`: Access token scopes list.
 
-* `gcp-key-algo`: Service account key algorithm, e.g. `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`.
+* `gcp-key-algo`: Service account key algorithm, for example, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`.
 
 * `access-type[=sa]`: Either generate a service account or assign an existing role to a user, to assign a role, set to `external`.
 

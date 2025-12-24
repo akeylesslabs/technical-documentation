@@ -38,7 +38,7 @@ akeyless account-custom-field \
 
 Where:
 
-`object-type`: The object type to create the custom field, e.g., `static-secret`, `rotated-secret`, `encryption-keys`, etc.
+`object-type`: The object type to create the custom field, for example, `static-secret`, `rotated-secret`, `encryption-keys`, etc.
 
 `name`: The name of the custom field.
 

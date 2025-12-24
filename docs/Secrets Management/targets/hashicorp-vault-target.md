@@ -28,7 +28,7 @@ Where:
 
 * `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-* `hashi-url`: HashiCorp Vault URL, e.g. `https://vault-mgr01:8200`.
+* `hashi-url`: HashiCorp Vault URL, for example, `https://vault-mgr01:8200`.
 
 * `vault-token`: Vault access token with sufficient permissions.
 

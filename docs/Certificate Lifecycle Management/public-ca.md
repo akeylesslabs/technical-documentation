@@ -56,7 +56,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Allowed Domains
 >
-> Due to the nature of some Public CAs e.g. GoDaddy, **CN** might be sent with the classic `www.` prefix, it is recommended to check this in advance for future automated renewal.
+> Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix, it is recommended to check this in advance for future automated renewal.
 
 ### Issuing a Certificate
 
@@ -87,7 +87,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Note
 >
-> The `Common Name` field (e.g., server FQDN) - Should be listed under the `allowed-domains` as configured in the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item.
+> The `Common Name` field (For example, server FQDN) - Should be listed under the `allowed-domains` as configured in the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item.
 
 To issue a new certificate, run the following command:
 

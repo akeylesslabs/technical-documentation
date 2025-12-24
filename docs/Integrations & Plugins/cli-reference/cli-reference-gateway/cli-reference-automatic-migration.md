@@ -52,7 +52,7 @@ akeyless gateway-create-migration \
 
 `--hashi-json=[true]`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
-`-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, e.g. `arn:aws:secretsmanager:AWSregion:AWSAccountId:Secret:/path/to/secrets/*` (relevant only for AWS migration)
+`-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, for example, `arn:aws:secretsmanager:AWSregion:AWSAccountId:Secret:/path/to/secrets/*` (relevant only for AWS migration)
 
 `-K, --aws-key`: AWS Secret Access Key (relevant only for AWS migration)
 
@@ -68,7 +68,7 @@ akeyless gateway-create-migration \
 
 `--k8s-namespace`: Kubernetes Namespace, Use this field to import secrets from a particular Namespace only. By default, the secrets are imported from all namespaces (relevant only for Kubernetes migration)
 
-`--k8s-url`: Kubernetes API Server URL, e.g. `https://kubernetes-api-endpoint.mycompany.com:6443` (relevant only for Kubernetes migration)
+`--k8s-url`: Kubernetes API Server URL, for example, `https://kubernetes-api-endpoint.mycompany.com:6443` (relevant only for Kubernetes migration)
 
 `--k8s-skip-system`: Kubernetes Skip Control Plane Secrets, This option allows to avoid importing secrets from system namespaces (relevant only for Kubernetes migration)
 
@@ -88,23 +88,23 @@ akeyless gateway-create-migration \
 
 `--ad-domain-name`: Active Directory Domain Name (Relevant only for Active Directory migration)
 
-`--ad-user-base-dn`: Distinguished Name of User objects to search in Active Directory, e.g.: CN=Users,DC=example,DC=com (Relevant only for Active Directory migration)
+`--ad-user-base-dn`: Distinguished Name of User objects to search in Active Directory, for example: `CN=Users,DC=example,DC=com` (Relevant only for Active Directory migration)
 
-`--ad-domain-users-path-template`: Path location template for migrating domain users as Rotated Secrets e.g.: .../DomainUsers/\{\{USERNAME}} (Relevant only for Active Directory migration)
+`--ad-domain-users-path-template`: Path location template for migrating domain users as Rotated Secrets, for example: `.../DomainUsers/\{\{USERNAME}}` (Relevant only for Active Directory migration)
 
 `--ad-user-groups`: Comma-separated list of domain groups from which privileged domain users will be migrated (Relevant only for Active Directory migration)
 
 `--ad-discover-local-users`: Enable/Disable discovery of local users from each domain server and migrate them as SSH Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)
 
-`--ad-targets-path-template`: Path location template for migrating domain servers as SSH Targets e.g.: .../Servers/\{\{COMPUTER_NAME}} (Relevant only for Active Directory migration)
+`--ad-targets-path-template`: Path location template for migrating domain servers as SSH Targets, for example: .../Servers/\{\{COMPUTER_NAME}} (Relevant only for Active Directory migration)
 
-`--ad-local-users-path-template`: Path location template for migrating domain users as Rotated Secrets e.g.: .../LocalUsers/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Active Directory migration)
+`--ad-local-users-path-template`: Path location template for migrating domain users as Rotated Secrets, for example: .../LocalUsers/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Active Directory migration)
 
-`--ad-computer-base-dn`: Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN=Computers,DC=example,DC=com (Relevant only for Active Directory migration)
+`--ad-computer-base-dn`: Distinguished Name of Computer objects (servers) to search in Active Directory, for example: CN=Computers,DC=example,DC=com (Relevant only for Active Directory migration)
 
 `--ad-local-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Active Directory migration)
 
-`--ad-os-filter`: Filter by Operating System to run the migration, can be used with wildcards, e.g. SRV20* (Relevant only for Active Directory migration)
+`--ad-os-filter`: Filter by Operating System to run the migration, can be used with wildcards, for example, SRV20* (Relevant only for Active Directory migration)
 
 `--ad-targets-type[=windows]`: Set the target type of the domain servers [ssh/windows](Relevant only for Active Directory migration)
 
@@ -140,7 +140,7 @@ akeyless gateway-create-migration \
 
 `--si-target-name`: SSH, Windows or Linked Target Name. (Relevant only for Server Inventory migration)
 
-`--si-users-path-template`: Path location template for migrating users as Rotated Secrets e.g.: .../Users/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Server Inventory
+`--si-users-path-template`: Path location template for migrating users as Rotated Secrets, for example: .../Users/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Server Inventory
 
 `--si-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)
 
@@ -293,19 +293,19 @@ akeyless gateway-update-migration \
 
 `-k, --protection-key`: The name of the key that protects the classic key value (if empty, the account default key will be used)
 
-`-g, --gcp-key-file-path`: Path to file with the Base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. `roles/secretmanager.secretAccessor` (relevant only for GCP migration)
+`-g, --gcp-key-file-path`: Path to file with the Base64-encoded GCP Service Account private key with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, for example, `roles/secretmanager.secretAccessor` (relevant only for GCP migration)
 
-`-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. `roles/secretmanager.secretAccessor` (relevant only for GCP migration).
+`-G, --gcp-key-data`: Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, for example, `roles/secretmanager.secretAccessor` (relevant only for GCP migration).
 
-`-U, --hashi-url`: HashiCorp Vault API URL, e.g. `https://vault-mgr01:8200` (relevant only for HashiCorp Vault migration)
+`-U, --hashi-url`: HashiCorp Vault API URL, for example, `https://vault-mgr01:8200` (relevant only for HashiCorp Vault migration)
 
-`--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, e.g. `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
+`--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, for example, `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
 `-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list & read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json='true'`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
-`-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, e.g. `arn:aws:secretsmanager:[Region]:[AccountId]:secret:[/path/to/secrets/*]` (relevant only for AWS migration)
+`-I, --aws-key-id`: AWS Access Key ID with sufficient permissions to get all secrets, for example, `arn:aws:secretsmanager:[Region]:[AccountId]:secret:[/path/to/secrets/*]` (relevant only for AWS migration)
 
 `-K, --aws-key`: AWS Secret Access Key (relevant only for AWS migration)
 
@@ -321,7 +321,7 @@ akeyless gateway-update-migration \
 
 `--k8s-namespace`: Kubernetes Namespace, Use this field to import secrets from a particular Namespace only. By default, the secrets are imported from all namespaces (relevant only for Kubernetes migration)
 
-`--k8s-url`: Kubernetes API Server URL, e.g. `https://<k8s-api-endpoint>.mycompany.com:6443` (relevant only for Kubernetes migration)
+`--k8s-url`: Kubernetes API Server URL, for example, `https://<k8s-api-endpoint>.mycompany.com:6443` (relevant only for Kubernetes migration)
 
 `--k8s-skip-system`: Kubernetes Skip Control Plane Secrets, This option allows to avoid importing secrets from system namespaces (relevant only for Kubernetes migration)
 
@@ -341,23 +341,23 @@ akeyless gateway-update-migration \
 
 `--ad-domain-name`: Active Directory Domain Name (Relevant only for Active Directory migration)
 
-`--ad-user-base-dn`: Distinguished Name of User objects to search in Active Directory, e.g.: CN=Users,DC=example,DC=com (Relevant only for Active Directory migration)
+`--ad-user-base-dn`: Distinguished Name of User objects to search in Active Directory, for example: `CN=Users,DC=example,DC=com` (Relevant only for Active Directory migration)
 
-`--ad-domain-users-path-template`: Path location template for migrating domain users as Rotated Secrets e.g.: .../DomainUsers/\{\{USERNAME}} (Relevant only for Active Directory migration)
+`--ad-domain-users-path-template`: Path location template for migrating domain users as Rotated Secrets, for example: .../DomainUsers/\{\{USERNAME}} (Relevant only for Active Directory migration)
 
 `--ad-user-groups`: Comma-separated list of domain groups from which privileged domain users will be migrated (Relevant only for Active Directory migration)
 
 `--ad-discover-local-users`: Enable/Disable discovery of local users from each domain server and migrate them as SSH Rotated Secrets. Default is false: only domain users will be migrated. Discovery of local users might require further installation of SSH on the servers, based on the supplied computer base DN. This will be implemented automatically as part of the migration process (Relevant only for Active Directory migration)
 
-`--ad-targets-path-template`: Path location template for migrating domain servers as SSH Targets e.g.: .../Servers/\{\{COMPUTER_NAME}} (Relevant only for Active Directory migration)
+`--ad-targets-path-template`: Path location template for migrating domain servers as SSH Targets, for example: .../Servers/\{\{COMPUTER_NAME}} (Relevant only for Active Directory migration)
 
-`--ad-local-users-path-template`: Path location template for migrating domain users as Rotated Secrets e.g.: .../LocalUsers/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Active Directory migration)
+`--ad-local-users-path-template`: Path location template for migrating domain users as Rotated Secrets, for example: .../LocalUsers/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Active Directory migration)
 
-`--ad-computer-base-dn`: Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN=Computers,DC=example,DC=com (Relevant only for Active Directory migration)
+`--ad-computer-base-dn`: Distinguished Name of Computer objects (servers) to search in Active Directory, for example: CN=Computers,DC=example,DC=com (Relevant only for Active Directory migration)
 
 `--ad-local-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Active Directory migration)
 
-`--ad-os-filter`: Filter by Operating System to run the migration, can be used with wildcards, e.g. SRV20* (Relevant only for Active Directory migration)
+`--ad-os-filter`: Filter by Operating System to run the migration, can be used with wildcards, for example, SRV20* (Relevant only for Active Directory migration)
 
 `--ad-targets-type[=ssh]`: Set the target type of the domain servers [SSH/Windows](Relevant only for Active Directory migration)
 
@@ -391,7 +391,7 @@ akeyless gateway-update-migration \
 
 `--si-target-name`: SSH, Windows or Linked Target Name. (Relevant only for Server Inventory migration)
 
-`--si-users-path-template`: Path location template for migrating users as Rotated Secrets e.g.: .../Users/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Server Inventory migration)
+`--si-users-path-template`: Path location template for migrating users as Rotated Secrets, for example: .../Users/\{\{COMPUTER_NAME}}/\{\{USERNAME}} (Relevant only for Server Inventory migration)
 
 `--si-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration)
 

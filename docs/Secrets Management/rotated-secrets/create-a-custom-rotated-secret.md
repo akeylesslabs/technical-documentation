@@ -22,7 +22,7 @@ Custom Rotated Secret implementations are completely stateless. Akeyless provide
 
 ## Set Up a Custom Rotated Secret Implementation
 
-First, you must create a [Web Target](https://docs.akeyless.io/docs/web-targets) in Akeyless. This target holds the target endpoint of your application (e.g., `https://my.web.server/rotate` endpoint).
+First, you must create a [Web Target](https://docs.akeyless.io/docs/web-targets) in Akeyless. This target holds the target endpoint of your application (For example, `https://my.web.server/rotate` endpoint).
 
 To create a [Web Target](https://docs.akeyless.io/docs/web-targets) using the Akeyless CLI, run the following command:
 

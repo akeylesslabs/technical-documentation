@@ -151,7 +151,7 @@ Where:
 
 * `AKEYLESS_SECRET`: An environment variable that will store the fetched secret.
 
-* `name`: The full name of the secret in Akeyless e.g. `/MyFirstSecret`
+* `name`: The full name of the secret in Akeyless, for example, `/MyFirstSecret`
 
 * `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint i.e.`<https://Your_GW_URL:8080/v2>`, by default works with the public API: `https://api.akeyless.io`.
 

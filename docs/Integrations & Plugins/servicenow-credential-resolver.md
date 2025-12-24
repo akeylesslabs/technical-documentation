@@ -25,7 +25,7 @@ This project provides a ServiceNow MID external credential resolver that retriev
 * `azure_ad`: CloudID from Azure
 * `gcp`: CloudID from GCP
 
-For cloud-based methods, the resolver detects CloudID using the cloud environment. Ensure the MID Server is running where a CloudID can be obtained (e.g., EC2 with an instance profile, Azure VM with a managed identity, GCP VM with default credentials). For local/dev use, prefer access_key.
+For cloud-based methods, the resolver detects CloudID using the cloud environment. Ensure the MID Server is running where a CloudID can be obtained (For example, EC2 with an instance profile, Azure VM with a managed identity, GCP VM with default credentials). For local/dev use, prefer access_key.
 
 ## Build the JAR
 
@@ -44,7 +44,7 @@ mvn -Drevision=1.0.0 clean package
 
 1. Upload the JAR to the MID Server via the instance UI
    * Navigate: MID Server → JAR files → New
-   * Set a descriptive Name (e.g., akeyless-servicenow-credential-resolver)
+   * Set a descriptive Name (For example, akeyless-servicenow-credential-resolver)
    * Manage Attachments → upload the built JAR from target/
    * Submit
 2. Ensure the MID downloads the JAR
@@ -123,10 +123,10 @@ net start mid
 
 1. Create a new credential
     * Navigate: Discovery → Credentials → New
-    * Choose a credential Type (e.g., Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
+    * Choose a credential Type (For example, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
     * Select “External credential store”
     * Fully Qualified Class Name (FQCN): com.snc.discovery.CredentialResolver
-    * Credential ID: The Akeyless secret path (e.g., /prod/app/db) to fetch
+    * Credential ID: The Akeyless secret path (For example, /prod/app/db) to fetch
 2. Save and test
     * Click “Test credential”, select a MID Server and a target if required by the type.
 

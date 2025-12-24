@@ -17,7 +17,7 @@ The provided script is designed to be used in a ServiceNow instance, specificall
 1. Receive and Parse JSON Payload
 
     * The script starts by accessing the incoming HTTP request's body through request.body.dataString. This contains the raw JSON payload sent to the endpoint.
-    * It attempts to parse this JSON string into a JavaScript object using JSON.parse(requestBody). If parsing fails (e.g., due to malformed JSON), it catches the error and responds with a 400 status code (Bad Request) and an error message indicating the JSON is invalid.
+    * It attempts to parse this JSON string into a JavaScript object using JSON.parse(requestBody). If parsing fails (For example, due to malformed JSON), it catches the error and responds with a 400 status code (Bad Request) and an error message indicating the JSON is invalid.
 
 2. Initialize a New Record
 
@@ -81,7 +81,7 @@ The provided script is designed to be used in a ServiceNow instance, specificall
         response.setStatus(201); // Created
         response.setBody({result: 'success', sys_id: newRecordSysId});
     } else {
-        // Handle insertion failure (e.g., due to mandatory fields missing)
+        // Handle insertion failure (For example, due to mandatory fields missing)
         response.setStatus(500); // Internal Server Error
         response.setBody({error: 'Server error', message: 'Failed to insert the record'});
     }

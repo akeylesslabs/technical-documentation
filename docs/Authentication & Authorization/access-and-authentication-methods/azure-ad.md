@@ -64,7 +64,7 @@ akeyless get-cloud-identity --cloud-provider azure_ad
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`,`Gateway Admin`.
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`.
 
 * **Bound Tenant ID:** Enter a comma-separated list of Azure tenant IDs for which access is allowed.
 
@@ -80,11 +80,11 @@ akeyless get-cloud-identity --cloud-provider azure_ad
 
 * **Bound Resource Groups:** Enter a comma-separated list of Resource Groups for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource Providers:** Enter a comma-separated list of resource providers for which access is allowed (e.g., `Microsoft.Compute`, `Microsoft.ManagedIdentity`, etc.). This parameter is optional. Leave it empty for unrestricted access.
+* **Bound Resource Providers:** Enter a comma-separated list of resource providers for which access is allowed (For example, `Microsoft.Compute`, `Microsoft.ManagedIdentity`, etc.). This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource Types:** Enter a comma-separated list of resource types for which access is allowed (e.g., `virtualMachines`, `userAssignedIdentities`, etc.). This parameter is optional. Leave it empty for unrestricted access.
+* **Bound Resource Types:** Enter a comma-separated list of resource types for which access is allowed (For example, `virtualMachines`, `userAssignedIdentities`, etc.). This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource Names:** Enter a comma-separated list of resource names for which access is allowed (e.g., a virtual machine name, scale set name, etc.). This parameter is optional. Leave it empty for unrestricted access.
+* **Bound Resource Names:** Enter a comma-separated list of resource names for which access is allowed (For example, a virtual machine name, scale set name, etc.). This parameter is optional. Leave it empty for unrestricted access.
 
 * **Bound Resource Groups:** Enter a comma-separated list of Resource Groups for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 

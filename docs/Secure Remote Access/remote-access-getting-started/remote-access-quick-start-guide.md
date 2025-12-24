@@ -221,7 +221,7 @@ For Remote Access, you can access the following:
 
 Here we will lay out the steps to get a SAML user to access the Remote Access Portal.
 
-1. Firstly, you need to make sure you have your SAML application set up, e.g. an Okta account set up with the Akeyless application configured. You will also need to retrieve your Metadata URL for this.
+1. Firstly, you need to make sure you have your SAML application set up, for example, an Okta account set up with the Akeyless application configured. You will also need to retrieve your Metadata URL for this.
 2. Next, run the following command to create your SAML Auth Method and make sure to input your Kubernetes Service External-IP address:
 
 ```shell

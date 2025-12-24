@@ -25,7 +25,7 @@ akeyless auth-method create oidc --name <Auth Method Name> \
 --issuer <https://Idp-issuer-url> \
 --client-id <client-id> \
 --client-secret <client-secret> \
---unique-identifier <UID (e.g 'email' or 'username')>
+--unique-identifier <UID (For example, 'email' or 'username')>
 ```
 
 Where:
@@ -65,7 +65,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `Web UI`,`SDK`,`Mobile`, `Extension`.
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`,`SDK`,`Mobile`, `Extension`.
 
 * **Issuer URL:** The Identity Provider URL (for more information, check the [Okta](https://docs.akeyless.io/docs/okta) example).
 

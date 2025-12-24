@@ -28,7 +28,7 @@ You can export the Audit Logs from the Akeyless Gateway to any of the following 
 
 * [Splunk](https://docs.akeyless.io/docs/log-forwarding#splunk)
 
-* [STDOUT](https://docs.akeyless.io/docs/log-forwarding#stdout)
+* [stdout](https://docs.akeyless.io/docs/log-forwarding#stdout)
 
 * [Sumo Logic](https://docs.akeyless.io/docs/log-forwarding-2#sumo-logic)
 
@@ -233,7 +233,7 @@ input {
 
 10. Select **Save Changes**.
 
-## STDOUT
+## stdout
 
 1. Log in to the Akeyless Gateway and go to **Log Forwarding**.
 

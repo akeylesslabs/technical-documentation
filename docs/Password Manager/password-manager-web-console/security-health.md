@@ -30,7 +30,7 @@ The Security Health Dashboard provides users with an overview of the strength an
 
     * Password Location: The service or app where the password is used.
     * Name of the Password: The name or identifier for the password.
-    * Score: A graphical representation of the password's strength (e.g., weak, medium, strong).
+    * Score: A graphical representation of the password's strength (For example, weak, medium, strong).
     * Suggestion: Provides recommendations for improving password strength.
     * Last Updated: The date when the password was last changed.
 

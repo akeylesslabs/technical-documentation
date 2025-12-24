@@ -49,7 +49,7 @@ Where:
 
 * `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* `unique-identifier` A unique identifier parameter plays the same role as a `sub-claim` in OIDC, OAuth2, LDAP, and SAML authentication method types. It contains details that allow the system to uniquely identify the user (e.g., distinguishing between users from within the same organization).
+* `unique-identifier` A unique identifier parameter plays the same role as a `sub-claim` in OIDC, OAuth2, LDAP, and SAML authentication method types. It contains details that allow the system to uniquely identify the user (For example, distinguishing between users from within the same organization).
 
 * `certificate-file-name`: A path to the **Client** certificate.
 
@@ -95,7 +95,7 @@ You can find the complete list of additional parameters for this command in the 
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`,`Gateway Admin`, `Web UI`.
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`, `Web UI`.
 
 * **CA Certificate:** Download the CA certificate in Base64 format.
 
@@ -483,7 +483,7 @@ def sign_challenge(priv_key, challenge_bytes: bytes) -> bytes:
 
 def main():
     # Required inputs
-    gateway_url = "https//:<Akeyless-GW-URL>/api/v2"; # set your Gateway URL, e.g. https://<gateway_url>:8081
+    gateway_url = "https//:<Akeyless-GW-URL>/api/v2"; # set your Gateway URL, for example, https://<gateway_url>:8081
     access_id = "<AccessID>" 
     cert_path = "<YOUR_CERT_PATH>"
     key_path = "<YOUR_KEY_PATH>"

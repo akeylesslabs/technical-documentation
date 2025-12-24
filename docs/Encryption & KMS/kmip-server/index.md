@@ -59,7 +59,7 @@ MIIDCTCC...jOVHG8Og==
 
 Note that this will automatically create 2 items under the `/kmip/default` path in Akeyless:
 
-1. `ca.key` (the CA certificate that was the output of the kmip-server-setup)
+1. `ca.key` (the CA certificate that was the output of the `kmip-server-setup`)
 2. A [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) named **server**
 
 ## KMIP Client Configuration

@@ -36,7 +36,7 @@ While Databricks supports SQL, most SQL queries don’t require secrets — henc
 
 * An active Azure Databricks workspace with internet access or the access to Akeyless Gateway
 * Akeyless account with an Access ID
-* A stored secret in Akeyless (e.g., API Key for data access)
+* A stored secret in Akeyless (For example, API Key for data access)
 
 ## Authentication Options
 
