@@ -81,7 +81,7 @@ To use your Jenkins Plugin to fetch Dynamic Secrets:
 
 The **Path** should be in the following format: `<Dynamic Secret type>/creds/<Full Secret Name>`
 
-The returned JSON object will have keys named `password` and `username`.e.g.
+The returned JSON object will have keys named `password` and `username`. For example:
 
 ```json
 {

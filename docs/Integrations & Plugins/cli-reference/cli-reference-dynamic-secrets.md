@@ -594,9 +594,9 @@ akeyless dynamic-secret create gcp \
 
 `--gcp-key`: Base64-encoded service account private key text
 
-`--gcp-token-scopes`: Access token scopes list, e.g. scope,scope
+`--gcp-token-scopes`: Access token scopes list, for example, scope,scope
 
-`--gcp-key-algo`: Service account key algorithm, e.g. KEY_ALG_RSA_04
+`--gcp-key-algo`: Service account key algorithm, for example, KEY_ALG_RSA_04
 
 `--user-ttl='60m'`: User TTL, Default = 60m
 
@@ -701,7 +701,7 @@ akeyless dynamic-secret create github \
 
 `--github-base-url[=https://api.github.com/]`: Github base URL
 
-`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, e.g - -p contents=read -p issues=write or -p '\{content:read}'
+`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, for example, - -p contents=read -p issues=write or -p '\{content:read}'
 
 `-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use the argument multiple times: -r RepoName -r RepoName
 
@@ -1020,13 +1020,13 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-name`: MongoDB name
 
-`--mongodb-roles\[=\[]]`: MongoDB roles (e.g. MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`)
+`--mongodb-roles\[=\[]]`: MongoDB roles (For example, MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`)
 
-`--mongodb-custom-data`: MongoDB custom data (e.g. \{team:blue})
+`--mongodb-custom-data`: MongoDB custom data (For example, \{team:blue})
 
 `--mongodb-scopes`: Restrict the user so it can only access the specified MongoDB Atlas cluster(s).
 
-`--mongodb-server-uri`: MongoDB server URI (e.g. `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
+`--mongodb-server-uri`: MongoDB server URI (For example, `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
 
 `--mongodb-username`: MongoDB server username
 
@@ -1036,7 +1036,7 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
-`--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
+`--mongodb-uri-options`: MongoDB server URI options (For example, replicaSet=mySet&authSource=authDB)
 
 `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -2284,9 +2284,9 @@ akeyless dynamic-secret update gcp \
 
 `--gcp-key`: Base64-encoded service account private key text
 
-`--gcp-token-scopes`: Access token scopes list, e.g. scope,scope
+`--gcp-token-scopes`: Access token scopes list, for example, scope,scope
 
-`--gcp-key-algo`: Service account key algorithm, e.g. KEY_ALG_RSA_04
+`--gcp-key-algo`: Service account key algorithm, for example, KEY_ALG_RSA_04
 
 `-s, --service-account-type[=fixed]`: **Required**, The type of the GCP dynamic secret. Options: `[fixed, dynamic]`
 
@@ -2388,7 +2388,7 @@ akeyless dynamic-secret update github \
 
 `--github-base-url[=https://api.github.com/]`: Github base url
 
-`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, e.g - -p contents=read -p issues=write or -p '\{content:read}'
+`-p, --token-permissions`: Tokens' allowed permissions. By default use installation allowed permissions. Input format: key=value pairs or JSON strings, for example, - -p contents=read -p issues=write or -p '\{content:read}'
 
 `-r, --token-repositories`: Tokens' allowed repositories. By default use installation allowed repositories. To specify multiple repositories use argument multiple times: -r RepoName -r RepoName
 
@@ -2660,11 +2660,11 @@ akeyless dynamic-secret update mongodb \
 
 `--mongodb-name`: MongoDB name
 
-`--mongodb-roles\[=\[]]`: MongoDB roles (e.g. MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`)
+`--mongodb-roles\[=\[]]`: MongoDB roles (For example, MongoDB:`[{role:readWrite, db: sales}]`, MongoDB Atlas:`[{roleName : readWrite, databaseName: sales}]`)
 
-`--mongodb-custom-data`: MongoDB custom data (e.g. `{team:blue}`)
+`--mongodb-custom-data`: MongoDB custom data (For example, `{team:blue}`)
 
-`--mongodb-server-uri`: MongoDB server URI (e.g. `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
+`--mongodb-server-uri`: MongoDB server URI (For example, `mongodb://user:password@my.mongo.db:707/admin?replicaSet=mySet`)
 
 `--mongodb-username`: MongoDB server username
 
@@ -2674,7 +2674,7 @@ akeyless dynamic-secret update mongodb \
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
-`--mongodb-uri-options`: MongoDB server URI options (e.g. replicaSet=mySet&authSource=authDB)
+`--mongodb-uri-options`: MongoDB server URI options (For example, replicaSet=mySet&authSource=authDB)
 
 `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -3345,7 +3345,7 @@ akeyless dynamic-secret get-value \
 
 `target`: Target Name
 
-`args`: Optional arguments as `key`=`value` pairs or JSON strings, e.g - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
+`args`: Optional arguments as `key`=`value` pairs or JSON strings, for example, - "`--args`=csr=base64_encoded_csr --args=common_name=bar" or `--args`='\{"csr":"base64_encoded_csr"}. It is possible to combine both formats.' [role_arn,username,csr,common_name]
 
  `--mssql-dbname`: Override MSSQL DB name, this should be allowed by the Dynamic Secret item (relevant only for **MSSQL Dynamic Secret**).
 

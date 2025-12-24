@@ -79,7 +79,7 @@ You must configure an Azure AD Auth Method in Akeyless using:
 * JWKS endpoint
 * Optional sub-claims for identity restrictions
 
-Akeyless will provide an **Access ID** (e.g. `p-xxxxx`).
+Akeyless will provide an **Access ID** (For example, `p-xxxxx`).
 
 ***
 

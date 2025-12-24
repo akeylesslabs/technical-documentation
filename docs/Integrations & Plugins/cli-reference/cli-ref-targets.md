@@ -248,7 +248,7 @@ akeyless target create db \
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
-`--mongodb-uri-options`: MongoDB server URI options (e.g. `replicaSet=mySet&authSource=authDB`)
+`--mongodb-uri-options`: MongoDB server URI options (For example, `replicaSet=mySet&authSource=authDB`)
 
 `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -572,7 +572,7 @@ akeyless target create hashi-vault \
 
 `-n, --name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash / separators. If the folder does not exist, it will be created together with the target.
 
-`--hashi-url`: HashiCorp Vault URL, e.g. `https://<vault-mgr01>:8200`.
+`--hashi-url`: HashiCorp Vault URL, for example, `https://<vault-mgr01>:8200`.
 
 `--vault-token`: Vault access token with sufficient permissions.
 
@@ -1351,7 +1351,7 @@ akeyless update-db-target \
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
-`--mongodb-uri-options`: MongoDB server URI options (e.g. `replicaSet=mySet&authSource=authDB`)
+`--mongodb-uri-options`: MongoDB server URI options (For example, `replicaSet=mySet&authSource=authDB`)
 
 `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -1645,13 +1645,13 @@ akeyless target update globalsign-atlas \
 
 `-s, --api-secret`: **Required**, API Secret of the GlobalSign Atlas account
 
-`--mlts-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either mtls-cert-file-path or tls-cert-data-base64 must be supplied
+`--mlts-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied
 
-`--mlts-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either mtls-cert-file-path or mtls-cert-data-base64 must be supplied
+`--mlts-cert-data-base64`: Mutual TLS Certificate contents of the GlobalSign Atlas account encoded in base64, either `mtls-cert-file-path` or `mtls-cert-data-base64` must be supplied
 
-`--mlts-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either mtls-key-file-path or mtls-key-data-base64 must be supplied
+`--mlts-key-file-path`: Path to the Mutual TLS Key of the GlobalSign Atlas account, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied
 
-`--mlts-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either mtls-key-file-path or mtls-key-data-base64 must be supplied
+`--mlts-key-data-base64`: Mutual TLS Key contents of the GlobalSign Atlas account encoded in base64, either `mtls-key-file-path` or `mtls-key-data-base64` must be supplied
 
 `--timeout[=5]`: Timeout waiting for certificate validation
 
@@ -1729,7 +1729,7 @@ akeyless target update hashi-vault \
 
 `--new-name`: New target name
 
-`--hashi-url`: HashiCorp Vault URL, e.g. `https://<vault-mgr01>:8200`.
+`--hashi-url`: HashiCorp Vault URL, for example, `https://<vault-mgr01>:8200`.
 
 `--vault-token`: Vault access token with sufficient permissions.
 

@@ -37,7 +37,7 @@ All identity operations—such as signing, encryption, decryption, or generating
 
 ## Cryptographic Workflow
 
-When a client requests an operation (e.g., retrieving a secret, generating a dynamic credential, or performing a signing operation):
+When a client requests an operation (For example, retrieving a secret, generating a dynamic credential, or performing a signing operation):
 
 1. The Akeyless control plane authenticates and authorizes the request.
 2. The platform triggers a distributed cryptographic workflow based on the key or secret type.

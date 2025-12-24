@@ -138,7 +138,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-  * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (e.g., if you are not authorized to create and access Targets in the Akeyless Console).
+  * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
 
     * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/cloud-targets).
 

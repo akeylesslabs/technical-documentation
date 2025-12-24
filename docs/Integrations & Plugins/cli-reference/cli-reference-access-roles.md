@@ -32,7 +32,7 @@ akeyless assoc-role-am \
 
 `-a, --am-name`: **Required**, The Auth Method to associate
 
-`-s, --sub-claims`: key/val of sub claims, e.g group='admins','developers'
+`-s, --sub-claims`: key/val of sub claims, for example, group='admins','developers'
 
 `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 
@@ -250,7 +250,7 @@ akeyless update-assoc --assoc-id <association ID to be updated>
 
 `-a, --assoc-id`: **Required**, The association ID to be updated
 
-`-s, --sub-claims`: key/val of sub claims, e.g group=admins,developers
+`-s, --sub-claims`: key/val of sub claims, for example, group=admins,developers
 
 `-c, --case-sensitive[=true]`: Treat sub claims as case-sensitive
 

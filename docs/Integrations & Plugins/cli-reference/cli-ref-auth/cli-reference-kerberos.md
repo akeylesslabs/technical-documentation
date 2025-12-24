@@ -46,7 +46,7 @@ akeyless auth-method create kerberos \
 
 `--product-type`: Choose the relevant product type for the auth method `[sm, sra, pm, dp, ca]`
 
-`--audit-logs-claims`: Sub-claims to include in Audit Logs. e.g `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -60,7 +60,7 @@ akeyless auth-method create kerberos \
 
 `--keytab-file-data`: Base64-encoded content of a valid keytab file, containing the service account's entry.
 
-`--ldap-url`: LDAP server URL, e.g., `ldap://ldap.domain.com:389`
+`--ldap-url`: LDAP server URL, for example, `ldap://ldap.domain.com:389`
 
 `--ldap-ca-cert`: LDAP CA certificate (Base64-encoded)
 
@@ -121,7 +121,7 @@ akeyless auth-method update kerberos \
 
 `--product-type`: Choose the relevant product type for the auth method `[sm, sra, pm, dp, ca]`
 
-`--audit-logs-claims`: Sub-claims to include in Audit Logs. e.g `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, [true/false]
 
@@ -135,7 +135,7 @@ akeyless auth-method update kerberos \
 
 `--keytab-file-data`: Base64-encoded content of a valid keytab file, containing the service account's entry.
 
-`--ldap-url`: LDAP server URL, e.g., `ldap://ldap.domain.com:389`
+`--ldap-url`: LDAP server URL, for example, `ldap://ldap.domain.com:389`
 
 `--ldap-ca-cert`: LDAP CA certificate (Base64-encoded)
 

@@ -70,10 +70,10 @@ Setting log forwarding to Datadog system:
 ````yaml
 enable="true"
 target_log_type="datadog"
-target_datadog_host="<datadog host e.g. datadoghq.com>" (required)
+target_datadog_host="<datadog host, for example, datadoghq.com>" (required)
 target_datadog_api_key="<datadog api key>"(required)
 target_datadog_log_source="<The integration name associated with your log>" (optional. Default value: akeyless)
-target_datadog_log_tags="<Tags associated with your logs in the form of key:val,key:val... e.g. env:test,version:1>"(optional)
+target_datadog_log_tags="<Tags associated with your logs in the form of key:val,key:val... For example, env:test,version:1>"(optional)
 target_datadog_log_service="<The name of the application or service generating the log events>"(optional. Default value: akeyless-gateway)
 
 ## Elasticsearch
@@ -160,7 +160,7 @@ target_splunk_enable_tls="true"
 target_splunk_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-## STDOUT
+## stdout
 
 Setting log forwarding to stdout:
 

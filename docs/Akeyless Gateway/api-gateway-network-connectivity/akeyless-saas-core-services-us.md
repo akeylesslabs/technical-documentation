@@ -353,7 +353,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        S3 bucket to download & update Akeyless official binaries. e.g. `Gateway`
+        S3 bucket to download & update Akeyless official binaries. For example, `Gateway`
       </td>
     </tr>
   </tbody>

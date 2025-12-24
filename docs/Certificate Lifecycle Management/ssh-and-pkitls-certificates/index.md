@@ -104,7 +104,7 @@ Where:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use the argument multiple times: --expiration-event-in 30 --expiration-event-in 60 to get events 60 and 30 days in advance.
 
-* `allowed-extra-extensions`: A `json` string that defines the allowed extra extensions for the PKI cert issuer, e.g. `'{"1.2.3":["test"]}'`.
+* `allowed-extra-extensions`: A `json` string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"1.2.3":["test"]}'`.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
 

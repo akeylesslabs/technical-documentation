@@ -21,7 +21,7 @@ The Session Overview page displays detailed information for each session. The fo
 * **Gateway Name**: The name of the gateway through which the session is managed.
 * **Resource Type**: The type of resource accessed during the session. Examples include: SSH, RDP, Databases, Kubernetes (K8s) and more.
 * **Secret Name**: The identifier for the secret used during the session.
-* **Status**: The current state of the session (e.g., active, closed, or terminated).
+* **Status**: The current state of the session (For example, active, closed, or terminated).
 * **Duration**: The length of time the session has been active.
 
 ## Real-Time Updates

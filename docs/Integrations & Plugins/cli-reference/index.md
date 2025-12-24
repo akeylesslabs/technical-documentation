@@ -117,7 +117,7 @@ Gets the item details
 
 `--show-versions[=false]`: Include all item versions in reply
 
-`--gateway-details[=false]`: Output will include additional gateway details (e.g cluster URL)
+`--gateway-details[=false]`: Output will include additional gateway details (For example, cluster URL)
 
 `--bastion-details[=false]`: Output will include additional bastion details
 
@@ -377,9 +377,9 @@ block:Flags]
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `my.bastion:9900` (relevant only for SSH cert issuer)
+`--secure-access-bastion-api`: Bastion's SSH control API endpoint. For example, `my.bastion:9900` (relevant only for SSH cert issuer)
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22` (relevant only for SSH cert issuer)
+`--secure-access-bastion-ssh`: Bastion's SSH server. For example, `my.bastion:22` (relevant only for SSH cert issuer)
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list (relevant only for SSH cert issuer)
 

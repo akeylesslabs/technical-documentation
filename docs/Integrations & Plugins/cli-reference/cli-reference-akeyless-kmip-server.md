@@ -32,7 +32,7 @@ akeyless kmip-client-delete-rule \
 
 #### Flags
 
-`-p, --path`: **Required**, Access path, e.g /* or /some-key
+`-p, --path`: **Required**, Access path, for example, /* or /some-key
 
 `-n, --name`: KMIP client name (either name or ID are required)
 
@@ -69,7 +69,7 @@ akeyless kmip-client-set-rule \
 
 #### Flags
 
-`-p, --path`: **Required**, Access path, e.g /* or /some-key
+`-p, --path`: **Required**, Access path, for example, /* or /some-key
 
 `-c, --capability`: **Required**, Access capability (see command description for supported values)
 

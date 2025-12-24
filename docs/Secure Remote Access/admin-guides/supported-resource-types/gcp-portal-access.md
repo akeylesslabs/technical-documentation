@@ -40,7 +40,7 @@ To enable Secure Remote Access to the GCP Portal you need:
 
 3. On the next screen, tick the box to `Enable Scure Remote Access` and fill in the following fields for the `Web Access` option:
 
-`Injection URL`: The GCP login URL to inject secrets. e.g.
+`Injection URL`: The GCP login URL to inject secrets. For example:
 
 <Image align="center" src="https://files.readme.io/b0cf7f8-Screenshot_2024-07-08_at_17.13.30.png" />
 

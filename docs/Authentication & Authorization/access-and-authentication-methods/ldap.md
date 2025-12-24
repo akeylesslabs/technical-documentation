@@ -37,7 +37,7 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `Web UI`, `Mobile`.
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `Web UI`, `Mobile`.
 
 * **Require Sub Claim on role association:** select to force [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) during [Role](https://docs.akeyless.io/docs/rbac) association.
 
@@ -48,24 +48,23 @@ On the **LDAP Configuration** step define the following:
 
 * **Gateway:** An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) to create the LDAP configuration.
 
-* **LDAP Server URL:** The LDAP server URL, e.g. `ldap://planetexpress.com:389` or secured server `ldaps://planetexpress.com:636`.
+* **LDAP Server URL:** The LDAP server URL, for example, `ldap://planetexpress.com:389` or secured server `ldaps://planetexpress.com:636`.
 
 * **Server CA Certificate:** LDAP server CA certificate, requires x509 PEM encoded certificate format, **Relevant** only if secured LDAP server `ldaps` is used.
 
-* **LDAP Bind DN:** Distinguished Name (DN) of object to bind when performing user and group search
-  e.g. `cn=admin,dc=planetexpress`, **Relevant** only if **Enable LDAP Anonymous Search** is checked.
+* **LDAP Bind DN:** Distinguished Name (DN) of object to bind when performing user and group search, for example, `cn=admin,dc=planetexpress`, **Relevant** only if **Enable LDAP Anonymous Search** is checked.
 
 * **Password for LDAP Bind DN:** Password to perform user search, **Relevant** only if **Enable LDAP Anonymous Search** is NOT checked.
 
 On the **Search Configuration** step define the following:
 
-* **User Base DN:** Base DN to perform user membership search, e.g. `ou=people,dc=planetexpress,dc=com`.
+* **User Base DN:** Base DN to perform user membership search, for example, `ou=people,dc=planetexpress,dc=com`.
 
 The following **Search Configuration** steps are **Optional**:
 
-* **LDAP User Attribute:** LDAP attribute on user object returned by user authentication, default is `cn` attribute value. e.g. `uid`.
+* **LDAP User Attribute:** LDAP attribute on user object returned by user authentication, default is `cn` attribute value. For example, `uid`.
 
-* **Group Base DN:** Base DN to perform group membership search, e.g. `ou=groups,dc=planetexpress,dc=com`.
+* **Group Base DN:** Base DN to perform group membership search, for example, `ou=groups,dc=planetexpress,dc=com`.
 
 * **Go Template for Group Membership query:** Go template used when constructing the group membership query. The template can access the following context variables: `UserDN, Username`.
 

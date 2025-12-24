@@ -60,9 +60,9 @@ A corporate folder in Akeyless is a folder that is managed by the company and ca
 
 Corporate folders can be used to store a wide variety of secrets and keys, including:
 
-* Infrastructure secrets (e.g., AWS credentials, Kubernetes secrets, etc.)
-* Application secrets (e.g., database credentials, API keys, etc.)
-* Development secrets (e.g., SSH keys, code signing keys, etc.)
+* Infrastructure secrets (For example, AWS credentials, Kubernetes secrets, etc.)
+* Application secrets (For example, database credentials, API keys, etc.)
+* Development secrets (For example, SSH keys, code signing keys, etc.)
 * Other sensitive data
 
 Corporate folders can be used to improve the security and efficiency of secret management within an organization. By centralizing the management of secrets and keys in a corporate folder, organizations can make it easier for users to access the secrets and keys they need, while also reducing the risk of secrets and keys being lost or compromised.

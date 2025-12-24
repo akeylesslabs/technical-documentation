@@ -48,9 +48,9 @@ akeyless update-ssh-cert-issuer \
 
 where:
 
-* `secure-access-api`: Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
+* `secure-access-api`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
 
-* `secure-access-ssh`: Secure Access SSH server. e.g. `my.sra-server:22`.
+* `secure-access-ssh`: Secure Access SSH server. For example, `my.sra-server:22`.
 
 * `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users`list, **Just In Time** users can be authorized by configuring `allowed_users` with `session_*`.
 
@@ -72,9 +72,9 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
   * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
 
-* `Secure Access API`: Secure Access SSH control API endpoint. e.g. `https://my.sra-server:9900`.
+* `Secure Access API`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
 
-* `Secure Access SSH`: Secure Access SSH server. e.g. `my.sra-server:22`.
+* `Secure Access SSH`: Secure Access SSH server. For example, `my.sra-server:22`.
 
 * `Username`: SSH username to connect to the target server, based on the 'Allowed Users' list.
 
@@ -195,7 +195,7 @@ To upload a file, click on `Upload` button at the top and choose the file to upl
 
 To download a file:
 
-* First, copy the file to the download directory `/akl-downloads` which is already created in the user's $HOME directory on the remote machine (e.g `cp file-to-download.json /akl-downloads`).
+* First, copy the file to the download directory `/akl-downloads` which is already created in the user's $HOME directory on the remote machine (For example, `cp file-to-download.json /akl-downloads`).
 * Then, click on the `Download` button at the top which will open a menu with all files located in that directory. Click on a file to start the download to your local machine. Note that larger files will only appear upon completion.
 
 > 🚧 File size and free space

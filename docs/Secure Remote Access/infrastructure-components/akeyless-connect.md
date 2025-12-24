@@ -90,7 +90,7 @@ To use Akeyless Connect you need:
 
     SSH_EXTRA_ARGS=""
 
-    # Path to SSH executable. e.g. /usr/bin/ssh
+    # Path to SSH executable. For example, /usr/bin/ssh
     SSH_EXTERNAL_CLIENT="ssh"
     ```
 
@@ -136,22 +136,22 @@ To use Akeyless Connect you need:
 
     ```shell akeyless connect -h
     -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
-      -v, --via-bastion                      Bastion host, which the connection will go through. e.g.: bastion-host:port. 
+      -v, --via-bastion                      Bastion host, which the connection will go through. For example: bastion-host:port. 
       -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified will be taken from ~/.akeyless-connect.rc 
       -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read. The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
       -n, --name                             Path to Secret, based on the required connection
           --ssh-extra-args                   Additional SSH arguments (except -i)
           --bastion-ctrl-proto[=http]        Bastion API Protocol [http/https]
-          --bastion-ctrl-subdomain           Bastion control API URL prefix. e.g. https://<prefix>.bastion-host
-          --bastion-ctrl-path                Bastion control API path. e.g. https://bastion-host/<path>
-          --bastion-ctrl-port[=9900]         Bastion control API port. e.g. https://bastion-host:<7777>
-          --gateway-rest-endpoint            Gateway RestAPI URL. e.g. https://rest.akeyless.io
+          --bastion-ctrl-subdomain           Bastion control API URL prefix. For example, https://<prefix>.bastion-host
+          --bastion-ctrl-path                Bastion control API path. For example, https://bastion-host/<path>
+          --bastion-ctrl-port[=9900]         Bastion control API port. For example, https://bastion-host:<7777>
+          --gateway-rest-endpoint            Gateway RestAPI URL. For example, https://rest.akeyless.io
       -V, --ssh-version                      Output local SSH client version
           --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
           --use-ssh-agent										 Enable ssh-agent
-          --ssh-command                      Path to SSH executable. e.g. /usr/bin/ssh
-      -T, --tunnel                           SSH tunnel param. e.g. -T='-L :5555:0.0.0.0:5555' 
-      -C, --command                          Command to execute on the target (useful for non interactive-mode). e.g. -C='ls -al'
+          --ssh-command                      Path to SSH executable. For example, /usr/bin/ssh
+      -T, --tunnel                           SSH tunnel param. For example, -T='-L :5555:0.0.0.0:5555' 
+      -C, --command                          Command to execute on the target (useful for non interactive-mode). For example, -C='ls -al'
       -J, --justification                    User connection justification    
           --debug                            Output debug prints
           --profile, --token                 Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token

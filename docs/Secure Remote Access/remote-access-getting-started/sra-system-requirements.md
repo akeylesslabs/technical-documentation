@@ -54,7 +54,7 @@ These minimum resource allocations are designed to optimize performance and ensu
 
 * **Web-SRA and SSH-SRA Pods**: These are capable of handling between 70 to 100 simultaneous connections with a mix of SSH, DB, and other applications under the recommended resource allocation.
 * **Web Dispatcher Pods**: The Web Dispatcher enables proxy protocol support and can handle hundreds of simultaneous connections, efficiently distributing the load.
-* **Web Worker Pods**: Each 'web-worker' pod is designed to handle one secure web connection. For multiple secure web connections, additional 'web-worker' pods are required (e.g., 5 simultaneous secure web connections require 5 web-worker pods).
+* **Web Worker Pods**: Each 'web-worker' pod is designed to handle one secure web connection. For multiple secure web connections, additional 'web-worker' pods are required (For example, 5 simultaneous secure web connections require 5 web-worker pods).
 
 The number of pods and replication is managed with the values file during Helm installation. Multiple `ssh-sra` pods previously required a dedicated persistent volume, but it is now replaced with a local Redis deployment. This will simplify the solution and reduce the dependency on a persistent volume.
 
@@ -99,7 +99,7 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 * **Security**: Ensure that the Kubernetes cluster is secured following best practices, including network segmentation, pod security policies, and regular security audits.
 
 * **Network**
-  Long SRA sessions (SSH/RDP/Web) might be cut off early by default LB/Ingress timeouts. Set your LB/Ingress idle/response timeout ≥ your intended session TTL (e.g., 15-60 minutes):
+  Long SRA sessions (SSH/RDP/Web) might be cut off early by default LB/Ingress timeouts. Set your LB/Ingress idle/response timeout ≥ your intended session TTL (For example, 15-60 minutes):
 
   * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is 30 seconds. Increase via BackendConfig (or GCPBackendPolicy) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
 

@@ -65,7 +65,7 @@ The Desktop Application will be installed at: `\Users\<username>\Library\Applica
 
 ## How It Works?
 
-1. The Desktop Application retrieves connection details from the target item (e.g., `MY-MSSQL-connection`) and initiates a connection.
+1. The Desktop Application retrieves connection details from the target item (For example, `MY-MSSQL-connection`) and initiates a connection.
 2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window
 
 > 🚧 Important

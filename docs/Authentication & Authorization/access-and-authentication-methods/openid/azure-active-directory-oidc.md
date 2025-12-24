@@ -45,7 +45,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 ## Create an OIDC Authentication Method with the CLI
 
 ```shell
-akeyless auth-method create oidc --name 'my Azure app' --issuer https://{your-issuer-url} --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (e.g 'email' or 'username'')}
+akeyless auth-method create oidc --name 'my Azure app' --issuer https://{your-issuer-url} --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (For example, 'email' or 'username'')}
 ```
 
 This can also be done from the Console UI by creating a New OIDC Auth Method and filling in the same required parameters.

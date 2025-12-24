@@ -138,7 +138,7 @@ azure_workspace_id=""
 azure_workspace_key="" # can be "Primary key" or "Secondary key"
 ```
 
-### STDOUT
+### stdout
 
 Setting log forwarding to stdout:
 
@@ -154,10 +154,10 @@ Setting log forwarding to Datadog system:
 ```yaml
 enable="true"
 target_log_type="datadog"
-target_datadog_host="<datadog host e.g. datadoghq.com>" (required)
+target_datadog_host="<datadog host, for example, datadoghq.com>" (required)
 target_datadog_api_key="<datadog api key>"(required)
 target_datadog_log_source="<The integration name associated with your log>" (optional. Default value: akeyless)
-target_datadog_log_tags="<Tags associated with your logs in the form of key:val,key:val... e.g. env:test,version:1>"(optional)
+target_datadog_log_tags="<Tags associated with your logs in the form of key:val,key:val... For example, env:test,version:1>"(optional)
 target_datadog_log_service="<The name of the application or service generating the log events>"(optional. Default value: akeyless-gateway)
 ```
 
@@ -167,9 +167,9 @@ Setting log forwarding to Sumo Logic system:
 
 ```yaml
 target_log_type="sumo_logic"
-target_sumologic_endpoint_url="<sumo logic endpoint>"(required)
-target_sumologic_tags="<Tags associated with your logs in the form of tag1,tag2...>"(optional)
-target_sumologic_host="<Host associated with your logs>"(optional)
+target_sumologic_endpoint_url="<sumo logic endpoint>" (required)
+target_sumologic_tags="<Tags associated with your logs in the form of tag1,tag2...>" (optional)
+target_sumologic_host="<Host associated with your logs>" (optional)
 ```
 
 ### Google Chronicle

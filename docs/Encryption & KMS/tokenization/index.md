@@ -87,9 +87,9 @@ Where:
 
 * `alphabet`: A string of allowed symbols for **Custom** tokenization.
 
-* `pattern`: A regexp pattern that is used to extract the parts that should be tokenized during **Custom** tokenization. It can use named and non-named capture groups (e.g., `(?P<first>\d{3})-(?P<last>\d{3})` or `(\d{3})-(\d{3})` ).
+* `pattern`: A regexp pattern that is used to extract the parts that should be tokenized during **Custom** tokenization. It can use named and non-named capture groups (For example, `(?P<first>\d{3})-(?P<last>\d{3})` or `(\d{3})-(\d{3})` ).
 
-* `encoding-template`: An expression to alter the template of the encryption output for **Custom** tokenization (e.g., `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group).
+* `encoding-template`: An expression to alter the template of the encryption output for **Custom** tokenization (For example, `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group).
 
 * `decoding-template`: An expression to alter the template of the decryption output for **Custom** tokenization.
 
@@ -150,9 +150,9 @@ This section of the guide explains the workflow with the Akeyless Console. If yo
 
     * **Alphabet:** A string of allowed symbols for tokenization.
 
-    * **Custom Pattern:** A regexp pattern that is used to extract the parts which should be tokenized. It can use named and non-named capture groups (e.g., `(?P<first>\d{3})-(?P<last>\d{3})` or `(\d{3})-(\d{3})` ).
+    * **Custom Pattern:** A regexp pattern that is used to extract the parts which should be tokenized. It can use named and non-named capture groups (For example, `(?P<first>\d{3})-(?P<last>\d{3})` or `(\d{3})-(\d{3})` ).
 
-    * **Encoding Template:** An expression to alter the template of the encryption output for tokenization (e.g., `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group).
+    * **Encoding Template:** An expression to alter the template of the encryption output for tokenization (For example, `$1-$2-$groupname`, where `$1` or `$2` are non-named capture groups, and `$groupname` is a named capture group).
 
     * **Decoding Template:** An expression to alter the template of the decryption output for tokenization.
 

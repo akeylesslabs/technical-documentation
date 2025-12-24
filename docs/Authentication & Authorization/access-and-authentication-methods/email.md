@@ -50,7 +50,7 @@ You can find the complete list of additional parameters for this command in the 
 
     * **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `Web UI`,`SDK`,`Gateway Admin`, `Mobile`, `Extension`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`,`SDK`,`Gateway Admin`, `Mobile`, `Extension`.
 
     * **JWT TTL (in minutes):** The time span from acceptance of the invitation to the JWT expiration.
 

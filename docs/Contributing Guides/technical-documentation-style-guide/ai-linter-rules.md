@@ -58,8 +58,8 @@ metadata:
 * When sample code, sample commands, or examples are shown across multiple languages or formats, tabs should be used to prevent multiple fenced code blocks.
 * Bold text should be used for UI element, important notes, or emphasis.
 * Italics should be used for new terms or lighter emphasis.'
-* Capitalize proper nouns and feature names (e.g., Akeyless MCP Server).
-* When using abbreviations, unless they are widely known (e.g., "API," "URL"), always define them on first use.
+* Capitalize proper nouns and feature names (For example, Akeyless MCP Server).
+* When using abbreviations, unless they are widely known (For example, "API," "URL"), always define them on first use.
 * Always use the product’s official names.
 * Wherever possible, examples of codes and command should be used.
 * Show expected output whenever possible with sample commands and code.
@@ -69,9 +69,9 @@ metadata:
 * Due to the nature of CLI help pages, their documentation uses many shortened words, abbreviations, and unclear descriptions. These issues should be resolved on a CLI Reference, rather than duplicated.
 * Dates should adhere to the YYYY-MM-DD format.
 * Times should use the UTC format when relevant.
-* Numbers: Use numerals for all numbers over ten (e.g., "12 files," not "twelve files"). Use words for numbers under ten (e.g., "three files," not "3 files").
-* Use a space between the value and unit (e.g., "10 GB", "12 ms")
-* File paths: Use `/` for paths (e.g., `/usr/local/bin`).
+* Numbers: Use numerals for all numbers over ten (For example, "12 files," not "twelve files"). Use words for numbers under ten (For example, "three files," not "3 files").
+* Use a space between the value and unit (For example, "10 GB", "12 ms")
+* File paths: Use `/` for paths (For example, `/usr/local/bin`).
 * Data Structures: When representing child elements outside of a full object notation file, use a period to represent child elements in relation to their parents. For example, represent `--access-type` from the below example as `args.--access-type`.
 * Use descriptive link text instead of "click here."
 * Avoid sentence fragments wherever reasonable.

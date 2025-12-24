@@ -38,7 +38,7 @@ akeyless auth-method create ldap \
 
 `--gw-bound-ips`: A comma-separated CIDR block list as a trusted Gateway entity
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
@@ -83,7 +83,7 @@ akeyless update-auth-method-ldap \
 
 `--force-sub-claims`: enforce role-association must include sub-claims
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 
@@ -122,7 +122,7 @@ akeyless gateway-update-ldap-auth-config \
 
 `--signing-key-file-name`: the path to the file containing the private key
 
-`--ldap-url`: LDAP Server URL, e.g. `ldap://planetexpress.com:389`
+`--ldap-url`: LDAP Server URL, for example, `ldap://planetexpress.com:389`
 
 `-t, --ldap-ca-cert`: LDAP CA Certificate (Base64-encoded)
 
@@ -146,7 +146,7 @@ akeyless gateway-update-ldap-auth-config \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--delete-protection`: Protection from accidental deletion of this object, `[true/false]`
 

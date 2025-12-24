@@ -22,7 +22,7 @@ These minimum resource allocations are designed to optimize performance and ensu
 
 * **Web Dispatcher Pods**: The Web Dispatcher enables proxy protocol support and can handle hundreds of simultaneous connections, efficiently distributing the load.
 
-* **Web Worker Pods**: Each 'web-worker' pod is designed to handle one secure web connection. For multiple secure web connections, additional 'web-worker' pods are required (e.g., 5 simultaneous secure web connections require 5 web-worker pods).
+* **Web Worker Pods**: Each 'web-worker' pod is designed to handle one secure web connection. For multiple secure web connections, additional 'web-worker' pods are required (For example, 5 simultaneous secure web connections require 5 web-worker pods).
 
 The number of pods and replication is managed with the values file during Helm installation. Multiple `ssh-sra` pods previously required a dedicated persistent volume, but it is now replaced with a local Redis deployment. This will simplify the solution and reduce the dependency on a persistent volume.
 
@@ -65,7 +65,7 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 * **Security**: Ensure that the Kubernetes cluster is secured following best practices, including network segmentation, pod security policies, and regular security audits.
 
 * **Network**
-  Long SRA sessions (SSH/RDP/Web) might be cut off early by default LB/Ingress timeouts. Set your LB/Ingress idle/response timeout ≥ your intended session TTL (e.g., 15-60 minutes):
+  Long SRA sessions (SSH/RDP/Web) might be cut off early by default LB/Ingress timeouts. Set your LB/Ingress idle/response timeout ≥ your intended session TTL (For example, 15-60 minutes):
 
   * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is `30s`. Increase via BackendConfig (or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection)) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
 
@@ -79,7 +79,7 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
     * **Application Gateway (L7):** TCP idle timeout default 4 minutes (configurable up to 30 minutes), HTTP request timeout default 20 seconds (backend response wait). Tune both as needed. [See vendor information](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-faq).
 
-  * **NGINX Ingress (generic)** - Defaults commonly close connections around 60 seconds without traffic. Raise with annotations / ConfigMap (e.g., `nginx.ingress.kubernetes.io/proxy-read-timeout`, proxy-send-timeout). [See vendor information](https://nginx.org/en/docs/http/websocket.html).
+  * **NGINX Ingress (generic)** - Defaults commonly close connections around 60 seconds without traffic. Raise with annotations / ConfigMap (For example, `nginx.ingress.kubernetes.io/proxy-read-timeout`, proxy-send-timeout). [See vendor information](https://nginx.org/en/docs/http/websocket.html).
 
 ### Conclusion
 

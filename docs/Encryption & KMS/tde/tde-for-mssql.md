@@ -121,7 +121,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     GO
     ```
 
-5. Create an asymmetric key for the **EKM** provider. This will create a key in Akeyless named `SQL_Server_Key` in the path defined in the configuration file `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` parameter `base_item_path` (e.g. `/path/to/keys/SQL_Server_Key`. To work with an existing key add the `CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`:
+5. Create an asymmetric key for the **EKM** provider. This will create a key in Akeyless named `SQL_Server_Key` in the path defined in the configuration file `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` parameter `base_item_path` (For example, `/path/to/keys/SQL_Server_Key`. To work with an existing key add the `CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`:
 
     ```sql
     CREATE ASYMMETRIC KEY akls_ekm_login_key

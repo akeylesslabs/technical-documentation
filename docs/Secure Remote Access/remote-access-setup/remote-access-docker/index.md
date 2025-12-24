@@ -83,7 +83,7 @@ UNIFIED_GATEWAY="true"
 # Best practice: set to "true" when Redis is available
 USE_CLUSTER_CACHE="true"
 
-# REMOTE_ACCESS_TYPE: Choose the SRA integration flow (e.g., "ssh-proxy" for Web-SSH)
+# REMOTE_ACCESS_TYPE: Choose the SRA integration flow (For example, "ssh-proxy" for Web-SSH)
 REMOTE_ACCESS_TYPE="ssh-proxy"
 
 

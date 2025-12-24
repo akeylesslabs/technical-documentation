@@ -33,7 +33,7 @@ Creating a table in ServiceNow involves defining a new data structure to store i
 ## Step 4: Configure Table Columns (Fields)
 
 * After defining the basic table details, you'll need to add fields (columns) to your table. Each field represents a piece of information you want to store in each record.
-* You can add fields by clicking on the Add Column button and specifying the field type (e.g., string, choice, reference, date/time), name, and other properties.
+* You can add fields by clicking on the Add Column button and specifying the field type (For example, string, choice, reference, date/time), name, and other properties.
 
 ![](https://files.readme.io/cf02d50-Screenshot_2024-03-05_at_12.24.46.png)
 

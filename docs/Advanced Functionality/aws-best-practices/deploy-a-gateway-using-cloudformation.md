@@ -105,7 +105,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
         Description: AMI ID for the instance
     AllowedIP:
         Type: String
-        Description: IP/CIDR allowed inbound (e.g. 0.0.0.0/0)
+        Description: IP/CIDR allowed inbound (For example, 0.0.0.0/0)
     AllowedPorts:
         Type: CommaDelimitedList
         Default: "22,8000,8081"
@@ -295,11 +295,11 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
     AllowedIP:
         Type: String
-        Description: IP address or CIDR block allowed to access the instance (e.g., 0.0.0.0/0)
+        Description: IP address or CIDR block allowed to access the instance (For example, 0.0.0.0/0)
 
     AllowedPorts:
         Type: CommaDelimitedList
-        Description: List of TCP ports to allow inbound access (e.g., 22,80,443)
+        Description: List of TCP ports to allow inbound access (For example, 22,80,443)
         Default: "22,8000,8081"
 
     KeyName:
@@ -528,29 +528,29 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
     After uploading the `.yaml` file, set the following parameters:
 
-    * **AccessID** – The **Access ID** of the **AWS IAM** Auth Method that was created earlier.
+    * `AccessID` – The **Access ID** of the **AWS IAM** Auth Method that was created earlier.
 
-    * **AllowedAccessID** – The **Access ID** of the **API Key** Auth Method that was created earlier.
+    * `AllowedAccessID` – The **Access ID** of the **API Key** Auth Method that was created earlier.
 
-    * **AllowedIP** – Your IP address or CIDR block (e.g. `203.0.113.5/32`).
+    * `AllowedIP` – Your IP address or CIDR block (For example, `203.0.113.5/32`).
 
-    * **AssumeRoleArn** - ARN of the role to assume for the assume\_role dynamic secret
+    * `AssumeRoleArn` - ARN of the role to assume for the assume\_role dynamic secret
 
-    * **ClusterName** – A name for your Gateway cluster
+    * `ClusterName` – A name for your Gateway cluster
 
-    * **ImageID** – The **AMI ID** of the EC2 image. Run the following command to fetch the latest Ubuntu `22.04` image:
+    * `ImageID` – The **AMI ID** of the EC2 image. Run the following command to fetch the latest Ubuntu `22.04` image:
 
-    ```shell
-    aws ec2 describe-images \
-    --owners 099720109477 \
-    --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*" \
-    --query "Images | sort_by(@, &CreationDate) | [-1].ImageId" \
-    --region <Your-region> \
-    --output text
-    ```
+        ```shell
+        aws ec2 describe-images \
+        --owners 099720109477 \
+        --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*" \
+        --query "Images | sort_by(@, &CreationDate) | [-1].ImageId" \
+        --region <Your-region> \
+        --output text
+        ```
 
-    * **InstanceType** – e.g. `t3.small`, `t3.medium`
-    * **KeyName** - Optional, EC2 Key Pair name for SSH access.
+    * `InstanceType` – For example: `t3.small`, `t3.medium`
+    * `KeyName` - Optional, EC2 Key Pair name for SSH access.
 
 3. Click **Next**, then **Create Stack**.
 
@@ -635,6 +635,6 @@ To sync the **Rotated Secret** that was just created with the **AWS Secret Manag
 
    2. **Remote Secret Name** - Enter the name of the secret that will be created or updated on your **AWS Secret Manager**.
 
-   3. **Filter secret value (jq)** - Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, e.g. `.password` etc.
+   3. **Filter secret value (jq)** - Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` etc.
 
 Once completed, if the secret is rotated in **Akeyless**, its value will be automatically updated in **AWS**.

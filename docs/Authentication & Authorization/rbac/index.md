@@ -214,7 +214,7 @@ The JSON file structure should be as follows:
 }
 ```
 
-Where the relevant Akeyless paths, e.g `secret/foo` and `secret/bar` correlate with the `--path` parameter, the rule type with the `rule-type` key, and the capabilities with the `capabilities` key that you would attach to a single rule command as described above.
+Where the relevant Akeyless paths, for example, `secret/foo` and `secret/bar` correlate with the `--path` parameter, the rule type with the `rule-type` key, and the capabilities with the `capabilities` key that you would attach to a single rule command as described above.
 
 ## View As
 

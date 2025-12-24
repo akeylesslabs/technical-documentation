@@ -60,7 +60,7 @@ Where:
 
 * `U`: Updates the SPN in Active Directory.
 * `S`: Checks for duplicates before adding the SPN
-* `SPN`: Your Gateway FQDN, e.g. `my.gateway.com`
+* `SPN`: Your Gateway FQDN, for example, `my.gateway.com`
 
 ## Authentication
 
@@ -172,7 +172,7 @@ Where:
 
 * `keytab-file-path`: The path to a valid keytab file, containing the service account's entry
 
-* `ldap-url`: LDAP server URL, e.g., `ldap://ldap.domain.com:389`
+* `ldap-url`: LDAP server URL, for example, `ldap://ldap.domain.com:389`
 
 * `bind-dn`: Full DN of the LDAP user to bind with
 

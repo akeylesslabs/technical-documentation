@@ -81,7 +81,7 @@ Choose an authentication method:
 1. Get Static Secret Value
     Retrieves a static secret from Akeyless.
     Configuration:
-    * Secret Name: The full path to your secret (e.g., /production/api-key)
+    * Secret Name: The full path to your secret (For example, /production/api-key)
     * Accessibility: Choose regular or personal
     * Ignore Cache: Set to true to bypass cache
       Output Example:
@@ -140,7 +140,7 @@ Choose an authentication method:
     Configuration:
     * Folder Name: The name/path of the folder to create
     * Accessibility: Choose regular or personal
-      Use Case: Organize secrets into folders (e.g., /production/, /staging/).
+      Use Case: Organize secrets into folders (For example, /production/, /staging/).
 
 7. Delete Folder
     Deletes a folder from Akeyless.

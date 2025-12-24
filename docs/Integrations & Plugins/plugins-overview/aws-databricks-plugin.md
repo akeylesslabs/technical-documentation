@@ -41,7 +41,7 @@ Akeyless helps avoid secret scattering across AWS Secrets Manager, Databricks se
 
 * An Akeyless Access ID
 * An AWS IAM Auth Method created in Akeyless
-* A secret stored in Akeyless (e.g., /devops/data\_gov\_api\_key)
+* A secret stored in Akeyless (For example, /devops/data\_gov\_api\_key)
 * A Databricks workspace with internet access or the access to the Akeyless Gateway
 
 ## Architecture Overview

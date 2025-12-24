@@ -47,7 +47,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 > 📘 Least Privileged Permissions
 >
-> AWS IAM authentication doesn't require any privileged permissions. Ensure you have an IAM role without any privileged permissions and attach it to the resource you want to authenticate (e.g., EC2 instance).
+> AWS IAM authentication doesn't require any privileged permissions. Ensure you have an IAM role without any privileged permissions and attach it to the resource you want to authenticate (For example, EC2 instance).
 
 ## Create an AWS IAM Authentication Method in the Akeyless Console
 
@@ -65,7 +65,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. e.g. `CLI`, `SDK`,`Gateway Admin`.
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`.
 
 * **Bounded AWS Account IDs:** Enter a comma-separated list of AWS account IDs for which access is allowed.
 
@@ -87,7 +87,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 By default, [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) (IMDSv2) enforces a hop limit of 1, which means the metadata token used for cloud identity (such as IAM role credentials) must be accessed directly from the **EC2 instance** that initiated the session.
 
-If the Akeyless Gateway runs in a different network context (e.g., inside a container), it may fail to authenticate using the `aws_iam` authentication method because this hop limitation.
+If the Akeyless Gateway runs in a different network context (For example, inside a container), it may fail to authenticate using the `aws_iam` authentication method because this hop limitation.
 
 To resolve this, you can increase the allowed number of network hops by modifying the `http-put-response-hop-limit` parameter. This can be done via the **AWS CLI** or the **AWS Management Console**.
 

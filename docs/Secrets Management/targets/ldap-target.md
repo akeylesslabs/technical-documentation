@@ -28,7 +28,7 @@ Where:
 
 * `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-* `ldap-url`: The URL of your LDAP server (e.g., `ldap[s]://<hostname>:<port>`)
+* `ldap-url`: The URL of your LDAP server (For example, `ldap[s]://<hostname>:<port>`)
 
 * `bind-dn`: The Bind DN of your LDAP user, will be used for connection setup.
 

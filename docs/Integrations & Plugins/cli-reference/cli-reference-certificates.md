@@ -36,13 +36,13 @@ akeyless create-ssh-cert-issuer \
 
 `-s, --signer-key-name`: **Required**, A key to sign the certificate with
 
-`-a, --allowed-users`: **Required**, List of allowed users that will be able to use the certificate, e.g ubuntu
+`-a, --allowed-users`: **Required**, List of allowed users that will be able to use the certificate, for example, ubuntu
 
 `-t, --ttl`: **Required**, The requested Time To Live for the certificate, in seconds
 
-`-p, --principals`: Signed certificates with principal, e.g example_role1,example_role2
+`-p, --principals`: Signed certificates with principal, for example, example_role1,example_role2
 
-`-x, --extensions`: Signed certificates with extensions, e.g permit-port-forwarding="true"
+`-x, --extensions`: Signed certificates with extensions, for example, permit-port-forwarding="true"
 
 `--host-provider[=explicit]`: Host provider type [explicit/target]
 
@@ -50,9 +50,9 @@ akeyless create-ssh-cert-issuer \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `https://my.bastion:9900`
+`--secure-access-bastion-api`: Bastion's SSH control API endpoint. For example, `https://my.bastion:9900`
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22`
+`--secure-access-bastion-ssh`: Bastion's SSH server. For example, `my.bastion:22`
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list
 
@@ -114,13 +114,13 @@ akeyless update-ssh-cert-issuer \
 
 `-s, --signer-key-name`: **Required**, A key to sign the certificate with
 
-`-a, --allowed-users`: **Required**, List of allowed users that will be able to use the certificate, e.g ubuntu
+`-a, --allowed-users`: **Required**, List of allowed users that will be able to use the certificate, for example, ubuntu
 
 `-t, --ttl`: **Required**, The requested Time To Live for the certificate, in seconds.
 
-`-p, --principals`: Signed certificates with principal, e.g example_role1,example_role2
+`-p, --principals`: Signed certificates with principal, for example, example_role1,example_role2
 
-`-x, --extensions`: Signed certificates with extensions, e.g permit-port-forwarding="true"
+`-x, --extensions`: Signed certificates with extensions, for example, permit-port-forwarding="true"
 
 `--host-provider[=explicit]`: Host provider type [explicit/target]
 
@@ -132,9 +132,9 @@ akeyless update-ssh-cert-issuer \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-bastion-api`: Bastion's SSH control API endpoint. e.g. `https://my.bastion:9900`
+`--secure-access-bastion-api`: Bastion's SSH control API endpoint. For example, `https://my.bastion:9900`
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. e.g. `my.bastion:22`
+`--secure-access-bastion-ssh`: Bastion's SSH server. For example, `my.bastion:22`
 
 `--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list
 
@@ -161,7 +161,7 @@ akeyless create-pki-cert-issuer \
 
 `-n, --name`: **Required**, PKI certificate issuer name
 
-`--ca-target`: The name of an existing CA target (e.g. GlobalSign,GoDaddy,ZeroSSL) to attach this PKI Certificate Issuer, Relevant only when using Public CA.
+`--ca-target`: The name of an existing CA target (For example, GlobalSign,GoDaddy,ZeroSSL) to attach this PKI Certificate Issuer, Relevant only when using Public CA.
 
 `-s, --signer-key-name`: A key to sign the issued certificates.
 
@@ -219,7 +219,7 @@ akeyless create-pki-cert-issuer \
 
 `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified, To specify multiple events, use the argument multiple times: --expiration-event-in 1 --expiration-event-in 5
 
-`--allowed-extra-extensions`: A `JSON`string that defines the allowed extra extensions for the PKI cert issuer, e.g. `'{"<OID>":["<Vlaue>"]}'`
+`--allowed-extra-extensions`: A `JSON`string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"<OID>":["<Vlaue>"]}'`
 
 `--allowed-extra-extensions-file-path`: A path to a file containing a JSON string that defines the allowed extra extensions for the PKI cert issuer
 

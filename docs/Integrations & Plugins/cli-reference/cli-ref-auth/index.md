@@ -138,7 +138,7 @@ akeyless auth-method create api-key --name <Auth method name>
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -179,7 +179,7 @@ akeyless auth-method create aws-iam \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -235,7 +235,7 @@ akeyless auth-method create azure-ad \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -259,11 +259,11 @@ akeyless auth-method create azure-ad \
 
 `--bound-rg-id`: A list of resource groups that the access is restricted to
 
-`--bound-providers`: A list of resource providers that the access is restricted to (e.g, Microsoft.Compute, Microsoft.ManagedIdentity, etc)
+`--bound-providers`: A list of resource providers that the access is restricted to (For example, Microsoft.Compute, Microsoft.ManagedIdentity, etc)
 
-`--bound-resource-types`: A list of resource types that the access is restricted to (e.g, virtualMachines, userAssignedIdentities, etc)
+`--bound-resource-types`: A list of resource types that the access is restricted to (For example, virtualMachines, userAssignedIdentities, etc)
 
-`--bound-resource-names`: A list of resource names that the access is restricted to (e.g, a virtual machine name, scale set name, etc)
+`--bound-resource-names`: A list of resource names that the access is restricted to (For example, a virtual machine name, scale set name, etc)
 
 `--bound-resource-id`: A list of full resource ids that the access is restricted to
 
@@ -300,7 +300,7 @@ akeyless auth-method create cert \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -358,7 +358,7 @@ akeyless auth-method create email \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -400,7 +400,7 @@ akeyless auth-method create gcp \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -461,7 +461,7 @@ akeyless auth-method create oauth2 \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -518,7 +518,7 @@ akeyless auth-method create oci \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -559,7 +559,7 @@ akeyless auth-method create oidc \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -614,7 +614,7 @@ akeyless auth-method create saml \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--allowed-client-type`: limit the Auth Method usage for specific client types [`cli`,`ui`,`gateway-admin`,`sdk`,`mobile`,`extension`]
 
@@ -698,7 +698,7 @@ akeyless auth-method update api-key --name <Auth method>
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -737,7 +737,7 @@ akeyless auth-method update aws-iam \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -791,7 +791,7 @@ akeyless auth-method update azure-ad \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -813,11 +813,11 @@ akeyless auth-method update azure-ad \
 
 `--bound-rg-id`: A list of resource groups that the access is restricted to
 
-`--bound-providers`: A list of resource providers that the access is restricted to (e.g, Microsoft.Compute, Microsoft.ManagedIdentity, etc)
+`--bound-providers`: A list of resource providers that the access is restricted to (For example, Microsoft.Compute, Microsoft.ManagedIdentity, etc)
 
-`--bound-resource-types`: A list of resource types that the access is restricted to (e.g, virtualMachines, userAssignedIdentities, etc)
+`--bound-resource-types`: A list of resource types that the access is restricted to (For example, virtualMachines, userAssignedIdentities, etc)
 
-`--bound-resource-names`: A list of resource names that the access is restricted to (e.g, a virtual machine name, scale set name, etc).
+`--bound-resource-names`: A list of resource names that the access is restricted to (For example, a virtual machine name, scale set name, etc).
 
 `--bound-resource-id`: A list of full resource ids that the access is restricted to
 
@@ -854,7 +854,7 @@ akeyless auth-method update cert \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -914,7 +914,7 @@ akeyless auth-method update gcp \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -971,7 +971,7 @@ akeyless auth-method update oauth2 \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -1029,7 +1029,7 @@ akeyless auth-method update oci \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -1070,7 +1070,7 @@ akeyless auth-method update oidc \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 
@@ -1124,7 +1124,7 @@ akeyless auth-method update saml \
 
 `--product-type`: Choose the relevant product type for the Auth Method [`sm`, `sra`, `pm`, `dp`, `ca`]
 
-`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. e.g. `--audit-logs-claims email --audit-logs-claims username`
+`--audit-logs-claims`: Additional sub-claims to include in Audit Logs. For example, `--audit-logs-claims email --audit-logs-claims username`
 
 `--expiration-event-in`: How many days before the Auth Method expires would you like to be notified. To specify multiple events, use the argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`, Relevant only when `access-expires` option is set.
 

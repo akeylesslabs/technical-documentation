@@ -64,7 +64,7 @@ Impact: Other active Gateway instances can continue to serve requests by retriev
 
 Behavior: The Gateway will attempt to serve requests for secrets and authentication from its local in-memory cache. If a secret is present in the cache, the Gateway will serve it from the cache. The Minimum Fetching Interval will be ignored as the SaaS is unreachable. The Gateway can continue to authenticate existing sessions for supported authentication methods (Kubernetes, API Key, Password, LDAP, Certificate, JWT) if the credentials and authentication data are cached. Crucially, in offline mode, credentials' expiration is ignored.
 
-Impact: Read-only operations for cached secrets will succeed. If the curl\_proxy has cached the necessary authentication data (e.g., system credentials for a Kubernetes Auth Method), new authentications succeed.
+Impact: Read-only operations for cached secrets will succeed. If the curl\_proxy has cached the necessary authentication data (For example, system credentials for a Kubernetes Auth Method), new authentications succeed.
 
 ### Cluster Cache
 
@@ -106,7 +106,7 @@ When a secret is updated in the UI, its value is immediately updated if accessed
 
 If the flag `PREFER_CLUSTER_CACHE_FIRST` is enabled, the value will be fetched from the cluster cache first and not from the Gateway local cache. This option improves the ability of the system to provide the most updated value when there are several Gateway instances.
 
-If the command is not executed, the cache will update after the proactive cache interval (e.g., 5 minutes) has elapsed. No user actions will be required for the secret’s updated values to be read in that case.
+If the command is not executed, the cache will update after the proactive cache interval (For example, 5 minutes) has elapsed. No user actions will be required for the secret’s updated values to be read in that case.
 
 ## When Is the SaaS Considered "Down" for the Purposes of Validating/expiring Tokens
 

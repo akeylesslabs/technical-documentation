@@ -26,7 +26,7 @@ In your Akeyless account, create the following items under Secret Management:
 | Key           | `/jarsign/key`  | Private key for signing |
 | Certificate   | `/jarsign/cert` | Associated certificate  |
 
-Copy both items into the same local directory (e.g. /work).
+Copy both items into the same local directory (For example, /work).
 
 ## Environment Setup for JAR Signing
 

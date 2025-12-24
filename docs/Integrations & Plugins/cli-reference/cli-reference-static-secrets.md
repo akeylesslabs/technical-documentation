@@ -102,7 +102,7 @@ akeyless describe-item \
 
 `--show-versions[=false]`: Include all item versions in reply
 
-`--gateway-details[=false]`: Output will include additional gateway details (e.g cluster URL)
+`--gateway-details[=false]`: Output will include additional gateway details (For example, cluster URL)
 
 `--bastion-details[=false]`: Output will include additional bastion details
 

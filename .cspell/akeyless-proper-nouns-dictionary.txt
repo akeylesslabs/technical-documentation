@@ -44,7 +44,8 @@ Audit Trail
 AWS
 Amazon
 Amazon Web Services
-Amazon AWS
+ARN
+Amazon Resource Name
 Microsoft Azure
 Azure
 Google Cloud
@@ -933,3 +934,6 @@ SPNEGO
 Simple and Protected GSS-API Negotiation Mechanism
 Oracle Recovery Manager
 RMAN
+stdout
+stderr
+stdin

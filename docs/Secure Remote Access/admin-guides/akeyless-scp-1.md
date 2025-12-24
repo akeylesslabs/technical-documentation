@@ -83,7 +83,7 @@ Akeyless SCP enables secure copy via [Remote Access](https://docs.akeyless.io/do
 
     SSH_EXTRA_ARGS=""
 
-    # Path to SSH executable. e.g. /usr/bin/ssh
+    # Path to SSH executable. For example, /usr/bin/ssh
     SSH_EXTERNAL_CLIENT="ssh"
     ```
 

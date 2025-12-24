@@ -92,7 +92,7 @@ SSH_EXTRA_ARGS=""
 
 USE_SSH_LEGACY_ALG=no
 
-# Path to SSH executable. e.g. /usr/bin/ssh
+# Path to SSH executable. For example, /usr/bin/ssh
 SSH_EXTERNAL_CLIENT="ssh"
 ```
 
@@ -167,23 +167,23 @@ Perform secure remote access
 Options:
 
   -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
-  -v, --via-sra                          SRA host, which the connection will go through. e.g.: sra-host:port.
-  -g, --gateway-url                      The Gateway URL (configuration management) address, e.g. http://localhost:8000
+  -v, --via-sra                          SRA host, which the connection will go through. For example: sra-host:port.
+  -g, --gateway-url                      The Gateway URL (configuration management) address, for example, http://localhost:8000
   -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified it will be taken from ~/.akeyless-connect.rc. If not specified it will be taken from item details
   -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
       --generate-key                     Generates a one-time RSA private key for the session, deleted when done
   -n, --name                             Path to Secret, based on the required connection
       --ssh-extra-args                   Additional SSH arguments (except -i)
       --sra-ctrl-proto[=http]            SRA API Protocol [http/https]
-      --sra-ctrl-subdomain               SRA control API URL prefix. e.g. https://<prefix>.sra-host
-      --sra-ctrl-path                    SRA control API path. e.g. https://sra-host/<path>
-      --sra-ctrl-port[=9900]             SRA control API port. e.g. https://sra-host:<7777>
-      --gateway-rest-endpoint            Gateway RestAPI URL. e.g. https://rest.akeyless.io
+      --sra-ctrl-subdomain               SRA control API URL prefix. For example, https://<prefix>.sra-host
+      --sra-ctrl-path                    SRA control API path. For example, https://sra-host/<path>
+      --sra-ctrl-port[=9900]             SRA control API port. For example, https://sra-host:<7777>
+      --gateway-rest-endpoint            Gateway RestAPI URL. For example, https://rest.akeyless.io
   -V, --ssh-version                      Output local SSH client version
       --ssh-legacy-signing-alg[=false]   Set this option to output legacy ('ssh-rsa-cert-v01@openssh.com') signing algorithm name in the ssh certificate.
-      --ssh-command                      Path to SSH executable. e.g. /usr/bin/ssh
-  -T, --tunnel                           SSH tunnel param. e.g. -T='-L :5555:0.0.0.0:5555' 
-  -C, --command                          Command to execute on the target (useful for non interactive-mode). e.g. -C='ls -al'
+      --ssh-command                      Path to SSH executable. For example, /usr/bin/ssh
+  -T, --tunnel                           SSH tunnel param. For example, -T='-L :5555:0.0.0.0:5555' 
+  -C, --command                          Command to execute on the target (useful for non interactive-mode). For example, -C='ls -al'
       --k8s-tunnel                       Create an SSH tunnel with a k8s proxy on a specific local port (1024-65535) (if provided, "command" & "tunnel" flags are ignored)
   -J, --justification                    User connection justification
       --debug                            Output debug prints

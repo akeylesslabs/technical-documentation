@@ -71,7 +71,7 @@ env:
  # AKEYLESS_CRASH_POD_ON_ERROR: "enable"
  # AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_conf_name"
  
- # the gw base64 certificate file e.g: 'cat my-gw.crt | base64'
+ # The Gateway Base64 certificate file, for example, 'cat my-gw.crt | base64'
  # AKEYLESS_GW_CERTIFICATE: 
 
 
