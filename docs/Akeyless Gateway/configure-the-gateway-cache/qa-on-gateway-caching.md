@@ -78,7 +78,7 @@ Behavior: If all Gateway instances are down, no requests can be served, regardle
 
 Impact: Complete service interruption until at least one Gateway instance is restored and can access either the SaaS or a populated cluster cache (cluster cache).
 
-## Will There Be Any Behavioral Changes Based on the Type of Clients for Example, Injector Vs. ESO?
+## Will There Be Any Behavioral Changes Based on the Type of Clients for example, Injector compared to ESO?
 
 The core caching behavior and outage impact on the Gateway remain the same regardless of the client connecting to the Gateway. Both the Akeyless Injector and External Secrets Operator (ESO) interact with the Akeyless Gateway via HTTP calls to its REST API.
 
