@@ -832,140 +832,148 @@ module.exports = [
         }
       }
     }
+  },
+
+  /**
+   * AKY017: Banned terms (case-insensitive) with replacement guidance
+   *
+   * Rationale: Enforce preferred product/security terminology.
+   *
+   * Config (optional):
+   *   AKY017:
+   *     terms:
+   *       - term: "Vaultless"
+   *         replacement: "Zero-Knowledge Encryption with Patented DFC"
+   *       - term: "vault-less"
+   *         replacement: "Zero-Knowledge Encryption with Patented DFC"
+   *       - term: "Non-human"
+   *         replacement: "Workload Identity Federation"
+   *
+   * Notes:
+   * - Searches case-insensitively.
+   * - Scans normal text, Markdown link text, and HTML.
+   * - Does NOT scan URLs (including href destinations and visible URLs).
+   * - Skips fenced/indented code blocks and inline code spans.
+   */
+  {
+    names: ["AKY017", "banned-terms"],
+    description: "Disallow banned terms and provide replacement guidance",
+    tags: ["terminology", "style"],
+    function: function (params, onError) {
+      const cfg = params.config || {};
+
+      const defaultTerms = [
+        {
+          term: "Vaultless",
+          replacement: "Zero-Knowledge Encryption with Patented DFC",
+          example_from: "Vaultless Security with DFC",
+          example_to: "Zero-Knowledge Encryption with Patented DFC"
+        },
+        {
+          term: "vault-less",
+          replacement: "Zero-Knowledge Encryption with Patented DFC",
+          example_from: "Vaultless Security with DFC",
+          example_to: "Zero-Knowledge Encryption with Patented DFC"
+        },
+        {
+          term: "Non-human",
+          replacement: "Workload Identity Federation",
+          example_from: "Non-Human Identity Federation",
+          example_to: "Workload Identity Federation"
+        }
+      ];
+
+          const terms = Array.isArray(cfg.terms) && cfg.terms.length ? cfg.terms : defaultTerms;
+
+          // Normalize + compile matchers once.
+          const matchers = terms
+            .map((t) => {
+              const term = String((t && t.term) || "").trim();
+              if (!term) return null;
+
+          const hasWordCharEnds = /^[A-Za-z0-9]/.test(term) && /[A-Za-z0-9]$/.test(term);
+          const pattern = hasWordCharEnds ? `\\b${escapeRegExp(term)}\\b` : escapeRegExp(term);
+
+          return {
+            term,
+            replacement: String((t && t.replacement) || "").trim(),
+            example_from: String((t && t.example_from) || "").trim(),
+            example_to: String((t && t.example_to) || "").trim(),
+            re: new RegExp(pattern, "i")
+          };
+        })
+        .filter(Boolean);
+
+      if (matchers.length === 0) return;
+
+      const tokens = params.tokens || [];
+      const codeLines = getCodeBlockLineSet(tokens);
+
+      function formatDetail(m) {
+        const parts = [];
+        parts.push(`Banned term "${m.term}" found.`);
+        if (m.replacement) parts.push(`Preferred: "${m.replacement}".`);
+        if (m.example_from && m.example_to) {
+          parts.push(`Example: "${m.example_from}" → "${m.example_to}".`);
+        }
+        return parts.join(" ");
+      }
+
+      /**
+       * Check text for banned terms, after stripping URLs.
+       * This prevents false positives in:
+       * - Visible URLs in prose
+       * - Inline HTML attributes that include URLs
+       */
+      function checkText(lineNumber, text, contextLabel) {
+        if (!text) return false;
+
+        // Remove visible URL strings so we don't match inside them.
+        const cleaned = stripUrls(String(text));
+
+        for (const m of matchers) {
+          if (m.re.test(cleaned)) {
+            report(onError, lineNumber, formatDetail(m), `${contextLabel}: ${cleaned.trim()}`);
+            return true;
+          }
+        }
+        return false;
+      }
+
+      // Token-based scan: text + html_inline + html_block
+      // NOTE: We intentionally do NOT scan link destinations (href).
+      for (const t of tokens) {
+        // Skip anything on a code line.
+        if (codeLines.has(t.lineNumber)) continue;
+
+        // HTML blocks can span multiple lines; attribute to the starting line.
+        if (t.type === "html_block") {
+          if (checkText(t.lineNumber, String(t.content || ""), "HTML")) continue;
+        }
+
+        if (t.type !== "inline" || !Array.isArray(t.children)) continue;
+
+        for (const child of t.children) {
+          // Skip inline code spans.
+          if (child.type === "code_inline") continue;
+
+          if (child.type === "text") {
+            if (checkText(t.lineNumber, String(child.content || ""), "Text")) break;
+            continue;
+          }
+
+          if (child.type === "html_inline") {
+            if (checkText(t.lineNumber, String(child.content || ""), "HTML")) break;
+            continue;
+          }
+
+          // IMPORTANT: Do NOT scan link_open href values
+          // We only want to check the visible link label, not the URL.
+          if (child.type === "link_open") {
+            continue;
+          }
+        }
+      }
+    }
   }
-,
-
-/**
- * AKY017: Banned terms (case-insensitive) with replacement guidance
- *
- * Rationale: Enforce preferred product/security terminology.
- *
- * Config (optional):
- *   AKY017:
- *     terms:
- *       - term: "Vaultless"
- *         replacement: "Zero-Knowledge Encryption with Patented DFC"
- *       - term: "vault-less"
- *         replacement: "Zero-Knowledge Encryption with Patented DFC"
- *       - term: "Non-human"
- *         replacement: "Workload Identity Federation"
- *
- * Notes:
- * - Searches case-insensitively.
- * - Scans normal text, Markdown link text, and link destinations (href).
- * - Scans inline and block HTML.
- * - Skips fenced/indented code blocks and inline code spans.
- */
-{
-  names: ["AKY017", "banned-terms"],
-  description: "Disallow banned terms and provide replacement guidance",
-  tags: ["terminology", "style"],
-  function: function (params, onError) {
-    const cfg = params.config || {};
-
-    const defaultTerms = [
-      {
-        term: "Vaultless",
-        replacement: "Zero-Knowledge Encryption with Patented DFC",
-        example_from: "Vaultless Security with DFC",
-        example_to: "Zero-Knowledge Encryption with Patented DFC"
-      },
-      {
-        term: "vault-less",
-        replacement: "Zero-Knowledge Encryption with Patented DFC",
-        example_from: "Vaultless Security with DFC",
-        example_to: "Zero-Knowledge Encryption with Patented DFC"
-      },
-      {
-        term: "Non-human",
-        replacement: "Workload Identity Federation",
-        example_from: "Non-Human Identity Federation",
-        example_to: "Workload Identity Federation"
-      }
-    ];
-
-    const terms = Array.isArray(cfg.terms) && cfg.terms.length ? cfg.terms : defaultTerms;
-
-    // Normalize + compile matchers once.
-    const matchers = terms
-      .map((t) => {
-        const term = String((t && t.term) || "").trim();
-        if (!term) return null;
-
-        // Word boundary on ends when it makes sense; keep hyphenated terms intact.
-        const hasWordCharEnds = /^[A-Za-z0-9]/.test(term) && /[A-Za-z0-9]$/.test(term);
-        const pattern = hasWordCharEnds ? `\\b${escapeRegExp(term)}\\b` : escapeRegExp(term);
-
-        return {
-          term,
-          replacement: String((t && t.replacement) || "").trim(),
-          example_from: String((t && t.example_from) || "").trim(),
-          example_to: String((t && t.example_to) || "").trim(),
-          re: new RegExp(pattern, "i")
-        };
-      })
-      .filter(Boolean);
-
-    if (matchers.length === 0) return;
-
-    const tokens = params.tokens || [];
-    const codeLines = getCodeBlockLineSet(tokens);
-
-    function formatDetail(m) {
-      const parts = [];
-      parts.push(`Banned term "${m.term}" found.`);
-      if (m.replacement) parts.push(`Preferred: "${m.replacement}".`);
-      if (m.example_from && m.example_to) {
-        parts.push(`Example: "${m.example_from}" → "${m.example_to}".`);
-      }
-      return parts.join(" ");
-    }
-
-    function checkText(lineNumber, text, contextLabel) {
-      if (!text) return false;
-      for (const m of matchers) {
-        if (m.re.test(text)) {
-          report(onError, lineNumber, formatDetail(m), `${contextLabel}: ${String(text).trim()}`);
-          return true;
-        }
-      }
-      return false;
-    }
-
-    // Token-based scan: text + hrefs + html_inline + html_block
-    for (const t of tokens) {
-      // Skip anything on a code line.
-      if (codeLines.has(t.lineNumber)) continue;
-
-      // HTML blocks are separate tokens (html_block) and can span multiple lines.
-      if (t.type === "html_block") {
-        // Best-effort: attribute violations to the starting line.
-        if (checkText(t.lineNumber, String(t.content || ""), "HTML")) continue;
-      }
-
-      if (t.type !== "inline" || !Array.isArray(t.children)) continue;
-
-      for (const child of t.children) {
-        // Skip inline code spans.
-        if (child.type === "code_inline") continue;
-
-        if (child.type === "text") {
-          if (checkText(t.lineNumber, String(child.content || ""), "Text")) break;
-          continue;
-        }
-
-        if (child.type === "html_inline") {
-          if (checkText(t.lineNumber, String(child.content || ""), "HTML")) break;
-          continue;
-        }
-
-        // Scan Markdown link destinations (href) as well.
-        if (child.type === "link_open") {
-          const href = getUrlFromLinkOpen(child);
-          if (href && checkText(t.lineNumber, href, "Link URL")) break;
-        }
-      }
-    }
-  }
-}
-];
+]
