@@ -47,7 +47,7 @@ kubectl create namespace akeyless
 
 _Sample Output:_
 
-```
+```text
 namespace/akeyless created
 ```
 
@@ -62,7 +62,7 @@ helm repo update
 
 _Sample Output:_
 
-```
+```text
 "akeyless" has been added to your repositories
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "akeyless" chart repository
@@ -115,7 +115,7 @@ helm install gw akeyless/akeyless-gateway --namespace akeyless -f values.yaml --
 
 _Sample Output:_
 
-```
+```text
 NAME: gw
 LAST DEPLOYED: Thu Nov 20 13:52:33 2025
 NAMESPACE: akeyless
@@ -136,7 +136,7 @@ kubectl get pods -n akeyless
 
 _Sample Output:_
 
-```
+```text
 NAME                                           READY   STATUS    RESTARTS   AGE
 gw-akeyless-gateway-cache-7bc7c7556b-rdwzx     1/1     Running   0          7m44s
 unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44s

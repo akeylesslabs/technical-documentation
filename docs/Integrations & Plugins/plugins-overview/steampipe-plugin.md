@@ -147,8 +147,8 @@ The following tables are available for querying.
 
 | Table                    | Description                     |
 | ------------------------ | ------------------------------- |
-| *akeyless\_auth\_method* | Akeyless Authentication Methods |
-| *akeyless\_gateway*      | Akeyless Gateways               |
-| *akeyless\_item*         | Akeyless Items                  |
-| *akeyless\_role*         | Akeyless Access Roles           |
-| *akeyless\_target*       | Akeyless Targets                |
+| _akeyless\_auth\_method_ | Akeyless Authentication Methods |
+| _akeyless\_gateway_      | Akeyless Gateways               |
+| _akeyless\_item_         | Akeyless Items                  |
+| _akeyless\_role_         | Akeyless Access Roles           |
+| _akeyless\_target_       | Akeyless Targets                |

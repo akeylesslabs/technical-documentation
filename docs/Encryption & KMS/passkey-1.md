@@ -32,13 +32,13 @@ Passkeys only support the following Elliptic Curve (EC) key types:
 
 To create a passkey via the Akeyless API, follow this structure:
 
-*API Endpoint:*
+_API Endpoint:_
 
 ```shell http
 POST http://localhost:8081/create-passkey
 ```
 
-*Request Payload:*
+_Request Payload:_
 
 ```json
 {

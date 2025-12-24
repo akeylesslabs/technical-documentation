@@ -28,7 +28,7 @@ config:
   # AKY004: Require language identifiers on fenced code blocks
   # Knobs:
   #   - severity: error|warning|info
-  AKY004: false
+  AKY004: true
 
   # AKY005: Disallow generic link text (e.g., "click here")
   # Knobs:
@@ -48,7 +48,7 @@ config:
   # AKY008: Enforce Oxford comma (heuristic)
   # Knobs:
   #   - severity: error|warning|info
-  AKY008: false
+  AKY008: true
 
   # AKY009: Disallow ampersands in sentences (allowed in headings)
   # Knobs:
@@ -687,7 +687,8 @@ config:
   #       - consistent
   #       - asterisk
   #       - underscore
-  MD049: false
+  MD049:
+    style: underscore
 
   # MD050: Strong emphasis style
   # Knobs:
@@ -697,7 +698,8 @@ config:
   #       - consistent
   #       - asterisk
   #       - underscore
-  MD050: false
+  MD050:
+    style: asterisk
 
   # MD051: Valid link fragments
   # Knobs:
@@ -738,12 +740,19 @@ config:
   #       - leading_only
   #       - trailing_only
   #       - no_leading_or_trailing
-  MD055: false
+  MD055:
+    style: leading_and_trailing
 
   # MD056: Table column count
   # Knobs:
   #   - severity: error|warning|info
   MD056: true
+
+  # MD057: Indent must be consistent within list items
+  # Enforces consistent indentation for wrapped text, nested paragraphs, sublists, and code blocks
+  # inside list items. Prevents broken list rendering across Markdown engines.
+  # Fix: Align all continuation lines under the list item marker using the same indent.
+  MD057: true
 
   # MD058: Blank lines around tables
   # Knobs:
@@ -763,7 +772,7 @@ config:
   #       - consistent
   #       - aligned
   #       - unaligned
-  MD060: false
+  MD060: true
 
 globs:
   - "docs/**/*.md"

@@ -19,11 +19,11 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 
   _The TDE for MSSQL workflow documented above has been tested **only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”)._
 
-  *Not supported:*
+  _Not supported:_
   • MSSQL in Docker containers (Microsoft does not support TDE in containers)
   • Azure SQL Managed DB / Managed Instance (they only expose Azure Key Vault for external keys)
 
-  *Supported:*
+  _Supported:_
   • Traditional Windows Server + SQL Server
   • Azure “SQL VM” (a standard VM running SQL Server)
 </Callout>

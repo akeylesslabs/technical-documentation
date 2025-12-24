@@ -33,7 +33,7 @@ You previously should have already added the official Akeyless Helm chart reposi
 
 _Sample Output:_
 
-```
+```text
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "akeyless" chart repository
 Update Complete. ⎈Happy Helming!⎈
@@ -90,7 +90,7 @@ helm install secret-injector akeyless/akeyless-secrets-injection --version "1.17
 
 _Sample Output:_
 
-```
+```text
 NAME: secret-injector
 LAST DEPLOYED: Thu Nov 20 13:52:33 2025
 NAMESPACE: akeyless
@@ -111,7 +111,7 @@ kubectl get pods -n akeyless
 
 _Sample Output:_
 
-```
+```text
 NAME                                                          READY   STATUS    RESTARTS   AGE
 gw-akeyless-gateway-cache-7bc7c7556b-rdwzx                    1/1     Running   0          155m
 secret-injector-akeyless-secrets-injection-8464b9f585-p9r5x   1/1     Running   0          111s
@@ -169,7 +169,7 @@ kubectl apply -f akeyless-secret-quickstart.yaml
 
 _Sample Output:_
 
-```
+```text
 deployment.apps/akeyless-secret-quickstart created
 ```
 
@@ -191,7 +191,7 @@ kubectl logs -n akeyless deploy/akeyless-secret-quickstart
 
 _Sample Output_:
 
-```
+```text
 Defaulted container "quickstart" out of: quickstart, akeyless-init (init)
 2025/11/21 01:50:44 [INFO] Secret QuickSecret was successfully written to: /akeyless/secrets/QuickSecret
 Super Secret
@@ -210,7 +210,7 @@ kubectl delete -f akeyless-secret-quickstart.yaml
 
 _Sample Output:_
 
-```
+```text
 deployment.apps "akeyless-secret-quickstart" deleted from akeyless namespace
 ```
 

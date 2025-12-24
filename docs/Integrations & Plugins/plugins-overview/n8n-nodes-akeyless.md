@@ -156,12 +156,12 @@ Choose an authentication method:
 When the Akeyless node returns a secret, access it directly in the next node:
 Example: Get API Key and Use in HTTP Request
 
-*Add Akeyless node:*
+_Add Akeyless node:_
 
 * Operation: Get Static Secret Value
 * Secret Name: `/myapp/api-key`
 
-*Add HTTP Request node:*
+_Add HTTP Request node:_
 
 In the Authorization header,
 

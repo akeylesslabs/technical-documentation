@@ -75,7 +75,7 @@ Fenced Code Block:
   "age": 25
 }
 ```
-```
+```text
 Sample text.
 ```
 

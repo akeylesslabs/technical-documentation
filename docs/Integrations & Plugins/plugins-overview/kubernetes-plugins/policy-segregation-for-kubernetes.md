@@ -18,7 +18,7 @@ The following guide will demonstrate the usage of Namespace segregation.
 
 ## Controlling the Capabilities of a Workload
 
-Authorization in Kubernetes is intentionally high level, focused on coarse actions on resources. However, *policies* enable you to limit, by use case, how objects act on the cluster, themselves, and other resources. You can use policies, together with the Akeyless native Secrets Injector, to support full and flexible segregation.
+Authorization in Kubernetes is intentionally high level, focused on coarse actions on resources. However, _policies_ enable you to limit, by use case, how objects act on the cluster, themselves, and other resources. You can use policies, together with the Akeyless native Secrets Injector, to support full and flexible segregation.
 
 ## Namespace and Pod Segregation
 

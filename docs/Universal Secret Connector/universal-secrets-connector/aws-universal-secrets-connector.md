@@ -180,7 +180,7 @@ The main parameters are:
 
 * `secret-name`: The name of the secret you would like to create.
 
-* `value`: The value of the secret you would like to create, plaintext or Base64-encoded.
+* `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
 
@@ -216,7 +216,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 * **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-* **Tags:** Optional, select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+* **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
 * **Delete Protection:** Optional, turn on this setting to protect the item from deletion.
 

@@ -78,7 +78,7 @@ Where:
 
 `certificate-ttl`: TTL in days for the generated certificate.
 
-*Note: Once the key is created, it will be uploaded automatically to Akeyless.*
+_Note: Once the key is created, it will be uploaded automatically to Akeyless._
 
 The certificate attached to the private key must have at least a **Common Name (CN)** with it.
 

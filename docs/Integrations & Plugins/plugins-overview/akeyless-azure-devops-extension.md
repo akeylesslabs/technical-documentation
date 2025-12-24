@@ -14,7 +14,7 @@ This extension provides seamless integration with the [Akeyless REST API](https:
 
 This eliminates the need to hardcode sensitive credentials in your repositories, enhancing your security posture.
 
-*The extension currently includes:*
+_The extension currently includes:_
 
 * Akeyless Service Connection: A custom service connection type to configure your Akeyless Vault access details.
 * Akeyless Auth Task: A pipeline task to authenticate with Akeyless.

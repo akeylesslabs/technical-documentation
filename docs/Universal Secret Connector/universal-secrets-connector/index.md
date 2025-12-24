@@ -18,7 +18,7 @@ Universal Secret Connector is also supported by the Akeyless [Kubernetes Injecto
 
 After connecting to your Universal Secrets source, you will be able to manage them from Akeyless, including viewing, adding, updating, deleting, and [syncing secrets](https://docs.akeyless.io/docs/sync-secret). The exact secret information that can be displayed in Akeyless varies between providers according to their unique attributes.
 
-The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your secrets, either from the Akeyless side or from the remote Secret Management solution. This is done automatically as Akeyless doesn't store a copy of the external secrets, ensuring that data residency and security policies remain untouched. The **USC** simply reflects them in real time, without any requirements or changes that should be made on the remote Secret Management endpoint.
+The **USC** solution operates in a governance loop model. It automatically detects and reflects changes to your secrets, whether those changes are made in Akeyless or in the remote secret management system. Akeyless does not store a copy of external secrets; therefore, data residency and security policies remain unchanged. The USC reflects updates in real time and does not require any configuration changes on the remote secret management endpoint.
 
 Setting up Universal Secret Connector requires the **Defaults** permission on the Gateway.
 
@@ -36,7 +36,7 @@ Akeyless currently supports creating Universal Secrets Connectors for the follow
 
 * [HashiCorp Vault Universal Secret Connector](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
 
-To view all your Universal Secret Connectors, log in to the **Console** and navigate to **Items** > **Universal Secrets Connector**.
+To view all your Universal Secret Connectors, log in to the **Console** then navigate to **Items** > **Universal Secrets Connector**.
 
 ## Tutorial
 

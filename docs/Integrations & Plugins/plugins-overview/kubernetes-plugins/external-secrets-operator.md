@@ -393,7 +393,7 @@ Then the resulting Kubernetes Secret `app-config-json` will contain two keys: `u
 
 To inspect all keys:
 
-```bash
+```shell
 kubectl get secret app-config-json -o jsonpath='{.data}'
 ```
 
@@ -614,7 +614,7 @@ spec:
 
 #### Retrieving the Synced Secret
 
-```bash
+```shell
 kubectl -n app-test get secret app-api-secret -o jsonpath="{.data.api-key}" | base64 -d
 ```
 

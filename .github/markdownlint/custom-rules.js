@@ -420,10 +420,22 @@ module.exports = [
       }
     }
   },
-
+    
   /**
-   * AKY008: Enforce Oxford comma (heuristic)
-   * Style guide: Use the serial (Oxford) comma. :contentReference[oaicite:8]{index=8}
+   * AKY008: Enforce Oxford comma (heuristic, improved)
+   * Style guide: Use the serial (Oxford) comma.
+   *
+   * Goals:
+   * - Flag: "A, B and C" (missing Oxford comma)
+   * - Do NOT flag:
+   *   - clause/appositive patterns: "..., they can ... and ..."
+   *   - participial phrases: "..., allowing X and Y ..."
+   *   - two-item constructions: "X and Y"
+   *   - common paired phrases: "read and update", "create and delete", etc.
+   *
+   * Notes:
+   * - Skips fenced/indented code blocks and headings.
+   * - Splits by sentence boundaries to avoid cross-sentence matching.
    */
   {
     names: ["AKY008", "oxford-comma"],
@@ -433,18 +445,150 @@ module.exports = [
       const codeLines = getCodeBlockLineSet(params.tokens);
       const lines = params.lines || [];
 
-      // Example flagged: "A, B and C" (no comma before and/or)
-      const re = /(\b[^,]+),\s+([^,]+)\s+(and|or)\s+([^,.;:!?]+)\b/i;
+      // Words/phrases that strongly indicate the text after a comma is a new clause,
+      // NOT a list item. If we see these immediately after a comma, we skip.
+      const CLAUSE_STARTERS = new Set([
+        "i", "you", "we", "they", "he", "she", "it",
+        "this", "that", "these", "those",
+        "which", "who", "whom", "whose", "where", "when",
+        "because", "since", "while", "if", "unless", "although",
+        "allowing", "enabling", "including", "providing", "ensuring",
+        "so", "but", "however", "therefore", "thus"
+      ]);
+
+      // Common paired verbs/adjectives/nouns that are almost never Oxford-comma lists.
+      // This prevents false positives like "read and update permissions".
+      const COMMON_PAIRS = [
+        /\b(read|create|delete|update|edit|manage|install|configure|deploy|run)\s+and\s+(read|create|delete|update|edit|manage|install|configure|deploy|run)\b/i,
+        /\b(true|false)\s+and\s+(true|false)\b/i
+      ];
+
+      // Split a line into approximate sentences.
+      // We keep it conservative: break on . ! ? followed by space or end of string.
+      function splitSentences(text) {
+        return String(text || "")
+          .split(/(?<=[.!?])\s+/)
+          .map(s => s.trim())
+          .filter(Boolean);
+      }
+
+      // Strip inline code spans and reduce noise.
+      function normalizeText(s) {
+        return stripInlineCode(String(s || "")).trim();
+      }
+
+      // Quick sanity check: reject candidates that look like clause/appositive patterns.
+      // Example false positive:
+      //   "..., they can ... and ..."
+      function isClauseAfterComma(fragmentAfterComma) {
+        const trimmed = fragmentAfterComma.trim();
+        const firstWord = trimmed.split(/\s+/, 1)[0]?.toLowerCase() || "";
+        return CLAUSE_STARTERS.has(firstWord);
+      }
+
+      function looksLikeClause(fragment) {
+        const s = fragment.trim().toLowerCase();
+
+        // Modal verbs and common clause verbs that indicate sentence structure, not list items.
+        if (/\b(will|would|can|could|should|must|may|might|shall)\b/.test(s)) return true;
+        if (/\b(is|are|was|were|be|being|been|has|have|had|does|do|did)\b/.test(s)) return true;
+
+        return false;
+      }
+
+      // Check whether the sentence contains a real list missing the Oxford comma.
+      function findMissingOxfordComma(sentence) {
+        const s = sentence;
+
+        // Must have at least one comma and an "and/or"
+        if (!/,/.test(s) || !/\b(and|or)\b/i.test(s)) return null;
+
+        // Skip if any common paired pattern is present (not a list)
+        for (const pairRe of COMMON_PAIRS) {
+          if (pairRe.test(s)) return null;
+        }
+
+        // We only want to detect classic missing Oxford comma patterns:
+        //   "A, B and C" or "A, B or C"
+        //
+        // But we want to avoid:
+        //   - commas introducing clauses/appositives
+        //   - long complex phrases
+        //
+        // So we parse the sentence into "pre-and" and "post-and".
+        // Then we inspect the pre-and part for comma-separated items.
+        const m = s.match(/\b(and|or)\b/i);
+        if (!m) return null;
+
+        const conjIndex = m.index;
+        if (conjIndex == null) return null;
+
+        const conj = m[0];
+        const before = s.slice(0, conjIndex).trim();
+        const after = s.slice(conjIndex + conj.length).trim();
+
+        // The last comma-separated segment before "and/or"
+        const lastComma = before.lastIndexOf(",");
+        if (lastComma === -1) return null;
+
+        const afterComma = before.slice(lastComma + 1);
+
+        // If comma is followed by a clause starter, it's not a list.
+        if (isClauseAfterComma(afterComma) || looksLikeClause(afterComma)) return null;
+
+        // Now check if "before" contains at least two comma-separated items (=> 3+ items total).
+        // Example "A, B and C": before has "A, B"
+        const parts = before.split(",").map(p => p.trim()).filter(Boolean);
+        if (parts.length < 2) return null;
+
+        // Heuristic: list items should be reasonably short (avoid clause fragments)
+        // This reduces false positives in technical prose with long phrases.
+        const maxItemWords = 8;
+        for (const p of parts.slice(-2)) {
+          if (p.split(/\s+/).length > maxItemWords) return null;
+        }
+
+        // Another heuristic: if the last part before "and" ends with a period, colon, etc., skip.
+        if (/[.:;]$/.test(parts[parts.length - 1])) return null;
+
+        // We have a likely list. Now confirm it's missing the Oxford comma:
+        //
+        // We only flag if the pattern is:
+        //   "... , <item> and <item>"
+        // i.e., no comma immediately before and/or.
+        //
+        // If the source already has ", and" or ", or", it is compliant.
+        const oxfordOk = /,\s*(and|or)\b/i.test(s);
+        if (oxfordOk) return null;
+
+        // Build a short context snippet for reporting.
+        const snippet = `${parts[parts.length - 2]}, ${parts[parts.length - 1]} ${conj} ${after}`
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, 120);
+
+        return snippet;
+      }
 
       for (let i = 0; i < lines.length; i++) {
         const ln = i + 1;
         if (codeLines.has(ln)) continue;
-        if (isHeadingLine(lines[i])) continue;
 
-        const text = stripInlineCode(lines[i]);
-        const m = text.match(re);
-        if (m && !/,(\s+)(and|or)\b/i.test(m[0])) {
-          report(onError, ln, "Use the Oxford comma in series of three or more items.", m[0].trim());
+        const raw = lines[i];
+        if (!raw) continue;
+        if (isHeadingLine(raw)) continue;
+
+        const text = normalizeText(raw);
+        if (!text) continue;
+
+        const sentences = splitSentences(text);
+
+        for (const sentence of sentences) {
+          const snippet = findMissingOxfordComma(sentence);
+          if (snippet) {
+            report(onError, ln, "Use the Oxford comma in a series of three or more items.", snippet);
+            break; // One report per line is usually enough
+          }
         }
       }
     }

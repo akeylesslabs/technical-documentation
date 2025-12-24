@@ -451,13 +451,13 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
 5. Select your Service Account mode, **Fixed** or **Dynamic**, and fill in the following parameters:
 
-    *For Fixed Mode:*
+    _For Fixed Mode:_
 
     * **Service Account:** The name of the Kubernetes ServiceAccount to generate the tokens for
 
     * **Namespace:** The Namespace of the Kubernetes ServiceAccount
 
-    *For Dynamic Mode:*
+    _For Dynamic Mode:_
 
     * **RoleBindings:** A YAML file describing the Role, and RoleBinding parameters.
 
