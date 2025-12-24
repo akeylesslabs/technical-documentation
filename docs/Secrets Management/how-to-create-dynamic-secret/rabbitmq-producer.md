@@ -110,9 +110,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 * **Target mode:** In this section, you can either select an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) or specify details of the target RabbitMQ server explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets).
+    * Use the **Choose an existing target** drop-down list to select the existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets).
 
-  * Select the **Explicitly specify target properties** to provide details of the target RabbitMQ server in the next step.
+    * Select the **Explicitly specify target properties** to provide details of the target RabbitMQ server in the next step.
 
 RabbitMQ distinguishes between `configure`, `write`, and `read` operations on a resource. To perform an operation on a resource, the user must be granted the appropriate permissions for it. The [RabbitMQ permissions reference](https://www.rabbitmq.com/access-control.html#:~:text=Permissions%20are%20expressed%20as%20a,names%20matching%20the%20regular%20expressions.\&text=and%20server%20generated%20names%20are%20prefixed%20with%20amq) outlines the relevant resources and operations.
 

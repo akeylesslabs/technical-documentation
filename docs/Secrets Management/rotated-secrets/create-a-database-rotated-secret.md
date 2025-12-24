@@ -66,8 +66,8 @@ Where:
 * `target-name`: The name of the [Database Target](https://docs.akeyless.io/docs/database-targets) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target database.
-  * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
+    * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
+    * `use-target-creds` - Use the credentials defined on the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
 
 > 👍 Note
 >
@@ -75,8 +75,8 @@ Where:
 
 * `password-length`: **Optional**, The user's password length.
 * `rotator-type`: The type of credentials to be rotated. For [Database Targets](https://docs.akeyless.io/docs/database-targets), choose:
-  * `password` - to rotate the DB user password specified in the Rotated Secret
-  * `target` - to rotate the password for the user specified in the [Database Target](https://docs.akeyless.io/docs/database-targets).
+    * `password` - to rotate the DB user password specified in the Rotated Secret
+    * `target` - to rotate the password for the user specified in the [Database Target](https://docs.akeyless.io/docs/database-targets).
 * `rotated-username`: The DB user whose password should be rotated.
 * `rotated-password`: The password to rotate.
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`. Default `rotation-hour` is 14:00 UTC if not specified.
@@ -100,8 +100,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Target:** Defines the name of the [Database Target](https://docs.akeyless.io/docs/database-targets) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target database:
-  * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
+    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+    * **Target credentials:** Use the credentials defined inside the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
 
 > 👍 Note
 >
@@ -109,8 +109,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Password-length**: Set the user's password length.
 * **Rotator type:** Determines the rotator type:
-  * **Password**: Rotates the password defined inside the Rotated Secret item.
-  * **Target**: Rotates the password defined inside the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
+    * **Password**: Rotates the password defined inside the Rotated Secret item.
+    * **Target**: Rotates the password defined inside the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
 * **Username:** Defines the DB username which password should be rotated.
 * **Password:** Defines the password to rotate.
 

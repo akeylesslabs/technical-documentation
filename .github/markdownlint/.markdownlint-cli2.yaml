@@ -256,10 +256,10 @@ config:
         example_from: "See below for more information."
         example_to: "Refer to the next section for more information."
 
-      - term: "click here"
-        replacement: "select the link (descriptive text)"
-        example_from: "Click here to open the console."
-        example_to: "Open the Akeyless Console."
+      #- term: "click here"
+      #  replacement: "select the link (descriptive text)"
+      #  example_from: "Click here to open the console."
+      #  example_to: "Open the Akeyless Console."
 
       - term: "just click"
         replacement: "select"
@@ -310,12 +310,13 @@ config:
   #       - dash
   #       - asterisk
   #       - plus
-  MD004: false
+  MD004:
+    style: asterisk
 
   # MD005: Inconsistent list indentation
   # Knobs:
   #   - severity: error|warning|info
-  MD005: false
+  MD005: true
 
   # MD006: Lists should start at beginning of line
   # Knobs:
@@ -333,7 +334,31 @@ config:
   #   - start_indented options:
   #       - true
   #       - false
-  MD007: false
+  MD007:
+    start_indented: false
+    indent: 4
+
+  # MD008: Unordered nested list indentation
+  # Ensures consistent indentation for items in unordered lists.
+  # Helps keep nested lists readable and avoids Markdown rendering differences
+  # across tools and platforms.
+  #
+  # Knobs:
+  #   - severity: error|warning|info
+  #   - indent: integer (common values: 2|4)
+  #   - start_indented: true|false
+  #
+  # indent examples:
+  #   - 2
+  #   - 4
+  #
+  # start_indented options:
+  #   - true
+  #   - false
+  MD008:
+    start_indented: false
+    indent: 4
+    
 
   # MD009: Trailing spaces
   # Knobs:
@@ -464,17 +489,17 @@ config:
   #   - punctuation examples:
   #       - ".,;:!?"
   #       - ".,;:"
-  MD026: false
+  MD026: true
 
   # MD027: Multiple spaces after blockquote symbol
   # Knobs:
   #   - severity: error|warning|info
-  MD027: false
+  MD027: true
 
   # MD028: Blank line inside blockquote
   # Knobs:
   #   - severity: error|warning|info
-  MD028: false
+  MD028: true
 
   # MD029: Ordered list marker style
   # Knobs:

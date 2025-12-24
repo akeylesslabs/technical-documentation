@@ -68,9 +68,9 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 * Choose the right mode to work with either:
 
-  * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
+    * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
 
-  * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
+    * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
 
 * `Secure Access API`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
 

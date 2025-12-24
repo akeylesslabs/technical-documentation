@@ -41,8 +41,8 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 <Callout icon="🌐" theme="default">
   #### Network Configuration
 
-  * When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in NGINX, you can use: `nginx.ingress.kubernetes.io/affinity: "cookie"`.
-  * Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions documentation for more details.
+* When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in NGINX, you can use: `nginx.ingress.kubernetes.io/affinity: "cookie"`.
+* Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions documentation for more details.
 </Callout>
 
 * When using SSH sessions behind a load balancer, such as ELB, sessions may be closed due to idle connection timeouts. We recommend increasing the idle timeout to a higher value or setting it to unlimited.

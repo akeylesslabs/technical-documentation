@@ -64,8 +64,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 4. Click **Next** and define the remaining parameters as follows:
 
 * Choose your preferred Identity Provider (IdP) metadata type by selecting one of the options:
-  * Check the **URL** radio button and enter your Identity Provider **Metadata URL** in the field below.
-  * Check the **XML** radio button when using an internal domain and enter your Identity Provider **Metadata XML** in the field below.
+    * Check the **URL** radio button and enter your Identity Provider **Metadata URL** in the field below.
+    * Check the **XML** radio button when using an internal domain and enter your Identity Provider **Metadata XML** in the field below.
 
 * **Allowed Redirect URIs:** Enter a comma-separated list of Redirect URIs to be validated as part of the authentication flow. If you leave this field empty, it can be insecure. Malicious users could steal access credentials using open redirects.
 

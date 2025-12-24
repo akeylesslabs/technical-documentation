@@ -76,25 +76,25 @@ The main parameters for the command are as follows:
 
 * `auth-type`: The Webhook Authentication Type \[\`user-pass\`, \`bearer-token\`, \`certificate\`]
 
-  * For `user-pass`:
+    * For `user-pass`:
 
-    * `username`: Username for Authentication
+        * `username`: Username for Authentication
 
-    * `password`: Password for Authentication
+        * `password`: Password for Authentication
 
-  * For `bearer-token`:
+    * For `bearer-token`:
 
-    * `auth-token`: Base64-encoded Token string
+        * `auth-token`: Base64-encoded Token string
 
-  * For `certificate`:
+    * For `certificate`:
 
-    * `client-cert-file-name`: Name of a file containing a `PEM` certificate
+        * `client-cert-file-name`: Name of a file containing a `PEM` certificate
 
-    * `client-cert-data`: `Base64` encoded `PEM` certificate
+        * `client-cert-data`: `Base64` encoded `PEM` certificate
 
-    * `private-key-file-name`: Name of a file containing a `PEM` **RSA Private Key**
+        * `private-key-file-name`: Name of a file containing a `PEM` **RSA Private Key**
 
-    * `private-key-data`: `Base64` encoded `PEM` **RSA Private Key**
+        * `private-key-data`: `Base64` encoded `PEM` **RSA Private Key**
 
 * `runner-type[=immediate]`: Event Forwarder runner type \[\`immediate\`, \`periodic\`]
 
@@ -116,15 +116,15 @@ Choose Authentication Type (**Password / Token / Certificate**)
 
 * For **Password**:
 
-  * Provide: **Username** and a **Password**
+    * Provide: **Username** and a **Password**
 
 * For **Token**:
 
-  * Provide: **Base64** encoded Token string
+    * Provide: **Base64** encoded Token string
 
 * For **Certificate**:
 
-  * Provide: **PEM Certificate** and a **PEM Private Key**
+    * Provide: **PEM Certificate** and a **PEM Private Key**
 
 * **Gateway**: Choose a gateway from the list
 
@@ -132,9 +132,9 @@ Choose Authentication Type (**Password / Token / Certificate**)
 
 * Choose either to:
 
-  * **Forward Events Immediately**: Forward events as soon as the event occurs
+    * **Forward Events Immediately**: Forward events as soon as the event occurs
 
-  * **Forward Events Every**: choose when to forward events, in **hours**
+    * **Forward Events Every**: choose when to forward events, in **hours**
 
 * **Event Sources**: Select the **Items / Auth Methods / Targets / Gateways** you would like to get events on based on their locations
 

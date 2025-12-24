@@ -18,7 +18,8 @@ Akeyless integrates natively into diverse environments without requiring externa
 
 Secrets used for provisioning can be automatically [rotated](https://docs.akeyless.io/docs/rotated-secrets), removing the overhead of managing the lifecycle of external secrets. Operational visibility is built in, with full tracking through Akeyless [Events](https://docs.akeyless.io/docs/event-center) and [Audit Logs](https://docs.akeyless.io/docs/audit-logs).
 
-**How Akeyless Simplifies CLM**
+## How Akeyless Simplifies CLM
+
 Akeyless provides a centralized platform designed to streamline and automate every aspect of the certificate lifecycle, offering the following operations:
 
 * [Certificate issuance using a Private CA](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)

@@ -16,9 +16,9 @@ Akeyless supports multiple options to authenticate your Kubernetes cluster with 
 * **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)** Not supported by the External Secret Operator (ESO).
 * **[API Key](https://docs.akeyless.io/docs/api-key)**
 * Cloud Authentication:
-  * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/azure-ad)**
-  * **[AWS-IAM](https://docs.akeyless.io/docs/aws-iam)**
-  * **[GCP Auth](https://docs.akeyless.io/docs/gcp-auth-method)**
+    * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/azure-ad)**
+    * **[AWS-IAM](https://docs.akeyless.io/docs/aws-iam)**
+    * **[GCP Auth](https://docs.akeyless.io/docs/gcp-auth-method)**
 
 ## Kubernetes Auth
 

@@ -12,27 +12,27 @@ metadata:
 * There must be no errors in CLI commands or sample code.
 * There must be no misspellings.
 * There must be no custom HTML styling within pages. All styling must come from project-wide CSS. The following elements are excepted:
-  * Alignment attributes of images.
-  * Border attributes of images.
+    * Alignment attributes of images.
+    * Border attributes of images.
 * There must be no errors in Markdown syntax.
 * All file names, CLI commands, configuration keys, and code should be formatted as such with backticks or fenced code blocks (triple backticks).
 * There should be no underlined text.
 * When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
-  * GitLab (instead of Gitlab)
-  * GitHub (instead of Github)
-  * Docker Hub (instead of dockerhub)
-  * HashiCorp Vault (instead of Hashi-Vault)
-  * SAP HANA database (instead of HANA DB or HANADB)
-  * MySQL (instead of mysql)
-  * MSSQL (instead of mssql)
-  * Amazon Redshift (instead of Redshift)
-  * Amazon EKS (instead of EKS or AWS EKS)
-  * `kubectl` (instead of Kubectl)'
+    * GitLab (instead of Gitlab)
+    * GitHub (instead of Github)
+    * Docker Hub (instead of dockerhub)
+    * HashiCorp Vault (instead of Hashi-Vault)
+    * SAP HANA database (instead of HANA DB or HANADB)
+    * MySQL (instead of mysql)
+    * MSSQL (instead of mssql)
+    * Amazon Redshift (instead of Redshift)
+    * Amazon EKS (instead of EKS or AWS EKS)
+    * `kubectl` (instead of Kubectl)'
 * When referring to CLI commands use the proper terminology. Referring to this example: `akeyless target create godaddy -n "name-value" -p "password"`
-  * `akeyless` is the command.
-  * `target`, `create`, and `godaddy` are subcommands.
-  * `-n` and `-p` are flags (also known as options).
-  * `"name-value"` and `"password"` are flag values (or option values).
+    * `akeyless` is the command.
+    * `target`, `create`, and `godaddy` are subcommands.
+    * `-n` and `-p` are flags (also known as options).
+    * `"name-value"` and `"password"` are flag values (or option values).
 * Provide alt-text for all images.
 * There must be no idioms, slang, or cultural references.
 * Use commas as separators for large numbers (1,000).

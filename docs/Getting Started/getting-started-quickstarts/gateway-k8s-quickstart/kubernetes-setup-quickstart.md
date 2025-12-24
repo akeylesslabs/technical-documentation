@@ -160,9 +160,9 @@ accept-ranges: bytes
 <Callout icon="📘" theme="info">
   The sample output above shows a valid HTTP response with a 200 response code and several HTTP headers. Any 200 or 300 status codes are fine. Failing outputs could be:
 
-  * `curl: (6) Could not resolve host: console.akeyless.io`
-  * `curl: (7) Failed to connect to console.akeyless.io port 443: Connection timed out`
-  * `curl: (60) SSL certificate problem`
+* `curl: (6) Could not resolve host: console.akeyless.io`
+* `curl: (7) Failed to connect to console.akeyless.io port 443: Connection timed out`
+* `curl: (60) SSL certificate problem`
 </Callout>
 
 3. Delete the pod as it is no longer useful:
@@ -228,7 +228,7 @@ metrics-server   1/1     1            1           2m
   2. If you see an error similar to `x509: cannot validate certificate for <IP> because it does not contain any IP SANs` in the Metrics Server logs, this is not uncommon. It happens frequently in small-scale development environments. A fast fix for this is to edit the deployment and add `--kubelet-insecure-tls` to the Metrics Server container arguments. This is acceptable for local development clusters such as Docker Desktop, _but should not be used in production_. This can be done in one line with: `kubectl patch deployment metrics-server -n kube-system --type='json' -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'`.
 </Callout>
 
-2. Check some Metrics for your cluster to test functionality. Here is a command to check the Metrics for your cluster's nodes:
+  2. Check some Metrics for your cluster to test functionality. Here is a command to check the Metrics for your cluster's nodes:
 
 ```shell
 kubectl top nodes

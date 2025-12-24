@@ -55,8 +55,8 @@ Where:
 * `target-name`: The name of the [SSH Target](https://docs.akeyless.io/docs/ssh-target) with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target server.
-  * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
+    * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
+    * `use-target-creds` - Use the credentials defined on the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
 
 > 👍 Note
 >
@@ -64,8 +64,8 @@ Where:
 
 * `password-length`: **Optional**, The user's password length.
 * `rotator-type`: The type of credentials to be rotated. For [SSH Targets](https://docs.akeyless.io/docs/ssh-target), choose:
-  * `password` - to rotate the SSH user password specified in the Rotated Secret
-  * `target` - to rotate the password for the user specified in the [SSH Target](https://docs.akeyless.io/docs/ssh-target).
+    * `password` - to rotate the SSH user password specified in the Rotated Secret
+    * `target` - to rotate the password for the user specified in the [SSH Target](https://docs.akeyless.io/docs/ssh-target).
 * `rotated-username`: The SSH user whose password should be rotated.
 * `rotated-password`: The password to rotate.
 * `public-key-path`: The path of the public key that will be rotated on the server.
@@ -92,17 +92,17 @@ You can find the complete list of parameters for this command in the [CLI Refere
 * **Target:** Defines the name of the [SSH Target](https://docs.akeyless.io/docs/ssh-target) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target server:
-  * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
+    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+    * **Target credentials:** Use the credentials defined inside the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
 
 > 👍 Note
 >
 > Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [SSH Target](https://docs.akeyless.io/docs/ssh-target) user, is required to change the password on behalf of the Rotated Secret user.
 
 * **Rotator type:** Determines the rotator type:
-  * **Password**: Rotates the password defined inside the Rotated Secret item.
-  * **Key**: Rotates the private key defined inside the Rotated Secret item .
-  * **Target**: Rotates the password defined inside the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
+    * **Password**: Rotates the password defined inside the Rotated Secret item.
+    * **Key**: Rotates the private key defined inside the Rotated Secret item .
+    * **Target**: Rotates the password defined inside the [SSH Target](https://docs.akeyless.io/docs/ssh-target) item.
 
 * **Username:** Defines the SSH username which password should be rotated (Relevant only for **Password** mode).
 

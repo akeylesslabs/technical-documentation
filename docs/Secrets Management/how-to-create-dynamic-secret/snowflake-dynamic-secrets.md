@@ -125,14 +125,14 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing Snowflake Target or specify details of the target Snowflake account explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
 
-  * Use the **Choose an existing target** drop-down list to select the existing Snowflake Target.
+    * Use the **Choose an existing target** drop-down list to select the existing Snowflake Target.
 
-  * Select the **Explicitly specify target properties** to provide details of the target Snowflake account in the next step.
+    * Select the **Explicitly specify target properties** to provide details of the target Snowflake account in the next step.
 * **User Role:** Enter the Snowflake role to be assigned to temporary users.
 * **Warehouse Name:** Enter the name of the target Snowflake warehouse.
 * **Authentication Mode**: The method by which the authentication will be accomplished with
-  * **Password:** For authentication using **Username** and **Password**.
-  * **Key** For authentication using **RSA Key**.
+    * **Password:** For authentication using **Username** and **Password**.
+    * **Key** For authentication using **RSA Key**.
 * **Algorithm**: The RSA key algorithm, (relevant only for **Key** Authentication Mode).
 * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.

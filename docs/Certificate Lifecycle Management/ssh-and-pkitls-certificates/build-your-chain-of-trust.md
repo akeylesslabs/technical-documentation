@@ -30,9 +30,9 @@ The whole chain of trust can be generated using one dedicated CLI command, which
 
 * **Signer key** with a signed certificate for each issuer which includes the following parameters:
 
-  * **basicConstraints**: `critical`, `CA:TRUE`, `pathlen:1`
+    * **basicConstraints**: `critical`, `CA:TRUE`, `pathlen:1`
 
-  * **keyUsage**: `critical`, `cRLSign`, `digitalSignature`, `keyCertSign`
+    * **keyUsage**: `critical`, `cRLSign`, `digitalSignature`, `keyCertSign`
 
 > 🚧 Warning
 >

@@ -23,9 +23,9 @@ To start on your Akeyless journey, follow these steps to initiate the setup proc
 Get to know your [Personal and Corporate folders](https://docs.akeyless.io/docs/personal-corporate-favorites-areas-navigation)
 
 * Your Personal Folder: A Secure Haven for Personal Passwords
-  * Store work-related passwords that you don't need to share with your team, like your work email password, in your Personal Folder. This Personal Folder keeps your sensitive information secure and protected.
+    * Store work-related passwords that you don't need to share with your team, like your work email password, in your Personal Folder. This Personal Folder keeps your sensitive information secure and protected.
 * Corporate Folder: A Collaborative Hub for Team Access
-  * The Corporate Folder serves as a central repository for passwords that your entire team needs to access. Store items like GitHub passwords in the Corporate Folder, ensuring everyone has the necessary credentials.
+    * The Corporate Folder serves as a central repository for passwords that your entire team needs to access. Store items like GitHub passwords in the Corporate Folder, ensuring everyone has the necessary credentials.
 
 ## Start the Process on Your iOS or Android Device
 

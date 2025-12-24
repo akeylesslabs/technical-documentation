@@ -107,9 +107,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing [RDP Target](https://docs.akeyless.io/docs/ssh-target) or specify details of the target Windows Server explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing SSH Target.
+    * Use the **Choose an existing target** drop-down list to select the existing SSH Target.
 
-  * Select the **Explicitly specify target properties** to provide details of the target Windows Server in the next step.
+    * Select the **Explicitly specify target properties** to provide details of the target Windows Server in the next step.
 * **Groups:** A comma-separated list of RDP user groups to which the new user should be added.
 * **Display message to the user before TTL expires:** Select this checkbox to allow displaying messages to the user before TTL expires.
 * **Allow user to extend session periodically:** Select this checkbox to allow the user to extend session periodically.

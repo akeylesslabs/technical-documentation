@@ -105,12 +105,12 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing GitLab Target or specify details of the target GitLab repository explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
 
-  * Use the **Choose an existing target** drop-down list to select the existing GitLab Target.
+    * Use the **Choose an existing target** drop-down list to select the existing GitLab Target.
 
-  * Select the **Explicitly specify target properties** option, to provide details of the target GitLab repository in the next step.
+    * Select the **Explicitly specify target properties** option, to provide details of the target GitLab repository in the next step.
 * **Access Type**: Choose one of the following Access-Types:
-  * **Group**: Creates an access token for [GitLab Groups](https://docs.gitlab.com/ee/user/group/)
-  * **Project**: Creates an access token for [GitLab Project](https://docs.gitlab.com/ee/user/get_started/get_started_projects.html)
+    * **Group**: Creates an access token for [GitLab Groups](https://docs.gitlab.com/ee/user/group/)
+    * **Project**: Creates an access token for [GitLab Project](https://docs.gitlab.com/ee/user/get_started/get_started_projects.html)
 * **Scopes**: Provide a comma-separated list of [GitLab Scopes](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes) to be assigned to the access token
 * **Role**: [GitLab Role](https://docs.gitlab.com/ee/user/permissions.html) to be assigned to the access token
 * **Group Name**: Name of the group, Relevant for `group` Access Type

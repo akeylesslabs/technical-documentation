@@ -95,9 +95,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing GitHub Target or specify details of the target GitHub repository explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
 
-  * Use the **Choose an existing target** drop-down list to select the existing GitHub Target.
+    * Use the **Choose an existing target** drop-down list to select the existing GitHub Target.
 
-  * Select the **Explicitly specify target properties** option, to provide details of the target GitHub repository in the next step.
+    * Select the **Explicitly specify target properties** option, to provide details of the target GitHub repository in the next step.
 * **Installation ID\ Repository path\ Organization Name:** Specify a GitHub application installation ID or repository path or Organization name.
 * **Installation Token Repositories:** Specify repositories that will accept generated tokens. By default, repositories of the GitHub installation will be used.
 * **Installation Token Permissions:** Specify permissions for generated tokens. By default, permissions for the GitHub installation will be used. Input format: `key=value` pairs or a `JSON`, for example, `{"content":"read"}`.

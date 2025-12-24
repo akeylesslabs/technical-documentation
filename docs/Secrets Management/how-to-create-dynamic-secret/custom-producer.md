@@ -27,9 +27,9 @@ In addition, some custom dynamic secret implementations require user input every
 
 Implement the following endpoints to integrate with Akeyless:
 
-- **POST /sync/create**: This endpoint is called each time a user requests a dynamic secret value.
-- **POST /sync/revoke**: This endpoint is called each time temporary credentials need to be revoked.
-- **POST /sync/rotate**: (Optional) This endpoint is called to rotate the custom dynamic secret payload.
+* **POST /sync/create**: This endpoint is called each time a user requests a dynamic secret value.
+* **POST /sync/revoke**: This endpoint is called each time temporary credentials need to be revoked.
+* **POST /sync/rotate**: (Optional) This endpoint is called to rotate the custom dynamic secret payload.
 
 ### POST /Sync/create Input
 

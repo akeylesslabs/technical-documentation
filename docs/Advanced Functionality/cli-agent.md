@@ -78,9 +78,9 @@ Where:
 
 * `log_file_path`: The path to the `agent.log` file, defaults are:
 
-  * `"/var/log/akeyless"` for Linux.
+    * `"/var/log/akeyless"` for Linux.
 
-  * `"programdata/akeyless"` for Windows.
+    * `"programdata/akeyless"` for Windows.
 
 * `log_format`: Can be `text` or `json`.
 

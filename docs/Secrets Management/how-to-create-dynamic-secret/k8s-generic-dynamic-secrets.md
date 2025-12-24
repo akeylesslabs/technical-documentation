@@ -626,10 +626,8 @@ When duplicate context names are detected during merge:
 * **Resolution message:** the CLI prints a clear notice in the terminal describing which context was kept and which was skipped or renamed.
 * **Auditable:** the same message is written to the log for later review.
 
-> Example terminal notice:
->
+> 📘 Notes
+> _Example Terminal Notice:_
 > `WARNING: Context "prod-us1" already exists. Keeping the first occurrence; skipped merging duplicate from secret "ds-kube-prod-us1".`
-
-> 👍 Note
 >
-> * Ensure the user or automation has permission to retrieve the selected Dynamic Secrets
+> Ensure the user or automation has permission to retrieve the selected Dynamic Secrets

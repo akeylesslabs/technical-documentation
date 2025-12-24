@@ -139,12 +139,12 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Delete Protection**: When enabled, protects the secret from accidental deletion.
 * **Target mode:** In this section, you can either select an existing GCP Target or specify details of the target GCP Service Account explicitly.
 
-  * Use the **Choose an existing target** drop-down list to select the existing GCP Target.
-  * Select the **Explicitly specify target properties** option, to provide details of the target GCP Service Account Key in the next step.
+    * Use the **Choose an existing target** drop-down list to select the existing GCP Target.
+    * Select the **Explicitly specify target properties** option, to provide details of the target GCP Service Account Key in the next step.
 * **Access Mode**: Select the GCP access mode, either **Group** or **Role**.
 
-  * **Group**: Add a user to an existing group.
-  * **Role**: Assign an admin role to a user.
+    * **Group**: Add a user to an existing group.
+    * **Role**: Assign an admin role to a user.
 * **Group Name**: Email of the Group to add the user to.
 * **Group Role**: **Owner, Manager or Member**
 * **Role Name**: Name of the admin role to assign to the user.

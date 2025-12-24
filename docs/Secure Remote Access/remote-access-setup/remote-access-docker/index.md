@@ -29,7 +29,7 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 * Docker Installed (version 20.10 or later)
 * Docker Compose (version 1.29 or later)
 * [Gateway](https://docs.akeyless.io/docs/gateway-compose#/) deployed and Unified value is set to TRUE
-  * Make sure to set the UNIFIED_GATEWAY=true in both Gateway & SRA env files.
+    * Make sure to set the UNIFIED_GATEWAY=true in both Gateway & SRA env files.
 * Environment variables configured in .env files
 * [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates) for CLI Access.
 * At least 1 vCPU available with 1 GB RAM per Docker container.
@@ -37,8 +37,8 @@ This guide provides instructions on deploying Akeyless Secure Remote Access (SRA
 <Callout icon="🌐" theme="default">
   ### Network Configuration
 
-  * Ensure _sticky sessions_ are enabled.
-  * Cloud Provider Load Balancer: Configure the load balancer to support sticky sessions. For example, in AWS, you can use Elastic Load Balancer (ELB). Refer to the AWS ELB Sticky Sessions Documentation for guidance.
+* Ensure _sticky sessions_ are enabled.
+* Cloud Provider Load Balancer: Configure the load balancer to support sticky sessions. For example, in AWS, you can use Elastic Load Balancer (ELB). Refer to the AWS ELB Sticky Sessions Documentation for guidance.
 </Callout>
 
 * When SSH sessions are routed through a load balancer, such as ELB, they may be disconnected due to idle connection timeouts. To avoid this, we recommend increasing the idle timeout to a higher value or setting it to unlimited.

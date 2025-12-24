@@ -29,9 +29,9 @@ Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool 
 ![](https://files.readme.io/71ddc55-Screenshot_2024-02-29_at_19.37.01.png)
 
 * You'll be prompted to enter some initial details about your flow:
-  * **Name**: Give your flow a descriptive name.
-  * **Description (Optional)**: Provide a brief description of what your flow does.
-  * **Application**: Select the application scope in which your flow will be created. This determines which data and actions your flow can access.
+    * **Name**: Give your flow a descriptive name.
+    * **Description (Optional)**: Provide a brief description of what your flow does.
+    * **Application**: Select the application scope in which your flow will be created. This determines which data and actions your flow can access.
 
 ![](https://files.readme.io/e60c566-Screenshot_2024-02-29_at_19.38.08.png)
 
@@ -42,9 +42,9 @@ Creating a flow in ServiceNow involves using the Flow Designer, a powerful tool 
 ![](https://files.readme.io/d0eb533-Screenshot_2024-02-29_at_19.38.45.png)
 
 * Choose the type of trigger for your flow. Options typically include:
-  * Record: Triggers the flow when a record is created, updated, or deleted.
-  * Scheduled: Runs the flow at specified times.
-  * Event: Triggers the flow based on ServiceNow events.
+    * Record: Triggers the flow when a record is created, updated, or deleted.
+    * Scheduled: Runs the flow at specified times.
+    * Event: Triggers the flow based on ServiceNow events.
 
 ![](https://files.readme.io/39c6279-Screenshot_2024-02-29_at_19.39.31.png)
 

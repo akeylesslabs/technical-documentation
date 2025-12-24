@@ -66,11 +66,9 @@ Note that this will automatically create 2 items under the `/kmip/default` path 
 
 * In this guide, we will use MongoDB Enterprise as a KMIP Client.
 
-> 📘 Note
+> 📘 Notes
 >
 > This guide was created using MongoDB version 4.2 or earlier.
-
-> 👍 Note
 >
 > **Activate Keys** - Akeyless supports an optional setting to enable keys upon creation automatically. To set this function by default for your client, provide the `--activate-keys-on-creation=true` setting as part of your client creation command.
 
