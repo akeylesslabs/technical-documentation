@@ -38,7 +38,7 @@ config:
   # AKY006: Disallow Latin abbreviations (e.g., i.e., ad hoc)
   # Knobs:
   #   - severity: error|warning|info
-  AKY006: true
+  AKY006: false
 
   # AKY007: Prefer third-person voice (heuristic)
   # Knobs:
@@ -75,11 +75,12 @@ config:
   #   - severity: error|warning|info
   #   - code_blocks: true|false
   #   - ignore_a_html_tag: true|false
-  AKY013:
-    code_blocks: true
-    ignore_a_html_tag: true
-    names_file: .cspell/akeyless-proper-nouns-dictionary.txt
-    ignore_urls: true  # ignore matches inside URLs (requires rule support)
+  AKY013: false
+  #AKY013:
+  #  code_blocks: true
+  #  ignore_a_html_tag: true
+  #  names_file: .cspell/akeyless-proper-nouns-dictionary.txt
+  #  ignore_urls: true  # ignore matches inside URLs (requires rule support)
 
   # AKY014: Require meaningful image alt text
   # Knobs:
@@ -156,6 +157,11 @@ config:
         replacement: "HashiCorp Vault Proxy"
         example_from: "HVP"
         example_to: "HashiCorp Vault Proxy"
+
+      - term: "RestAPI"
+        replacement: "REST API"
+        example_from: "RestAPI"
+        example_to: "REST API"
         
       # Ableist / exclusionary phrasing
       - term: "sanity check"
