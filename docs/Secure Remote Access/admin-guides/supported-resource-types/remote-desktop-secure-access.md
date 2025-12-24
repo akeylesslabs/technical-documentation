@@ -66,7 +66,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 2. Select the Dynamic Secret or the Rotated Secret that specifies the Windows machine details and access credentials.
 
-3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
+3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
 * `Host(s)`: The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret.
 * `Domain`: Optional for Dynamic Secret. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.

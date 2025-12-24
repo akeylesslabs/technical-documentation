@@ -33,7 +33,7 @@ This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes
 
 ### Networking
 
-When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
+When using an embedded browser session behind a load balancer (for example, an Elastic Load Balancer (ELB)), the session may close if the load balancer enforces an idle connection timeout. Increase the idle timeout to a reasonably high value (or disable it, if supported) to prevent unexpected session termination.
 
 For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
@@ -58,7 +58,7 @@ persistence:
     size: 2Gi
 ```
 
-For example, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
+e.g, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
 
 For security reasons, please limit the PersistentVolumes`mount permissions to`0650\`.
 
@@ -115,7 +115,7 @@ env:
 
 The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions. To fetch the relevant secret on behalf of your users, set the `privilegedAccess` field with the relevant `AccessID` as described in the Authentication section of this page.
 
-Users then can have only `list` permissions on their secrets. Upon successful authentication against your IdP, the bastion will fetch the requested secret from Akeyless and will inject them directly for your users transparently.
+Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
 
 To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs` that will be authorized to request access.
 

@@ -73,7 +73,7 @@ Let's set up remote access to the Azure Portal from the Akeyless Console. If you
 
 2. Select the Dynamic Secret or Rotated Secret that specifies the Azure AD details.
 
-3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
+3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
     * `Rotate after disconnection`: Optional for Rotated Secret. You can enable an automatic Secret Rotation after a session ends.
 

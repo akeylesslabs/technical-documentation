@@ -51,7 +51,7 @@ Let's set up remote access to RabbitMQ from the Akeyless Console. If you'd prefe
 
 2. Select the dynamic secret that specifies the database details and access credentials.
 
-3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
+3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
 * `Injection URL`: Required, a RabbitMQ URL to inject credentials.
 * `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only for clients with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).

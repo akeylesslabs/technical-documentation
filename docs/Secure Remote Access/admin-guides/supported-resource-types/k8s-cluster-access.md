@@ -56,7 +56,7 @@ Let's set up remote access to a Kubernetes cluster from the Akeyless Console. If
 
 2. Select the dynamic secret that specifies the Kubernetes cluster details and access credentials.
 
-3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
+3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
 For [GKE Dynamic Secrets](https://docs.akeyless.io/docs/gke-dynamic-secret-producer) or [EKS Dynamic Secrets](https://docs.akeyless.io/docs/eks-dynamic-secret-producer):
 

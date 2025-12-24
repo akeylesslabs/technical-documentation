@@ -67,7 +67,7 @@ Let's set up remote access to the web application from the Akeyless Console. If 
 
 2. Select the static secret that specifies the web application access credentials.
 
-3. Click on the **Secure Remote Access** tab, select the pencil icon and enable **Secure Remote Access**, then fill in the following fields:
+3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
 * `Injection URL`: The web application login URL to inject secrets.
 
