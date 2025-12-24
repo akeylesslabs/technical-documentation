@@ -119,7 +119,6 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 | `args.--use-remote-browser` | Returns a link to complete the authentication remotely (relevant only for the `saml` and `oidc` access types). | No | (none) |
 | `args.--username` | LDAP username | Yes* (if using the `ldap` access type) | (none) |
 
-
 #### Example Authentication Method Configurations
 
 The Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor>:

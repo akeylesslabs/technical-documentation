@@ -3255,8 +3255,7 @@ akeyless dynamic-secret update venafi \
 
 `--venafi-client-id[=akeyless]`: Venafi Client ID to use when refreshing the token (Relevant when using TPP)
 
-`--venafi-baseurl`: Base URL of the TPP environment. Or a 
-Cloud environment which isn't [https://venafi.cloud/](https://venafi.cloud/)
+`--venafi-baseurl`: Base URL of the TPP environment. Or a Cloud environment which isn't [https://venafi.cloud/](https://venafi.cloud/)
 
 `--sign-using-akeyless-pki`: creating certificates using Akeyless PKI
 

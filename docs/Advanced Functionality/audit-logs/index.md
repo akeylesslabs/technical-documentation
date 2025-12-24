@@ -14,9 +14,9 @@ next:
       slug: log-forwarding
       title: Log Forwarding
 ---
-Akeyless collects detailed Audit Logs per secret type, operation, user, time, etc.
+Akeyless collects detailed Audit Logs per secret type, operation, user, time, and so on.
 
-Akeyless Audit Logs take note of just about every change\\action within the Akeyless system, providing a complete track record of your Akeyless system operations. Therefore, Akeyless Audit Logs are a valuable resource for Akeyless admins and auditors who want to examine suspicious activity on Akeyless or diagnose and troubleshoot issues.
+Akeyless Audit Logs take note of just about every change/action within the Akeyless system, providing a complete track record of your Akeyless system operations. Therefore, Akeyless Audit Logs are a valuable resource for Akeyless admins and auditors who want to examine suspicious activity on Akeyless or diagnose and troubleshoot issues.
 
 These Audit Logs can give an Akeyless administrator invaluable insight into what behavior is normal and what behavior isn’t. A log event, for example, will show what activity was attempted and whether it succeeded. This can be useful when identifying whether a system component is misconfigured or likely to fail.
 
@@ -34,7 +34,7 @@ You will be able to filter your logs based on any of these rubrics or tags insid
 
 ## Reading the Raw Logs
 
-Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, etc.
+Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, and so on.
 The logs will show up as a line of text, from which you will be able to read the following information:
 
 | Log Line             | Description                                                                                                                                                                               |
@@ -42,7 +42,7 @@ The logs will show up as a line of text, from which you will be able to read the
 | `Timestamp`          | The log will start with a timestamp string in the format of Date `T` Time Timezone.                                                                                                       |
 | `account_id`         | Account ID.                                                                                                                                                                               |
 | `access_id`          | Access ID.                                                                                                                                                                                |
-| `action`             | The type of action performed, for example, list items, create item, get item, etc. A list of common log items can be found [here](https://docs.akeyless.io/docs/log-actions)                                        |
+| `action`             | The type of action performed, for example, list items, create item, get item, and so on. A list of common log items can be found [here](https://docs.akeyless.io/docs/log-actions)                                        |
 | `item_type`          | If the action was item specific, like create item, the item type will be listed here.                                                                                                     |
 | `status`             | Standard HTTP status code of the following types, Informational responses (100–199), Successful responses (200–299), Redirection messages (300–399), or Client error responses (400–499). |
 | `remote_addr`        | The IP address from which the action was performed.                                                                                                                                       |
