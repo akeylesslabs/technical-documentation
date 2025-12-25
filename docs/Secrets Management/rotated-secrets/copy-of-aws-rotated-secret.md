@@ -1,7 +1,7 @@
 ---
-title: Copy of AWS Rotated Secret
+title: OpenAI Rotated Secert
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
