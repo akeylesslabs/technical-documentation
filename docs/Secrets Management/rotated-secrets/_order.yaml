@@ -1,11 +1,11 @@
 - create-an-aws-rotated-secret
-- copy-of-aws-rotated-secret
 - create-an-azure-rotated-secret
 - create-a-database-rotated-secret
 - create-a-docker-hub-rotated-secret
 - gcp-rotated-secret
 - create-an-ldap-rotated-secret
 - linked-target-rotated-secret
+- copy-of-aws-rotated-secret
 - create-an-ssh-rotated-secret
 - windows-rotated-secret
 - create-a-custom-rotated-secret
