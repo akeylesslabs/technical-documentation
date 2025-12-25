@@ -1,5 +1,5 @@
 ---
-title: OpenAI Rotated Secert
+title: OpenAI Rotated Secret
 deprecated: false
 hidden: false
 metadata:
