@@ -1,5 +1,5 @@
 ---
-title: CLI Agent
+title: Akeyless Agent
 deprecated: false
 hidden: false
 metadata:
