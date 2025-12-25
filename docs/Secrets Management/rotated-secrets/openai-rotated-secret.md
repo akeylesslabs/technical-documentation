@@ -42,15 +42,15 @@ Where:
   * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
   * `use-target-creds` - Use the credentials defined on the [OpenAI Target](doc:openai-target) item.
 
-* `rotator-type`: The type of credentials to be rotated. For [AWS Targets](https://docs.akeyless.io/docs/aws-targets), choose:
-  * `api-key` - to rotate the Access Key specified in the Rotated Secret.
-  * `target` - to rotate the Access Key for the user specified in the [AWS Target](https://docs.akeyless.io/docs/aws-targets).
+* `rotator-type`: The type of credentials to be rotated. For [OpenAI Target](doc:openai-target), choose:
+  * `api-key` - to rotate the API Key specified in the Rotated Secret.
+  * `target` - to rotate the API Key for the user specified in the [OpenAI Target](doc:openai-target).
 
 * `api-key-id`: The Admin API key ID to rotate.
 
 * `api-key`: The Admin API Key to rotate.
 
-* `auto-rotate`: Enable auto-rotation if you need to update the Access Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
+* `auto-rotate`: Enable auto-rotation if you need to update the API Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
 
 ## Create a Rotated OpenAI Secret in the Akeyless Console
 
@@ -86,9 +86,9 @@ Where:
 
 * **Auto rotate:** Determines if automatic rotation is enabled.
 
-* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic Access Key rotations when **Auto Rotate** is enabled.
+* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic API Key rotations when **Auto Rotate** is enabled.
 
-* **Rotation hour (local time zone):** Defines the time when the Access Key should be rotated if **Auto Rotate** is enabled.
+* **Rotation hour (local time zone):** Defines the time when the API Key should be rotated if **Auto Rotate** is enabled.
 
 * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
 
