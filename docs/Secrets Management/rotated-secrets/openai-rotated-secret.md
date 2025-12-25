@@ -5,50 +5,26 @@ hidden: true
 metadata:
   robots: index
 ---
-You can create a Rotated Secret for an AWS user. Before you get started, ensure you create an [AWS Target](https://docs.akeyless.io/docs/aws-targets) that includes the AWS region, as well as a role for a privileged user authorized to rotate credentials.
-
-When a client requests a Rotated Secret value, the Akeyless Platform connects to the AWS Cloud through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target AWS account.
+You can create a Rotated Secret for an OpenAI [Admin API Key](https://platform.openai.com/docs/api-reference/admin-api-keys) . Before you get started, ensure you create an [OpenAI Target](doc:openai-target) that includes the Organization ID , as well as an OpenAI Admin API Key.
 
 ## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
-* [AWS Target](https://docs.akeyless.io/docs/aws-targets) which holds an AWS IAM principal with the following IAM permissions:
+* [OpenAI Target](doc:openai-target) which holds an OpenAI Admin API Key.
 
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iam:DeleteAccessKey",
-                "iam:CreateAccessKey",
-                "iam:ListUserTags",
-                "iam:ListAccessKeys",
-                "iam:ListUsers"
-            ],
-            "Resource": "arn:aws:iam::<your-aws-account-id>:user/*"
-        }
-    ]
-}
-```
+## Create a Rotated OpenAI Secret with the CLI
 
-Where those permissions are required to rotate the IAM user AccessKeys, Akeyless Rotated secret will create a new Access Key, and revoke the old Access Key, depending on the rotation settings.
-
-## Create a Rotated AWS Secret with the CLI
-
-To create a Rotated AWS Secret using the Akeyless CLI, run the following command:
+To create a OpenAI Rotated Secret using the Akeyless CLI, run the following command:
 
 ```shell
-akeyless rotated-secret create aws \
+akeyless rotated-secret create openai \
 --name <Rotated secret name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
 --target-name <target name to associate> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --rotator-type <api-key|target> \
---api-id <access id> \
---api-key <access key> \
---grace-rotation <true|false>
+--api-key-id <api key id> \
+--api-key <api key> \
 --auto-rotate <true|false> \
 --rotation-interval <1-365> \
 --rotation-hour <hour in UTC>
@@ -60,38 +36,29 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [AWS Target](https://docs.akeyless.io/docs/aws-targets) with which the Rotated Secret should be associated.
+* `target-name`: The name of the [OpenAI Target](doc:openai-target)with which the Rotated Secret should be associated.
 
-* `authentication-credentials`: Determines how to connect to the target AWS account.
-    * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-    * `use-target-creds` - Use the credentials defined on the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
-
-> 👍 Note
->
-> Select `use-target-creds` if the Rotated Secret user is not authorized to change their own Access Key, and a privileged AWS IAM principal, like the [AWS Target](https://docs.akeyless.io/docs/aws-targets), is required to change the Access Key on behalf of the Rotated Secret user.
+* `authentication-credentials`: Determines how to connect to the target OpenAI account.
+  * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
+  * `use-target-creds` - Use the credentials defined on the [OpenAI Target](doc:openai-target) item.
 
 * `rotator-type`: The type of credentials to be rotated. For [AWS Targets](https://docs.akeyless.io/docs/aws-targets), choose:
-    * `api-key` - to rotate the Access Key specified in the Rotated Secret.
-    * `target` - to rotate the Access Key for the user specified in the [AWS Target](https://docs.akeyless.io/docs/aws-targets).
+  * `api-key` - to rotate the Access Key specified in the Rotated Secret.
+  * `target` - to rotate the Access Key for the user specified in the [AWS Target](https://docs.akeyless.io/docs/aws-targets).
 
-* `api-id`: The Access Key ID of the AWS user whose Access Key should be rotated. If left empty, the Rotated Secret will create a new key and manage its rotation. **Note** When `api-id` is not provided, upon successful creation, the AWS Access Key will be automatically created, and upon deletion of the Rotated Secret item using the `rotated-secret delete` command. The AWS Access Key will be deleted from the cloud as well.
+* `api-key-id`: The Admin API key ID to rotate.
 
-* `api-key`: The Access Key to rotate.
-
-* `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created - to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
+* `api-key`: The Admin API Key to rotate.
 
 * `auto-rotate`: Enable auto-rotation if you need to update the Access Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
-    * `grace-rotation-interval` and `grace-rotation-hour` defines the 2nd interval following the main rotation settings, relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueawsp) section.
-
-## Create a Rotated AWS Secret in the Akeyless Console
+## Create a Rotated OpenAI Secret in the Akeyless Console
 
 > 👍 Note
 >
 > To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
-1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > AWS**.
+1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > OpenAI**.
 
 2. Define a **Name** of the Rotated Secret, and specify the **Location** as a path to the virtual folder where you want to create the new Rotated Secret, using slash `/` separators. If the folder does not exist, it will be created together with the Rotated Secret.
 
@@ -99,23 +66,19 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [AWS Target](https://docs.akeyless.io/docs/aws-targets) to be associated with the Rotated Secret.
+* **Target:** Defines the name of the [OpenAI Target](doc:openai-target) to be associated with the Rotated Secret.
 
-* **Authenticate with the following credentials:** Determines how to connect to the target AWS account:
-    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-    * **Target credentials:** Use the credentials defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
-
-> 👍 Note
->
-> Select **Target credentials** if the Rotated Secret user is not authorized to change their own Access Key, and a privileged AWS IAM principal, like the [AWS Target](https://docs.akeyless.io/docs/aws-targets) user, is required to change the Access Key on behalf of the Rotated Secret user.
+* **Authenticate with the following credentials:** Determines how to connect to the target OpenAI account:
+  * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+  * **Target credentials:** Use the credentials defined inside the [OpenAI Target](doc:openai-target) item.
 
 * **Rotator type:** Determines the rotator type:
-    * **API Key**: Rotates the Access Key defined inside the Rotated Secret item.
-    * **Target**: Rotates the Access Key defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
+  * **API Key**: Rotates the API Key defined inside the Rotated Secret item.
+  * **Target**: Rotates the API Key defined inside the [OpenAI Target](doc:openai-target) item.
 
-* **Access Key ID:** Defines the Access Key ID of the AWS user whose Access Key should be rotated.
+* **API Key ID:** Defines the API Key ID whose API Key should be rotated.
 
-* **Access Key:** Defines the Access Key to rotate.
+* **API Key:** Defines the API Key to rotate.
 
 > 👍 Note
 >
