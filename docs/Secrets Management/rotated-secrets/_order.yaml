@@ -5,7 +5,7 @@
 - gcp-rotated-secret
 - create-an-ldap-rotated-secret
 - linked-target-rotated-secret
-- copy-of-aws-rotated-secret
+- openai-rotated-secret
 - create-an-ssh-rotated-secret
 - windows-rotated-secret
 - create-a-custom-rotated-secret
