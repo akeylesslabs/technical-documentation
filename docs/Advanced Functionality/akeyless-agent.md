@@ -70,11 +70,13 @@ destination = "path_to/pki_cert_with_csr.txt"
 
 Where:
 
-* `access_type`: The **Access Type** of the Auth Method that is being used to authenticate. The following are  supported `access_key/azure_ad/aws_iam/gcp/k8s`
+* `access_type`: The **Access Type** of the Auth Method that is being used to authenticate. The following are  supported `access_key/aws_iam/azure_ad/gcp/k8s`
 
 * `access_id`: The **Access ID** of the Auth Method that is being used to authenticate.
 
 * `access_key`: The **Access Key** of the Auth Method that is being used to authenticate.(Relevant only for [API Key](doc:api-key) auth method)
+
+* `k8s_auth_config_name`: The **K8s config name** , generally the K8s Auth methods name. (Relevant only for [Kubernetes](doc:kubernetes-auth) auth method)
 
 * `log_file_path`: The path to the `agent.log` file, defaults are:
 
