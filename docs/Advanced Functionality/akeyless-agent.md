@@ -23,7 +23,7 @@ The supported items that can be fetched using the Agent are:
 
 > 📘 CLI Version
 >
-> The CLI Agent is available starting from version `1.134.0`
+> The Akeyless Agent is available starting from version `1.134.0`
 
 ## Agent Configuration
 
