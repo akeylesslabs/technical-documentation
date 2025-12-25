@@ -10954,6 +10954,33 @@
         }
       }
     },
+    "/rotated-secret-create-openai": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "rotatedSecretCreateOpenAI",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/rotatedSecretCreateOpenAI"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/rotatedSecretCreateOpenAIResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/rotated-secret-create-oracledb": {
       "post": {
         "tags": [
@@ -11568,6 +11595,33 @@
         "responses": {
           "201": {
             "$ref": "#/responses/rotatedSecretUpdateMysqlResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/rotated-secret-update-openai": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "rotatedSecretUpdateOpenAI",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/rotatedSecretUpdateOpenAI"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/rotatedSecretUpdateOpenAIResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -16240,6 +16294,10 @@
         },
         "ai_insights": {
           "$ref": "#/definitions/AiInsightsSetting"
+        },
+        "allow_auto_fill": {
+          "type": "boolean",
+          "x-go-name": "AllowAutoFill"
         },
         "allowed_client_types": {
           "$ref": "#/definitions/AllowedClientType"
@@ -23757,6 +23815,10 @@
         "attributes": {
           "$ref": "#/definitions/UscSyncInfo"
         },
+        "delete_remote": {
+          "type": "boolean",
+          "x-go-name": "DeleteRemote"
+        },
         "item_id": {
           "type": "integer",
           "format": "int64",
@@ -29332,6 +29394,10 @@
     "UscSyncInfo": {
       "type": "object",
       "properties": {
+        "delete_remote": {
+          "type": "boolean",
+          "x-go-name": "DeleteRemote"
+        },
         "jq_secret_filter": {
           "type": "string",
           "x-go-name": "JqSecretFilter"
@@ -39851,7 +39917,7 @@
           "x-go-name": "ApplicationId"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -43478,7 +43544,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -43999,7 +44065,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -44477,7 +44543,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -48075,7 +48141,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -48616,7 +48682,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -49109,7 +49175,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -53633,7 +53699,7 @@
           "x-go-name": "AuthMethodTokenExpiration"
         },
         "token-reviewer-jwt": {
-          "description": "A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
+          "description": "A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
           "type": "string",
           "x-go-name": "K8STokenReviewerJWT"
         },
@@ -55039,7 +55105,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -55462,7 +55528,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -56559,7 +56625,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -58870,7 +58936,7 @@
           "x-go-name": "AuthMethodTokenExpiration"
         },
         "token-reviewer-jwt": {
-          "description": "A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
+          "description": "A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
           "type": "string",
           "x-go-name": "K8STokenReviewerJWT"
         },
@@ -59573,7 +59639,7 @@
           "x-go-name": "AuthMethodTokenExpiration"
         },
         "token-reviewer-jwt": {
-          "description": "A Kubernetes ServiceAccount JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
+          "description": "A Kubernetes service account JWT used to access the TokenReview API to validate other JWTs (relevant for \"native_k8s\" only).\nIf not set, the JWT submitted in the authentication process will be used to access the Kubernetes TokenReview API.",
           "type": "string",
           "x-go-name": "K8STokenReviewerJWT"
         },
@@ -61771,7 +61837,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -62209,7 +62275,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -63327,7 +63393,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL",
+          "description": "The K8s cluster endpoint URL",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -67624,6 +67690,12 @@
           "default": "enabled",
           "x-go-name": "AutoPagination"
         },
+        "current-folder": {
+          "description": "List only items in the current folder (excludes subfolders)",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "CurrentFolder"
+        },
         "filter": {
           "description": "Filter by item name or part of it",
           "type": "string",
@@ -68364,7 +68436,7 @@
           "x-go-name": "ApiKey"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -68546,7 +68618,7 @@
           "x-go-name": "ApplicationId"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -68741,7 +68813,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -68864,7 +68936,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69082,7 +69154,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69191,7 +69263,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69336,7 +69408,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69463,7 +69535,7 @@
           "$ref": "#/definitions/HostProviderType"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69668,7 +69740,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -69832,7 +69904,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70001,7 +70073,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70155,6 +70227,131 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "rotatedSecretCreateOpenAI": {
+      "description": "rotatedSecretCreateOpenAI is a command that creates a rotated secret for an\nOpenAI target by rotating the admin API key configured on the target.",
+      "type": "object",
+      "title": "OpenAI",
+      "required": [
+        "name",
+        "target-name",
+        "rotator-type"
+      ],
+      "properties": {
+        "api-key": {
+          "description": "Admin API key value to rotate (relevant only for rotator-type=api-key)",
+          "type": "string",
+          "x-go-name": "ApiKey"
+        },
+        "api-key-id": {
+          "description": "Admin API key ID to rotate (relevant only for rotator-type=api-key)",
+          "type": "string",
+          "x-go-name": "ApiKeyID"
+        },
+        "authentication-credentials": {
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "type": "string",
+          "default": "use-user-creds",
+          "x-go-name": "RotatorCredsType"
+        },
+        "auto-rotate": {
+          "description": "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]",
+          "type": "string",
+          "x-go-name": "AutoRotate"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Rotated secret name",
+          "type": "string",
+          "x-go-name": "SecretName"
+        },
+        "password-length": {
+          "description": "The length of the password to be generated",
+          "type": "string",
+          "x-go-name": "PasswordLengthInput"
+        },
+        "rotation-event-in": {
+          "description": "How many days before the rotation of the item would you like to be notified",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "RotationEventsInDays"
+        },
+        "rotation-hour": {
+          "description": "The Hour of the rotation in UTC",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "RotationHour"
+        },
+        "rotation-interval": {
+          "description": "The number of days to wait between every automatic key rotation (1-365)",
+          "type": "string",
+          "x-go-name": "RotationInterval"
+        },
+        "rotator-type": {
+          "description": "The rotator type. options: [target/api-key]",
+          "type": "string",
+          "x-go-name": "RotatorType"
+        },
+        "tags": {
+          "description": "Add tags attached to this object",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Tags"
+        },
+        "target-name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "rotatedSecretCreateOracledb": {
       "type": "object",
       "title": "rotatedSecretCreateOracledb is a command that creates a rotated secret.",
@@ -70165,7 +70362,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70329,7 +70526,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70498,7 +70695,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70622,7 +70819,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70770,7 +70967,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -70899,12 +71096,12 @@
       "title": "rotatedSecretCreateSsh is a command that creates a rotated secret.",
       "required": [
         "name",
-        "rotator-type",
-        "target-name"
+        "target-name",
+        "rotator-type"
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -71009,7 +71206,7 @@
           "x-go-name": "RotatorCustomCmd"
         },
         "rotator-type": {
-          "description": "The rotator type. options: [target/password]",
+          "description": "The rotator type. options: [target/password/key]",
           "type": "string",
           "x-go-name": "RotatorType"
         },
@@ -71104,7 +71301,7 @@
       ],
       "properties": {
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -71314,6 +71511,12 @@
         "name"
       ],
       "properties": {
+        "delete-from-usc": {
+          "description": "Delete the secret from the remote target USC as well",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "DeleteRemote"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -71426,6 +71629,10 @@
         "name"
       ],
       "properties": {
+        "DeleteRemote": {
+          "description": "Delete the secret from remote secret manager (for association create/update)",
+          "type": "boolean"
+        },
         "filter-secret-value": {
           "description": "JQ expression to filter or transform the secret value",
           "type": "string",
@@ -71500,7 +71707,7 @@
           "x-go-name": "ApiKey"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -71689,7 +71896,7 @@
           "x-go-name": "ApplicationId"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -71891,7 +72098,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72022,7 +72229,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72252,7 +72459,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72374,7 +72581,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72531,7 +72738,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72665,7 +72872,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -72877,7 +73084,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73048,7 +73255,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73224,7 +73431,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73379,6 +73586,138 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "rotatedSecretUpdateOpenAI": {
+      "description": "rotatedSecretUpdateOpenAI is a command that updates an OpenAI rotated secret.",
+      "type": "object",
+      "title": "OpenAI",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "add-tag": {
+          "description": "List of the new tags that will be attached to this item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AddTags"
+        },
+        "api-key": {
+          "description": "Admin API key value to update (relevant only for rotator-type=api-key)",
+          "type": "string",
+          "x-go-name": "ApiKey"
+        },
+        "api-key-id": {
+          "description": "Admin API key ID to update (relevant only for rotator-type=api-key)",
+          "type": "string",
+          "x-go-name": "ApiKeyID"
+        },
+        "authentication-credentials": {
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "type": "string",
+          "default": "use-user-creds",
+          "x-go-name": "RotatorCredsType"
+        },
+        "auto-rotate": {
+          "description": "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]",
+          "type": "string",
+          "x-go-name": "AutoRotate"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "default": "default_metadata",
+          "x-go-name": "Description"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "keep-prev-version": {
+          "description": "Whether to keep previous version [true/false]. If not set, use default according to account settings",
+          "type": "string",
+          "x-go-name": "KeepPrevVersion"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Rotated secret name",
+          "type": "string",
+          "x-go-name": "SecretName"
+        },
+        "new-name": {
+          "description": "New item name",
+          "type": "string",
+          "x-go-name": "NewName"
+        },
+        "password-length": {
+          "description": "The length of the password to be generated",
+          "type": "string",
+          "x-go-name": "PasswordLengthInput"
+        },
+        "rm-tag": {
+          "description": "List of the existent tags that will be removed from this item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "RemoveTags"
+        },
+        "rotation-event-in": {
+          "description": "How many days before the rotation of the item would you like to be notified",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "RotationEventsInDays"
+        },
+        "rotation-hour": {
+          "description": "The Hour of the rotation in UTC",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "RotationHour"
+        },
+        "rotation-interval": {
+          "description": "The number of days to wait between every automatic key rotation (1-365)",
+          "type": "string",
+          "x-go-name": "RotationInterval"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "rotatedSecretUpdateOracledb": {
       "type": "object",
       "title": "rotatedSecretUpdateOracledb is a command that updates a rotated secret.",
@@ -73395,7 +73734,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73566,7 +73905,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73742,7 +74081,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -73873,7 +74212,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -74028,7 +74367,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -74170,7 +74509,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -74294,7 +74633,7 @@
           "x-go-name": "RotatorCustomCmd"
         },
         "rotator-type": {
-          "description": "The rotator type. options: [target/password]",
+          "description": "The rotator type. options: [target/password/key]",
           "type": "string",
           "x-go-name": "RotatorType"
         },
@@ -74383,7 +74722,7 @@
           "x-go-name": "AddTags"
         },
         "authentication-credentials": {
-          "description": "The credentials to connect with `use-user-creds` or `use-target-creds`",
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
           "type": "string",
           "default": "use-user-creds",
           "x-go-name": "RotatorCredsType"
@@ -75342,6 +75681,12 @@
         "name"
       ],
       "properties": {
+        "delete-from-usc": {
+          "description": "Delete the secret from the remote target USC as well",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "DeleteRemote"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -75383,6 +75728,10 @@
         "name"
       ],
       "properties": {
+        "DeleteRemote": {
+          "description": "Delete the secret from remote secret manager (for association create/update)",
+          "type": "boolean"
+        },
         "filter-secret-value": {
           "description": "JQ expression to filter or transform the secret value",
           "type": "string",
@@ -84980,7 +85329,7 @@
           "x-go-name": "SecureAccessCertIssuer"
         },
         "secure-access-cluster-endpoint": {
-          "description": "The Kubernetes cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic-Secret)",
+          "description": "The K8s cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic-Secret)",
           "type": "string",
           "x-go-name": "SecureAccessEndpoint"
         },
@@ -90706,6 +91055,12 @@
         "$ref": "#/definitions/rotatedSecretCreateOutput"
       }
     },
+    "rotatedSecretCreateOpenAIResponse": {
+      "description": "rotatedSecretCreateOpenAIResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/rotatedSecretCreateOutput"
+      }
+    },
     "rotatedSecretCreateOracledbResponse": {
       "description": "rotatedSecretCreateOracledbResponse wraps response body.",
       "schema": {
@@ -90841,6 +91196,12 @@
     },
     "rotatedSecretUpdateMysqlResponse": {
       "description": "rotatedSecretUpdateMysqlResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/rotatedSecretUpdateOutput"
+      }
+    },
+    "rotatedSecretUpdateOpenAIResponse": {
+      "description": "rotatedSecretUpdateOpenAIResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/rotatedSecretUpdateOutput"
       }
