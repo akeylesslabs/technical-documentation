@@ -70,11 +70,11 @@ destination = "path_to/pki_cert_with_csr.txt"
 
 Where:
 
-* `access_type`: The **Access Type** of the Auth Method that is being used to authenticate.
+* `access_type`: The **Access Type** of the Auth Method that is being used to authenticate. The following are  supported `access_key/azure_ad/aws_iam/gcp/k8s`
 
 * `access_id`: The **Access ID** of the Auth Method that is being used to authenticate.
 
-* `access_key`: The **Access Key** of the Auth Method that is being used to authenticate.
+* `access_key`: The **Access Key** of the Auth Method that is being used to authenticate.(Relevant only for [API Key](doc:api-key) auth method)
 
 * `log_file_path`: The path to the `agent.log` file, defaults are:
 
@@ -146,4 +146,4 @@ akeyless agent start \
 
 The command above will start the agent using the `agent.toml` configuration file located in `$HOME/agent/`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - CLI Agent](https://docs.akeyless.io/docs/cli-reference#cli-agent) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Agent](https://docs.akeyless.io/docs/cli-reference#cli-agent) section.
