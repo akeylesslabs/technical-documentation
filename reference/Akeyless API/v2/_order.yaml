@@ -587,3 +587,5 @@
 - folderdelete
 - folderget
 - folderupdate
+- rotatedsecretcreateopenai
+- rotatedsecretupdateopenai
