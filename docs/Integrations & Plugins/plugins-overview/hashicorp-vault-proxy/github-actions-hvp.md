@@ -104,7 +104,7 @@ jobs:
           tlsSkipVerify: true
           token: ${{ secrets.VAULT_TOKEN }}
           secrets: |
-            secret/data/ci/Gitsecret/actions ci/Gitsecret/actions | action ;
+            secret/data/ci/Gitsecret/actions ci/Gitsecret/actions | app_secret ;
       - name: Secret from Akeyless
         run: echo "${{ env.app_secret }}"
 ```
