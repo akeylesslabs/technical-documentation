@@ -68,9 +68,9 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 * Choose the right mode to work with either:
 
-    * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
+  * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
 
-    * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
+  * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
 
 * `Secure Access API`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
 
@@ -120,8 +120,11 @@ DISPLAY_STAGES=yes
 Where:
 
 * `IDENTITY_FILE`: The path to the `ssh-key` to be signed and used for Zero Trust session (if empty, a default of `ssh-key` is used).
+
 * `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
+
 * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
+
 * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
 
 3. Use `akeyless connect` command to perform SSH authentication to the target server via Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
