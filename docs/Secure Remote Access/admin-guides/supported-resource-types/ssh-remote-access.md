@@ -172,7 +172,9 @@ akeyless update-item --name <Path/to/static/secret> \
 Where:
 
 * `secure-access-ssh-creds`: Static-Secret values contain SSH Credentials, either Private Key or Password [`password`/`private-key`].
+
 * `secure-access-certificate-issuer`: Path to the SSH Certificate Issuer for your Akeyless SRA.
+
 * `secure-access-host`: Target servers for connections. For multiple values, repeat this flag.
 
 Now, you can connect to your target SSH host via the `akeyless connect` command:
