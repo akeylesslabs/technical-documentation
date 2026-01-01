@@ -1,8 +1,8 @@
 - remote-access-setup-overview
 - remote-access-setup-k8s
 - remote-access-docker
+- copy-of-remote-access-on-docker-compose
 - copy-of-remote-access-on-k8s
 - remote-access-on-docker-compose
 - web-access-on-k8s
 - sra-web-access-docker
-- copy-of-remote-access-on-docker-compose
