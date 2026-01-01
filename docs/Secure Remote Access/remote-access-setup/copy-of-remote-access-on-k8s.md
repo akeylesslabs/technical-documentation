@@ -1,7 +1,7 @@
 ---
 title: Copy of Remote Access on K8s
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
