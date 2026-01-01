@@ -1,5 +1,5 @@
 ---
-title: Remote Access on K8s
+title: Remote Access on Kubernetes
 excerpt: ''
 deprecated: false
 hidden: false
