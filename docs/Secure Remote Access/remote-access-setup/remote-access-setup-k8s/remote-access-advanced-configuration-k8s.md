@@ -15,7 +15,7 @@ next:
 As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
 ```shell
-akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url <your-gateway-url:8000>
+akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
 ## Key Exchange Algorithm
@@ -23,7 +23,7 @@ akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url 
 A Key Exchange Algorithm is a method used to securely exchange cryptographic keys between parties over an insecure channel such as a public network. The primary goal of these algorithms is to enable two or more parties to securely establish a shared secret key, which can then be used for encrypting and decrypting messages during communication.
 
 ```shell
-akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url <your-gateway-url:8000>
+akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
 The options for this are:
@@ -68,13 +68,13 @@ For RDP connections with an [externally provided username](https://docs.akeyless
 **RDP:**
 
 ```yaml
-akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
+akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
 **SSH:**
 
 ```yaml
-akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
+akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
 ### Support for Other Keyboard Layouts
@@ -82,7 +82,7 @@ akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim
 To enable a keyboard layout in your remote sessions (ie Windows), use the following command (the default is `en-us-qwerty`):
 
 ```shell
-akeyless gateway update remote-access --keyboard-layout <layout-option>
+akeyless gateway update remote-access --keyboard-layout <layout-option> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
 ```yaml Layout Options
