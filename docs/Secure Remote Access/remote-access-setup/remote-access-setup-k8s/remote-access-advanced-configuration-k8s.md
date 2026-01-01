@@ -155,7 +155,7 @@ config:
         azureClientSecret: ""
         azureTenantId: ""
         
-      # Specifies an existing secret to be used for bastion, management AWS credentials
+      # Specifies an existing secret with Azure Credentials
       existingSecret: ""
 ```
 
