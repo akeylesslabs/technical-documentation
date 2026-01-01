@@ -138,7 +138,7 @@ config:
         awsAccessKeyId: ""
         awsSecretAccessKey: ""
 
-      # Specifies an existing secret to be used for bastion, management AWS credentials
+      # Specifies an existing secret with AWS credentials
       existingSecret: ""
 ```
 ```yaml Azure Blob
