@@ -122,10 +122,6 @@ httpProxySettings:
 
 ## Session Recording
 
-SRA supports the recording of RDP, SSH, DB & Kubernetes sessions.
-
-CLI-based sessions of **SSH**, **DB** & **Kubernetes** connections provide a full transcript of Input commands and Output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, Elasticsearch, or just using Syslog)  [review more information here](https://docs.akeyless.io/docs/ssh-log-forwarding).
-
 **RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage:
 
 ```yaml AWS S3
@@ -165,8 +161,4 @@ config:
 
 To authenticate using an explicit **AWS Key** provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **Kubernetes Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
 
-To store local recordings inside your Bastion server, set the `KeepLocalRecording` with `true`, session recordings will be stored inside the bastion under `/home/akeyless/recordings`.
-
-<br />
-
-<br />
+To store local recordings inside your Gateway , set the `KeepLocalRecording` with `true`, session recordings will be stored inside the Gateway under `/home/akeyless/recordings`.
