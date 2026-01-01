@@ -1,7 +1,7 @@
 ---
 title: Copy of Advanced Configuration
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
