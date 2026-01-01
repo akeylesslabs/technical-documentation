@@ -10,26 +10,20 @@ metadata:
 next:
   description: ''
 ---
-## SSH Configuration
+## SSH Legacy Algorithm
 
-### SSH Legacy Algorithm
-
-As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
-
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
+As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
 ```shell
-akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url <your-gateway-url:8000>
+akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
-### Key Exchange Algorithm
+## Key Exchange Algorithm
 
 A Key Exchange Algorithm is a method used to securely exchange cryptographic keys between parties over an insecure channel such as a public network. The primary goal of these algorithms is to enable two or more parties to securely establish a shared secret key, which can then be used for encrypting and decrypting messages during communication.
 
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
-
 ```shell
-akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url <your-gateway-url:8000>
+akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
 The options for this are:
@@ -45,54 +39,30 @@ The options for this are:
 * `ecdh-sha2-nistp384`
 * `ecdh-sha2-nistp521`
 
-### Concurrent Unauthenticated Connections
+## RDP Configuration
 
-To specify the maximum number of concurrent unauthenticated connections to the SSH component, set the `CONFIG_MAX_STARTUPS` variable:
+### RDP & SSH User Access
 
-```yaml
-CONFIG_MAX_STARTUPS="200:30:300"
-```
+For RDP connections with an [externally provided username](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console), you can set your RDP or SSH resources to use the relevant attribute from the IdP JWT (For example, email) to establish a connection to the target server using the authenticated username. This applies to all SSH-based sessions, including RDP and Linux systems.
 
-### SSH Fingerprint
-
-Use this parameter to store fingerprint information in a specific folder within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
-
-> 📘 Permissions
->
-> Ensure your remote access default Auth Method has the following permissions on that folder: `create`,`read`, `list`
+**RDP:**
 
 ```yaml
-SSH_HOST_KEYS_PATH=/MY_SSH_REMOTE_ACCESS_HOST_KEYS
+akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
-## RDP / SSH User Access
-
-Set the RDP / SSH Authentication with the relevant attribute that exists inside your IdP JWT, for example, `email`, to set the connection to your target server using the current authenticated username. This can be done as follows with the CLI.
-
-RDP:
+**SSH:**
 
 ```yaml
-akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
+akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
-
-SSH:
-
-```yaml
-akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
-```
-
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**
-
-This applies to all SSH-based sessions, including RDP and Linux systems.
 
 ### Support for Other Keyboard Layouts
 
 To enable a keyboard layout in your remote sessions (ie Windows), use the following command (the default is `en-us-qwerty`):
 
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**
-
 ```shell
-akeyless gateway update remote-access --keyboard-layout <layout-option>
+akeyless gateway update remote-access --keyboard-layout <layout-option> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
 ```yaml Layout Options
@@ -116,4 +86,58 @@ value: sv-se-qwerty # Swedish (Qwerty)
 value: tr-tr-qwerty # Turkish-Q (Qwerty)
 ```
 
-For further configuration, please refer to the Akeyless official [repository](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-secure-remote-access/README.md#akeyless-secure-remote-access).
+<br />
+
+## Session Log Forwarding
+
+The Akeyless SRA support both Session Log Forwarding that capture CLI actions input and output during session, those can be forwarder to any logging system. This settings can be added via the Gateway management console or via CLI:
+
+```shell
+akeyless gateway update remote-access-session-forwarding -h
+```
+
+## RDP Recordings
+
+**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage  To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage
+
+```shell
+akeyless gateway update remote-access-rdp-recording -h
+```
+
+To store local recordings inside your Gateway , set the `rdp-session-storage` with `local`, session recordings will be stored inside the Gateway under `/home/akeyless/recordings`. Make sure to add Persistence Volume to your SRA deployment.
+
+## SSH Fingerprint
+
+Use this parameter inside your deployment to store fingerprint information in a specific location within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes, make sure the Gateway Authentication method has the following permissions on that folder `create`,`read`, `list`. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
+
+```yaml
+sshConfig:
+  sshHostKeysPath: /MY_SSH_REMOTE_ACCESS_HOST_KEYS
+```
+
+## Concurrent Unauthenticated Connections
+
+To specify the maximum number of concurrent unauthenticated connections to the SSH component, set the `CONFIG_MAX_STARTUPS` variable as part of your deployment under the `sra.env` section:
+
+```yaml
+sra:
+  env:
+    - name: CONFIG_MAX_STARTUPS
+      value: "200:30:300"
+```
+
+## Proxy
+
+To configure your proxy settings, you can set several parameters, including proxy settings for HTTP traffic, HTTPS traffic, and Ignore Hosts, using the `no_proxy` field, to prevent local traffic from going through your proxy server.
+
+For environments with proxy servers, the `no_proxy` field needs to be set with the following addresses: `svc.cluster.local` and `*.svc.cluster.local`.
+
+```yaml
+# Linux system HTTP Proxy
+httpProxySettings:
+  http_proxy: ""
+  https_proxy: ""
+  no_proxy: ""
+```
+
+<br />
