@@ -150,7 +150,7 @@ config:
       azure:
         storageAccountName: ""
         storageContainerName: ""
-        # optional, run with explicit credentials (without Azure IAM roles)
+        # optional, run with explicit credentials (without Azure roles)
         azureClientId: ""
         azureClientSecret: ""
         azureTenantId: ""
