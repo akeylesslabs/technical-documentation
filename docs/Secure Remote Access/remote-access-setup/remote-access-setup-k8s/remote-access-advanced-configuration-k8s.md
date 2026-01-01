@@ -122,6 +122,8 @@ httpProxySettings:
 
 ## Session Recording
 
+<br />
+
 ### Session Log Forwarding
 
 <br />
