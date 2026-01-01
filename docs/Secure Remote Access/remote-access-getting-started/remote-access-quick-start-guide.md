@@ -138,7 +138,6 @@ akeylessGatewayAuth:
   gatewayAccessType: access_key
   gatewayCredentialsExistingSecret: akeyless-auth
 
-authorizedAccessIDs: <authorized_access_id>
 ```
 
 `gatewayAccessId`: For this quick start, we will use the [API Key](https://docs.akeyless.io/docs/api-key) authentication method. Add your API Key's `Access ID`.
@@ -146,12 +145,6 @@ authorizedAccessIDs: <authorized_access_id>
 `gatewayAccessType`: This is already set to `access_key` for API Key authentication.
 
 `gatewayCredentialsExistingSecret`: The value is already set to `akeyless-auth`. A Kubernetes Secret is **required** for the deployment. In order to create this, follow the steps described in [API Key Authentication in the Akeyless Gateway chart](https://docs.akeyless.io/docs/gateway-chart#api-key-authentication).
-
-`authorizedAccessIDs`: Remote Access only supports human identities including SAML, OIDC, Certificate, or LDAP authentication. For security reasons, it is advised that you specify at least one Auth Method. If this variable is empty, all supported Auth Methods will be able to access it. For this, you will need to either set up one of the supported Authentication Methods or use your company's existing one.
-
-> 📘 Note
->
-> You must configure one of these Auth Methods in order to test Remote Access. In this case it will be a SAML Authentication Method which we explain how to set up here.
 
 #### Gateway Section
 
@@ -194,19 +187,13 @@ helm install quick-start-gw akeyless/akeyless-gateway -f values.yaml
 
 Run `kubectl get pods -w` to check that your pods are in `Running` state and that the Gateway and Remote Access services are available.
 
-Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`.
-
-<Image align="center" border={false} src="https://files.readme.io/cbcf9b1-Screenshot_2024-08-06_at_10.42.34.png" />
-
-Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (i.e. `http://<Your-Akeyless-GW-URL:8000/console>`). If you get the login page, you have successfully deployed the Gateway!
+Then run `kubectl get services` and look for the `EXTERNAL-IP` of the service starting with `quick-start-gw`. Copy the `EXTERNAL-IP` and paste that into your browser with port 8000/console (i.e. `http://<Your-Akeyless-GW-URL:8000/console>`). If you get the login page, you have successfully deployed the Gateway!
 
 #### Gateway URLs
 
 For the Gateway, you can access the following:
 
 * The Gateway's Internal Console is located at `http://<Your-Akeyless-GW-URL:8000/console>`. The internal console means you are working from inside the Gateway and talking directly with the SaaS. If you are using `https://console.akeyless.io`, you will not be able to interact with this Gateway as it is not secured with TLS.
-
-  <Image align="center" border={false} src="https://files.readme.io/8532daf-Screenshot_2024-08-06_at_11.11.57.png" />
 
 #### Remote Access URLs
 
