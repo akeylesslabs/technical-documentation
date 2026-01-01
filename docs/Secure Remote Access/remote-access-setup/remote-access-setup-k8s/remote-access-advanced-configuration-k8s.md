@@ -122,6 +122,12 @@ httpProxySettings:
 
 ## Session Recording
 
+### Session Log Forwarding
+
+<br />
+
+### RDP Recordings
+
 **RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage:
 
 ```yaml AWS S3
