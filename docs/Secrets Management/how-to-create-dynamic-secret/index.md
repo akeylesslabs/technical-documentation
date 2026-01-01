@@ -30,6 +30,7 @@ To create a dynamic secret, you must configure the required account and access c
 * [Snowflake Dynamic Secrets](https://docs.akeyless.io/docs/snowflake-dynamic-secrets)
 * [RDP Dynamic Secrets](https://docs.akeyless.io/docs/rdp-dynamic-secrets)
 * [GitHub Dynamic Secret](https://docs.akeyless.io/docs/github-dynamic-secret)
+* [OpenAI Dynamic Secret](https://docs.akeyless.io/docs/openai-dynamic-secrets)
 * [GitLab Dynamic Secret](https://docs.akeyless.io/docs/gitlab-dynamic-secret)
 * [Docker Hub Dynamic Secrets](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets)
 * [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets)
