@@ -12,31 +12,99 @@ next:
 ---
 ## SSH Legacy Algorithm
 
-```yaml
-############
-## Global ##
-############
-legacySigningAlg: "false"
-```
-
 As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
-## RDP User Access
-
-Set the `usernameSubClaim` with the relevant attribute that exists inside your IdP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
-
-```yaml
-############
-## Global ##
-############
-usernameSubClaim:
-# Optional, This overrides (for RDP only) the global parameter usernameSubClaim
-RDPusernameSubClaim:
-# Optional, This overrides (for SSH only) the global parameter usernameSubClaim
-SSHusernameSubClaim:
+```shell
+akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url <your-gateway-url:8000>
 ```
 
-This applies to all SSH-based sessions, including RDP and Linux systems. If you need different behavior for extracting `usernameSubClaim`, configure a separate setting for each session type.
+## Key Exchange Algorithm
+
+A Key Exchange Algorithm is a method used to securely exchange cryptographic keys between parties over an insecure channel such as a public network. The primary goal of these algorithms is to enable two or more parties to securely establish a shared secret key, which can then be used for encrypting and decrypting messages during communication.
+
+```shell
+akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url <your-gateway-url:8000>
+```
+
+The options for this are:
+
+* `curve25519-sha256`
+* `diffie-hellman-group-exchange-sha1`
+* `diffie-hellman-group-exchange-sha256`
+* `diffie-hellman-group14-sha1`
+* `diffie-hellman-group14-sha256`
+* `diffie-hellman-group16-sha512`
+* `diffie-hellman-group18-sha512`
+* `ecdh-sha2-nistp256`
+* `ecdh-sha2-nistp384`
+* `ecdh-sha2-nistp521`
+
+## SSH Fingerprint
+
+Use this parameter inside your deployment to store fingerprint information in a specific location within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes, make sure the Gateway Authentication method has the following permissions on that folder `create`,`read`, `list`. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
+
+```yaml
+sshConfig:
+  sshHostKeysPath: /MY_SSH_REMOTE_ACCESS_HOST_KEYS
+```
+
+## Concurrent Unauthenticated Connections
+
+To specify the maximum number of concurrent unauthenticated connections to the SSH component, set the `CONFIG_MAX_STARTUPS` variable as part of your deployment under the `sra.env` section:
+
+```yaml
+sra:
+  env:
+    - name: CONFIG_MAX_STARTUPS
+      value: "200:30:300"
+```
+
+## RDP Configuration
+
+### RDP & SSH User Access
+
+For RDP connections with an [externally provided username](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console), you can set your RDP or SSH resources to use the relevant attribute from the IdP JWT (For example, email) to establish a connection to the target server using the authenticated username. This applies to all SSH-based sessions, including RDP and Linux systems.
+
+**RDP:**
+
+```yaml
+akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
+```
+
+**SSH:**
+
+```yaml
+akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
+```
+
+### Support for Other Keyboard Layouts
+
+To enable a keyboard layout in your remote sessions (ie Windows), use the following command (the default is `en-us-qwerty`):
+
+```shell
+akeyless gateway update remote-access --keyboard-layout <layout-option>
+```
+
+```yaml Layout Options
+value: da-dk-qwerty # Danish (Qwerty)
+value: de-ch-qwertz # Swiss German (Qwertz)
+value: de-de-qwertz # German (Qwertz)
+value: en-gb-qwerty # UK English (Qwerty)
+value: en-us-qwerty # US English (Qwerty) default
+value: es-es-qwerty # Spanish (Qwerty)
+value: es-latam-qwerty # Latin American (Qwerty)
+value: fr-be-azerty # Belgian French (Azerty)
+value: fr-ch-qwertz # Swiss French (Qwertz)
+value: fr-fr-azerty # French (Azerty)
+value: hu-hu-qwertz # Hungarian (Qwertz)
+value: it-it-qwerty # Italian (Qwerty)
+value: ja-jp-qwerty # Japanese (Qwerty)
+value: no-no-qwerty # Norwegian (Qwerty)
+value: pl-pl-qwerty # Polish (Qwerty)
+value: pt-br-qwerty # Portuguese Brazilian (Qwerty)
+value: sv-se-qwerty # Swedish (Qwerty)
+value: tr-tr-qwerty # Turkish-Q (Qwerty)
+```
 
 ## Proxy
 
@@ -56,7 +124,7 @@ httpProxySettings:
 
 SRA supports the recording of RDP, SSH, DB & Kubernetes sessions.
 
-CLI-based sessions of **SSH**, **DB** & **Kubernetes** connections provide a full transcript of Input commands and Output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, Elasticsearch, or just using Syslog) - [review more information here](https://docs.akeyless.io/docs/ssh-log-forwarding).
+CLI-based sessions of **SSH**, **DB** & **Kubernetes** connections provide a full transcript of Input commands and Output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, Elasticsearch, or just using Syslog)  [review more information here](https://docs.akeyless.io/docs/ssh-log-forwarding).
 
 **RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage:
 
@@ -99,115 +167,6 @@ To authenticate using an explicit **AWS Key** provide the relevant `awsAccessKey
 
 To store local recordings inside your Bastion server, set the `KeepLocalRecording` with `true`, session recordings will be stored inside the bastion under `/home/akeyless/recordings`.
 
-## Session Management
+<br />
 
-To revoke an existing session from your [Akeyless Gateway Overview](https://docs.akeyless.io/docs/api-gw) or your IdP like Okta, or Keycloak, enable the `sessionTermination` and set the `apiURL` to your Gateway, or to your IdP URL.
-
-```yaml
-sessionTermination:
-    ## Session Termination is available for Akeyless GW, okta and keycloak
-      enabled: true
-      apiURL: ""
-      apiToken: ""
-```
-
-## Log Forwarding
-
-To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page.
-
-## Redirect to Bastion URLs
-
-To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**:
-
-```yaml
-ztbConfig:
-  # List of URLs that will be considered valid for redirection from the Portal back to the bastion
-  allowedBastionUrls: []
-```
-
-## Concurrent Unauthenticated Connections
-
-To specify the maximum number of concurrent unauthenticated connections to the SRA Bastion, set the following `env` variable under the `sshConfig` as follows:
-
-```yaml
-sshConfig:
-  env:
-    - name: CONFIG_MAX_STARTUPS
-      value: "200:30:300"
-```
-
-## SSH Fingerprint
-
-To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.  
-Note, please ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
-
-```yaml
-sshConfig:
-  env:
-    - name: SSH_HOST_KEYS_PATH
-      value: /MY_SSH_BASTION_HOST_KEYS
-```
-
-## Self-Hosted Zero Trust Portal
-
-To deploy a self-hosted instance of the Akeyless Zero trust portal as part of this chart, you can enable the `ztpConfg`:
-
-```yaml
-####################################################
-## Default values for akeyless-zero-trust-portal ##
-####################################################
-ztpConfig:
-  # Enable akeyless-zero-trust-portal.
-  enabled: true
-  replicaCount: 1
-  containerName: "zero-trust-portal"
-  image:
-    repository: akeyless/zero-trust-portal
-    pullPolicy: Always
-    # tag: latest
-  service:
-    # Remove the {} and add any needed annotations regarding your LoadBalancer implementation
-    annotations: {}
-    labels: {}
-    type: LoadBalancer
-    port: 8080
-```
-
-## Support for Other Keyboard Layouts
-
-To enable support for other keyboard layouts in your remote sessions (ie Windows), find the `ztbConfig` section and add the `KEYBOARD_LAYOUT` variable name and value (the default is `en-us-qwerty`) to the `env` as follows:
-
-```yaml
-####################################################
-## Default values for akeyless-zero-trust-bastion ##
-####################################################
-
-ztbConfig:
-
-  env:
-    - name: KEYBOARD_LAYOUT
-      value: fr-fr-azerty # Other options can be found below
-```
-
-```yaml Layout Options
-value: da-dk-qwerty # Danish (Qwerty)
-value: de-ch-qwertz # Swiss German (Qwertz)
-value: de-de-qwertz # German (Qwertz)
-value: en-gb-qwerty # UK English (Qwerty)
-value: en-us-qwerty # US English (Qwerty) default
-value: es-es-qwerty # Spanish (Qwerty)
-value: es-latam-qwerty # Latin American (Qwerty)
-value: fr-be-azerty # Belgian French (Azerty)
-value: fr-ch-qwertz # Swiss French (Qwertz)
-value: fr-fr-azerty # French (Azerty)
-value: hu-hu-qwertz # Hungarian (Qwertz)
-value: it-it-qwerty # Italian (Qwerty)
-value: ja-jp-qwerty # Japanese (Qwerty)
-value: no-no-qwerty # Norwegian (Qwerty)
-value: pl-pl-qwerty # Polish (Qwerty)
-value: pt-br-qwerty # Portuguese Brazilian (Qwerty)
-value: sv-se-qwerty # Swedish (Qwerty)
-value: tr-tr-qwerty # Turkish-Q (Qwerty)
-```
-
-For further configuration, please refer to the Akeyless official [repository](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-secure-remote-access/README.md#zero-trust-portal-parameters).
+<br />
