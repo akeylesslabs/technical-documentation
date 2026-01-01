@@ -130,43 +130,12 @@ akeyless gateway update remote-access-session-forwarding -h
 
 ## RDP Recordings
 
-**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage:
+**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage  To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage
 
-```yaml AWS S3
-config:
-    rdpRecord:
-      enabled: true
-      keepLocalRecording: false
-      # automatically upload session recordings to S3 in your AWS account
-      s3:
-        region: ""
-        bucketName: ""
-        bucketPrefix: ""
-        # optional, run with explicit credentials (without AWS IAM roles)
-        awsAccessKeyId: ""
-        awsSecretAccessKey: ""
-
-      # Specifies an existing secret with AWS credentials
-      existingSecret: ""
-```
-```yaml Azure Blob
-config:
-    rdpRecord:
-      enabled: true
-      keepLocalRecording: false
-      # automatically upload session recordings to Blob storage in your Azure account
-      azure:
-        storageAccountName: ""
-        storageContainerName: ""
-        # optional, run with explicit credentials (without Azure roles)
-        azureClientId: ""
-        azureClientSecret: ""
-        azureTenantId: ""
-        
-      # Specifies an existing secret with Azure Credentials
-      existingSecret: ""
+```shell
+akeyless gateway update remote-access-rdp-recording -h
 ```
 
-To authenticate using an explicit **AWS Key** provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **Kubernetes Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
+To store local recordings inside your Gateway , set the `rdp-session-storage` with `local`, session recordings will be stored inside the Gateway under `/home/akeyless/recordings`. Make sure to add Persistence Volume to your SRA deployment.
 
-To store local recordings inside your Gateway , set the `KeepLocalRecording` with `true`, session recordings will be stored inside the Gateway under `/home/akeyless/recordings`.
+<br />
