@@ -10,100 +10,183 @@ metadata:
 next:
   description: ''
 ---
-> 📘 New Chart
->
-> This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
->
-> [Read the documentation for the legacy chart](https://docs.akeyless.io/docs/secure-remote-access-advance).
+## SSH Legacy Algorithm
 
-## SSH Configuration
-
-### SSH Legacy Algorithm
-
-To support legacy algorithms for SSH signing, you can set the SSH Legacy Algorithm to `true` via the CLI to sign SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
-
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
-
-```shell
-akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url <your-gateway-url:8000>
+```yaml
+############
+## Global ##
+############
+legacySigningAlg: "false"
 ```
 
-### Key Exchange Algorithm
+As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
-A Key Exchange Algorithm is a method used to securely exchange cryptographic keys between parties over an insecure channel such as a public network. The primary goal of these algorithms is to enable two or more parties to securely establish a shared secret key, which can then be used for encrypting and decrypting messages during communication.
+## RDP User Access
 
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
+Set the `usernameSubClaim` with the relevant attribute that exists inside your IdP JWT, e.g. `email`, to set the connection to your target server using the current authenticated username.
 
-```shell
-akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url <your-gateway-url:8000>
+```yaml
+############
+## Global ##
+############
+usernameSubClaim:
+# Optional, This overrides (for RDP only) the global parameter usernameSubClaim
+RDPusernameSubClaim:
+# Optional, This overrides (for SSH only) the global parameter usernameSubClaim
+SSHusernameSubClaim:
 ```
 
-The options for this are:
+This applies to all SSH-based sessions, including RDP and Linux systems. If you need different behavior for extracting `usernameSubClaim`, configure a separate setting for each session type.
 
-* `curve25519-sha256`
-* `diffie-hellman-group-exchange-sha1`
-* `diffie-hellman-group-exchange-sha256`
-* `diffie-hellman-group14-sha1`
-* `diffie-hellman-group14-sha256`
-* `diffie-hellman-group16-sha512`
-* `diffie-hellman-group18-sha512`
-* `ecdh-sha2-nistp256`
-* `ecdh-sha2-nistp384`
-* `ecdh-sha2-nistp521`
+## Proxy
 
-### SSH Fingerprint
+To configure your proxy settings, you can set several parameters, including proxy settings for HTTP traffic, HTTPS traffic, and Ignore Hosts, using the `no_proxy` field, to prevent local traffic from going through your proxy server.
 
-Use this parameter to store fingerprint information in a specific folder within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
+For environments with proxy servers, the `no_proxy` field needs to be set with the following addresses: `svc.cluster.local` and `*.svc.cluster.local`.
 
-> 📘 Permissions
->
-> Ensure your remote access default Auth Method has the following permissions on that folder: `create`,`read`, `list`
+```yaml
+# Linux system HTTP Proxy
+httpProxySettings:
+  http_proxy: ""
+  https_proxy: ""
+  no_proxy: ""
+```
+
+## Session Recording
+
+SRA supports the recording of RDP, SSH, DB & Kubernetes sessions.
+
+CLI-based sessions of **SSH**, **DB** & **Kubernetes** connections provide a full transcript of Input commands and Output responses which can be forwarded to any Log Management / SIEM solution (such as Splunk, Elasticsearch, or just using Syslog) - [review more information here](https://docs.akeyless.io/docs/ssh-log-forwarding).
+
+**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage -To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage:
+
+```yaml AWS S3
+config:
+    rdpRecord:
+      enabled: true
+      keepLocalRecording: false
+      # automatically upload session recordings to S3 in your AWS account
+      s3:
+        region: ""
+        bucketName: ""
+        bucketPrefix: ""
+        # optional, run with explicit credentials (without AWS IAM roles)
+        awsAccessKeyId: ""
+        awsSecretAccessKey: ""
+
+      # Specifies an existing secret to be used for bastion, management AWS credentials
+      existingSecret: ""
+```
+```yaml Azure Blob
+config:
+    rdpRecord:
+      enabled: true
+      keepLocalRecording: false
+      # automatically upload session recordings to Blob storage in your Azure account
+      azure:
+        storageAccountName: ""
+        storageContainerName: ""
+        # optional, run with explicit credentials (without Azure IAM roles)
+        azureClientId: ""
+        azureClientSecret: ""
+        azureTenantId: ""
+        
+      # Specifies an existing secret to be used for bastion, management AWS credentials
+      existingSecret: ""
+```
+
+To authenticate using an explicit **AWS Key** provide the relevant `awsAccessKeyId` with the matching`awsSecretAccessKey`, or using an existing **Kubernetes Secret** containing those credentials using `existingSecret` setting, alternatively the authentication against your **S3 Bucket** will be done based on the instance **IAM Role**.
+
+To store local recordings inside your Bastion server, set the `KeepLocalRecording` with `true`, session recordings will be stored inside the bastion under `/home/akeyless/recordings`.
+
+## Session Management
+
+To revoke an existing session from your [Akeyless Gateway Overview](https://docs.akeyless.io/docs/api-gw) or your IdP like Okta, or Keycloak, enable the `sessionTermination` and set the `apiURL` to your Gateway, or to your IdP URL.
+
+```yaml
+sessionTermination:
+    ## Session Termination is available for Akeyless GW, okta and keycloak
+      enabled: true
+      apiURL: ""
+      apiToken: ""
+```
+
+## Log Forwarding
+
+To enable log forwarding to an existing log management system, please find a list of available target systems and configurations on [this](https://docs.akeyless.io/docs/ssh-log-forwarding) page.
+
+## Redirect to Bastion URLs
+
+To ensure only validated redirects are accepted, you can harden your bastion using the `allowedBastionUrls` variable with a list of URLs that will be considered valid for redirection from the Akeyless Zero Trust Portal back to the relevant **web-bastion**:
+
+```yaml
+ztbConfig:
+  # List of URLs that will be considered valid for redirection from the Portal back to the bastion
+  allowedBastionUrls: []
+```
+
+## Concurrent Unauthenticated Connections
+
+To specify the maximum number of concurrent unauthenticated connections to the SRA Bastion, set the following `env` variable under the `sshConfig` as follows:
 
 ```yaml
 sshConfig:
-  sshHostKeysPath: /MY_SSH_REMOTE_ACCESS_HOST_KEYS
+  env:
+    - name: CONFIG_MAX_STARTUPS
+      value: "200:30:300"
 ```
 
-### Concurrent Unauthenticated Connections
+## SSH Fingerprint
 
-To specify the maximum number of concurrent unauthenticated connections to the SSH component, set the `CONFIG_MAX_STARTUPS` variable:
+To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.  
+Note, please ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
 
 ```yaml
-env:
-  - name: CONFIG_MAX_STARTUPS
-    value: "200:30:300"
+sshConfig:
+  env:
+    - name: SSH_HOST_KEYS_PATH
+      value: /MY_SSH_BASTION_HOST_KEYS
 ```
 
-## RDP Configuration
+## Self-Hosted Zero Trust Portal
 
-### RDP & SSH User Access
-
-For RDP connections with an [externally provided username](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console), you can configure RDP/SSH authentication to use the relevant attribute from the IdP JWT (For example, email) to establish a connection to the target server using the authenticated username.
-
-This applies to all SSH-based sessions, including RDP and Linux systems.
-
-RDP:
+To deploy a self-hosted instance of the Akeyless Zero trust portal as part of this chart, you can enable the `ztpConfg`:
 
 ```yaml
-akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
+####################################################
+## Default values for akeyless-zero-trust-portal ##
+####################################################
+ztpConfig:
+  # Enable akeyless-zero-trust-portal.
+  enabled: true
+  replicaCount: 1
+  containerName: "zero-trust-portal"
+  image:
+    repository: akeyless/zero-trust-portal
+    pullPolicy: Always
+    # tag: latest
+  service:
+    # Remove the {} and add any needed annotations regarding your LoadBalancer implementation
+    annotations: {}
+    labels: {}
+    type: LoadBalancer
+    port: 8080
 ```
 
-SSH:
+## Support for Other Keyboard Layouts
+
+To enable support for other keyboard layouts in your remote sessions (ie Windows), find the `ztbConfig` section and add the `KEYBOARD_LAYOUT` variable name and value (the default is `en-us-qwerty`) to the `env` as follows:
 
 ```yaml
-akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim>
-```
+####################################################
+## Default values for akeyless-zero-trust-bastion ##
+####################################################
 
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access** or with the CLI.
+ztbConfig:
 
-### Support for Other Keyboard Layouts
-
-To enable a keyboard layout in your remote sessions (ie Windows), use the following command (the default is `en-us-qwerty`):
-
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**
-
-```shell
-akeyless gateway update remote-access --keyboard-layout <layout-option>
+  env:
+    - name: KEYBOARD_LAYOUT
+      value: fr-fr-azerty # Other options can be found below
 ```
 
 ```yaml Layout Options
@@ -127,14 +210,4 @@ value: sv-se-qwerty # Swedish (Qwerty)
 value: tr-tr-qwerty # Turkish-Q (Qwerty)
 ```
 
-For further configuration, please refer to the Akeyless official [repository](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-secure-remote-access/README.md#akeyless-secure-remote-access).
-
-> 🚧 SSH session ends after about 30 seconds on GKE/Ingress
->
-> If you’re running SRA behind a GKE HTTP(S) Load Balancer, the backend service timeout defaults to 30 seconds. Long-lived SSH (and WebSocket-based) sessions will close around this time.
->
-> To fix it, you should set a higher backend timeout with a BackendConfig (spec.timeoutSec) and annotate your Service.
->
-> See GCP docs on backend service timeout and Ingress BackendConfig. After updating, your SSH session lifetime should match your intended TTL.
->
-> For other vendors please refer to [System Requirements](https://docs.akeyless.io/docs/remote-access-system-requirements#additional-considerations) section.
+For further configuration, please refer to the Akeyless official [repository](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-secure-remote-access/README.md#zero-trust-portal-parameters).
