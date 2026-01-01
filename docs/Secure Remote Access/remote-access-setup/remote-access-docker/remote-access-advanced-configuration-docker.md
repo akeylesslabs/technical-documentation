@@ -111,8 +111,7 @@ To store local recordings inside your Gateway , set the `rdp-session-storage` wi
 Use this parameter inside your deployment to store fingerprint information in a specific location within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes, make sure the Gateway Authentication method has the following permissions on that folder `create`,`read`, `list`. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
 
 ```yaml
-sshConfig:
-  sshHostKeysPath: /MY_SSH_REMOTE_ACCESS_HOST_KEYS
+  SSH_HOST_KEYS_PATH="" /MY_SSH_REMOTE_ACCESS_HOST_KEYS
 ```
 
 ## Concurrent Unauthenticated Connections
