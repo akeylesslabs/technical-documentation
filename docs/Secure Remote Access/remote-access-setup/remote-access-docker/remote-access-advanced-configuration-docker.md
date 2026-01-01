@@ -111,32 +111,7 @@ To store local recordings inside your Gateway , set the `rdp-session-storage` wi
 Use this parameter inside your deployment to store fingerprint information in a specific location within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes, make sure the Gateway Authentication method has the following permissions on that folder `create`,`read`, `list`. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
 
 ```yaml
-  SSH_HOST_KEYS_PATH="" /MY_SSH_REMOTE_ACCESS_HOST_KEYS
-```
-
-## Concurrent Unauthenticated Connections
-
-To specify the maximum number of concurrent unauthenticated connections to the SSH component, set the `CONFIG_MAX_STARTUPS` variable as part of your deployment under the `sra.env` section:
-
-```yaml
-sra:
-  env:
-    - name: CONFIG_MAX_STARTUPS
-      value: "200:30:300"
-```
-
-## Proxy
-
-To configure your proxy settings, you can set several parameters, including proxy settings for HTTP traffic, HTTPS traffic, and Ignore Hosts, using the `no_proxy` field, to prevent local traffic from going through your proxy server.
-
-For environments with proxy servers, the `no_proxy` field needs to be set with the following addresses: `svc.cluster.local` and `*.svc.cluster.local`.
-
-```yaml
-# Linux system HTTP Proxy
-httpProxySettings:
-  http_proxy: ""
-  https_proxy: ""
-  no_proxy: ""
+SSH_HOST_KEYS_PATH=/MY_SSH_REMOTE_ACCESS_HOST_KEYS
 ```
 
 <br />
