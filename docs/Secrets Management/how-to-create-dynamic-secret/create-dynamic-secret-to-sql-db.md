@@ -309,7 +309,7 @@ The following explains how to use **Creation** and **Revocation** statements in 
 
 #### Creation Statement
 
-Please add the following to the creation statement `GRANT “{{name}}” TO postgres;`, where `postgres` refers to the `postgresql-username` variable.
+Please add the following to the creation statement `GRANT "{{name}}" TO postgres;`, where `postgres` refers to the `postgresql-username` variable.
 
 #### Revocation Statement
 
