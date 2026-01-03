@@ -1,5 +1,5 @@
 ---
-title: AI powered IDE Plug-In
+title: AI powered IDE PlugIn
 excerpt: >-
   Find and fix hardcoded secrets in your code by integrating directly with
   Akeyless
