@@ -1,5 +1,5 @@
 ---
-title: Cursor-AI / VS Code IDE Plug-In
+title: AI-powered IDE Plug-In
 excerpt: >-
   Find and fix hardcoded secrets in your code by integrating directly with
   Akeyless
@@ -7,11 +7,18 @@ deprecated: false
 hidden: false
 metadata:
   title: ''
-  description: 'Akeyless Secrets Manager for Cursor'
+  description: Akeyless Secrets Manager for Cursor
   robots: index
 next:
   description: ''
 ---
+  Supported IDE:
+
+* Cursor 
+* VS Code
+* Google antigravity
+* Windsurf
+
 This extension helps you find and fix hardcoded secrets (like API keys and passwords) in your code by integrating directly with Akeyless.
 
 <Image border={false} src="https://files.readme.io/8f791b6d749c7143a20f17d544592b57aa3b04ffd690c75dfcbb113fe3470bcc-Screenshot_2025-08-04_at_14.24.37.png" />
