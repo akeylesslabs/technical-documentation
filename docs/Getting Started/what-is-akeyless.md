@@ -31,7 +31,7 @@ Akeyless uses a Zero-Knowledge Encryption architecture, which avoids storing sen
 
 A deeper explanation of the architecture and its security properties is available in the **Zero-Knowledge Encryption Architecture** section.
 
-[Read more about Akeyless' Zero-Knowledge Encryption SaaS Architecture.](doc:zero-knowledge-architecture)
+[Read more about Akeyless' Zero-Knowledge Encryption SaaS Architecture.](https://docs.akeyless.io/docs/zero-knowledge-architecture)
 
 ***
 
@@ -39,7 +39,7 @@ A deeper explanation of the architecture and its security properties is availabl
 
 Distributed Fragments Cryptography (DFC) is the cryptographic framework that enables the Zero-Knowledge Encryption architecture. Instead of storing full encryption keys, DFC divides key material into multiple independent fragments. No single system ever holds the complete key, and an optional customer-held fragment allows organizations to retain exclusive control over critical operations.
 
-[Read more about Distributed Fragments Cryptography (DFC).](doc:dfc-overview)
+[Read more about Distributed Fragments Cryptography (DFC).](https://docs.akeyless.io/docs/dfc-overview)
 
 ***
 
@@ -54,7 +54,7 @@ Akeyless consists of several cooperating components:
 
 These components work together to enforce identity security with no requirement to store or reconstruct complete secrets or private keys.
 
-[Read more about Akeyless' platform components.](doc:components)
+[Read more about Akeyless' platform components.](https://docs.akeyless.io/docs/components)
 
 ***
 
