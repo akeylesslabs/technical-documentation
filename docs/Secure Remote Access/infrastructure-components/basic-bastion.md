@@ -69,12 +69,11 @@ helm show values akeyless/akeyless-zero-trust-bastion > values.yaml
 
 And replace the values with the ones from your environment where needed. The following parameters are mandatory:
 
-| Parameter | Default Value | Info |
-|---|---|---|
-| `dockerRepositoryCreds` | N/A | Credentials to access Akeyless internal image |
-| `apiGatewayURL` | `https://rest.akeyless.io` | A full URL of Akeyless Gateway. |
-| `privilegedAccess` | N/A | Optional credentials for zero-trust access: if provided, it is possible for end users to have only "list" permissions on an Akeyless item. Currently supported: AWS IAM. |
-| `allowedAccessIDs` | `[bl` | Limit access to privileged items only for these end user access IDs. If left empty, all access IDs are allowed. |
+| Parameter               | Default Value              | Info                                                                                                                                                                     |
+| `dockerRepositoryCreds` | N/A                        | Credentials to access Akeyless internal image                                                                                                                            |
+| `apiGatewayURL`         | `https://rest.akeyless.io` | A full URL of Akeyless Gateway.                                                                                                                                          |
+| `privilegedAccess`      | N/A                        | Optional credentials for zero-trust access: if provided, it is possible for end users to have only "list" permissions on an Akeyless item. Currently supported: AWS IAM. |
+| `allowedAccessIDs`      | `[bl`                      | Limit access to privileged items only for these end user access IDs. If left empty, all access IDs are allowed.                                                          |
 
 Install the chart:
 
