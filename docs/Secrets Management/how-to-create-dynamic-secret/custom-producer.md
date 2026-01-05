@@ -26,9 +26,9 @@ In addition, some custom dynamic secret implementations require user input every
 
 Implement the following endpoints to integrate with Akeyless:
 
-- **POST `/sync/create`**: Called each time a user requests a dynamic secret value.
-- **POST `/sync/revoke`**: Called each time temporary credentials must be revoked.
-- **POST `/sync/rotate`** (optional): Called to rotate the custom dynamic secret payload.
+* **POST `/sync/create`**: Called each time a user requests a dynamic secret value.
+* **POST `/sync/revoke`**: Called each time temporary credentials must be revoked.
+* **POST `/sync/rotate`** (optional): Called to rotate the custom dynamic secret payload.
 
 ## POST `/sync/create`
 
@@ -194,11 +194,11 @@ akeyless dynamic-secret create   --name <Dynamic Secret Name>   --gateway-url 'h
 
 Where:
 
-- `name`: Unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the dynamic secret, using `/` separators. If the folder does not exist, Akeyless creates it together with the dynamic secret.
-- `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
-- `create-sync-url`: URL of an endpoint that implements the `POST /sync/create` operation.
-- `revoke-sync-url`: URL of an endpoint that implements the `POST /sync/revoke` operation.
-- `rotate-sync-url`: URL of an endpoint that implements the `POST /sync/rotate` operation.
+* `name`: Unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the dynamic secret, using `/` separators. If the folder does not exist, Akeyless creates it together with the dynamic secret.
+* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+* `create-sync-url`: URL of an endpoint that implements the `POST /sync/create` operation.
+* `revoke-sync-url`: URL of an endpoint that implements the `POST /sync/revoke` operation.
+* `rotate-sync-url`: URL of an endpoint that implements the `POST /sync/rotate` operation.
 
 You can find the complete list of parameters for this command in [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluecustomp).
 
