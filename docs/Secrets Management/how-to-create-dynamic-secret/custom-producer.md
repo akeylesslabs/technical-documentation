@@ -10,339 +10,204 @@ metadata:
 next:
   description: ''
 ---
-Akeyless supports Dynamic Secrets for a growing number of services. If you need to integrate with a service that is not yet natively implemented in Akeyless, you can create a custom dynamic secret implementation that calls the service on demand to generate or revoke temporary secrets.  
+Akeyless supports Dynamic Secrets for a growing number of services. If you need to integrate with a service that is not yet natively implemented in Akeyless, you can create a custom dynamic secret implementation that calls the service on demand to generate or revoke temporary secrets.
 
-Akeyless communicates with custom dynamic secret implementations over HTTP, and delegates `create`  
-and `revoke` operations to the external services using a particular set of HTTP endpoints that follow a specific input/output format.
+Akeyless communicates with custom dynamic secret implementations over HTTP. It delegates `create` and `revoke` operations to the external service by calling a defined set of HTTP endpoints that follow a specific input/output schema.
 
-Once you have set up a custom dynamic secret implementation, you can create a custom dynamic secret that calls the implementation to generate dynamic credentials.
+After you set up a custom dynamic secret implementation, you can create a custom dynamic secret that calls the implementation to generate dynamic credentials.
 
 ## Inputs
 
-Custom dynamic secret implementations are completely stateless. Akeyless provides encrypted storage for any user credentials, API keys, or other secret data required by a particular implementation, and provides them to the dynamic secret implementation with every request.
+Custom dynamic secret implementations are stateless. Akeyless provides encrypted storage for any user credentials, API keys, or other secret data required by a particular implementation. Akeyless includes those values in every request to the dynamic secret implementation.
 
-In addition, some custom dynamic secret implementations require user input every time a new secret value is requested. Akeyless accepts user input for every `get-dynamic-secret-value` operation for custom dynamic secret implementations.
+In addition, some custom dynamic secret implementations require user input every time a new secret value is requested. Akeyless accepts user input on every `get-dynamic-secret-value` operation for custom dynamic secret implementations.
 
-## Set Up a Custom Dynamic Secret Implementation
+## Set up a custom dynamic secret implementation
 
 Implement the following endpoints to integrate with Akeyless:
 
-* **POST /sync/create**: This endpoint is called each time a user requests a dynamic secret value.
-* **POST /sync/revoke**: This endpoint is called each time temporary credentials need to be revoked.
-* **POST /sync/rotate**: (Optional) This endpoint is called to rotate the custom dynamic secret payload.
+- **POST `/sync/create`**: Called each time a user requests a dynamic secret value.
+- **POST `/sync/revoke`**: Called each time temporary credentials must be revoked.
+- **POST `/sync/rotate`** (optional): Called to rotate the custom dynamic secret payload.
 
-### POST /Sync/create Input
+## POST `/sync/create`
+
+### Input
 
 This endpoint is called each time a user requests a dynamic secret value.
 
-```curl
+```json
 POST /sync/create
 {
-    "payload": "secret data stored by Akeyless",
-    "input": { "user": "input" },
-    "client_info": {
-        "access_id": "p-1234",
-        "sub_claims": {
-            "claim1": ["value1"]
-        }
+  "payload": "secret data stored by Akeyless",
+  "input": { "user": "input" },
+  "client_info": {
+    "access_id": "p-1234",
+    "sub_claims": {
+      "claim1": ["value1"]
     }
+  }
 }
 ```
 
 Where:
 
-<HTMLBlock>{`
-<table style="width: 100%; border-collapse: collapse;">
-<thead>
-<tr>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>payload</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`mongodb://user:password@host`</p>
-<p>`{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}`</p>
-</td>
-</tr>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>input</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) User input provided with the current `get-dynamic-secret-value` operation. This is a JSON object, and its format depends on the information provided by the user.</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;domain&quot;:&quot;foo.example.com&quot;,   &quot;use_staging&quot;:true }`</p>
-<p>`{&quot;project_id&quot;:42}`</p>
-</td>
-</tr>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>client_info</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>Information about the user requesting the credentials. It includes the user&#39;s Akeyless access ID, as well as any sub-claims.</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;access_id&quot;: &quot;p-1234&quot;,   &quot;sub_claims&quot;: {     &quot;claim1&quot;: [&quot;value1&quot;]   } }`</p>
-</td>
-</tr>
-</tbody>
-</table>
-`}</HTMLBlock>
+| Field | Description | Example |
+| --- | --- | --- |
+| `payload` | (Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway. | `mongodb://user:password@host`, `{"user":"foo","pass":"bar"}` |
+| `input` | (Optional) User input provided with the current `get-dynamic-secret-value` operation. This is a JSON object and its schema depends on the inputs collected from the user. | `{"domain":"foo.example.com","use_staging":true}`, `{"project_id":42}` |
+| `client_info` | Information about the user requesting the credentials. It includes the user's Akeyless access ID and any sub-claims. | `{"access_id":"p-1234","sub_claims":{"claim1":["value1"]}}` |
 
-### POST /Sync/create Output
+### Output
 
-```http
+```json
 HTTP 200 OK
 {
-    "id": "<unique id>",
-    "response": { <response as json object> }
+  "id": "<unique id>",
+  "response": { "any": "json object" }
 }
 ```
 
 Where:
 
-<HTMLBlock>{`
-<table style="width: 100%; border-collapse: collapse;">
-<thead>
-<tr>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>id</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-  <p>
-    A unique identifier for the temporary credentials, which is required during a `POST /sync/revoke` operation.
-  </p>
-</td>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`tmp.user1234`</p>
-<p>`f2fa1940-8d7e-41d4-a688-8d915795e88b`</p>
-</td>
-</tr>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>response</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A JSON object that includes any fields required by the particular use case.</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`{   &quot;cert&quot;:&quot;<redacted>&quot;,   &quot;private_key&quot;:&quot;<redacted>&quot; }`</p>
-<p>`{&quot;password&quot;:&quot;`strongpassword!`&quot;}`</p>
-</td>
-</tr>
-</tbody>
-</table>
-`}</HTMLBlock>
+| Field | Description | Example |
+| --- | --- | --- |
+| `id` | A unique identifier for the temporary credentials. This value is required during a `POST /sync/revoke` operation. | `tmp.user1234`, `f2fa1940-8d7e-41d4-a688-8d915795e88b` |
+| `response` | A JSON object that includes any fields required by the specific use case. | `{"cert":"<redacted>","private_key":"<redacted>"}`, `{"password":"strongpassword!"}` |
 
-### POST /Sync/revoke Input
+## POST `/sync/revoke`
 
-This endpoint is called every time credentials need to be revoked. This can happen either when the **TTL** defined for the custom dynamic secret expires, or if an administrator explicitly requests that particular credentials are revoked.
+### Input
 
-Not every service supports revocation. If not, the operation should just return the specified IDs.
+This endpoint is called every time credentials need to be revoked. This can happen when the **TTL** defined for the custom dynamic secret expires, or when an administrator explicitly requests that specific credentials are revoked.
 
-```http
+Not every service supports revocation. If revocation is not supported, the operation should still return the specified IDs.
+
+```json
 POST /sync/revoke
 {
-    "payload": "secret data stored by Akeyless",
-    "ids": ["abc", "def"]
+  "payload": "secret data stored by Akeyless",
+  "ids": ["abc", "def"]
 }
 ```
 
 Where:
 
-<HTMLBlock>{`
-<table style="width: 100%; border-collapse: collapse;">
-<thead>
-<tr>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>payload</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>(Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`mongodb://user:password@host`</p>
-<p>`{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}`</p>
-</td>
-</tr>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>ids</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>A list of IDs to revoke. These IDs were previously received in response to `POST /sync/create` operations.</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`[&quot;foo&quot;, &quot;bar&quot;]`</p>
-</td>
-</tr>
-</tbody>
-</table>
-`}</HTMLBlock>
+| Field | Description | Example |
+| --- | --- | --- |
+| `payload` | (Optional) Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway. | `mongodb://user:password@host`, `{"user":"foo","pass":"bar"}` |
+| `ids` | A list of IDs to revoke. These IDs were previously received in response to `POST /sync/create` operations. | `["foo","bar"]` |
 
-### POST /Sync/revoke Output
+### Output
 
-```http
+```json
 HTTP 200 OK
 {
-    "revoked": ["abc", "def"],
-    "message": "id foo was not removed: user does not exist"
+  "revoked": ["abc", "def"],
+  "message": "id foo was not removed: user does not exist"
 }
 ```
 
 Where:
 
-| Field   | Description                                                                                                                        | Example                                         |
-| :------ | :--------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------- |
-| revoked | A list of revoked IDs.                                                                                                             | `["foo", "bar"]`                                |
-| message | An optional message in case any of the specified IDs were not properly revoked. This field should only be used for error handling. | `"id foo was not removed: user does not exist"` |
+| Field | Description | Example |
+| --- | --- | --- |
+| `revoked` | A list of revoked IDs. | `["foo","bar"]` |
+| `message` | Optional message if any of the specified IDs were not revoked. Use this field for error handling only. | `"id foo was not removed: user does not exist"` |
 
-### POST /Sync/rotate Input
+## POST `/sync/rotate` (optional)
 
-This endpoint is called to rotate the custom producer secret payload.
+### Input
 
-```curl
+This endpoint is called to rotate the custom dynamic secret payload.
+
+```json
 POST /sync/rotate
 {
-    "payload": "secret data stored by Akeyless"
+  "payload": "secret data stored by Akeyless"
 }
 ```
 
 Where:
 
-<HTMLBlock>{`
-<table style="width: 100%; border-collapse: collapse;">
-<thead>
-<tr>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>payload</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway.</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`mongodb://user:password@host`</p>
-<p>`{&quot;user&quot;:&quot;foo&quot;,&quot;pass&quot;:&quot;bar&quot;}`</p>
-</td>
-</tr>
-</tbody>
-</table>
-`}</HTMLBlock>
+| Field | Description | Example |
+| --- | --- | --- |
+| `payload` | Secret credentials stored by Akeyless. You define these credentials when you set up the custom dynamic secret in the Akeyless Gateway. | `mongodb://user:password@host`, `{"user":"foo","pass":"bar"}` |
 
-### POST /Sync/rotate Output
+### Output
 
-```curl
+```json
 HTTP 200 OK
 {
-    "payload": "new payload to replace the existing one"
+  "payload": "new payload to replace the existing one"
 }
 ```
 
 Where:
 
-<HTMLBlock>{`
-<table style="width: 100%; border-collapse: collapse;">
-<thead>
-<tr>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Field</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Description</th>
-  <th style={{ border: "1px solid #ddd", padding: "8px" }}>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>payload</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>New secret credentials to replace the existing credentials stored by Akeyless.</p>
-</td>
-  <td style={{ border: "1px solid #ddd", padding: "8px" }}><p>`mongodb://user:password@host`</p>
-<p>`{&quot;user&quot;:&quot;mun&quot;,&quot;pass&quot;:&quot;goh&quot;}`</p>
-</td>
-</tr>
-</tbody>
-</table>
-`}</HTMLBlock>
+| Field | Description | Example |
+| --- | --- | --- |
+| `payload` | New secret credentials to replace the existing credentials stored by Akeyless. | `mongodb://user:password@host`, `{"user":"mun","pass":"goh"}` |
 
-> 👍 Note
+> **Note**
 >
-> Payload rotation is performed on a best-effort basis. The rotation process could fail, and even after a successful `/sync/rotate` request the dynamic secret could still use the old payload. For these cases, the custom dynamic secret implementation should support both the old payload and the new payload until there is at least one `/sync/create` or `/sync/revoke` request that uses the old payload.
+> Payload rotation is performed on a best-effort basis. The rotation process can fail, and even after a successful `/sync/rotate` request the dynamic secret can still use the old payload. To handle this scenario, the custom dynamic secret implementation should support both the old payload and the new payload until it receives at least one `/sync/create` or `/sync/revoke` request that uses the new payload.
 
-### Authentication
+## Authentication
 
 Custom dynamic secret implementations should only handle requests made by a known Akeyless Gateway instance. Every request made by Akeyless to a custom dynamic implementation includes an `AkeylessCreds` header with a temporary JWT token issued and signed by Akeyless.
 
 Use the following endpoint to verify all requests:
 
-```http
+```json
 POST auth.akeyless.io/validate-producer-credentials
 {
   "creds": "<redacted jwt token>",
   "expected_access_id": "p-1234",
-  "expected_item_name": "/custom-producer-foo",
+  "expected_item_name": "/custom-producer-foo"
 }
 ```
 
 Where:
 
-| Field              | Description                                                                                                                                                                                                                    | Example                  |
-| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------- |
-| `creds`              | A temporary JWT token issued and signed by Akeyless that is included in the `AkeylessCreds` header of every `POST /sync/create` and `POST /sync/revoke` request.                                                               |                          |
-| `expected_access_id` | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`               |
-| `expected_item_name` | (Optional) The item name of the custom dynamic secret. This can be helpful if a single Akeyless Gateway runs multiple custom Dynamic Secrets, and the custom dynamic secret implementation should only respond to one of them. | `"/custom-producer-foo"` |
+| Field | Description | Example |
+| --- | --- | --- |
+| `creds` | Temporary JWT token included in the `AkeylessCreds` header of every `POST /sync/create` and `POST /sync/revoke` request. | (redacted) |
+| `expected_access_id` | Initial access ID used for the Akeyless Gateway (not the end-user credentials). | `"p-1234"` |
+| `expected_item_name` | (Optional) Item name of the custom dynamic secret. Use this when a single Akeyless Gateway runs multiple custom dynamic secrets and the implementation should only respond to one of them. | `"/custom-producer-foo"` |
 
-### Dry-Run Mode
+## Dry-run mode
 
-When you define a custom dynamic secret in the Akeyless Gateway, the gateway makes several requests to the endpoints used in the configuration to ensure that the configuration is correct. These dry-run requests include the configured secret payload and empty user input, and all use the **p-custom** user access ID. Dry-run requests are authenticated using an Akeyless Gateway access ID.
+When you define a custom dynamic secret in the Akeyless Gateway, the gateway makes several requests to the endpoints configured for the integration. These dry-run requests include the configured secret payload and an empty user input object, and they use the **p-custom** user access ID.
 
-Ensure that your custom dynamic secret implementation can handle these requests without failing, even though there is no user or user input, and return a `Success` response that includes a predefined ID.
+Dry-run requests are authenticated using an Akeyless Gateway access ID. Ensure that your custom dynamic secret implementation can handle these requests without failing, even though there is no end user or user input. The implementation should return a success response that includes a predefined ID.
 
-This ID is sent to the `POST /sync/revoke` endpoint, which should also be configured to handle dry-run mode correctly.
+That predefined ID is sent to the `POST /sync/revoke` endpoint, which must also support dry-run behavior.
 
-## Create a Custom Dynamic Secret with the CLI
+## Create a custom dynamic secret with the CLI
 
-Once you have a custom dynamic implementation that follows these specifications, create a new custom dynamic secret from the Akeyless CLI.
+After you have a custom dynamic secret implementation that follows these specifications, create a custom dynamic secret from the Akeyless CLI.
 
-To create a custom dynamic secret with the CLI, run the following command:
-
-```shell
-akeyless dynamic-secret create \
---name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---create-sync-url 'https://example.com/sync/create:Port' \
---revoke-sync-url 'https://example.com/sync/revoke:Port' \
---revoke-sync-url 'https://example.com/sync/rotate:Port'
+```bash
+akeyless dynamic-secret create   --name <Dynamic Secret Name>   --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'   --create-sync-url 'https://example.com/sync/create:Port'   --revoke-sync-url 'https://example.com/sync/revoke:Port'   --rotate-sync-url 'https://example.com/sync/rotate:Port'
 ```
 
 Where:
 
-* `name`: A unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
+- `name`: Unique name of the dynamic secret. The name can include the path to the virtual folder where you want to create the dynamic secret, using `/` separators. If the folder does not exist, Akeyless creates it together with the dynamic secret.
+- `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+- `create-sync-url`: URL of an endpoint that implements the `POST /sync/create` operation.
+- `revoke-sync-url`: URL of an endpoint that implements the `POST /sync/revoke` operation.
+- `rotate-sync-url`: URL of an endpoint that implements the `POST /sync/rotate` operation.
 
-* `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+You can find the complete list of parameters for this command in [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluecustomp).
 
-* `create-sync-url`: The URL of an endpoint that implements the /sync/create method.
-
-* `revoke-sync-url`: The URL of an endpoint that implements the /sync/revoke method.
-
-* `rotate-sync-url`: The URL of an endpoint that implements the /sync/rotate method.
-
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluecustomp) section.
-
-> 👍 Note
+> **Note**
 >
-> To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To work with Dynamic Secrets from the Akeyless Console, you must configure the Gateway URL to enable communication between the Akeyless SaaS and the Akeyless Gateway.
 
-## Usage Examples
+## Usage examples
 
-You can find examples of custom dynamic secret implementations in this [GitHub repository](https://github.com/akeylesslabs/custom-producer).
+You can find examples of custom dynamic secret implementations in the [custom-producer GitHub repository](https://github.com/akeylesslabs/custom-producer).
 
-The repository includes sample authentication code, deployment examples (using a Docker image, or [AWS Lambda function](https://github.com/akeylesslabs/custom-producer/tree/master/go/echoserver#setting-up-aws-lambda), or similar) and actual dynamic secret implementations, such as [Let’s Encrypt](https://github.com/akeylesslabs/custom-producer/tree/master/go/letsencrypt).
+The repository includes sample authentication code, deployment examples (for example, using a Docker image or an [AWS Lambda function](https://github.com/akeylesslabs/custom-producer/tree/master/go/echoserver#setting-up-aws-lambda)), and implementations such as [Let’s Encrypt](https://github.com/akeylesslabs/custom-producer/tree/master/go/letsencrypt).
