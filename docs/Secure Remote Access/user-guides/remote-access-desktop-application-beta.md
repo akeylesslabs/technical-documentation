@@ -89,23 +89,23 @@ You should be able to see a list of the resources you can connect to, upon your 
 2. **Application Mapping** - In order to connect to remote resources, the user should map them to applications. When using mapped application, the Desktop application launches the native application and securely initiates the connection.
    1. Listed Below are the native clients that supported by the Desktop Application
 
-| Operating System | Resource                                 | Application Type  | Comments                                                                                                  |
-| ---------------- | :--------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
-| **Windows**      | MSSQL Server                             | Azure Data Studio |                                                                                                           |
-|                  | RDP                                      | Remote Desktop    |                                                                                                           |
-|                  | Postgres DB                              | DBeaver           |                                                                                                           |
-|                  | SSH Cert Issuer                          | PuTTY             | WinSCP is a prerequisite for PuTTY                                                                        |
-|                  | SSH username & password                  | PuTTY             | Specify Port 2022                                                                                         |
-|                  | SSH File Transfer                        | WinSCP            | Note: File transfers for certificate-based targets have a known limitation and currently is not supported |
-|                  | PowerShell                               | PuTTY             | PS Tag should be configured on the secret item                                                            |
-|                  | Direct Connection / Secure Remote Access | Default Browser   |                                                                                                           |
-| **macOS**        | MSSQL Server                             | Azure Data Studio |                                                                                                           |
-|                  | Postgres DB                              | DBeaver           |                                                                                                           |
-|                  | RDP                                      | WindowsApp        |                                                                                                           |
-|                  | SSH Cert Issuer                          | Terminal          |                                                                                                           |
-|                  | SSH username & password                  | Terminal          |                                                                                                           |
-|                  | Direct Connection / Secure Remote Access | Default Browser   |                                                                                                           |
-|                  | SSH File Transfer (SFTP)                 | Terminal          |                                                                                                           |
+| Operating System | Resource                                 | Application Type  | Comments                                                                                                   |
+|---|---|---|---|
+| **Windows** | MSSQL Server | Azure Data Studio | |
+|  | RDP | Remote Desktop | |
+|  | Postgres DB | DBeaver | |
+|  | SSH Cert Issuer | PuTTY | WinSCP is a prerequisite for PuTTY. |
+|  | SSH username & password | PuTTY | Specify port `2022`. |
+|  | SSH File Transfer | WinSCP | Note: File transfers for certificate-based targets have a known limitation and are currently not supported. |
+|  | PowerShell | PuTTY | PS tag should be configured on the secret item. |
+|  | Direct Connection / Secure Remote Access | Default Browser | |
+| **macOS** | MSSQL Server | Azure Data Studio | |
+|  | Postgres DB | DBeaver | |
+|  | RDP | Windows App | |
+|  | SSH Cert Issuer | Terminal | |
+|  | SSH username & password | Terminal | |
+|  | Direct Connection / Secure Remote Access | Default Browser | |
+|  | SSH File Transfer (SFTP) | Terminal | |
 
 > 🚧 Multiple Hosts / Linked Targets
 >
