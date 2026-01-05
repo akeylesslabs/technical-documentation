@@ -600,12 +600,12 @@ config:
   # MD037: Spaces inside emphasis markers
   # Knobs:
   #   - severity: error|warning|info
-  MD037: false
+  MD037: true
 
   # MD038: Spaces inside code spans
   # Knobs:
   #   - severity: error|warning|info
-  MD038: false
+  MD038: true
 
   # MD039: Spaces inside link text
   # Knobs:
@@ -615,7 +615,7 @@ config:
   # MD040: Code fences must specify language
   # Knobs:
   #   - severity: error|warning|info
-  MD040: false
+  MD040: true
 
   # MD041: First line should be top-level heading
   # Knobs:
@@ -661,7 +661,8 @@ config:
   #       - consistent
   #       - fenced
   #       - indented
-  MD046: false
+  MD046:
+    style: fenced
 
   # MD047: File must end with newline
   # Knobs:
@@ -767,16 +768,14 @@ config:
   # MD060: Table column style
   # Knobs:
   #   - severity: error|warning|info
-  #   - style: consistent|aligned|compact|tight
+  #   - style: aligned|compact|tight
   #   - style options:
-  #       - consistent
   #       - aligned
   #       - compact
   #       - tight
   #
-  # Note: ReadMe.com uses aligned
-  MD060:
-    style: aligned
+  # Note: ReadMe.com uses aligned by default
+  MD060: false
 
 globs:
   - "docs/**/*.md"
