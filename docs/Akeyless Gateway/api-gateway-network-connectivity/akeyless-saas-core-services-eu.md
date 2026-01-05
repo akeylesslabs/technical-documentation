@@ -29,5 +29,5 @@ The table below outlines the primary functionalities of Akeyless microservices i
 | Akeyless CLI      | `https://akeyless-cli.s3.us-east-2.amazonaws.com`                                                                                                                                                                                                                  | N/A                                                         | 443        | S3 bucket to download & update Akeyless CLI versions                      |
 
 <Callout icon="📘" theme="info">
-  *Note:* When using proxy services, you can use `https://sqs.eu-central-1.amazonaws.com` instead of classic MQ service endpoints. If you are not working with a proxy service and still want to utilize SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
+  *Note:* When using proxy services, you can use `https://sqs.eu-central-1.amazonaws.com` instead of the classic MQ service endpoints. If you are not working with a proxy service and still want to utilize SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
 </Callout>
