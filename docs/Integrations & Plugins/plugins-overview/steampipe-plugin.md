@@ -145,10 +145,10 @@ You can find more examples on our Steampipe Hub page [here](https://hub.steampip
 
 The following tables are available for querying.
 
-| Table                    | Description                     |
-| ------------------------ | ------------------------------- |
+| Table | Description |
+| --- | --- |
 | _akeyless\_auth\_method_ | Akeyless Authentication Methods |
-| _akeyless\_gateway_      | Akeyless Gateways               |
-| _akeyless\_item_         | Akeyless Items                  |
-| _akeyless\_role_         | Akeyless Access Roles           |
-| _akeyless\_target_       | Akeyless Targets                |
+| _akeyless\_gateway_ | Akeyless Gateways |
+| _akeyless\_item_ | Akeyless Items |
+| _akeyless\_role_ | Akeyless Access Roles |
+| _akeyless\_target_ | Akeyless Targets |
