@@ -86,8 +86,6 @@ value: sv-se-qwerty # Swedish (Qwerty)
 value: tr-tr-qwerty # Turkish-Q (Qwerty)
 ```
 
-<br />
-
 ## Session Log Forwarding
 
 The Akeyless SRA support both Session Log Forwarding that capture CLI actions input and output during session, those can be forwarder to any logging system. This settings can be added via the Gateway management console or via CLI:
@@ -113,5 +111,3 @@ Use this parameter inside your deployment to store fingerprint information in a 
 ```yaml
 SSH_HOST_KEYS_PATH=/MY_SSH_REMOTE_ACCESS_HOST_KEYS
 ```
-
-<br />

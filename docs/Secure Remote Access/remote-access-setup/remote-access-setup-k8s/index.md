@@ -112,5 +112,3 @@ web-gw-akeyless-gateway-55c866c9fc-lztl7      1/1     Running   0          5s
 To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`, using one of the  [supported authentication methods](https://docs.akeyless.io/docs/access-resources-remotely#prerequisites).
 
 Once logged in, you will see Secrets with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or via CLI.
-
-<br />
