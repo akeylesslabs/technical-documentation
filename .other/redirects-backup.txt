@@ -290,7 +290,7 @@
 /update-auth-method-ldap -> /reference/updateauthmethodldap
 /validate-token -> /reference/validatetoken
 /encrypt-gpg -> /reference/encryptgpg
-/get-secret-value -> /reference/getsecretvalue
+/get-secret-value -> /reference/getsecretvalue-1
 /kmip-set-environment-state -> /reference/kmipsetenvironmentstate
 /generate-csr -> /reference/generatecsr
 /static-creds-auth -> /reference/staticcredsauth
