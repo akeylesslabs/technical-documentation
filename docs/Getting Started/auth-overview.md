@@ -54,7 +54,7 @@ Authentication is _who_ is making a request: the identity of the user, service, 
 
 Universal Identity is especially useful for large organizations standardizing identity strategy across multiple platforms.
 
-[Read more about Akeyless' Authentication Methods.](doc:access-and-authentication-methods)
+[Read more about Akeyless' Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
 ***
 
@@ -93,7 +93,7 @@ Akeyless allows RBAC and ABAC to be used together. For example:
 
 This layered approach provides strong access governance.
 
-[Read more about RBAC with Akeyless.](doc:rbac)
+[Read more about RBAC with Akeyless.](https://docs.akeyless.io/docs/rbac)
 
 ***
 

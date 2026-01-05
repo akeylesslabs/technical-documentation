@@ -5,12 +5,12 @@ hidden: false
 metadata:
   robots: index
 ---
-You can create a Rotated Secret for an OpenAI [Admin API Key](https://platform.openai.com/docs/api-reference/admin-api-keys) . Before you get started, ensure you create an [OpenAI Target](doc:openai-target) that includes the Organization ID , as well as an OpenAI Admin API Key.
+You can create a Rotated Secret for an OpenAI [Admin API Key](https://platform.openai.com/docs/api-reference/admin-api-keys) . Before you get started, ensure you create an [OpenAI Target](https://docs.akeyless.io/docs/openai-target) that includes the Organization ID , as well as an OpenAI Admin API Key.
 
 ## Prerequisites
 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
-* [OpenAI Target](doc:openai-target) which holds an OpenAI Admin API Key.
+* [OpenAI Target](https://docs.akeyless.io/docs/openai-target) which holds an OpenAI Admin API Key.
 
 ## Create a Rotated OpenAI Secret with the CLI
 
@@ -36,15 +36,15 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `target-name`: The name of the [OpenAI Target](doc:openai-target)with which the Rotated Secret should be associated.
+* `target-name`: The name of the [OpenAI Target](https://docs.akeyless.io/docs/openai-target)with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target OpenAI account.
   * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [OpenAI Target](doc:openai-target) item.
+  * `use-target-creds` - Use the credentials defined on the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
 
-* `rotator-type`: The type of credentials to be rotated. For [OpenAI Target](doc:openai-target), choose:
+* `rotator-type`: The type of credentials to be rotated. For [OpenAI Target](https://docs.akeyless.io/docs/openai-target), choose:
   * `api-key` - to rotate the API Key specified in the Rotated Secret.
-  * `target` - to rotate the API Key for the user specified in the [OpenAI Target](doc:openai-target).
+  * `target` - to rotate the API Key for the user specified in the [OpenAI Target](https://docs.akeyless.io/docs/openai-target).
 
 * `api-key-id`: The Admin API key ID to rotate.
 
@@ -66,15 +66,15 @@ Where:
 
 * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [OpenAI Target](doc:openai-target) to be associated with the Rotated Secret.
+* **Target:** Defines the name of the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target OpenAI account:
   * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [OpenAI Target](doc:openai-target) item.
+  * **Target credentials:** Use the credentials defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
 
 * **Rotator type:** Determines the rotator type:
   * **API Key**: Rotates the API Key defined inside the Rotated Secret item.
-  * **Target**: Rotates the API Key defined inside the [OpenAI Target](doc:openai-target) item.
+  * **Target**: Rotates the API Key defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
 
 * **API Key ID:** Defines the API Key ID whose API Key should be rotated.
 
