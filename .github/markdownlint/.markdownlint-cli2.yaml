@@ -773,8 +773,10 @@ config:
   #       - aligned
   #       - compact
   #       - tight
+  #
+  # Note: ReadMe.com uses aligned
   MD060:
-    style: compact
+    style: aligned
 
 globs:
   - "docs/**/*.md"
