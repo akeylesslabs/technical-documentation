@@ -545,10 +545,15 @@ module.exports = [
       }
     }
   },
-
+  
   /**
    * AKY010: Enforce ISO 8601 date format (YYYY-MM-DD)
-   * Style guide: Dates must be YYYY-MM-DD. :contentReference[oaicite:10]{index=10}
+   * Style guide: Dates must be YYYY-MM-DD.
+   *
+   * Updated:
+   * - Ignores dates inside URLs and file names (e.g., Screenshot_at_Nov_10_13-44-36.png).
+   * - Strips HTML tags and removes href/src attribute values before evaluation.
+   * - Month-name date detection requires an actual month-date pattern (avoids "may be idle" false positives).
    */
   {
     names: ["AKY010", "iso-date-format"],
@@ -561,25 +566,58 @@ module.exports = [
       const mmddyyyy = /\b\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4}\b/;
       const monthName = /\b(jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\b/i;
 
+      // Strip common attribute values like src="..." href='...'
+      function stripHtmlAttributeValues(text) {
+        return (text || "")
+          .replace(/\b(?:src|href)=(".*?"|'.*?')/gi, "")
+          .replace(/\b(?:src|href)=([^\s>]+)/gi, "");
+      }
+
+      // Remove filename-like tokens that include digits, months, and separators
+      function stripFilenames(text) {
+        return (text || "")
+          .replace(
+            /\b[^\s/\\]+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[^\s/\\]*\.(?:png|jpg|jpeg|gif|webp|svg|pdf)\b/gi,
+            ""
+          )
+          .replace(
+            /\b[^\s/\\]*\d{1,4}[\/_-]\d{1,2}[\/_-]\d{1,4}[^\s/\\]*\.(?:png|jpg|jpeg|gif|webp|svg|pdf)\b/gi,
+            ""
+          );
+      }
+
       for (let i = 0; i < lines.length; i++) {
         const ln = i + 1;
         if (codeLines.has(ln)) continue;
         if (isHeadingLine(lines[i])) continue;
 
-        const text = stripInlineCode(lines[i]);
+        let text = stripInlineCode(lines[i]);
+        text = stripUrls(text);
+        text = stripHtmlTags(text);
+        text = stripHtmlAttributeValues(text);
+        text = stripFilenames(text);
 
         // Flag common numeric formats (MM/DD/YYYY, DD-MM-YYYY, etc.)
         const m1 = text.match(mmddyyyy);
         if (m1 && !/\b\d{4}-\d{2}-\d{2}\b/.test(m1[0])) {
           report(onError, ln, "Use ISO 8601 dates: YYYY-MM-DD.", m1[0]);
+          continue;
         }
 
-        // Flag month-name date styles (e.g., "Dec 16, 2025")
-        if (monthName.test(text) && /\b\d{1,2}\b/.test(text) && /\b\d{4}\b/.test(text)) {
-          // Avoid double-reporting if it already contains an ISO date.
-          if (!/\b\d{4}-\d{2}-\d{2}\b/.test(text)) {
-            report(onError, ln, "Prefer ISO 8601 dates (YYYY-MM-DD) instead of month-name formats.", text.trim());
-          }
+        // Month-name date styles like "Dec 16, 2025" or "16 Dec 2025"
+        // Only match if the month name is adjacent to day+year (avoid "may be idle" false positives).
+        const monthDate = new RegExp(
+          String.raw`\b(?:${monthName.source})\s+\d{1,2}(?:st|nd|rd|th)?(?:,\s*|\s+)\d{4}\b`,
+          "i"
+        );
+
+        const dateMonth = new RegExp(
+          String.raw`\b\d{1,2}(?:st|nd|rd|th)?\s+(?:${monthName.source})(?:,\s*|\s+)\d{4}\b`,
+          "i"
+        );
+
+        if ((monthDate.test(text) || dateMonth.test(text)) && !/\b\d{4}-\d{2}-\d{2}\b/.test(text)) {
+          report(onError, ln, "Prefer ISO 8601 dates (YYYY-MM-DD) instead of month-name formats.", text.trim());
         }
       }
     }
