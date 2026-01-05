@@ -45,7 +45,6 @@ The Docker Compose file defines the following services:
 | SRA Web                                                             | Web-based Zero Trust portal for remote access     | As specified in YAML        |
 | SRA SSH Proxy                                                       | Secure SSH-based remote access                    | 2222 (SSH), 9900 (Internal) |
 
-
 Each service runs within an isolated Docker bridge network (internal-net), ensuring secure internal communication.
 
 ## Configuration
