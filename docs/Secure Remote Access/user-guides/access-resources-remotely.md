@@ -12,7 +12,7 @@ next:
 ---
 The Secure Remote Access Portal is available via the main console at: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`.
 
-All Akeyless supported [Resource types](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using the **SRA Portal**, [CLI](doc:cli) or via the [Desktop Application](doc:remote-access-desktop-application-beta).
+All Akeyless supported [Resource types](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli) or via the [Desktop Application](https://docs.akeyless.io/docs/remote-access-desktop-application-beta).
 
 Currently the SRA Portal supports the following Authentication Methods:
 
@@ -29,7 +29,7 @@ Currently the SRA Portal supports the following Authentication Methods:
 
 1. Open the SRA Portal: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`
 2. Select the relevant Authentication method, the default is **SAML**, enter your SAML **Access ID**, or choose a different method.
-3. In case working also with the [Zero Trust Web Access](doc:web-access-on-k8s) set the **Web Application Dispatcher** with the URL of your `web-access-dispatcher` cluster service, the default is `9000`. If you are working with Secure Proxy, also set the **Web Proxy URL** with the `web-access-dispatcher` cluster service port, the default set to`19414`.
+3. In case working also with the [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s) set the **Web Application Dispatcher** with the URL of your `web-access-dispatcher` cluster service, the default is `9000`. If you are working with Secure Proxy, also set the **Web Proxy URL** with the `web-access-dispatcher` cluster service port, the default set to`19414`.
 4. Click the **Generate SAML Bookmark URL** to create a link to the completed form. The link is copied to your clipboard for you to save in a convenient place, such as your browser bookmarks, and use in the future to automatically complete the login details.
 5. Click **Sign in**.
 
