@@ -767,12 +767,14 @@ config:
   # MD060: Table column style
   # Knobs:
   #   - severity: error|warning|info
-  #   - style: consistent|aligned|unaligned
+  #   - style: consistent|aligned|compact|tight
   #   - style options:
   #       - consistent
   #       - aligned
-  #       - unaligned
-  MD060: true
+  #       - compact
+  #       - tight
+  MD060:
+    style: compact
 
 globs:
   - "docs/**/*.md"
