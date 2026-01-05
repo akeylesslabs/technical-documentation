@@ -41,30 +41,30 @@ The unified edition introduces powerful new Remote Access functionalities that w
 The unified deployment of Gateway and Remote Access offers multiple configurations to meet organizational needs for different purposes:
 
 1. **Flexible Deployment Options of Gateway**
-  Organizations have the ability to deploy a Gateway with or without the Remote Access component.
+   Organizations have the ability to deploy a Gateway with or without the Remote Access component.
 
 2. **Supports Kubernetes and Docker Compose Deployments**
-  The unified version supports both Kubernetes and Docker Compose deployments. For Kubernetes, the deployment consists of different services and pods for each component (Gateway, Web Remote Access, and SSH Remote Access).
-  For users only leveraging the Gateway in a standalone deployment, they can simply configure the Helm Chart with `SRA=false`, or deploy standalone via Docker Compose.
+   The unified version supports both Kubernetes and Docker Compose deployments. For Kubernetes, the deployment consists of different services and pods for each component (Gateway, Web Remote Access, and SSH Remote Access).
+   For users only leveraging the Gateway in a standalone deployment, they can simply configure the Helm Chart with `SRA=false`, or deploy standalone via Docker Compose.
 
 3. **Planning the Migration**
-  There is no direct upgrade path from the legacy separate Gateway and Remote Access deployments to the unified version. A planned migration is essential, and we strongly recommend scheduling the upgrade to minimize operational disruptions and ensure a seamless transition for your users. For detailed information on changes introduced during the unification process, refer to the document outlining all [Helm chart modifications](https://docs.akeyless.io/docs/helm-chart-changes-and-enhancements).
+   There is no direct upgrade path from the legacy separate Gateway and Remote Access deployments to the unified version. A planned migration is essential, and we strongly recommend scheduling the upgrade to minimize operational disruptions and ensure a seamless transition for your users. For detailed information on changes introduced during the unification process, refer to the document outlining all [Helm chart modifications](https://docs.akeyless.io/docs/helm-chart-changes-and-enhancements).
 
 4. **Unification of endpoints (ports)**
-  The unified Gateway with Remote Access has simplified access to the various components by creating internal mapping of the endpoints. All endpoints can be accessed through the Gateway as follows:
+   The unified Gateway with Remote Access has simplified access to the various components by creating internal mapping of the endpoints. All endpoints can be accessed through the Gateway as follows:
 
-| Service | Old Port | New Port/Endpoint |
-|---|---:|---|
-| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 | 8000 |
-| Akeyless Gateway Console | 1888 | `<gateway-url>:8000/console` |
-| Remote Access Portal | - | `<gateway-url>:8000/sra/portal` |
-| Remote Access Web Client | 8888 | `<gateway-url>:8000/sra/web-client` |
-| Remote Access SSH Config | 9900 | `<gateway-url>:8000/sra/ssh-config` |
-| HashiCorp Vault Proxy | 8200 | `<gateway-url>:8000/hvp` |
-| Akeyless V1 REST API | 8080 | `<gateway-url>:8000/api/v1` |
-| Akeyless V2 REST API | 8081 | `<gateway-url>:8000/api/v2` |
-| KMIP Server | 5696 | 5696 |
-| gRPC | 8085 | 8085 |
+| Service                                                                                      | Old Port | New Port/Endpoint                   |
+| --- | --- | --- |
+| [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) |     8000 | 8000                                |
+| Akeyless Gateway Console                                                                     |     1888 | `<gateway-url>:8000/console`        |
+| Remote Access Portal                                                                         |        - | `<gateway-url>:8000/sra/portal`     |
+| Remote Access Web Client                                                                     |     8888 | `<gateway-url>:8000/sra/web-client` |
+| Remote Access SSH Config                                                                     |     9900 | `<gateway-url>:8000/sra/ssh-config` |
+| HashiCorp Vault Proxy                                                                        |     8200 | `<gateway-url>:8000/hvp`            |
+| Akeyless V1 REST API                                                                         |     8080 | `<gateway-url>:8000/api/v1`         |
+| Akeyless V2 REST API                                                                         |     8081 | `<gateway-url>:8000/api/v2`         |
+| KMIP Server                                                                                  |     5696 | 5696                                |
+| gRPC                                                                                         |     8085 | 8085                                |
 
 ## Additional Notes
 
