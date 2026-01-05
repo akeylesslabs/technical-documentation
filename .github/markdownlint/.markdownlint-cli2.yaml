@@ -58,7 +58,7 @@ config:
   # AKY010: Enforce ISO 8601 dates (YYYY-MM-DD)
   # Knobs:
   #   - severity: error|warning|info
-  AKY010: false
+  AKY010: true
 
   # AKY011: Require numerals instead of spelled-out numbers
   # Knobs:

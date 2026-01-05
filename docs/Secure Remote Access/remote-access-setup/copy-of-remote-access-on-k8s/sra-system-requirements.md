@@ -105,7 +105,7 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 
     * **AWS (EKS / Elastic Load Balancing)** - ALB (HTTP/HTTPS): Default idle timeout is 60 seconds. Set higher using LB attributes; with AWS Load Balancer Controller use: `alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600` (measured in seconds). [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html).
 
-    * **NLB (TCP/TLS)**: Default TCP idle timeout is 350 seconds; now configurable 60-6000 seconds. Adjust if sessions may be idle, and enable TCP keepalives. [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html).
+    * **NLB (TCP/TLS)**: Default TCP idle timeout is 350 seconds. It can range from 60 to 6000 seconds. Adjust if sessions may be idle, and enable TCP keepalives. [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/update-idle-timeout.html).
 
     * **Microsoft Azure (AKS)** -
 
