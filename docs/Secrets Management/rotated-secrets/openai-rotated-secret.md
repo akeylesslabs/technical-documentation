@@ -39,12 +39,12 @@ Where:
 * `target-name`: The name of the [OpenAI Target](https://docs.akeyless.io/docs/openai-target)with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target OpenAI account.
-  * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
+    * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
+    * `use-target-creds` - Use the credentials defined on the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
 
 * `rotator-type`: The type of credentials to be rotated. For [OpenAI Target](https://docs.akeyless.io/docs/openai-target), choose:
-  * `api-key` - to rotate the API Key specified in the Rotated Secret.
-  * `target` - to rotate the API Key for the user specified in the [OpenAI Target](https://docs.akeyless.io/docs/openai-target).
+    * `api-key` - to rotate the API Key specified in the Rotated Secret.
+    * `target` - to rotate the API Key for the user specified in the [OpenAI Target](https://docs.akeyless.io/docs/openai-target).
 
 * `api-key-id`: The Admin API key ID to rotate.
 
@@ -69,12 +69,12 @@ Where:
 * **Target:** Defines the name of the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) to be associated with the Rotated Secret.
 
 * **Authenticate with the following credentials:** Determines how to connect to the target OpenAI account:
-  * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-  * **Target credentials:** Use the credentials defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
+    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+    * **Target credentials:** Use the credentials defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
 
 * **Rotator type:** Determines the rotator type:
-  * **API Key**: Rotates the API Key defined inside the Rotated Secret item.
-  * **Target**: Rotates the API Key defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
+    * **API Key**: Rotates the API Key defined inside the Rotated Secret item.
+    * **Target**: Rotates the API Key defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
 
 * **API Key ID:** Defines the API Key ID whose API Key should be rotated.
 

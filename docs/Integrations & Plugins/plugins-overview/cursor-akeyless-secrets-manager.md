@@ -14,7 +14,7 @@ next:
 ---
   Supported IDE:
 
-* Cursor 
+* Cursor
 * VS Code
 * Google antigravity
 * Windsurf
