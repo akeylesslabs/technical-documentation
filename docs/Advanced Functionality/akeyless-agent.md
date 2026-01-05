@@ -74,9 +74,9 @@ Where:
 
 * `access_id`: The **Access ID** of the Auth Method that is being used to authenticate.
 
-* `access_key`: The **Access Key** of the Auth Method that is being used to authenticate.(Relevant only for [API Key](doc:api-key) Auth Method)
+* `access_key`: The **Access Key** of the Auth Method that is being used to authenticate.(Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth Method)
 
-* `k8s_auth_config_name`: The **K8s config name** , generally the K8s Auth methods name. (Relevant only for [Kubernetes](doc:kubernetes-auth) Auth Method)
+* `k8s_auth_config_name`: The **K8s config name** , generally the K8s Auth methods name. (Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Method)
 
 * `log_file_path`: The path to the `agent.log` file, defaults are:
 
