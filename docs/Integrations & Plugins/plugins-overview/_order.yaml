@@ -21,7 +21,7 @@
 - gitlab-component-plugin
 - hashicorp-vault-proxy
 - jenkins
-- keycloack-plugin
+- keycloak-plugin
 - n8n-nodes-akeyless
 - puppet-plugin
 - openshift
