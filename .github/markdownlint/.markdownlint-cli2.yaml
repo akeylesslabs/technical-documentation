@@ -48,7 +48,7 @@ config:
   # AKY008: Enforce Oxford comma (heuristic)
   # Knobs:
   #   - severity: error|warning|info
-  AKY008: true
+  AKY008: false
 
   # AKY009: Disallow ampersands in sentences (allowed in headings)
   # Knobs:
