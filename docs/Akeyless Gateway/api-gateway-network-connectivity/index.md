@@ -329,7 +329,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        N\A
+        N/A
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -351,7 +351,7 @@ The following table describes the main functionality of Akeyless microservices i
       </td>
 
       <td style={{ textAlign: "left" }}>
-        N\A
+        N/A
       </td>
 
       <td style={{ textAlign: "left" }}>
