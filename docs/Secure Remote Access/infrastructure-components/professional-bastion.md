@@ -69,11 +69,11 @@ If you don't have an SSH certificate ready, please follow this guide on how to c
 The following parameters are mandatory:
 
 | Parameter             | Default                                              | Info                                                                                                                                                                         |
-| :-------------------- | :--------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| dockerRepositoryCreds | N\A                                                  | Credentials to access Akeyless private image                                                                                                                                 |
+| --- | --- | --- |
+| dockerRepositoryCreds | N/A                                                  | Credentials to access Akeyless private image                                                                                                                                 |
 | apiGatewayURL         | [https://rest.akeyless.io](https://rest.akeyless.io) | A full URL of Akeyless API GW                                                                                                                                                |
-| CAPublicKey           | N\A                                                  | SSH Cert Issuer CA Public key                                                                                                                                                |
-| privilegedAccess      | N\A                                                  | Credentials for zero-trust access: If provided, it is possible for end users to have only "list" permissions on Akeyless items if privileged credentials have "read" access |
+| CAPublicKey           | N/A                                                  | SSH Cert Issuer CA Public key                                                                                                                                                |
+| privilegedAccess      | N/A                                                  | Credentials for zero-trust access: If provided, it is possible for end users to have only "list" permissions on Akeyless items if privileged credentials have "read" access |
 
 > 👍 Tip
 >
