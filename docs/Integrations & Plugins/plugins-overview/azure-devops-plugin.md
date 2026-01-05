@@ -18,7 +18,7 @@ In your project, under Pipelines, select the relevant pipeline and click "Edit".
 
 Search for the "Vault - Read KV Secrets" Task, select it and configure it as follows:
 
-Under **Vault Server Settings**: add the following Akeyless host as your Vault URL: `https://hvp.akeyless.io`, to work with your own [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) set the Vault URL URL of your Gateway HashiCorp Vault Proxy endpoint: `https://Your-Gateway-URL:8000/hvp` (or using your gateway URL at port 8200)
+Under **Vault Server Settings**: add the following Akeyless host as your Vault URL: `https://hvp.akeyless.io`, to work with your own [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) set the Vault URL of your Gateway HashiCorp Vault Proxy endpoint: `https://Your-Gateway-URL:8000/hvp` (or using your gateway URL at port 8200)
 
 > 👍 Note
 >
