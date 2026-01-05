@@ -19,12 +19,15 @@ DFC underpins the zero-knowledge architecture by ensuring that a complete encryp
 
 ```mermaid
 graph TD
-    C[Client] --> U[Akeyless Platform]
+    C[Client] --> G[Customer Gateway]
+    G --> U[Akeyless Platform]
     U --> K1[Fragment Holder A]
     U --> K2[Fragment Holder B]
     U --> K3[Fragment Holder C]
-    U --> CF[Customer Fragment]
+    G --> CF[Customer Fragment]
 ```
+
+> The Customer Gateway and Customer Fragment are optional components.
 
 ## Core Concepts
 
