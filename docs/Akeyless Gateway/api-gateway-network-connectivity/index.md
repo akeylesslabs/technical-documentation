@@ -32,12 +32,12 @@ The following table describes the main functionality of Akeyless microservices i
 | Gator | `https://gator.akeyless.io`, `https://gator-ro.akeyless.io` | 52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128 | 443 | Main service to sync gateway instances and connections with Akeyless SaaS |
 | MQ | `amqps://mq.akeyless.io` | 52.223.11.194, 35.71.185.167 | 5671 | Message queue between Akeyless microservices |
 | KFM | `https://kfm1.akeyless.io`, `https://kfm1-ro.akeyless.io`, `https://kfm2.akeyless.io`, `https://kfm2-ro.akeyless.io`, `https://kfm3.akeyless.io`, `https://kfm3-ro.akeyless.io`, `https://kfm4.akeyless.io`, `https://kfm4-ro.akeyless.io` | 52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128, 34.120.160.242 | 443 | Key Fragments Services, enabling full DFC encryption |
-| Public Gateway | `https://rest.akeyless.io`, `https://api.akeyless.io` | 15.197.223.248, 3.33.244.138 | 443 | *Optional:* Public Gateway REST API v1/v2 |
-| Public HashiCorp Vault Proxy | `https://hvp.akeyless.io` | 15.197.223.248, 3.33.244.138 | 443 | *Optional:* Public HashiCorp Vault Proxy endpoint |
+| Public Gateway | `https://rest.akeyless.io`, `https://api.akeyless.io` | 15.197.223.248, 3.33.244.138 | 443 | _Optional:_ Public Gateway REST API v1/v2 |
+| Public HashiCorp Vault Proxy | `https://hvp.akeyless.io` | 15.197.223.248, 3.33.244.138 | 443 | _Optional:_ Public HashiCorp Vault Proxy endpoint |
 | Logs | `tcp://log.akeyless.io:9997`, `tcp://log.akeyless.io:9443` | 35.192.171.171 | 9997, 9443 | GW logs, mainly used during failure scenarios |
 | CLI S3 Bucket | `https://akeyless-cli.s3.us-east-2.amazonaws.com` | N/A | 443 | S3 bucket to download and update Akeyless CLI versions |
 | Services S3 Bucket | `https://akeylessservices.s3.us-east-2.amazonaws.com` | N/A | 443 | S3 bucket to download and update Akeyless official binaries (for example, Gateway) |
-| Artifacts Endpoint | `https://artifacts.site2.akeyless.io` | 34.149.100.205 | 443 | *Optional:* Akeyless official artifacts endpoint. Relevant when working with whitelisted IP ranges |
+| Artifacts Endpoint | `https://artifacts.site2.akeyless.io` | 34.149.100.205 | 443 | _Optional:_ Akeyless official artifacts endpoint. Relevant when working with whitelisted IP ranges |
 
 > 👍 Note
 >
