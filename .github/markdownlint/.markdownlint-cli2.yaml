@@ -50,10 +50,45 @@ config:
   #   - severity: error|warning|info
   AKY008: false
 
-  # AKY009: Disallow ampersands in sentences (allowed in headings)
+  # AKY009: Disallow ampersands ("&") in prose
+  #
+  # Purpose:
+  #   Flags ampersands in narrative text to enforce consistent, localized, and accessible writing.
+  #   Replace "&" with "and" in sentences.
+  #
+  # Why:
+  #   Ampersands reduce readability and can create inconsistency across languages and UI surfaces.
+  #
+  # Defaults / Recommended configuration:
+  #   The recommended configuration reduces false positives by ignoring:
+  #     - Headings (often contain product names or short labels)
+  #     - Code blocks and inline code spans (examples, commands, configuration)
+  #     - Bolded text (often UI labels or button names that contain "&")
+  #
+  # Options:
+  #   allow_headings (boolean, default: true)
+  #     - true  => ignore '&' in headings
+  #     - false => flag '&' in headings
+  #
+  #   allow_code (boolean, default: true)
+  #     - true  => ignore '&' inside fenced/indented code blocks and inline code spans
+  #     - false => flag '&' inside code blocks/spans
+  #
+  #   allow_bold (boolean, default: true)
+  #     - true  => ignore '&' inside **bold** and __bold__
+  #     - false => flag '&' inside bold text
+  #
+  # Notes:
+  #   - This rule always scans for all ampersands unless a context is explicitly suppressed by options above.
+  #   - If you need strict enforcement (flag everywhere), set all options to false.
+  #
   # Knobs:
   #   - severity: error|warning|info
-  AKY009: true
+  AKY009:
+    allow_headings: true
+    allow_code: true
+    allow_bold: true
+
 
   # AKY010: Enforce ISO 8601 dates (YYYY-MM-DD)
   # Knobs:

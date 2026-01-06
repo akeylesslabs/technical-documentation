@@ -519,33 +519,90 @@ module.exports = [
   },
 
   
-  /**
-   * AKY009: Disallow ampersands in sentences (allow in headings)
-   * Style guide: Avoid '&' in sentences; acceptable in headings. :contentReference[oaicite:9]{index=9}
-   */
-  {
-    names: ["AKY009", "no-ampersand-in-sentences"],
-    description: "Disallow '&' in paragraph text; allow in headings",
+    /**
+     * AKY009: Disallow ampersands (option-driven)
+     * Style guide: Avoid '&' in prose; acceptable in some contexts.
+     *
+     * Default behavior:
+     * - Flags ALL ampersands.
+     * - Allows suppressing certain contexts via config:
+     *   - allow_headings (default true): ignore headings
+     *   - allow_code (default true): ignore fenced/indented code blocks AND inline code spans
+     *   - allow_bold (default true): ignore ampersands inside **bold** or __bold__
+     *
+     * Config example:
+     *   AKY009:
+     *     allow_headings: true
+     *     allow_code: true
+     *     allow_bold: true
+     */
+    {
+    names: ["AKY009", "no-ampersand"],
+    description: "Disallow ampersands '&' (supports optional suppression for headings/code/bold)",
     tags: ["punctuation", "style"],
     function: function (params, onError) {
-      const codeLines = getCodeBlockLineSet(params.tokens);
-      const lines = params.lines || [];
+    const cfg = params.config || {};
 
-      for (let i = 0; i < lines.length; i++) {
-        const ln = i + 1;
-        if (codeLines.has(ln)) continue;
+    // Defaults are permissive (suppress common contexts) to reduce noise.
+    const allowHeadings = cfg.allow_headings !== false; // default true
+    const allowCode = cfg.allow_code !== false;         // default true
+    const allowBold = cfg.allow_bold !== false;         // default true
 
-        const raw = lines[i];
-        if (isHeadingLine(raw)) continue;
+    const tokens = params.tokens || [];
+    const lines = params.lines || [];
 
-        const text = stripInlineCode(raw);
-        if (text.includes("&")) {
-          report(onError, ln, "Avoid using '&' in sentences; rewrite using 'and' (ampersands allowed in headings).", raw.trim());
-        }
-      }
+    const codeLines = allowCode ? getCodeBlockLineSet(tokens) : new Set();
+
+    // Remove inline code spans `...`
+    function maybeStripInlineCode(text) {
+        return allowCode ? stripInlineCode(text) : String(text || "");
     }
-  },
-  
+
+    // Remove bold spans **...** and __...__ so '&' inside them won't be detected
+    function maybeStripBold(text) {
+        if (!allowBold) return String(text || "");
+        return String(text || "")
+        .replace(/\*\*[^*]*\*\*/g, "")  // **...**
+        .replace(/__[^_]*__/g, "");     // __...__
+    }
+
+    // Report helper
+    function flag(lineNumber, context) {
+        report(
+        onError,
+        lineNumber,
+        "Avoid using '&' in prose; rewrite using 'and'.",
+        context
+        );
+    }
+
+    for (let i = 0; i < lines.length; i++) {
+        const ln = i + 1;
+
+        // Skip headings if allowed
+        if (allowHeadings && isHeadingLine(lines[i])) continue;
+
+        // Skip code blocks if allowed
+        if (allowCode && codeLines.has(ln)) continue;
+
+        let text = String(lines[i] || "");
+
+        // Strip inline code spans if allowed
+        text = maybeStripInlineCode(text);
+
+        // Strip bold spans if allowed
+        text = maybeStripBold(text);
+
+        // Now detect ALL remaining ampersands
+        if (text.includes("&")) {
+        // Provide a trimmed context preview
+        const ctx = String(lines[i] || "").trim().slice(0, 160);
+        flag(ln, ctx);
+        }
+    }
+    }
+    },
+ 
   /**
    * AKY010: Enforce ISO 8601 date format (YYYY-MM-DD)
    * Style guide: Dates must be YYYY-MM-DD.
