@@ -90,7 +90,7 @@ config:
   # AKY015: Disallow links inside code blocks AND code spans inside links
   # Knobs:
   #   - severity: error|warning|info
-  AKY015: false
+  AKY015: true
 
   # AKY016: Disallow HTTP Link Parameters
   # Knobs:
