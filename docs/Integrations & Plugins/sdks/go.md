@@ -35,13 +35,13 @@ Create and configure an instance of Akeyless Client:
 ```go
 go
 func main() {
-	client := akeyless.NewAPIClient(&akeyless.Configuration{
-		Servers: []akeyless.ServerConfiguration{
-			{
+    client := akeyless.NewAPIClient(&akeyless.Configuration{
+        Servers: []akeyless.ServerConfiguration{
+            {
         URL: "https://api.akeyless.io",
-			},
-		},
-	}).V2Api
+            },
+        },
+    }).V2Api
 }
 ```
 
@@ -58,17 +58,17 @@ To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication se
 ```go
 go
 func authWithAPIKey(id, key string) (string, error) {
-	auth := akeyless.NewAuth()
-	auth.SetAccessType("api_key")
-	auth.SetAccessId(id)
-	auth.SetAccessKey(key)
+    auth := akeyless.NewAuth()
+    auth.SetAccessType("api_key")
+    auth.SetAccessId(id)
+    auth.SetAccessKey(key)
 
-	out, _, err := client.V2ApiService.Auth(context.Background()).Body(*auth).Execute()
-	if err != nil {
-		return "", fmt.Errorf("can't authenticate with api key: %w", err)
-	}
+    out, _, err := client.V2ApiService.Auth(context.Background()).Body(*auth).Execute()
+    if err != nil {
+        return "", fmt.Errorf("can't authenticate with api key: %w", err)
+    }
 
-	return out.GetToken(), nil
+    return out.GetToken(), nil
 }
 ```
 
