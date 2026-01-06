@@ -87,8 +87,8 @@ Create the Container App using the following command:
 ```shell System-Assigned Identity
 az containerapp create \
   --name akeyless-gw-app \
-  --resource-group akeyless-gw-rg	 \
-  --environment akeyless-gw-env	 \
+  --resource-group akeyless-gw-rg \
+  --environment akeyless-gw-env \
   --image akeylessgwacr.azurecr.io/gateway:latest-container-app \
   --registry-server akeylessgwacr.azurecr.io \
   --cpu 4.0 \
@@ -106,8 +106,8 @@ az containerapp create \
 ```shell User-Assigned Identity
 az containerapp create \
   --name akeyless-gw-app \
-  --resource-group akeyless-gw-rg	 \
-  --environment akeyless-gw-env	 \
+  --resource-group akeyless-gw-rg \
+  --environment akeyless-gw-env \
   --image akeylessgwacr.azurecr.io/gateway:latest-container-app \
   --registry-server akeylessgwacr.azurecr.io \
   --user-assigned '<user-identity-resource-id>'
@@ -184,7 +184,7 @@ Use the following command to export your app's configuration to a `YAML` file:
 ```shell
 az containerapp show \
   --name akeyless-gw-app \
-  --resource-group akeyless-gw-rg	 \
+  --resource-group akeyless-gw-rg \
   --out yaml > akeyless-gw-app_deployment.yaml
 ```
 

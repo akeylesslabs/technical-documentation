@@ -380,8 +380,8 @@ TLSConf:
     kubectl get pod
 
     NAME                                       READY   STATUS    RESTARTS       AGE
-    gw-akeyless-gateway-6554f7c66c-56fgs   1/1     Running   0   						5s
-    gw-akeyless-gateway-6554f7c66c-7jt8r   1/1     Running   0              5s
+    gw-akeyless-gateway-6554f7c66c-56fgs       1/1     Running   0              5s
+    gw-akeyless-gateway-6554f7c66c-7jt8r       1/1     Running   0              5s
     ```
 
 3. Log in to the Gateway using your browser (`http://Your-Akeyless-Gateway-URL:8000`) with your Gateway admin credentials.

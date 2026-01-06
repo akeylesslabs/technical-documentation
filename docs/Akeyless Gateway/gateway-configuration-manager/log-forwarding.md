@@ -186,10 +186,10 @@ When you export the Audit Logs from the Akeyless Gateway to Azure Log Analytics,
 
 ```shell
 input {
-	tcp {
-	    port => 8911
-      codec => json
-	}
+    tcp {
+        port => 8911
+        codec => json
+    }
 }
 ```
 

@@ -103,23 +103,23 @@ The following JSON structure describes the forwarded event's format:
 
 ```json Akeyless Events Format
 {
-	"Akeyless_Events": {
-		"Certificate_Expired": [{
-				"name": "<cert A name>"
-			},
-			{
-				"name": "<cert b name>"
-			}
-		],
-		"certificate_pending_expiration": [{
-				"name": "<cert c name>"
-			},
-			{
-				"name": "<cert D name>"
-			}
-		],
-		"Request_Access": [{...}]
-	}
+    "Akeyless_Events": {
+        "Certificate_Expired": [{
+                "name": "<cert A name>"
+            },
+            {
+                "name": "<cert b name>"
+            }
+        ],
+        "certificate_pending_expiration": [{
+                "name": "<cert c name>"
+            },
+            {
+                "name": "<cert D name>"
+            }
+        ],
+        "Request_Access": [{...}]
+    }
 }
 ```
 ```json Certificate Event Format

@@ -154,161 +154,161 @@ The script requires the following parameters:
 package main
 
 import (
-	"context"
-	"crypto"
-	"crypto/ecdsa"
-	"crypto/rand"
-	"crypto/rsa"
-	"crypto/sha256"
-	"encoding/base64"
-	"fmt"
-	"log"
-	"os"
+    "context"
+    "crypto"
+    "crypto/ecdsa"
+    "crypto/rand"
+    "crypto/rsa"
+    "crypto/sha256"
+    "encoding/base64"
+    "fmt"
+    "log"
+    "os"
 
-	"github.com/akeylesslabs/akeyless-go/v3"
+    "github.com/akeylesslabs/akeyless-go/v3"
 )
 
 func main() {
-	// --- Step 1: Initialize the API Client ---
-	client := akeyless.NewAPIClient(&akeyless.Configuration{
-		Servers: []akeyless.ServerConfiguration{
-			{
+    // --- Step 1: Initialize the API Client ---
+    client := akeyless.NewAPIClient(&akeyless.Configuration{
+        Servers: []akeyless.ServerConfiguration{
+            {
         URL: "https//:<Akeyless-GW-URL>/api/v2",
-			},
-		},
-	}).V2Api
+            },
+        },
+    }).V2Api
 
-	ctx := context.Background()
+    ctx := context.Background()
 
-	// --- Step 2: Get Challenge ---
-	accessID := "<YOUR_ACCESS_ID>"
-	// This should be the base64-encoded content of your public certificate
-	certPem, err := os.ReadFile("<YOUR_CERT_PATH>")
-	if err != nil {
-		log.Fatalf("failed to read certificate file: %v", err)
-	}
-	certData := base64.StdEncoding.EncodeToString(certPem)
+    // --- Step 2: Get Challenge ---
+    accessID := "<YOUR_ACCESS_ID>"
+    // This should be the base64-encoded content of your public certificate
+    certPem, err := os.ReadFile("<YOUR_CERT_PATH>")
+    if err != nil {
+        log.Fatalf("failed to read certificate file: %v", err)
+    }
+    certData := base64.StdEncoding.EncodeToString(certPem)
 
-	getChallengeBody := akeyless.NewGetCertChallenge()
-	getChallengeBody.AccessId = &accessID
-	getChallengeBody.CertData = &certData
+    getChallengeBody := akeyless.NewGetCertChallenge()
+    getChallengeBody.AccessId = &accessID
+    getChallengeBody.CertData = &certData
 
-	fmt.Println("Getting challenge...")
-	challengeResult, _, err := client.GetCertChallenge(ctx).Body(*getChallengeBody).Execute()
-	if err != nil {
-		log.Fatalf("Failed to get challenge: %v\n", err)
-	}
-	fmt.Println("Received challenge!")
+    fmt.Println("Getting challenge...")
+    challengeResult, _, err := client.GetCertChallenge(ctx).Body(*getChallengeBody).Execute()
+    if err != nil {
+        log.Fatalf("Failed to get challenge: %v\n", err)
+    }
+    fmt.Println("Received challenge!")
 
-	challenge := challengeResult.Challenge
+    challenge := challengeResult.Challenge
 
-	// --- Step 3: Sign the Challenge ---
-	// Replace with the path to your private key file
-	keyFilePath := "<YOUR_KEY_PATH>"
+    // --- Step 3: Sign the Challenge ---
+    // Replace with the path to your private key file
+    keyFilePath := "<YOUR_KEY_PATH>"
 
-	signedChallenge, err := signChallengeWithPrivateKey(keyFilePath, *challenge)
-	if err != nil {
-		log.Fatalf("Failed to sign challenge: %v", err)
-	}
-	fmt.Println("Challenge signed successfully!")
+    signedChallenge, err := signChallengeWithPrivateKey(keyFilePath, *challenge)
+    if err != nil {
+        log.Fatalf("Failed to sign challenge: %v", err)
+    }
+    fmt.Println("Challenge signed successfully!")
 
-	// --- Step 4: Authenticate with Signed Challenge ---
-	authBody := akeyless.NewAuth()
-	authBody.SetAccessType("cert")
-	authBody.SetAccessId(accessID)
-	authBody.SetCertData(certData)
-	authBody.SetCertChallenge(*challenge)
-	authBody.SetSignedCertChallenge(signedChallenge)
+    // --- Step 4: Authenticate with Signed Challenge ---
+    authBody := akeyless.NewAuth()
+    authBody.SetAccessType("cert")
+    authBody.SetAccessId(accessID)
+    authBody.SetCertData(certData)
+    authBody.SetCertChallenge(*challenge)
+    authBody.SetSignedCertChallenge(signedChallenge)
 
-	fmt.Println("Authenticating with signed challenge...")
-	authResult, _, err := client.Auth(ctx).Body(*authBody).Execute()
-	if err != nil {
-		log.Fatalf("Failed to authenticate with signed challenge: %v\n", err)
-	}
+    fmt.Println("Authenticating with signed challenge...")
+    authResult, _, err := client.Auth(ctx).Body(*authBody).Execute()
+    if err != nil {
+        log.Fatalf("Failed to authenticate with signed challenge: %v\n", err)
+    }
 
-	fmt.Printf("Authentication successful! Token: %s\n", *authResult.Token)
+    fmt.Printf("Authentication successful! Token: %s\n", *authResult.Token)
 }
 
 func signChallengeWithPrivateKey(keyFilePath, challengeB64 string) (string, error) {
-	// Read the private key file
-	keyFileBytes, err := os.ReadFile(keyFilePath)
-	if err != nil {
-		return "", fmt.Errorf("failed to read private key file: %w", err)
-	}
+    // Read the private key file
+    keyFileBytes, err := os.ReadFile(keyFilePath)
+    if err != nil {
+        return "", fmt.Errorf("failed to read private key file: %w", err)
+    }
 
-	// Parse key like the app
-	parsedKey, err := parsePrivateKeyForSigning(keyFileBytes)
-	if err != nil {
-		return "", err
-	}
+    // Parse key like the app
+    parsedKey, err := parsePrivateKeyForSigning(keyFileBytes)
+    if err != nil {
+        return "", err
+    }
 
-	// Decode the base64 challenge
-	challengeBytes, err := base64.StdEncoding.DecodeString(challengeB64)
-	if err != nil {
-		return "", fmt.Errorf("failed to decode challenge: %w", err)
-	}
+    // Decode the base64 challenge
+    challengeBytes, err := base64.StdEncoding.DecodeString(challengeB64)
+    if err != nil {
+        return "", fmt.Errorf("failed to decode challenge: %w", err)
+    }
 
-	// Hash the challenge before signing
-	h := sha256.Sum256(challengeBytes)
-	var sig []byte
+    // Hash the challenge before signing
+    h := sha256.Sum256(challengeBytes)
+    var sig []byte
 
-	if rsaKey, ok := asRSA(parsedKey); ok {
-		// App uses RSA with SHA-256 and PKCS#1 v1.5 in std path
-		sig, err = rsa.SignPKCS1v15(rand.Reader, rsaKey, crypto.SHA256, h[:])
-		if err != nil {
-			return "", fmt.Errorf("rsa sign failed: %w", err)
-		}
-		return base64.StdEncoding.EncodeToString(sig), nil
-	}
-	if ecKey, ok := asECDSA(parsedKey); ok {
-		sig, err = ecdsa.SignASN1(rand.Reader, ecKey, h[:])
-		if err != nil {
-			return "", fmt.Errorf("ecdsa sign failed: %w", err)
-		}
-		return base64.StdEncoding.EncodeToString(sig), nil
-	}
+    if rsaKey, ok := asRSA(parsedKey); ok {
+        // App uses RSA with SHA-256 and PKCS#1 v1.5 in std path
+        sig, err = rsa.SignPKCS1v15(rand.Reader, rsaKey, crypto.SHA256, h[:])
+        if err != nil {
+            return "", fmt.Errorf("rsa sign failed: %w", err)
+        }
+        return base64.StdEncoding.EncodeToString(sig), nil
+    }
+    if ecKey, ok := asECDSA(parsedKey); ok {
+        sig, err = ecdsa.SignASN1(rand.Reader, ecKey, h[:])
+        if err != nil {
+            return "", fmt.Errorf("ecdsa sign failed: %w", err)
+        }
+        return base64.StdEncoding.EncodeToString(sig), nil
+    }
 
-	return "", fmt.Errorf("unsupported private key type for signing")
+    return "", fmt.Errorf("unsupported private key type for signing")
 }
 ```
 ```go sing_key_parse.go
 package main
 
 import (
-	"crypto/ecdsa"
-	"crypto/rsa"
-	"crypto/x509"
-	"encoding/pem"
-	"fmt"
+    "crypto/ecdsa"
+    "crypto/rsa"
+    "crypto/x509"
+    "encoding/pem"
+    "fmt"
 
-	"golang.org/x/crypto/ssh"
+    "golang.org/x/crypto/ssh"
 )
 
 // parsePrivateKeyForSigning tries multiple key formats similarly to the app’s logic.
 // It supports OpenSSH, PKCS#8, PKCS#1 (RSA), and EC private keys.
 func parsePrivateKeyForSigning(keyBytes []byte) (interface{}, error) {
-	// Try OpenSSH / raw first
-	if k, err := ssh.ParseRawPrivateKey(keyBytes); err == nil {
-		return k, nil
-	}
+    // Try OpenSSH / raw first
+    if k, err := ssh.ParseRawPrivateKey(keyBytes); err == nil {
+        return k, nil
+    }
 
-	// Fallback to PEM
-	pemBlock, _ := pem.Decode(keyBytes)
-	if pemBlock == nil {
-		return nil, fmt.Errorf("failed to decode PEM private key")
-	}
+    // Fallback to PEM
+    pemBlock, _ := pem.Decode(keyBytes)
+    if pemBlock == nil {
+        return nil, fmt.Errorf("failed to decode PEM private key")
+    }
 
-	if k, err := x509.ParsePKCS8PrivateKey(pemBlock.Bytes); err == nil {
-		return k, nil
-	}
-	if k, err := x509.ParsePKCS1PrivateKey(pemBlock.Bytes); err == nil {
-		return k, nil
-	}
-	if k, err := x509.ParseECPrivateKey(pemBlock.Bytes); err == nil {
-		return k, nil
-	}
+    if k, err := x509.ParsePKCS8PrivateKey(pemBlock.Bytes); err == nil {
+        return k, nil
+    }
+    if k, err := x509.ParsePKCS1PrivateKey(pemBlock.Bytes); err == nil {
+        return k, nil
+    }
+    if k, err := x509.ParseECPrivateKey(pemBlock.Bytes); err == nil {
+        return k, nil
+    }
 
-	return nil, fmt.Errorf("unsupported or unrecognized private key format")
+    return nil, fmt.Errorf("unsupported or unrecognized private key format")
 }
 
 // helpers to assert types without importing in playground.go
