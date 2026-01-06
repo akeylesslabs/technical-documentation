@@ -143,7 +143,7 @@ Would you like to move 'akeyless' binary to: /home/username/.akeyless/bin/akeyle
 The cli was successfully moved to path: /home/username/.akeyless/bin/akeyless
 Would you like to add '/home/username/.akeyless/bin' To user PATH environment variable? (Y/n)
 Please run the following command to start using Akeyless CLI:
-	'source ~/.bash_profile'
+    'source ~/.bash_profile'
 ```
 
 The CLI will try to locate the user profile file (based on shell, i.e `.bash_profile`, `.zprofile`, `.profile`, etc), and export the `USER_HOME_DIR/.akeyless/bin/` to user `$PATH`.

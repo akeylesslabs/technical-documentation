@@ -126,11 +126,11 @@ Create a **CSR** config file:
 
 ```shell
 cat <<EOF > csr.conf
-countryName	= US
-stateOrProvinceName	= NY
-localityName	= NY
+countryName = US
+stateOrProvinceName = NY
+localityName = NY
 organizationName  = Akeyless
-organizationalUnitName	= Security
+organizationalUnitName = Security
 commonName = akeylessSign
 
 [ v3_req ]

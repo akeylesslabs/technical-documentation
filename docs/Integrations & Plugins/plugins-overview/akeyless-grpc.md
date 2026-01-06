@@ -46,57 +46,57 @@ Your `AccessId` and `AccessKey`, as well as your Gateway URL on port `8085`.
 package main
 
 import (
-	"context"
-	"fmt"
+    "context"
+    "fmt"
 
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
+    "google.golang.org/grpc"
+    "google.golang.org/grpc/credentials/insecure"
 
-	akeyless_grpc "github.com/akeylesslabs/akeyless-grpc-go/akeyless_grpc"
+    akeyless_grpc "github.com/akeylesslabs/akeyless-grpc-go/akeyless_grpc"
 )
 
 func main() {
 
-	ctx := context.Background()
-  conn, err := grpc.NewClient("https://<Your-Gateway-URL>:8085", grpc.WithTransportCredentials(insecure.NewCredentials()))
+    ctx := context.Background()
+    conn, err := grpc.NewClient("https://<Your-Gateway-URL>:8085", grpc.WithTransportCredentials(insecure.NewCredentials()))
 
-	if err != nil {
-		return
-	}
+    if err != nil {
+        return
+    }
 
-	client := akeyless_grpc.NewAkeylessV2ServiceClient(conn)
+    client := akeyless_grpc.NewAkeylessV2ServiceClient(conn)
 
-	authOutput, err := client.Auth(ctx, &akeyless_grpc.AuthRequest{
-		Body: &akeyless_grpc.Auth{
-			AccessId:   "<>",
-			AccessKey:  "<>",
-			AccessType: "access_key",
-		},
-	})
+    authOutput, err := client.Auth(ctx, &akeyless_grpc.AuthRequest{
+        Body: &akeyless_grpc.Auth{
+            AccessId:   "<>",
+            AccessKey:  "<>",
+            AccessType: "access_key",
+        },
+    })
 
-	if err != nil {
-		return
-	}
+    if err != nil {
+        return
+    }
 
-	listItemsResp, err := client.ListItems(ctx, &akeyless_grpc.ListItemsRequest{Body: &akeyless_grpc.ListItems{Token: authOutput.Token}})
+    listItemsResp, err := client.ListItems(ctx, &akeyless_grpc.ListItemsRequest{Body: &akeyless_grpc.ListItems{Token: authOutput.Token}})
 
-	if err != nil {
-		return
-	}
+    if err != nil {
+        return
+    }
 
-	for _, item := range listItemsResp.Items {
-		fmt.Println(item.ItemName)
-	}
+    for _, item := range listItemsResp.Items {
+        fmt.Println(item.ItemName)
+    }
 
-	secretResponse, err := client.GetSecretValue(ctx, &akeyless_grpc.GetSecretValueRequest{Body: &akeyless_grpc.GetSecretValue{Token: authOutput.Token, Names: []string{"/MyFirstSecret"}}})
+    secretResponse, err := client.GetSecretValue(ctx, &akeyless_grpc.GetSecretValueRequest{Body: &akeyless_grpc.GetSecretValue{Token: authOutput.Token, Names: []string{"/MyFirstSecret"}}})
 
-	if err != nil {
-		return
-	}
+    if err != nil {
+        return
+    }
 
-	for secretName, item := range secretResponse.Data.Fields {
-		fmt.Println(secretName, item.GetStringValue())
-	}
+    for secretName, item := range secretResponse.Data.Fields {
+        fmt.Println(secretName, item.GetStringValue())
+    }
 }
 
 ```

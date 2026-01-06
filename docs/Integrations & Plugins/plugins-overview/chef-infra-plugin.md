@@ -96,8 +96,8 @@ Recipe: secrets_management_test::akeyless-vault
 [2020-05-17T10:45:56+03:00] INFO: file[/tmp/hello_from_akeyless] created file /tmp/hello_from_akeyless
     - create new file /tmp/hello_from_akeyless[2020-05-17T10:45:56+03:00] INFO: file[/tmp/hello_from_akeyless] updated file contents /tmp/hello_from_akeyless
     - update content in file /tmp/hello_from_akeyless from none to 6236c1
-    --- /tmp/hello_from_akeyless	2020-05-17 10:45:56.287670044 +0300
-    +++ /tmp/.chef-hello_from_akeyless20200517-19289-i3qenl	2020-05-17 10:45:56.287419909 +0300
+    --- /tmp/hello_from_akeyless 2020-05-17 10:45:56.287670044 +0300
+    +++ /tmp/.chef-hello_from_akeyless20200517-19289-i3qenl 2020-05-17 10:45:56.287419909 +0300
     @@ -1 +1,2 @@
     +Secret is: [my chef secret value!]
 [2020-05-17T10:45:56+03:00] INFO: Chef Infra Client Run complete in 13.45992 seconds

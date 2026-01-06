@@ -142,7 +142,7 @@ When set to `true`, this option disables the default fullscreen mode for Web Acc
 
 ```yaml
 webWorker:
-	env:
-  - name: DISABLE_FULLSCREEN
-  	value: "true"
+  env:
+    - name: DISABLE_FULLSCREEN
+      value: "true"
 ```

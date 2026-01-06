@@ -197,20 +197,20 @@ The JSON file structure should be as follows:
 
 ```json
 {
-	"secret/foo": [{
-			"rule-type": "item-rule",
-			"capabilities": "[read, list]",
-			"ttl": "30"
-		},
-		{
-			"rule-type": "role-rule",
-			"capabilities": "[read, list]"
-		}
-	],
-	"secret/bar": [{
-		"rule-type": "target-rule",
-		"capabilities": "[delete, list]"
-	}]
+    "secret/foo": [{
+            "rule-type": "item-rule",
+            "capabilities": "[read, list]",
+            "ttl": "30"
+        },
+        {
+            "rule-type": "role-rule",
+            "capabilities": "[read, list]"
+        }
+    ],
+    "secret/bar": [{
+        "rule-type": "target-rule",
+        "capabilities": "[delete, list]"
+    }]
 }
 ```
 
