@@ -28,52 +28,53 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
 1. Log in to Jenkins and go to **Manage Jenkins > Manage Plugins**.
 
-  <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/a9975df-2.png" />
+    <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/a9975df-2.png" />
 
 2. Find and install the HashiCorp Vault plugin.
 
-  <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/1e80fe6-3.png" />
+    <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/1e80fe6-3.png" />
 
 3. From the main Jenkins page, select **New Item > Freestyle project**, then add a name for the project and select **OK**.
 
-  <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/6fd3690-Screenshot_at_Feb_24_17-17-46.png" />
+    <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/6fd3690-Screenshot_at_Feb_24_17-17-46.png" />
 
 4. In the **Build Environment** tab, select the **Vault Plugin** radio button. Then, enter the [Akeyless Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) URL: `https://hvp.akeyless.io`
 
-  > 📘 Info
-  >
-  > If you are using a customer [key fragment](https://docs.akeyless.io/docs/dfc) with your Akeyless Platform, set your Vault URL with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) on port `8200`.
+    > 📘 Info
+    >
+    > If you are using a customer [key fragment](https://docs.akeyless.io/docs/dfc) with your Akeyless Platform, set your Vault URL with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) on port `8200`.
 
-  <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/a390eba-Screenshot_at_Feb_24_17-42-02.png" />
+    <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/a390eba-Screenshot_at_Feb_24_17-42-02.png" />
 
 5. To set your Jenkins Vault credentials provider, to the right of the **Vault Credentials** field, select **Add**, then select **Jenkins**.
 
-  <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/6ba1561-Screenshot_at_Feb_24_17-30-59.png" />
+    <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/6ba1561-Screenshot_at_Feb_24_17-30-59.png" />
 
 6. In the **Add Credentials** window, from the **Kind** dropdown list, select **Vault Token Credential**, then enter your credentials and select **Add**.
 
-  > 📘 Info
-  >
-  > The **Token** value is a concatenation of your Access ID and your Access Key in the following format:
-  > `< Access ID >..< Access Key >`
-  >
-  > For example:`p-xxxxxx..accessKey`
+    > 📘 Info
+    >
+    > The **Token** value is a concatenation of your Access ID and your Access Key in the following format:
+    > `< Access ID >..< Access Key >`
+    >
+    > For example:`p-xxxxxx..accessKey`
 
-  ![](https://files.readme.io/4540e75-Screenshot_at_Feb_24_17-49-08.png "Screenshot at Feb 24 17-49-08.png")
+    ![](https://files.readme.io/4540e75-Screenshot_at_Feb_24_17-49-08.png "Screenshot at Feb 24 17-49-08.png")
 
-  > 👍 Note
-  >
-  > The Credential Kind you select determines which authentication backend will be used. If you wish to use another [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), see the different [Credential Types supported using the Vault plugin](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-plugin-usage).
-  >
-  > Keep in mind you can always use any of the Akeyless authentication methods via the [Vault Token File Credential](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-vault-token-file-credential) where the temporary token is read from a file on your Jenkins host. You can use this in combination with a script (using the `akeyless auth` [CLI command](https://docs.akeyless.io/docs/cli-ref-auth) for example) to output a periodically refreshing **temporary access token** into the file in question.
+    > 👍 Note
+    >
+    > The Credential Kind you select determines which authentication backend will be used. If you wish to use another [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), see the different [Credential Types supported using the Vault plugin](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-plugin-usage).
+    >
+    > Keep in mind you can always use any of the Akeyless authentication methods via the [Vault Token File Credential](https://plugins.jenkins.io/hashicorp-vault-plugin/#plugin-content-vault-token-file-credential) where the temporary token is read from a file on your Jenkins host. You can use this in combination with a script (using the `akeyless auth` [CLI command](https://docs.akeyless.io/docs/cli-ref-auth) for example) to output a periodically refreshing **temporary access token** into the file in question.
 
 7. In the **Build Environment** tab, from the **Vault Credential** dropdown list, select the new credential, then select **Advanced**.
 
 8. Add the following information, then select **Add a vault secret**:
-   * **KV Engine Version**: Enter **1**.
-   * **Skip SSL verification**: Select the checkbox.
 
-  <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/b1aaa6e-Screenshot_at_Feb_24_17-56-21.png" />
+    * **KV Engine Version**: Enter **1**.
+    * **Skip SSL verification**: Select the checkbox.
+
+    <Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/b1aaa6e-Screenshot_at_Feb_24_17-56-21.png" />
 
 ### Dynamic Secret
 

@@ -93,25 +93,25 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing Docker Hub Target or specify details of the target Docker repository explicitly.
+    * **Delete Protection**: When enabled, protects the secret from accidental deletion.
+    * **Target mode:** In this section, you can either select an existing Docker Hub Target or specify details of the target Docker repository explicitly.
 
-    * Use the **Choose an existing target** drop-down list to select the existing Docker Hub Target.
+        * Use the **Choose an existing target** drop-down list to select the existing Docker Hub Target.
 
-    * Select the **Explicitly specify target properties** option, to provide details of the target Docker repository in the next step.
-* **Token Scopes:** Select permission scopes to assign to the token. Each permission scope includes lower-permission scopes, i.e., **Admin** includes all the rest of the permission scopes, **Write** contains **Read** and **Public**, etc.
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
-* **Time Unit:** Select the time unit (`seconds`,`minutes`, `hours`) for the TTL value.
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+        * Select the **Explicitly specify target properties** option, to provide details of the target Docker repository in the next step.
+    * **Token Scopes:** Select permission scopes to assign to the token. Each permission scope includes lower-permission scopes, i.e., **Admin** includes all the rest of the permission scopes, **Write** contains **Read** and **Public**, etc.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **Time Unit:** Select the time unit (`seconds`,`minutes`, `hours`) for the TTL value.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
 
 6. Provide details of the target Docker repository credentials:
 
-* **Username:** Provide the username of the Docker repository user with privileges to create temporary access tokens.
+    * **Username:** Provide the username of the Docker repository user with privileges to create temporary access tokens.
 
-* **Password:** Provide the password of the privileged user.
+    * **Password:** Provide the password of the privileged user.
 
 7. Click **Finish**.
 

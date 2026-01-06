@@ -46,16 +46,16 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 1. Add the following repository to the Helm repository list:
 
-```shell
-helm repo add akeyless https://akeylesslabs.github.io/helm-charts
-helm repo update
-```
+    ```shell
+    helm repo add akeyless https://akeylesslabs.github.io/helm-charts
+    helm repo update
+    ```
 
 2. Fetch the `values.yaml` file from the Akeyless repository:
 
-```shell
-helm show values akeyless/akeyless-gateway > values.yaml
-```
+    ```shell
+    helm show values akeyless/akeyless-gateway > values.yaml
+    ```
 
 3. Set the relevant parameters in the `values.yaml` file with a text editor or IDE.
 

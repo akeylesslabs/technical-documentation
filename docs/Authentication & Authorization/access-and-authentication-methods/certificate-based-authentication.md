@@ -87,35 +87,35 @@ You can find the complete list of additional parameters for this command in the 
 
 3. Define the remaining parameters as follows:
 
-* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
+    * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+    * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`, `Web UI`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`, `Web UI`.
 
-* **CA Certificate:** Download the CA certificate in Base64 format.
+    * **CA Certificate:** Download the CA certificate in Base64 format.
 
-* **Bound Common Names:** Enter a list of names. At least one must exist in the Common Name of the certificate. Supports globbing.
+    * **Bound Common Names:** Enter a list of names. At least one must exist in the Common Name of the certificate. Supports globbing.
 
-* **Bound DNS SANs:** Enter a list of DNS names. At least one must exist in the SANs of the certificate. Supports globbing.
+    * **Bound DNS SANs:** Enter a list of DNS names. At least one must exist in the SANs of the certificate. Supports globbing.
 
-* **Bound Email SANs:** Enter a list of Email Addresses. At least one must exist in the SANs of the certificate. Supports globbing.
+    * **Bound Email SANs:** Enter a list of Email Addresses. At least one must exist in the SANs of the certificate. Supports globbing.
 
-* **Bound URI SANs:** Enter a list of URIs. At least one must exist in the SANs of the certificate. Supports globbing.
+    * **Bound URI SANs:** Enter a list of URIs. At least one must exist in the SANs of the certificate. Supports globbing.
 
-* **Bound Organizational Units:** Enter a list of Organizational Units' names. At least one must exist in the OU field of the certificate.
+    * **Bound Organizational Units:** Enter a list of Organizational Units' names. At least one must exist in the OU field of the certificate.
 
-* **Bound Extensions:** Enter a list of extensions formatted as `oid:value`. Expects the extension value to be some type of ASN1 encoded string. All values must exist in the certificate. Supports globbing on `value`.
+    * **Bound Extensions:** Enter a list of extensions formatted as `oid:value`. Expects the extension value to be some type of ASN1 encoded string. All values must exist in the certificate. Supports globbing on `value`.
 
-* **Revoked Cert Ids:** Enter a list of revoked certificate IDs. It can be used to revoke specific certificates or intermediate certificates.
+    * **Revoked Cert Ids:** Enter a list of revoked certificate IDs. It can be used to revoke specific certificates or intermediate certificates.
 
-* **Allowed CORS Domains:** Comma-separated list of allowed CORS domains to be validated as part of the authentication flow. Relevant only when using UI, specify which CN\domain to look in the key store.
+    * **Allowed CORS Domains:** Comma-separated list of allowed CORS domains to be validated as part of the authentication flow. Relevant only when using UI, specify which CN\domain to look in the key store.
 
-* **Unique Identifier:** A unique identifier to distinguish different users, such as `common_name` or `organizational_unit`.
+    * **Unique Identifier:** A unique identifier to distinguish different users, such as `common_name` or `organizational_unit`.
 
 4. Click **Finish**.
 

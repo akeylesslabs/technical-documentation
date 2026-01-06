@@ -117,31 +117,31 @@ The output should look as follows:
 
 4. Define the remaining settings as follows:
 
-* **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing [Ping Target](https://docs.akeyless.io/docs/ping-target) or specify details you would fill in the target creation.
-* **Client Authentication Type**: OAuth Client Authentication Type.
-* **Redirect URIs**: List URIs to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained.
-* **Grant Types**: The grant type (or list of types) given to the OAuth client.
-* **Access Token Manager Instance ID**: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM ID. If no explicit value is given, the default PingFederate server ATM will be set.
-* **Restricted Scopes**: Limit the OAuth client to specific scopes.
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
-* **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Delete Protection**: When enabled, protects the secret from accidental deletion.
+    * **Target mode:** In this section, you can either select an existing [Ping Target](https://docs.akeyless.io/docs/ping-target) or specify details you would fill in the target creation.
+    * **Client Authentication Type**: OAuth Client Authentication Type.
+    * **Redirect URIs**: List URIs to which the OAuth authorization server may redirect the resource owner's user-agent after authorization is obtained.
+    * **Grant Types**: The grant type (or list of types) given to the OAuth client.
+    * **Access Token Manager Instance ID**: Set a specific Access Token Management (ATM) instance for the created OAuth Client by providing the ATM ID. If no explicit value is given, the default PingFederate server ATM will be set.
+    * **Restricted Scopes**: Limit the OAuth client to specific scopes.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties** mode, click **Next**.
 
 6. Provide details of the target Ping server:
 
-* **Ping URL**: A URL address related to the Ping service.
+    * **Ping URL**: A URL address related to the Ping service.
 
-* **Privileged User**: A username of a user on your Ping service that may create OAuth Clients through Ping Federate Administrative API.
+    * **Privileged User**: A username of a user on your Ping service that may create OAuth Clients through Ping Federate Administrative API.
 
-* **Password**: Password related to the privileged user.
+    * **Password**: Password related to the privileged user.
 
-* **Administrative Port**: PingFederate administrative port, default is 9999.
+    * **Administrative Port**: PingFederate administrative port, default is 9999.
 
-* **Authorization Port**: PingFederate authorization port, default is 9031.
+    * **Authorization Port**: PingFederate authorization port, default is 9031.
 
 7. Click **Finish**.
 

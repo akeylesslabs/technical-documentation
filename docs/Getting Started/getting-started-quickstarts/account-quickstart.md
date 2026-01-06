@@ -67,6 +67,6 @@ Once your email is verified, your account becomes active.
 
 After completing these steps, you are taken to the Akeyless Console homepage.
 
-***
+---
 
 _You have successfully created an account with Akeyless._

@@ -36,35 +36,34 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
 
 1. Create a CSR configuration file. for example:
 
-```shell shell
-cat <<EOF > csr.conf
-countryName=US
-stateOrProvinceName=NY
-localityName=NY
-organizationName=Akeyless
-organizationalUnitName=Security
-commonName=akeylessSign
+    ```shell shell
+    cat <<EOF > csr.conf
+    countryName=US
+    stateOrProvinceName=NY
+    localityName=NY
+    organizationName=Akeyless
+    organizationalUnitName=Security
+    commonName=akeylessSign
 
-[ v3_req ]
-basicConstraints=critical, CA:TRUE
-keyUsage=critical, keyCertSign, digitalSignature, cRLSign
-EOF
-```
+    [ v3_req ]
+    basicConstraints=critical, CA:TRUE
+    keyUsage=critical, keyCertSign, digitalSignature, cRLSign
+    EOF
+    ```
 
 2. Create the **Signer Key**:
 
-```shell Create-Key-In-Akeyless
-akeyless create-dfc-key \
---name <RSA-key-name> \
---alg RSA2048 \
---generate-self-signed-certificate true \
---certificate-ttl 365 \
---conf-file-path ./csr.conf \
---certificate-format pem
+    ```shell Create-Key-In-Akeyless
+    akeyless create-dfc-key \
+    --name <RSA-key-name> \
+    --alg RSA2048 \
+    --generate-self-signed-certificate true \
+    --certificate-ttl 365 \
+    --conf-file-path ./csr.conf \
+    --certificate-format pem
+    ```
 
-```
-
-You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
+    You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
 
 > 👍 Note
 >

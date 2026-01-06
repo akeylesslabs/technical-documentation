@@ -66,42 +66,42 @@ If the field is not recognized, the system will attempt to retrieve it from [Sub
 
 1. **Unique Identifier** with random suffix:
 
-```shell
-user-{{.UniqueIdentifier}}-{{ random 4 }}
-```
+    ```shell
+    user-{{.UniqueIdentifier}}-{{ random 4 }}
+    ```
 
-**Output**:
+    **Output**:
 
-```shell
-user-john.doe-7f3a
-```
+    ```shell
+    user-john.doe-7f3a
+    ```
 
-The example above combines the Unique identifier with a short random suffix. This is useful for generating multiple credentials per user while avoiding name collisions.
+    The example above combines the Unique identifier with a short random suffix. This is useful for generating multiple credentials per user while avoiding name collisions.
 
 2. **Lowercased** secret name with truncated **UUID** hash:
 
-```shell
-{{ lowercase .DynamicSecretName }}-{{ truncate_sha256 uuid 6 }}
-```
+    ```shell
+    {{ lowercase .DynamicSecretName }}-{{ truncate_sha256 uuid 6 }}
+    ```
 
-**Output**:
+    **Output**:
 
-```shell
-db-access-dev-2c91e3
-```
+    ```shell
+    db-access-dev-2c91e3
+    ```
 
-The example above converts the secret name to lowercase and appends a shortened hash of a generated UUID. This keeps the format clean, consistent, and unique.
+    The example above converts the secret name to lowercase and appends a shortened hash of a generated UUID. This keeps the format clean, consistent, and unique.
 
 3. **Base64** encoded Unique Identifier with millisecond **timestamp**:
 
-```shell
-{{ base64 .UniqueIdentifier }}-{{ unix_time_millis }}
-```
+    ```shell
+    {{ base64 .UniqueIdentifier }}-{{ unix_time_millis }}
+    ```
 
-**Output**:
+    **Output**:
 
-```shell
-am9obi5kb2VAZXhhbXBsZS5jb20=-1720258847654
-```
+    ```shell
+    am9obi5kb2VAZXhhbXBsZS5jb20=-1720258847654
+    ```
 
-The example above encodes the Unique Identifier in Base64 and appends a millisecond-precision timestamp to ensure a high degree of uniqueness.
+    The example above encodes the Unique Identifier in Base64 and appends a millisecond-precision timestamp to ensure a high degree of uniqueness.

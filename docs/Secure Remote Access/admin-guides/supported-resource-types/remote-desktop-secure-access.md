@@ -68,12 +68,12 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
-* `Host(s)`: The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret.
-* `Domain`: Optional for Dynamic Secret. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
-* `Override User`: Optional for Dynamic Secret. Override the RDP Domain username.
-* `Allow Providing External Username`: Optional for Dynamic Secret. Select to enable an external username to log in to the target host.
-* `RD Gateway`: Optional for Dynamic Secret. Connect from SRA to the remote host via an RD-Gateway server.
-* `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+    * `Host(s)`: The hostname (or IP address) for accessing the Windows machine as defined in the dynamic secret.
+    * `Domain`: Optional for Dynamic Secret. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the Windows user for whom credentials are created belongs.
+    * `Override User`: Optional for Dynamic Secret. Override the RDP Domain username.
+    * `Allow Providing External Username`: Optional for Dynamic Secret. Select to enable an external username to log in to the target host.
+    * `RD Gateway`: Optional for Dynamic Secret. Connect from SRA to the remote host via an RD-Gateway server.
+    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 

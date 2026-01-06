@@ -44,7 +44,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-    4. Define the remaining parameters as follows:
+4. Define the remaining parameters as follows:
 
     * **LDAP Server URL:** Specify the LDAP Server URL.
 

@@ -16,29 +16,29 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
 1. In your Azure account, go to **App registrations > New registrations**.
 
-![](https://files.readme.io/c9edb74-image-20210902-145138.png "image-20210902-145138.png")
+    ![](https://files.readme.io/c9edb74-image-20210902-145138.png "image-20210902-145138.png")
 
 2. For **Redirect URI**, type select **Web** for **Application type**. Set `https://auth.akeyless.io/oidc/callback` as a value and select **Register**.
 
-![](https://files.readme.io/d399957-image-20210902-145556.png "image-20210902-145556.png")
+    ![](https://files.readme.io/d399957-image-20210902-145556.png "image-20210902-145556.png")
 
 3. Once the app has been created, you need to obtain the **Client ID**, **Client Secret**, and the **Issuer URL**:
 
-* The **Client ID** can be fetched from **Overview > Application (client) ID**:
+    * The **Client ID** can be fetched from **Overview > Application (client) ID**:
 
-![](https://files.readme.io/963adb9-image-20210902-150241.png "image-20210902-150241.png")
+    ![](https://files.readme.io/963adb9-image-20210902-150241.png "image-20210902-150241.png")
 
-* The **Client Secret** can be created under **Certificates & Secrets > New Client Secret** (make sure to copy the Secret **Value**, not the Secret ID):
+    * The **Client Secret** can be created under **Certificates & Secrets > New Client Secret** (make sure to copy the Secret **Value**, not the Secret ID):
 
-![](https://files.readme.io/73548af-image-20210902-150722.png "image-20210902-150722.png")
+    ![](https://files.readme.io/73548af-image-20210902-150722.png "image-20210902-150722.png")
 
-* The **Issuer URL** can be fetched from **Overview > Endpoints > OpenID Connect metadata document** (note that the suffix **/.well-known/openid-configuration** should be omitted so that the Issuer URL will look like: `https://login.microsoftonline.com/tenant-id-abcd-efgh-a123-b456/v2.0`):
+    * The **Issuer URL** can be fetched from **Overview > Endpoints > OpenID Connect metadata document** (note that the suffix **/.well-known/openid-configuration** should be omitted so that the Issuer URL will look like: `https://login.microsoftonline.com/tenant-id-abcd-efgh-a123-b456/v2.0`):
 
-![](https://files.readme.io/cb76d3c-image-20210902-151402.png "image-20210902-151402.png")
+    ![](https://files.readme.io/cb76d3c-image-20210902-151402.png "image-20210902-151402.png")
 
 4. In order to add the AD group as a sub-claim, go to **Token configuration > Add Groups Claim**:
 
-![](https://files.readme.io/938b863-image-20210902-155120.png "image-20210902-155120.png")
+    ![](https://files.readme.io/938b863-image-20210902-155120.png "image-20210902-155120.png")
 
 5. In order to bind the Azure application with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
 

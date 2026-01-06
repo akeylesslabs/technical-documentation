@@ -27,7 +27,7 @@ Depending on which Quickstart you follow, you may need:
 
 Each Quickstart lists its own prerequisites in more detail.
 
-***
+---
 
 ## Choosing Where to Start
 

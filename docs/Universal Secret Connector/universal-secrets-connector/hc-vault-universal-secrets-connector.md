@@ -139,15 +139,15 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 4. Define the remaining settings as follows:
 
-* **Description:** Optional, enter a description of the Universal Secrets Connector.
+    * **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-* **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+    * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-* **Delete Protection:** Optional, turn on this setting to protect the item from deletion.
+    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion.
 
-* **Target:** Select an existing [HashiCorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target)
+    * **Target:** Select an existing [HashiCorp Vault Target](https://docs.akeyless.io/docs/hashicorp-vault-target)
 
-* **Gateway:** Select the desired corresponding Gateway.
+    * **Gateway:** Select the desired corresponding Gateway.
 
 5. Click **Finish**
 
