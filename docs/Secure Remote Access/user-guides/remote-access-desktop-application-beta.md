@@ -14,9 +14,9 @@ The Desktop Application is designed to work across Windows and macOS, It enables
 
 Who Should benefit from using this application?
 
-* IT Administrators & DevOps Teams
+* IT Administrators and DevOps Teams
 * Security Professionals
-* Developers & Engineers
+* Developers and Engineers
 
 > 📘 Note
 >
@@ -50,7 +50,7 @@ The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\
 
 1. After downloading the appropriate installer file, locate it in your `Downloads` folder or the directory you specified.
 2. Open it and drag the Akeyless Remote Access app to the Applications folder.
-3. Grant required permissions in System Preferences → Security & Privacy.
+3. Grant required permissions in **System Preferences** → **Security & Privacy**.
 
 The Desktop Application will be installed at: `\Users\<username>\Library\Application Support\Akeyless-Desktop`
 
@@ -95,7 +95,7 @@ You should be able to see a list of the resources you can connect to, upon your 
 |  | RDP | Remote Desktop | |
 |  | Postgres DB | DBeaver | |
 |  | SSH Cert Issuer | PuTTY | WinSCP is a prerequisite for PuTTY. |
-|  | SSH username & password | PuTTY | Specify port `2022`. |
+|  | SSH username and password | PuTTY | Specify port `2022`. |
 |  | SSH File Transfer | WinSCP | Note: File transfers for certificate-based targets have a known limitation and are currently not supported. |
 |  | PowerShell | PuTTY | PS tag should be configured on the secret item. |
 |  | Direct Connection / Secure Remote Access | Default Browser | |
@@ -103,7 +103,7 @@ You should be able to see a list of the resources you can connect to, upon your 
 |  | Postgres DB | DBeaver | |
 |  | RDP | Windows App | |
 |  | SSH Cert Issuer | Terminal | |
-|  | SSH username & password | Terminal | |
+|  | SSH username and password | Terminal | |
 |  | Direct Connection / Secure Remote Access | Default Browser | |
 |  | SSH File Transfer (SFTP) | Terminal | |
 
@@ -114,8 +114,8 @@ You should be able to see a list of the resources you can connect to, upon your 
 > > Note: Removing host from the list only removes it from the list of hosts in the desktop application.
 
 3. Configure the **Defaults Configuration** - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (aka, the target you wish to connect to). If this information is not accessible to the desktop application, it will use the information configured in the Advanced Configuration.
-   1. **Web Application Dispatcher** & **Web Proxy URL** - Should be provided if working with Zero trust Web Access solution (ZTWA)
-   2. **Secure SSH Access Address** (recommended) - This is the path & port for SSH deployment (`my.SSH.address`)
+   1. **Web Application Dispatcher** and **Web Proxy URL** - Should be provided if working with Zero trust Web Access solution (ZTWA)
+   2. **Secure SSH Access Address** (recommended) - This is the path and port for SSH deployment (`my.SSH.address`)
    3. **SSH Certificate Issuer** (recommended) - This is the name of the SSH Certificate Issuer the Akeyless CLI will use to initiate the connection
    4. **Control API Port** - the control API port (specify 8000 for unified Gateway, or 9900 if not)
    5. **Control API Path** - the SRA control API path (for example: `/sra/ssh-config`)

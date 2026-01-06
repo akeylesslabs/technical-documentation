@@ -157,9 +157,9 @@ data "aws_iam_policy_document" "permissions" {
   }
 }
 
-#############################
-# CREATE & ATTACH THE POLICY
-#############################
+###############################
+# CREATE AND ATTACH THE POLICY
+###############################
 resource "aws_iam_policy" "this" {
   name   = "${var.role_name}-policy"
   policy = data.aws_iam_policy_document.permissions.json
