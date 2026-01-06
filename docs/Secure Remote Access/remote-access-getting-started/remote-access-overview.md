@@ -14,10 +14,6 @@ next:
       slug: quick-start-guide
       title: Quick Start
 ---
-> 📘 Unified Gateway/Secure Remote Access
->
-> Please note that these docs are written with the Gateway and Secure Remote Access single chart deployment. You may continue using the separate Gateway and Secure Remote Access solution you currently have in order to access your remote resources.
-
 ## What Is Secure Remote Access?
 
 The Akeyless Platform’s Secure Remote Access (SRA) solution offers a modern approach to Privileged Access Management (PAM), enabling users to securely connect to servers, databases, internal applications, and web apps across any environment—whether cloud hosted or on-premise, private or public—by leveraging Just-in-Time, Zero-Trust access with full auditability.
@@ -28,7 +24,7 @@ Users can connect securely to resources through the Gateway's internal SRA Porta
 
 SRA is deployed alongside the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a Web application and SSH application, each a separate container in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
 
-![Akeyless Gateway & Secure Remote Access architecture](https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png)
+<Image alt="Akeyless Gateway & Secure Remote Access architecture" border={false} src="https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png" />
 
 1. Web: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
 2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any Unix-supporting resource.
