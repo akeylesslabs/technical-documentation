@@ -16,7 +16,7 @@ The new, unified version of the Akeyless Gateway introduces significant improvem
 >
 > With this new version comes a new Helm chart for Kubernetes deployments. [Review the Helm Chart changes](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-gateway/values.yaml).
 
-## Why Upgrade to the Unified Gateway & Remote Access Version?
+## Why Upgrade to the Unified Gateway and Remote Access Version?
 
 This unified version of the Gateway has built-in Remote Access, which offers many benefits to customers in terms of ease of deployment, dynamic configuration, and feature availability, among others:
 
