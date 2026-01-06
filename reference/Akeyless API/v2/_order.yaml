@@ -1,5 +1,5 @@
 - aliasdetails
-- assocroleauthmethod
+- assoc-role-am
 - assoctargetitem
 - auth
 - authmethodcreateapikey
@@ -100,7 +100,7 @@
 - decryptpkcs1
 - decryptwithclassickey
 - deleteroleassociation
-- deletetargetassociation
+- delete-assoc-target-item
 - deleteauthmethod
 - deleteauthmethods
 - deleteeventforwarder
@@ -348,9 +348,9 @@
 - kmipcreateclient
 - kmipserversetup
 - kmipdeleteclient
-- kmipdeleteserver
+- kmipdeleteenvironment
 - kmipdescribeclient
-- kmipdescribeserver
+- kmipgetenvironment
 - kmiplistclients
 - kmipmoveserver
 - kmiprenewclientcertificate
@@ -565,7 +565,7 @@
 - uscget
 - usclist
 - uscupdate
-- getlastusereventstatus
+- user-event-last-status
 - validatetoken
 - verifydatawithclassickey
 - verifyecdsa
