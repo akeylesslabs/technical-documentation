@@ -16,7 +16,7 @@ In our Password Manager application, you have the flexibility to define specific
 
 ## During Password Creation or Editing
 
-**Character Length:**&#x53;et the desired length for the specific password. This defines the number of characters it should contain.
+**Character Length: Get the desired length for the specific password. This defines the number of characters it should contain.
 **Include Uppercase Letters (A-Z):** Check this box if you want the password to include at least one uppercase letter. If solely selected, the password will exclusively consist of uppercase letters.
 **Include Lowercase Letters (a-z):** Check this box to ensure the inclusion of at least one lowercase letter in the password. If solely selected, the password will exclusively consist of lowercase letters.
 **Include Numbers (0-9):** Check this box to mandate at least one numeric character in the password. If solely selected, the password will exclusively consist of numeric characters.

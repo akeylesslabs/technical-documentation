@@ -24,15 +24,15 @@ Before using Akeyless Password Manager for autofill, you must grant it permissio
 
 2. Depending on your iOS version:
 
-* For iOS 13 or earlier, scroll down and tap on "Passwords & Accounts".
+* For iOS 13 or earlier, scroll down and tap on **Passwords & Accounts**.
 
-* For iOS 14 and later, scroll down and select "Passwords". This might also appear as "Passwords & Accounts" in some versions.
+* For iOS 14 and later, scroll down and select **Passwords**. This might also appear as **Passwords & Accounts** in some versions.
 
-3. Find the "Autofill Passwords" option and tap it. This is where you can manage which apps have permission to use autofill for passwords.
+3. Find the **Autofill Passwords** option and tap it. This is where you can manage which apps have permission to use autofill for passwords.
 
-4. You'll see a toggle switch at the top of the "Autofill Passwords" screen. Switch it to the ON position (green) to enable the autofill feature.
+4. You'll see a toggle switch at the top of the **Autofill Passwords** screen. Switch it to the `ON` position (green) to enable the autofill feature.
 
-5. Under the "Allow Filling From" section, you will see a list of applications that can autofill passwords. Ensure that Akeyless Password Manager is checked. If you have multiple password managers installed, you can select more than one, but for optimal performance, it's recommended to have just one selected for autofill to avoid conflicts.
+5. Under the **Allow Filling From** section, you will see a list of applications that can autofill passwords. Ensure that Akeyless Password Manager is checked. If you have multiple password managers installed, you can select more than one, but for optimal performance, it's recommended to have just one selected for autofill to avoid conflicts.
 
 ## Using Autofill With Akeyless Password Manager
 

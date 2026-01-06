@@ -28,7 +28,7 @@ The number of pods and replication is managed with the values file during Helm i
 
 ### Browser Extension Requirements
 
-The Browser Extension is installed on the local browser and is highly recommended for the SRA environment. It enables Direct & Proxy connections for web access, including advanced features such as auto-injection of passwords and additional RDP features.
+The Browser Extension is installed on the local browser and is highly recommended for the SRA environment. It enables Direct and Proxy connections for web access, including advanced features such as auto-injection of passwords and additional RDP features.
 
 ### Storage Requirements
 

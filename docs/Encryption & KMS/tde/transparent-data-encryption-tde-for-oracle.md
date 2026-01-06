@@ -100,7 +100,7 @@ access_key="oLw05FzH3Rgmca.............lcijrsReM="
 
 * This file defines how the Oracle DB will interact with the Akeyless service. It includes logging settings, the Akeyless API Gateway URL (to use a local Gateway, reference the `/api/v2` endpoint), and the Authentication Method (supported auth methods also include `aws_iam`, `azure_ad`, `gcp`).
 * Ensure your Auth Method is associated with an Access Roles granting it permissions to create and access items under the desired items folder (base_item_path)
-* Notice: to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) (the default is otherwise DFC) you can add the following setting (in the top section): `use_classic_keys="true"`
+* Notice: to configure TDE to create and leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) (the default is otherwise DFC) you can add the following setting (in the top section): `use_classic_keys="true"`
     * To work with Classic Keys make sure you work against your own Gateway (on the API v2 endpoint), and grant the above Auth Method “Access Permissions” to said Gateway to manage “Classic Keys”
 
 Set proper file permissions:
@@ -363,8 +363,7 @@ Reference:
 #### Explanation
 
 * If you see OPEN_NO_MASTER_KEY in the output of V$ENCRYPTION_WALLET, it means that while the keystore is open, the master encryption key has not been created yet. This can also occur if the wallet location is configured for an SSL wallet (created with orapki) rather than a TDE wallet.
-* Reference:  
-  [Why ENCRYPTION_WALLET Shows OPEN_NO_MASTER_KEY](https://support.oracle.com/rs?type=doc\&id=2641533.1) ​
+* Reference: [Why ENCRYPTION_WALLET Shows OPEN_NO_MASTER_KEY](https://support.oracle.com/rs?type=doc\&id=2641533.1) ​
 
 ### Summary and Final Checks
 

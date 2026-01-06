@@ -80,8 +80,7 @@ To rotate a token use the following command:
 ```shell
 akeyless uid-rotate-token --uid-token u-XXXXXXXX
 ```
-
-```curl CURL
+```curl
 curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 ```
 
@@ -112,7 +111,6 @@ To rotate a token with backward compatibility:
 ```shell
 akeyless rotate-token --token u-XXXXXXXX
 ```
-
 ```curl
 curl https://<Gateway-URL>:8080 -d "cmd=rotate-token&&token=u-XXXXX"
 ```

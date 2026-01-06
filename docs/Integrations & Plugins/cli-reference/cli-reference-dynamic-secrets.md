@@ -1036,7 +1036,7 @@ akeyless dynamic-secret create mongodb \
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
-`--mongodb-uri-options`: MongoDB server URI options (For example, replicaSet=mySet&authSource=authDB)
+`--mongodb-uri-options`: MongoDB server URI options (For example, `replicaSet=mySet&authSource=authDB`)
 
 `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 
@@ -2674,7 +2674,7 @@ akeyless dynamic-secret update mongodb \
 
 `--mongodb-default-auth-db`: MongoDB server default authentication database
 
-`--mongodb-uri-options`: MongoDB server URI options (For example, replicaSet=mySet&authSource=authDB)
+`--mongodb-uri-options`: MongoDB server URI options (For example, `replicaSet=mySet&authSource=authDB`)
 
 `--mongodb-atlas-project-id`: MongoDB Atlas project ID
 

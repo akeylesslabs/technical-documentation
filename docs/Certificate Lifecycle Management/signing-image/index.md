@@ -81,7 +81,7 @@ Notation Plugins configuration supports the use of environment variables or stat
 
 Depending on your OS type create the relevant config file accordingly:
 
-```shell Linux & macOS
+```shell Linux and macOS
 cd /var/akeyless/conf
 cat <<EOF > notation.conf
 akeyless_url="https://<Your Gateway URL>:8000/api/v2 # Or using port 8081"

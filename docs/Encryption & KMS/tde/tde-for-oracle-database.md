@@ -123,7 +123,7 @@ Optional:
     * `network` - Either **TCP** or **UDP**
     * `url` - Syslog server URL.
 
-Set the relevant permission on the `pkcs11.conf` file for your Oracle user & group:
+Set the relevant permission on the `pkcs11.conf` file for your Oracle user and group:
 
 ```shell
 chown -R oracle:dba /var/akeyless/conf/pkcs11.conf

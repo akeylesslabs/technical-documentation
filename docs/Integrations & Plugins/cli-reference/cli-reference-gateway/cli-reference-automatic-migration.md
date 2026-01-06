@@ -48,7 +48,7 @@ akeyless gateway-create-migration \
 
 `--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, for example, `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
-`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list & read operations on secrets objects (relevant only for HashiCorp Vault migration)
+`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json=[true]`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
@@ -301,7 +301,7 @@ akeyless gateway-update-migration \
 
 `--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, for example, `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
-`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list & read operations on secrets objects (relevant only for HashiCorp Vault migration)
+`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json='true'`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 

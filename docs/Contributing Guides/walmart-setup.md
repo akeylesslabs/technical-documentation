@@ -53,7 +53,7 @@ Outgoing network access to Akeyless WMT SaaS Core Services via the following IPs
 | **SRA Portal**: `https://zerotrust.wmt.akeyless.io` | Akeyless Secure Remote Access portal |
 | **Vault**: `https://vault.wmt.akeyless.io` | User Account Management, managing user account, items, and roles. |
 | **Auth**: `https://auth.wmt.akeyless.io` | Akeyless Authentication service. |
-| **Audit**: `https://audit.wmt.akeyless.io` | Audit log main service, enables log forwarding from GW & Bastions. |
+| **Audit**: `https://audit.wmt.akeyless.io` | Audit log main service, enables log forwarding from the Gateway and Bastions. |
 | **BIS**: `https://bis.wmt.akeyless.io` | Billing Infrastructure Service. |
 | **Gator**: `https://gator.wmt.akeyless.io` | Main service to sync gateways instances, and connections with Akeyless SaaS. |
 | **MQ**: `amqps://mq.wmt.akeyless.io` | Message queue between Akeyless micro-services. |

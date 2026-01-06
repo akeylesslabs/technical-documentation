@@ -18,7 +18,7 @@ The lookup plugin uses these via the environment variables `VAULT_ADDR` and `VAU
 
 > 👍 Note
 >
-> Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
+> Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
 ## Prepare AWX Environment
 

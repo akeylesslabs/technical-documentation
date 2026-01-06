@@ -85,8 +85,8 @@ Creating basic auth credentials via ServiceNow instance.
 
 <Image border={false} src="https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png" />
 
-* In the "Name" field write "akeyless_basic_auth_creds"
-* Add "User Name" & "Password" / [API Key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-via-the-ui).
+* In the **Name** field write `akeyless_basic_auth_creds`
+* Add **User Name & Password** or [API Key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-via-the-ui).
 
 <Image border={false} src="https://files.readme.io/b11a153-Screenshot_2024-07-14_at_15.10.31.png" />
 

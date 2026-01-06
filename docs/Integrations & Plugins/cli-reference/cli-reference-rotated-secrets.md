@@ -148,7 +148,7 @@ akeyless rotated-secret create azure \
 
 `--rotator-type`: **Required**, The rotator type. options: [`target`/`api-key`/`azure-storage-account`/`password`]
 
-`--app-id`: ID of the Azure app that holds the secret to be rotated (relevant only for `rotator-type`=`api-key` & `authentication-credentials`=`use-target-creds`)
+`--app-id`: ID of the Azure app that holds the secret to be rotated (relevant only for `rotator-type=api-key` and `authentication-credentials=use-target-creds`)
 
 `--api-id`: **API ID** to rotate (relevant only for `rotator-type`=`api-key`)
 
@@ -1212,11 +1212,11 @@ akeyless rotated-secret update azure \
 
 `--new-name`: New Item name
 
-`--app-id`: ID of the Azure app that hold the secret to be rotated (relevant only for `rotator-type`=`api-key` & `authentication-credentials`=`use-target-creds`)
+`--app-id`: ID of the Azure app that hold the secret to be rotated (relevant only for `rotator-type=api-key` and `authentication-credentials=use-target-creds`)
 
-`--api-id`: **API ID** to rotate (relevant only for `rotator-type`=`api-key`)
+`--api-id`: **API ID** to rotate (relevant only for `rotator-type=api-key`)
 
-`--api-key`: **API Key** to rotate (relevant only for `rotator-type`=`api-key`)
+`--api-key`: **API Key** to rotate (relevant only for `rotator-type=api-key`)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

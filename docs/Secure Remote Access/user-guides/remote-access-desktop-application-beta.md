@@ -36,7 +36,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 ### Windows Installation
 
-1. Open Windows command line as an Administrator and generate Private & Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This will create an `.ssh` folder with the respective `id_rsa` and `id_rsa.pub` files.
+1. Open Windows command line as an Administrator and generate Private and Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This will create an `.ssh` folder with the respective `id_rsa` and `id_rsa.pub` files.
 
 2. Run the `.exe` file and follow the setup wizard.
 
