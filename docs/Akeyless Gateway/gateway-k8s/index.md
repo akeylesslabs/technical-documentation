@@ -330,7 +330,7 @@ Full list of available permissions:
 
 | Permission | Description |
 |---|---|
-| `defaults` | Management of the defaults settings of your Gateway including `Default Encryption Key` & `Default AccessID` for login. |
+| `defaults` | Management of the defaults settings of your Gateway including `Default Encryption Key` and `Default AccessID` for login. |
 | `targets` | Management of all Targets items that were created using your Gateway |
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
 | `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |

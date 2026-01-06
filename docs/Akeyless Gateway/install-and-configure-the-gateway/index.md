@@ -19,7 +19,7 @@ next:
 ---
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) & [Targets](https://docs.akeyless.io/docs/targets).
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
 
 <Callout icon="👍" theme="okay">
   __Note:_ The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Using the account owner's email and password which has superuser privileges on the account._

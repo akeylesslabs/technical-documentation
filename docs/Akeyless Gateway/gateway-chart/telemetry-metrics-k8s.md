@@ -24,7 +24,7 @@ The following Metrics are currently available:
 | `akeyless.gw.system.disk.*`                      | Disk I/O metrics                                                                                                   |
 | `akeyless.gw.system.load.*`                      | CPU load metrics                                                                                                   |
 | `akeyless.gw.system.memory.*`                    | Memory utilization metrics                                                                                         |
-| `akeyless.gw.system.network.*`                   | Network interface I/O metrics & TCP connection metrics                                                             |
+| `akeyless.gw.system.network.*`                   | Network interface I/O metrics and TCP connection metrics                                                           |
 | `akeyless.gw.system.saas.connection_status`      | Monitor the connection of the Gateway with all Akeyless SaaS services.                                             |
 | `akeyless.gw.quota.current_transactions_number`  | The current total transaction count in the account                                                                 |
 | `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`AdminAccessID`)                                          |

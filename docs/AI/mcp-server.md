@@ -29,7 +29,7 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 ### Core Capabilities
 
 * Secrets Management: Create, read, update, and delete Static Secrets
-* Encryption & Key Management: Generate, rotate, and manage encryption keys
+* Encryption and Key Management: Generate, rotate, and manage encryption keys
 * Certificate Lifecycle Management: Issue, renew, and manage PKI and SSH certificates
 * Dynamic Secrets: Generate temporary credentials for databases and cloud services
 * Access Control: Manage roles, permissions, and authentication methods

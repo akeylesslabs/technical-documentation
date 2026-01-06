@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-In [Authentication & Authorization](https://docs.akeyless.io/docs/understanding-authentication) we saw that Authentication Methods represent machine identities or human identities.
+In [Authentication and Authorization](https://docs.akeyless.io/docs/understanding-authentication) we saw that Authentication Methods represent machine identities or human identities.
 
 Instead of authenticating identities itself, in most cases, Akeyless integrates with 3rd party identity providers that provide tokens of authentication.
 

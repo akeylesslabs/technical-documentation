@@ -163,7 +163,7 @@ Full list of available permissions:
 
 | Permission | Description |
 |---|---|
-| `defaults` | Management of the defaults settings of your Gateway, including `Default Encryption Key` & `Default AccessID` for login. |
+| `defaults` | Management of the defaults settings of your Gateway, including `Default Encryption Key` and `Default AccessID` for login. |
 | `targets` | Management of all Targets items that were created using your Gateway |
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
 | `automatic_migration` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) settings |
@@ -350,7 +350,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e DEFAULT_SECRET_LOCATION="path to rele
 
 ## Setting a Default Login
 
-When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console`, a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML & OIDC](https://docs.akeyless.io/docs/gateway-authentication).
+When using OIDC or SAML authentication to connect to the Gateway's web UI on endpoint `/console`, a user would usually be asked to supply an access ID, before being transferred to a login screen. This can also be done from the gateway UI as described in [Gateway SAML and OIDC](https://docs.akeyless.io/docs/gateway-authentication).
 When configuring your gateway, you may supply a default value for either OIDC, SAML, or both, using the following parameters:
 
 * `-e DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`
