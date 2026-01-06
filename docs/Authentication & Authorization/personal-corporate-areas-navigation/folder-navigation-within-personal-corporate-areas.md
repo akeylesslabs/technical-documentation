@@ -12,7 +12,7 @@ next:
 ---
 Personal folders
 
-When a user logs in to Akeyless, they will see their personal folder at the root of the folder hierarchy. The user can then navigate through the subfolders within their personal folder to access their secrets and keys.
+When a user logs in to Akeyless, they will see their personal folder at the root of the folder hierarchy. The user can then navigate through the subdirectories within their personal folder to access their secrets and keys.
 
 To navigate to a subfolder, the user can simply click on the name of the subfolder. The user can also use the breadcrumb trail at the top of the page to navigate back to the parent folder or to the root of the folder hierarchy.
 
