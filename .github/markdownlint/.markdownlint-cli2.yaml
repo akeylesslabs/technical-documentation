@@ -426,12 +426,12 @@ config:
   #       - true
   #       - false
   MD013:
-    line_length: 9999
-    heading_line_length: 120
-    code_block_line_length: 0
-    code_blocks: false
-    tables: false
+    line_length: 1000
     headings: true
+    heading_line_length: 120
+    code_blocks: false
+    code_block_line_length: 9999
+    tables: false
     strict: false
     stern: true
 
