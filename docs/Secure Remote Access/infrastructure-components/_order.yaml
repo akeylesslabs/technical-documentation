@@ -1,3 +1,5 @@
+- remote-access-on-docker-compose
+- copy-of-remote-access-on-k8s
 - secure-remote-access-bastion
 - secure-remote-access-advance
 - web-access-bastion
