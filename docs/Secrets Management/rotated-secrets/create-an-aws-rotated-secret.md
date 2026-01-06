@@ -102,44 +102,44 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Define the remaining settings as follows:
 
-* **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
+    * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [AWS Target](https://docs.akeyless.io/docs/aws-targets) to be associated with the Rotated Secret.
+    * **Target:** Defines the name of the [AWS Target](https://docs.akeyless.io/docs/aws-targets) to be associated with the Rotated Secret.
 
-* **Authenticate with the following credentials:** Determines how to connect to the target AWS account:
-    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-    * **Target credentials:** Use the credentials defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
+    * **Authenticate with the following credentials:** Determines how to connect to the target AWS account:
+        * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+        * **Target credentials:** Use the credentials defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
 
-> 👍 Note
->
-> Select **Target credentials** if the Rotated Secret user is not authorized to change their own Access Key, and a privileged AWS IAM principal, like the [AWS Target](https://docs.akeyless.io/docs/aws-targets) user, is required to change the Access Key on behalf of the Rotated Secret user.
+    > 👍 Note
+    >
+    > Select **Target credentials** if the Rotated Secret user is not authorized to change their own Access Key, and a privileged AWS IAM principal, like the [AWS Target](https://docs.akeyless.io/docs/aws-targets) user, is required to change the Access Key on behalf of the Rotated Secret user.
 
-* **Rotator type:** Determines the rotator type:
-    * **API Key**: Rotates the Access Key defined inside the Rotated Secret item.
-    * **Target**: Rotates the Access Key defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
+    * **Rotator type:** Determines the rotator type:
+        * **API Key**: Rotates the Access Key defined inside the Rotated Secret item.
+        * **Target**: Rotates the Access Key defined inside the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
 
-* **Access Key ID:** Defines the Access Key ID of the AWS user whose Access Key should be rotated.
+    * **Access Key ID:** Defines the Access Key ID of the AWS user whose Access Key should be rotated.
 
-* **Access Key:** Defines the Access Key to rotate.
+    * **Access Key:** Defines the Access Key to rotate.
 
-> 👍 Note
->
-> You can rotate the Access Key for the [AWS Target](https://docs.akeyless.io/docs/aws-targets) too, by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
+    > 👍 Note
+    >
+    > You can rotate the Access Key for the [AWS Target](https://docs.akeyless.io/docs/aws-targets) too, by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
 
-* **Gateway:** Select the Gateway through which the secret will be rotated.
+    * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-* **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
+    * **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
 
-* **Auto rotate:** Determines if automatic rotation is enabled.
+    * **Auto rotate:** Determines if automatic rotation is enabled.
 
-* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic Access Key rotations when **Auto Rotate** is enabled.
+    * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic Access Key rotations when **Auto Rotate** is enabled.
 
-* **Rotation hour (local time zone):** Defines the time when the Access Key should be rotated if **Auto Rotate** is enabled.
+    * **Rotation hour (local time zone):** Defines the time when the Access Key should be rotated if **Auto Rotate** is enabled.
 
-* **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
+    * **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
 
-* **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

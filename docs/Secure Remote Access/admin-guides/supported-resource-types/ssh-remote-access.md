@@ -66,17 +66,17 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
-* Choose the right mode to work with either:
+    * Choose the right mode to work with either:
 
-    * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
+        * `Explicit Hosts`: The hostnames (or IP addresses) of your SSH target servers.
 
-    * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
+        * `Target`: Select a [Linked Target](https://docs.akeyless.io/docs/linked-target) that stores the relevant hosts, multiple Targets can be selected.
 
-* `Secure Access API`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
+    * `Secure Access API`: Secure Access SSH control API endpoint. For example, `https://my.sra-server:9900`.
 
-* `Secure Access SSH`: Secure Access SSH server. For example, `my.sra-server:22`.
+    * `Secure Access SSH`: Secure Access SSH server. For example, `my.sra-server:22`.
 
-* `Username`: SSH username to connect to the target server, based on the 'Allowed Users' list.
+    * `Username`: SSH username to connect to the target server, based on the 'Allowed Users' list.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
@@ -95,43 +95,43 @@ Akeyless enables CLI access from any Unix terminal.
 
 2. Create your `~/.akeyless-connect.rc`:
 
-```shell
-IDENTITY_FILE=""
-CERT_ISSUER_NAME=""
-AKEYLESS_PROFILE="default"
-AKEYLESS_GW_REST_API=""
+    ```shell
+    IDENTITY_FILE=""
+    CERT_ISSUER_NAME=""
+    AKEYLESS_PROFILE="default"
+    AKEYLESS_GW_REST_API=""
 
-# Following are used for control service, to configure the temporary session:
-# ${SRA-CTRL-PROTO}://"${SRA_API_PREFIX}${SRA_HOST}${SRA-CTRL-PATH}":"${SRA-CTRL-PORT}
-#
-SRA_API_PREFIX=""
-SRA-CTRL-PATH=""
-SRA-CTRL-PROTO=http
-SRA-CTRL-PORT=9900
-SRA_SSH_PORT=22
+    # Following are used for control service, to configure the temporary session:
+    # ${SRA-CTRL-PROTO}://"${SRA_API_PREFIX}${SRA_HOST}${SRA-CTRL-PATH}":"${SRA-CTRL-PORT}
+    #
+    SRA_API_PREFIX=""
+    SRA-CTRL-PATH=""
+    SRA-CTRL-PROTO=http
+    SRA-CTRL-PORT=9900
+    SRA_SSH_PORT=22
 
-# Allow caching of temp session creds
-SESSION_CACHING=no
+    # Allow caching of temp session creds
+    SESSION_CACHING=no
 
-# Display connection stages
-DISPLAY_STAGES=yes
-```
+    # Display connection stages
+    DISPLAY_STAGES=yes
+    ```
 
-Where:
+    Where:
 
-* `IDENTITY_FILE`: The path to the `ssh-key` to be signed and used for Zero Trust session (if empty, a default of `ssh-key` is used).
+    * `IDENTITY_FILE`: The path to the `ssh-key` to be signed and used for Zero Trust session (if empty, a default of `ssh-key` is used).
 
-* `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
+    * `CERT_ISSUER_NAME`: Full path to the Akeyless SSH Cert Issuer to use for Zero Trust session.
 
-* `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
+    * `AKEYLESS_PROFILE`: Akeyless CLI profile to be used.
 
-* `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
+    * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
 
 3. Use `akeyless connect` command to perform SSH authentication to the target server via Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
 
-```shell General template
-akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
-```
+    ```shell General template
+    akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
+    ```
 
 ## Legacy SSH Versions
 

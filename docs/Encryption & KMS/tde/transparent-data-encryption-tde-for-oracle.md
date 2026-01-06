@@ -454,20 +454,20 @@ Check the encrypted tablespaces in the database:
 SELECT * FROM V$ENCRYPTED_TABLESPACES;
 ```
 
-> 👍 Note
->
-> To migrate a database with an existing file-based wallet, follow these steps:
->
-> 1. Set the TDE configuration:
->
->   ```sql
->   ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
->   ```
->
-> 2. Migrate the encryption key:
->
->   ```sql
->   ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
->   ```
->
-> Ensure to replace \<old file based TDE password\> with the appropriate password.
+## Migrate a Database with an Existing File-Based Wallet
+
+To migrate a database with an existing file-based wallet, follow these steps:
+
+1. Set the TDE configuration:
+
+    ```sql
+    ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
+    ```
+
+2. Migrate the encryption key:
+
+    ```sql
+    ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "Akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
+    ```
+
+Ensure to replace \<old file based TDE password\> with the appropriate password.

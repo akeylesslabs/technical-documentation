@@ -104,35 +104,35 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing [RDP Target](https://docs.akeyless.io/docs/ssh-target) or specify details of the target Windows Server explicitly.
+    * **Delete Protection**: When enabled, protects the secret from accidental deletion.
+    * **Target mode:** In this section, you can either select an existing [RDP Target](https://docs.akeyless.io/docs/ssh-target) or specify details of the target Windows Server explicitly.
 
-    * Use the **Choose an existing target** drop-down list to select the existing SSH Target.
+        * Use the **Choose an existing target** drop-down list to select the existing SSH Target.
 
-    * Select the **Explicitly specify target properties** to provide details of the target Windows Server in the next step.
-* **Groups:** A comma-separated list of RDP user groups to which the new user should be added.
-* **Display message to the user before TTL expires:** Select this checkbox to allow displaying messages to the user before TTL expires.
-* **Allow user to extend session periodically:** Select this checkbox to allow the user to extend session periodically.
-* **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IdP.
-* **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_username`
-* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
-* **Temporary Password Length** Set the length of the temporary password
-* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+        * Select the **Explicitly specify target properties** to provide details of the target Windows Server in the next step.
+    * **Groups:** A comma-separated list of RDP user groups to which the new user should be added.
+    * **Display message to the user before TTL expires:** Select this checkbox to allow displaying messages to the user before TTL expires.
+    * **Allow user to extend session periodically:** Select this checkbox to allow the user to extend session periodically.
+    * **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IdP.
+    * **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_username`
+    * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **Temporary Password Length** Set the length of the temporary password
+    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** option, click **Next**.
 
 6. Provide details of the target Windows Server:
 
-* **Admin user:** The username of an Admin user with sufficient permissions to create users, groups, and so on.
+    * **Admin user:** The username of an Admin user with sufficient permissions to create users, groups, and so on.
 
-* **Admin password:** The password of the Admin user.
+    * **Admin password:** The password of the Admin user.
 
-* **Hostname:** The hostname or IP address of the target Windows Server.
+    * **Hostname:** The hostname or IP address of the target Windows Server.
 
-* **Port:** The SSH port for the RDP connection.
+    * **Port:** The SSH port for the RDP connection.
 
 7. Click **Finish**.
 

@@ -75,16 +75,16 @@ At a high level:
 
 1. Add the official ESO Helm repository:
 
-```shell
-helm repo add external-secrets https://charts.external-secrets.io
-helm repo update
-```
+    ```shell
+    helm repo add external-secrets https://charts.external-secrets.io
+    helm repo update
+    ```
 
 2. Install ESO (default configuration):
 
-```shell
-helm install external-secrets external-secrets/external-secrets --namespace external-secrets --create-namespace
-```
+    ```shell
+    helm install external-secrets external-secrets/external-secrets --namespace external-secrets --create-namespace
+    ```
 
 The ESO controller pods running in the `external-secrets` Namespace should now be running.
 

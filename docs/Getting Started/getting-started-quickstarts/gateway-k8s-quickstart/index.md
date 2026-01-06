@@ -161,6 +161,6 @@ TEST SUITE: None
   We did not configure access to the Akeyless Gateway's local console in the Quickstart and attempts to access it are expected to fail.
 </Callout>
 
----
+***
 
 _You have now deployed the Akeyless Gateway on Kubernetes using Helm and authenticated it using an API Key._
