@@ -12,7 +12,7 @@ next:
 ---
 Akeyless Platform provides rich analytics functionality, allowing the user to analyze the status of his secret posture in various environments with a high-level view.
 
-The main screen tab provides information mostly for **Secret & Keys** where the screen is divided into the following parts:
+The main screen tab provides information about items, such as Secrets and Keys where the screen is divided into the following parts:
 
 * A geographic map presenting the IP addresses that consume secrets
 * Pie chart that represents the division of the requests by the action type, and below the exact number of operations

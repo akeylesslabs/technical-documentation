@@ -22,7 +22,7 @@ However, in cases where you need to use a **custom** or **predefined** username,
 
 You can use the following built-in functions to construct custom usernames dynamically:
 
-**String/Character manipulation**:
+### String & Character Manipulation
 
 * `uppercase / lowercase` – Converts input to upper or lower case.
 
@@ -34,7 +34,7 @@ You can use the following built-in functions to construct custom usernames dynam
 
 * `restricted_chars` – Filters or handles characters that are not allowed.
 
-**Value Generation**:
+### Value Generation
 
 * `random` – Generates a random string from lowercase letters, uppercase letters, and numbers.
 
@@ -46,7 +46,7 @@ You can use the following built-in functions to construct custom usernames dynam
 
 * `uuid` – Generates a universally unique identifier (`UUID`).
 
-**Hashing & Encoding**:
+### Hashing & Encoding
 
 * `base64` – Encodes or decodes input using `Base64`.
 
