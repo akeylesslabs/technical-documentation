@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Platform provides rich analytics functionality, allowing the user to analyze the status of his secret posture in various environments from a bird's eye view.
+Akeyless Platform provides rich analytics functionality, allowing the user to analyze the status of his secret posture in various environments with a high-level view.
 
 The main screen tab provides information mostly for **Secret & Keys** where the screen is divided into the following parts:
 
