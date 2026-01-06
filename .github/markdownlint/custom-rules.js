@@ -139,6 +139,14 @@ function findMarkdownLinks(text) {
   return matches;
 }
 
+function removeBoldSpans(text) {
+  // Removes entire bold spans (including their content).
+  // This is intentionally aggressive to prevent false positives.
+  return (text || "")
+    .replace(/\*\*[^*]+\*\*/g, "")
+    .replace(/__[^_]+__/g, "");
+}
+
 module.exports = [
   /**
    * AKY001: Disallow H1 (# / Setext H1)
@@ -520,86 +528,106 @@ module.exports = [
 
   
     /**
-     * AKY009: Disallow ampersands (option-driven)
-     * Style guide: Avoid '&' in prose; acceptable in some contexts.
+     * AKY009: Disallow ampersands in prose (configurable ignores)
      *
-     * Default behavior:
-     * - Flags ALL ampersands.
-     * - Allows suppressing certain contexts via config:
-     *   - allow_headings (default true): ignore headings
-     *   - allow_code (default true): ignore fenced/indented code blocks AND inline code spans
-     *   - allow_bold (default true): ignore ampersands inside **bold** or __bold__
+     * Purpose:
+     * - Flags "&" usage so writers use "and" in prose.
      *
-     * Config example:
+     * Options (in .markdownlint-cli2.yaml):
      *   AKY009:
-     *     allow_headings: true
-     *     allow_code: true
-     *     allow_bold: true
+     *     severity: error|warning|info            # Optional; markdownlint-cli2 uses "error" by default
+     *     ignore_headings: true|false            # Default: true
+     *     ignore_code: true|false                # Default: true  (fenced/indented code blocks + inline code spans)
+     *     ignore_bold: true|false                # Default: true  (ignore "&" inside **bold** or __bold__)
+     *     ignore_urls: true|false                # Default: true  (ignore "&" inside URLs)
+     *
+     * Notes:
+     * - If ignore_urls is enabled, "&" inside URLs will NOT be flagged.
+     * - If ignore_bold is enabled, "&" inside bold spans will NOT be flagged.
+     * - If ignore_code is enabled, "&" inside inline code (`...`) will NOT be flagged.
+     * - If ignore_headings is enabled, heading lines are skipped.
      */
     {
-    names: ["AKY009", "no-ampersand"],
-    description: "Disallow ampersands '&' (supports optional suppression for headings/code/bold)",
+    names: ["AKY009", "no-ampersand-in-prose"],
+    description: "Disallow '&' in prose; configurable ignores for headings, code, bold spans, and URLs",
     tags: ["punctuation", "style"],
     function: function (params, onError) {
-    const cfg = params.config || {};
+        const cfg = params.config || {};
 
-    // Defaults are permissive (suppress common contexts) to reduce noise.
-    const allowHeadings = cfg.allow_headings !== false; // default true
-    const allowCode = cfg.allow_code !== false;         // default true
-    const allowBold = cfg.allow_bold !== false;         // default true
+        // Defaults (recommended)
+        const ignoreHeadings = cfg.ignore_headings !== false; // default true
+        const ignoreCode = cfg.ignore_code !== false;         // default true
+        const ignoreBold = cfg.ignore_bold !== false;         // default true
+        const ignoreUrls = cfg.ignore_urls !== false;         // default true
 
-    const tokens = params.tokens || [];
-    const lines = params.lines || [];
+        const tokens = params.tokens || [];
+        const lines = params.lines || [];
 
-    const codeLines = allowCode ? getCodeBlockLineSet(tokens) : new Set();
+        // If ignoreCode: compute code block line set
+        const codeLines = ignoreCode ? getCodeBlockLineSet(tokens) : new Set();
 
-    // Remove inline code spans `...`
-    function maybeStripInlineCode(text) {
-        return allowCode ? stripInlineCode(text) : String(text || "");
-    }
+        function stripInlineCodeSpans(text) {
+        return (text || "").replace(/`[^`]*`/g, "");
+        }
 
-    // Remove bold spans **...** and __...__ so '&' inside them won't be detected
-    function maybeStripBold(text) {
-        if (!allowBold) return String(text || "");
-        return String(text || "")
-        .replace(/\*\*[^*]*\*\*/g, "")  // **...**
-        .replace(/__[^_]*__/g, "");     // __...__
-    }
+        function removeBoldSpans(text) {
+        // Removes entire bold spans (including content) to ignore "&" inside them.
+        // This is intentionally aggressive to prevent false positives.
+        return (text || "")
+            .replace(/\*\*[^*]+\*\*/g, "")
+            .replace(/__[^_]+__/g, "");
+        }
 
-    // Report helper
-    function flag(lineNumber, context) {
-        report(
-        onError,
-        lineNumber,
-        "Avoid using '&' in prose; rewrite using 'and'.",
-        context
-        );
-    }
+        function stripUrlsLocal(text) {
+        // Prefer your existing helper if present.
+        if (typeof stripUrls === "function") return stripUrls(text);
 
-    for (let i = 0; i < lines.length; i++) {
+        // Fallback URL stripping:
+        return (text || "")
+            .replace(/\bhttps?:\/\/[^\s)>"']+/gi, "")
+            .replace(/\bwww\.[^\s)>"']+/gi, "");
+        }
+
+        function isHeadingLineLocal(line) {
+        // Use your existing helper if present; fallback here for safety.
+        if (typeof isHeadingLine === "function") return isHeadingLine(line);
+        if (/^\s*#{1,6}\s+/.test(line)) return true;
+        if (/^\s*(=+|-+)\s*$/.test(line)) return true;
+        return false;
+        }
+
+        for (let i = 0; i < lines.length; i++) {
         const ln = i + 1;
 
-        // Skip headings if allowed
-        if (allowHeadings && isHeadingLine(lines[i])) continue;
+        // Ignore fenced/indented code blocks
+        if (ignoreCode && codeLines.has(ln)) continue;
 
-        // Skip code blocks if allowed
-        if (allowCode && codeLines.has(ln)) continue;
+        const raw = lines[i];
 
-        let text = String(lines[i] || "");
+        // Ignore headings if configured
+        if (ignoreHeadings && isHeadingLineLocal(raw)) continue;
 
-        // Strip inline code spans if allowed
-        text = maybeStripInlineCode(text);
+        let text = raw;
 
-        // Strip bold spans if allowed
-        text = maybeStripBold(text);
+        // Ignore URLs first so later stripping doesn't accidentally expose "&" again.
+        if (ignoreUrls) text = stripUrlsLocal(text);
 
-        // Now detect ALL remaining ampersands
+        // Ignore inline code spans if configured
+        if (ignoreCode) text = stripInlineCodeSpans(text);
+
+        // Ignore bolded text regions if configured
+        if (ignoreBold) text = removeBoldSpans(text);
+
+        // Now detect any remaining ampersands
         if (text.includes("&")) {
-        // Provide a trimmed context preview
-        const ctx = String(lines[i] || "").trim().slice(0, 160);
-        flag(ln, ctx);
+            report(
+            onError,
+            ln,
+            "Avoid using '&' in prose; rewrite using 'and' (ampersands may be allowed in suppressed contexts).",
+            raw.trim()
+            );
         }
-    }
+        }
     }
     },
  
