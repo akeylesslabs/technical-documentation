@@ -565,7 +565,7 @@
 - uscget
 - usclist
 - uscupdate
-- getlastusereventstatus
+- user-event-last-status
 - validatetoken
 - verifydatawithclassickey
 - verifyecdsa
