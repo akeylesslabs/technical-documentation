@@ -385,7 +385,7 @@ config:
   #       - true
   #       - false
   MD010:
-    code_blocks: false
+    code_blocks: true
 
   # MD011: Reversed link syntax
   # Knobs:
