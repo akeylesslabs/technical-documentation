@@ -14,16 +14,16 @@ next:
 
 1. Set Akeyless HashiCorp Vault Proxy URL in: `VAULT_ADDR` environment variable:
 
-```shell
-export VAULT_ADDR=https://hvp.akeyless.io
-```
+    ```shell
+    export VAULT_ADDR=https://hvp.akeyless.io
+    ```
 
 2. Now, you'll need to configure the authentication token that would be used by Vault CLI to fetch secrets from Akeyless.
 3. Set your Akeyless token in `~/.vault-token`: `Access Id..Access Key`, for example:
 
-```shell
-p-XXXXX..AccessKey
-```
+    ```shell
+    p-XXXXX..AccessKey
+    ```
 
 ## Get Dynamic Secret With Vault CLI
 

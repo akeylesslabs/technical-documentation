@@ -94,30 +94,31 @@ To deploy Akeyless Professional Bastion via Docker, you will have to provide a m
 
 1. `ca.pub` - SSH Cert Issuer CA Public key.
 
-```shell ca.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAA...
-```
+    ```shell ca.pub
+    ssh-rsa AAAAB3NzaC1yc2EAAAA...
+    ```
 
-2. akeyless_config_file - this file should contain the following information:
+2. `akeyless_config_file` - this file should contain the following information:
 
-```shell akeyless_config_file
-https://rest.akeyless.io
-cmd=auth&access-id=<access-ID>&<access-key>
-```
-```shell macOS
-docker run --name ssh_bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900 \
-       -v </path/to/akeyless_config_file/>:/var/akeyless/creds \
-       --cap-add=SYS_ADMIN akeyless/ssh-proxy:latest
-```
-```shell Ubuntu
-docker run --name ssh_bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900 \
-       -v </path/to/akeyless_config_file/>:/var/akeyless/creds \
-       --privileged akeyless/ssh-proxy:latest
-```
+    ```shell akeyless_config_file
+    https://rest.akeyless.io
+    cmd=auth&access-id=<access-ID>&<access-key>
+    ```
 
-To add log forwarding capabilities please add those options to the command:
+    ```shell macOS
+    docker run --name ssh_bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900 \
+        -v </path/to/akeyless_config_file/>:/var/akeyless/creds \
+        --cap-add=SYS_ADMIN akeyless/ssh-proxy:latest
+    ```
+    ```shell Ubuntu
+    docker run --name ssh_bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900 \
+        -v </path/to/akeyless_config_file/>:/var/akeyless/creds \
+        --privileged akeyless/ssh-proxy:latest
+    ```
 
-```shell
--v <path/to/logs/folder>:/tmp/ssh_logs \
--v <path/to/log_forwarding.conf>:/var/akeyless/conf/logand.conf
-```
+    To add log forwarding capabilities please add those options to the command:
+
+    ```shell
+    -v <path/to/logs/folder>:/tmp/ssh_logs \
+    -v <path/to/log_forwarding.conf>:/var/akeyless/conf/logand.conf
+    ```

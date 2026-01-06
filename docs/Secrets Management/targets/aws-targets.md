@@ -75,23 +75,23 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
    * Check the **Use Gateway's Cloud Identity** option to authenticate with local Gateway's Cloud IAM.
 
-> 👍 Note
->
-> **Use Gateway's Cloud Identity** is relevant for cases where your Gateway is hosted on an AWS resource (i.e., EC2, EKS, ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector) etc.
+    > 👍 Note
+    >
+    > **Use Gateway's Cloud Identity** is relevant for cases where your Gateway is hosted on an AWS resource (i.e., EC2, EKS, ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector) etc.
 
 5. Define the remaining parameters as follows:
 
-* **Access Key ID:** If you selected the **Use Credentials** option in the previous step, specify the Access ID assigned to the admin user you created to authenticate Akeyless with AWS.
+    * **Access Key ID:** If you selected the **Use Credentials** option in the previous step, specify the Access ID assigned to the admin user you created to authenticate Akeyless with AWS.
 
-* **Secret Access Key:** Specify the Access Key assigned to the admin user you created to authenticate Akeyless with AWS.
+    * **Secret Access Key:** Specify the Access Key assigned to the admin user you created to authenticate Akeyless with AWS.
 
-* **Region:** Enter the AWS region that the temporary credentials are permitted to access.
+    * **Region:** Enter the AWS region that the temporary credentials are permitted to access.
 
-* **Session Token:** Token is required only for temporary security credentials retrieved via STS. Otherwise, it can be left empty.
+    * **Session Token:** Token is required only for temporary security credentials retrieved via STS. Otherwise, it can be left empty.
 
-* **External ID:** Optional, A unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless, read more [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
+    * **External ID:** Optional, A unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless, read more [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
 
-* **Role ARN:** Optional, when using External ID, the Role-ARN that the gateway will use. If not provided, the default role according to [AWS precedence](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html#cli-chap-authentication-precedence) will be used.
+    * **Role ARN:** Optional, when using External ID, the Role-ARN that the gateway will use. If not provided, the default role according to [AWS precedence](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html#cli-chap-authentication-precedence) will be used.
 
 6. Click **Finish**.
 

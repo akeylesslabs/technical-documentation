@@ -183,15 +183,15 @@ The command output shows the created KMIP key ID:
 
 2. Define KMIP server settings as follows:
 
-* **Gateway:** Select the Gateway where you will set up your KMIP server.
+    * **Gateway:** Select the Gateway where you will set up your KMIP server.
 
-* **Custom hostname:** Select this checkbox if you want to provide an alternative hostname for the KMIP server.
+    * **Custom hostname:** Select this checkbox if you want to provide an alternative hostname for the KMIP server.
 
-* **Hostname:** Provide the hostname for the KMIP server. By default, use the hostname of the selected Gateway.
+    * **Hostname:** Provide the hostname for the KMIP server. By default, use the hostname of the selected Gateway.
 
-* **Location:** Specify the path to the Akeyless folder where you want to create the new KMIP server objects, using the slash `/` separators. If the folder does not exist, it will be created together with the server.
+    * **Location:** Specify the path to the Akeyless folder where you want to create the new KMIP server objects, using the slash `/` separators. If the folder does not exist, it will be created together with the server.
 
-* **Certificate TTL:** Specify the TTL of the KMIP Server certificate (in days).
+    * **Certificate TTL:** Specify the TTL of the KMIP Server certificate (in days).
 
 3. Click **Setup** to save the changes.
 
@@ -201,13 +201,13 @@ The command output shows the created KMIP key ID:
 
 2. Define the KMIP client settings as follows:
 
-* **Name:** Define the name of the KMIP client.
+    * **Name:** Define the name of the KMIP client.
 
-* **Certificate TTL:** Specify the TTL of the Client certificate (in days).
+    * **Certificate TTL:** Specify the TTL of the Client certificate (in days).
 
-* **Restrict to the following path:** Provide a path where this client will store all its objects. Default value is /KMIP/data.
+    * **Restrict to the following path:** Provide a path where this client will store all its objects. Default value is /KMIP/data.
 
-* **Allow the following actions:** Select all the actions that are allowed to this client on the relevant path.
+    * **Allow the following actions:** Select all the actions that are allowed to this client on the relevant path.
 
 3. Click **Setup** to save the changes.
 

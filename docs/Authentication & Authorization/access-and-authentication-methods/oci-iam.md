@@ -81,18 +81,18 @@ Where:
 
 3. Define the remaining parameters as follows:
 
-* **Tenant OCID:** Enter the Oracle Cloud tenant IDs for which access is allowed.
+    * **Tenant OCID:** Enter the Oracle Cloud tenant IDs for which access is allowed.
 
-* **Group OCIDs:** Enter a comma-separated list of full OCI groups IDs for which access is allowed. For example: `ocid1.group.oc1..abc,ocid1.group.oc1..xyz`.
+    * **Group OCIDs:** Enter a comma-separated list of full OCI groups IDs for which access is allowed. For example: `ocid1.group.oc1..abc,ocid1.group.oc1..xyz`.
 
-* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+    * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+    * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`,`SDK`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`,`SDK`.
 
 4. Click **Finish**.

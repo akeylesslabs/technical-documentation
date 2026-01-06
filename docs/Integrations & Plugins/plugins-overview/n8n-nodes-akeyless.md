@@ -22,12 +22,12 @@ The Akeyless node for n8n integrates with Akeyless Secrets Management. Use it to
 3. Go to Settings → Community Nodes
 4. Search for `@akeylesslabs/n8n-nodes-akeyless`
 
-  <Image border={false} src="https://files.readme.io/7f6ee734fa1faa3631f18b22535d539c1a1a61dcf16766b41324334f2dc223c3-Screenshot_2025-11-17_at_19.14.55.png" />
+    <Image border={false} src="https://files.readme.io/7f6ee734fa1faa3631f18b22535d539c1a1a61dcf16766b41324334f2dc223c3-Screenshot_2025-11-17_at_19.14.55.png" />
 
 5. Click Install
 6. Refresh your workflow editor
 
-  <Image border={false} src="https://files.readme.io/e04ed312248f961e0a21a972c61fb43a7af87df983bd0149a7b9db46352dab55-Screenshot_2025-11-17_at_19.15.11.png" />
+    <Image border={false} src="https://files.readme.io/e04ed312248f961e0a21a972c61fb43a7af87df983bd0149a7b9db46352dab55-Screenshot_2025-11-17_at_19.15.11.png" />
 
 ### For Self-Hosted N8n
 
@@ -109,8 +109,8 @@ Choose an authentication method:
     * Secret Name: The full path to your dynamic secret
     * Timeout: Maximum seconds to wait for secret generation (default: 15)
 
-  Output: Returns the dynamically generated secret value.
-  Use Case: Generate temporary database access credentials or API tokens.
+    Output: Returns the dynamically generated secret value.
+    Use Case: Generate temporary database access credentials or API tokens.
 
 4. Create Secret
     Creates a new secret in Akeyless.

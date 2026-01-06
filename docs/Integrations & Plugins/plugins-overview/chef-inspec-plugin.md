@@ -20,29 +20,29 @@ An [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 
 1. Issue an SSH Certificate from Akeyless:
 
-```shell
-akeyless get-ssh-certificate -s <target_username> -c ssh-cert-issuer-name -p <path_to_public_ssh_key> && echo
-```
+    ```shell
+    akeyless get-ssh-certificate -s <target_username> -c ssh-cert-issuer-name -p <path_to_public_ssh_key> && echo
+    ```
 
 2. Test SSH connection
 
-```shell
-ssh <target_username>@<target_ssh_server>
-```
+    ```shell
+    ssh <target_username>@<target_ssh_server>
+    ```
 
 3. Setup `ssh-agent` and add SSH key public key to the agent:
 
-```shell
-eval `ssh-agent`
-ssh-add <path_to_public_ssh_key>
-```
+    ```shell
+    eval `ssh-agent`
+    ssh-add <path_to_public_ssh_key>
+    ```
 
 4. Test Chef InSpec
 
-```ruby
-inspec shell -c 'package("git").installed?' -t <target_username>@<target_ssh_server>
-inspec shell -c 'package("git").version' -t <target_username>@<target_ssh_server>
-```
+    ```ruby
+    inspec shell -c 'package("git").installed?' -t <target_username>@<target_ssh_server>
+    inspec shell -c 'package("git").version' -t <target_username>@<target_ssh_server>
+    ```
 
 ## Example
 

@@ -51,28 +51,28 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Define the parameters as follows:
 
-* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
+    * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+    * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`,`SDK`,`Mobile`, `Extension`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`,`SDK`,`Mobile`, `Extension`.
 
 4. Click **Next** and define the remaining parameters as follows:
 
-* Choose your preferred Identity Provider (IdP) metadata type by selecting one of the options:
-    * Check the **URL** radio button and enter your Identity Provider **Metadata URL** in the field below.
-    * Check the **XML** radio button when using an internal domain and enter your Identity Provider **Metadata XML** in the field below.
+    * Choose your preferred Identity Provider (IdP) metadata type by selecting one of the options:
+        * Check the **URL** radio button and enter your Identity Provider **Metadata URL** in the field below.
+        * Check the **XML** radio button when using an internal domain and enter your Identity Provider **Metadata XML** in the field below.
 
-* **Allowed Redirect URIs:** Enter a comma-separated list of Redirect URIs to be validated as part of the authentication flow. If you leave this field empty, it can be insecure. Malicious users could steal access credentials using open redirects.
+    * **Allowed Redirect URIs:** Enter a comma-separated list of Redirect URIs to be validated as part of the authentication flow. If you leave this field empty, it can be insecure. Malicious users could steal access credentials using open redirects.
 
-* **unique-identifier:** A unique identifier is usually one of the following **keys** `email`, `username`, or `UPN`. Whenever a user logs in with a token, SAML Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
+    * **unique-identifier:** A unique identifier is usually one of the following **keys** `email`, `username`, or `UPN`. Whenever a user logs in with a token, SAML Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
-> 🚧 Note
->
-> **Unique Identifier** should be a **key** name, i.e. not the value itself. for example, `email` should be provided as is, and not the actual email address.
+    > 🚧 Note
+    >
+    > **Unique Identifier** should be a **key** name, i.e. not the value itself. for example, `email` should be provided as is, and not the actual email address.
 
-4. Click **Finish**.
+5. Click **Finish**.

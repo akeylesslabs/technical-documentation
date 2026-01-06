@@ -163,55 +163,55 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection:** When enabled, protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) or specify details of the target AWS account explicitly.
+    * **Target mode:** In this section, you can either select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) or specify details of the target AWS account explicitly.
 
-    * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) .
+        * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) .
 
-    * Check the **Explicitly specify target properties** to provide details of the target AWS account in the next step.
+        * Check the **Explicitly specify target properties** to provide details of the target AWS account in the next step.
 
-* **Access Mode:** Select the AWS access mode, either **IAM User** or **Assume Role**.
+    * **Access Mode:** Select the AWS access mode, either **IAM User** or **Assume Role**.
 
-* **Policies:** Provide the individual Policy ARN(s) available for this dynamic secret. Multiple values should be separated by a comma.
+    * **Policies:** Provide the individual Policy ARN(s) available for this dynamic secret. Multiple values should be separated by a comma.
 
-* **Groups:** Provide the UserGroup name(s). Multiple values should be separated by a comma.
+    * **Groups:** Provide the UserGroup name(s). Multiple values should be separated by a comma.
 
-* **AWS Role ARNs:** Provide the allowed AWS Role ARNs to be used in the **Assume Role** mode.
+    * **AWS Role ARNs:** Provide the allowed AWS Role ARNs to be used in the **Assume Role** mode.
 
-* **AWS External ID:** The AWS External ID associated with the AWS role, relevant only for **Assume Role** mode, read more [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
+    * **AWS External ID:** The AWS External ID associated with the AWS role, relevant only for **Assume Role** mode, read more [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
 
-* **User Programmatic Access:** Check to enable an Access ID and Access Key for the AWS API, CLI, SDK.
+    * **User Programmatic Access:** Check to enable an Access ID and Access Key for the AWS API, CLI, SDK.
 
-* **User Console Access:** Check to enable access to the AWS management console. (The returned object will include a username and password to connect to the AWS Management Console).
+    * **User Console Access:** Check to enable access to the AWS management console. (The returned object will include a username and password to connect to the AWS Management Console).
 
-* **Session Tags:** Key-value pair attributes that you pass when you assume an IAM role or federate a user in AWS STS, additionally can be used with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) templates,for example`Key=MyTag,Value={{username}}` where `username` is the sub-claim name. Relevant only for **Assume Role** mode.
+    * **Session Tags:** Key-value pair attributes that you pass when you assume an IAM role or federate a user in AWS STS, additionally can be used with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) templates,for example`Key=MyTag,Value={{username}}` where `username` is the sub-claim name. Relevant only for **Assume Role** mode.
 
-* **Transitive Tag Keys:** STS Transitive [session tag](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role) keys, relevant only for **Assume Role** mode.
+    * **Transitive Tag Keys:** STS Transitive [session tag](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role) keys, relevant only for **Assume Role** mode.
 
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 
-* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
+    * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-* **Temporary Password Length** Set the length of the temporary password. Relevant only for **IAM User** access mode.
+    * **Temporary Password Length** Set the length of the temporary password. Relevant only for **IAM User** access mode.
 
-* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target AWS account:
 
-* **Access Key ID:** Specify the Access ID assigned to the admin user you created to authenticate Akeyless with AWS.
+    * **Access Key ID:** Specify the Access ID assigned to the admin user you created to authenticate Akeyless with AWS.
 
-* **Secret Access Key:** Specify the Access Key assigned to the admin user you created to authenticate Akeyless with AWS.
+    * **Secret Access Key:** Specify the Access Key assigned to the admin user you created to authenticate Akeyless with AWS.
 
-* **Region:** Enter the AWS region that the temporary credentials are permitted to access.
+    * **Region:** Enter the AWS region that the temporary credentials are permitted to access.
 
-* **Session Token:** Token is required only for temporary security credentials retrieved via STS. Otherwise, it can be left empty.
+    * **Session Token:** Token is required only for temporary security credentials retrieved via STS. Otherwise, it can be left empty.
 
 7. Click **Finish**.
 

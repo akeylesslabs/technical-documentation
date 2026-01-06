@@ -64,10 +64,10 @@ Let's set up remote access to a LDAP server from the Akeyless Console. If you'd 
 
 3. Click on the **Secure Remote Access** tab, select the pencil icon, and enable **Secure Remote Access**, then fill in the following fields:
 
-* `Host(s)`: The hostname (or IP address) for accessing the LDAP server as defined in the secret.
-* `Externally Provided Username`: Optional for Dynamic Secret. Select to enable an external username to log into the target host.
-* `Override User`: Optional for Dynamic Secret. Override the RDP Domain username.
-* `Domain`: Optional for Dynamic Secret, required only when `Externally Provided Username` is ticked. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the LDAP user for whom credentials are created belongs.
-* `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
+    * `Host(s)`: The hostname (or IP address) for accessing the LDAP server as defined in the secret.
+    * `Externally Provided Username`: Optional for Dynamic Secret. Select to enable an external username to log into the target host.
+    * `Override User`: Optional for Dynamic Secret. Override the RDP Domain username.
+    * `Domain`: Optional for Dynamic Secret, required only when `Externally Provided Username` is ticked. Only required when the dynamic secret is configured to create credentials for a fixed user. This option defines the domain to which the LDAP user for whom credentials are created belongs.
+    * `Rotate after disconnection`: Optional for Rotated Secret. Rotate the secret value when the SRA session ends.
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.

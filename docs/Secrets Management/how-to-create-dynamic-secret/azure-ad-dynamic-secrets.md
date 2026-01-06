@@ -136,53 +136,53 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection:** When enabled, it protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
 
-    * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/cloud-targets).
+        * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/cloud-targets).
 
-    * Check the **Explicitly specify target properties** to provide details of the target Azure AD in the next step.
+        * Check the **Explicitly specify target properties** to provide details of the target Azure AD in the next step.
 
-* **Programmatic Access:** Select this radio button to create a new secret to access a specific App.
+    * **Programmatic Access:** Select this radio button to create a new secret to access a specific App.
 
-* **Portal Access:** Select this radio button to create a new user and password.
+    * **Portal Access:** Select this radio button to create a new user and password.
 
-* **App Object ID:** Provide the ID of the App Object to access using a dynamic secret. (Required if **Programmatic Access** is selected.)
+    * **App Object ID:** Provide the ID of the App Object to access using a dynamic secret. (Required if **Programmatic Access** is selected.)
 
-* **User Principal Name:** Provide your Azure Domain for the User Principal Name to be created. (Required if **Portal Access** is selected.)
+    * **User Principal Name:** Provide your Azure Domain for the User Principal Name to be created. (Required if **Portal Access** is selected.)
 
-* **User Groups Object ID:** Provide the ID of the Group Object to add the new user to this group. Multiple values should be separated by a comma. (If **Portal Access** is selected.)
+    * **User Groups Object ID:** Provide the ID of the Group Object to add the new user to this group. Multiple values should be separated by a comma. (If **Portal Access** is selected.)
 
-* **User Roles Template ID:** Provide the ID of the Role Template to add this role to the new user. Multiple values should be separated by a comma. (If **Portal Access** is selected.)
+    * **User Roles Template ID:** Provide the ID of the Role Template to add this role to the new user. Multiple values should be separated by a comma. (If **Portal Access** is selected.)
 
-* **Entra ID Administrative Unit**: Provide the Object ID of the Administrative Unit the user will be created in.
+    * **Entra ID Administrative Unit**: Provide the Object ID of the Administrative Unit the user will be created in.
 
-* **Externally Provided Username:** Select this checkbox to allow the dynamic secret engine to add and remove the assigned groups and roles for an existing user (instead of creating a new temporary user). (If **Portal Access** is selected.)
+    * **Externally Provided Username:** Select this checkbox to allow the dynamic secret engine to add and remove the assigned groups and roles for an existing user (instead of creating a new temporary user). (If **Portal Access** is selected.)
 
-* **Extract username from the following claim (Key name):** Provide the name of the claim in the authentication token from which the "externally provided username" will be taken. The value should be either the full principal user name or the user display name.
+    * **Extract username from the following claim (Key name):** Provide the name of the claim in the authentication token from which the "externally provided username" will be taken. The value should be either the full principal user name or the user display name.
 
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 
-* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
+    * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-* **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length** Set the length of the temporary password.
 
-* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
 
 6. Provide details of the target Azure AD server:
 
-* **Client ID (Application ID):** The Application ID.
+    * **Client ID (Application ID):** The Application ID.
 
-* **Tenant ID:** Your Azure Tenant ID.
+    * **Tenant ID:** Your Azure Tenant ID.
 
-* **Client Secret:** Your Azure Client Secret.
+    * **Client Secret:** Your Azure Client Secret.
 
 7. Click **Finish**.
 

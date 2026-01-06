@@ -14,44 +14,44 @@ next:
 
 1. From Akeyless CLI - enable the KMIP server:
 
-  ```shell
-  akeyless kmip-server-setup --hostname <akeyless.gateway.hostname> --gateway-url <Your_Akeyless_GW_URL> --root /kmip/default
-  ```
+    ```shell
+    akeyless kmip-server-setup --hostname <akeyless.gateway.hostname> --gateway-url <Your_Akeyless_GW_URL> --root /kmip/default
+    ```
 
 2. Create KMIP client:
 
-  ```shell
-  akeyless kmip-create-client --name myVCenter --gateway-url <Your_Akeyless_GW_URL>
-  ```
+    ```shell
+    akeyless kmip-create-client --name myVCenter --gateway-url <Your_Akeyless_GW_URL>
+    ```
 
-  This returns the `client ID`, `private key` and `certificate`:
+    This returns the `client ID`, `private key` and `certificate`:
 
-  ```shell
-  $ New client successfully created.
-  Client ID: Zvzw0...VM2u
-  Client Key:
-  -----BEGIN RSA PRIVATE KEY-----
-  MIIEpA...yRCF8UQ==
-  -----END RSA PRIVATE KEY-----
+    ```shell
+    $ New client successfully created.
+    Client ID: Zvzw0...VM2u
+    Client Key:
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEpA...yRCF8UQ==
+    -----END RSA PRIVATE KEY-----
 
-  Client Certificate:
-  -----BEGIN CERTIFICATE-----
-  MIIDSz...0otOEQQ==
-  -----END CERTIFICATE-----
-  ```
+    Client Certificate:
+    -----BEGIN CERTIFICATE-----
+    MIIDSz...0otOEQQ==
+    -----END CERTIFICATE-----
+    ```
 
 3. Save the received certificate and key in a safe place, they will be used to set up the connection.
 
 4. By default, KMIP clients have no permissions. To grant your KMIP client minimal access permissions, execute the following command:
 
-  ```shell
-  akeyless kmip-client-set-rule --gateway-url <Your_Akeyless_GW_URL> --client-id <From step 2, kc-TmA3...VM2u> \
-    --path "/*" \
-    --capability CREATE \
-    --capability GET \
-    --capability GET_ATTRIBUTES \
-    --capability ACTIVATE
-  ```
+    ```shell
+    akeyless kmip-client-set-rule --gateway-url <Your_Akeyless_GW_URL> --client-id <From step 2, kc-TmA3...VM2u> \
+        --path "/*" \
+        --capability CREATE \
+        --capability GET \
+        --capability GET_ATTRIBUTES \
+        --capability ACTIVATE
+    ```
 
 ## vCenter Server Setup
 

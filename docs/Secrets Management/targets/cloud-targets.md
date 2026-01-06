@@ -50,26 +50,26 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
    * Check the **Use Gateway's Cloud Identity** option to authenticate with the Gateway's Cloud IAM.
 
-> 👍 Note
->
-> **Use Gateway's Cloud Identity** relevant for cases where your Gateway uses Azure service principal to authenticate against Akeyless.
-> For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) for Azure, the target can be used for the temporary Azure service principals creation.
+    > 👍 Note
+    >
+    > **Use Gateway's Cloud Identity** relevant for cases where your Gateway uses Azure service principal to authenticate against Akeyless.
+    > For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets) for Azure, the target can be used for the temporary Azure service principals creation.
 
 4. Define the remaining parameters as follows:
 
-* **Azure Client ID (Application ID):** If you selected the **Use Credentials** option in the previous step, specify the Application ID of the admin user that will be used to authenticate Akeyless with Azure AD.
+    * **Azure Client ID (Application ID):** If you selected the **Use Credentials** option in the previous step, specify the Application ID of the admin user that will be used to authenticate Akeyless with Azure AD.
 
-* **Azure Client Secret:** Provide the client secret of the admin user that will be used to authenticate Akeyless with Azure AD.
+    * **Azure Client Secret:** Provide the client secret of the admin user that will be used to authenticate Akeyless with Azure AD.
 
-* **Azure Tenant ID:** Specify your Azure Tenant ID.
+    * **Azure Tenant ID:** Specify your Azure Tenant ID.
 
-* **Subscription ID:** If this target is for the Azure Storage Account, then provide Azure Subscription ID.
+    * **Subscription ID:** If this target is for the Azure Storage Account, then provide Azure Subscription ID.
 
-* **Resource Group Name:** Specify the Resource Group name in your Azure Subscription.
+    * **Resource Group Name:** Specify the Resource Group name in your Azure Subscription.
 
-* **Resource Name:** Provide the name of the relevant Resource.
+    * **Resource Name:** Provide the name of the relevant Resource.
 
-* **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. Click **Save**.
 

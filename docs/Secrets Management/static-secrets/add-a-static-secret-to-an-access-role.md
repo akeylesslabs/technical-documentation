@@ -75,8 +75,8 @@ Let’s add a static secret to a role from the Akeyless Console. If you’d pref
 
 5. From the **Allow the following actions** options, select the **CRUD** operation(s) the client associated with the role that can perform for the secret.
 
-> 👍 Note
->
-> **Deny** overrides all other operations.
+    > 👍 Note
+    >
+    > **Deny** overrides all other operations.
 
 6. Click **Add**.

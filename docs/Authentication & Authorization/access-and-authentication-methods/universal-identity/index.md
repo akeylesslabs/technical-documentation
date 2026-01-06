@@ -173,22 +173,22 @@ Universal Identity Details:
 
 3. Define the remaining parameters as follows:
 
-* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).
-  If empty, the Gateway's IP will be used in the logs.
+    * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).
+    If empty, the Gateway's IP will be used in the logs.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+    * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`,`SDK`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`,`SDK`.
 
-* Check **Deny Rotate** if you want to forbid token rotation.
+    * Check **Deny Rotate** if you want to forbid token rotation.
 
-* Check **Deny Inheritance** if you want to forbid creating child tokens.
+    * Check **Deny Inheritance** if you want to forbid creating child tokens.
 
-* **TTL (minutes):** Specify token TTL.
+    * **TTL (minutes):** Specify token TTL.
 
 4. Click **Finish**.
 
@@ -210,7 +210,7 @@ To revoke a token in the Console,
 1. Open the corresponding authentication method
 2. Go to **UID Tree** tab.
 3. Right-click the node and click **Revoke token**.
-4. Select **Revoke self** if you want to revoke the selected node only or select **Revoke self and children** if you want to revoke the selected node and its children node/s. Click **Save**.
+4. Select **Revoke self** if you want to revoke the selected node only or select **Revoke self and children** if you want to revoke the selected node and its children node.5. Click **Save**.
 
 ### Create a Child Token
 
@@ -226,6 +226,7 @@ To create a child token in the Console,
    * Check **Deny Inheritance** if you want to forbid creating child tokens.
 
    * **Child TTL (minutes):** Specify child token TTL.
+
 5. Click **Save**.
 
 ### Get the Token Tree

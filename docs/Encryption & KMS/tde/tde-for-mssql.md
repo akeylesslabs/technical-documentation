@@ -32,22 +32,22 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 
 1. Download and run the official Akeyless EKM provider:
 
-  ```curl
-  curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypto-provider/release/latest/AkeylessEkmProviderInstaller.msi --output AkeylessEkmProviderInstaller.msi
-  ```
+    ```curl
+    curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypto-provider/release/latest/AkeylessEkmProviderInstaller.msi --output AkeylessEkmProviderInstaller.msi
+    ```
 
 2. Follow the wizard installation steps - enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL using the `/api/v2` endpoint (previously port `8081`), and choose a path in the Akeyless Platform to store the keys.
 
-  Choose the OS installation path and save it for later. This will copy the `dll` files, and also creates a configuration file that can be edited later.
+    Choose the OS installation path and save it for later. This will copy the `dll` files, and also creates a configuration file that can be edited later.
 
-  The file should be formatted as follows:
+    The file should be formatted as follows:
 
-  ```toml
-  log_level="debug"
-  akeyless_url="https://Your-GW-URL/api/v2"
-  base_item_path="/path/to/keys"
-  use_classic_keys=true
-  ```
+    ```toml
+    log_level="debug"
+    akeyless_url="https://Your-GW-URL/api/v2"
+    base_item_path="/path/to/keys"
+    use_classic_keys=true
+    ```
 
 **Notice:** It is optional to configure TDE to create and leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) by setting `use_classic_keys=true`. The default is otherwise using a DFC key. To work with Classic Keys, make sure you work against your own Gateway (on the `/api/v2` endpoint).
 

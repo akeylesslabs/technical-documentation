@@ -182,50 +182,50 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection:** When enabled, it protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets) or specify details of the GCP target explicitly.
+    * **Target mode:** In this section, you can either select an existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets) or specify details of the GCP target explicitly.
 
-    * Use the **Choose an existing target** drop-down list to select the existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
+        * Use the **Choose an existing target** drop-down list to select the existing [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-    * Check the **Explicitly specify target properties** to provide details of the GCP target in the next step.
+        * Check the **Explicitly specify target properties** to provide details of the GCP target in the next step.
 
-* **Fixed SA:** A fixed Service Account. with **Service Account Email** to create JIT Keys/Tokens for.
+    * **Fixed SA:** A fixed Service Account. with **Service Account Email** to create JIT Keys/Tokens for.
 
-* **Dynamic SA:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
-    * **Project ID:** Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used . (Relevant only for **Dynamic SA** mode).
+    * **Dynamic SA:** A Dynamic Service Account with **Role Binding** to attach an IAM policy and roles for the created Service Account.
+        * **Project ID:** Optional, The GCP Project ID to create the Just In Time Service Account, by default the Project ID that is attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) will be used . (Relevant only for **Dynamic SA** mode).
 
-* **Fixed:** Assigns a role to a user based on the user's sub-claim.
+    * **Fixed:** Assigns a role to a user based on the user's sub-claim.
 
-* **Access Token:** Select this radio button to create a GCP access token as a dynamic secret.
+    * **Access Token:** Select this radio button to create a GCP access token as a dynamic secret.
 
-* **Service Account Key:** Select this radio button to create a GCP service account key as a dynamic secret.
+    * **Service Account Key:** Select this radio button to create a GCP service account key as a dynamic secret.
 
-* **Token Scopes:** Provide a comma-separated list of [GCP access token scopes](https://developers.google.com/identity/protocols/oauth2/scopes). (If **Access Token** is selected.)
+    * **Token Scopes:** Provide a comma-separated list of [GCP access token scopes](https://developers.google.com/identity/protocols/oauth2/scopes). (If **Access Token** is selected.)
 
-* **Key Algorithm:** Key algorithm. Available options: `KEY_ALG_UNSPECIFIED`, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`. (If **Service Account Key** is selected.)
+    * **Key Algorithm:** Key algorithm. Available options: `KEY_ALG_UNSPECIFIED`, `KEY_ALG_RSA_1024`, `KEY_ALG_RSA_2048`. (If **Service Account Key** is selected.)
 
-* **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_email`
+    * **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_email`
 
-* **Role:** The role that will be assigned to the user (Relevant only for **Fixed** mode).
+    * **Role:** The role that will be assigned to the user (Relevant only for **Fixed** mode).
 
-* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only for **Dynamic Secret** mode).
+    * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only for **Dynamic Secret** mode).
 
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
 
-* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
 
 6. Provide the connection string to your GCP:
 
-* **Service Account Email:** privileged service account email.
+    * **Service Account Email:** privileged service account email.
 
-* **Service Account Key:** Base64-encoded privileged service account key.
+    * **Service Account Key:** Base64-encoded privileged service account key.
 
 7. Click **Finish**.
 
