@@ -37,7 +37,7 @@ This guide will take you through the steps to set up SAML authentication with Az
 7. After filling in the details, you will be able to view the SAML Signing Certificate.
     Copy the **App Federation Metadata URL** (starts with `https://login.microsoftonline.com/...`) and paste it somewhere accessible, as you will need it for the Akeyless-side steps.
 
-8. In your SAML application's **Attributes & Claims**, select Edit to add user & group claims.
+8. In your SAML application's **Attributes & Claims**, select Edit to add user and group claims.
 
 9. Select **Add new claim** - and fill in the following details:
 

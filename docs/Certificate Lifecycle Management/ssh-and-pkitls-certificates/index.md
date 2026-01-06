@@ -109,9 +109,7 @@ Where:
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
 
 > 👍 Note
->
-> **Automatically store & renew certificate**
-> Set the PKI Issuer item to automatically store & renew any issued certificate with default expiration events to gain full automation of your PKI environments.
+> Set the PKI Issuer item to automatically store and renew any issued certificate with default expiration events to gain full automation of your PKI environments.
 
 ### Creating a Certificate Signing Request
 

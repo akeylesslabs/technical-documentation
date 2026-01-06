@@ -455,9 +455,9 @@ spec:
 
 #### Override Entrypoint Automatically
 
-The injector can be set with credentials of your **private** registry using a secret reference that exists inside Akeyless, this secret should contain a JSON with credentials to your registry, supporting either username & password or a simple token format, for example:
+The injector can be set with credentials of your **private** registry using a secret reference that exists inside Akeyless, this secret should contain a JSON with credentials to your registry, supporting either username and password or a simple token format, for example:
 
-```json Username & Password
+```json Username and Password
 {
   "username": "",
   "password": ""

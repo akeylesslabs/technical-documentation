@@ -28,7 +28,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
 ![](https://files.readme.io/963adb9-image-20210902-150241.png "image-20210902-150241.png")
 
-* The **Client Secret** can be created under **Certificates & secrets > New Client Secret** (make sure to copy the Secret **Value**, not the Secret ID):
+* The **Client Secret** can be created under **Certificates & Secrets > New Client Secret** (make sure to copy the Secret **Value**, not the Secret ID):
 
 ![](https://files.readme.io/73548af-image-20210902-150722.png "image-20210902-150722.png")
 

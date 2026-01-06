@@ -137,7 +137,7 @@ akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secr
 
 Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect)to access remote machines running OpenSSH version `7.4` or `7.6`. This occurs both in CLI and the Web portal.
 
-It is possible to bypass this issue by setting the following environment variable in the SSH & Web bastion deployments, to all outgoing SSH connections:
+It is possible to bypass this issue by setting the following environment variable in the SSH and Web bastion deployments, to all outgoing SSH connections:
 
 ```shell values.yaml
 env:

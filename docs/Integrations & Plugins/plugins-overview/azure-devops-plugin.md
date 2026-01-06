@@ -22,7 +22,7 @@ Under **Vault Server Settings**: add the following Akeyless host as your Vault U
 
 > 👍 Note
 >
-> Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static & Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
+> Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
 Under **Authentication Method**: choose **Client Token** and provide the Akeyless token following this format:
 

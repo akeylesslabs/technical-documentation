@@ -94,7 +94,7 @@ Those claims can be templated as `/{{Groups}}/{{Username}}/*` (or the relevant a
 
 Each user will get `read` permissions for the relevant paths, based on the sub-claims key values.
 
-This means that `Alice` will get `read` permissions under`/Engineering/Alice/*`, `Bob`&`Charlie` will have access to `/Security/Bob/*` and `/Security/Charlie/*` accordingly, and `Dennis` will have access to `/DevOps/Dennis/*`.
+This means that Alice will get `read` permissions under`/Engineering/Alice/*`. Bob and Charlie will have access to `/Security/Bob/*` and `/Security/Charlie/*`. Dennis will have access to `/DevOps/Dennis/*`.
 
 > 👍 Note
 >

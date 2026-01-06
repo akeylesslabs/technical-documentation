@@ -16,7 +16,7 @@ We associate specific clients with a certain Authentication Method to an Access 
 
 <Image border={false} src="https://files.readme.io/54c7a41-RBAC.JPG" title="RBAC.JPG" />
 
-Access Roles can be configured to grant permissions on Secrets & Encryption Keys, Targets, Authentication methods and Access Roles, you can also control user access to Audit Logs, analytics, Gateways settings and Secure Remote Access (SRA) information.
+Access Roles can be configured to grant permissions on Secrets, Encryption Keys, Targets, Authentication methods and Access Roles, you can also control user access to Audit Logs, analytics, Gateways settings and Secure Remote Access (SRA) information.
 
 To set permission for a user to work with any item in the Platform, an appropriate Access Role must be assigned to the Authentication Method that represents this user. By default, users don't have any permissions in Akeyless unless explicitly granted.
 

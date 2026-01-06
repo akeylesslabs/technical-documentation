@@ -375,7 +375,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
   Depending on your database type, provide a privileged username that has enough permission to create users on your database with the relevant connection settings.
 
-  Set the relevant create & revoke statements to control and manage the level of access for your temporary credentials.
+  Set the relevant create and revoke statements to control and manage the level of access for your temporary credentials.
 
 5. Click **Finish**.
 

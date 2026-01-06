@@ -49,7 +49,7 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
   use_classic_keys=true
   ```
 
-**Notice:** It is optional to configure TDE to create & leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) by setting `use_classic_keys=true`. The default is otherwise using a DFC key. To work with Classic Keys, make sure you work against your own Gateway (on the `/api/v2` endpoint).
+**Notice:** It is optional to configure TDE to create and leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) by setting `use_classic_keys=true`. The default is otherwise using a DFC key. To work with Classic Keys, make sure you work against your own Gateway (on the `/api/v2` endpoint).
 
 ## Configure the Akeyless EKM Provider
 

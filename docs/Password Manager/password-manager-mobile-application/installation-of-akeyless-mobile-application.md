@@ -54,7 +54,7 @@ Therefore, requiring users to have a VPN installed on their phones before using 
 
 Once you've installed the Akeyless browser extension. Simply locate the Akeyless Password Manager mobile app. To securely access your Akeyless account, you can utilize one of the following authentication methods:
 
-* Access-ID & Access-Key: Utilize your unique Access-ID and Access-Key combination for secure login.
+* Access-ID and Access-Key: Utilize your unique Access-ID and Access-Key combination for secure login.
 * SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
 * OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.

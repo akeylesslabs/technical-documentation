@@ -130,7 +130,7 @@ Where the URL will be set as follows:
 
 `USE_SSH_LEGACY_ALG`- Specifies whether to use ssh-legacy-signing-algorithm. The default is No
 
-> 🚧 Compatibility Issue with Legacy SSH Versions (7.4 & 7.6)
+> 🚧 Compatibility Issue with Legacy SSH Versions (7.4 and 7.6)
 >
 > Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using Akeyless Connect to access remote machines running OpenSSH version 7.4 or 7.6. This occurs both in CLI and the Web portal.
 >
@@ -184,7 +184,7 @@ Options:
       --ssh-command                      Path to SSH executable. For example, /usr/bin/ssh
   -T, --tunnel                           SSH tunnel param. For example, -T='-L :5555:0.0.0.0:5555' 
   -C, --command                          Command to execute on the target (useful for non interactive-mode). For example, -C='ls -al'
-      --k8s-tunnel                       Create an SSH tunnel with a k8s proxy on a specific local port (1024-65535) (if provided, "command" & "tunnel" flags are ignored)
+      --k8s-tunnel                       Create an SSH tunnel with a k8s proxy on a specific local port (1024-65535) (if provided, "command" and "tunnel" flags are ignored)
   -J, --justification                    User connection justification
       --debug                            Output debug prints
       --profile, --token                 Use a specific profile (located at $HOME/.akeyless/profiles) or a temp access token
