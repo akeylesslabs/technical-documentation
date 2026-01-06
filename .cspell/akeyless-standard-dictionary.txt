@@ -1,9 +1,6 @@
 hostnames
 Encrypter
 Decrypter
-autofilled
-subfolders
-uppercased
 HANA
 tablespace
 tablespaces
@@ -12,12 +9,10 @@ secretless
 ciphertext
 keepalives
 exfiltration
-signup
 quickstart
 quickstarts
 Shamir's
 superuser
 superusers
 scriptable
-reconstructable
 unaligned
