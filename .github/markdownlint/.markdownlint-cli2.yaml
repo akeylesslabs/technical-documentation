@@ -614,7 +614,7 @@ config:
   # MD036: Emphasis used instead of heading
   # Knobs:
   #   - severity: error|warning|info
-  MD036: false
+  MD036: true
 
   # MD037: Spaces inside emphasis markers
   # Knobs:
