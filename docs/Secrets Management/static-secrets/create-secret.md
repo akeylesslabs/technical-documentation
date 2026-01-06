@@ -62,21 +62,21 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 3. Define the remaining parameters as follows:
 
-* **Description:** Optional, enter a description of the secret.
+    * **Description:** Optional, enter a description of the secret.
 
-* **Tags:** Optional, select one or more tags for the secret, or enter the name of a new tag to be added as part of the secret creation.
+    * **Tags:** Optional, select one or more tags for the secret, or enter the name of a new tag to be added as part of the secret creation.
 
-* **Delete Protection:** Prevent accidental deletion.
+    * **Delete Protection:** Prevent accidental deletion.
 
-* **Protection Key:** Select the encryption key with which to encrypt the secret (if your system includes multiple encryption keys). Otherwise, select `Default`.
+    * **Protection Key:** Select the encryption key with which to encrypt the secret (if your system includes multiple encryption keys). Otherwise, select `Default`.
 
-* **Format:** The format type of the value either **Text**, **JSON** or **Key/Value**.
+    * **Format:** The format type of the value either **Text**, **JSON** or **Key/Value**.
 
-* **Value:** Enter the value of the secret. The value length should be 16 KB.
+    * **Value:** Enter the value of the secret. The value length should be 16 KB.
 
-* **Change Event** Optional, trigger an event when the value is changed.
+    * **Change Event** Optional, trigger an event when the value is changed.
 
-3. Select **Save**.
+4. Select **Save**.
 
 ## Tutorial
 

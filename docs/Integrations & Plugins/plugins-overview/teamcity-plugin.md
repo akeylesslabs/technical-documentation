@@ -36,31 +36,31 @@ When performing integration tests and deployments, build scripts need credential
 
 1. Log in to TeamCity and go to **Administration > Plugins**.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/b6836f5-TC-Plugin-01.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/b6836f5-TC-Plugin-01.png" />
 
 2. Click **Browse plugins repository** to find and download the `HashiCorp Vault` plugin.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/9748a1d-TC-Plugin-02.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/9748a1d-TC-Plugin-02.png" />
 
 3. Then click **Upload plugin ZIP** to install the `Hashicorp Vault` plugin.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/3525c64-TC-Plugin-03.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/3525c64-TC-Plugin-03.png" />
 
 4. Go to **Administration > Projects** and create a new project.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/55d4b83-TC-Plugin-04.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/55d4b83-TC-Plugin-04.png" />
 
 5. Open the created project and go to the Connections section.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/a0acacb-TC-Plugin-05.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/a0acacb-TC-Plugin-05.png" />
 
 6. Click **Add Connection** to connect your project to the `Vault` plugin.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/6c9b5cd-TC-Plugin-06.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/6c9b5cd-TC-Plugin-06.png" />
 
 7. Provide connection parameters to the Akeyless Platform in the pop-up window.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/d23f619-TC-Plugin-07.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/d23f619-TC-Plugin-07.png" />
 
 Where:
 
@@ -88,11 +88,11 @@ After that, you need to create an environment variable in your TeamCity project 
 
 1. Go to the Parameters section to declare a new build parameter which will refer to the Akeyless secret. Currently, these values can be used in the build parameter declaration only and cannot be specified in build steps.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/19f7283-TC-parameters.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/19f7283-TC-parameters.png" />
 
 2. Click **Add new parameter** and provide the settings in the pop-up window.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/ea40d72-TC-New-Parameter.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/ea40d72-TC-New-Parameter.png" />
 
 Where:
 
@@ -120,7 +120,7 @@ In the Audit Logs screen, you'll see that the script requested and successfully 
 
 1. Go to the Parameters section to declare new build parameters for username and password which will refer to the corresponding dynamic secret values.
 
-<Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/c51a015-TC-parameters.png" />
+    <Image align="center" className="border" width="80%" border={true} src="https://files.readme.io/c51a015-TC-parameters.png" />
 
 2. Click **Add new parameter** and provide the settings in the pop-up window.
 

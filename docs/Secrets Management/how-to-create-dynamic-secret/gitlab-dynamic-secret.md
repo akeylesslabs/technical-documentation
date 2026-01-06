@@ -102,23 +102,23 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing GitLab Target or specify details of the target GitLab repository explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Delete Protection**: When enabled, protects the secret from accidental deletion.
+    * **Target mode:** In this section, you can either select an existing GitLab Target or specify details of the target GitLab repository explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
 
-    * Use the **Choose an existing target** drop-down list to select the existing GitLab Target.
+        * Use the **Choose an existing target** drop-down list to select the existing GitLab Target.
 
-    * Select the **Explicitly specify target properties** option, to provide details of the target GitLab repository in the next step.
-* **Access Type**: Choose one of the following Access-Types:
-    * **Group**: Creates an access token for [GitLab Groups](https://docs.gitlab.com/ee/user/group/)
-    * **Project**: Creates an access token for [GitLab Project](https://docs.gitlab.com/ee/user/get_started/get_started_projects.html)
-* **Scopes**: Provide a comma-separated list of [GitLab Scopes](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes) to be assigned to the access token
-* **Role**: [GitLab Role](https://docs.gitlab.com/ee/user/permissions.html) to be assigned to the access token
-* **Group Name**: Name of the group, Relevant for `group` Access Type
-* **Project Name**: Name of the project, Relevant for `project` Access Type
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the access token becomes obsolete.
-* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+        * Select the **Explicitly specify target properties** option, to provide details of the target GitLab repository in the next step.
+    * **Access Type**: Choose one of the following Access-Types:
+        * **Group**: Creates an access token for [GitLab Groups](https://docs.gitlab.com/ee/user/group/)
+        * **Project**: Creates an access token for [GitLab Project](https://docs.gitlab.com/ee/user/get_started/get_started_projects.html)
+    * **Scopes**: Provide a comma-separated list of [GitLab Scopes](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes) to be assigned to the access token
+    * **Role**: [GitLab Role](https://docs.gitlab.com/ee/user/permissions.html) to be assigned to the access token
+    * **Group Name**: Name of the group, Relevant for `group` Access Type
+    * **Project Name**: Name of the project, Relevant for `project` Access Type
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the access token becomes obsolete.
+    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
 

@@ -18,21 +18,21 @@ To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follo
 
 2. For **Sign-in method**, select **OIDC - OpenID Connect** and for Application type, select **Web Application** and select **Next**.
 
-![](https://files.readme.io/b6c2478-okta-oidc1.png "okta-oidc1.png")
+    ![](https://files.readme.io/b6c2478-okta-oidc1.png "okta-oidc1.png")
 
 3. On the Settings page:
-   a. For the Grant type, check **Authorization Code**.
-   b. Set `https://auth.akeyless.io/oidc/callback` into the **Sign-in redirect URIs**.
+    a. For the Grant type, check **Authorization Code**.
+    b. Set `https://auth.akeyless.io/oidc/callback` into the **Sign-in redirect URIs**.
 
-![](https://files.readme.io/42962ac-image-20210824-102417.png "image-20210824-102417.png")
+    ![](https://files.readme.io/42962ac-image-20210824-102417.png "image-20210824-102417.png")
 
 4. Once the OIDC app has been created, you need to obtain the **Client ID, Client secret,** and **Okta domain**:
 
-![](https://files.readme.io/7af68f3-image-20210824-103109.png "image-20210824-103109.png")
+    ![](https://files.readme.io/7af68f3-image-20210824-103109.png "image-20210824-103109.png")
 
-> 📘 Adding ״groups״ claim - Okta side
->
-> In Okta, add a custom "groups" claim under Authorization Server → Claims, using a filter (For example, regex) and bind it to a custom scope.
+    > 📘 Adding ״groups״ claim - Okta side
+    >
+    > In Okta, add a custom "groups" claim under Authorization Server → Claims, using a filter (For example, regex) and bind it to a custom scope.
 
 5. In order to bind the Okta application with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
 
@@ -50,12 +50,12 @@ akeyless auth-method create oidc --name 'My Okta app' --issuer https://{your-okt
 
 1. You should configure a new profile with your Access ID from the previous step and OIDC type (In case the profile name is not provided the default profile will be configured):
 
-```shell
-akeyless configure --access-id <your-access-id> --access-type oidc --profile 'okta-app'
-```
+    ```shell
+    akeyless configure --access-id <your-access-id> --access-type oidc --profile 'okta-app'
+    ```
 
 2. Now, you can run any Akeyless CLI command and be authenticated with the Okta application:
 
-```shell
-akeyless list-items --profile okta-app
-```
+    ```shell
+    akeyless list-items --profile okta-app
+    ```

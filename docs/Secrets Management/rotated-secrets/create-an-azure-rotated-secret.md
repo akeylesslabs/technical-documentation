@@ -111,60 +111,60 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Define the remaining settings as follows:
 
-* **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
-* **Target:** Defines the name of the [Azure Target](https://docs.akeyless.io/docs/azure-targets) to be associated with the Rotated Secret.
+    * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
+    * **Target:** Defines the name of the [Azure Target](https://docs.akeyless.io/docs/azure-targets) to be associated with the Rotated Secret.
 
-  > 👍 Note
-  >
-  > You need to select the Rotator Type first, and then only those targets appear in the list that use the corresponding type of credentials.
+        > 👍 Note
+        >
+        > You need to select the Rotator Type first, and then only those targets appear in the list that use the corresponding type of credentials.
 
-* **Authenticate with the following credentials:** Determines how to connect to the target Azure App:
+    * **Authenticate with the following credentials:** Determines how to connect to the target Azure App:
 
-    * **User credentials:** Use credentials defined inside the Rotated Secret item.
-    * **Target credentials:** Use credentials of the privileged App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
+        * **User credentials:** Use credentials defined inside the Rotated Secret item.
+        * **Target credentials:** Use credentials of the privileged App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
 
-  > 👍 Note
-  >
-  > Select **Target credentials** if the Rotated Secret target App is not authorized to change its own client secret, and the privileged [Azure Target](https://docs.akeyless.io/docs/azure-targets) App is required to change the client secret on behalf of the Rotated Secret target App.
+        > 👍 Note
+        >
+        > Select **Target credentials** if the Rotated Secret target App is not authorized to change its own client secret, and the privileged [Azure Target](https://docs.akeyless.io/docs/azure-targets) App is required to change the client secret on behalf of the Rotated Secret target App.
 
-* **Rotator type:** Determines the rotator type:
-    * **API Key**: Rotates the client secret defined inside the Rotated Secret item.
-    * **Target**: Rotates the client secret of the privileged App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
-    * **Password**: To rotate a user password in Azure Entra.
-    * **Azure Storage Account**: To rotate a storage account based on the [Azure Target](https://docs.akeyless.io/docs/azure-targets) details or provide them explicitly.
+    * **Rotator type:** Determines the rotator type:
+        * **API Key**: Rotates the client secret defined inside the Rotated Secret item.
+        * **Target**: Rotates the client secret of the privileged App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
+        * **Password**: To rotate a user password in Azure Entra.
+        * **Azure Storage Account**: To rotate a storage account based on the [Azure Target](https://docs.akeyless.io/docs/azure-targets) details or provide them explicitly.
 
-* **Access Key ID:** Defines the client secret ID of the Azure App for which the Access Key should be rotated.
+    * **Access Key ID:** Defines the client secret ID of the Azure App for which the Access Key should be rotated.
 
-* **Access Key:** Defines the client secret to rotate.
+    * **Access Key:** Defines the client secret to rotate.
 
-* **Application ID:** Defines the ID of the Azure App that holds the secret being rotated.
+    * **Application ID:** Defines the ID of the Azure App that holds the secret being rotated.
 
-* **Username**: The user's principal name to rotate his password (relevant only for **Password Rotator type**)
+    * **Username**: The user's principal name to rotate his password (relevant only for **Password Rotator type**)
 
-* **Storage Account Key Name** : Defines the Storage Account Key name (relevant only for **Azure Storage Account**)
-    * **Resource Group Name** : Resource group name, relevant only when **Storage Account Details** are provided explicitly.
-    * **Resource Name** : Resource name, relevant only when **Storage Account Details** are provided explicitly.
+    * **Storage Account Key Name** : Defines the Storage Account Key name (relevant only for **Azure Storage Account**)
+        * **Resource Group Name** : Resource group name, relevant only when **Storage Account Details** are provided explicitly.
+        * **Resource Name** : Resource name, relevant only when **Storage Account Details** are provided explicitly.
 
-  > 👍 Note
-  >
-  > You can rotate the client secret for the [Azure Target](https://docs.akeyless.io/docs/azure-targets) too by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
+        > 👍 Note
+        >
+        > You can rotate the client secret for the [Azure Target](https://docs.akeyless.io/docs/azure-targets) too by creating a Rotated Secret with the **Rotator type** set to **Target**. When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
 
-* **Gateway:** Select the Gateway through which the secret will be rotated.
+    * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-* **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created to maintain 2 values at the same time. Relevant only for **Client Secret**.
+    * **Graceful Rotation:** When enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created to maintain 2 values at the same time. Relevant only for **Client Secret**.
 
-* **Auto rotate:** Determines if automatic rotation is enabled.
+    * **Auto rotate:** Determines if automatic rotation is enabled.
 
-* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic client secret rotations when **Auto Rotate** is enabled.
+    * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic client secret rotations when **Auto Rotate** is enabled.
 
-* **Rotation hour (local time zone):** Defines the time when the client secret should be rotated if **Auto Rotate** is enabled.
+    * **Rotation hour (local time zone):** Defines the time when the client secret should be rotated if **Auto Rotate** is enabled.
 
-* **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
+    * **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
 
-* **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
 
-* **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
+    * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
 4. Click **Finish**.

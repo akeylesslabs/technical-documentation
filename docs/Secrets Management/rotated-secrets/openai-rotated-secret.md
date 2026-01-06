@@ -64,32 +64,32 @@ Where:
 
 3. Define the remaining settings as follows:
 
-* **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
+    * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) to be associated with the Rotated Secret.
+    * **Target:** Defines the name of the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) to be associated with the Rotated Secret.
 
-* **Authenticate with the following credentials:** Determines how to connect to the target OpenAI account:
-    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-    * **Target credentials:** Use the credentials defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
+    * **Authenticate with the following credentials:** Determines how to connect to the target OpenAI account:
+        * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+        * **Target credentials:** Use the credentials defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
 
-* **Rotator type:** Determines the rotator type:
-    * **API Key**: Rotates the API Key defined inside the Rotated Secret item.
-    * **Target**: Rotates the API Key defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
+    * **Rotator type:** Determines the rotator type:
+        * **API Key**: Rotates the API Key defined inside the Rotated Secret item.
+        * **Target**: Rotates the API Key defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
 
-* **API Key ID:** Defines the API Key ID whose API Key should be rotated.
+    * **API Key ID:** Defines the API Key ID whose API Key should be rotated.
 
-* **API Key:** Defines the API Key to rotate.
+    * **API Key:** Defines the API Key to rotate.
 
-* **Gateway:** Select the Gateway through which the secret will be rotated.
+    * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-* **Auto rotate:** Determines if automatic rotation is enabled.
+    * **Auto rotate:** Determines if automatic rotation is enabled.
 
-* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic API Key rotations when **Auto Rotate** is enabled.
+    * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic API Key rotations when **Auto Rotate** is enabled.
 
-* **Rotation hour (local time zone):** Defines the time when the API Key should be rotated if **Auto Rotate** is enabled.
+    * **Rotation hour (local time zone):** Defines the time when the API Key should be rotated if **Auto Rotate** is enabled.
 
-* **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

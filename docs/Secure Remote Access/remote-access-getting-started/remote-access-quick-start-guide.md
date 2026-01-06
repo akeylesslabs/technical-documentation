@@ -47,15 +47,15 @@ To create your API Key follow the below CLI commands:
 
 1. Create an API Key authentication method with the CLI, run the following command:
 
-```shell
-akeyless auth-method create api-key --name MyFirstAPIKey
-```
+    ```shell
+    akeyless auth-method create api-key --name MyFirstAPIKey
+    ```
 
 2. Configure your CLI to work with the API Key by running the following command:
 
-```shell
-akeyless configure --profile default --access-id <Your API Key Auth AccessID> --access-key <Your API Key>
-```
+    ```shell
+    akeyless configure --profile default --access-id <Your API Key Auth AccessID> --access-key <Your API Key>
+    ```
 
 ## Create Your Access Role
 

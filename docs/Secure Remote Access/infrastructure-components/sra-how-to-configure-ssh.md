@@ -71,35 +71,35 @@ To enable certificate authentication, you will need to configure the target serv
 
 1. Fetch the CA's public key from your Akeyless account via the following command:
 
-```shell your-RSA-key-name
-akeyless get-rsa-public --name "/path/to/your-RSA-key-name"
-```
+    ```shell your-RSA-key-name
+    akeyless get-rsa-public --name "/path/to/your-RSA-key-name"
+    ```
 
-The output should contain three sections, one in a raw format, the second in an SSH format, and the third in a `PEM` key format, similar to the example in the previous section.
+    The output should contain three sections, one in a raw format, the second in an SSH format, and the third in a `PEM` key format, similar to the example in the previous section.
 
 2. Copy the Public Key with the **SSH** format from step 1 (starting from `ssh-rsa…` and ending before `- PEM`) to a file in the desired folder on the SSH server (for example `/etc/ssh/ca.pub`), then to a new file **on the target server that will be accepting SSH connections**.
 
-Example of retrieving the SSH value and putting it into the `/etc/ssh/ca.pub` file
+    Example of retrieving the SSH value and putting it into the `/etc/ssh/ca.pub` file
 
-```shell ssh > ca.pub file
-akeyless get-rsa-public --name "/path/to/your-RSA-key-name" --json --jq-expression='.ssh' > /etc/ssh/ca.pub
-```
+    ```shell ssh > ca.pub file
+    akeyless get-rsa-public --name "/path/to/your-RSA-key-name" --json --jq-expression='.ssh' > /etc/ssh/ca.pub
+    ```
 
-```shell your-RSA-key-name
-ssh-rsa AAAAB3NzaC1yc2EAAAA...
-```
+    ```shell your-RSA-key-name
+    ssh-rsa AAAAB3NzaC1yc2EAAAA...
+    ```
 
 3. Add the following lines to `/etc/ssh/sshd_config` on the target server. Once done, the `sshd` service may need to be restarted.
 
-```shell /etc/ssh/sshd_config
-TrustedUserCAKeys /etc/ssh/ca.pub
-```
+    ```shell /etc/ssh/sshd_config
+    TrustedUserCAKeys /etc/ssh/ca.pub
+    ```
 
 4. If your server's SSH version is over 8.2, you will also have to add the following line to the same file. It can be either before or after the line from step 3, but in the same section at the end of the file.
 
-```shell /etc/ssh/sshd_config
-PubkeyAcceptedKeyTypes=+ssh-rsa,ssh-rsa-cert-v01@openssh.com
-```
+    ```shell /etc/ssh/sshd_config
+    PubkeyAcceptedKeyTypes=+ssh-rsa,ssh-rsa-cert-v01@openssh.com
+    ```
 
 ## Principals
 
@@ -188,15 +188,15 @@ This guide includes the steps needed for the necessary prerequisites. If you wan
 
 3. Define the remaining parameters as follows:
 
-* **Description:** general description of the key (optional).
+    * **Description:** general description of the key (optional).
 
-* **Tags:** assign tags to the key (optional).
+    * **Tags:** assign tags to the key (optional).
 
-* **Delete Protection:** When enabled, protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-* **Type:** The encryption algorithm used for the key.
+    * **Type:** The encryption algorithm used for the key.
 
-* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+    * **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
 
 4. Go to the folder in Akeyless where you saved the desired key, select it, and tap **get public RSA key**.
 
@@ -208,19 +208,19 @@ This guide includes the steps needed for the necessary prerequisites. If you wan
 
 8. Define the remaining parameters as follows:
 
-* **Description:** General description of the key (optional).
+    * **Description:** General description of the key (optional).
 
-* **Tags:** Assign tags to the key (optional).
+    * **Tags:** Assign tags to the key (optional).
 
-* **Delete Protection:** When enabled, protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-* **Signer Key:** The name of the linked key you defined in advance and used in steps 4-5.
+    * **Signer Key:** The name of the linked key you defined in advance and used in steps 4-5.
 
-* **Certificate Lifetime in Seconds:** The time (in seconds) to the expiration of the certificate.
+    * **Certificate Lifetime in Seconds:** The time (in seconds) to the expiration of the certificate.
 
-* **Allowed Users:** Specify the allowed users for the certificates issued.
+    * **Allowed Users:** Specify the allowed users for the certificates issued.
 
-* **Principals:** A specific set of SSH Certificate principals (optional)
+    * **Principals:** A specific set of SSH Certificate principals (optional)
 
 You should now have a working certificate issuer.
 
@@ -234,9 +234,9 @@ In order to issue an SSH certificate using an existing CI through the console, g
 
 3. Fill in the following details:
 
-* **Certificate Username:** The username that will be linked to the certificate. Make sure this username matches the allowed usernames you defined in the previous section.
+    * **Certificate Username:** The username that will be linked to the certificate. Make sure this username matches the allowed usernames you defined in the previous section.
 
-* **Public Key:** Your SSH public key, can be copied in or uploaded from file.
+    * **Public Key:** Your SSH public key, can be copied in or uploaded from file.
 
 4. Tap generate, and if all parameters are valid, you will get a string representing your certificate. Download the certificate, or copy it to a file, in the client's `ssh` relevant folder.
 

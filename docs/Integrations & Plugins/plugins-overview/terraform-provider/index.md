@@ -20,24 +20,24 @@ For more information on the Terraform provider, see the [Akeyless GitHub Reposit
 
 1. Install Akeyless as a provider in your Terraform Registry by adding the following code to your Terraform configuration (Terraform V0.13).
 
-```shell
-terraform {
-  required_providers {
-    akeyless = {
-      source = "akeyless-community/akeyless"
-      version = "1.3.1"
+    ```shell
+    terraform {
+    required_providers {
+        akeyless = {
+        source = "akeyless-community/akeyless"
+        version = "1.3.1"
+        }
     }
-  }
-}
-```
+    }
+    ```
 
 2. Run:
 
-```shell
-terraform init
-```
+    ```shell
+    terraform init
+    ```
 
-2. Select an Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to use with the Terraform Provider, such as an **API Key** or Cloud Identity (CSP IAM) like **AWS IAM**, **Azure AD**.
+3. Select an Akeyless [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to use with the Terraform Provider, such as an **API Key** or Cloud Identity (CSP IAM) like **AWS IAM**, **Azure AD**.
 
 ## Usage Example
 

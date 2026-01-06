@@ -355,27 +355,27 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection:** When enabled, protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [Database Target](https://docs.akeyless.io/docs/database-targets) or specify details of the DB Server explicitly.
+    * **Target mode:** In this section, you can either select an existing [Database Target](https://docs.akeyless.io/docs/database-targets) or specify details of the DB Server explicitly.
 
-* **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
 
-* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
+    * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-* **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length** Set the length of the temporary password.
 
-* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-  If you selected the **Explicitly specify target properties** mode, click **Next**.
+        If you selected the **Explicitly specify target properties** mode, click **Next**.
 
-  Depending on your database type, provide a privileged username that has enough permission to create users on your database with the relevant connection settings.
+        Depending on your database type, provide a privileged username that has enough permission to create users on your database with the relevant connection settings.
 
-  Set the relevant create and revoke statements to control and manage the level of access for your temporary credentials.
+        Set the relevant create and revoke statements to control and manage the level of access for your temporary credentials.
 
 5. Click **Finish**.
 

@@ -35,21 +35,10 @@ To embark on a journey of effortless password management on Firefox, follow thes
 >
 > **After installing or updating the Akeyless Password Manager extension on the Firefox browser**, please follow these steps to ensure all functionalities work as expected:
 >
-> 1. Open the Extensions Manager:
->
-> * Go to the Firefox menu, select Add-ons and Themes > Extensions.
->
-> 2. Locate the Akeyless Password Manager Extension:
->
-> * Under the Enabled section, click the three dots (...) next to the extension.
->
-> 3. Verify Permissions:
->
-> * Select Manage and ensure the "Access your data for all websites" permission is enabled.
->
-> 4. Confirm Settings:
->
-> * The toggle switch should be turned on for this permission.
+> 1. Open the Extensions Manager: Go to the Firefox menu, select Add-ons and Themes > Extensions.
+> 2. Locate the Akeyless Password Manager Extension: Under the Enabled section, click the three dots (...) next to the extension.
+> 3. Verify Permissions: Select Manage and ensure the "Access your data for all websites" permission is enabled.
+> 4. Confirm Settings: The toggle switch should be turned on for this permission.
 
 ## Akeyless Password Manager Google Chrome Installation
 

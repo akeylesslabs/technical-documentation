@@ -230,19 +230,19 @@ Creating a CA private key and root certificate to build your chain of trust:
 
 3. Define the remaining parameters as follows:
 
-* **Description:** General description of the key (optional).
+    * **Description:** General description of the key (optional).
 
-* **Tags:** Assign tags to the key (optional).
+    * **Tags:** Assign tags to the key (optional).
 
-* **Delete Protection:** When enabled, protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-* **Signer Key:** The name of the signer key you defined in advance.
+    * **Signer Key:** The name of the signer key you defined in advance.
 
-* **Certificate TTL:** The time to the expiration of the certificate.
+    * **Certificate TTL:** The time to the expiration of the certificate.
 
-* **Allowed domains list:** Specify the allowed domains for the certificates issued.
+    * **Allowed domains list:** Specify the allowed domains for the certificates issued.
 
-* **Allowed URI sans:** Specify the allowed URI for the certificates issued.
+    * **Allowed URI sans:** Specify the allowed URI for the certificates issued.
 
 4. [Read more about the descriptions of advanced and location parameters.](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp).
 

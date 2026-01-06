@@ -100,35 +100,35 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection**: When enabled, protects the secret from accidental deletion.
-* **Target mode:** In this section, you can either select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) or specify details of the target LDAP server explicitly.
+    * **Delete Protection**: When enabled, protects the secret from accidental deletion.
+    * **Target mode:** In this section, you can either select an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target) or specify details of the target LDAP server explicitly.
 
-    * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
+        * Use the **Choose an existing target** drop-down list to select the existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
-    * Check the **Explicitly specify target properties** to provide details of the target LDAP Server in the next step.
-* **User Base DN:** Specify user base DN settings.
-* **LDAP User Attribute:** Specify the default value CN.
-* **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IdP.
-    * **Override:** Explicitly enter the username.
-    * **Extract:** Extract the user from a Sub Claim configured on your IdP, where the default value is `ext_username`
-* **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only when **not using** externally provided username).
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
-* **Temporary Password Length** Set the length of the temporary password.
-* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+        * Check the **Explicitly specify target properties** to provide details of the target LDAP Server in the next step.
+    * **User Base DN:** Specify user base DN settings.
+    * **LDAP User Attribute:** Specify the default value CN.
+    * **Externally Provided Username:** Select this checkbox to add an existing user based on the user identity which issues the secret value. It is relevant only when authenticating using an external IdP.
+        * **Override:** Explicitly enter the username.
+        * **Extract:** Extract the user from a Sub Claim configured on your IdP, where the default value is `ext_username`
+    * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only when **not using** externally provided username).
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **Temporary Password Length** Set the length of the temporary password.
+    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you selected the **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target LDAP server connection:
 
-* **LDAP Server URL:** Specify the LDAP Server URL.
+    * **LDAP Server URL:** Specify the LDAP Server URL.
 
-* **CA Certificate File Content:** Provide the Base64-encoded CA Certificate to enable the secure connection.
+    * **CA Certificate File Content:** Provide the Base64-encoded CA Certificate to enable the secure connection.
 
-* **LDAP Bind DN:** Provide Bind DN for authentication of a privileged user.
+    * **LDAP Bind DN:** Provide Bind DN for authentication of a privileged user.
 
-* **Password for LDAP Bind DN:** Provide the password of the privileged user for authentication.
+    * **Password for LDAP Bind DN:** Provide the password of the privileged user for authentication.
 
 7. Click **Finish**.
 

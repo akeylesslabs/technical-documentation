@@ -72,29 +72,29 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Define the remaining settings as follows:
 
-* **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
+    * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** The name of the [Windows Target](https://docs.akeyless.io/docs/windows-target) with which the Rotated Secret should be associated.
+    * **Target:** The name of the [Windows Target](https://docs.akeyless.io/docs/windows-target) with which the Rotated Secret should be associated.
 
-* **Authenticate with the following credentials:** Determines how to connect to the target server:
-    * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-    * **Target credentials:** Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
+    * **Authenticate with the following credentials:** Determines how to connect to the target server:
+        * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+        * **Target credentials:** Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
 
-> 👍 Note
->
-> Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](https://docs.akeyless.io/docs/windows-target) user is required to change the password on behalf of the Rotated Secret user.
+    > 👍 Note
+    >
+    > Select **Target credentials** if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](https://docs.akeyless.io/docs/windows-target) user is required to change the password on behalf of the Rotated Secret user.
 
-* **Password length**: **Optional**, Set the user's password length.
-* **Rotator type:** Determines the rotator type:
-    * **Password**: Rotates the password defined inside the Rotated Secret item.
-    * **Target**: Rotate the password for the user specified in the [Windows Target](https://docs.akeyless.io/docs/windows-target)
-* **Username:** Defines the Windows username which password should be rotated.
-* **Password:** Defines the password to rotate.
-* **Gateway:** Select the Gateway through which the secret will be rotated.
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
-* **Auto rotate:** Determines if automatic rotation is enabled.
-* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic password rotations when **Auto Rotate** is enabled.
-* **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
-* **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Password length**: **Optional**, Set the user's password length.
+    * **Rotator type:** Determines the rotator type:
+        * **Password**: Rotates the password defined inside the Rotated Secret item.
+        * **Target**: Rotate the password for the user specified in the [Windows Target](https://docs.akeyless.io/docs/windows-target)
+    * **Username:** Defines the Windows username which password should be rotated.
+    * **Password:** Defines the password to rotate.
+    * **Gateway:** Select the Gateway through which the secret will be rotated.
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Auto rotate:** Determines if automatic rotation is enabled.
+    * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic password rotations when **Auto Rotate** is enabled.
+    * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

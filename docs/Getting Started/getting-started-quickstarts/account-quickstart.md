@@ -50,16 +50,16 @@ Once your email is verified, your account becomes active.
 
 1. Create a password for your account. Consider it storing it with **Akeyless Password Manager** later.
 
-<details>
-  <summary>Password Requirements</summary>
+    <details>
+    <summary>Password Requirements</summary>
 
-* At least 12 characters
-* At least 1 upper case letter (A-Z)
-* At least 1 lower case letter (a-z)
-* At least 1 number (0-9)
-* At least 1 special character
-  
-</details>
+    * At least 12 characters
+    * At least 1 upper case letter (A-Z)
+    * At least 1 lower case letter (a-z)
+    * At least 1 number (0-9)
+    * At least 1 special character
+
+    </details>
 
 2. Select **Let's Get Started**.
 3. Complete the profile details on the screen.
