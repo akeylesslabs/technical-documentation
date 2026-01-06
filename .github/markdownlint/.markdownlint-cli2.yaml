@@ -559,7 +559,8 @@ config:
   #       - one_or_ordered
   #       - one
   #       - ordered
-  MD029: false
+  MD029:
+    style: one_or_ordered
 
   # MD030: Spaces after list markers
   # Knobs:
