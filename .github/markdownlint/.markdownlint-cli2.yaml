@@ -418,7 +418,15 @@ config:
   #   - boolean options:
   #       - true
   #       - false
-  MD013: false
+  MD013:
+    line_length: 9999
+    heading_line_length: 120
+    code_block_line_length: 0
+    code_blocks: false
+    tables: false
+    headings: true
+    strict: false
+    stern: true
 
   # MD014: Disallow dollar signs ($) before shell commands
   # Knobs:
