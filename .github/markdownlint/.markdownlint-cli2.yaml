@@ -85,10 +85,10 @@ config:
   # Knobs:
   #   - severity: error|warning|info
   AKY009:
-    allow_headings: true
-    allow_code: true
-    allow_bold: true
-
+    ignore_headings: true
+    ignore_code: true
+    ignore_bold: true
+    ignore_urls: true
 
   # AKY010: Enforce ISO 8601 dates (YYYY-MM-DD)
   # Knobs:
