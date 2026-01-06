@@ -1,0 +1,250 @@
+name: Spell Checker
+
+on:
+  schedule:
+    - cron: "0 2 * * 1" # Mondays at 2 AM UTC
+  workflow_dispatch: # allow manual runs
+
+jobs:
+  spell-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 0. Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      # 1. Install cspell + JSON reporter (CI tooling)
+      - name: Install cspell
+        run: |
+          npm install -g cspell @cspell/cspell-json-reporter
+
+      # 2. Ensure directories exist for outputs
+      - name: Prepare output directories
+        run: |
+          mkdir -p .github/cspell
+
+      # 3. Run CSpell (text + json)
+      #    - Continue on error so we still create a Jira ticket and attach outputs.
+      - name: Run CSpell
+        id: cspell
+        continue-on-error: true
+        run: |
+          set -e
+
+          # Human readable output (useful for attachment / review).
+          # Use "|| true" to avoid early termination due to spelling issues.
+          cspell "**/*.md" --config ./cspell.config.yaml --no-progress \
+            > .github/cspell/cspell-out.txt || true
+
+          # Machine readable output for analysis/top-N.
+          cspell "**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
+            --reporter @cspell/cspell-json-reporter \
+            > .github/cspell/cspell-out.json || true
+
+      # 4. Capture summary information (issue counts + top 5 unknown words)
+      - name: Capture CSpell summary
+        id: summary
+        run: |
+          set -e
+
+          if [ -s ".github/cspell/cspell-out.json" ] && jq -e . ".github/cspell/cspell-out.json" >/dev/null 2>&1; then
+            ISSUE_COUNT=$(jq -r '.issues | length' .github/cspell/cspell-out.json)
+            echo "CSPELL_ISSUE_COUNT=$ISSUE_COUNT" >> $GITHUB_ENV
+
+            TOP5=$(jq -r '.issues[].text' .github/cspell/cspell-out.json \
+              | sort \
+              | uniq -c \
+              | sort -nr \
+              | head -5 \
+              | sed 's/^[[:space:]]*//')
+
+            {
+              echo "CSPELL_TOP5<<EOF"
+              echo "$TOP5"
+              echo "EOF"
+            } >> $GITHUB_ENV
+
+            echo "CSPELL_SUMMARY=${ISSUE_COUNT} spelling issues found in Markdown files" >> $GITHUB_ENV
+          else
+            ISSUE_COUNT=$(grep -c "Unknown word" .github/cspell/cspell-out.txt || true)
+            echo "CSPELL_ISSUE_COUNT=$ISSUE_COUNT" >> $GITHUB_ENV
+            echo "CSPELL_TOP5=" >> $GITHUB_ENV
+            echo "CSPELL_SUMMARY=${ISSUE_COUNT} spelling issues found (text fallback)" >> $GITHUB_ENV
+          fi
+
+      # 5. Commit outputs to a branch (mirrors your existing workflow)
+      - name: Commit outputs
+        if: always() && (env.CSPELL_ISSUE_COUNT || '0') != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          BRANCH="automation/spell-check"
+          git fetch origin
+          git checkout -B $BRANCH
+
+          git add .github/cspell/cspell-out.txt .github/cspell/cspell-out.json || true
+
+          git commit -m "chore: update cspell report [skip ci]" || echo "No changes to commit"
+          git push origin $BRANCH --force
+
+      # 6. Get commit URL
+      - name: Get commit URL
+        id: commiturl
+        run: |
+          COMMIT_SHA="$(git rev-parse HEAD)"
+          echo "sha=${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
+          echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
+
+      # 7. Create Jira issue (ADF description)
+      - name: Create Jira issue
+        id: jira
+        if: always() && (env.CSPELL_ISSUE_COUNT || '0') != '0'
+        continue-on-error: true
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
+          CSPELL_SUMMARY: ${{ env.CSPELL_SUMMARY }}
+          CSPELL_ISSUE_COUNT: ${{ env.CSPELL_ISSUE_COUNT }}
+          CSPELL_TOP5: ${{ env.CSPELL_TOP5 }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          BRANCH_NAME: automation/spell-check
+          COMMIT_URL: ${{ steps.commiturl.outputs.url }}
+        run: |
+          set -e
+
+          TS="$(date -u +'%Y-%m-%d %H:%M UTC')"
+          SUMMARY="Spell check ${TS} – $GITHUB_REPOSITORY@$BRANCH_NAME"
+
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+
+          ADF_DESC=$(jq -n \
+            --arg run     "$RUN_URL" \
+            --arg br      "$BRANCH_NAME" \
+            --arg commit  "$COMMIT_URL" \
+            --arg summ    "$CSPELL_SUMMARY" \
+            --arg issues  "$CSPELL_ISSUE_COUNT" \
+            --arg top5    "$CSPELL_TOP5" \
+            'def para($t): {type:"paragraph", content:[{type:"text", text:$t}]};
+             def linkPara($label; $url):
+               { type:"paragraph", content:[
+                   {type:"text", text:$label},
+                   {type:"text", text:$url, marks:[{type:"link", attrs:{href:$url}}]}
+                 ]};
+             def bulletItems($lines):
+               if ($lines | length) == 0 then
+                 []
+               else
+                 ($lines | map({
+                   type:"listItem",
+                   content:[{type:"paragraph", content:[{type:"text", text:.}]}]
+                 }))
+               end;
+
+             {
+               type:"doc", version:1,
+               content: (
+                 [
+                   para("Automated CSpell run for Markdown files."),
+                   linkPara("Workflow run: "; $run),
+                   para("Branch: " + $br),
+                   linkPara("Commit: "; $commit),
+                   para("Summary: " + $summ),
+                   para("Issue count: " + $issues),
+                   para("Top 5 unknown words (count word):")
+                 ]
+                 +
+                 (if ($top5 | length) > 0 then
+                    [
+                      {
+                        type:"bulletList",
+                        content: bulletItems(($top5 | split("\n") | map(select(length>0))))
+                      }
+                    ]
+                  else
+                    [ para("Top 5 unknown words not available (no JSON reporter output).") ]
+                  end)
+                 +
+                 [
+                   para("Files written:"),
+                   {
+                     type:"bulletList",
+                     content:[
+                       {type:"listItem", content:[{type:"paragraph", content:[{type:"text", text:".github/cspell/cspell-out.txt"}]}]},
+                       {type:"listItem", content:[{type:"paragraph", content:[{type:"text", text:".github/cspell/cspell-out.json"}]}]}
+                     ]
+                   },
+                   para("Consider reducing the custom words list in the .cspell directory."),
+                   para("This ticket was created automatically by GitHub Actions.")
+                 ]
+               )
+             }')
+
+          PAYLOAD=$(jq -n \
+            --arg proj "$JIRA_PROJECT_KEY" \
+            --arg summary "$SUMMARY" \
+            --argjson adf "$ADF_DESC" \
+            '{
+              fields: {
+                project: { key: $proj },
+                summary: $summary,
+                description: $adf,
+                issuetype: { name: "Task" },
+                labels: ["cspell","automation","documentation"]
+              }
+            }')
+
+          RESP=$(curl -sS -X POST \
+            -H "$AUTH_HEADER" \
+            -H "Content-Type: application/json" \
+            --data "$PAYLOAD" \
+            "$JIRA_BASE_URL/rest/api/3/issue")
+
+          ISSUE_KEY=$(echo "$RESP" | jq -r '.key // empty')
+          ISSUE_ID=$(echo "$RESP" | jq -r '.id // empty')
+
+          if [ -z "$ISSUE_KEY" ]; then
+            echo "Failed to create Jira issue. Response:"
+            echo "$RESP"
+            exit 1
+          fi
+
+          echo "issue_key=$ISSUE_KEY" >> "$GITHUB_OUTPUT"
+          echo "issue_id=$ISSUE_ID" >> "$GITHUB_OUTPUT"
+          echo "Created Jira issue: $ISSUE_KEY"
+
+      # 8. Attach artifacts to Jira issue
+      - name: Attach artifacts to Jira issue
+        if: always() && steps.jira.outputs.issue_key != ''
+        continue-on-error: true
+        env:
+          JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}
+          JIRA_EMAIL: ${{ secrets.DOCS_JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
+          ISSUE_KEY: ${{ steps.jira.outputs.issue_key }}
+        run: |
+          set -e
+          AUTH_HEADER="Authorization: Basic $(printf "%s:%s" "$JIRA_EMAIL" "$JIRA_API_TOKEN" | base64 -w 0)"
+
+          attach_file () {
+            local fpath="$1"
+            if [ -f "$fpath" ]; then
+              echo "Attaching $fpath to $ISSUE_KEY"
+              curl -sS -X POST \
+                -H "$AUTH_HEADER" \
+                -H "X-Atlassian-Token: no-check" \
+                -F "file=@${fpath}" \
+                "$JIRA_BASE_URL/rest/api/3/issue/${ISSUE_KEY}/attachments" >/dev/null
+            else
+              echo "File not found: $fpath (skipping)"
+            fi
+          }
+
+          attach_file ".github/cspell/cspell-out.txt"
+          attach_file ".github/cspell/cspell-out.json"
