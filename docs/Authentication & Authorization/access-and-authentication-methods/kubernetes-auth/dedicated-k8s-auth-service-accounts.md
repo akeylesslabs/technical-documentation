@@ -143,7 +143,7 @@ Upon successful creation, the response:
 
 > 👍 Note
 >
-> Save returned private key & AccessID for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`.
+> Save the returned private key and `AccessID` for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
 #### Create Kubernetes Gateway Auth Config Using Bearer Tokens
 

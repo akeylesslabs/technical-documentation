@@ -119,7 +119,7 @@ Upon successful creation, the response:
 
 > 👍 Note
 >
-> Save the returned Access ID & private key for next steps inside environment variables `$PRV_KEY` and `$ACCESS_ID`.
+> Save the returned `AccessID` and private key for next steps inside environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
 #### Create Kubernetes Gateway Auth Config Using Certificates
 

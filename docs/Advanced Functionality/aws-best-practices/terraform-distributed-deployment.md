@@ -26,7 +26,7 @@ For Organization integration, ensure you have an existing AWS environment with A
 
 3. [Terraform](https://developer.hashicorp.com/terraform) Installed.
 
-4. An [AWS IAM](https://docs.akeyless.io/docs/aws-iam) authentication method & [Access Role](https://docs.akeyless.io/docs/rbac) on your Akeyless account, this [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) can support many AWS accounts. Alternatively, you can create a dedicated Auth Method per account, ending with a unique access ID per account. In both cases, the [RBAC](https://docs.akeyless.io/docs/rbac) in Akeyless can isolate the access permissions inside Akeyless per account.
+4. An [AWS IAM](https://docs.akeyless.io/docs/aws-iam) authentication method and [Access Role](https://docs.akeyless.io/docs/rbac) on your Akeyless account, this [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) can support many AWS accounts. Alternatively, you can create a dedicated Auth Method per account, ending with a unique access ID per account. In both cases, the [RBAC](https://docs.akeyless.io/docs/rbac) in Akeyless can isolate the access permissions inside Akeyless per account.
 
 ## Create the Required IAM Roles
 

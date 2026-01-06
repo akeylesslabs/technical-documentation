@@ -14,7 +14,7 @@ Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/
 
 ## Prerequisites
 
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) & [Targets](https://docs.akeyless.io/docs/targets).
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
 * A Linux or a Windows machine with [Docker Engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2 GB RAM.
 * [Docker Compose installed](https://docs.docker.com/compose/install/)
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your machine.
@@ -152,7 +152,7 @@ Full list of available permissions:
 | Permission | Description |
 |---|---|
 | `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
-| `defaults` | Management of the defaults settings of your Gateway, including `GatewayUrl`, `TLS`, `Defualt Encryption Key` & `Defualt AccessID` for login. |
+| `defaults` | Management of the defaults settings of your Gateway, including `GatewayUrl`, `TLS`, `Default Encryption Key` and `Default AccessID` for login. |
 | `dynamic_secret` | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
 | `rotated_secret` | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
 | `rotate_secret_value` | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item |
