@@ -30,7 +30,7 @@ The `ssh-sra` component enables end-users to connect to targets that support CLI
 
 > Although SRA can be deployed with Docker Compose or Kubernetes, this document focuses on deploying to Kubernetes
 
-### Zero-Trust Web-Access (ZTWA)
+### Zero-Trust Web Access (ZTWA)
 
 This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets via the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions), which opens a browser session and injects credentials into the browser for the user.
 
@@ -60,7 +60,7 @@ The number of pods and replication is managed with the values file during Helm i
 
 ### Browser Extension Requirements
 
-The Browser Extension is installed on the local browser and is highly recommended for the SRA environment. It enables Direct & Proxy connections for Web-Access, including advanced features such as auto-injection of passwords and additional RDP features.
+The Browser Extension is installed on the local browser and is highly recommended for the SRA environment. It enables Direct and Proxy connections for Web Access, including advanced features such as auto-injection of passwords and additional RDP features.
 
 ### Storage Requirements
 
