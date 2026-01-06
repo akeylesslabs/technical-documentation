@@ -48,7 +48,7 @@ In addition to the existing hosts that are part of the allowed hosts on the [SSH
 > * **Edit** and **Delete** Capability: Users can edit or remove the last added host from the list.
 
 1. On the SSH or RDP window choose **Custom Target**, and click the **+** button.
-2. Select the **Permission Profile** i.e. [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-remote-access).
+2. Select the **Permission Profile**. For example, [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-remote-access).
 3. Enter **Hostname** or **IP Address**.
 4. Select **Confirm**.
 

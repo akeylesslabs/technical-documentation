@@ -39,7 +39,7 @@ When:
 Scheduling a future deletion can only be done for **single key deletion**.
 The relevant parameters are:
 
-* `version`: Delete a specific version of the item (i.e - after a rotate-key operation, cannot be the last item version)
+* `version`: Delete a specific version of the item (after a `rotate-key` operation, cannot be the last item version)
 
 * `delete-in-days`: The number of days to wait before deleting the item, default seven for keys. To delete a key immediately use the value `delete-in-days=-1`.
 

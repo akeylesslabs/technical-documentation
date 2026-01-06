@@ -93,7 +93,7 @@ Where:
     * `PasswordLowercaseChar`: A boolean flag specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z).
     * `PasswordUppercaseChar`: A boolean flag specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z).
     * `PasswordRequireNumbers`: A boolean flag specifies whether the generated temporary password must contain at least one numeric character (0 to 9)
-    * `PasswordRequireSymbols`: A boolean flag specifies whether the generated temporary password must contain at least one of non-alphanumeric characters. i.e. "! @ # $".
+    * `PasswordRequireSymbols`: A boolean flag specifies whether the generated temporary password must contain at least one of non-alphanumeric characters. For example, "! @ # $".
 
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days.
 

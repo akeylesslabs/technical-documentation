@@ -48,7 +48,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 ## Items
 
-* **Storing item** - Items location inside Akeyless should not be saved on the default root path, i.e., `/`. The recommended mode is to create those items under the relevant tree folders that describe the exact unit in your organization. This will enable easier and clearer tenant management.
+* **Storing item** - Items location inside Akeyless should not be saved on the default root path (`/`). The recommended mode is to create those items under the relevant tree folders that describe the exact unit in your organization. This will enable easier and clearer tenant management.
 
 * [SSH certificates](https://docs.akeyless.io/docs/ssh-certificates) - Should **not** be set with `*` on the `principals` field. Instead, this field should be utilized for special use cases where your users need special permissions. In addition, SSH certificates should be used with a `list of allowed users` who will be able to log in using those certificates.
 

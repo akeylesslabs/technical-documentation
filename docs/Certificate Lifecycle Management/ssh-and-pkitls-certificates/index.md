@@ -34,7 +34,7 @@ akeyless upload-rsa \
 
 Alternatively, you can create a new RSA key with a self-signed certificate:
 
-1. Create a CSR configuration file. for example:
+1. Create a CSR configuration file. For example:
 
     ```shell shell
     cat <<EOF > csr.conf

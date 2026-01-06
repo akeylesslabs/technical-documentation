@@ -37,7 +37,7 @@ Where:
 
 > 🚧 Note
 >
-> **Unique Identifier** should be a **key** name, i.e. not the value itself. for example, `email` should be provided as is, and not the actual email address.
+> **Unique Identifier** should be a **key** name, not the value itself. For example, `email` should be provided as is, and not the actual email address.
 
 By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes. In case your IdP uses different characters as a delimiter, you might set those using the `delimiters` parameter.
 
@@ -73,6 +73,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     > 🚧 Note
     >
-    > **Unique Identifier** should be a **key** name, i.e. not the value itself. for example, `email` should be provided as is, and not the actual email address.
+    > **Unique Identifier** should be a **key** name, i.e. not the value itself. For example, `email` should be provided as is, and not the actual email address.
 
 5. Click **Finish**.
