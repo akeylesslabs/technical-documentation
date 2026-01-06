@@ -10,7 +10,9 @@ metadata:
 next:
   description: ''
 ---
-## How Does the Communication Behavior Change When There Is a Cluster Cache, and How Is Authentication Handled During BAU Situations and SaaS Outages?
+## How does cluster cache affect communication and authentication?
+
+This section explains how the Gateway behaves during normal operations (BAU) and during Akeyless SaaS outages when cluster cache is enabled.
 
 When a Gateway with **cluster cache** is deployed, it significantly enhances resilience and efficiency by acting as a high-availability layer in front of the Gateway. The client's primary point of contact remains the Gateway, but the behavior changes to prioritize the cache. Here’s how communication and authentication are handled in different situations.
 
