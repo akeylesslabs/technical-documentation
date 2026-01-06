@@ -53,7 +53,7 @@ config:
   # AKY009: Disallow ampersands in sentences (allowed in headings)
   # Knobs:
   #   - severity: error|warning|info
-  AKY009: false
+  AKY009: true
 
   # AKY010: Enforce ISO 8601 dates (YYYY-MM-DD)
   # Knobs:
