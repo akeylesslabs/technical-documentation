@@ -79,7 +79,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     > 🚧 Note
     >
-    > **Unique Identifier** should be a **key** name, i.e. not the value itself.
+    > **Unique Identifier** should be a **key** name, not the value itself.
     > For example, `email` should be provided as is, and not the actual email address.
 
 4. Click **Finish**.
