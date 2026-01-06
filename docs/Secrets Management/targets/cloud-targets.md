@@ -141,18 +141,18 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
    * Check the **Use Gateway's Cloud Identity** radio button to authenticate with the Gateway's Cloud IAM.
 
-> 👍 Note
->
-> **Use Gateway's Cloud Identity** relevant for cases where your Gateway uses a GCP service account to authenticate against Akeyless.
->
-> For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/gcp-dynamic-secrets) for GCP, the target can be used for the temporary GCP service account keys creation.
+    > 👍 Note
+    >
+    > **Use Gateway's Cloud Identity** relevant for cases where your Gateway uses a GCP service account to authenticate against Akeyless.
+    >
+    > For example, when you set up a [Dynamic Secret](https://docs.akeyless.io/docs/gcp-dynamic-secrets) for GCP, the target can be used for the temporary GCP service account keys creation.
 
 4. Define the remaining parameters as follows:
 
-* **Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the superuser service account email that will be used to authenticate Akeyless with GCP.
+    * **Service Account Email:** If you selected the **Use Credentials** option in the previous step, specify the superuser service account email that will be used to authenticate Akeyless with GCP.
 
-* **Service Account Key:** Provide a Base64-encoded private key of the superuser service account.
+    * **Service Account Key:** Provide a Base64-encoded private key of the superuser service account.
 
-* **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key:** To enable Zero-Knowledge, select a key with a Customer Fragment. For more information about Zero-Knowledge, see [Implement Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. Click **Save**.

@@ -214,7 +214,7 @@ _Sample Output:_
 deployment.apps "akeyless-secret-quickstart" deleted from akeyless namespace
 ```
 
-***
+---
 
 _You have successfully:_
 

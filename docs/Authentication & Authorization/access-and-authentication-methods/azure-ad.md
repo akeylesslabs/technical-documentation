@@ -56,40 +56,40 @@ akeyless get-cloud-identity --cloud-provider azure_ad
 
 3. Define the remaining parameters as follows:
 
-* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+    * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+    * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`.
 
-* **Bound Tenant ID:** Enter a comma-separated list of Azure tenant IDs for which access is allowed.
+    * **Bound Tenant ID:** Enter a comma-separated list of Azure tenant IDs for which access is allowed.
 
-* **Custom Issuer URL:** The default value is `https://sts.windows.net/`\<bound-tenant-id>.
+    * **Custom Issuer URL:** The default value is `https://sts.windows.net/`\<bound-tenant-id>.
 
-* **Custom JWKS URL:** The URL to the JSON Web Key Set (JWKS) containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. Default value is `https://login.microsoftonline.com/common/discovery/keys`.
+    * **Custom JWKS URL:** The URL to the JSON Web Key Set (JWKS) containing the public keys that should be used to verify any JSON Web Token (JWT) issued by the authorization server. Default value is `https://login.microsoftonline.com/common/discovery/keys`.
 
-* **Custom Audience URL:** The default value is `https://management.azure.com/`.
+    * **Custom Audience URL:** The default value is `https://management.azure.com/`.
 
-* **Bound Service Principal IDs:** Enter a comma-separated list of Azure AD Service Principal IDs for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Service Principal IDs:** Enter a comma-separated list of Azure AD Service Principal IDs for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Subscriptions IDs:** Enter a comma-separated list of subscription IDs for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Subscriptions IDs:** Enter a comma-separated list of subscription IDs for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource Groups:** Enter a comma-separated list of Resource Groups for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource Groups:** Enter a comma-separated list of Resource Groups for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource Providers:** Enter a comma-separated list of resource providers for which access is allowed (For example, `Microsoft.Compute`, `Microsoft.ManagedIdentity`, and so on). This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource Providers:** Enter a comma-separated list of resource providers for which access is allowed (For example, `Microsoft.Compute`, `Microsoft.ManagedIdentity`, and so on). This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource Types:** Enter a comma-separated list of resource types for which access is allowed (For example, `virtualMachines`, `userAssignedIdentities`, and so on). This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource Types:** Enter a comma-separated list of resource types for which access is allowed (For example, `virtualMachines`, `userAssignedIdentities`, and so on). This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource Names:** Enter a comma-separated list of resource names for which access is allowed (For example, a virtual machine name, scale set name, and so on). This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource Names:** Enter a comma-separated list of resource names for which access is allowed (For example, a virtual machine name, scale set name, and so on). This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource Groups:** Enter a comma-separated list of Resource Groups for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource Groups:** Enter a comma-separated list of Resource Groups for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Bound Resource IDs:** Enter a comma-separated list of Resource IDs for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Resource IDs:** Enter a comma-separated list of Resource IDs for which access is allowed. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Unique Identifier:** Optional, a unique identifier (ID) value that contains details uniquely identifying that resource. This sub-claim name is used to distinguish between different identities.
+    * **Unique Identifier:** Optional, a unique identifier (ID) value that contains details uniquely identifying that resource. This sub-claim name is used to distinguish between different identities.
 
 4. Click **Finish**.

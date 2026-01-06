@@ -38,7 +38,7 @@ For a Rancher cluster, please create your [Rancher API Key](https://ranchermanag
 >
 > For more details, check out the [minikube configuration example](https://docs.akeyless.io/docs/kubernetes#enable-token-request-projection-on-minikube) at the end of this page.
 
-1. Create a ServiceAccount named `gateway-token-reviewer` with permission to access token review API. This ServiceAccount will be used to validate a Kubernetes JWT coming from a pod that will try to authenticate to Akeyless.
+Create a ServiceAccount named `gateway-token-reviewer` with permission to access token review API. This ServiceAccount will be used to validate a Kubernetes JWT coming from a pod that will try to authenticate to Akeyless.
 
 ```yaml akl_gw_token_reviewer.yaml
 apiVersion: v1
@@ -70,47 +70,47 @@ kubectl apply -f akl_gw_token_reviewer.yaml
 
 ### Bearer Token Extraction for Kubernetes Server V1.23 or Lower
 
-2. Extract the `gateway-token-reviewer` ServiceAccount secret name:
+1. Extract the `gateway-token-reviewer` ServiceAccount secret name:
 
-```shell
-GW_SA_NAME=$(kubectl get sa gateway-token-reviewer \
-    --output jsonpath="{.secrets[*]['name']}")
-```
+    ```shell
+    GW_SA_NAME=$(kubectl get sa gateway-token-reviewer \
+        --output jsonpath="{.secrets[*]['name']}")
+    ```
 
-3. Extract the ServiceAccount `JWT` Bearer Token (Kubernetes Server \<= v1.23):
+2. Extract the ServiceAccount `JWT` Bearer Token (Kubernetes Server \<= v1.23):
 
-```shell
-SA_JWT_TOKEN=$(kubectl get secret $GW_SA_NAME \
-    --output 'go-template={{ .data.token | base64decode }}')
-```
+    ```shell
+    SA_JWT_TOKEN=$(kubectl get secret $GW_SA_NAME \
+        --output 'go-template={{ .data.token | base64decode }}')
+    ```
 
 #### Bearer Token Extraction for Kubernetes Server V1.24 or Higher
 
 Kubernetes won’t generate Secrets automatically for ServiceAccounts, to get your ServiceAccount token, run the following commands instead:
 
-2. Create the long-lived ServiceAccount secret called `gateway-token-reviewer-token` (Kubernetes Server >= v1.24):
+1. Create the long-lived ServiceAccount secret called `gateway-token-reviewer-token` (Kubernetes Server >= v1.24):
 
-```yaml akl_gw_token_reviewer_token.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: gateway-token-reviewer-token
-  namespace: default
-  annotations:
-    kubernetes.io/service-account.name: gateway-token-reviewer
-type: kubernetes.io/service-account-token
-```
+    ```yaml akl_gw_token_reviewer_token.yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+    name: gateway-token-reviewer-token
+    namespace: default
+    annotations:
+        kubernetes.io/service-account.name: gateway-token-reviewer
+    type: kubernetes.io/service-account-token
+    ```
 
-```shell
-kubectl apply -f akl_gw_token_reviewer_token.yaml
-```
+    ```shell
+    kubectl apply -f akl_gw_token_reviewer_token.yaml
+    ```
 
-3. Extract the ServiceAccount JWT Bearer Token (Kubernetes Server >= v1.24):
+2. Extract the ServiceAccount JWT Bearer Token (Kubernetes Server >= v1.24):
 
-```shell
-SA_JWT_TOKEN=$(kubectl get secret gateway-token-reviewer-token \
-  --output 'go-template={{.data.token | base64decode}}')
-```
+    ```shell
+    SA_JWT_TOKEN=$(kubectl get secret gateway-token-reviewer-token \
+    --output 'go-template={{.data.token | base64decode}}')
+    ```
 
 #### Extract Kubernetes Cluster CA Certificate
 
@@ -126,7 +126,7 @@ CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/
 
 #### Create Kubernetes Auth Method
 
-1. Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method. The result contains an `access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method. The result contains an `access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell
 akeyless create-auth-method-k8s -n my-k8s-auth-method --json
@@ -227,38 +227,38 @@ When the cluster access type is **Rancher**, add the following parameters:
 
 1. Create a Namespace in your Kubernetes cluster:
 
-```shell
-kubectl create namespace my-namespace-a
-```
+    ```shell
+    kubectl create namespace my-namespace-a
+    ```
 
 2. In this Namespace create a pod:
 
-```shell
-kubectl run mypod1 --image=nginx -n my-namespace-a
-```
+    ```shell
+    kubectl run mypod1 --image=nginx -n my-namespace-a
+    ```
 
 3. Start an interactive shell session on the pod and perform the following commands in the pod:
 
-```shell
-kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
-```
+    ```shell
+    kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
+    ```
 
 4. Install Akeyless CLI inside your pod:
 
-```shell
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-chmod +x akeyless
-./akeyless --init
-```
+    ```shell
+    curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
+    chmod +x akeyless
+    ./akeyless --init
+    ```
 
 5. Authenticate via your Kubernetes Auth Method with the following parameters:
 
-```shell
-./akeyless auth --access-id $ACCESS_ID \
-    --access-type k8s \
-    --gateway-url https://<Your_Akeyless_GW_URL:8000> \
-    --k8s-auth-config-name k8s-conf
-```
+    ```shell
+    ./akeyless auth --access-id $ACCESS_ID \
+        --access-type k8s \
+        --gateway-url https://<Your_Akeyless_GW_URL:8000> \
+        --k8s-auth-config-name k8s-conf
+    ```
 
 Where:
 

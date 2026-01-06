@@ -10,6 +10,7 @@ next:
       title: Getting a Secret with a Kubernetes Container Quickstart
       type: basic
 ---
+
 This Quickstart guides you through deploying the Akeyless Gateway on a Kubernetes cluster using the official Helm chart and configuring it to authenticate to your Akeyless account with an API Key.
 
 By the end, you will have:
@@ -92,16 +93,16 @@ kubectl create secret generic access-key --namespace akeyless --from-literal=gat
 
 1. Using your text editor of choice, edit the `values.yaml` file you created earlier. Below we show the path to and the values that need to be added (`gatewayAccessId`, `gatewayAccessType`, `gatewayCredentialsExistingSecret`, `clusterName`, and `initialClusterDisplayName`).
 
-```yaml
-globalConfig:
-  gatewayAuth:
-    gatewayAccessId: <Access ID of your API Key>
-    gatewayAccessType: access_key
-    gatewayCredentialsExistingSecret: access-key
+    ```yaml
+    globalConfig:
+    gatewayAuth:
+        gatewayAccessId: <Access ID of your API Key>
+        gatewayAccessType: access_key
+        gatewayCredentialsExistingSecret: access-key
 
-  clusterName: quickstart-gateway
-  initialClusterDisplayName: Quickstart Gateway
-```
+    clusterName: quickstart-gateway
+    initialClusterDisplayName: Quickstart Gateway
+    ```
 
 2. Save the file.
 
@@ -128,36 +129,38 @@ TEST SUITE: None
 ## Step 7: Verify Pods
 
 1. Wait for the Akeyless Gateway's pods to be ready. This may take up to ten minutes.
+
 2. Run the following command to check that the pods are ready:
 
-```shell
-kubectl get pods -n akeyless
-```
+    ```shell
+    kubectl get pods -n akeyless
+    ```
 
-_Sample Output:_
+    _Sample Output:_
 
-```text
-NAME                                           READY   STATUS    RESTARTS   AGE
-gw-akeyless-gateway-cache-7bc7c7556b-rdwzx     1/1     Running   0          7m44s
-unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44s
-unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44s
-```
+    ```text
+    NAME                                           READY   STATUS    RESTARTS   AGE
+    gw-akeyless-gateway-cache-7bc7c7556b-rdwzx     1/1     Running   0          7m44s
+    unified-gw-akeyless-gateway-695dbb7f67-bflsz   1/1     Running   0          7m44s
+    unified-gw-akeyless-gateway-695dbb7f67-n6kbx   1/1     Running   0          7m44s
+    ```
 
 ## Step 8: View the Gateway in the Akeyless Console
 
 1. Open the [Akeyless Console](https://console.akeyless.io).
+
 2. Sign in to your existing Akeyless account.
 
-You will be taken to the Akeyless Console homepage.
+    You will be taken to the Akeyless Console homepage.
 
 3. In the left navigation menu, select **Gateways**.
 
-You should see `Quickstart Gateway` available with a **Status** of `Healthy`.
+    You should see `Quickstart Gateway` available with a **Status** of `Healthy`.
 
 <Callout icon="📘" theme="info">
   We did not configure access to the Akeyless Gateway's local console in the Quickstart and attempts to access it are expected to fail.
 </Callout>
 
-***
+---
 
 _You have now deployed the Akeyless Gateway on Kubernetes using Helm and authenticated it using an API Key._

@@ -47,22 +47,22 @@ You can find the complete list of additional parameters for this command in the 
 
 3. Define the remaining parameters as follows:
 
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the IP of the Gateway will be used in the logs.
+    * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the IP of the Gateway will be used in the logs.
 
-* **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+    * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-* **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-* **Unique Identifier :** A unique identifier is usually an email, username, or UPN. Whenever a user logs in with a token, OAuth2.0/JWT Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
+    * **Unique Identifier :** A unique identifier is usually an email, username, or UPN. Whenever a user logs in with a token, OAuth2.0/JWT Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
-* **JWKS URL :** Enter the URL to the JSON Web Key Set (`JWKS`) containing the public keys that should be used to verify any JSON Web Token (`JWT`) issued by the authorization server. Alternatively, you can load the `JWKS` containing the public keys that should be used to verify the `JWT` issued by the authorization server using the `JSON` option
+    * **JWKS URL :** Enter the URL to the JSON Web Key Set (`JWKS`) containing the public keys that should be used to verify any JSON Web Token (`JWT`) issued by the authorization server. Alternatively, you can load the `JWKS` containing the public keys that should be used to verify the `JWT` issued by the authorization server using the `JSON` option
 
-* **Issuer URL:** Enter the issuer URL. This parameter is optional.
+    * **Issuer URL:** Enter the issuer URL. This parameter is optional.
 
-* **Audience URL:** Enter the audience in the JWT. This parameter is optional.
+    * **Audience URL:** Enter the audience in the JWT. This parameter is optional.
 
-* **Bound Client IDs:** Enter a list of the Client's IDs for which access is allowed. This parameter maps to the non-standard `cid` (Client Identification Data) sub-claim and is optional. Leave it empty for unrestricted access.
+    * **Bound Client IDs:** Enter a list of the Client's IDs for which access is allowed. This parameter maps to the non-standard `cid` (Client Identification Data) sub-claim and is optional. Leave it empty for unrestricted access.
 
 4. Click on **Finish**.

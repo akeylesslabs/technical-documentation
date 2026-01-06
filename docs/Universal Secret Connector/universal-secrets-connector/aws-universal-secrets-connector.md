@@ -214,19 +214,19 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 4. Define the remaining settings as follows:
 
-* **Description:** Optional, enter a description of the Universal Secrets Connector.
+    * **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-* **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+    * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-* **Delete Protection:** Optional, turn on this setting to protect the item from deletion.
+    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion.
 
-* **Target:** Select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets).
+    * **Target:** Select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets).
 
-* **Gateway:** Select the desired corresponding Gateway.
+    * **Gateway:** Select the desired corresponding Gateway.
 
-* **USC Secret Prefix:** Optional, provide a prefix to be appended to any newly created secret.
+    * **USC Secret Prefix:** Optional, provide a prefix to be appended to any newly created secret.
 
-* **Use Prefix as Filter:** Optional, use the secret prefix as a filter.
+    * **Use Prefix as Filter:** Optional, use the secret prefix as a filter.
 
 5. Click **Finish**
 

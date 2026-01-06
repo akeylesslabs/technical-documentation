@@ -54,6 +54,6 @@ The details of your Static Secret should be open in the right half of your brows
 
 `Super Secret` should be displayed.
 
-***
+---
 
 _You have successfully created a Static Secret in the Akeyless Console._

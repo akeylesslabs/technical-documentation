@@ -106,45 +106,45 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 4. Define the remaining parameters as follows:
 
-* **Delete Protection:** When enabled, it protects the secret from accidental deletion.
+    * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-* **Target mode:** In this section, you can either select an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) or specify details of the target RabbitMQ server explicitly.
+    * **Target mode:** In this section, you can either select an existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets) or specify details of the target RabbitMQ server explicitly.
 
-    * Use the **Choose an existing target** drop-down list to select the existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets).
+        * Use the **Choose an existing target** drop-down list to select the existing [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targets).
 
-    * Select the **Explicitly specify target properties** to provide details of the target RabbitMQ server in the next step.
+        * Select the **Explicitly specify target properties** to provide details of the target RabbitMQ server in the next step.
 
-RabbitMQ distinguishes between `configure`, `write`, and `read` operations on a resource. To perform an operation on a resource, the user must be granted the appropriate permissions for it. The [RabbitMQ permissions reference](https://www.rabbitmq.com/access-control.html#:~:text=Permissions%20are%20expressed%20as%20a,names%20matching%20the%20regular%20expressions.\&text=and%20server%20generated%20names%20are%20prefixed%20with%20amq) outlines the relevant resources and operations.
+    RabbitMQ distinguishes between `configure`, `write`, and `read` operations on a resource. To perform an operation on a resource, the user must be granted the appropriate permissions for it. The [RabbitMQ permissions reference](https://www.rabbitmq.com/access-control.html#:~:text=Permissions%20are%20expressed%20as%20a,names%20matching%20the%20regular%20expressions.\&text=and%20server%20generated%20names%20are%20prefixed%20with%20amq) outlines the relevant resources and operations.
 
-* **User Configuration Permission:** Enter the resources for which the `configure` operation can be performed when accessed using the relevant dynamic key.
+    * **User Configuration Permission:** Enter the resources for which the `configure` operation can be performed when accessed using the relevant dynamic key.
 
-* **User Write Permission:** Enter the resources for which the `write` operation can be performed when accessed using the relevant dynamic key.
+    * **User Write Permission:** Enter the resources for which the `write` operation can be performed when accessed using the relevant dynamic key.
 
-* **User Read Permission:** Enter the resources for which the `read` operation can be performed when accessed using the relevant dynamic key.
+    * **User Read Permission:** Enter the resources for which the `read` operation can be performed when accessed using the relevant dynamic key.
 
-* **User Virtual Host:** In RabbitMQ, user permissions are granted per virtual host. Bind the user to the specific virtual host (default “/”).
+    * **User Virtual Host:** In RabbitMQ, user permissions are granted per virtual host. Bind the user to the specific virtual host (default “/”).
 
-* **User Tags:** Access to management UI in RabbitMQ can be controlled with user tags. Insert relevant user tags in a comma-separated list, including these tags: management, administrator, monitoring, and policymaker.
+    * **User Tags:** Access to management UI in RabbitMQ can be controlled with user tags. Insert relevant user tags in a comma-separated list, including these tags: management, administrator, monitoring, and policymaker.
 
-* **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a key). When TTL expires, the key becomes obsolete.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a key). When TTL expires, the key becomes obsolete.
 
-* **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length** Set the length of the temporary password.
 
-* **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
+    * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
-* **Gateway:** Select the Gateway through which the dynamic secret will create users.
+    * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
 5. If you checked the **Explicitly specify target properties** option, click **Next**.
 
 6. Provide details of the target RabbitMQ server:
 
-* **Server URI:** Enter the RabbitMQ server address.
+    * **Server URI:** Enter the RabbitMQ server address.
 
-* **Admin User:** Enter your RabbitMQ admin credentials.
+    * **Admin User:** Enter your RabbitMQ admin credentials.
 
-* **Admin Password:** Enter your RabbitMQ admin credentials.
+    * **Admin Password:** Enter your RabbitMQ admin credentials.
 
 7. Click **Finish**.
 

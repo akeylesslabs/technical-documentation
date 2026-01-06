@@ -120,38 +120,38 @@ Where:
 
 1. Create a Namespace in your Kubernetes cluster:
 
-```shell
-kubectl create namespace my-namespace-a
-```
+    ```shell
+    kubectl create namespace my-namespace-a
+    ```
 
 2. In this Namespace, create a pod:
 
-```shell
-kubectl run mypod1 --image=nginx -n my-namespace-a
-```
+    ```shell
+    kubectl run mypod1 --image=nginx -n my-namespace-a
+    ```
 
 3. Start an interactive shell session on the pod and perform the following commands in the pod:
 
-```shell
-kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
-```
+    ```shell
+    kubectl exec --stdin=true --namespace my-namespace-a --tty=true mypod1 -- /bin/sh
+    ```
 
 4. Install Akeyless CLI inside your pod:
 
-```shell
-curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
-chmod +x akeyless
-./akeyless --init
-```
+    ```shell
+    curl -o akeyless https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-linux-amd64
+    chmod +x akeyless
+    ./akeyless --init
+    ```
 
 5. Authenticate via your Kubernetes Auth Method as follows:
 
-```shell
-./akeyless auth --access-id $ACCESS_ID \
-    --access-type k8s \
-    --gateway-url https://<Your-GW-URL>:8000 \
-    --k8s-auth-config-name k8s-conf
-```
+    ```shell
+    ./akeyless auth --access-id $ACCESS_ID \
+        --access-type k8s \
+        --gateway-url https://<Your-GW-URL>:8000 \
+        --k8s-auth-config-name k8s-conf
+    ```
 
 Where:
 
