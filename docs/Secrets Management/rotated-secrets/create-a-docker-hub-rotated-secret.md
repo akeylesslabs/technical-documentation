@@ -60,29 +60,29 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Define the remaining settings as follows:
 
-* **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
+    * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) to be associated with the Rotated Secret.
+    * **Target:** Defines the name of the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) to be associated with the Rotated Secret.
 
-* **Password Length**: Set the length of the user's password
+    * **Password Length**: Set the length of the user's password
 
-* **Rotator type:** Determines the rotator type:
-    * **Target**: Rotates the privileged user credentials defined inside the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) item.
+    * **Rotator type:** Determines the rotator type:
+        * **Target**: Rotates the privileged user credentials defined inside the [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-target) item.
 
-> 👍 Note
->
-> When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
+    > 👍 Note
+    >
+    > When you're using a **Target** rotator, the access role with which this Rotated Secret is associated must have read and update permissions on the corresponding Target.
 
-* **Gateway:** Select the Gateway through which the secret will be rotated.
+    * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-* **Auto rotate:** Determines if automatic rotation is enabled.
+    * **Auto rotate:** Determines if automatic rotation is enabled.
 
-* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic rotations when **Auto Rotate** is enabled.
+    * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic rotations when **Auto Rotate** is enabled.
 
-* **Rotation hour (local time zone):** Defines the time when credentials should be rotated if **Auto Rotate** is enabled.
+    * **Rotation hour (local time zone):** Defines the time when credentials should be rotated if **Auto Rotate** is enabled.
 
-* **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

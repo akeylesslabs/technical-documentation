@@ -70,36 +70,36 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 3. Define the remaining settings as follows:
 
-* **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
+    * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 
-* **Target:** Defines the name of the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) to be associated with the Rotated Secret.
+    * **Target:** Defines the name of the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) to be associated with the Rotated Secret.
 
-* **Authenticate with the following credentials:** Determines how to connect to the target server:
-    * **Target credentials:** Use the credentials defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) item. For LDAP targets, this is the only available option.
+    * **Authenticate with the following credentials:** Determines how to connect to the target server:
+        * **Target credentials:** Use the credentials defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target) item. For LDAP targets, this is the only available option.
 
-* **Password Length**: Set the user's password length.
+    * **Password Length**: Set the user's password length.
 
-* **Rotator type:** Determines the rotator type:
-    * **LDAP**: Rotates the password defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
+    * **Rotator type:** Determines the rotator type:
+        * **LDAP**: Rotates the password defined inside the [LDAP Target](https://docs.akeyless.io/docs/ldap-target).
 
-* **Username:** The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`.
+    * **Username:** The LDAP username whose password should be rotated. Note: Some LDAP servers (for example, OpenLDAP) require the user's full Distinguished Name (DN), such as `uid=my-user,ou=Directory Administrators,dc=dbgroup,dc=com`.
 
-* **Password:** Defines the password to rotate.
+    * **Password:** Defines the password to rotate.
 
-* **User Base DN:** Defines LDAP Base DN settings.
+    * **User Base DN:** Defines LDAP Base DN settings.
 
-* **LDAP User Attribute:** Defines the LDAP user attribute. The default value is `cn`.
+    * **LDAP User Attribute:** Defines the LDAP user attribute. The default value is `cn`.
 
-* **Gateway:** Select the Gateway through which the secret will be rotated.
+    * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-* **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-* **Auto rotate:** Determines if automatic rotation is enabled.
+    * **Auto rotate:** Determines if automatic rotation is enabled.
 
-* **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic password rotations when **Auto Rotate** is enabled.
+    * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic password rotations when **Auto Rotate** is enabled.
 
-* **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
+    * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
 
-* **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

@@ -108,13 +108,13 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 6. Provide details of the target Artifactory server:
 
-* **Base URL:** Specify the JFrog Artifactory REST URL, which must end with the **artifactory** postfix.
+    * **Base URL:** Specify the JFrog Artifactory REST URL, which must end with the **artifactory** postfix.
 
-For example, if you use your JFrog URL, this could be `<https://myjfrog.acme.org/artifactory/>`. Or, if you use your JFrog Artifactory server hostname and port, this could be `https://<ARTIFACTORY_SERVER_HOSTNAME>:8081/artifactory/`.
+    For example, if you use your JFrog URL, this could be `<https://myjfrog.acme.org/artifactory/>`. Or, if you use your JFrog Artifactory server hostname and port, this could be `https://<ARTIFACTORY_SERVER_HOSTNAME>:8081/artifactory/`.
 
-* **Admin Username:** Provide the name of the Artifactory user with privileges to create JWT tokens.
+    * **Admin Username:** Provide the name of the Artifactory user with privileges to create JWT tokens.
 
-* **Admin API Key/Password:** Provide the admin user's API Key or password.
+    * **Admin API Key/Password:** Provide the admin user's API Key or password.
 
 7. Click **Finish**.
 

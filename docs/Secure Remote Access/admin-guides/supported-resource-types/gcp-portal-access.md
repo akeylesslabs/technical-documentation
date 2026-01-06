@@ -34,17 +34,17 @@ To enable Secure Remote Access to the GCP Portal you need:
 
 2. Create a new static secret and enter the **Value** specifying the GCP portal login details in the following format:`Username..Password` and click Next.
 
-> 📘 Info
->
-> The **Secret** value is a concatenation of your GCP Username and your GCP Password with double dots as a delimiter.
+    > 📘 Info
+    >
+    > The **Secret** value is a concatenation of your GCP Username and your GCP Password with double dots as a delimiter.
 
-3. On the next screen, tick the box to `Enable Scure Remote Access` and fill in the following fields for the `Web Access` option:
+3. On the next screen, tick the box to `Enable Secure Remote Access` and fill in the following fields for the `Web Access` option:
 
-`Injection URL`: The GCP login URL to inject secrets. For example:
+    * `Injection URL`: The GCP login URL to inject secrets. For example:
 
-<Image align="center" src="https://files.readme.io/b0cf7f8-Screenshot_2024-07-08_at_17.13.30.png" />
+    <Image align="center" src="https://files.readme.io/b0cf7f8-Screenshot_2024-07-08_at_17.13.30.png" />
 
-* `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s).
+    * `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 ### Secure Web Browsing (Isolated)
 

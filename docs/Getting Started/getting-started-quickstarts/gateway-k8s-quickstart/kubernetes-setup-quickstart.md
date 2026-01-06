@@ -243,6 +243,6 @@ apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io create
     docker-desktop   130m         0%       1550Mi          20%    
     ```
 
----
+***
 
 _You have now prepared a Docker Desktop Kubernetes cluster suitable for deploying the Akeyless Gateway._

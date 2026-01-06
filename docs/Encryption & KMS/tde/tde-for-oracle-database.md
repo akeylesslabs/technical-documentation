@@ -195,23 +195,23 @@ CREATE TABLE my_table (
 )  TABLESPACE encrypt_ts;
 ```
 
-> 👍 Note
->
-> To migrate a database with an existing file-based wallet, follow these steps:
->
-> 1. Set the TDE configuration:
->
-> ```sql
-> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
->   ```
->
-> 2. Migrate the encryption key:
->
-> ```sql
-> ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "Akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
->   ```
->
-> Ensure to replace `<old file based tde password>` with the appropriate password.
+### Migrate a Database with an Existing File-Based Wallet
+
+To migrate a database with an existing file-based wallet, follow these steps:
+
+1. Set the TDE configuration:
+
+    ```sql
+    ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE" SCOPE=both SID='*';
+    ```
+
+2. Migrate the encryption key:
+
+    ```sql
+    ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "Akeyless" MIGRATE USING "<old file based tde password>" WITH BACKUP;
+    ```
+
+Ensure to replace `<old file based tde password>` with the appropriate password.
 
 ## Testing Data Encrypt
 
@@ -230,7 +230,7 @@ To begin, connect to the Oracle Database using SQL\_Plus as a non-sysadmin user.
 sqlplus your_username@your_database
 ```
 
-Replace your\_username with your actual username and your\_database with the database service name.
+Replace `your_username` with your actual username and `your_database` with the database service name.
 
 ### Enable Encryption on a Table
 
