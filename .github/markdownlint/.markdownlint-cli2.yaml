@@ -276,6 +276,12 @@ config:
         example_from: "Akeless is misspelled."
         example_to: "Akeyless is correct."
 
+      # Idioms
+      - term: "bird's eye"
+        replacement: "high-level"
+        example_from: "This interface provides a bird's eye view of your items."
+        example_to: "This interface provides a high-level view of your items."
+
   # =========================
   # Core markdownlint Rules
   # =========================
