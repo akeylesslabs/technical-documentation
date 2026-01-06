@@ -142,8 +142,8 @@
 /v2/docs/zero-trust-ssh-bastion -> /docs/professional-bastion
 /docs/rdp-producer -> /docs/rdp-dynamic-secrets
 /v2/docs/rdp-producer -> /docs/rdp-dynamic-secrets
-/docs/deprecated-items -> /docs/recent-changes
-/v2/docs/deprecated-items -> /docs/recent-changes
+/docs/deprecated-items -> /docs/release-notes
+/v2/docs/deprecated-items -> /docs/release-notes
 /docs/remote-access-advanced-configuration-on-docker -> /docs/remote-access-advanced-configuration-docker
 /v2/docs/remote-access-advanced-configuration-on-docker -> /docs/remote-access-advanced-configuration-docker
 /docs/remote-access-advanced-configuration -> /docs/remote-access-advanced-configuration-k8s
@@ -152,8 +152,8 @@
 /v2/docs/akeyless-connect-new -> /docs/remote-access-akeyless-connect
 /docs/remote-access-on-docker -> /docs/remote-access-docker
 /v2/docs/remote-access-on-docker -> /docs/remote-access-docker
-/docs/faqs -> /docs/remote-access-faq
-/v2/docs/faqs -> /docs/remote-access-faq
+/docs/faqs -> /docs/remote-access-overview
+/v2/docs/faqs -> /docs/remote-access-overview
 /docs/getting-started -> /docs/remote-access-getting-started
 /v2/docs/getting-started -> /docs/remote-access-getting-started
 /docs/overview -> /docs/remote-access-overview
@@ -233,8 +233,9 @@
 /v2/docs/zero-trust-web-access -> /docs/web-access-bastion
 /docs/web-access-bastion-1 -> /docs/web-access-bastion-docker
 /v2/docs/web-access-bastion-1 -> /docs/web-access-bastion-docker
-/docs/web-access-on-docker -> /docs/web-access-docker
-/v2/docs/web-access-on-docker -> /docs/web-access-docker
+/docs/web-access-on-docker -> /docs/sra-web-access-docker
+/v2/docs/web-access-on-docker -> /docs/sra-web-access-docker
+/docs/web-access-docker -> /docs/sra-web-access-docker
 /docs/advanced-configuration-2 -> /docs/web-access-on-k8s-advanced-configuration
 /v2/docs/advanced-configuration-2 -> /docs/web-access-on-k8s-advanced-configuration
 /docs/advanced-configuration -> /docs/web-bastion-advanced-configuration
@@ -279,13 +280,16 @@
 /gateway-update-producer-mssql -> /reference/gatewayupdateproducermssql
 /gateway-update-producer-aws -> /reference/gatewayupdateproduceraws
 /kmip-get-environment -> /reference/kmipgetenvironment
+/reference/kmipdescribeserver -> /reference/kmipgetenvironment
 /create-salesforce-target -> /reference/createsalesforcetarget
 /update-auth-method-oauth2 -> /reference/updateauthmethodoauth2
 /get-kube-exec-creds -> /reference/getkubeexeccreds
 /kmip-delete-environment -> /reference/kmipdeleteenvironment
+/reference/kmipdeleteserver -> /reference/kmipdeleteenvironment
 /gateway-get-producer -> /reference/gatewaygetproducer
 /gateway-delete-allowed-management-access -> /reference/gatewaydeleteallowedmanagementaccess
-/delete-assoc-target-item -> /reference/deleteassoctargetitem
+/delete-assoc-target-item -> /reference/delete-assoc-target-item
+/reference/deleteassoctargetitem -> /reference/delete-assoc-target-item
 /raw-creds -> /reference/rawcreds
 /update-auth-method-ldap -> /reference/updateauthmethodldap
 /validate-token -> /reference/validatetoken
@@ -399,7 +403,10 @@
 /delete-gateway-cluster -> /reference/deletegatewaycluster
 /update-web-target -> /reference/updatewebtarget
 /sign-pkcs1 -> /reference/signpkcs1
-/assoc-role-am -> /reference/assocroleam
+/assoc-role-am -> /reference/assoc-role-am
+/reference/assocroleam -> /reference/assoc-role-am
+/reference/assoc-role-auth-method -> /reference/assoc-role-am
+
 /esm-get -> /reference/esmget
 /update-salesforce-target -> /reference/updatesalesforcetarget
 /gateway-migrate-personal-items -> /reference/gatewaymigratepersonalitems
@@ -518,7 +525,8 @@
 /gateway-update-producer-gke -> /reference/gatewayupdateproducergke
 /gateway-update-producer-gcp -> /reference/gatewayupdateproducergcp
 /update-ldap-target -> /reference/updateldaptarget
-/user-event-last-status -> /reference/usereventlaststatus
+/user-event-last-status -> /reference/user-event-last-status
+/reference/getlastusereventstatus -> /reference/user-event-last-status
 /list-sra-bastions -> /reference/listsrabastions
 /describe-sub-claims -> /reference/describesubclaims
 /gateway-create-producer-Redis -> /reference/gatewaycreateproducerRedis
