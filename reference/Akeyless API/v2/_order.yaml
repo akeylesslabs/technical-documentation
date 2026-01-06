@@ -348,7 +348,7 @@
 - kmipcreateclient
 - kmipserversetup
 - kmipdeleteclient
-- kmipdeleteserver
+- kmipdeleteenvironment
 - kmipdescribeclient
 - kmipdescribeserver
 - kmiplistclients
