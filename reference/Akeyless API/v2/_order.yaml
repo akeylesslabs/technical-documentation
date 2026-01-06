@@ -100,7 +100,7 @@
 - decryptpkcs1
 - decryptwithclassickey
 - deleteroleassociation
-- deletetargetassociation
+- delete-assoc-target-item
 - deleteauthmethod
 - deleteauthmethods
 - deleteeventforwarder
