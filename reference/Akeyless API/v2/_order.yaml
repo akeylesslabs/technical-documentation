@@ -350,7 +350,7 @@
 - kmipdeleteclient
 - kmipdeleteenvironment
 - kmipdescribeclient
-- kmipdescribeserver
+- kmipgetenvironment
 - kmiplistclients
 - kmipmoveserver
 - kmiprenewclientcertificate
