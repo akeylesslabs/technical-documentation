@@ -126,7 +126,7 @@ $ kubectl logs $CONTAINER
 
 ## Configure `kube-apiserver`
 
-Once the plugin is up and running, the next step is to [configure `kube-apiserver`](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider).
+Once the plugin is up and running, the next step is to [configure the kube-apiserver](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#encrypting-your-data-with-the-kms-provider).
 
 To do this you will need to use the below `encryption_provider_config.yaml` file.
 
