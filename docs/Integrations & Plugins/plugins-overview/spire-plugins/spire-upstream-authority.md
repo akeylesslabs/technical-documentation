@@ -178,7 +178,7 @@ UpstreamAuthority  "akeyless_upstream" {
        akeyless_gateway_url = '<https://<Your-Akeyless-GW-URL:8000/api/v2>'
        access_id = "<Your_Access_ID>"
        access_key = "<Your_Access_KEY>"
-       pki_cert_issuer_name	= "<PKI_ISSUER_NAME>"
+       pki_cert_issuer_name = "<PKI_ISSUER_NAME>"
     }
 }  
 ```

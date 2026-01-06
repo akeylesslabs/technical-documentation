@@ -71,7 +71,7 @@ The provided script is designed to be used in a ServiceNow instance, specificall
     record.setValue('u_capabilities', JSON.stringify(jsonData.capabilities));
     //record.setValue('u_client_sub_claims', JSON.stringify(jsonData.client_sub_claims));
     //record.setValue('u_ttl_in_min', jsonData.ttl_in_min.toString()); // Assuming this is a string field
-	record.setValue('u_json_event_with_access_request', requestBody);
+    record.setValue('u_json_event_with_access_request', requestBody);
 
     // Insert the new record into the database
     var newRecordSysId = record.insert();

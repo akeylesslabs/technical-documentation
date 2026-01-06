@@ -31,16 +31,16 @@ Create `init.pp` on your Puppet server as follows:
 
 ```shell
 $variables = {
- 'token' => Deferred('vault_lookup::lookup', 
-	['secret/<path/to/secret_name>', 
-	{
-  		'vault_addr'  => 'https://hvp.akeyless.io',
-  		'auth_method' => 'approle',
-  		'role_id'     => 'Access ID',
-  		'secret_id'   => 'Access Key',
-		'approle_path_segment' => 'v1/auth/approle/login',
-	}
-	])
+    'token' => Deferred('vault_lookup::lookup', 
+    ['secret/<path/to/secret_name>', 
+    {
+        'vault_addr'  => 'https://hvp.akeyless.io',
+        'auth_method' => 'approle',
+        'role_id'     => 'Access ID',
+        'secret_id'   => 'Access Key',
+        'approle_path_segment' => 'v1/auth/approle/login',
+    }
+    ])
 }
 
 file { '/tmp/secret.txt':

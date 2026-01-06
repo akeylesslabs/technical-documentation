@@ -213,9 +213,9 @@ name: 'MyDynamicSecret'
 on: push
 
 jobs: 
-	fetch_dynamic_secrets:
-    runs-on: 'ubuntu-latest'
-    name: Fetch dynamic secrets
+    fetch_dynamic_secrets:
+        runs-on: 'ubuntu-latest'
+        name: Fetch dynamic secrets
     
     permissions:
       id-token: write

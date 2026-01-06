@@ -93,22 +93,22 @@ import (
 )
 
 func authWithAWS(accessID string) (string, error) {
-	id, err := cloudid.GetCloudId()
-	if err != nil {
-		return "", fmt.Errorf("can't get cloud identity: %w", err)
-	}
+    id, err := cloudid.GetCloudId()
+    if err != nil {
+        return "", fmt.Errorf("can't get cloud identity: %w", err)
+    }
 
-	auth := akeyless.NewAuth()
-	auth.SetAccessType("aws_iam")
-	auth.SetCloudId(id)
-	auth.SetAccessId(accessID)
+    auth := akeyless.NewAuth()
+    auth.SetAccessType("aws_iam")
+    auth.SetCloudId(id)
+    auth.SetAccessId(accessID)
 
-	out, _, err := client.V2ApiService.Auth(context.Background()).Body(*auth).Execute()
-	if err != nil {
-		return "", fmt.Errorf("can't authenticate with aws: %w", err)
-	}
+    out, _, err := client.V2ApiService.Auth(context.Background()).Body(*auth).Execute()
+    if err != nil {
+        return "", fmt.Errorf("can't authenticate with aws: %w", err)
+    }
 
-	return out.GetToken(), nil
+    return out.GetToken(), nil
 }
 ```
 
@@ -121,19 +121,19 @@ A basic example demonstrating the `ListItems` command:
 ```go
 go
 func main() {
-	// retrieve authToken using one of supported auth methods
-	authToken := ""
+    // retrieve authToken using one of supported auth methods
+    authToken := ""
 
-	listOut, _, err := client.ListItems(context.Background()).
-  Body(akeyless.ListItems{Token: akeyless.PtrString(authToken),
-		}).Execute()
-	if err != nil {
-		log.Fatalln(err)
-	}
+    listOut, _, err := client.ListItems(context.Background()).
+    Body(akeyless.ListItems{Token: akeyless.PtrString(authToken),
+        }).Execute()
+    if err != nil {
+        log.Fatalln(err)
+    }
 
-	for _, item := range listOut.GetItems() {
-		log.Println(item.GetItemName())
-	}
+    for _, item := range listOut.GetItems() {
+        log.Println(item.GetItemName())
+    }
 }
 ```
 
@@ -142,19 +142,19 @@ Or to retrieve a Dynamic Secret:
 ```go
 go
 func main() {
-	// retrieve authToken using one of supported auth methods
-	authToken := ""
+    // Retrieve authToken using one of supported auth methods
+    authToken := ""
 
-	out, _, err := client.GetDynamicSecretValue(context.Background()).
-		Body(akeyless.GetDynamicSecretValue{
-			Name: "my-secret",
-			Token: akeyless.PtrString(authToken),
-		}).Execute()
-	if err != nil {
-		log.Fatalln(err)
-	}
+    out, _, err := client.GetDynamicSecretValue(context.Background()).
+        Body(akeyless.GetDynamicSecretValue{
+            Name: "my-secret",
+            Token: akeyless.PtrString(authToken),
+        }).Execute()
+    if err != nil {
+        log.Fatalln(err)
+    }
 
-	log.Println(out)
+    log.Println(out)
 }
 ```
 
