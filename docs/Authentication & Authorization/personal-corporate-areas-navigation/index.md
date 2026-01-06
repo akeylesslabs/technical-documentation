@@ -39,7 +39,7 @@ In general, the Personal Folder can be used to store any type of sensitive data 
 Here are some additional details about the Personal Folder:
 
 * The Personal Folder is located at the root of the Akeyless hierarchy, and is accessible to the user only.
-* The user can create subfolders within their Personal Folder to organize their secrets and keys.
+* The user can create subdirectories within their Personal Folder to organize their secrets and keys.
 * The user can grant access to other users to specific secrets or keys in their Personal Folder.
 * The user can also revoke access to secrets and keys that they have granted to other users.
 

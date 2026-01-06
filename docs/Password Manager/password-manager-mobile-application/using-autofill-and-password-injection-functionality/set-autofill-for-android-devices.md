@@ -38,11 +38,11 @@ next:
 
   <Image align="right" width="200px" src="https://files.readme.io/229e403-Screenshot_20240221-112137_Firefox.jpg" />
 
-2. Choose the appropriate account or login details from the Akeyless Password Manager suggestions. Your username and password will be autofilled into the login fields.
+2. Choose the appropriate account or login details from the Akeyless Password Manager suggestions. Your username and password will be automatically filled into the login fields.
 
 3. If autofill suggestions do not appear automatically, you can manually trigger autofill by tapping and holding the login field, then selecting "Autofill" from the menu. Choose Akeyless Password Manager from the list of autofill services if prompted.
 
-4. After your credentials are autofilled, proceed with any additional login steps required by the app or website.
+4. After your credentials are automatically filled, proceed with any additional login steps required by the app or website.
 
 ## Top Mobile Browsers Featuring Comprehensive Autofill Capabilities
 

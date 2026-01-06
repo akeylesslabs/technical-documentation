@@ -52,6 +52,6 @@ Effectively organizing your passwords can enhance your overall password manageme
 
 1. **Personal Passwords**: Store passwords related to your personal accounts, such as social media, email, or banking, within your personal folder.
 2. **Corporate Passwords**: Store passwords related to your work accounts, such as company email, project management tools, or customer relationship management (CRM) systems, within the corporate folder.
-3. **Subfolders**: Utilize subfolders within the personal and corporate folders to further categorize your passwords based on specific projects, teams, or categories.
+3. **Subdirectories**: Utilize subdirectories within the personal and corporate folders to further categorize your passwords based on specific projects, teams, or categories.
 
 By following these guidelines, you can maintain a well-organized and secure password management system within Akeyless.
