@@ -75,7 +75,7 @@ Environment/system property alternatives
     * `AKEYLESS_ACCESS_TYPE`
     * `AKEYLESS_ACCESS_ID` (required)
     * `AKEYLESS_ACCESS_KEY` (when using `access_key`)
-* As a fallback for any ext.cred.* property, an environment variable with the uppercased name and dots replaced by underscores is also read (for example, `EXT_CRED_AKEYLESS_GW_URL`).
+* As a fallback for any `ext.cred.*` property, an environment variable with the uppercase name and dots replaced by underscores is also read (for example, `EXT_CRED_AKEYLESS_GW_URL`).
 * Precedence: MID properties override environment/system variables.
 
 ## Configure MID `config.xml` (Secure Local Parameters)

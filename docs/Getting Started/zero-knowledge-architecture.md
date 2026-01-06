@@ -26,7 +26,7 @@ The result is an architecture where cryptographic operations occur without persi
 
 ### Core architectural characteristics
 
-* No storage of full secrets, private keys, or reconstructable credential material.
+* No storage of full secrets, private keys, or reconstructible credential material.
 * No database to replicate, synchronize, or back up.
 * Fragment values remain isolated in their assigned locations.
 * Optional customer-held fragment enforces separation of control.
