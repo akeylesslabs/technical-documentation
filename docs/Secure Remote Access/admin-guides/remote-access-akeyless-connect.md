@@ -16,8 +16,8 @@ Akeyless connect provides you with secure CLI access to resources or a secure tu
 
 To use Akeyless Connect you need:
 
-* Akeyless CLI v1.42.0 or higher.
-* An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) for certificate authentication.
+* Akeyless [CLI](doc:cli)
+* An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates) 
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with Remote Access enabled.
 * OpenSSH v7.2 or higher on target servers.
 
@@ -110,7 +110,7 @@ Edit the settings as follows:
 
 `AKEYLESS_GW_REST_API` - Set your Akeyless Gateway URL on port `8080` for [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items and for internal network access.
 
-`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS. This corresponds to the SRA control API protocol (CLI flag `--sra-ctrl-proto`).  
+`BASTION_API_PROTO` - Default is `http`. Set to `https` when your [Remote Access](https://docs.akeyless.io/docs/remote-access-setup-k8s) is configured with TLS. This corresponds to the SRA control API protocol (CLI flag `--sra-ctrl-proto`).
 
 `BASTION_API_PORT` - Default is `9900`. Set your matching `ssh-sra` cluster service port. This corresponds to the SRA control API port (CLI flag `--sra-ctrl-port`).
 
