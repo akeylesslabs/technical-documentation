@@ -113,4 +113,4 @@ akeyless delete-items --item /Path/To/ItemA --item /Path/To/ItemB --item /Differ
 
 4. **For keys only**, Select if you wish to delete the key immediately or within a specific number of days.
 
-5. Select **Delete {item type}**.
+5. Select **Delete \<item type\>**.
