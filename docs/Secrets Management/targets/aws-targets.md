@@ -57,7 +57,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 👍 Use Gateway's Cloud Identity
 >
-> Is relevant for cases where your Gateway is hosted on an AWS resource (i.e., EC2, EKS, ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector) etc.
+> This is relevant for cases where your Gateway is hosted on an AWS resource (such as, EC2, EKS, ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), and [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector).
 >
 > In case you are working with explicit credentials, make sure to set a [Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret) to meet AWS best practices.
 

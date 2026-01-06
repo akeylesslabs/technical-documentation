@@ -39,7 +39,7 @@ Where:
 
 * `parent-target-name`: The name of an existing parent target from which to inherit credentials.
 
-* `hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon `;` (i.e. `server-dev.com;My Dev server,server-prod.com;My Prod server description`).
+* `hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon `;` (for example, `server-dev.com;My Dev server,server-prod.com;My Prod server description`).
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluelinkedp) section.
 
