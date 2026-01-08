@@ -1,5 +1,5 @@
 ---
-title: Akeyless Azure DevOps Extension
+title: Azure DevOps Extension
 excerpt: ''
 deprecated: false
 hidden: false
