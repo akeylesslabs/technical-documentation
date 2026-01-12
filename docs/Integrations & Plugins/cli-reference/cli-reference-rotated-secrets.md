@@ -2155,7 +2155,7 @@ akeyless rotated-secret get-value \
 --version <Rotated Secret version>
 ```
 
-### Flags
+##### Flags
 
 `--host`: Get rotated secret value of specific Host (relevant only for Linked Target)
 
@@ -2183,7 +2183,7 @@ akeyless rotated-secret sync \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-### Flags
+##### Flags
 
 `--name`: The Rotated Secret name.
 
