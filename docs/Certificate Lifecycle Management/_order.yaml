@@ -1,4 +1,3 @@
-- signing-tools
 - certificate-lifecycle-management
 - acme-server
 - certificate-storage
@@ -9,3 +8,4 @@
 - ssh-and-pkitls-certificates
 - public-ca
 - signing-image
+- signing-tools
