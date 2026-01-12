@@ -36,4 +36,13 @@ Akeyless secures the software supply chain by integrating with Notation, an open
 
 #### Windows Code Signing
 
-Integration Method: Key Storage Provider (KSP) Tools Used: signtool.exe, certutil, Akeyless KSP Installer
+Integration Method: Key Storage Provider (KSP) Tools Used: signtool.exe, certutil, Akeyless KSP Installer.
+
+For Windows environments, Akeyless acts as a registered cryptographic provider, allowing standard Microsoft tools to sign executables and DLLs transparently.
+
+* Mechanism: The Akeyless KSP (Key Storage Provider) is installed on the Windows machine, intercepting cryptographic calls from the OS.
+* Setup:
+  * **Infrastructure:** Generate Root Keys, Issuers, and Certificates within Akeyless.
+  * Installation: Install the Akeyless KSP via MSI, which registers the provider in the Windows Registry.
+  * Sync: Use the akeyless-ksp-cert-helper.exe to sync the signing certificate from Akeyless to the local Windows Certificate Store (My/Personal store).
+  * Execution: Use standard signtool sign commands. The tool finds the certificate in the local store, but the private key operation is offloaded to Akeyless via the KSP.
