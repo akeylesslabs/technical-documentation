@@ -2187,6 +2187,53 @@ akeyless rotated-secret update windows \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
+### `openai`
+
+Updates a new OpenAI rotated secret item
+
+#### Usage
+
+```shell
+akeyless rotated-secret update openai \
+--name <Rotated Secret name> \
+--new-name <New Item name>
+--target-name <Target Name> \
+--api-key-id <admin-api-key-id> \
+--api-key <admin-api-key> \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--rotator-type <target/api-key>
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Rotated Secret name
+
+`--new-name`: New item name
+
+`--target-name`: **Required**, the target name to associate
+
+`--api-key-id`: Admin API key ID to rotate (relevant only for `rotator-type=api-key`)
+
+`api-key`: Admin API key value to rotate (relevant only for `rotator-type=api-key`)
+
+`--rotator-type`: **Required**, The rotator type. options: [`target`/`api-key`]
+
+`-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
+
+`-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used)
+
+`--auto-rotate`: Whether to automatically rotate every `--rotation-interval` days, or disable existing automatic rotation
+
+`--rotation-interval`: The number of days to wait between every automatic rotation (1-365), custom rotator interval will be set in minutes
+
+`--rotation-hour`: The Hour of the rotation in **UTC**
+
+`--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
+
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
+
+##
+
 ## `get-value`
 
 ### Usage
