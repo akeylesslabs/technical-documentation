@@ -63,4 +63,22 @@ akeyless get-pki-certificate \
 
 #### Example Configuration File (sqlcrypt.conf)
 
+Create a file named sqlcrypt.conf in a secure location (example `C:\Akeyless\conf\sqlcrypt.conf)`:
+
+```text Txt
+akeyless_url = "https://gw-aws.lm.cs.akeyless.fans/api/v2"
+base_item_path = "/YourCompany/"
+log_path = ""
+use_classic_keys = false
+
+[ksp]
+signing_key_item = "/YourCompany/code-signing/signing-key"
+signing_cert_item = "/YourCompany/code-signing/signing-cert"
+
+[auth]
+access_type = "access_key"
+access_id = ""
+access_key = "*****************************"
+```
+
 <br />
