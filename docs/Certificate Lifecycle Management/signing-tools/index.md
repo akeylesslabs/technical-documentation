@@ -43,6 +43,6 @@ For Windows environments, Akeyless acts as a registered cryptographic provider, 
 * Mechanism: The Akeyless KSP (Key Storage Provider) is installed on the Windows machine, intercepting cryptographic calls from the OS.
 * Setup:
   * **Infrastructure:** Generate Root Keys, Issuers, and Certificates within Akeyless.
-  * Installation: Install the Akeyless KSP via MSI, which registers the provider in the Windows Registry.
-  * Sync: Use the akeyless-ksp-cert-helper.exe to sync the signing certificate from Akeyless to the local Windows Certificate Store (My/Personal store).
-  * Execution: Use standard signtool sign commands. The tool finds the certificate in the local store, but the private key operation is offloaded to Akeyless via the KSP.
+  * **Installation:** Install the Akeyless KSP via MSI, which registers the provider in the Windows Registry.
+  * **Sync:** Use the akeyless-ksp-cert-helper.exe to sync the signing certificate from Akeyless to the local Windows Certificate Store (My/Personal store).
+  * **Execution:** Use standard signtool sign commands. The tool finds the certificate in the local store, but the private key operation is offloaded to Akeyless via the KSP.
