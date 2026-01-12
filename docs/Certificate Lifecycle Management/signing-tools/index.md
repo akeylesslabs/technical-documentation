@@ -9,4 +9,31 @@ Akeyless provides a centralized, secure platform for code signing across various
 
 The following sections summarize the integration methods for Java, Container Images, and Windows executables.
 
-<br />
+#### Java & Android Signing (JAR/APK)
+
+Integration Method: PKCS#11 Interface Tools Used: `jarsigner`, `apksigner`, `libakeyless.so`
+
+This solution allows you to sign Java artifacts and Android applications without exporting private keys to the CI/CD environment.
+
+* Mechanism: A custom-built shared library (`libakeyless.so`) acts as a PKCS#11 provider for the Java runtime.
+* Setup:
+  * **Build Library:** Compile the `libakeyless.so `driver (typically via a Dockerized build process on Oracle Linux 7 for compatibility).
+  * **Configuration: **Define `pkcs11.cnf` to point to the library and `pkcs11.conf` to define Akeyless credentials and key paths.
+  * **Execution: **Run standard `jarsigner` or `apksigner` commands, specifying the `sun.security.pkcs11.SunPKCS11 `provider.
+
+#### Container Image Signing
+
+Integration Method: Notation Plugin (Notary Project) Tools Used: `notation` CLI, Akeyless Notation Plugin
+
+Akeyless secures the software supply chain by integrating with Notation, an open-source tool for signing OCI-compliant container images.
+
+* Mechanism: A dedicated Akeyless plugin for the Notation CLI handles cryptographic operations.
+* Setup:
+  * **Install Plugin:** Download and install the `notation-akeyless` binary for your OS.
+  * **Configuration:** Create a `notation.conf` file with your Akeyless Gateway URL and authentication credentials.
+  * **Key Management: **Map an Akeyless DFC key to a local Notation alias (`notation key add --plugin akeyless ...`).
+  * **Execution:** Use `notation` sign and `notation verify` directly on your container images.
+
+#### Windows Code Signing
+
+Integration Method: Key Storage Provider (KSP) Tools Used: signtool.exe, certutil, Akeyless KSP Installer
