@@ -1,3 +1,4 @@
+- signing-tools
 - certificate-lifecycle-management
 - acme-server
 - certificate-storage
