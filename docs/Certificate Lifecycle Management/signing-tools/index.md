@@ -1,7 +1,7 @@
 ---
-title: Signing tools
+title: Code Signing with Akeyless
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
