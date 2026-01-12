@@ -2,7 +2,7 @@
 title: Java JAR & APK Signing with Akeyless
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
