@@ -2172,7 +2172,7 @@ akeyless rotated-secret list \
 
 ## `sync`
 
-### Usage
+##### Usage
 
 ```shell
 akeyless rotated-secret sync \
@@ -2201,7 +2201,7 @@ akeyless rotated-secret sync \
 
 delete rotated secret sync
 
-### Usage
+##### Usage
 
 ```shell
 akeyless rotated-secret delete-sync \
@@ -2223,3 +2223,5 @@ akeyless rotated-secret delete-sync \
 `--delete-from-usc[=false]`: Delete the secret from the remote target usc as well.
 
 `--gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
+
+<br />
