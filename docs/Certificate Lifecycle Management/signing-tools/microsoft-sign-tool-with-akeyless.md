@@ -90,4 +90,14 @@ access_key = "*****************************"
 >
 >
 
+### Part 2: Akeyless KSP – Full Uninstall and Install
+
+This procedure ensures a clean removal and reinstallation of the Akeyless KSP. It clears registry entries, files, and cached provider information.
+
+Important:
+
+* Run all PowerShell commands from an elevated PowerShell (Run as Administrator).
+* A reboot is required after uninstall and after install for changes to take effect reliably.
+* Have the Akeyless KSP MSI file ready (e.g., downloaded from your build artifacts).
+
 <br />
