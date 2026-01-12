@@ -82,3 +82,12 @@ access_key = "*****************************"
 ```
 
 <br />
+
+> ❗️ Notes  
+> Update `base_item_path` to match your Akeyless path.
+> Fill in your actual `access_id` and `access_key`.
+> The certificate will be automatically stored in Akeyless at the path specified in `signing_cert_item`.
+>
+>
+
+<br />
