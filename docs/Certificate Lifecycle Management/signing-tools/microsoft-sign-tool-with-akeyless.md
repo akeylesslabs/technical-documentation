@@ -100,4 +100,144 @@ Important:
 * A reboot is required after uninstall and after install for changes to take effect reliably.
 * Have the Akeyless KSP MSI file ready (e.g., downloaded from your build artifacts).
 
-<br />
+#### Define Variables
+
+```shell Shell
+$msi = "C:\Path\To\AkeylessKspInstaller.msi"   # Update to your MSI location
+$prov = "Akeyless KSP"
+$logInstall = Join-Path $env:TEMP "AkeylessKspInstall.log"
+$logUninst = Join-Path $env:TEMP "AkeylessKspUninstall.log"
+```
+
+Verify:
+
+```shell Shell
+$msi
+$logInstall
+Test-Path $msi   # Should return True
+```
+
+#### Full Uninstall
+
+```shell Shell
+$uninstRoots = @(
+    "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
+    "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
+)
+
+$app = Get-ChildItem $uninstRoots | ForEach-Object { Get-ItemProperty $_.PSPath } |
+       Where-Object { $_.DisplayName -like "Akeyless KSP*" } | Select-Object -First 1
+
+$app.DisplayName
+$app.PSChildName   # This is the ProductCode GUID
+
+msiexec /x $app.PSChildName /l*v "$logUninst"
+$LASTEXITCODE
+```
+
+Expected exit code: 0 or 3010 (reboot required).
+
+Reboot the machine now. Do not skip this step.
+
+#### Verify Uninstall (after reboot)
+
+Run these checks – all should show the provider is gone:
+
+```shell Shell
+certutil -csplist | findstr /i "Akeyless"   # No output
+
+reg query "HKLM\SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Akeyless KSP" /s   # Key not found
+reg query "HKLM\SOFTWARE\Microsoft\Cryptography\Providers\Akeyless KSP" /s                  # Key not found
+
+reg query "HKLM\SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010001\KEY_STORAGE" /v Providers   # No Akeyless KSP
+
+Test-Path "C:\Windows\System32\AkeylessKsp.dll"                     # False
+Test-Path "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"   # False
+```
+
+(Optional) Clean leftover certificate bindings:
+
+```shell Shell
+certutil -store -v My | Select-String -Pattern "Provider = Akeyless KSP" -Context 6,10
+# If any found, run your cleanup script or manually re-bind certificates
+```
+
+#### Full Install
+
+##### Install the MSI
+
+```shell Shell
+msiexec /i "$msi" IMPORT_CERT=0 /l*v "$logInstall"
+$LASTEXITCODE
+```
+
+(Alternative robust version if issues occur:)
+
+```shell Shell
+Start-Process -FilePath "msiexec.exe" -Verb RunAs -Wait -ArgumentList @(
+    "/i", $msi, "IMPORT_CERT=0", "/l*v", $logInstall
+)
+$LASTEXITCODE
+```
+
+Expected exit code: 0 or 3010.
+
+Reboot the machine now.
+
+#### Verify Installation (after reboot)
+
+```shell Shell
+Get-Item "C:\Windows\System32\AkeylessKsp.dll" | Select FullName,Length,LastWriteTime
+Get-Item "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe" | Select FullName,Length,LastWriteTime
+
+reg query "HKLM\SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Akeyless KSP" /s
+reg query "HKLM\SOFTWARE\Microsoft\Cryptography\Providers\Akeyless KSP" /s
+reg query "HKLM\SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\Default\00010001\KEY_STORAGE" /v Providers   # Contains Akeyless KSP
+
+certutil -csplist | findstr /i "Akeyless"   # Shows "Provider Name: Akeyless KSP"
+```
+
+#### Sync Certificate and Test Signing
+
+##### Run the Helper to Sync/Bind Certificate
+
+```shell Shell
+$helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
+& $helper --config-path "C:\Akeyless\conf\sqlcrypt.conf" sync-cert --store-scope machine --store-name My
+"exit=$LASTEXITCODE"   # Should be 0
+```
+
+##### Find Your Certificate Thumbprint
+
+```shell Shell
+Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.HasPrivateKey } |
+    Select-Object Subject, Thumbprint, NotAfter | Format-Table -Auto
+
+# Example filter:
+Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.Subject -like "*code.sign.example.com*" } |
+    Select-Object Subject, Thumbprint, NotAfter | Format-Table -Auto
+```
+
+Set variable:
+
+```shell Shell
+$thumb = "YOUR_THUMBPRINT_HERE"
+```
+
+##### Confirm Binding
+
+```shell Shell
+(Get-Item "Cert:\LocalMachine\My\$thumb").HasPrivateKey
+certutil -store -v My $thumb | findstr /i "Provider Container"
+```
+
+Expected: `Provider = Akeyless KSP`
+
+##### Sign a Test File
+
+```shell Shell
+$file = "C:\Temp\hello.dll"   # Place a test DLL here
+signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 `
+    /tr "http://timestamp.digicert.com" /td SHA256 $file
+"sign exit=$LASTEXITCODE"   # Should be 0
+```
