@@ -241,3 +241,22 @@ signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 `
     /tr "http://timestamp.digicert.com" /td SHA256 $file
 "sign exit=$LASTEXITCODE"   # Should be 0
 ```
+
+##### Validate Signature
+
+```shell Shell
+$sig = Get-AuthenticodeSignature $file
+$sig.Status
+$sig.SignerCertificate.Subject
+$sig.SignerCertificate.Thumbprint
+```
+
+##### Verify Signature (with Trust)
+
+```shell Shell
+signtool verify /pa /v $file
+```
+
+If chain is not trusted, import your root CA into the machine's Trusted Root Certification Authorities store.
+
+<br />
