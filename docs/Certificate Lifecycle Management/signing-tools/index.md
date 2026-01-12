@@ -9,7 +9,7 @@ Akeyless provides a centralized, secure platform for code signing across various
 
 The following sections summarize the integration methods for Java, Container Images, and Windows executables.
 
-#### Java & Android Signing (JAR/APK)
+#### J[ava & Android Signing (JAR/APK)](https://docs.akeyless.io/docs/java-jar-signing-wpkcs11)
 
 Integration Method: PKCS#11 Interface Tools Used: `jarsigner`, `apksigner`, `libakeyless.so`
 
@@ -21,7 +21,7 @@ This solution allows you to sign Java artifacts and Android applications without
   * **Configuration: **Define `pkcs11.cnf` to point to the library and `pkcs11.conf` to define Akeyless credentials and key paths.
   * **Execution: **Run standard `jarsigner` or `apksigner` commands, specifying the `sun.security.pkcs11.SunPKCS11 `provider.
 
-#### Container Image Signing
+#### [Container Image Signing](https://docs.akeyless.io/docs/signing-image)
 
 Integration Method: Notation Plugin (Notary Project) Tools Used: `notation` CLI, Akeyless Notation Plugin
 
@@ -34,7 +34,7 @@ Akeyless secures the software supply chain by integrating with Notation, an open
   * **Key Management: **Map an Akeyless DFC key to a local Notation alias (`notation key add --plugin akeyless ...`).
   * **Execution:** Use `notation` sign and `notation verify` directly on your container images.
 
-#### Windows Code Signing
+#### [Windows Code Signing](https://docs.akeyless.io/docs/microsoft-sign-tool-with-akeyless)
 
 Integration Method: Key Storage Provider (KSP) Tools Used: signtool.exe, certutil, Akeyless KSP Installer.
 
