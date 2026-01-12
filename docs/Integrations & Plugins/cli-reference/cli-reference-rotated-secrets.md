@@ -2197,11 +2197,9 @@ Updates a new OpenAI rotated secret item
 akeyless rotated-secret update openai \
 --name <Rotated Secret name> \
 --new-name <New Item name>
---target-name <Target Name> \
 --api-key-id <admin-api-key-id> \
 --api-key <admin-api-key> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---rotator-type <target/api-key>
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
 ```
 
 #### Flags
@@ -2210,13 +2208,9 @@ akeyless rotated-secret update openai \
 
 `--new-name`: New item name
 
-`--target-name`: **Required**, the target name to associate
-
 `--api-key-id`: Admin API key ID to rotate (relevant only for `rotator-type=api-key`)
 
 `api-key`: Admin API key value to rotate (relevant only for `rotator-type=api-key`)
-
-`--rotator-type`: **Required**, The rotator type. options: [`target`/`api-key`]
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
