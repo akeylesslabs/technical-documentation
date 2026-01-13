@@ -113,11 +113,15 @@ The existing permissions for Secure Remote Access are as follows:
 
 ## Administrative Rules
 
-With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**) - only relevant for **Audit Log** and **Analytics**, access to items users have `list` permission for (**Scoped**), or access to all resources (**All**).
+With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**), access to items users have `list` permission for (**Scoped**), or access to all resources (**All**).
+
+> 👍 Note
+>
+> The **Own** option is only relevant for **Audit Logs** and **Analytics**.
 
 The following **Administrative Rules** can be set:
 
-*  `Audit Log`
+* `Audit Log`
 
 * `Analytics`
 
