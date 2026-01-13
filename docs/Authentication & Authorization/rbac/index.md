@@ -113,11 +113,11 @@ The existing permissions for Secure Remote Access are as follows:
 
 ## Administrative Rules
 
-With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**) or to all resources (**All**).
+With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**) - only relevant for **Audit Log** and **Analytics**, access to items users have `list` permission for (**Scoped**), or access to all resources (**All**).
 
 The following **Administrative Rules** can be set:
 
-* `Audit Log`
+*  `Audit Log`
 
 * `Analytics`
 
@@ -130,10 +130,6 @@ The following **Administrative Rules** can be set:
 * `Manage Event Forwarders`
 
 * `Usage Reports`
-
-Example:
-
-If **Audit Log** is set to **Own**, the user will see only logs related to themselves. If it is set to **All**, the user will see logs related to all users in the account.
 
 ## Event Center Rules
 
@@ -155,7 +151,7 @@ You can set the allowed Forwarder names in two ways:
 * **Template-based name**: Use templates to define allowed names dynamically, based on user claims. For example: `{{username\}}-*`: uses the value of the username claim. If the claim value is `bob`, the user will be allowed to create or use Event Forwarders with names like `bob-*`.
 
 <Callout icon="📘" theme="info">
-  *Gateway Access Permissions:* Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/)
+  _Gateway Access Permissions:_ Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/)
 </Callout>
 
 ## Access Roles Syntax
