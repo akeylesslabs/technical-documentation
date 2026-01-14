@@ -9,7 +9,7 @@ Akeyless provides a centralized, secure platform for code signing across various
 
 The following sections summarize the integration methods for Java, Container Images, and Windows executables.
 
-#### J[ava & Android Signing (JAR/APK)](https://docs.akeyless.io/docs/java-jar-signing-wpkcs11)
+#### [Java & Android Signing (JAR/APK)](https://docs.akeyless.io/docs/java-jar-signing-wpkcs11)
 
 Integration Method: PKCS#11 Interface Tools Used: `jarsigner`, `apksigner`, `libakeyless.so`
 
