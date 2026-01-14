@@ -46,3 +46,9 @@ For Windows environments, Akeyless acts as a registered cryptographic provider, 
   * **Installation:** Install the Akeyless KSP via MSI, which registers the provider in the Windows Registry.
   * **Sync:** Use the akeyless-ksp-cert-helper.exe to sync the signing certificate from Akeyless to the local Windows Certificate Store (My/Personal store).
   * **Execution:** Use standard signtool sign commands. The tool finds the certificate in the local store, but the private key operation is offloaded to Akeyless via the KSP.
+
+Library Installation
+
+```shell
+curl -o libakeyless.so https://akeylessservices.s3.us-east-2.amazonaws.com/services/pkcs11/release/linux/amd64/latest/libakeyless.so
+```
