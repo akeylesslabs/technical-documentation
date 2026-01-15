@@ -1,5 +1,5 @@
 ---
-title: Windows Code Signing with Akeyless v2
+title: Windows Code Signing with Akeyless
 deprecated: false
 hidden: true
 metadata:
