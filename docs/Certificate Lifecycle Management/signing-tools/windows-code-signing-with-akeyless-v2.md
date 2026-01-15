@@ -202,4 +202,38 @@ Step C: Verify Chain
 signtool verify /pa /v $file
 ```
 
-<br />
+#### Appendix: Troubleshooting (Clean Uninstall)
+
+If you need to troubleshoot or reinstall a clean version, follow this uninstall procedure.
+
+Full Uninstall
+
+```shell Bash
+# Define stable log path
+$logDir = "C:\Akeyless\logs" 
+New-Item -ItemType Directory -Force -Path $logDir | Out-Null
+$logUninst = Join-Path $logDir "AkeylessKspUninstall.log"
+
+# Find Product Code
+$app = Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | 
+       ForEach-Object { Get-ItemProperty $_.PSPath } | 
+       Where-Object { $_.DisplayName -like "Akeyless KSP*" } | Select-Object -First 1
+
+# Uninstall
+if ($app) {
+    msiexec /x $app.PSChildName /l*v "$logUninst"
+} else {
+    Write-Host "Akeyless KSP not found."
+}
+```
+
+Reboot the machine to clear locked files and registry handles.
+
+Verify Cleanup
+
+After reboot, ensure no traces remain:
+
+```shell Bash
+certutil -csplist | findstr /i "Akeyless"  # Should return nothing
+Test-Path "C:\Windows\System32\AkeylessKsp.dll" # Should be False
+```
