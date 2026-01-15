@@ -115,4 +115,31 @@ Note: You may need to restart your shell or machine for this to take effect glob
 
 Use a dedicated folder for logs to ensure they persist across reboots.
 
-<br />
+```shell Bash
+# Define paths
+$msi = "C:\Path\To\AkeylessKspInstaller.msi"
+$logDir = Split-Path -Parent $msi
+$logInstall = Join-Path $logDir "AkeylessKspInstall.log"
+
+# Install
+Start-Process -FilePath "msiexec.exe" -Verb RunAs -Wait -ArgumentList @(
+    "/i", $msi, "IMPORT_CERT=0", "/l*v", $logInstall
+)
+
+# Check Exit Code (0 or 3010 means success)
+$LASTEXITCODE
+```
+
+Reboot the machine now to register the provider.
+
+#### Verify Installation
+
+
+After rebooting, confirm the KSP is registered.
+
+```shell Bash
+certutil -csplist | findstr /i "Akeyless"
+# Output should be: Provider Name: Akeyless KSP
+```
+
+### Part 3: Sync Certificate and Test Signing
