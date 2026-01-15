@@ -71,4 +71,48 @@ akeyless get-pki-certificate \
   > signing.pem
 ```
 
-####
+### Part 2: Akeyless KSP Installation and Configuration
+
+#### Prepare Configuration File
+
+
+Create a file named `sqlcrypt.conf` in a persistent location (`C:\Akeyless\conf\sqlcrypt.conf`).
+
+```shell Bash
+akeyless_url = "https://gw-aws.lm.cs.akeyless.fans/api/v2"
+base_item_path = "/YourCompany/"
+log_path = ""
+use_classic_keys = false
+
+[ksp]
+signing_key_item = "/YourCompany/code-signing/signing-key"
+signing_cert_item = "/YourCompany/code-signing/signing-cert"
+
+[auth]
+access_type = "access_key"
+access_id = "YOUR_ACCESS_ID"
+access_key = "YOUR_ACCESS_KEY"
+```
+
+#### Set Environment Variable (Mandatory)
+
+
+The Akeyless KSP requires the AKEYLESS_SQLCRYPT_CONFIG_PATH environment variable to locate your configuration file.
+
+Run this in an Elevated PowerShell:
+
+```shell Bash
+[System.Environment]::SetEnvironmentVariable('AKEYLESS_SQLCRYPT_CONFIG_PATH', 'C:\Akeyless\conf\sqlcrypt.conf', [System.EnvironmentVariableTarget]::Machine)
+
+# Verify the variable is set
+$env:AKEYLESS_SQLCRYPT_CONFIG_PATH
+```
+
+Note: You may need to restart your shell or machine for this to take effect globally.
+
+#### Install the KSP
+
+
+Use a dedicated folder for logs to ensure they persist across reboots.
+
+<br />
