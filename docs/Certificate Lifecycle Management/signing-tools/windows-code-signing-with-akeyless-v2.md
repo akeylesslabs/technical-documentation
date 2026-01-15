@@ -29,7 +29,7 @@ akeyless create-dfc-key \
   --generate-self-signed-certificate true
 ```
 
-* https://docs.akeyless.io/reference/createdfckey
+* [https://docs.akeyless.io/reference/createdfckey](https://docs.akeyless.io/reference/createdfckey)
 
 #### Create 4096-bit Key and Generate CSR
 
@@ -46,7 +46,7 @@ akeyless generate-csr \
   --common-name code.sign.example.com | Out-File -Encoding ascii signing.csr
 ```
 
-* https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request
+* [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request)
 
 #### Create PKI Certificate Issuer
 
@@ -63,7 +63,7 @@ akeyless create-pki-cert-issuer \
   --destination-path /YourCompany/code-signing
 ```
 
-*  https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer 
+* [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer)
 
 #### Issue the 4096-bit Certificate
 
@@ -77,7 +77,7 @@ akeyless get-pki-certificate \
   > signing.pem
 ```
 
-* https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate
+* [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate)
 
 ### Part 2: Akeyless KSP Installation and Configuration
 
@@ -115,6 +115,9 @@ $env:AKEYLESS_SQLCRYPT_CONFIG_PATH
 ```
 
 Note: You may need to restart your shell or machine for this to take effect globally.
+
+#### Download KSP  
+https://akeyless.jfrog.io/ui/native/akeyless-ksp/
 
 #### Install the KSP
 
@@ -191,7 +194,7 @@ akeyless get-certificate \
   --out-file root-ca.pem
 ```
 
-* https://docs.akeyless.io/docs/certificate-based-authentication?isFramePreview=true#getting-a-certificate
+* [https://docs.akeyless.io/docs/certificate-based-authentication?isFramePreview=true#getting-a-certificate](https://docs.akeyless.io/docs/certificate-based-authentication?isFramePreview=true#getting-a-certificate)
 
 Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the signing machine (or any machine verifying the signature).
 
@@ -199,7 +202,7 @@ Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the si
 Import-Certificate -FilePath .\root-ca.pem -CertStoreLocation Cert:\LocalMachine\Root
 ```
 
-* https://learn.microsoft.com/en-us/powershell/module/pki/import-certificate?view=windowsserver2025-ps
+* [https://learn.microsoft.com/en-us/powershell/module/pki/import-certificate?view=windowsserver2025-ps](https://learn.microsoft.com/en-us/powershell/module/pki/import-certificate?view=windowsserver2025-ps)
 
 Step C: Verify Chain
 
