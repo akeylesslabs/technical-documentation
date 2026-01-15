@@ -1,7 +1,7 @@
 ---
-title: Windows Code Signing with Akeyless
+title: Windows Code Signing with Akeyless v0
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
