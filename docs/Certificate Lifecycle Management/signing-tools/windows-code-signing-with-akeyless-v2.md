@@ -75,7 +75,6 @@ akeyless get-pki-certificate \
 
 #### Prepare Configuration File
 
-
 Create a file named `sqlcrypt.conf` in a persistent location (`C:\Akeyless\conf\sqlcrypt.conf`).
 
 ```shell Bash
@@ -96,7 +95,6 @@ access_key = "YOUR_ACCESS_KEY"
 
 #### Set Environment Variable (Mandatory)
 
-
 The Akeyless KSP requires the AKEYLESS_SQLCRYPT_CONFIG_PATH environment variable to locate your configuration file.
 
 Run this in an Elevated PowerShell:
@@ -111,7 +109,6 @@ $env:AKEYLESS_SQLCRYPT_CONFIG_PATH
 Note: You may need to restart your shell or machine for this to take effect globally.
 
 #### Install the KSP
-
 
 Use a dedicated folder for logs to ensure they persist across reboots.
 
@@ -134,7 +131,6 @@ Reboot the machine now to register the provider.
 
 #### Verify Installation
 
-
 After rebooting, confirm the KSP is registered.
 
 ```shell Bash
@@ -145,7 +141,6 @@ certutil -csplist | findstr /i "Akeyless"
 ### Part 3: Sync Certificate and Test Signing
 
 #### Sync Certificate to Windows Store
-
 
 The helper tool downloads the certificate from Akeyless and binds it to the KSP in the Windows Certificate Store.
 
@@ -180,9 +175,7 @@ signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.
 
 If `signtool verify `fails because the chain is untrusted, you must import the Root CA used in Part 1.
 
-Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier.
-
-Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier.
+Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier..
 
 ```shell Bash
 akeyless get-certificate \
