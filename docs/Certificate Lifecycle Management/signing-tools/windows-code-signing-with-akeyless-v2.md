@@ -12,3 +12,12 @@ Prerequisites:
 * Akeyless CLI installed and authenticated.
 * Administrator privileges on the Windows machine.
 * Replace placeholder paths (`/YourCompany/)` with your organization-specific paths.
+
+### Part 1: Create Secrets and Issue Code-Signing Certificate
+
+#### Create Root Key for PKI Issuer
+
+
+This key will sign the certificates issued by your internal CA.
+
+<br />
