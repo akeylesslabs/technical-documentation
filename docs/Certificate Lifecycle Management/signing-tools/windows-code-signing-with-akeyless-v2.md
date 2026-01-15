@@ -143,3 +143,63 @@ certutil -csplist | findstr /i "Akeyless"
 ```
 
 ### Part 3: Sync Certificate and Test Signing
+
+#### Sync Certificate to Windows Store
+
+
+The helper tool downloads the certificate from Akeyless and binds it to the KSP in the Windows Certificate Store.
+
+```shell Bash
+$helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
+& $helper --config-path $env:AKEYLESS_SQLCRYPT_CONFIG_PATH sync-cert --store-scope machine --store-name My
+```
+
+#### Verify Binding
+
+Ensure the certificate is present and linked to "Akeyless KSP".
+
+```shell Bash
+$thumb = (Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.Subject -like "*code.sign.example.com*" }).Thumbprint
+certutil -store -v My $thumb | findstr /i "Provider Container"
+# Expected Output: Provider = Akeyless KSP
+```
+
+#### Sign a Test File
+
+```shell Bash
+$file = "C:\Temp\test_app.dll"
+signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.digicert.com" /td SHA256 $file
+```
+
+#### Establish Trust (Import Root CA)
+
+```shell Bash
+$file = "C:\Temp\test_app.dll"
+signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.digicert.com" /td SHA256 $file
+```
+
+If `signtool verify `fails because the chain is untrusted, you must import the Root CA used in Part 1.
+
+Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier.
+
+Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier.
+
+```shell Bash
+akeyless get-certificate \
+  --name /YourCompany/code-signing/root-key \
+  --out-file root-ca.pem
+```
+
+Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the signing machine (or any machine verifying the signature).
+
+```shell Bash
+Import-Certificate -FilePath .\root-ca.pem -CertStoreLocation Cert:\LocalMachine\Root
+```
+
+Step C: Verify Chain
+
+```shell Bash
+signtool verify /pa /v $file
+```
+
+<br />
