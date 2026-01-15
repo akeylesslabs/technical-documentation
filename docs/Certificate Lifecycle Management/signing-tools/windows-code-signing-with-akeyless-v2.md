@@ -199,6 +199,8 @@ Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the si
 Import-Certificate -FilePath .\root-ca.pem -CertStoreLocation Cert:\LocalMachine\Root
 ```
 
+* https://learn.microsoft.com/en-us/powershell/module/pki/import-certificate?view=windowsserver2025-ps
+
 Step C: Verify Chain
 
 ```shell Bash
