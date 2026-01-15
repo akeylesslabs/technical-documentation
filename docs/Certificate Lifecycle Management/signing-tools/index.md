@@ -34,7 +34,7 @@ Akeyless secures the software supply chain by integrating with Notation, an open
   * **Key Management: **Map an Akeyless DFC key to a local Notation alias (`notation key add --plugin akeyless ...`).
   * **Execution:** Use `notation` sign and `notation verify` directly on your container images.
 
-#### [Windows Code Signing](https://docs.akeyless.io/docs/microsoft-sign-tool-with-akeyless)
+#### [Windows Code Signing](https://docs.akeyless.io/docs/windows-code-signing-with-akeyless-v2)
 
 Integration Method: Key Storage Provider (KSP) Tools Used: signtool.exe, certutil, Akeyless KSP Installer.
 
