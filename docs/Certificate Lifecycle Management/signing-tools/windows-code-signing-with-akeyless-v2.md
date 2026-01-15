@@ -29,6 +29,8 @@ akeyless create-dfc-key \
   --generate-self-signed-certificate true
 ```
 
+* https://docs.akeyless.io/reference/createdfckey
+
 #### Create 4096-bit Key and Generate CSR
 
 This is the key used for actual code signing.
@@ -43,6 +45,8 @@ akeyless generate-csr \
   --alg RSA4096 \
   --common-name code.sign.example.com | Out-File -Encoding ascii signing.csr
 ```
+
+* https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request
 
 #### Create PKI Certificate Issuer
 
@@ -59,6 +63,8 @@ akeyless create-pki-cert-issuer \
   --destination-path /YourCompany/code-signing
 ```
 
+*  https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer 
+
 #### Issue the 4096-bit Certificate
 
 Sign the CSR generated in step 2.
@@ -70,6 +76,8 @@ akeyless get-pki-certificate \
   --csr-file-path signing.csr \
   > signing.pem
 ```
+
+* https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate
 
 ### Part 2: Akeyless KSP Installation and Configuration
 
@@ -182,6 +190,8 @@ akeyless get-certificate \
   --name /YourCompany/code-signing/root-key \
   --out-file root-ca.pem
 ```
+
+* https://docs.akeyless.io/docs/certificate-based-authentication?isFramePreview=true#getting-a-certificate
 
 Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the signing machine (or any machine verifying the signature).
 
