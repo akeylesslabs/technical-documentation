@@ -38,8 +38,7 @@ mvn -Drevision=1.0.0 clean package
 ### Artifacts
 
 * With `-Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar`
-  * https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar
-* Without a revision property, Maven will produce `akeyless-servicenow-credential-resolver-null.jar`.
+  * [https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar](https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar)
 
 ## Install the Resolver on the MID Server
 
