@@ -74,7 +74,7 @@ akeyless get-pki-certificate \
   --profile default \
   --cert-issuer-name /YourCompany/code-signing/pki-issuer \
   --csr-file-path signing.csr \
-  --extended-key-usage codesigning \
+  -e codesigning \
   > signing.pem
 ```
 
