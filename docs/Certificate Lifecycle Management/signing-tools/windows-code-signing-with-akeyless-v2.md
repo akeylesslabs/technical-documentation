@@ -74,6 +74,7 @@ akeyless get-pki-certificate \
   --profile default \
   --cert-issuer-name /YourCompany/code-signing/pki-issuer \
   --csr-file-path signing.csr \
+  --extended-key-usage codesigning \
   > signing.pem
 ```
 
@@ -116,8 +117,9 @@ $env:AKEYLESS_SQLCRYPT_CONFIG_PATH
 
 Note: You may need to restart your shell or machine for this to take effect globally.
 
-#### Download KSP  
-https://akeyless.jfrog.io/ui/native/akeyless-ksp/
+#### Download KSP
+
+[https://akeyless.jfrog.io/ui/native/akeyless-ksp/](https://akeyless.jfrog.io/ui/native/akeyless-ksp/)
 
 #### Install the KSP
 
