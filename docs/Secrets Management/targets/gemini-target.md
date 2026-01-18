@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-You can define an [Gemini](https://ai.google.dev/gemini-api/docs) target to be used for [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in your account. 
+You can define an [Gemini](https://ai.google.dev/gemini-api/docs) target to be used for [AI Insights](https://docs.akeyless.io/docs/akeyless-ai-insight) in your account.
 
 ## Create a Gemini Target with the CLI
 
@@ -39,4 +39,4 @@ Where:
 
    * **API Key:** The Gemini API Key.
 
-   * **OpenAI URL:** The endpoint for the OpenAI API - `https://generativelanguage.googleapis.com/v1beta/openai/`
+   * **OpenAI URL:** The endpoint for the Gemini API - `https://generativelanguage.googleapis.com/v1beta/openai/`
