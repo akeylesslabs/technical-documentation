@@ -39,4 +39,4 @@ Where:
 
    * **API Key:** The Gemini API Key.
 
-   * **OpenAI URL:** The endpoint for the Gemini API - `https://generativelanguage.googleapis.com/v1beta/openai/`
+   * **Gemini URL:** The endpoint for the Gemini API - `https://generativelanguage.googleapis.com/v1beta/openai/`
