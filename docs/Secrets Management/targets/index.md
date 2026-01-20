@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-A Target is an endpoint for a secret such as a database, cloud platform, or server. Targets help admins keep their secrets and endpoints more organized. Instead of adding an endpoint to each secret separately, a Target can be used.
+A Target is an endpoint for a secret such as a database, cloud platform, or server. Targets help admins keep their secrets and endpoints more organized. Instead of adding an endpoint to each secret separately.
 
-<Image align="center" src="https://files.readme.io/7481a59-Creates_Targets.png" />
+<Image align="center" border={false} src="https://files.readme.io/7481a59-Creates_Targets.png" />
 
 Using targets has three primary advantages:
 
