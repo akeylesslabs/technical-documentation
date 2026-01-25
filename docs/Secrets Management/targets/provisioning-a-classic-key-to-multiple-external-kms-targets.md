@@ -76,4 +76,4 @@ To provision the same Classic Key to another external system:
 3. Provide a new External Key Name if needed
 4. Save the configuration
 
-<br />
+You can repeat this process multiple times, each time adding another external target while continuing to manage a single Classic Key in Akeyless.
