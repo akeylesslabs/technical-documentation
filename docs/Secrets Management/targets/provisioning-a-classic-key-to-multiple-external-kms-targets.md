@@ -7,16 +7,21 @@ metadata:
 ---
 ### Overview
 
-
 This feature allows a single Akeyless Classic Key to be provisioned and managed centrally while being simultaneously mapped to multiple external Key Management Systems (KMS) or secure storage services across different cloud environments.
 
 <br />
+
+## Provisioning via CLI
+
+<br />
+
+## Provisioning via Console
 
 ### Prerequisites
 
 Before provisioning a Classic Key to multiple targets, ensure the following:
 
-* A Classic Key already exists in Akeyless  
+* A Classic Key already exists in Akeyless
 * External KMS targets (AWS, Azure, GCP, Thales, etc.) are configured under Targets
 * You have sufficient permissions to provision keys to external targets
 
