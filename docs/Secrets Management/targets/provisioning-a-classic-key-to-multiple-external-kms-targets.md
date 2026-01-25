@@ -7,7 +7,11 @@ metadata:
 ---
 ### Overview
 
-This feature allows a single Akeyless Classic Key to be provisioned and managed centrally while being simultaneously mapped to multiple external Key Management Systems (KMS) or secure storage services across different cloud environments.
+This feature allows a single Akeyless Classic Key to be provisioned and managed centrally while being simultaneously mapped to multiple external KMS across different cloud environments.
+
+## Provisioning via CLI
+
+Multi-target provisioning workflow can also be performed using the Akeyless CLI. Using the CLI, a single Classic Key can be associated with multiple external targets by repeating the target association step.
 
 #### Step 1: Create a Classic Key
 
@@ -16,8 +20,6 @@ akeyless create-classic-key \
   --name my-shared-key \
   --alg AES256GCM
 ```
-
-<br />
 
 #### Step 2: Create External Targets
 
@@ -30,9 +32,7 @@ akeyless target-create-aws \
   --access-key <ACCESS_KEY>
 ```
 
-<br />
-
-Azure Key Vault Targett
+Azure Key Vault Target
 
 ```shell
 akeyless target-create-azure-kv \
@@ -42,8 +42,6 @@ akeyless target-create-azure-kv \
   --client-secret <CLIENT_SECRET> \
   --vault-name <KEY_VAULT_NAME>
 ```
-
-<br />
 
 GCP KMS Target
 
@@ -76,20 +74,7 @@ akeyless assoc-target-item \
 
 <br />
 
-## Provisioning via CLI
-
-Multi-target provisioning workflow can also be performed using the Akeyless CLI.
-Using the CLI, a single Classic Key can be associated with multiple external targets by repeating the target association step.
-
 ## Provisioning via Console
-
-### Prerequisites
-
-Before provisioning a Classic Key to multiple targets, ensure the following:
-
-* A Classic Key already exists in Akeyless
-* External KMS targets (AWS, Azure, GCP, Thales, etc.) are configured under Targets
-* You have sufficient permissions to provision keys to external targets
 
 <br />
 
@@ -112,16 +97,10 @@ Before provisioning a Classic Key to multiple targets, ensure the following:
 
 1. Click Attach
 2. Enter the External Key Name
-
-* This is the key name that will be created in the external KMS
-* Each target may use a different external key name if required
-
+   1. This is the key name that will be created in the external KMS
+   2. Each target may use a different external key name if required
 3. Select the target (for example, an AWS KMS target)
 4. Choose the provisioning mode:
-
-* Single Region
-* Multi-Region (if supported by the target)
-
 5. Click Save
 
 <br />
@@ -131,10 +110,9 @@ Before provisioning a Classic Key to multiple targets, ensure the following:
 1. After saving, return to the Provisioning tab
 2. Confirm that the new target appears in the targets list
 3. Verify:
-
-* External Key Name
-* Target type
-* Target path
+   1. External Key Name
+   2. Target type
+   3. Target path
 
 <br />
 
