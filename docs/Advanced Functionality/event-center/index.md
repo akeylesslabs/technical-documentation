@@ -86,6 +86,8 @@ For `auth-methods-event-source-locations`:
 For `gateways-event-source-locations`:
 
 * `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
+* `gateway-certificate-about-to-expire`: When a Gateway certficate (Gateway Certificate Store) is about to expire.
+* `gateway-certificate-expired`: When a Gateway certficate (Gateway Certificate Store) is expired.
 
 ## Event Forwarders
 
