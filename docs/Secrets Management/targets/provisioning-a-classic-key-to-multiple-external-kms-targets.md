@@ -58,7 +58,21 @@ akeyless target-create-gcp \
 
 <br />
 
-<br />
+#### Step 3: Associate the Same Classic Key with Each Target
+
+```shell
+akeyless assoc-target-item \
+  --name my-shared-key \
+  --target-name aws-kms-target
+
+akeyless assoc-target-item \
+  --name my-shared-key \
+  --target-name azure-kv-target
+
+akeyless assoc-target-item \
+  --name my-shared-key \
+  --target-name gcp-kms-target
+```
 
 <br />
 
