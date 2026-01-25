@@ -13,7 +13,8 @@ This feature allows a single Akeyless Classic Key to be provisioned and managed 
 
 ## Provisioning via CLI
 
-<br />
+Multi-target provisioning workflow can also be performed using the Akeyless CLI.
+Using the CLI, a single Classic Key can be associated with multiple external targets by repeating the target association step.
 
 ## Provisioning via Console
 
