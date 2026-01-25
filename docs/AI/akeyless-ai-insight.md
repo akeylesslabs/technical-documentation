@@ -17,6 +17,8 @@ Akeyless AI Insights enables natural-language interaction with the Akeyless Plat
 * OpenAI (GPT models)
 * Gemini (Gemini models)
 
+In this guide, we will use **OpenAI** as the LLM provider.
+
 ## Prerequisites
 
 Before you begin, ensure you have the following:
@@ -24,7 +26,7 @@ Before you begin, ensure you have the following:
 * Akeyless CLI installed and authenticated with admin access
 * LLM Provider account and API Key
   * OpenAI - [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-  * Gemini - 
+  * Gemini -
 * Akeyless Gateway running
 * Ability to create and manage Targets in Akeyless
 * Protection key available for encrypting API credentials
@@ -34,7 +36,7 @@ Before you begin, ensure you have the following:
 | Step | Description                                    | Tool          |
 | ---- | ---------------------------------------------- | ------------- |
 | 1    | Enable AI Insights at the account level        | CLI           |
-| 2    | Create an OpenAI Target                        | CLI           |
+| 2    | Create an OpenAI / Gemini Target               | CLI           |
 | 3    | Configure the Akeyless Gateway for AI Insights | REST API      |
 | 4    | Validate the configuration and test            | CLI or Web UI |
 
