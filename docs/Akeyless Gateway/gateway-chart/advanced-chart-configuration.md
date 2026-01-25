@@ -91,7 +91,7 @@ Enable TLS:
 TLSConf:
   enabled: true
   minimumTlsVersion: <TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>
-  tlsExistingSecretName: tls-certificate 
+  tlsExistingSecret: tls-certificate 
 ```
 
 Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-certificate) settings using the web interface of the Gateway Configuration Manager.
