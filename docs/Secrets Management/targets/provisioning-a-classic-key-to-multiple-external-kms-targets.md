@@ -9,6 +9,57 @@ metadata:
 
 This feature allows a single Akeyless Classic Key to be provisioned and managed centrally while being simultaneously mapped to multiple external Key Management Systems (KMS) or secure storage services across different cloud environments.
 
+#### Step 1: Create a Classic Key
+
+```shell
+akeyless create-classic-key \
+  --name my-shared-key \
+  --alg AES256GCM
+```
+
+<br />
+
+#### Step 2: Create External Targets
+
+AWS KMS Target
+
+```shell
+akeyless target-create-aws \
+  --name aws-kms-target \
+  --access-key-id <ACCESS_KEY_ID> \
+  --access-key <ACCESS_KEY>
+```
+
+<br />
+
+Azure Key Vault Targett
+
+```shell
+akeyless target-create-azure-kv \
+  --name azure-kv-target \
+  --tenant-id <TENANT_ID> \
+  --client-id <CLIENT_ID> \
+  --client-secret <CLIENT_SECRET> \
+  --vault-name <KEY_VAULT_NAME>
+```
+
+<br />
+
+GCP KMS Target
+
+```shell
+akeyless target-create-gcp \
+  --name gcp-kms-target \
+  --project-id <GCP_PROJECT_ID> \
+  --location <LOCATION> \
+  --key-ring <KEY_RING> \
+  --service-account-key <SERVICE_ACCOUNT_JSON>
+```
+
+<br />
+
+<br />
+
 <br />
 
 ## Provisioning via CLI
