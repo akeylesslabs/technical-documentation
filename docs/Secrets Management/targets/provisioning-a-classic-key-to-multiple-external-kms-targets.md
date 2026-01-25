@@ -1,5 +1,5 @@
 ---
-title: Provisioning a Classic Key to Multiple External KMS Targets
+title: Multi-Target Classic Key Provisioning
 deprecated: false
 hidden: false
 metadata:
