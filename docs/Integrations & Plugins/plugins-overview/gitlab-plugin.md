@@ -111,7 +111,7 @@ akeyless:
   image:
     name: akeyless/ci_base:latest-alpine
   before_script:
-    - export AKEYLESS_API_GW_URL=https://your-gw:8000/api/v1
+    - export AKEYLESS_API_GW_URL=https://Your-Akeyless-GW-URL:8000/api/v1
     - export MY_SECRET=akeyless://gitlab/mySecret
     - export TOKEN=$(akeyless auth --access-id $ACCESS_ID --access-type jwt --jwt $FIRST_ID_TOKEN --json --jq-expression='.token')
     # script will replace any env var with prefix of "akeyless:" like above
