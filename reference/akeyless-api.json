@@ -18547,6 +18547,13 @@
           "format": "date-time",
           "x-go-name": "ExpirationDate"
         },
+        "expiration_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CertificateExpirationEvent"
+          },
+          "x-go-name": "ExpirationEvents"
+        },
         "name": {
           "type": "string",
           "x-go-name": "Name"
@@ -19880,6 +19887,11 @@
           "description": "GCP Project ID (Relevant only for GCP targets)",
           "type": "string",
           "x-go-name": "GcpProjectId"
+        },
+        "gcp-sm-regions": {
+          "description": "GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions.\nRequired when listing with object-type=regional-secrets.",
+          "type": "string",
+          "x-go-name": "GcpSmRegions"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -22450,6 +22462,14 @@
           "type": "string",
           "x-go-name": "CertData"
         },
+        "expiration-event-in": {
+          "description": "How many days before the expiration of the certificate would you like to be notified.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ExpirationEventsInDays"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -22600,6 +22620,22 @@
         "tls_cert": {
           "type": "string",
           "x-go-name": "TLSCert"
+        },
+        "tls_cert_common_name": {
+          "type": "string",
+          "x-go-name": "TlsCertCommonName"
+        },
+        "tls_cert_expiration_date": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "TlsCertExpirationDate"
+        },
+        "tls_cert_expiration_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CertificateExpirationEvent"
+          },
+          "x-go-name": "TlsCertExpirationEvents"
         },
         "tls_key": {
           "type": "string",
@@ -22948,7 +22984,7 @@
           "x-go-name": "CSRData"
         },
         "extended-key-usage": {
-          "description": "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'. If critical is present the extension will be marked as critical",
+          "description": "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth', 'codesigning'. If critical is present the extension will be marked as critical",
           "type": "string",
           "x-go-name": "ExtKeyUsage"
         },
@@ -27747,6 +27783,10 @@
         "name": {
           "type": "string",
           "x-go-name": "Name"
+        },
+        "region": {
+          "type": "string",
+          "x-go-name": "Region"
         },
         "secret_id": {
           "type": "string",
@@ -65977,7 +66017,7 @@
           "x-go-name": "CSRData"
         },
         "extended-key-usage": {
-          "description": "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'. If critical is present the extension will be marked as critical",
+          "description": "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth', 'codesigning'. If critical is present the extension will be marked as critical",
           "type": "string",
           "x-go-name": "ExtKeyUsage"
         },
@@ -85493,6 +85533,11 @@
           },
           "x-go-name": "ExpirationEventsInDays"
         },
+        "gcp-sm-regions": {
+          "description": "GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions.\nUSC with GCP targets only.",
+          "type": "string",
+          "x-go-name": "GcpSmRegions"
+        },
         "host-provider": {
           "description": "Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret",
           "type": "string",
@@ -88244,6 +88289,11 @@
           "description": "Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates)",
           "type": "string",
           "x-go-name": "PfxPassword"
+        },
+        "region": {
+          "description": "Optional, create secret in a specific region (GCP only).\nIf empty, a global secret will be created (provider default).",
+          "type": "string",
+          "x-go-name": "Region"
         },
         "secret-name": {
           "description": "Name for the new universal secrets",
