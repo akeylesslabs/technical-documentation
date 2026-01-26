@@ -16,7 +16,7 @@ Akeyless connect provides you with secure CLI access to resources or a secure tu
 
 To use Akeyless Connect you need:
 
-* Akeyless [CLI](doc:cli)
+* Akeyless [CLI](https://docs.akeyless.io/docs/cli)
 * An [SSH certificate issuer](https://docs.akeyless.io/docs/ssh-certificates)
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with Remote Access enabled.
 * OpenSSH v7.2 or higher on target servers.
