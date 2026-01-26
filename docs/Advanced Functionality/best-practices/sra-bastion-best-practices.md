@@ -7,12 +7,6 @@ metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
-  pages:
-    - type: basic
-      slug: web-access-bastion-best-practices
-      title: Web Access Bastion Best Practices
 ---
 * **SRA Gateway location** Use SRA Gateway on any environment or region. In addition, your Gateway server should run with a dedicated Identity in an isolated environment.
 
