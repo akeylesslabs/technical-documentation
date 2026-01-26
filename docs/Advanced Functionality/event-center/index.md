@@ -87,6 +87,10 @@ For `gateways-event-source-locations`:
 
 * `gateway-inactive`: When a Gateway changes its state to inactive, it must be set on the Gateway.
 
+* `gateway-certificate-about-to-expire`: When a Gateway certficate (Gateway Certificate Store) is about to expire.
+
+* `gateway-certificate-expired`: When a Gateway certficate (Gateway Certificate Store) is expired.
+
 ## Event Forwarders
 
 Event forwarders are tools you can configure through the Event Center to get notified on other platforms (For example, email) when a certain event type happens. For example, one might want to be notified every time a certain [Certificate](https://docs.akeyless.io/docs/certificate-storage) is about to expire or when a user requests to access an item you have in your Akeyless Platform.
