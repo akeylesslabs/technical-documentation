@@ -363,6 +363,33 @@ akeyless target create gcp \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `gemini`
+
+Creates a new Gemini target in the current account
+
+#### Usage
+
+```shell
+akeyless target create gemini \
+--name <Target name> \
+--gemini-url <Gemini API base URL> \
+--api-key <Gemini API Key>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`-u, --gemini-url[=https://generativelanguage.googleapis.com]`: Gemini API base URL
+
+`-a, --api-key`: Gemini API key
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--description`: Target description
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
 ### `github`
 
 Creates a new GitHub target in the current account
@@ -1489,6 +1516,36 @@ akeyless target update gcp \
 `--update-version`: [Deprecated: Use keep-prev-version instead] Whether to create a new version
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
+
+#### `gemini`
+
+Updates a Gemini target in the current account
+
+#### Usage
+
+```shell
+akeyless target update gemini \
+--name <Target name> \
+--new-name <New target name> \
+--gemini-url <Gemini API base URL> \
+--api-key <Gemini API Key>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--new-name`: New target name
+
+`-u, --gemini-url[=https://generativelanguage.googleapis.com]`: Gemini API base URL
+
+`-a, --api-key`: Gemini API key
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
+`--description`: Target description
+
+`--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
 #### `github`
 
