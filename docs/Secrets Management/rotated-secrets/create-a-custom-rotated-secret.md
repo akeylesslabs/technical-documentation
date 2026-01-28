@@ -10,6 +10,7 @@ metadata:
 next:
   description: ''
 ---
+
 Akeyless supports Rotated Secrets for a growing number of services. Suppose you need to integrate with a service that is not yet natively implemented in Akeyless. In that case, you can create a custom Rotated Secret implementation that calls the service on demand to rotate secrets.
 
 Akeyless communicates with custom Rotated Secret implementations over `HTTP` and delegates the `rotate` operation to the external services using a particular `HTTP` endpoint that follows a specific input/output format.
@@ -22,7 +23,7 @@ Custom Rotated Secret implementations are completely stateless. Akeyless provide
 
 ## Set Up a Custom Rotated Secret Implementation
 
-First, you must create a [Web Target](https://docs.akeyless.io/docs/web-targets) in Akeyless. This target holds the target endpoint of your application (For example, `https://my.web.server/rotate` endpoint).
+First, you must create a [Web Target](https://docs.akeyless.io/docs/web-targets) in Akeyless. This target holds the target endpoint of your application (for example, `https://my.web.server/rotate`).
 
 To create a [Web Target](https://docs.akeyless.io/docs/web-targets) using the Akeyless CLI, run the following command:
 
@@ -33,8 +34,7 @@ akeyless create-web-target -n <your web target name> \
 
 ### Authentication
 
-> 👍 Note
->
+> 👍 Note  
 > Custom Rotated Secret implementations should only handle requests from a known Akeyless Gateway instance. Every request made by Akeyless to a custom Rotated Secret implementation includes an `AkeylessCreds` header with a temporary JWT token issued and signed by Akeyless.
 
 Use the following endpoint to verify all requests:
@@ -98,3 +98,88 @@ Where:
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluecustomp) section.
+
+## Working Example: Rotate an On‑Premises Application Password via Web Target (Customer R/S)
+
+This section provides an end-to-end, working example of creating a customer **Rotated Secret (R/S)** using a **Web Target** and a customer-managed **rotator endpoint**.
+
+> **Scenario:** You have an on‑premises application that uses a local service account `svc-reporting`. You want Akeyless to rotate that password on a schedule. Because the application is not natively integrated, you expose an internal HTTPS endpoint that can update the password in the application.
+
+### Architecture & Flow (High Level)
+
+1. Akeyless Gateway triggers rotation (scheduled or manual).
+2. Gateway calls the **Web Target** endpoint (your rotator service).
+3. Rotator service:
+   * Validates `AkeylessCreds` JWT (recommended).
+   * Authenticates to the on‑premises app/admin API using the current credential.
+   * Sets a new password.
+4. Rotator service returns the new password to Akeyless.
+5. Akeyless stores a new secret version; applications retrieve the latest value.
+
+### Prerequisite
+
+A rotator service must be created that the Akeyless Gateway can cell by HTTPS endpoint. The creation and maintenance of the rotator service is dependent on the application and your responsibility.
+
+### Step 1: Create the Web Target (Example)
+
+```shell
+akeyless create-web-target -n my-rotator-target -u https://rotator.internal.example.com/rotate
+```
+
+### Step 2: Implement the Rotator Endpoint (Guidance)
+
+Your rotator endpoint must:
+
+* Accept HTTPS requests from the gateway
+* Validate the `AkeylessCreds` JWT (recommended)
+* Perform the actual rotation in the target system
+* Return a success response with the new rotated value
+
+#### Request Validation (Recommended)
+
+Every request includes:
+
+* Header: `AkeylessCreds: <jwt>`
+
+Validate the JWT using:
+
+```http
+POST auth.akeyless.io/validate-producer-credentials
+{
+  "creds": "<redacted jwt token>",
+  "expected_access_id": "<gateway-access-id>",
+  "expected_item_name": "/<path-to-rotated-secret>"
+}
+```
+
+### Step 3: Create the Custom Rotated Secret (Example)
+
+This example creates a rotated secret named `reporting-app-svc` and enables auto-rotation every 30 days.
+
+```shell
+akeyless rotated-secret create custom \
+--name reporting-app-svc \
+--gateway-url 'https://gw.internal.example.com:8000' \
+--target-name my-rotator-target \
+--authentication-credentials use-user-creds \
+--password-length 16 \
+--rotator-type custom \
+--custom-payload '{
+  "target_system": "reporting-app",
+  "account_id": "svc-reporting"
+}' \
+--auto-rotate true \
+--rotation-interval 30
+```
+
+### Step 4: Test and Verify
+
+1. Confirm the rotated secret item exists in Akeyless.
+2. Trigger a rotation according to your operational procedure.
+3. Verify:
+   * A new version is created in Akeyless.
+   * The on‑premises application accepts the new password.
+4. Ensure the rotator endpoint logs show:
+   * JWT validation succeeded
+   * Password change succeeded
+   * Response returned to gateway (do **not** log plaintext secrets)

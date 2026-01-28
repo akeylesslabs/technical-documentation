@@ -1138,6 +1138,33 @@
         }
       }
     },
+    "/certificate-discovery": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "CertificateDiscovery",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CertificateDiscovery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/CertificateDiscoveryResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/change-admin-account-password": {
       "post": {
         "tags": [
@@ -18177,6 +18204,77 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "CertificateDiscovery": {
+      "description": "CertificateDiscovery is a command that discovery certificates",
+      "type": "object",
+      "required": [
+        "hosts",
+        "target-location"
+      ],
+      "properties": {
+        "debug": {
+          "description": "Debug mode",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Debug"
+        },
+        "expiration-event-in": {
+          "description": "How many days before the expiration of the certificate would you like to be notified.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ExpirationEventsInDays"
+        },
+        "hosts": {
+          "description": "A comma separated list of IPs, CIDR ranges, or DNS names to discovery",
+          "type": "string",
+          "x-go-name": "Hosts"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "port-ranges": {
+          "description": "A comma separated list of port ranges\nExamples: \"80,443\" or \"80,443,8080-8090\" or \"443\"",
+          "type": "string",
+          "default": "443",
+          "x-go-name": "PortRanges"
+        },
+        "protection-key": {
+          "description": "The name of the key that protects the certificate value",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "target-location": {
+          "description": "The folder where the results will be saved",
+          "type": "string",
+          "x-go-name": "TargetFolder"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "CertificateDiscoveryOutput": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "$ref": "#/definitions/ScanResults"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "CertificateExpirationEvent": {
       "type": "object",
       "properties": {
@@ -18360,6 +18458,75 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "CertificateMigration": {
+      "type": "object",
+      "properties": {
+        "general": {
+          "$ref": "#/definitions/MigrationGeneral"
+        },
+        "payload": {
+          "$ref": "#/definitions/CertificatePayload"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
+    },
+    "CertificatePayload": {
+      "type": "object",
+      "properties": {
+        "expiration_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CertificateExpirationEvent"
+          },
+          "x-go-name": "ExpirationEvents"
+        },
+        "folder": {
+          "type": "string",
+          "x-go-name": "Folder"
+        },
+        "max_dial_timeout": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "MaxDialTimeout"
+        },
+        "max_scan_duration": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "MaxScanDuration"
+        },
+        "max_workers": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "MaxWorkers"
+        },
+        "port_ranges": {
+          "type": "string",
+          "x-go-name": "PortRanges"
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CertificateScanTarget"
+          },
+          "x-go-name": "Targets"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
+    },
+    "CertificateScanTarget": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "x-go-name": "Host"
+        },
+        "portRanges": {
+          "type": "string",
+          "x-go-name": "PortRanges"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "CertificateStatus": {
       "type": "string",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -18379,6 +18546,13 @@
           "type": "string",
           "format": "date-time",
           "x-go-name": "ExpirationDate"
+        },
+        "expiration_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CertificateExpirationEvent"
+          },
+          "x-go-name": "ExpirationEvents"
         },
         "name": {
           "type": "string",
@@ -19713,6 +19887,11 @@
           "description": "GCP Project ID (Relevant only for GCP targets)",
           "type": "string",
           "x-go-name": "GcpProjectId"
+        },
+        "gcp-sm-regions": {
+          "description": "GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions.\nRequired when listing with object-type=regional-secrets.",
+          "type": "string",
+          "x-go-name": "GcpSmRegions"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -22283,6 +22462,14 @@
           "type": "string",
           "x-go-name": "CertData"
         },
+        "expiration-event-in": {
+          "description": "How many days before the expiration of the certificate would you like to be notified.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ExpirationEventsInDays"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -22433,6 +22620,22 @@
         "tls_cert": {
           "type": "string",
           "x-go-name": "TLSCert"
+        },
+        "tls_cert_common_name": {
+          "type": "string",
+          "x-go-name": "TlsCertCommonName"
+        },
+        "tls_cert_expiration_date": {
+          "type": "string",
+          "format": "date-time",
+          "x-go-name": "TlsCertExpirationDate"
+        },
+        "tls_cert_expiration_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CertificateExpirationEvent"
+          },
+          "x-go-name": "TlsCertExpirationEvents"
         },
         "tls_key": {
           "type": "string",
@@ -22781,7 +22984,7 @@
           "x-go-name": "CSRData"
         },
         "extended-key-usage": {
-          "description": "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'. If critical is present the extension will be marked as critical",
+          "description": "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth', 'codesigning'. If critical is present the extension will be marked as critical",
           "type": "string",
           "x-go-name": "ExtKeyUsage"
         },
@@ -25309,6 +25512,13 @@
           },
           "x-go-name": "AzureKVMigrations"
         },
+        "certificate_migrations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CertificateMigration"
+          },
+          "x-go-name": "CertificateMigrations"
+        },
         "gcp_secrets_migrations": {
           "type": "array",
           "items": {
@@ -27498,6 +27708,49 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
+    "ScanResults": {
+      "description": "ScanResults contains detailed results from a certificate scan",
+      "type": "object",
+      "properties": {
+        "CountExisting": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "CountFailed": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "CountHosts": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "CountNew": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "CountSubdomains": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Error": {
+          "type": "string",
+          "x-go-type": "error"
+        },
+        "FailedTargets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TargetError"
+          }
+        },
+        "ItemNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/certificate/certificate_discovery/scanner/results"
+    },
     "SecretInfo": {
       "type": "object",
       "properties": {
@@ -27530,6 +27783,10 @@
         "name": {
           "type": "string",
           "x-go-name": "Name"
+        },
+        "region": {
+          "type": "string",
+          "x-go-name": "Region"
         },
         "secret_id": {
           "type": "string",
@@ -28484,6 +28741,26 @@
     "TargetAuthType": {
       "type": "string",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "TargetError": {
+      "description": "TargetError represents a failed target scan",
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "x-go-name": "Error"
+        },
+        "host": {
+          "type": "string",
+          "x-go-name": "Host"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Port"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/certificate/certificate_discovery/scanner/results"
     },
     "TargetFormatType": {
       "type": "string",
@@ -39804,7 +40081,7 @@
           "x-go-name": "AnalyticsAccess"
         },
         "audit-access": {
-          "description": "Allow this role to view audit logs. Currently only 'none', 'own' and 'all'\nvalues are supported, allowing associated auth methods to view audit\nlogs produced by the same auth methods.",
+          "description": "Allow this role to view audit logs. Currently only 'none', 'own', 'scoped' and 'all'\nvalues are supported, allowing associated auth methods to view audit\nlogs produced by the same auth methods.",
           "type": "string",
           "x-go-name": "AuditAccess"
         },
@@ -39824,7 +40101,7 @@
           "x-go-name": "Description"
         },
         "event-center-access": {
-          "description": "Allow this role to view Event Center. Currently only 'none', 'own' and 'all'\nvalues are supported",
+          "description": "Allow this role to view Event Center. Currently only 'none', 'scoped' and 'all'\nvalues are supported",
           "type": "string",
           "x-go-name": "EventCenterAccess"
         },
@@ -39842,7 +40119,7 @@
           "x-go-name": "EventForwardersName"
         },
         "gw-analytics-access": {
-          "description": "Allow this role to view gw analytics. Currently only 'none', 'own', 'all'\nvalues are supported, allowing associated auth methods to view reports\nproduced by the same auth methods.",
+          "description": "Allow this role to view gw analytics. Currently only 'none', 'scoped', 'all'\nvalues are supported, allowing associated auth methods to view reports\nproduced by the same auth methods.",
           "type": "string",
           "x-go-name": "GwAnalyticsAccess"
         },
@@ -39858,12 +40135,12 @@
           "x-go-name": "RoleName"
         },
         "reverse-rbac-access": {
-          "description": "Allow this role to view Reverse RBAC. Supported values: 'own', 'all'.",
+          "description": "Allow this role to view Reverse RBAC. Supported values: 'scoped', 'all'.",
           "type": "string",
           "x-go-name": "ReverseRbacAccess"
         },
         "sra-reports-access": {
-          "description": "Allow this role to view SRA Clusters. Currently only 'none', 'own',\n'all' values are supported.",
+          "description": "Allow this role to view SRA Clusters. Currently only 'none', 'scoped',\n'all' values are supported.",
           "type": "string",
           "x-go-name": "SRAReportsAccess"
         },
@@ -53739,6 +54016,7 @@
       "required": [
         "si-target-name",
         "si-users-path-template",
+        "hosts",
         "name",
         "target-location"
       ],
@@ -53909,6 +54187,14 @@
           "type": "string",
           "x-go-name": "AzureTenant"
         },
+        "expiration-event-in": {
+          "description": "How many days before the expiration of the certificate would you like to be notified.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ExpirationEventsInDays"
+        },
         "gcp-key": {
           "description": "Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)",
           "type": "string",
@@ -53937,6 +54223,11 @@
           "description": "HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 (relevant only for HasiCorp Vault migration)",
           "type": "string",
           "x-go-name": "HashiUrl"
+        },
+        "hosts": {
+          "description": "A comma separated list of IPs, CIDR ranges, or DNS names to scan",
+          "type": "string",
+          "x-go-name": "Hosts"
         },
         "json": {
           "description": "Set output format to JSON",
@@ -54006,6 +54297,12 @@
           "type": "string",
           "x-go-name": "MigrationName"
         },
+        "port-ranges": {
+          "description": "A comma separated list of port ranges\nExamples: \"80,443\" or \"80,443,8080-8090\" or \"443\"",
+          "type": "string",
+          "default": "443",
+          "x-go-name": "PortRanges"
+        },
         "protection-key": {
           "description": "The name of the key that protects the classic key value (if empty, the account default key will be used)",
           "type": "string",
@@ -54065,7 +54362,7 @@
           "x-go-name": "Profile"
         },
         "type": {
-          "description": "Migration type (hashi/aws/gcp/k8s/azure_kv/active_directory)",
+          "description": "Migration type (hashi/aws/gcp/k8s/azure_kv/active_directory/server_inventory/certificate)",
           "type": "string",
           "x-go-name": "MigrationType"
         },
@@ -60417,6 +60714,7 @@
       "required": [
         "si-target-name",
         "si-users-path-template",
+        "hosts",
         "target-location"
       ],
       "properties": {
@@ -60586,6 +60884,14 @@
           "type": "string",
           "x-go-name": "AzureTenant"
         },
+        "expiration-event-in": {
+          "description": "How many days before the expiration of the certificate would you like to be notified.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ExpirationEventsInDays"
+        },
         "gcp-key": {
           "description": "Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. 'roles/secretmanager.secretAccessor' (relevant only for GCP migration)",
           "type": "string",
@@ -60614,6 +60920,11 @@
           "description": "HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 (relevant only for HasiCorp Vault migration)",
           "type": "string",
           "x-go-name": "HashiUrl"
+        },
+        "hosts": {
+          "description": "A comma separated list of IPs, CIDR ranges, or DNS names to scan",
+          "type": "string",
+          "x-go-name": "Hosts"
         },
         "id": {
           "description": "Migration ID (Can be retrieved with gateway-list-migration command)",
@@ -60692,6 +61003,12 @@
           "description": "New migration name",
           "type": "string",
           "x-go-name": "NewMigrationNameV2"
+        },
+        "port-ranges": {
+          "description": "A comma separated list of port ranges\nExamples: \"80,443\" or \"80,443,8080-8090\" or \"443\"",
+          "type": "string",
+          "default": "443",
+          "x-go-name": "PortRanges"
         },
         "protection-key": {
           "description": "The name of the key that protects the classic key value (if empty, the account default key will be used)",
@@ -65700,7 +66017,7 @@
           "x-go-name": "CSRData"
         },
         "extended-key-usage": {
-          "description": "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'. If critical is present the extension will be marked as critical",
+          "description": "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth', 'codesigning'. If critical is present the extension will be marked as critical",
           "type": "string",
           "x-go-name": "ExtKeyUsage"
         },
@@ -85216,6 +85533,11 @@
           },
           "x-go-name": "ExpirationEventsInDays"
         },
+        "gcp-sm-regions": {
+          "description": "GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions.\nUSC with GCP targets only.",
+          "type": "string",
+          "x-go-name": "GcpSmRegions"
+        },
         "host-provider": {
           "description": "Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret",
           "type": "string",
@@ -86240,7 +86562,7 @@
           "x-go-name": "AnalyticsAccess"
         },
         "audit-access": {
-          "description": "Allow this role to view audit logs. Currently only 'none', 'own' and 'all'\nvalues are supported, allowing associated auth methods to view audit\nlogs produced by the same auth methods.",
+          "description": "Allow this role to view audit logs. Currently only 'none', 'own', 'scoped' and 'all'\nvalues are supported, allowing associated auth methods to view audit\nlogs produced by the same auth methods.",
           "type": "string",
           "x-go-name": "AuditAccess"
         },
@@ -86256,7 +86578,7 @@
           "x-go-name": "Description"
         },
         "event-center-access": {
-          "description": "Allow this role to view Event Center. Currently only 'none', 'own' and 'all'\nvalues are supported",
+          "description": "Allow this role to view Event Center. Currently only 'none', 'scoped' and 'all'\nvalues are supported",
           "type": "string",
           "x-go-name": "EventCenterAccess"
         },
@@ -86266,7 +86588,7 @@
           "x-go-name": "EventForwardersAccess"
         },
         "gw-analytics-access": {
-          "description": "Allow this role to view gw analytics. Currently only 'none', 'own', 'all'\nvalues are supported, allowing associated auth methods to view reports\nproduced by the same auth methods.",
+          "description": "Allow this role to view gw analytics. Currently only 'none', 'scoped', 'all'\nvalues are supported, allowing associated auth methods to view reports\nproduced by the same auth methods.",
           "type": "string",
           "x-go-name": "GwAnalyticsAccess"
         },
@@ -86293,12 +86615,12 @@
           "x-go-name": "NewName"
         },
         "reverse-rbac-access": {
-          "description": "Allow this role to view Reverse RBAC. Supported values: 'own', 'all'.",
+          "description": "Allow this role to view Reverse RBAC. Supported values: 'scoped', 'all'.",
           "type": "string",
           "x-go-name": "ReverseRbacAccess"
         },
         "sra-reports-access": {
-          "description": "Allow this role to view SRA Clusters. Currently only 'none', 'own',\n'all' values are supported.",
+          "description": "Allow this role to view SRA Clusters. Currently only 'none', 'scoped',\n'all' values are supported.",
           "type": "string",
           "x-go-name": "SRAReportsAccess"
         },
@@ -87968,6 +88290,11 @@
           "type": "string",
           "x-go-name": "PfxPassword"
         },
+        "region": {
+          "description": "Optional, create secret in a specific region (GCP only).\nIf empty, a global secret will be created (provider default).",
+          "type": "string",
+          "x-go-name": "Region"
+        },
         "secret-name": {
           "description": "Name for the new universal secrets",
           "type": "string",
@@ -88017,6 +88344,11 @@
         "secret-id"
       ],
       "properties": {
+        "force-delete": {
+          "description": "Force delete objects that are soft deleted by default (relavent only for Azure target)",
+          "type": "boolean",
+          "x-go-name": "ForceDelete"
+        },
         "json": {
           "description": "Set output format to JSON",
           "type": "boolean",
@@ -88682,6 +89014,12 @@
     }
   },
   "responses": {
+    "CertificateDiscoveryResponse": {
+      "description": "CertificateDiscoveryResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/CertificateDiscoveryOutput"
+      }
+    },
     "CreateClassicKeyResponse": {
       "description": "CreateClassicKeyResponse wraps response body.",
       "schema": {

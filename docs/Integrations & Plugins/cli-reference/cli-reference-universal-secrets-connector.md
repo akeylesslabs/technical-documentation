@@ -127,7 +127,9 @@ usc delete \
 
 `-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to get from the Universal Secrets Connector
 
-`--object-type[=secret]`: Either secret or certificate (Relevant only for Azure KV targets)
+`namespace`: The namespace (relevant for Hashi vault target)
+
+`force-delete`: Force delete objects that are soft deleted by default (relavent only for Azure target)
 
 ### `get`
 
