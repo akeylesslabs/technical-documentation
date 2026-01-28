@@ -186,7 +186,7 @@ $file = "C:\Temp\test_app.dll"
 signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.digicert.com" /td SHA256 $file
 ```
 
-If `signtool verify `fails because the chain is untrusted, you must import the Root CA used in Part 1.
+If `signtool verify` fails because the chain is untrusted, you must import the Root CA used in Part 1.
 
 Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier.
 
