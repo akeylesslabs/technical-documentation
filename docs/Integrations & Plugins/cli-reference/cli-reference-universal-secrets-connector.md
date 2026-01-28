@@ -127,9 +127,9 @@ usc delete \
 
 `-s, --secret-id`: **Required**, The secret ID (or name, for AWS, Azure or Kubernetes targets) to get from the Universal Secrets Connector
 
-`namespace`: The namespace (relevant for Hashi vault target)
+`namespace`: The namespace (relevant for HashiCorp Vault target)
 
-`force-delete`: Force delete objects that are soft deleted by default (relavent only for Azure target)
+`force-delete`: Force delete objects that are soft deleted by default (relevant only for Azure target)
 
 ### `get`
 
