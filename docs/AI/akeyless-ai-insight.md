@@ -25,7 +25,7 @@ Before you begin, ensure you have the following:
 
 * Akeyless CLI installed and authenticated with admin access
 * LLM Provider account and API Key
-  * OpenAI - [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+    * OpenAI - [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 * Akeyless Gateway running
 * Ability to create and manage Targets in Akeyless
 * Protection key available for encrypting API credentials

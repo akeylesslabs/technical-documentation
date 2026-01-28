@@ -258,5 +258,3 @@ signtool verify /pa /v $file
 ```
 
 If chain is not trusted, import your root CA into the machine's Trusted Root Certification Authorities store.
-
-<br />

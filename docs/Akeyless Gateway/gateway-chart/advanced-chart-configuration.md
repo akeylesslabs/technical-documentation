@@ -294,7 +294,7 @@ metricsExistingSecret:
 encryptionKeyExistingSecret:
 ```
 
-More options for using K8s Secrets can be found directly within the chart values file. 
+More options for using K8s Secrets can be found directly within the chart values file.
 
 ## Fixed Artifact Repository
 
