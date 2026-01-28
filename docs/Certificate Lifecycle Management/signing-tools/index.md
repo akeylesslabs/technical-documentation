@@ -33,7 +33,7 @@ Akeyless secures the software supply chain by integrating with Notation, an open
 * Setup:
     * **Install Plugin:** Download and install the `notation-akeyless` binary for your OS.
     * **Configuration:** Create a `notation.conf` file with your Akeyless Gateway URL and authentication credentials.
-    * **Key Management: **Map an Akeyless DFC key to a local Notation alias (`notation key add --plugin akeyless ...`).
+    * **Key Management:** Map an Akeyless DFC key to a local Notation alias (`notation key add --plugin akeyless ...`).
     * **Execution:** Use `notation` sign and `notation verify` directly on your container images.
 
 Read more about [Container Image Signing](https://docs.akeyless.io/docs/signing-image).
