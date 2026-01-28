@@ -94,9 +94,9 @@ Kubernetes won’t generate Secrets automatically for ServiceAccounts, to get yo
     apiVersion: v1
     kind: Secret
     metadata:
-    name: gateway-token-reviewer-token
-    namespace: default
-    annotations:
+      name: gateway-token-reviewer-token
+      namespace: default
+      annotations:
         kubernetes.io/service-account.name: gateway-token-reviewer
     type: kubernetes.io/service-account-token
     ```

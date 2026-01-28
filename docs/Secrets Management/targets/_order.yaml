@@ -5,6 +5,7 @@
 - database-targets
 - docker-hub-target
 - gcp-targets
+- gemini-target
 - github-target
 - gitlab-target
 - cloud-targets
@@ -25,3 +26,4 @@
 - web-targets
 - windows-target
 - zerossl-target
+- provisioning-a-classic-key-to-multiple-external-kms-targets

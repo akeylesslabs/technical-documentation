@@ -91,7 +91,7 @@ Enable TLS:
 TLSConf:
   enabled: true
   minimumTlsVersion: <TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>
-  tlsExistingSecretName: tls-certificate 
+  tlsExistingSecret: tls-certificate 
 ```
 
 Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-certificate) settings using the web interface of the Gateway Configuration Manager.
@@ -279,15 +279,7 @@ To control the cache settings, you should [configure the cache](https://docs.ake
 
 ## Working With Kubernetes Secrets
 
-To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings:
-
-* `gateway-access-key`
-* `gateway-uid-init-token`
-* `allowed-access-permissions`
-* `tlsCertificate`
-* `gateway-certificate`
-* `gateway-certificate-key`
-* `customer-fragments`
+To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings
 
 > 🚧 Warning
 >
@@ -297,10 +289,12 @@ To provide the settings of your Gateway deployment directly from your local Kube
 gatewayCredentialsExistingSecret:
 allowedAccessPermissionsExistingSecret:
 customerFragmentsExistingSecret:
-tlsExistingSecretName:
-existingSecretName:
+tlsExistingSecret:
+metricsExistingSecret:
 encryptionKeyExistingSecret:
 ```
+
+More options for using K8s Secrets can be found directly within the chart values file. 
 
 ## Fixed Artifact Repository
 

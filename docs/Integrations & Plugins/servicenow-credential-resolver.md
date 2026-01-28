@@ -1,7 +1,7 @@
 ---
 title: ServiceNow Credential Resolver
 deprecated: false
-hidden: true
+hidden: false
 link:
   new_tab: false
 metadata:
@@ -38,7 +38,7 @@ mvn -Drevision=1.0.0 clean package
 ### Artifacts
 
 * With `-Drevision=1.0.0: target/akeyless-servicenow-credential-resolver-1.0.0.jar`
-* Without a revision property, Maven will produce `akeyless-servicenow-credential-resolver-null.jar`.
+  * [https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar](https://repo1.maven.org/maven2/io/akeyless/akeyless-servicenow-credential-resolver/1.0.0/akeyless-servicenow-credential-resolver-1.0.0.jar)
 
 ## Install the Resolver on the MID Server
 
@@ -71,10 +71,10 @@ Optional field mapping overrides for JSON secrets (see Mapping section below):
 Environment/system property alternatives
 
 * The resolver also supports the following system properties or environment variables:
-    * `AKEYLESS_GW_URL`
-    * `AKEYLESS_ACCESS_TYPE`
-    * `AKEYLESS_ACCESS_ID` (required)
-    * `AKEYLESS_ACCESS_KEY` (when using `access_key`)
+  * `AKEYLESS_GW_URL`
+  * `AKEYLESS_ACCESS_TYPE`
+  * `AKEYLESS_ACCESS_ID` (required)
+  * `AKEYLESS_ACCESS_KEY` (when using `access_key`)
 * As a fallback for any `ext.cred.*` property, an environment variable with the uppercase name and dots replaced by underscores is also read (for example, `EXT_CRED_AKEYLESS_GW_URL`).
 * Precedence: MID properties override environment/system variables.
 
@@ -122,13 +122,13 @@ net start mid
 ## Configure a Discovery Credential to Use This Resolver
 
 1. Create a new credential
-    * Navigate: Discovery → Credentials → New
-    * Choose a credential Type (For example, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
-    * Select “External credential store”
-    * Fully Qualified Class Name (FQCN): com.snc.discovery.CredentialResolver
-    * Credential ID: The Akeyless secret path (For example, /prod/app/db) to fetch
+   * Navigate: Discovery → Credentials → New
+   * Choose a credential Type (For example, Windows, SSH Password, SSH Private Key, VMware, JDBC, JMS, SNMPv3)
+   * Select “External credential store”
+   * Fully Qualified Class Name (FQCN): com.snc.discovery.CredentialResolver
+   * Credential ID: The Akeyless secret path (For example, /prod/app/db) to fetch
 2. Save and test
-    * Click “Test credential”, select a MID Server and a target if required by the type.
+   * Click “Test credential”, select a MID Server and a target if required by the type.
 
 ## What to Store in Akeyless and How It’s Mapped
 
@@ -147,14 +147,14 @@ Default mapping (can be overridden via `ext.cred.akeyless.map.*`):
 Per-Type mapping summary
 
 * Windows, Basic, SSH Password, VMware, JDBC, JMS:
-    * Uses JSON fields: username, password (or your overridden names)
+  * Uses JSON fields: username, password (or your overridden names)
 * SSH Private Key:
-    * Uses JSON fields: username, private_key, passphrase
+  * Uses JSON fields: username, private_key, passphrase
 * SNMPv3:
-    * Uses JSON fields: username, auth_protocol, auth_key, privacy_protocol, privacy_key
-    * Mapped to ServiceNow fields: username, auth-protocol, auth-key, privacy-protocol, privacy-key
+  * Uses JSON fields: username, auth_protocol, auth_key, privacy_protocol, privacy_key
+  * Mapped to ServiceNow fields: username, auth-protocol, auth-key, privacy-protocol, privacy-key
 * Any other type:
-    * Best-effort: username and password if present
+  * Best-effort: username and password if present
 
 Examples
 
@@ -214,13 +214,13 @@ will map to ServiceNow username = alice, password = secret.
 ## Troubleshooting
 
 * HTTP 400 “Missing required parameter - timestamp” on /auth:
-    * Usually indicates the wrong auth flow or missing parameters. Verify access_type is set correctly. For CloudID flows, do not set an access_key. For access_key flows, ensure both access_id and access_key are set.
+  * Usually indicates the wrong auth flow or missing parameters. Verify access_type is set correctly. For CloudID flows, do not set an access_key. For access_key flows, ensure both access_id and access_key are set.
 * HTTP 404 from /v2/* endpoints:
-    * The resolver automatically falls back to the non-/v2 endpoints. If both fail, verify the gateway URL and network reachability.
+  * The resolver automatically falls back to the non-/v2 endpoints. If both fail, verify the gateway URL and network reachability.
 * “Secret value not found for name …”:
-    * Confirm the Credential ID (secret path) is correct and the Akeyless identity has permission to read it.
+  * Confirm the Credential ID (secret path) is correct and the Akeyless identity has permission to read it.
 * Logging:
-    * Resolver logs go through Commons Logging. Check the MID Server logs for entries containing “Akeyless resolver”.
+  * Resolver logs go through Commons Logging. Check the MID Server logs for entries containing “Akeyless resolver”.
 
 ## Local/dev Testing (Optional)
 
