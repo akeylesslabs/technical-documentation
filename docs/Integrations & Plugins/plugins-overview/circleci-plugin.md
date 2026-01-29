@@ -129,8 +129,6 @@ workflows:
 >
 > It is best practice to use environment variables instead of writing the actual variable values inside the pipeline
 
-![](https://files.readme.io/1329672-Screenshot_2023-03-19_100113.png)
-
 **Success!** - the secrets are accessible to use within the job logic (in this example, they are just being printed).
 
 ## Tutorial
