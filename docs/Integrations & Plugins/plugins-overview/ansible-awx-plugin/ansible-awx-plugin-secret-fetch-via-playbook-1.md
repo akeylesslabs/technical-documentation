@@ -49,15 +49,15 @@ Alternatively, to extract your authorization tokens directly using the [Akeyless
 VAULT_TOKEN=$(akeyless auth --access-id "Access ID" --access-type="Auth Method type" --json true | awk '/token/ { gsub(/[",]/,"",$2); print $2}')
 ```
 
-![Illustration for: Alternatively, to extract your authorization tokens directly using the Akeyless CLI auth command as part of your workflow variables:](https://files.readme.io/9e55048-ansible1.png)
+![Illustration for: Alternatively, extract your authorization tokens directly using the Akeyless CLI auth command as part of your workflow variables.](https://files.readme.io/9e55048-ansible1.png)
 
-To fetch a secret from the Akeyless Platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create a new **Credentials** and set the **Credentials Type** as **Ansible Tower**:
+To fetch a secret from the Akeyless Platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create new **Credentials** and set the **Credentials Type** as **Ansible Tower**:
 
-![Illustration for: To fetch a secret from the Akeyless Platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create a new…](https://files.readme.io/714572a-Ansible3.png)
+![Illustration for: To fetch a secret from the Akeyless Platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create Credentials and set the Credentials Type as Ansible Tower.](https://files.readme.io/714572a-Ansible3.png)
 
 You can now select to populate the Username and Password fields from an external Secret Management system.
 
-![Illustration for: To fetch a secret from the Akeyless Platform, for example, for AWX Tower credentials that will be used to establish a remote connection to an AWX node, create a new…](https://files.readme.io/55c1fee-ansible_2.png)
+![Illustration for: You can now select to populate the Username and Password fields from an external Secret Management system.](https://files.readme.io/55c1fee-ansible_2.png)
 
 ## Static Secrets
 
@@ -71,9 +71,9 @@ For example, let's create a secret:
 akeyless create-secret -n /DevOps/Ansible -v 'AkeylessIsGr8'
 ```
 
-The **Key name** should be set to `data` and the **Path** is `secret/data/DevOps/Ansible`.
+The **Key name** should be set to `data` and the **Path** should be set to `secret/data/DevOps/Ansible`.
 
-![Illustration for: secret/data/<Full Secret Name>, where the Key Name in the returned JSON name is data. For example, let's create a secret: The **Key name** should be set to data and the…](https://files.readme.io/2958df1-ansible5.png)
+![Illustration for: The Key name**should be set to data and the Path should be set to secret/data/DevOps/Ansible.](https://files.readme.io/2958df1-ansible5.png)
 
 In case the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
@@ -85,7 +85,7 @@ akeyless create-secret -n /DevOps/AnsibleJson -v '{"username":"john","password":
 
 The **Key names** can be: `username` and `password` where the **Path** is `secret/DevOps/AnsibleJson`
 
-![Illustration for: secret/<Full Secret Name>, without the data/ prefix, you can use the internal JSON keys as the **Key Names** for example, let's create a secret that contains a JSON-structured…](https://files.readme.io/4ce297c-Ansible6.png)
+![Illustration for: The Key names can be: username and password where the Path is secret/DevOps/AnsibleJson.](https://files.readme.io/4ce297c-Ansible6.png)
 
 To work with **KV 2** use the following format:
 
@@ -93,7 +93,7 @@ To fetch the secret **/DevOps/Ansible**:
 
  The **Path** is `secret/DevOps/Ansible`, where the Key in the returned JSON name is `DevOps/Ansible` without the `/` prefix.
 
-![Illustration for: To fetch the secret **/DevOps/Ansible**: The **Path** is secret/DevOps/Ansible, where the Key in the returned JSON name is DevOps/Ansible without the / prefix.](https://files.readme.io/486bb56-Ansible7.png)
+![Illustration for: To fetch the secret /DevOps/Ansible: The Path is secret/DevOps/Ansible, where the Key in the returned JSON name is DevOps/Ansible without the / prefix.](https://files.readme.io/486bb56-Ansible7.png)
 
 For example, to fetch the secret **/DevOps/AnsibleJson**:
 
@@ -116,4 +116,4 @@ The returned JSON object will have keys named `password` and `username`. For exa
 
 In this example, we are fetching a dynamic secret named **/databases/Mysql** using [MySQL Dynamic Secrets](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db).
 
-![Illustration for: In this example, we are fetching a dynamic secret named **/databases/Mysql** using MySQL Dynamic Secrets.](https://files.readme.io/c79f90c-AnsibleDynamicSecret.png)
+![Illustration for: In this example, we are fetching a dynamic secret named /databases/Mysql using MySQL Dynamic Secrets.](https://files.readme.io/c79f90c-AnsibleDynamicSecret.png)
