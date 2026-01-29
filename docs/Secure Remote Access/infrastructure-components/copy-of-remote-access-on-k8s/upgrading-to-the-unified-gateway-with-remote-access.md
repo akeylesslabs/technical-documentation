@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The new, unified version of the Akeyless Gateway introduces significant improvements in deployment, configuration, and capabilities, intended to simplify Gateway and Remote Access deployment and operation and extend functionality.
+The unified version of the Akeyless Gateway introduces significant improvements in deployment, configuration, and capabilities, intended to simplify Gateway and Remote Access deployment and operation and extend functionality.
 
-> 📘 New Helm Chart
+> 📘 Helm Chart
 >
 > With this new version comes a new Helm chart for Kubernetes deployments. [Review the Helm Chart changes](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-gateway/values.yaml).
 
