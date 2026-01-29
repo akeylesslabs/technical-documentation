@@ -14,7 +14,7 @@ The Akeyless Universal Identity (UID) authentication method enables you to ident
 
 The following diagram describes the flow of credentials when using UID tokens, demonstrating the elimination of the secret zero problem:
 
-![](https://files.readme.io/e362078-image_1.png)
+![The flow of credentials when using UID tokens with Akeyless.](https://files.readme.io/e362078-image_1.png)
 
 While the process has an initiation phase where the Admin creates the original authentication method, the secret zero problem is avoided by repeatedly rotating the UID, to the point where the original credentials are unusable, and constant rotation protects any vulnerability.
 
