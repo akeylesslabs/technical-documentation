@@ -7,15 +7,15 @@ metadata:
 ---
 This guide provides step-by-step instructions to set up code signing using Akeyless for PKI certificate issuance and the Akeyless Key Storage Provider (KSP) on Windows. It covers creating secrets, generating certificates, configuring the KSP, and troubleshooting.
 
-Prerequisites:
+## Prerequisites
 
 * Akeyless CLI installed and authenticated.
 * Administrator privileges on the Windows machine.
 * Replace placeholder paths (`/YourCompany/)` with your organization-specific paths.
 
-### Part 1: Create Secrets and Issue Code-Signing Certificate
+## Part 1: Create Secrets and Issue Code-Signing Certificate
 
-#### Create Root Key for PKI Issuer
+### Create Root Key for PKI Issuer
 
 This key will sign the certificates issued by your internal CA.
 
@@ -31,7 +31,7 @@ akeyless create-dfc-key \
 
 * [https://docs.akeyless.io/reference/createdfckey](https://docs.akeyless.io/reference/createdfckey)
 
-#### Create 4096-bit Key and Generate CSR
+### Create 4096-bit Key and Generate CSR
 
 This is the key used for actual code signing.
 
@@ -48,7 +48,7 @@ akeyless generate-csr \
 
 * [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-signing-request)
 
-#### Create PKI Certificate Issuer
+### Create PKI Certificate Issuer
 
 This defines the policy for your internal CA.
 
@@ -65,7 +65,7 @@ akeyless create-pki-cert-issuer \
 
 * [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#creating-a-certificate-issuer)
 
-#### Issue the 4096-bit Certificate
+### Issue the 4096-bit Certificate
 
 Sign the CSR generated in step 2.
 
@@ -80,9 +80,9 @@ akeyless get-pki-certificate \
 
 * [https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates?isFramePreview=true#issuing-a-certificate)
 
-### Part 2: Akeyless KSP Installation and Configuration
+## Part 2: Akeyless KSP Installation and Configuration
 
-#### Prepare Configuration File
+### Prepare Configuration File
 
 Create a file named `sqlcrypt.conf` in a persistent location (`C:\Akeyless\conf\sqlcrypt.conf`).
 
@@ -102,7 +102,7 @@ access_id = "YOUR_ACCESS_ID"
 access_key = "YOUR_ACCESS_KEY"
 ```
 
-#### Set Environment Variable (Mandatory)
+### Set Environment Variable (Mandatory)
 
 The Akeyless KSP requires the AKEYLESS_SQLCRYPT_CONFIG_PATH environment variable to locate your configuration file.
 
@@ -117,11 +117,11 @@ $env:AKEYLESS_SQLCRYPT_CONFIG_PATH
 
 Note: You may need to restart your shell or machine for this to take effect globally.
 
-#### Download KSP
+### Download KSP
 
 [https://akeyless.jfrog.io/ui/native/akeyless-ksp/](https://akeyless.jfrog.io/ui/native/akeyless-ksp/)
 
-#### Install the KSP
+### Install the KSP
 
 Use a dedicated folder for logs to ensure they persist across reboots.
 
@@ -142,7 +142,7 @@ $LASTEXITCODE
 
 Reboot the machine now to register the provider.
 
-#### Verify Installation
+### Verify Installation
 
 After rebooting, confirm the KSP is registered.
 
@@ -151,9 +151,9 @@ certutil -csplist | findstr /i "Akeyless"
 # Output should be: Provider Name: Akeyless KSP
 ```
 
-### Part 3: Sync Certificate and Test Signing
+## Part 3: Sync Certificate and Test Signing
 
-#### Sync Certificate to Windows Store
+### Sync Certificate to Windows Store
 
 The helper tool downloads the certificate from Akeyless and binds it to the KSP in the Windows Certificate Store.
 
@@ -162,7 +162,7 @@ $helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
 & $helper --config-path $env:AKEYLESS_SQLCRYPT_CONFIG_PATH sync-cert --store-scope machine --store-name My
 ```
 
-#### Verify Binding
+### Verify Binding
 
 Ensure the certificate is present and linked to "Akeyless KSP".
 
@@ -172,14 +172,14 @@ certutil -store -v My $thumb | findstr /i "Provider Container"
 # Expected Output: Provider = Akeyless KSP
 ```
 
-#### Sign a Test File
+### Sign a Test File
 
 ```shell
 $file = "C:\Temp\test_app.dll"
 signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.digicert.com" /td SHA256 $file
 ```
 
-#### Establish Trust (Import Root CA)
+### Establish Trust (Import Root CA)
 
 ```shell
 $file = "C:\Temp\test_app.dll"
@@ -212,7 +212,7 @@ Step C: Verify Chain
 signtool verify /pa /v $file
 ```
 
-#### Appendix: Troubleshooting (Clean Uninstall)
+## Troubleshooting (Clean Uninstall)
 
 If you need to troubleshoot or reinstall a clean version, follow this uninstall procedure.
 
