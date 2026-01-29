@@ -175,23 +175,23 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * Data Structures: When representing child elements outside of a full object notation file, use a period to represent child elements in relation to their parents.
     * For example, represent `--access-type` from the below example as `args.--access-type`.
 
-    * ```json
+```json
     {
-      "args": [
-        "mcp",
-        "--access-type", "cert",
-        "--cert-file-name", "/path/to/cert.pem",
-        "--key-file-name", "/path/to/key.pem"
-      ]
+        "args": [
+            "mcp",
+            "--access-type", "cert",
+            "--cert-file-name", "/path/to/cert.pem",
+            "--key-file-name", "/path/to/key.pem"
+        ]
     }
-    ```
-    ```yaml
+```
+```yaml
     args:
-      - mcp
-      - --access-type=cert
-      - --cert-file-name=/path/to/cert.pem
-      - --key-file-name=/path/to/key.pem
-    ```
+    - mcp
+    - --access-type=cert
+    - --cert-file-name=/path/to/cert.pem
+    - --key-file-name=/path/to/key.pem
+```
 
 ## Accessibility
 
