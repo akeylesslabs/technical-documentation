@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-[Secrets Store CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) for Kubernetes secrets - Integrates secret stores with Kubernetes via a Container Storage Interface (CSI) volume.
+[Secrets Store CSI Driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) for Kubernetes secrets - Integrates secret stores with Kubernetes by way of a Container Storage Interface (CSI) volume.
 
 The Secrets Store CSI Driver `secrets-store.csi.k8s.io` allows Kubernetes to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the volume is attached, the data is mounted into the container's file system.
 
@@ -41,7 +41,7 @@ helm repo add akeyless https://akeylesslabs.github.io/helm-charts
 helm install akeyless-csi akeyless/akeyless-csi-provider
 ```
 
-Or via local `yaml` file which located under `deployment` folder on this [Git](https://github.com/akeylesslabs/akeyless-csi-provider).
+Or by way of local `yaml` file which located under `deployment` folder on this [Git](https://github.com/akeylesslabs/akeyless-csi-provider).
 
 ```shell
 kubectl apply -f deployment/akeyless-csi-provider.yaml

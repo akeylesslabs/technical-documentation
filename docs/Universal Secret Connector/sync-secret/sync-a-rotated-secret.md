@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-[Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) can be configured with a **sync** setting, ensuring that upon manual or automatic rotation, the latest value of your secret will be **synced** via the relevant [Universal Secrets Connector](https://docs.akeyless.io/docs/universal-secrets-connector) automatically.
+[Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) can be configured with a **sync** setting, ensuring that upon manual or automatic rotation, the latest value of your secret will be **synced** by way of the relevant [Universal Secrets Connector](https://docs.akeyless.io/docs/universal-secrets-connector) automatically.
 
 ## Syncing a Rotated Secret with the CLI
 

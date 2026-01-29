@@ -273,7 +273,7 @@ Where:
 
 ## Working With the Gateway
 
-To re-route the entire traffic directly via your [Gateway](https://docs.akeyless.io/docs/api-gw) for closed environments, create an environment variable `AKEYLESS_GATEWAY_URL` to point your CLI to interact with the relevant Gateway:
+To re-route the entire traffic directly by way of your [Gateway](https://docs.akeyless.io/docs/api-gw) for closed environments, create an environment variable `AKEYLESS_GATEWAY_URL` to point your CLI to interact with the relevant Gateway:
 
 ```shell Linux
 export AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8000/api/v1> 

@@ -99,7 +99,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluecustomp) section.
 
-## Working Example: Rotate an On‑Premises Application Password via Web Target (Customer R/S)
+## Working Example: Rotate an On‑Premises Application Password by way of Web Target (Customer R/S)
 
 This section provides an end-to-end, working example of creating a customer **Rotated Secret (R/S)** using a **Web Target** and a customer-managed **rotator endpoint**.
 

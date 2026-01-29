@@ -14,7 +14,7 @@ Easily manage secrets across Databricks DataOps / MLOps pipelines using Akeyless
 
 ## Background
 
-Azure Databricks allows secret management via its native secret scope or integration with Azure Key Vault. However, organizations operating across clouds or teams often face challenges such as:
+Azure Databricks allows secret management by way of its native secret scope or integration with Azure Key Vault. However, organizations operating across clouds or teams often face challenges such as:
 
 * Secret sprawl across environments
 * Cloud vendor lock-in
@@ -53,7 +53,7 @@ While Databricks supports SQL, most SQL queries don’t require secrets — henc
 ### Databricks Supports
 
 * Python ✅ (fully supported by Akeyless SDK)
-* Scala / R ✅ (via Spark config or Databricks utilities)
+* Scala / R ✅ (by way of Spark config or Databricks utilities)
 * SQL 🚫 (usually not required for secrets)
 
 ## Example: Sharing a Secret Across Languages

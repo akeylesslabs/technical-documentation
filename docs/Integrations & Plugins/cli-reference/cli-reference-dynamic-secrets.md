@@ -216,9 +216,9 @@ akeyless dynamic-secret create aws \
 
 `--secure-access-aws-native-cli`: The AWS native CLI
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion, Default = false
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion, Default = false
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion, Default = false
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion, Default = false
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -297,9 +297,9 @@ akeyless dynamic-secret create azure \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-web[=true]`: Enable Web Secure Remote Access
 
@@ -908,9 +908,9 @@ akeyless dynamic-secret create k8s \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -1467,9 +1467,9 @@ akeyless dynamic-secret create rabbitmq \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion.
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion.
 
 `--secure-access-url`: Destination URL to inject secrets.
 
@@ -1969,9 +1969,9 @@ akeyless dynamic-secret update aws \
 
 `--secure-access-aws-native-cli`: The AWS native CLI
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
@@ -2035,9 +2035,9 @@ akeyless dynamic-secret update azure \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-web[=true]`: Enable Web Secure Remote Access
 
@@ -2568,9 +2568,9 @@ akeyless dynamic-secret update k8s \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-dashboard-url`: The Kubernetes dashboard URL
 
@@ -2998,9 +2998,9 @@ akeyless dynamic-secret update rabbitmq \
 
 `--secure-access-enable`: Enable/Disable Secure Remote Access, [true/false]
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-url`: Destination URL to inject secrets
 

@@ -12,7 +12,7 @@ next:
 ---
 Kubernetes (K8s) External KMS allows you to use external secret management systems to add secrets in Kubernetes securely.
 
-By default, Secrets are not encrypted at rest and are open to attack, either via the `etcd` server or via backups of `etcd` data. To mitigate this risk, the Akeyless Platform acts as an external secret management system with a KMS plugin to encrypt Secrets stored in `etcd`.
+By default, Secrets are not encrypted at rest and are open to attack, either by way of the `etcd` server or by way of backups of `etcd` data. To mitigate this risk, the Akeyless Platform acts as an external secret management system with a KMS plugin to encrypt Secrets stored in `etcd`.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ By default, Secrets are not encrypted at rest and are open to attack, either via
 
 * `kube-apiserver` must be restarted after the External KMS plugin has been configured and started.
 
-* For `kubernetes-external-secrets` to be able to retrieve your secrets it will need access to your Akeyless Platform via Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) associated with an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods).
+* For `kubernetes-external-secrets` to be able to retrieve your secrets it will need access to your Akeyless Platform by way of Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) associated with an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
 * An AES [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) in Akeyless Platform.
 

@@ -26,7 +26,7 @@ With this Gateway, Akeyless offers:
 
 * Live fallback for network connectivity issues
 
-* Service continuity via secrets snapshots
+* Service continuity by way of secrets snapshots
 
 * Local in-memory cache for continuous service
 

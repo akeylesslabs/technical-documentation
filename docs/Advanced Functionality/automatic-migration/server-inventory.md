@@ -30,6 +30,6 @@ To create the Server Inventory Migration, login to your Gateway on port `8000`, 
 
 * **Target Location:** Destination folder path inside the Akeyless Platform for the migrated users. Make sure your Gateway has enough permissions to create Secrets under this location. The migrated [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) of your Local Users will be saved under this location.
 
-* **Enable SRA:** Enable/Disable Secure Remote Access setup for the migrated local users via the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
+* **Enable SRA:** Enable/Disable Secure Remote Access setup for the migrated local users by way of the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
 
 * **Auto Rotate:** Enable/Disable automatic/recurrent rotation for the migrated secrets. By default is **Disabled**. If Enabled, this should be set with rotation-interval and rotation-hour settings.

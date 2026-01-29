@@ -12,7 +12,7 @@ next:
 ---
 Certificate-based authentication eliminates the need to approve and distribute keys. Instead of scattering public keys across static files, you bind a public key to a username with a certificate.
 
-Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible via SSH but directed through a `ssh-sra` host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
+Akeyless SSH Secure Remote Access enables traffic connections to servers that are not directly accessible by way of SSH but directed through a `ssh-sra` host, which proxies the connection between the SSH client and the remote servers. In addition, you can record all SSH sessions traffic and expose them to the filesystem for log forwarding.
 
 In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
 
@@ -127,7 +127,7 @@ Akeyless enables CLI access from any Unix terminal.
 
     * `AKEYLESS_GW_REST_API`: URL for Akeyless API Gateway (REST API).
 
-3. Use `akeyless connect` command to perform SSH authentication to the target server via Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
+3. Use `akeyless connect` command to perform SSH authentication to the target server by way of Akeyless [Secure Remote Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s):
 
     ```shell General template
     akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/dynamic-secret] -g <your-gateway-ip[:port]>
@@ -149,7 +149,7 @@ This workaround explicitly enables legacy SSH key types that are deprecated and 
 
 ## Legacy Mode
 
-To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion via SSH certificate, and the Akeyless SRA bastion will utilize your SSH keys\password to connect to your legacy server.
+To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion by way of SSH certificate, and the Akeyless SRA bastion will utilize your SSH keys\password to connect to your legacy server.
 
 To work with SSH keys, you will have to create a Static Secret in an Akeyless account to store your SSH private key or SSH password. The secret value should be either your SSH password or your SSH private key.
 
@@ -177,7 +177,7 @@ Where:
 
 * `secure-access-host`: Target servers for connections. For multiple values, repeat this flag.
 
-Now, you can connect to your target SSH host via the `akeyless connect` command:
+Now, you can connect to your target SSH host by way of the `akeyless connect` command:
 
 ```shell
 akeyless connect -t <[user@]target/hostname/ip[:port]> -n [/path/to/secret] -v <professional-bastion-hostname/ip[:port]>

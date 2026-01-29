@@ -35,7 +35,7 @@ ESO:
 When an Azure AD Auth Method is configured in Akeyless, it validates Azure tokens based on:
 
 * Issuer (`https://sts.windows.net/<tenant-id>/`)
-* JWKS validation via the Microsoft discovery endpoint
+* JWKS validation by way of the Microsoft discovery endpoint
 * Tenant ID
 * Optional sub‑claims such as:
     * `xms_mirid` (Managed Identity resource ID)

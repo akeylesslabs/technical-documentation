@@ -341,7 +341,7 @@ roleRef:
 
 > 🚧 Warning
 >
-> While working with RoleBinding using `yml` file, the `namespace` subjects are ignored and managed only via the `Allowed Namespaces` list
+> While working with RoleBinding using `yml` file, the `namespace` subjects are ignored and managed only by way of the `Allowed Namespaces` list
 
 If you don't have a configured [Kubernetes Targets](https://docs.akeyless.io/docs/kubernetes-targets) yet, you can use the command with your Kubernetes Cluster connection strings inline:
 

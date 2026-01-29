@@ -12,7 +12,7 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
 ---
-The **OAuth2.0/JWT** method allows authentication via a configured **OAuth2.0/JWT** provider.
+The **OAuth2.0/JWT** method allows authentication by way of a configured **OAuth2.0/JWT** provider.
 
 This standard provides secure delegated access. It means that an application can take actions or access resources from a server on behalf of the user, without them having to share their credentials. It does this by allowing the identity provider (IdP) to issue tokens to third-party applications with the user’s approval.
 

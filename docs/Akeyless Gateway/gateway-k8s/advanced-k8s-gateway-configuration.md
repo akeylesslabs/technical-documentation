@@ -140,7 +140,7 @@ You can enable caching of secrets and periodic backup of cached secrets, set the
 
 To work with proactive caching set the `proActiveCaching` to true and set the `minimumFetchingTime` to config the Gateway to update secrets in the cache if they are older than the specified value with the `dumpInterval` to set the time in minutes between the two consecutive backups.
 
-To keep your cluster pods always synced via a `clusterCache` service, you must provide a local Kubernetes Secret with an encryption key to encrypt at rest the cached secrets:
+To keep your cluster pods always synced by way of a `clusterCache` service, you must provide a local Kubernetes Secret with an encryption key to encrypt at rest the cached secrets:
 
 ```shell
 kubectl create secret generic cluster-cache-encryption-key \

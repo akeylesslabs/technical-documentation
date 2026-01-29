@@ -75,7 +75,7 @@ Akeyless Keycloak Authenticator uses JWT tokens signed by Akeyless to establish 
 
 Tokens used by Akeyless Authenticator must include user’s email address.
 
-The token can be extracted via SAML authentication, and then retrieving the token from temporary credentials file:
+The token can be extracted by way of SAML authentication, and then retrieving the token from temporary credentials file:
 
 ```shell
 $ akeyless auth --access-type saml --access-id <saml-access-id>

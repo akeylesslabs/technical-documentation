@@ -111,7 +111,7 @@ Once the Gateway is running, you can set the matching AccessID as your OIDC defa
 
 ## Cache Configuration
 
-To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly via **API**.
+To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly by way of **API**.
 
 To set an internal TLS between the Gateway and cache service, set the `enableTls: true` option:
 

@@ -101,7 +101,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 | `args.--k8s-auth-config-name` | The Kubernetes Auth config name | Yes* (if using the `k8s` access type) | (none) |
 | `args.--k8s-service-account-token` | The Kubernetes ServiceAccount token | Yes* (if using the `k8s` access type) | (none) |
 | `args.--kerberos-token` | Kerberos token for the gateway SPN, used by SPNEGO for authentication | No | (none) |
-| `args.--kerberos-username` | The username for the entry within the keytab to authenticate via Kerberos | No | (none) |
+| `args.--kerberos-username` | The username for the entry within the keytab to authenticate by way of Kerberos | No | (none) |
 | `args.--key-data` | Private key data encoded in base64 | Yes* (if using the `cert` access type and `args.--key-file-name` or `args.--cert-challenge` is not used) | (none) |
 | `args.--key-file-name` | Path to where the key file is located | Yes* (if using the `cert` access type and `args.--key-data` or `args.--cert-challenge` is not used) | (none) |
 | `args.--keytab-file-data` | Base64-encoded content of a valid keytab file, containing the service account's entry | Yes* (if using the `kerberos` access type and `args.--keytab-file-path` is not used) | (none) |

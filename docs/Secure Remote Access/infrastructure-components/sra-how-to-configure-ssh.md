@@ -69,7 +69,7 @@ l4BfQzeHV23YLvCLDRVB5YxXHogQ00IDGjYFPbp3KuYVqIZiDcTdmQ0HsHE28bQe
 
 To enable certificate authentication, you will need to configure the target server to trust any certificates signed by your CA's public key as follows:
 
-1. Fetch the CA's public key from your Akeyless account via the following command:
+1. Fetch the CA's public key from your Akeyless account by way of the following command:
 
     ```shell your-RSA-key-name
     akeyless get-rsa-public --name "/path/to/your-RSA-key-name"

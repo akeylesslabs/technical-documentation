@@ -73,7 +73,7 @@ Let's set up remote access to the web application from the Akeyless Console. If 
 
 * `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
-* `Secure Web Proxy`: Optional, secure web proxy via the bastion, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
+* `Secure Web Proxy`: Optional, secure web proxy by way of the bastion, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
 ### Secure Web Browsing (Isolated)
 

@@ -142,9 +142,9 @@ akeyless get-dynamic-secret-value \
   --args common_name=any-common-name.company.example.com
 ```
 
-Certificate request via **Certificate Signing Request (CSR)**:
+Certificate request by way of **Certificate Signing Request (CSR)**:
 
-To fetch a new certificate via **CSR**, you need to create your **CSR** and send it to the Akeyless Gateway in Base64 encoding.
+To fetch a new certificate by way of **CSR**, you need to create your **CSR** and send it to the Akeyless Gateway in Base64 encoding.
 
 Create a **CSR**:
 

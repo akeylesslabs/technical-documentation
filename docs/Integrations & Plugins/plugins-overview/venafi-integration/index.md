@@ -34,7 +34,7 @@ Either Akeyless or Venafi can act as the certificate issuer.
 
 * **Akeyless Issuer:** The certificate is signed by a CA key from the Akeyless Platform created by the user. In addition, the issued certificate is saved in the Akeyless Platform as a secret and exported to Venafi for monitoring.
 
-A certificate can be requested based on a Common Name (CN) or via a Certificate Signing Request (CSR). Both these methods fully support [Cert Manager](https://cert-manager.io/docs/).
+A certificate can be requested based on a Common Name (CN) or by way of a Certificate Signing Request (CSR). Both these methods fully support [Cert Manager](https://cert-manager.io/docs/).
 
 The outcome artifacts of certificate issuance, including the certificate, private key, and certificate chain, are saved in the Akeyless Platform as a static secret in a configurable location.
 

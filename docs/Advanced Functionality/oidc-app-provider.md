@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless is an OpenID Connect (OIDC) identity provider enabling client applications full support of the OIDC protocol to leverage all Akeyless supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) as a source of identity when authenticating end-users. Client applications can configure their authentication logic to talk to Akeyless. Once enabled, Akeyless will act as the bridge to other identity providers via its existing Authentication Methods.
+Akeyless is an OpenID Connect (OIDC) identity provider enabling client applications full support of the OIDC protocol to leverage all Akeyless supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) as a source of identity when authenticating end-users. Client applications can configure their authentication logic to talk to Akeyless. Once enabled, Akeyless will act as the bridge to other identity providers by way of its existing Authentication Methods.
 
 ## Creating an OIDC App with the CLI
 
@@ -39,7 +39,7 @@ Where:
 OAuth defines two client types, based on their ability to authenticate securely with the authorization server (in other words, the ability to maintain the confidentiality of their client credentials):
 
 * **Confidential** Clients capable of maintaining the confidentiality of their credentials (For example, client implemented on a secure server with restricted access to the client credentials), or capable of secure client authentication using other means. By default, an Akeyless OIDC App will be created for this client type.
-* **Public** Clients are incapable of maintaining the confidentiality of their credentials (For example, clients executing on the device used by the resource owner, such as an installed native application or a web browser-based application), and incapable of secure client authentication via any other means. To create an Akeyless OIDC App for **Public** client type use the `public` flag as part of the creation command.
+* **Public** Clients are incapable of maintaining the confidentiality of their credentials (For example, clients executing on the device used by the resource owner, such as an installed native application or a web browser-based application), and incapable of secure client authentication by way of any other means. To create an Akeyless OIDC App for **Public** client type use the `public` flag as part of the creation command.
 
 > 👍 Note
 >

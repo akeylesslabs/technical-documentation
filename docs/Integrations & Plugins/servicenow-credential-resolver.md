@@ -42,7 +42,7 @@ mvn -Drevision=1.0.0 clean package
 
 ## Install the Resolver on the MID Server
 
-1. Upload the JAR to the MID Server via the instance UI
+1. Upload the JAR to the MID Server by way of the instance UI
    * Navigate: MID Server → JAR files → New
    * Set a descriptive Name (For example, akeyless-servicenow-credential-resolver)
    * Manage Attachments → upload the built JAR from target/
@@ -137,7 +137,7 @@ The resolver accepts either:
 * A plain string secret → mapped as a password/token
 * A JSON object → fields are mapped to ServiceNow credential fields as per the credential Type
 
-Default mapping (can be overridden via `ext.cred.akeyless.map.*`):
+Default mapping (can be overridden by way of `ext.cred.akeyless.map.*`):
 
 * Username field: `username`
 * Password field: `password`
@@ -189,7 +189,7 @@ SNMPv3:
 }
 ```
 
-Custom field names via mapping overrides (example):
+Custom field names by way of mapping overrides (example):
 
 * Set `ext.cred.akeyless.map.username = user_name`
 * Set `ext.cred.akeyless.map.password = pwd`

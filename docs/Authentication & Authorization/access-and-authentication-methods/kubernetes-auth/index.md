@@ -144,7 +144,7 @@ Where:
     ./akeyless --init
     ```
 
-5. Authenticate via your Kubernetes Auth Method as follows:
+5. Authenticate by way of your Kubernetes Auth Method as follows:
 
     ```shell
     ./akeyless auth --access-id $ACCESS_ID \

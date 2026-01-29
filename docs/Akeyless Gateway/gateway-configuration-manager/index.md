@@ -23,7 +23,7 @@ next:
       slug: configure-the-gateway-cache
       title: Gateway Cache
 ---
-The Gateway Configuration Manager is available via the main console under **Gateways -> Your-Gateway -> Manage Gateway**
+The Gateway Configuration Manager is available by way of the main console under **Gateways -> Your-Gateway -> Manage Gateway**
 
 > 👍 Note
 >

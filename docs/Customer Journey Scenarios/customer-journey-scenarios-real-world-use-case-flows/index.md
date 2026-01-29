@@ -15,8 +15,8 @@ next:
         customer-use-case-automating-employee-onboarding-and-role-based-access-control-in-servicenow
       title: 'Customer Use Case: Automated Onboarding'
     - type: basic
-      slug: customer-use-case-access-request-via-sn
-      title: 'Customer Use Case: Access Request via SN'
+      slug: customer-use-case-access-request-by way of-sn
+      title: 'Customer Use Case: Access Request by way of SN'
 ---
 Welcome to our "Customer Journey Scenarios" section, where we delve deeply into the essence and practical application of our products and services within the real world. This dedicated space is designed to unfold a rich tapestry of use case narratives, each carefully constructed to showcase how our diverse clientele—from nimble startups to sprawling multinational corporations—utilize our offerings to navigate and overcome their distinctive challenges. Our goal is to illuminate the versatility and profound impact our product or service can have across a wide array of industries and user scenarios, demonstrating our commitment to catering to a broad spectrum of needs.
 

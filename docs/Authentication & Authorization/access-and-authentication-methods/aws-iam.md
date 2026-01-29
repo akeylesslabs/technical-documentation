@@ -89,7 +89,7 @@ By default, [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/lates
 
 If the Akeyless Gateway runs in a different network context (For example, inside a container), it may fail to authenticate using the `aws_iam` authentication method because this hop limitation.
 
-To resolve this, you can increase the allowed number of network hops by modifying the `http-put-response-hop-limit` parameter. This can be done via the **AWS CLI** or the **AWS Management Console**.
+To resolve this, you can increase the allowed number of network hops by modifying the `http-put-response-hop-limit` parameter. This can be done by way of the **AWS CLI** or the **AWS Management Console**.
 
 The following command increases Hop Limit to `2`:
 

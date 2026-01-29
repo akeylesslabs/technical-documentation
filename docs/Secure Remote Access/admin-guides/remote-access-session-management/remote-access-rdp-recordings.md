@@ -20,7 +20,7 @@ SRA supports the recording of RDP sessions. You can choose to store RDP Session 
 
 ### Compression & Encryption
 
-SRA supports compressing and encrypting RDP session recordings to optimize storage and protect sensitive content. The feature is available for both legacy Helm charts and the latest unified charts via the Console.
+SRA supports compressing and encrypting RDP session recordings to optimize storage and protect sensitive content. The feature is available for both legacy Helm charts and the latest unified charts by way of the Console.
 
 #### Quality (Resolution)
 
@@ -51,7 +51,7 @@ The final file name indicates which operations were applied:
 
 #### How Encoding Runs
 
-Encoding is executed via a **[decrypt file command](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluedecrypt-filep)**.
+Encoding is executed by way of a **[decrypt file command](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluedecrypt-filep)**.
 
 #### Where to Configure
 
@@ -111,7 +111,7 @@ With this option, the user provides explicit credentials for Azure authenticatio
 * **Storage Account Name**: The name of the Azure Storage Account where the recordings will be uploaded.
 * **Storage Container Name**: The container within the Storage Account where recordings will be saved.
 
-This can also be done via the CLI:
+This can also be done by way of the CLI:
 
 ```shell AWS S3
 akeyless gateway update remote-access-rdp-recording \

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless SCP enables secure copy via [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
+Akeyless SCP enables secure copy by way of [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
 > 👍 Note
 >
@@ -119,7 +119,7 @@ Akeyless SCP enables secure copy via [Secure Remote Access Bastion](https://docs
 
     `SSH_EXTRA_ARGS` - Add any official SSH arguments.
 
-3. Use the `akeyless-scp` command to perform secure copy to remote target server via Akeyless Secure Remote Access Bastion:
+3. Use the `akeyless-scp` command to perform secure copy to remote target server by way of Akeyless Secure Remote Access Bastion:
 
     Full options list:
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Platform natively supports multiple scripting languages, the following examples demonstrate how to fetch secrets from Akeyless via PowerShell script
+Akeyless Platform natively supports multiple scripting languages, the following examples demonstrate how to fetch secrets from Akeyless by way of PowerShell script
 
 ## Usage
 

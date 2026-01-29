@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platform via OIDC, follow the steps below.
+To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platform by way of OIDC, follow the steps below.
 
 ## Create an Application
 

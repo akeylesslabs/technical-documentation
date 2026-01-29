@@ -63,7 +63,7 @@ The Akeyless Event Center provides a centralized view of system events, ensuring
 
 **Real-Time Tracking**: Keep visibility into ongoing system activities.
 
-**Event Subscriptions**: You can set up event subscriptions to receive notifications via email, webhooks, or third-party platforms, ensuring you're always informed about important activities.
+**Event Subscriptions**: You can set up event subscriptions to receive notifications by way of email, webhooks, or third-party platforms, ensuring you're always informed about important activities.
 
 Refer to the [Event Center](https://docs.akeyless.io/docs/event-center) official doc for the full events list.
 

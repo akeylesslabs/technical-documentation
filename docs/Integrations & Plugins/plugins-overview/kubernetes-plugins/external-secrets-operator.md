@@ -193,7 +193,7 @@ stringData:
 This Secret is suitable when using Azure AD Managed Identity with sub-claim enforcement.
 
 <Callout icon="📘" theme="info">
-  ESO does not implement Azure Workload Identity flows internally. When `accessType: azure_ad` is used, ESO relies entirely on the Azure AD token available in the pod’s environment. This is typically projected via AKS Workload Identity. Therefore, the identity ESO uses depends on the `ServiceAccount` the `ExternalSecret` runs under, not on the `SecretStore`.
+  ESO does not implement Azure Workload Identity flows internally. When `accessType: azure_ad` is used, ESO relies entirely on the Azure AD token available in the pod’s environment. This is typically projected by way of AKS Workload Identity. Therefore, the identity ESO uses depends on the `ServiceAccount` the `ExternalSecret` runs under, not on the `SecretStore`.
 </Callout>
 
 ### `SecretStore`: Namespaced Secret Provider
@@ -232,7 +232,7 @@ If using a **private Akeyless Gateway** (for example in a zero-knowledge or hybr
       akeylessGWApiURL: "https://<the.akeyless.gw:8000>/api/v2"
 ```
 
-Custom CAs can be configured via `caBundle` or `caProvider` if the Akeyless Gateway uses a private CA.
+Custom CAs can be configured by way of `caBundle` or `caProvider` if the Akeyless Gateway uses a private CA.
 
 #### `SecretStore` (Direct Kubernetes Auth)
 
@@ -559,7 +559,7 @@ type: Opaque
 stringData:
   accessId: "p-xxxxx"
   accessType: "azure_ad" # Use Azure AD Auth Method
-  accessTypeParam: ""      # Required field; can be empty when binding via sub-claims
+  accessTypeParam: ""      # Required field; can be empty when binding by way of sub-claims
 ```
 
 #### SecretStore Referencing the Azure AD Credentials
@@ -590,7 +590,7 @@ spec:
             key: accessTypeParam
 ```
 
-#### ExternalSecret Consuming a Secret via the SecretStore
+#### ExternalSecret Consuming a Secret by way of the SecretStore
 
 ```yaml
 apiVersion: external-secrets.io/v1
