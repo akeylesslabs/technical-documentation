@@ -321,7 +321,6 @@ module.exports = [
         "e\\.?\\s?g\\.?",              // e.g., eg
         "i\\.?\\s?e\\.?",              // i.e., ie
         "etc\\.?",                     // etc, etc.
-        "cf\\.?",                      // cf, cf.
         "vs\\.?",                      // vs, vs.
         "viz\\.?",                     // viz, viz.
 
