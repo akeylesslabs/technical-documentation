@@ -18,15 +18,15 @@ To use Auth0 as an IdP to authenticate the Akeyless Platform via OIDC, follow th
 
 2. For **Application Type** choose **Native** and click **Create**.
 
-    ![](https://files.readme.io/78d1964-image-20210824-110648.png "image-20210824-110648.png")
+    ![Screenshot of the Auth0 Console while Creating a New Application](https://files.readme.io/78d1964-image-20210824-110648.png "image-20210824-110648.png")
 
 3. On the Settings tab, under the **Application URIs section**, set `https://auth.akeyless.io/oidc/callback`the on the **Allowed Callback URLs**.
 
-    ![](https://files.readme.io/3edb775-image-20210824-111105.png "image-20210824-111105.png")
+    ![Screenshot of the Auth0 Console while Configuring Application URIs](https://files.readme.io/3edb775-image-20210824-111105.png "image-20210824-111105.png")
 
 4. Once the OIDC app has been created, you need to obtain the **Client ID, Client Secret,** and **Auth0 domain**:
 
-    ![](https://files.readme.io/4884e36-aut03.png "aut03.png")
+    ![Screenshot of the Auth0 Console while Retrieving Basic Application Information](https://files.readme.io/4884e36-aut03.png "4884e36-aut03.png")
 
 5. In order to bind the Auth0 application with your Akeyless account, you need to create an OIDC Authentication Method using either Akeyless CLI or UI, as described below.
 
