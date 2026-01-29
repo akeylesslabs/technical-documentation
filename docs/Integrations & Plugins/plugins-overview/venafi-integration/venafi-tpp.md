@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+<Callout icon="📘" theme="info">
+  **Note:** Venafi recently became CyberArk Machine Identity Security.
+</Callout>
+
 To work with Venafi TPP, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
 
 ## Prerequisites
@@ -163,6 +167,6 @@ akeyless get-dynamic-secret-value \
 
 In the response, you’ll see the relevant information and artifacts for the request including the `certificate`, `serial number`, `common name` and `expiration`.
 
- Depending on your flow you may also see the `certificate chain`, `issuing ca`, `ca chain`, and `private key`.
+Depending on your flow you may also see the `certificate chain`, `issuing ca`, `ca chain`, and `private key`.
 
 The artifacts `certificate`, `certificate chain` and `private key` can also be found as Static Secrets under the Artifacts Folder defined in the dynamic secret's settings.
