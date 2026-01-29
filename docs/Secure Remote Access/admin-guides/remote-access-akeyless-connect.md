@@ -166,7 +166,7 @@ Perform secure remote access
 
 Options:
 
-  -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
+  -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, and so on.
   -v, --by way of-sra                          SRA host, which the connection will go through. For example: sra-host:port.
   -g, --gateway-url                      The Gateway URL (configuration management) address, for example, http://localhost:8000
   -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified it will be taken from ~/.akeyless-connect.rc. If not specified it will be taken from item details

@@ -63,9 +63,9 @@ Supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-auth
 
 : `access_key`, `aws_iam`, `azure_ad`, `gcp`, `universal_identity`.
 
-While using `k8s`,`azure_ad`, or `gcp`, the following parameters should be provided accordingly:
+While using `k8s`, `azure_ad`, or `gcp`, the following parameters should be provided accordingly:
 
-`akeylessK8sAuthConfigName`,`akeylessAzureObjectID` or `akeylessGCPAudience`.
+`akeylessK8sAuthConfigName`, `akeylessAzureObjectID`, or `akeylessGCPAudience`.
 
 Example of a `SecretProviderClass` resource:
 

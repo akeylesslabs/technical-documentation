@@ -42,7 +42,7 @@ To set up Akeyless KMS Integration with GCP KMS, follow these steps:
 
     The value of the `--purpose` parameter depends on the key type:
 
-    * For AES keys, possible values are: `ENCRYPT_DECRYPT`,`MAC`
+    * For AES keys, possible values are: `ENCRYPT_DECRYPT`, `MAC`
 
     * For RSA keys, possible values are: `ASYMMETRIC_SIGN`, `ASYMMETRIC_DECRYPT`
 

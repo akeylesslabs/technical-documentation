@@ -356,7 +356,7 @@ kubectl get secret app-config-secret -n akeyless-demo -o jsonpath='{.data.api-ke
 
 ### Using `dataFrom` to Extract JSON
 
-If an Akeyless secret contains JSON,`dataFrom.extract` can be used to split that JSON into multiple keys in the Kubernetes Secret.
+If an Akeyless secret contains JSON, `dataFrom.extract` can be used to split that JSON into multiple keys in the Kubernetes Secret.
 
 ```yaml
 apiVersion: external-secrets.io/v1

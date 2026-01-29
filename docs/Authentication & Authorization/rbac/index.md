@@ -94,7 +94,7 @@ The existing permissions for Items, Access Roles, Auth Methods, and Targets are 
 
 #### Deny Rule Application and Role Management
 
-Deny rules will be automatically added to a role only when the user creating the role has existing deny restrictions (i.e. non-admin users only). In such cases, all deny rules that apply to the user will also be applied to the newly created role. This is intended to prevent users from creating roles with broader permissions than they are allowed.
+Deny rules will be automatically added to a role only when the user creating the role has existing deny restrictions (that is non-admin users only). In such cases, all deny rules that apply to the user will also be applied to the newly created role. This is intended to prevent users from creating roles with broader permissions than they are allowed.
 
 After the role is created, it functions independently, and any user with sufficient permissions not affected by those deny rules, can modify or delete the role. Removing a deny role does not automatically remove it from other roles that were affected. If the rule was applied to multiple roles, it must be removed explicitly from each related role by an authorized user for security reasons.
 
@@ -183,7 +183,7 @@ akeyless set-role-rule --role-name role1 --path "foo/+/+/bar/*" --capability rea
 ```
 
 This Access Role will permit reading secrets under those folders path:  
-`foo/any/folder/bar/*`, `foo/other/folder/bar/*`, etc.
+`foo/any/folder/bar/*`, `foo/other/folder/bar/*`, and so on.
 
 ## Multiple Rules
 

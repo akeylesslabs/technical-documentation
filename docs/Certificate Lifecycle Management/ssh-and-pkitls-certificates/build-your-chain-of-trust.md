@@ -57,7 +57,7 @@ Where:
 
 * `extended-key-usage[=serverauth,clientauth]`: extended key usage for the intermediate (`serverauth` / `clientauth` / `codesigning`).
 
-* `ttl`: The maximum requested Time To Live for the issued certificate by default in seconds, supported formats are `s`,`m`,`h`,`d`.
+* `ttl`: The maximum requested Time To Live for the issued certificate by default in seconds, supported formats are `s`, `m`, `h`, `d`.
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 

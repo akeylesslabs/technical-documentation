@@ -31,7 +31,7 @@ The Akeyless node for n8n integrates with Akeyless Secrets Management. Use it to
 
 ### For Self-Hosted N8n
 
-Install via npm in your n8n installation directory:
+Install by way of npm in your n8n installation directory:
 
 ```shell
 npm install @akeylesslabs/n8n-nodes-akeyless
@@ -39,7 +39,7 @@ npm install @akeylesslabs/n8n-nodes-akeyless
 
 Then restart your n8n instance.
 
-Or via N8N UI
+Or by way of the N8N UI
 
 ## Getting Started
 

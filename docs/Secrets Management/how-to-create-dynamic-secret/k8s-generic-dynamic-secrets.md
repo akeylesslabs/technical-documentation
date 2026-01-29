@@ -471,7 +471,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
     * **User TTL:** Provide a time-to-live value for a dynamic secret. When TTL expires, temporary users and roles will be removed.
 
-    * **Time Unit:** Select the time unit (`seconds`, `minutes`,`hours`) for the TTL value.
+    * **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
 
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
 

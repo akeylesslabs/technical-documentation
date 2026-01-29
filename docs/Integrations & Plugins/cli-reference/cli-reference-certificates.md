@@ -167,7 +167,7 @@ akeyless create-pki-cert-issuer \
 
 `--gw-cluster-url`: The GW cluster URL, Relevant for Public CA and CRL.
 
-`-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds, supported formats are `s`,`m`,`h`,`d`.
+`-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds, supported formats are `s`, `m`, `h`, `d`.
 
 `--allowed-domains`: A list of domains (comma separated) this Issuer is allowed to issue certificates for.
 
@@ -366,7 +366,7 @@ akeyless get-pki-certificate \
 
 `--uri-sans`: The URI Subject Alternative Names to be included in the PKI certificate (in a comma-delimited list)
 
-`-t, --ttl`: Updated certificate lifetime (must be less than the Certificate Issuer default TTL). `Default` in seconds, supported formats are `s`,`m`,`h`,`d`
+`-t, --ttl`: Updated certificate lifetime (must be less than the Certificate Issuer default TTL). `Default` in seconds, supported formats are `s`, `m`, `h`, `d`
 
 `-e, --extended-key-usage`: A comma-separated list of extended key usage requests that will be used for certificate issuance. Supported values: `clientauth`, `serverauth`, If critical is present the extension will be marked as critical
 
@@ -432,7 +432,7 @@ akeyless update-pki-cert-issuer \
 
 `-s, --signer-key-name`: A key to sign the certificate with
 
-`-t, --ttl`: **Required**, The maximum requested Time To Live for issued certificate by `default` in seconds, supported formats are `s`,`m`,`h`,`d`. In case of Public CA, this is based on the CA target's supported maximum TTLs
+`-t, --ttl`: **Required**, The maximum requested Time To Live for issued certificate by `default` in seconds, supported formats are `s`, `m`, `h`, `d`. In case of Public CA, this is based on the CA target's supported maximum TTLs
 
 `--gw-cluster-url`: The GW cluster URL to issue the certificate from, required in Public CA mode
 
@@ -708,7 +708,7 @@ akeyless generate-ca \
 
 `--allowed-domains`: **Required**, A list of the allowed domains clients can request to be included in the certificate (in a comma-delimited list).
 
-`-t, --ttl`: **Required**, The maximum requested Time To Live for issued certificate by default in seconds, supported formats are `s`,`m`,`h`,`d`.
+`-t, --ttl`: **Required**, The maximum requested Time To Live for issued certificate by default in seconds, supported formats are `s`, `m`, `h`, `d`.
 
 `--extended-key-usage[=serverauth,clientauth]`: A separate list of extended key usage for the intermediate (`serverauth` / `clientauth` / `codesigning`).
 
@@ -746,7 +746,7 @@ akeyless certificate-discovery \
 
 `-o, --hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
 
-`-p, --port-ranges[=443]`: A comma separated list of port ranges. Example: `80`,`8080-8085`.
+`-p, --port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080-8085`.
 
 `-f, --target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
 

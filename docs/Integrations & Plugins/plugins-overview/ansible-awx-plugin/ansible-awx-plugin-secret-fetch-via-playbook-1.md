@@ -14,7 +14,7 @@ This article uses the **Vault Secret Lookup** plugin for Ansible AWX.
 
 There are two main parameters used to configure the connection to Akeyless - the **URL**, and a **Token** for access.
 
-The lookup plugin uses these via the environment variables `VAULT_ADDR` and `VAULT_TOKEN`.
+The lookup plugin uses these by way of the environment variables `VAULT_ADDR` and `VAULT_TOKEN`.
 
 > 👍 Note
 >
@@ -41,7 +41,7 @@ On AWX UI, navigate to **Resources** and create new **Credentials**. Select Hash
 
 You can either use Akeyless [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:
 
-A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter i.e.: `< Access ID >..< Access Key >`.
+A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter that is: `< Access ID >..< Access Key >`.
 
 Alternatively, to extract your authorization tokens directly using the [Akeyless CLI](https://docs.akeyless.io/docs/cli) `auth` command as part of your workflow variables:
 

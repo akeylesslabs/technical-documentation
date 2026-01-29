@@ -149,4 +149,4 @@ akeyless connect -t <user>@<targetServer> \
 --tunnel='-L 127.0.0.1:<localPort>:<targetServer>:<targetPort>'
 ```
 
-Then, any SSH client (such as **SecureCRT**, **PuTTY**, **tmux**, etc.) can be used to establish connections to the remote `targetServer`. After running the above command to open the tunnel, on your SSH client, open a connection to `127.0.0.1:localPort` to connect with your remote server.
+Then, any SSH client (such as **SecureCRT**, **PuTTY**, **tmux**, and so on) can be used to establish connections to the remote `targetServer`. After running the above command to open the tunnel, on your SSH client, open a connection to `127.0.0.1:localPort` to connect with your remote server.

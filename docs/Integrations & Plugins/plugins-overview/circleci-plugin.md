@@ -79,7 +79,7 @@ Go to **Project Settings** > **Environment variables** > **Add Environment Varia
 
 Create an environment variable in CircleCI called `ACCESS_ID` and store your Auth Method's `access-id` in it.
 
-While working with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) encryption based on your fragment, store your Akeyless Gateway Restful API URL (i.e. port `8080`) in an environment variable named `AKEYLESS_GATEWAY_URL`.
+While working with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) encryption based on your fragment, store your Akeyless Gateway Restful API URL (that is port `8080`) in an environment variable named `AKEYLESS_GATEWAY_URL`.
 
 > 👍 Note
 >
@@ -115,7 +115,7 @@ jobs:
       - run:
           name: "Fetch Akeyless secrets"
           command: akeyless get-secret-value -n /CI/CircleCI-secret
-# Invoke jobs via workflows
+# Invoke jobs by way of workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:

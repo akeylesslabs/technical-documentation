@@ -98,7 +98,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Token Scope:** Specify a scope (or a space-separated list of scopes) to assign to the temporary token.
     * **Token Audience:** Specify a space-separated list of other JFrog Artifactory instances or services that should accept this token. The default value is the JFrog Artifactory service ID instance that created this token. For example, to accept all JFrog Artifactory instances, type `jfrt@*`.
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
-    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token).
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token).
     When TTL expires, the token becomes obsolete.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.

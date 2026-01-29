@@ -135,7 +135,7 @@ To use Akeyless Connect you need:
     Full options list:
 
     ```shell akeyless connect -h
-    -t, --target                             Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, etc.
+    -t, --target                             Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, and so on.
       -v, --by way of-bastion                      Bastion host, which the connection will go through. For example: bastion-host:port. 
       -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified will be taken from ~/.akeyless-connect.rc 
       -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read. The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.

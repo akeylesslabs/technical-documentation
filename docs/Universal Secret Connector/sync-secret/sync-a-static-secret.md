@@ -41,7 +41,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Remote Secret Name:** Enter the name of the secret that will be created or updated on the remote endpoint.
 
-* **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` etc.
+* **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` and so on.
 
 > 👍 Format restrictions
 >

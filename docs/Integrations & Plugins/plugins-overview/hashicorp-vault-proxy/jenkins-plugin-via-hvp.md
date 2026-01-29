@@ -99,7 +99,7 @@ To test the plugin, in Build, click “Execute shell”:
 
 ![Illustration for: To work with Static Secrets, the Vault Secret Path should be in this format for KV 1: secret/data/<Full Secret Name>, where the Key in the returned JSON name is data. For…](https://files.readme.io/05d58ab-11.png)
 
-Provide your MySQL server IP, modify the query, etc.
+Provide your MySQL server IP, modify the query, and so on.
 
 ```shell
 mysql --host <your MySQL server ip> --port 3306 --user=$USER --password=$PASS -e 'show databases;'

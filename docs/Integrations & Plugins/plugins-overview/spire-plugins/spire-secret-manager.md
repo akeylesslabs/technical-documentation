@@ -13,7 +13,7 @@ next:
 ## Prerequisites
 
 * [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) `v3.35.0` or later
-* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with the following permissions: `Create`,`Update` for **Items**
+* An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) attached to a role with the following permissions: `Create` and `Update` for **Items**
 
 ## Authentication
 

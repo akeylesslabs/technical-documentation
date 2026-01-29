@@ -59,7 +59,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`,`SDK`,`Mobile`, `Extension`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`, `Mobile`, `Extension`.
 
 4. Click **Next** and define the remaining parameters as follows:
 
@@ -73,6 +73,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     > 🚧 Note
     >
-    > **Unique Identifier** should be a **key** name, i.e. not the value itself. For example, `email` should be provided as is, and not the actual email address.
+    > **Unique Identifier** should be a **key** name, that is not the value itself. For example, `email` should be provided as is, and not the actual email address.
 
 5. Click **Finish**.

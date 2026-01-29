@@ -300,4 +300,4 @@ Where:
 
 ## Working With Gateway
 
-To work directly with your Gateway URL you can set the variable `api_url` with the Rest API V2 endpoint i.e. port `8081`. When working with a self-signed certificate you can provide your `gateway_ca_certificate` as well.
+To work directly with your Gateway URL you can set the variable `api_url` with the Rest API V2 endpoint that is port `8081`. When working with a self-signed certificate you can provide your `gateway_ca_certificate` as well.

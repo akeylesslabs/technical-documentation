@@ -14,7 +14,7 @@ Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and 
 
 The Telemetry Metrics are based on time series telemetry data metrics from the application and the runtime environment, storing them in a unique database or index, and analyzing data trends over time.
 
-The metrics visualization uses a pre-made/custom dashboard (Grafana Marketplace dashboard, Datadog integration dashboard, etc.).
+The metrics visualization uses a pre-made/custom dashboard (Grafana Marketplace dashboard, Datadog integration dashboard, and so on).
 
 The following Metrics are currently available:
 
@@ -29,7 +29,7 @@ The following Metrics are currently available:
 | `akeyless.gw.quota.current_transactions_number`  | The current total transaction count in the account                                                                 |
 | `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`AdminAccessID`)                                          |
 | `akeyless.gw.quota.total_transactions_limit`     | Total transaction limit per hour in the account                                                                    |
-| `akeyless.gw.system.http_response_status_code`   | Status of HTTP response for any request that originates from the Gateway API. (i.e. performed against the Gateway) |
+| `akeyless.gw.system.http_response_status_code`   | Status of HTTP response for any request that originates from the Gateway API. (that is performed against the Gateway) |
 | `akeyless.gw.system.request_count`               | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status)        |
 | `akeyless.gw.system.healthcheck.status`          | Monitors container health check status                                                                             |
 

@@ -142,7 +142,7 @@ ALTER SYSTEM SET WALLET_ROOT='/opt/oracle/admin/your_db_name/hsm_wallet' SCOPE=S
 
 ##### Explanation
 
-* Connecting via SQL*Plus:
+* Connecting by way of SQL*Plus:
     * This gives you a SQL prompt as the system administrator (`SYSDBA`) to execute configuration commands.
 * `WALLET_ROOT` Parameter:
     * This command sets the root location for the wallet. The `SCOPE=SPFILE` option ensures that the change is saved in the server parameter file and used at the next startup.

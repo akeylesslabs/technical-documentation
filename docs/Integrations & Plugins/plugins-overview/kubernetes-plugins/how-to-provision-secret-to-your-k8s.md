@@ -61,7 +61,7 @@ akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234"
 
 > 👍 Note
 >
-> The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) called **K8s_Auth** in **K8s** folder i.e. `K8s/K8s_Auth`
+> The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) called **K8s_Auth** in **K8s** folder that is `K8s/K8s_Auth`
 
 ### Create an Access Role
 
@@ -406,7 +406,7 @@ To create the environment variables without the prefix you can use the `parse_js
 >
 > The `parse_json_secret` flag is designed to handle flat JSON structures with single string-values (it does not support nested JSONs, nor array values).
 
-#### Inject Secret Via ConfigMap
+#### Inject Secret by way of ConfigMap
 
 For existing environments that currently use ConfigMaps with Kubernetes secrets, you can modify your config maps to fetch the relevant secrets from Akeyless, instead of updating all your deployment manifest files, for example:
 

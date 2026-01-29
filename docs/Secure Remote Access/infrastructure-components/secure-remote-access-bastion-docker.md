@@ -302,7 +302,7 @@ Verify that both `web-bastion` and `ssh-bastion` containers are up and running.
 
 ### SSH Fingerprint
 
-To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the Docker deployment with a dedicated folder within your Akeyless account. The SSH bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder. Note, please ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
+To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades and so on. You can set an environment variable as part of the Docker deployment with a dedicated folder within your Akeyless account. The SSH bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder. Note, please ensure your Bastion default Auth Method has the following permissions on that folder `create`, `read`, `list`:
 
 ```shell
 docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \

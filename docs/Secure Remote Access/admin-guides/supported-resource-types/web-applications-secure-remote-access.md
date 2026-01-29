@@ -17,7 +17,7 @@ Akeyless Secure Remote Access for Web Applications enables full secure remote co
 The following browsing modes are available:
 
 * **Direct Connections** - Users access web targets directly in the browser by simply injecting the secret credentials into the correct fields through the Akeyless Browser Extension.
-* **Secure Web Browsing** - Users access an embedded, isolated and secured remote browser (Firefox) where the credentials are injected into the correct fields without exposing them to the user, provides auditing, and allows restricting user access to only allowed websites while enforcing specific policies per your preferences (such as disabling developer-tools, etc.)
+* **Secure Web Browsing** - Users access an embedded, isolated and secured remote browser (Firefox) where the credentials are injected into the correct fields without exposing them to the user, provides auditing, and allows restricting user access to only allowed websites while enforcing specific policies per your preferences (such as disabling developer-tools, and so on)
 * **Secure Web Proxy** - Users access the web application where the Web Access Bastion acts as web proxy to access internal web resources from the external network (through the standard browser). This offers a VPN-like functionality for specific web apps.
 
 > 🚧 Warning
@@ -30,7 +30,7 @@ The following browsing modes are available:
 
 * Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
 
-This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: `username..password`. i.e. a concatenation of your username and password, with double dots as a delimiter.
+This application is used to inject credentials for any secured websites. To start using web access injection, the value of the secret must provide the credentials for the web service. Pattern of credentials: `username..password`. that is a concatenation of your username and password, with double dots as a delimiter.
 
 ## Set Up Remote Access to a Web Application from the Akeyless CLI
 

@@ -54,7 +54,7 @@ akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim
 
 ### Support for Other Keyboard Layouts
 
-To enable a keyboard layout in your remote sessions (ie Windows), use the following command (the default is `en-us-qwerty`):
+To enable a keyboard layout in your remote sessions for Windows, use the following command (the default is `en-us-qwerty`):
 
 ```shell
 akeyless gateway update remote-access --keyboard-layout <layout-option> --gateway-url https://<Your-Akeyless-GW-URL:8000>
@@ -101,7 +101,7 @@ To store local recordings inside your Gateway , set the `rdp-session-storage` wi
 
 ## SSH Fingerprint
 
-Use this parameter inside your deployment to store fingerprint information in a specific location within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes, make sure the Gateway Authentication method has the following permissions on that folder `create`,`read`, `list`. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
+Use this parameter inside your deployment to store fingerprint information in a specific location within your Akeyless account. This approach prevents the need to manually re-accept the SSH host key fingerprint after upgrades or other changes, make sure the Gateway Authentication method has the following permissions on that folder `create`, `read`, `list`. In the example below, the fingerprints will be stored in the `/MY_SSH_REMOTE_ACCESS_HOST_KEYS` folder.
 
 ```yaml
 sshConfig:

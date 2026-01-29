@@ -50,7 +50,7 @@ Where:
 
 * `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
 
-* `email`: List of emails to start/stop sharing the secret with, To specify multiple emails use argument multiple times (`--email email1 --email email2` etc.). This parameter is mandatory for `start` or `stop` actions.
+* `email`: List of emails to start/stop sharing the secret with, To specify multiple emails use argument multiple times (`--email email1 --email email2` and so on). This parameter is mandatory for `start` or `stop` actions.
 
 To share an item by way of **Token** run the following:
 

@@ -134,7 +134,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
         * **Password:** For authentication using **Username** and **Password**.
         * **Key** For authentication using **RSA Key**.
     * **Algorithm**: The RSA key algorithm, (relevant only for **Key** Authentication Mode).
-    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
     * **Temporary Password Length** Set the length of the temporary password.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.

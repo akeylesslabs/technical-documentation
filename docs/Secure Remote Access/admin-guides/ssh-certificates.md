@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-Via a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods), while using existing Access Groups and Policies in your environment.
+By way of a Single Sign-on (SSO), the Akeyless Platform connects an SSH client to the server, using your chosen [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods), while using existing Access Groups and Policies in your environment.
 
 Instead of issuing a public and private SSH key pair, Akeyless provides temporary SSH certificates to allow access over the standard SSH protocol while eliminating the need for public SSH keys on the server side.
 
-![Illustration for: Instead of issuing a public and private SSH key pair, Akeyless provides temporary SSH certificates to allow access over the standard SSH protocol while eliminating the need for…](https://files.readme.io/d650059-SSH_Certificates.png)
+![Illustration for: Instead of issuing a public and private SSH key pair, Akeyless provides temporary SSH certificates to allow access over the standard SSH protocol while eliminating the need for public SSH keys on the server side.](https://files.readme.io/d650059-SSH_Certificates.png)
 
-You can define several SSH Certificate Authorities (CAs). Each CA can sign your SSH public keys, with additional parameters like expiration date, principals, extensions, etc.
+You can define several SSH Certificate Authorities (CAs). Each CA can sign your SSH public keys, with additional parameters like expiration date, principals, extensions, and so on.
 
 You can sign the certificate with your own private key or generate a new one in the Akeyless Platform.
 

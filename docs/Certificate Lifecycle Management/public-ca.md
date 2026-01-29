@@ -44,7 +44,7 @@ Where:
 
 * `gw-cluster-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `ttl`: The maximum requested Time To Live for an issued certificate by default in seconds, supported formats are `s`,`m`,`h`,`d`.
+* `ttl`: The maximum requested Time To Live for an issued certificate by default in seconds, supported formats are `s`, `m`, `h`, `d`.
 
 * `allowed-domains`: A list of domains that will be allowed to issue certificates for using this item.
 

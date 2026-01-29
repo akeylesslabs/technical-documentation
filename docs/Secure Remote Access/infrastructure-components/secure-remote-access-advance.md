@@ -153,8 +153,8 @@ sshConfig:
 
 ## SSH Fingerprint
 
-To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades etc. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.
-Note, please ensure your Bastion default Auth Method has the following permissions on that folder `create`,`read`, `list`:
+To accept the SSH Bastion host key fingerprint automatically without re-accepting it after upgrades and so on. You can set an environment variable as part of the chart deployment with a dedicated folder within your Akeyless account. The SRA bastion will automatically store the relevant fingerprints within that folder. In this example, we will store the fingerprints inside `/MY_SSH_BASTION_HOST_KEYS` folder.
+Note, please ensure your Bastion default Auth Method has the following permissions on that folder `create`, `read`, `list`:
 
 ```yaml
 sshConfig:
@@ -190,7 +190,7 @@ ztpConfig:
 
 ## Support for Other Keyboard Layouts
 
-To enable support for other keyboard layouts in your remote sessions (ie Windows), find the `ztbConfig` section and add the `KEYBOARD_LAYOUT` variable name and value (the default is `en-us-qwerty`) to the `env` as follows:
+To enable support for other keyboard layouts in your remote sessions for Windows, find the `ztbConfig` section and add the `KEYBOARD_LAYOUT` variable name and value (the default is `en-us-qwerty`) to the `env` as follows:
 
 ```yaml
 ####################################################

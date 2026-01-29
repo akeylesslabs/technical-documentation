@@ -144,7 +144,7 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
 
 ![Illustration for: Insert the details. It is recommended to choose Auth type “JWT”. Insert the private key used to sign the certificate. Insert the user created in ServiceNow. Insert the…](https://files.readme.io/d383a3d-Screenshot_2024-07-14_at_16.01.06.png)
 
-### Approving Access Request Via ServiceNow Instance
+### Approving Access Request by way of ServiceNow Instance
 
 * Locate `akeyless_access_request` table in ServiceNow instance "All" menu
     * Click on "All" and enter `akeyless_access_request` in the search field

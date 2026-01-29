@@ -42,7 +42,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `certificate`: Path to a file that contains the certificate. Supported formats are: `pem`,`cer`,`crt`,`pfx`,`p12`.
+* `certificate`: Path to a file that contains the certificate. Supported formats are: `pem`, `cer`, `crt`, `pfx`, `p12`.
 
 * `certificate-data`: Content of the certificate in a Base64 format.
 
