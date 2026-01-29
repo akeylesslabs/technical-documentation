@@ -10,7 +10,7 @@ metadata:
 ---
 ## Introduction
 
-The Akeyless Universal Identity (UID) authentication method enables you to identify your machines without the need for an initial secret. This authentication method solves the **secret zero** problem by providing an inherited identity derived from the parent system together with an ephemeral token for continuous authentication.
+The Akeyless Universal Identity (UID) authentication method enables you to identify your machines without the need for an initial secret. This authentication method solves the **secret zero** problem by providing an inherited identity derived from the parent system together with a temporary token for continuous authentication.
 
 The following diagram describes the flow of credentials when using UID tokens, demonstrating the elimination of the secret zero problem:
 

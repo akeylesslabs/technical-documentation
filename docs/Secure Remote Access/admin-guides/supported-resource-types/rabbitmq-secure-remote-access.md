@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable Secure Remote Access to RabbitMQ on the dynamic secret that generates ephemeral credentials for the RabbitMQ. Users can then access the RabbitMQ console from the Secure Remote Access Portal either over the web.
+You can enable Secure Remote Access to RabbitMQ on the dynamic secret that generates temporary credentials for the RabbitMQ. Users can then access the RabbitMQ console from the Secure Remote Access Portal either over the web.
 
 ## Prerequisites
 

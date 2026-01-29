@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable Secure Remote Access to Azure Portal with a Dynamic Secret that generates ephemeral credentials for Azure AD or using a Rotated Secret. Users can then access the Azure Portal from the Secure Remote Access Portal.
+You can enable Secure Remote Access to Azure Portal with a Dynamic Secret that generates temporary credentials for Azure AD or using a Rotated Secret. Users can then access the Azure Portal from the Secure Remote Access Portal.
 
 ## Prerequisites
 

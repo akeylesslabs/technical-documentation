@@ -45,7 +45,7 @@ Verify your deployment in Keycloak logs:
 
 > 👍 Note
 >
-> When working with ephemeral containers, `deployments` folder should be mounted using persistent volumes.
+> When working with [Ephemeral Containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/), the `deployments` folder should be mounted using Persistent Volumes.
 
 ## Setting Up Akeyless Keycloak Authenticator
 

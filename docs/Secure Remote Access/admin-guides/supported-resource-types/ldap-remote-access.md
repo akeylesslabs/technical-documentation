@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable Secure Remote Access to an LDAP server with a Dynamic Secret that generates ephemeral credentials for the server or a Rotated Secret. Users can access the LDAP server from the Secure Remote Access Portal over the web.
+You can enable Secure Remote Access to an LDAP server with a Dynamic Secret that generates temporary credentials for the server or a Rotated Secret. Users can access the LDAP server from the Secure Remote Access Portal over the web.
 
 ## Prerequisites
 

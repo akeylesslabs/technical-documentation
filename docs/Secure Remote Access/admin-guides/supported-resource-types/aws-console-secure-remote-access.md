@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable Secure Remote Access to AWS with a Dynamic Secret that generates ephemeral credentials for AWS or a Rotated Secret. Users can then access AWS from the Secure Remote Access Portal, either over the web or using the native AWS CLI.
+You can enable Secure Remote Access to AWS with a Dynamic Secret that generates temporary credentials for AWS or a Rotated Secret. Users can then access AWS from the Secure Remote Access Portal, either over the web or using the native AWS CLI.
 
 > 👍 Note
 >
