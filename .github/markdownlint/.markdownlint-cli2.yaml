@@ -95,10 +95,7 @@ config:
   #   - severity: error|warning|info
   AKY010: true
 
-  # AKY011: Require numerals instead of spelled-out numbers
-  # Knobs:
-  #   - severity: error|warning|info
-  AKY011: false
+  # AKY011: Skipped
 
   # AKY012: Enforce SI unit formatting (space + casing)
   # Knobs:
@@ -110,12 +107,9 @@ config:
   #   - severity: error|warning|info
   #   - code_blocks: true|false
   #   - ignore_a_html_tag: true|false
-  AKY013: false
-  #AKY013:
-  #  code_blocks: true
-  #  ignore_a_html_tag: true
-  #  names_file: .cspell/akeyless-proper-nouns-dictionary.txt
-  #  ignore_urls: true  # ignore matches inside URLs (requires rule support)
+  #   - names_file: .cspell/akeyless-proper-nouns-dictionary.txt
+  #   - ignore_urls: true
+  AKY013: true
 
   # AKY014: Require meaningful image alt text
   # Knobs:
@@ -506,6 +500,9 @@ config:
   MD023: true
 
   # MD024: Duplicate heading content
+  # 
+  # Note: This isn't ready yet, specifically because of the CLI Reference
+  # 
   # Knobs:
   #   - severity: error|warning|info
   #   - allow_different_nesting: true|false
@@ -706,7 +703,7 @@ config:
   # MD045: Images must have alt text
   # Knobs:
   #   - severity: error|warning|info
-  MD045: false
+  MD045: true
 
   # MD046: Code block style
   # Knobs:
