@@ -108,13 +108,9 @@ To download the latest version of the CLI, please make sure that the `https://ak
 
 Running the CLI for the first time by default, prompts you to configure the basic settings.
 
-For example, the default Akeyless URL is `vault.akeyless.io`. This value is changed if you are running in a different SaaS environment. Press Enter to keep the default value.
-
 ```shell
 AKEYLESS-CLI, first use detected
 For more info please visit: https://docs.akeyless.io/docs/cli 
-By default, the Akeyless URL is vault.akeyless.io. Use a different URL if another SaaS environment is being used.
-Please type your answer: (Default: vault.akeyless.io) 
 ```
 
 At the prompt `Would you like to configure a profile? (Y/n)` line, type `Y`. Type a name for the profile or press Enter to leave the name as `default`.
