@@ -754,4 +754,3 @@ akeyless certificate-discovery \
 
 `-d, --debug`: Use this flag to run the command in **Debug mode**.
 
-<br />

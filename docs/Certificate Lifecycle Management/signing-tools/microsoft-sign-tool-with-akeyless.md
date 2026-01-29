@@ -7,15 +7,13 @@ metadata:
 ---
 This guide provides step-by-step instructions to set up code signing using Akeyless for PKI certificate issuance and the Akeyless Key Storage Provider (KSP) on Windows. It includes creating secrets in Akeyless, generating certificates, configuring the KSP, and performing a complete uninstall/reinstall of the Akeyless KSP for troubleshooting or clean setup.
 
-<br />
-
 All commands assume you have the Akeyless CLI installed and authenticated. Replace placeholder paths (`/YourCompany/`) with your own organization-specific paths in Akeyless.
 
-### Part 1: Create Secrets and Issue Code-Signing Certificate in Akeyless
+## Part 1: Create Secrets and Issue Code-Signing Certificate in Akeyless
 
-#### Create Root Key for PKI Issuer
+### Create Root Key for PKI Issuer
 
-```shell Bash
+```shell
 akeyless create-dfc-key \
   --profile default \
   --name /YourCompany/code-signing/root-key \
@@ -25,9 +23,9 @@ akeyless create-dfc-key \
   --generate-self-signed-certificate true
 ```
 
-#### Create 4096-bit Key and Generate CSR
+### Create 4096-bit Key and Generate CSR
 
-```shell Bash
+```shell
 akeyless generate-csr \
   --profile default \
   --split-level 2 \
@@ -38,9 +36,9 @@ akeyless generate-csr \
   --common-name code.sign.example.com | Out-File -Encoding ascii signing.csr
 ```
 
-#### Create PKI Certificate Issuer
+### Create PKI Certificate Issuer
 
-```shell Bash
+```shell
 akeyless create-pki-cert-issuer \
   --profile default \
   --name /YourCompany/code-signing/pki-issuer \
@@ -51,9 +49,9 @@ akeyless create-pki-cert-issuer \
   --destination-path /YourCompany/code-signing
 ```
 
-#### Issue the 4096-bit Certificate
+### Issue the 4096-bit Certificate
 
-```shell Bash
+```shell
 akeyless get-pki-certificate \
   --profile default \
   --cert-issuer-name /YourCompany/code-signing/pki-issuer \
@@ -61,11 +59,11 @@ akeyless get-pki-certificate \
   > signing.pem
 ```
 
-#### Example Configuration File (sqlcrypt.conf)
+### Example Configuration File (sqlcrypt.conf)
 
 Create a file named sqlcrypt.conf in a secure location (example `C:\Akeyless\conf\sqlcrypt.conf)`:
 
-```text Txt
+```text
 akeyless_url = "https://gw-aws.lm.cs.akeyless.fans/api/v2"
 base_item_path = "/YourCompany/"
 log_path = ""
@@ -81,8 +79,6 @@ access_id = ""
 access_key = "*****************************"
 ```
 
-<br />
-
 > ❗️ Notes  
 > Update `base_item_path` to match your Akeyless path.
 > Fill in your actual `access_id` and `access_key`.
@@ -90,7 +86,7 @@ access_key = "*****************************"
 >
 >
 
-### Part 2: Akeyless KSP – Full Uninstall and Install
+## Part 2: Akeyless KSP – Full Uninstall and Install
 
 This procedure ensures a clean removal and reinstallation of the Akeyless KSP. It clears registry entries, files, and cached provider information.
 
@@ -98,11 +94,11 @@ Important:
 
 * Run all PowerShell commands from an elevated PowerShell (Run as Administrator).
 * A reboot is required after uninstall and after install for changes to take effect reliably.
-* Have the Akeyless KSP MSI file ready (e.g., downloaded from your build artifacts).
+* Have the Akeyless KSP MSI file ready (fro example, downloaded from your build artifacts).
 
-#### Define Variables
+### Define Variables
 
-```shell Shell
+```shell
 $msi = "C:\Path\To\AkeylessKspInstaller.msi"   # Update to your MSI location
 $prov = "Akeyless KSP"
 $logInstall = Join-Path $env:TEMP "AkeylessKspInstall.log"
@@ -111,7 +107,7 @@ $logUninst = Join-Path $env:TEMP "AkeylessKspUninstall.log"
 
 Verify:
 
-```shell Shell
+```shell
 $msi
 $logInstall
 Test-Path $msi   # Should return True
@@ -119,7 +115,7 @@ Test-Path $msi   # Should return True
 
 #### Full Uninstall
 
-```shell Shell
+```shell
 $uninstRoots = @(
     "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
     "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
@@ -143,7 +139,7 @@ Reboot the machine now. Do not skip this step.
 
 Run these checks – all should show the provider is gone:
 
-```shell Shell
+```shell
 certutil -csplist | findstr /i "Akeyless"   # No output
 
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Cryptography\Providers\Akeyless KSP" /s   # Key not found
@@ -157,23 +153,21 @@ Test-Path "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe" 
 
 (Optional) Clean leftover certificate bindings:
 
-```shell Shell
+```shell
 certutil -store -v My | Select-String -Pattern "Provider = Akeyless KSP" -Context 6,10
 # If any found, run your cleanup script or manually re-bind certificates
 ```
 
-#### Full Install
+### Full Install of the MSI
 
-##### Install the MSI
-
-```shell Shell
+```shell
 msiexec /i "$msi" IMPORT_CERT=0 /l*v "$logInstall"
 $LASTEXITCODE
 ```
 
 (Alternative robust version if issues occur:)
 
-```shell Shell
+```shell
 Start-Process -FilePath "msiexec.exe" -Verb RunAs -Wait -ArgumentList @(
     "/i", $msi, "IMPORT_CERT=0", "/l*v", $logInstall
 )
@@ -184,9 +178,9 @@ Expected exit code: 0 or 3010.
 
 Reboot the machine now.
 
-#### Verify Installation (after reboot)
+### Verify Installation (after reboot)
 
-```shell Shell
+```shell
 Get-Item "C:\Windows\System32\AkeylessKsp.dll" | Select FullName,Length,LastWriteTime
 Get-Item "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe" | Select FullName,Length,LastWriteTime
 
@@ -197,19 +191,19 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Loca
 certutil -csplist | findstr /i "Akeyless"   # Shows "Provider Name: Akeyless KSP"
 ```
 
-#### Sync Certificate and Test Signing
+### Sync Certificate and Test Signing
 
-##### Run the Helper to Sync/Bind Certificate
+#### Run the Helper to Sync/Bind Certificate
 
-```shell Shell
+```shell
 $helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
 & $helper --config-path "C:\Akeyless\conf\sqlcrypt.conf" sync-cert --store-scope machine --store-name My
 "exit=$LASTEXITCODE"   # Should be 0
 ```
 
-##### Find Your Certificate Thumbprint
+#### Find Your Certificate Thumbprint
 
-```shell Shell
+```shell
 Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.HasPrivateKey } |
     Select-Object Subject, Thumbprint, NotAfter | Format-Table -Auto
 
@@ -220,40 +214,40 @@ Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.Subject -like "*code.sig
 
 Set variable:
 
-```shell Shell
+```shell
 $thumb = "YOUR_THUMBPRINT_HERE"
 ```
 
-##### Confirm Binding
+#### Confirm Binding
 
-```shell Shell
+```shell
 (Get-Item "Cert:\LocalMachine\My\$thumb").HasPrivateKey
 certutil -store -v My $thumb | findstr /i "Provider Container"
 ```
 
 Expected: `Provider = Akeyless KSP`
 
-##### Sign a Test File
+#### Sign a Test File
 
-```shell Shell
+```shell
 $file = "C:\Temp\hello.dll"   # Place a test DLL here
 signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 `
     /tr "http://timestamp.digicert.com" /td SHA256 $file
 "sign exit=$LASTEXITCODE"   # Should be 0
 ```
 
-##### Validate Signature
+#### Validate Signature
 
-```shell Shell
+```shell
 $sig = Get-AuthenticodeSignature $file
 $sig.Status
 $sig.SignerCertificate.Subject
 $sig.SignerCertificate.Thumbprint
 ```
 
-##### Verify Signature (with Trust)
+#### Verify Signature (with Trust)
 
-```shell Shell
+```shell
 signtool verify /pa /v $file
 ```
 
