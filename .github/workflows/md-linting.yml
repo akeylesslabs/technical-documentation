@@ -1,4 +1,4 @@
-name: Markdown Lint Fixer
+name: Markdown Linter
 
 on:
   schedule:
@@ -17,14 +17,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
 
-      # 1. Install deps (prefer npm ci when lockfile exists)
-      - name: Install dependencies
+      # 1. Install markdownlint-cli2 globally
+      - name: Install markdownlint-cli2
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+          npm install -g markdownlint-cli2
+
 
       # 2. Prepare outputs dir
       - name: Prepare output directories
