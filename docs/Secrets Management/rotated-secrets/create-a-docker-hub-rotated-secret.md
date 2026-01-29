@@ -46,7 +46,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > 🚧 Warning
 >
-> Rotating the [Target](https://docs.akeyless.io/docs/targets) credentials (i.e., changing your Docker Hub password) will invalidate all existing personal access tokens.
+> Rotating the [Target](https://docs.akeyless.io/docs/targets) credentials (that is, changing your Docker Hub password) will invalidate all existing personal access tokens.
 
 ## Create a Rotated Docker Hub Secret in the Akeyless Console
 

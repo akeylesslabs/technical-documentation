@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions via HashiCorp Vault Proxy
+title: GitHub Actions by way of HashiCorp Vault Proxy
 excerpt: ''
 deprecated: false
 hidden: false

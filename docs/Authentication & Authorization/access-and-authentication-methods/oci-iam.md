@@ -67,7 +67,7 @@ akeyless get-cloud-identity --oci-auth-type apikey
 
 Where:
 
-* `oci-auth-type`: Represents the [OCI Authentication type](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm), supporting `apikey`,`resource` and `instance`.
+* `oci-auth-type`: Represents the [OCI Authentication type](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm), supporting `apikey`, `resource`, and `instance`.
 
 > 📘 Note:
 >
@@ -93,6 +93,6 @@ Where:
 
     * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`,`SDK`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`.
 
 4. Click **Finish**.

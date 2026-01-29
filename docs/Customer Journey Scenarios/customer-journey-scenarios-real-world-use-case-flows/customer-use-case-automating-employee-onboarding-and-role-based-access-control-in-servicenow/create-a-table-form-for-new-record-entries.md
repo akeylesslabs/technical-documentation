@@ -30,7 +30,7 @@ Creating a form in ServiceNow to add new records to a table simplifies data entr
 
 ## Step 3: Add Fields to the Form
 
-* **Select Fields**: In the form layout editor, you'll see a list of available fields on one side of the screen. These are the fields you've defined for your table, such as "First Name," "Last Name," "Email," etc.
+* **Select Fields**: In the form layout editor, you'll see a list of available fields on one side of the screen. These are the fields you've defined for your table, such as "First Name," "Last Name," "Email," and so on.
 * **Drag and Drop Fields:** To add fields to your form, drag them from the list of available fields to the form layout. Arrange them in the order you want them to appear on the form.
 * **Configure Field Properties:** As you add each field to the form, you can configure its properties. For example, you might set certain fields as mandatory, define default values, or add help text to guide users in filling out the form.
 

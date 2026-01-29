@@ -95,7 +95,7 @@ You can find the complete list of additional parameters for this command in the 
 
     * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`, `Web UI`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`, `Gateway Admin`, `Web UI`.
 
     * **CA Certificate:** Download the CA certificate in Base64 format.
 

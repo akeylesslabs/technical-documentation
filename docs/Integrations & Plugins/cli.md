@@ -142,7 +142,7 @@ Please run the following command to start using Akeyless CLI:
     'source ~/.bash_profile'
 ```
 
-The CLI will try to locate the user profile file (based on shell, i.e `.bash_profile`, `.zprofile`, `.profile`, etc), and export the `USER_HOME_DIR/.akeyless/bin/` to user `$PATH`.
+The CLI will try to locate the user profile file (based on shell, that is `.bash_profile`, `.zprofile`, `.profile`, and so on), and export the `USER_HOME_DIR/.akeyless/bin/` to user `$PATH`.
 
 Try running the `create-secret`command to test your installation:
 
@@ -189,7 +189,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 ### Non-Interactive Mode
 
 To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
-If you're working with a different tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
+If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
 ```shell
@@ -214,7 +214,7 @@ The CLI supports various types of [Authentication Methods](https://docs.akeyless
 For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.
 
 To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
-If you're working with a different tenant environment than the default, i.e. `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
+If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
 ```shell

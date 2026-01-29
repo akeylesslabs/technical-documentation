@@ -39,7 +39,7 @@ You can find the complete list of additional parameters for this command in the 
 
 ### Generate a Token
 
-The UID authentication functions via tokens that can be used to access the assigned permissions. To generate a new token, use the following command:
+The UID authentication functions by way of tokens that can be used to access the assigned permissions. To generate a new token, use the following command:
 
 ```shell
 akeyless uid-generate-token --auth-method-name <UID Name>
@@ -182,7 +182,7 @@ Universal Identity Details:
 
     * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`,`SDK`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI` , `SDK`.
 
     * Check **Deny Rotate** if you want to forbid token rotation.
 

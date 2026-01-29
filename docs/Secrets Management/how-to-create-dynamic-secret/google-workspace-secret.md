@@ -34,7 +34,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
 2. **Create a Service Account** with the following roles:
    * **Group User** - Enables use access on group resources
    * **Service Account Key Admin** - Create and manage (and rotate) service account keys
-   * **Service Account Token Creator** - Impersonate service accounts (create OAuth2 access tokens, sign blobs or JWT, etc)
+   * **Service Account Token Creator** - Impersonate service accounts (create OAuth2 access tokens, sign blobs or JWT, and so on)
    * **Service Account User** - Run operations as the service account
 
 3. **Generate and download JSON key**: Click on the **Service Account** that was created, go to **Keys**, click **Add Key > Create new key > Json**. The key will be downloaded automatically to your computer.
@@ -151,7 +151,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Scope**: The scope in which this role is assigned **CUSTOMER**/**ORG_UNIT**.
 * **Admin Email**: The email of the Google Workspace Account.
 * **Sub Claim Name**: From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_email`
-* **User TTL**: Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+* **User TTL**: Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
 * **Time Unit**: Select the time unit (seconds, minutes, hours) for the TTL value.
 * **Gateway**: Select the Gateway through which the dynamic secret will create users.
 * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).

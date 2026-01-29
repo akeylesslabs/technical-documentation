@@ -74,7 +74,7 @@ Where:
 
 `name`: A unique name for the encryption key. The name can include the path to the virtual folder where you want to create the new authentication method, using slash / separators. If the folder does not exist, it will be created together with the encryption key.
 
-`alg`: Supporting algorithms: `RSA1024`,`RSA2048`, `RSA3072` `EC256`, `EC384`, `EC521` (`EC` type is relevant for **Classic key** only).
+`alg`: Supported algorithms: `RSA1024`, `RSA2048`, `RSA3072` `EC256`, `EC384`, `EC521` (`EC` type is relevant for **Classic key** only).
 
 `generate-self-signed-certificate`: Generate a self-signed certificate with the key.
 

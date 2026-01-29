@@ -740,7 +740,7 @@ akeyless dynamic-secret create gke \
 
 `-a, --gke-account-email`: GKE service account email
 
-`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https://\<DNS/IP>
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, that is, cluster URI https://\<DNS/IP>
 
 `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
@@ -1769,7 +1769,7 @@ akeyless gateway-create venafi \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--user-ttl[=60h]`: User TTL in time.Duration format (60h / 9600m / etc...). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/), Default = 60h
+`--user-ttl[=60h]`: User TTL in time.Duration format (for example, 60h or 9600m). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/), Default = 60h
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -2422,7 +2422,7 @@ akeyless dynamic-secret update gke \
 
 `-a, --gke-account-email`: GKE service account email
 
-`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI https://\<DNS/IP>
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, that is, cluster URI https://\<DNS/IP>
 
 `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
@@ -3279,7 +3279,7 @@ akeyless dynamic-secret update venafi \
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
-`--user-ttl[=60h]`: User TTL in time.Duration format (60h / 9600m / etc...). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/)
+`--user-ttl[=60h]`: User TTL in time.Duration format (for example, 60h or 9600m). When using sign-using-akeyless-pki certificates created will have this validity period, otherwise the user-ttl is taken from the Validity Period field of the Zone's' Issuing Template. When using cert-manager it is advised to have a TTL of above 60 days (440h). For more information - [https://cert-manager.io/docs/usage/certificate/](https://cert-manager.io/docs/usage/certificate/)
 
 ### `openai`
 

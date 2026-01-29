@@ -56,6 +56,6 @@ Your new application appears in the list of available applications.
 
     > 👍 Note
     >
-    > **Unique Identifier** should be a **key** name, i.e. not the value itself. For example, `email` should be provided as is, and not the actual email address.
+    > **Unique Identifier** should be a **key** name, that is not the value itself. For example, `email` should be provided as is, and not the actual email address.
 
 4. Click **Finish**.

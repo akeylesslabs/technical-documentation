@@ -259,7 +259,7 @@ input {
 
 6. Insert the [Endpoint address](https://help.sumologic.com/docs/send-data/hosted-collectors/http-source/logs-metrics/).
 
-7. Optional - Define **Tags** - `tag1`,`tag2`.
+7. Optional - Define **Tags** - `tag1, tag2`.
 
 8. Optional - Define **Host** of your choice.
 

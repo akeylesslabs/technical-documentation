@@ -14,7 +14,7 @@ Our powerful RBAC model allows delegating some of the account owner’s permissi
 
 While users can be added to the default **admin** role of the account using the pre-defined **admin** role without having to mention what type of access they will have explicitly. you can still segregate the account into multiple different tenants. While only the account owner and users that are part of the admin default role can still navigate between those different tenants.
 
-As the Akeyless Platform stores all objects (secrets, keys, targets, roles, auth methods, etc.) in a virtual filesystem. It allows organizing everything based on the domain each item belongs to. For example, an organization may have Dev, Operations, and Security departments, each having its own set of secrets, roles, and auth methods.
+As the Akeyless Platform stores all objects (secrets, keys, targets, roles, auth methods, and so on) in a virtual filesystem. It allows organizing everything based on the domain each item belongs to. For example, an organization may have Dev, Operations, and Security departments, each having its own set of secrets, roles, and auth methods.
 
 In such a situation, it would make sense to have a person responsible for every department. For example, three users can be designated to administer their own departments: `/dev/director`, `/ops/lead`, and `/security/ciso`.
 

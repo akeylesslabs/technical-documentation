@@ -41,7 +41,7 @@ Where:
 
 * `secure-access-certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication..
 * `secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL.
-* `secure-access-allow-port-forwading`: Optional, allows running non-interactive kubectl commands, such as: exec / port-forward / etc. Also allows using the --watch flag (-w), for example.
+* `secure-access-allow-port-forwading`: Optional, allows running non-interactive kubectl commands, such as: exec / port-forward / and so on. Also allows using the --watch flag (-w), for example.
 
 For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets) you can have Secure Remote Access for your Kubernetes Dashboard URL:
 
@@ -62,7 +62,7 @@ For [GKE Dynamic Secrets](https://docs.akeyless.io/docs/gke-dynamic-secret-produ
 
 * `Cluster Endpoint URL`: Required, your Kubernetes cluster URL.
 * `certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
-* `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / etc. Also allows using the `--watch` flag (`-w`), for example.
+* `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / and so on. Also allows using the `--watch` flag (`-w`), for example.
 
 For [Kubernetes Generic Dynamic Secrets](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets):
 
@@ -78,7 +78,7 @@ For **CLI Access**:
 
 * `certificate-issuer`: Required to enable CLI access. The path to the SSH certificate issuer that should be used for certificate authentication.
 
-* `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / etc. Also allows using the `--watch` flag (`-w`), for example.
+* `Allow Port Forwarding`: Optional, allows running non-interactive `kubectl` commands, such as: `exec` / `port-forward` / and so on. Also allows using the `--watch` flag (`-w`), for example.
 
 From any terminal which has [Akeyless Connect](https://docs.akeyless.io/docs/akeyless-connect) configured, you can run the following command:
 

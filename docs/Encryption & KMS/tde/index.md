@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Transparent Data Encryption (TDE) is a security feature that provides encryption of sensitive data stored in database tables and tablespaces. This ensures that the data at rest, i.e., the data stored on disk, is protected from unauthorized access. The primary purpose of TDE is to prevent data breaches resulting from stolen or improperly accessed storage media.
+Transparent Data Encryption (TDE) is a security feature that provides encryption of sensitive data stored in database tables and tablespaces. This ensures that the data at rest, that is, the data stored on disk, is protected from unauthorized access. The primary purpose of TDE is to prevent data breaches resulting from stolen or improperly accessed storage media.
 
 ## How TDE Works
 

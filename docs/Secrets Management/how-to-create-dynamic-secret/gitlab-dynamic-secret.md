@@ -115,7 +115,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Role**: [GitLab Role](https://docs.gitlab.com/ee/user/permissions.html) to be assigned to the access token
     * **Group Name**: Name of the group, Relevant for `group` Access Type
     * **Project Name**: Name of the project, Relevant for `project` Access Type
-    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the access token becomes obsolete.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the access token becomes obsolete.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).

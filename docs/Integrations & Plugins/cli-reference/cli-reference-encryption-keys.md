@@ -534,7 +534,7 @@ akeyless hmac \
 
 `-p, --plaintext`: Data to perform HMAC on, if a file was not provided
 
-`-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-512`
+`-f, --hash-function[=sha-256]`: Hash function to use. For example, `sha-256` or `sha-512`.
 
 `-F, --input-format`: Select the default assumed format for any plaintext input. Currently supported options: `[base64]`
 
@@ -703,7 +703,7 @@ akeyless sign-rsassa-pss \
 
 `--version`: The version of the key to use for signing
 
-`-f, --hash-function[=sha-256]`: Hash function `sha-256`,`sha-384`,`sha-512`
+`-f, --hash-function[=sha-256]`: Hash function to use. For example, `sha-256`, `sha-384`, or `sha-512`.
 
 `-m, --message`: (**Mandatory**) The input message to sign in a Base64 format
 

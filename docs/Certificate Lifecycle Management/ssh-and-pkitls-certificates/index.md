@@ -141,7 +141,7 @@ Where:
 
 > 📘 Note
 >
-> When using a wildcard certificate, if the `*` character is used in the name, it will be automatically replaced with `~` in the Akeyless Console when the `--destination-path` is specified (i.e., when the certificate is stored in Akeyless).
+> When using a wildcard certificate, if the `*` character is used in the name, it will be automatically replaced with `~` in the Akeyless Console when the `--destination-path` is specified (that is, when the certificate is stored in Akeyless).
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp) section.
 

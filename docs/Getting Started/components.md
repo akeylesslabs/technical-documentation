@@ -132,7 +132,7 @@ Available tools include:
 
 * **Web Console** — UI for configuration, access control, and monitoring
 * **CLI** — Command-line interface for administrative and operational tasks
-* **SDKs** — Language clients (Go, Python, Java, JavaScript, etc.)
+* **SDKs** — Language clients (Go, Python, Java, JavaScript, and so on)
 * **REST API** — Core entry point for programmatic access
 
 Clients may communicate directly with the Akeyless Platform or through the Gateway.

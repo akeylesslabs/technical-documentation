@@ -162,7 +162,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Extract username from the following claim (Key name):** Provide the name of the claim in the authentication token from which the "externally provided username" will be taken. The value should be either the full principal user name or the user display name.
 
-    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a token). When TTL expires, the token becomes obsolete.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
 
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 

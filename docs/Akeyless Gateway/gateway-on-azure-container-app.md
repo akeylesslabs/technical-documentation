@@ -155,7 +155,7 @@ Where:
 * `gateway_access_type` - The Auth Method type for the Gateway (In our case - `azure`).
 
 * `allowed_access_permissions` - A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components.
-  **Required** when `admin_access_id_type` is `azure`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), etc.
+  **Required** when `admin_access_id_type` is `azure`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), and so on.
 
 * `akeyless_url` - `https://vault.akeyless.io`.
 

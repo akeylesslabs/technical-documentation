@@ -55,7 +55,7 @@ Where:
 
 * `CA:TRUE`: Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
 
-* `digitalSignature`,`KeyCertSign`,`cRLSign`: Key Usage for CA certificates.
+* `digitalSignature`, `KeyCertSign`, `cRLSign`: Key Usage for CA certificates.
 
 Run the following command to create [DFC key](https://docs.akeyless.io/docs/implement-zero-knowledge#create-dfc-key-from-the-akeyless-console) and the certificate:
 

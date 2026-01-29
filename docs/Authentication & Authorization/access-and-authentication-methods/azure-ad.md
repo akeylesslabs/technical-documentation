@@ -64,7 +64,7 @@ akeyless get-cloud-identity --cloud-provider azure_ad
 
     * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`,`Gateway Admin`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `SDK`, `Gateway Admin`.
 
     * **Bound Tenant ID:** Enter a comma-separated list of Azure tenant IDs for which access is allowed.
 

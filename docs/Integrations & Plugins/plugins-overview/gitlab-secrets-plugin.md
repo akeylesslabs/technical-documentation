@@ -112,7 +112,7 @@ secrets:
         akeyless_token: '<t-token>'
 ```
 
-Where make sure to set the relevant `access_type` according to the Auth Method type you are using. For example the [API Key](https://docs.akeyless.io/docs/api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. i.e. `access_key: $AKEYLESS_ACCESS_KEY`.
+Where make sure to set the relevant `access_type` according to the Auth Method type you are using. For example the [API Key](https://docs.akeyless.io/docs/api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. that is `access_key: $AKEYLESS_ACCESS_KEY`.
 
 > 🚧 Warning
 >
@@ -153,7 +153,7 @@ Where:
 
 * `name`: The full name of the secret in Akeyless, for example, `/MyFirstSecret`
 
-* `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint i.e.`<https://Your_GW_URL:8080/v2>`, by default works with the public API: `https://api.akeyless.io`.
+* `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint that is`<https://Your_GW_URL:8080/v2>`, by default works with the public API: `https://api.akeyless.io`.
 
 * `gateway_ca_certificate`: **Optional**, Gateway CA Certificate when your Gateway TLS is set with **Private CA** .
 

@@ -69,7 +69,7 @@ Note that between different sub-claims keys, the logic will always use the **AND
 
 For easier management of your access rules, sub-claims keys can be utilized for quicker and more scalable rule definitions for the access path.
 
-Each sub-claim key should be wrapped by double curly braces, i.e. `{{Sub-Claim Name}}` with a `/` as a separator for folders.
+Each sub-claim key should be wrapped by double curly braces, that is `{{Sub-Claim Name}}` with a `/` as a separator for folders.
 
 For example, say that the following sub-claims exist in your **Access Role**:
 

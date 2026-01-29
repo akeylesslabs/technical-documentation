@@ -81,7 +81,7 @@ For `auth-methods-event-source-locations`:
 
 * `rate-limiting`: When a client reaches the rate-limiting threshold.
 
-* `usage-report`: When the number of clients reaches the threshold (can be set via **Usage Report** screen)
+* `usage-report`: When the number of clients reaches the threshold (can be set by way of **Usage Report** screen)
 
 For `gateways-event-source-locations`:
 

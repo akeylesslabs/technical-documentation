@@ -314,7 +314,7 @@ akeyless target create eks \
 
 `-e, --eks-cluster-name`: **Required**, EKS cluster name
 
-`-c, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (i.e., https://`<IP>` of the cluster)
+`-c, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (that is, https://`<IP>` of the cluster)
 
 `-t, --eks-cluster-ca-cert`: **Required**, EKS cluster base-64 encoded certificate
 
@@ -444,7 +444,7 @@ akeyless target create gke \
 
 `-a, --gke-account-email`: GKE service account email
 
-`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI `https://<DNS/IP>`
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, that is, cluster URI `https://<DNS/IP>`
 
 `-c, --gke-cluster-ca-cert`: GKE Base64-encoded cluster certificate
 
@@ -714,7 +714,7 @@ akeyless target create linked \
 
 `-n, --name`: **Required**, Name for the linked target
 
-`-s, --hosts`: **Required**, A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (i.e. 'server-dev.com;My Dev server,server-prod.com;My Prod server description')
+`-s, --hosts`: **Required**, A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (that is 'server-dev.com;My Dev server,server-prod.com;My Prod server description')
 
 `-p, --parent-target-name`: **Required**, The parent Target name from which to inherit credentials
 
@@ -1455,7 +1455,7 @@ akeyless target update eks \
 
 `-c, --eks-cluster-name`: **Required**, EKS cluster name
 
-`-e, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (i.e., https://`<IP>` of the cluster)
+`-e, --eks-cluster-endpoint`: **Required**, EKS cluster endpoint (that is, https://`<IP>` of the cluster)
 
 `-r, --eks-cluster-ca-cert`: **Required**, EKS cluster base-64 encoded certificate
 
@@ -1608,7 +1608,7 @@ akeyless target update gke \
 
 `-a, --gke-account-email`: GKE service account email
 
-`-e, --gke-cluster-endpoint`: GKE cluster endpoint, i.e., cluster URI
+`-e, --gke-cluster-endpoint`: GKE cluster endpoint, that is, cluster URI
 
 `-c, --gke-cluster-ca-cert`: GKE Base-64 encoded cluster certificate
 
@@ -1914,7 +1914,7 @@ akeyless target update linked \
 
 `--new-name`: New name for the Linked Target
 
-`-s, --hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (i.e. `server-dev.com`;`My Dev server`,`server-prod.com`;`My Prod server description`)
+`-s, --hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon ';' (that is `server-dev.com`;`My Dev server`, `server-prod.com`;`My Prod server description`)
 
 `-p, --parent-target-name`: The parent Target name from which to inherit credentials
 

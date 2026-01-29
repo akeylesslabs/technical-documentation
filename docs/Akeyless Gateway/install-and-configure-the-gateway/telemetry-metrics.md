@@ -14,7 +14,7 @@ Akeyless Gateway Telemetry Metrics can be consumed by well-known monitoring and 
 
 The Telemetry Metrics are based on time series telemetry data metrics from the application and the runtime environment, storing them in a unique database or index, and analyzing data trends over time.
 
-The metrics visualization uses a pre-made or custom dashboard (Grafana Marketplace dashboard, Datadog integration dashboard, etc.).
+The metrics visualization uses a pre-made or custom dashboard (Grafana Marketplace dashboard, Datadog integration dashboard, and so on).
 
 The following metrics are currently available:
 
@@ -71,7 +71,7 @@ Akeyless is an official Datadog Partner and our dashboard can be found inside th
 
 ## Prometheus
 
-To enable Telemetry Metrics on your Gateway for Prometheus, set the `ENABLE_METRICS=true` variable, expose the port `8889` (or any other port) for Prometheus scraping, and mount the Telemetry config file, i.e.,`otel-config.yaml` for the **Prometheus Exporter** as described below:
+To enable Telemetry Metrics on your Gateway for Prometheus, set the `ENABLE_METRICS=true` variable, expose the port `8889` (or any other port) for Prometheus scraping, and mount the Telemetry config file, that is, `otel-config.yaml` for the **Prometheus Exporter** as described below:
 
 ```yaml Prometheus Exporter
 exporters:

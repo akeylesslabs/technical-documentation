@@ -126,7 +126,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **User Tags:** Access to management UI in RabbitMQ can be controlled with user tags. Insert relevant user tags in a comma-separated list, including these tags: management, administrator, monitoring, and policymaker.
 
-    * **User TTL:** Provide a time-to-live value for a dynamic secret (i.e., a key). When TTL expires, the key becomes obsolete.
+    * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a key). When TTL expires, the key becomes obsolete.
 
     * **Temporary Password Length** Set the length of the temporary password.
 

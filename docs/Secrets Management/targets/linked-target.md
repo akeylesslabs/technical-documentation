@@ -56,7 +56,7 @@ akeyless update-linked-target --name <linked target name> --new-name <new name>\
 --parent <parent target> --hosts <hosts>
 ```
 
-Inserting new values in the hosts or parent target parameters will change their values, but the name must be changed via the `new-name` parameter.
+Inserting new values in the hosts or parent target parameters will change their values, but the name must be changed by way of the `new-name` parameter.
 
 ## Working With Linked Targets in the Console
 

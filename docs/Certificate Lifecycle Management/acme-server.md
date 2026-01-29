@@ -45,7 +45,7 @@ Where:
 
 * `basicConstraints`: Basic Constraints that indicate the certificate requested in the CSR can be used as a Certificate Authority (CA) to sign other certificates.
 
-* `keyUsage`: Key Usage for CA certificate with `digitalSignature`,`KeyCertSign`,`cRLSign`.
+* `keyUsage`: Key Usage for CA certificate with `digitalSignature`, `KeyCertSign`, `cRLSign`.
 
 Run the following command to create the **Signer Key**:
 
