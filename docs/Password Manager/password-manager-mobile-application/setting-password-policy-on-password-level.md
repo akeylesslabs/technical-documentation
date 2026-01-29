@@ -12,7 +12,7 @@ next:
 ---
 In our Password Manager application, you have the flexibility to define specific password policies for individual passwords during creation or editing. This ensures that your security requirements align with the uniqueness of each password.
 
-![](https://files.readme.io/8b6ade4-Screenshot_2024-01-10_at_16.16.47.png)
+![Illustration for: In our Password Manager application, you have the flexibility to define specific password policies for individual passwords during creation or editing. This ensures that your…](https://files.readme.io/8b6ade4-Screenshot_2024-01-10_at_16.16.47.png)
 
 ## During Password Creation or Editing
 

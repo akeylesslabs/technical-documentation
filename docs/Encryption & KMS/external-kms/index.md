@@ -28,7 +28,7 @@ next:
 ---
 The Akeyless Key Management System (KMS) allows organizations to simplify the lifecycle management and distribution of cryptographic keys in Multi-Cloud, Hybrid, and Enterprise Environments.
 
-<Image border={false} src="https://files.readme.io/8a5853e-Classic_Keys.png" title="Classic Keys.png" />
+![](https://files.readme.io/8a5853e-Classic_Keys.png)
 
 The Akeyless KMS provides a workflow for sharing cryptographic keys with Cloud KMS providers and managing the key lifecycle, including secure key generation and storage, full Role-Based Access Control, and logging and reporting of the key usage. This enables the customer to maintain centralized control of their keys in the Akeyless Platform while using the cryptographic capabilities of external Cloud KMS providers. Additionally, the option to choose a custom key name when attaching a key to a KMS provides greater flexibility and control over key management within the Akeyless ecosystem.
 

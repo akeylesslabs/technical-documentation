@@ -21,7 +21,7 @@ next:
 
 This extension helps you find and fix hardcoded secrets (like API keys and passwords) in your code by integrating directly with Akeyless.
 
-<Image border={false} src="https://files.readme.io/8f791b6d749c7143a20f17d544592b57aa3b04ffd690c75dfcbb113fe3470bcc-Screenshot_2025-08-04_at_14.24.37.png" />
+![Illustration for: * Google antigravity * Windsurf This extension helps you find and fix hardcoded secrets (like API keys and passwords) in your code by integrating directly with Akeyless.](https://files.readme.io/8f791b6d749c7143a20f17d544592b57aa3b04ffd690c75dfcbb113fe3470bcc-Screenshot_2025-08-04_at_14.24.37.png)
 
 ## What It Does
 
@@ -33,13 +33,13 @@ The Akeyless Secrets Manager extension brings enterprise-grade secret management
 
 Scans your code and highlights potential secrets as you type.
 
-<Image border={false} src="https://files.readme.io/7776cce54a76236bc12a091bd8e2bc5a84d32c3d62b9cd4489b6615246dccfaf-scan_for_secrets.gif" />
+![Illustration for: Automatic Secret Detection Scans your code and highlights potential secrets as you type.](https://files.readme.io/7776cce54a76236bc12a091bd8e2bc5a84d32c3d62b9cd4489b6615246dccfaf-scan_for_secrets.gif)
 
 ### Save to Akeyless
 
 Right-click on a highlighted secret to move it securely to your Akeyless vault.
 
-<Image border={false} src="https://files.readme.io/153f8d1518ecd7095146d63ca9fa65a94a90ac328d8642919b6ecf03907016e0-save_secrets_to_akeyless.gif" />
+![Illustration for: Save to Akeyless Right-click on a highlighted secret to move it securely to your Akeyless vault.](https://files.readme.io/153f8d1518ecd7095146d63ca9fa65a94a90ac328d8642919b6ecf03907016e0-save_secrets_to_akeyless.gif)
 
 ### Integrated Experience
 
@@ -85,7 +85,7 @@ akeyless auth
 
 Press Ctrl + Shift + P and run “Akeyless: Scan for Hardcoded Secrets”, or simply save the file (Cmd + S) to trigger a scan on the edited file.
 
-<Image border={false} src="https://files.readme.io/8c249761d389466aa3dcc9a5abfaee6740bc42ed689aa69d7d482c97db367187-Oct-06-2025_12-41-23.gif" />
+![Illustration for: Scan for Secrets Press Ctrl + Shift + P and run “Akeyless: Scan for Hardcoded Secrets”, or simply save the file (Cmd + S) to trigger a scan on the edited file.](https://files.readme.io/8c249761d389466aa3dcc9a5abfaee6740bc42ed689aa69d7d482c97db367187-Oct-06-2025_12-41-23.gif)
 
 ### Save to Akeyless
 

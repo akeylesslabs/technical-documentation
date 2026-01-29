@@ -20,7 +20,7 @@ Log In: Start by logging into your Akeyless management console. You'll need admi
 
 * Click the bell icon
 
-![](https://files.readme.io/7169d0e-Screenshot_2024-03-05_at_10.34.12.png)
+![Illustration for: Step 2: Navigate to Event Forwarders * Click the bell icon](https://files.readme.io/7169d0e-Screenshot_2024-03-05_at_10.34.12.png)
 
 * Click open event center
 
@@ -34,17 +34,17 @@ Initiate Creation: Inside the event forwarders section, there should be an optio
 
 * Specify Destination: Enter the destination where you want the events to be forwarded. Choose ServiceNow.
 
-![](https://files.readme.io/7cf76cd-Screenshot_2024-03-05_at_10.34.26.png)
+![Illustration for: Step 4: Configure Event Forwarder Settings. Specify Destination: Enter the destination where you want the events to be forwarded. Choose ServiceNow.](https://files.readme.io/7cf76cd-Screenshot_2024-03-05_at_10.34.26.png)
 
 * Name the event
 
-![](https://files.readme.io/71aa6c3-Screenshot_2024-03-05_at_10.40.16.png)
+![Illustration for: Step 4: Configure Event Forwarder Settings. Name the event.](https://files.readme.io/71aa6c3-Screenshot_2024-03-05_at_10.40.16.png)
 
 * ServiceNow URL
     * Instance URL = `https\://{user.your_seervicenow_instance_name}.service-now\.com//`
     * API call URL = for example `pi/1235934/JSON\_receiver\_from\_akeyless/akeyless\_events`, this is a path of Scripted Rest Resource path from ServiceNow admin console  
 
-![](https://files.readme.io/5643d2b-Screenshot_2024-03-05_at_10.43.04.png)
+![Illustration for: Step 4: Configure Event Forwarder Settings. Set the ServiceNow Instance and API call URLs.](https://files.readme.io/5643d2b-Screenshot_2024-03-05_at_10.43.04.png)
 
 * Must have suffix = `?api=api`
 * Authentication
@@ -52,13 +52,13 @@ Initiate Creation: Inside the event forwarders section, there should be an optio
     * username = the admin user name of the instance, in case you are using the dev ServiceNow environment the user name called 'admin'
     * ServiceNow details can be found here:
 
-![](https://files.readme.io/9d65bba-Screenshot_2024-03-05_at_11.11.56.png)
+![Illustration for: Step 4: Configure Event Forwarder Settings. Configure the Authentication settings.](https://files.readme.io/9d65bba-Screenshot_2024-03-05_at_11.11.56.png)
 
-![](https://files.readme.io/d99c9f2-Screenshot_2024-03-05_at_11.12.28.png)
+![Illustration for: Step 4: Configure Event Forwarder Settings. Configure the Authentication settings.](https://files.readme.io/d99c9f2-Screenshot_2024-03-05_at_11.12.28.png)
 
 ## Step 5: Register the Gateway
 
 * Select the configured gateway
 * [Link](https://docs.akeyless.io/docs/create-a-gateway-in-akeyless-system-1) to Gateway configuration
 
-![](https://files.readme.io/9eeb32e-Screenshot_2024-03-05_at_11.15.01.png)
+![Illustration for: Step 5: Register the Gateway.](https://files.readme.io/9eeb32e-Screenshot_2024-03-05_at_11.15.01.png)

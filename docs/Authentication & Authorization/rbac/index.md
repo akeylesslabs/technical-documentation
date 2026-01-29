@@ -14,7 +14,7 @@ Akeyless Role-Based Access Control (RBAC) follows the least privilege principle 
 
 We associate specific clients with a certain Authentication Method to an Access Role to increase operational flexibility. The user can define any number of roles with permissions per each role.
 
-<Image border={false} src="https://files.readme.io/54c7a41-RBAC.JPG" title="RBAC.JPG" />
+![](https://files.readme.io/54c7a41-RBAC.JPG)
 
 Access Roles can be configured to grant permissions on Secrets, Encryption Keys, Targets, Authentication methods and Access Roles, you can also control user access to Audit Logs, analytics, Gateways settings and Secure Remote Access (SRA) information.
 

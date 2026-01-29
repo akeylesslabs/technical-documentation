@@ -34,7 +34,7 @@ With this Gateway, Akeyless offers:
 
 * [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge)
 
-<Image align="center" alt="Akeyless Gateway Architecture" border={false} caption="Akeyless Gateway Architecture" src="https://files.readme.io/eaaa39e-Gateway_2.png" />
+![Akeyless Gateway Architecture](https://files.readme.io/eaaa39e-Gateway_2.png)
 
 ## Tutorial
 

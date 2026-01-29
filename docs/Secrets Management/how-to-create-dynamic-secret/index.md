@@ -14,7 +14,7 @@ Dynamic Secrets are secrets that are generated every time they are accessed, usi
 
 Setting up Dynamic Secrets requires the **Dynamic Secret** permission on the Gateway.
 
-<Image align="center" border={false} src="https://files.readme.io/757eb22-Dynamic_Secret.png" />
+![Illustration for: Dynamic Secrets are secrets that are generated every time they are accessed, using permissions you've defined in advance. In this way, users can access a resource for a…](https://files.readme.io/757eb22-Dynamic_Secret.png)
 
 To create a dynamic secret, you must configure the required account and access credentials. The Akeyless Platform uses these to communicate with the resource and get short-lived passwords as required. You can configure:
 

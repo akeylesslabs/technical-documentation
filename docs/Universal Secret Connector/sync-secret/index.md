@@ -20,6 +20,6 @@ The Akeyless [Universal Secret Connector](https://docs.akeyless.io/docs/universa
 
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) with **Read** and **Update** permission on the [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) item, and **Read** permission on the associated USC.
 
-<Image align="center" src="https://files.readme.io/84d68fd1c6e90bb12b48f538b74db51f35ad9c15a90235524268f07b20572d61-Synced_Secret-2.png" />
+![Illustration for: * An Authentication Method with **Read** and **Update** permission on the Rotated Secret item, and **Read** permission on the associated USC.](https://files.readme.io/84d68fd1c6e90bb12b48f538b74db51f35ad9c15a90235524268f07b20572d61-Synced_Secret-2.png)
 
 This solution makes managing secrets in remote endpoints more efficient and consistent, enabling a secure, centralized approach to secret lifecycle management.

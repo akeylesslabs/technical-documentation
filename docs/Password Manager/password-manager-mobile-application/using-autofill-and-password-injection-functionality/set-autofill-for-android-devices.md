@@ -26,7 +26,7 @@ next:
 
 1. Open the Akeyless Password Manager app on your device.
 
-    <Image align="right" width="200px" src="https://files.readme.io/00ee37b-Screenshot_20240221_185956_Settings.jpg" />
+    ![Illustration for: Launch Akeyless Password Manager 1. Open the Akeyless Password Manager app on your device.](https://files.readme.io/00ee37b-Screenshot_20240221_185956_Settings.jpg)
 
 2. Once inside the app, locate the settings or preferences section. This is usually accessed via a menu in the top right corner or by selecting your profile icon.
 
@@ -36,7 +36,7 @@ next:
 
 1. When logging into an app or website, tap on the login field. The Akeyless Password Manager autofill popup should appear, suggesting login credentials for that site. If you do not see the popup, tap the key icon in your navigation bar or above the keyboard.
 
-    <Image align="right" width="200px" src="https://files.readme.io/229e403-Screenshot_20240221-112137_Firefox.jpg" />
+    ![Illustration for: 1. When logging into an app or website, tap on the login field. The Akeyless Password Manager autofill popup should appear, suggesting login credentials for that site. If you…](https://files.readme.io/229e403-Screenshot_20240221-112137_Firefox.jpg)
 
 2. Choose the appropriate account or login details from the Akeyless Password Manager suggestions. Your username and password will be automatically filled into the login fields.
 

@@ -57,6 +57,6 @@ For detailed instructions on configuring your Akeyless API keys, please refer to
 
 Once all implementation steps are finalized, should you add a new record to the employee table (either through the appropriate form or directly within the table itself), the system will automatically generate a corresponding authentication method for the newly added employee and link it to the appropriate access role.
 
-![](https://files.readme.io/a06b926-Screenshot_2024-02-29_at_19.57.53.png)
+![Illustration for: Once all implementation steps are finalized, should you add a new record to the employee table (either through the appropriate form or directly within the table itself), the…](https://files.readme.io/a06b926-Screenshot_2024-02-29_at_19.57.53.png)
 
-![](https://files.readme.io/073480a-Screenshot_2024-02-29_at_19.58.46.png)
+![Illustration for: Once all implementation steps are finalized, should you add a new record to the employee table (either through the appropriate form or directly within the table itself), the…](https://files.readme.io/073480a-Screenshot_2024-02-29_at_19.58.46.png)

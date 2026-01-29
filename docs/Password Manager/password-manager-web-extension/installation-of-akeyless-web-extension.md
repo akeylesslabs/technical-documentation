@@ -42,7 +42,7 @@ To embark on a journey of effortless password management on Firefox, follow thes
 
 ## Akeyless Password Manager Google Chrome Installation
 
-<Image align="center" width="300px" src="https://files.readme.io/3d3d29c-Screenshot_2024-05-07_at_16.02.38.png" />
+![Illustration for: Akeyless Password Manager Google Chrome Installation](https://files.readme.io/3d3d29c-Screenshot_2024-05-07_at_16.02.38.png)
 
 Elevate your password management efficiency within Google Chrome by following these steps:
 

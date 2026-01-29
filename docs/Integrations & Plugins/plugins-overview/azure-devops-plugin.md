@@ -54,7 +54,7 @@ For **KV engine path**, set `secret/data`. **KV version** should be set to `v1` 
 
 After running your pipeline, you’ll see this input in the VaultReadKV step:
 
-![](https://files.readme.io/cbd4b8b-pasted_image_0_3.png "pasted image 0 (3).png")
+![Illustration for: For **KV engine path**, set secret/data. **KV version** should be set to v1 and **Secret path** should contain your secret full path in Akeyless. The final task should look…](https://files.readme.io/cbd4b8b-pasted_image_0_3.png)
 
 To fetch [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) edit the following **KV Settings**:
 
@@ -86,4 +86,4 @@ Add a script block for using the MySQL credentials:
 
 After running your pipeline, you’ll see this input in Show Databases in DB step:
 
-![](https://files.readme.io/c775c07-Capture222.JPG "Capture222.JPG")
+![Illustration for: The final task should look in this fashion: Add a script block for using the MySQL credentials: After running your pipeline, you’ll see this input in Show Databases in DB step:](https://files.readme.io/c775c07-Capture222.JPG)

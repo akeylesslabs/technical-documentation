@@ -42,7 +42,7 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 * Navigate to Flow Designer in ServiceNow by searching for it in the navigation filter box.
 
-![](https://files.readme.io/6a3c7a0-Screenshot_2024-02-29_at_19.01.09.png)
+![Illustration for: Step 2: Access ServiceNow's Flow Designer * Navigate to Flow Designer in ServiceNow by searching for it in the navigation filter box.](https://files.readme.io/6a3c7a0-Screenshot_2024-02-29_at_19.01.09.png)
 
 * Flow Designer is a powerful tool in ServiceNow that allows you to automate processes and create custom actions without writing a lot of code.
 
@@ -51,13 +51,13 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 * In Flow Designer, go to the Actions tab and click on New Action.
 * Provide a name for your action that clearly describes its purpose.
 
-![](https://files.readme.io/f745a1d-Screenshot_2024-02-29_at_19.06.28.png)
+![Illustration for: Step 3: Create a New Action * In Flow Designer, go to the Actions tab and click on New Action. * Provide a name for your action that clearly describes its purpose.](https://files.readme.io/f745a1d-Screenshot_2024-02-29_at_19.06.28.png)
 
 ## Step 4: Configure the Action Inputs
 
 * Define inputs for your action. These are variables that you will use in your POST request, such as API endpoint, any dynamic data that needs to be sent in the request body, or authentication credentials.
 
-![](https://files.readme.io/d43fd8d-Screenshot_2024-02-29_at_19.08.53.png)
+![Illustration for: * Define inputs for your action. These are variables that you will use in your POST request, such as API endpoint, any dynamic data that needs to be sent in the request body,…](https://files.readme.io/d43fd8d-Screenshot_2024-02-29_at_19.08.53.png)
 
 ## Step 5: Add a Script Step for the POST Request
 
@@ -65,15 +65,15 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 * In the script step, you will write the code to make the POST request to the external API. ServiceNow provides a RESTMessageV2 class for this purpose.
 * To add a place where you will be able to write a script select the blue plus button.
 
-![](https://files.readme.io/b18117b-Screenshot_2024-02-29_at_19.11.03.png)
+![Illustration for: * In the script step, you will write the code to make the POST request to the external API. ServiceNow provides a RESTMessageV2 class for this purpose. * To add a place where…](https://files.readme.io/b18117b-Screenshot_2024-02-29_at_19.11.03.png)
 
 * Select script option
 
-![](https://files.readme.io/cff4c4c-Screenshot_2024-02-29_at_19.11.15.png)
+![Illustration for: * In the script step, you will write the code to make the POST request to the external API. ServiceNow provides a RESTMessageV2 class for this purpose. * To add a place where…](https://files.readme.io/cff4c4c-Screenshot_2024-02-29_at_19.11.15.png)
 
 * Place to write you script
 
-![](https://files.readme.io/1f19248-Screenshot_2024-02-29_at_19.11.26.png)
+![Illustration for: * To add a place where you will be able to write a script select the blue plus button. * Select script option * Place to write you script](https://files.readme.io/1f19248-Screenshot_2024-02-29_at_19.11.26.png)
 
 * In our scenario, we aim to obtain a token for utilizing the Akeyless API. Following this, we intend to establish an authentication method for a new employee and subsequently link this authentication method to the appropriate access role. Below is a script exemplifying this process.
 
@@ -182,8 +182,8 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 ```
 
-![](https://files.readme.io/503d127-Screenshot_2024-02-29_at_19.21.58.png)
+![Illustration for: * In our scenario, we aim to obtain a token for utilizing the Akeyless API. Following this, we intend to establish an authentication method for a new employee and subsequently…](https://files.readme.io/503d127-Screenshot_2024-02-29_at_19.21.58.png)
 
 ## Step 6: Save and Publish the Custom Action
 
-![](https://files.readme.io/37f865b-Screenshot_2024-02-29_at_19.26.51.png)
+![Illustration for: Step 6: Save and Publish the Custom Action](https://files.readme.io/37f865b-Screenshot_2024-02-29_at_19.26.51.png)

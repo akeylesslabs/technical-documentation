@@ -13,7 +13,7 @@ The common solution, .env files or Kubernetes secrets, just moves the problem. Y
 
 This post explores a more radical, secure architecture: a "dynamic-only" secretless agent. We'll walk through the code for a Google ADK agent that starts with zero credentials. It uses its native GCP cloud identity to fetch its Gemini API Key, and for its database, it only accepts just-in-time, dynamic credentials.
 
-<Image border={false} src="https://files.readme.io/f5c06bb7db757f742fa8959b6e0e705c800baeb66f72fc9b06283a60c37522a4-8630a779-57cb-4b0c-a9d4-65756bd93296.png" />
+![Illustration for: This post explores a more radical, secure architecture: a "dynamic-only" secretless agent. We'll walk through the code for a Google ADK agent that starts with zero credentials.…](https://files.readme.io/f5c06bb7db757f742fa8959b6e0e705c800baeb66f72fc9b06283a60c37522a4-8630a779-57cb-4b0c-a9d4-65756bd93296.png)
 
 This architecture fundamentally changes how an app accesses resources.
 
@@ -247,7 +247,7 @@ With the secretless_agent now running, it can use the tools defined in its creat
 
 Here is an example of that exact interaction:
 
-<Image border={false} src="https://files.readme.io/823f5394e1c484e67422caa038a06011ee7db9c2a24d70cda7486c715bb612a5-ba532c6c-403e-4f73-8425-313c6f7f7439.png" />
+![Illustration for: With the secretless_agent now running, it can use the tools defined in its create_agent function. These tools, like list_mongodb_collections, transparently use the dynamic,…](https://files.readme.io/823f5394e1c484e67422caa038a06011ee7db9c2a24d70cda7486c715bb612a5-ba532c6c-403e-4f73-8425-313c6f7f7439.png)
 
 ## Conclusion: The Future Is Ephemeral
 

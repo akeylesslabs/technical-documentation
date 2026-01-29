@@ -14,7 +14,7 @@ next:
 
 Once installed, tap on the Akeyless Password Manager app icon on your mobile device to open it.
 
-<Image align="center" width="200px" src="https://files.readme.io/eef7865-IMG_0054.png" />
+![Illustration for: Step 1: Launch the Akeyless Password Manager Mobile App Once installed, tap on the Akeyless Password Manager app icon on your mobile device to open it.](https://files.readme.io/eef7865-IMG_0054.png)
 
 ## Step 2: Access the Password Creation Form
 

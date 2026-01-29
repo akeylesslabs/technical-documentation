@@ -48,7 +48,7 @@ Akeyless helps avoid secret scattering across AWS Secrets Manager, Databricks se
 
 Databricks EC2 → AWS IAM Role → Akeyless IAM Auth Method → Secret Retrieval → Use in Notebook (Python, DLT)
 
-![](https://files.readme.io/2189d87976ab1d76db0a28db1143de5d30fa789a94c370b1dc49030eb4f4a6ee-image.png)
+![Illustration for: Architecture Overview Databricks EC2 → AWS IAM Role → Akeyless IAM Auth Method → Secret Retrieval → Use in Notebook (Python, DLT)](https://files.readme.io/2189d87976ab1d76db0a28db1143de5d30fa789a94c370b1dc49030eb4f4a6ee-image.png)
 
 ## Step-by-Step Guide: Using Akeyless in Databricks
 

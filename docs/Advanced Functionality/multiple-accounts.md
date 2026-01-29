@@ -16,7 +16,7 @@ You can group secrets and Identities with a common business purpose in distinct 
 
 Different business units might have different processes. Depending on your overall security model, you might choose to isolate distinct business units or subsidiaries in different accounts. Isolation of business units can help them operate with greater decentralized control but still provides the ability for you to provide overarching guardrails.
 
-<Image align="center" src="https://files.readme.io/a1ba298dd19aa27c8c643c7faf0519680da2a5371c2c5eb7dc2168f597d652b9-Akeyless_Organization.png" />
+![Illustration for: Different business units might have different processes. Depending on your overall security model, you might choose to isolate distinct business units or subsidiaries in…](https://files.readme.io/a1ba298dd19aa27c8c643c7faf0519680da2a5371c2c5eb7dc2168f597d652b9-Akeyless_Organization.png)
 
 ## Organizational Management
 
@@ -26,4 +26,4 @@ To enable easy work and navigation throughout multiple accounts, users who have 
 
 Selected users can be added to an organization view for usage reports and billing purposes, to add users from different accounts to your organization reach out directly to your Account Manager.
 
-<Image align="center" src="https://files.readme.io/c166a977d98a24a461a1b559e212c23763279cba3ba2dfc5aeb28840ef72ae99-org_view_account.png" />
+![Illustration for: Selected users can be added to an organization view for usage reports and billing purposes, to add users from different accounts to your organization reach out directly to your Account Manager.](https://files.readme.io/c166a977d98a24a461a1b559e212c23763279cba3ba2dfc5aeb28840ef72ae99-org_view_account.png)

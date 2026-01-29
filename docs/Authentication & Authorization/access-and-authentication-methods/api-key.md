@@ -14,7 +14,7 @@ next:
 ---
 API Key is a simple [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) supported by the Akeyless Platform. API Keys are very popular primarily for testing or staging environments.
 
-<Image align="center" border={false} src="https://files.readme.io/574347a-API_key_auth.png" />
+![Illustration for: API Key is a simple Authentication Method supported by the Akeyless Platform. API Keys are very popular primarily for testing or staging environments.](https://files.readme.io/574347a-API_key_auth.png)
 
 ## Create an API Key Authentication Method with the CLI
 

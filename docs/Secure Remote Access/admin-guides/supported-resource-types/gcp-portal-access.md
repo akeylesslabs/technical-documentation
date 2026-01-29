@@ -42,7 +42,7 @@ To enable Secure Remote Access to the GCP Portal you need:
 
     * `Injection URL`: The GCP login URL to inject secrets. For example:
 
-    <Image align="center" src="https://files.readme.io/b0cf7f8-Screenshot_2024-07-08_at_17.13.30.png" />
+    ![Illustration for: 3. On the next screen, tick the box to Enable Secure Remote Access and fill in the following fields for the Web Access option: * Injection URL: The GCP login URL to inject…](https://files.readme.io/b0cf7f8-Screenshot_2024-07-08_at_17.13.30.png)
 
     * `Secure Web Browsing`: Optional, secure web browsing over isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-on-k8s).
 

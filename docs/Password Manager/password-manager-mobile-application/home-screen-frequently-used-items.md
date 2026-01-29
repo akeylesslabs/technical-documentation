@@ -12,7 +12,7 @@ next:
 ---
 The revamped home screen brings a host of new features and improvements to ensure you have immediate access to the most relevant information and functionalities. Here's what you can expect:
 
-<Image align="right" width="150px" src="https://files.readme.io/f53004f-Screenshot_2024-04-11_at_15.21.31.png" />
+![Illustration for: The revamped home screen brings a host of new features and improvements to ensure you have immediate access to the most relevant information and functionalities. Here's what…](https://files.readme.io/f53004f-Screenshot_2024-04-11_at_15.21.31.png)
 
 ## "What's New" Banner
 

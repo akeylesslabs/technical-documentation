@@ -310,7 +310,7 @@ SELECT * FROM V$ENCRYPTION_WALLET;
 
 In a multi-tenant environment (CDB/PDB). Note that you may see multiple rows corresponding to each container (for example, CON_ID=0 for the CDB root, CON_ID=5 for a PDB):
 
-<Image border={false} src="https://files.readme.io/0000d0f056d736ed13b4dd2f0a76517a1954d665075d3df44bf745543f7af6ef-2082746d-b5e1-467e-bb62-8923dffaefe0_1.png" />
+![Illustration for: In a multi-tenant environment (CDB/PDB). Note that you may see multiple rows corresponding to each container (for example, CON_ID=0 for the CDB root, CON_ID=5 for a PDB):](https://files.readme.io/0000d0f056d736ed13b4dd2f0a76517a1954d665075d3df44bf745543f7af6ef-2082746d-b5e1-467e-bb62-8923dffaefe0_1.png)
 
 Key Points About the Columns:
 

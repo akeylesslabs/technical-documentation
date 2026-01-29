@@ -14,7 +14,7 @@ This functionality empowers users to customize their web browser extension with 
 
 ## Step-by-Step Guide to Configuring Your LDAP Gateway URL
 
-<Image align="right" width="200px" src="https://files.readme.io/51e6e76-Screenshot_2024-02-25_at_14.48.30.png" />
+![Illustration for: Step-by-Step Guide to Configuring Your LDAP Gateway URL](https://files.readme.io/51e6e76-Screenshot_2024-02-25_at_14.48.30.png)
 
 Initiate Configuration: Begin by navigating to the sign-in screen of your web browser extension. Look for the three-dot menu icon situated in the upper right corner of the interface. This menu is your gateway to modifying extension settings and personalizing your browsing experience.
 
@@ -24,6 +24,6 @@ Upon accessing the settings menu, locate the text field designated for the LDAP 
 
 ## Save Your Settings
 
-<Image align="right" width="200px" src="https://files.readme.io/2914cb3-Screenshot_2024-02-25_at_14.47.48.png" />
+![Illustration for: Save Your Settings](https://files.readme.io/2914cb3-Screenshot_2024-02-25_at_14.47.48.png)
 
 After entering the LDAP gateway URL, finalize your configuration by clicking the "Save" button. This action commits your settings to the browser extension, activating the LDAP gateway connection. Upon successful configuration, your extension will communicate with the LDAP server for authentication purposes, streamlining the sign-in process and bolstering security measures.

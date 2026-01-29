@@ -12,7 +12,7 @@ next:
 ---
 ## Accessing Secret Generation Policy
 
-<Image align="right" width="200px" src="https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png" />
+![Illustration for: Accessing Secret Generation Policy](https://files.readme.io/dcc11c6-Screenshot_2024-01-10_at_16.43.35.png)
 
 Open the Akeyless browser extension.
 

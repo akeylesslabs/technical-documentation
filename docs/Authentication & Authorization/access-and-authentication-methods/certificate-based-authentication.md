@@ -22,7 +22,7 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 * **SDK** – In this mode, to verify the possession of the client on the private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge. Alternatively, you can perform the certificate verification challenge [manually](https://docs.akeyless.io/docs/certificate-based-authentication#manual-certificate-verification). Allowing you to avoid transmitting the private key to the Gateway.
 
-<Image align="center" border={false} src="https://files.readme.io/8191f2c-Cert_key_auth.png" />
+![Illustration for: SDK: In this mode, to verify the possession of the client on the private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge.…](https://files.readme.io/8191f2c-Cert_key_auth.png)
 
 ## Prerequisites
 

@@ -53,21 +53,21 @@ After successful deployment, Keycloak administrator must configure the browser a
 
 Navigate to "Authentication", Select "Browser" in the combo-box, and click "Copy":
 
-![](https://files.readme.io/7b9f1f2-image-20210621-110924.png "image-20210621-110924.png")
+![Illustration for: After successful deployment, Keycloak administrator must configure the browser authentication flow to use Akeyless Authenticator as an alternative to other authentication…](https://files.readme.io/7b9f1f2-image-20210621-110924.png)
 
 Name the flow as **Akeyless Browser** and click **Save**.
 
 Click **Add execution**, select **Akeyless** from the combo-box and save:
 
-![](https://files.readme.io/7e6d515-image-20210621-111212.png "image-20210621-111212.png")
+![Illustration for: Navigate to "Authentication", Select "Browser" in the combo-box, and click "Copy": Name the flow as **Akeyless Browser** and click **Save**. Click **Add execution**, select…](https://files.readme.io/7e6d515-image-20210621-111212.png)
 
 Move "Akeyless" up and mark it as "Alternative" instead of "Disabled":
 
-![](https://files.readme.io/ed77185-image-20210621-111323.png "image-20210621-111323.png")
+![Illustration for: Name the flow as **Akeyless Browser** and click **Save**. Click **Add execution**, select **Akeyless** from the combo-box and save: Move "Akeyless" up and mark it as…](https://files.readme.io/ed77185-image-20210621-111323.png)
 
 On the "Bindings" tab, select "Akeyless Browser" in the combo box next to the "Browser Flow" label. Click "Save":
 
-![](https://files.readme.io/1822f2f-image-20210621-111437.png "image-20210621-111437.png")
+![Illustration for: Move "Akeyless" up and mark it as "Alternative" instead of "Disabled": On the "Bindings" tab, select "Akeyless Browser" in the combo box next to the "Browser Flow" label. Click…](https://files.readme.io/1822f2f-image-20210621-111437.png)
 
 ## Using Keycloak Authenticator
 

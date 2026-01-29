@@ -12,7 +12,7 @@ next:
 ---
 ## Locating the Password
 
-<Image align="right" width="300px" src="https://files.readme.io/4d0810c-Screenshot_2024-01-10_at_16.15.37.png" />
+![Illustration for: Locating the Password](https://files.readme.io/4d0810c-Screenshot_2024-01-10_at_16.15.37.png)
 
 Navigate to Secrets Section: Start by accessing the 'Secrets' section of the Akeyless application. This area is specifically designed to store and organize your secrets and passwords.
 

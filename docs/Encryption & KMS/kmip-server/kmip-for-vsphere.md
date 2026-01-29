@@ -59,36 +59,36 @@ next:
 
 2. Browse the inventory list and select the vCenter Server instance.
 
-3. Click **Configure** and click **Key Management Servers**.
+3. Click **Configure**, then click **Key Management Servers**.
 
-    ![](https://files.readme.io/376043b-image-20210914-151429.png "image-20210914-151429.png")
+    ![Illustration for: 3. Click Configure, then click Key Management Servers.](https://files.readme.io/376043b-image-20210914-151429.png)
 
-4. Click **Add KMS**, for **Server address** set your Akeyless Gateway address, for **Server port** set 5696, and click **Add**.
+4. Click **Add KMS**. For **Server address**, supply your Akeyless Gateway address, for **Server port**, use 5696. Click **Add**.
 
-    ![](https://files.readme.io/557d218-image-20210914-1519061.png "image-20210914-151906(1).png")
+    ![Illustration for: 4. Click Add KMS. For Server address, supply your Akeyless Gateway address. For Server port, use 5696. Click Add.](https://files.readme.io/557d218-image-20210914-1519061.png)
 
 5. Extend the new line and click **Make KMS Trusted vCenter**:
 
-    ![](https://files.readme.io/2b8e7a9-image-20210914-152306.png "image-20210914-152306.png")
+    ![Illustration for: 5. Extend the new line and click Make KMS Trusted vCenter.](https://files.readme.io/2b8e7a9-image-20210914-152306.png)
 
 6. For a method, choose **KMS certificate and private key**:
 
-    ![](https://files.readme.io/4d64c95-image-20210914-152556.png "image-20210914-152556.png")
+    ![Illustration for: 6. For a method, choose KMS certificate and private key.](https://files.readme.io/4d64c95-image-20210914-152556.png)
 
 7. For the **KMS Certificate** and **KMS Private key** set the certificate and the Private Key and click **Establish Trust**:
 
-    ![](https://files.readme.io/e797dc2-image-20210914-154420.png "image-20210914-154420.png")
+    ![Illustration for: 7. For the KMS Certificate and KMS Private key set the certificate and the Private Key and click Establish Trust.](https://files.readme.io/e797dc2-image-20210914-154420.png)
 
 8. Extend the new line again and click **Make vCenter Trust KMS**:
 
-    ![](https://files.readme.io/828fb11-image-20210914-154614.png "image-20210914-154614.png")
+    ![Illustration for: 8. Extend the new line again and click Make vCenter Trust KMS.](https://files.readme.io/828fb11-image-20210914-154614.png)
 
 9. In the dialog, click **TRUST**:
 
-    ![](https://files.readme.io/26a46cb-image-20210914-154645.png "image-20210914-154645.png")
+    ![Illustration for: 9. In the dialog, click TRUST.](https://files.readme.io/26a46cb-image-20210914-154645.png)
 
 10. Verify all statuses are valid:  
 
-    ![](https://files.readme.io/35653e2-image-20210914-154951.png "image-20210914-154951.png")
+    ![Illustration for: 10. Verify all statuses are valid.](https://files.readme.io/35653e2-image-20210914-154951.png)
 
 [Read more about **Enabling Host Encryption Mode in vSphere**](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/7-0/web-services-sdk-programming-guide/virtual-machine-security/prerequisites-and-required-privileges-for-encryption-tasks/host-encryption-mode.html).

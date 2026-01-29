@@ -20,7 +20,7 @@ After connecting to your AWS Secret Manager source, you will be able to manage a
 
 The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from the AWS Secret Manager. This is done automatically as Akeyless doesn't store a copy of the AWS secrets, ensuring that data residency and security policies remain untouched. The **USC** simply reflects them in real time, without any requirements or changes that should be made on the AWS Secret Manager endpoint.
 
-<Image align="center" border={false} src="https://files.readme.io/60251a70458e8bb82d88317bde1ad04b9e9a7b6ea82e68e0b11086106a0f6a7c-Synced_Secret-AWS.png" />
+![Illustration for: The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from the AWS Secret…](https://files.readme.io/60251a70458e8bb82d88317bde1ad04b9e9a7b6ea82e68e0b11086106a0f6a7c-Synced_Secret-AWS.png)
 
 ## Prerequisites
 

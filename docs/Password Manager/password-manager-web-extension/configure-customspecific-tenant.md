@@ -12,7 +12,7 @@ next:
 ---
 This innovative feature enables users to personalize their web browser extension by configuring a custom or specific tenant URL. This customization is designed to tailor the user's browsing experience, allowing for a more streamlined and secure access to web services that are specific to their organizational or personal needs. By setting up a unique tenant URL, users can ensure that their extension directly connects to the desired services or databases, enhancing both efficiency and security.
 
-<Image align="right" width="150px" src="https://files.readme.io/72e4da3-Screenshot_2024-03-20_at_11.10.38.png" />
+![Illustration for: This innovative feature enables users to personalize their web browser extension by configuring a custom or specific tenant URL. This customization is designed to tailor the…](https://files.readme.io/72e4da3-Screenshot_2024-03-20_at_11.10.38.png)
 
 ## Detailed Instructions for Configuring Your Custom/Specific Tenant URL
 

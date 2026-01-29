@@ -27,7 +27,7 @@ If the application consumes secrets which regularly change, an annotation can be
 Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together with the Akeyless Platform's [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).  
 For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/docs/policy-segregation-for-kubernetes).
 
-<Image align="center" border={false} src="https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png" />
+![Illustration for: Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together…](https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png)
 
 > 👍 Note
 >

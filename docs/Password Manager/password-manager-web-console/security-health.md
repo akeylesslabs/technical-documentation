@@ -14,7 +14,7 @@ next:
 
 The Security Health Dashboard provides users with an overview of the strength and security of their stored passwords, offering real-time insights, improvement suggestions, and critical metrics that help maintain strong password hygiene. This document outlines the layout, functionality, scoring metrics, and API integrations to ensure a comprehensive understanding of the security health features.
 
-![](https://files.readme.io/c51dd3e02752d51b5d79e21377a2cc21270b2bb98962f694dacc5674b4347a87-Screenshot_2024-09-21_at_7.32.19.png)
+![Illustration for: The Security Health Dashboard provides users with an overview of the strength and security of their stored passwords, offering real-time insights, improvement suggestions, and…](https://files.readme.io/c51dd3e02752d51b5d79e21377a2cc21270b2bb98962f694dacc5674b4347a87-Screenshot_2024-09-21_at_7.32.19.png)
 
 ## Dashboard Layout
 

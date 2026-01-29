@@ -22,7 +22,7 @@ Each access request triggers the creation of a dedicated record in ServiceNow Ak
 
 [Download Akeyless Access Manager from the ServiceNow Store.](https://store.servicenow.com/sn_appstore_store.do#!/store/application/3f29fbc887f83d1009f27487cebb357a)
 
-<Image border={false} src="https://files.readme.io/31626841ec2855f6ac1f288ff83e52946292d0fe7e55b3e6ba638dcacf6ea362-Screenshot_2024-09-20_at_6.32.09.png" />
+![Illustration for: Download Akeyless Access Manager from the ServiceNow Store.](https://files.readme.io/31626841ec2855f6ac1f288ff83e52946292d0fe7e55b3e6ba638dcacf6ea362-Screenshot_2024-09-20_at_6.32.09.png)
 
 ### Prompt Admin Notification
 
@@ -56,15 +56,15 @@ Please configure the following permissions:
 
 * Create/Read/Update role under /Access Requests/*
 
-<Image border={false} src="https://files.readme.io/a2c79e6-image-20230206-103449.png" />
+![Illustration for: To utilize the Akeyless ServiceNow App, an Access Role must be created. This guide (Role-Based Access Control (RBAC)) outlines the steps for creating an Access Role in…](https://files.readme.io/a2c79e6-image-20230206-103449.png)
 
 * List/Read for Auth methods under path
 
-<Image border={false} src="https://files.readme.io/004d7ba-image-20230205-095303.png" />
+![Illustration for: Please configure the following permissions: * Create/Read/Update role under /Access Requests/* * List/Read for Auth methods under path](https://files.readme.io/004d7ba-image-20230205-095303.png)
 
 * Read/Update/Delete (this is a set of actions that the user can request access for) for Static Secrets/targets under the path that item exists that the user can request access for (note, that path is case-sensitive)
 
-<Image border={false} src="https://files.readme.io/92425b3-image-20230205-100518.png" />
+![Illustration for: * Read/Update/Delete (this is a set of actions that the user can request access for) for Static Secrets/targets under the path that item exists that the user can request access…](https://files.readme.io/92425b3-image-20230205-100518.png)
 
 ## Required Configuration on ServiceNow System
 
@@ -73,22 +73,22 @@ Creating basic auth credentials via ServiceNow instance.
 * Locate credentials in ServiceNow instance "All" menu
     * Click on "All" and enter "credentials" in the search field
 
-<Image border={false} src="https://files.readme.io/518fa68-image-20221129-151725.png" />
+![Illustration for: Creating basic auth credentials via ServiceNow instance. * Locate credentials in ServiceNow instance "All" menu * Click on "All" and enter "credentials" in the search field](https://files.readme.io/518fa68-image-20221129-151725.png)
 
-<Image border={false} src="https://files.readme.io/ef0ecf7-Screenshot_2023-11-29_at_13.47.58.png" />
+![Illustration for: Creating basic auth credentials via ServiceNow instance. * Locate credentials in ServiceNow instance "All" menu * Click on "All" and enter "credentials" in the search field](https://files.readme.io/ef0ecf7-Screenshot_2023-11-29_at_13.47.58.png)
 
 * Click "New" and locate the "Basic Auth Credentials" option
 
-<Image border={false} src="https://files.readme.io/6e7a131-Screenshot_2023-11-29_at_13.50.06.png" />
+![Illustration for: * Locate credentials in ServiceNow instance "All" menu * Click on "All" and enter "credentials" in the search field * Click "New" and locate the "Basic Auth Credentials" option](https://files.readme.io/6e7a131-Screenshot_2023-11-29_at_13.50.06.png)
 
 * In “Basic Auth Credentials” Form, insert name (For example, “akeyless_basic_auth_creds”), insert the access-id as the User name, and the access-key as the Password, and submit:
 
-<Image border={false} src="https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png" />
+![Illustration for: * In “Basic Auth Credentials” Form, insert name (For example, “akeyless_basic_auth_creds”), insert the access-id as the User name, and the access-key as the Password, and submit:](https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png)
 
 * In the **Name** field write `akeyless_basic_auth_creds`
 * Add **User Name & Password** or [API Key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-via-the-ui).
 
-<Image border={false} src="https://files.readme.io/b11a153-Screenshot_2024-07-14_at_15.10.31.png" />
+![Illustration for: * Add **User Name & Password** or API Key credentials.](https://files.readme.io/b11a153-Screenshot_2024-07-14_at_15.10.31.png)
 
 Add JWT authentication in ServiceNow:
 
@@ -99,50 +99,50 @@ Add JWT authentication in ServiceNow:
     * Open “X.509 Certificate” table.
     * Insert name, paste the certificate in field “PEM Certificate”, ensure “Active” is set, and Submit.
 
-  <Image border={false} src="https://files.readme.io/b60bfff-Screenshot_2024-07-14_at_15.17.26.png" />
+  ![Illustration for: * Store the certificate in ServiceNow: * Open “X.509 Certificate” table. * Insert name, paste the certificate in field “PEM Certificate”, ensure “Active” is set, and Submit.](https://files.readme.io/b60bfff-Screenshot_2024-07-14_at_15.17.26.png)
 
 * Create OAuth Application Registry:
     * Choose the option "Create an OAuth JWT API endpoint for external clients":
 
-<Image border={false} src="https://files.readme.io/25c6457-Screenshot_2024-07-14_at_15.21.19.png" />
+![Illustration for: * Insert name, paste the certificate in field “PEM Certificate”, ensure “Active” is set, and Submit. * Create OAuth Application Registry: * Choose the option "Create an OAuth…](https://files.readme.io/25c6457-Screenshot_2024-07-14_at_15.21.19.png)
 
 * Insert name, choose “User field” (email is default), ensure “Active” and “Enable JTI Verification“ are set, and Submit.
 
-<Image border={false} src="https://files.readme.io/5d06013-Screenshot_2024-07-14_at_15.25.52.png" />
+![Illustration for: * Choose the option "Create an OAuth JWT API endpoint for external clients": * Insert name, choose “User field” (email is default), ensure “Active” and “Enable JTI…](https://files.readme.io/5d06013-Screenshot_2024-07-14_at_15.25.52.png)
 
 * After created, copy the Client ID and the Client Secret.
 
-<Image border={false} src="https://files.readme.io/c1d69ce-Screenshot_2024-07-14_at_15.33.14.png" />
+![Illustration for: * Insert name, choose “User field” (email is default), ensure “Active” and “Enable JTI Verification“ are set, and Submit. * After created, copy the Client ID and the Client Secret.](https://files.readme.io/c1d69ce-Screenshot_2024-07-14_at_15.33.14.png)
 
 * Scroll down to “JWT Verifier Maps”. Select **New**.
 
-<Image border={false} src="https://files.readme.io/8af87f5-Screenshot_2024-07-14_at_15.33.39.png" />
+![Illustration for: * Insert name, choose “User field” (email is default), ensure “Active” and “Enable JTI Verification“ are set, and Submit. * After created, copy the Client ID and the Client…](https://files.readme.io/8af87f5-Screenshot_2024-07-14_at_15.33.39.png)
 
 * Insert name, find the certificate in “Sys certificate“ list, and Submit.
 
-<Image border={false} src="https://files.readme.io/d32f15b-Screenshot_2024-07-14_at_15.36.45.png" />
+![Illustration for: * After created, copy the Client ID and the Client Secret. * Scroll down to “JWT Verifier Maps”. Select **New**. * Insert name, find the certificate in “Sys certificate“ list,…](https://files.readme.io/d32f15b-Screenshot_2024-07-14_at_15.36.45.png)
 
 * Create user with Akeyless role:
     * Create user in “Users” table:
 
-<Image border={false} src="https://files.readme.io/b22ab87-Screenshot_2024-07-14_at_15.45.00.png" />
+![Illustration for: * Insert name, find the certificate in “Sys certificate“ list, and Submit. * Create user with Akeyless role: * Create user in “Users” table:](https://files.readme.io/b22ab87-Screenshot_2024-07-14_at_15.45.00.png)
 
 * Scroll down to Roles and select Edit:
 
-<Image border={false} src="https://files.readme.io/010f9ce-Screenshot_2024-07-14_at_15.49.21.png" />
+![Illustration for: * Create user with Akeyless role: * Create user in “Users” table: * Scroll down to Roles and select Edit:](https://files.readme.io/010f9ce-Screenshot_2024-07-14_at_15.49.21.png)
 
 * Pick role `x_akse_akeyless_sa_akeyless_access_request` from the collection, and Save:
 
-<Image border={false} src="https://files.readme.io/e47d4a5-Screenshot_2024-07-14_at_15.49.00.png" />
+![Illustration for: * Create user in “Users” table: * Scroll down to Roles and select Edit: * Pick role x_akse_akeyless_sa_akeyless_access_request from the collection, and Save:](https://files.readme.io/e47d4a5-Screenshot_2024-07-14_at_15.49.00.png)
 
 * Configure ServiceNow Event Forwarder in Akeyless:
     * Create new event forwarder:
 
-<Image border={false} src="https://files.readme.io/b1a5f9b-Screenshot_2024-07-14_at_15.56.29.png" />
+![Illustration for: * Pick role x_akse_akeyless_sa_akeyless_access_request from the collection, and Save: * Configure ServiceNow Event Forwarder in Akeyless: * Create new event forwarder:](https://files.readme.io/b1a5f9b-Screenshot_2024-07-14_at_15.56.29.png)
 
 Insert the details. It is recommended to choose Auth type “JWT”. Insert the private key used to sign the certificate. Insert the user created in ServiceNow. Insert the client-id and client-secret from the OAuth Application in ServiceNow.
 
-<Image border={false} src="https://files.readme.io/d383a3d-Screenshot_2024-07-14_at_16.01.06.png" />
+![Illustration for: Insert the details. It is recommended to choose Auth type “JWT”. Insert the private key used to sign the certificate. Insert the user created in ServiceNow. Insert the…](https://files.readme.io/d383a3d-Screenshot_2024-07-14_at_16.01.06.png)
 
 ### Approving Access Request Via ServiceNow Instance
 
@@ -150,15 +150,15 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
     * Click on "All" and enter `akeyless_access_request` in the search field
     * Click on the table name
 
-<Image border={false} src="https://files.readme.io/2b9f76f-Screenshot_2023-11-29_at_17.10.35.png" />
+![Illustration for: * Locate akeyless_access_request table in ServiceNow instance "All" menu * Click on "All" and enter akeyless_access_request in the search field * Click on the table name](https://files.readme.io/2b9f76f-Screenshot_2023-11-29_at_17.10.35.png)
 
 * Once an access request is created via Akeyless system a new record will appear
 
-<Image border={false} src="https://files.readme.io/7417bb1-image-20230206-132008_1.png" />
+![Illustration for: * Click on "All" and enter akeyless_access_request in the search field * Click on the table name * Once an access request is created via Akeyless system a new record will appear](https://files.readme.io/7417bb1-image-20230206-132008_1.png)
 
 * Admin users of the ServiceNow intense will be able to approve or decline the access request by updating the `Dession` field.
 
-<Image border={false} src="https://files.readme.io/f337a71-image-20230206-132144.png" />
+![Illustration for: * Once an access request is created via Akeyless system a new record will appear * Admin users of the ServiceNow intense will be able to approve or decline the access request…](https://files.readme.io/f337a71-image-20230206-132144.png)
 
 * Upon approval within the ServiceNow Akeyless app, a request is sent to Akeyless systems to generate temporary access for the specific item.
 

@@ -49,7 +49,7 @@ akeyless update-account-settings --enable-ai-insights true
 
 AI Insights can also be enabled at the account level using the Web UI.
 
-<Image border={false} src="https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png" />
+![Illustration for: Step 1: Enable AI Insights at the Account Level To enable AI Insights, run the following command: AI Insights can also be enabled at the account level using the Web UI.](https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png)
 
 <Callout icon="📘" theme="info">
   To disable AI Insights, run the following command:
@@ -145,7 +145,7 @@ To disable AI Insights on the gateway, set the enable field to `false`:
 
 The Gateway can also be configured with the Web UI.
 
-<Image border={false} src="https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png" />
+![Illustration for: Disable AI Insights on the Gateway To disable AI Insights on the gateway, set the enable field to false: The Gateway can also be configured with the Web UI.](https://files.readme.io/3a98a777c3c391c38e6dc1818b5f6f242468d45db8ced474176d64f2e6a60076-GatewayLevel.png)
 
 ## Verification
 
@@ -184,7 +184,7 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 3. Start a chat session
 4. Ask a natural language question.
 
-<Image border={false} src="https://files.readme.io/9214bc7c65691ab90764917b7da86d69a6be792b3c494b6289b338aabf90f851-chatInteraction.png" />
+![Illustration for: 2. Navigate to AI Insights. 3. Start a chat session 4. Ask a natural language question.](https://files.readme.io/9214bc7c65691ab90764917b7da86d69a6be792b3c494b6289b338aabf90f851-chatInteraction.png)
 
 ## Troubleshooting
 

@@ -17,25 +17,25 @@ Creating an action with inputs and scripts in ServiceNow's Action Designer allow
 * Log In: Sign into your ServiceNow instance with an administrator account or an account that has been granted access to the Flow Designer and Action Designer.
 * Navigate to Action Designer: In the Application Navigator on the left side of the screen, type “Action Designer” and select it from the search results to open the Action Designer interface.
 
-![](https://files.readme.io/d84675d-Screenshot_2024-03-05_at_14.50.29.png)
+![Illustration for: * Navigate to Action Designer: In the Application Navigator on the left side of the screen, type “Action Designer” and select it from the search results to open the Action…](https://files.readme.io/d84675d-Screenshot_2024-03-05_at_14.50.29.png)
 
 ## Step 2: Create a New Action
 
 * Start a New Action: Look for a button or option to create a new action, which might be labeled “New,” “Create Action,” or “+ Action.” Click on it to begin the process.
 * Define Basic Information: You will be prompted to enter basic information for your action, such as the name and description. Choose a descriptive name that clearly indicates the action’s purpose.
 
-![](https://files.readme.io/703ba3a-Screenshot_2024-03-05_at_15.04.30.png)
+![Illustration for: * Define Basic Information: You will be prompted to enter basic information for your action, such as the name and description. Choose a descriptive name that clearly indicates…](https://files.readme.io/703ba3a-Screenshot_2024-03-05_at_15.04.30.png)
 
-![](https://files.readme.io/5526970-Screenshot_2024-03-05_at_15.04.53.png)
+![Illustration for: * Define Basic Information: You will be prompted to enter basic information for your action, such as the name and description. Choose a descriptive name that clearly indicates…](https://files.readme.io/5526970-Screenshot_2024-03-05_at_15.04.53.png)
 
 ## Step 3: Define Inputs
 
 * Add Inputs: Actions can have inputs that allow them to receive data from the flow that triggers them. To add an input, look for an option labeled “Add Input,” “New Input,” or similar. Click on it to define a new input.
 * Configure Input Properties: For each input, specify its name, data type (such as string, number, or boolean), and whether it is mandatory. Provide a descriptive name that indicates the input's purpose.
 
-![](https://files.readme.io/4e3f112-Screenshot_2024-03-05_at_15.05.45.png)
+![Illustration for: * Configure Input Properties: For each input, specify its name, data type (such as string, number, or boolean), and whether it is mandatory. Provide a descriptive name that…](https://files.readme.io/4e3f112-Screenshot_2024-03-05_at_15.05.45.png)
 
-![](https://files.readme.io/2880cf8-Screenshot_2024-03-05_at_15.05.53.png)
+![Illustration for: * Configure Input Properties: For each input, specify its name, data type (such as string, number, or boolean), and whether it is mandatory. Provide a descriptive name that…](https://files.readme.io/2880cf8-Screenshot_2024-03-05_at_15.05.53.png)
 
 ## Step 4: Write the Script
 
@@ -126,4 +126,4 @@ Creating an action with inputs and scripts in ServiceNow's Action Designer allow
 
 ## Step 7: Publish the Action
 
-![](https://files.readme.io/c370253-Screenshot_2024-03-05_at_15.09.01.png)
+![Illustration for: Step 7: Publish the Action](https://files.readme.io/c370253-Screenshot_2024-03-05_at_15.09.01.png)

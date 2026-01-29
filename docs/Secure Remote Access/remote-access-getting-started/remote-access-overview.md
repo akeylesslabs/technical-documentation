@@ -24,7 +24,7 @@ Users can connect securely to resources through the Gateway's internal SRA Porta
 
 SRA is deployed alongside the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) and consists of a Web application and SSH application, each a separate container in the cluster. These applications are deployed on your environment and enable an extra layer of protection between your private network and the cloud:
 
-<Image alt="Akeyless Gateway and Secure Remote Access architecture" border={false} src="https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png" />
+![Akeyless Gateway and Secure Remote Access architecture](https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png)
 
 1. Web: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
 2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any Unix-supporting resource.

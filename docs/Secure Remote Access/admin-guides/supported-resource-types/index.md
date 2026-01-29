@@ -32,4 +32,4 @@ Akeyless Platform's Secure Remote Access solution supports connections to the fo
 
 * [kubectl](https://docs.akeyless.io/docs/kubectl-access)
 
-![](https://files.readme.io/37f4055-Screen_Shot_2022-08-10_at_13.54.13.png "Screen Shot 2022-08-10 at 13.54.13.png")
+![Illustration for: * Kubernetes * Web Applications * kubectl](https://files.readme.io/37f4055-Screen_Shot_2022-08-10_at_13.54.13.png)
