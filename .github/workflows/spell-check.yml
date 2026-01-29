@@ -10,42 +10,72 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 0. Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
 
-      # 1. Install cspell + JSON reporter (CI tooling)
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
       - name: Install cspell
         run: |
           npm install -g cspell @cspell/cspell-json-reporter
 
-      # 2. Ensure directories exist for outputs
       - name: Prepare output directories
         run: |
           mkdir -p .github/cspell
 
-      # 3. Run CSpell (text + json)
-      #    - Continue on error so we still create a Jira ticket and attach outputs.
-      - name: Run CSpell
-        id: cspell
+      # 3a. Run CSpell (pre-fix)
+      - name: Run CSpell (pre-fix)
+        id: cspell_pref
         continue-on-error: true
         run: |
           set -e
 
-          # Human readable output (useful for attachment / review).
-          # Use "|| true" to avoid early termination due to spelling issues.
+          cspell "**/*.md" --config ./cspell.config.yaml --no-progress \
+            > .github/cspell/cspell-out.pre.txt || true
+
+          cspell "**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
+            --reporter @cspell/cspell-json-reporter \
+            > .github/cspell/cspell-out.pre.json || true
+
+      # 3b. Autofix (conservative)
+      - name: Autofix misspellings (conservative)
+        id: autofix
+        continue-on-error: true
+        run: |
+          set -e
+          python .github/scripts/cspell_autofix.py \
+            --report .github/cspell/cspell-out.pre.json \
+            --repo-root . \
+            --corrections .cspell/corrections.json
+
+      # 3c. Run CSpell again (post-fix) to generate final artifacts used for summary/Jira
+      - name: Run CSpell (post-fix)
+        id: cspell_post
+        continue-on-error: true
+        run: |
+          set -e
+
           cspell "**/*.md" --config ./cspell.config.yaml --no-progress \
             > .github/cspell/cspell-out.txt || true
 
-          # Machine readable output for analysis/top-N.
           cspell "**/*.md" --config ./cspell.config.yaml --no-progress --quiet \
             --reporter @cspell/cspell-json-reporter \
             > .github/cspell/cspell-out.json || true
 
-      # 4. Capture summary information (issue counts + top 5 unknown words)
+      # OPTIONAL: ESLint+cspell coverage (does not reliably autofix spelling)
+      # Enable only if you add eslint config and want spelling checks in JS/TS/comments.
+      # - name: ESLint (optional spelling coverage)
+      #   continue-on-error: true
+      #   run: |
+      #     npm ci
+      #     npm run lint -- --fix
+
       - name: Capture CSpell summary
         id: summary
         run: |
@@ -76,10 +106,11 @@ jobs:
             echo "CSPELL_SUMMARY=${ISSUE_COUNT} spelling issues found (text fallback)" >> $GITHUB_ENV
           fi
 
-      # 5. Commit outputs to a branch (mirrors your existing workflow)
-      - name: Commit outputs
-        if: always() && (env.CSPELL_ISSUE_COUNT || '0') != '0'
+      - name: Commit outputs + autofixes
+        if: always()
         run: |
+          set -e
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -87,12 +118,21 @@ jobs:
           git fetch origin
           git checkout -B $BRANCH
 
+          # Always add reports
+          git add .github/cspell/cspell-out.pre.txt .github/cspell/cspell-out.pre.json || true
           git add .github/cspell/cspell-out.txt .github/cspell/cspell-out.json || true
 
-          git commit -m "chore: update cspell report [skip ci]" || echo "No changes to commit"
-          git push origin $BRANCH --force
+          # Add any modified markdown files from autofix
+          git add "**/*.md" || true
 
-      # 6. Get commit URL
+          # Commit if there are changes
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: cspell autofix + report [skip ci]"
+            git push origin $BRANCH --force
+          fi
+
       - name: Get commit URL
         id: commiturl
         run: |
@@ -100,7 +140,6 @@ jobs:
           echo "sha=${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
           echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
 
-      # 7. Create Jira issue (ADF description)
       - name: Create Jira issue
         id: jira
         if: always() && (env.CSPELL_ISSUE_COUNT || '0') != '0'
@@ -151,7 +190,7 @@ jobs:
                type:"doc", version:1,
                content: (
                  [
-                   para("Automated CSpell run for Markdown files."),
+                   para("Automated CSpell run for Markdown files (includes conservative autofix)."),
                    linkPara("Workflow run: "; $run),
                    para("Branch: " + $br),
                    linkPara("Commit: "; $commit),
@@ -176,6 +215,8 @@ jobs:
                    {
                      type:"bulletList",
                      content:[
+                       {type:"listItem", content:[{type:"paragraph", content:[{type:"text", text:".github/cspell/cspell-out.pre.txt"}]}]},
+                       {type:"listItem", content:[{type:"paragraph", content:[{type:"text", text:".github/cspell/cspell-out.pre.json"}]}]},
                        {type:"listItem", content:[{type:"paragraph", content:[{type:"text", text:".github/cspell/cspell-out.txt"}]}]},
                        {type:"listItem", content:[{type:"paragraph", content:[{type:"text", text:".github/cspell/cspell-out.json"}]}]}
                      ]
@@ -219,7 +260,6 @@ jobs:
           echo "issue_id=$ISSUE_ID" >> "$GITHUB_OUTPUT"
           echo "Created Jira issue: $ISSUE_KEY"
 
-      # 8. Attach artifacts to Jira issue
       - name: Attach artifacts to Jira issue
         if: always() && steps.jira.outputs.issue_key != ''
         continue-on-error: true
@@ -246,5 +286,7 @@ jobs:
             fi
           }
 
+          attach_file ".github/cspell/cspell-out.pre.txt"
+          attach_file ".github/cspell/cspell-out.pre.json"
           attach_file ".github/cspell/cspell-out.txt"
           attach_file ".github/cspell/cspell-out.json"
