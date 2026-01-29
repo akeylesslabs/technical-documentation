@@ -86,7 +86,7 @@ curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 
 #### Rotation Flow
 
-It is considered a best practice to rotate tokens often, and with tokens being a machine identity authentication method, you may set up an automated script that will rotate your token in pre-scheduled intervals.
+Frequent key rotation is a best practice. You may create an automated script that will rotate your token in pre-scheduled intervals.
 
 While you can write your own script, we have a compatible one-minute interval token rotation script in the <a href="https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/" target="_blank">Akeyless Downloads</a> folder.
 This script is Linux/macOS compatible, and has the following flow:
