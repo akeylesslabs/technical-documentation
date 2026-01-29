@@ -232,7 +232,7 @@ Where:
 
 * `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
 
-* `access-type`: The Auth Method access type, i.e. `k8s`.
+* `access-type`: The Auth Method access type: `k8s`.
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
