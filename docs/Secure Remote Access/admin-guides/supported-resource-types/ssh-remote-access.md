@@ -151,7 +151,7 @@ This workaround explicitly enables legacy SSH key types that are deprecated and 
 
 To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion via SSH certificate, and the Akeyless SRA bastion will utilize your SSH keys\password to connect to your legacy server.
 
-To work with SSH keys, you will have to create a static secret in an Akeyless to store your SSH private key or SSH password. i.e., the secret value should be either your SSH password or your SSH private key.
+To work with SSH keys, you will have to create a Static Secret in an Akeyless account to store your SSH private key or SSH password. The secret value should be either your SSH password or your SSH private key.
 
 > 🚧 Note
 >

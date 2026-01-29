@@ -2308,5 +2308,3 @@ akeyless rotated-secret delete-sync \
 `--delete-from-usc[=false]`: Delete the secret from the remote target usc as well.
 
 `--gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
-
-<br />

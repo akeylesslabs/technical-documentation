@@ -19,7 +19,7 @@ Prerequisites:
 
 This key will sign the certificates issued by your internal CA.
 
-```shell Bash
+```shell
 akeyless create-dfc-key \
   --profile default \
   --name /YourCompany/code-signing/root-key \
@@ -35,7 +35,7 @@ akeyless create-dfc-key \
 
 This is the key used for actual code signing.
 
-```shell Bash
+```shell
 akeyless generate-csr \
   --profile default \
   --split-level 2 \
@@ -52,7 +52,7 @@ akeyless generate-csr \
 
 This defines the policy for your internal CA.
 
-```shell Bash
+```shell
 akeyless create-pki-cert-issuer \
   --profile default \
   --name /YourCompany/code-signing/pki-issuer \
@@ -69,7 +69,7 @@ akeyless create-pki-cert-issuer \
 
 Sign the CSR generated in step 2.
 
-```shell Bash
+```shell
 akeyless get-pki-certificate \
   --profile default \
   --cert-issuer-name /YourCompany/code-signing/pki-issuer \
@@ -86,7 +86,7 @@ akeyless get-pki-certificate \
 
 Create a file named `sqlcrypt.conf` in a persistent location (`C:\Akeyless\conf\sqlcrypt.conf`).
 
-```shell Bash
+```shell
 akeyless_url = "https://gw-aws.lm.cs.akeyless.fans/api/v2"
 base_item_path = "/YourCompany/"
 log_path = ""
@@ -108,7 +108,7 @@ The Akeyless KSP requires the AKEYLESS_SQLCRYPT_CONFIG_PATH environment variable
 
 Run this in an Elevated PowerShell:
 
-```shell Bash
+```shell
 [System.Environment]::SetEnvironmentVariable('AKEYLESS_SQLCRYPT_CONFIG_PATH', 'C:\Akeyless\conf\sqlcrypt.conf', [System.EnvironmentVariableTarget]::Machine)
 
 # Verify the variable is set
@@ -125,7 +125,7 @@ Note: You may need to restart your shell or machine for this to take effect glob
 
 Use a dedicated folder for logs to ensure they persist across reboots.
 
-```shell Bash
+```shell
 # Define paths
 $msi = "C:\Path\To\AkeylessKspInstaller.msi"
 $logDir = Split-Path -Parent $msi
@@ -146,7 +146,7 @@ Reboot the machine now to register the provider.
 
 After rebooting, confirm the KSP is registered.
 
-```shell Bash
+```shell
 certutil -csplist | findstr /i "Akeyless"
 # Output should be: Provider Name: Akeyless KSP
 ```
@@ -157,7 +157,7 @@ certutil -csplist | findstr /i "Akeyless"
 
 The helper tool downloads the certificate from Akeyless and binds it to the KSP in the Windows Certificate Store.
 
-```shell Bash
+```shell
 $helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
 & $helper --config-path $env:AKEYLESS_SQLCRYPT_CONFIG_PATH sync-cert --store-scope machine --store-name My
 ```
@@ -166,7 +166,7 @@ $helper = "C:\Program Files\Akeyless\Akeyless KSP\akeyless-ksp-cert-helper.exe"
 
 Ensure the certificate is present and linked to "Akeyless KSP".
 
-```shell Bash
+```shell
 $thumb = (Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.Subject -like "*code.sign.example.com*" }).Thumbprint
 certutil -store -v My $thumb | findstr /i "Provider Container"
 # Expected Output: Provider = Akeyless KSP
@@ -174,14 +174,14 @@ certutil -store -v My $thumb | findstr /i "Provider Container"
 
 #### Sign a Test File
 
-```shell Bash
+```shell
 $file = "C:\Temp\test_app.dll"
 signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.digicert.com" /td SHA256 $file
 ```
 
 #### Establish Trust (Import Root CA)
 
-```shell Bash
+```shell
 $file = "C:\Temp\test_app.dll"
 signtool sign /debug /v /sm /s My /sha1 $thumb /fd SHA256 /tr "http://timestamp.digicert.com" /td SHA256 $file
 ```
@@ -190,7 +190,7 @@ If `signtool verify` fails because the chain is untrusted, you must import the R
 
 Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier.
 
-```shell Bash
+```shell
 akeyless get-certificate \
   --name /YourCompany/code-signing/root-key \
   --out-file root-ca.pem
@@ -200,7 +200,7 @@ akeyless get-certificate \
 
 Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the signing machine (or any machine verifying the signature).
 
-```shell Bash
+```shell
 Import-Certificate -FilePath .\root-ca.pem -CertStoreLocation Cert:\LocalMachine\Root
 ```
 
@@ -208,7 +208,7 @@ Import-Certificate -FilePath .\root-ca.pem -CertStoreLocation Cert:\LocalMachine
 
 Step C: Verify Chain
 
-```shell Bash
+```shell
 signtool verify /pa /v $file
 ```
 
@@ -218,7 +218,7 @@ If you need to troubleshoot or reinstall a clean version, follow this uninstall 
 
 Full Uninstall
 
-```shell Bash
+```shell
 # Define stable log path
 $logDir = "C:\Akeyless\logs" 
 New-Item -ItemType Directory -Force -Path $logDir | Out-Null
@@ -243,7 +243,7 @@ Verify Cleanup
 
 After reboot, ensure no traces remain:
 
-```shell Bash
+```shell
 certutil -csplist | findstr /i "Akeyless"  # Should return nothing
 Test-Path "C:\Windows\System32\AkeylessKsp.dll" # Should be False
 ```

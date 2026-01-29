@@ -29,7 +29,7 @@ The following metrics are currently available:
 | `akeyless.gw.quota.current_transactions_number`  | The current total transaction count in the account                                                                 |
 | `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`ADMIN_ACCESS_ID`)                                        |
 | `akeyless.gw.quota.total_transactions_limit`     | Total transaction limit per hour in the account                                                                    |
-| `akeyless.gw.system.http_response_status_code`   | Status of HTTP response for any request that originates from the Gateway API. (i.e. performed against the Gateway) |
+| `akeyless.gw.system.http_response_status_code`   | Status of HTTP response for any request that originates from the Gateway API.                                      |
 | `akeyless.gw.system.request_count`               | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status         |
 | `akeyless.gw.system.healthcheck.status`          | Monitors container health check status                                                                             |
 
@@ -37,7 +37,7 @@ In addition to those metrics, you can also [forward](https://docs.akeyless.io/do
 
 ## Datadog
 
-To enable Telemetry Metrics on your Gateway for Datadog, set the `ENABLE_METRICS=true` variable and mount the Telemetry config file, i.e.,`otel-config.yaml` as described below:
+To enable Telemetry Metrics on your Gateway for Datadog, set the `ENABLE_METRICS=true` variable and mount the Telemetry config file, such as `otel-config.yaml`, as described below:
 
 ```yaml otel-config.yaml
 exporters:

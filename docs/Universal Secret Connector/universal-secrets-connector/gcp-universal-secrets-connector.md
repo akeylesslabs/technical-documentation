@@ -170,5 +170,3 @@ Once connected to a Target, you will be able to access a Universal Secrets Conne
 * **Created:** Secret date of creation
 
 More information and secret value can be viewed by selecting a specific secret, additionally, you will have the option to perform actions on the secret.
-
-<br />

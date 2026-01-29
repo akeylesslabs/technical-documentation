@@ -5,15 +5,15 @@ hidden: false
 metadata:
   robots: index
 ---
-### Overview
+## Overview
 
 This feature allows a single Akeyless Classic Key to be provisioned and managed centrally while being simultaneously mapped to multiple external KMS across different cloud environments.
 
-## Provisioning via CLI
+## Provisioning with the CLI
 
 Multi-target provisioning workflow can also be performed using the Akeyless CLI. Using the CLI, a single Classic Key can be associated with multiple external targets by repeating the target association step.
 
-#### Step 1: Create a Classic Key
+### Step 1: Create a Classic Key
 
 ```shell
 akeyless create-classic-key \
@@ -21,7 +21,7 @@ akeyless create-classic-key \
   --alg AES256GCM
 ```
 
-#### Step 2: Create External Targets
+### Step 2: Create External Targets
 
 AWS KMS Target
 
@@ -54,9 +54,7 @@ akeyless target-create-gcp \
   --service-account-key <SERVICE_ACCOUNT_JSON>
 ```
 
-<br />
-
-#### Step 3: Associate the Same Classic Key with Each Target
+### Step 3: Associate the Same Classic Key with Each Target
 
 ```shell
 akeyless assoc-target-item \
@@ -72,28 +70,21 @@ akeyless assoc-target-item \
   --target-name gcp-kms-target
 ```
 
-<br />
+## Provisioning with the Web Console
 
-## Provisioning via Console
 
-<br />
-
-#### Step 1: Create or Select a Classic Key
+### Step 1: Create or Select a Classic Key
 
 1. In the Akeyless Console, navigate to Items
 2. Create a new Classic Key or select an existing one
 3. Open the key to view its details
 
-<br />
-
-#### Step 2: Open the Provisioning Tab
+### Step 2: Open the Provisioning Tab
 
 1. Inside the Classic Key view, navigate to the Provisioning tab
 2. This tab displays all external targets currently attached to the key
 
-<br />
-
-#### Step 3: Attach an External Target
+### Step 3: Attach an External Target
 
 1. Click Attach
 2. Enter the External Key Name
@@ -103,9 +94,7 @@ akeyless assoc-target-item \
 4. Choose the provisioning mode:
 5. Click Save
 
-<br />
-
-#### Step 4: Verify the Provisioned Target
+### Step 4: Verify the Provisioned Target
 
 1. After saving, return to the Provisioning tab
 2. Confirm that the new target appears in the targets list
@@ -114,14 +103,12 @@ akeyless assoc-target-item \
    2. Target type
    3. Target path
 
-<br />
-
-#### Step 5: Repeat for Additional Targets
+### Step 5: Repeat for Additional Targets
 
 To provision the same Classic Key to another external system:
 
 1. Click Attach again
-2. Select a different target (AWS, Azure, GCP, Thales, etc.)
+2. Select a different target (for example: AWS, Azure, GCP, or Thales)
 3. Provide a new External Key Name if needed
 4. Save the configuration
 
