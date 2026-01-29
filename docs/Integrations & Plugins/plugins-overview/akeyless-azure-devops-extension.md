@@ -61,7 +61,7 @@ Before using the task in your pipelines, you need to configure a [Service Connec
 This example demonstrates how to authenticate and fetch secrets to retrieve multiple secrets and then use them in a subsequent script, such as initializing an AI agent.
 
 ```yaml
-# More info in https://aka.ms/yaml
+# More info at https://aka.ms/yaml
 
 trigger:
 - main
