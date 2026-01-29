@@ -52,7 +52,7 @@ Every session update is captured in the Audit Log. This ensures that any changes
 >
 > In order to configure access to SRA Application servers, you should go to **Access Roles** -> **Administrative Rules** -> **Secure Remote Access.**
 >
-> Choose **Own** for allowing access to specific SRA servers (aka Extended Visibility) or **All** for all SRA servers (aka Admin Access)
+> Choose **Own** for allowing access to specific SRA servers (also known as Extended Visibility) or **All** for all SRA servers (also known as Admin Access)
 
 ## Accessing Session Monitoring
 

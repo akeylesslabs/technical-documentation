@@ -16,7 +16,7 @@ This section outlines the CLI commands relevant to SSH and PKI certificates.
 
 ## SSH Certificates
 
-### `Create-ssh-cert-issuer`
+### `create-ssh-cert-issuer`
 
 Creates a new SSH certificate issuer
 
@@ -30,7 +30,7 @@ akeyless create-ssh-cert-issuer \
 --ttl <Time To Live for the certificate>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, SSH certificate issuer name
 
@@ -62,7 +62,7 @@ akeyless create-ssh-cert-issuer \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `Get-ssh-certificate`
+### `get-ssh-certificate`
 
 Generate SSH certificate using Akeyless certificate issuer
 
@@ -76,7 +76,7 @@ akeyless get-ssh-certificate \
 --public-key-data <key file contents>
 ```
 
-##### Flags
+#### Flags
 
 `-s, --cert-username`: **Required**, The username to sign in the SSH certificate (use a comma-separated list for more than one username)
 
@@ -92,7 +92,7 @@ akeyless get-ssh-certificate \
 
 `--legacy-signing-alg-name[=false]`: Set this option to use the legacy signing algorithm `ssh-rsa-cert-v01@openssh.com`.
 
-### `Update-ssh-cert-issuer`
+### `update-ssh-cert-issuer`
 
 Updates an existing SSH certificate issuer
 
@@ -144,7 +144,7 @@ akeyless update-ssh-cert-issuer \
 
 ## PKI Certificates
 
-### `Create-pki-cert-issuer`
+### `create-pki-cert-issuer`
 
 Creates a new PKI certificate issuer
 
@@ -157,7 +157,7 @@ akeyless create-pki-cert-issuer \
 --signer-key-name <A singer key to sign and issue certificate> 
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, PKI certificate issuer name
 
@@ -241,7 +241,7 @@ akeyless create-pki-cert-issuer \
 
 `--tag`: List of the tags attached to this key. To specify multiple tags use argument multiple times: `--tag Tag1 --tag Tag2`
 
-### `Generate-csr`
+### `generate-csr`
 
 Generates a new Certificate Signing Request (CSR)
 
@@ -253,7 +253,7 @@ akeyless generate-csr \
 --common-name <Common Name> 
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Full path to the Key that will sign the CSR
 
@@ -295,7 +295,7 @@ akeyless generate-csr \
 
 `--description`: Description of the object
 
-### `Get-kube-exec-creds`
+### `get-kube-exec-creds`
 
 Gets credentials for authentication with Kubernetes cluster based on a PKI Cert Issuer
 
@@ -309,7 +309,7 @@ akeyless get-kube-exec-creds \
 --ttl <Updated certificate lifetime in seconds>
 ```
 
-##### Flags
+#### Flags
 
 `-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
@@ -335,7 +335,7 @@ akeyless get-kube-exec-creds \
 
 `-a, --api-version[=v1]`: The version of the client authentication API
 
-### `Get-pki-certificate`
+### `get-pki-certificate`
 
 Generates PKI certificate from a PKI Issuer
 
@@ -348,7 +348,7 @@ akeyless get-pki-certificate \
 --ttl <certificate lifetime> 
 ```
 
-##### Flags
+#### Flags
 
 `-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
@@ -376,7 +376,7 @@ akeyless get-pki-certificate \
 
 `-o, --outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension
 
-### `Get-cert-challenge`
+### `get-cert-challenge`
 
 Get a challenge for certificate authentication
 
@@ -388,7 +388,7 @@ akeyless get-cert-challenge \
 --cert-data <'Certificate data encoded in Base64'>
 ```
 
-### `Renew-certificate`
+### `renew-certificate`
 
 Renew a PKI certificate
 
@@ -400,7 +400,7 @@ akeyless renew-certificate \
 --item-id <Certificate Item-ID>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: Certificate name
 
@@ -410,7 +410,7 @@ akeyless renew-certificate \
 
 `-c, --cert-issuer-name`: Optional,the name of the PKI certificate issuer, relevant only for **imported** Certificates.
 
-### `Update-pki-cert-issuer`
+### `update-pki-cert-issuer`
 
 Updates a new PKI certificate issuer
 
@@ -508,7 +508,7 @@ akeyless update-pki-cert-issuer \
 
 ## Certificate Storage
 
-### `Create-certificate`
+### `create-certificate`
 
 Creates a new certificate
 
@@ -520,7 +520,7 @@ akeyless create-certificate \
 --certificate <path-to-certificate-PEM/CER/CRT/PFX/P12>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Unique Certificate name (mandatory)
 
@@ -546,7 +546,7 @@ akeyless create-certificate \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-### `Get-certificate-value`
+### `get-certificate-value`
 
 Gets the certificate's PEM, and the private key's PEM if it exists, in a JSON file
 
@@ -556,7 +556,7 @@ Gets the certificate's PEM, and the private key's PEM if it exists, in a JSON fi
 akeyless get-certificate-value --name <certificate-name>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Certificate name
 
@@ -570,7 +570,7 @@ akeyless get-certificate-value --name <certificate-name>
 
 `--private-key-file-output`: File to write the private key to
 
-### `Provision-certificate`
+### `provision-certificate`
 
 Provision a certificate content to a target
 
@@ -582,7 +582,7 @@ akeyless provision-certificate \
 --item-id <Certificate Item-ID>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: Certificate name
 
@@ -590,7 +590,7 @@ akeyless provision-certificate \
 
 `-d, --display-id`: Certificate display ID
 
-### `Revoke-certificate`
+### `revoke-certificate`
 
 Revokes a certificate and adds it to the issuer CRL
 
@@ -602,7 +602,7 @@ akeyless revoke-certificate \
 --item-id <item-id> 
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: Certificate name
 
@@ -612,7 +612,7 @@ akeyless revoke-certificate \
 
 `--version`: Certificate version to revoke. Required if item-id or name are used
 
-### `Update-certificate-value`
+### `update-certificate-value`
 
 Updates the data in an existing certificate
 
@@ -624,7 +624,7 @@ akeyless update-certificate-value \
 --certificate <path-to-certificate-PEM/CER/CRT/PFX/P12>
 ```
 
-##### Flags
+#### Flags
 
 `-n, --name`: **Required**, Certificate name
 
@@ -650,9 +650,9 @@ akeyless update-certificate-value \
 
 `--delete-protection`: Protection from accidental deletion of this item, [true/false]
 
-## ACME
+## Automatic Certificate Management Environment (ACME)
 
-### `Generate-acme-eab`
+### `generate-acme-eab`
 
 Generates an external account binding for a cert issuer
 
@@ -663,7 +663,7 @@ akeyless generate-acme-eab \
 --cert-issuer-name <PKI issuer name> 
 ```
 
-### `List-acme-accounts`
+### `list-acme-accounts`
 
 Lists ACME external accounts for a cert issuer
 
@@ -674,7 +674,7 @@ akeyless list-acme-accounts \
 --cert-issuer-name <PKI issuer name>
 ```
 
-### `Deactivate-acme-account`
+### `deactivate-acme-account`
 
 Deactivate an ACME external account
 
@@ -688,7 +688,7 @@ akeyless deactivate-acme-account \
 
 ## Chain of Trust
 
-### `Generate-ca`
+### `generate-ca`
 
 Creates a new PKI CA and Intermediate issuers
 
@@ -702,7 +702,7 @@ akeyless generate-ca \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##### Flags
+#### Flags
 
 `-n, --pki-chain-name`: **Required**, PKI certificate issuer name.
 
@@ -728,6 +728,8 @@ akeyless generate-ca \
 
 ## Certificate Discovery
 
+### `certificate-discovery`
+
 Discover Certificates in your organization
 
 #### Usage
@@ -740,7 +742,7 @@ akeyless certificate-discovery \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##### Flags
+#### Flags
 
 `-o, --hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
 
@@ -753,4 +755,3 @@ akeyless certificate-discovery \
 `-k, --protection-key`: The name of the key that protects the certificate value (if empty, the account default key will be used).
 
 `-d, --debug`: Use this flag to run the command in **Debug mode**.
-
