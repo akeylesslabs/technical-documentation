@@ -34,7 +34,7 @@ Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.ak
 2. The resource sends these credentials to Akeyless using the auth API endpoint
 3. Akeyless validates the request using **AWS STS** by calling the `GetCallerIdentity` API to verify the authenticity and identity of the requester. This exchange does not expose long-term credentials and relies on short-lived tokens, ensuring secure communication. This secure flow avoids needing to manage Static Secrets or access keys within AWS services.
 
-![](https://files.readme.io/f8e683e1aaa94a88ebda40de04504f4c56c8126bec5760a3289ba9a97f958444-image.png)
+![A summary of the relationship between AWS and Akeyless](https://files.readme.io/f8e683e1aaa94a88ebda40de04504f4c56c8126bec5760a3289ba9a97f958444-image.png)
 
 ## How Akeyless Target Should Be Used
 
@@ -52,11 +52,11 @@ As the Akeyless Gateway is a light, stateless application, it might be deployed 
 
 * [Centralized Gateway](https://docs.akeyless.io/docs/terraform-centralized-deployment): Deploy a single **Gateway** in a “security-services” or “shared-tools” account. In each member account, create an **IAM role** that the [Gateway](https://docs.akeyless.io/docs/gateway-chart) can assume, protected with an **External ID**. Register each role as an [AWS Target](https://docs.akeyless.io/docs/aws-targets) in Akeyless. Where [Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [USC](https://docs.akeyless.io/docs/aws-universal-secrets-connector), and so on, will point to that Target. This will end with 1 or more **Gateways** to manage and monitor, while keeping member accounts isolated.
 
-<Image align="center" src="https://files.readme.io/603ecd924daae82ebfff8e8153f147779849a6d0d616e42888e8e965ba07bd2d-Flows_for_Akelyess_Target_with_Cloud_ID_and_external_ID_1.jpg" />
+![Illustration for: Centralized Gateway: Deploy a single **Gateway** in a “security-services” or “shared-tools” account.](https://files.readme.io/603ecd924daae82ebfff8e8153f147779849a6d0d616e42888e8e965ba07bd2d-Flows_for_Akelyess_Target_with_Cloud_ID_and_external_ID_1.jpg)
 
 * [Distributed Gateways](https://docs.akeyless.io/docs/terraform-distributed-deployment): Deploy different **Gateways** in every account. Each **Gateway** works only on its local AWS account, but is managed from the same Akeyless account.
 
-<Image align="center" src="https://files.readme.io/a3ee87d843bbeed8d385418b8e87cb87af8a574672cf3d434ce0adedad180350-Flows_for_Akelyess_Target_with_Cloud_ID_and_external_ID.jpg" />
+![Illustration for: Distributed Gateways: Deploy different Gateways in every account.](https://files.readme.io/a3ee87d843bbeed8d385418b8e87cb87af8a574672cf3d434ce0adedad180350-Flows_for_Akelyess_Target_with_Cloud_ID_and_external_ID.jpg)
 
 You can find a Terraform example with the required IAM roles for these deployments in the following links:
 

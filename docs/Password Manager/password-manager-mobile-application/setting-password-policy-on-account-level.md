@@ -12,7 +12,7 @@ next:
 ---
 ## Accessing Password Generation Policy
 
-<Image align="right" width="300px" src="https://files.readme.io/fc0783d-Screenshot_2024-01-10_at_16.21.04.png" />
+![Illustration for: Accessing Password Generation Policy](https://files.readme.io/fc0783d-Screenshot_2024-01-10_at_16.21.04.png)
 
 Open the Akeyless Password Manager application.
 

@@ -94,28 +94,28 @@ The following examples demonstrate how to authenticate and retrieve items using 
 
 The following configuration utilizes an existing API Key in Akeyless for Jenkins authentication.
 
-![](https://files.readme.io/fd278b50a80159780c9b765772b37859ba715f7ad777ae12d0d214db21c1b55c-image.png)
+![Illustration for: Setting API Key Authentication The following configuration utilizes an existing API Key in Akeyless for Jenkins authentication.](https://files.readme.io/fd278b50a80159780c9b765772b37859ba715f7ad777ae12d0d214db21c1b55c-image.png)
 
 ### Fetching a Static Secret
 
 The following configuration will fetch a static secret to your pipeline. This example uses a JSON-Structured secret, where only the UserName key of the secret is saved to User Environment Variable.
 
-![](https://files.readme.io/9f31c3fcbc87a157d318e00535237be8fb2ac2f7ba8d7b003375341fb4478eff-image.png)
+![Illustration for: The following configuration will fetch a static secret to your pipeline. This example uses a JSON-Structured secret, where only the UserName key of the secret is saved to User…](https://files.readme.io/9f31c3fcbc87a157d318e00535237be8fb2ac2f7ba8d7b003375341fb4478eff-image.png)
 
 ### Fetching a Rotated Secret With Specific Keys
 
 The following example will only fetch the username of the rotated secret value, and will store it into User environment variable:
 
-![](https://files.readme.io/2ee1e96798d98e9d3c2c06d87f93f882da509660dddf979bdf997ede339acd71-image.png)
+![Illustration for: Fetching a Rotated Secret With Specific Keys The following example will only fetch the username of the rotated secret value, and will store it into User environment variable:](https://files.readme.io/2ee1e96798d98e9d3c2c06d87f93f882da509660dddf979bdf997ede339acd71-image.png)
 
 ### Issuing an SSH Certificate
 
 The following above will generate an SSH Certificate that will be allowed for the `ubuntu` user, using a public key:
 
-![](https://files.readme.io/20d1d24c8bf53d285e233e8c698442a101f65c381ff31ec1c5b9b972a4671494-image.png)
+![Illustration for: Issuing an SSH Certificate The following above will generate an SSH Certificate that will be allowed for the ubuntu user, using a public key:](https://files.readme.io/20d1d24c8bf53d285e233e8c698442a101f65c381ff31ec1c5b9b972a4671494-image.png)
 
 ### Issuing a PKI Certificate
 
 The following example will generate PKI Certificate using predefined Certificate Signing Request:
 
-![](https://files.readme.io/572a3006acc9bf1bae374b45fe721ec09e1658fc5c954c1c0114056049254b5f-image.png)
+![Illustration for: Issuing a PKI Certificate The following example will generate PKI Certificate using predefined Certificate Signing Request:](https://files.readme.io/572a3006acc9bf1bae374b45fe721ec09e1658fc5c954c1c0114056049254b5f-image.png)

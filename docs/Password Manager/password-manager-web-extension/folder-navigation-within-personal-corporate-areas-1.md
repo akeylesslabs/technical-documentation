@@ -14,7 +14,7 @@ next:
 
 The Akeyless Password Manager web browser extension allows you to organize your passwords and secrets into folders. This can be a helpful way to keep your passwords and secrets organized and easy to find.
 
-<Image align="right" src="https://files.readme.io/b0ea2f8-Screenshot_2024-01-10_at_16.49.31.png" />
+![Illustration for: The Akeyless Password Manager web browser extension allows you to organize your passwords and secrets into folders. This can be a helpful way to keep your passwords and secrets…](https://files.readme.io/b0ea2f8-Screenshot_2024-01-10_at_16.49.31.png)
 
 To navigate within the folder hierarchy, you can use the following methods:
 

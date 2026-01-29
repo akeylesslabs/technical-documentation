@@ -60,7 +60,7 @@ This dual-ticker system ensures the cache remains fresh and accurate with minima
 The following diagram illustrates the key phases of the Akeyless Gateway's proactive caching mechanism, showing how it efficiently populates and maintains its cache, and how an application consumes secrets from it.
 In this example, the user set the Refresh-TTL Ticker to 2 minutes.
 
-<Image align="center" border={false} src="https://files.readme.io/1fdc1d01ea89e625913853199b7ed1aba17bdebdd713ce3b708af7c1fa9b2e77-Cache_Diagaram.png" />
+![Illustration for: The following diagram illustrates the key phases of the Akeyless Gateway's proactive caching mechanism, showing how it efficiently populates and maintains its cache, and how an…](https://files.readme.io/1fdc1d01ea89e625913853199b7ed1aba17bdebdd713ce3b708af7c1fa9b2e77-Cache_Diagaram.png)
 
 To enable and configure the Proactive Cache:
 

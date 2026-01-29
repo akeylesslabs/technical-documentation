@@ -42,7 +42,7 @@ To work with the GitHub Actions plugin:
 
 4. On GitHub, create a new repository. In this example, it's called **Akeyless-vault-example**.
 
-    <Image align="center" className="border" border={true} src="https://files.readme.io/3258bde-Screenshot_at_May_25_14-24-05.png" />
+    ![Illustration for: 2. Stage all the files in the directory by running: 3. Commit all the staged files by running: 4. On GitHub, create a new repository. In this example, it's called…](https://files.readme.io/3258bde-Screenshot_at_May_25_14-24-05.png)
 
 5. Perform an initial commit to the new repository by running:
 
@@ -62,7 +62,7 @@ To work with the GitHub Actions plugin:
 
     : **\<access\_id>..\<access\_key>**. For example:
 
-    <Image align="center" className="border" border={true} src="https://files.readme.io/51a6336-image-20210524-1247311.png" />
+    ![Illustration for: 2. Name the secret **VAULT\_TOKEN**. 3. Set the secret value in the following format : **\<access\_id>..\<access\_key>**. For example:](https://files.readme.io/51a6336-image-20210524-1247311.png)
 
 4. Select **Add secret**.
 

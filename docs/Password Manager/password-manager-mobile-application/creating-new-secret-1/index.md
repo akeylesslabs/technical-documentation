@@ -16,7 +16,7 @@ Locating the App: Begin by finding the Akeyless mobile Password Manager applicat
 
 Opening the App: Tap on the Akeyless icon. This action initiates the application, and you may see a brief loading screen as the app prepares to open.
 
-<Image align="right" width="150px" src="https://files.readme.io/2c37aed-Screenshot_2024-03-21_at_13.35.46.png" />
+![Illustration for: Locating the App: Begin by finding the Akeyless mobile Password Manager application on your mobile device. Opening the App: Tap on the Akeyless icon. This action initiates the…](https://files.readme.io/2c37aed-Screenshot_2024-03-21_at_13.35.46.png)
 
 ## Step 2: Initiate the Secret Creation Process
 

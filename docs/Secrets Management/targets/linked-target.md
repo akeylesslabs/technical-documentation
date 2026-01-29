@@ -12,7 +12,7 @@ next:
 ---
 A Linked Target is an item that represents a collection of hosts that are considered equivalent for access control while sharing privileged credentials.
 
-<Image align="center" src="https://files.readme.io/83762de-Linked-Target.png" />
+![Illustration for: A Linked Target is an item that represents a collection of hosts that are considered equivalent for access control while sharing privileged credentials.](https://files.readme.io/83762de-Linked-Target.png)
 
 For example, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) that is used for [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) can be created with a Linked Target that uses the privileged credentials which are stored within a standard [Target](https://docs.akeyless.io/docs/targets), where users that are sharing the same access level can use a single Dynamic Secret item to generate JIT credentials to establish a remote session using Akeyless [Secure Remote Access](https://docs.akeyless.io/docs/secure-remote-access) solutions to different endpoints while ensuring the privileged credentials are rotated periodically.
 

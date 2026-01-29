@@ -12,7 +12,7 @@ next:
 ---
 The Akeyless Web Extension offers a convenient feature allowing users to mark their frequently used secrets or passwords as favorites. This functionality enables quick access to your most important items. The following guide will walk you through the process of adding secrets or passwords to your favorites and managing them within the web extension.
 
-<Image align="right" width="150px" src="https://files.readme.io/313aa73-Screenshot_2024-03-21_at_14.07.31.png" />
+![Illustration for: The Akeyless Web Extension offers a convenient feature allowing users to mark their frequently used secrets or passwords as favorites. This functionality enables quick access…](https://files.readme.io/313aa73-Screenshot_2024-03-21_at_14.07.31.png)
 
 ## Step 1: Locate the Secret or Password
 
@@ -31,7 +31,7 @@ The Akeyless Web Extension offers a convenient feature allowing users to mark th
 
 ## Step 4: Remove from Favorites
 
-<Image align="right" width="150px" src="https://files.readme.io/daa2c75-Screenshot_2024-03-21_at_14.08.18.png" />
+![Illustration for: Step 4: Remove from Favorites](https://files.readme.io/daa2c75-Screenshot_2024-03-21_at_14.08.18.png)
 
 * If you decide to remove an item from your favorites, go to the Favorites tab and locate the item you wish to remove.
 * Hover over the item, and you will see the star icon appear again next to the item name. The star will be filled, indicating that it is currently a favorite.

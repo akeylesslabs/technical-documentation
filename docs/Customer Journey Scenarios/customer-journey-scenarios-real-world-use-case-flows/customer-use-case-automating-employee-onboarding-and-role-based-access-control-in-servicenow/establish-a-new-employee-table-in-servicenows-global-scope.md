@@ -19,30 +19,30 @@ To ensure that you are creating your new employee table in the global scope with
 * **Application Field:** Look for an application field or dropdown in the table creation form. The option to select "Global" may vary based on the version and configuration of your ServiceNow instance. If you see an option to select "Global," ensure it is chosen. If there is no specific dropdown or if you are unsure, leaving this field blank or following the default settings typically assigns the table to the global scope.
 * **Scope Confirmation:** After filling out the form and before saving, verify if there's an indicator or a field that confirms the scope of the table. Some interfaces may explicitly show the scope as "Global" before finalizing the table creation.
 
-![](https://files.readme.io/c8447a0-Screenshot_2024-02-29_at_13.30.15.png)
+![Illustration for: * **Scope Confirmation:** After filling out the form and before saving, verify if there's an indicator or a field that confirms the scope of the table. Some interfaces may…](https://files.readme.io/c8447a0-Screenshot_2024-02-29_at_13.30.15.png)
 
-![](https://files.readme.io/0260919-Screenshot_2024-02-29_at_13.30.27.png)
+![Illustration for: * **Scope Confirmation:** After filling out the form and before saving, verify if there's an indicator or a field that confirms the scope of the table. Some interfaces may…](https://files.readme.io/0260919-Screenshot_2024-02-29_at_13.30.27.png)
 
 ## Navigate to the Table Creation Interface
 
 * Access the ServiceNow dashboard.
 * Go to System Definition > Tables. This section allows you to manage and create new tables within the platform.
 
-![](https://files.readme.io/baf3b31-Screenshot_2024-02-29_at_13.27.37.png)
+![Illustration for: Navigate to the Table Creation Interface * Access the ServiceNow dashboard. * Go to System Definition > Tables. This section allows you to manage and create new tables within…](https://files.readme.io/baf3b31-Screenshot_2024-02-29_at_13.27.37.png)
 
 ## Start the Table Creation Process
 
 * Click on the New button to begin creating a new table.
 * This action opens a form where you can enter details about the new table you want to create.
 
-![](https://files.readme.io/4552a07-Screenshot_2024-02-29_at_13.28.14.png)
+![Illustration for: Start the Table Creation Process * Click on the New button to begin creating a new table. * This action opens a form where you can enter details about the new table you want to…](https://files.readme.io/4552a07-Screenshot_2024-02-29_at_13.28.14.png)
 
 ## Specify Table Details
 
 * In the table creation form, fill out the necessary details for your table, such as Name, Label, and Plural Label.
 * For fields that specifically relate to the scope, such as Application, ensure that the application field is either set to "Global" or left blank. In ServiceNow, if no specific application is selected, the table defaults to the global scope, making it accessible across all applications.
 
-![](https://files.readme.io/ed7a394-Screenshot_2024-02-29_at_13.29.28.png)
+![Illustration for: * For fields that specifically relate to the scope, such as Application, ensure that the application field is either set to "Global" or left blank. In ServiceNow, if no…](https://files.readme.io/ed7a394-Screenshot_2024-02-29_at_13.29.28.png)
 
 ## Fields for Authentication Method Creation
 
@@ -64,4 +64,4 @@ To ensure that you are creating your new employee table in the global scope with
 
 **Email**: An email field to store the employee's email address. This field is crucial for communication and may also serve as an identifier for various system integrations or authentication methods.
 
-![](https://files.readme.io/7178332-Screenshot_2024-02-29_at_13.33.47.png)
+![Illustration for: **Email**: An email field to store the employee's email address. This field is crucial for communication and may also serve as an identifier for various system integrations or…](https://files.readme.io/7178332-Screenshot_2024-02-29_at_13.33.47.png)

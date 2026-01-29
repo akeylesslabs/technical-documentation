@@ -31,4 +31,4 @@ The Password Manager Usage Report delivers critical metrics that help in underst
         4. EMAIL: Users who utilize email-based authentication.
             Access ID: A unique identifier used for authentication within the system.
 
-![](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)
+![Illustration for: 3. LDAP (Lightweight Directory Access Protocol): For users authenticated via traditional directory services. 4. EMAIL: Users who utilize email-based authentication. Access ID:…](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)

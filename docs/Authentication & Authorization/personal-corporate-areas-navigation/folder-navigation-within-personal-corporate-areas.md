@@ -20,9 +20,9 @@ To access the contents of a folder, the user can simply click on the name of the
 
 The user can also use the search bar at the top of the page to search for specific secrets or keys within their personal folder.
 
-![](https://files.readme.io/3b63123-Screenshot_2024-01-10_at_16.28.55.png)
+![Illustration for: To access the contents of a folder, the user can simply click on the name of the folder. The user will then see a list of all the secrets and keys that are contained within the…](https://files.readme.io/3b63123-Screenshot_2024-01-10_at_16.28.55.png)
 
-<Image align="right" width="150px" src="https://files.readme.io/42af225-Screenshot_2024-01-10_at_16.29.12.png" />
+![Illustration for: To access the contents of a folder, the user can simply click on the name of the folder. The user will then see a list of all the secrets and keys that are contained within the…](https://files.readme.io/42af225-Screenshot_2024-01-10_at_16.29.12.png)
 
 Corporate folders
 

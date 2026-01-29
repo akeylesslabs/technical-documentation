@@ -12,7 +12,7 @@ next:
 ---
 The Favorites Tab is crafted to offer you quick and easy access to select passwords and secrets that you deem most critical or use often. It acts as a personalized shortcut, streamlining your navigation and saving you time.
 
-<Image align="right" width="150px" src="https://files.readme.io/267b625-Screenshot_2024-04-11_at_15.25.13.png" />
+![Illustration for: The Favorites Tab is crafted to offer you quick and easy access to select passwords and secrets that you deem most critical or use often. It acts as a personalized shortcut,…](https://files.readme.io/267b625-Screenshot_2024-04-11_at_15.25.13.png)
 
 ## Adding Items to Favorites
 

@@ -12,7 +12,7 @@ next:
 ---
 The Akeyless Password Manager web browser extension enhances its functionality with an advanced multi-field search capability, designed to streamline your search process and ensure you find the passwords and secrets you need with ease. This powerful feature allows you to simultaneously search across multiple criteria, significantly broadening your search scope and improving the chances of locating the exact information you require.
 
-<Image align="right" width="150px" src="https://files.readme.io/6f615f8-Screenshot_2024-04-11_at_14.12.10.png" />
+![Illustration for: The Akeyless Password Manager web browser extension enhances its functionality with an advanced multi-field search capability, designed to streamline your search process and…](https://files.readme.io/6f615f8-Screenshot_2024-04-11_at_14.12.10.png)
 
 Password Name: Directly look up the name you've assigned to your password or secret, ensuring you can quickly find credentials without remembering their associated details.
 

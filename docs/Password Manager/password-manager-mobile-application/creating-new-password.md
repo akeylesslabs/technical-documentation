@@ -12,7 +12,7 @@ next:
 ---
 ## Creating a New Password from Akeyless Mobile Application
 
-<Image align="right" width="200px" src="https://files.readme.io/66309dd-Screenshot_2024-01-10_at_14.52.27.png" />
+![Illustration for: Creating a New Password from Akeyless Mobile Application](https://files.readme.io/66309dd-Screenshot_2024-01-10_at_14.52.27.png)
 
 ### Step 1: Launch the Akeyless Mobile Password Manager Application
 
@@ -61,11 +61,11 @@ Saving the Password: Review the details you’ve entered. Once you're satisfied 
 
 Confirmation: The app will confirm that your password has been saved. It's now securely stored and accessible within the app, ready for use whenever you need it.
 
-<Image align="center" width="1px" src="https://files.readme.io/7569fe6-Screenshot_2023-11-05_at_14.07.50.png" />
+![Illustration for: Confirmation: The app will confirm that your password has been saved. It's now securely stored and accessible within the app, ready for use whenever you need it.](https://files.readme.io/7569fe6-Screenshot_2023-11-05_at_14.07.50.png)
 
 ## Creating a New Password from Akeyless Injection / Autofill Window
 
-<Image align="right" width="300px" src="https://files.readme.io/e26ea04-Screenshot_2023-11-05_at_14.55.06.png" />
+![Illustration for: Creating a New Password from Akeyless Injection / Autofill Window](https://files.readme.io/e26ea04-Screenshot_2023-11-05_at_14.55.06.png)
 
 1. Access the Autofill or Suggestion Field: When you tap on a password field on a website or app, your mobile device will present you with autofill or suggestion options for previously saved passwords.
 2. Initiate New Password Creation: Look for an option within the autofill or suggestion field to create a new password by clicking the "Open Akeyless" button.

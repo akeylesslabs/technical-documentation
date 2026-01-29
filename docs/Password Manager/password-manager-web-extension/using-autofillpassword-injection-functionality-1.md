@@ -12,7 +12,7 @@ next:
 ---
 Password AutoFill is a feature of many web browsers that allows you to automatically fill in your login credentials for websites.
 
-<Image align="right" width="200px" src="https://files.readme.io/e491682-Screenshot_2024-01-10_at_16.55.04.png" />
+![Illustration for: Password AutoFill is a feature of many web browsers that allows you to automatically fill in your login credentials for websites.](https://files.readme.io/e491682-Screenshot_2024-01-10_at_16.55.04.png)
 
 How to Use Password AutoFill
 

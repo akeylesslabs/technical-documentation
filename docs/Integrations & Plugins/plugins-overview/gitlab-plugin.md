@@ -122,7 +122,7 @@ akeyless:
 
 Sample output of a successful job:
 
-<Image align="center" border={false} src="https://files.readme.io/d82b92c-gitlab-docs.png" />
+![Illustration for: > The image is akeyless/ci_base which is a public Docker image based on ruby:2.4 that contains the Akeyless CLI as well as other essential components. Sample output of a…](https://files.readme.io/d82b92c-gitlab-docs.png)
 
 Success! - the secrets are accessible to use within the job logic (in this example, they are just being printed).
 

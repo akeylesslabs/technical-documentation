@@ -21,11 +21,11 @@ The main screen tab provides information about items, such as Secrets and Keys w
 
 The user can change the timeframe for which the data is presented.
 
-<Image align="center" border={false} src="https://files.readme.io/7469f53-Screenshot_at_Nov_23_14-36-38.png" />
+![Illustration for: Request volume in the allocated timeframe](https://files.readme.io/7469f53-Screenshot_at_Nov_23_14-36-38.png)
 
 Navigate to the **Certificates** tab to get an immediate overview of your certificate's status with additional details on future expiration.
 
-<Image align="center" border={false} src="https://files.readme.io/f7946c8-Screenshot_at_Nov_23_15-02-11.png" />
+![Illustration for: The user can change the timeframe for which the data is presented.](https://files.readme.io/f7946c8-Screenshot_at_Nov_23_15-02-11.png)
 
 On the **Certificate Expiry** graph, click on the **Overview** button in the top right corner to get a detailed overview of all your certificate and their expiration details.
 

@@ -22,7 +22,7 @@ The **USC** solution operates in a governance loop model. It automatically detec
 
 Setting up Universal Secret Connector requires the **Defaults** permission on the Gateway.
 
-<Image align="center" src="https://files.readme.io/80a2ad6-External_Secrets_-_Architecture.png" />
+![Illustration for: The **USC** solution operates in a governance loop model. It automatically detects and reflects changes to your secrets, whether those changes are made in Akeyless or in the…](https://files.readme.io/80a2ad6-External_Secrets_-_Architecture.png)
 
 Akeyless currently supports creating Universal Secrets Connectors for the following services:
 

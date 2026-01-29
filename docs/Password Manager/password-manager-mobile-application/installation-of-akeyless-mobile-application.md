@@ -24,7 +24,7 @@ Locate Akeyless Mobile App: Browse through the search results until you find the
 
 Grant Permissions: A prompt will appear, detailing the permissions required by the Akeyless app to function optimally on your device. Carefully review these permissions. If they seem appropriate and necessary for the app’s functionality, tap on the "Accept" button to begin the installation process.
 
-<Image align="center" width="200px" src="https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg" />
+![Illustration for: Grant Permissions: A prompt will appear, detailing the permissions required by the Akeyless app to function optimally on your device. Carefully review these permissions. If…](https://files.readme.io/528c51e-Screenshot_20240506_171826_Google_Play_Store2.jpg)
 
 ## Akeyless Password Manager iOS Installation
 
@@ -36,7 +36,7 @@ Choose Akeyless Mobile App: The search results will display various apps. Naviga
 
 Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password or using Face ID/Touch ID for verification. Follow these steps to finalize the installation.
 
-<Image align="center" width="200px" src="https://files.readme.io/9f41004-File_5.jpg" />
+![Illustration for: Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password…](https://files.readme.io/9f41004-File_5.jpg)
 
 ## Authentication Methods Support
 

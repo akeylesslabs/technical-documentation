@@ -14,7 +14,7 @@ In our Akeyless browser extension, you have the flexibility to define specific s
 
 ## How It Works
 
-<Image align="right" width="200px" src="https://files.readme.io/c6ca311-Screenshot_2024-01-10_at_16.41.08.png" />
+![Illustration for: How It Works](https://files.readme.io/c6ca311-Screenshot_2024-01-10_at_16.41.08.png)
 
 ## Creating a New Secret
 

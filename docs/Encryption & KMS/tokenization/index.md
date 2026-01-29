@@ -16,7 +16,7 @@ Akeyless Platform provides Tokenization as a service. Tokenization is a process 
 
 Akeyless Platform performs Tokenization using a format-preserving Encryption (FPE) algorithm.
 
-<Image align="center" width="100%" src="https://files.readme.io/fbe53f7-tokenizer.png" />
+![Illustration for: Akeyless Platform provides Tokenization as a service. Tokenization is a process of encrypting sensitive data, such as social security, phone, and credit card numbers, in a way…](https://files.readme.io/fbe53f7-tokenizer.png)
 
 ## Why Is It Important to Preserve the Original Format of Data?
 

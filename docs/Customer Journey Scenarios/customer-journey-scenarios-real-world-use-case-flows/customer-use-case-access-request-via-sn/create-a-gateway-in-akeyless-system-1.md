@@ -25,18 +25,18 @@ Creating a gateway within the Akeyless system is a fundamental step for leveragi
 * In the Gateways section, you will see an option to create new Gateway by clicking the New Button. Click on this to start the process of setting up a new gateway.
 * You will be prompted to installation guide:
 
-![](https://files.readme.io/fc7e669-Screenshot_2024-03-05_at_9.55.48.png)
+![Illustration for: * In the Gateways section, you will see an option to create new Gateway by clicking the New Button. Click on this to start the process of setting up a new gateway. * You will…](https://files.readme.io/fc7e669-Screenshot_2024-03-05_at_9.55.48.png)
 
 ## Step 4: Creating Gateway Credentials
 
 * Log In: Access the Akeyless Console and log in with your admin account.
 * Create API Key: Click on the option to create or generate a new API Key.
 
-![](https://files.readme.io/9219db2-Screenshot_2024-03-05_at_10.03.37.png)
+![Illustration for: Step 4: Creating Gateway Credentials * Log In: Access the Akeyless Console and log in with your admin account. * Create API Key: Click on the option to create or generate a new…](https://files.readme.io/9219db2-Screenshot_2024-03-05_at_10.03.37.png)
 
 * Enter a name for the key and assign the necessary permissions.
 
-![](https://files.readme.io/c56feac-Screenshot_2024-03-05_at_10.03.50.png)
+![Illustration for: * Log In: Access the Akeyless Console and log in with your admin account. * Create API Key: Click on the option to create or generate a new API Key. * Enter a name for the key…](https://files.readme.io/c56feac-Screenshot_2024-03-05_at_10.03.50.png)
 
 ## Step 5: Deploy the Gateway
 
@@ -46,4 +46,4 @@ Creating a gateway within the Akeyless system is a fundamental step for leveragi
 
 * After deploying the gateway, it’s important to ensure it's operational. You can verify this by checking the gateway's status in the Akeyless Console. There should be indications or a status update showing that the gateway is active and connected.
 
-![](https://files.readme.io/ce84207-Screenshot_2024-03-05_at_10.08.22.png)
+![Illustration for: * After deploying the gateway, it’s important to ensure it's operational. You can verify this by checking the gateway's status in the Akeyless Console. There should be…](https://files.readme.io/ce84207-Screenshot_2024-03-05_at_10.08.22.png)

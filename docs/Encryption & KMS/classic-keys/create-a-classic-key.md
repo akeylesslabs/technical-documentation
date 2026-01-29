@@ -77,4 +77,4 @@ You can create a classic key using the Akeyless Gateway. If you’d prefer, see 
 
 If you share a classic key with a Cloud KMS, you will find a new customer-managed key. The key alias is built as `managed-by-<account-id>-<item-id>`, as shown in the following example:
 
-<Image align="center" className="border" width="100%" border={true} src="https://files.readme.io/5ffc31d-image-20210518-114015.png" />
+![Illustration for: If you share a classic key with a Cloud KMS, you will find a new customer-managed key. The key alias is built as managed-by-<account-id>-<item-id>, as shown in the following…](https://files.readme.io/5ffc31d-image-20210518-114015.png)

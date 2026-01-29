@@ -39,7 +39,7 @@ At a high level:
 3. ESO writes those values into Kubernetes Secrets (or pushes them back to Akeyless in the case of `PushSecret`).
 4. ESO periodically refreshes secrets according to the `refreshInterval` on each `ExternalSecret` or `PushSecret`.
 
-<Image align="center" border={false} src="https://files.readme.io/143d329a383df21e1e4481289a4d1be018652093b525d21d77e2b6d758efa807-External_Secrets_Operator_1.jpg" />
+![Illustration for: 3. ESO writes those values into Kubernetes Secrets (or pushes them back to Akeyless in the case of PushSecret). 4. ESO periodically refreshes secrets according to the…](https://files.readme.io/143d329a383df21e1e4481289a4d1be018652093b525d21d77e2b6d758efa807-External_Secrets_Operator_1.jpg)
 
 ***
 

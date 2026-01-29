@@ -14,7 +14,7 @@ Rotated Secrets enable you to protect the credentials for privileged-user accoun
 
 Setting up Rotated Secrets requires the **Rotated Secret** permission on the Gateway. You can also set the **Rotate Secret Value** permission to allow rotation of the secret value without granting edit rights (this also requires **Read** permission on the rotated secret item).
 
-<Image align="center" border={false} src="https://files.readme.io/f32a578-Rotated_Secret.png" />
+![Illustration for: Setting up Rotated Secrets requires the **Rotated Secret** permission on the Gateway. You can also set the **Rotate Secret Value** permission to allow rotation of the secret…](https://files.readme.io/f32a578-Rotated_Secret.png)
 
 The Akeyless Platform generates a new password, resets it on the target machine, and stores the updated secret value so that it can be retrieved when required.
 

@@ -14,7 +14,7 @@ next:
 ---
 [AWS IAM](https://aws.amazon.com/iam/) authentication method provides an automated flow to retrieve an Akeyless token for IAM principals and AWS services or resources.
 
-<Image align="center" border={false} src="https://files.readme.io/c1f9c5b-Role_new_design.png" />
+![Illustration for: AWS IAM authentication method provides an automated flow to retrieve an Akeyless token for IAM principals and AWS services or resources.](https://files.readme.io/c1f9c5b-Role_new_design.png)
 
 ## Create an AWS IAM Authentication Method with the CLI
 

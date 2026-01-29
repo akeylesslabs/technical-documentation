@@ -42,4 +42,4 @@ Once sending the message, click `Yes` to share the secret **OTP** in the Slack c
 
 Clicking on the **OTP** URL will allow the view of the secret only for a one-time.
 
-![](https://files.readme.io/2e597b7-image.png)
+![Illustration for: Once sending the message, click Yes to share the secret **OTP** in the Slack channel, A URL will be shared with the recipient. Clicking on the **OTP** URL will allow the view…](https://files.readme.io/2e597b7-image.png)

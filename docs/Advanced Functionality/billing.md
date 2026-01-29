@@ -35,11 +35,11 @@ Tap the icon and select account settings. After selecting this, you will be tran
 
 If you are currently on the free tier, you will see the following screen:
 
-<Image width="80%" src="https://files.readme.io/7edb2a1-bill1.jpg" />
+![Illustration for: First Time Purchases If you are currently on the free tier, you will see the following screen.](https://files.readme.io/7edb2a1-bill1.jpg)
 
 Selecting **Buy Now** will lead you to a form within which you can fill in your details and make a purchase:
 
-<Image width="80%" src="https://files.readme.io/77ddc02-bill2.jpg" />
+![Illustration for: Selecting Buy Now will lead you to a form within which you can fill in your details and make a purchase.](https://files.readme.io/77ddc02-bill2.jpg)
 
 If you wish to set up an Enterprise tier account, select **Schedule Demo** and fill in the request form that will pop up.
 
@@ -47,6 +47,6 @@ If you wish to set up an Enterprise tier account, select **Schedule Demo** and f
 
 If you are already on the Teams tier, you will instead see this screen:
 
-<Image width="80%" src="https://files.readme.io/9ce22e9-bill3.jpg" />
+![Illustration for: Updating an Existing Payed Account If you are already on the Teams tier, you will instead see this screen.](https://files.readme.io/9ce22e9-bill3.jpg)
 
 In which you will be able to update your credit information or cancel your plan.
