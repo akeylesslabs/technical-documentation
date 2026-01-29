@@ -308,7 +308,7 @@ akeyless static-secret-sync \
 
 delete static secret sync
 
-##### Usage
+### Usage
 
 ```shell
 akeyless static-secret-delete-sync \
@@ -319,7 +319,7 @@ akeyless static-secret-delete-sync \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##### Flags
+### Flags
 
 `--name`: The Static Secret name.
 
