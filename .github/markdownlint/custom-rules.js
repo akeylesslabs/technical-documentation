@@ -709,33 +709,8 @@ module.exports = [
   },
 
   /**
-   * AKY011: Use numerals for numbers (heuristic, limited dictionary)
-   * Style guide: Use numerals for all numbers. :contentReference[oaicite:11]{index=11}
+   * AKY011: Skipped
    */
-  {
-    names: ["AKY011", "numerals-for-numbers"],
-    description: "Flag spelled-out small numbers in prose (heuristic)",
-    tags: ["consistency", "localization"],
-    function: function (params, onError) {
-      const codeLines = getCodeBlockLineSet(params.tokens);
-      const lines = params.lines || [];
-
-      // Conservative list to reduce false positives.
-      const re = /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\b/gi;
-
-      for (let i = 0; i < lines.length; i++) {
-        const ln = i + 1;
-        if (codeLines.has(ln)) continue;
-        if (isHeadingLine(lines[i])) continue;
-
-        const text = stripInlineCode(lines[i]);
-        const m = text.match(re);
-        if (m) {
-          report(onError, ln, "Use numerals for numbers (e.g., '3 files' not 'three files').", m[0]);
-        }
-      }
-    }
-  },
 
   /**
    * AKY012: Enforce SI unit formatting:
