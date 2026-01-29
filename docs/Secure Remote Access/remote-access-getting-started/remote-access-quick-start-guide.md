@@ -201,7 +201,7 @@ For Remote Access, you can access the following:
 
 * The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
 
-  ![Illustration for: Remote Access URLs For Remote Access, you can access the following: * The Remote Access Internal Web Portal is located at http://<Your-Akeyless-GW-URL:8000>/sra/portal](https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png)
+  ![Illustration for: Remote Access URLs For Remote Access, you can access the following: The Remote Access Internal Web Portal is located at http://<Your-Akeyless-GW-URL:8000>/sra/portal](https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png)
 * Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/web-client`
 
 ## Testing Out Remote Access

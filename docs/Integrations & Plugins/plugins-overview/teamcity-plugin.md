@@ -36,31 +36,31 @@ When performing integration tests and deployments, build scripts need credential
 
 1. Log in to TeamCity and go to **Administration > Plugins**.
 
-    ![Illustration for: Configure The TeamCity Plugin 1. Log in to TeamCity and go to **Administration > Plugins**.](https://files.readme.io/b6836f5-TC-Plugin-01.png)
+    ![Illustration for: Configure The TeamCity Plugin 1. Log in to TeamCity and go to Administration > Plugins.](https://files.readme.io/b6836f5-TC-Plugin-01.png)
 
 2. Click **Browse plugins repository** to find and download the `HashiCorp Vault` plugin.
 
-    ![Illustration for: Configure The TeamCity Plugin 1. Log in to TeamCity and go to **Administration > Plugins**. 2. Click **Browse plugins repository** to find and download the HashiCorp Vault plugin.](https://files.readme.io/9748a1d-TC-Plugin-02.png)
+    ![Illustration for: Configure The TeamCity Plugin 1. Log in to TeamCity and go to Administration > Plugins. 2. Click Browse plugins repository to find and download the HashiCorp Vault plugin.](https://files.readme.io/9748a1d-TC-Plugin-02.png)
 
 3. Then click **Upload plugin ZIP** to install the `Hashicorp Vault` plugin.
 
-    ![Illustration for: 2. Click **Browse plugins repository** to find and download the HashiCorp Vault plugin. 3. Then click **Upload plugin ZIP** to install the Hashicorp Vault plugin.](https://files.readme.io/3525c64-TC-Plugin-03.png)
+    ![Illustration for: 2. Click Browse plugins repository to find and download the HashiCorp Vault plugin. 3. Then click Upload plugin ZIP to install the Hashicorp Vault plugin.](https://files.readme.io/3525c64-TC-Plugin-03.png)
 
 4. Go to **Administration > Projects** and create a new project.
 
-    ![Illustration for: 2. Click **Browse plugins repository** to find and download the HashiCorp Vault plugin. 3. Then click **Upload plugin ZIP** to install the Hashicorp Vault plugin. 4. Go to…](https://files.readme.io/55d4b83-TC-Plugin-04.png)
+    ![Illustration for: 2. Click Browse plugins repository to find and download the HashiCorp Vault plugin. 3. Then click Upload plugin ZIP to install the Hashicorp Vault plugin. 4. Go to…](https://files.readme.io/55d4b83-TC-Plugin-04.png)
 
 5. Open the created project and go to the Connections section.
 
-    ![Illustration for: 3. Then click **Upload plugin ZIP** to install the Hashicorp Vault plugin. 4. Go to **Administration > Projects** and create a new project. 5. Open the created project and go…](https://files.readme.io/a0acacb-TC-Plugin-05.png)
+    ![Illustration for: 3. Then click Upload plugin ZIP to install the Hashicorp Vault plugin. 4. Go to Administration > Projects and create a new project. 5. Open the created project and go…](https://files.readme.io/a0acacb-TC-Plugin-05.png)
 
 6. Click **Add Connection** to connect your project to the `Vault` plugin.
 
-    ![Illustration for: 4. Go to **Administration > Projects** and create a new project. 5. Open the created project and go to the Connections section. 6. Click **Add Connection** to connect your…](https://files.readme.io/6c9b5cd-TC-Plugin-06.png)
+    ![Illustration for: 4. Go to Administration > Projects and create a new project. 5. Open the created project and go to the Connections section. 6. Click Add Connection to connect your…](https://files.readme.io/6c9b5cd-TC-Plugin-06.png)
 
 7. Provide connection parameters to the Akeyless Platform in the pop-up window.
 
-    ![Illustration for: 5. Open the created project and go to the Connections section. 6. Click **Add Connection** to connect your project to the Vault plugin. 7. Provide connection parameters to the…](https://files.readme.io/d23f619-TC-Plugin-07.png)
+    ![Illustration for: 5. Open the created project and go to the Connections section. 6. Click Add Connection to connect your project to the Vault plugin. 7. Provide connection parameters to the…](https://files.readme.io/d23f619-TC-Plugin-07.png)
 
 Where:
 
@@ -110,7 +110,7 @@ In our example: `%vault:secret/hvp/test!/password%`
 
 Finally, let's create a simple build script using this environment variable and run it:
 
-![Illustration for: %vault:secret/PATH!KEY% where **PATH** is the secret full name, and **KEY** is the specific value inside. In our example: %vault:secret/hvp/test!/password% Finally, let's…](https://files.readme.io/359e8ae-TC-GenSettings.png)
+![Illustration for: %vault:secret/PATH!KEY% where PATH is the secret full name, and KEY is the specific value inside. In our example: %vault:secret/hvp/test!/password% Finally, let's…](https://files.readme.io/359e8ae-TC-GenSettings.png)
 
 In the Audit Logs screen, you'll see that the script requested and successfully received the `hvp/test` secret value:
 
