@@ -1,5 +1,5 @@
 ---
-title: Ansible AWX Plugin - secret fetch via playbook using Universal Identity
+title: Ansible AWX Plugin - secret fetch by way of playbook using Universal Identity
 excerpt: ''
 deprecated: false
 hidden: true
@@ -40,4 +40,4 @@ After successful job launch you will see the following:
 
 ![1727](https://files.readme.io/fdcc990-image_1.png "image (1).png")
 
-For an additional ways to work with Ansible AWX, see [Ansible AWX Plugin - secret fetch via playbook](https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-via-playbook-1).
+For an additional ways to work with Ansible AWX, see [Ansible AWX Plugin - secret fetch by way of playbook](https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-by way of-playbook-1).

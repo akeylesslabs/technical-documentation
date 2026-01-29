@@ -83,7 +83,7 @@ value: tr-tr-qwerty # Turkish-Q (Qwerty)
 
 ## Session Log Forwarding
 
-The Akeyless SRA support both Session Log Forwarding that capture CLI actions input and output during session, those can be forwarder to any logging system. This settings can be added via the Gateway management console or via CLI:
+The Akeyless SRA support both Session Log Forwarding that capture CLI actions input and output during session, those can be forwarder to any logging system. This settings can be added by way of the Gateway management console or by way of CLI:
 
 ```shell
 akeyless gateway update remote-access-session-forwarding -h

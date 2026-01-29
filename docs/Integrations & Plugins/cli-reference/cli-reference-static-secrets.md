@@ -61,9 +61,9 @@ akeyless create-secret \
 
 `--secure-access-url`: Destination URL to inject secrets
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 

@@ -30,7 +30,7 @@ Passkeys only support the following Elliptic Curve (EC) key types:
 
 ## Creating a Passkey Using the API
 
-To create a passkey via the Akeyless API, follow this structure:
+To create a passkey by way of the Akeyless API, follow this structure:
 
 _API Endpoint:_
 

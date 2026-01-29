@@ -76,7 +76,7 @@ The `main.tf` file will create an AWS Role with permissions for managing secrets
 
 ```yaml main.tf
 data "aws_iam_policy_document" "trust" {
-  # Management account root + self-assume (via condition)
+  # Management account root + self-assume (by way of condition)
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRole"]

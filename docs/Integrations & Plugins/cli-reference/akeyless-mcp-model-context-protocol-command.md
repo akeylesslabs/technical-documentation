@@ -133,7 +133,7 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
     ```
 
 4. Use Copilot
-    You can now manage secrets, configure targets, and perform infrastructure tasks via Copilot.
+    You can now manage secrets, configure targets, and perform infrastructure tasks by way of Copilot.
 
 ## Examples
 

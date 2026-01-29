@@ -67,7 +67,7 @@ This configuration is ideal for medium to large deployments, supporting hundreds
 * **Network**
   Long SRA sessions (SSH/RDP/Web) might be cut off early by default LB/Ingress timeouts. Set your LB/Ingress idle/response timeout ≥ your intended session TTL (For example, 15-60 minutes):
 
-    * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is `30s`. Increase via BackendConfig (or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection)) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
+    * **Google Cloud (GKE / Google Load Balancer)** - Default backend service timeout is `30s`. Increase by way of BackendConfig (or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection)) using `spec.timeoutSec`. Apply to the Service/Ingress used by SRA. [See vendor information.](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration)
 
     * **AWS (EKS / Elastic Load Balancing)** - ALB (`HTTP`/`HTTPS`): Default idle `timeout = 60s`. Set higher using LB attributes; with AWS Load Balancer Controller use: `alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600` (measured in seconds). [See vendor information](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html).
 

@@ -28,7 +28,7 @@ next:
 
     ![Illustration for: Launch Akeyless Password Manager 1. Open the Akeyless Password Manager app on your device.](https://files.readme.io/00ee37b-Screenshot_20240221_185956_Settings.jpg)
 
-2. Once inside the app, locate the settings or preferences section. This is usually accessed via a menu in the top right corner or by selecting your profile icon.
+2. Once inside the app, locate the settings or preferences section. This is usually accessed by way of a menu in the top right corner or by selecting your profile icon.
 
 3. In the settings menu, look for an option related to autofill, such as "Autofill Service" or "Enable Autofill." Follow the prompts to enable autofill functionality with Akeyless Password Manager.
 

@@ -24,7 +24,7 @@ SRA allows you to automatically upload and store these video recordings in secur
 
 ### Terminal-Based Sessions
 
-For terminal-based sessions (such as SSH, DB, and Kubernetes), the system records a full transcript of the commands entered and their corresponding outputs. This data can be forwarded to external systems like Splunk, Elasticsearch, or via Syslog for monitoring and archiving. See more [here](https://docs.akeyless.io/docs/session-forwarding).
+For terminal-based sessions (such as SSH, DB, and Kubernetes), the system records a full transcript of the commands entered and their corresponding outputs. This data can be forwarded to external systems like Splunk, Elasticsearch, or by way of Syslog for monitoring and archiving. See more [here](https://docs.akeyless.io/docs/session-forwarding).
 
 ## Hide Session Recording Indications
 

@@ -251,7 +251,7 @@ When the cluster access type is **Rancher**, add the following parameters:
     ./akeyless --init
     ```
 
-5. Authenticate via your Kubernetes Auth Method with the following parameters:
+5. Authenticate by way of your Kubernetes Auth Method with the following parameters:
 
     ```shell
     ./akeyless auth --access-id $ACCESS_ID \

@@ -90,7 +90,7 @@ Validate that Akeyless SSH pod is running.
 
 ## Installing Akeyless Professional Bastion Via Docker
 
-To deploy Akeyless Professional Bastion via Docker, you will have to provide a mount path which should contain the following files:
+To deploy Akeyless Professional Bastion by way of Docker, you will have to provide a mount path which should contain the following files:
 
 1. `ca.pub` - SSH Cert Issuer CA Public key.
 

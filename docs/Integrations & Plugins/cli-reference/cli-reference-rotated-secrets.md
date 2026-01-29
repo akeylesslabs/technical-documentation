@@ -295,9 +295,9 @@ akeyless rotated-secret create custom \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
 
@@ -1398,9 +1398,9 @@ akeyless rotated-secret update custom \
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
-`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy[=false]`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
 

@@ -27,8 +27,8 @@ The Password Manager Usage Report delivers critical metrics that help in underst
     2. Authentication Methods Covered:
         1. SAML (Security Assertion Markup Language): For users authenticated through SAML-based identity providers.
         2. OIDC (OpenID Connect): Reflects users leveraging this modern authentication protocol built on top of OAuth 2.0.
-        3. LDAP (Lightweight Directory Access Protocol): For users authenticated via traditional directory services.
+        3. LDAP (Lightweight Directory Access Protocol): For users authenticated by way of traditional directory services.
         4. EMAIL: Users who utilize email-based authentication.
             Access ID: A unique identifier used for authentication within the system.
 
-![Illustration for: 3. LDAP (Lightweight Directory Access Protocol): For users authenticated via traditional directory services. 4. EMAIL: Users who utilize email-based authentication. Access ID:…](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)
+![Illustration for: 3. LDAP (Lightweight Directory Access Protocol): For users authenticated by way of traditional directory services. 4. EMAIL: Users who utilize email-based authentication. Access ID:…](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)

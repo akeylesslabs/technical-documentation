@@ -14,7 +14,7 @@ next:
 
 * **Configure TLS** - Akeyless Bastion should always be used with TLS. If you are working with Load Balancers or reverse proxies in front of your Bastion, TLS should be used for all network connections to ensure all traffic is encrypted at transit.  
 
-* **Isolation mode** - Can be set with `list` permissions to ensure users will get their access only via isolated sessions. In addition, allowlist the relevant domains and force `HTTPS` connections only to enable credentials injection.
+* **Isolation mode** - Can be set with `list` permissions to ensure users will get their access only by way of isolated sessions. In addition, allowlist the relevant domains and force `HTTPS` connections only to enable credentials injection.
 
 * **Required resources** - Default is set to 1 Gb memory. If your web targets require high resolution or multiple concurrent sessions, increase the resources up to your needs.  
 

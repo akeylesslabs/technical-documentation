@@ -14,8 +14,8 @@ Akeyless Secure Remote Access is part of the [Gateway](https://docs.akeyless.io/
 
 The Remote Access solution can be deployed in one of two methods:
 
-1. [Kubernetes via Helm](https://docs.akeyless.io/docs/remote-access-setup-k8s)
-2. [Docker via Docker Compose](https://docs.akeyless.io/docs/remote-access-docker)
+1. [Kubernetes by way of Helm](https://docs.akeyless.io/docs/remote-access-setup-k8s)
+2. [Docker by way of Docker Compose](https://docs.akeyless.io/docs/remote-access-docker)
 
 In this section, we will cover how to deploy Remote Access on each solution along with advanced configuration options.
 

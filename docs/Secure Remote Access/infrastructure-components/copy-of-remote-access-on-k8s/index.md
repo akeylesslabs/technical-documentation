@@ -173,4 +173,4 @@ Run the following command from the Terminal:
 akeyless gateway update remote-access --allowed-urls <redirect-urls>
 ```
 
-This can also be done via the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.
+This can also be done by way of the console by going to **Gateways** -> **Your-Gateway** -> **Manage Gateway** -> **Remote Access**.

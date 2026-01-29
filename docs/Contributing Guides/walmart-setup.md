@@ -20,7 +20,7 @@ You may download the latest Docker Engine on [Docker website](https://docs.docke
 ## Network Connectivity
 
 1. Network access to pull a Docker image from: [https://hub.docker.com](https://hub.docker.com)
-2. Outgoing network access to Akeyless SaaS Core Services via the following URLs:
+2. Outgoing network access to Akeyless SaaS Core Services by way of the following URLs:
 
 ```http WMT tenant network
 https://console.wmt.akeyless.io
@@ -45,7 +45,7 @@ tcp://log.wmt.akeyless.io:9997
 tcp://log.wmt.akeyless.io:9443
 ```
 
-Outgoing network access to Akeyless WMT SaaS Core Services via the following IPs:
+Outgoing network access to Akeyless WMT SaaS Core Services by way of the following IPs:
 
 | Service Name | Description |
 |---|---|
@@ -68,7 +68,7 @@ There are a handful of ways to interact with Akeyless Vault for managing, creati
 >
 > For a full list of the available CLI command, see the [CLI reference](https://docs.akeyless.io/docs/cli-reference).
 
-Akeyless Vault CLI has a pre-compiled binary version for Linux, macOS, and Windows which can be easily installed via an installation script.
+Akeyless Vault CLI has a pre-compiled binary version for Linux, macOS, and Windows which can be easily installed by way of an installation script.
 
 ## Download and Install
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follow the steps below.
+To use Okta as an IdP to authenticate into the Akeyless Platform by way of OIDC, follow the steps below.
 
 ## Create an Okta Application
 

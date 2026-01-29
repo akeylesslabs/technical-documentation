@@ -17,7 +17,7 @@ This solution allows you to sign Java artifacts and Android applications without
 
 * Mechanism: A custom-built shared library (`libakeyless.so`) acts as a PKCS#11 provider for the Java runtime.
 * Setup:
-    * **Build Library:** Compile the `libakeyless.so` driver (typically via a containerized build process on Oracle Linux 7 for compatibility).
+    * **Build Library:** Compile the `libakeyless.so` driver (typically by way of a containerized build process on Oracle Linux 7 for compatibility).
     * **Configuration:** Define `pkcs11.cnf` to point to the library and `pkcs11.conf` to define Akeyless credentials and key paths.
     * **Execution:** Run standard `jarsigner` or `apksigner` commands, specifying the `sun.security.pkcs11.SunPKCS11` provider.
 
@@ -47,8 +47,8 @@ For Windows environments, Akeyless acts as a registered cryptographic provider, 
 * Mechanism: The Akeyless KSP (Key Storage Provider) is installed on the Windows machine, intercepting cryptographic calls from the OS.
 * Setup:
     * **Infrastructure:** Generate Root Keys, Issuers, and Certificates within Akeyless.
-    * **Installation:** Install the Akeyless KSP via MSI, which registers the provider in the Windows Registry.
+    * **Installation:** Install the Akeyless KSP by way of MSI, which registers the provider in the Windows Registry.
     * **Sync:** Use the `akeyless-ksp-cert-helper.exe` to sync the signing certificate from Akeyless to the local Windows Certificate Store (My/Personal store).
-    * **Execution:** Use standard `signtool` sign commands. The tool finds the certificate in the local store, but the private key operation is offloaded to Akeyless via the KSP.
+    * **Execution:** Use standard `signtool` sign commands. The tool finds the certificate in the local store, but the private key operation is offloaded to Akeyless by way of the KSP.
 
 Read more about [Windows Code Signing](https://docs.akeyless.io/docs/windows-code-signing-with-akeyless-v2).

@@ -107,7 +107,7 @@ A new AES256GCM key named MyKeyWithMyCF was successfully created
 
 ### Set Up a Default Encryption Key
 
-To set a default Encryption Key based on your Customer Fragment to enforce Zero-Knowledge by default for all your secrets that will be created using your Gateway. This will ensure that any item created with Akeyless (via Web UI, CLI, or SDKs) will be encrypted using your encryption key.
+To set a default Encryption Key based on your Customer Fragment to enforce Zero-Knowledge by default for all your secrets that will be created using your Gateway. This will ensure that any item created with Akeyless (by way of Web UI, CLI, or SDKs) will be encrypted using your encryption key.
 
 > 👍 Note
 >

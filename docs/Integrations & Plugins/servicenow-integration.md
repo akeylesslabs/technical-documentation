@@ -18,7 +18,7 @@ next:
 
 ### Centralized Access Request Record
 
-Each access request triggers the creation of a dedicated record in ServiceNow Akeyless Application. This record captures essential details such as the requestor's identity and the specific item for which access is sought, providing admins with a comprehensive overview of each request and the ability to approve or decline the access request via ServiceNow instance.
+Each access request triggers the creation of a dedicated record in ServiceNow Akeyless Application. This record captures essential details such as the requestor's identity and the specific item for which access is sought, providing admins with a comprehensive overview of each request and the ability to approve or decline the access request by way of ServiceNow instance.
 
 [Download Akeyless Access Manager from the ServiceNow Store.](https://store.servicenow.com/sn_appstore_store.do#!/store/application/3f29fbc887f83d1009f27487cebb357a)
 
@@ -68,14 +68,14 @@ Please configure the following permissions:
 
 ## Required Configuration on ServiceNow System
 
-Creating basic auth credentials via ServiceNow instance.
+Creating basic auth credentials by way of ServiceNow instance.
 
 * Locate credentials in ServiceNow instance "All" menu
     * Click on "All" and enter "credentials" in the search field
 
-![Illustration for: Creating basic auth credentials via ServiceNow instance. Locate credentials in ServiceNow instance "All" menu Click on "All" and enter "credentials" in the search field](https://files.readme.io/518fa68-image-20221129-151725.png)
+![Illustration for: Creating basic auth credentials by way of ServiceNow instance. Locate credentials in ServiceNow instance "All" menu Click on "All" and enter "credentials" in the search field](https://files.readme.io/518fa68-image-20221129-151725.png)
 
-![Illustration for: Creating basic auth credentials via ServiceNow instance. Locate credentials in ServiceNow instance "All" menu Click on "All" and enter "credentials" in the search field](https://files.readme.io/ef0ecf7-Screenshot_2023-11-29_at_13.47.58.png)
+![Illustration for: Creating basic auth credentials by way of ServiceNow instance. Locate credentials in ServiceNow instance "All" menu Click on "All" and enter "credentials" in the search field](https://files.readme.io/ef0ecf7-Screenshot_2023-11-29_at_13.47.58.png)
 
 * Click "New" and locate the "Basic Auth Credentials" option
 
@@ -86,7 +86,7 @@ Creating basic auth credentials via ServiceNow instance.
 ![Illustration for: In “Basic Auth Credentials” Form, insert name (For example, “akeylessbasicauthcreds”), insert the access-id as the User name, and the access-key as the Password, and submit](https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png)
 
 * In the **Name** field write `akeyless_basic_auth_creds`
-* Add **User Name & Password** or [API Key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-via-the-ui).
+* Add **User Name & Password** or [API Key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-by way of-the-ui).
 
 ![Illustration for: Add User Name & Password or API Key credentials.](https://files.readme.io/b11a153-Screenshot_2024-07-14_at_15.10.31.png)
 
@@ -152,13 +152,13 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
 
 ![Illustration for: Locate akeylessaccessrequest table in ServiceNow instance "All" menu Click on "All" and enter akeylessaccessrequest in the search field Click on the table name](https://files.readme.io/2b9f76f-Screenshot_2023-11-29_at_17.10.35.png)
 
-* Once an access request is created via Akeyless system a new record will appear
+* Once an access request is created by way of Akeyless system a new record will appear
 
-![Illustration for: Click on "All" and enter akeylessaccessrequest in the search field Click on the table name Once an access request is created via Akeyless system a new record will appear](https://files.readme.io/7417bb1-image-20230206-132008_1.png)
+![Illustration for: Click on "All" and enter akeylessaccessrequest in the search field Click on the table name Once an access request is created by way of Akeyless system a new record will appear](https://files.readme.io/7417bb1-image-20230206-132008_1.png)
 
 * Admin users of the ServiceNow intense will be able to approve or decline the access request by updating the `Dession` field.
 
-![Illustration for: Once an access request is created via Akeyless system a new record will appear Admin users of the ServiceNow intense will be able to approve or decline the access request…](https://files.readme.io/f337a71-image-20230206-132144.png)
+![Illustration for: Once an access request is created by way of Akeyless system a new record will appear Admin users of the ServiceNow intense will be able to approve or decline the access request…](https://files.readme.io/f337a71-image-20230206-132144.png)
 
 * Upon approval within the ServiceNow Akeyless app, a request is sent to Akeyless systems to generate temporary access for the specific item.
 

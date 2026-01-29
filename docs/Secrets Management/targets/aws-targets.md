@@ -87,7 +87,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Region:** Enter the AWS region that the temporary credentials are permitted to access.
 
-    * **Session Token:** Token is required only for temporary security credentials retrieved via STS. Otherwise, it can be left empty.
+    * **Session Token:** Token is required only for temporary security credentials retrieved by way of STS. Otherwise, it can be left empty.
 
     * **External ID:** Optional, A unique auto-generated value used in your AWS account when configuring your AWS IAM role to securely delegate access to Akeyless, read more [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
 

@@ -105,7 +105,7 @@ spec:
 
 The keys are cert-manager related and there are no special keys required by Akeyless at this point. For more information see [here](https://cert-manager.io/docs/concepts/certificate/).
 
-When finished, validate your Certificate has been issued via `kubectl get my-certificate`.
+When finished, validate your Certificate has been issued by way of `kubectl get my-certificate`.
 
 ```shell
 $ kubectl get my-certificate

@@ -35,7 +35,7 @@ Authentication is _who_ is making a request: the identity of the user, service, 
 ### Machine and Workload Authentication
 
 * **Access Keys**: Programmatic identities for automation and applications.
-* **JWT-Based Authentication**: Trust established via externally issued, signed JSON Web Tokens (JWTs).
+* **JWT-Based Authentication**: Trust established by way of externally issued, signed JSON Web Tokens (JWTs).
 * **Kubernetes Authentication**: Pod identity validation using Kubernetes `ServiceAccount` tokens.
 * **Cloud Provider Identities**: Supported cloud providers include Amazon Web Services, Google Cloud Platform, Microsoft Azure, and Oracle Cloud.
 

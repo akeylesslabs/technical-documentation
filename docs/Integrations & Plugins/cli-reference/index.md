@@ -395,9 +395,9 @@ block:Flags]
 
 `--secure-access-url`: Destination URL to inject secrets
 
-`--secure-access-web-browsing`: Secure browser via Akeyless Web Access Bastion
+`--secure-access-web-browsing`: Secure browser by way of Akeyless Web Access Bastion
 
-`--secure-access-web-proxy`: Web-Proxy via Akeyless Web Access Bastion
+`--secure-access-web-proxy`: Web-Proxy by way of Akeyless Web Access Bastion
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)
 

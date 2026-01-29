@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either via an isolated remote browser or directly to your target server based on your secret configuration.
+Akeyless Web Access Bastion provides Secure Remote Access to any web application with session recording, including proxy service acting as an entry point to your internal web applications, where only after successful authentication users will get access, either by way of an isolated remote browser or directly to your target server based on your secret configuration.
 
 Working with isolated browsers provides a complete zero-knowledge where users do not have any knowledge about the access credentials.  
 

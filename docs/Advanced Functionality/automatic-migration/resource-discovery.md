@@ -22,7 +22,7 @@ The [LDAP Target](https://docs.akeyless.io/docs/ldap-target) should contain a **
 
 * Connecting to Windows and Linux domain servers (through NTLM, SSH)
 
-* Installing OpenSSH.Server via Windows features, **relevant** only for [SSH Targets](https://docs.akeyless.io/docs/ssh-target).
+* Installing OpenSSH.Server by way of Windows features, **relevant** only for [SSH Targets](https://docs.akeyless.io/docs/ssh-target).
 
 * Search for local users and change their password
 
@@ -84,7 +84,7 @@ To create the migration from your Active Directory, login to your Gateway on por
 
 * **WinRM Port:** For **Target Type** of Windows, Set the default WinRM Port for connecting to the Domain Servers default `5986`. Note, WinRM, by default, works over `https`.
 
-* **Enable SRA:** Enable/Disable RDP Secure Remote Access setup for the migrated local users via the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
+* **Enable SRA:** Enable/Disable RDP Secure Remote Access setup for the migrated local users by way of the Rotated Secrets. Default is Disabled, the Rotated Secrets will not be created with SRA configuration. **Available only for accounts with the SRA package** .
 
 * **Target Format:** Relevant only for **Computers Discovery Type**, the output Target format to migrate all discovered computers supporting [Linked Target](https://docs.akeyless.io/docs/linked-target) for Secure Remote Access.
 

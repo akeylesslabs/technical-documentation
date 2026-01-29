@@ -211,7 +211,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Region:** Enter the AWS region that the temporary credentials are permitted to access.
 
-    * **Session Token:** Token is required only for temporary security credentials retrieved via STS. Otherwise, it can be left empty.
+    * **Session Token:** Token is required only for temporary security credentials retrieved by way of STS. Otherwise, it can be left empty.
 
 7. Click **Finish**.
 

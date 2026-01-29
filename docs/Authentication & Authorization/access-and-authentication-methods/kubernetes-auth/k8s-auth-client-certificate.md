@@ -219,7 +219,7 @@ K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
     ./akeyless --init
     ```
 
-5. Authenticate via your Kubernetes Auth Method:
+5. Authenticate by way of your Kubernetes Auth Method:
 
     ```shell
     ./akeyless auth --access-id $ACCESS_ID \

@@ -124,7 +124,7 @@ akeyless get-dynamic-secret-value \
 
 Certificate request using a **Certificate Signing Request (CSR)**:
 
-To fetch a new certificate via **CSR**, you need to create your **CSR** in Akeyless:
+To fetch a new certificate by way of **CSR**, you need to create your **CSR** in Akeyless:
 
 ```shell
 CSR=$(akeyless generate-csr \

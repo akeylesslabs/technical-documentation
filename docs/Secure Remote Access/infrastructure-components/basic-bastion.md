@@ -40,7 +40,7 @@ To spin an Akeyless Basic Bastion using Docker please refer to the last section 
 
 ### Network
 
-Currently, when using DB application (MySQL, MongoDB) via the Basic Bastion, it'll only work properly when using load balancer with "sticky" session:
+Currently, when using DB application (MySQL, MongoDB) by way of the Basic Bastion, it'll only work properly when using load balancer with "sticky" session:
 
 * Ingress - Make sure to use sticky session annotation, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"` in NGINX
 
@@ -85,7 +85,7 @@ Verify that the Basic Bastion pod is up and running.
 
 ## Installing Basic Bastion Via Docker
 
-Akeyless Basic bastion can be deployed via Docker:
+Akeyless Basic bastion can be deployed by way of Docker:
 
 ```shell
 docker run -d -p 8888:8888 \

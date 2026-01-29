@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-You can securely share copies of [Static](https://docs.akeyless.io/docs/static-secrets) and [Rotated](https://docs.akeyless.io/docs/rotated-secrets#/) secret items saved in Akeyless with anyone, even if they don’t use Akeyless or are part of your organization based on a well-defined TTL. When you share an item, you can choose either to share it via email or to wrap the value of the secret with a temporary token. Upon item sharing, a temporary [Access Role](https://docs.akeyless.io/docs/rbac) will be created automatically, so as a break glass solution, this can be revoked immediately. Upon access to the shared secret, a log entry will be recorded with the relevant details.
+You can securely share copies of [Static](https://docs.akeyless.io/docs/static-secrets) and [Rotated](https://docs.akeyless.io/docs/rotated-secrets#/) secret items saved in Akeyless with anyone, even if they don’t use Akeyless or are part of your organization based on a well-defined TTL. When you share an item, you can choose either to share it by way of email or to wrap the value of the secret with a temporary token. Upon item sharing, a temporary [Access Role](https://docs.akeyless.io/docs/rbac) will be created automatically, so as a break glass solution, this can be revoked immediately. Upon access to the shared secret, a log entry will be recorded with the relevant details.
 
-When sharing via **emails** you’ll get a unique link you need to share with those users, choose when the share expires and who are the specific users that will be able to access it. When sharing using **wrapping tokens**, you'll get a temporary token that can be shared on the wire without exposing the real secret.
+When sharing by way of **emails** you’ll get a unique link you need to share with those users, choose when the share expires and who are the specific users that will be able to access it. When sharing using **wrapping tokens**, you'll get a temporary token that can be shared on the wire without exposing the real secret.
 
 You can define a list of allowed email domains in the **Global Settings**. Secrets can only be shared with users whose email addresses belong to these domains. By default, sharing is allowed with all domains.
 
@@ -26,7 +26,7 @@ You can define a list of allowed email domains in the **Global Settings**. Secre
 
 2. Click on the item menu on the upper right and click **Share**.
 
-3. Choose the share flow either **Email** or via **Token**
+3. Choose the share flow either **Email** or by way of **Token**
 
 4. Choose when the link expires and who to share it with. If you want to share the item with only specific people by email, enter each email address, then press **Enter**.
 
@@ -38,7 +38,7 @@ To view the secret that was wrapped by the temporary token, you can run the `unw
 
 ## Sharing Secrets from the Akeyless CLI
 
-To share an item via **Email**, use the following command:
+To share an item by way of **Email**, use the following command:
 
 ```shell
 akeyless share-item --item-name <item name> --action share --email <email address>
@@ -52,7 +52,7 @@ Where:
 
 * `email`: List of emails to start/stop sharing the secret with, To specify multiple emails use argument multiple times (`--email email1 --email email2` etc.). This parameter is mandatory for `start` or `stop` actions.
 
-To share an item via **Token** run the following:
+To share an item by way of **Token** run the following:
 
 ```shell
 akeyless share-item --item-name <item name> --action <action to perform> --share-type token
@@ -68,7 +68,7 @@ You can find the complete list of parameters for these commands in the [CLI Refe
 
 ## Access Shared Secret
 
-Secrets that were shared via **Email** can be accessed directly from any browser, when working with **Token** flow, the recipient can use the CLI or using `curl` to unwrap the wrapping token for example using the CLI:
+Secrets that were shared by way of **Email** can be accessed directly from any browser, when working with **Token** flow, the recipient can use the CLI or using `curl` to unwrap the wrapping token for example using the CLI:
 
 ```shell
 akeyless unwrap-token --shared-token <shared token>

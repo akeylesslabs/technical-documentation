@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts via Akeyless SRA SSH server, supported with a complete Audit Trail.
+Akeyless Secure Remote Access solution has a built-in `Tunnel` mode, which can be used to connect with various native and thick clients to remote hosts by way of Akeyless SRA SSH server, supported with a complete Audit Trail.
 
-While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI, any thick client can be used to establish the connection to a remote server within your internal network via the Akeyless SRA SSH server.
+While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI, any thick client can be used to establish the connection to a remote server within your internal network by way of the Akeyless SRA SSH server.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Connections on the local machine made to the forwarded port will, in effect, con
 
 ```shell Tunnel usage
 akeyless connect --target <user>@<targetserver> \
---via-sra sra-host:port\
+--by way of-sra sra-host:port\
 --tunnel='-L 127.0.0.1:<port>:<targetserver>:<port>' \
 --cert-issuer-name "<Path/To/SSHCertIssuer>" \
 --name "</Path/To/Secret>" \
@@ -41,8 +41,8 @@ Where:
 
 * `target`: The target resource, for example, `user@ssh-server[:port]`, `us-east-2`, and `mysql-server:3306`
 
-* `--via-sra`: SRA host, which the connection will go through. For example: sra-host:port\`.
-    * NOTE - With unified Gateway, you should be using `-g <your-gateway-ip[:port]>`instead of `--via-sra`
+* `--by way of-sra`: SRA host, which the connection will go through. For example: sra-host:port\`.
+    * NOTE - With unified Gateway, you should be using `-g <your-gateway-ip[:port]>`instead of `--by way of-sra`
 
 * `tunnel`: SSH tunnel setting, for example, `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
 
@@ -56,23 +56,23 @@ Where:
 
 ### RDP
 
-To connect to a remote desktop server via the Akeyless SRA server from your local terminal, run the following command, and open your Remote Desktop client, where you should use the localhost endpoint to connect to your remote server.
+To connect to a remote desktop server by way of the Akeyless SRA server from your local terminal, run the following command, and open your Remote Desktop client, where you should use the localhost endpoint to connect to your remote server.
 
 ```shell
 akeyless connect -t <RDP User>@<RDP Host> \
---via-sra: sra-host:port [for example, 2222] \
+--by way of-sra: sra-host:port [for example, 2222] \
 --tunnel='-L 127.0.0.1:3389:<RDP Host>:3389'\
 -c "<Path/To/SSHCertIssuer>" \
 -n "/Path/To/RDP/Dynamic/Secret"
 ```
 
-Once the tunnel is opened, you can connect with your local RDP client to the `TargetServer` using your localhost port via SRA.
+Once the tunnel is opened, you can connect with your local RDP client to the `TargetServer` using your localhost port by way of SRA.
 
 ### Kubernetes
 
 #### kubectl
 
-To connect with a remote Kubernetes cluster using a thick client, you can leverage the Akeyless Kubernetes Tunnel that will start a proxy service on your remote Kubernetes server, via the SRA.
+To connect with a remote Kubernetes cluster using a thick client, you can leverage the Akeyless Kubernetes Tunnel that will start a proxy service on your remote Kubernetes server, by way of the SRA.
 
 First, you can use the following template as an example to add to your `~/.kube/config` file:
 
@@ -100,7 +100,7 @@ Then, use the following command to create the tunnel using the same port number 
 akeyless connect -t <k8s.server.host> \
  -n "/Path/To/K8s/Dynamic/Secret" \
  -c "/Path/To/SSHCertIssuer" \
- --via-sra: sra-host:port [for example, 2222] \
+ --by way of-sra: sra-host:port [for example, 2222] \
  --bastion-ctrl-proto=https \
  --k8s-tunnel 2345
 ```
@@ -145,7 +145,7 @@ To work with your native SSH tools, you can run a local tunnel on your host:
 
 ```shell
 akeyless connect -t <user>@<targetServer> \
- --via-sra: sra-host:port [for example, 2222] \
+ --by way of-sra: sra-host:port [for example, 2222] \
 --tunnel='-L 127.0.0.1:<localPort>:<targetServer>:<targetPort>'
 ```
 

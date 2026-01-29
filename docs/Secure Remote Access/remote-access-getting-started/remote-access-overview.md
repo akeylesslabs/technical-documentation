@@ -18,7 +18,7 @@ next:
 
 The Akeyless Platform’s Secure Remote Access (SRA) solution offers a modern approach to Privileged Access Management (PAM), enabling users to securely connect to servers, databases, internal applications, and web apps across any environment—whether cloud hosted or on-premise, private or public—by leveraging Just-in-Time, Zero-Trust access with full auditability.
 
-Users can connect securely to resources through the Gateway's internal SRA Portal, the public [SRA Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal), a desktop application, or via the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI command. Akeyless supports a variety of protocols, including SSH, RDP, SQL, kubectl, and more.
+Users can connect securely to resources through the Gateway's internal SRA Portal, the public [SRA Portal](https://docs.akeyless.io/docs/access-resources-remotely#connect-from-the-secure-remote-access-portal), a desktop application, or by way of the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) CLI command. Akeyless supports a variety of protocols, including SSH, RDP, SQL, kubectl, and more.
 
 ## Architecture
 
@@ -26,10 +26,10 @@ SRA is deployed alongside the [Akeyless Gateway](https://docs.akeyless.io/docs/a
 
 ![Akeyless Gateway and Secure Remote Access architecture](https://files.readme.io/e02b0e922edccd3c72e9224cc5c6983b7db67dcfe164b1efedcc726777437586-Screenshot_2025-06-27_at_19.25.39.png)
 
-1. Web: The web application allows users to securely access internal resources on a browser-based interface via the SRA Portal, leveraging embedded clients.
+1. Web: The web application allows users to securely access internal resources on a browser-based interface by way of the SRA Portal, leveraging embedded clients.
 2. SSH: The SSH application is primarily used for native CLI access from the users' terminal using the [Akeyless Connect](https://docs.akeyless.io/docs/remote-access-akeyless-connect) and [Akeyless SCP](https://docs.akeyless.io/docs/akeyless-scp-1) commands to any Unix-supporting resource.
 
-To connect to a resource, the user first authenticates to Akeyless via a configured Identity Provider (IdP). Once authorized, SRA facilitates the connection in a Zero-Trust manner by retrieving the required secret credentials via the Gateway and automatically injecting them into the target resource to establish and proxy the user’s access.
+To connect to a resource, the user first authenticates to Akeyless by way of a configured Identity Provider (IdP). Once authorized, SRA facilitates the connection in a Zero-Trust manner by retrieving the required secret credentials by way of the Gateway and automatically injecting them into the target resource to establish and proxy the user’s access.
 
 As a result, Akeyless uniquely combines the ability to interface with 3rd-party **identity providers** for authentication with granular **Role-Based Access Control** (**RBAC**) for authorization and the ability to provide **Just-in-Time Access** to remote resources, using Dynamic Secrets as short-lived credentials and certificates.
 
@@ -43,7 +43,7 @@ Akeyless Secure Remote Access provides a robust set of features designed to supp
 4. Request for Access: Admins have the ability to enable an option for users to request access for a specific resource on-demand.
 5. Audit and Session Management: Akeyless provides full session management with auditing and recording capabilities to keep you compliant. Session recordings and transcripts can be automatically exported to remote storage systems for long-term retention.
 6. Granular RBAC: Access can be tightly scoped so that each user is granted only the necessary permissions to the specific targets or resources they need (Users are restricted from accessing anything beyond their defined scope). Users only need SRA permissions to initiate connections—without requiring any _Read_ access to the underlying secrets.
-7. Native SSO integrations: SRA supports authentication via SSO protocols such as OIDC, SAML, and LDAP.
+7. Native SSO integrations: SRA supports authentication by way of SSO protocols such as OIDC, SAML, and LDAP.
 8. Multiple connection interfaces: WebUI, CLI, Desktop app
 
 ## Use Cases

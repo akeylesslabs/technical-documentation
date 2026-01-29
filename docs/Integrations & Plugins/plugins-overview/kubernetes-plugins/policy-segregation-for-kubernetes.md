@@ -12,7 +12,7 @@ next:
 ---
 ## Overview
 
-When using Akeyless [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth), policy segregation of resources can be done based on Kubernetes attributes via Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) using the relevant [sub-claims](https://docs.akeyless.io/docs/sub-claims), such as `namespace` and `pod_name`.
+When using Akeyless [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth), policy segregation of resources can be done based on Kubernetes attributes by way of Akeyless [RBAC](https://docs.akeyless.io/docs/rbac) using the relevant [sub-claims](https://docs.akeyless.io/docs/sub-claims), such as `namespace` and `pod_name`.
 
 The following guide will demonstrate the usage of Namespace segregation.
 

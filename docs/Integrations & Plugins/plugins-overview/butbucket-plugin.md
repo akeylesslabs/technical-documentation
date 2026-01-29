@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-[Bitbucket](https://bitbucket.org/product/) is a web-based Git repository hosting service by Atlassian that supports code review, branching workflows, and issue tracking, with built-in continuous integration and delivery via Bitbucket Pipelines.
+[Bitbucket](https://bitbucket.org/product/) is a web-based Git repository hosting service by Atlassian that supports code review, branching workflows, and issue tracking, with built-in continuous integration and delivery by way of Bitbucket Pipelines.
 
 The Akeyless integration for Bitbucket Pipelines enables a secure, simple, and native way to fetch secrets just-in-time into pipeline steps—avoiding secrets in code or config while keeping deployments seamless.
 

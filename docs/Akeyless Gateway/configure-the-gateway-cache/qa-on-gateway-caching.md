@@ -82,7 +82,7 @@ Impact: Complete service interruption until at least one Gateway instance is res
 
 ## Will There Be Any Behavioral Changes Based on the Type of Clients for example, Injector compared to ESO?
 
-The core caching behavior and outage impact on the Gateway remain the same regardless of the client connecting to the Gateway. Both the Akeyless Injector and External Secrets Operator (ESO) interact with the Akeyless Gateway via HTTP calls to its REST API.
+The core caching behavior and outage impact on the Gateway remain the same regardless of the client connecting to the Gateway. Both the Akeyless Injector and External Secrets Operator (ESO) interact with the Akeyless Gateway by way of HTTP calls to its REST API.
 
 While both clients rely on the Gateway for secret retrieval, ESO's model of synchronizing secrets into Kubernetes Secret objects generally provides a higher degree of resilience for applications during Gateway or SaaS outages, as applications consume a local, replicated copy of the secret. The Injector, especially when injecting directly into files or environment variables, might lead to pod startup failures or stale secrets if an outage occurs during its secret injection phase and `AKEYLESS_CRASH_POD_ON_ERROR` is set.
 
@@ -104,7 +104,7 @@ Additional specific settings could be found in the Gateway Kubernetes configurat
 
 ## What's the Behavior When Caching Is Enabled and a User Updates the Secret in UI?
 
-When a secret is updated in the UI, its value is immediately updated if accessed via the`get-secret-value` CLI command or API. In this scenario, the command will initially display the old value from the cache but will then sync with the SaaS to retrieve the new value. It will first update the local Gateway cache and then the Cluster cache.
+When a secret is updated in the UI, its value is immediately updated if accessed by way of the`get-secret-value` CLI command or API. In this scenario, the command will initially display the old value from the cache but will then sync with the SaaS to retrieve the new value. It will first update the local Gateway cache and then the Cluster cache.
 
 If the flag `PREFER_CLUSTER_CACHE_FIRST` is enabled, the value will be fetched from the cluster cache first and not from the Gateway local cache. This option improves the ability of the system to provide the most updated value when there are several Gateway instances.
 

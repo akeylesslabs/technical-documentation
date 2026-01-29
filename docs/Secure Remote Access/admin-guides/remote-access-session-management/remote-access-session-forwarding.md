@@ -22,7 +22,7 @@ Choose the Gateway you want to update and then click the "Manage Gateway" button
 
 From the Manage Gateway section, choose "Remote Access" -> "Session Forwarding" -> "Session Forwarding", click the slider to Enable, and add the log forwarder information. Once done, click "Save".
 
-This can also be done via the CLI as follows:
+This can also be done by way of the CLI as follows:
 
 ```shell AWS S3
 akeyless gateway update remote-access-session-forwarding aws-s3 \

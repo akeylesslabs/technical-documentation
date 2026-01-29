@@ -105,7 +105,7 @@ Follow the below commands:
 
 > 👍 SSH connection note
 >
-> This is the bare minimum in order to have a required SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource via SSH, please see the docs [here](https://docs.akeyless.io/docs/ssh-certificates).
+> This is the bare minimum in order to have a required SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/ssh-certificates).
 
 ## Configuration
 

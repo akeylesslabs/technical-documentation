@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To use Auth0 as an IdP to authenticate the Akeyless Platform via OIDC, follow the steps below.
+To use Auth0 as an IdP to authenticate the Akeyless Platform by way of OIDC, follow the steps below.
 
 ## Create an Auth0 Application
 

@@ -68,11 +68,11 @@ Where:
 
 By default, access to the AWS portal will use a direct network access mode. To work with Akeyless [Web Access](https://docs.akeyless.io/docs/web-access-bastion) for session isolation or as a secure proxy entry point, please set **one** of the following:
 
-* `secure-access-web-browsing`: Optional, secure browser via Akeyless Web Access Zero trust Web Access.
+* `secure-access-web-browsing`: Optional, secure browser by way of Akeyless Web Access Zero trust Web Access.
 
 Alternatively, in case you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
 
-* `secure-access-web-proxy`: Optional, web-proxy via Akeyless Zero trust Web Access.
+* `secure-access-web-proxy`: Optional, web-proxy by way of Akeyless Zero trust Web Access.
 * `secure-access-delay`: The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
 
 ## Set Up Remote Access to the AWS Console from the Akeyless Console
@@ -90,7 +90,7 @@ Let's set up remote access to the AWS Console from the Akeyless Console. If you'
 
     For **Web Access**, choose one of the following modes:
 
-    * `Direct connection`: Default, using a direct connection to AWS portal via Akeyless Secure Remote Access.
+    * `Direct connection`: Default, using a direct connection to AWS portal by way of Akeyless Secure Remote Access.
 
     * `Secure Web Browsing`: Optional, secure web browsing over an isolated web browser **available only with** [Zero Trust Web Access](https://docs.akeyless.io/docs/web-access-bastion).
 

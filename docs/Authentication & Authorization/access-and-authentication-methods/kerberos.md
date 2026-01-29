@@ -80,7 +80,7 @@ The retrieved value will be used as the `kvno` parameter on the `ktpass` command
 
 A [keytab](https://docs.oracle.com/cd/E27515_01/common/tutorials/kerberos_keytab.html) is a file used in Kerberos authentication that contains pairs of Kerberos principals and their corresponding secret keys. It allows services to authenticate to the **Kerberos Key Distribution Center (KDC)** without needing to interactively enter a password.
 
-Run the following command to generate a **keytab** for the user who will be authenticated via Kerberos:
+Run the following command to generate a **keytab** for the user who will be authenticated by way of Kerberos:
 
 ```powershell shell
 ktpass /princ <username>@<REALM> /ptype krb5_nt_principal /crypto <EncryptionType> /out <OutputFile> /mapuser <MapUser> /kvno <KeyVersionNumber> /pass <Password>
@@ -131,9 +131,9 @@ Where:
 
 * `default_realm`: Defines the default Kerberos realm
 
-* `dns_lookup_realm`: Controls whether the realm can be discovered via DNS
+* `dns_lookup_realm`: Controls whether the realm can be discovered by way of DNS
 
-* `dns_lookup_kdc`: Controls whether the KDC can be discovered via DNS
+* `dns_lookup_kdc`: Controls whether the KDC can be discovered by way of DNS
 
 * `ticket_lifetime`: Specifies how long tickets are valid
 
@@ -194,7 +194,7 @@ Where:
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-reference-kerberos)
 
-Once created, you can use the `akeyless auth` command to authenticate a user via **Kerberos**:
+Once created, you can use the `akeyless auth` command to authenticate a user by way of **Kerberos**:
 
 ```shell
 akeyless auth \

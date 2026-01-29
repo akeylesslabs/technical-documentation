@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-In order to use GitHub as an IdP to authenticate the Akeyless Platform via OIDC, you need to follow the below steps.
+In order to use GitHub as an IdP to authenticate the Akeyless Platform by way of OIDC, you need to follow the below steps.
 
 ## Create an OAuth Apps
 

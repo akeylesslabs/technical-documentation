@@ -38,7 +38,7 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
     * **Ingress** - When using an Ingress controller, sticky sessions are essential to maintain user connections to the same pod throughout their session. Make sure to use sticky session annotations, for example, `nginx.ingress.kubernetes.io/affinity: "cookie"`.
 
-    * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html). For **GKE** environment the default service timeout is `30s`. Increase via [BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection) using `spec.timeoutSec`. [Read more](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) about the configuration and how to apply this to the SRA service.
+    * **Cloud Provider Load Balancer** - Configure your Load Balancer to support sticky sessions, for example, in AWS, using [ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html). For **GKE** environment the default service timeout is `30s`. Increase by way of [BackendConfig](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) or [GCPBackendPolicy](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-backend-selection) using `spec.timeoutSec`. [Read more](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ingress-configuration) about the configuration and how to apply this to the SRA service.
 
 ### Horizontal Pod Autoscaler
 
@@ -111,4 +111,4 @@ Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it
 
 To login to the **Secure Remote Access** portal, open your browser and log in using the following URL: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`, using one of the  [supported authentication methods](https://docs.akeyless.io/docs/access-resources-remotely#prerequisites).
 
-Once logged in, you will see Secrets with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or via CLI.
+Once logged in, you will see Secrets with **Secure Remote Access** enabled. From there, you can securely access those resources using Just-In-Time credentials, either through the web interface or by way of CLI.
