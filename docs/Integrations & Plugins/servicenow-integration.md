@@ -86,9 +86,9 @@ Creating basic auth credentials by way of ServiceNow instance.
 ![Illustration for: In “Basic Auth Credentials” Form, insert name (For example, “akeylessbasicauthcreds”), insert the access-id as the User name, and the access-key as the Password, and submit](https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png)
 
 * In the **Name** field write `akeyless_basic_auth_creds`
-* Add **User Name & Password** or [API Key credentials](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-by way of-the-ui).
+* Add **User Name & Password** or [API Key credentials](<https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-by> way of-the-ui).
 
-![Illustration for: Add User Name & Password or API Key credentials.](https://files.readme.io/b11a153-Screenshot_2024-07-14_at_15.10.31.png)
+![Illustration for: Add User Name and Password or API Key credentials.](https://files.readme.io/b11a153-Screenshot_2024-07-14_at_15.10.31.png)
 
 Add JWT authentication in ServiceNow:
 

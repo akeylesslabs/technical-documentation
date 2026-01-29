@@ -49,4 +49,4 @@ The full list of options for this command is:
 
 When you associate a classic key with a Cloud KMS, you will find a new customer-managed key on the Cloud KMS. The key alias is built as `managed-by-<account-id>-<item-id>`, as shown in the following example:
 
-![Illustration for: When you associate a classic key with a Cloud KMS, you will find a new customer-managed key on the Cloud KMS. The key alias is built as managed-by-<account-id>-<item-id>, as…](https://files.readme.io/5ffc31d-image-20210518-114015.png)
+![Illustration for: When you associate a classic key with a Cloud KMS, you will find a new customer-managed key on the Cloud KMS.](https://files.readme.io/5ffc31d-image-20210518-114015.png)

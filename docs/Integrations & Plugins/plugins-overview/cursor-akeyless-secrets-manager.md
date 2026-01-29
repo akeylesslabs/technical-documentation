@@ -15,7 +15,7 @@ next:
   Supported IDE:
 
 * Cursor
-* VS Code
+* Virtual Studio Code
 * Google antigravity
 * Windsurf
 

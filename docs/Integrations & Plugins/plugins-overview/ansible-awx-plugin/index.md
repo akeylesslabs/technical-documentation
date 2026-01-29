@@ -19,4 +19,4 @@ A common usage pattern is the use of a third-party credential management system 
 Akeyless plugins are available for:
 
 * [Ansible Plugin](https://docs.akeyless.io/docs/ansible-plugin)
-* [Ansible AWX Plugin](https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-by way of-playbook-1)
+* [Ansible AWX Plugin](<https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-by> way of-playbook-1)

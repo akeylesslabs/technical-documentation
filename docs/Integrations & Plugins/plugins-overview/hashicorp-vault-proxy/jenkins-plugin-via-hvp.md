@@ -97,7 +97,7 @@ In this example, we are fetching a dynamic secret named **ProdDB** using [MySQL 
 
 To test the plugin, in Build, click “Execute shell”:
 
-![Illustration for: To work with Static Secrets, the Vault Secret Path should be in this format for KV 1: secret/data/<Full Secret Name>, where the Key in the returned JSON name is data. For…](https://files.readme.io/05d58ab-11.png)
+![Illustration for: To test the plugin, in Build, click Execute shell.](https://files.readme.io/05d58ab-11.png)
 
 Provide your MySQL server IP, modify the query, and so on.
 
@@ -125,7 +125,7 @@ akeyless create-secret -n /DevOps/Jenkins -v 'AkeylessIsGr8'
 
 The **Key name** should be set to `data` and the **Path** is `secret/data/DevOps/Jenkins`.
 
-![Illustration for: secret/<Full Secret Name>, without the data/ prefix, you can use the internal JSON keys as the Key names for example, let's create a secret that contains a JSON-structured…](https://files.readme.io/ec122e2-Screenshot_at_Jan_05_20-52-23.png)
+![Illustration for: The Key name should be set to "data" and the Path is "secret/data/DevOps/Jenkins".](https://files.readme.io/ec122e2-Screenshot_at_Jan_05_20-52-23.png)
 
 In case the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 

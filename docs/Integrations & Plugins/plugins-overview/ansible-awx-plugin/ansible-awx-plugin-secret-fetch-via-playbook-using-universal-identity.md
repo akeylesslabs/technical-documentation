@@ -32,12 +32,12 @@ To use the vault plugin, complete the following procedure:
 
 2. Create a new template, according to the below:
 
-    ![1700](https://files.readme.io/a66da1f-image.png "image.png")
+    ![Configuring the AWX Plugin](https://files.readme.io/a66da1f-image.png)
 
-    ![1037](https://files.readme.io/7f88aa4-image_2.png "image (2).png")
+    ![Configuring the AWX Plugin](https://files.readme.io/7f88aa4-image_2.png)
 
 After successful job launch you will see the following:  
 
-![1727](https://files.readme.io/fdcc990-image_1.png "image (1).png")
+![Configuring the AWX Plugin](https://files.readme.io/fdcc990-image_1.png)
 
-For an additional ways to work with Ansible AWX, see [Ansible AWX Plugin - secret fetch by way of playbook](https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-by way of-playbook-1).
+For an additional ways to work with Ansible AWX, see [Ansible AWX Plugin - secret fetch by way of playbook](https://docs.akeyless.io/docs/ansible-awx-plugin-secret-fetch-via-playbook-1).
