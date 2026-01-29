@@ -38,7 +38,7 @@ config:
   # AKY006: Disallow Latin abbreviations (e.g., i.e., ad hoc)
   # Knobs:
   #   - severity: error|warning|info
-  AKY006: true
+  AKY006: false
 
   # AKY007: Prefer third-person voice (heuristic)
   # Knobs:
