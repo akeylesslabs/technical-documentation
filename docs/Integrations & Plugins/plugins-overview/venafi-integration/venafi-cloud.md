@@ -10,6 +10,10 @@ metadata:
 next:
   description: ''
 ---
+<Callout icon="📘" theme="info">
+  **Note:** Venafi recently became CyberArk Machine Identity Security.
+</Callout>
+
 To work with the Venafi Cloud platform, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
 
 ## Prerequisites
