@@ -62,7 +62,7 @@ To work with the GitHub Actions plugin:
 
     : **\<access\_id>..\<access\_key>**. For example:
 
-    ![Illustration for: 2. Name the secret **VAULT\_TOKEN**. 3. Set the secret value in the following format : **\<access\_id>..\<access\_key>**. For example:](https://files.readme.io/51a6336-image-20210524-1247311.png)
+    ![Illustration for: 3. Set the secret value in the following format : \<access\_id>..\<access\_key>.](https://files.readme.io/51a6336-image-20210524-1247311.png)
 
 4. Select **Add secret**.
 
