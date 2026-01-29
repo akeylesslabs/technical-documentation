@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable Secure Remote Access to a Windows machine with a [Dynamic Secret](https://docs.akeyless.io/docs/rdp-dynamic-secrets) that generates ephemeral credentials for the machine or a [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret). Users can access the Windows machine from the Secure Remote Access Portal over the web.
+You can enable Secure Remote Access to a Windows machine with a [Dynamic Secret](https://docs.akeyless.io/docs/rdp-dynamic-secrets) that generates temporary credentials for the machine or a [Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret). Users can access the Windows machine from the Secure Remote Access Portal over the web.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can enable Secure Remote Access to a Kubernetes cluster based on the dynamic secret that generates ephemeral credentials for Kubernetes cluster. Users can then access Kubernetes cluster from the Secure Remote Access Portal, either over the web or using Kubernetes native CLI.
+You can enable Secure Remote Access to a Kubernetes cluster based on the dynamic secret that generates temporary credentials for Kubernetes cluster. Users can then access Kubernetes cluster from the Secure Remote Access Portal, either over the web or using Kubernetes native CLI.
 
 ## Prerequisites
 
