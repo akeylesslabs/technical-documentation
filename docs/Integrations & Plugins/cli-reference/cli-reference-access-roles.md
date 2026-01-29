@@ -206,7 +206,7 @@ akeyless reverse-rbac \
 
 `-p, --path`: **Required**, Path to an object
 
-`-t, --type`: **Required**, Type of object (item, am, role, target)
+`-t, --type`: **Required**, Type of object (`item`, `am`, `role`, `target`)
 
 ## `set-role-rule`
 

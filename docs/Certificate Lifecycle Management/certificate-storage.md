@@ -38,11 +38,11 @@ The main parameters for the command are as follows:
 
 * `certificate`: Path to a file that contains the certificate in one of the following formats: `pem,cer,crt,pfx,p12`.
 
-* `certificate-data`: Content of the certificate in a Base64 format, if you add this you do not need the certificate path parameter and vice versa.
+* `certificate-data`: The content of the certificate in Base64 format. When this parameter is provided, the `certificate` path parameter is not required.
 
 * `private-key`: Optional, path to the file with the certificate's private key.
 
-* `key-data`: Content of the certificate's private key in a Base64 format, if you add this you do not need the key path parameter and vice versa.
+* `key-data`: The content of the certificate’s private key in Base64 format. When this parameter is provided, the `private-key` path parameter is not required.
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified, this parameter can be added multiple times for multiple notifications.
 
