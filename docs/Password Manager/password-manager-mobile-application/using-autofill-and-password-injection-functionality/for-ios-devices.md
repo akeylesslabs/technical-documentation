@@ -38,7 +38,7 @@ Before using Akeyless Password Manager for autofill, you must grant it permissio
 
 With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure. Here's how to utilize it:
 
-![Illustration for: With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure. Here's how to utilize it:](https://files.readme.io/c309879-File_3.jpg)
+![Illustration for: With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure.](https://files.readme.io/c309879-File_3.jpg)
 
 1. When you navigate to a login page on Safari or within any application, your device will automatically prompt you to fill in your credentials. This prompt might appear above the keyboard or within login fields, indicating that autofill is available.
 

@@ -49,11 +49,11 @@ In n8n, go to Credentials → Add Credential
 
 Select Akeyless Security
 
-![Illustration for: Step 1: Configure Credentials In n8n, go to Credentials → Add Credential Select Akeyless Security](https://files.readme.io/ccc9b3bfe271d41087a408b69547c7f8234bd6354fb286c270fdb60a008c5139-Screenshot_2025-11-14_at_16.45.51.png)
+![Illustration for: Step 1: Configure Credentials In n8n, go to Credentials → Add Credential Select Akeyless Security.](https://files.readme.io/ccc9b3bfe271d41087a408b69547c7f8234bd6354fb286c270fdb60a008c5139-Screenshot_2025-11-14_at_16.45.51.png)
 
 Choose an authentication method:
 
-![Illustration for: In n8n, go to Credentials → Add Credential Select Akeyless Security Choose an authentication method:](https://files.readme.io/0cb8dee191ebe3c1562733b78e71d9f3c6cf7d0f798953dfb4608119027853c7-Screenshot_2025-11-17_at_19.22.46.png)
+![Illustration for: Choose an authentication method.](https://files.readme.io/0cb8dee191ebe3c1562733b78e71d9f3c6cf7d0f798953dfb4608119027853c7-Screenshot_2025-11-17_at_19.22.46.png)
 
 #### Method A: Access ID + Access Key (Recommended)
 

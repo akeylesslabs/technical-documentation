@@ -93,11 +93,11 @@ The returned JSON object will have keys named `password` and `username`. For exa
 
 In this example, we are fetching a dynamic secret named **ProdDB** using [MySQL Dynamic Secrets](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db).
 
-![Illustration for: Static Secrets To work with Static Secrets, the Vault Secret Path should be in this format for **KV 1**:](https://files.readme.io/1af62b9-Screenshot_at_Feb_24_18-06-43.png)
+![Illustration for: In this example, we are fetching a dynamic secret named ProdDB using MySQL Dynamic Secrets.](https://files.readme.io/1af62b9-Screenshot_at_Feb_24_18-06-43.png)
 
 To test the plugin, in Build, click “Execute shell”:
 
-![Illustration for: To work with Static Secrets, the Vault Secret Path should be in this format for **KV 1**: secret/data/<Full Secret Name>, where the Key in the returned JSON name is data. For…](https://files.readme.io/05d58ab-11.png)
+![Illustration for: To test the plugin, in Build, click Execute shell.](https://files.readme.io/05d58ab-11.png)
 
 Provide your MySQL server IP, modify the query, etc.
 
