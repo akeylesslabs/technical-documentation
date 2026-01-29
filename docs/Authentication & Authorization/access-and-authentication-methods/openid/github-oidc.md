@@ -18,11 +18,11 @@ In order to use GitHub as an IdP to authenticate the Akeyless Platform via OIDC,
 
 2. For **Homepage URL** set `https://console.akeyless.io`, for **Authorization callback URL** set `https://auth.akeyless.io/oidc/callback` and click **Register application**.
 
-    ![Illustration for: 2. For **Homepage URL** set https://console.akeyless.io, for **Authorization callback URL** set https://auth.akeyless.io/oidc/callback and click **Register application**.](https://files.readme.io/d849e9e-image-20210912-161540.png)
+    ![Illustration for: 2. For Homepage URL set https://console.akeyless.io, for Authorization callback URL set https://auth.akeyless.io/oidc/callback and click Register application.](https://files.readme.io/d849e9e-image-20210912-161540.png)
 
 3. Once the Application has been created, you need to obtain the **Client ID, Client secret**:
 
-    ![Illustration for: 2. For **Homepage URL** set https://console.akeyless.io, for **Authorization callback URL** set https://auth.akeyless.io/oidc/callback and click **Register application**. 3.…](https://files.readme.io/bc9cf03-image-20210912-161821.png)
+    ![Illustration for: 2. For Homepage URL set https://console.akeyless.io, for Authorization callback URL set https://auth.akeyless.io/oidc/callback and click Register application. 3.…](https://files.readme.io/bc9cf03-image-20210912-161821.png)
 
 4. In order to bind the GitHub Client ID with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
 

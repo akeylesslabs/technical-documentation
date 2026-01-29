@@ -20,7 +20,7 @@ The certificate chain includes the following components:
 
 * **Leaf Certificate**: A certificate that is being used by any application.
 
-![Illustration for: * **Intermediate CA**: Signed by the **Root CA**, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has…](https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png)
+![Illustration for: Intermediate CA: Signed by the Root CA, the Intermediate CA is tasked with signing Client certificates. These certificates are trusted by the Root CA, as it has…](https://files.readme.io/61741a52fb97a98d5eacb4c17b807b6ca1b9a75a504e506af7e9c6c6b67dfcaf-Akeyless_Certificate-Chain.png)
 
 ## Creating a Chain of Trust
 

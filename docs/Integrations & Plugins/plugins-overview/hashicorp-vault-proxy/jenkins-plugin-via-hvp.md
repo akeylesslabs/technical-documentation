@@ -36,7 +36,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
 
 3. From the main Jenkins page, select **New Item > Freestyle project**, then add a name for the project and select **OK**.
 
-    ![Illustration for: 2. Find and install the HashiCorp Vault plugin. 3. From the main Jenkins page, select **New Item > Freestyle project**, then add a name for the project and select **OK**.](https://files.readme.io/6fd3690-Screenshot_at_Feb_24_17-17-46.png)
+    ![Illustration for: 2. Find and install the HashiCorp Vault plugin. 3. From the main Jenkins page, select New Item > Freestyle project, then add a name for the project and select OK.](https://files.readme.io/6fd3690-Screenshot_at_Feb_24_17-17-46.png)
 
 4. In the **Build Environment** tab, select the **Vault Plugin** radio button. Then, enter the [Akeyless Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) URL: `https://hvp.akeyless.io`
 
@@ -74,7 +74,7 @@ To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and en
     * **KV Engine Version**: Enter **1**.
     * **Skip SSL verification**: Select the checkbox.
 
-    ![Illustration for: 8. Add the following information, then select **Add a vault secret**: * **KV Engine Version**: Enter **1**. * **Skip SSL verification**: Select the checkbox.](https://files.readme.io/b1aaa6e-Screenshot_at_Feb_24_17-56-21.png)
+    ![Illustration for: 8. Add the following information, then select Add a vault secret: KV Engine Version: Enter 1. Skip SSL verification: Select the checkbox.](https://files.readme.io/b1aaa6e-Screenshot_at_Feb_24_17-56-21.png)
 
 ### Dynamic Secret
 
@@ -93,11 +93,11 @@ The returned JSON object will have keys named `password` and `username`. For exa
 
 In this example, we are fetching a dynamic secret named **ProdDB** using [MySQL Dynamic Secrets](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db).
 
-![Illustration for: In this example, we are fetching a dynamic secret named ProdDB using MySQL Dynamic Secrets.](https://files.readme.io/1af62b9-Screenshot_at_Feb_24_18-06-43.png)
+![Illustration for: Static Secrets To work with Static Secrets, the Vault Secret Path should be in this format for KV 1](https://files.readme.io/1af62b9-Screenshot_at_Feb_24_18-06-43.png)
 
 To test the plugin, in Build, click “Execute shell”:
 
-![Illustration for: To test the plugin, in Build, click Execute shell.](https://files.readme.io/05d58ab-11.png)
+![Illustration for: To work with Static Secrets, the Vault Secret Path should be in this format for KV 1: secret/data/<Full Secret Name>, where the Key in the returned JSON name is data. For…](https://files.readme.io/05d58ab-11.png)
 
 Provide your MySQL server IP, modify the query, etc.
 
@@ -109,7 +109,7 @@ exit 0
 Click “Apply” and “Save”.
 Click “Build Now” and expect to see the following Console Output:
 
-![Illustration for: The **Key name** should be set to data and the **Path** is secret/data/DevOps/Jenkins. In case the secret value itself is a JSON-structured object, the **Path** must be in the…](https://files.readme.io/6f82e9a-Screenshot_at_Feb_24_18-18-31.png)
+![Illustration for: The Key name should be set to data and the Path is secret/data/DevOps/Jenkins. In case the secret value itself is a JSON-structured object, the Path must be in the…](https://files.readme.io/6f82e9a-Screenshot_at_Feb_24_18-18-31.png)
 
 ### Static Secrets
 
@@ -125,7 +125,7 @@ akeyless create-secret -n /DevOps/Jenkins -v 'AkeylessIsGr8'
 
 The **Key name** should be set to `data` and the **Path** is `secret/data/DevOps/Jenkins`.
 
-![Illustration for: secret/<Full Secret Name>, without the data/ prefix, you can use the internal JSON keys as the **Key names** for example, let's create a secret that contains a JSON-structured…](https://files.readme.io/ec122e2-Screenshot_at_Jan_05_20-52-23.png)
+![Illustration for: secret/<Full Secret Name>, without the data/ prefix, you can use the internal JSON keys as the Key names for example, let's create a secret that contains a JSON-structured…](https://files.readme.io/ec122e2-Screenshot_at_Jan_05_20-52-23.png)
 
 In case the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
@@ -137,7 +137,7 @@ akeyless create-secret -n /DevOps/JenkinsJson -v '{"username":"john","password":
 
 The **Key names** can be: `username` and `password` where the **Path** is `secret/DevOps/JenkinsJson`
 
-![Illustration for: For example, to fetch the secret **/DevOps/JenkinsJson**: The **Path** should be secret/DevOps/JenkinsJson, and the **Key name** should be set with the relevant JSON keys.](https://files.readme.io/6670afe-Screenshot_at_Jan_05_21-07-11.png)
+![Illustration for: For example, to fetch the secret /DevOps/JenkinsJson: The Path should be secret/DevOps/JenkinsJson, and the Key name should be set with the relevant JSON keys.](https://files.readme.io/6670afe-Screenshot_at_Jan_05_21-07-11.png)
 
 To work with **KV 2** use the following format:
 
@@ -145,10 +145,10 @@ To fetch the secret **/DevOps/Jenkins**:
 
  The **Path** is `secret/DevOps/Jenkins`, where the Key in the returned JSON name is `DevOps/Jenkins` without the `/` prefix.
 
-![Illustration for: For example, to fetch the secret **/DevOps/JenkinsJson**: The **Path** should be secret/DevOps/JenkinsJson, and the **Key name** should be set with the relevant JSON keys.](https://files.readme.io/31a52cd-Screenshot_at_Jan_05_21-12-04.png)
+![Illustration for: For example, to fetch the secret /DevOps/JenkinsJson: The Path should be secret/DevOps/JenkinsJson, and the Key name should be set with the relevant JSON keys.](https://files.readme.io/31a52cd-Screenshot_at_Jan_05_21-12-04.png)
 
 For example, to fetch the secret **/DevOps/JenkinsJson**:
 
 The **Path** should be `secret/DevOps/JenkinsJson`, and the **Key name** should be set with the relevant JSON keys.
 
-![Illustration for: For example, to fetch the secret **/DevOps/JenkinsJson**: The **Path** should be secret/DevOps/JenkinsJson, and the **Key name** should be set with the relevant JSON keys.](https://files.readme.io/98d3115-Screenshot_at_Jan_05_21-15-42.png)
+![Illustration for: For example, to fetch the secret /DevOps/JenkinsJson: The Path should be secret/DevOps/JenkinsJson, and the Key name should be set with the relevant JSON keys.](https://files.readme.io/98d3115-Screenshot_at_Jan_05_21-15-42.png)

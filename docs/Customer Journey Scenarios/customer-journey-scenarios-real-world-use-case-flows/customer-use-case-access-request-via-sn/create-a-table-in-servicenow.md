@@ -17,14 +17,14 @@ Creating a table in ServiceNow involves defining a new data structure to store i
 * Log in to your ServiceNow instance as an administrator or with a role that has permissions to create and manage tables.
 * Navigate to System Definition > Tables in the Application Navigator on the left side of the screen.
 
-![Illustration for: * Log in to your ServiceNow instance as an administrator or with a role that has permissions to create and manage tables. * Navigate to System Definition > Tables in the…](https://files.readme.io/71cd2e2-Screenshot_2024-03-05_at_12.24.04.png)
+![Illustration for: Log in to your ServiceNow instance as an administrator or with a role that has permissions to create and manage tables. Navigate to System Definition > Tables in the…](https://files.readme.io/71cd2e2-Screenshot_2024-03-05_at_12.24.04.png)
 
 ## Step 2: Create New Table
 
 * Click on the New button to start creating a new table.
 * You will be presented with a form to fill out details for your new table.
 
-![Illustration for: Step 2: Create New Table * Click on the New button to start creating a new table. * You will be presented with a form to fill out details for your new table.](https://files.readme.io/84236ea-Screenshot_2024-03-05_at_12.24.19.png)
+![Illustration for: Step 2: Create New Table Click on the New button to start creating a new table. You will be presented with a form to fill out details for your new table.](https://files.readme.io/84236ea-Screenshot_2024-03-05_at_12.24.19.png)
 
 ## Step 3: Define Table Details
 
@@ -35,7 +35,7 @@ Creating a table in ServiceNow involves defining a new data structure to store i
 * After defining the basic table details, you'll need to add fields (columns) to your table. Each field represents a piece of information you want to store in each record.
 * You can add fields by clicking on the Add Column button and specifying the field type (For example, string, choice, reference, date/time), name, and other properties.
 
-![Illustration for: * You can add fields by clicking on the Add Column button and specifying the field type (For example, string, choice, reference, date/time), name, and other properties.](https://files.readme.io/cf02d50-Screenshot_2024-03-05_at_12.24.46.png)
+![Illustration for: You can add fields by clicking on the Add Column button and specifying the field type (For example, string, choice, reference, date/time), name, and other properties.](https://files.readme.io/cf02d50-Screenshot_2024-03-05_at_12.24.46.png)
 
 ## Step 5: Save the Table
 
@@ -47,4 +47,4 @@ Creating a table in ServiceNow involves defining a new data structure to store i
 * If you opted to create a module for the table, you would find it in the Application Navigator under the application you specified during creation.
 * You can access the table to add, view, or modify records. Additionally, you can configure form layouts, create business rules, and set up access controls to manage how data in the table is used and accessed.
 
-![Illustration for: * You can access the table to add, view, or modify records. Additionally, you can configure form layouts, create business rules, and set up access controls to manage how data…](https://files.readme.io/fdc444c-Screenshot_2024-03-05_at_12.30.36.png)
+![Illustration for: You can access the table to add, view, or modify records. Additionally, you can configure form layouts, create business rules, and set up access controls to manage how data…](https://files.readme.io/fdc444c-Screenshot_2024-03-05_at_12.30.36.png)

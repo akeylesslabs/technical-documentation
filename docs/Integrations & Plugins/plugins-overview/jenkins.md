@@ -106,16 +106,16 @@ The following configuration will fetch a static secret to your pipeline. This ex
 
 The following example will only fetch the username of the rotated secret value, and will store it into User environment variable:
 
-![Illustration for: Fetching a Rotated Secret With Specific Keys The following example will only fetch the username of the rotated secret value, and will store it into User environment variable:](https://files.readme.io/2ee1e96798d98e9d3c2c06d87f93f882da509660dddf979bdf997ede339acd71-image.png)
+![Illustration for: Fetching a Rotated Secret With Specific Keys The following example will only fetch the username of the rotated secret value, and will store it into User environment variable](https://files.readme.io/2ee1e96798d98e9d3c2c06d87f93f882da509660dddf979bdf997ede339acd71-image.png)
 
 ### Issuing an SSH Certificate
 
 The following above will generate an SSH Certificate that will be allowed for the `ubuntu` user, using a public key:
 
-![Illustration for: Issuing an SSH Certificate The following above will generate an SSH Certificate that will be allowed for the ubuntu user, using a public key:](https://files.readme.io/20d1d24c8bf53d285e233e8c698442a101f65c381ff31ec1c5b9b972a4671494-image.png)
+![Illustration for: Issuing an SSH Certificate The following above will generate an SSH Certificate that will be allowed for the ubuntu user, using a public key](https://files.readme.io/20d1d24c8bf53d285e233e8c698442a101f65c381ff31ec1c5b9b972a4671494-image.png)
 
 ### Issuing a PKI Certificate
 
 The following example will generate PKI Certificate using predefined Certificate Signing Request:
 
-![Illustration for: Issuing a PKI Certificate The following example will generate PKI Certificate using predefined Certificate Signing Request:](https://files.readme.io/572a3006acc9bf1bae374b45fe721ec09e1658fc5c954c1c0114056049254b5f-image.png)
+![Illustration for: Issuing a PKI Certificate The following example will generate PKI Certificate using predefined Certificate Signing Request](https://files.readme.io/572a3006acc9bf1bae374b45fe721ec09e1658fc5c954c1c0114056049254b5f-image.png)
