@@ -1840,8 +1840,6 @@ akeyless rotated-secret update openai \
 
 `--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
 
-##
-
 ### `oracledb`
 
 #### Usage
@@ -2230,9 +2228,11 @@ akeyless rotated-secret update windows \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-## `get-value`
+## Retrieve Information
 
-### Usage
+### `get-value`
+
+#### Usage
 
 ```shell
 akeyless rotated-secret get-value \
@@ -2240,24 +2240,26 @@ akeyless rotated-secret get-value \
 --version <Rotated Secret version>
 ```
 
-##### Flags
+#### Flags
 
 `--host`: Get rotated secret value of specific Host (relevant only for Linked Target)
 
 `--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the REST API
 
-## `list`
+### `list`
 
-### Usage
+#### Usage
 
 ```shell
 akeyless rotated-secret list \
 --gateway-url <API Gateway URL:8000> 
 ```
 
-## `sync`
+## Synchronization
 
-##### Usage
+### `sync`
+
+#### Usage
 
 ```shell
 akeyless rotated-secret sync \
@@ -2268,7 +2270,7 @@ akeyless rotated-secret sync \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##### Flags
+#### Flags
 
 `--name`: The Rotated Secret name.
 
@@ -2282,11 +2284,11 @@ akeyless rotated-secret sync \
 
 `--gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-## `delete sync`
+### `delete sync`
 
 delete rotated secret sync
 
-##### Usage
+#### Usage
 
 ```shell
 akeyless rotated-secret delete-sync \
@@ -2297,7 +2299,7 @@ akeyless rotated-secret delete-sync \
 --gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
 ```
 
-##### Flags
+#### Flags
 
 `--name`: The Rotated Secret name.
 
