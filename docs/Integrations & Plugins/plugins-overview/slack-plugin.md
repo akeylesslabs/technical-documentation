@@ -24,15 +24,15 @@ To Set the Slash command a workspace admin shall perform the following configura
 
 Short Description - exactly what it sounds like, a short description of what your command does, for example, `Akeyless Secrets Management`
 
-<Image align="center" src="https://files.readme.io/3b3858f-IMG_1834.JPG" />
+![Screenshot of the Slack Console for Editing a Slash Command](https://files.readme.io/3b3858f-IMG_1834.JPG "3b3858f-IMG_1834.JPG")
 
-![](https://files.readme.io/4664042-Screen_Shot_2020-04-30_at_11.27.35.png "Screen Shot 2020-04-30 at 11.27.35.png")
+![Screenshot of the Slack Console for Interactivity and Shortcuts](https://files.readme.io/4664042-Screen_Shot_2020-04-30_at_11.27.35.png "Screen Shot 2020-04-30 at 11.27.35.png")
 
 ## Using Akeyless OTP Via Slack
 
 Type `/akeyless` in Slack and select the **OTP** option:
 
-![](https://files.readme.io/e318cfb-image.png)
+![Screenshot of the Slack Console when Previewing a Slash Command](https://files.readme.io/e318cfb-image.png)
 
 Type in the content of the message you'd like to send for example:
 
