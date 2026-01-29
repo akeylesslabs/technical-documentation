@@ -18,17 +18,17 @@ To use Okta as an IdP to authenticate into the Akeyless Platform via OIDC, follo
 
 2. For **Sign-in method**, select **OIDC - OpenID Connect** and for Application type, select **Web Application** and select **Next**.
 
-    ![Illustration for: 1. In your Okta account, go to **Applications > Add Application > Create App Integration**. 2. For **Sign-in method**, select **OIDC - OpenID Connect** and for Application…](https://files.readme.io/b6c2478-okta-oidc1.png)
+    ![Illustration for: 1. In your Okta account, go to Applications > Add Application > Create App Integration. 2. For Sign-in method, select OIDC - OpenID Connect and for Application…](https://files.readme.io/b6c2478-okta-oidc1.png)
 
 3. On the Settings page:
     a. For the Grant type, check **Authorization Code**.
     b. Set `https://auth.akeyless.io/oidc/callback` into the **Sign-in redirect URIs**.
 
-    ![Illustration for: 3. On the Settings page: a. For the Grant type, check **Authorization Code**. b. Set https://auth.akeyless.io/oidc/callback into the **Sign-in redirect URIs**.](https://files.readme.io/42962ac-image-20210824-102417.png)
+    ![Illustration for: 3. On the Settings page: a. For the Grant type, check Authorization Code. b. Set https://auth.akeyless.io/oidc/callback into the Sign-in redirect URIs.](https://files.readme.io/42962ac-image-20210824-102417.png)
 
 4. Once the OIDC app has been created, you need to obtain the **Client ID, Client secret,** and **Okta domain**:
 
-    ![Illustration for: b. Set https://auth.akeyless.io/oidc/callback into the **Sign-in redirect URIs**. 4. Once the OIDC app has been created, you need to obtain the **Client ID, Client secret,**…](https://files.readme.io/7af68f3-image-20210824-103109.png)
+    ![Illustration for: b. Set https://auth.akeyless.io/oidc/callback into the Sign-in redirect URIs. 4. Once the OIDC app has been created, you need to obtain the Client ID, Client secret,…](https://files.readme.io/7af68f3-image-20210824-103109.png)
 
     > 📘 Adding ״groups״ claim - Okta side
     >

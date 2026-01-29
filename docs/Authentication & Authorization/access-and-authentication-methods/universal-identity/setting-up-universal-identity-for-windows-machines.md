@@ -127,6 +127,6 @@ To use [Universal Identity](https://docs.akeyless.io/docs/universal-identity) to
 
 3. Open **Task Scheduler**, and modify the settings of the newly created task (`akeyless_universal_identity_rotator`) to use the following options:
 
-    ![Illustration for: > The script also auto-creates the task-scheduler job, which will rotate your u-token every 10 minutes 3. Open **Task Scheduler**, and modify the settings of the newly created…](https://files.readme.io/a78ce9d-universal-identity.png)
+    ![Illustration for: > The script also auto-creates the task-scheduler job, which will rotate your u-token every 10 minutes 3. Open Task Scheduler, and modify the settings of the newly created…](https://files.readme.io/a78ce9d-universal-identity.png)
 
 4. Confirm the newly created `$HOME\.vault-token` file should start refreshing with a new `u-token` every 10 minutes.

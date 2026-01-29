@@ -20,7 +20,7 @@ Log In: Start by logging into your Akeyless management console. You'll need admi
 
 * Click the bell icon
 
-![Illustration for: Step 2: Navigate to Event Forwarders * Click the bell icon](https://files.readme.io/7169d0e-Screenshot_2024-03-05_at_10.34.12.png)
+![Illustration for: Step 2: Navigate to Event Forwarders Click the bell icon](https://files.readme.io/7169d0e-Screenshot_2024-03-05_at_10.34.12.png)
 
 * Click open event center
 
@@ -34,7 +34,7 @@ Initiate Creation: Inside the event forwarders section, there should be an optio
 
 * Specify Destination: Enter the destination where you want the events to be forwarded. Choose ServiceNow.
 
-![Illustration for: Step 4: Configure Event Forwarder Settings. Specify Destination: Enter the destination where you want the events to be forwarded. Choose ServiceNow.](https://files.readme.io/7cf76cd-Screenshot_2024-03-05_at_10.34.26.png)
+![Illustration for: Step 4: Configure Event Forwarder Settings Specify Destination: Enter the destination where you want the events to be forwarded. Choose ServiceNow.](https://files.readme.io/7cf76cd-Screenshot_2024-03-05_at_10.34.26.png)
 
 * Name the event
 

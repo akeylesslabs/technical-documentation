@@ -54,7 +54,7 @@ For **KV engine path**, set `secret/data`. **KV version** should be set to `v1` 
 
 After running your pipeline, you’ll see this input in the VaultReadKV step:
 
-![Illustration for: For **KV engine path**, set secret/data. **KV version** should be set to v1 and **Secret path** should contain your secret full path in Akeyless. The final task should look…](https://files.readme.io/cbd4b8b-pasted_image_0_3.png)
+![Illustration for: For KV engine path, set secret/data. KV version should be set to v1 and Secret path should contain your secret full path in Akeyless. The final task should look…](https://files.readme.io/cbd4b8b-pasted_image_0_3.png)
 
 To fetch [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) edit the following **KV Settings**:
 
