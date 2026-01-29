@@ -49,7 +49,7 @@ jobs:
         continue-on-error: true
         run: |
           set -e
-          python .github/scripts/cspell_autofix.py \
+          python .cspell/cspell-autofix.py \
             --report .github/cspell/cspell-out.pre.json \
             --repo-root . \
             --corrections .cspell/corrections.json
