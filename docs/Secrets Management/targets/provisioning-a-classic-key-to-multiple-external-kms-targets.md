@@ -72,7 +72,6 @@ akeyless assoc-target-item \
 
 ## Provisioning with the Web Console
 
-
 ### Step 1: Create or Select a Classic Key
 
 1. In the Akeyless Console, navigate to Items

@@ -114,7 +114,7 @@ Download the respective Desktop Application installation file from [here](https:
     >
     > > Note: Removing host from the list only removes it from the list of hosts in the desktop application.
 
-3. Configure the **Defaults Configuration** - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (aka, the target you wish to connect to). If this information is not accessible to the desktop application, it will use the information configured in the Advanced Configuration.
+3. Configure the **Defaults Configuration** - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (the target you wish to connect to). If this information is not accessible to the desktop application, it will use the information configured in the Advanced Configuration.
 
    1. **Web Application Dispatcher** and **Web Proxy URL** - Should be provided if working with Zero trust Web Access solution (ZTWA)
    2. **Secure SSH Access Address** (recommended) - This is the path and port for SSH deployment (`my.SSH.address`)
