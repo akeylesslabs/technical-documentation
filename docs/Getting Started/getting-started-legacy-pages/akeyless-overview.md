@@ -42,7 +42,7 @@ The **USC** also supports [Secrets Synchronization](https://docs.akeyless.io/doc
 
 The Akeyless [Certificate Lifecycle Management (CLM)](https://docs.akeyless.io/docs/certificate-lifecycle-management) solution automates the full lifecycle of digital certificates, covering issuance, deployment, monitoring, renewal, and revocation. By centralizing certificate operations, Akeyless reduces the risk of outages, strengthens security, and ensures compliance with organizational and industry standards.
 
-With Akeyless, organizations can operate their own **private Certificate Authority (CA)** or integrate with a **public CA**, using the [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). This flexibility makes it simple to establish and manage a complete chain of trust. Whether bringing your own CA certificate or generating one through Akeyless, the platform provides a unified and secure way to manage certificates across all environments.
+With Akeyless, organizations can operate their own **private Certificate Authority (CA)** or integrate with a **public CA**, using the [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). This flexibility makes it simple to establish and manage a complete chain of trust. Whether bringing your own certificate or generating one through Akeyless, Akeyless provides a unified and secure platform to manage certificates across all environments.
 
 ## Encryption & Key Management
 

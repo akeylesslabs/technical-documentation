@@ -21,7 +21,7 @@ Akeyless provides a single cloud-based control plane that supports application-t
 
 Akeyless enables organizations to control human and machine identities at scale. Identities include secrets, dynamic credentials, certificates, and encryption keys. These identities are critical for securing communication between applications, services, infrastructure, and automated workloads.
 
-The platform provides a unified workflow for creating, retrieving, issuing, rotating, and enforcing policies on these identities, reducing the operational challenges of managing identity material across distributed systems.
+Akeyless provides a platform for creating, retrieving, issuing, rotating, and enforcing policies on these identities, reducing the operational challenges of managing identity material across distributed systems.
 
 ***
 
@@ -106,4 +106,4 @@ Akeyless operates consistently across:
 
 ## Summary
 
-Akeyless is a unified identity security platform built to protect the credentials, keys, and certificates used across modern infrastructure. Its Zero-Knowledge Encryption and distributed-cryptography design eliminates reliance on stored secrets, enabling secure, scalable identity operations across diverse environments.
+Akeyless is an identity security platform built to protect the credentials, keys, and certificates used across modern infrastructure. Its Zero-Knowledge Encryption and distributed-cryptography design eliminates reliance on stored secrets, enabling secure, scalable identity operations across diverse environments.
