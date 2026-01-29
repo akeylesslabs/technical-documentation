@@ -20,7 +20,7 @@ next:
       slug: cert-manager
       title: Cert Manager
 ---
-Akeyless integrates with Venafi to provide certificate automation. Akeyless can be used for [Venafi Trust Protection Platform (TPP)](https://www.venafi.com/platform/trust-protection-platform) and [Venafi Cloud](https://www.venafi.com/venaficloud) to ensure compliance with enterprise policies and consistency with industry standards.
+Akeyless integrates with Venafi to provide certificate automation. Akeyless can be used for [Venafi Trust Protection Platform (TPP)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/) and [Venafi Cloud](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/) to ensure compliance with enterprise policies and consistency with industry standards.
 
 You no longer need to manually issue new PKI certificates, and you can dynamically retrieve PKI certificates.
 

@@ -91,4 +91,4 @@ next:
 
     ![](https://files.readme.io/35653e2-image-20210914-154951.png "image-20210914-154951.png")
 
-To **Enable Host Encryption Mode Explicitly** follow [this](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-A9E1F016-51B3-472F-B8DE-803F6BDB70BC.html) guide.
+[Read more about **Enabling Host Encryption Mode in vSphere**](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/7-0/web-services-sdk-programming-guide/virtual-machine-security/prerequisites-and-required-privileges-for-encryption-tasks/host-encryption-mode.html).
