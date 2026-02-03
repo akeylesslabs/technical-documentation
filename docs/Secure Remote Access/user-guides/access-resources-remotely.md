@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Secure Remote Access Portal is available by way of the main console at: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`.
+The Secure Remote Access Portal is available by way of the main console at: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`. Or using the public SaaS console at `https://zerotrust.akeyless.io` 
 
 All Akeyless supported [Resource types](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli) or by way of the [Desktop Application](https://docs.akeyless.io/docs/remote-access-desktop-application-beta).
 
@@ -21,8 +21,8 @@ Currently the SRA Portal supports the following Authentication Methods:
 * [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
 * [LDAP](https://docs.akeyless.io/docs/ldap)
 
-<Callout icon="👍">
-  *Allowed Redirect URL:* In case using SAML or OIDC Auth Methods ensure your Gateway URL is trusted
+<Callout icon="👍" theme="okay">
+  _Allowed Redirect URL:_ In case using SAML or OIDC Auth Methods ensure your Gateway URL is trusted
 </Callout>
 
 ## Connect from the Secure Remote Access Portal
@@ -35,7 +35,7 @@ Currently the SRA Portal supports the following Authentication Methods:
 
 The portal shows all the [resource types](https://docs.akeyless.io/docs/supported-resource-types) that you are authorized to access
 
-![A screenshot of the Akeyless Secure Remote Access product and its portal of available options.](https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png)
+<Image alt="A screenshot of the Akeyless Secure Remote Access product and its portal of available options." border={false} src="https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png" />
 
 ### Add a Custom Target for SSH or RDP
 
