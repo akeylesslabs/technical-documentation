@@ -40,25 +40,25 @@ Where:
 
 * `target-name`: The name of the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target)with which the Rotated Secret should be associated.
 
-* `authentication-credentials`: Determines how to connect to the target OpenAI account.
+* `authentication-credentials`: Determines how to connect to the target Splunk account.
   * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
   * `use-target-creds` - Use the credentials defined on the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target) item.
 
 * `rotator-type`: The type of credentials to be rotated. For [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target), choose:
   * `target` - to rotate the **Token** specified in the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target).
   * `token` - to rotate the **Token** specified in the Rotated Secret.
-  * `username` - to rotate the token for the **Username** specified in the Rotated Secret.
+  * `username` - to rotate the **Username** specified in the Rotated Secret.
   * `hec-token` - to rotate the **HEC-Token** specified in the Rotated Secret.
 
 * `auto-rotate`: Enable auto-rotation if you need to update the API Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
 
-## Create a Rotated OpenAI Secret in the Akeyless Console
+## Create a Rotated Splunk Secret in the Akeyless Console
 
 > 👍 Note
 >
 > To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
-1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > OpenAI**.
+1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > Splunk**.
 
 2. Define a **Name** of the Rotated Secret, and specify the **Location** as a path to the virtual folder where you want to create the new Rotated Secret, using slash `/` separators. If the folder does not exist, it will be created together with the Rotated Secret.
 
@@ -66,19 +66,17 @@ Where:
 
    * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
 
-   * **Target:** Defines the name of the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) to be associated with the Rotated Secret.
+   * **Target:** Defines the name of the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target) to be associated with the Rotated Secret.
 
-   * **Authenticate with the following credentials:** Determines how to connect to the target OpenAI account:
+   * **Authenticate with the following credentials:** Determines how to connect to the target Splunk account:
      * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-     * **Target credentials:** Use the credentials defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
+     * **Target credentials:** Use the credentials defined inside the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target) item.
 
    * **Rotator type:** Determines the rotator type:
-     * **API Key**: Rotates the API Key defined inside the Rotated Secret item.
-     * **Target**: Rotates the API Key defined inside the [OpenAI Target](https://docs.akeyless.io/docs/openai-target) item.
-
-   * **API Key ID:** Defines the API Key ID whose API Key should be rotated.
-
-   * **API Key:** Defines the API Key to rotate.
+     * **Target**: Rotates the Token defined inside the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target) item.
+     * **Token**: Rotates the Token defined inside the Rotated Secret item.
+     * **Username**: Rotates the Username defined inside the Rotated Secret item.
+     * **HEC-Token**: Rotates the HEC-Token defined inside the Rotated Secret item.
 
    * **Gateway:** Select the Gateway through which the secret will be rotated.
 
