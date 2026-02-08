@@ -21,10 +21,10 @@
 - rabbitmq-targets
 - salesforce-target
 - sectigo-target
+- splunk-target
 - ssh-target
 - venafi-target
 - web-targets
 - windows-target
 - zerossl-target
 - provisioning-a-classic-key-to-multiple-external-kms-targets
-- splunk-target
