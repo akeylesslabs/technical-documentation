@@ -15,6 +15,7 @@
 - hashicorp-vault-target
 - kubernetes-targets
 - ldap-target
+- lets-encrypt
 - linked-target
 - openai-target
 - ping-target
@@ -28,4 +29,3 @@
 - windows-target
 - zerossl-target
 - provisioning-a-classic-key-to-multiple-external-kms-targets
-- lets-encrypt
