@@ -10,7 +10,7 @@ metadata:
 * Where each cert lives
 * Which domains it covers
 * Who issued it
-* When it expires. 
+* When it expires.
 
 # Prerequisites
 
@@ -31,8 +31,13 @@ akeyless certificate-discovery \
 Where:
 
 * `-o, --hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
+
 * `-p, --port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080`-`8085`.
+
 * `-f, --target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
+
 * `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`.
+
 * `-k, --protection-key`: The name of the key that protects the certificate value (if empty, the account default key will be used).
+
 * `-d, --debug`: Use this flag to run the command in **Debug mode**.
