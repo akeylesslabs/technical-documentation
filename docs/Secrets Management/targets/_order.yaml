@@ -27,3 +27,4 @@
 - windows-target
 - zerossl-target
 - provisioning-a-classic-key-to-multiple-external-kms-targets
+- splunk-target
