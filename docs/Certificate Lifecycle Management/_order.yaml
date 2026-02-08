@@ -8,3 +8,4 @@
 - ssh-and-pkitls-certificates
 - public-ca
 - signing-tools
+- certificate-discovery
