@@ -2,10 +2,10 @@
 - acme-server
 - certificate-storage
 - certificate-provisioning
+- certificate-discovery
 - certificate-renewal
 - certificate-revocation-list
 - kubectl-access
 - ssh-and-pkitls-certificates
 - public-ca
 - signing-tools
-- certificate-discovery
