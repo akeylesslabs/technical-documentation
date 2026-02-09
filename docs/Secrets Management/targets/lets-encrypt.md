@@ -13,6 +13,19 @@ With a public CA, Akeyless cannot access the private key that signs certificates
 
 Akeyless will store the issued certificates, manage them, and notify you of upcoming expiration events.
 
+# Create a Let's Encrypt Target with the CLI
+
+To create a Let's Encrypt target with the CLI, run the following command:
+
+```shell
+akeyless target create lets-encrypt \
+--name <Target Name> \
+--lets-encrypt-url[production] <[production]/[staging]> \
+--acme-challenge[=http] <[http]/[dns]> \
+--dns-target-creds <[AWS/Azure/GCP] target name, relevant only when --acme-challenge=dns> \
+--hosted-zone <AWS Route 53 hosted zone identifier, relevant only when --acme-challenge=dns and the DNS credentials target is AWS> 
+```
+
 # Create a Let's Encrypt Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets** > **New** > **Certificate Automation (Let's Encrypt)**.
@@ -35,18 +48,3 @@ Akeyless will store the issued certificates, manage them, and notify you of upco
      * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
 
 5. Click Finish.
-
-# Create a Let's Encrypt Target with the CLI
-
-To create a Let's Encrypt target with the CLI, run the following command:
-
-```shell
-akeyless target create lets-encrypt \
---name <Target Name> \
---lets-encrypt-url[production] <[production]/[staging]> \
---acme-challenge[=http] <[http]/[dns]> \
---dns-target-creds <[AWS/Azure/GCP] target name, relevant only when --acme-challenge=dns> \
---hosted-zone <AWS Route 53 hosted zone identifier, Relevant only when --acme-challenge=dns and the DNS credentials target is AWS> 
-```
-
-<br />
