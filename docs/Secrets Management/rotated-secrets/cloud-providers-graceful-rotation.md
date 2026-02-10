@@ -11,7 +11,7 @@ Graceful Rotation keeps the previous credentials valid for a configurable grace 
 
 Graceful Rotation supports two modes:
 
-* **Before Rotation**: Creates the new credentials X days before the scheduled rotation date. The old credentials remain valid until the rotation date, and are removed on that date.
+* **Before Rotation**: Creates the new credentials `X` days before the scheduled rotation date. The old credentials remain valid until the rotation date, and are removed on that date.
 
 Example of a Rotated Secret that was configured with the following rotation settings:
 
@@ -25,9 +25,9 @@ Example of a Rotated Secret that was configured with the following rotation sett
 
   * On day `90`: Old credentials are removed, only the new credentials remain.
 
-* After Rotation: Creates the new credentials on the scheduled rotation date. The old credentials remain valid for X more days, and are removed after the grace period ends.
+* **After Rotation**: Creates the new credentials on the scheduled rotation date. The old credentials remain valid for `X` more days, and are removed after the grace period ends.
 
- Example of a Rotated Secret that was configured with the following rotation settings:
+Example of a Rotated Secret that was configured with the following rotation settings:
 
 * **Rotation interval**: `90 days`
 
