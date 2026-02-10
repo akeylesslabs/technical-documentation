@@ -1,3 +1,4 @@
+- cloud-providers-graceful-rotation
 - create-an-aws-rotated-secret
 - create-an-azure-rotated-secret
 - create-a-database-rotated-secret
@@ -10,4 +11,3 @@
 - create-an-ssh-rotated-secret
 - windows-rotated-secret
 - create-a-custom-rotated-secret
-- cloud-providers-graceful-rotation
