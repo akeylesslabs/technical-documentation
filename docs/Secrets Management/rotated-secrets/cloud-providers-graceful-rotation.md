@@ -1,5 +1,5 @@
 ---
-title: Cloud Providers Graceful Rotation
+title: Graceful Rotation
 deprecated: false
 hidden: true
 metadata:
