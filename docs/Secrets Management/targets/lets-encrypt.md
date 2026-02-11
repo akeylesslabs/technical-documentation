@@ -9,7 +9,7 @@ The **Let's Encrypt** Target enables you to use **Let's Encrypt** as a Public Ce
 
 With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless will programmatically validate the certificate signing request by connecting to **Let’s Encrypt** as a **Public CA** integration through the Akeyless Gateway.
 
-With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless will programmatically validate the certificate signing request by contacting **Let’s Encrypt** through the Akeyless Gateway. 
+With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless will programmatically validate the certificate signing request by contacting **Let’s Encrypt** through the Akeyless Gateway.
 
 The Let’s Encrypt integration uses an **ACME Client (v2)**.
 
@@ -34,7 +34,7 @@ To create a Let's Encrypt target with the CLI, run the following command:
 ```shell
 akeyless target create lets-encrypt \
 --name <Target Name> \
---lets-encrypt-url[production] <[production]/[staging]> \
+--lets-encrypt-url[=production] <[production]/[staging]> \
 --acme-challenge[=http] <[http]/[dns]> \
 --dns-target-creds <[AWS/Azure/GCP] target name, relevant only when --acme-challenge=dns> \
 --hosted-zone <AWS Route 53 hosted zone identifier, relevant only when --acme-challenge=dns and the DNS credentials target is AWS> 
