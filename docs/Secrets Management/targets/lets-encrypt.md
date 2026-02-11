@@ -73,6 +73,8 @@ You can find the complete list of parameters for this command in the CLI Referen
 
      * **Target**: Select a target that contains the DNS provider credentials.
 
-     * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+     * **Hosted Zone**: [AWS Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html) hosted zone identifier. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **AWS**).
+
+     * **Resource Group**: Azure resource group name. (Relevant only if **Challenge Type** is **DNS** and **DNS Provider** is **Azure**).
 
 5. Click Finish.
