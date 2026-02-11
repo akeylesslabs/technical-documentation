@@ -40,6 +40,16 @@ akeyless target create lets-encrypt \
 --hosted-zone <AWS Route 53 hosted zone identifier, relevant only when --acme-challenge=dns and the DNS credentials target is AWS> 
 ```
 
+Where:
+
+* `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
+* `lets-encrypt-url`: Either **Production** - `https://acme-v02.api.letsencrypt.org/directory` (default) or **Staging** - `[https://acme-v02.api.letsencrypt.org/directory](https://acme-staging-v02.api.letsencrypt.org/directory)`.
+* `acme-challenge`: Either **HTTP** (default) or **DNS**.
+* `dns-target-creds`: The name of the `AWS`/`Azure`/`GCP` target that holds the connection details to the DNS provider endpoint where the **ACME DNS-01 challenge TXT record** will be created and deleted.
+* `hosted-zone`: AWS Route 53 hosted zone, relevant only if `--acme-challenge=dns` and the DNS credentials target is **AWS**.
+
+You can find the complete list of parameters for this command in the CLI Reference - Akeyless Targets section.
+
 # Create a Let's Encrypt Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets** > **New** > **Certificate Automation (Let's Encrypt)**.
