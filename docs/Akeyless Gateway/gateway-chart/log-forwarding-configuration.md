@@ -73,7 +73,7 @@ akeyless gateway update log-forwarding elasticsearch \
 --api-key <your api_key> 
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorblueelasticsearchp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#elasticsearch) section.
 
 ## Logz.io
 

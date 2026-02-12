@@ -35,8 +35,6 @@ For a Rancher cluster, please create your [Rancher API Key](https://ranchermanag
 > `--service-account-key-file`
 > `--service-account-signing-key-file`
 > `--api-audiences`
->
-> For more details, check out the [minikube configuration example](https://docs.akeyless.io/docs/kubernetes#enable-token-request-projection-on-minikube) at the end of this page.
 
 Create a ServiceAccount named `gateway-token-reviewer` with permission to access token review API. This ServiceAccount will be used to validate a Kubernetes JWT coming from a pod that will try to authenticate to Akeyless.
 

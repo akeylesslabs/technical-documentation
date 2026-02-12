@@ -34,7 +34,7 @@ Where:
 
 * `artifactory-admin-pwd`: The API Key or password of the admin user.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueartifactoryp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#artifactory) section.
 
 ## Create an Artifactory Target in the Console
 
