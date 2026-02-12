@@ -145,4 +145,4 @@ Another example:
 
 Finally, create a simple build script using this environment variable, and run it:
 
-![Illustration for: %vault:azure/creds/<path/to/secretname>!/user.password%\ %vault:azure/creds/<path/to/secretname>!/user.userPrincipalName% Finally, create a simple build script using this…](https://files.readme.io/fb23889-TC-Dynamic3.png)
+![Illustration for: Finally, create a simple build script using this environment variable, and run it.](https://files.readme.io/fb23889-TC-Dynamic3.png)
