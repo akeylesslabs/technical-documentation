@@ -69,7 +69,7 @@ If you don't have an [Artifactory Target](https://docs.akeyless.io/docs/artifact
 
 * `artifactory-admin-pwd`: The API Key or password of the admin user.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueartifactoryp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#artifactory) section.
 
 ## Fetch a Dynamic Artifactory Secret Value with the CLI
 

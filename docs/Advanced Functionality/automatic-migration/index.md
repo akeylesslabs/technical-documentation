@@ -140,7 +140,7 @@ For any Kubernetes authentication method, the following options are available:
 
 **Password authentication:** For servers that allow username/password authentication, use Password authentication method
 
-[Read more about command parameters.](https://docs.akeyless.io/docs/cli-reference-migrations)
+[Read more about command parameters.](https://docs.akeyless.io/docs/cli-reference-automatic-migration)
 
 ## Tutorials
 

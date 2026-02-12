@@ -32,11 +32,11 @@ And for Authorized domains:
 
 3. For the **Application Type** select **Web Application**, for the **Authorized redirect URIs** set `https://auth.akeyless.io/oidc/callback` and click **Create**.
 
-    ![Illustration for: 3. For the Application Type select Web Application, for the Authorized redirect URIs set https://auth.akeyless.io/oidc/callback and click Create.](https://files.readme.io/14f1ca6-image-20210825-071403_copy.png)
+    ![Illustration for setting the Application Type to Web Application and setting the Authorized redirect URIs.](https://files.readme.io/14f1ca6-image-20210825-071403_copy.png)
 
-4. Once the OAuth Client ID has been created, you need to obtain the **Client ID, Client secret**:
+4. Once the OAuth Client ID has been created, you need to obtain the **Client ID** and **Client secret**:
 
-    ![Illustration for: 3. For the Application Type select Web Application, for the Authorized redirect URIs set https://auth.akeyless.io/oidc/callback and click Create. 4. Once the…](https://files.readme.io/001e838-image-20210825-071706.png)
+    ![Illustration for: Once the OAuth Client ID has been created, you need to obtain the Client ID and Client secret:](https://files.readme.io/001e838-image-20210825-071706.png)
 
 5. In order to bind the OAuth Client ID with your Akeyless Platform account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
 
