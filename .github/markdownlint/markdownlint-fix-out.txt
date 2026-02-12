@@ -2,9 +2,3 @@ markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
 Finding: docs/**/*.md docs/**/*.md
 Linting: 473 file(s)
 Summary: 6 error(s)
-docs/Advanced Functionality/aws-best-practices/deploy-a-gateway-using-cloudformation.md:559 error AKY006/no-latin-abbreviations Disallow Latin abbreviations and phrases (e.g., i.e., e.g., ad hoc) in prose [Avoid Latin abbreviations/phrases; rewrite using plain language.] [Context: "pm"]
-docs/Akeyless Gateway/gateway-chart/telemetry-metrics-k8s.md:110:1 error MD045/no-alt-text Images should have alternate text (alt text)
-docs/Authentication & Authorization/access-and-authentication-methods/index.md:40 error AKY006/no-latin-abbreviations Disallow Latin abbreviations and phrases (e.g., i.e., e.g., ad hoc) in prose [Avoid Latin abbreviations/phrases; rewrite using plain language.] [Context: "AKA"]
-docs/Authentication & Authorization/access-and-authentication-methods/openid/azure-active-directory-oidc.md:33 error AKY009/no-ampersand-in-prose Disallow '&' in prose; configurable ignores for headings, code, bold spans, and URLs [Avoid using '&' in prose; rewrite using 'and' (ampersands may be allowed in suppressed contexts).] [Context: "![Illustration for: The Client ID can be fetched from Overview > Application (client) ID: The Client Secret can be created under Certificates & Secrets > New Client Secret…](https://files.readme.io/73548af-image-20210902-150722.png)"]
-docs/Contributing Guides/technical-documentation-style-guide/index.md:27 error AKY006/no-latin-abbreviations Disallow Latin abbreviations and phrases (e.g., i.e., e.g., ad hoc) in prose [Avoid Latin abbreviations/phrases; rewrite using plain language.] [Context: "e.g"]
-docs/Contributing Guides/technical-documentation-style-guide/index.md:54 error AKY006/no-latin-abbreviations Disallow Latin abbreviations and phrases (e.g., i.e., e.g., ad hoc) in prose [Avoid Latin abbreviations/phrases; rewrite using plain language.] [Context: "etc"]
