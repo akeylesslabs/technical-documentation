@@ -7,11 +7,6 @@ metadata:
 ---
 **Certificate discovery** can be used to find every **TLS/SSL** certificate in your organization, including the ones existing on old servers, load balancers, K8s, and internal apps. It scans your environments and pulls the details:
 
-* Where each cert lives
-* Which domains it covers
-* Who issued it
-* When it expires.
-
 # Prerequisites
 
 An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or higher.
