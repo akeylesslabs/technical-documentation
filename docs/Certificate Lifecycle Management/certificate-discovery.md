@@ -5,7 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-**Certificate discovery** can be used to find every **TLS/SSL** certificate in your organization, including the ones existing on old servers, load balancers, K8s, and internal apps. It scans your environments and pulls the details:
+Certificate Discovery helps you continuously locate and inventory certificates across your environments by scanning targets such as individual **IPs**, **CIDR** ranges, and **DNS** names. You can configure discovery to probe specific ports or port ranges, enabling coverage for both standard and custom TLS deployments.
+
+When a certificate is found, Akeyless automatically creates a corresponding certificate record with all available metadata, including where it was discovered (target and endpoint details) and the certificate’s key attributes. You can also predefined expiration event settings so newly discovered certificates are immediately tracked and monitored without manual onboarding.
 
 # Prerequisites
 
