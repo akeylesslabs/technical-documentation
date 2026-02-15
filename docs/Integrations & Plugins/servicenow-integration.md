@@ -133,12 +133,12 @@ Add JWT authentication in ServiceNow:
 
 * Pick role `x_akse_akeyless_sa_akeyless_access_request` from the collection, and Save:
 
-![Illustration for: Create user in “Users” table: Scroll down to Roles and select Edit: Pick role xakseakeylesssaakeylessaccessrequest from the collection, and Save](https://files.readme.io/e47d4a5-Screenshot_2024-07-14_at_15.49.00.png)
+![Illustration for: Create user in “Users” table: Scroll down to Roles and select Edit: Pick role from the collection, and Save](https://files.readme.io/e47d4a5-Screenshot_2024-07-14_at_15.49.00.png)
 
 * Configure ServiceNow Event Forwarder in Akeyless:
     * Create new event forwarder:
 
-![Illustration for: Pick role xakseakeylesssaakeylessaccessrequest from the collection, and Save: Configure ServiceNow Event Forwarder in Akeyless: Create new event forwarder](https://files.readme.io/b1a5f9b-Screenshot_2024-07-14_at_15.56.29.png)
+![Illustration for: Pick role from the collection, and Save: Configure ServiceNow Event Forwarder in Akeyless: Create new event forwarder](https://files.readme.io/b1a5f9b-Screenshot_2024-07-14_at_15.56.29.png)
 
 Insert the details. It is recommended to choose Auth type “JWT”. Insert the private key used to sign the certificate. Insert the user created in ServiceNow. Insert the client-id and client-secret from the OAuth Application in ServiceNow.
 
@@ -150,11 +150,11 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
     * Click on "All" and enter `akeyless_access_request` in the search field
     * Click on the table name
 
-![Illustration for: Locate akeylessaccessrequest table in ServiceNow instance "All" menu Click on "All" and enter akeylessaccessrequest in the search field Click on the table name](https://files.readme.io/2b9f76f-Screenshot_2023-11-29_at_17.10.35.png)
+![Illustration for: Locate table in ServiceNow instance "All" menu Click on "All" and enter table name in the search field Click on the table name](https://files.readme.io/2b9f76f-Screenshot_2023-11-29_at_17.10.35.png)
 
 * Once an access request is created by way of Akeyless system a new record will appear
 
-![Illustration for: Click on "All" and enter akeylessaccessrequest in the search field Click on the table name Once an access request is created by way of Akeyless system a new record will appear](https://files.readme.io/7417bb1-image-20230206-132008_1.png)
+![Illustration for: Click on "All" and enter table name in the search field Click on the table name Once an access request is created by way of Akeyless system a new record will appear](https://files.readme.io/7417bb1-image-20230206-132008_1.png)
 
 * Admin users of the ServiceNow intense will be able to approve or decline the access request by updating the `Dession` field.
 

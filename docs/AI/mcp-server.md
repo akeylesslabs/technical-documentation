@@ -123,20 +123,20 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 
 Acceptable values for `args.--access-type`:
 
-* [access_key](https://docs.akeyless.io/update/docs/api-key#/)
-* [aws_iam](https://docs.akeyless.io/update/docs/aws-iam#/)
-* [azure_ad](http://docs.akeyless.io/update/docs/azure-ad#/)
-* [cert](https://docs.akeyless.io/update/docs/certificate-based-authentication#/)
-* [gcp](https://docs.akeyless.io/update/docs/gcp-auth-method#/)
-* [jwt](https://docs.akeyless.io/update/docs/oauth20jwt#/)
-* [k8s](https://docs.akeyless.io/update/docs/kubernetes-auth#/)
-* [kerberos](https://docs.akeyless.io/update/docs/kerberos#/)
-* [ldap](https://docs.akeyless.io/update/docs/ldap#/)
-* [oci](https://docs.akeyless.io/update/docs/oci-iam#/)
-* [oidc](https://docs.akeyless.io/update/docs/openid#/)
-* [password](https://docs.akeyless.io/update/docs/email#/)
-* [saml](https://docs.akeyless.io/update/docs/saml#/)
-* [universal_identity](https://docs.akeyless.io/update/docs/universal-identity#/)
+* [access_key](https://docs.akeyless.io/update/docs/api-key/)
+* [aws_iam](https://docs.akeyless.io/update/docs/aws-iam/)
+* [azure_ad](http://docs.akeyless.io/update/docs/azure-ad/)
+* [cert](https://docs.akeyless.io/update/docs/certificate-based-authentication/)
+* [gcp](https://docs.akeyless.io/update/docs/gcp-auth-method/)
+* [jwt](https://docs.akeyless.io/update/docs/oauth20jwt/)
+* [k8s](https://docs.akeyless.io/update/docs/kubernetes-auth/)
+* [kerberos](https://docs.akeyless.io/update/docs/kerberos/)
+* [ldap](https://docs.akeyless.io/update/docs/ldap/)
+* [oci](https://docs.akeyless.io/update/docs/oci-iam/)
+* [oidc](https://docs.akeyless.io/update/docs/openid/)
+* [password](https://docs.akeyless.io/update/docs/email/)
+* [saml](https://docs.akeyless.io/update/docs/saml/)
+* [universal_identity](https://docs.akeyless.io/update/docs/universal-identity/)
 
 ##### Cloud ID values
 

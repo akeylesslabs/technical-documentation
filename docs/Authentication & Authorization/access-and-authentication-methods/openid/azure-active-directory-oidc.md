@@ -30,7 +30,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
     * The **Client Secret** can be created under **Certificates & Secrets > New Client Secret** (make sure to copy the Secret **Value**, not the Secret ID):
 
-    ![Illustration for: The Client ID can be fetched from Overview > Application (client) ID: The Client Secret can be created under Certificates & Secrets > New Client Secret…](https://files.readme.io/73548af-image-20210902-150722.png)
+    ![Illustration for: The Client ID can be fetched from Overview > Application (client) ID: The Client Secret can be created under Certificates and Secrets > New Client Secret…](https://files.readme.io/73548af-image-20210902-150722.png)
 
     * The **Issuer URL** can be fetched from **Overview > Endpoints > OpenID Connect metadata document** (note that the suffix **/.well-known/openid-configuration** should be omitted so that the Issuer URL will look like: `https://login.microsoftonline.com/tenant-id-abcd-efgh-a123-b456/v2.0`):
 

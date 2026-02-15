@@ -78,7 +78,7 @@ Once you've installed the Akeyless browser extension. Simply locate the distinct
 * Google: Utilize your Google account for effortless login.
 * Code-ID: Enter the unique code ID provided by your IT administrator. This code serves as your primary identifier and ensures that only authorized individuals can initiate the login process.
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
-    * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-1) by way of advanced settings then login with Email option as a login type.
+    * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url-1) by way of advanced settings then login with Email option as a login type.
 * Account Alias: Support for using an account alias to simplify identification and enhance user experience.
 
 For more details about Akeyless Authentication Methods please visit this [link](https://docs.akeyless.io/docs/access-and-authentication-methods).
