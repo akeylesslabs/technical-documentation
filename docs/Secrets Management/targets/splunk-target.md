@@ -24,7 +24,7 @@ Where:
 
 * `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-* `--url`: The Splunk server URL.
+* `url`: The Splunk server URL.
 
 * `api-key`: The Admin API Key that will be used in order to create the API Key.
 
@@ -51,7 +51,7 @@ You can find the complete list of parameters for this command in the CLI Referen
 
    * **Auth Mode**: In this section, you can select the preferred type of authentication with the Splunk server either `Username` or `Token`:
      * Select the **Username** option to authenticate with **Username** and **Password**
-     * Select the **Token** option to authenticate with a **token**. 
+     * Select the **Token** option to authenticate with a **token**.
 
    * **TLS**: Enable this option to use a **secure (TLS) connection**.
 
