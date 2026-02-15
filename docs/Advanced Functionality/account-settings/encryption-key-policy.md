@@ -1,5 +1,5 @@
 ---
-title: Encryption Keys Policies
+title: Encryption Key Policies
 deprecated: false
 hidden: false
 metadata:
