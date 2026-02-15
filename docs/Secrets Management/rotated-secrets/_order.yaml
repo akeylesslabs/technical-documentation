@@ -1,3 +1,4 @@
+- cloud-providers-graceful-rotation
 - create-an-aws-rotated-secret
 - create-an-azure-rotated-secret
 - create-a-database-rotated-secret
@@ -6,6 +7,7 @@
 - create-an-ldap-rotated-secret
 - linked-target-rotated-secret
 - openai-rotated-secret
+- splunk-rotated-secret
 - create-an-ssh-rotated-secret
 - windows-rotated-secret
 - create-a-custom-rotated-secret
