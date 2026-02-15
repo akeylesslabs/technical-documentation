@@ -92,7 +92,7 @@ The main parameters for this command are:
 
 ## GCP Secrets Manager
 
-To import secrets from GCP Secrets Manager, you need to provide a GCP Service Account Key in the JSON format with sufficient permissions to get all secrets.
+To import secrets from GCP Secrets Manager, you need to provide a GCP Service Account Key in the JSON format with sufficient permissions to get all secrets or a Gateway that runs on GCP using the Gateway Cloud ID option. 
 
 > 👍 Tip
 >
