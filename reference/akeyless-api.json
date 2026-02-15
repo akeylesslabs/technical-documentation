@@ -10372,6 +10372,141 @@
         }
       }
     },
+    "/policy-create-keys": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "policyCreateKeys",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/policyCreateKeys"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/policyCreateKeysResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/policy-delete": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "policiesDelete",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/policiesDelete"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/policiesDeleteResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/policy-get": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "policiesGet",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/policiesGet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/policiesGetResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/policy-list": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "policiesList",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/policiesList"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/policiesListResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/policy-update-keys": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "policyUpdateKeys",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/policyUpdateKeys"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/policyUpdateKeysResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/provision-certificate": {
       "post": {
         "tags": [
@@ -11143,6 +11278,33 @@
         }
       }
     },
+    "/rotated-secret-create-splunk": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "rotatedSecretCreateSplunk",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/rotatedSecretCreateSplunk"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/rotatedSecretCreateSplunkResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/rotated-secret-create-ssh": {
       "post": {
         "tags": [
@@ -11784,6 +11946,33 @@
         "responses": {
           "201": {
             "$ref": "#/responses/rotatedSecretUpdateSnowflakeResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/rotated-secret-update-splunk": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "rotatedSecretUpdateSplunk",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/rotatedSecretUpdateSplunk"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/rotatedSecretUpdateSplunkResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -12655,6 +12844,33 @@
         }
       }
     },
+    "/target-create-lets-encrypt": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "targetCreateLetsEncrypt",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/targetCreateLetsEncrypt"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/targetCreateLetsEncryptResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
     "/target-create-linked": {
       "post": {
         "tags": [
@@ -12810,6 +13026,33 @@
         "responses": {
           "201": {
             "$ref": "#/responses/targetCreateSectigoResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/target-create-splunk": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "targetCreateSplunk",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/targetCreateSplunk"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/targetCreateSplunkResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -13485,6 +13728,33 @@
         "responses": {
           "201": {
             "$ref": "#/responses/targetUpdateLdapResponse"
+          },
+          "default": {
+            "$ref": "#/responses/errorResponse"
+          }
+        }
+      }
+    },
+    "/target-update-lets-encrypt": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "operationId": "targetUpdateLetsEncrypt",
+        "parameters": [
+          {
+            "x-go-name": "Body",
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/targetUpdateLetsEncrypt"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/targetUpdateLetsEncryptResponse"
           },
           "default": {
             "$ref": "#/responses/errorResponse"
@@ -15982,6 +16252,16 @@
     }
   },
   "definitions": {
+    "ACMEChallengeType": {
+      "description": "ACMEChallengeType defines ACME challenge type for Let's Encrypt",
+      "type": "string",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "ACMEEnvironment": {
+      "description": "ACMEEnvironment defines Let's Encrypt ACME directory environment",
+      "type": "string",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "APIKeyAccessRules": {
       "type": "object",
       "title": "APIKeyAccessRules is a set of rules for API Key access type.",
@@ -22062,6 +22342,14 @@
         "gcp_credentials_json": {
           "type": "string",
           "x-go-name": "Key"
+        },
+        "project_id": {
+          "type": "string",
+          "x-go-name": "ProjectId"
+        },
+        "use_gw_cloud_identity": {
+          "type": "boolean",
+          "x-go-name": "UseGwCloudIdentity"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
@@ -23309,6 +23597,10 @@
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
+    },
+    "GraceRotationTiming": {
+      "type": "string",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
     "Group": {
       "type": "object",
@@ -25011,6 +25303,60 @@
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
+    },
+    "LetsEncryptTargetDetails": {
+      "description": "LetsEncryptTargetDetails defines configuration for Let's Encrypt ACME target",
+      "type": "object",
+      "properties": {
+        "account_key_pem": {
+          "description": "ACME Account Private Key (PEM-encoded)\nSupports ECDSA (P-256, P-384, P-521), RSA (2048+), and Ed25519\nAuto-generated as ECDSA P-256 on first certificate issuance if not provided\nStored encrypted, required for certificate operations and revocation",
+          "type": "string",
+          "x-go-name": "AccountKeyPEM"
+        },
+        "account_url": {
+          "description": "ACME Account URL (returned after registration with Let's Encrypt)\nUsed to retrieve existing account instead of re-registering",
+          "type": "string",
+          "x-go-name": "AccountURL"
+        },
+        "acme_environment": {
+          "$ref": "#/definitions/ACMEEnvironment"
+        },
+        "challenge_type": {
+          "$ref": "#/definitions/ACMEChallengeType"
+        },
+        "dns_target_name": {
+          "description": "Name of DNS target (transient field - not stored in DB)\nUsed by CLI to pass DNS target name to SDK for creating target_object_assoc\nRetrieved from target_object_assoc when reading target\nRequired when ChallengeType is \"dns\"",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "dns_target_type": {
+          "$ref": "#/definitions/TargetType"
+        },
+        "email": {
+          "description": "Email address for ACME account registration\nRequired",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp_project": {
+          "description": "GCP Cloud DNS: Project ID\nOptional - can be derived from service account",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "hosted_zone": {
+          "description": "AWS Route53: Hosted zone ID\nRequired when DNSTargetType is AWS",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "resource_group": {
+          "description": "Azure DNS: Resource group name\nRequired when DNSTargetType is Azure",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "$ref": "#/definitions/Duration"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
     },
     "LinkedDetails": {
       "type": "object",
@@ -27289,6 +27635,9 @@
           "format": "int32",
           "x-go-name": "GraceRotationInterval"
         },
+        "grace_rotation_timing": {
+          "$ref": "#/definitions/GraceRotationTiming"
+        },
         "gw_cluster_id": {
           "type": "integer",
           "format": "int64",
@@ -28304,6 +28653,90 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator"
     },
+    "SplunkPayload": {
+      "type": "object",
+      "properties": {
+        "audience": {
+          "type": "string",
+          "x-go-name": "Audience"
+        },
+        "expiration_date": {
+          "type": "string",
+          "x-go-name": "ExpirationDate"
+        },
+        "hec_token_name": {
+          "type": "string",
+          "x-go-name": "HecTokenName"
+        },
+        "token": {
+          "type": "string",
+          "x-go-name": "Token"
+        },
+        "token_id": {
+          "type": "string",
+          "x-go-name": "TokenID"
+        },
+        "token_owner": {
+          "type": "string",
+          "x-go-name": "TokenOwner"
+        },
+        "validity_period_days": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ValidityPeriodDays"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
+    "SplunkTargetDetails": {
+      "description": "SplunkTargetDetails defines details related to connecting to a Splunk server",
+      "type": "object",
+      "properties": {
+        "audience": {
+          "description": "Token audience",
+          "type": "string",
+          "x-go-name": "Audience"
+        },
+        "auth_mode": {
+          "description": "Authentication mode: \"username\" or \"token\"",
+          "type": "string",
+          "x-go-name": "AuthMode"
+        },
+        "password": {
+          "type": "string",
+          "x-go-name": "Password"
+        },
+        "splunk_payload": {
+          "$ref": "#/definitions/SplunkPayload"
+        },
+        "splunk_url": {
+          "description": "Splunk server URL",
+          "type": "string",
+          "x-go-name": "SplunkURL"
+        },
+        "token": {
+          "description": "Token is used when AuthMode == \"token\"",
+          "type": "string",
+          "x-go-name": "Token"
+        },
+        "token_owner": {
+          "description": "Token owner (the Splunk user who owns the token, required for token rotation)",
+          "type": "string",
+          "x-go-name": "TokenOwner"
+        },
+        "use_tls": {
+          "description": "Use TLS certificate verification when connecting to the Splunk management API.",
+          "type": "boolean",
+          "x-go-name": "UseTLS"
+        },
+        "username": {
+          "description": "Username & Password are used when AuthMode == \"username\"",
+          "type": "string",
+          "x-go-name": "Username"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
+    },
     "SraClientType": {
       "type": "string",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/infra/types"
@@ -28959,6 +29392,9 @@
         "ldap_target_details": {
           "$ref": "#/definitions/LdapTargetDetails"
         },
+        "letsencrypt_target_details": {
+          "$ref": "#/definitions/LetsEncryptTargetDetails"
+        },
         "linked_target_details": {
           "$ref": "#/definitions/LinkedTargetDetails"
         },
@@ -28982,6 +29418,9 @@
         },
         "sectigo_target_details": {
           "$ref": "#/definitions/SectigoTargetDetails"
+        },
+        "splunk_target_details": {
+          "$ref": "#/definitions/SplunkTargetDetails"
         },
         "ssh_target_details": {
           "$ref": "#/definitions/SSHTargetDetails"
@@ -54200,6 +54639,11 @@
           "type": "string",
           "x-go-name": "ServiceAccountKey"
         },
+        "gcp-project-id": {
+          "description": "GCP Project ID (cross-project override)",
+          "type": "string",
+          "x-go-name": "GcpProjectId"
+        },
         "hashi-json": {
           "description": "Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration) [true/false]",
           "type": "string",
@@ -54370,6 +54814,11 @@
           "description": "The universal identity token, Required only for universal_identity authentication",
           "type": "string",
           "x-go-name": "UIDToken"
+        },
+        "use-gw-cloud-identity": {
+          "description": "Use the GW's Cloud IAM",
+          "type": "boolean",
+          "x-go-name": "GCPUseDefaultIdentity"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -60897,6 +61346,11 @@
           "type": "string",
           "x-go-name": "ServiceAccountKey"
         },
+        "gcp-project-id": {
+          "description": "GCP Project ID (cross-project override)",
+          "type": "string",
+          "x-go-name": "GcpProjectId"
+        },
         "hashi-json": {
           "description": "Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration) [true/false]",
           "type": "string",
@@ -61072,6 +61526,11 @@
           "description": "The universal identity token, Required only for universal_identity authentication",
           "type": "string",
           "x-go-name": "UIDToken"
+        },
+        "use-gw-cloud-identity": {
+          "description": "Use the GW's Cloud IAM",
+          "type": "boolean",
+          "x-go-name": "GCPUseDefaultIdentity"
         }
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
@@ -68302,6 +68761,355 @@
       "type": "object",
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "policiesCreateOutput": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-go-name": "ID"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policiesDelete": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "Policy id",
+          "type": "string",
+          "x-go-name": "PolicyID"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policiesDeleteOutput": {
+      "type": "object",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policiesGet": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "Policy id",
+          "type": "string",
+          "x-go-name": "PolicyID"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policiesGetOutput": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/definitions/policyOutput"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policiesList": {
+      "type": "object",
+      "properties": {
+        "aggregate": {
+          "description": "Aggregate missing configurations from parent policies (requires --paths)",
+          "type": "boolean",
+          "x-go-name": "Aggregate"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "object-type": {
+          "description": "Optional object types filter (items or targets)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ObjectTypes"
+        },
+        "paths": {
+          "description": "Filter by exact policy paths",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Paths"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "types": {
+          "description": "Filter by policy types",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Types"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policiesListOutput": {
+      "type": "object",
+      "properties": {
+        "policies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/policyOutput"
+          },
+          "x-go-name": "Policies"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policiesUpdateOutput": {
+      "type": "object",
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policyCreateKeys": {
+      "type": "object",
+      "required": [
+        "path"
+      ],
+      "properties": {
+        "allowed-algorithms": {
+          "description": "Specify allowed key algorithms (e.g., [RSA2048,AES128GCM])",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedAlgorithms"
+        },
+        "allowed-key-names": {
+          "description": "Specify allowed protection key names. To enforce using the account's default protection key, use 'default-account-key'",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedKeyNames"
+        },
+        "allowed-key-types": {
+          "description": "Specify allowed key protection types (dfc, classic-key)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedKeyTypes"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "max-rotation-interval-days": {
+          "description": "Set the maximum rotation interval for automatic key rotation.",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MaxRotationIntervalDays"
+        },
+        "object-types": {
+          "description": "The object types this policy will apply to (items, targets). If not provided, defaults to [items, targets].",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ObjectTypes"
+        },
+        "path": {
+          "description": "The path the policy refers to",
+          "type": "string",
+          "x-go-name": "Path"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policyOutput": {
+      "description": "it exposes object_types and intentionally hides enforce_on_items/enforce_on_targets.",
+      "type": "object",
+      "title": "policyOutput is a CLI output view that matches create/update input fields:",
+      "properties": {
+        "account_id": {
+          "type": "string",
+          "x-go-name": "AccountID"
+        },
+        "allowed_algorithms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedAlgorithms"
+        },
+        "allowed_key_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedKeyNames"
+        },
+        "allowed_key_types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyType"
+          },
+          "x-go-name": "AllowedKeyTypes"
+        },
+        "id": {
+          "type": "string",
+          "x-go-name": "ID"
+        },
+        "max_rotation_interval_days": {
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MaxRotationIntervalDays"
+        },
+        "object_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ObjectTypes"
+        },
+        "path": {
+          "type": "string",
+          "x-go-name": "Path"
+        },
+        "type": {
+          "type": "string",
+          "x-go-name": "Type"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "policyUpdateKeys": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "allowed-algorithms": {
+          "description": "Specify allowed key algorithms (e.g., [RSA2048,AES128GCM])",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedAlgorithms"
+        },
+        "allowed-key-names": {
+          "description": "Specify allowed protection key names. To enforce using the account's default protection key, use 'default-account-key'",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedKeyNames"
+        },
+        "allowed-key-types": {
+          "description": "Specify allowed key protection types (dfc, classic-key)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AllowedKeyTypes"
+        },
+        "id": {
+          "description": "Policy id",
+          "type": "string",
+          "x-go-name": "PolicyID"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "max-rotation-interval-days": {
+          "description": "Set the maximum rotation interval for automatic key rotation.",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "MaxRotationIntervalDays"
+        },
+        "object-types": {
+          "description": "The object type this policy will apply to (items, targets)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "ObjectTypes"
+        },
+        "path": {
+          "description": "The path the policy refers to",
+          "type": "string",
+          "x-go-name": "Path"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "provisionCertificate": {
       "description": "provisionCertificate is a command that provisions a certificate content to a target",
       "type": "object",
@@ -68780,7 +69588,7 @@
           "x-go-name": "Description"
         },
         "grace-rotation": {
-          "description": "Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]",
+          "description": "Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]",
           "type": "string",
           "x-go-name": "GraceRotation"
         },
@@ -68794,6 +69602,11 @@
           "description": "The number of days to wait before deleting the old key (must be bigger than rotation-interval)",
           "type": "string",
           "x-go-name": "GraceRotationInterval"
+        },
+        "grace-rotation-timing": {
+          "description": "When to create the new version relative to the rotation date [after/before]",
+          "type": "string",
+          "x-go-name": "GraceRotationTiming"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -68893,7 +69706,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -68962,7 +69775,7 @@
           "x-go-name": "ProvideAccountDetails"
         },
         "grace-rotation": {
-          "description": "Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]",
+          "description": "Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]",
           "type": "string",
           "x-go-name": "GraceRotation"
         },
@@ -68976,6 +69789,11 @@
           "description": "The number of days to wait before deleting the old key (must be bigger than rotation-interval)",
           "type": "string",
           "x-go-name": "GraceRotationInterval"
+        },
+        "grace-rotation-timing": {
+          "description": "When to create the new version relative to the rotation date [after/before]",
+          "type": "string",
+          "x-go-name": "GraceRotationTiming"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -69098,7 +69916,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -69227,7 +70045,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -69418,7 +70236,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -69553,7 +70371,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -69616,7 +70434,7 @@
           "x-go-name": "GcpServiceAccountKeyId"
         },
         "grace-rotation": {
-          "description": "Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]",
+          "description": "Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]",
           "type": "string",
           "x-go-name": "GraceRotation"
         },
@@ -69630,6 +70448,11 @@
           "description": "The number of days to wait before deleting the old key (must be bigger than rotation-interval)",
           "type": "string",
           "x-go-name": "GraceRotationInterval"
+        },
+        "grace-rotation-timing": {
+          "description": "When to create the new version relative to the rotation date [after/before]",
+          "type": "string",
+          "x-go-name": "GraceRotationTiming"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -69698,7 +70521,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -69822,7 +70645,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -70019,7 +70842,7 @@
           "x-go-name": "TargetNames"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -70194,7 +71017,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -70363,7 +71186,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -70527,7 +71350,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -70652,7 +71475,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -70806,7 +71629,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -70985,7 +71808,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -71109,7 +71932,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -71257,7 +72080,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -71391,7 +72214,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -71399,6 +72222,161 @@
           "description": "Authentication token (see `/auth` and `/configure`)",
           "type": "string",
           "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "rotatedSecretCreateSplunk": {
+      "description": "rotatedSecretCreateSplunk is a command that creates a rotated secret for a\nSplunk target. Currently we support target-rotator behavior (rotate\ncredentials on the target itself).",
+      "type": "object",
+      "title": "Splunk",
+      "required": [
+        "name",
+        "target-name",
+        "rotator-type"
+      ],
+      "properties": {
+        "audience": {
+          "description": "Token audience for Splunk token creation (required for rotator-type=token)",
+          "type": "string",
+          "x-go-name": "Audience"
+        },
+        "authentication-credentials": {
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "type": "string",
+          "default": "use-user-creds",
+          "x-go-name": "RotatorCredsType"
+        },
+        "auto-rotate": {
+          "description": "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]",
+          "type": "string",
+          "x-go-name": "AutoRotate"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "expiration-date": {
+          "description": "Token expiration date in YYYY-MM-DD format (required for rotator-type=token when manual rotation is selected and no existing token is provided). Time will be set to 00:00 UTC.",
+          "type": "string",
+          "x-go-name": "ExpirationDate"
+        },
+        "hec-token": {
+          "description": "Current Splunk HEC token value to store (relevant only for rotator-type=hec-token). If not provided, a new HEC input will be created in Splunk.",
+          "type": "string",
+          "x-go-name": "HecToken"
+        },
+        "hec-token-name": {
+          "description": "Splunk HEC input name to manage  (required for rotator-type=hec-token)",
+          "type": "string",
+          "x-go-name": "HecTokenName"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Rotated secret name",
+          "type": "string",
+          "x-go-name": "SecretName"
+        },
+        "password-length": {
+          "description": "The length of the password to be generated",
+          "type": "string",
+          "x-go-name": "PasswordLengthInput"
+        },
+        "rotated-password": {
+          "description": "rotated-username password (relevant only for rotator-type=password)",
+          "type": "string",
+          "x-go-name": "RotatedPassword"
+        },
+        "rotated-username": {
+          "description": "username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it's own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type=password)",
+          "type": "string",
+          "x-go-name": "RotatedUser"
+        },
+        "rotation-event-in": {
+          "description": "How many days before the rotation of the item would you like to be notified",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "RotationEventsInDays"
+        },
+        "rotation-hour": {
+          "description": "The Hour of the rotation in UTC",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "RotationHour"
+        },
+        "rotation-interval": {
+          "description": "The number of days to wait between every automatic key rotation (1-365)",
+          "type": "string",
+          "x-go-name": "RotationInterval"
+        },
+        "rotator-type": {
+          "description": "The rotator type. options: [target/password/token/hec-token]",
+          "type": "string",
+          "x-go-name": "RotatorType"
+        },
+        "splunk-token": {
+          "description": "Current Splunk authentication token to store (relevant only for rotator-type=token). If not provided, a new token will be created in Splunk.",
+          "type": "string",
+          "x-go-name": "SplunkToken"
+        },
+        "tags": {
+          "description": "Add tags attached to this object",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "Tags"
+        },
+        "target-name": {
+          "description": "The target name to associate",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "token-owner": {
+          "description": "Splunk token owner username (relevant only for rotator-type=token)",
+          "type": "string",
+          "x-go-name": "TokenOwner"
         },
         "uid-token": {
           "description": "The universal identity token, Required only for universal_identity authentication",
@@ -71591,7 +72569,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -71765,7 +72743,7 @@
           "x-go-name": "Tags"
         },
         "target-name": {
-          "description": "Target name",
+          "description": "The target name to associate",
           "type": "string",
           "x-go-name": "TargetName"
         },
@@ -72052,7 +73030,7 @@
           "x-go-name": "Description"
         },
         "grace-rotation": {
-          "description": "Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]",
+          "description": "Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]",
           "type": "string",
           "x-go-name": "GraceRotation"
         },
@@ -72066,6 +73044,11 @@
           "description": "The number of days to wait before deleting the old key (must be bigger than rotation-interval)",
           "type": "string",
           "x-go-name": "GraceRotationInterval"
+        },
+        "grace-rotation-timing": {
+          "description": "When to create the new version relative to the rotation date [after/before]",
+          "type": "string",
+          "x-go-name": "GraceRotationTiming"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -72241,7 +73224,7 @@
           "x-go-name": "ProvideAccountDetails"
         },
         "grace-rotation": {
-          "description": "Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]",
+          "description": "Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]",
           "type": "string",
           "x-go-name": "GraceRotation"
         },
@@ -72255,6 +73238,11 @@
           "description": "The number of days to wait before deleting the old key (must be bigger than rotation-interval)",
           "type": "string",
           "x-go-name": "GraceRotationInterval"
+        },
+        "grace-rotation-timing": {
+          "description": "When to create the new version relative to the rotation date [after/before]",
+          "type": "string",
+          "x-go-name": "GraceRotationTiming"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -72935,7 +73923,7 @@
           "x-go-name": "GcpServiceAccountKeyId"
         },
         "grace-rotation": {
-          "description": "Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]",
+          "description": "Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]",
           "type": "string",
           "x-go-name": "GraceRotation"
         },
@@ -72949,6 +73937,11 @@
           "description": "The number of days to wait before deleting the old key (must be bigger than rotation-interval)",
           "type": "string",
           "x-go-name": "GraceRotationInterval"
+        },
+        "grace-rotation-timing": {
+          "description": "When to create the new version relative to the rotation date [after/before]",
+          "type": "string",
+          "x-go-name": "GraceRotationTiming"
         },
         "item-custom-fields": {
           "description": "Additional custom fields to associate with the item",
@@ -74800,6 +75793,153 @@
           "description": "Authentication token (see `/auth` and `/configure`)",
           "type": "string",
           "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "rotatedSecretUpdateSplunk": {
+      "description": "rotatedSecretUpdateSplunk is a command that updates a rotated secret for a\nSplunk target. It reuses the rotator type chosen at create time.",
+      "type": "object",
+      "title": "Splunk",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "add-tag": {
+          "description": "List of the new tags that will be attached to this item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "AddTags"
+        },
+        "audience": {
+          "description": "Token audience for Splunk token creation (relevant only for rotator-type=token)",
+          "type": "string",
+          "x-go-name": "Audience"
+        },
+        "authentication-credentials": {
+          "description": "The credentials to connect with use-user-creds/use-target-creds",
+          "type": "string",
+          "default": "use-user-creds",
+          "x-go-name": "RotatorCredsType"
+        },
+        "auto-rotate": {
+          "description": "Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]",
+          "type": "string",
+          "x-go-name": "AutoRotate"
+        },
+        "delete_protection": {
+          "description": "Protection from accidental deletion of this object [true/false]",
+          "type": "string",
+          "x-go-name": "ObjectProtected"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "default": "default_metadata",
+          "x-go-name": "Description"
+        },
+        "expiration-date": {
+          "description": "Token expiration date in YYYY-MM-DD format (relevant only for rotator-type=token when manual rotation is selected). Time will be set to 00:00 UTC.",
+          "type": "string",
+          "x-go-name": "ExpirationDate"
+        },
+        "hec-token": {
+          "description": "For rotator-type=hec-token, optionally set/replace the stored HEC token value.",
+          "type": "string",
+          "x-go-name": "HecToken"
+        },
+        "item-custom-fields": {
+          "description": "Additional custom fields to associate with the item",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-go-name": "ItemCustomFields"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "keep-prev-version": {
+          "description": "Whether to keep previous version [true/false]. If not set, use default according to account settings",
+          "type": "string",
+          "x-go-name": "KeepPrevVersion"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Rotated secret name",
+          "type": "string",
+          "x-go-name": "SecretName"
+        },
+        "new-name": {
+          "description": "New item name",
+          "type": "string",
+          "x-go-name": "NewName"
+        },
+        "password-length": {
+          "description": "The length of the password to be generated",
+          "type": "string",
+          "x-go-name": "PasswordLengthInput"
+        },
+        "rm-tag": {
+          "description": "List of the existent tags that will be removed from this item",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "RemoveTags"
+        },
+        "rotation-event-in": {
+          "description": "How many days before the rotation of the item would you like to be notified",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "RotationEventsInDays"
+        },
+        "rotation-hour": {
+          "description": "The Hour of the rotation in UTC",
+          "type": "integer",
+          "format": "int32",
+          "x-go-name": "RotationHour"
+        },
+        "rotation-interval": {
+          "description": "The number of days to wait between every automatic key rotation (1-365)",
+          "type": "string",
+          "x-go-name": "RotationInterval"
+        },
+        "splunk-token": {
+          "description": "For rotator-type=token, optionally set/replace the stored Splunk authentication token value.",
+          "type": "string",
+          "x-go-name": "SplunkToken"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "token-owner": {
+          "description": "For rotator-type=token, specify the Splunk username that the new token should be issued for.\n(Splunk 10 requires name=<token-owner> when creating auth tokens.)",
+          "type": "string",
+          "x-go-name": "TokenOwner"
         },
         "uid-token": {
           "description": "The universal identity token, Required only for universal_identity authentication",
@@ -77470,6 +78610,92 @@
       },
       "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
     },
+    "targetCreateLetsEncrypt": {
+      "description": "targetCreateLetsEncrypt is a command that creates a new Let's Encrypt target",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "acme-challenge": {
+          "type": "string",
+          "default": "http",
+          "x-go-name": "ChallengeType"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "dns-target-creds": {
+          "description": "Name of existing cloud target for DNS credentials. Required when acme-challenge=dns. Supported: AWS, Azure, GCP targets",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "email": {
+          "description": "Email address for ACME account registration",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp-project": {
+          "description": "GCP Cloud DNS: Project ID. Optional - can be derived from service account",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "hosted-zone": {
+          "description": "AWS Route53 hosted zone ID. Required when dns-target-creds points to AWS target",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "lets-encrypt-url": {
+          "type": "string",
+          "default": "production",
+          "x-go-name": "Environment"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "resource-group": {
+          "description": "Azure resource group name. Required when dns-target-creds points to Azure target",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "type": "string",
+          "default": "5m",
+          "x-go-name": "Timeout"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
     "targetCreateLinked": {
       "type": "object",
       "title": "targetCreateLinked is a command that creates a new Linked Target which can inherit credentials from existing Targets.",
@@ -77919,6 +79145,85 @@
         },
         "username": {
           "description": "Username of the Sectigo account",
+          "type": "string",
+          "x-go-name": "Username"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "targetCreateSplunk": {
+      "description": "targetCreateSplunk is a command that creates a new splunk target",
+      "type": "object",
+      "title": "Splunk",
+      "required": [
+        "name",
+        "url"
+      ],
+      "properties": {
+        "audience": {
+          "description": "Splunk token audience (required when using token authentication for rotation)",
+          "type": "string",
+          "x-go-name": "Audience"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "password": {
+          "description": "Splunk Password (used when authenticating with username/password)",
+          "type": "string",
+          "x-go-name": "Password"
+        },
+        "token": {
+          "description": "Splunk Token (used when authenticating with token)",
+          "type": "string",
+          "x-go-name": "Token"
+        },
+        "token-owner": {
+          "description": "Splunk Token Owner (required when using token authentication for rotation)",
+          "type": "string",
+          "x-go-name": "TokenOwner"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        },
+        "url": {
+          "description": "Splunk server URL",
+          "type": "string",
+          "x-go-name": "SplunkURL"
+        },
+        "use-tls": {
+          "description": "Use TLS certificate verification when connecting to the Splunk management API",
+          "type": "boolean",
+          "default": true,
+          "x-go-name": "UseTLS"
+        },
+        "username": {
+          "description": "Splunk Username (used when authenticating with username/password)",
           "type": "string",
           "x-go-name": "Username"
         }
@@ -79951,6 +81256,102 @@
           "description": "Token expiration",
           "type": "string",
           "x-go-name": "TokenExpiration"
+        },
+        "uid-token": {
+          "description": "The universal identity token, Required only for universal_identity authentication",
+          "type": "string",
+          "x-go-name": "UIDToken"
+        }
+      },
+      "x-go-package": "akeyless.io/akeyless-main-repo/go/src/client/commands"
+    },
+    "targetUpdateLetsEncrypt": {
+      "description": "targetUpdateLetsEncrypt is a command that updates an existing Let's Encrypt target",
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "acme-challenge": {
+          "type": "string",
+          "default": "http",
+          "x-go-name": "ChallengeType"
+        },
+        "description": {
+          "description": "Description of the object",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "dns-target-creds": {
+          "description": "Name of existing cloud target for DNS credentials. Required when acme-challenge=dns. Supported: AWS, Azure, GCP targets",
+          "type": "string",
+          "x-go-name": "DNSTargetName"
+        },
+        "email": {
+          "description": "Email address for ACME account registration",
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "gcp-project": {
+          "description": "GCP Cloud DNS: Project ID. Optional - can be derived from service account",
+          "type": "string",
+          "x-go-name": "GCPProject"
+        },
+        "hosted-zone": {
+          "description": "AWS Route53 hosted zone ID. Required when dns-target-creds points to AWS target",
+          "type": "string",
+          "x-go-name": "HostedZone"
+        },
+        "json": {
+          "description": "Set output format to JSON",
+          "type": "boolean",
+          "default": false,
+          "x-go-name": "Json"
+        },
+        "keep-prev-version": {
+          "description": "Whether to keep previous version [true/false]. If not set, use default according to account settings",
+          "type": "string",
+          "x-go-name": "KeepPrevVersion"
+        },
+        "key": {
+          "description": "The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used)",
+          "type": "string",
+          "x-go-name": "ProtectionKey"
+        },
+        "lets-encrypt-url": {
+          "type": "string",
+          "default": "production",
+          "x-go-name": "Environment"
+        },
+        "max-versions": {
+          "description": "Set the maximum number of versions, limited by the account settings defaults.",
+          "type": "string",
+          "x-go-name": "MaxVersions"
+        },
+        "name": {
+          "description": "Target name",
+          "type": "string",
+          "x-go-name": "TargetName"
+        },
+        "new-name": {
+          "description": "New target name",
+          "type": "string",
+          "x-go-name": "NewTargetName"
+        },
+        "resource-group": {
+          "description": "Azure resource group name. Required when dns-target-creds points to Azure target",
+          "type": "string",
+          "x-go-name": "ResourceGroup"
+        },
+        "timeout": {
+          "type": "string",
+          "default": "5m",
+          "x-go-name": "Timeout"
+        },
+        "token": {
+          "description": "Authentication token (see `/auth` and `/configure`)",
+          "type": "string",
+          "x-go-name": "Profile"
         },
         "uid-token": {
           "description": "The universal identity token, Required only for universal_identity authentication",
@@ -91251,6 +92652,36 @@
         "$ref": "#/definitions/moveObjectsOutput"
       }
     },
+    "policiesDeleteResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/policiesDeleteOutput"
+      }
+    },
+    "policiesGetResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/policiesGetOutput"
+      }
+    },
+    "policiesListResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/policiesListOutput"
+      }
+    },
+    "policyCreateKeysResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/policiesCreateOutput"
+      }
+    },
+    "policyUpdateKeysResponse": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/policiesUpdateOutput"
+      }
+    },
     "provisionCertificateResponse": {
       "description": "provisionCertificateResponse wraps response body.",
       "schema": {
@@ -91429,6 +92860,12 @@
         "$ref": "#/definitions/rotatedSecretCreateOutput"
       }
     },
+    "rotatedSecretCreateSplunkResponse": {
+      "description": "rotatedSecretCreateSplunkResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/rotatedSecretCreateOutput"
+      }
+    },
     "rotatedSecretCreateSshResponse": {
       "description": "rotatedSecretCreateSshResponse wraps response body.",
       "schema": {
@@ -91570,6 +93007,12 @@
     },
     "rotatedSecretUpdateSnowflakeResponse": {
       "description": "rotatedSecretUpdateSnowflakeResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/rotatedSecretUpdateOutput"
+      }
+    },
+    "rotatedSecretUpdateSplunkResponse": {
+      "description": "rotatedSecretUpdateSplunkResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/rotatedSecretUpdateOutput"
       }
@@ -91766,6 +93209,12 @@
         "$ref": "#/definitions/targetCreateOutput"
       }
     },
+    "targetCreateLetsEncryptResponse": {
+      "description": "targetCreateLetsEncryptResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/targetCreateOutput"
+      }
+    },
     "targetCreateLinkedResponse": {
       "description": "targetCreateLinkedResponse wraps response body.",
       "schema": {
@@ -91798,6 +93247,12 @@
     },
     "targetCreateSectigoResponse": {
       "description": "targetCreateSectigoResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/targetCreateOutput"
+      }
+    },
+    "targetCreateSplunkResponse": {
+      "description": "targetCreateSplunkResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/targetCreateOutput"
       }
@@ -91948,6 +93403,12 @@
     },
     "targetUpdateLdapResponse": {
       "description": "targetUpdateLdapResponse wraps response body.",
+      "schema": {
+        "$ref": "#/definitions/targetUpdateOutput"
+      }
+    },
+    "targetUpdateLetsEncryptResponse": {
+      "description": "targetUpdateLetsEncryptResponse wraps response body.",
       "schema": {
         "$ref": "#/definitions/targetUpdateOutput"
       }
