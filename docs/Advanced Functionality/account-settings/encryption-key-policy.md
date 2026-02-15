@@ -10,9 +10,10 @@ Encryption Key Policies let you centrally control how encryption keys are create
 Policies are applied at the folder level and can automatically inherit to all subfolders, giving you consistent enforcement at scale. This makes it easy to set strict rules for sensitive environments while allowing different folders (and teams) to operate with the right level of flexibility, all while keeping key usage aligned with your organization’s governance and compliance requirements.
 
 <Callout icon="👍">
-  Gateway version requirement
+  **Early Access & Gateway version requirement**
 
-  This feature is available only when using an Akeyless Gateway running version 4.46.0 or later.
+  This feature is **Early Access** and is available only when using a Gateway
+  running version 4.46.0 or later. 
 </Callout>
 
 # Settings an Encryption Key Policy via the CLI
