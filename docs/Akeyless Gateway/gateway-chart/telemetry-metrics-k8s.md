@@ -107,7 +107,7 @@ You can visualize Akeyless metrics in Grafana Dashboard when using Prometheus as
 
 Import the Akeyless Gateway dashboard for your Grafana instance using [this](https://grafana.com/grafana/dashboards/16927) link.
 
-![](https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png)
+![Screenshot of a Sample Grafana Dashboard with Akeyless data.](https://files.readme.io/3e6e609-Screen_Shot_2022-07-31_at_10.44.18.png)
 
 ## Using Kubernetes Secret
 

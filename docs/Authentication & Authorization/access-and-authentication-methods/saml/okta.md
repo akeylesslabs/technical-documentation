@@ -29,7 +29,7 @@ The following configuration will enable users to authenticate using Okta SAML-ba
     * Set `https://auth.akeyless.io/saml/acs` into the Single sign-on URL field.
       * Set `https://auth.akeyless.io/saml/metadata` into the Audience URI (SP Entity ID) field.
 
-    ![Illustration for: Set https://auth.akeyless.io/saml/acs into the Single sign-on URL field. Set https://auth.akeyless.io/saml/metadata into the Audience URI (SP Entity ID) field.](https://files.readme.io/d58189c-3.png)
+    ![Illustration for: Set the Single sign-on URL field and the Audience URI (SP Entity ID) field.](https://files.readme.io/d58189c-3.png)
 
     * In the **Attribute Statements** section, add the following attributes:
       * `Name`: `email` ->`Value`: `user.email`

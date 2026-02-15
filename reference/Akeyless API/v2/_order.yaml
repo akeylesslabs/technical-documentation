@@ -590,3 +590,13 @@
 - rotatedsecretcreateopenai
 - rotatedsecretupdateopenai
 - certificatediscovery
+- policycreatekeys
+- policiesdelete
+- policiesget
+- policieslist
+- policyupdatekeys
+- rotatedsecretcreatesplunk
+- rotatedsecretupdatesplunk
+- targetcreateletsencrypt
+- targetcreatesplunk
+- targetupdateletsencrypt

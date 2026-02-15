@@ -2,4 +2,5 @@
 - azure-kms
 - gcp-kms
 - salesforce-shield
+- provisioning-a-classic-key-to-multiple-external-kms-targets
 - key-lifecycle-management

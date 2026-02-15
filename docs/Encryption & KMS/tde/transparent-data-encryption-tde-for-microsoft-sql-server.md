@@ -184,7 +184,7 @@ WHERE db.name = 'TestDB'; -- Replace with your actual database name
 
 For example, the result should look similar to:
 
-![Illustration for: To verify that TDE is properly configured and the database is encrypted, you can use the following SQL query: The encryptionstate value should return 3, which means…](https://files.readme.io/5082a1e3f8881e26ac52f47aff100ade7464fc810f55e4800b557a386bc64514-Screenshot_2024-10-16_at_17.04.33.png)
+![Illustration for Verification of TDE Configuration.](https://files.readme.io/5082a1e3f8881e26ac52f47aff100ade7464fc810f55e4800b557a386bc64514-Screenshot_2024-10-16_at_17.04.33.png)
 
 ## Troubleshooting
 

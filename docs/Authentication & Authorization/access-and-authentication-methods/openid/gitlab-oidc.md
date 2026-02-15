@@ -18,11 +18,11 @@ To use GitLabs as an IdP to authenticate the Akeyless Platform by way of OIDC, f
 
 2. For **Redirect URI** set `https://auth.akeyless.io/oidc/callback`, select the **"openid", “profile”** and **“email“** scope and click **Save application**.
 
-    ![Illustration for: 1. In your GitLab account, go to Edit profile > Applications. 2. For Redirect URI set https://auth.akeyless.io/oidc/callback, select the "openid", “profile” and…](https://files.readme.io/0f670ff-image-20210825-084902.png)
+    ![Illustration for: Redirecting the URI, selecting the "openid", “profile” and "email" scope.](https://files.readme.io/0f670ff-image-20210825-084902.png)
 
-3. Once the Application has been created, you need to obtain the **Client ID, Client secret**:
+3. Once the Application has been created, you need to obtain the **Client ID**, and **Client secret**:
 
-    ![Illustration for: 2. For Redirect URI set https://auth.akeyless.io/oidc/callback, select the "openid", “profile” and “email“ scope and click Save application. 3. Once the…](https://files.readme.io/c2aeb6f-image-20210825-084833.png)
+    ![Illustration for: Once the Application has been created, you need to obtain the Client ID and Client secret.](https://files.readme.io/c2aeb6f-image-20210825-084833.png)
 
 4. In order to bind the GitLab Client ID with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
 

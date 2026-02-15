@@ -1,0 +1,4 @@
+markdownlint-cli2 v0.20.0 (markdownlint v0.40.0)
+Finding: docs/**/*.md docs/**/*.md
+Linting: 473 file(s)
+Summary: 6 error(s)

@@ -37,7 +37,7 @@ which are used by known identity providers such as [Okta](https://docs.akeyless.
 
 ## Authentication Settings
 
-Under your account settings in the console, you will find a tab titled **Authentication Settings**. Currently, this tab allows you to customize the expiration limits AKA Time to Live (TTL), and default for authentication methods that are time-sensitive.
+Under your account settings in the console, you will find a tab titled **Authentication Settings**. Currently, this tab allows you to customize the expiration limits (TTL), and default for authentication methods that are time-sensitive.
 
 You can set a custom range of possible TTL for your tokens, setting the minimum, default, and maximum allowed TTL for your tokens.
 
