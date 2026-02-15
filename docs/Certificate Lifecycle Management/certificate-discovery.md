@@ -1,7 +1,7 @@
 ---
 title: Certificate Discovery
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -14,7 +14,7 @@ metadata:
 
 # Prerequisites
 
-An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or older.
+An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or higher.
 
 # Running a Certificate Discovery with the CLI
 
@@ -30,17 +30,13 @@ akeyless certificate-discovery \
 
 Where:
 
-* `-o, --hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
+* `hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
 
-* `-p, --port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080`-`8085`.
+* `port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080`-`8085`.
 
-* `-f, --target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
+* `target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
 
-* `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`.
-
-* `-k, --protection-key`: The name of the key that protects the certificate value (if empty, the account default key will be used).
-
-* `-d, --debug`: Use this flag to run the command in **Debug mode**.
+* `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`.
 
 # Setting a Certificate Discovery in the Akeyless Console
 
