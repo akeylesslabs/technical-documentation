@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Encryption Key Policies let you centrally control how encryption keys are created and used across your Akeyless account. With these policies, you can define guardrails such as which key types are allowed as protection keys, which encryption algorithms may be used, and the maximum supported rotation interval for symmetric keys so teams can move fast without drifting from your security standards.
+Encryption Key Policies let you centrally control how encryption keys are created and used across your Akeyless account. With these policies, you can define guardrails such as which key types are allowed as protection keys [Classic Keys](doc:classic-keys) vs [DFC](doc:dfc-deep-dive), which encryption algorithms may be used, and the maximum supported rotation interval for symmetric keys so teams can move fast without drifting from your security standards.
 
 Policies are applied at the folder level and can automatically inherit to all subfolders, giving you consistent enforcement at scale. This makes it easy to set strict rules for sensitive environments while allowing different folders (and teams) to operate with the right level of flexibility, all while keeping key usage aligned with your organization’s governance and compliance requirements.
 
