@@ -1,7 +1,7 @@
 ---
 title: Let's Encrypt Target
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
