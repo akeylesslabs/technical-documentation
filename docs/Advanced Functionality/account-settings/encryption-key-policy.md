@@ -5,9 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-Additionally to manage encryption keys access based on the existing **RBAC**, you can set custom encryption key policies in order to validate that users can access only encryption keys with settings you configured in advance, where only Admins can set those policies based on paths. 
+Encryption Key Policies let you centrally control how encryption keys are created and used across your Akeyless account. With these policies, you can define guardrails such as which key types are allowed as protection keys, which encryption algorithms may be used, and the maximum supported rotation interval for symmetric keys so teams can move fast without drifting from your security standards.
 
-# Settings an Encryption Key Policy via the CLI 
+Policies are applied at the folder level and can automatically inherit to all subfolders, giving you consistent enforcement at scale. This makes it easy to set strict rules for sensitive environments while allowing different folders (and teams) to operate with the right level of flexibility, all while keeping key usage aligned with your organization’s governance and compliance requirements.
+
+# Settings an Encryption Key Policy via the CLI
 
 In order to set an encryption key policy using the CLI, run the following command:
 
@@ -21,7 +23,7 @@ akeyless policies create
 2. In the **Key Management Policies** section, press **Add**.
 3. Define the remaining parameters as follows:
    * **Object Type**: Choose either **Item** or **Target**.
-   * **Access Path**: Choose a path where the policy will be applied at (check the **Apply Recursively** in order to set this policy for items exists in folder under the specified app). 
+   * **Access Path**: Choose a path where the policy will be applied at (check the **Apply Recursively** in order to set this policy for items exists in folder under the specified app).
    * **Max Rotation Interval**: The allowed max rotation interval for keys in the specified path.
    * **Algorithm Key Types**: The allowed algorithm key types in the specified path.
    * **Protection Key Type**:  **DFC** or **Classic** or both, (If , (In case **Exclusively use default key** is checked, **Classic** is irrelevant and grayed out).
