@@ -15,12 +15,14 @@
 - hashicorp-vault-target
 - kubernetes-targets
 - ldap-target
+- lets-encrypt
 - linked-target
 - openai-target
 - ping-target
 - rabbitmq-targets
 - salesforce-target
 - sectigo-target
+- splunk-target
 - ssh-target
 - venafi-target
 - web-targets
