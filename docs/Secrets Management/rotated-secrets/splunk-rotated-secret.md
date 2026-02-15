@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-You can create a Rotated Secret for a Splunk [Token](https://dev.splunk.com/observability/docs/administration/authtokens/). 
+You can create a Splunk Rotated Secret for common Splunk credentials. You can configure a Splunk Rotated Secret to rotate a Splunk user password, a Splunk token, or an HTTP Event Collector (HEC) token, helping you reduce credential exposure and maintain continuous compliance with minimal operational effort.
 
 ## Prerequisites
 
