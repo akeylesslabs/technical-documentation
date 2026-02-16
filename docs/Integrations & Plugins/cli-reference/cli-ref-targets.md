@@ -60,6 +60,8 @@ Create a new Target
 
 `salesforce`
 
+`sectigo`
+
 `ssh`
 
 `web`
@@ -879,6 +881,45 @@ akeyless target create sectigo \
 `--description`: Target description
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
+
+### `splunk`
+
+Creates a new Splunk target in the current account
+
+#### Usage
+
+```shell
+akeyless target create splunk \
+--name <Target name> \
+--url <Splunk server URLt> \
+--use-tls[=true] <Enables TLS validation> \
+--username <Splunk Username> \
+--password <Splunk Password> \
+--splunk-token <Splunk Token> \
+--token-owner <Splunk token owner> \ 
+--audience <Splunk token audience> 
+--key <Key Name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--url`: **Required**, Splunk server URL
+
+`--use-tls[=true]`: Use TLS certificate verification when connecting to the Splunk management API
+
+`--username`: Splunk Username
+
+`--password`: Splunk Password
+
+`--splunk-token`: Splunk Token
+
+`--token-owner`: Splunk token owner (**relevant** when using **token** authentication for rotation)
+
+`--audience`: Splunk token audience (**relevant** when using **token** authentication for rotation)
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
 
 ### `ssh`
 
