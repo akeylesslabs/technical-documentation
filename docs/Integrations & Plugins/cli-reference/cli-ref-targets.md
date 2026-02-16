@@ -52,6 +52,8 @@ Create a new Target
 
 `ldap`
 
+`lets-encrypt`
+
 `linked`
 
 `ping`
