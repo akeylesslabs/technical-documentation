@@ -21,8 +21,28 @@ Policies are applied at the folder level and can automatically inherit to all su
 In order to set an encryption key policy using the CLI, run the following command:
 
 ```shell
-akeyless policies create
+akeyless policy create keys \
+--path /my-key-policy \
+--max-rotation-interval-days 15 \
+--allowed-algorithms RSA2048 \
+--allowed-key-types dfc \
+--allowed-key-names my-dfc-key \
+--object-types items
 ```
+
+Where:
+
+* `path`: **Mandatory**, The path the policy refers to.
+
+* `max-rotation-interval-days`: The max value for rotation interval in the specified path.
+
+* `allowed-algorithms`: Allowed key algorithms (e.g., [`RSA2048`,`AES128GCM`].
+
+* `allowed-key-types`: Allowed key protection types (`dfc`, `classic-key`).
+
+* `allowed-key-names`: Allowed protection key names.
+
+* `object-types`: The object types this policy will apply to [`items`, `targets`].
 
 # Settings an Encryption Key Policy via the Console
 
