@@ -2158,6 +2158,62 @@ akeyless rotated-secret update snowflake \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
+### `splunk`
+
+Updates a new Splunk rotated secret item
+
+#### Usage
+
+```shell
+akeyless rotated-secret update splunk \
+--name <Rotated Secret name> \
+--target-name <Target Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--rotator-type <target/password/token/hec-token> \
+```
+
+#### Flags
+
+`-n, --name`: **Required**, Rotated Secret name
+
+`--new-name`: New Item name
+
+`--target-name`: **Required**, the target name to associate
+
+`--rotator-type`: **Required**, The rotator type. options: [`target`/`password`/`token`/`hec-token`]
+
+`--rotated-username`: **username** to be rotated, if selected `use-self-creds` at `rotator-creds-type`, this **username** will try to rotate it's own password, if `use-target-creds` is selected, target credentials will be use to rotate the rotated-password (relevant only for `rotator-type`=`password`)
+
+`--rotated-password`: rotated-username password (relevant only for `rotator-type`=`password`)
+
+`--token-owner`: Splunk token owner username (relevant only for `rotator-type`=`token`)
+
+`--audience`: Token audience for Splunk token creation (relevant only for `rotator-type`=`token`)
+
+`--splunk-token`: Current Splunk authentication token to store (relevant only for `rotator-type`=`token`). If not provided, a new token will be created in Splunk
+
+`--hec-token-name`: Splunk HEC input name to manage (required for `rotator-type`=`hec-token`)
+
+`--hec-token`: Current Splunk HEC token value to store (relevant only for `rotator-type`=`hec-token`). If not provided, a new HEC input will be created in Splunk
+
+`--expiration-date`: Token expiration date in `YYYY`-`MM`-`DD` format (required for `rotator-type`=`token` when manual rotation is selected and no existing token is provided). Time will be set to `00:00 UTC`
+
+`-u, --gateway-url[=http://localhost:8000]`: Gateway URL (Configuration Management port)
+
+`-k, --key`: The name of a key that is used to encrypt the secret value (if empty, the account default **protection key** will be used).
+
+`--auto-rotate`: Whether to automatically rotate every `--rotation-interval` days, or disable existing automatic rotation.
+
+`--rotation-interval`: The number of days to wait between every automatic rotation (1-365), custom rotator interval will be set in minutes
+
+`--rotation-hour`: The Hour of the rotation in **UTC**
+
+`--rotation-event-in`: How many days before auto rotation of the item would you like to be notified. To specify multiple events, use argument multiple times: `--rotation-event-in 1 --rotation-event-in 5`
+
+`--authentication-credentials[=use-user-creds]`: The credentials to connect with `use-user-creds` or `use-target-creds`
+
+`--password-length`: The length of the password to be generated
+
 ### `ssh`
 
 #### Usage
