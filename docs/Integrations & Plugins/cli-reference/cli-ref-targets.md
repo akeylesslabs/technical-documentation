@@ -701,6 +701,48 @@ akeyless target create ldap \
 
 `--max-versions`: Set the maximum number of versions, limited by the account settings defaults
 
+### `lets-encrypt`
+
+Creates a new Let's Encrypt target in the current account
+
+#### Usage
+
+```shell
+akeyless target create lets-encrypt \
+--name <Target name> \
+--lets-encrypt-url[=production] <production,staging> \
+--acme-challenge[=http] <http/dns> \
+--email <Email address for ACME account registration> \
+--dns-target-creds <Target Name> \
+--hosted-zone <AWS Route 53 hosted zone> \
+--resource-group <Azure resource group name> \
+--gcp-project <GCP project ID> \
+--timeout[=5m] <Certificate validation timeout> \
+--key <Key name>
+```
+
+##### Flags
+
+`-n, --name`: **Required**, Target name
+
+`--lets-encrypt-url[=production]`: Let's Encrypt directory environment. Options: [`production`/`staging`]
+
+`--acme-challenge[=http]`: ACME challenge type. Options: [`http`/`dns`]
+
+`-e, --email`: **Required**, Email address for ACME account registration
+
+`--dns-target-creds`: Name of an existing cloud target that holds DNS provider credentials (supported: [`AWS`/`Azure`/`GCP`]). Relevant only when `--acme-challenge=dns`
+
+`--hosted-zone`: **AWS Route 53** hosted zone identifier. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is AWS
+
+`--resource-group`: **Azure resource group** name. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is Azure
+
+`--gcp-project`: **GCP project ID**. Optional - can be derived from service account. Relevant only when `--acme-challenge`=`dns` and the DNS credentials target is GCP
+
+`--timeout[=5m]`: Timeout waiting for certificate validation
+
+`-k, --key`: Key name. The key will be used to encrypt the target secret value. If key name is not specified, the account default protection key is used
+
 ### `linked`
 
 Creates a new Linked Target which can inherit credentials from existing Targets
