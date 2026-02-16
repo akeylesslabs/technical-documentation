@@ -12,7 +12,7 @@ When a certificate is found, Akeyless automatically creates a corresponding cert
 <Callout icon="👍" theme="okay">
   **Early Access & Gateway version requirement**
 
-  This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw) 
+  This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw)
   running version `4.46.0` or later.
 </Callout>
 
