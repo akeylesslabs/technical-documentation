@@ -2022,8 +2022,6 @@ akeyless target update salesforce \
 
 `-n, --name`: **Required**, Target name
 
-`--new-name`: New target name
-
 `-u, --tenant-url`: **Required**, URL of the Salesforce tenant
 
 `-i, --client-id`: **Required**, Client ID of the oauth2 app to use for connecting to Salesforce
@@ -2065,7 +2063,7 @@ Updates the Sectigo target in the current account
 ##### Usage
 
 ```shell
-akeyless target create sectigo \
+akeyless target update sectigo \
 --name <Target name> \
 --username <Sectigo Username> \
 --password <Sectigo Password> \
