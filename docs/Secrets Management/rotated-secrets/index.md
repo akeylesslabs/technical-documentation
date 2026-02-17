@@ -29,7 +29,7 @@ You can configure:
 * [GCP Rotated Secret](https://docs.akeyless.io/docs/gcp-rotated-secret)
 * [LDAP Rotated Secret](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret)
 * [Linked Target Rotated Secret](https://docs.akeyless.io/docs/linked-target-rotated-secret)
-* [Splunk Rotated Secret](doc:splunk-rotated-secret)
+* [Splunk Rotated Secret](https://docs.akeyless.io/docs/splunk-rotated-secret)
 * [SSH Rotated Secret](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret)
 * [Windows Rotated Secret](https://docs.akeyless.io/docs/windows-rotated-secret)
 * [Custom Rotated Secret](https://docs.akeyless.io/docs/create-a-custom-rotated-secret)
