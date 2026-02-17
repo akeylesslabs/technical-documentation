@@ -1,4 +1,4 @@
-- api-key
+- auth-with-api-key
 - aws-iam
 - azure-ad
 - certificate-based-authentication
