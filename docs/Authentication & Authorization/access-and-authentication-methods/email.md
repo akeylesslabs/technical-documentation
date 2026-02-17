@@ -12,54 +12,75 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless.
 ---
-When setting up your Akeyless account, you will assign it an email address and a password. This authentication method will allow you to invite your teammates to join your account and utilize the items and resources in it using their email addresses and setting up their own passwords.
-While this flow is simple and easy to use, we recommend you mainly use it for basic onboarding.
+This page discusses creating and using an email-based Authentication Method in Akeyless.
 
-## Creating an Email Authentication with the CLI
+Email Authentication allows human users to authenticate directly to the Akeyless Console using their email address and password. It is typically used for standalone accounts, administrators, or environments where SAML or OIDC federation is not required.
 
-Let's create a new Email authentication method using the Akeyless CLI. (You can do this also from the Akeyless Console.)
+Email authentication is intended for **interactive human access** and is not recommended for machine or workload authentication.
 
-To create an email authentication method with the CLI, run the following command:
+## Creating an Email Authentication Method
+
+Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additonal email-based Authentication Method for an existing account.
+
+### Creating an Email Authentication Method with the Console
+
+To create a new email-based Authentication Method with the Console:
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select **+ New**. This opens the **Create Authentication Method** form.
+3. On the **Type** selection screen, select **Email**, then **Next →**.
+4. Enter a name for the Authentication Method, such as `My Email User 1` in the **Name** field, then select **Next →**.
+5. Supply the designated email address in the **Email** field. Optionally, configure [Two-Factor Authentication](#two-factor-authentication).
+6. Select **Finish**.
+
+An email prompting to set a password and activate the Authentication Method will be sent to the specified email address. Be sure to associate the email Authentication Method with one or more Roles.
+
+### Creating an Email Authentication Method with the CLI
+
+To create an email-based Authentication Method with the CLI:
 
 ```shell
 akeyless auth-method create email \
---name <Auth Method Name> \
---email <Email Address>
+  --name <Email Auth Method Name> \
+  --email email-address@sample.com
 ```
 
-Where:
+An email prompting to set a password and activate the Authentication Method will be sent to the specified email address. Be sure to associate the email Authentication Method with one or more Roles.
 
-* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
-* `email`: The User email address
+[Read about more parameters available when creating an email-based Authentication Method.](https://docs.akeyless.io/docs/cli-ref-auth#email)
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueemailp) section.
+## Using an Email Authentication Method
 
-## Creating an Email Authentication in the Console
+### Using an Email Authentication Method with the Console
 
-1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > User (Email)**.
+To use an email-based Authentication Method with the Console:
 
-2. Define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+1. Open the Akeyless Console: [https://console.akeyless.io](https://console.akeyless.io).
+2. Enter the email address used, then select **Sign in**.
+3. Enter the password used, then select **Sign in** again.
 
-3. Define the remaining parameters as follows:
+### Using an Email Authentication Method with the CLI
 
-    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+To authenticate with an email address and password with the CLI, run the following command:
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+```shell
+akeyless auth \
+  --admin-email email-address@sample.com \
+  --admin-password <Password>
+```
 
-    * **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+## Optional Features
 
-    * **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
+* **Two-Factor Authentication:** When creating an email-based Authentication Method, **Two-Factor Authentication** can be optionally enabled. The second factor can use either **Email** or **Google Authenticator**. Only Google Authenticator is supported as an Authenticator App. The Two-Factor Authentication configuration can be enabled, edited, or disabled on an existing email-based Authentication Method.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`, `Gateway Admin`, `Mobile`, `Extension`.
+* **Expiration Date:** Select an access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **JWT TTL (in minutes):** The time span from acceptance of the invitation to the JWT expiration.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDKs, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-    On the **Email Configuration** step define the following:
+* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
-    * **Email:** The email address of the invite recipient.
+* **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
 
-    * **Set Two-Factor Authentication:** Optional, Select to set 2-Factor Authentication.
+* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`, `Gateway Admin`, `Mobile`, `Extension`.
 
-4. Click **Finish**.
-
-    Saving will automatically send an invitation email to the specified address with a link to set a password and log in to the account.
+* **JWT TTL (in minutes):** The time span from acceptance of the invitation to the JWT expiration.
