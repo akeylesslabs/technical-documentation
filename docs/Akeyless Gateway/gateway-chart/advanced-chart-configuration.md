@@ -68,7 +68,6 @@ Please note that when you're enabling TLS, you must provide a `TLS certificate` 
 
 To set the TLS settings, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) includes your **TLS certificate** in `base64-encoded` format where the `key` of the secret has to be `tls-certificate`:
 
-
 ```shell
 kubectl create secret generic tls-certificate \
   --from-file=tlsCertificate=/path/to/certificate.pem \
