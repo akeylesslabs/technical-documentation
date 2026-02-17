@@ -1,14 +1,27 @@
+# Akeyless APIs
 ^https?://api\.akeyless\.io(/|$)
 ^https?://hvp\.akeyless\.io(/|$)
-https://openai.com/
-https://platform.openai.com/api-keys
-https://platform.openai.com/docs/api-reference/admin-api-keys
+
+# OpenAI
 ^https?://(www\.)?openai\.com(/|$)
 ^https?://platform\.openai\.com(/|$)
+https://platform.openai.com/api-keys
+https://platform.openai.com/docs/api-reference/admin-api-keys
+
+# Splunk (specific doc version)
 ^https?://docs\.splunk\.com/Documentation/Splunk/8\.0\.4/Data/UsetheHTTPEventCollector$
+
+# NPM package
 ^https?://www\.npmjs\.com/package/@akeylesslabs/n8n-nodes-akeyless$
-https://www.godaddy.com/
+
+# GoDaddy
 ^https?://(www\.)?godaddy\.com(/|$)
+
+# ServiceNow specific page
 ^https?://www\.servicenow\.com/docs/bundle/xanadu-platform-administration/page/administer/notification/reference/r_PushMessageArchitecture\.html$
-^https?://sqs\.eu-central-1\.amazonaws\.com/
-https://drive.google.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view?usp=sharing](https://drive.google.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view?usp=sharing
+
+# AWS SQS EU Central
+^https?://sqs\.eu-central-1\.amazonaws\.com(/|$)
+
+# Google Drive (specific file)
+^https?://drive\.google\.com/file/d/1cFGehGRAUVN0IV3A-2Z3b2XAT31wKWRZ/view(\?usp=sharing)?$
