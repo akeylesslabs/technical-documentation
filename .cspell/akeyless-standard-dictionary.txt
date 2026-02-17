@@ -16,3 +16,4 @@ superuser
 superusers
 scriptable
 unaligned
+subfolders
