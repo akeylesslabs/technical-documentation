@@ -1,5 +1,5 @@
 - auth-with-api-key
-- aws-iam
+- auth-with-aws
 - azure-ad
 - certificate-based-authentication
 - auth-with-email
