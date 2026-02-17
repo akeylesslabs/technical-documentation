@@ -5,7 +5,7 @@
 - auth-with-email
 - auth-with-gcp
 - auth-with-kerberos
-- kubernetes-auth
+- auth-with-kubernetes
 - ldap
 - oauth20jwt
 - oci-iam
