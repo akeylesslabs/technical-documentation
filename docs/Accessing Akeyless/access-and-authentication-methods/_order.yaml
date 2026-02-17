@@ -10,5 +10,5 @@
 - auth-with-oauth-jwt
 - auth-with-oci
 - auth-with-oidc
-- saml
+- auth-with-saml
 - universal-identity
