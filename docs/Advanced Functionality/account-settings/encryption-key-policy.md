@@ -5,18 +5,19 @@ hidden: false
 metadata:
   robots: index
 ---
-Encryption Key Policies let you centrally control how encryption keys are created and used across your Akeyless account. With these policies, you can define guardrails such as which key types are allowed as protection keys [Classic Keys](https://docs.akeyless.io/docs/classic-keys) vs [DFC](https://docs.akeyless.io/docs/dfc-deep-dive), which encryption algorithms may be used, and the maximum supported rotation interval for symmetric keys so teams can move fast without drifting from your security standards.
+Encryption Key Policies let you centrally control how encryption keys are created and used across your Akeyless account. With these policies, you can define guardrails, such as:
+
+* Which key types are allowed as protection keys ([Classic Keys](https://docs.akeyless.io/docs/classic-keys) or [DFC](https://docs.akeyless.io/docs/dfc-overview))
+* Which encryption algorithms may be used
+* The maximum supported rotation interval for symmetric keys so teams can move fast without drifting from your security standards.
 
 Policies are applied at the folder level and can automatically inherit to all subfolders, giving you consistent enforcement at scale. This makes it easy to set strict rules for sensitive environments while allowing different folders (and teams) to operate with the right level of flexibility, all while keeping key usage aligned with your organization’s governance and compliance requirements.
 
 <Callout icon="👍" theme="okay">
-  **Early Access & Gateway version requirement**
-
-  This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw)
-  running version `4.46.0` or later.
+  This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or later.
 </Callout>
 
-# Settings an Encryption Key Policy via the CLI
+## Settings an Encryption Key Policy with the CLI
 
 In order to set an encryption key policy using the CLI, run the following command:
 
@@ -36,7 +37,7 @@ Where:
 
 * `max-rotation-interval-days`: The max value for rotation interval in the specified path.
 
-* `allowed-algorithms`: Allowed key algorithms (e.g., [`RSA2048`,`AES128GCM`].
+* `allowed-algorithms`: Allowed key algorithms (`RSA2048`,`AES128GCM`).
 
 * `allowed-key-types`: Allowed key protection types (`dfc`, `classic-key`).
 
@@ -44,7 +45,7 @@ Where:
 
 * `object-types`: The object types this policy will apply to [`items`, `targets`].
 
-# Settings an Encryption Key Policy via the Console
+## Settings an Encryption Key Policy with the Console
 
 1. Log in to the Akeyless Console, and go to **Account Settings** > **Key Management**.
 2. In the **Key Management Policies** section, press **Add**.

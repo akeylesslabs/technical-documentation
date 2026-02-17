@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-You can define a [Splunk](https://www.splunk.com/en_us/download/splunk-enterprise.html?utm_campaign=google_emea_tier2_en_search_brand\&utm_source=google\&utm_medium=cpc\&utm_content=Splunk_Enterprise_Demo_v3\&utm_term=splunk\&device=c&_bt=749641715948&_bm=e&_bn=g\&gad_source=1\&gad_campaignid=765667359\&gbraid=0AAAAAD8kDz01Bo05Utq98bmNZ9PT40XU1\&gclid=Cj0KCQiAhaHMBhD2ARIsAPAU_D5vrBDoul26TzPrN7Ou4DGjLqCR4evXv99YFM0zdSqK7tdGP-1TNxoaAh8GEALw_wcB) target to be used with Splunk Rotated Secret.
+You can define a [Splunk](https://www.splunk.com/en_us/download/splunk-enterprise.html) target to be used with Splunk Rotated Secret.
 
 ## Create a Splunk Target with the CLI
 
@@ -34,7 +34,7 @@ Where:
 
 * `token`: The Splunk Token.
 
-You can find the complete list of parameters for this command in the CLI Reference - Targets section.
+[View the complete list of parameters for this command.](https://docs.akeyless.io/docs/cli-ref-targets#splunk)
 
 ## Create a Splunk Target in the Console
 
