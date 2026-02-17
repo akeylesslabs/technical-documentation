@@ -1,6 +1,6 @@
 - auth-with-api-key
 - auth-with-aws
-- azure-ad
+- auth-with-azure
 - certificate-based-authentication
 - auth-with-email
 - gcp-auth-method
