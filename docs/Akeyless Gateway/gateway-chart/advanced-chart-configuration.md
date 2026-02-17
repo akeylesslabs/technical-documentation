@@ -113,7 +113,7 @@ Once the Gateway is running, you can set the matching AccessID as your OIDC defa
 
 ## Cache Configuration
 
-To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly by way of **API**.
+To set up your deployment with **Cluster Cache**, the following settings will display the setup of this service from the deployment perspective. Once it's enabled on the deployment level, you should turn on the desired mode of the [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) using the console or directly with the API.
 
 To set an internal TLS between the Gateway and cache service, set the `enableTls: true` option:
 
@@ -278,6 +278,24 @@ For production environment, set the `hardAntiAffinity` option to ensure that Gat
 Additionally, you can add topology spread constraint settings to control how pods are spread across your cluster in the event of failures. The full configuration settings can be found in this [link](https://github.com/DandyDeveloper/charts/blob/master/charts/redis-ha/values.yaml).
 
 To control the cache settings, you should [configure the cache](https://docs.akeyless.io/docs/configure-the-gateway-cache#/) using the Gateway Configuration Manager.
+
+### Cluster Cache Encryption Key & Offline Scale-Out
+
+Kubernetes Secret–based encryption keys for Cluster Cache are used **only when offline scale-out mode is enabled**.
+
+```yaml values.yaml
+globalConfig:
+  clusterCache:
+    enableScaleOutOnDisconnectedMode: false  # default
+```
+
+Accepted Values:
+
+* `false` (default): The Gateway does not read or generate a Kubernetes Secret for the cluster cache encryption key. The Kubernetes Secret–based encryption key flow is disabled, even if cache is enabled.
+* `true`: The Gateway will read or generate a Kubernetes Secret to support offline scale-out.
+    * If encryptionKeyExistingSecret is set, the Gateway uses that Secret.
+    * If not set, the Helm chart generates a new encryption key and stores it in a Kubernetes Secret.
+    * **RBAC Requirement:** When `enableScaleOutOnDisconnectedMode: true`, the Gateway ServiceAccount must have permission to get Kubernetes Secrets in the namespace. Missing permissions will cause Gateway startup to fail with a forbidden: cannot get resource "secrets" error.
 
 ## Working With Kubernetes Secrets
 
