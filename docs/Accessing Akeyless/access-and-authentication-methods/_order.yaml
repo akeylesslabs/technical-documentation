@@ -2,7 +2,7 @@
 - aws-iam
 - azure-ad
 - certificate-based-authentication
-- email
+- auth-with-email
 - gcp-auth-method
 - kerberos
 - kubernetes-auth
