@@ -4,7 +4,7 @@
 - auth-with-certificate
 - auth-with-email
 - auth-with-gcp
-- kerberos
+- auth-with-kerberos
 - kubernetes-auth
 - ldap
 - oauth20jwt
