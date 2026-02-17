@@ -201,7 +201,8 @@ For Remote Access, you can access the following:
 
 * The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
 
-  ![Illustration for: Remote Access URLs For Remote Access, you can access the following: The Remote Access Internal Web Portal is located at http://<Your-Akeyless-GW-URL:8000>/sra/portal](https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png)
+    ![Illustration for: A screenshot of the Remote Access Internal Web Portal](https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png)
+
 * Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/web-client`
 
 ## Testing Out Remote Access
@@ -232,7 +233,7 @@ Here we will lay out the steps to get a SAML user to access the Remote Access Po
     akeyless assoc-role-am --role-name MySamlRole --am-name MySamlAuth
     ```
 
-5. Next, open your browser and go to your Remote Access internal endpoint: `http://\<Your-Akeyless-GW-URL:8000>>/sra/portal`
+5. Next, open your browser and go to your Remote Access internal endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
 
 6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that will redirect you to a page with various resources you can set at a later time (refer to the following image). Congrats!
 
