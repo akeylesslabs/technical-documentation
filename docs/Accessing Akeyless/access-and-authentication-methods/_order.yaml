@@ -9,6 +9,6 @@
 - auth-with-ldap
 - auth-with-oauth-jwt
 - auth-with-oci
-- openid
+- auth-with-oidc
 - saml
 - universal-identity
