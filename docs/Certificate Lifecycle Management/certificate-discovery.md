@@ -10,13 +10,10 @@ Certificate Discovery helps you continuously locate and inventory certificates a
 When a certificate is found, Akeyless automatically creates a corresponding certificate record with all available metadata, including where it was discovered (target and endpoint details) and the certificate’s key attributes. You can also predefined expiration event settings so newly discovered certificates are immediately tracked and monitored without manual onboarding.
 
 <Callout icon="👍" theme="okay">
-  **Early Access & Gateway version requirement**
-
-  This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw)
-  running version `4.46.0` or later.
+  This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or later.
 </Callout>
 
-# Running a Certificate Discovery with the CLI
+## Running a Certificate Discovery with the CLI
 
 In order to run a certificate discovery using the CLI, run the following command:
 
@@ -38,7 +35,7 @@ Where:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--expiration-event-in 1` `--expiration-event-in 5`.
 
-# Setting a Certificate Discovery in the Akeyless Console
+## Setting a Certificate Discovery in the Akeyless Console
 
 1. Log in to the Akeyless Console, and go to **Discovery & Migration** > **New** > **Certificate Discovery**.
 2. Define a Name for the certificate discovery, and specify the **Target Location** as a path to the virtual folder where you want the scanned certificates to be saved in. If the folder does not exist, it will be created together with the scanned certificates.
@@ -49,5 +46,3 @@ Where:
 ## Run the Certificate Discovery
 
 To run the discovery, select the discovery item and choose **Action Menu** > **Start Scan**. If the scan completes successfully, a new folder will appear under **Items** containing all the certificates that were found.
-
-<br />

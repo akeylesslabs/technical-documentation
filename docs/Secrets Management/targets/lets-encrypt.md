@@ -15,7 +15,7 @@ The Let’s Encrypt integration uses an **ACME Client (v2)**.
 
 To prove you own the domain, **Let’s Encrypt** requires an **ACME challenge**.  Currently You can complete this challenge using  **DNS** validation. With **DNS validation**, you prove domain ownership by adding a **DNS record**. This requires the domain to be managed in a supported DNS provider’s hosted zone (for example **AWS Route 53**, **GCP Cloud DNS**, or **Azure DNS**).
 
-# Create a Let's Encrypt Target with the CLI
+## Create a Let's Encrypt Target with the CLI
 
 To create a Let's Encrypt target with the CLI, run the following command:
 
@@ -40,9 +40,9 @@ Where:
 
 * `hosted-zone`: AWS Route 53 hosted zone, relevant only if `--acme-challenge=dns` and the DNS credentials target is **AWS**.
 
-You can find the complete list of parameters for this command in the CLI Reference - Akeyless Targets section.
+[View the complete list of parameters for this command.](https://docs.akeyless.io/docs/cli-ref-targets#lets-encrypt)
 
-# Create a Let's Encrypt Target in the Console
+## Create a Let's Encrypt Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets** > **New** > **Certificate Automation (Let's Encrypt)**.
 
