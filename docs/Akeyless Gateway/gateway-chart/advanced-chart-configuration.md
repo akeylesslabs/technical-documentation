@@ -64,17 +64,16 @@ customerFragmentsExistingSecret: customer-fragment
 ## TLS Configuration
 
 We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
-Please note that when you're enabling TLS, you must provide a `TLS certificate` and a corresponding `TLS Private Key`.
+Please note that when you're enabling TLS, you must provide a TLS Certificate and a corresponding TLS Private Key.
 
-To set the TLS settings, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) includes your **TLS certificate** in `base64-encoded` format where the `key` of the secret has to be `tls-certificate`:
+To configure the TLS settings, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your **TLS Certificate** in a Base64-encoded format where the `key` of the secret has to be `tls-certificate`:
 
-```shell
+```shell kubectl
 kubectl create secret generic tls-certificate \
   --from-file=tlsCertificate=/path/to/certificate.pem \
   --from-file=tlsPrivateKey=/path/to/private-key.pem \
   --namespace=my-namespace
 ```
-
 ```yaml secret.yaml
 apiVersion: v1
 kind: Secret
@@ -86,16 +85,20 @@ data:
   tlsPrivateKey: <base64-encoded-tls-certificate-key.pem>
 ```
 
-Enable TLS:
+Enable TLS on the Akeyless Gateway by modifying the `TLSConf` key in the `values.yaml` file of the Gateway:
 
 ```yaml values.yaml
 TLSConf:
   enabled: true
   minimumTlsVersion: <TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>
-  tlsExistingSecret: tls-certificate 
+  tlsExistingSecret: tls-certificate
+
+  #Optionally override the following default values if needed when migrating to the Akeyless Unified Gateway
+  tlsCertificateSecretKeyName: tlsCertificate
+  tlsPrivateKeySecretKeyName:  tlsPrivateKey
 ```
 
-Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-certificate) settings using the web interface of the Gateway Configuration Manager.
+Alternatively, you can also [configure TLS](https://docs.akeyless.io/docs/tls-certificate) using the web interface of the Gateway Configuration Manager.
 
 ## OIDC Configuration
 
