@@ -48,7 +48,7 @@ Requestors receive timely notifications regarding the status of their access req
 
 _Note:_ Notifications will need to be configured by ServiceNow Admin on the instance level for recorded addition or record update of the Akeyless ServiceNow application "access request" table.
 
-## Required Configuration on Akeyless System
+## Required Akeyless Configuration
 
 To utilize the Akeyless ServiceNow App, an Access Role must be created. [This guide (Role-Based Access Control (RBAC))](https://docs.akeyless.io/docs/rbac) outlines the steps for creating an Access Role in Akeyless.
 
@@ -66,7 +66,7 @@ Please configure the following permissions:
 
 ![Illustration for: Read/Update/Delete (this is a set of actions that the user can request access for) for Static Secrets/targets under the path that item exists that the user can request access…](https://files.readme.io/92425b3-image-20230205-100518.png)
 
-## Required Configuration on ServiceNow System
+## Required ServiceNow Configuration
 
 Creating basic auth credentials by way of ServiceNow instance.
 
@@ -81,9 +81,9 @@ Creating basic auth credentials by way of ServiceNow instance.
 
 ![Illustration for: Locate credentials in ServiceNow instance "All" menu Click on "All" and enter "credentials" in the search field Click "New" and locate the "Basic Auth Credentials" option](https://files.readme.io/6e7a131-Screenshot_2023-11-29_at_13.50.06.png)
 
-* In “Basic Auth Credentials” Form, insert name (For example, “akeyless_basic_auth_creds”), insert the access-id as the User name, and the access-key as the Password, and submit:
+* In “Basic Auth Credentials” Form, insert a name (for example, `akeyless_basic_auth_creds`), insert the `access-id` as the User name, and the `access-key` as the Password, and submit:
 
-![Illustration for: In “Basic Auth Credentials” Form, insert name (For example, “akeylessbasicauthcreds”), insert the access-id as the User name, and the access-key as the Password, and submit](https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png)
+![Illustration for: In Basic Auth Credentials Form, insert name, insert the access-id as the User name, and the access-key as the Password, and submit.](https://files.readme.io/91cfd9b-Screenshot_2024-07-14_at_15.12.03.png)
 
 * In the **Name** field write `akeyless_basic_auth_creds`
 * Add **User Name & Password** or [API Key credentials](<https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication#create-an-api-key-by> way of-the-ui).
