@@ -229,6 +229,10 @@ akeyless create-pki-cert-issuer \
 
 `--create-private-crl`: Set this to allow the issuer will expose a CRL endpoint in the Gateway
 
+`--create-private-ocsp`: Set this to enable an OCSP endpoint in the Gateway and include its URL in AIA
+
+`--create-public-ocsp`: Set this to enable a public OCSP endpoint and include its URL in AIA (served by UAM and includes account id)
+
 `--auto-renew`: Automatically renew certificates before expiration
 
 `--scheduled-renew`: Number of days before expiration to renew certificates
