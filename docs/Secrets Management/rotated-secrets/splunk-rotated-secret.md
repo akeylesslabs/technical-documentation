@@ -41,14 +41,14 @@ Where:
 * `target-name`: The name of the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target)with which the Rotated Secret should be associated.
 
 * `authentication-credentials`: Determines how to connect to the target Splunk account.
-  * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
-  * `use-target-creds` - Use the credentials defined on the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target) item.
+    * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
+    * `use-target-creds` - Use the credentials defined on the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target) item.
 
 * `rotator-type`: The type of credentials to be rotated. For [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target), choose:
-  * `target` - to rotate the **Token** specified in the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target).
-  * `token` - to rotate the **Token** specified in the Rotated Secret.
-  * `username` - to rotate the **Username** specified in the Rotated Secret.
-  * `hec-token` - to rotate the **HEC-Token** specified in the Rotated Secret.
+    * `target` - to rotate the **Token** specified in the [Splunk Target](https://docs.akeyless.io/v1.0/docs/splunk-target).
+    * `token` - to rotate the **Token** specified in the Rotated Secret.
+    * `username` - to rotate the **Username** specified in the Rotated Secret.
+    * `hec-token` - to rotate the **HEC-Token** specified in the Rotated Secret.
 
 * `auto-rotate`: Enable auto-rotation if you need to update the API Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
 

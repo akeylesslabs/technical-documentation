@@ -25,7 +25,7 @@ Example of a Rotated Secret that was configured with the following rotation sett
 
     * On day `90`: Old credentials are removed, only the new credentials remain.
 
-* **After Rotation**: Creates the new credentials on the scheduled rotation date. The old credentials remain valid for `X` more days, and are rotate after the grace period ends. This mode results in an overlap after the rotation date. That means that at the rotation interval boundary (for example, day 90) you will always have two active credential versions the newly created credentials plus the previous credentials that remain valid throughout the grace period, on the grace due date a new version will be created keeping 2 versions in parallel. 
+* **After Rotation**: Creates the new credentials on the scheduled rotation date. The old credentials remain valid for `X` more days, and are rotate after the grace period ends. This mode results in an overlap after the rotation date. That means that at the rotation interval boundary (for example, day 90) you will always have two active credential versions the newly created credentials plus the previous credentials that remain valid throughout the grace period, on the grace due date a new version will be created keeping 2 versions in parallel.
 
 Example of a Rotated Secret that was configured with the following rotation settings:
 
