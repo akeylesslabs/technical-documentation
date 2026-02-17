@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-For cloud providers (**AWS**, **Azure**, and **GCP**), rotated secrets can be configured with **Graceful Rotation**  mode.
+For cloud providers [AWS](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), [Azure](https://docs.akeyless.io/docs/create-an-azure-rotated-secret), and [GCP](https://docs.akeyless.io/docs/gcp-rotated-secret), rotated secrets can be configured with **Graceful Rotation**  mode.
 
 Graceful Rotation keeps the previous credentials valid for a configurable grace period. After the grace period ends, the old credentials are removed from the cloud provider.
 
