@@ -1,7 +1,7 @@
 - auth-with-api-key
 - auth-with-aws
 - auth-with-azure
-- certificate-based-authentication
+- auth-with-certificate
 - auth-with-email
 - gcp-auth-method
 - kerberos
