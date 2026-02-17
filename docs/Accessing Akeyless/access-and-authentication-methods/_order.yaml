@@ -3,7 +3,7 @@
 - auth-with-azure
 - auth-with-certificate
 - auth-with-email
-- gcp-auth-method
+- auth-with-gcp
 - kerberos
 - kubernetes-auth
 - ldap
