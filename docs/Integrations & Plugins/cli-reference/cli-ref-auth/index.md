@@ -42,6 +42,8 @@ with the relevant flags according to the `access-type` being used.
 
 `--admin-email`: Email (relevant only for `access-type=password`)
 
+`--account-id`: Akeyless Account id (relevant only for `access-type=password` where the email address is associated with more than one account)
+
 `--oidc-sp`: OIDC Service Provider (relevant only for `access-type=oidc`, inferred if empty),supported SPs:`google`, `github`
 
 `--ldap_proxy_url`: Address URL for LDAP proxy (relevant only for `access-type=ldap`)
