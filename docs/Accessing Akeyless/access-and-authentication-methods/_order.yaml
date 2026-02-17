@@ -7,7 +7,7 @@
 - auth-with-kerberos
 - auth-with-kubernetes
 - auth-with-ldap
-- oauth20jwt
+- auth-with-oauth-jwt
 - oci-iam
 - openid
 - saml
