@@ -164,6 +164,8 @@ DFC includes continuous fragment refreshing to reduce exposure duration.
 
 ### How Refresh Works
 
+The UAM generates a new random number that each KFM uses.
+
 Each KFM:
 
 1. Computes a new fragment value.
@@ -173,7 +175,7 @@ Each KFM:
 
 ### Security Impact
 
-An attacker must compromise all fragments **within the same refresh interval** to have any chance of deriving a key. This is not a feasible requirement due to:
+An attacker must compromise all fragments (including any Customer Fragment) **within the same refresh interval** to have any chance of deriving a key. This is not a feasible requirement due to:
 
 * geographic distribution
 * multi-cloud isolation
@@ -186,7 +188,7 @@ An attacker must compromise all fragments **within the same refresh interval** t
 
 DFC enables a zero-knowledge model:
 
-* Akeyless cannot decrypt customer data.
+* Akeyless cannot decrypt customer data, enforced by the use of a Customer Fragment.
 * Cloud providers hosting KFMs cannot reconstruct the key.
 * An optional Customer Fragment can prevent unilateral operations.
 * Compromise of a single component yields no meaningful key information.
@@ -209,7 +211,6 @@ These provide protection against potential future quantum attacks on captured tr
 * Fragment holders must be reachable for operations.
 * Gateway availability is required for CF-based operations.
 * No backups or replication are required for fragments.
-* Fragment refreshing replaces the need for Secret Rotation at storage level.
 
 ***
 
@@ -222,8 +223,6 @@ DFC supports:
 * HMAC
 * Certificate signing (PKI)
 * SSH key signing
-* Dynamic secret derivation
-* Token generation
 
 ***
 
