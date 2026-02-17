@@ -1,5 +1,5 @@
 ---
-title: Access Request by way of ServiceNow
+title: Access Requests with ServiceNow
 excerpt: >-
   Integrating Akeyless API with ServiceNow to enable direct approval or
   rejection of access requests through the ServiceNow platform.
