@@ -8,7 +8,7 @@
 - auth-with-kubernetes
 - auth-with-ldap
 - auth-with-oauth-jwt
-- oci-iam
+- auth-with-oci
 - openid
 - saml
 - universal-identity
