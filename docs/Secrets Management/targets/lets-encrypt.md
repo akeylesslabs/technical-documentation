@@ -5,15 +5,15 @@ hidden: false
 metadata:
   robots: index
 ---
-The **Let's Encrypt** Target enables you to use **Let's Encrypt** as a Public Certificate Authority (CA) with Akeyless PKI Issuer.
+The [Let's Encrypt](https://letsencrypt.org/) Target enables you to use **Let's Encrypt** as a Public Certificate Authority (CA) with Akeyless PKI Issuer.
 
 With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless will programmatically validate the certificate signing request by connecting to **Let’s Encrypt** as a **Public CA** integration through the Akeyless Gateway.
 
 With a public CA, Akeyless cannot access the private key that signs certificates. Akeyless will programmatically validate the certificate signing request by contacting **Let’s Encrypt** through the Akeyless Gateway.
 
-The Let’s Encrypt integration uses an **ACME Client (v2)**.
+The Let’s Encrypt integration uses an [ACME Client (v2)](https://datatracker.ietf.org/doc/html/rfc8555).
 
-To prove you own the domain, **Let’s Encrypt** requires an **ACME challenge**.  Currently You can complete this challenge using  **DNS** validation. With **DNS validation**, you prove domain ownership by adding a **DNS record**. This requires the domain to be managed in a supported DNS provider’s hosted zone (for example **AWS Route 53**, **GCP Cloud DNS**, or **Azure DNS**).
+To prove you own the domain, **Let’s Encrypt** requires an **ACME challenge**.  Currently You can complete this challenge using  [DNS validation](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge). With **DNS validation**, you prove domain ownership by adding a **DNS record**. This requires the domain to be managed in a supported DNS provider’s hosted zone (for example **AWS Route 53**, **GCP Cloud DNS**, or **Azure DNS**).
 
 ## Create a Let's Encrypt Target with the CLI
 
