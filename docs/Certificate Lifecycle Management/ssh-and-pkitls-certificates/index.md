@@ -73,7 +73,7 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
 
 A PKI Issuer enables you to issue certificates while the certificate templates are well-defined at the issuer level.
 
-> 📘 Using Classic Key as a Signer Key
+> 👍 Using Classic Key as a Signer Key
 >
 > To use a [Classic key](https://docs.akeyless.io/docs/classic-keys) as the **Signer Key** for a **PKI Issuer,** make sure **Classic** is **enabled** as an Allowed **Protection Key Type** in your account:
 >
