@@ -36,34 +36,34 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
 
 1. Create a CSR configuration file. For example:
 
-    ```shell shell
-    cat <<EOF > csr.conf
-    countryName=US
-    stateOrProvinceName=NY
-    localityName=NY
-    organizationName=Akeyless
-    organizationalUnitName=Security
-    commonName=akeylessSign
+   ```shell shell
+   cat <<EOF > csr.conf
+   countryName=US
+   stateOrProvinceName=NY
+   localityName=NY
+   organizationName=Akeyless
+   organizationalUnitName=Security
+   commonName=akeylessSign
 
-    [ v3_req ]
-    basicConstraints=critical, CA:TRUE
-    keyUsage=critical, keyCertSign, digitalSignature, cRLSign
-    EOF
-    ```
+   [ v3_req ]
+   basicConstraints=critical, CA:TRUE
+   keyUsage=critical, keyCertSign, digitalSignature, cRLSign
+   EOF
+   ```
 
 2. Create the **Signer Key**:
 
-    ```shell Create-Key-In-Akeyless
-    akeyless create-dfc-key \
-    --name <RSA-key-name> \
-    --alg RSA2048 \
-    --generate-self-signed-certificate true \
-    --certificate-ttl 365 \
-    --conf-file-path ./csr.conf \
-    --certificate-format pem
-    ```
+   ```shell Create-Key-In-Akeyless
+   akeyless create-dfc-key \
+   --name <RSA-key-name> \
+   --alg RSA2048 \
+   --generate-self-signed-certificate true \
+   --certificate-ttl 365 \
+   --conf-file-path ./csr.conf \
+   --certificate-format pem
+   ```
 
-    You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
+   You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
 
 > 👍 Note
 >
@@ -71,7 +71,15 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
 
 ### Creating a Certificate Issuer
 
-A PKI Issuer enables you to issue certificates while the certificate templates are well-defined at the issuer level. To create the PKI Issuer, use the following command:
+A PKI Issuer enables you to issue certificates while the certificate templates are well-defined at the issuer level.
+
+> 📘 Using Classic Key as a Signer Key
+>
+> To use a [Classic key](https://docs.akeyless.io/docs/classic-keys) as the **Signer Key** for a **PKI Issuer,** make sure **Classic** is **enabled** as an Allowed **Protection Key Type** in your account:
+>
+> * **Account Settings** → **Key Management** → **Protection Key type**
+
+To create the PKI Issuer, use the following command:
 
 ```shell Create PKI Cert Issuer
 akeyless create-pki-cert-issuer \
@@ -108,6 +116,7 @@ Where:
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
 
 > 👍 Note
+>
 > Set the PKI Issuer item to automatically store and renew any issued certificate with default expiration events to gain full automation of your PKI environments.
 
 ### Creating a Certificate Signing Request
@@ -230,19 +239,19 @@ Creating a CA private key and root certificate to build your chain of trust:
 
 3. Define the remaining parameters as follows:
 
-    * **Description:** General description of the key (optional).
+   * **Description:** General description of the key (optional).
 
-    * **Tags:** Assign tags to the key (optional).
+   * **Tags:** Assign tags to the key (optional).
 
-    * **Delete Protection:** When enabled, protects the secret from accidental deletion.
+   * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-    * **Signer Key:** The name of the signer key you defined in advance.
+   * **Signer Key:** The name of the signer key you defined in advance.
 
-    * **Certificate TTL:** The time to the expiration of the certificate.
+   * **Certificate TTL:** The time to the expiration of the certificate.
 
-    * **Allowed domains list:** Specify the allowed domains for the certificates issued.
+   * **Allowed domains list:** Specify the allowed domains for the certificates issued.
 
-    * **Allowed URI sans:** Specify the allowed URI for the certificates issued.
+   * **Allowed URI sans:** Specify the allowed URI for the certificates issued.
 
 4. [Read more about the descriptions of advanced and location parameters.](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp).
 
