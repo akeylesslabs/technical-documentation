@@ -25,7 +25,7 @@ This section will discuss the different commands necessary to handle USCs. While
 To create a USC, use the following command:
 
 ```shell
-akeyless create-usc --usc-name <name> --target-to-associate <target name> --k8s-namespace <kubernerets namespace>
+akeyless create-usc --usc-name <name> --target-to-associate <target name> --k8s-namespace <kubernetes namespace>
 ```
 
 The main parameters are:
