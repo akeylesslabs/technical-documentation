@@ -47,15 +47,15 @@ To create your API Key follow the below CLI commands:
 
 1. Create an API Key authentication method with the CLI, run the following command:
 
-    ```shell
-    akeyless auth-method create api-key --name MyFirstAPIKey
-    ```
+   ```shell
+   akeyless auth-method create api-key --name MyFirstAPIKey
+   ```
 
 2. Configure your CLI to work with the API Key by running the following command:
 
-    ```shell
-    akeyless configure --profile default --access-id <Your API Key Auth AccessID> --access-key <Your API Key>
-    ```
+   ```shell
+   akeyless configure --profile default --access-id <Your API Key Auth AccessID> --access-key <Your API Key>
+   ```
 
 ## Create Your Access Role
 
@@ -63,27 +63,27 @@ Follow this tutorial to create an Access Role and associate your Authentication 
 
 1. Create a new access role:
 
-    ```shell
-    akeyless create-role --name MyFirstRole
-    ```
+   ```shell
+   akeyless create-role --name MyFirstRole
+   ```
 
 2. Set the role with access to all Items under /path/to/folder/ with Read and List permissions:
 
-    ```shell
-    akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --capability read --capability list
-    ```
+   ```shell
+   akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --capability read --capability list
+   ```
 
 3. Also, set the role with access to Targets:
 
-    ```shell
-    akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --rule-type target-rule --capability read --capability list
-    ```
+   ```shell
+   akeyless set-role-rule --role-name MyFirstRole --path "/path/to/folder/\*" --rule-type target-rule --capability read --capability list
+   ```
 
 4. Associate the Authentication Method with the Role:
 
-    ```shell
-    akeyless assoc-role-am --role-name MyFirstRole --am-name MyFirstAPIKey
-    ```
+   ```shell
+   akeyless assoc-role-am --role-name MyFirstRole --am-name MyFirstAPIKey
+   ```
 
 Now you have an Authentication Method with the right access to deploy the Gateway.
 
@@ -93,15 +93,15 @@ Follow the below commands:
 
 1. Create a new RSA DFC Key in your Akeyless account:
 
-    ```shell
-    akeyless create-dfc-key -n MyRSAKey -a RSA2048
-    ```
+   ```shell
+   akeyless create-dfc-key -n MyRSAKey -a RSA2048
+   ```
 
 2. Create the SSH Certificate Issuer:
 
-    ```shell
-    akeyless create-ssh-cert-issuer --name your-ssh-cert-issuer-name --signer-key-name MyRSAKey --allowed-users 'ubuntu' --ttl 300
-    ```
+   ```shell
+   akeyless create-ssh-cert-issuer --name your-ssh-cert-issuer-name --signer-key-name MyRSAKey --allowed-users 'ubuntu' --ttl 300
+   ```
 
 > 👍 SSH connection note
 >
@@ -201,7 +201,8 @@ For Remote Access, you can access the following:
 
 * The Remote Access Internal Web Portal is located at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
 
-  ![Illustration for: Remote Access URLs For Remote Access, you can access the following: The Remote Access Internal Web Portal is located at http://<Your-Akeyless-GW-URL:8000>/sra/portal](https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png)
+  ![Illustration for: A screenshot of the Remote Access Internal Web Portal](https://files.readme.io/080e307-Screenshot_2024-08-06_at_11.17.00.png)
+
 * Remote Access can also be accessed using our public URL: `https://zerotrust.akeyless.io`. If you are using the public URL for RDP, Web, or similar sessions, you will be required to add your Web URL endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/web-client`
 
 ## Testing Out Remote Access
@@ -212,27 +213,27 @@ Here we will lay out the steps to get a SAML user to access the Remote Access Po
 
 2. Next, run the following command to create your SAML Auth Method and make sure to input your Kubernetes Service External-IP address:
 
-    ```shell
-    akeyless auth-method create saml --name mySamlAuth --unique-identifier email --idp-metadata-url <your-okta-metadata-url> --allowed-redirect-uri https://console.akeyless.io/login-saml, http://127.0.0.1>:*, http://<EXTERNAL-IP-of-K8s-Service>:*
-    ```
+   ```shell
+   akeyless auth-method create saml --name mySamlAuth --unique-identifier email --idp-metadata-url <your-okta-metadata-url> --allowed-redirect-uri https://console.akeyless.io/login-saml,http://127.0.0.1:*,http://<EXTERNAL-IP-of-K8s-Service>:*
+   ```
 
 3. Create a role with access to Items with **List** permissions only. And set Secure Remote Access with Allow Access permissions.
 
-    ```shell
-    akeyless set-role-rule --role-name MySamlRole --path "/*" --capability list
-    ```
+   ```shell
+   akeyless set-role-rule --role-name MySamlRole --path "/*" --capability list
+   ```
 
-    ```shell
-    akeyless set-role-rule --role-name MySamlRole --path "/\*" --rule-type sra-rule --capability allow_access
-    ```
+   ```shell
+   akeyless set-role-rule --role-name MySamlRole --path "/\*" --rule-type sra-rule --capability allow_access
+   ```
 
 4. Associate your Auth Method as follows:
 
-    ```shell
-    akeyless assoc-role-am --role-name MySamlRole --am-name MySamlAuth
-    ```
+   ```shell
+   akeyless assoc-role-am --role-name MySamlRole --am-name MySamlAuth
+   ```
 
-5. Next, open your browser and go to your Remote Access internal endpoint: `http://\<Your-Akeyless-GW-URL:8000>>/sra/portal`
+5. Next, open your browser and go to your Remote Access internal endpoint: `http://<Your-Akeyless-GW-URL:8000>/sra/portal`
 
 6. Enter your SAML AccessID and click “Sign In”. You will be redirected to your SAML service login page to log in and then when you finish that will redirect you to a page with various resources you can set at a later time (refer to the following image). Congrats!
 
