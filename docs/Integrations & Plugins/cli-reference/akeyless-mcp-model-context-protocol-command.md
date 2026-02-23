@@ -27,10 +27,12 @@ Model Context Protocol (MCP) is an open standard that allows AI assistants to se
 
 * Secure Authentication – Uses Akeyless authentication mechanisms
 * Tool Integration – Access Akeyless secrets, targets, RBAC, and more
-* Profile Support – Works with your existing Akeyless CLI profiles
+* Profile Support – Uses your existing Akeyless CLI profiles for authentication context
 * Gateway Integration – Supports both local and cloud Akeyless Gateways
 
 ## Usage
+
+> Important: `akeyless mcp` does not use the `gateway_url` value configured in a CLI profile. You must pass `--gateway-url` directly in every `akeyless mcp` command (or MCP client args).
 
 ### Basic Commands
 
@@ -40,9 +42,6 @@ akeyless mcp --access-id <your-access-id> --access-key <your-access-key> --acces
 
 # Start MCP server with SAML authentication
 akeyless mcp --access-id <your-access-id> --access-type saml --gateway-url https://api.akeyless.io
-
-# Start MCP server with a profile
-akeyless mcp --profile <profile-name> --gateway-url https://api.akeyless.io
 ```
 
 ### Supported Authentication Methods
@@ -62,9 +61,7 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
 
 \--access-type: Authentication method (see list above)
 
-\--gateway-url: Gateway URL (default: `http://localhost:8080/v2`)
-
-\--profile: Use an existing CLI profile
+\--gateway-url: Gateway URL (required for `akeyless mcp`; must be supplied in-line)
 
 ## Setting Up MCP With Cursor
 
@@ -133,7 +130,7 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
     ```
 
 4. Use Copilot
-    You can now manage secrets, configure targets, and perform infrastructure tasks by way of Copilot.
+  You can now manage secrets, configure targets, and perform infrastructure tasks through Copilot.
 
 ## Examples
 
