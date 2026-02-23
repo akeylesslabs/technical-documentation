@@ -16,7 +16,7 @@ GitHub Actions enables you to automate workflows for your GitHub-hosted reposito
 
 With [this](https://github.com/LanceMcCarthy/akeyless-action) **community** plugin, you can fetch secrets directly from the Akeyless Platform into your workflows.
 
-This guide will demonstrate the uses of [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) and [AWS IAM](https://docs.akeyless.io/docs/aws-iam) **Authentication Methods** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
+This guide will demonstrate the uses of [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) and [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) **Authentication Methods** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ The following Authentication Methods can be used for authentication:
 
 ### OAuth 2.0 / JWT
 
-Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** using the CLI:
+Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) **Authentication Method** using the CLI:
 
 ```shell
 akeyless create-auth-method-oauth2 --name /Dev/GitHubAuth \
@@ -89,7 +89,7 @@ akeyless set-role-rule --role-name /Dev/GitHubRole \
 
 ### AWS IAM
 
-Create an [AWS IAM](https://docs.akeyless.io/docs/aws-iam) **Authentication Method** using the CLI:
+Create an [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) **Authentication Method** using the CLI:
 
 ```shell
 akeyless create-auth-method-aws-iam \

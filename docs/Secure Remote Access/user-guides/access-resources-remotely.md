@@ -16,10 +16,10 @@ All Akeyless supported [Resource types](https://docs.akeyless.io/docs/supported-
 
 Currently the SRA Portal supports the following Authentication Methods:
 
-* [SAML](https://docs.akeyless.io/docs/saml)
-* [OIDC](https://docs.akeyless.io/docs/openid)
-* [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
-* [LDAP](https://docs.akeyless.io/docs/ldap)
+* [SAML](https://docs.akeyless.io/docs/auth-with-saml)
+* [OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
+* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
+* [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
 
 <Callout icon="👍" theme="okay">
   _Allowed Redirect URL:_ In case using SAML or OIDC Auth Methods ensure your Gateway URL is trusted

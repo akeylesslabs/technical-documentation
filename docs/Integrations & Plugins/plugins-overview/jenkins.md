@@ -26,14 +26,14 @@ Run the following steps to install the Akeyless plugin for Jenkins:
 
 ## Supported Authentication Methods
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-* [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
-* [Google Cloud Platform (GCP)](https://docs.akeyless.io/docs/gcp-auth-method)
-* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
-* [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
-* [Email](https://docs.akeyless.io/docs/email)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
+* [Google Cloud Platform (GCP)](https://docs.akeyless.io/docs/auth-with-gcp)
+* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
+* [Email](https://docs.akeyless.io/docs/auth-with-email)
 
 ## Configuration
 

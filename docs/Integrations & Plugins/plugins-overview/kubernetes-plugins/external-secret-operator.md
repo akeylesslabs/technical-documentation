@@ -10,7 +10,7 @@ next:
   description: ''
 ---
 <Callout icon="🚧" theme="warn">
-  This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator/)
+  This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator)
 </Callout>
 
 [External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/) is a Kubernetes (K8s) operator that integrates with external secret management systems like Akeyless. The operator reads information from Akeyless APIs and automatically injects the values into a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
@@ -45,11 +45,11 @@ helm install external-secrets external-secrets/external-secrets
 
 Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/) support the following Authentication Methods:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
 > 👍 Note
 >
@@ -140,7 +140,7 @@ kubectl apply -f secretstore.yaml
 
 ### Explicit Secret Store
 
-Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` Kubernetes Secret through the [SecretStore](https://docs.akeyless.io/docs/external-secret-operator-copy#secretstore). Alternatively, you can authenticate directly using your Kubernetes Authentication settings.
+Authentication with Akeyless can be done using credentials stored in the `akeyless-secret-creds` Kubernetes Secret through the [SecretStore](https://docs.akeyless.io/docs/external-secrets-operator). Alternatively, you can authenticate directly using your Kubernetes Authentication settings.
 
 Using an explicit secret store provides key benefits for access control and security. By segregating secrets based on service accounts, you can ensure that each service account only has access to the secrets it needs.
 

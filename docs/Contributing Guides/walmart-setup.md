@@ -103,15 +103,15 @@ At the prompt `Would you like to configure a profile (Y/n)` line, type `Y`. Then
 
 You can configure different types of authentication methods with the CLI:
 
-1. [API Key](https://docs.akeyless.io/docs/api-key) (`access_key`)
-2. [AWS IAM](https://docs.akeyless.io/docs/aws-iam) (`aws_iam`)
-3. [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) (`azure_ad`)
-4. [SAML](https://docs.akeyless.io/docs/saml) (`saml`)
-5. [LDAP](https://docs.akeyless.io/docs/ldap) (`ldap`)
+1. [API Key](https://docs.akeyless.io/docs/auth-with-api-key) (`access_key`)
+2. [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) (`aws_iam`)
+3. [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) (`azure_ad`)
+4. [SAML](https://docs.akeyless.io/docs/auth-with-saml) (`saml`)
+5. [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) (`ldap`)
 6. Password (`email/password`)
-7. [OIDC](https://docs.akeyless.io/docs/openid) (`oidc`)
-8. [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
-9. [GCP](https://docs.akeyless.io/docs/gcp-auth-method) (`GCP`)
+7. [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) (`oidc`)
+8. [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) (`k8s`)
+9. [GCP](https://docs.akeyless.io/docs/auth-with-gcp) (`GCP`)
 
 Use the authentication mode that you also used when you signed up and signed in to the UI, use your username and password credentials, or use the API Key Akeyless assigned to you when you signed in for the first time.
 

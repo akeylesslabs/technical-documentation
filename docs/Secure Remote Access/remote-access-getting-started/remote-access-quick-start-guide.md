@@ -35,7 +35,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 > 📘 First things first
 >
-> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/quick-start-guide#remote-access-section) section.
+> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/remote-access-quick-start-guide) section.
 
 ## Create Your Authentication Method
 
@@ -140,7 +140,7 @@ akeylessGatewayAuth:
 
 ```
 
-`gatewayAccessId`: For this quick start, we will use the [API Key](https://docs.akeyless.io/docs/api-key) authentication method. Add your API Key's `Access ID`.
+`gatewayAccessId`: For this quick start, we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication method. Add your API Key's `Access ID`.
 
 `gatewayAccessType`: This is already set to `access_key` for API Key authentication.
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can define a HashiCorp Vault target to be used with [HashiCorp Vault Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector-copy)
+You can define a HashiCorp Vault target to be used with [HashiCorp Vault Universal Secrets Connector](https://docs.akeyless.io/docs/hc-vault-universal-secrets-connector)
 
 ## Create a HashiCorp Vault Target with the CLI
 

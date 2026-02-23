@@ -20,17 +20,17 @@ next:
 
 The following Authentication Methods are supported:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
 > 👍 Note
 >
 > In this guide, we will use an `API Key` Authentication Method for simplicity
 
-Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/api-key) using the CLI:
+Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) using the CLI:
 
 ```shell
 akeyless create-auth-method --name /Dev/Spire-Auth

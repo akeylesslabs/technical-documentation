@@ -209,7 +209,7 @@ This guide includes the steps needed for the necessary prerequisites. If you wan
 
     * **Type:** The encryption algorithm used for the key.
 
-    * **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+    * **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
 
 4. Go to the folder in Akeyless where you saved the desired key, select it, and tap **get public RSA key**.
 

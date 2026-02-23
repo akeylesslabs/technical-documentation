@@ -12,19 +12,19 @@ next:
 ---
 Akeyless supports multiple options to authenticate your Kubernetes cluster with Akeyless Platform:
 
-* **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/kubernetes-auth)**
-* **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)** Not supported by the External Secret Operator (ESO).
-* **[API Key](https://docs.akeyless.io/docs/api-key)**
+* **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/auth-with-kubernetes)**
+* **[Universal Identity (UID)](https://docs.akeyless.io/docs/auth-with-universal-identity)** Not supported by the External Secret Operator (ESO).
+* **[API Key](https://docs.akeyless.io/docs/auth-with-api-key)**
 * Cloud Authentication:
-    * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/azure-ad)**
-    * **[AWS-IAM](https://docs.akeyless.io/docs/aws-iam)**
-    * **[GCP Auth](https://docs.akeyless.io/docs/gcp-auth-method)**
+    * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/auth-with-azure)**
+    * **[AWS-IAM](https://docs.akeyless.io/docs/auth-with-aws)**
+    * **[GCP Auth](https://docs.akeyless.io/docs/auth-with-gcp)**
 
 ## Kubernetes Auth
 
 > 👍 Note
 >
-> Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth).
+> Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/auth-with-kubernetes).
 
 To use the Kubernetes Auth Method for authentication:
 

@@ -20,8 +20,8 @@ Each pipeline step runs in isolation, so secrets don’t carry over automaticall
 
 ## Supported Authentication Methods
 
-* [OAuth 2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt)
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [OAuth 2.0/JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
 > 👍 Note
 >

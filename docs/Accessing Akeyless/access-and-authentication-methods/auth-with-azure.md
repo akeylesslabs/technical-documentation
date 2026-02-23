@@ -21,7 +21,7 @@ Depending on the Azure Identity type, enable the relevant [identity type](https:
 ## Create an Azure AD Authentication Method with the CLI
 
 Let's create a new Azure AD authentication method using the Akeyless CLI.
-(You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad#create-an-azure-active-directory-authentication-method-in-the-akeyless-console).)
+(You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-azure).)
 
 To create an Azure AD authentication method with the CLI, run the following command:
 

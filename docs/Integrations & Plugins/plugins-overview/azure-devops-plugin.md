@@ -26,7 +26,7 @@ Under **Vault Server Settings**: add the following Akeyless host as your Vault U
 
 Under **Authentication Method**: choose **Client Token** and provide the Akeyless token following this format:
 
-* The Token value can be a concatenation of your Access ID and your Access Key for an [API Key](https://docs.akeyless.io/docs/api-key) authentication in the following format: `< Access ID >".."< Access Key >`. It should be used more securely as an environment variable.
+* The Token value can be a concatenation of your Access ID and your Access Key for an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication in the following format: `< Access ID >".."< Access Key >`. It should be used more securely as an environment variable.
 
 Alternatively, to work with any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) you can extract your token using Akeyless `auth` command:
 
