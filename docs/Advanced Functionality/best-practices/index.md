@@ -38,7 +38,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * **Do not run as a superuser** for general purposes. An Akeyless superuser should ideally sign up using an email distribution list for the Administrators team, create a strong password, and then enable Email MFA for it in the Account Settings. The superuser should be used to set up the system initially, particularly for setting up the selected admin users who will be part of your admin role. Those admin users will create the authentication methods so regular users will be able to authenticate.
 
-* **Avoid API Key Authentication on production** - Due to the secret zero problem and management challenges, [Universal Identity](https://docs.akeyless.io/docs/universal-identity) should be used on production for on-premise environments or any CSP IAM on cloud environments for workloads or automated services, as well as SAML or OIDC for human access.  
+* **Avoid API Key Authentication on production** - Due to the secret zero problem and management challenges, [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) should be used on production for on-premise environments or any CSP IAM on cloud environments for workloads or automated services, as well as SAML or OIDC for human access.  
 
 * [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) - Shared authentication methods such as SAML, OIDC, LDAP, IAM, JWT, or Kubernetes should be used with sub-claims on role association to avoid mistakes and overriding existing Access Roles.
 

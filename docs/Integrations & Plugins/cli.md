@@ -120,7 +120,7 @@ Would you like to configure a profile? (Y/n) Y
 Profile Name: (Default: default)
 ```
 
-Choose an <Anchor label="Authentication Method" target="_blank" href="https://docs.akeyless.io/docs/access-and-authentication-methods">Authentication Method</Anchor> from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/api-key) method. Set the relevant **Access ID** and **Access Key**:
+Choose an <Anchor label="Authentication Method" target="_blank" href="https://docs.akeyless.io/docs/access-and-authentication-methods">Authentication Method</Anchor> from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/auth-with-api-key) method. Set the relevant **Access ID** and **Access Key**:
 
 ```shell
 Access ID: '<Access-ID>' 
@@ -200,16 +200,16 @@ For example, to work with the `eu` tenant you would run:
 
 The CLI supports various types of [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
-1. [API Key](https://docs.akeyless.io/docs/api-key) (`access_key`)
-2. [AWS IAM](https://docs.akeyless.io/docs/aws-iam) (`aws_iam`)
-3. [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) (`azure_ad`)
-4. [SAML](https://docs.akeyless.io/docs/saml) (`saml`)
+1. [API Key](https://docs.akeyless.io/docs/auth-with-api-key) (`access_key`)
+2. [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) (`aws_iam`)
+3. [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) (`azure_ad`)
+4. [SAML](https://docs.akeyless.io/docs/auth-with-saml) (`saml`)
 5. Password (`email/password`)
-6. [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) (`certificate`)
-7. [OIDC](https://docs.akeyless.io/docs/openid) (`oidc`)
-8. [K8s](https://docs.akeyless.io/docs/kubernetes-auth) (`k8s`)
-9. [GCP](https://docs.akeyless.io/docs/gcp-auth-method) (`GCP`)
-10. [OCI](https://docs.akeyless.io/docs/oci-iam) (`oci`)
+6. [Certificate](https://docs.akeyless.io/docs/auth-with-certificate) (`certificate`)
+7. [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) (`oidc`)
+8. [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes) (`k8s`)
+9. [GCP](https://docs.akeyless.io/docs/auth-with-gcp) (`GCP`)
+10. [OCI](https://docs.akeyless.io/docs/auth-with-oci) (`oci`)
 
 For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.
 
@@ -229,7 +229,7 @@ Akeyless CLI supports profiles that can be set with different authentication met
 akeyless configure --profile <new profile name> --access-id <Access id> --access-key <Access key> --access-type access_key
 ```
 
-While the default method is an [API Key](https://docs.akeyless.io/docs/api-key), if you wish to use a different authentication method, please consult the [CLI reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueconfigurep) for this command.
+While the default method is an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), if you wish to use a different authentication method, please consult the [CLI reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueconfigurep) for this command.
 
 To view the profile settings file, go to the `.akeyless` folder under your `home` directory, the profiles folder contains a `toml` file for each profile.
 

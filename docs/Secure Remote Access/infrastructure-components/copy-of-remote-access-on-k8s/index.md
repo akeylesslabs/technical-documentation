@@ -51,13 +51,13 @@ The `values.yaml` file used to deploy the [Gateway](https://docs.akeyless.io/doc
 
 Remote Access can only be used with the following Authentication Methods:
 
-[SAML](https://docs.akeyless.io/docs/saml)
+[SAML](https://docs.akeyless.io/docs/auth-with-saml)
 
-[OIDC](https://docs.akeyless.io/docs/openid)
+[OIDC](https://docs.akeyless.io/docs/auth-with-oidc)
 
-[Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)
+[Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
-[LDAP](https://docs.akeyless.io/docs/ldap)
+[LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
 
 To enable only specific users to use Remote Access, make sure to add the relevant `authorizedAccessIDs` in the `Global` section. A comma-separated list can be used for multiple IDs. While this is not mandatory, it is a good security practice to limit user access. If not configured, a Warning message will appear.
 

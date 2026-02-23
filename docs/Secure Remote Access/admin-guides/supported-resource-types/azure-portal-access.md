@@ -18,7 +18,7 @@ To enable Secure Remote Access to Azure Portal you need:
 
 * The [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) deployed.
 
-* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
+* The [Akeyless Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
 In addition, for users to access the Azure Portal in Isolated mode, you need:
 

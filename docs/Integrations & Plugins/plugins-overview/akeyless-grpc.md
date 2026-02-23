@@ -38,7 +38,7 @@ go get github.com/akeylesslabs/akeyless-grpc-go
 
 ## Example
 
-This example demonstrates the uses of [API Key](https://docs.akeyless.io/docs/api-key) for authentication, make sure to set the following:
+This example demonstrates the uses of [API Key](https://docs.akeyless.io/docs/auth-with-api-key) for authentication, make sure to set the following:
 
 Your `AccessId` and `AccessKey`, as well as your Gateway URL on port `8085`.
 

@@ -77,7 +77,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     FROM FILE = 'C:\Program Files\Akeyless\Akeyless Ekm Provider\AkeylessEkm.dll'
     ```
 
-3. Create a SQL `CREDENTIAL` that will be used by the system administrators to access Akeyless from the SQL Server, for example using an [API Key](https://docs.akeyless.io/docs/api-key) which is stored inside a SQL `CREDENTIAL` named `akeyless_tde`
+3. Create a SQL `CREDENTIAL` that will be used by the system administrators to access Akeyless from the SQL Server, for example using an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) which is stored inside a SQL `CREDENTIAL` named `akeyless_tde`
 
     ```sql
     CREATE CREDENTIAL akeyless_tde
@@ -86,7 +86,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     GO
     ```
 
-    If you wish to utilize [Azure AD authentication](https://docs.akeyless.io/docs/azure-ad) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any placeholder value:
+    If you wish to utilize [Azure AD authentication](https://docs.akeyless.io/docs/auth-with-azure) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any placeholder value:
 
     ```sql
     CREATE CREDENTIAL akeyless_tde

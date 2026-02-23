@@ -59,7 +59,7 @@ Before using the extension, you must have the Akeyless CLI installed and be auth
 brew install akeyless/tap/akeyless
 
 # Or follow instructions on the Akeyless docs for other platforms
-# https://docs.akeyless.io/docs/install-cli
+# https://docs.akeyless.io/docs/cli
 
 # Authenticate with your Akeyless account
 akeyless auth

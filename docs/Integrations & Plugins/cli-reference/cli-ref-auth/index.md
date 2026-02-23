@@ -114,7 +114,7 @@ with the relevant flags according to the `access-type` being used.
 
 ### API Key
 
-Create a new [API Key](https://docs.akeyless.io/docs/api-key) Auth Method
+Create a new [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method
 
 #### Usage
 

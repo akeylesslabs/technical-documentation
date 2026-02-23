@@ -18,7 +18,7 @@ This standard provides secure delegated access. It means that an application can
 
 ## Create an OAuth2.0/JWT Authentication Method with the CLI
 
-Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/oauth20jwt#create-an-oauth20jwt-authentication-method-in-the-akeyless-console).)
+Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oauth-jwt).)
 
 ```shell
 akeyless auth-method create oauth2 \

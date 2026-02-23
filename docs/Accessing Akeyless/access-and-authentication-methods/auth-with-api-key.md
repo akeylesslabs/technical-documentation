@@ -18,7 +18,7 @@ API Key is a simple [Authentication Method](https://docs.akeyless.io/docs/access
 
 ## Create an API Key Authentication Method with the CLI
 
-Let's create a new API Key authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/api-key#create-an-api-key-authentication-method-in-the-akeyless-console).)
+Let's create a new API Key authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-api-key).)
 
 To create an API Key authentication method with the CLI, run the following command:
 
