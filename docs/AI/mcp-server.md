@@ -55,7 +55,9 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 
 ### Configuration and Setup
 
-Access to the Akeyless MCP server is setup for a MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of some available MCP clients is available <Anchor label="here" target="_blank" href="https://modelcontextprotocol.io/clients">here</Anchor>.
+Access to the Akeyless MCP server is set up for an MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of available MCP clients is available <Anchor label="here" target="_blank" href="https://modelcontextprotocol.io/clients">here</Anchor>.
+
+> Important: `akeyless mcp` does not read the `gateway_url` value from a CLI profile. Always pass the gateway explicitly by using `--gateway-url` in the MCP command arguments.
 
 #### Sample Configuration Structure
 
@@ -95,7 +97,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 | `args.--debug` | Enable debug logging | No | `false` |
 | `args.--disable-kerberos-fast` | Disable Kerberos FAST negotiation | No | `true` |
 | `args.--gateway-spn` | The service principal name of the gateway as registered in LDAP | No | (none) |
-| `args.--gateway-url` | Akeyless Gateway URL | No | `https://api.akeyless.io` |
+| `args.--gateway-url` | Akeyless Gateway URL | Yes (must be passed in-line for `akeyless mcp`) | (none) |
 | `args.--gcp.audience` | GCP audience to use with signed JWT (relevant only for the `gcp` access type) | No | `akeyless.io` |
 | `args.--jwt` | The JSON Web Token | Yes* (if using the `jwt` or `oidc` access type) | (none) |
 | `args.--k8s-auth-config-name` | The Kubernetes Auth config name | Yes* (if using the `k8s` access type) | (none) |
@@ -113,7 +115,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 | `args.--oci-group-ocid` | A list of Oracle Cloud IDs groups | Yes* (if using the `oci` access type) | (none) |
 | `args.--oidc-sp` | OIDC Service Provider (relevant only for the `oidc` access type). Inferred if empty. Supported SPs: `google`, `github`. | No | (inferred) |
 | `args.--password` | LDAP password | Yes* (if using the `ldap` access type) | (none) |
-| `args.--profile` | The CLI profile name to use | No | `default` |
+| `args.--profile` | The CLI profile name to use for authentication context (the profile `gateway_url` is not used by `akeyless mcp`) | No | `default` |
 | `args.--signed-cert-challenge` | Signed certificate challenge encoded in base64 (relevant only for the `cert` access type) | No | (none) |
 | `args.--uid-token` | The Universal Identity token | Yes* (if using the `universal_identity` access type) | (none) |
 | `args.--use-remote-browser` | Returns a link to complete authentication remotely (relevant only for the `saml` and `oidc` access types) | No | (none) |
@@ -167,7 +169,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
     "mcp",
     "--access-id", "p-xxxxxxxxxxxxx",
     "--access-key", "your-access-key",
-    "--access-type", "access_key"
+    "--access-type", "access_key",
+    "--gateway-url", "https://api.akeyless.io"
   ]
 }
 ```
@@ -180,7 +183,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
     "mcp",
     "--access-type", "cert",
     "--cert-file-name", "/path/to/cert.pem",
-    "--key-file-name", "/path/to/key.pem"
+    "--key-file-name", "/path/to/key.pem",
+    "--gateway-url", "https://api.akeyless.io"
   ]
 }
 ```
@@ -192,7 +196,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   "args": [
     "mcp",
     "--access-type", "aws_iam",
-    "--cloud-id", "your-aws-role-arn"
+    "--cloud-id", "your-aws-role-arn",
+    "--gateway-url", "https://api.akeyless.io"
   ]
 }
 ```
@@ -201,7 +206,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   "args": [
     "mcp",
     "--access-type", "azure_ad",
-    "--cloud-id", "your-azure-client-id"
+    "--cloud-id", "your-azure-client-id",
+    "--gateway-url", "https://api.akeyless.io"
   ]
 }
 ```
@@ -210,7 +216,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   "args": [
     "mcp",
     "--access-type", "gcp",
-    "--cloud-id", "your-gcp-service-account"
+    "--cloud-id", "your-gcp-service-account",
+    "--gateway-url", "https://api.akeyless.io"
   ]
 }
 ```
@@ -223,7 +230,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
     "mcp",
     "--access-type", "k8s",
     "--k8s-auth-config-name", "your-config-object",
-    "--k8s-service-account-token", "your-service-account-token"
+    "--k8s-service-account-token", "your-service-account-token",
+    "--gateway-url", "https://api.akeyless.io"
   ]
 }
 ```
@@ -235,9 +243,10 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
   "args": [
     "mcp",
     "--access-type", "ldap",
-    "--ldap_proxy_url", "ldap://your-ldap-server",
+    "--ldap-proxy-url", "ldap://your-ldap-server",
     "--username", "your-username",
-    "--password", "your-password"
+    "--password", "your-password",
+    "--gateway-url", "https://api.akeyless.io"
   ]
 }
 ```
@@ -263,7 +272,8 @@ The Akeyless MCP server supports multiple <Anchor label="Authentication Methods"
     "mcp",
     "--admin-email", "user@example.com",
     "--admin-password", "your-password",
-    "--access-type", "password"
+    "--access-type", "password",
+    "--gateway-url", "https://api.akeyless.io"
   ]
 }
 ```
