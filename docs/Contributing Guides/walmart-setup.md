@@ -48,7 +48,7 @@ tcp://log.wmt.akeyless.io:9443
 Outgoing network access to Akeyless WMT SaaS Core Services by way of the following IPs:
 
 | Service Name | Description |
-|---|---|
+| --- | --- |
 | **Console**: `https://console.wmt.akeyless.io` | Akeyless SaaS platform. |
 | **SRA Portal**: `https://zerotrust.wmt.akeyless.io` | Akeyless Secure Remote Access portal |
 | **Vault**: `https://vault.wmt.akeyless.io` | User Account Management, managing user account, items, and roles. |
