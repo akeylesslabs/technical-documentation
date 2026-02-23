@@ -50,10 +50,10 @@ POST auth.akeyless.io/validate-producer-credentials
 
 Where:
 
-| Field              | Description                                                                                                                                                                                                                    | Example                 |
-| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------- |
-| creds              | A temporary JWT token issued and signed by Akeyless that is included in the `AkeylessCreds` header of every request.                                                                                                           |                         |
-| expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`              |
+| Field | Description | Example |
+| --- | --- | --- |
+| creds | A temporary JWT token issued and signed by Akeyless that is included in the `AkeylessCreds` header of every request. |  |
+| expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials). | `"p-1234"` |
 | expected_item_name | (Optional) The item name of the custom Rotated Secret. This can be helpful if a single Akeyless Gateway runs multiple custom Rotated Secrets, and the custom Rotated Secret implementation should only respond to one of them. | `"/custom-rotated-foo"` |
 
 ### Create a Custom Rotated Secret with the CLI

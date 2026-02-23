@@ -18,20 +18,20 @@ The metrics visualization uses a pre-made or custom dashboard (Grafana Marketpla
 
 The following metrics are currently available:
 
-| Metric                                           | Description                                                                                                        |
-| :----------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
-| `akeyless.gw.system.cpu.*`                       | CPU utilization metrics                                                                                            |
-| `akeyless.gw.system.disk.*`                      | Disk I/O metrics                                                                                                   |
-| `akeyless.gw.system.load.*`                      | CPU load metrics                                                                                                   |
-| `akeyless.gw.system.memory.*`                    | Memory utilization metrics                                                                                         |
-| `akeyless.gw.system.network.*`                   | Network interface I/O metrics and TCP connection metrics                                                           |
-| `akeyless.gw.system.saas.connection_status`      | Monitor the connection of the Gateway with all Akeyless SaaS services.                                             |
-| `akeyless.gw.quota.current_transactions_number`  | The current total transaction count in the account                                                                 |
-| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`ADMIN_ACCESS_ID`)                                        |
-| `akeyless.gw.quota.total_transactions_limit`     | Total transaction limit per hour in the account                                                                    |
-| `akeyless.gw.system.http_response_status_code`   | Status of HTTP response for any request that originates from the Gateway API.                                      |
-| `akeyless.gw.system.request_count`               | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status         |
-| `akeyless.gw.system.healthcheck.status`          | Monitors container health check status                                                                             |
+| Metric | Description |
+| --- | --- |
+| `akeyless.gw.system.cpu.*` | CPU utilization metrics |
+| `akeyless.gw.system.disk.*` | Disk I/O metrics |
+| `akeyless.gw.system.load.*` | CPU load metrics |
+| `akeyless.gw.system.memory.*` | Memory utilization metrics |
+| `akeyless.gw.system.network.*` | Network interface I/O metrics and TCP connection metrics |
+| `akeyless.gw.system.saas.connection_status` | Monitor the connection of the Gateway with all Akeyless SaaS services. |
+| `akeyless.gw.quota.current_transactions_number` | The current total transaction count in the account |
+| `akeyless.gw.quota.gw_admin_client_transactions` | Total transactions made by the Gateway default identity (`ADMIN_ACCESS_ID`) |
+| `akeyless.gw.quota.total_transactions_limit` | Total transaction limit per hour in the account |
+| `akeyless.gw.system.http_response_status_code` | Status of HTTP response for any request that originates from the Gateway API. |
+| `akeyless.gw.system.request_count` | Total number of requests that were issued directly against the Gateway API (the count of total HTTP status |
+| `akeyless.gw.system.healthcheck.status` | Monitors container health check status |
 
 In addition to those metrics, you can also [forward](https://docs.akeyless.io/docs/gw-docker-log-forwarding) the Gateway application logs using **OTel**.
 

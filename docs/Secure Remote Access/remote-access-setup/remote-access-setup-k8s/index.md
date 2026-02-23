@@ -26,9 +26,9 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service                  | Endpoint                            |
-| :----------------------- | :---------------------------------- |
-| Remote Access Portal     | `<gateway-url>:8000/sra/portal`     |
+| Service | Endpoint |
+| --- | --- |
+| Remote Access Portal | `<gateway-url>:8000/sra/portal` |
 | Remote Access Web Client | `<gateway-url>:8000/sra/web-client` |
 | Remote Access SSH Config | `<gateway-url>:8000/sra/ssh-config` |
 
