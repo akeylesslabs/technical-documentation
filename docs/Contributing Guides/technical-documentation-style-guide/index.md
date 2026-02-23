@@ -77,7 +77,10 @@ This guide defines standards for writing clear, consistent, and professional tec
   git clone https://github.com/example/repo.git
   ```
 
-* Use code block tabbing when presenting the same example across multiple languages or platform configurations:
+#### Code tabbing (ReadMe.com specific)
+
+* Favor code block tabbing when presenting the same example across multiple languages or platform configurations.
+    * For ReadMe code tabs to render correctly, adjacent fenced code blocks must have no blank line between them.
 
   ```python
   Python Code
@@ -221,5 +224,6 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * Run spell check and grammar review.
 * Utilize the ReadMe.com AI Linter.
 * Validate code snippets and commands.
+* When introducing conventions that apply broadly (for example, all files or repository-wide automation), update this style guide where relevant.
 
 ***
