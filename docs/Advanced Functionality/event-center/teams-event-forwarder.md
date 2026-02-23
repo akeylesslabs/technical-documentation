@@ -37,7 +37,7 @@ The main parameters for the command are as follows:
 
 * `auth-methods-event-source-locations` **Auth Methods** event sources to forward events about, for example: `/API-Keys/*`
 
-* `gateways-event-source-locations`: **Gateways** event sources to forward events about, for example, the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL:8000`
+* `gateways-event-source-locations`: **Gateways** event sources to forward events about, for example, the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL>:8000`
 
 * `event-types`: A comma-separated list of types of events to notify about, A list of all the event types can be found here
 
@@ -45,7 +45,7 @@ The main parameters for the command are as follows:
 
 * `every`: Rate of periodic runner repetition in hours
 
-You can find the complete list of parameters for this command in the [CLI Reference - Teams Event Forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-slackp)
+You can find the complete list of parameters for this command in the [CLI Reference - Teams Event Forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-teamsp)
 
 ## Create a Teams Event Forwarder Using the Console
 
