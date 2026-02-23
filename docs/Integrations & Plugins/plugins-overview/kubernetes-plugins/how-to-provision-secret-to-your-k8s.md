@@ -626,7 +626,7 @@ kubectl apply -f Akeyless_sidecar.yaml
 The following table lists the available annotations:
 
 | Annotation | Options | Description |
-|---|---|---|
+| --- | --- | --- |
 | `akeyless/enabled: "true"` | `"true"` or `"false"` | Enable the Kubernetes plugin. |
 | `akeyless/side_car_enabled: "true"` | `"true"` or `"false"` | Set the Kubernetes plugin to work in sidecar mode. |
 | `akeyless/disable_restart_rollout: "true"` | `"true"` or `"false"` | Disable the restart-rollout on a specific deployment. |
@@ -687,12 +687,12 @@ Now, [inject a secret](https://docs.akeyless.io/docs/how-to-provision-secret-to-
 
 Once done, the following metrics will be shown:
 
-| Metric                                               | Description                                                               |
-| :--------------------------------------------------- | :------------------------------------------------------------------------ |
-| `akeyless_injector_system_http_response_status_code` | Tracks HTTP response status codes for the injectors                       |
-| `akeyless_injector_system_request_count`             | Counts the number of requests processed by the injectors                  |
-| `container_cpu_usage_seconds_total`                  | Total CPU time consumed by a container in seconds. requires Node Exporter |
-| `container_memory_usage_bytes`                       | Current memory usage of a container in bytes. requires Node Exporter      |
+| Metric | Description |
+| --- | --- |
+| `akeyless_injector_system_http_response_status_code` | Tracks HTTP response status codes for the injectors |
+| `akeyless_injector_system_request_count` | Counts the number of requests processed by the injectors |
+| `container_cpu_usage_seconds_total` | Total CPU time consumed by a container in seconds. requires Node Exporter |
+| `container_memory_usage_bytes` | Current memory usage of a container in bytes. requires Node Exporter |
 
 These metrics are available for any pod matching the name pattern `injector-akeyless-secrets-injection`. If your injector pods have a different name, update the label selector pod=`~"injector-akeyless-secrets-injection.*"` accordingly.
 

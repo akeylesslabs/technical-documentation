@@ -32,12 +32,12 @@ Before you begin, ensure you have the following:
 
 ## High-Level Setup Steps
 
-| Step | Description                                    | Tool          |
-| ---- | ---------------------------------------------- | ------------- |
-| 1    | Enable AI Insights at the account level        | CLI           |
-| 2    | Create an OpenAI / Gemini Target               | CLI           |
-| 3    | Configure the Akeyless Gateway for AI Insights | REST API      |
-| 4    | Validate the configuration and test            | CLI or Web UI |
+| Step | Description | Tool |
+| --- | --- | --- |
+| 1 | Enable AI Insights at the account level | CLI |
+| 2 | Create an OpenAI / Gemini Target | CLI |
+| 3 | Configure the Akeyless Gateway for AI Insights | REST API |
+| 4 | Validate the configuration and test | CLI or Web UI |
 
 ### Step 1: Enable AI Insights at the Account Level
 
@@ -188,16 +188,16 @@ To test AI Insights in the Akeyless Web UI, follow these steps:
 
 ## Troubleshooting
 
-| Issue                  | Resolution                                                   |
-| ---------------------- | ------------------------------------------------------------ |
-| AI Insights disabled   | Enable AI Insights at the account level                      |
-| Gateway disabled       | Update gateway configuration                                 |
-| Invalid model          | Ensure the model value uses the `gpt-` prefix                |
-| Invalid target         | Ensure the target is an OpenAI target                        |
-| Target not found       | Validate the target name and ID                              |
-| Authentication failure | Re-authenticate by running `akeyless auth`                   |
-| Gateway unreachable    | Check that port 8000 is open and firewall rules allow access |
-| API Key errors         | Verify the API Key is valid and check the base URL           |
+| Issue | Resolution |
+| --- | --- |
+| AI Insights disabled | Enable AI Insights at the account level |
+| Gateway disabled | Update gateway configuration |
+| Invalid model | Ensure the model value uses the `gpt-` prefix |
+| Invalid target | Ensure the target is an OpenAI target |
+| Target not found | Validate the target name and ID |
+| Authentication failure | Re-authenticate by running `akeyless auth` |
+| Gateway unreachable | Check that port 8000 is open and firewall rules allow access |
+| API Key errors | Verify the API Key is valid and check the base URL |
 
 ## Configuration Checklist
 
