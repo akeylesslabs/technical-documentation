@@ -48,6 +48,8 @@ jobs:
           args: >
             --verbose
             --no-progress
+            # Explicitly load repo ignore list; default discovery is unreliable in this workflow context.
+            --exclude-file ".github/lychee/.lycheeignore"
             --exclude-path ".github"
             --exclude-link-local
             --exclude-loopback
