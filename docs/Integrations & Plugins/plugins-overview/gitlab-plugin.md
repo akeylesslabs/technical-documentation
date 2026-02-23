@@ -30,7 +30,7 @@ To work with the Akeyless GitLab plugin, we will use an OAuth 2.0 / JWT Authenti
 
 ### OAuth 2.0 / JWT
 
-In Akeyless Platform, create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) Authentication Method with the following parameters:
+In Akeyless Platform, create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) Authentication Method with the following parameters:
 
 ```shell
 akeyless create-auth-method-oauth2 --name /Dev/GitLabAuth \ 

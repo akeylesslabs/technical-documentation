@@ -28,7 +28,7 @@ When the **Gateway** is running on such a resource, it utilizes the existing ide
 
 ### How Is This Authentication Implemented Securely?
 
-Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Auth Method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
+Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Auth Method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
 
 1. The AWS resource retrieves temporary credentials from its IAM role.
 2. The resource sends these credentials to Akeyless using the auth API endpoint

@@ -79,7 +79,7 @@ Where:
 
 * `access_id` - The Auth Method **Access ID**.
 
-* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth Method.
+* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method.
 
 * `access_type` - The Authentication Method type.
 

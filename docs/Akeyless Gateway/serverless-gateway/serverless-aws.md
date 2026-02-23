@@ -50,10 +50,10 @@ Set your Akeyless Gateway with a default [Authentication Method](https://docs.ak
 
 The following Authentication Methods are supported for serverless mode:
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-When using [AWS IAM](https://docs.akeyless.io/docs/aws-iam) as the `admin_access_id` of the Gateway, make sure to also set a list of users that are able to manage your Akeyless Gateway configuration using the `allowed_access_permissions` variable. For example:
+When using [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) as the `admin_access_id` of the Gateway, make sure to also set a list of users that are able to manage your Akeyless Gateway configuration using the `allowed_access_permissions` variable. For example:
 
 ```shell AWS_IAM
 variable "admin_access_id_type" {
@@ -107,7 +107,7 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `aws_iam`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 ### Customer Fragment
 
@@ -200,7 +200,7 @@ The **Serverless Gateway** will boot with the version you chose.
 
 The Akeyless Serverless Gateway does not support:
 
-* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) and [LDAP](https://docs.akeyless.io/docs/ldap) Authentication Methods
+* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) and [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Authentication Methods
 * [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway status change

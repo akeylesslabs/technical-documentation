@@ -86,7 +86,7 @@ The Akeyless **Java** SDK supports multiple [Authentication Methods](https://doc
 
 ### API Key
 
-To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
+To use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) for authentication set the following:
 
 ```java
 Configure body = new Configure();

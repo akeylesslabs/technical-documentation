@@ -196,7 +196,7 @@ akeyless get-certificate \
   --out-file root-ca.pem
 ```
 
-* [https://docs.akeyless.io/docs/certificate-based-authentication?isFramePreview=true#getting-a-certificate](https://docs.akeyless.io/docs/certificate-based-authentication?isFramePreview=true#getting-a-certificate)
+* [https://docs.akeyless.io/docs/auth-with-certificate?isFramePreview=true](https://docs.akeyless.io/docs/auth-with-certificate?isFramePreview=true)
 
 Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the signing machine (or any machine verifying the signature).
 

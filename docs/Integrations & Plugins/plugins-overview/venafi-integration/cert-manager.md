@@ -34,8 +34,8 @@ Once cert-manager is installed and running in your Kubernetes cluster, you’ll 
 
 The following Authentication Methods are supported:
 
-* [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth)
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [Kubernetes Auth](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
 The Secret object allows cert-manager to connect to Akeyless:
 

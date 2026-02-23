@@ -26,9 +26,9 @@ When performing integration tests and deployments, build scripts need credential
 >
 > Currently, TeamCity plugin supports three authentication methods:
 >
-> * [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-> * [LDAP](https://docs.akeyless.io/docs/ldap)
-> * Akeyless [API Key](https://docs.akeyless.io/docs/api-key)
+> * [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+> * [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
+> * Akeyless [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 >
 > Ensure that your [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) is associated with an [access role](https://docs.akeyless.io/docs/rbac) that has sufficient permissions to access the required secrets.
 
@@ -68,11 +68,11 @@ Where:
 
 * **Authentication method:** Select the authentication method to use when authenticating with Akeyless.
 
-Available options: AWS IAM, LDAP, or Akeyless [API Key](https://docs.akeyless.io/docs/api-key) (HashiCorp Vault AppRole).
+Available options: AWS IAM, LDAP, or Akeyless [API Key](https://docs.akeyless.io/docs/auth-with-api-key) (HashiCorp Vault AppRole).
 
-For example, to use [API Key](https://docs.akeyless.io/docs/api-key) set the following:
+For example, to use [API Key](https://docs.akeyless.io/docs/auth-with-api-key) set the following:
 
-* **AppRole Role ID:** Your [API Key](https://docs.akeyless.io/docs/api-key) `Access ID` .
+* **AppRole Role ID:** Your [API Key](https://docs.akeyless.io/docs/auth-with-api-key) `Access ID` .
 
 * **AppRole Secret ID**: `Access Key` of the provided `Access ID`.
 

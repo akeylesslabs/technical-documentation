@@ -108,9 +108,9 @@ Where:
 
 * `access_id` - The Auth Method **Access ID**.  
 
-* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth Method.
+* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method.
 
-* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Method.
+* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Method.
 
 ### Create a Self-Signed Certificate
 

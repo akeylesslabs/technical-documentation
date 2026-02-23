@@ -182,7 +182,7 @@ selecting a hash function between sha-256 and sha-512. The full parameters for t
 
 * **Type:** The algorithm type of key to be created (`AESxxxGCM`, `AESxxxSIV`, `AESxxxCBC`, `RSAxxxx`).
 
-* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
 
 * **Protection level (For classic keys targeting GCP):** Users can select either "software" (default) or "hardware" (HSM) options for key creation. Choosing "hardware" generates keys within a Hardware Security Module for enhanced security. For classic keys targeting GCP, you can select the protection level (hardware or software) after creating the key. In the "Provision to an external KMS" section, click "Attach," select the GCP target, and choose the appropriate protection level.
 

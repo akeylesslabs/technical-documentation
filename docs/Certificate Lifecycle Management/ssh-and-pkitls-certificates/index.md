@@ -227,7 +227,7 @@ Creating a CA private key and root certificate to build your chain of trust:
 
 * **Type:** The encryption algorithm used for the key.
 
-* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
 
 * **Generate-Self-Signed-Certificate:** Enable this option to generate your root CA certificate as part of the key creation.
 
