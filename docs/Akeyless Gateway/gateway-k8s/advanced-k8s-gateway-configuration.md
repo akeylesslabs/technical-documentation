@@ -95,7 +95,7 @@ TLSConf:
 
 You can also configure the default settings using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) UI.
 
-A default [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) `Access ID` can be set for the Gateway (using either `defaultSamlAccessId` or `defaultOidcAccessId` respectively) to automatically select the Auth Method for end-users logging in to the Gateway Console (port `18888`), upon clicking on the respective Auth Method.
+A default [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) `Access ID` can be set for the Gateway (using either `defaultSamlAccessId` or `defaultOidcAccessId` respectively) to automatically select the Auth Method for end-users logging in to the Gateway Console (port `18888`), upon clicking on the respective Auth Method.
 
 For OIDC, to leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
@@ -119,11 +119,11 @@ defaultsConf:
   defaultSecretLocation: "</Path/To/Save/Secrets>"
 ```
 
-To work with [CBA](https://docs.akeyless.io/docs/certificate-based-authentication) flow for users login, first set your users' DNS records with the cert authentication subdomain `auth-cert.akeyless.io` to point to your Gateway IP address.
+To work with [CBA](https://docs.akeyless.io/docs/auth-with-certificate) flow for users login, first set your users' DNS records with the cert authentication subdomain `auth-cert.akeyless.io` to point to your Gateway IP address.
 
 And set your deployment with the following parameters:
 
-Under `TLSConf` section, enable the `enableSniProxy` setting, and under the `defaultsConf` section provide your [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) Auth Method `accessID`:
+Under `TLSConf` section, enable the `enableSniProxy` setting, and under the `defaultsConf` section provide your [Certificate](https://docs.akeyless.io/docs/auth-with-certificate) Auth Method `accessID`:
 
 ```yaml
 TLSConf:

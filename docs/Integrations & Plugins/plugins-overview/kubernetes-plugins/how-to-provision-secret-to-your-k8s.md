@@ -61,7 +61,7 @@ akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234"
 
 > 👍 Note
 >
-> The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/kubernetes-auth) called **K8s_Auth** in **K8s** folder that is `K8s/K8s_Auth`
+> The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/auth-with-kubernetes) called **K8s_Auth** in **K8s** folder that is `K8s/K8s_Auth`
 
 ### Create an Access Role
 

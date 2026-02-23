@@ -20,7 +20,7 @@ While the process has an initiation phase where the Admin creates the original a
 
 ## Create a Universal Identity Authentication Method with the CLI
 
-Let's create a new Universal Identity authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/universal-identity#create-a-iniversal-identity-authentication-method-in-the-akeyless-console).)
+Let's create a new Universal Identity authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-universal-identity).)
 
 To create a new Universal Identity authentication method with the CLI, run the following command:
 

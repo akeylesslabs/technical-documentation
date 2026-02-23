@@ -41,14 +41,14 @@ Configure a [self-hosted-runner](https://docs.github.com/en/actions/hosting-your
 
 This Action plugin supports the following Authentication Methods:
 
-* [JWT](https://docs.akeyless.io/docs/oauth20jwt)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
-* [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
-* [Access Key](https://docs.akeyless.io/docs/api-key)
-* [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
+* [JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
+* [Access Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 
 ### GitHub Repository Variable
 

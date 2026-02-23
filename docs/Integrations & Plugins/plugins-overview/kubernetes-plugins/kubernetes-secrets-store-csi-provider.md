@@ -53,11 +53,11 @@ The `SecretProviderClass` is a namespaced resource in Secrets Store CSI Provider
 
 Supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods):
 
-* [API Key](https://docs.akeyless.io/docs/api-key)  
-* [Kubernetes (K8s)](https://docs.akeyless.io/docs/kubernetes-auth)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)  
+* [Kubernetes (K8s)](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 
 `SecretProviderClass` custom resource should state the `akeylessAccessType`- which can be one of the supported [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods)
 

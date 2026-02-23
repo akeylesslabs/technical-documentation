@@ -16,7 +16,7 @@ next:
 
 The process of generating a certificate request from a Kubernetes cluster to Akeyless is divided into three steps:
 
-* Generating **Authentication Token** either using an [API Key](https://docs.akeyless.io/docs/api-key) or using [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) ServiceAccount token - This token will be used for authenticating to Akeyless.
+* Generating **Authentication Token** either using an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or using [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) ServiceAccount token - This token will be used for authenticating to Akeyless.
 * Configuring an **Issuer** - A Kubernetes resource that represents the Certificate Authority (CA).
 * Configuring the **Certificate Signing Request (CSR)** - A file that contains the data for the certificate
 
@@ -25,7 +25,7 @@ Once all of the above are set, **CSR** will be generated to Akeyless from the Ku
 ## Prerequisites
 
 * [cert-manager](https://cert-manager.io/docs/installation/) installed
-* A [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) or an [API Key](https://docs.akeyless.io/docs/api-key) Auth Method attached to a role with `read` permission for **Items**
+* A [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method attached to a role with `read` permission for **Items**
 * [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)
 
 Create a Namespace called `akeyless-cert-manager`:
@@ -133,7 +133,7 @@ At this stage, all the configuration for Kubernetes authentication is set and it
 
 ### API Key Auth Method
 
-In order to use an [API Key](https://docs.akeyless.io/docs/api-key) Auth Method for generating certificate requests from the Kubernetes cluster to Akeyless, An **Authentication Token** is required.
+In order to use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method for generating certificate requests from the Kubernetes cluster to Akeyless, An **Authentication Token** is required.
 
 The **Authentication Token** will be created using a `Secret` resource which will hold the `Access-Key` of the API Key Auth Method.
 

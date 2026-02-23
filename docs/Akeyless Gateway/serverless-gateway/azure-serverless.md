@@ -52,8 +52,8 @@ Set your Gateway with a default [Authentication Method](https://docs.akeyless.io
 
 The following Authentication Methods are supported for Azure Serverless:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
 
 > 👍 Tip
 >
@@ -61,7 +61,7 @@ The following Authentication Methods are supported for Azure Serverless:
 >
 > When using the **Azure AD** authentication method, you can configure a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) on the associated [Access Role](https://docs.akeyless.io/docs/rbac) to match the user's **Azure Object ID** which can be found under **Identity** tab, in the **Function App** running the gateway.
 
-When using [Azure AD](https://docs.akeyless.io/docs/azure-ad) as the `admin_access_id` of the Gateway, make sure to set in addition a list of users that will be able to manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
+When using [Azure AD](https://docs.akeyless.io/docs/auth-with-azure) as the `admin_access_id` of the Gateway, make sure to set in addition a list of users that will be able to manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
 
 ```shell Azure_AD
 using 'main.bicep'
@@ -76,7 +76,7 @@ param akeyless_url = 'https://vault.akeyless.io'
 @description('Cluster Name')
 param cluster_name = 'Azure Serverless'
 
-@description('Allowed values are azure_ad or access_key https://docs.akeyless.io/docs/access-and-authentication-method')
+@description('Allowed values are azure_ad or access_key https://docs.akeyless.io/docs/access-and-authentication-methods')
 param admin_access_id_type = 'azure'
 
 @description('Akeyless Admin Access ID')
@@ -130,7 +130,7 @@ param akeyless_url = 'https://vault.akeyless.io'
 @description('Cluster Name')
 param cluster_name = 'Azure Serverless'
 
-@description('Allowed values are azure or access_key https://docs.akeyless.io/docs/access-and-authentication-method')
+@description('Allowed values are azure or access_key https://docs.akeyless.io/docs/access-and-authentication-methods')
 param admin_access_id_type = 'access_key'
 
 @description('Akeyless Admin Access ID')
@@ -181,7 +181,7 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 * `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
 
@@ -271,8 +271,8 @@ To configure your Akeyless Gateway:
 
 ## Limitations: Unavailable Services
 
-* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
-* [LDAP Authentication](https://docs.akeyless.io/docs/ldap)
+* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [LDAP Authentication](https://docs.akeyless.io/docs/auth-with-ldap)
 * [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway Status Change

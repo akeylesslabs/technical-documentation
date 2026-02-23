@@ -77,7 +77,7 @@ To deploy a gateway with the SRA utility, run the following steps:
 
    * `GATEWAY_ACCESS_TYPE`: The `AccessType` of the authentication method.
 
-   * `GATEWAY_ACCESS_KEY`: The `AccessKey` of the authentication method (relevant only for [API Key](https://docs.akeyless.io/docs/api-key#/)).
+   * `GATEWAY_ACCESS_KEY`: The `AccessKey` of the authentication method (relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key)).
 
    * `ALLOWED_ACCESS_PERMISSIONS`: A list of users that will be able to manage your Gateway configuration
 

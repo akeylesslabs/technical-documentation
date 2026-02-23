@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to fetch [Secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview) into [CircleCI](https://circleci.com/docs/pipelines/) pipelines, either integrating the native CircleCI short-lived [OIDC](https://docs.akeyless.io/docs/openid) authentication tokens, or using any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with Akeyless native [RBAC](https://docs.akeyless.io/docs/rbac).
+The Akeyless plugin for CircleCI enables a secure, easy, and integrative way to fetch [Secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview) into [CircleCI](https://circleci.com/docs/pipelines/) pipelines, either integrating the native CircleCI short-lived [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication tokens, or using any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) with Akeyless native [RBAC](https://docs.akeyless.io/docs/rbac).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ You can find your CircleCI organization ID by navigating to **Organization Setti
 
 The OpenID Connect ID tokens issued by CircleCI have a fixed audience which is also the organization ID. A full list of available claims can be found [here](https://circleci.com/docs/openid-connect-tokens#format-of-the-openid-connect-id-token), and can be later used for the [Access Roles](https://docs.akeyless.io/docs/rbac) setup.
 
-In Akeyless Platform, create a new [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Authentication Method with the following settings:
+In Akeyless Platform, create a new [OAuth2.0/JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) Authentication Method with the following settings:
 
 ```shell
 akeyless create-auth-method-oauth2 --name /Dev/CI/CircleCIAuth \ 

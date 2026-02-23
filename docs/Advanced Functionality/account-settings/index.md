@@ -48,7 +48,7 @@ Option to set an alias for the account, this requires **Akeyless Customer Succes
 
 #### Password Expiration Policy
 
-Set user passwords to expire after a number of days, relevant for the Account Owner and any [Email](https://docs.akeyless.io/docs/email) authentication method.
+Set user passwords to expire after a number of days, relevant for the Account Owner and any [Email](https://docs.akeyless.io/docs/auth-with-email) authentication method.
 
 #### Change Password
 

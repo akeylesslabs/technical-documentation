@@ -26,14 +26,14 @@ Using GitLab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab
 
 This plugin supports the following Authentication Methods:
 
-* [JWT](https://docs.akeyless.io/docs/oauth20jwt)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
-* [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
-* [Access Key](https://docs.akeyless.io/docs/api-key)
-* [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication)
+* [JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
+* [Access Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 
 To utilized the plugin you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless.
 
@@ -112,7 +112,7 @@ secrets:
         akeyless_token: '<t-token>'
 ```
 
-Where make sure to set the relevant `access_type` according to the Auth Method type you are using. For example the [API Key](https://docs.akeyless.io/docs/api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. that is `access_key: $AKEYLESS_ACCESS_KEY`.
+Where make sure to set the relevant `access_type` according to the Auth Method type you are using. For example the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. that is `access_key: $AKEYLESS_ACCESS_KEY`.
 
 > 🚧 Warning
 >
@@ -122,7 +122,7 @@ Where make sure to set the relevant `access_type` according to the Auth Method t
 
 ## Usage
 
-Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml` and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/oauth20jwt) Auth Method.
+Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml` and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) Auth Method.
 
 > 📘 Tip
 >

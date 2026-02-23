@@ -19,17 +19,17 @@ next:
 
 The following Authentication Methods can be used:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
 > 👍 Note
 >
 > In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For macOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
-Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/api-key) using the CLI:
+Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) using the CLI:
 
 ```shell
 akeyless create-auth-method --name /Dev/Spire-Agent-Auth
@@ -126,7 +126,7 @@ For **Kubernetes**, **GCP** or **AzureAD** Auth Method set the following setting
 >
 > **SPIRE Server**
 >
-> You are required to start the [SPIRE server](https://docs.akeyless.io/docs/keymanager#spire-server-initialization) before running the Agent commands.
+> You are required to start the [SPIRE server](https://docs.akeyless.io/docs/spire-keymanager) before running the Agent commands.
 
 In order to attest the SPIRE agent to the server, create a join token:
 
