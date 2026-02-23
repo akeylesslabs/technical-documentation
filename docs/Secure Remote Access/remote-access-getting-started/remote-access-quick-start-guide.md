@@ -28,10 +28,10 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 * Minimum 1 vCPU available with 2 GB RAM per resource
 * The following ports need to be open on the cluster:
 
-| Service                                                                                      | Port |
-| :------------------------------------------------------------------------------------------- | :--- |
+| Service | Port |
+| --- | --- |
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
-| SSH Access                                                                                   | 22   |
+| SSH Access | 22 |
 
 > 📘 First things first
 >

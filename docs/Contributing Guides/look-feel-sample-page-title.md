@@ -62,9 +62,9 @@ Horizontal line: "***" or "---"
 Table:
 
 | Header | Header |
-| ------ | ------ |
-| Text   | Text   |
-| Text   | Text   |
+| --- | --- |
+| Text | Text |
+| Text | Text |
 
 Fenced Code Block:
 

@@ -46,12 +46,12 @@ next:
 
 ### Required Permissions
 
-| Action                           | Permissions                                                                   |
+| Action | Permissions |
 | --- | --- |
-| Create/Delete user               | `User.ReadWrite.All`, `Directory.ReadWrite.All`                               |
-| Add user to group                | `GroupMember.ReadWrite.All`, `Group.ReadWrite.All`, `Directory.ReadWrite.All` |
-| Add user role                    | `RoleManagement.ReadWrite.Directory`                                          |
-| Create/Delete application secret | `Application.ReadWrite.OwnedBy`, `Application.ReadWrite.All`                  |
+| Create/Delete user | `User.ReadWrite.All`, `Directory.ReadWrite.All` |
+| Add user to group | `GroupMember.ReadWrite.All`, `Group.ReadWrite.All`, `Directory.ReadWrite.All` |
+| Add user role | `RoleManagement.ReadWrite.Directory` |
+| Create/Delete application secret | `Application.ReadWrite.OwnedBy`, `Application.ReadWrite.All` |
 
 ## Certificate & Secrets
 

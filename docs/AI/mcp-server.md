@@ -80,7 +80,7 @@ Access to the Akeyless MCP server is setup for a MCP client with a configuration
 #### Configuration Parameters
 
 | Configuration | Description | Required | Default Value |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `command` | Path to the Akeyless CLI binary | Yes | (none) |
 | `args.--access-id` | The Akeyless access ID to authenticate with | Yes* (if using the `access_key` access type) | (none) |
 | `args.--access-key` | The Akeyless access key to authenticate with | Yes* (if using the `access_key` access type) | (none) |

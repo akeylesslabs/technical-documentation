@@ -51,7 +51,7 @@ To set up Akeyless KMS Integration with GCP KMS, follow these steps:
     The value of the `--kms-algorithm` parameter depends on the key type, key size, and the selected purpose:
 
     | Key Type + Purpose | KMS Algorithm |
-    |---|---|
+    | --- | --- |
     | `AES ENCRYPT_DECRYPT` | `GOOGLE_SYMMETRIC_ENCRYPTION` |
     | `AES MAC` | `HMAC_SHA256` |
     | `RSA ASYMMETRIC_SIGN` | `RSA_SIGN_PSS_2048_SHA256`, `RSA_SIGN_PSS_3072_SHA256`, `RSA_SIGN_PSS_4096_SHA256`, `RSA_SIGN_PSS_4096_SHA512`, `RSA_SIGN_PKCS1_2048_SHA256`, `RSA_SIGN_PKCS1_3072_SHA256`, `RSA_SIGN_PKCS1_4096_SHA256`, `RSA_SIGN_PKCS1_4096_SHA256`, `RSA_SIGN_PKCS1_4096_SHA512`, `RSA_SIGN_RAW_PKCS1_2048`, `RSA_SIGN_RAW_PKCS1_3072`, `RSA_SIGN_RAW_PKCS1_4096` |

@@ -13,7 +13,7 @@ next:
 The following table describes the main functionality of Akeyless microservices in the **US** environment:
 
 | Service | Endpoint | IP | Port | Description |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Console | `https://console.us.akeyless.io` | 4.242.224.82 | 443 | Akeyless SaaS Platform |
 | Vault | `https://vault.us.akeyless.io`, `https://vault-ro.us.akeyless.io` | 68.154.26.48, 4.242.224.82 | 443 | User Account Management (UAM), managing user accounts, items, and roles |
 | Auth | `https://auth.us.akeyless.io`, `https://auth-ro.us.akeyless.io` | 68.154.26.48, 4.242.224.82 | 443 | Akeyless Authentication service |

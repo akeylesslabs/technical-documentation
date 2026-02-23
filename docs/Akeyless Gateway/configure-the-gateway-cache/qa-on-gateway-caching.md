@@ -90,14 +90,14 @@ While both clients rely on the Gateway for secret retrieval, ESO's model of sync
 
 The different Gateway Cache configuration options related to caching are:
 
-| Name                         | Description                                                                                              |
-| :--------------------------- | :------------------------------------------------------------------------------------------------------- |
-| `CACHE_ENABLE`               | Whether the cache is enabled                                                                             |
-| `PROACTIVE_CACHE_ENABLE`     | Whether to enable proactive caching                                                                      |
-| `NEW_PROACTIVE_CACHE_ENABLE` | Whether to use the new/more efficient proactive cache mechanism                                          |
-| `PREFER_CLUSTER_CACHE_FIRST` | Whether to rely first on the cluster cache and then the local cache                                      |
-| `CACHE_MAX_ITEMS`            | Control the maximum amount of proactive cache items. This will override the default value of 50K objects |
-| `IGNORE_REDIS_HEALTH`        | `/health` check will ignore if Redis is down, and reply with `Health Check Ok` and `200 OK`              |
+| Name | Description |
+| --- | --- |
+| `CACHE_ENABLE` | Whether the cache is enabled |
+| `PROACTIVE_CACHE_ENABLE` | Whether to enable proactive caching |
+| `NEW_PROACTIVE_CACHE_ENABLE` | Whether to use the new/more efficient proactive cache mechanism |
+| `PREFER_CLUSTER_CACHE_FIRST` | Whether to rely first on the cluster cache and then the local cache |
+| `CACHE_MAX_ITEMS` | Control the maximum amount of proactive cache items. This will override the default value of 50K objects |
+| `IGNORE_REDIS_HEALTH` | `/health` check will ignore if Redis is down, and reply with `Health Check Ok` and `200 OK` |
 
 There are no differences between the `Kubernetes/Helm chart` options and the `VM-based/Docker` deployment methods. All configurations listed above can be used and function identically in both deployment types.
 Additional specific settings could be found in the Gateway Kubernetes configuration page

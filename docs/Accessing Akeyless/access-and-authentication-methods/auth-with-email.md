@@ -30,7 +30,7 @@ To create a new email-based Authentication Method with the Console:
 2. Select **+ New**. This opens the **Create Authentication Method** form.
 3. On the **Type** selection screen, select **Email**, then **Next →**.
 4. Enter a name for the Authentication Method, such as `My Email User 1` in the **Name** field, then select **Next →**.
-5. Supply the designated email address in the **Email** field. Optionally, configure [Two-Factor Authentication](#two-factor-authentication).
+5. Supply the designated email address in the **Email** field. Optionally, configure [Two-Factor Authentication](#optional-features).
 6. Select **Finish**.
 
 An email prompting to set a password and activate the Authentication Method will be sent to the specified email address. Be sure to associate the email Authentication Method with one or more Roles.
