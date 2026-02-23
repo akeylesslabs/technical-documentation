@@ -44,11 +44,11 @@ Note that this guide assumes you already have a gateway, and will only refer to 
 
 The Docker Compose file defines the following services:
 
-| Service                                                             | Description                                       | Ports                       |
-| :------------------------------------------------------------------ | :------------------------------------------------ | :-------------------------- |
-| [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-compose#/) | Central access control and authentication gateway | 8000 (API), 8080 (Health)   |
-| SRA Web                                                             | Web-based Zero Trust portal for remote access     | As specified in YAML        |
-| SRA SSH Proxy                                                       | Secure SSH-based remote access                    | 2222 (SSH), 9900 (Internal) |
+| Service | Description | Ports |
+| --- | --- | --- |
+| [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-compose#/) | Central access control and authentication gateway | 8000 (API), 8080 (Health) |
+| SRA Web | Web-based Zero Trust portal for remote access | As specified in YAML |
+| SRA SSH Proxy | Secure SSH-based remote access | 2222 (SSH), 9900 (Internal) |
 
 Each service runs within an isolated Docker bridge network (internal-net), ensuring secure internal communication.
 

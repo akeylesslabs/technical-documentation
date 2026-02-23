@@ -37,7 +37,7 @@ Kubernetes external KMS plugin can be deployed using a [static pod](https://kube
 ## Akeyless Environment Variables
 
 | Name | Value | Default |
-|---|---|---|
+| --- | --- | --- |
 | `AKEYLESS_URL` | URL of the Akeyless REST API Gateway (port 8081) | [https://api.akeyless.io](https://api.akeyless.io) |
 | `AKEYLESS_UNIX_SOCKET` | Path to listen on Unix socket | `/tmp/akeyless_kms_plugin.sock` |
 | `AKEYLESS_KEY_ENCRYPTION_KEY` | The key used for encryption (decryption is handled automatically) | N/A |

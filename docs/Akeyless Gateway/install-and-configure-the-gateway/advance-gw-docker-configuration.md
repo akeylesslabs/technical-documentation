@@ -162,7 +162,7 @@ In the above example, your Gateway **Admins** are `test01@testhost.com,test01@te
 Full list of available permissions:
 
 | Permission | Description |
-|---|---|
+| --- | --- |
 | `defaults` | Management of the defaults settings of your Gateway, including `Default Encryption Key` and `Default AccessID` for login. |
 | `targets` | Management of all Targets items that were created using your Gateway |
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |

@@ -36,25 +36,25 @@ To configure **Access Permissions** in your [Gateway Configuration Manager](http
 
 5. If you choose **Custom**, select the relevant permissions to grant that Auth Method:
 
-| Permission                      | Description                                                                                                                   |
-| :------------------------------ | :---------------------------------------------------------------------------------------------------------------------------- |
-| **Defaults**                    | Management of the default settings of your Gateway                                                                            |
-| **Zero-Knowledge Encryption**   | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge)                                                  |
-| **Targets**                     | Management of all Target items that were created using your Gateway                                                           |
-| **Dynamic Secret**              | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)                                   |
-| **Rotated Secret**              | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets)                                                |
-| **Rotate Secret Value**         | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item. |
-| **Classic Keys**                | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys)                                                      |
-| **Kubernetes Auth**             | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration                         |
-| **LDAP Auth**                   | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration                                         |
-| **Kerberos Auth**               | Management of [Kerberos](https://docs.akeyless.io/docs/auth-with-kerberos) Auth Gateway configuration                                  |
-| **Caching**                     | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings                            |
-| **Automatic Migration**         | Management of [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration) settings                              |
-| **Log-Forwarding**              | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings                                        |
-| **Event-Forwarding**            | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings                                        |
-| **KMIP**                        | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server)                                                       |
-| **ACME**                        | Management of [ACME Servers](https://docs.akeyless.io/docs/acme-server)                                                       |
-| **Remote Access Configuration** | Management of Remote Access configuration                                                                                     |
+| Permission | Description |
+| --- | --- |
+| **Defaults** | Management of the default settings of your Gateway |
+| **Zero-Knowledge Encryption** | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
+| **Targets** | Management of all Target items that were created using your Gateway |
+| **Dynamic Secret** | Management of [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) |
+| **Rotated Secret** | Management of [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) |
+| **Rotate Secret Value** | Grants permission **only** to rotate the secret value, without allowing manual edits. Requires `read` permission on the item. |
+| **Classic Keys** | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
+| **Kubernetes Auth** | Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Gateway configuration |
+| **LDAP Auth** | Management of [LDAP](https://docs.akeyless.io/docs/ldap) Auth Gateway configuration |
+| **Kerberos Auth** | Management of [Kerberos](https://docs.akeyless.io/docs/kerberos) Auth Gateway configuration |
+| **Caching** | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings |
+| **Automatic Migration** | Management of [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration) settings |
+| **Log-Forwarding** | Management of [Log Forwarding](https://docs.akeyless.io/docs/log-forwarding) settings |
+| **Event-Forwarding** | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
+| **KMIP** | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
+| **ACME** | Management of [ACME Servers](https://docs.akeyless.io/docs/acme-server) |
+| **Remote Access Configuration** | Management of Remote Access configuration |
 
 Based on the selected operations, the relevant Auth Method will only have access to initiate those operations.
 

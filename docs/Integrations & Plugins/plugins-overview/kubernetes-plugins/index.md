@@ -31,15 +31,15 @@ The following plugins are available for Kubernetes:
 
 Akeyless provides multiple ways to consume secrets from Kubernetes. The following matrix compares the most common integrations:
 
-| Capability / Feature                       | External Secrets Operator (ESO)                       | Akeyless Kubernetes Secrets Injector                        | Akeyless Secrets Store CSI Provider                 | Cert Manager (Akeyless issuer)                    |
-| ------------------------------------------ | ----------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
-| _Primary use case_                         | Sync Akeyless secrets into Kubernetes Secrets         | Inject secrets directly into pods at runtime                | Mount secrets as volumes in pods                    | Issue TLS certs from Akeyless                     |
-| _Secret storage in Kubernetes_             | Yes (Kubernetes Secret objects)                       | No (file/env in pod only)                                   | No (mounted files only)                             | Partial (only certificates as Kubernetes secrets) |
-| _Secret injection method_                  | Controller reconciles `ExternalSecret` CRDs           | Mutating Admission Webhook (init and optional sidecar)      | CSI driver mounts secrets into container filesystem | Certificate issuance and renewal                  |
-| _Supported Secret Types_                   | Static, Rotated, Dynamic, Certificates                | Static, Rotated, Dynamic, Certificates, USC                 | Static, Rotated, Certificates                       | Certificates                                      |
-| _Push secrets from Kubernetes to Akeyless_ | Yes (`PushSecret`)                                    | No                                                          | No                                                  | No                                                |
-| _Native JSON extraction and templating_    | Yes (`dataFrom.extract`, templating support)          | No (app reads raw file/env values)                          | No                                                  | N/A                                               |
-| Ideal for                                  | GitOps, configurations as code, multi-tenant clusters | App-centric injection with no Kubernetes Secret persistence | File-based consumption, legacy apps expecting files | TLS for Ingress and Service objects               |
+| Capability / Feature | External Secrets Operator (ESO) | Akeyless Kubernetes Secrets Injector | Akeyless Secrets Store CSI Provider | Cert Manager (Akeyless issuer) |
+| --- | --- | --- | --- | --- |
+| _Primary use case_ | Sync Akeyless secrets into Kubernetes Secrets | Inject secrets directly into pods at runtime | Mount secrets as volumes in pods | Issue TLS certs from Akeyless |
+| _Secret storage in Kubernetes_ | Yes (Kubernetes Secret objects) | No (file/env in pod only) | No (mounted files only) | Partial (only certificates as Kubernetes secrets) |
+| _Secret injection method_ | Controller reconciles `ExternalSecret` CRDs | Mutating Admission Webhook (init and optional sidecar) | CSI driver mounts secrets into container filesystem | Certificate issuance and renewal |
+| _Supported Secret Types_ | Static, Rotated, Dynamic, Certificates | Static, Rotated, Dynamic, Certificates, USC | Static, Rotated, Certificates | Certificates |
+| _Push secrets from Kubernetes to Akeyless_ | Yes (`PushSecret`) | No | No | No |
+| _Native JSON extraction and templating_ | Yes (`dataFrom.extract`, templating support) | No (app reads raw file/env values) | No | N/A |
+| Ideal for | GitOps, configurations as code, multi-tenant clusters | App-centric injection with no Kubernetes Secret persistence | File-based consumption, legacy apps expecting files | TLS for Ingress and Service objects |
 
 ## Tutorial
 

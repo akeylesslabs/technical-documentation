@@ -19,11 +19,11 @@ Example of a Rotated Secret that was configured with the following rotation sett
 
 * **Graceful Rotation**: `10 days`
 
-  * On day `80`: New credentials are created.
+    * On day `80`: New credentials are created.
 
-  * Days `80–90`: Both old and new credentials are valid in the cloud provider.
+    * Days `80–90`: Both old and new credentials are valid in the cloud provider.
 
-  * On day `90`: Old credentials are removed, only the new credentials remain.
+    * On day `90`: Old credentials are removed, only the new credentials remain.
 
 <Image align="center" src="https://files.readme.io/2c5be3d5a7debd87cf99a22b10acd814dd535602984416d43e6642c365ae1b21-Before_--grace-rotation-timing__before.jpg" />
 
@@ -35,11 +35,11 @@ Example of a Rotated Secret that was configured with the following rotation sett
 
 * **Graceful Rotation**: `10 days`
 
-  * On day `90`: New credentials are created.
+    * On day `90`: New credentials are created.
 
-  * Days `90–100`: Both old and new credentials are valid in the cloud provider.
+    * Days `90–100`: Both old and new credentials are valid in the cloud provider.
 
-  * On day `100`: Old credentials are rotated, only the new set of credentials remain.
+    * On day `100`: Old credentials are rotated, only the new set of credentials remain.
 
 <Image align="center" src="https://files.readme.io/d698e2b93fa560e1e14a3cc6d52f2bc4ffae3ed380e7e3732af569eebc1fc67d-After_--grace-rotation-timing__after_.png" />
 
