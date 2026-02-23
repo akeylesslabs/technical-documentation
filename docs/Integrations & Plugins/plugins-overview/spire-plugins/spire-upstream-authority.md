@@ -85,7 +85,7 @@ akeyless create-classic-key \
 --name <Key Name> \
 --alg <RSA2048 / RSA4096 / EC256 / EC384> \
 --generate-self-signed-certificate <True> \
---gateway-url <http://<Your-Akeyless-GW-URL:8000> \
+--gateway-url <http://<Your-Akeyless-GW-URL>:8000> \
 --certificate-ttl <TTL>
 ```
 
@@ -172,13 +172,13 @@ Open your SPIRE Server Conf file which you will find in the `spire-` directory a
 
 ```shell
 UpstreamAuthority  "akeyless_upstream" {
-     plugin_cmd = "/path/to/plugin_cmd"
-     plugin_checksum = "sha256 of the plugin binary"
-     plugin_data {
-       akeyless_gateway_url = '<https://<Your-Akeyless-GW-URL:8000/api/v2>'
-       access_id = "<Your_Access_ID>"
-       access_key = "<Your_Access_KEY>"
-       pki_cert_issuer_name = "<PKI_ISSUER_NAME>"
+    plugin_cmd = "/path/to/plugin_cmd"
+    plugin_checksum = "sha256 of the plugin binary"
+    plugin_data {
+        akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL>:8000/api/v2'
+        access_id = "<Your_Access_ID>"
+        access_key = "<Your_Access_KEY>"
+        pki_cert_issuer_name = "<PKI_ISSUER_NAME>"
     }
 }  
 ```

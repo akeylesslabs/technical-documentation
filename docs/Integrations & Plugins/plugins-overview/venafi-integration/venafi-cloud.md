@@ -31,7 +31,7 @@ The following command creates a Venafi **Dynamic Secret** using Venafi as the **
 ```shell
 akeyless dynamic-secret create venafi \
   --name my-venafi-dynamic-secret \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --venafi-api-key <YOUR VENAFI API KEY> \
   --venafi-zone <YOUR VENAFI ZONE>
 ```
@@ -82,7 +82,7 @@ Create the Venafi **Dynamic Secret** in Akeyless Gateway:
 ```shell
 akeyless dynamic-secret create venafi \
   --name my-venafi-dynamic-secret \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --venafi-api-key <YOUR VENAFI API KEY> \
   --venafi-zone <YOUR VENAFI ZONE> \
   --allowed-domains '[*]' \

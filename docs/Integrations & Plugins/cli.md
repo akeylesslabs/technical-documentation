@@ -245,11 +245,11 @@ When creating a profile with the CLI, the profile contains only the Authenticati
 
 However, you can configure additional parameters as defaults in your profile. Once set, these default parameters will automatically be used for your commands unless you choose to override them explicitly.
 
-The following parameters can be added to a profile, for example, on the`deafult` profile:
+The following parameters can be added to a profile, for example, on the `default` profile:
 
 ```toml default.toml
 ["default"]
-  gateway_url = 'https://<Your-Akeyless-GW-URL:8000>'
+  gateway_url = 'https://<Your-Akeyless-GW-URL>:8000'
   default_location_prefix = 'non-production' 
   cert_issuer_name = '/cert/IssuerName'
   cert_username = 'ubuntu'
