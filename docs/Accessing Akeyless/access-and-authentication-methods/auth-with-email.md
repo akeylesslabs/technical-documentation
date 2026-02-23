@@ -20,7 +20,7 @@ Email authentication is intended for **interactive human access** and is not rec
 
 ## Creating an Email Authentication Method
 
-Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additonal email-based Authentication Method for an existing account.
+Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additional email-based Authentication Method for an existing account.
 
 ### Creating an Email Authentication Method with the Console
 
