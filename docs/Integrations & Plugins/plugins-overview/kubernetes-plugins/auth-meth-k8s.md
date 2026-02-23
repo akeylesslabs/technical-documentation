@@ -33,14 +33,14 @@ AKEYLESS_ACCESS_TYPE: "k8s"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_conf_name"
 #you need to provide one of the following:
-AKEYLESS_GW_CONFIG_URL: "http://<Your-Akeyless-GW-URL:8000/console>" # or using port 18888
+AKEYLESS_GW_CONFIG_URL: "http://<Your-Akeyless-GW-URL>:8000/console" # or using port 18888
 or
-AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>" # or using port 8080
+AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1" # or using port 8080
 ```
 
 > 📘 Zero-Knowledge
 >
-> While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>"`
+> While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1"`
 
 ## Universal Identity (UID)
 
