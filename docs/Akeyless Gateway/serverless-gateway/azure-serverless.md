@@ -22,13 +22,13 @@ This guide describes how to run a Serverless Gateway on **Azure** based on [Func
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service                                                                        | Endpoint   |
-| :----------------------------------------------------------------------------- | :--------- |
+| Service | Endpoint |
+| --- | --- |
 | [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
-| Akeyless V1 REST API                                                           | `/api/v1`  |
-| Akeyless V2 REST API                                                           | `/api/v2`  |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
+| Akeyless V1 REST API | `/api/v1` |
+| Akeyless V2 REST API | `/api/v2` |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
 
 For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/api/v2/`
 

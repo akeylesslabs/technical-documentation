@@ -28,12 +28,12 @@ To create a Service Account in your Azure AD, follow the guide on [how to create
 
 ### Required Permissions by Action Type
 
-| Action                           | Permissions                                                                | Usage                                     |
-| :------------------------------- | :------------------------------------------------------------------------- | :---------------------------------------- |
-| Create/Delete user               | User.ReadWrite.All, Directory.ReadWrite.All                                | Ephemeral Azure Web Portal Credentials    |
-| Add user to group                | GroupMember.ReadWrite.All, Group.ReadWrite.All and Directory.ReadWrite.All | Ephemeral Azure Web Portal Credentials    |
-| Add user role                    | RoleManagement.ReadWrite.Directory                                         | Ephemeral Azure Web Portal Credentials    |
-| Create\Delete Application secret | Application.ReadWrite.OwnedBy, Application.ReadWrite.All                   | Ephemeral Azure Service Principal Secrets |
+| Action | Permissions | Usage |
+| --- | --- | --- |
+| Create/Delete user | User.ReadWrite.All, Directory.ReadWrite.All | Ephemeral Azure Web Portal Credentials |
+| Add user to group | GroupMember.ReadWrite.All, Group.ReadWrite.All and Directory.ReadWrite.All | Ephemeral Azure Web Portal Credentials |
+| Add user role | RoleManagement.ReadWrite.Directory | Ephemeral Azure Web Portal Credentials |
+| Create\Delete Application secret | Application.ReadWrite.OwnedBy, Application.ReadWrite.All | Ephemeral Azure Service Principal Secrets |
 
 ### Entra ID Custom Roles
 

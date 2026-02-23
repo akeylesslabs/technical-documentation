@@ -556,7 +556,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
     This stack will:
 
-    * Launch an [EC2 instance](https://aws.amazon.com/pm/ec2/?refid=3fc1271f-8d0f-43b5-b177-4fba4b680f8b) with Docker installed and ready to run containers.
+    * Launch an [EC2 instance](https://aws.amazon.com/ec2/) with Docker installed and ready to run containers.
 
     * Deploy the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) inside a Docker container on the **EC2 instance** for secure, high-availability access to Akeyless Vault services.
 

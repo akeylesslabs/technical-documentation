@@ -80,11 +80,11 @@ Username=Alice,Bob,Charlie,Dennis
 
 And this is the original mapping in your **Identity Provider**:
 
-| Groups      | Username     |
-| :---------- | :----------- |
-| Engineering | Alice        |
-| Security    | Bob, Charlie |
-| DevOps      | Dennis       |
+| Groups | Username |
+| --- | --- |
+| Engineering | Alice |
+| Security | Bob, Charlie |
+| DevOps | Dennis |
 
 Those claims can be templated as `/{{Groups}}/{{Username}}/*` (or the relevant attribute in your IdP) for your rule path:
 
