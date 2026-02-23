@@ -14,7 +14,7 @@ To set up a **Teams** Event Forwarder, use the following command:
 ```shell
 akeyless event-forwarder create teams \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <Teams Webhook URL> \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*> \

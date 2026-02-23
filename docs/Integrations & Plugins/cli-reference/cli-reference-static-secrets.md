@@ -315,8 +315,8 @@ akeyless static-secret-delete-sync \
 --name <Rotated Secret Name> \
 --usc-name <USC Name> \
 --remote-secret-name <Remote secret Name> \
---delete-from-usc[=false] [true / false]
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--delete-from-usc[=false] [true / false] \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ### Flags

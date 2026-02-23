@@ -19,7 +19,7 @@ To set up a **Slack** Event Forwarder, use the following command:
 ```shell
 akeyless event-forwarder create slack \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <slack URL> \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*> \
