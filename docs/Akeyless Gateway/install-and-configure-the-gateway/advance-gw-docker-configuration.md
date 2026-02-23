@@ -291,6 +291,55 @@ With the following attributes, you can mount the TLS certificate and the TLS Pri
 
 It is also possible to [Set up TLS](https://docs.akeyless.io/docs/tls-certificate) in the Gateway Configuration Manager after the Gateway is installed.
 
+### TLS and PQC Verification on Gateway
+
+#### Gateway Configuration Requirements
+
+In the Gateway Console, navigate to **Gateway > General** and configure the following fields:
+
+* **TLS Certificate**
+* **TLS Private Key**
+
+After saving these values, the Gateway applies TLS for the selected services.
+
+#### Where to Verify PQC Support
+
+After TLS is configured and the Gateway is available over HTTPS, validate the negotiated key exchange in your browser:
+
+1. Open your Gateway URL (for example, `https://localhost:8000/console`) in Chrome.
+2. Open Developer Tools.
+3. Navigate to the security/connection details for the current page.
+4. Verify the key exchange value includes `X25519MLKEM768`.
+
+#### PQC Verification
+
+The key element to verify is `X25519MLKEM768`, which represents a hybrid key exchange:
+
+* `X25519` – classical elliptic-curve cryptography
+* `MLKEM-768` – post-quantum cryptography
+
+This confirms the connection is using **TLS 1.3 with hybrid post-quantum key exchange**.
+
+#### Gateway Restart Requirement
+
+To enable PQC support, restart the Gateway with the required environment variables:
+
+```shell
+docker run -d \
+-p 8000:8000 \
+-p 5696:5696 \
+-e MIN_TLS_VERSION=TLSv1.3 \
+-e GODEBUG=tlsmlkem=1 \
+--name akeyless-gateway \
+akeyless/base:latest-akeyless
+```
+
+The variables `MIN_TLS_VERSION=TLSv1.3` and `GODEBUG=tlsmlkem=1` enable hybrid PQC support (`X25519 + MLKEM-768`) on the Gateway container.
+
+> 📘 Info
+>
+> Hybrid PQC support is validated at the Gateway endpoint level. Data in transit between the Gateway and Akeyless SaaS is already encrypted.
+
 ## Cache Configuration
 
 You can enable **Local In-Memory** caching of secrets and the periodic backup of cached secrets
