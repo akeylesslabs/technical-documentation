@@ -169,7 +169,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 
 * Dates: `YYYY-MM-DD` (ISO 8601).
 * Time: Use UTC when relevant (For example, `14:00 UTC`).
-* Numbers: Use numerals for all numbers greater than 10 (For example, "11 files," not "eleen files").
+* Numbers: Use numerals for all numbers greater than 10 (For example, "11 files," not "eleven files").
 * Units:
     * Use SI units (For example, "MB," "ms").
     * Use a space between the value and unit (For example, "10 GB", "12 ms").

@@ -49,7 +49,7 @@ For RDP connections with an [externally provided username](https://docs.akeyless
 akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 ```yaml SSH
-akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
+akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
 ```
 
 ### Support for Other Keyboard Layouts
@@ -83,7 +83,7 @@ value: tr-tr-qwerty # Turkish-Q (Qwerty)
 
 ## Session Log Forwarding
 
-The Akeyless SRA support both Session Log Forwarding that capture CLI actions input and output during session, those can be forwarder to any logging system. This settings can be added by way of the Gateway management console or by way of CLI:
+The Akeyless SRA supports Session Log Forwarding, which captures CLI input and output during sessions. These logs can be forwarded to any logging system. These settings can be added by way of the Gateway management console or by way of CLI:
 
 ```shell
 akeyless gateway update remote-access-session-forwarding -h
@@ -91,13 +91,13 @@ akeyless gateway update remote-access-session-forwarding -h
 
 ## RDP Recordings
 
-**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage  To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage
+**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage. To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or Azure Blob Storage.
 
 ```shell
 akeyless gateway update remote-access-rdp-recording -h
 ```
 
-To store local recordings inside your Gateway , set the `rdp-session-storage` with `local`, session recordings will be stored inside the Gateway under `/home/akeyless/recordings`. Make sure to add Persistence Volume to your SRA deployment.
+To store local recordings inside your Gateway, set the `rdp-session-storage` to `local`. Session recordings will be stored inside the Gateway under `/home/akeyless/recordings`. Make sure to add a persistent volume to your SRA deployment.
 
 ## SSH Fingerprint
 
