@@ -1403,7 +1403,7 @@ akeyless rotated-secret update azure \
 akeyless rotated-secret update custom \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1484,7 +1484,7 @@ akeyless rotated-secret update custom \
 akeyless rotated-secret update dockerhub \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags

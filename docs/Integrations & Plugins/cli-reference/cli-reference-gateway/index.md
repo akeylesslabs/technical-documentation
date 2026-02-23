@@ -67,7 +67,7 @@ Add users that will have permission to manage the Gateway
 akeyless gateway-create-allowed-access \
 --name <Allowed Access Name> \
 --access-id <Access-ID> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --description <Allowed Access description> \
 --sub-claims <key/val of sub claims> \
 --permissions <permissions for this allowed access> 
@@ -152,7 +152,7 @@ Gets gateway configuration details
 
 ```shell
 akeyless gateway-get-config \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ### `gateway-update-tls-cert`
@@ -165,7 +165,7 @@ akeyless gateway-update-tls-cert \
 --cert-file-name <Path/To/Certificate> \
 --key-data <TLS Private Key> \
 --key-file-name <Path/To/Key> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -192,7 +192,7 @@ Get cache settings
 
 ```shell
 akeyless gateway get cache \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ### `gateway get defaults`
@@ -203,7 +203,7 @@ Get defaults settings
 
 ```shell
 akeyless gateway get defaults \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ## `gateway list`
@@ -216,7 +216,7 @@ Command to list the Customer Fragments on the Gateway
 
 ```shell
 akeyless gateway list customer-fragments \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ## `gateway update`
@@ -234,7 +234,7 @@ akeyless gateway update cache \
 --enable-cache [true/false] \
 --stale-timeout[=60] <Stale timeout in minutes> \
 --enable-proactive [true/false] \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -263,8 +263,8 @@ akeyless gateway update defaults \
 --oidc-access-id[=use-existing] <oidc-AccessID> \
 --cert-access-id[=use-existing] <cert-AccessID> \
 --key[=Default] <gw encryption key> \
---event-on-status-change [true/false]
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--event-on-status-change [true/false] \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags

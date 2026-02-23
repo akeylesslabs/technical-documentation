@@ -21,7 +21,7 @@ To set up a **Webhook** Event Forwarder, use the following command:
 ```shell User-Pass
 akeyless event-forwarder create webhook \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <Webhook URL>
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>
@@ -35,7 +35,7 @@ akeyless event-forwarder create webhook \
 ```shell Token
 akeyless event-forwarder create webhook \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <Webhook URL>
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>
@@ -48,7 +48,7 @@ akeyless event-forwarder create webhook \
 ```shell Certificate
 akeyless event-forwarder create webhook \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <Webhook URL>
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>

@@ -1208,13 +1208,13 @@ Creates Oracle DB Dynamic Secret
 akeyless dynamic-secret create oracledb \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \ 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --oracle-statements 'CREATE USER {{username}} IDENTIFIED BY {{password}}; GRANT CONNECT TO {{username}}; GRANT CREATE SESSION TO {{username}};'
 ```
 ```shell Inline connection
 akeyless dynamic-secret create oracledb \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --oracle-service-name <Your Oracle DB Service name > \
 --oracle-username <Oracle DB admin username> \
 --oracle-password <Oracle DB admin password> \
@@ -3426,7 +3426,7 @@ Get dynamic secret temporary credentials list
 ```shell
 akeyless dynamic-secret tmp-creds get \
 --name <Dynamic Secret name> \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -3446,8 +3446,8 @@ akeyless dynamic-secret tmp-creds update \
 --name <Dynamic Secret name> \
 --tmp-creds-id <Temporary credentials ID> \
 --new-ttl-min <New TTL in Minutes> \
---host <Requested host>
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'
+--host <Requested host> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags

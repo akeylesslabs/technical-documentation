@@ -192,7 +192,7 @@ Migrates personal items from external vault
 
 ```shell
 akeyless gateway-migrate-personal-items \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --type <1password> \
 --protection-key <Key Name> \
 --target-location <Path/To/Target> \
@@ -232,7 +232,7 @@ Gets migration Status
 akeyless gateway-migration-status \
 --name <Migration Name> \
 --id <Migration ID> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ### Flags
