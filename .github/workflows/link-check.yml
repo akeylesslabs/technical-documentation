@@ -39,16 +39,152 @@ jobs:
 
           echo "REPLACER_SUMMARY=$COUNT replacements across Markdown files" >> $GITHUB_ENV
 
-      # 2. Run Lychee link checker
-      - name: Run Lychee
+          # 2. Run Lychee (discovery pass)
+          #
+          # This first pass is used to discover candidate links directly from Lychee output
+          # before any automated normalization takes place.
+          - name: Run Lychee (discovery)
+          id: lychee_discovery
+          uses: lycheeverse/lychee-action@v2.0.2
+          continue-on-error: true
+          with:
+            # Explicitly load repo ignore list; default discovery can be inconsistent
+            # depending on the action working directory and invocation context.
+            args: >
+            --verbose
+            --no-progress
+            --exclude-file ".github/lychee/.lycheeignore"
+            --exclude-path ".github"
+            --exclude-link-local
+            --exclude-loopback
+            --include-mail
+            './**/*.md'
+            output: .github/lychee/lychee-discovery.md
+
+          # 3. Normalize internal docs redirects
+          #
+          # Why this exists:
+          # - Some legacy links under https://docs.akeyless.io/docs/* return HTTP redirects
+          #   to newer docs slugs.
+          # - We normalize these links in-source so the documentation points directly to the
+          #   canonical destination and avoids redirect noise during link checks.
+          #
+          # Scope intentionally limited to docs.akeyless.io internal docs links only,
+          # and candidate URLs are sourced from the Lychee discovery report first.
+          - name: Normalize redirected docs links
+          run: |
+            set -e
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+
+            python3 - <<'PY'
+            import json
+            import pathlib
+            import re
+            import urllib.request
+
+            root = pathlib.Path('.')
+            md_files = list(root.rglob('*.md'))
+            docs_url_pattern = re.compile(r"https://docs\.akeyless\.io/docs/[^\s\)\]>\"']+")
+
+            discovery_path = pathlib.Path('.github/lychee/lychee-discovery.md')
+            discovery_text = ''
+            if discovery_path.exists():
+              discovery_text = discovery_path.read_text(encoding='utf-8', errors='ignore')
+
+            urls = set(docs_url_pattern.findall(discovery_text))
+
+            source_mode = 'lychee-discovery'
+            if not urls:
+              source_mode = 'fallback-markdown-scan'
+              for file_path in md_files:
+                try:
+                  text = file_path.read_text(encoding='utf-8')
+                except Exception:
+                  continue
+                urls.update(docs_url_pattern.findall(text))
+
+            redirects = {}
+            for url in sorted(urls):
+              req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+              try:
+                with urllib.request.urlopen(req, timeout=20) as response:
+                  final_url = response.geturl()
+              except Exception:
+                continue
+
+              if final_url != url and final_url.startswith('https://docs.akeyless.io/docs/'):
+                redirects[url] = final_url
+
+            keys = sorted(redirects.keys(), key=len, reverse=True)
+            changed_files = 0
+            changed_links = 0
+
+            if keys:
+              exact_match = re.compile(r"(" + "|".join(re.escape(k) for k in keys) + r")(?![A-Za-z0-9_/#?&=%.-])")
+
+              for file_path in md_files:
+                try:
+                  text = file_path.read_text(encoding='utf-8')
+                except Exception:
+                  continue
+
+                replacements_in_file = [0]
+
+                def replace_url(match):
+                  replacements_in_file[0] += 1
+                  return redirects[match.group(1)]
+
+                updated = exact_match.sub(replace_url, text)
+                if updated != text:
+                  file_path.write_text(updated, encoding='utf-8')
+                  changed_files += 1
+                  changed_links += replacements_in_file[0]
+
+            report = {
+              'source_mode': source_mode,
+              'total_urls_scanned': len(urls),
+              'redirect_mappings_found': len(redirects),
+              'files_updated': changed_files,
+              'links_updated': changed_links,
+              'redirect_mappings': redirects,
+            }
+
+            pathlib.Path('.github/lychee').mkdir(parents=True, exist_ok=True)
+            with open('.github/lychee/docs-redirect-normalizer.json', 'w', encoding='utf-8') as handle:
+              json.dump(report, handle, indent=2)
+
+            with open('.github/lychee/docs-redirect-normalizer.log', 'a', encoding='utf-8') as handle:
+              handle.write(
+                f"source={report['source_mode']}; {report['files_updated']} files updated, {report['links_updated']} links normalized, "
+                f"{report['redirect_mappings_found']} redirect mappings found, "
+                f"{report['total_urls_scanned']} docs URLs scanned\n"
+              )
+            PY
+
+            REDIRECT_SUMMARY=$(python3 - <<'PY'
+            import json
+            with open('.github/lychee/docs-redirect-normalizer.json', 'r', encoding='utf-8') as handle:
+              report = json.load(handle)
+            print(f"{report['links_updated']} links normalized across {report['files_updated']} markdown files")
+            PY
+            )
+
+            echo "$TIMESTAMP - $REDIRECT_SUMMARY" >> .github/lychee/docs-redirect-normalizer.log
+            echo "REDIRECT_SUMMARY=$REDIRECT_SUMMARY" >> $GITHUB_ENV
+
+      # 4. Run Lychee (final pass)
+      #
+      # This second pass creates the official report after normalization.
+      - name: Run Lychee (final)
         id: lychee
         uses: lycheeverse/lychee-action@v2.0.2
         continue-on-error: true
         with:
+          # Explicitly load repo ignore list; default discovery can be inconsistent
+          # depending on the action working directory and invocation context.
           args: >
             --verbose
             --no-progress
-            # Explicitly load repo ignore list; default discovery is unreliable in this workflow context.
             --exclude-file ".github/lychee/.lycheeignore"
             --exclude-path ".github"
             --exclude-link-local
@@ -63,7 +199,7 @@ jobs:
           TOTAL=$(grep -cE "http[s]?://" .github/lychee/lychee-out.md || true)
           echo "LYCHEE_SUMMARY=$TOTAL links checked, $BROKEN broken" >> $GITHUB_ENV
 
-      # 3. Commit changes to branch
+      # 5. Commit changes to branch
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
@@ -74,12 +210,16 @@ jobs:
           git checkout -B $BRANCH
 
           git add '*.md'
-          git add .github/lychee/lychee-out.md .github/lychee/readme-link-replacer.log
+          git add .github/lychee/lychee-discovery.md \
+                  .github/lychee/lychee-out.md \
+                  .github/lychee/readme-link-replacer.log \
+                  .github/lychee/docs-redirect-normalizer.log \
+                  .github/lychee/docs-redirect-normalizer.json
 
-          git commit -m "chore: update link replacements, lychee report & log [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: normalize docs redirects, update lychee report & logs [skip ci]" || echo "No changes to commit"
           git push origin $BRANCH --force
 
-      # 4. Get commit URL
+      # 6. Get commit URL
       - name: Get commit URL
         id: commiturl
         run: |
@@ -87,7 +227,7 @@ jobs:
           echo "sha=${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
           echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
 
-      # 5. Create Jira issue (ADF description)
+      # 7. Create Jira issue (ADF description)
       - name: Create Jira issue
         id: jira
         continue-on-error: true
@@ -97,6 +237,7 @@ jobs:
           JIRA_API_TOKEN: ${{ secrets.DOCS_JIRA_API_TOKEN }}
           JIRA_PROJECT_KEY: ${{ secrets.DOCS_JIRA_PROJECT_KEY }}
           REPLACER_SUMMARY: ${{ env.REPLACER_SUMMARY }}
+          REDIRECT_SUMMARY: ${{ env.REDIRECT_SUMMARY }}
           LYCHEE_SUMMARY: ${{ env.LYCHEE_SUMMARY }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           BRANCH_NAME: automation/link-check
@@ -112,6 +253,7 @@ jobs:
           # Build ADF (Atlassian Document Format) description via jq
           ADF_DESC=$(jq -n \
             --arg repl  "$REPLACER_SUMMARY" \
+            --arg redir "$REDIRECT_SUMMARY" \
             --arg lyc   "$LYCHEE_SUMMARY" \
             --arg run   "$RUN_URL" \
             --arg br    "$BRANCH_NAME" \
@@ -135,10 +277,16 @@ jobs:
                     { "type":"text", "text":$commit, "marks":[{"type":"link","attrs":{"href":$commit}}] }
                   ]
                 },
+                { "type":"paragraph", "content":[{ "type":"text", "text":$repl }] },
+                { "type":"paragraph", "content":[{ "type":"text", "text":$redir }] },
+                { "type":"paragraph", "content":[{ "type":"text", "text":$lyc }] },
                 { "type":"paragraph", "content":[{ "type":"text", "text":"Files written:" }] },
                 { "type":"bulletList", "content":[
+                    { "type":"listItem", "content":[{ "type":"paragraph","content":[{ "type":"text","text":".github/lychee/lychee-discovery.md" }]}]},
                     { "type":"listItem", "content":[{ "type":"paragraph","content":[{ "type":"text","text":".github/lychee/lychee-out.md" }]}]},
-                    { "type":"listItem", "content":[{ "type":"paragraph","content":[{ "type":"text","text":".github/lychee/readme-link-replacer.log" }]}]}
+                    { "type":"listItem", "content":[{ "type":"paragraph","content":[{ "type":"text","text": ".github/lychee/readme-link-replacer.log" }]}]},
+                    { "type":"listItem", "content":[{ "type":"paragraph","content":[{ "type":"text","text": ".github/lychee/docs-redirect-normalizer.log" }]}]},
+                    { "type":"listItem", "content":[{ "type":"paragraph","content":[{ "type":"text","text": ".github/lychee/docs-redirect-normalizer.json" }]}]}
                   ]
                 },
                 { "type":"paragraph", "content":[{ "type":"text", "text":"This ticket was created automatically by GitHub Actions." }] }
@@ -178,7 +326,7 @@ jobs:
           echo "issue_id=$ISSUE_ID" >> "$GITHUB_OUTPUT"
           echo "Created Jira issue: $ISSUE_KEY"
 
-      # 6. Attach artifacts to Jira issue
+      # 8. Attach artifacts to Jira issue
       - name: Attach artifacts to Jira issue
         if: always() && steps.jira.outputs.issue_key != ''
         continue-on-error: true
@@ -205,5 +353,8 @@ jobs:
             fi
           }
 
+          attach_file ".github/lychee/lychee-discovery.md"
           attach_file ".github/lychee/lychee-out.md"
           attach_file ".github/lychee/readme-link-replacer.log"
+          attach_file ".github/lychee/docs-redirect-normalizer.log"
+          attach_file ".github/lychee/docs-redirect-normalizer.json"
