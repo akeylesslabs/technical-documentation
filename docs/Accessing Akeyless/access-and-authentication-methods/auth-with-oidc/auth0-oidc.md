@@ -20,7 +20,7 @@ To use Auth0 as an IdP to authenticate the Akeyless Platform by way of OIDC, fol
 
     ![Screenshot of the Auth0 Console while Creating a New Application](https://files.readme.io/78d1964-image-20210824-110648.png "image-20210824-110648.png")
 
-3. On the Settings tab, under the **Application URIs section**, set `https://auth.akeyless.io/oidc/callback`the on the **Allowed Callback URLs**.
+3. On the Settings tab, under the **Application URIs** section, set `https://auth.akeyless.io/oidc/callback` in **Allowed Callback URLs**.
 
     ![Screenshot of the Auth0 Console while Configuring Application URIs](https://files.readme.io/3edb775-image-20210824-111105.png "image-20210824-111105.png")
 
