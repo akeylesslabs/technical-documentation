@@ -154,7 +154,7 @@ Creates a new PKI certificate issuer
 akeyless create-pki-cert-issuer \
 --name <PKI issuer name> \
 --ttl <The maximum requested Time To Live for issued certificates, in seconds> \
---signer-key-name <A singer key to sign and issue certificate> 
+--signer-key-name <A signer key to sign and issue certificate> 
 ```
 
 #### Flags
