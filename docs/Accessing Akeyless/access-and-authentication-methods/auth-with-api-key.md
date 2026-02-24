@@ -1,5 +1,5 @@
 ---
-title: API Key
+title: API Key 
 excerpt: ''
 deprecated: false
 hidden: false
@@ -12,60 +12,89 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless.
 ---
-API Key is a simple [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) supported by the Akeyless Platform. API Keys are very popular primarily for testing or staging environments.
+This page discusses creating and using an API key-based Authentication Method in Akeyless.
 
-![Illustration for: API Key is a simple Authentication Method supported by the Akeyless Platform. API Keys are very popular primarily for testing or staging environments.](https://files.readme.io/574347a-API_key_auth.png)
+API key authentication allows users and workloads to authenticate to Akeyless using an **Access ID** and **Access Key** pair. It is typically used for CLI, SDK, and automation workflows.
 
-## Create an API Key Authentication Method with the CLI
+API key authentication is intended for **programmatic access** and is not recommended for direct interactive Console sign-in.
 
-Let's create a new API Key authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-api-key#create-an-api-key-authentication-method-in-the-akeyless-console).)
+## Creating an API Key Authentication Method
 
-To create an API Key authentication method with the CLI, run the following command:
+API key authentication is available by default for Akeyless accounts. No additional configuration is required.
 
-```shell Create API Key
-akeyless auth-method create api-key --name MyFirstAPIKey
-```
+This action is distinct from creating a new Akeyless account: it creates an additional API key-based Authentication Method for an existing account.
 
-Where:
+### Creating an API Key Authentication Method with the Console
 
-* `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+To create a new API key-based Authentication Method with the Console:
 
-> **Note:**
->
-> Akeyless API Key is displayed only once.
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select **+ New**. This opens the **Create Authentication Method** form.
+3. On the **Type** selection screen, select **API Key**, then **Next →**.
+4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Finish**.
+5. Download the generated CSV file that includes the **Access ID** and **Access Key**. Save it somewhere secure. This is the last time this access key will be available to view/download.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
+The **Access Key** is displayed only once. Store it securely. However, you can reset the access key at any time.
 
-## Configure Akeyless CLI With the API Key Authentication Method
+### Creating an API Key Authentication Method with the CLI
 
-To configure your CLI to work with API Key authentication, run the following command:
+To create an API key-based Authentication Method with the CLI:
 
 ```shell
-akeyless configure --profile default --access-id <AccessID> --access-key <API Key>
+akeyless auth-method create api-key \
+  --name <API Key Auth Method Name>
 ```
 
-## Create an API Key Authentication Method in the Akeyless Console
+The command returns credentials for the new Authentication Method. The **Access Key** is displayed only once. Store it securely. Be sure to associate the API key Authentication Method with one or more Roles.
 
-1. Log in to the Akeyless Console and go to **Users & Auth Methods > New > API Key**.
+[Read about more parameters available when creating an API key-based Authentication Method.](https://docs.akeyless.io/docs/cli-ref-auth#create)
 
-2. Define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
+## Using an API Key Authentication Method
 
-3. Define the remaining parameters as follows:
+### Using an API Key Authentication Method with the Console
 
-    * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
+To use an API key-based Authentication Method with the Console:
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+1. Open the Akeyless Console: [https://console.akeyless.io](https://console.akeyless.io).
+2. In the **Or continue with** section, select **Access Key**.
+3. Enter the **Access ID** and **Access Key**, then select **Sign in**.
 
-    * **Allowed Trusted Gateway IPs:** Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+### Using an API Key Authentication Method with the CLI
 
-    * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
+To use an API key-based Authentication Method with a CLI profile, run the [Akeyless configure command](https://docs.akeyless.io/docs/cli-reference#configure). For more information about profiles, see [Working With Profiles](https://docs.akeyless.io/docs/cli#working-with-profiles):
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`, `Gateway Admin`, `Mobile`, `Extension`.
+```shell
+akeyless configure \
+  --profile default \
+  --access-id <Access ID> \
+  --access-key <Access Key>
+```
 
-4. Click **Finish**.
+To authenticate with an Access ID and Access Key with the CLI, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
-5. Download a CSV file with the **Access ID** and **Access Key**.
+```shell
+akeyless auth \
+  --access-type access_key \
+  --access-id <Access ID> \
+  --access-key <Access Key>
+```
 
-## Tutorial
+## Optional Features
 
-Check out our tutorial video on [Authentication Methods and API Key Authentication](https://tutorials.akeyless.io/docs/authentication-methods-and-api-key-authentication).
+For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
+
+### Reset Access Key
+
+To reset the Access Key for an existing API key-based Authentication Method with the Console:
+
+1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
+2. Select the API key Authentication Method name. The details sidebar opens.
+3. In the default **General** tab, select **Reset Access Key**.
+4. In the confirmation window, enter the Authentication Method name, then select **Reset Access Key**.
+
+To reset the Access Key with the CLI, run the [Akeyless reset-access-key command](https://docs.akeyless.io/docs/cli-ref-auth#reset-access-key):
+
+```shell
+akeyless reset-access-key \
+  --name <API Key Auth Method Name>
+```
