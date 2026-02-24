@@ -82,7 +82,7 @@ TLSConf:
   configurationManager: true
   # minimumTlsVersion can be one of the following <TLSv1/TLSv1.1/TLSv1.2/TLSv1.3>
   minimumTlsVersion: "TLSv1.2"
-  # excludeCipherSuites: Comma separated list of cipher suites to exclude (For example, "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA")
+  # excludeCipherSuites: Comma-separated list of cipher suites to exclude (for example, "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA")
   tlsCertificate: |-
    -----BEGIN CERTIFICATE-----
    -----END CERTIFICATE-----
@@ -97,7 +97,7 @@ You can also configure the default settings using the [Gateway Configuration Man
 
 A default [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) `Access ID` can be set for the Gateway (using either `defaultSamlAccessId` or `defaultOidcAccessId` respectively) to automatically select the Auth Method for end-users logging in to the Gateway Console (port `18888`), upon clicking on the respective Auth Method.
 
-For OIDC, to leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
+For OIDC, to leverage your Gateway for the callback redirects instead of the Akeyless SaaS (if your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable (as seen in the `values.yaml` file below) under the `env` section while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
 Set the default [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) that will encrypt all items created on this Gateway using the setting `defaultEncryptionKey` with the full path to your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) in Akeyless.
 

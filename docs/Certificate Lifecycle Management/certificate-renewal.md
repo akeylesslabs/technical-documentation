@@ -14,7 +14,7 @@ Akeyless provides a simple flow for certificates renewals, without the need to m
 
 As part of the renewal, the user can choose either to renew the certificate using a **new key and CSR**, which is considered best practice, or **using the existing key** when the private key is stored in the certificate item. In both modes, all fields will be automatically populated from the expired certificate.
 
-Upon successful renewal, in case [provisioning](https://docs.akeyless.io/docs/certificate-provisioning) settings exists, the certificate will be provisioned automatically.
+Upon successful renewal, if [provisioning](https://docs.akeyless.io/docs/certificate-provisioning) settings exist, the certificate is provisioned automatically.
 
 ## Renew a Certificate Using the Akeyless CLI
 
@@ -29,7 +29,7 @@ akeyless renew-certificate \
 Where:
 
 * `name`: The certificate full name, alternatively can be provided using `item-id` instead.
-* `generate-key`: Generate a new key as part of the certificate renewal, if not provided, the certificate private key will be used when exists (that is stored on the certificate item).
+* `generate-key`: Generate a new key as part of the certificate renewal. If not provided, the certificate private key is used if it exists (stored on the certificate item).
 
 Upon successful renewal a new version will be created on the certificate item itself, and automatic provisioning will be triggered based on the existing settings.
 

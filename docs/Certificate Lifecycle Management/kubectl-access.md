@@ -14,7 +14,7 @@ Below we will describe how to configure kubectl to work with short-lived certifi
 
 ## Setup
 
-1. Upload the CA key together with the CA certificate of the Kubernetes cluster into your Akeyless account (in case you are using Minikube they are located in `~/.minikube/ca.key` and `~/.minikube/ca.crt`)
+1. Upload the CA key together with the CA certificate of the Kubernetes cluster into your Akeyless account (if you are using Minikube, they are located in `~/.minikube/ca.key` and `~/.minikube/ca.crt`).
 
     ```shell
     akeyless upload-rsa --name myK8SCA --alg RSA2048 --rsa-key-file-path ~/.minikube/ca.key --cert ~/.minikube/ca.crt

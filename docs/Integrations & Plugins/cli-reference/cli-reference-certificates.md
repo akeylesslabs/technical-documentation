@@ -169,9 +169,9 @@ akeyless create-pki-cert-issuer \
 
 `-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds, supported formats are `s`, `m`, `h`, `d`.
 
-`--allowed-domains`: A list of domains (comma separated) this Issuer is allowed to issue certificates for.
+`--allowed-domains`: A list of domains (comma-separated) this Issuer is allowed to issue certificates for.
 
-`--allowed-uri-sans`: A list of the allowed URIs Subject Alternative Names (comma separated) this Issuer is allowed to issue certificate for.
+`--allowed-uri-sans`: A list of allowed URI Subject Alternative Names (comma-separated) this Issuer is allowed to issue certificates for.
 
 `--allow-subdomains [=false]`: If set, clients can request certificates for subdomains and wildcard subdomains of the allowed domains
 
@@ -317,7 +317,7 @@ akeyless get-kube-exec-creds \
 
 `-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
-`-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be used to extract the public key)
+`-k, --key-file-path`: The client public or private key file path (if it is a private key, it will be used to extract the public key)
 
 `--key-data-base64`: PKI key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
 
@@ -356,7 +356,7 @@ akeyless get-pki-certificate \
 
 `-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
-`-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be used to extract the public key). When using **CSR** with a **private** key, the provided key will be stored with the issued certificate.
+`-k, --key-file-path`: The client public or private key file path (if it is a private key, it will be used to extract the public key). When using **CSR** with a **private** key, the provided key will be stored with the issued certificate.
 
 `--key-data-base64`: PKI key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
 
@@ -436,7 +436,7 @@ akeyless update-pki-cert-issuer \
 
 `-s, --signer-key-name`: A key to sign the certificate with
 
-`-t, --ttl`: **Required**, The maximum requested Time To Live for issued certificate by `default` in seconds, supported formats are `s`, `m`, `h`, `d`. In case of Public CA, this is based on the CA target's supported maximum TTLs
+`-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds; supported formats are `s`, `m`, `h`, `d`. If using Public CA, this is based on the CA target's supported maximum TTLs
 
 `--gw-cluster-url`: The GW cluster URL to issue the certificate from, required in Public CA mode
 
@@ -748,9 +748,9 @@ akeyless certificate-discovery \
 
 #### Flags
 
-`-o, --hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
+`-o, --hosts`: **Required**, A comma-separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
 
-`-p, --port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080-8085`.
+`-p, --port-ranges[=443]`: A comma-separated list of port ranges. Example: `80`, `8080-8085`.
 
 `-f, --target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
 

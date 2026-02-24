@@ -202,7 +202,7 @@ akeyless dynamic-secret create aws \
 
 `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
-`--session-tags`: String of Key value session tags comma separated, relevant only for Assumed Role
+`--session-tags`: String of key-value session tags, comma-separated, relevant only for Assumed Role
 
 `--transitive-tag-keys`: String of transitive tag keys space separated, relevant only for Assumed Role
 
@@ -335,7 +335,7 @@ akeyless dynamic-secret create cassandra \
 
 `--target-name`: Target name
 
-`--cassandra-hosts`: Cassandra hosts names or IP addresses, comma separated
+`--cassandra-hosts`: Cassandra host names or IP addresses, comma-separated
 
 `--cassandra-username`: Cassandra superuser user name
 
@@ -980,7 +980,7 @@ akeyless dynamic-secret create ldap \
 
 `--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for Dynamic Secrets/producers)
 
 `--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for SSH cert issuer, LDAP rotated secret and LDAP dynamic secret, To specify multiple targets use argument multiple times
 
@@ -1194,7 +1194,7 @@ akeyless dynamic-secret create mysql \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts)
+`--secure-access-host`: Target DB servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts)
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
