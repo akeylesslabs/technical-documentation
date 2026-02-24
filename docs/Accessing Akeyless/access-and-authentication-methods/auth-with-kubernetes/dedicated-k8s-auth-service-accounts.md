@@ -198,7 +198,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
 * `signing-key`: The private key (Base64-encoded) associated with the public key defined in the Kubernetes auth
   (The private key that was created when the Kubernetes Auth Method was created previously).
@@ -258,7 +258,7 @@ When the cluster access type is **Rancher**, add the following parameters:
 
 Where:
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created previously.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created previously.
 
 * `access-type`: The Auth Method access type, `k8s`.
 

@@ -55,7 +55,7 @@ If you wish to use a field such as **email** instead, make sure to first **Add o
 
 To log in with SSO to Akeyless using your new Azure AD OIDC Auth Method, log in to the Console, browse to Auth Methods, select the newly created OIDC Auth Method, and click **Generate OIDC Bookmark URL**. This provides the SSO link.
 
-## Login With OIDC with the CLI
+## Log in With OIDC Using the CLI
 
 Configure a new profile with your Access ID from the previous step and OIDC type (if no profile name is provided, the default will be configured):
 

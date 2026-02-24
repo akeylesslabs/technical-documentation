@@ -230,7 +230,7 @@ K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
 
 Where:
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
 * `access-type`: The Auth Method access type: `k8s`.
 

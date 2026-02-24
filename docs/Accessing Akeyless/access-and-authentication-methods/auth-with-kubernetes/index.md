@@ -88,7 +88,7 @@ Upon successful creation, the response:
 
 > **Note:**
 >
-> Save returned private key and `AccessID` for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`
+> Save the returned private key and `AccessID` in environment variables `$PRV_KEY` and `$ACCESS_ID` for the next steps.
 
 #### Create Kubernetes Gateway Auth Config Using Gateway ServiceAccount
 
@@ -108,7 +108,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
 * `signing-key`: The private key (The key that was created when the Kubernetes Auth Method was created).
 
@@ -153,7 +153,7 @@ Where:
 
 Where:
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
 * `access-type`: the access type - `k8s`
 
@@ -170,7 +170,7 @@ Token: t-bb7b...3564a7c9
 
 > **Note:**
 >
-> Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
+> Delete the private key and Access ID that you stored in environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
 ## Available Claims for Kubernetes Auth
 
