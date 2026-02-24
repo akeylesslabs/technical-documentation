@@ -12,9 +12,9 @@ next:
 ---
 ## We Use Zero-Knowledge Encryption for Your Keys and Secrets
 
-The missing piece of that puzzle is - who can access the key fragments? Some may say that though DFC doesn't allow cloud providers to access the whole key, Akeyless itself can construct the key whenever it wishes since it manages the key fragments infrastructure.
+The missing piece of that puzzle is who can access the key fragments. Some may say that although DFC does not allow cloud providers to access the whole key, Akeyless itself can construct the key whenever it wishes since it manages the key fragments infrastructure.
 
-Well, they're basically correct, but, they can also be completely wrong.
+That is partially correct, but it can also be completely wrong.
 
 Since Akeyless DFC enables Akeyless to perform cryptographic operations WITHOUT EVER COMBINING the encryption key, one of the key fragments can actually be on the customer's environment, to which Akeyless has no access. This means that Akeyless, as a Service Provider, won't be able to decrypt any encrypted data by our customers (who hold one of the key fragments). The reason is simple: we don't have access to your fragment.
 

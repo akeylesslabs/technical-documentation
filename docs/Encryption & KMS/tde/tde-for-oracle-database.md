@@ -289,7 +289,7 @@ For more details about encryption options, such as how to specify different encr
 
 Start by connecting to your Oracle Database using SQL\_Plus as a non-sysadmin user. This user should have the necessary privileges to create tablespaces.
 
-```sql bash
+```shell
 sqlplus your_username@your_database
 ```
 
@@ -401,20 +401,19 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 2. Choose a secure location on your database server to store the keystore files. For example:
 
-    ```sql bash
+    ```shell
     mkdir -p /u01/app/oracle/admin/ORCL/wallet
     ```
 
 3. Use the following command to create the keystore. Replace `/u01/app/oracle/admin/ORCL/wallet` with your chosen directory path.
 
-    ```sql bash
+    ```sql
     ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/u01/app/oracle/admin/ORCL/wallet' IDENTIFIED BY "YourWalletPassword";
-    r -p /u01/app/oracle/admin/ORCL/wallet
     ```
 
 4. Before proceeding, you need to open the newly created keystore:
 
-    ```sql bash
+    ```sql
     ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "YourWalletPassword";
     ```
 
@@ -457,7 +456,7 @@ In "Section 4.0," the method described involves saving the Oracle Wallet passwor
 
 11. Restart the Oracle Database to confirm that the auto-login feature is working as expected. Upon restart, the wallet should open automatically, and all encrypted columns and tablespaces should remain accessible.
 
-    ```sql bash
+    ```sql
     shutdown immediate;
     startup;
     ```
