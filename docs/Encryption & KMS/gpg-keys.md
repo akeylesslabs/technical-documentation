@@ -37,7 +37,7 @@ Where:
 * `gpg-alg`: Relevant only if GPG key type selected; options: [`RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`, `X25519`]
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-Other parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys).
+Other parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-classic-key).
 
 ### Key Usage
 
@@ -52,7 +52,7 @@ akeyless encrypt-gpg -k <Key name> \
 --in <Path to the file to be encrypted in base64 format>
 ```
 
-The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys).
+The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#encrypt-gpg).
 
 Decryption command:
 
@@ -63,7 +63,7 @@ akeyless decrypt-gpg --key-name <Key Name> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
-The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys).
+The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#decrypt-gpg).
 
 Signing command:
 
@@ -74,7 +74,7 @@ akeyless sign-gpg --key-name <RSA signing key name> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
-The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys).
+The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#sign-gpg).
 
 Verification command:
 
@@ -86,7 +86,7 @@ akeyless verify-gpg --key-name <RSA Key> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
-The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys).
+The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#verify-gpg).
 
 ## Working With GPG from the Console
 

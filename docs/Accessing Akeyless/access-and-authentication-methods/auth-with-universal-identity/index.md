@@ -35,7 +35,7 @@ Where:
 
 * **ttl:** (Optional) The root token time-to-live in minutes. The TTL is renewed with every rotation. The default value is 60 minutes.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#create) section.
 
 ### Generate a Token
 
@@ -69,7 +69,7 @@ To disable the permissions of a certain token, use the following command:
 akeyless uid-revoke-token --revoke-token <u-XXXX> --revoke-type revokeSelf --auth-method-name <UID Name>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#uid-revoke-token) section.
 
 ### Rotate a Token
 
@@ -132,7 +132,7 @@ You will get the following result with the child token:
 "Child Token: u-XXXXXXXX2"
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#uid-create-child-token) section.
 
 ### Get the Token Tree
 

@@ -53,7 +53,7 @@ Where:
 * `auto-rotate`: Select if you wish to auto-rotate the key, the default is false.
 * `rotation-interval`: Desired rotation interval, in days.
 
-Full parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-encryption-keys).
+Full parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-encryption-keys#update-rotation-settings).
 
 To view the key's existing versions, use the describe item command using the following parameters:
 

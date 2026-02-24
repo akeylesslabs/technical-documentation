@@ -41,7 +41,7 @@ Where:
 
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
 
-You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server) section.
+You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-server-setup) section.
 
 > **Note:**
 >
@@ -87,7 +87,7 @@ Where:
 
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server) section.
+You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-create-client) section.
 
 * `output-file-folder`: Folder path to save client certificate files locally (for example, `.` for current working dir).
   Two files are created: `<client-name>.key` and `<client-name>.cert`
@@ -145,7 +145,7 @@ Where:
 
 This command grants our MongoDB KMIP client the ability to create and retrieve objects under the `/kmip/default/` path.
 
-You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server) section.
+You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#kmip-client-set-rule) section.
 
 > **Note:**
 >
