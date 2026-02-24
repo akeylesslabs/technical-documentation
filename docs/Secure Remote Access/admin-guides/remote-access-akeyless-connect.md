@@ -142,7 +142,7 @@ Where the URL will be set as follows:
 >     value: -o PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com
 > ```
 >
-> NOTE that this workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
+> This workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
 
 ## Usage
 

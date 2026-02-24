@@ -12,7 +12,7 @@ next:
 ---
 Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver16)) encrypts SQL Server data files. This encryption is known as encrypting data at rest. The encryption uses a database encryption key (**DEK**). The database boot record stores the key for availability during recovery. The **DEK** is a symmetric key, and is secured by a certificate that the server's master database stores or by an asymmetric key that an [EKM](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm?view=sql-server-ver16) module protects.
 
-**TDE** protects data at rest, which is the data and log files. It lets you follow many laws, regulations, and guidelines established in various industries. This ability lets software developers encrypt data by using **AES** and **3DES** encryption algorithms without changing existing applications.
+**TDE** protects data at rest, including data and log files. It helps organizations comply with many industry laws, regulations, and guidelines. It also allows software developers to encrypt data by using **AES** and **3DES** encryption algorithms without changing existing applications.
 
 > **Note (Platform prerequisites):**
 >
@@ -49,7 +49,9 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
     use_classic_keys=true
     ```
 
-**Notice:** It is optional to configure TDE to create and leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) by setting `use_classic_keys=true`. The default is otherwise using a DFC key. To work with Classic Keys, make sure you work against your own Gateway (on the `/api/v2` endpoint).
+> **Note (Classic Keys):**
+>
+> It is optional to configure TDE to create and leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) by setting `use_classic_keys=true`. Otherwise, the default is to use a DFC key. To work with Classic Keys, make sure you use your own Gateway on the `/api/v2` endpoint.
 
 ## Configure the Akeyless EKM Provider
 
@@ -168,7 +170,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     GO  
     ```
 
-    Note: This doesn’t create a new key in the Akeyless Platform, the key is created inside the database and encrypted by using the key from Akeyless.
+    Note: This does not create a new key in the Akeyless Platform. The key is created inside the database and encrypted by using the key from Akeyless.
 
 9. Alter the database to enable transparent data encryption.
 

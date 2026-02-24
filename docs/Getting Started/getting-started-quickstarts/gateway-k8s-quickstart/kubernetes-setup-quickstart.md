@@ -216,16 +216,11 @@ apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io create
     metrics-server   1/1     1            1           2m
     ```
 
-    <Callout icon="📘" theme="info">
-    `kubectl` supports a built-in watch function with `-w` flag if you want to avoid entering the command repeatedly.
-    </Callout>
+    Note: `kubectl` supports a built-in watch function with the `-w` flag if you want to avoid entering the command repeatedly.
 
-    <Callout icon="❗️" theme="error">
-    **If your Metrics Server fails to become ready**:
-
-    1. Check the logs for the Metrics Server pod with `kubectl logs -n kube-system $(kubectl get pods -n kube-system -l k8s-app=metrics-server -o jsonpath='{.items[0].metadata.name}')`. This command looks up the pod name and checks its logs.
-    2. If you see an error similar to `x509: cannot validate certificate for <IP> because it does not contain any IP SANs` in the Metrics Server logs, this is not uncommon. It happens frequently in small-scale development environments. A fast fix for this is to edit the deployment and add `--kubelet-insecure-tls` to the Metrics Server container arguments. This is acceptable for local development clusters such as Docker Desktop, _but should not be used in production_. This can be done in one line with: `kubectl patch deployment metrics-server -n kube-system --type='json' -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'`.
-    </Callout>
+    > **Warning (If your Metrics Server fails to become ready):**
+    > 1. Check the logs for the Metrics Server pod with `kubectl logs -n kube-system $(kubectl get pods -n kube-system -l k8s-app=metrics-server -o jsonpath='{.items[0].metadata.name}')`. This command looks up the pod name and checks its logs.
+    > 2. If you see an error similar to `x509: cannot validate certificate for <IP> because it does not contain any IP SANs` in the Metrics Server logs, this is not uncommon. It happens frequently in small-scale development environments. A fast fix is to edit the deployment and add `--kubelet-insecure-tls` to the Metrics Server container arguments. This is acceptable for local development clusters such as Docker Desktop, _but should not be used in production_. This can be done in one line with: `kubectl patch deployment metrics-server -n kube-system --type='json' -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'`.
 
 2. Check some Metrics for your cluster to test functionality. Here is a command to check the Metrics for your cluster's nodes:
 

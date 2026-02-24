@@ -149,7 +149,7 @@ Where:
 | --- | --- | --- |
 | `payload` | New secret credentials to replace the existing credentials stored by Akeyless. | `mongodb://user:password@host`, `{"user":"mun","pass":"goh"}` |
 
-> **Note**
+> **Note:**
 >
 > Payload rotation is performed on a best-effort basis. The rotation process can fail, and even after a successful `/sync/rotate` request the dynamic secret can still use the old payload. To handle this scenario, the custom dynamic secret implementation should support both the old payload and the new payload until it receives at least one `/sync/create` or `/sync/revoke` request that uses the new payload.
 
@@ -202,7 +202,7 @@ Where:
 
 You can find the complete list of parameters for this command in [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluecustomp).
 
-> **Note**
+> **Note:**
 >
 > To work with Dynamic Secrets from the Akeyless Console, you must configure the Gateway URL to enable communication between the Akeyless SaaS and the Akeyless Gateway.
 

@@ -178,7 +178,7 @@ Your secrets are stored either in `akeyless.env` or `akeyless.json` accordingly,
 
 > **Note (Pull Policy):**
 >
-> Note that the `pull_policy` should be kept to `always` when using a shared runner.
+> Keep `pull_policy` set to `always` when using a shared runner.
 
 ## Examples
 

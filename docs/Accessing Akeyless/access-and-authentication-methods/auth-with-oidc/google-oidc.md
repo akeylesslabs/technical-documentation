@@ -12,7 +12,7 @@ next:
 ---
 To use Google as an IdP to authenticate the Akeyless Platform by way of OIDC, follow the steps below.
 
-> ❗️ Critical
+> **Critical:**
 >
 > Ensure your OAuth consent configuration **includes only authorized domains** of your organization, and that the User type is set to **Internal** only.
 

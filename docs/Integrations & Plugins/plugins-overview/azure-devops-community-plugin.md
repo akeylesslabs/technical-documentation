@@ -117,7 +117,7 @@ steps:
 
 > **Note (JWT Usage):**
 >
-> Note that we are using the `azure_jwt` output from the `AzureCLI` task to hold the JWT, then use it in the `akeyless-secret` task with `$(AzureCLI.azure_jwt)`.
+> Use the `azure_jwt` output from the `AzureCLI` task to hold the JWT, then pass it to the `akeyless-secret` task with `$(AzureCLI.azure_jwt)`.
 
 You will also have `$(MyAkeylessTask.first_secret)` and `$(MyAkeylessTask.second_secret)` available in subsequent tasks of that job if needed.
 

@@ -24,10 +24,10 @@ Once data is encrypted using TDE, it remains encrypted on disk. However, when au
 
 The key management capabilities of the Akeyless Platform include:
 
-* Key Creation: Generating encryption keys with secure algorithms and appropriate key lengths.
-* Key Storage: Storing encryption keys in a secure, tamper-proof environment.
-* Key Rotation: Regularly updating encryption keys to mitigate the risk of key compromise.
-* Access Control: Defining and enforcing policies to ensure that only authorized personnel can access and manage encryption keys.
+* **Key Creation:** Generating encryption keys with secure algorithms and appropriate key lengths.
+* **Key Storage:** Storing encryption keys in a secure, tamper-proof environment.
+* **Key Rotation:** Regularly updating encryption keys to mitigate the risk of key compromise.
+* **Access Control:** Defining and enforcing policies to ensure that only authorized personnel can access and manage encryption keys.
 
 ## Benefits of Using TDE
 
