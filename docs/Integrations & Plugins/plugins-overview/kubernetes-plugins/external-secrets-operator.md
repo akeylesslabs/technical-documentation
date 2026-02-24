@@ -229,7 +229,7 @@ spec:
 If using a **private Akeyless Gateway** (for example in a zero-knowledge or hybrid deployment), set:
 
 ```yaml
-      akeylessGWApiURL: "https://<the.akeyless.gw:8000>/api/v2"
+      akeylessGWApiURL: "https://<the.akeyless.gw>:8000>/api/v2"
 ```
 
 Custom CAs can be configured by way of `caBundle` or `caProvider` if the Akeyless Gateway uses a private CA.

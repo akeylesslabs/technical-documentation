@@ -88,7 +88,7 @@ akeyless create-pki-cert-issuer \
 --ttl 30d \
 --destination-path /path/to/store/issued/certificates \
 --create-public-crl \
---gw-cluster-url <https://Gateway URL:8000> \
+--gw-cluster-url 'https://Gateway URL:8000' \
 --expiration-event-in 30 \
 --allowed-extra-extensions '{"OID":["Value"]}'
 ```

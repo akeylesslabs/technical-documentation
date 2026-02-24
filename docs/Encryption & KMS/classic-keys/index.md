@@ -56,7 +56,7 @@ To create a Classic Key with the CLI, use this command with the following parame
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
 ```shell
-akeyless create-classic-key --name classickey --alg RSA2048 --gateway-url https://<Your-Gateway-URL:8000>
+akeyless create-classic-key --name classickey --alg RSA2048 --gateway-url https://<Your-Gateway-URL>:8000>
 ```
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-classic-keyp).
