@@ -14,7 +14,7 @@ next:
 ---
 This page discusses creating and using an email-based Authentication Method in Akeyless.
 
-Email Authentication allows human users to authenticate directly to the Akeyless Console using their email address and password. It is typically used for standalone accounts, administrators, or environments where SAML or OIDC federation is not required.
+Email authentication allows human users to authenticate directly to the Akeyless Console using their email address and password. It is typically used for standalone accounts, administrators, or environments where SAML or OIDC federation is not required.
 
 Email authentication is intended for **interactive human access** and is not recommended for machine or workload authentication.
 
@@ -29,7 +29,7 @@ To create a new email-based Authentication Method with the Console:
 1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
 2. Select **+ New**. This opens the **Create Authentication Method** form.
 3. On the **Type** selection screen, select **Email**, then **Next →**.
-4. Enter a name for the Authentication Method, such as `My Email User 1` in the **Name** field, then select **Next →**.
+4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
 5. Supply the designated email address in the **Email** field. Optionally, configure [Two-Factor Authentication](#optional-features).
 6. Select **Finish**.
 
