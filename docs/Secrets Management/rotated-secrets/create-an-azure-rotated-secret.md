@@ -24,9 +24,9 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 | Action | Permissions \ Role |
 | --- | --- |
-| To`Rotate` Application Secret | `Application.ReadWrite.OwnedBy` or `Application.ReadWrite.All` |
-| To`Reset password`for user | `User-PasswordProfile.ReadWrite.All` |
-| To`Rotate storage account keys` | `Storage Account Key Operator Service Role` |
+| To `Rotate` Application Secret | `Application.ReadWrite.OwnedBy` or `Application.ReadWrite.All` |
+| To `Reset password` for user | `User-PasswordProfile.ReadWrite.All` |
+| To `Rotate storage account keys` | `Storage Account Key Operator Service Role` |
 
 Where:
 

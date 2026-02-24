@@ -132,7 +132,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `service-account-type`: `Fixed`, `Dynamic`type. By default set to **Fixed**.
+* `service-account-type`: `Fixed`, `Dynamic` type. By default set to **Fixed**.
 
 * `role-binding`: A path to a JSON file that holds the relevant resource with roles to bind for the created Service Account. Relevant only for **Dynamic** type.
 

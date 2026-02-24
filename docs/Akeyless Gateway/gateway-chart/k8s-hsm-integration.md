@@ -39,7 +39,7 @@ kubectl create secret generic hsm-pin \
 
 Set the following parameters as part of the `values.yaml` file:
 
-**Note** There are three options for identifying the **HSM Token** to work with: `slot`, `tokenLabel`, or`tokenSerial` - only one of these options needs to be set.
+**Note** There are three options for identifying the **HSM Token** to work with: `slot`, `tokenLabel`, or `tokenSerial` - only one of these options needs to be set.
 
 ```yaml
 ## HSM configuration

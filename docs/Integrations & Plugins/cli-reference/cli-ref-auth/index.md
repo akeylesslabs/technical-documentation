@@ -578,9 +578,9 @@ akeyless auth-method create oidc \
 
 `--require-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
 
-`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, azures` Application ID URI)
+`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, Azure's Application ID URI)
 
-`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider`s Application
+`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider's Application
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 

@@ -155,7 +155,7 @@ Where:
 
 * `id`- The full key name or the key `item id`, as stored inside Akeyless. In our example, we used the created key named `CodeSign`.
 
-* `default` - Optional, to mark this key for Notation as a default key, with a friendly name for notation, in this example, we simply named it`Akeyless`.
+* `default` - Optional, to mark this key for Notation as a default key, with a friendly name for notation, in this example, we simply named it `Akeyless`.
 
 Verify that the key is added to the Notation keys:
 
