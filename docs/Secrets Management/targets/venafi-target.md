@@ -12,6 +12,10 @@ next:
 ---
 **Venafi** Target can be used with the Venafi Dynamic Secret as described under the [Venafi Integration](https://docs.akeyless.io/docs/venafi-integration) docs.
 
+> **Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, this integration still uses `venafi` naming for backward compatibility.
+
+This page refers to CyberArk Machine Identity Security services by their legacy Venafi target names where required by Akeyless UI, CLI, and API field names.
+
 ## Create a Venafi Target in the Console
 
 1. Log in to the Akeyless Console, and go to **Targets > New > Certificate Automation (Venafi)**.

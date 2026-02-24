@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-> **Note:** Venafi recently became CyberArk Machine Identity Security.
+> **Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, the integration still uses `venafi` naming for backward compatibility.
 
-To work with Venafi TPP, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
+To work with Venafi TPP in CyberArk Machine Identity Security, you can choose either to work with CyberArk Machine Identity Security as your certificate issuer or to work with Akeyless as your issuer.
 
 ## Prerequisites
 
