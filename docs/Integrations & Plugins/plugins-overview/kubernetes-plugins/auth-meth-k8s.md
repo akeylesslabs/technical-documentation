@@ -48,7 +48,7 @@ To use UID Auth Method for authentication:
 
 ```yaml YAML
 AKEYLESS_ACCESS_TYPE: "universal_identity"
-AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080>" 
+AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_INIT_TOKEN: "<token>"
 ```
 
@@ -59,7 +59,7 @@ To use API Key Auth Method for authentication:
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
-# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080>" 
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "api_key"
 AKEYLESS_API_KEY: "<Access Key>"
 AKEYLESS_ACCESS_ID: "<Access Id>"
@@ -74,7 +74,7 @@ To use Azure AD Auth Method for authentication:
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
-# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080>" 
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "azure_ad"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 # optional
@@ -88,7 +88,7 @@ To use AWS-IAM Auth Method for authentication:
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
-# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080>" 
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "aws_iam"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 ```
@@ -100,7 +100,7 @@ To use GCP Auth Method for authentication:
 ```yaml
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
-# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080>" 
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "gcp"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 AKEYLESS_GCP_AUDIENCE: "akeyless.io"
