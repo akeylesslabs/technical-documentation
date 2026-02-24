@@ -112,7 +112,7 @@ If you don't have an [Azure AD Target](https://docs.akeyless.io/docs/azure-targe
 
 * `azure-client-secret`: Azure AD Client Secret.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueazurep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#azure) section.
 
 ## Fetch a Dynamic Azure AD Secret Value with the CLI
 

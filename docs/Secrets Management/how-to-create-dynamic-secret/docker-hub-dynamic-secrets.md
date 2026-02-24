@@ -69,7 +69,7 @@ If you don't have [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-t
 
 * `dockerhub-password`: A password of the privileged user of the Docker repository.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluedockerhubp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#dockerhub) section.
 
 ## Fetch a Dynamic Docker Hub Secret Value with the CLI
 

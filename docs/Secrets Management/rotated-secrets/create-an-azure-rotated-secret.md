@@ -97,7 +97,7 @@ Where:
 * `auto-rotate`: Enable auto-rotation if you need to update the secret regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
     * `grace-rotation-interval` and `grace-rotation-hour` relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueazurep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#azure) section.
 
 ## Create a Rotated Azure Secret in the Akeyless Console
 
@@ -163,7 +163,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
 
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
     * **Delete Protection:** When enabled, it protects the Rotated Secret from accidental deletion.
 

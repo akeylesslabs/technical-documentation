@@ -172,4 +172,4 @@ To restore a specific secret version, from the list of secret versions, click th
 
 ## Change Event
 
-To get an event when a static secret value is changed, click on the action menu (top right corner)on the item itself, and turn on the **Change Event**. Any time the secret value is changed it will trigger an [Event](https://docs.akeyless.io/docs/event-center).
+To get an event when a static secret value is changed, click the action menu (top-right corner) on the item itself, and turn on **Change Event**. Any time the secret value is changed, it triggers an [Event](https://docs.akeyless.io/docs/event-center).

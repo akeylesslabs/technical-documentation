@@ -98,7 +98,7 @@ another alternative to the Snowflake login is to use a private RSA key:
 
 * `snowflake-api-private-key-passphrase`: The passphrase needed to use the key.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluesnowflakep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#snowflake) section.
 
 ## Fetch a Dynamic Snowflake Secret Value with the CLI
 

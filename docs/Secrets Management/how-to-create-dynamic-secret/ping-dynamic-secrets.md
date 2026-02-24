@@ -68,7 +68,7 @@ Where:
 
 * `ping-password`: Password related to the privileged user.
 
-All other parameters have the same meaning whether or not you choose to use a target. Additional parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluepingp).
+All other parameters have the same meaning whether or not you choose to use a target. Additional parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#ping).
 
 You may update the Dynamic Secret information using the following command with the same parameters:
 

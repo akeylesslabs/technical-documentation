@@ -80,4 +80,4 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 ## Tutorial
 
-Check out our tutorial video on [Creating and Updating a Static Secret](https://tutorials.akeyless.io/docs/creating-a-static-secret) .
+Check out our tutorial video on [Creating and Updating a Static Secret](https://tutorials.akeyless.io/docs/creating-a-static-secret).

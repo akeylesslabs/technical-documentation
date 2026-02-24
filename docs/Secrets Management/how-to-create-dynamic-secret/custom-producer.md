@@ -205,7 +205,7 @@ Where:
 * `revoke-sync-url`: URL of an endpoint that implements the `POST /sync/revoke` operation.
 * `rotate-sync-url`: URL of an endpoint that implements the `POST /sync/rotate` operation.
 
-You can find the complete list of parameters for this command in [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluecustomp).
+You can find the complete list of parameters for this command in [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#custom).
 
 > **Note:**
 >

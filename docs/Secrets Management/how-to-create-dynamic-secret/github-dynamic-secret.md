@@ -72,7 +72,7 @@ If you don't have [GitHub Target](https://docs.akeyless.io/docs/github-target) y
 
 * `github-base-url`: Base URL of the GitHub repository.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegithubp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#github) section.
 
 ## Fetch a Dynamic GitHub Secret Value with the CLI
 

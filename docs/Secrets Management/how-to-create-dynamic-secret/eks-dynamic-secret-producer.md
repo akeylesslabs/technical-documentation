@@ -104,7 +104,7 @@ If you don't have a configured [Amazon EKS Target](https://docs.akeyless.io/docs
 
 * `eks-cluster-ca-cert`: Base64-encoded Amazon EKS cluster CA certificate.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueeksp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#eks) section.
 
 ## Use the Amazon EKS Dynamic Secret With the Akeyless CLI
 

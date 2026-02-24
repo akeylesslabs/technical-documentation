@@ -29,7 +29,7 @@ Where:
 * `usc-name`: The name of the Universal Secret Connector.
 * `remote-secret-name`: Remote Secret Name that will be created on the remote endpoint. If the secret already exists, sync will override its value and tags.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Static Secrets section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorbluestatic-secret-syncp).
+You can find the complete list of parameters for this command in the [CLI Reference - Static Secrets section](https://docs.akeyless.io/docs/cli-reference-static-secrets#static-secret-sync).
 
 ## Syncing a Static Secret with the Console
 
@@ -45,8 +45,8 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > **Note (Format restrictions):**
 >
-> Kubernetes and HashiCorp target enforces that secrets will be in a JSON format, meaning that a valid jq filter would be for example: `{"password": .password}`
+> Kubernetes and HashiCorp targets enforce that secrets are in JSON format, which means a valid jq filter could be, for example: `{"password": .password}`
 
-Click on **Save** to synchronize the rotated secret.
+Click **Save** to synchronize the rotated secret.
 
 If an automatic sync fails, an event is triggered. In that case, you can perform a **manual sync** from this tab.

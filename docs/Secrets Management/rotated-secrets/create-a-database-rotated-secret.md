@@ -126,7 +126,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
 
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.
 

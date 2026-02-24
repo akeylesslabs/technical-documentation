@@ -58,7 +58,7 @@ Or if using `jwt` `auth-flow` provide the following:
 
 * `app-private-key-data`: The Base64-encoded `PEM` private key of the connected app. Note: Used if `app-private-key-file-name` was not provided.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluesalesforcep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#salesforce) section.
 
 ## Create a Salesforce Target in the Console
 

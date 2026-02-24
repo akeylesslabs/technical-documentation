@@ -58,7 +58,7 @@ Where:
 * `rotated-password`: The password to rotate.
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluewindowsp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#windows) section.
 
 ## Create a Rotated Windows Secret in the Akeyless Console
 
@@ -95,6 +95,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
     * **Auto rotate:** Determines if automatic rotation is enabled.
     * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic password rotations when **Auto Rotate** is enabled.
     * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.
