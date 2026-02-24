@@ -21,9 +21,7 @@ Currently the SRA Portal supports the following Authentication Methods:
 * [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 * [LDAP](https://docs.akeyless.io/docs/auth-with-ldap)
 
-<Callout icon="👍" theme="okay">
-  _Allowed Redirect URL:_ If you are using SAML or OIDC Auth Methods, ensure your Gateway URL is trusted.
-</Callout>
+> **Tip (Allowed redirect URL):** If you are using SAML or OIDC auth methods, ensure your Gateway URL is trusted.
 
 ## Connect from the Secure Remote Access Portal
 

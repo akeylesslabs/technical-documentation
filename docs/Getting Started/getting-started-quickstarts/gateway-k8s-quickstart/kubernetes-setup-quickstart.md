@@ -159,13 +159,10 @@ Adjust these in **Settings → Resources**.
 
     ```
 
-    <Callout icon="📘" theme="info">
-    The sample output above shows a valid HTTP response with a 200 response code and several HTTP headers. Any 200 or 300 status codes are fine. Failing outputs could be:
-
-    * `curl: (6) Could not resolve host: console.akeyless.io`
-    * `curl: (7) Failed to connect to console.akeyless.io port 443: Connection timed out`
-    * `curl: (60) SSL certificate problem`
-    </Callout>
+    > **Note:** The sample output above shows a valid HTTP response with a 200 response code and several HTTP headers. Any 200 or 300 status codes are fine. Failing outputs could be:
+    > * `curl: (6) Could not resolve host: console.akeyless.io`
+    > * `curl: (7) Failed to connect to console.akeyless.io port 443: Connection timed out`
+    > * `curl: (60) SSL certificate problem`
 
 3. Delete the pod as it is no longer useful:
 

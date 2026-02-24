@@ -152,9 +152,7 @@ You can set the allowed Forwarder names in two ways:
 * **Explicit name**: Specify an exact Event Forwarders name that users can manage, for example: `Demo-Event-Forwarder`: allows users to create or manage an Event Forwarder with this exact name.
 * **Template-based name**: Use templates to define allowed names dynamically, based on user claims. For example: `{{username\}}-*`: uses the value of the username claim. If the claim value is `bob`, the user will be allowed to create or use Event Forwarders with names like `bob-*`.
 
-<Callout icon="📘" theme="info">
-  _Gateway Access Permissions:_ Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/)
-</Callout>
+> **Note (Gateway access permissions):** Managing Event Forwarders requires both administrative **RBAC** permissions and [Gateway access permissions](https://docs.akeyless.io/docs/gateway-access-permissions#/).
 
 ## Access Roles Syntax
 
