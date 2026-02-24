@@ -23,7 +23,7 @@ akeyless <command> --debug
 
 ## Commands
 
-### `Configure`
+### `configure`
 
 Configure client profile
 
@@ -67,7 +67,7 @@ akeyless configure
 
 `--key-data`: Private key data encoded in Base64. Used if file was not provided (relevant only for `access-type=cert` in Curl Context)
 
-### `Delete-item`
+### `delete-item`
 
 Delete an item or an item version
 
@@ -89,7 +89,7 @@ akeyless delete-item -n <Item name>
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
 
-### `Delete-items`
+### `delete-items`
 
 Deletes multiple items from a given path
 
@@ -103,7 +103,7 @@ akeyless delete-items -p <Path\do\delete\items>
 
 `-p, --path`: Required, Path to delete the items from
 
-### `Describe-item`
+### `describe-item`
 
 Gets the item details
 
@@ -133,11 +133,11 @@ When a version number is specified, the command returns all details about the sp
 
 When `--show-versions` is specified, the command returns all details about the specified item including a full list of versions, their creation dates, and their encryption keys for any version for which a key other than the default was used.
 
-### `Get-account-settings`
+### `get-account-settings`
 
 Get the settings of the account
 
-### `Get-tags`
+### `get-tags`
 
 Get all tags of selected item
 
@@ -151,7 +151,7 @@ akeyless get-tags --name <Item Name>
 
 `-n, --name`: Required, The item name
 
-### `List-items`
+### `list-items`
 
 List of all accessible items
 
@@ -177,7 +177,7 @@ List of all accessible items
 
 `--accessibility[=regular]`: In case of an item in a user's personal folder, options: [regular/personal]
 
-### `List-sra-bastions`
+### `list-sra-bastions`
 
 List of all Secure Remote Access (SRA) Bastions in the account
 
@@ -185,7 +185,7 @@ List of all Secure Remote Access (SRA) Bastions in the account
 
 `--allowed-urls-only[=false]`: Filter the response to show only bastions allowed URLs
 
-### `Move-objects`
+### `move-objects`
 
 Moves/Renames objects
 
@@ -205,7 +205,7 @@ akeyless move-objects --source <Source path to move the objects from> \
 
 `-o, --objects-type[=item]`: The objects type to move (item/auth_method/role)
 
-### `Set-item-state`
+### `set-item-state`
 
 Set an item's state (Enabled, Disabled)
 
@@ -222,7 +222,7 @@ akeyless set-item-state --name <Current item name> \
 
 `-s, --desired-state`: Required, Desired item state
 
-### `Unconfigure`
+### `unconfigure`
 
 Remove configuration of client profile
 
@@ -232,7 +232,7 @@ Remove configuration of client profile
 akeyless unconfigure --profile <Profile name>
 ```
 
-### `Update`
+### `update`
 
 Update the Akeyless CLI version or change to a prior version
 
@@ -250,7 +250,7 @@ akeyless update
 
 `-r, --artifact-repository`: Alternative CLI repository URL, for example, `https://artifacts.site2.akeyless.io`
 
-### `Update-account-settings`
+### `update-account-settings`
 
 Updates account settings.
 
@@ -342,7 +342,7 @@ Note: The operation is allowed only for admin user
 
 `--default-certificate-expiration-notification-days`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: `--default-certificate-expiration-notification-days 1`, `--default-certificate-expiration-notification-days 5`.
 
-### `Update-item`
+### `update-item`
 
 Update item name and description
 
@@ -447,11 +447,11 @@ akeyless update-item --name <Item name> \
 
 `--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
-### `Folder Management`
+### `folder management`
 
 Commands for managing folders in the account
 
-#### `Folder Create`
+#### `folder create`
 
 Creates a new folder
 
@@ -464,7 +464,7 @@ akeyless folder create \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-#### `Folder Update`
+#### `folder update`
 
 Updates a new folder
 
@@ -477,7 +477,7 @@ akeyless folder update \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-#### `Folder Get`
+#### `folder get`
 
 Get information of a folder
 
@@ -490,7 +490,7 @@ akeyless folder get \
 --accessibility[=regular] <[regular/personal]>
 ```
 
-#### `Folder Delete`
+#### `folder delete`
 
 Deletes a new folder
 
@@ -505,7 +505,7 @@ akeyless folder delete \
 
 ### CLI Agent
 
-#### `Agent Start`
+#### `agent start`
 
 Start Akeyless Agent
 
@@ -515,7 +515,7 @@ Start Akeyless Agent
 akeyless agent start
 ```
 
-#### `Agent Status`
+#### `agent status`
 
 Get Akeyless Agent status
 
@@ -525,7 +525,7 @@ Get Akeyless Agent status
 akeyless agent status
 ```
 
-#### `Agent Stop`
+#### `agent stop`
 
 Stop Akeyless Agent
 
