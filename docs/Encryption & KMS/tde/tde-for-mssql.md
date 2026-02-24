@@ -133,7 +133,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
 
     > 📘 Working on Cluster
     >
-    > When working with cluster, the above command should be executed only on the Primary server, on all other servers run the following statement:
+    > When working with a cluster, execute the above command only on the primary server. On all other servers, run the following statement:
     >
     > ```sql
     > CREATE ASYMMETRIC KEY akls_ekm_login_key
