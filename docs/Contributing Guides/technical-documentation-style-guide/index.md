@@ -32,6 +32,17 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you"). Quickstarts are exempted from this.
 * **Simplicity**: Keep punctuation simple and avoid chained clauses.
 
+### Common Grammar Corrections
+
+Use these preferred forms to keep wording concise and consistent:
+
+* Use **"Note that"** instead of **"Please note that"**.
+* Use **"To"** instead of **"In order to"**.
+* Use **"can"** instead of **"will be able to"**.
+* Use **"encrypted in transit"** instead of **"encrypted at transit"**.
+* Use **"comma-separated"** instead of **"comma separated"**.
+* Use sentence case for generic terms unless they are official product names or you are referencing specific items in a console. For example, use **"TLS private key"** instead of **"TLS Private Key"**.
+
 ### Punctuation
 
 * Use the serial comma (also called the Oxford comma).
