@@ -34,7 +34,7 @@ Where:
 >
 > Akeyless API Key is displayed only once.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
 
 ## Configure Akeyless CLI With the API Key Authentication Method
 

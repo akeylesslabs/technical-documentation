@@ -215,8 +215,8 @@ Where the relevant Akeyless paths, for example, `secret/foo` and `secret/bar` co
 ## View As
 
 To verify the settings of your Access Roles, you can use the **Impersonate As** feature inside the Akeyless Console. Admins can validate and explore what kind of access they grant to clients.  
-Click on your account logo on the top right corner of your console, and select **Impersonate As**.  
-On the dialog, choose from the drop-down menu and existing [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
+Click your account logo in the top-right corner of your console, and select **Impersonate As**.  
+In the dialog, choose from the drop-down menu an existing [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Where needed, provide the relevant [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) as well to validate the level of access the relevant audience has.
 
 ## Tutorial
 

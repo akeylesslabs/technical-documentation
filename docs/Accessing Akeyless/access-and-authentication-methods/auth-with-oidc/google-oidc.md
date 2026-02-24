@@ -16,7 +16,7 @@ To use Google as an IdP to authenticate the Akeyless Platform by way of OIDC, fo
 >
 > Ensure your OAuth consent configuration **includes only authorized domains** of your organization, and that the User type is set to **Internal** only.
 
-To set your OAuth consent screen with **User type** internal, click on your OAuth consent settings and ensure the following are set for User type:
+To set your OAuth consent screen with **User type** internal, open your OAuth consent settings and ensure the following are set for User type:
 
 ![Illustration for: > Ensure your OAuth consent configuration includes only authorized domains of your organization, and that the User type is set to Internal only. To set your OAuth…](https://files.readme.io/1e3e783-.png)
 
