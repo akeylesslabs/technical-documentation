@@ -59,7 +59,7 @@ The response should be like this:
 The requested rule was successfully set to the role /Admin/SystemAdmin
 ```
 
-You can find the complete list of parameters for this command in the [CLI Reference - Access Roles](https://docs.akeyless.io/docs/cli-reference-access-roles) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Access Roles](https://docs.akeyless.io/docs/cli-reference-access-roles#set-role-rule) section.
 
 ## Add a Static Secret to a Role from the Akeyless Console
 

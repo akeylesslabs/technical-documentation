@@ -93,7 +93,7 @@ Where:
 
 * `decoding-template`: An expression to alter the template of the decryption output for **Custom** tokenization.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-tokenizer) section.
 
 ### Tokenize and Detokenize a Secret with the CLI
 
