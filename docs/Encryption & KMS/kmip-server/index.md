@@ -29,7 +29,7 @@ To start the Akeyless KMIP server using Akeyless CLI, run the following command:
 ```shell
 akeyless kmip-server-setup \
 --hostname <akeyless.gateway.hostname> \
---gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
 --root /kmip/default
 ```
 
@@ -77,7 +77,7 @@ Note that this will automatically create 2 items under the `/kmip/default` path 
 ```shell
 akeyless kmip-create-client \
 --name mongodb \
---gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
 --output-file-folder /current/working/dir
 ```
 
@@ -115,7 +115,7 @@ MIIDSz...0otOEQQ==
 Key and certificate will not be shown anymore, but you will still be able to retrieve the ID of every KMIP client:
 
 ```shell
-akeyless kmip-list-clients --gateway-url 'https://<Your-Akeyless-Gateway-URL:8000>'
+akeyless kmip-list-clients --gateway-url 'https://<Your-Akeyless-Gateway-URL>:8000'
 ```
 
 ## Client Access Permissions
@@ -124,7 +124,7 @@ By default, KMIP clients have no permissions. To grant your KMIP client minimal 
 
 ```shell
 akeyless kmip-client-set-rule \
---gateway-url 'https://<Your-Akeyless-Gateway-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-Gateway-URL>:8000' \
 --client-id kc-5BL...7yVP \
 --path "/*" \
 --capability CREATE \

@@ -103,7 +103,7 @@ This is only part of the `YAML` action. More complete examples are given in the 
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
           access-type: k8s
           k8s-auth-config-name: "k8s-auth-config-name"
-          gateway-url: "<https://Your-Akeyless-Gateway-URL:8000>"
+          gateway-url: "https://Your-Akeyless-Gateway-URL:8000"
           static-secrets: |
             - name: "/akeyless-github-action/github-static-secret-json"
               output-name: "my_first_secret"
@@ -168,7 +168,7 @@ Although this repository's workflows use placeholder values, it is still a real 
 
 > 👍 Zero-Knowledge Encryption
 >
-> If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint, for example, `<https://Your_GW_URL:8000/api/v2>` (or using your gateway URL at port `8081`).
+> If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint, for example, `https://Your_GW_URL:8000/api/v2` (or using your gateway URL at port `8081`).
 
 ### Static Secrets Example
 

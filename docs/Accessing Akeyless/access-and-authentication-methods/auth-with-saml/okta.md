@@ -45,9 +45,9 @@ The following configuration will enable users to authenticate using Okta SAML-ba
     ![Illustration for: Name: groups Filter: Matches regex-> Value: . 3. On the Feedback page, click Finish.](https://files.readme.io/7e3cf7f-5.png)
 
 4. You can either obtain your IdP Metadata URL by clicking on the **Actions** menu of the Active **SAML Signing Certificate** and copy the URL from the **View IdP Metadata** button.
-    Alternatively, you can obtain the IdP metadata`XML`, by clicking on **View SAML setup instructions**, and in the new tab that opens, scroll down and copy the full IdP metadata`XML` under the **Optional** section.
+    Alternatively, you can obtain the IdP metadata `XML` by clicking on **View SAML setup instructions**, and in the new tab that opens, scroll down and copy the full IdP metadata `XML` under the **Optional** section.
 
-    ![Illustration for: Alternatively, you can obtain the IdP metadataXML, by clicking on View SAML setup instructions, and in the new tab that opens, scroll down and copy the full IdP metadataXML…](https://files.readme.io/057d8cf-6.png)
+    ![Illustration for: Alternatively, you can obtain the IdP metadata XML by clicking on View SAML setup instructions, and in the new tab that opens, scroll down and copy the full IdP metadata XML…](https://files.readme.io/057d8cf-6.png)
 
 5. Now, when an Okta Application is ready, assign users to the Okta app, just like with any other Okta app.
 

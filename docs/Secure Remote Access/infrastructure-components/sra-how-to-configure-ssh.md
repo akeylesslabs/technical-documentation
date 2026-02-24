@@ -30,9 +30,9 @@ You can sign the certificate with your own private key or generate a new one in 
 
 ### Creating a Key
 
-In order to configure a CA, you will first need an RSA key to match. You can either use an existing key or create a new one. Once you are logged in to your Akeyless account on the desired server, proceed to one of the following:
+To configure a CA, you first need a matching RSA key. You can either use an existing key or create a new one. Once you are logged in to your Akeyless account on the desired server, proceed to one of the following:
 
-In case you want to use an existing key, upload your CA (RSA private key) for signing the client SSH certificate, using the following command:
+If you want to use an existing key, upload your CA (RSA private key) for signing the client SSH certificate using the following command:
 
 ```shell your-RSA-key-name
 akeyless upload-rsa --name your-RSA-key-name --alg RSA2048 --rsa-key-file-path Path-to-RSA.pem
@@ -226,7 +226,7 @@ You should now have a working certificate issuer.
 
 ### Issuing a Certificate
 
-In order to issue an SSH certificate using an existing CI through the console, go through the following steps:
+To issue an SSH certificate using an existing CI through the console, go through the following steps:
 
 1. Go to the folder in which your certificate issuer is located and select it.
 

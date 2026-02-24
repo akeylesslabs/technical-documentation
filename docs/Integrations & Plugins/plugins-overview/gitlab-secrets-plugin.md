@@ -52,7 +52,7 @@ secrets:
     AKEYLESS_SECRET:
       token: $AKEYLESS_JWT
       akeyless:
-        akeyless_api_url: '<https://Your-Gateway-URL:8080/v2>'
+        akeyless_api_url: 'https://Your-Gateway-URL:8080/v2'
         name: '</SecretName>'
 ```
 ```yaml API Key
@@ -94,7 +94,7 @@ secrets:
         akeyless_access_type: 'k8s'
         k8s_service_account_token: 'k8s_service_account_token'
         k8s_auth_config_name: 'k8s_auth_config_name'
-        akeyless_api_url: '<https://Your-Gateway-URL:8080/v2>'
+        akeyless_api_url: 'https://Your-Gateway-URL:8080/v2'
 ```
 ```yaml Universal Identity
 secrets:
@@ -153,7 +153,7 @@ Where:
 
 * `name`: The full name of the secret in Akeyless, for example, `/MyFirstSecret`
 
-* `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint that is`<https://Your_GW_URL:8080/v2>`, by default works with the public API: `https://api.akeyless.io`.
+* `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint that is `https://Your_GW_URL:8080/v2`, by default works with the public API: `https://api.akeyless.io`.
 
 * `gateway_ca_certificate`: **Optional**, Gateway CA Certificate when your Gateway TLS is set with **Private CA** .
 
@@ -187,7 +187,7 @@ When reusing the same token for multiple use the following format:
 job:  # This job fetches the Akeyless Token  
   id_tokens:  
     AKEYLESS_JWT:  
-      aud: '<https://gitlab.com'>  
+      aud: 'https://gitlab.com'  
   secrets:  
     AKEYLESS_TOKEN:  
       token: $AKEYLESS_JWT  

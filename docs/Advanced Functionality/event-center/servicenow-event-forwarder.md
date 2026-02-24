@@ -23,7 +23,7 @@ To set up a **ServiceNow** Event Forwarder, use the following command:
 ```shell JWT
 akeyless event-forwarder create servicenow \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --host <Endpoint URL> \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>
@@ -40,7 +40,7 @@ akeyless event-forwarder create servicenow \
 ```shell User-Pass
 akeyless event-forwarder create servicenow \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --host <Endpoint URL> \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>

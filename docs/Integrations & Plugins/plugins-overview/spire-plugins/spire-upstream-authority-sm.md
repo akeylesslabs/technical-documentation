@@ -105,7 +105,7 @@ UpstreamAuthority  "akeyless_sm" {
      plugin_data {
        access_id = "<Your_Access_ID>"
        access_key = "<Your_Access_KEY>"
-       akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL:8000/api/v2>' # or use port 8081
+       akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL>:8000/api/v2>' # or use port 8081
        certificate_name = "</SPIRE/SVID/certificate_name>"
      }
 }

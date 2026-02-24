@@ -38,7 +38,7 @@ Currently, the Helm chart requires a StorageClass with `ReadWriteMany` access mo
 
 ### Network
 
-When using SSH sessions behind load balancer such as ELB, the session can be closed due to idle connection timeout, so its advise to increase it to a reasonable high value, or event unlimited.
+When using SSH sessions behind a load balancer such as ELB, the session can close due to an idle connection timeout, so it is advised to increase it to a reasonably high value, or even unlimited.
 
 For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 

@@ -18,7 +18,7 @@ next:
 
 Some of Vault’s plugins support only AppRole authentication.
 
-For those types of plugins, you’ll need to specify `role_id` and `secret_id`, for using HashiCorp Vault Proxy you’ll need to use `Access Id` and `Access key` replacing `role_id` and `secret_id`correspondingly.
+For those types of plugins, you’ll need to specify `role_id` and `secret_id`. When using HashiCorp Vault Proxy, use `Access Id` and `Access key`, replacing `role_id` and `secret_id` correspondingly.
 
 For example, Vault AppRole authentication using HashiCorp Vault Proxy:
 

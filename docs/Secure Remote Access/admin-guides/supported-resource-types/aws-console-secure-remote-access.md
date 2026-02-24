@@ -70,7 +70,7 @@ By default, access to the AWS portal will use a direct network access mode. To w
 
 * `secure-access-web-browsing`: Optional, secure browser by way of Akeyless Web Access Zero trust Web Access.
 
-Alternatively, in case you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
+Alternatively, if you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
 
 * `secure-access-web-proxy`: Optional, web-proxy by way of Akeyless Zero trust Web Access.
 * `secure-access-delay`: The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds

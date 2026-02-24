@@ -63,7 +63,7 @@ To create a custom Rotated Secret with the CLI, run the following command:
 ```shell
 akeyless rotated-secret create custom \
 --name <Rotated Secret name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <Web Target item name> \
 --authentication-credentials <use-user-creds> \
 --password-length 16

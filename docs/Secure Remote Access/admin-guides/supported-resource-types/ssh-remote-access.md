@@ -41,7 +41,7 @@ akeyless update-ssh-cert-issuer \
 --secure-access-enable true \
 --secure-access-api <ssh-sra service control API endpoint URL> \
 --secure-access-ssh  <ssh-sra service server IP and Port> \
---secure-access-ssh-creds-user <SSH username> \ 
+--secure-access-ssh-creds-user <SSH username> \
 --host-provider[=explicit] \
 --secure-access-host <remote host> 
 ```
@@ -52,7 +52,7 @@ where:
 
 * `secure-access-ssh`: Secure Access SSH server. For example, `my.sra-server:22`.
 
-* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users`list, **Just In Time** users can be authorized by configuring `allowed_users` with `session_*`.
+* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users` list. **Just In Time** users can be authorized by configuring `allowed_users` with `session_*`.
 
 * `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
@@ -204,4 +204,4 @@ To download a file:
 
 > 🚧 File size and free space
 >
-> In case there is a size limit issue on the SRA SSH server, (exceeding over 90% of space) a file will be created in the `akl-downloads` folder saying `NOT_ENOUGH_FREE_SPACE` and the user won't be able to download it.
+> If there is a size limit issue on the SRA SSH server (exceeding 90% of space), a file named `NOT_ENOUGH_FREE_SPACE` is created in the `akl-downloads` folder, and the user will not be able to download it.

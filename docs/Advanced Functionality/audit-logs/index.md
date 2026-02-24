@@ -30,7 +30,7 @@ When using the console, you will be able to navigate to the **Audit Logs** tab t
 
 These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status codes in the four hundreds means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
 
-You will be able to filter your logs based on any of these rubrics or tags inside the Akeyless SaaS platform in order to get insights or clarifications.
+You can filter your logs based on any of these rubrics or tags inside the Akeyless SaaS platform to get insights or clarifications.
 
 ## Reading the Raw Logs
 

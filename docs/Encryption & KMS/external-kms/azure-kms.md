@@ -36,7 +36,7 @@ To set up Akeyless KMS Integration with Azure KMS, follow these steps:
 
 3. [Associate](https://docs.akeyless.io/docs/classic-keys) the key with the [Azure Target](https://docs.akeyless.io/docs/azure-targets). When you attach a key, a copy of the key material is securely transferred to the Azure Key Vault KMS by its key import specification.
 
-    If you are using the CLI in order to associate the key and the target, please note to use all of the Azure mandatory parameters as described in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueassociate-a-classic-keyp):
+    If you are using the CLI to associate the key and the target, please use all Azure mandatory parameters as described in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueassociate-a-classic-keyp):
 
     * **vault-name:** The name of the Azure Vault you are targeting.
     * **key-operations:** An array with allowed operations

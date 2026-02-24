@@ -72,9 +72,9 @@ akeyless target create db \
 akeyless target create db \
 --name <Target name> \
 --db-type mssql \
---user-name <Database user name> \ 
---pwd <Database password> \ 
---host <Database host> \ 
+--user-name <Database user name> \
+--pwd <Database password> \
+--host <Database host> \
 --port <Database port> \
 --db-name <Database name> 
 ```

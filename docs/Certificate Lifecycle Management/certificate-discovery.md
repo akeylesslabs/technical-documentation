@@ -15,21 +15,21 @@ When a certificate is found, Akeyless automatically creates a corresponding cert
 
 ## Running a Certificate Discovery with the CLI
 
-In order to run a certificate discovery using the CLI, run the following command:
+To run a certificate discovery using the CLI, run the following command:
 
 ```shell
-akeyless certificate-discovery \ 
+akeyless certificate-discovery \
 --hosts <IPs, CIDR ranges, or DNS names> \
 --port-ranges[=443] <80,8080-8085> \
 --target-location 'Discovery-Folder' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 Where:
 
-* `hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
+* `hosts`: **Required**, A comma-separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
 
-* `port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080`-`8085`.
+* `port-ranges[=443]`: A comma-separated list of port ranges. Example: `80`, `8080`-`8085`.
 
 * `target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
 

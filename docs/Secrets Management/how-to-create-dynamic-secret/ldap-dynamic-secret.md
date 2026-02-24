@@ -30,7 +30,7 @@ To create a dynamic LDAP secret with the CLI using an existing [LDAP Target](htt
 akeyless dynamic-secret create ldap \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --user-dn <User Base DN> \
 --password-length 16
 ```
@@ -38,9 +38,9 @@ akeyless dynamic-secret create ldap \
  Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valueldap \
+akeyless dynamic-secret create ldap \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --ldap-url <LDAP server URL> \
 --bind-dn <LDAP Bind DN> \
 --bind-dn-password <Password>\

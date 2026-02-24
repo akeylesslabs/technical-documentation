@@ -77,7 +77,10 @@ This guide defines standards for writing clear, consistent, and professional tec
   git clone https://github.com/example/repo.git
   ```
 
-* Use code block tabbing when presenting the same example across multiple languages or platform configurations:
+#### Code tabbing (ReadMe.com specific)
+
+* Favor code block tabbing when presenting the same example across multiple languages or platform configurations.
+    * For ReadMe code tabs to render correctly, adjacent fenced code blocks must have no blank line between them.
 
   ```python
   Python Code
@@ -166,7 +169,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 
 * Dates: `YYYY-MM-DD` (ISO 8601).
 * Time: Use UTC when relevant (For example, `14:00 UTC`).
-* Numbers: Use numerals for all numbers greater than 10 (For example, "11 files," not "eleen files").
+* Numbers: Use numerals for all numbers greater than 10 (For example, "11 files," not "eleven files").
 * Units:
     * Use SI units (For example, "MB," "ms").
     * Use a space between the value and unit (For example, "10 GB", "12 ms").
@@ -221,5 +224,6 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * Run spell check and grammar review.
 * Utilize the ReadMe.com AI Linter.
 * Validate code snippets and commands.
+* When introducing conventions that apply broadly (for example, all files or repository-wide automation), update this style guide where relevant.
 
 ***

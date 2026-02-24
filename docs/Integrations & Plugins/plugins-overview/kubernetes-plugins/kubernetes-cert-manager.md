@@ -104,7 +104,7 @@ metadata:
 spec:
   vault:
     path: /pki/sign/dev/Pki_Cert_Issuer 
-    server: <https://Your_Akeyless_GW_URL:8000/hvp> # Or using port 8200
+    server: "https://Your_Akeyless_GW_URL:8000/hvp" # Or using port 8200
     auth:
       kubernetes:
         role: <"base64 encoding of access_id..k8s_auth_config_name">
@@ -173,7 +173,7 @@ metadata:
 spec:
   vault:
     path: /pki/sign/dev/Pki_Cert_Issuer 
-    server: <http://<Your_Akeyless_GW_URL:8200> # HashiCorp Vault Proxy address
+    server: "http://<Your_Akeyless_GW_URL>:8200" # HashiCorp Vault Proxy address
     auth:
       appRole:
         path: approle

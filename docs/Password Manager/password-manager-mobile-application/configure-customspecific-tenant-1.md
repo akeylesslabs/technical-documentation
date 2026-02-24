@@ -16,7 +16,7 @@ This innovative feature allows users of the Password Manager application to enha
 
 ## Detailed Instructions for Configuring Your Custom/Specific Tenant URL in the Password Manager Application
 
-Initiation of Configuration Process: Start the customization process by opening your Password Manager application. Navigate to its settings or configuration area, which you can usually find in the main menu or represented by a settings icon. This part of the application is your hub for adjusting its behavior and settings to align with your specific access needs or preferences.
+Initiation of Configuration Process: Start the customization process by opening your Password Manager application. Navigate to its settings or configuration area, which you can usually find in the main menu or by tapping a settings icon. This part of the application is your hub for adjusting its behavior and settings to align with your specific access needs or preferences.
 
 ## Entering the Custom/Specific Tenant URL
 

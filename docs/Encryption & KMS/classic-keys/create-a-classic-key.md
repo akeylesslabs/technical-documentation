@@ -23,9 +23,9 @@ You can create a classic key using the Akeyless CLI. If you’d prefer, see how 
 The syntax to create a classic key is:
 
 ```shell
-akeyless create-classic-key /
---name <classic key name> /
---alg <AES256GCM|RSA2048> /
+akeyless create-classic-key \
+--name <classic key name> \
+--alg <AES256GCM|RSA2048> \
 --target-name <target name>
 ```
 

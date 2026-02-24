@@ -75,7 +75,7 @@ The **Key name** should be set to `data` and the **Path** should be set to `secr
 
 ![Illustration for: The Key name**should be set to data and the Path should be set to secret/data/DevOps/Ansible.](https://files.readme.io/2958df1-ansible5.png)
 
-In case the secret value itself is a JSON-structured object, the **Path** must be in the following format:
+If the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
  `secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names** for example, let's create a secret that contains a JSON-structured value:
 

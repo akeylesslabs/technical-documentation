@@ -27,7 +27,7 @@ akeyless kmip-client-delete-rule \
 --path <Access path> \
 --name <KMIP client name> \
 --client-id <KMIP client ID> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 #### Flags
@@ -64,7 +64,7 @@ akeyless kmip-client-set-rule \
 --capability <Access capability> \
 --name <KMIP client name> \
 --client-id <KMIP client ID> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 #### Flags
@@ -89,7 +89,7 @@ Create a new KMIP client
 akeyless kmip-create-client \
 --name <Client name> \
 --certificate-ttl <Server certificate TTL in days (Deafult = 90)> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 #### Flags
@@ -100,7 +100,7 @@ akeyless kmip-create-client \
 
 `-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: \<client-name>.key and \<client-name>.cert
 
-`-a, --activate-keys-on-creation"h-0": "`: If set to 'true', newly created keys on the client will be set to an 'active' state
+`-a, --activate-keys-on-creation[=false]`: If set to `true`, newly created keys on the client will be set to an `active` state
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -183,7 +183,7 @@ Move the root location of the kmip server and all associated items to a new root
 ```shell
 akeyless kmip-server-move \
 --new-root <New root for the KMIP server> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 #### Flags
@@ -203,7 +203,7 @@ akeyless kmip-server-setup \
 --hostname <KMPI server hostname> \
 --certificate-ttl <Server certificate TTL in days (Deafult = 90)> \
 --root <Root path of KMIP Objects> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 #### Flags
@@ -225,9 +225,9 @@ Set the server state to enabled/disabled
 #### Usage
 
 ```shell
-akeyless kmip-set-server-state \ 
+akeyless kmip-set-server-state \
 --state <Enabled / Disabled> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 #### Flags

@@ -215,7 +215,7 @@ akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
-In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file you can use:
+If you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file, you can use:
 
 ```shell
 akeyless connect -t us-east-1 -g <gw-ssh-url>:<port> -n "<Path to AWS Dynamic Secret>"

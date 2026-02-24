@@ -33,7 +33,7 @@ Create a client key using a Certificate Signing Request (CSR):
 ```shell
 export USER_NAME="AkeylessK8sAuth";
 export GROUP="AkeylessAuth";
-export GATEWAY_URL="https://<Your_Akeyless_GW_URL:8000>";
+export GATEWAY_URL="https://<Your_Akeyless_GW_URL>:8000";
 K8S_CSR=$(akeyless generate-csr -n /k8s/Clustername/csr/$USER_NAME --generate-key --alg RSA2048 --common-name $USER_NAME --gateway-url $GATEWAY_URL --org $GROUP --json --jq-expression ".data"| base64 | tr -d "\n")
 USER_KEY=$(akeyless export-classic-key -n /k8s/Clustername/csr/$USER_NAME --jq-expression ".key" | base64)
 ```
@@ -152,11 +152,11 @@ Use the Akeyless CLI to create the Kubernetes auth config using the Client Certi
 ```shell Native Kubernetes
 akeyless gateway-create-k8s-auth-config 
 --name k8s-conf \
---gateway-url https://<Your_Akeyless_GW_URL:8000> \
+--gateway-url https://<Your_Akeyless_GW_URL>:8000 \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
 --k8s-auth-type certificate \
---k8s-host https://<Your_Kubernetes_Cluster_IP:8443> \
+--k8s-host https://<Your_Kubernetes_Cluster_IP>:8443 \
 --k8s-client-certificate $USER_CERT \
 --k8s-client-key $USER_KEY \
 --k8s-ca-cert $CA_CERT \
@@ -224,7 +224,7 @@ K8S Auth config k8s-conf successfully created. ID=[UqeOAkg4UDo...bpv52Iq]
     ```shell
     ./akeyless auth --access-id $ACCESS_ID \
         --access-type k8s \
-        --gateway-url https://<Your_Akeyless_GW_URL:8000> \
+        --gateway-url https://<Your_Akeyless_GW_URL>:8000 \
         --k8s-auth-config-name k8s-conf
     ```
 

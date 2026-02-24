@@ -74,7 +74,7 @@ This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file 
 
 > 🚧 Warning
 >
-> Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
+> Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your pod scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 
 ## Azure Log Analytics
 

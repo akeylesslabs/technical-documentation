@@ -34,7 +34,7 @@ To create a dynamic RDP secret with the CLI using an existing [RDP Target](https
 akeyless dynamic-secret create rdp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rdp-user-groups <Group Name> \
 --password-length 16
 ```
@@ -42,9 +42,9 @@ akeyless dynamic-secret create rdp \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuerdp \
+akeyless dynamic-secret create rdp \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rdp-user-groups <Group Name> \
 --rdp-host-name <RDP Host name> \
 --rdp-host-port <RDP port> \

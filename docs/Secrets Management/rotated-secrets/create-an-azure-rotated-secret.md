@@ -24,9 +24,9 @@ When a client requests a Rotated Secret value, the Akeyless Platform connects to
 
 | Action | Permissions \ Role |
 | --- | --- |
-| To`Rotate` Application Secret | `Application.ReadWrite.OwnedBy` or `Application.ReadWrite.All` |
-| To`Reset password`for user | `User-PasswordProfile.ReadWrite.All` |
-| To`Rotate storage account keys` | `Storage Account Key Operator Service Role` |
+| To `Rotate` Application Secret | `Application.ReadWrite.OwnedBy` or `Application.ReadWrite.All` |
+| To `Reset password` for user | `User-PasswordProfile.ReadWrite.All` |
+| To `Rotate storage account keys` | `Storage Account Key Operator Service Role` |
 
 Where:
 
@@ -47,7 +47,7 @@ To create a Rotated Azure Secret using the Akeyless CLI, run the following comma
 ```shell
 akeyless rotated-secret create azure \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name to associate> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --rotator-type <azure-storage-account|api-key|target|password> \

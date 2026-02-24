@@ -83,7 +83,7 @@ To create a dynamic GCP secret with the CLI using an existing [GCP Targets](http
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gcp-sa-email <service account email>
 --gcp-cred-type <token|key> \
 --gcp-token-scopes <Token Scopes> \
@@ -93,7 +93,7 @@ akeyless dynamic-secret create gcp \
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --service-account-type dynamic \
 --role-binding <Path to JSON roles file> \
 --gcp-cred-type <token|key> \
@@ -104,7 +104,7 @@ akeyless dynamic-secret create gcp \
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --access-type[=sa] external \
 --role-name <role1, role2> \
 --fixed-user-claim-keyname[=ext_email] <Sub-Claim Name>
@@ -115,7 +115,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gcp-sa-email <service account email>
 --gcp-cred-type <token|key> \
 --gcp-token-scopes <Token Scopes> \
@@ -132,7 +132,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `service-account-type`: `Fixed`, `Dynamic`type. By default set to **Fixed**.
+* `service-account-type`: `Fixed`, `Dynamic` type. By default set to **Fixed**.
 
 * `role-binding`: A path to a JSON file that holds the relevant resource with roles to bind for the created Service Account. Relevant only for **Dynamic** type.
 

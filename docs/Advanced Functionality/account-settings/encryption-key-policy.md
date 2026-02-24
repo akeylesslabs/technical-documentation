@@ -17,9 +17,9 @@ Policies are applied at the folder level and can automatically inherit to all su
   This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or later.
 </Callout>
 
-## Settings an Encryption Key Policy with the CLI
+## Setting an Encryption Key Policy with the CLI
 
-In order to set an encryption key policy using the CLI, run the following command:
+To set an encryption key policy using the CLI, run the following command:
 
 ```shell
 akeyless policy create keys \
@@ -45,14 +45,14 @@ Where:
 
 * `object-types`: The object types this policy will apply to [`items`, `targets`].
 
-## Settings an Encryption Key Policy with the Console
+## Setting an Encryption Key Policy with the Console
 
 1. Log in to the Akeyless Console, and go to **Account Settings** > **Key Management**.
 2. In the **Key Management Policies** section, press **Add**.
 3. Define the remaining parameters as follows:
-   * **Object Type**: Choose either **Item** or **Target**.
-   * **Access Path**: Choose a path where the policy will be applied at (check the **Apply Recursively** in order to set this policy for items exists in folder under the specified app).
-   * **Max Rotation Interval**: The allowed max rotation interval for keys in the specified path.
-   * **Algorithm Key Types**: The allowed algorithm key types in the specified path.
-   * **Protection Key Type**:  **DFC** or **Classic** or both, (If , (In case **Exclusively use default key** is checked, **Classic** is irrelevant and grayed out).
-   * **Protection Key Type**: The allowed protection key in the specified path, (In case **Exclusively use default key** is checked, this option is irrelevant and grayed out).
+    * **Object Type**: Choose either **Item** or **Target**.
+    * **Access Path**: Choose a path where the policy will be applied (check **Apply Recursively** to set this policy for items in folders under the specified app).
+    * **Max Rotation Interval**: The maximum allowed rotation interval for keys in the specified path.
+    * **Algorithm Key Types**: The allowed algorithm key types in the specified path.
+    * **Protection Key Type**: **DFC**, **Classic**, or both (if **Exclusively use default key** is checked, **Classic** is irrelevant and grayed out).
+    * **Protection Key Name**: The allowed protection key in the specified path (if **Exclusively use default key** is checked, this option is irrelevant and grayed out).

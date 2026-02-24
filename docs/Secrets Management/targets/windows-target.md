@@ -18,7 +18,7 @@ To create a Windows target with the CLI, run the following command:
 
 ```shell
 akeyless target create windows \
---name <target name> \ 
+--name <target name> \
 --hostname <Windows Hostname\IP> \
 --username <Windows Local Username> \
 --password <Password>

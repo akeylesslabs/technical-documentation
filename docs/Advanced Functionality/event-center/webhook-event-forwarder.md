@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Event forwarders are tools you can configure through the Event Center in order to get notified on other platforms when a certain event type happens. For example, one might want to be notified every time a certain [Certificate](https://docs.akeyless.io/docs/certificate-storage) is about to expire or when a user requests to access an item you have in your Akeyless Platform.
+Event forwarders are tools you can configure through the Event Center to get notified on other platforms when a certain event type happens. For example, you might want to be notified every time a certain [Certificate](https://docs.akeyless.io/docs/certificate-storage) is about to expire or when a user requests access to an item in your Akeyless Platform.
 
 **Webhook Event Forwarder** enables you to forward event notifications to **Endpoint URLs** based on your configuration. These include notifications about **Items, Auth Methods, Targets, and Gateways**, which can be configured to be sent immediately or every 1 to 24 hours.
 
@@ -21,7 +21,7 @@ To set up a **Webhook** Event Forwarder, use the following command:
 ```shell User-Pass
 akeyless event-forwarder create webhook \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <Webhook URL>
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>
@@ -35,7 +35,7 @@ akeyless event-forwarder create webhook \
 ```shell Token
 akeyless event-forwarder create webhook \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <Webhook URL>
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>
@@ -48,7 +48,7 @@ akeyless event-forwarder create webhook \
 ```shell Certificate
 akeyless event-forwarder create webhook \
 --name MyForwarder \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --url <Webhook URL>
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*>

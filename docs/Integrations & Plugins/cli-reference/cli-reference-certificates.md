@@ -154,7 +154,7 @@ Creates a new PKI certificate issuer
 akeyless create-pki-cert-issuer \
 --name <PKI issuer name> \
 --ttl <The maximum requested Time To Live for issued certificates, in seconds> \
---signer-key-name <A singer key to sign and issue certificate> 
+--signer-key-name <A signer key to sign and issue certificate> 
 ```
 
 #### Flags
@@ -169,9 +169,9 @@ akeyless create-pki-cert-issuer \
 
 `-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds, supported formats are `s`, `m`, `h`, `d`.
 
-`--allowed-domains`: A list of domains (comma separated) this Issuer is allowed to issue certificates for.
+`--allowed-domains`: A list of domains (comma-separated) this Issuer is allowed to issue certificates for.
 
-`--allowed-uri-sans`: A list of the allowed URIs Subject Alternative Names (comma separated) this Issuer is allowed to issue certificate for.
+`--allowed-uri-sans`: A list of allowed URI Subject Alternative Names (comma-separated) this Issuer is allowed to issue certificates for.
 
 `--allow-subdomains [=false]`: If set, clients can request certificates for subdomains and wildcard subdomains of the allowed domains
 
@@ -219,7 +219,7 @@ akeyless create-pki-cert-issuer \
 
 `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified, To specify multiple events, use the argument multiple times: --expiration-event-in 1 --expiration-event-in 5
 
-`--allowed-extra-extensions`: A `JSON`string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"<OID>":["<Vlaue>"]}'`
+`--allowed-extra-extensions`: A `JSON` string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"<OID>":["<Value>"]}'`
 
 `--allowed-extra-extensions-file-path`: A path to a file containing a JSON string that defines the allowed extra extensions for the PKI cert issuer
 
@@ -309,7 +309,7 @@ Gets credentials for authentication with Kubernetes cluster based on a PKI Cert 
 akeyless get-kube-exec-creds \
 --cert-issuer-name <PKI cert issuer name> \
 --key-file-path <The client public or private key file path> \
---alt-names <The Subject Alternative Names to be included in the PKI certificate> \ 
+--alt-names <The Subject Alternative Names to be included in the PKI certificate> \
 --ttl <Updated certificate lifetime in seconds>
 ```
 
@@ -317,7 +317,7 @@ akeyless get-kube-exec-creds \
 
 `-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
-`-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be use to extract the public key)
+`-k, --key-file-path`: The client public or private key file path (if it is a private key, it will be used to extract the public key)
 
 `--key-data-base64`: PKI key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
 
@@ -356,7 +356,7 @@ akeyless get-pki-certificate \
 
 `-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
-`-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be use to extract the public key). When using **CSR** with a **private** key, the provided key will be stored with the issued certificate.
+`-k, --key-file-path`: The client public or private key file path (if it is a private key, it will be used to extract the public key). When using **CSR** with a **private** key, the provided key will be stored with the issued certificate.
 
 `--key-data-base64`: PKI key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
 
@@ -389,7 +389,7 @@ Get a challenge for certificate authentication
 ```shell
 akeyless get-cert-challenge \
 --access-id <AccessID> \
---cert-data <'Certificate data encoded in Base64'>
+--cert-data 'Certificate data encoded in Base64'
 ```
 
 ### `renew-certificate`
@@ -423,7 +423,7 @@ Updates a new PKI certificate issuer
 ```shell
 akeyless update-pki-cert-issuer \
 --name <PKI issuer name> \
---ttl <The maximum requested Time To Live for issued certificates, in seconds> \ 
+--ttl <The maximum requested Time To Live for issued certificates, in seconds> \
 --new-name <New item name> \
 --signer-key-name <A key to sign the certificate with> 
 ```
@@ -436,7 +436,7 @@ akeyless update-pki-cert-issuer \
 
 `-s, --signer-key-name`: A key to sign the certificate with
 
-`-t, --ttl`: **Required**, The maximum requested Time To Live for issued certificate by `default` in seconds, supported formats are `s`, `m`, `h`, `d`. In case of Public CA, this is based on the CA target's supported maximum TTLs
+`-t, --ttl`: **Required**, The maximum requested Time To Live for the issued certificate by `default` in seconds; supported formats are `s`, `m`, `h`, `d`. If using Public CA, this is based on the CA target's supported maximum TTLs
 
 `--gw-cluster-url`: The GW cluster URL to issue the certificate from, required in Public CA mode
 
@@ -699,11 +699,11 @@ Creates a new PKI CA and Intermediate issuers
 #### Usage
 
 ```shell
-akeyless generate-ca \ 
+akeyless generate-ca \
 --pki-chain-name <PKI Issuer name> \
 --allowed-domains <Allowed domain list> \
 --ttl <Issued Certificates TTL> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -739,18 +739,18 @@ Discover Certificates in your organization
 #### Usage
 
 ```shell
-akeyless certificate-discovery \ 
+akeyless certificate-discovery \
 --hosts <IPs, CIDR ranges, or DNS names> \
 --port-ranges[=443] <80,8080-8085> \
 --target-location 'Discovery-Folder' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
 
-`-o, --hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
+`-o, --hosts`: **Required**, A comma-separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
 
-`-p, --port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080-8085`.
+`-p, --port-ranges[=443]`: A comma-separated list of port ranges. Example: `80`, `8080-8085`.
 
 `-f, --target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
 

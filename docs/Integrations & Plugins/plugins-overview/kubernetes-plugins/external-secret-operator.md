@@ -199,7 +199,7 @@ Where:
 
 * `refreshInterval`: The amount of time before the values are read again
 
-* `secretStoreRef`: Reference to the `SecretStore` that was created earlier, in case of `ClusterSecretStore` set the `Kind` to `ClusterSecretStore`
+* `secretStoreRef`: Reference to the `SecretStore` that was created earlier. If using `ClusterSecretStore`, set the `Kind` to `ClusterSecretStore`.
 
 * `target`: Name of the Kubernetes Secret to create.
 
