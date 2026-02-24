@@ -28,7 +28,7 @@ akeyless gateway update log-forwarding syslog \
 
 > 👍 Note
 >
-> The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
+> The output message format conforms to Syslog format and assumes the Syslog server does not add its own formatting to the message.
 
 Default format: `<date > <time> <host name> <log level> <message>`.
 

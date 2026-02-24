@@ -127,7 +127,7 @@ subjects:
   namespace: <Namespace>
 ```
 
-If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using either the GW Service Account, or the dedicated Service Account (if its a dedicated Service Account, be sure to extract its Bearer Token).
+If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using either the GW Service Account or the dedicated Service Account (if it's a dedicated Service Account, be sure to extract its Bearer Token).
 
 > 📘 Info
 >

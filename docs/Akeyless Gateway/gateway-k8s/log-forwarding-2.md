@@ -49,16 +49,16 @@ target_syslog_host="<host>:<port>"
 target_syslog_formatter="[default=text]|cef"
 #TLS Optional
 target_syslog_enable_tls="true"
-target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
+target_syslog_tls_certificate="<Base64 PEM encoded Cert>"
 ```
 
 > 👍 Note
 >
-> The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
+> The output message format conforms to Syslog format and assumes the Syslog server does not add its own formatting to the message.
 
 Default format: `<date > <time> <host name> <log level> <message>`.
 
-The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF** format.
+The `target_syslog_formatter` variable controls the output message format: `text` or `cef` (for **CEF** format).
 
 ### Splunk
 
