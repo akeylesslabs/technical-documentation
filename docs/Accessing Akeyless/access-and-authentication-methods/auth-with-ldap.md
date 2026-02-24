@@ -30,7 +30,7 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
 * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs).
   This parameter is optional. If empty, the IP of the Gateway will be used in the logs.
@@ -39,9 +39,9 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `Web UI`, `Mobile`.
 
-* **Require Sub Claim on role association:** select to force [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) during [Role](https://docs.akeyless.io/docs/rbac) association.
+* **Require Sub Claim on role association:** Select to force [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) during [Role](https://docs.akeyless.io/docs/rbac) association.
 
-* **Unique Identifier:** A unique identifier is usually one of the following keys `email`, `username`, or `UPN`. Identity Providers issue sub-claims containing details that uniquely identify the user whenever a user logs in.
+* **Unique Identifier:** A unique identifier is usually one of the following keys: `email`, `username`, or `UPN`. Identity Providers issue sub-claims containing details that uniquely identify the user whenever a user logs in.
   A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
 On the **LDAP Configuration** step define the following:
