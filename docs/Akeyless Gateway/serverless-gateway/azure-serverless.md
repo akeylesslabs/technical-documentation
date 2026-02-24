@@ -32,7 +32,7 @@ This guide describes how to run a Serverless Gateway on **Azure** based on [Func
 
 For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/api/v2/`
 
-> 🚧 Warning
+> **Warning:**
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
@@ -55,7 +55,7 @@ The following Authentication Methods are supported for Azure Serverless:
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
 
-> 👍 Tip
+> **Tip:**
 >
 > When working with **Azure AD** authentication method, you can set a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) containing the **Azure Object ID** on the Access-Role associated to the authentication method.
 >
@@ -256,7 +256,7 @@ BICEP_PARAMS = params.bicepparam
 
 Upon successfully installing the **Serverless Gateway**, the Gateway console URL will be printed.
 
-> 📘 Gateway URL
+> **Note (Gateway URL):**
 >
 > The default value of the Gateway URL ends with `/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
 >

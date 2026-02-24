@@ -12,7 +12,7 @@ next:
 ---
 Akeyless enables you to proactively revoke certificates before their scheduled expiration date and seamlessly add them to a **Certificate Revocation List (CRL)**, ensuring enhanced security and trust in your certificate management process. Each [PKI Cert Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) generates a consistent **Certificate Revocation List (CRL)** for all its issued certificates. In addition, Akeyless supports the **Online Certificate Status Protocol (OCSP)**, providing real-time certificate status verification to further strengthen your PKI security and streamline revocation checking.
 
-> 📘 Note
+> **Note:**
 >
 > Your PKI Issuer **Signer Key** must be set with the `keyusage:critical,cRLSign` extension to maintain a **CRL** and support self-signed certificate revocation.
 

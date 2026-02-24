@@ -20,7 +20,7 @@ Akeyless Gateway should always be used with TLS to ensure all traffic is encrypt
 
 If you are working with Load Balancers or reverse proxies in front of your Gateway, TLS should be used for all network connections.
 
-> 👍 Note
+> **Note:**
 >
 > The use of the HTTP protocol is considered insecure and discouraged; thus, remote Gateway configuration is not supported over HTTP. If you wish to configure your Gateway remotely, make sure you do it over HTTPS.
 

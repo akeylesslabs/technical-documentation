@@ -65,7 +65,7 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
 
    You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
 
-> 👍 Note
+> **Note:**
 >
 > The example above demonstrates a very basic usage of Signer key, to support all PKI settings You can work with Classic Keys as well to generate a signing key with a self-signed certificate.
 
@@ -73,7 +73,7 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
 
 A PKI Issuer enables you to issue certificates while the certificate templates are well-defined at the issuer level.
 
-> 👍 Using Classic Key as a Signer Key
+> **Note (Using Classic Key as a Signer Key):**
 >
 > To use a [Classic key](https://docs.akeyless.io/docs/classic-keys) as the **Signer Key** for a **PKI Issuer,** make sure **Classic** is **enabled** as an Allowed **Protection Key Type** in your account:
 >
@@ -115,7 +115,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
 
-> 👍 Note
+> **Note:**
 >
 > Set the PKI Issuer item to automatically store and renew any issued certificate with default expiration events to gain full automation of your PKI environments.
 
@@ -148,7 +148,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`). to generate the classic key/dfc key, relevant only when using `generate-key` option.
 
-> 📘 Note
+> **Note:**
 >
 > When using a wildcard certificate, if the `*` character is used in the name, it will be automatically replaced with `~` in the Akeyless Console when the `--destination-path` is specified (that is, when the certificate is stored in Akeyless).
 
@@ -173,7 +173,7 @@ Where:
 
 * `outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension.
 
-> 👍 Tip
+> **Tip:**
 >
 > You can provide the private key as well as part of the sign command for future certificate renewals using the `key-file-path` option.
 
@@ -203,7 +203,7 @@ Where:
 
 Here you can provide a certificate full name, or use the `item-id` or the certificate `serial-number` instead. If a CRL (Certificate Revocation List) is maintained, the certificate is added to the revocation list.
 
-> 📘 Note
+> **Note:**
 >
 > To view the **Certificate Revocation List**, the **PKI Cert Issuer's** signing key **must** include the `cRLSign` extension.
 

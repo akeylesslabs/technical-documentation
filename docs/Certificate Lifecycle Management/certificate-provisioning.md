@@ -16,7 +16,7 @@ Any [stored](https://docs.akeyless.io/docs/certificate-storage) certificate can 
 
 Setting up certificate provisioning requires **Target** permissions on the Gateway.
 
-> 👍 Provisioning Permissions on Target
+> **Note (Provisioning Permissions on Target):**
 >
 > To prevent partial files, the Gateway first saves new items (certificates, keys, and so on) in a temporary folder on your server, then atomically renames them into the final paths you specify. Ensure the temporary folder is writable by the user defined in the Target.
 
