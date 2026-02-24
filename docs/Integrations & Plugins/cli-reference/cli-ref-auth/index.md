@@ -1146,7 +1146,7 @@ akeyless auth-method update saml \
 
 ## `validate-token`
 
-Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
+Validates the provided token and, if valid, prints its expiration time (Time-To-Live).
 
 ### Usage
 

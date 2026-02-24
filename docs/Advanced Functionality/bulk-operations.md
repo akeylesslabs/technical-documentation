@@ -12,7 +12,7 @@ next:
 ---
 ## Delete Items
 
-This command deletes an entire items folder with its contents.
+This command deletes an entire item folder with its contents.
 The user running the command must have `Get`, `List`, and `Delete` permissions on the designated path and recursively on each item inside it.
 
 Only items visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not `Delete` on some of the items inside the path.
@@ -185,7 +185,7 @@ The user running the command must have `Get`, `List`, and `Delete` permissions o
 
 Only Roles visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not Delete on some of the roles inside the path.
 
-Examples prerequisites - `/folder/` is created with two Roles:
+Example prerequisites - `/folder/` is created with two Roles:
 
 ```shell
 $ akeyless create-role -n /folder/role1
