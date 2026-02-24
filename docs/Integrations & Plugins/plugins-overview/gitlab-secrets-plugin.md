@@ -116,7 +116,7 @@ Make sure to set the relevant `access_type` according to the Auth Method type yo
 
 > **Warning:**
 >
-> For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
+> For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.gitlab.com/ci/secrets/id_token_authentication/#token-payload) to prevent access by unauthorized users.
 >
 > Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that GitLab provides in the JWT.
 
