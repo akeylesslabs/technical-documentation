@@ -33,7 +33,7 @@ Where:
 
 Upon successful revocation, the certificate status will change from **Valid** to **Revoked**.
 
-You can find the complete list of parameters for this command in the [CLI-Reference-Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluerevoke-certificatep) section.
+You can find the complete list of parameters for this command in the [CLI-Reference-Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#revoke-certificate) section.
 
 ## Revoke a Certificate Using the Akeyless Console
 

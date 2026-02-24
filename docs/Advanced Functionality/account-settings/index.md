@@ -22,7 +22,7 @@ To view `Account Settings` options with the CLI, use the following command:
 akeyless update-account-settings -h
 ```
 
-You can find all the available commands in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueupdate-account-settingsp).
+You can find all the available commands in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#update-account-settings).
 
 ## Update Account Settings from the Akeyless Console
 

@@ -46,7 +46,7 @@ The main parameters for the command are as follows:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified, this parameter can be added multiple times for multiple notifications.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-certificatep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-certificate) section.
 
 ### Getting a Certificate
 
@@ -59,7 +59,7 @@ akeyless get-certificate-value \
 
 This command will return the certificates with the chain if it exists, as well as the private key if it exists.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-certificate-valuep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
 
 ### Updating a Certificate
 

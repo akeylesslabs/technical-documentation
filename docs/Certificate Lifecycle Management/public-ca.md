@@ -52,7 +52,7 @@ Where:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use the argument multiple times: `expiration-event-in 10` `expiration-event-in 15`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
 > **Note (Allowed Domains):**
 >
@@ -83,7 +83,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`). to generate the classic key, relevant only when using `generate-key` option.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#generate-csr) section.
 
 > **Note:**
 >
@@ -101,7 +101,7 @@ The output of this command contains the following value:
 
 * `display ID` - Certificate display ID.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-pki-certificatep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-pki-certificate) section.
 
 To retrieve the certificate, run the following command:
 
@@ -111,7 +111,7 @@ akeyless get-certificate-value \
 --display-id <Certificate display ID>
 ```
 
-You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-certificate-valuep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
 
 Once the certificate issue request is processed, a validation email will be sent to the email address listed in the Target, and it will be processed automatically by the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 
