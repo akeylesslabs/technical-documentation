@@ -104,7 +104,7 @@ Additional specific settings could be found in the Gateway Kubernetes configurat
 
 ## What's the Behavior When Caching Is Enabled and a User Updates the Secret in UI?
 
-When a secret is updated in the UI, its value is immediately updated if accessed by way of the`get-secret-value` CLI command or API. In this scenario, the command will initially display the old value from the cache but will then sync with the SaaS to retrieve the new value. It will first update the local Gateway cache and then the Cluster cache.
+When a secret is updated in the UI, its value is immediately updated if accessed by way of the `get-secret-value` CLI command or API. In this scenario, the command will initially display the old value from the cache but will then sync with the SaaS to retrieve the new value. It will first update the local Gateway cache and then the Cluster cache.
 
 If the flag `PREFER_CLUSTER_CACHE_FIRST` is enabled, the value will be fetched from the cluster cache first and not from the Gateway local cache. This option improves the ability of the system to provide the most updated value when there are several Gateway instances.
 

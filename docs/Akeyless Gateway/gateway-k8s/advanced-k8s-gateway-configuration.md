@@ -101,7 +101,7 @@ For OIDC, to leverage your Gateway for the callback redirects instead of the Ake
 
 Set the default [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) that will encrypt all items created on this Gateway using the setting `defaultEncryptionKey` with the full path to your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) in Akeyless.
 
-Set the default location secrets created by this Gateway will be stored within your Akeyless account using the`defaultSecretLocation` setting with a path to store your secrets.
+Set the default location where secrets created by this Gateway will be stored within your Akeyless account using the `defaultSecretLocation` setting with a path to store your secrets.
 
 > 🚧 Warning
 >
