@@ -45,7 +45,7 @@ akeyless configure --profile default --access-id <AccessID> --access-type aws_ia
 akeyless get-cloud-identity --cloud-provider aws_iam
 ```
 
-> 📘 Least Privileged Permissions
+> **Note (Least Privileged Permissions):**
 >
 > AWS IAM authentication doesn't require any privileged permissions. Ensure you have an IAM role without any privileged permissions and attach it to the resource you want to authenticate (For example, EC2 instance).
 

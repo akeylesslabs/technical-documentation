@@ -42,7 +42,7 @@ To use Okta as an IdP to authenticate into the Akeyless Platform by way of OIDC,
 akeyless auth-method create oidc --name 'My Okta app' --issuer https://{your-okta-domain}.okta.com --client-id {your-client-id} --client-secret {your-client-secret} --required-scopes groups --unique-identifier {your-unique-identifier (For example, 'email' or 'username')}
 ```
 
-> 📘 Required Scopes
+> **Note (Required Scopes):**
 >
 > Set the OIDC Auth Method "Required Scopes" to "groups" to be included it in the sub claims.
 

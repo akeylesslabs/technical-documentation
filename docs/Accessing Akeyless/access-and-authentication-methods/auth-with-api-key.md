@@ -30,7 +30,7 @@ Where:
 
 * `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-> 🚧 Note
+> **Note:**
 >
 > Akeyless API Key is displayed only once.
 

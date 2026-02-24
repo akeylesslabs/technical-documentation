@@ -25,7 +25,7 @@ compute.instances.get
 compute.instanceGroups.list
 ```
 
-> 👍 Note
+> **Note:**
 >
 > **GKE Workloads Authentication**
 >
@@ -33,7 +33,7 @@ compute.instanceGroups.list
 >
 > To work with the GKE Workload Identity with bounded rules, please configure **only** the `Bound Service Accounts` rule.
 >
-> Be sure to follow the <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity" target="_blank">GKE Guide</a> when configuring the GKE Workload Identity.
+> Be sure to follow the [GKE Guide](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) when configuring the GKE Workload Identity.
 
 ## Create a GCP Authentication Method with the CLI
 
