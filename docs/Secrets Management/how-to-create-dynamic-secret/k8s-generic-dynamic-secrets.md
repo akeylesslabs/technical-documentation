@@ -133,7 +133,7 @@ If you haven't done so already, you can now create a [Generic Kubernetes Target]
 >
 > **Kubernetes v1.24 and above**
 >
-> Starting from Kubernetes v1.24 and above, note that Service Accounts are created without tokens by default. In order to provide the privileged Service Account a Bearer Token for the creation of the [Kubernetes Generic Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic), please create the token manually.
+> Starting from Kubernetes v1.24 and above, note that Service Accounts are created without tokens by default. To provide the privileged Service Account a Bearer Token for creating the [Kubernetes Generic Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic), create the token manually.
 
 When using `kubeadm`, please make sure to enable the following API flags in the `kubeadm-config.yaml` file.
 

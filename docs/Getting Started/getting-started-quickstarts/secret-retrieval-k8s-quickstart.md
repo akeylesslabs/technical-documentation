@@ -29,7 +29,7 @@ Before injecting secrets into containers, you must install and configure the **A
     helm repo update
     ```
 
-    You previously should have already added the official Akeyless Helm chart repository in order to install the Akeyless Gateway.
+    You should already have added the official Akeyless Helm chart repository to install the Akeyless Gateway.
 
     _Sample Output:_
 

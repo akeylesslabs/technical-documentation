@@ -63,8 +63,8 @@ customerFragmentsExistingSecret: customer-fragment
 
 ## TLS Configuration
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
-Please note that when you're enabling TLS, you must provide a TLS Certificate and a corresponding TLS Private Key.
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted in transit.
+Note that when you enable TLS, you must provide a TLS certificate and a corresponding TLS private key.
 
 To configure the TLS settings, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your **TLS Certificate** in a Base64-encoded format where the `key` of the secret has to be `tls-certificate`:
 

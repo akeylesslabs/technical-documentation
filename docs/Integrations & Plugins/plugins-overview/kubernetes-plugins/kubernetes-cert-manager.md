@@ -44,7 +44,7 @@ kubectl create ns akeyless-cert-manager
 
 Using **Secretless Authentication** with a ServiceAccount, a temporary ServiceAccount token is created, **cert-manager** uses this ServiceAccount token to authenticate.
 
-In order to create the ServiceAccount token, edit a configuration file that will contain a **ServiceAccount** with a **Role** and **RoleBinding** allowing Kubernetes token creation:
+To create the ServiceAccount token, edit a configuration file that will contain a **ServiceAccount** with a **Role** and **RoleBinding** allowing Kubernetes token creation:
 
 ```yaml k8s_sa.yaml
 apiVersion: v1
@@ -93,7 +93,7 @@ Once the ServiceAccount is created, an **Issuer** needs to be created as well. A
 >
 > With an **Issuer** resource, you can only refer to a ServiceAccount located in the same Namespace as the Issuer, for more information refer to [this](https://cert-manager.io/docs/configuration/vault/#:~:text=Issuer%20vs.%20ClusterIssuer%3A) link.
 
-In order to create the `Issuer` resource, edit a configuration file that will contain the data of your Akeyless environment with a reference to the `ServiceAccount` which we created in the previous step:
+To create the `Issuer` resource, edit a configuration file that will contain the data of your Akeyless environment with a reference to the `ServiceAccount` created in the previous step:
 
 ```yaml issuer.yaml
 apiVersion: cert-manager.io/v1
@@ -133,7 +133,7 @@ At this stage, all the configuration for Kubernetes authentication is set and it
 
 ### API Key Auth Method
 
-In order to use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method for generating certificate requests from the Kubernetes cluster to Akeyless, An **Authentication Token** is required.
+To use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method for generating certificate requests from the Kubernetes cluster to Akeyless, an **Authentication Token** is required.
 
 The **Authentication Token** will be created using a `Secret` resource which will hold the `Access-Key` of the API Key Auth Method.
 
@@ -162,7 +162,7 @@ kubectl apply -f secret_token.yaml
 
 Once the **Authentication Token** is created, an Issuer needs to be created as well. An Issuer is a Kubernetes resource that represents the CA, in our case, **Akeyless**.
 
-In order to create the Issuer, edit a configuration file that will contain the data of your Akeyless environment with a reference to the `secret`:
+To create the Issuer, edit a configuration file that will contain the data of your Akeyless environment with a reference to the `secret`:
 
 ```yaml issuer.yaml
 apiVersion: cert-manager.io/v1
@@ -210,7 +210,7 @@ NAME              READY    AGE
 akeyless-issuer   True    4d21h
 ```
 
-Once the issuer is running, a certificate request can be generated. In order to do this, a `Certificate` resource needs to be created.
+Once the issuer is running, a certificate request can be generated. To do this, a `Certificate` resource needs to be created.
 
 Within the `certificate` resource file, information about the certificate itself will be defined, it will also be referenced to the `issuer` resource file that was created, which will call Akeyless to issue the certificate using the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 

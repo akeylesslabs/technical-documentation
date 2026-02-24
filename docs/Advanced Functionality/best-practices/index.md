@@ -36,7 +36,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 ## Akeyless Platform
 
-* **Do not run as a superuser** for general purposes. An Akeyless superuser should ideally sign up using an email distribution list for the Administrators team, create a strong password, and then enable Email MFA for it in the Account Settings. The superuser should be used to set up the system initially, particularly for setting up the selected admin users who will be part of your admin role. Those admin users will create the authentication methods so regular users will be able to authenticate.
+* **Do not run as a superuser** for general purposes. An Akeyless superuser should ideally sign up using an email distribution list for the Administrators team, create a strong password, and then enable Email MFA for it in the Account Settings. The superuser should be used to set up the system initially, particularly for setting up the selected admin users who will be part of your admin role. Those admin users will create authentication methods so regular users can authenticate.
 
 * **Avoid API Key Authentication on production** - Due to the secret zero problem and management challenges, [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) should be used on production for on-premise environments or any CSP IAM on cloud environments for workloads or automated services, as well as SAML or OIDC for human access.  
 
@@ -50,7 +50,7 @@ In this article, we are going to map some of Akeyless's best practices related t
 
 * **Storing item** - Items location inside Akeyless should not be saved on the default root path (`/`). The recommended mode is to create those items under the relevant tree folders that describe the exact unit in your organization. This will enable easier and clearer tenant management.
 
-* [SSH certificates](https://docs.akeyless.io/docs/ssh-certificates) - Should **not** be set with `*` on the `principals` field. Instead, this field should be utilized for special use cases where your users need special permissions. In addition, SSH certificates should be used with a `list of allowed users` who will be able to log in using those certificates.
+* [SSH certificates](https://docs.akeyless.io/docs/ssh-certificates) - Should **not** be set with `*` on the `principals` field. Instead, this field should be utilized for special use cases where your users need special permissions. In addition, SSH certificates should be used with a `list of allowed users` who can log in using those certificates.
 
 * [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) - Should be used and set while following the Principle Of Least Privileges (PoLP). Each Dynamic Secret has its permission profile which will determine your temporary users' access level. For example, a database's Dynamic Secret should be used with the minimum permissions for your users based on the `creation statement`, where you should limit the access to a specific database and table.
 

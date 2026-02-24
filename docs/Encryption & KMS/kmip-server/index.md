@@ -149,7 +149,7 @@ You can find the complete list of settings for this command in the [CLI Referenc
 
 > 👍 Note
 >
-> Please note that these roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
+> Note that these roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
 
 ## MongoDB Encryption Configuration
 

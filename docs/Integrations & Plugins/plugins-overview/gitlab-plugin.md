@@ -47,7 +47,7 @@ Where:
 
 * `--force-sub-claims` - Enforce [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) on role association.
 
-Create a dedicated Access Role, please note that you will assign it the necessary permissions in a later stage of this guide:
+Create a dedicated Access Role. Note that you will assign it the necessary permissions in a later stage of this guide:
 
 ```shell
 akeyless create-role --name /Dev/GitLabRole 

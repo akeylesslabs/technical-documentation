@@ -58,42 +58,36 @@ To deploy a gateway with the SRA utility, run the following steps:
 
 1. For SSH access, configure the following in the `docker-compose.yaml` file:
 
-   * ```yaml docker-compose.yaml
-     volumes:
-       - /path/to/ca.pub:/var/akeyless/creds/ca.pub
-     ```
+    * ```yaml docker-compose.yaml
+        volumes:
+        - /path/to/ca.pub:/var/akeyless/creds/ca.pub
+        ```
 
-   In the example above, the `ca.pub` is the public key specified in the SSH Certificate Issuer.
+    In the example above, the `ca.pub` is the public key specified in the SSH Certificate Issuer.
 
-   [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/docker-compose.yaml).
+    [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/docker-compose.yaml).
 
 2. Configure the following in the `gateway.env` file:
 
-   * `CLUSTER_NAME`: The name of the cluster that will be deployed.
-
-   * `UNIFIED_GATEWAY`: Set to `true` to enable the SRA utility.
-
-   * `GATEWAY_ACCESS_ID`: The `AccessID` of the authentication method that will be used for the authentication.
-
-   * `GATEWAY_ACCESS_TYPE`: The `AccessType` of the authentication method.
-
-   * `GATEWAY_ACCESS_KEY`: The `AccessKey` of the authentication method (relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key)).
-
-   * `ALLOWED_ACCESS_PERMISSIONS`: A list of users that will be able to manage your Gateway configuration
-
-   [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/gateway.env).
+    * `CLUSTER_NAME`: The name of the cluster that will be deployed.
+    * `UNIFIED_GATEWAY`: Set to `true` to enable the SRA utility.
+    * `GATEWAY_ACCESS_ID`: The `AccessID` of the authentication method that will be used for the authentication.
+    * `GATEWAY_ACCESS_TYPE`: The `AccessType` of the authentication method.
+    * `GATEWAY_ACCESS_KEY`: The `AccessKey` of the authentication method (relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key)).
+    * `ALLOWED_ACCESS_PERMISSIONS`: A list of users who can manage your Gateway configuration
+    * [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/gateway.env).
 
 3. Configure the following in the `sra.env` file:
 
-   * `UNIFIED_GATEWAY`: Set to `true`.
+    * `UNIFIED_GATEWAY`: Set to `true`.
 
-   [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/sra.env).
+    [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/sra.env).
 
 4. Optional - if Redis is enabled, configure the following in the `cache.env` file:
 
-   * `REDIS_PASS=password`.
+    * `REDIS_PASS=password`.
 
-   [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/cache.env).
+    [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/cache.env).
 
 ## Installation
 

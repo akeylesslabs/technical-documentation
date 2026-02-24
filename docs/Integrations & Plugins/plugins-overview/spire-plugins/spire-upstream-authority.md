@@ -131,7 +131,7 @@ Once the Classic Key and the PKI Issuer are created, a certificate needs to be g
 
 > 📘 Certificate Signing Request
 >
-> In order to generate a certificate using the PKI Cert Issuer, a Certificate Signing Request (CSR) is required.
+> To generate a certificate using the PKI Cert Issuer, a Certificate Signing Request (CSR) is required.
 >
 > If a CSR is provided along with a private key using the `--key-file-path` option, the provided key will be stored alongside the issued certificate.
 
@@ -213,7 +213,7 @@ For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
 
 ## SPIRE Server Initialization
 
-In order to initialize the server, run the following command:
+To initialize the server, run the following command:
 
 ```shell
 bin/spire-server run -config conf/server/server.conf &

@@ -127,7 +127,7 @@ Users can set the default length of time Authentication Methods in the account w
 
 #### Account Owner Authentication
 
-This option will force authentication of the Owner of the account. Please note that this action will lock the default login out of the account. Approving this is irreversible and cannot be revoked without direct contact with Akeyless Support.
+This option will force authentication of the account owner. Note that this action will lock the default login out of the account. Approval is irreversible and cannot be revoked without direct contact with Akeyless Support.
 
 #### Allowed Client IPs
 

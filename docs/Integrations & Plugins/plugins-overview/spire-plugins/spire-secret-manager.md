@@ -128,7 +128,7 @@ For **Kubernetes**, **GCP** or **AzureAD** Auth Method set the following setting
 >
 > You are required to start the [SPIRE server](https://docs.akeyless.io/docs/spire-keymanager) before running the Agent commands.
 
-In order to attest the SPIRE agent to the server, create a join token:
+To attest the SPIRE agent to the server, create a join token:
 
 ```shell
 bin/spire-server token generate -spiffeID spiffe://example.org/myagent

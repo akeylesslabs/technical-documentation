@@ -73,7 +73,7 @@ To create a Linked Target follow these steps:
 4. Fill in these parameters:
 
     * **Parent Target**: Select an existing target from which to inherit credentials.
-    * **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname in order to open another row. After finishing, select **Confirm**.
+    * **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname to open another row. After finishing, select **Confirm**.
 
 5. Click **Finish**.
 

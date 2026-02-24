@@ -37,7 +37,7 @@ The section below will demonstrate how to work with items from your Akeyless acc
 
 ### Working With Secrets
 
-In order to fetch a secret from your Akeyless account, set the following configuration:
+To fetch a secret from your Akeyless account, set the following configuration:
 
 ```yaml Static
 pipelines:
@@ -120,7 +120,7 @@ pipelines:
 
 ### Working With Certificates
 
-In order to fetch a certificate from your Akeyless account, set the following configuration:
+To fetch a certificate from your Akeyless account, set the following configuration:
 
 ```yaml PKI Certificate
 pipelines:

@@ -38,7 +38,7 @@ And for Authorized domains:
 
     ![Illustration for: Once the OAuth Client ID has been created, you need to obtain the Client ID and Client secret:](https://files.readme.io/001e838-image-20210825-071706.png)
 
-5. In order to bind the OAuth Client ID with your Akeyless Platform account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
+5. To bind the OAuth Client ID with your Akeyless Platform account, create an OIDC Authentication Method using either CLI or UI, as described below.
 
 ## Create an OIDC Authentication Method with the CLI
 

@@ -143,7 +143,7 @@ For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as 
 >
 > **Key Type**
 >
-> In order to set a key type for the SPIRE server, inside the `server` section, add the following parameter.
+> To set a key type for the SPIRE server, inside the `server` section, add the following parameter.
 >
 > For example, if we would want to use a key type of `RSA-2048` we will add: `ca_key_type` = `rsa-2048`. The default Key Type is: `ec-p256`
 

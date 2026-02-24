@@ -31,4 +31,4 @@ Where:
 
 `user-assignment`: A JSON string defining a list of `access-ids` and `sub-claims`. For example `[{"access_id":"p-123456", "sub_claims":{"email":["user@example.com"]}}]`
 
-`user-assignment-file`: Instead of a string, users can add this flag in order to pass a JSON file, using the same formatting, with a path to the file.
+`user-assignment-file`: Instead of a string, users can add this flag to pass a JSON file, using the same formatting, with a path to the file.
