@@ -29,7 +29,7 @@ To create a new email-based Authentication Method with the Console:
 1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
 2. Select **+ New**. This opens the **Create Authentication Method** form.
 3. On the **Type** selection screen, select **Email**, then **Next →**.
-4. Enter a name for the Authentication Method, such as `My Email User 1` in the **Name** field, then select **Next →**.
+4. Enter a name for the Authentication Method in the **Name** field. Optionally, include a path using `/` separators to place the Authentication Method in a virtual folder, then select **Next →**.
 5. Supply the designated email address in the **Email** field. Optionally, configure [Two-Factor Authentication](#optional-features).
 6. Select **Finish**.
 
@@ -56,12 +56,12 @@ An email prompting to set a password and activate the Authentication Method will
 To use an email-based Authentication Method with the Console:
 
 1. Open the Akeyless Console: [https://console.akeyless.io](https://console.akeyless.io).
-2. Enter the email address used, then select **Sign in**.
+2. Email authentication is the default option. Enter the email address used, then select **Sign in**.
 3. Enter the password used, then select **Sign in** again.
 
 ### Using an Email Authentication Method with the CLI
 
-To authenticate with an email address and password with the CLI, run the following command:
+To authenticate with an email address and password with the CLI, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
 ```shell
 akeyless auth \
@@ -71,16 +71,7 @@ akeyless auth \
 
 ## Optional Features
 
-* **Two-Factor Authentication:** When creating an email-based Authentication Method, **Two-Factor Authentication** can be optionally enabled. The second factor can use either **Email** or **Google Authenticator**. Only Google Authenticator is supported as an Authenticator App. The Two-Factor Authentication configuration can be enabled, edited, or disabled on an existing email-based Authentication Method.
+For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
 
-* **Expiration Date:** Select an access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
-
-* **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDKs, and so on. This parameter is optional. Leave it empty for unrestricted access.
-
-* **Allowed Trusted Gateway IPs:** Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
-
-* **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
-
-* **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`, `Gateway Admin`, `Mobile`, `Extension`.
-
-* **JWT TTL (in minutes):** The time span from acceptance of the invitation to the JWT expiration.
+* **Two-Factor Authentication:** When creating an email-based Authentication Method, **Two-Factor Authentication** can be optionally enabled. The second factor can use either **Email** or an **Authenticator App**. Only Google Authenticator is supported as an Authenticator App. The Two-Factor Authentication configuration can be enabled, edited, or disabled on an existing email-based Authentication Method.
+* **Forgot Password:** On the Console login screen, select **Forgot Password** below the **Email** field. This opens the **Forgot Your Credentials?** page. Enter the email address, then select **Reset Credentials**.
