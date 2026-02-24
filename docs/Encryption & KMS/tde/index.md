@@ -36,7 +36,7 @@ Implementing TDE offers several benefits for organizations looking to secure the
 * Data Protection: Encrypts sensitive data to protect it from unauthorized access and breaches.
 * Compliance: Helps organizations meet regulatory requirements for data security and privacy.
 * Transparency: Provides seamless encryption and decryption, ensuring that authorized users experience no disruption in data access.
-* Centralized Key Management: Utilizes the Akeyless Platform to securely manage encryption keys, reducing the risk of key management errors and security vulnerabilities.
+* Centralized Key Management: Uses the Akeyless Platform to securely manage encryption keys, reducing the risk of key management errors and security vulnerabilities.
 
 ## [TDE for Oracle Database](https://docs.akeyless.io/docs/transparent-data-encryption-tde-for-oracle)
 

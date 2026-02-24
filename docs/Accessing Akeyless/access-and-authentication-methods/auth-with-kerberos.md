@@ -209,7 +209,7 @@ Running this command will authenticate the user specified in the `keytab` file t
 
 ## Kerberos SSO SDK
 
-To utilize SSO for Kerberos, add the `Akeyless.Kerberos` package to your `.NET` project, and run the following command in your project directory:
+To use SSO for Kerberos, add the `Akeyless.Kerberos` package to your `.NET` project, and run the following command in your project directory:
 
 ```csharp
 dotnet add package Akeyless.Kerberos --version 1.0.0

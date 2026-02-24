@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide will demonstrate how to use **Terraform** in order to create 2 roles in AWS in different accounts, and using one Akeyless Gateway to create resources as a cross-account deployment.
+This guide will demonstrate how to use **Terraform** to create 2 roles in AWS in different accounts, and using one Akeyless Gateway to create resources as a cross-account deployment.
 
 ## Prerequisites
 
@@ -218,7 +218,7 @@ Run `terraform init` and `terraform apply`.
 
 Once finish, you will have a new role in the source Account that trusts itself and the role from Account B.
 
-In order to work with this role from Akeyless, an [AWS Target](https://docs.akeyless.io/docs/aws-targets) is required:
+To work with this role from Akeyless, an [AWS Target](https://docs.akeyless.io/docs/aws-targets) is required:
 
 1. Navigate to **Targets** > **New** > **AWS**. Press **Next**.
 2. Give the Target a **Name** and optionally, a **Location**. Press **Next**.
@@ -226,7 +226,7 @@ In order to work with this role from Akeyless, an [AWS Target](https://docs.akey
 
 ## Destination Account Configuration
 
-In order to have a centralized Gateway that will be able to manage resources in multiple AWS Accounts, A target in Akeyless with an [External ID](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/) is required.
+To have a centralized Gateway that will be able to manage resources in multiple AWS Accounts, A target in Akeyless with an [External ID](https://aws.amazon.com/blogs/apn/securely-using-external-id-for-accessing-aws-accounts-owned-by-others/) is required.
 
 1. Navigate to **Targets** > **New** > **AWS**. Press **Next**.
 2. Give the Target a **Name** and optionally, a **Location**. Press **Next**.
@@ -469,7 +469,7 @@ At this point, we have created the following resources:
 
 ## CrossAccount Deployment
 
-Now, we will use the roles that were created in order to manage the destination AWS account.
+Now, we will use the roles that were created to manage the destination AWS account.
 
 > 👍 Akeyless Gateway
 >
