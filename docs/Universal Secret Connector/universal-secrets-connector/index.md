@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-While Akeyless is built to store, manage, and protect your secrets internally, it can also be used to manage secrets stored in other secret management services such as AWS, GCP, Azure, or Kubernetes. This can be done seamlessly by creating a Universal Secrets Connector (USC) that utilizes [Targets](https://docs.akeyless.io/docs/targets) to establish secure logical access to the related services, enabling indirect management of those secrets. Each USC item derives its permissions from the identity linked to its Target.
+While Akeyless is built to store, manage, and protect your secrets internally, it can also be used to manage secrets stored in other secret management services such as AWS, GCP, Azure, or Kubernetes. This can be done seamlessly by creating a Universal Secrets Connector (USC) that uses [Targets](https://docs.akeyless.io/docs/targets) to establish secure logical access to the related services, enabling indirect management of those secrets. Each USC item derives its permissions from the identity linked to its Target.
 
 When a user is granted `read` access to a **USC** item, they can act using the permissions of that underlying identity. With **USC**, you can unify governance and visibility across fragmented secret stores without migrating data or altering existing workflows.
 

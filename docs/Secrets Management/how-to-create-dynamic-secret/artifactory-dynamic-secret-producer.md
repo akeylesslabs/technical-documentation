@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-You can create an Artifactory dynamic secret to allow users to dynamically receive short-lived access tokens to interact with a JFrog Artifactory server (`v5.0.0` or later) by way of its <Anchor label="API" target="_blank" href="https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis">API</Anchor>.
+You can create an Artifactory dynamic secret to allow users to dynamically receive short-lived access tokens to interact with a JFrog Artifactory server (`v5.0.0` or later) by way of its [API](https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis).
 
-For more information on how to use access tokens in Artifactory, see the <Anchor label="JFrog Artifactory documentation" target="_blank" href="https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens">JFrog Artifactory documentation</Anchor>.
+For more information on how to use access tokens in Artifactory, see the [JFrog Artifactory documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens).
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the Artifactory through your [Gateway](https://docs.akeyless.io/docs/api-gw) and generates a temporary access token.
 

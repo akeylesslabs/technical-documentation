@@ -87,7 +87,7 @@ Akeyless enables CLI access from any Unix terminal.
 > 👍 Note
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows subsystem for Linux."
-> This feature enables users to utilize their Windows OS environment as a Unix-like system.
+> This feature enables users to use their Windows OS environment as a Unix-like system.
 >
 > To work with `Akeyless connect` command from Windows machine, place the `.akeyless-connect.rc` script on your home directory.
 
@@ -149,7 +149,7 @@ This workaround explicitly enables legacy SSH key types that are deprecated and 
 
 ## Legacy Mode
 
-To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion by way of SSH certificate, and the Akeyless SRA bastion will utilize your SSH keys\password to connect to your legacy server.
+To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion by way of SSH certificate, and the Akeyless SRA bastion will use your SSH keys\password to connect to your legacy server.
 
 To work with SSH keys, you will have to create a Static Secret in an Akeyless account to store your SSH private key or SSH password. The secret value should be either your SSH password or your SSH private key.
 
