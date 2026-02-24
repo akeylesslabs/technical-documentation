@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The Desktop Application is designed to work across Windows and macOS, It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software.
+The Desktop Application is designed to work across Windows and macOS. It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software.
 
-Who Should benefit from using this application?
+Who should benefit from using this application?
 
 * IT Administrators and DevOps Teams
 * Security Professionals
@@ -20,7 +20,7 @@ Who Should benefit from using this application?
 
 > **Note:**
 >
-> The Desktop App is currently in its Beta phase
+> The Desktop App is currently in its beta phase.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Who Should benefit from using this application?
 
 ### Permissions
 
-The Desktop Application creates a tunnel to the designated resource and injects the password securely. To support this to support this process, any user working with the Desktop Application must have [Read permission](https://docs.akeyless.io/docs/rbac#permissions-for-items-access-roles-auth-methods-and-targets) on the Secret Item.
+The Desktop Application creates a tunnel to the designated resource and injects the password securely. To support this process, any user working with the Desktop Application must have [read permission](https://docs.akeyless.io/docs/rbac#permissions-for-items-access-roles-auth-methods-and-targets) on the Secret Item.
 
 ## Installation Guide
 
@@ -40,7 +40,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 2. Run the `.exe` file and follow the setup wizard.
 
-3. Grant necessary permissions if prompted
+3. Grant necessary permissions if prompted.
 
     The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\Akeyless-desktop`
 
@@ -62,26 +62,26 @@ Download the respective Desktop Application installation file from [here](https:
 >
 > The installation folder contains the following:
 >
-> 1. **`config.json`** - the configuration file (includes the basic configuration parameters required to launch the desktop application). This file can be deployed by the Admin across the organization
-> 2. **Logs** - can be found at \Akeyless-desktop\logs
+> 1. **`config.json`** - The configuration file (includes the basic configuration parameters required to launch the desktop application). This file can be deployed by an admin across the organization.
+> 2. **Logs** - Can be found at `\Akeyless-desktop\logs`.
 
 ## How It Works?
 
 1. The Desktop Application retrieves connection details from the target item (For example, `MY-MSSQL-connection`) and initiates a connection.
 
-2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window
+2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window.
 
     > 🚧 Important
     >
     > 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
-    > 2. You will also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable` `true` flag to your CLI command
-    > 3. Ensure that `akeyless` user is added to the list of `Allowed User(s)` in the SSH-CERT-Issuer item. Otherwise, the desktop application won't be able to establish connection.
+    > 2. You also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable true` flag to your CLI command.
+    > 3. Ensure that the `akeyless` user is added to the list of `Allowed User(s)` in the SSH Cert Issuer item. Otherwise, the desktop application will not be able to establish a connection.
 
 3. Upon successfully connecting to the remote target, the Desktop Application launches the default application configured for this resource type.
 
 > **Note:**
 >
-> Applications such **Azure Data Studio**, **WindowsApp**, **DBeaver**, **PuTTY**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
+> Applications such as **Azure Data Studio**, **Windows App**, **DBeaver**, **PuTTY**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
 
 ## Configuration & First-Time Setup
 

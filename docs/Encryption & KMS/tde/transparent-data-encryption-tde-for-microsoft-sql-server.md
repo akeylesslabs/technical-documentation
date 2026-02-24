@@ -28,7 +28,7 @@ Ensure the following conditions are met before proceeding with the configuration
 
 * Download and run the Akeyless EKM provider by executing the following `curl` command:
 
-```curl
+```shell
 curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypto-provider/release/latest/AkeylessEkmProviderInstaller.msi --output AkeylessEkmProviderInstaller.msi
 ```
 
@@ -39,7 +39,7 @@ curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypt
         * Copy the .dll files.
         * Create the configuration file (`sqlcrypt.conf`), which can be edited later.
 
-The location of the `sqlcrypt.conf` file is depended on the installation path, Default location is:
+The location of the `sqlcrypt.conf` file depends on the installation path. The default location is:
 
 `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf`
 
@@ -53,7 +53,7 @@ base_item_path="/sqlcrypt" \<--- base path for the keys to be created
 
 > **Note:**
 >
-> Note: If the installer does not generate the `sqlcrypt.conf` file, refer to the Troubleshooting section below.
+> If the installer does not generate the `sqlcrypt.conf` file, refer to the Troubleshooting section below.
 
 ## Configure the Akeyless EKM Provider
 
@@ -75,14 +75,14 @@ GO
 
 * Create the Akeyless EKM provider using the .dll file from the installation folder:
 
-```curl SQL
+```sql
 CREATE CRYPTOGRAPHIC PROVIDER Akeyless
 FROM FILE = 'C:\Program Files\Akeyless\Akeyless Ekm Provider\AkeylessEkm.dll';
 ```
 
 * Create a SQL CREDENTIAL that will be used by system administrators to access Akeyless from the SQL Server, for example, using an API Key:
 
-```curl SQL
+```sql
 CREATE CREDENTIAL akeyless_tde
 WITH IDENTITY = '<ACCESS_ID>', SECRET = '<ACCESS_KEY>'
 FOR CRYPTOGRAPHIC PROVIDER Akeyless;
@@ -95,15 +95,15 @@ GO
 
 * Assign the SQL CREDENTIAL to a privileged user (replace [DOMAIN\login] with your privileged user format):
 
-```curl SQL
+```sql
 ALTER LOGIN [DOMAIN\login]
 ADD CREDENTIAL akeyless_tde;
 GO
 ```
 
-* Create an asymmetric key for the EKM provider. This creates a key in Akeyless called SQL_Server_Key. To work with an existing key, add `CREATION_DISPOSITION = OPEN_EXISTING`. Supported algorithms: `RSA_2048`, `RSA_3072`, `RSA_4096`
+* Create an asymmetric key for the EKM provider. This creates a key in Akeyless called `SQL_Server_Key`. To work with an existing key, add `CREATION_DISPOSITION = OPEN_EXISTING`. Supported algorithms: `RSA_2048`, `RSA_3072`, `RSA_4096`.
 
-```curl SQL
+```sql
 CREATE ASYMMETRIC KEY akls_ekm_login_key
 FROM PROVIDER Akeyless
 WITH ALGORITHM = RSA_2048,
@@ -111,11 +111,11 @@ PROVIDER_KEY_NAME = 'SQL_Server_Key';
 GO
 ```
 
-> **Note:**
+> **Note (Clusters):**
 >
-> Note for Clusters: When working with a cluster, execute the above command only on the Primary server. On all other servers, use:
+> When working with a cluster, execute the above command only on the primary server. On all other servers, use:
 
-```curl SQL
+```sql
 CREATE ASYMMETRIC KEY akls_ekm_login_key
 FROM PROVIDER Akeyless
 WITH PROVIDER_KEY_NAME = 'SQL_Server_Key',
@@ -124,7 +124,7 @@ CREATION_DISPOSITION=OPEN_EXISTING;
 
 * Create another SQL credential that the database engine (TDE) will use:
 
-```curl SQL
+```sql
 CREATE CREDENTIAL akls_ekm_tde_cred
 WITH IDENTITY = '<ACCESS_ID>', SECRET = '<ACCESS_KEY>'
 FOR CRYPTOGRAPHIC PROVIDER Akeyless;
@@ -133,7 +133,7 @@ GO
 
 * Create a login used by the database engine (TDE), and associate the new credential:
 
-```curl SQL
+```sql
 CREATE LOGIN akls_EKM_Login
 FROM ASYMMETRIC KEY akls_ekm_login_key;
 GO
@@ -145,7 +145,7 @@ GO
 
 * Create the database encryption key that will be used for TDE (replace `AdventureWorks` with your actual database name). Supported algorithms are `AES_128` or `AES_256`:
 
-```curl SQL
+```sql
 USE [AdventureWorks];
 GO
 CREATE DATABASE ENCRYPTION KEY
@@ -160,7 +160,7 @@ GO
 
 * Enable Transparent Data Encryption (TDE):
 
-```curl SQL
+```sql
 ALTER DATABASE [AdventureWorks]
 SET ENCRYPTION ON;
 GO
@@ -170,7 +170,7 @@ GO
 
 To verify that TDE is properly configured and the database is encrypted, you can use the following SQL query:
 
-```curl SQL
+```sql
 SELECT db.name AS DatabaseName, 
        dm.encryption_state,
        dm.encryption_state_desc,
@@ -197,4 +197,4 @@ If you encounter issues during the installation or configuration, follow these s
 * Default Configuration Values:
     * If the `sqlcrypt.conf` file is missing, the system defaults to using the **Akeyless public gateway** `https://api.akeyless.io` and the default **root base path** (/).
 * Configuration Changes:
-    * Any changes made to the `sqlcrypt.conf` file after it is created **require a restart of the “SQL Server (MSSQLSERVER)**” service for the changes to take effect.
+    * Any changes made to the `sqlcrypt.conf` file after it is created **require a restart of the `SQL Server (MSSQLSERVER)`** service for the changes to take effect.

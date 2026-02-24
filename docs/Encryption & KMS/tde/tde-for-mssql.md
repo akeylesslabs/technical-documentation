@@ -14,25 +14,25 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
 
 **TDE** protects data at rest, which is the data and log files. It lets you follow many laws, regulations, and guidelines established in various industries. This ability lets software developers encrypt data by using **AES** and **3DES** encryption algorithms without changing existing applications.
 
-<Callout icon="📒" theme="default">
-  *Platform Prerequisites*
-
-  _The TDE for MSSQL workflow documented above has been tested **only** with full SQL Server installations on Windows (on-prem or in an Azure “SQL Virtual Machine”)._
-
-  _Not supported:_
-  • MSSQL in Docker containers (Microsoft does not support TDE in containers)
-  • Azure SQL Managed DB / Managed Instance (they only expose Azure Key Vault for external keys)
-
-  _Supported:_
-  • Traditional Windows Server + SQL Server
-  • Azure “SQL VM” (a standard VM running SQL Server)
-</Callout>
+> **Note (Platform prerequisites):**
+>
+> The TDE for MSSQL workflow documented above has been tested **only** with full SQL Server installations on Windows (on-premises or in an Azure SQL Virtual Machine).
+>
+> Not supported:
+>
+> * MSSQL in Docker containers (Microsoft does not support TDE in containers)
+> * Azure SQL Managed DB / Managed Instance (they only expose Azure Key Vault for external keys)
+>
+> Supported:
+>
+> * Traditional Windows Server + SQL Server
+> * Azure SQL VM (a standard VM running SQL Server)
 
 ## Install the Akeyless EKM Provider
 
 1. Download and run the official Akeyless EKM provider:
 
-    ```curl
+    ```shell
     curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypto-provider/release/latest/AkeylessEkmProviderInstaller.msi --output AkeylessEkmProviderInstaller.msi
     ```
 
@@ -77,7 +77,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     FROM FILE = 'C:\Program Files\Akeyless\Akeyless Ekm Provider\AkeylessEkm.dll'
     ```
 
-3. Create a SQL `CREDENTIAL` that will be used by the system administrators to access Akeyless from the SQL Server, for example using an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) which is stored inside a SQL `CREDENTIAL` named `akeyless_tde`
+3. Create a SQL `CREDENTIAL` that will be used by system administrators to access Akeyless from SQL Server, for example, by using an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) stored inside a SQL `CREDENTIAL` named `akeyless_tde`.
 
     ```sql
     CREATE CREDENTIAL akeyless_tde
@@ -105,13 +105,9 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
 
     The `object_id` configuration should only be set in cases when the Azure AD authentication method used has multiple managed identities associated to it. [See Azure documentation](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) for more information.
 
-    <Callout icon="📒" theme="default">
-      ### Access-Role Reminder
-
-      The API Key (or other Auth Method) used in **`akeyless_tde`** **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
-
-      When working **Classic Keys**, make sure you also grant the Auth Method the appropriate Gateway “[Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions)” to manage “**Classic Keys**”
-    </Callout>
+    > **Note (Access-Role Reminder):**
+    > The API Key (or other Auth Method) used in **`akeyless_tde`** **must** be linked to an Akeyless **Access Role** that grants **Create**, **Read**, and **List** permissions on the TDE key path you chose earlier.
+    > When working with **Classic Keys**, make sure you also grant the Auth Method the appropriate Gateway access permissions to manage **Classic Keys**.
 
 4. Add the credential to a privileged user, in the following example replace the [`DOMAIN\login`] with your privileged username format and add the SQL `CREDENTIAL`:
 
@@ -121,7 +117,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     GO
     ```
 
-5. Create an asymmetric key for the **EKM** provider. This will create a key in Akeyless named `SQL_Server_Key` in the path defined in the configuration file `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` parameter `base_item_path` (For example, `/path/to/keys/SQL_Server_Key`. To work with an existing key add the `CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`:
+5. Create an asymmetric key for the **EKM** provider. This will create a key in Akeyless named `SQL_Server_Key` in the path defined by the `base_item_path` parameter in `C:\Program Files\Akeyless\Akeyless Ekm Provider\sqlcrypt.conf` (for example, `/path/to/keys/SQL_Server_Key`). To work with an existing key, add `CREATION_DISPOSITION = OPEN_EXISTING`. The following algorithms are supported: `RSA_2048`, `RSA_3072`, or `RSA_4096`.
 
     ```sql
     CREATE ASYMMETRIC KEY akls_ekm_login_key
