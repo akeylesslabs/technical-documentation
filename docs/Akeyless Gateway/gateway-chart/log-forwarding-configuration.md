@@ -32,7 +32,7 @@ akeyless gateway update log-forwarding syslog \
 
 Default format: `<date > <time> <host name> <log level> <message>`.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluesyslogp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#syslog) section.
 
 ## Splunk
 
@@ -48,7 +48,7 @@ akeyless gateway update log-forwarding splunk \
 --index <index>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluesplunkp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#splunk) section.
 
 ## ELK - Logstash
 
@@ -59,7 +59,7 @@ akeyless gateway update log-forwarding logstash \
 --protocol tcp
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluelogstashp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#logstash) section.
 
 ## ELK - Elasticsearch
 
@@ -86,7 +86,7 @@ akeyless gateway update log-forwarding logz-io \
 --protocol <tcp>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluelogz-iop) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#logz-io) section.
 
 ## AWS S3
 
@@ -123,7 +123,7 @@ akeyless gateway update log-forwarding aws-s3 \
 --role-arn <aws role-arn>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorblueaws-s3p) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#aws-s3) section.
 
 ## Azure Log Analytics
 
@@ -136,7 +136,7 @@ akeyless gateway update log-forwarding azure-analytics \
 --workspace-key <azure workspace-key> 
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorblueazure-analyticsp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#azure-analytics) section.
 
 ## stdout
 
@@ -147,7 +147,7 @@ akeyless gateway update log-forwarding stdout \
 --gateway-url 'https://Your-Akeyless-GW-URL:8000' 
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluestdoutp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#stdout) section.
 
 ## Datadog
 
@@ -163,7 +163,7 @@ akeyless gateway update log-forwarding datadog \
 --log-service <datadog log service>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluedatadogp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#datadog) section.
 
 ## Sumo Logic
 
@@ -177,7 +177,7 @@ akeyless gateway update log-forwarding sumologic \
 --host <Sumo Logic host>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluesumologicp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#sumologic) section.
 
 ## Google Chronicle
 
@@ -192,4 +192,4 @@ akeyless gateway update log-forwarding google-chronicle \
 --log-type <log type>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluegoogle-chroniclep) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#google-chronicle) section.

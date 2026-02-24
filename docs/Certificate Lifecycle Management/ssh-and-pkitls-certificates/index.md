@@ -63,7 +63,7 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
    --certificate-format pem
    ```
 
-   You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
+   You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-dfc-key) section.
 
 > **Note:**
 >
@@ -113,7 +113,7 @@ Where:
 
 * `allowed-extra-extensions`: A `json` string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"1.2.3":["test"]}'`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
 > **Note:**
 >
@@ -152,7 +152,7 @@ Where:
 >
 > When using a wildcard certificate, if the `*` character is used in the name, it will be automatically replaced with `~` in the Akeyless Console when the `--destination-path` is specified (that is, when the certificate is stored in Akeyless).
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#generate-csr) section.
 
 ### Issuing a Certificate
 
@@ -177,7 +177,7 @@ Where:
 >
 > You can provide the private key as well as part of the sign command for future certificate renewals using the `key-file-path` option.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-pki-certificatep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-pki-certificate) section.
 
 ### Revoke a Certificate
 
@@ -227,7 +227,7 @@ Creating a CA private key and root certificate to build your chain of trust:
 
 * **Type:** The encryption algorithm used for the key.
 
-* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#gen-customer-fragment).
 
 * **Generate-Self-Signed-Certificate:** Enable this option to generate your root CA certificate as part of the key creation.
 
@@ -253,7 +253,7 @@ Creating a CA private key and root certificate to build your chain of trust:
 
    * **Allowed URI sans:** Specify the allowed URI for the certificates issued.
 
-4. [Read more about the descriptions of advanced and location parameters.](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp).
+4. [Read more about the descriptions of advanced and location parameters.](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer).
 
 ### Issuing a Certificate
 

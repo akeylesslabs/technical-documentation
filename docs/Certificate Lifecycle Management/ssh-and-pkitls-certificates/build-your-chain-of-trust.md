@@ -84,7 +84,7 @@ Once the certificate is generated, a new folder named **certificates** will be c
 
 Once the chain is created, a certificate can be generated from the **Intermediate** issuer.
 
-First, Create a [Certificate Signing Request](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp):
+First, Create a [Certificate Signing Request](https://docs.akeyless.io/docs/cli-reference-certificates#generate-csr):
 
 ```shell
 akeyless generate-csr \

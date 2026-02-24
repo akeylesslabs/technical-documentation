@@ -59,7 +59,7 @@ To create a Classic Key with the CLI, use this command with the following parame
 akeyless create-classic-key --name classickey --alg RSA2048 --gateway-url https://<Your-Gateway-URL>:8000
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-classic-keyp).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-classic-key).
 
 ### Associating a Key and a Target
 
@@ -80,7 +80,7 @@ If you wish to delete the association between a key and its target, you may use 
 akeyless delete-assoc-target-item --target-name awstarg --name classickey
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueassociate-a-classic-keyp).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#associate-a-classic-key).
 
 ## Managing a Classic Key from the Console
 

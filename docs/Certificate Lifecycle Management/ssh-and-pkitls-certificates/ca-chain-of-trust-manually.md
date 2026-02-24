@@ -84,7 +84,7 @@ Where:
 
 * `--conf-file-path`: Path to the configuration file that contains CSR config data.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-dfc-key) section.
 
 Upon successful creation, we will have a Private Key with a Self-Signed Certificate valid for a year, that we will use as a **Signer Key** of our top chain [PKI Certificate Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates). This issuer will be used to issue the Intermediate layer of PKI Issuers in our chain of trust.
 
@@ -117,7 +117,7 @@ At this point, we have created the following:
 
 Where **only** certificates with the domain `example.com` will be accepted and valid for 100 days, they will be automatically stored under the `/MyChain/IntermediateCertificates/` folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage**, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
 The next step will be the creation of an **Intermediate Signer Key** with a signed certificate by our **Root PKI Cert Issuer** and using this key as a signer for our **Intermediate PKI Issuer**.
 

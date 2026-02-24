@@ -229,7 +229,7 @@ Akeyless CLI supports profiles that can be set with different authentication met
 akeyless configure --profile <new profile name> --access-id <Access id> --access-key <Access key> --access-type access_key
 ```
 
-While the default method is an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), if you wish to use a different authentication method, please consult the [CLI reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueconfigurep) for this command.
+While the default method is an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), if you wish to use a different authentication method, please consult the [CLI reference](https://docs.akeyless.io/docs/cli-reference#configure) for this command.
 
 To view the profile settings file, go to the `.akeyless` folder under your `home` directory, the profiles folder contains a `toml` file for each profile.
 
