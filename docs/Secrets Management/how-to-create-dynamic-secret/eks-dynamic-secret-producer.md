@@ -142,7 +142,7 @@ users:
       interactiveMode: IfAvailable
 ```
 
-For every new Amazon EKS cluster, you must update the`kubeconfig` file accordingly.
+For every new Amazon EKS cluster, you must update the `kubeconfig` file accordingly.
 
 When you run `kubectl`, the Akeyless `get-dynamic-secret-value` command will fetch a new access token for you.
 

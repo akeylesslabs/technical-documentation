@@ -201,7 +201,7 @@ Where:
 
 * `version`: Certificate version to revoke. Required if `item-id` or `name` are used.
 
-Here you can provide a certificate full name, or use the`item-id` or the certificate `serial-number` instead. In case a CRL (Certificate Revocation List) is maintained, the certificate will be added to the revocation list.
+Here you can provide a certificate full name, or use the `item-id` or the certificate `serial-number` instead. In case a CRL (Certificate Revocation List) is maintained, the certificate will be added to the revocation list.
 
 > 📘 Note
 >

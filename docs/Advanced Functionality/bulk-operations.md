@@ -15,7 +15,7 @@ next:
 This command deletes an entire item folder with its contents.
 The user running the command must have `Get`, `List`, and `Delete` permissions on the designated path and recursively on each item inside it.
 
-Only items visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not `Delete` on some of the items inside the path.
+Only items visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to them) and not `Delete` on some of the items inside the path.
 
 > 🚧 Warning
 >
@@ -116,7 +116,7 @@ Failed to delete items from path /folder. Error: Desc: Failed to delete items in
 This command deletes an entire Auth Methods folder with its contents.
 The user running the command must have `Get`, `List`, and `Delete` permissions on the designated path and recursively on each Auth Method inside it.
 
-Only Auth Methods visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not `Delete` on some of the Auth Methods inside the path.
+Only Auth Methods visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to them) and not `Delete` on some of the Auth Methods inside the path.
 
 Examples of prerequisites - `/folder/` is created with two Auth Methods:
 
@@ -183,7 +183,7 @@ Auth Method(s) deleted successfully from /folder
 This command deletes an entire Roles folder with its contents.
 The user running the command must have `Get`, `List`, and `Delete` permissions on the designated path and recursively on each role inside it.
 
-Only Roles visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not Delete on some of the roles inside the path.
+Only Roles visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to them) and not `Delete` on some of the roles inside the path.
 
 Example prerequisites - `/folder/` is created with two Roles:
 
@@ -224,7 +224,7 @@ Role(s) deleted successfully from /folder
 The move-objects flow can move multiple items, Auth Methods, or Roles from a specific folder to a different one or similarly rename a folder.
 The user running the command must have `Get`, `List`, and `Update` permissions on the designated source path and recursively on each role inside and on the target path.
 
-Only objects visible to the user making the action will be moved. However, the operation will fail if the user has only `Get/List` (meaning they are visible to him) and not `Update` on some of the objects inside the source path.
+Only objects visible to the user making the action will be moved. However, the operation will fail if the user has only `Get/List` (meaning they are visible to them) and not `Update` on some of the objects inside the source path.
 
 In the case of a duplicate as a result of running the operation, the operation will fail on a `409`.
 

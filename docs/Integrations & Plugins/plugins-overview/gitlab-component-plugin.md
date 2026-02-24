@@ -172,7 +172,7 @@ where the plugin can be used in the following modes:
 
 * `env-file`: This mode stores **secrets** in environment variables, which are stored inside an `env` file for future usage across jobs, this mode has character and structure limitations, for example, it's not possible to fetch **certificates** items.
 
-* `json`: This mode stores **secrets** and **certificates** in a `json` file where any format can be fetched. It is recommended to use with `jq` for easier parsing of the`JSON` content.
+* `json`: This mode stores **secrets** and **certificates** in a `json` file where any format can be fetched. It is recommended to use with `jq` for easier parsing of the `JSON` content.
 
 Your secrets are stored either in `akeyless.env` or `akeyless.json` accordingly, enabling secret usage across different jobs.
 

@@ -28,7 +28,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 To configure the Gateway for your **HSM**, specify the **HSM token** using one of the following parameters during deployment: `HSM_SLOT`, `HSM_TOKEN_LABEL`, or `HSM_TOKEN_SERIAL`. Only one parameter is required.  
 
-The following example uses the`HSM_SLOT`:
+The following example uses the `HSM_SLOT`:
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 \

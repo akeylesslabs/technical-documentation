@@ -611,7 +611,7 @@ The CLI command is `akeyless kubeconfig-generate`
 * `t, --tag` - A single tag attached to Dynamic Secrets
 * `o, --out[=kubeconfig.json]` - Output path for the generated `kubeconfig` file
 * `-profile, --token` - Use a saved profile (`$HOME/.akeyless/profiles`) or a temporary access token
-* `-uid-token` - Universal Identity token (required only with the`universal_identity` Authentication Method)
+* `-uid-token` - Universal Identity token (required only with the `universal_identity` Authentication Method)
 * `-json[=false]` - Return tool output in JSON
 * `-jq-expression` - jq filter for JSON output
 * `-no-creds-cleanup[=false]` -  Do not clean local temporary expired credentials
