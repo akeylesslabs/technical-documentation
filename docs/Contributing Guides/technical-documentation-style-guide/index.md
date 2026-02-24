@@ -233,7 +233,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * If possible, have Harrison ([harrison.s@akeyless.io](mailto:harrison.s@akeyless.io)) review all content.
 * Verify technical accuracy.
 * Run spell check and grammar review.
-* Utilize the ReadMe.com AI Linter.
+* Use the ReadMe.com AI Linter.
 * Validate code snippets and commands.
 * When introducing conventions that apply broadly (for example, all files or repository-wide automation), update this style guide where relevant.
 

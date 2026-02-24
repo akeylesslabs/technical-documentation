@@ -51,7 +51,7 @@ Adjust these in **Settings → Resources**.
 ## Step 2: Enable Kubernetes in Docker Desktop
 
 1. Open **Docker Desktop**.
-2. Open Docker Desktop's setting, select the **Kubernetes** options, and **Enable Kubernetes**. This guide was tested with the `Kubeadm` setting.
+2. Open Docker Desktop settings, select the **Kubernetes** options, and **Enable Kubernetes**. This guide was tested with the `Kubeadm` setting.
 3. Apply the change and allow Docker Desktop to install or restart Kubernetes if prompted.
 4. Wait until Docker Desktop shows that **Kubernetes** is running.
 
