@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless <Anchor label="Official plugin" target="_blank" href="https://archives.docs.gitlab.com/18.0/ci/secrets/akeyless/">Official plugin</Anchor> for GitLab securely and easily fetches secrets into GitLab pipelines.
+The Akeyless [Official plugin](https://archives.docs.gitlab.com/18.0/ci/secrets/akeyless/) for GitLab securely and easily fetches secrets into GitLab pipelines.
 
-Using GitLab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab.com/ci/yaml/#id_tokens">ID tokens</Anchor> when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a <Anchor label="JSON Web Token (JWT)" target="_blank" href="https://docs.gitlab.com/ci/secrets/id_token_authentication/#id-tokens">JSON Web Token (JWT)</Anchor> as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
+Using GitLab [ID tokens](https://docs.gitlab.com/ci/yaml/#id_tokens) when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a [JSON Web Token (JWT)](https://docs.gitlab.com/ci/secrets/id_token_authentication/#id-tokens) as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ This plugin supports the following Authentication Methods:
 * [Access Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 
-To utilized the plugin you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless.
+To use the plugin, you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless.
 
 By default, when using `ID_TOKEN` the `akeyless_access_type` will be set to `jwt`. Where the Auth Method `Access ID` should be stored inside a GitLab **CI/CD** variable.
 

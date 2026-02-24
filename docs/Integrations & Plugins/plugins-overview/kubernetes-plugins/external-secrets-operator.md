@@ -11,7 +11,7 @@ next:
       url: >-
         https://external-secrets.io/latest/api/spec/#external-secrets.io/v1.AkeylessAuthSecretRef
 ---
-This guide shows how to integrate the **Akeyless Platform** with the **<Anchor label="External Secrets Operator (ESO)" target="_blank" href="https://external-secrets.io/latest/provider/akeyless/">External Secrets Operator (ESO)</Anchor>** to synchronize secrets between Akeyless and Kubernetes.
+This guide shows how to integrate the **Akeyless Platform** with the **[External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/)** to synchronize secrets between Akeyless and Kubernetes.
 
 It covers:
 
@@ -23,7 +23,7 @@ It covers:
 
 ## How ESO Works With Akeyless
 
-The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates <Anchor label="standard Kubernetes Secret objects" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">standard Kubernetes Secret objects</Anchor> in a Kubernetes cluster.
+The **External Secrets Operator** is a Kubernetes operator that reads secrets from external systems (such as Akeyless) and creates or updates [standard Kubernetes Secret objects](https://kubernetes.io/docs/concepts/configuration/secret/) in a Kubernetes cluster.
 
 For Akeyless, ESO uses the following custom resources:
 
