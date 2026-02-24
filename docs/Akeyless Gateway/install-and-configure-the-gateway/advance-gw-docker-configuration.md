@@ -54,7 +54,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="email" -e ADMIN_PASS
 
 > 🚧 Warning
 >
-> Using your default account credentials is not recommended for production environments and can not work with MFA.
+> Using your default account credentials is not recommended for production environments and cannot work with MFA.
 
 ### API Key Authentication
 
