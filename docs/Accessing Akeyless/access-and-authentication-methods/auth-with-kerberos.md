@@ -286,8 +286,8 @@ public class Program
 
 Make sure to change the following:
 
-`<your-gateway-spn` with the Service Principal Name for your Akeyless Gateway.
+`<your-gateway-spn>` with the Service Principal Name for your Akeyless Gateway.
 
-`<your-gateway-url` with the URL of your Akeyless Gateway.
+`<your-gateway-url>` with the URL of your Akeyless Gateway.
 
-`<your-access-id`with your Akeyless Access ID.
+`<your-access-id>` with your Akeyless Access ID.

@@ -84,7 +84,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="p-xxxxxxx" -e ALLOWE
 
 ### Universal Identity
 
-To set your Gateway default authentication based on Universal Identity, provide the relevant **UID token** using the `ADMIN_UID_TOKEN`variable:`ADMIN_UID_TOKEN=uid-token`
+To set your Gateway default authentication based on Universal Identity, provide the relevant **UID token** using the `ADMIN_UID_TOKEN` variable: `ADMIN_UID_TOKEN=uid-token`
 
 With a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/auth-with-saml) or OIDC or an API Key.
 
@@ -98,7 +98,7 @@ To set your Gateway default authentication based on [Certificates](https://docs.
 
 `GATEWAY_ACCESS_ID="your-access-id"`, `GATEWAY_CERTIFICATE="Certificate base64-encoded"` and `GATEWAY_CERTIFICATE_KEY="Certificate Key base64"`.
 
-With a list of users that will be able to manage your Gateway configuration using `ALLOWED_ACCESS_PERMISSIONS`variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key).
+With a list of users that will be able to manage your Gateway configuration using the `ALLOWED_ACCESS_PERMISSIONS` variable, with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key).
 
 ```shell
 docker run -d -p 8000:8000  -p 5696:5696 -e GATEWAY_ACCESS_ID="p-xxxxxxx" -e GATEWAY_CERTIFICATE="base64-cert" -e GATEWAY_CERTIFICATE_KEY="base64-cert-key" -e ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "permissions": ["admin"]}]' --name akeyless-gw akeyless/base:latest-akeyless

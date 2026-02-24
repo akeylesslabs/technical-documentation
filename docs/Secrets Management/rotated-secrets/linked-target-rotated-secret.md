@@ -191,4 +191,4 @@ Rotation across multiple hosts will work on a best-effort approach to rotate at 
 
 In case of failure on one or more hosts, the Rotated Secret item will keep the old password on the hosts which ended with an error, when working with `rotator type target` the old password will be saved as an old version in the **Parent** Target.
 
-The Akeyless best practice flow is to generate different passwords for each **Local** user. You can set an identical password for **all** users by using the flag`same-password true`.
+The Akeyless best practice flow is to generate different passwords for each **Local** user. You can set an identical password for **all** users by using the flag `same-password true`.

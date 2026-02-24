@@ -144,7 +144,7 @@ Please run the following command to start using Akeyless CLI:
 
 The CLI will try to locate the user profile file (based on shell, that is `.bash_profile`, `.zprofile`, `.profile`, and so on), and export the `USER_HOME_DIR/.akeyless/bin/` to user `$PATH`.
 
-Try running the `create-secret`command to test your installation:
+Try running the `create-secret` command to test your installation:
 
 ```shell
 akeyless create-secret --name MySecret1 --value MySecretPassword
@@ -180,7 +180,7 @@ setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permenantly)
 
 Copy and run the relevant command for your purpose (`permanent` or `current session`), after that, The CLI should be ready to use.
 
-Try running the `create-secret`command to test your installation:
+Try running the `create-secret` command to test your installation:
 
 ```shell
 akeyless create-secret --name MySecret1 --value MySecretPassword

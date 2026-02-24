@@ -219,7 +219,7 @@ akeyless create-pki-cert-issuer \
 
 `-e, --expiration-event-in`: How many days before the expiration of the certificate would you like to be notified, To specify multiple events, use the argument multiple times: --expiration-event-in 1 --expiration-event-in 5
 
-`--allowed-extra-extensions`: A `JSON`string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"<OID>":["<Vlaue>"]}'`
+`--allowed-extra-extensions`: A `JSON` string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"<OID>":["<Value>"]}'`
 
 `--allowed-extra-extensions-file-path`: A path to a file containing a JSON string that defines the allowed extra extensions for the PKI cert issuer
 
