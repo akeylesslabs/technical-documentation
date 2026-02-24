@@ -397,7 +397,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e GW_RATE_LIMIT=4000 --name akeyless-gw
 
 ## RHEL Image
 
-To work with a [fully compatible image](https://catalog.redhat.com/software/container-stacks/detail/66016090ff08e22201487dd3) based on the RedHat Universal Image base 8 set the repository source at the end of the `docker run` command with `akeyless/base-rhel` for example:
+To work with a [fully compatible image](https://catalog.redhat.com/software/container-stacks/detail/66016090ff08e22201487dd3) based on Red Hat Universal Base Image 8, set the repository source at the end of the `docker run` command to `akeyless/base-rhel`, for example:
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 --name akeyless-gateway akeyless/base-rhel:latest-akeyless

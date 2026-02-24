@@ -138,7 +138,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:

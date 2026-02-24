@@ -65,7 +65,7 @@ services:
       - AKEYLESS_URL=https://vault.akeyless.io
 ```
 
-The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions, to fetch the relevant secret on behalf of your users, set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
+The Web Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions. To fetch the relevant secret on behalf of your users, set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
 
 Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
 
@@ -138,7 +138,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:

@@ -49,7 +49,7 @@ Currently, this setup requires a **Volume** storage mechanism of [Docker](https:
 The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
 
 Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` that will be authorized to request access.
+To control which users are allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs`.
 
 For RDP access that uses the **Fixed user** feature, rely on the username sub-claim to determine which **Windows** username to use. If you use a different sub-claim, specify it at deployment time using the `USERNAME_SUB_CLAIM` environment variable. To configure this behavior independently for SSH and RDP, use `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM`, respectively.
 
