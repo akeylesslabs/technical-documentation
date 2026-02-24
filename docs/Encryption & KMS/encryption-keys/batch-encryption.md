@@ -41,7 +41,7 @@ The primary objective is to efficiently decrypt a substantial number of credit c
 
 * The encryption/decryption service will be provided by way of an API supporting:
     * Single-value encryption/decryption.
-        * Batch processing for encryption/decryption.
+    * Batch processing for encryption/decryption.
 * The initial phase will focus on batch processing using a classic key (AES256) through a gateway, without involving asymmetric keys.
 
 ## Command References
