@@ -46,7 +46,7 @@ The main parameters for the command are as follows:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified, this parameter can be added multiple times for multiple notifications.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-certificatep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-certificate) section.
 
 ### Getting a Certificate
 
@@ -59,7 +59,7 @@ akeyless get-certificate-value \
 
 This command will return the certificates with the chain if it exists, as well as the private key if it exists.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-certificate-valuep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
 
 ### Updating a Certificate
 
@@ -101,6 +101,6 @@ All of the parameters from the creation command will also apply here.
 
     * **Expiration Notification:** If you wish to get notified when the certificate's expiration date comes near, click on **⊕ Add Notification** and adjust the day count from the default 30 to any number you desire. This can be done multiple times to receive more than one notification.
 
-> 👍 Tip
+> **Tip:**
 >
 > To view the entire certificate hierarchy simply click on the **View Certificate Details** to get a the decoded information of your certificate.

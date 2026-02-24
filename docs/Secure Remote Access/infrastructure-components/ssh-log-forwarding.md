@@ -98,7 +98,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 
 ## AWS S3
 
-> 🚧 Warning
+> **Warning:**
 >
 > Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your pod scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 

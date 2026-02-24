@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-You can create a Rotated Secret for an OpenAI [Admin API Key](https://platform.openai.com/docs/api-reference/admin-api-keys) . Before you get started, ensure you create an [OpenAI Target](https://docs.akeyless.io/docs/openai-target) that includes the Organization ID , as well as an OpenAI Admin API Key.
+You can create a Rotated Secret for an OpenAI [Admin API Key](https://platform.openai.com/docs/api-reference/admin-api-keys). Before you get started, ensure you create an [OpenAI Target](https://docs.akeyless.io/docs/openai-target) that includes the Organization ID, as well as an OpenAI Admin API Key.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Where:
 
 ## Create a Rotated OpenAI Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -90,6 +90,6 @@ Where:
 
     * **Rotation hour (local time zone):** Defines the time when the API Key should be rotated if **Auto Rotate** is enabled.
 
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

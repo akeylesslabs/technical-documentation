@@ -5,13 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-<Callout icon="🚧" theme="warn">
-  Work In Progress
-</Callout>
-
-<Callout icon="❗️" theme="error">
-  This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
-</Callout>
+> **Warning:** This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
 
 ## Purpose
 
@@ -31,6 +25,17 @@ This guide defines standards for writing clear, consistent, and professional tec
 * **Audience awareness**: Assume readers have basic technical knowledge but may not be experts.
 * **Third person**: Where possible, use a third-person voice, rather than first-person ("I") or second-person ("you"). Quickstarts are exempted from this.
 * **Simplicity**: Keep punctuation simple and avoid chained clauses.
+
+### Common Grammar Corrections
+
+Use these preferred forms to keep wording concise and consistent:
+
+* Use **"Note that"** instead of **"Please note that"**.
+* Use **"To"** instead of **"In order to"**.
+* Use **"can"** instead of **"will be able to"**.
+* Use **"encrypted in transit"** instead of **"encrypted at transit"**.
+* Use **"comma-separated"** instead of **"comma separated"**.
+* Use sentence case for generic terms unless they are official product names or you are referencing specific items in a console. For example, use **"TLS private key"** instead of **"TLS Private Key"**.
 
 ### Punctuation
 
@@ -142,7 +147,7 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
     * MSSQL (instead of mssql)
     * Amazon Redshift (instead of Redshift)
     * Amazon EKS (instead of EKS or AWS EKS)
-    * `kubectl` (instead of Kubectl)'
+    * `kubectl` (instead of Kubectl)
 
 ### Command-Line Conventions
 
@@ -207,7 +212,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 
 * **Keep sentences simple and clear**: Short sentences are easier to translate and less likely to create ambiguity.
 * **Avoid fragments**: Sentence fragments are harder to translate; therefore, wherever possible, write in complete sentences.
-* **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meeting to a native speaker or speakers from a particular regions. Examples:
+* **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meaning to a native speaker or speakers from a particular region. Examples:
     * "At heart, this product does a thing."
     * "Under the hood, the library uses an event-driven architecture.”
     * “As a rule of thumb, use HTTPS for all API calls.”
@@ -222,7 +227,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 * If possible, have Harrison ([harrison.s@akeyless.io](mailto:harrison.s@akeyless.io)) review all content.
 * Verify technical accuracy.
 * Run spell check and grammar review.
-* Utilize the ReadMe.com AI Linter.
+* Use the ReadMe.com AI Linter.
 * Validate code snippets and commands.
 * When introducing conventions that apply broadly (for example, all files or repository-wide automation), update this style guide where relevant.
 

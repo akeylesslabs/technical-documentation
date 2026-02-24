@@ -45,7 +45,7 @@ The main parameters for the command are as follows:
 
 * `every`: Rate of periodic runner repetition in hours
 
-You can find the complete list of parameters for this command in the [CLI Reference - Teams Event Forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-teamsp)
+You can find the complete list of parameters for this command in the [CLI Reference - Teams Event Forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#event-forwarder-create-teams)
 
 ## Create a Teams Event Forwarder Using the Console
 

@@ -38,15 +38,15 @@ Available database targets:
 
 ## Create a Database Target with the CLI
 
-> 📘 Notes
+> **Note:**
 >
 > To create a database target from Akeyless CLI, choose the database type within the `create-db-target` command
 >
 > `create-db-target` command includes all available databases targets, please follow the relevant database section for the relevant fields.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Database Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluedbp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Database Targets](https://docs.akeyless.io/docs/cli-ref-targets#db) section.
 
-In order to create database targets you can define the following fields on [Akeyless CLI](https://docs.akeyless.io/docs/cli):
+To create database targets, you can define the following fields in the [Akeyless CLI](https://docs.akeyless.io/docs/cli):
 
 ```shell MySQL/MariaDB
 akeyless target create db \
@@ -217,7 +217,7 @@ Log in to the Akeyless Console, and go to **Targets > New > Database (MSSQL)**.
 Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
 For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-Choose the desired mode of authenticating either **Use Credentials**, **Use Cloud Identity**, or **Target** to utilize a domain credentials from an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target)
+Choose the desired mode of authenticating either **Use Credentials**, **Use Cloud Identity**, or **Target** to use a domain credentials from an existing [LDAP Target](https://docs.akeyless.io/docs/ldap-target)
 
 **DB Username:** Privilege database username with sufficient rights to create users.
 (Relevant only when using **Credentials** authenticating)
@@ -309,7 +309,7 @@ To connect using **Wallet** provide the following:
 
 Click **Finish**.
 
-> 📘 Wallet with Password
+> **Note (Wallet with Password):**
 >
 > To use your Wallet with login type of Password ensure to add the relevant username to your wallet using the following format: `mkstore -wrl ~/mywallet2 -createCredential "(HOST=<host>)(PORT=1521)(SERVICE_NAME=<SN Name>)" <Username> <Password>`
 

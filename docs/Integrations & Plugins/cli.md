@@ -120,7 +120,7 @@ Would you like to configure a profile? (Y/n) Y
 Profile Name: (Default: default)
 ```
 
-Choose an <Anchor label="Authentication Method" target="_blank" href="https://docs.akeyless.io/docs/access-and-authentication-methods">Authentication Method</Anchor> from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/auth-with-api-key) method. Set the relevant **Access ID** and **Access Key**:
+Choose an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/auth-with-api-key) method. Set the relevant **Access ID** and **Access Key**:
 
 ```shell
 Access ID: '<Access-ID>' 
@@ -152,7 +152,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Windows
 
-> 📘 Note
+> **Note:**
 >
 > PowerShell ISE does not support interactive input mode. Please work with the PowerShell cmdlet to set up the Akeyless CLI.
 
@@ -174,7 +174,7 @@ set "PATH=%PATH%;C:\Users\username\.akeyless\bin" (Update PATH for current sessi
 setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permanently)
 ```
 
-> 👍 Note
+> **Note:**
 >
 > The CLI updates the path env for the **current user only**. This change only takes effect after the user logs off and logs back on.
 
@@ -229,7 +229,7 @@ Akeyless CLI supports profiles that can be set with different authentication met
 akeyless configure --profile <new profile name> --access-id <Access id> --access-key <Access key> --access-type access_key
 ```
 
-While the default method is an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), if you wish to use a different authentication method, please consult the [CLI reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueconfigurep) for this command.
+While the default method is an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), if you wish to use a different authentication method, please consult the [CLI reference](https://docs.akeyless.io/docs/cli-reference#configure) for this command.
 
 To view the profile settings file, go to the `.akeyless` folder under your `home` directory, the profiles folder contains a `toml` file for each profile.
 

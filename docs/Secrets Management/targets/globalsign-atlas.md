@@ -41,7 +41,7 @@ Where:
 
 * `mtls-cert-file-path`: Path to the Mutual TLS Certificate of the GlobalSign Atlas account, either `mtls-cert-file-path.pem` or `tls-cert-data-base64` must be supplied.
 
-You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsign-atlasp) section.
+You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#globalsign-atlas) section.
 
 ## Create a GlobalSign Atlas Target in the Console
 

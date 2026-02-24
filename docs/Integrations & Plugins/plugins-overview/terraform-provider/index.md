@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Terraform provider enables Terraform to utilize secrets, roles, authentication methods, and other entities from the Akeyless Platform.
+The Terraform provider enables Terraform to use secrets, roles, authentication methods, and other entities from the Akeyless Platform.
 
 Terraform can be used to configure Akeyless and populate it with secrets, as well as ensure that the state and any plans associated with the configuration are stored and communicated with care, as they will contain any values written into Akeyless in plain text.
 

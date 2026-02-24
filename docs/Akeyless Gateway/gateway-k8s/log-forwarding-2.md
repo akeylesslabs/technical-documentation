@@ -52,7 +52,7 @@ target_syslog_enable_tls="true"
 target_syslog_tls_certificate="<Base64 PEM encoded Cert>"
 ```
 
-> 👍 Note
+> **Note:**
 >
 > The output message format conforms to Syslog format and assumes the Syslog server does not add its own formatting to the message.
 
@@ -132,7 +132,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 
 ### AWS S3
 
-> 🚧 Warning
+> **Warning:**
 >
 > Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your pod scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 

@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-This quick start guide is intended to get you started with deploying a Gateway (with Remote Access) using the most basic, required parameters and a clean Kubernetes cluster. Within just a few minutes you will see how easy it is to complete the Gateway deployment and secure your user and machine access. You will also be able to use just-in-time credentials with remote access to log into your various applications and services.
+This quick start guide is intended to get you started with deploying a Gateway (with Remote Access) using the most basic, required parameters and a clean Kubernetes cluster. Within just a few minutes you will see how easy it is to complete the Gateway deployment and secure your user and machine access. You can also use just-in-time credentials with remote access to log into your various applications and services.
 
 Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed using Docker Compose, but this guide will focus on Kubernetes.
 
 Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.
 
-> 🚧 Security
+> **Note (Security):**
 >
-> Please note that this guide was tested with AWS EKS and **not secured** with TLS. We highly suggest you do not use this in a production environment or with real credentials.
+> This guide was tested with Amazon EKS and is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
 
 ## Prerequisites
 
@@ -33,13 +33,13 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
 | SSH Access | 22 |
 
-> 📘 First things first
+> **Note (First things first):**
 >
-> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/remote-access-quick-start-guide) section.
+> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/remote-access-quick-start-guide#remote-access-section) section.
 
 ## Create Your Authentication Method
 
-> 👍 Authentication note
+> **Note (Authentication):**
 >
 > For the purposes of this guide, we are using an API Key. However, for security reasons, it is advised to use a more secure [authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
@@ -103,7 +103,7 @@ Follow the below commands:
    akeyless create-ssh-cert-issuer --name your-ssh-cert-issuer-name --signer-key-name MyRSAKey --allowed-users 'ubuntu' --ttl 300
    ```
 
-> 👍 SSH connection note
+> **Note (SSH connection):**
 >
 > This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/ssh-certificates).
 

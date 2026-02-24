@@ -51,9 +51,9 @@ Where:
 
 * `tenant-ocid`: An OCI tenant ID to authenticate to Akeyless using this authentication method.
 
-* `group-ocid`: An OCI group ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one Group ID by repeating this parameter.
+* `group-ocid`: An OCI group ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one group ID by repeating this parameter.)
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueocip).
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-ref-auth#create).
 
 ## Configure Akeyless CLI With the OCI IAM Authentication Method
 
@@ -69,9 +69,9 @@ Where:
 
 * `oci-auth-type`: Represents the [OCI Authentication type](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm), supporting `apikey`, `resource`, and `instance`.
 
-> 📘 Note:
+> **Note:**
 >
-> When the `group-ocid` explicitly provided, the authentication flow will use them, if no **group** provided, the CLI will send a preliminary request to verify that the user is a member of the same tenant, and will extract the required **group** from the response.
+> When `group-ocid` is explicitly provided, the authentication flow uses it. If no **group** is provided, the CLI sends a preliminary request to verify that the user is a member of the same tenant and extracts the required **group** from the response.
 
 ## Create an OCI IAM Authentication Method in the Akeyless Console
 
@@ -87,7 +87,7 @@ Where:
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 

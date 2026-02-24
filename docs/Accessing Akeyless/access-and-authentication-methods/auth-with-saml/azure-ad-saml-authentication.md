@@ -30,7 +30,7 @@ This guide will take you through the steps to set up SAML authentication with Az
 
    * Reply URL (Assertion Consumer Service URL): `https://auth.akeyless.io/saml/acs`
 
-7. After filling in the details, you will be able to view the SAML Signing Certificate.
+7. After filling in the details, you can view the SAML Signing Certificate.
    Copy the **App Federation Metadata URL** (starts with `https://login.microsoftonline.com/...`) and paste it somewhere accessible, as you will need it for the Akeyless-side steps.
 
 8. In your SAML application's **Attributes & Claims**, select Edit to add user and group claims.

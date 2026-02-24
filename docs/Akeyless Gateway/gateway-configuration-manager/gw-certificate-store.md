@@ -12,9 +12,9 @@ next:
 ---
 You can upload private CA certificates into the gateway to enable secure connections with trusted API endpoints, ensuring reliable communication by verifying authenticity. This requires [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) version `4.29.0` or later.
 
-> 🚧 Note
+> **Note:**
 >
-> After uploading a private CA to certificate store, some services may require a restart or reconnection to fully recognize and utilize the new certificate authority.
+> After uploading a private CA to certificate store, some services may require a restart or reconnection to fully recognize and use the new certificate authority.
 
 ## Manage Certificates Using the CLI
 

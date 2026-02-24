@@ -39,13 +39,13 @@ To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-
 
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
-> 🚧 Warning
+> **Warning:**
 >
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
 ### Customer Fragment
 
-If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a <Anchor label="Kubernetes Secret" target="_blank" href="https://kubernetes.io/docs/concepts/configuration/secret/">Kubernetes Secret</Anchor> with a Base64-encoded JSON that includes your **Customer Fragment**.
+If your [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) works with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge), create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) with a Base64-encoded JSON that includes your **Customer Fragment**.
 
 ```shell values.yaml
 kubectl create secret generic customer-fragment \
@@ -63,8 +63,8 @@ customerFragmentsExistingSecret: customer-fragment
 
 ## TLS Configuration
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
-Please note that when you're enabling TLS, you must provide a TLS Certificate and a corresponding TLS Private Key.
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted in transit.
+Note that when you enable TLS, you must provide a TLS certificate and a corresponding TLS private key.
 
 To configure the TLS settings, create a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that includes your **TLS Certificate** in a Base64-encoded format where the `key` of the secret has to be `tls-certificate`:
 
@@ -183,7 +183,7 @@ To control the cache settings, you can [configure the cache](https://docs.akeyle
 
 While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a  with the `ReadWriteOnce` access mode.
 
-> 📘 Note
+> **Note:**
 >
 > This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
 
@@ -303,7 +303,7 @@ Accepted Values:
 
 To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings
 
-> 🚧 Warning
+> **Warning:**
 >
 > Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
 

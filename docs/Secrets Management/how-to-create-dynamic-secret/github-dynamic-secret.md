@@ -22,7 +22,7 @@ For more information on how to use installation access tokens in GitHub, see the
 
 ## Create a Dynamic GitHub Secret with the CLI
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -72,7 +72,7 @@ If you don't have [GitHub Target](https://docs.akeyless.io/docs/github-target) y
 
 * `github-base-url`: Base URL of the GitHub repository.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegithubp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#github) section.
 
 ## Fetch a Dynamic GitHub Secret Value with the CLI
 
@@ -93,11 +93,11 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
     * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-    * **Target mode:** In this section, you can either select an existing GitHub Target or specify details of the target GitHub repository explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Target mode:** In this section, you can either select an existing GitHub Target or specify details of the target GitHub repository explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
         * Use the **Choose an existing target** drop-down list to select the existing GitHub Target.
 
-        * Select the **Explicitly specify target properties** option, to provide details of the target GitHub repository in the next step.
+        * Select the **Explicitly specify target properties** option to provide details of the target GitHub repository in the next step.
     * **Installation ID\ Repository path\ Organization Name:** Specify a GitHub application installation ID or repository path or Organization name.
     * **Installation Token Repositories:** Specify repositories that will accept generated tokens. By default, repositories of the GitHub installation will be used.
     * **Installation Token Permissions:** Specify permissions for generated tokens. By default, permissions for the GitHub installation will be used. Input format: `key=value` pairs or a `JSON`, for example, `{"content":"read"}`.
@@ -106,7 +106,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target GitHub repository:
 
@@ -124,4 +124,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

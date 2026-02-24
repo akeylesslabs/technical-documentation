@@ -100,7 +100,7 @@ The main parameters for the command are as follows:
 
 * `every`: Rate of periodic runner repetition in hours
 
-You can find the complete list of parameters for this command in the [CLI Reference - Webhook Event forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#p-stylecolorblueevent-forwarder-create-webhookp)
+You can find the complete list of parameters for this command in the [CLI Reference - Webhook Event forwarder](https://docs.akeyless.io/docs/cli-reference-event-forwarders#event-forwarder-create-webhook)
 
 ## Create a Webhook Event Forwarder Using the Console
 

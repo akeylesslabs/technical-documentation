@@ -18,9 +18,9 @@ Due to its nature as an extension to Akeyless SaaS services, the Akeyless Gatewa
 
 To set a default [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) for your users, you can set either [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) or [Certificates-Based](https://docs.akeyless.io/docs/auth-with-certificate) Authentication.
 
-> 👍 Note
+> **Note:**
 >
-> Gateway Users Authentication does not mean those users will be able to log in and manage your Gateway deployment, to set a list of Gateway Allowed Admins please refer to the Gateway Admins section in the relevant deployment guide.
+> Gateway Users Authentication does not mean those users can log in and manage your Gateway deployment. To set a list of Gateway Allowed Admins, refer to the Gateway Admins section in the relevant deployment guide.
 
 ## SAML & OIDC
 
@@ -40,6 +40,6 @@ Open the Gateway Console by going to **Gateways -> Your-Gateway -> Manage Gatewa
 
 Once saved, users can log in to your Gateway Console on the `/console` endpoint of the Gateway URL (for example, `https://Your_Akeyless_Gateway_URL:8000/console`).
 
-> 🚧 Warning
+> **Warning:**
 >
-> Certificate-Based Authentication utilizes mTLS. Therefore, it is required that the Gateway itself will manage any TLS termination for the connection to Akeyless SaaS core services.
+> Certificate-Based Authentication uses mTLS. Therefore, it is required that the Gateway itself will manage any TLS termination for the connection to Akeyless SaaS core services.

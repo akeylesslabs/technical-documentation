@@ -12,7 +12,7 @@ next:
 ---
 ![An Akeyless Password Manager Screenshot of adding a Static Secret.](https://files.readme.io/0f66be8-Screenshot_2024-03-21_at_13.50.36.png)
 
-The Akeyless Password Manager Web Extension is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can store information not just in plain text but also in JSON format. This section will guide you on how to utilize the 'Value' field for both text and JSON data.
+The Akeyless Password Manager Web Extension is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can store information not just in plain text but also in JSON format. This section will guide you on how to use the 'Value' field for both text and JSON data.
 
 ## Text Data
 

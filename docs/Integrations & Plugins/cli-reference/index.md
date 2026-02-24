@@ -346,7 +346,7 @@ Note: The operation is allowed only for admin user
 
 Update item name and description
 
-> ❗️ Critical
+> **Critical:**
 >
 > **Secret versioning**
 >

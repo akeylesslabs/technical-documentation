@@ -92,9 +92,9 @@ The following examples demonstrate how to authenticate and retrieve items using 
 
 ### Setting API Key Authentication
 
-The following configuration utilizes an existing API Key in Akeyless for Jenkins authentication.
+The following configuration uses an existing API Key in Akeyless for Jenkins authentication.
 
-![Illustration for: Setting API Key Authentication The following configuration utilizes an existing API Key in Akeyless for Jenkins authentication.](https://files.readme.io/fd278b50a80159780c9b765772b37859ba715f7ad777ae12d0d214db21c1b55c-image.png)
+![Illustration for: Setting API Key Authentication The following configuration uses an existing API Key in Akeyless for Jenkins authentication.](https://files.readme.io/fd278b50a80159780c9b765772b37859ba715f7ad777ae12d0d214db21c1b55c-image.png)
 
 ### Fetching a Static Secret
 
