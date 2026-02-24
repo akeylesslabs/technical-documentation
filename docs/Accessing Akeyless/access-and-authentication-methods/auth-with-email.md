@@ -55,7 +55,7 @@ An email prompting to set a password and activate the Authentication Method will
 
 To use an email-based Authentication Method with the Console:
 
-1. Open the Akeyless Console: [https://console.akeyless.io](https://console.akeyless.io).
+1. Open the Akeyless Console: [https://console.akeyless.io](https://console.akeyless.io). Email is the default Authentication Method for the console.
 2. Enter the email address used, then select **Sign in**.
 3. Enter the password used, then select **Sign in** again.
 
