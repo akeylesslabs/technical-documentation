@@ -12,7 +12,7 @@ next:
 ---
 The Desktop Application is designed to work across Windows and macOS. It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software.
 
-Who should benefit from using this application?
+Who benefits from using this application?
 
 * IT Administrators and DevOps Teams
 * Security Professionals
@@ -20,11 +20,11 @@ Who should benefit from using this application?
 
 > **Note:**
 >
-> The Desktop App is currently in its beta phase.
+> The Desktop Application is currently in beta.
 
 ## Prerequisites
 
-* **Windows** or **macOS Ventura** / **Monterey** / **Big Sur** Operating System.
+* **Windows** or **macOS Ventura** / **Monterey** / **Big Sur** operating system.
 
 ### Permissions
 
@@ -32,17 +32,17 @@ The Desktop Application creates a tunnel to the designated resource and injects 
 
 ## Installation Guide
 
-Download the respective Desktop Application installation file from [here](https://download.akeyless.io/Akeyless_Artifacts/)
+Download the relevant Desktop Application installer from <https://download.akeyless.io/Akeyless_Artifacts/>.
 
 ### Windows Installation
 
-1. Open Windows command line as an Administrator and generate Private and Public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This will create an `.ssh` folder with the respective `id_rsa` and `id_rsa.pub` files.
+1. Open Windows Command Prompt as an administrator and generate private and public SSH keys locally. You can use the following command: `ssh-keygen -t rsa`. This creates an `.ssh` folder with the `id_rsa` and `id_rsa.pub` files.
 
 2. Run the `.exe` file and follow the setup wizard.
 
 3. Grant necessary permissions if prompted.
 
-    The Desktop Application will be installed at `\Users\<username>\AppData\Roaming\Akeyless-desktop`
+    The Desktop Application installs at `C:/Users/<username>/AppData/Roaming/Akeyless-desktop`.
 
 4. Open the app and sign in with your Akeyless credentials.
 
@@ -54,7 +54,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 3. Grant required permissions in **System Preferences** → **Security & Privacy**.
 
-    The Desktop Application will be installed at: `\Users\<username>\Library\Application Support\Akeyless-Desktop`
+    The Desktop Application installs at `~/Library/Application Support/Akeyless-Desktop`.
 
 4. Open the app and sign in with your Akeyless credentials.
 
@@ -62,16 +62,16 @@ Download the respective Desktop Application installation file from [here](https:
 >
 > The installation folder contains the following:
 >
-> 1. **`config.json`** - The configuration file (includes the basic configuration parameters required to launch the desktop application). This file can be deployed by an admin across the organization.
-> 2. **Logs** - Can be found at `\Akeyless-desktop\logs`.
+> 1. **`config.json`** - The configuration file (includes the basic configuration parameters required to launch the Desktop Application). This file can be deployed by an admin across the organization.
+> 2. **Logs** - Located at `Akeyless-desktop/logs`.
 
-## How It Works?
+## How It Works
 
 1. The Desktop Application retrieves connection details from the target item (For example, `MY-MSSQL-connection`) and initiates a connection.
 
 2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window.
 
-    > 🚧 Important
+    > **Warning (Important):**
     >
     > 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
     > 2. You also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable true` flag to your CLI command.
@@ -126,4 +126,4 @@ Download the respective Desktop Application installation file from [here](https:
 >
 > If the desktop application fails to connect to the resource, it will display a message prompting you to verify your configuration.
 >
-> Note that the Desktop log contains additional information that may help during an investigation.
+> The Desktop log contains additional information that can help during an investigation.

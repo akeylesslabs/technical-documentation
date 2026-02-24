@@ -18,7 +18,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 > **Note (Security):**
 >
-> Note that this guide was tested with Amazon EKS and **not secured** with TLS. We strongly recommend not using this in a production environment or with real credentials.
+> This guide was tested with Amazon EKS and is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
 
 ## Prerequisites
 
