@@ -22,7 +22,7 @@ When a new server is created in your environment, simply add the relevant hostna
 
 > 📘 Info
 >
-> Only Windows/SSH Target are currently supported for Rotated Secrets with Linked Target. In case one of the hosts in a Linked Target item is accessible over a different port from the one that is configured in the Parent Target, make sure to specify the port as part of the host in the Linked Target. For example: `server01.com:443`.
+> Only Windows/SSH Target are currently supported for Rotated Secrets with Linked Target. If one of the hosts in a Linked Target item is accessible over a different port from the one configured in the Parent Target, make sure to specify the port as part of the host in the Linked Target. For example: `server01.com:443`.
 
 ## Rotator Type Password
 
@@ -189,6 +189,6 @@ akeyless get-rotated-secret-value -n <Rotated secret name> --host server02.examp
 
 Rotation across multiple hosts will work on a best-effort approach to rotate at least one host from the given hosts' list. After successful rotation across all hosts, the rotation status will be `RotationSucceeded`. Upon a failure in one or more hosts, the rotation status will be `RotationPartialSucceeded`. In case of failure on all hosts, the rotation status will be `RotationFailed`. Each of those results will trigger events in the [Event Center](https://docs.akeyless.io/docs/event-center).
 
-In case of failure on one or more hosts, the Rotated Secret item will keep the old password on the hosts which ended with an error, when working with `rotator type target` the old password will be saved as an old version in the **Parent** Target.
+In case of failure on one or more hosts, the Rotated Secret item keeps the old password on the hosts that ended with an error. When working with `rotator type target`, the old password is saved as an old version in the **Parent** Target.
 
 The Akeyless best practice flow is to generate different passwords for each **Local** user. You can set an identical password for **all** users by using the flag `same-password true`.

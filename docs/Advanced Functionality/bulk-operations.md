@@ -67,7 +67,7 @@ $ akeyless list-items --path /folder
 }
 ```
 
-Example 2 - In case an `AES` key is inside the designated folder, deleting the folder `/folder` fails on a `403`:
+Example 2 - If an `AES` key is inside the designated folder, deleting the folder `/folder` fails with a `403`:
 
 ```shell
 $ akeyless create-dfc-key -n /folder/sub-aes-key --alg AES256GCM
