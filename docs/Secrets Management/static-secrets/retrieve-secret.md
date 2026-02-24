@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can retrieve a secret value directly from the [Akeyless CLI](https://docs.akeyless.io/docs/retrieve-secret) or from the [Akeyless Console](https://docs.akeyless.io/docs/retrieve-secret).
+You can retrieve a secret value directly from the [Akeyless CLI](https://docs.akeyless.io/docs/retrieve-secret#retrieve-a-secret-value-from-the-akeyless-cli) or from the [Akeyless Console](https://docs.akeyless.io/docs/retrieve-secret#retrieve-a-secret-value-from-the-akeyless-console).
 
 > **Note:**
 >
@@ -18,7 +18,7 @@ You can retrieve a secret value directly from the [Akeyless CLI](https://docs.ak
 
 ## Retrieve a Secret Value from the Akeyless CLI
 
-Let’s retrieve a secret value using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/retrieve-secret) instead.
+Let’s retrieve a secret value using the Akeyless CLI. If you’d prefer, see how to do this from the [Akeyless Console](https://docs.akeyless.io/docs/retrieve-secret#retrieve-a-secret-value-from-the-akeyless-console) instead.
 
 The CLI command to retrieve a Secret value is:
 
@@ -40,7 +40,7 @@ akeyless get-secret-value --name MyFirstSecret
 
 ## Retrieve a Secret Value from the Akeyless Console
 
-Let’s retrieve a secret value from the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/retrieve-secret) instead.
+Let’s retrieve a secret value from the Akeyless Console. If you’d prefer, see how to do this from the [Akeyless CLI](https://docs.akeyless.io/docs/retrieve-secret#retrieve-a-secret-value-from-the-akeyless-cli) instead.
 
 1. Log in to the Akeyless Console and go to **Items**.
 

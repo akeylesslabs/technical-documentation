@@ -35,7 +35,7 @@ compute.instanceGroups.list
 
 ## Create a GCP Authentication Method with the CLI
 
-Let's create a new GCP authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-gcp).)
+Let's create a new GCP authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-gcp#create-a-gcp-authentication-method-in-the-akeyless-console).)
 
 To create a GCP authentication method with the CLI, run the following command:
 

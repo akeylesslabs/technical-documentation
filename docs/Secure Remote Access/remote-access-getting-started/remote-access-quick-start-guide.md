@@ -35,7 +35,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 > **Note (First things first):**
 >
-> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/remote-access-quick-start-guide) section.
+> Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/remote-access-quick-start-guide#remote-access-section) section.
 
 ## Create Your Authentication Method
 
