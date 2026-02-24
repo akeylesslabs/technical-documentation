@@ -41,7 +41,7 @@ Where:
 
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway URL.
 
-You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#p-stylecolorbluekmip-server-setup-p) section.
+You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server) section.
 
 > **Note:**
 >
@@ -87,7 +87,7 @@ Where:
 
 * `gateway-url[=http://localhost:8000]`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#p-stylecolorbluekmip-create-clientp) section.
+You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server) section.
 
 * `output-file-folder`: Folder path to save client certificate files locally (for example, `.` for current working dir).
   Two files are created: `<client-name>.key` and `<client-name>.cert`
@@ -135,7 +135,7 @@ Where:
 
 * `path`: The path in the Akeyless KMIP server folder, where your client objects will be stored.
 
-* `capability`: The capabilities of your KMIP client.(`DENY, CREATE, REGISTER, REKEY, LOCATE, GET, GET_ATTRIBUTES, ACTIVATE, REVOKE, DESTROY`).
+* `capability`: The capabilities of your KMIP client (`DENY`, `CREATE`, `REGISTER`, `REKEY`, `LOCATE`, `GET`, `GET_ATTRIBUTES`, `ACTIVATE`, `REVOKE`, `DESTROY`).
 
 * `name`: KMIP client name (either name or ID is required).
 
@@ -145,11 +145,11 @@ Where:
 
 This command grants our MongoDB KMIP client the ability to create and retrieve objects under the `/kmip/default/` path.
 
-You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#p-stylecolorbluekmip-client-set-rulep) section.
+You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server) section.
 
 > **Note:**
 >
-> Note that these roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
+> These roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
 
 ## MongoDB Encryption Configuration
 

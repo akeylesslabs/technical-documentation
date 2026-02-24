@@ -14,26 +14,27 @@ This guide explains how to configure Oracle Transparent Data Encryption (TDE) wi
 
 ## Prerequisites
 
-### Steps & Explanations
+### Steps and Explanations
 
-Oracle Database Installation:  
-Step: Ensure that Oracle Database is installed and running on your system.  
-Explanation: This guide assumes a direct installation of Oracle Database (**Oracle 19c RU or later, including all 23ai/23c builds**), without the use of containerization.
+#### Oracle Database Installation
+
+* **Step:** Ensure that Oracle Database is installed and running on your system.
+* **Explanation:** This guide assumes a direct installation of Oracle Database (**Oracle 19c RU or later, including all 23ai/23c builds**), without the use of containerization.
 
 ### Oracle Database Version Check
 
-Step: Confirm your Oracle version (this guide is written for **Oracle 19c RU or later, including all 23ai/23c builds**) and its architecture (multi-tenant with CDB/PDB or single instance).  
-Explanation: Configuration details such as keystore parameters can vary by version. For instance, Oracle 23ai deprecates certain parameters. Always verify with the official documentation.
+* **Step:** Confirm your Oracle version (this guide is written for **Oracle 19c RU or later, including all 23ai/23c builds**) and its architecture (multi-tenant with CDB/PDB or single instance).
+* **Explanation:** Configuration details such as keystore parameters can vary by version. For instance, Oracle 23ai deprecates certain parameters. Always verify with the official documentation.
 
 ### Akeyless & HSM Library Requirements
 
-Step: Download the required shared library (`libakeyless.so`) from Akeyless.  
-Explanation: This library provides the interface between Oracle TDE and the external key management (HSM) system. Ensure that you use the correct API credentials (access ID and key) so that the integration can securely communicate with Akeyless.
+* **Step:** Download the required shared library (`libakeyless.so`) from Akeyless.
+* **Explanation:** This library provides the interface between Oracle TDE and the external key management (HSM) system. Ensure that you use the correct API credentials (access ID and key) so that the integration can securely communicate with Akeyless.
 
 ### File and Directory Permissions
 
-Step: Ensure that the necessary directories (such as `/opt/oracle/extapi`, `/logs`, and configuration folders) have the proper ownership and permissions for the Oracle user.  
-Explanation: Correct permissions are essential to avoid runtime errors and ensure that the Oracle Database and its wallet management processes have access to required files.
+* **Step:** Ensure that the necessary directories (such as `/opt/oracle/extapi`, `/logs`, and configuration folders) have the proper ownership and permissions for the Oracle user.
+* **Explanation:** Correct permissions are essential to avoid runtime errors and ensure that the Oracle Database and its wallet management processes have access to required files.
 
 ## Environment Setup and Library Installation
 
@@ -99,9 +100,9 @@ access_key="oLw05FzH3Rgmca.............lcijrsReM="
 ##### Explanation
 
 * This file defines how the Oracle DB will interact with the Akeyless service. It includes logging settings, the Akeyless API Gateway URL (to use a local Gateway, reference the `/api/v2` endpoint), and the Authentication Method (supported auth methods also include `aws_iam`, `azure_ad`, `gcp`).
-* Ensure your Auth Method is associated with an Access Roles granting it permissions to create and access items under the desired items folder (base_item_path)
-* Notice: to configure TDE to create and leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) (the default is otherwise DFC) you can add the following setting (in the top section): `use_classic_keys="true"`
-    * To work with Classic Keys make sure you work against your own Gateway (on the API v2 endpoint), and grant the above Auth Method “Access Permissions” to said Gateway to manage “Classic Keys”
+* Ensure your Auth Method is associated with an Access Role that grants permissions to create and access items under the desired item folder (`base_item_path`).
+* To configure TDE to create and leverage Akeyless [Classic Keys](https://docs.akeyless.io/docs/classic-keys) (default is otherwise DFC), add the following setting in the top section: `use_classic_keys="true"`.
+    * To work with Classic Keys, make sure you work against your own Gateway (on the API v2 endpoint), and grant the above Auth Method access permissions on that Gateway to manage Classic Keys.
 
 Set proper file permissions:
 
@@ -135,7 +136,7 @@ mkdir -p ./hsm_wallet/tde
 
 #### Commands
 
-```shell
+```sql
 sqlplus / as sysdba
 ALTER SYSTEM SET WALLET_ROOT='/opt/oracle/admin/your_db_name/hsm_wallet' SCOPE=SPFILE;
 ```
@@ -149,7 +150,7 @@ ALTER SYSTEM SET WALLET_ROOT='/opt/oracle/admin/your_db_name/hsm_wallet' SCOPE=S
 
 ### Restart the Database
 
-```shell
+```sql
 SHUTDOWN IMMEDIATE;
 STARTUP;
 ```
@@ -160,20 +161,20 @@ A restart is necessary for the new parameter values (like `WALLET_ROOT`) to take
 
 ### Set TDE Configuration
 
-```shell
+```sql
 ALTER SYSTEM SET TDE_CONFIGURATION='KEYSTORE_CONFIGURATION=HSM' SCOPE=BOTH;
 ```
 
 #### Explanation
 
 * TDE_CONFIGURATION Parameter:
-    * This command instructs Oracle TDE to use a keystore that is configured with HSM. The SCOPE=BOTH option applies the parameter change to both the in-memory environment and the spfile.
+    * This command instructs Oracle TDE to use a keystore that is configured with HSM. The `SCOPE=BOTH` option applies the parameter change to both the in-memory environment and the `spfile`.
 
 ### Create and Open the HSM Wallet
 
 #### Commands
 
-```shell
+```sql
 ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 ```
@@ -195,7 +196,7 @@ After the initial HSM configuration, the next steps transition the wallet to a s
 
 #### Commands
 
-```shell
+```sql
 ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=FILE";
 ```
@@ -213,7 +214,7 @@ ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=FILE";
 
 ##### Create the Keystore
 
-```shell
+```sql
 ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/opt/oracle/admin/your_db_name/hsm_wallet/tde' IDENTIFIED BY "AKEYLESS";
 ```
 
@@ -223,7 +224,7 @@ This command creates a new software keystore in the specified directory, secured
 
 ##### Open the Keystore
 
-```shell
+```sql
 ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 ```
 
@@ -233,7 +234,7 @@ Opens the newly created keystore so that further modifications can be made.
 
 ### Add the HSM Password As a Secret
 
-```shell
+```sql
 ADMINISTER KEY MANAGEMENT ADD SECRET 'AKEYLESS' FOR CLIENT 'HSM_PASSWORD' IDENTIFIED BY "AKEYLESS" WITH BACKUP;
 ```
 
@@ -243,7 +244,7 @@ This step adds the HSM’s password to the file-based keystore as a secret. The 
 
 ### Close the Keystore
 
-```shell
+```sql
 ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY "AKEYLESS" CONTAINER=ALL;
 ```
 
@@ -253,7 +254,7 @@ The keystore is closed to finalize the changes after the secret has been added.
 
 ### Create Auto-Login Keystore
 
-```shell
+```sql
 ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/opt/oracle/admin/your_db_name/hsm_wallet/tde' IDENTIFIED BY "AKEYLESS";
 ```
 
@@ -265,7 +266,7 @@ This command generates an auto-login version of the file-based wallet. The auto-
 
 ### Reverse Migrate the Encryption Key
 
-```shell
+```sql
 ADMINISTER KEY MANAGEMENT SET ENCRYPTION KEY IDENTIFIED BY "AKEYLESS" REVERSE MIGRATE USING "AKEYLESS" WITH BACKUP;
 ```
 
@@ -279,13 +280,13 @@ Reference: [Configuring an Auto-Open Connection into an External Key Manager](ht
 
 ### Update TDE Configuration for Both HSM and File Keystores
 
-```shell
+```sql
 ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE";
 ```
 
 > **Note:**
 >
-> When using Oracle RAC, perform all the above steps only on one target instance and have all the other RAC instance(s) shutdown. After following the above steps copy the `cwallet.sso` and `ewallet.p12` file from the configured node to all the other node(s) at the same `<software_wallet_location>` location. After copying `cwallet.sso` and `ewallet.p12` on the other node(s), restart all the other RAC instance(s).
+> When using Oracle RAC, perform all the above steps only on one target instance and keep all other RAC instances shut down. After following the above steps, copy the `cwallet.sso` and `ewallet.p12` files from the configured node to all other nodes at the same `<software_wallet_location>`. After copying `cwallet.sso` and `ewallet.p12` to the other nodes, restart all other RAC instances.
 
 #### Explanation
 
@@ -295,7 +296,7 @@ This update configures Oracle to recognize both the HSM and file-based keystore 
 
 #### Commands
 
-```shell
+```sql
 SHUTDOWN IMMEDIATE;
 STARTUP;
 SELECT * FROM V$ENCRYPTION_WALLET;
@@ -405,25 +406,25 @@ Reference:
 
 Create a table with column encryption option.
 
-```shell
+```sql
 CREATE TABLE EMPLOYEES (ID INT, NAME VARCHAR (200), SALARY INT ENCRYPT);
 ```
 
 Enter some values.
 
-```shell
+```sql
 INSERT INTO EMPLOYEES VALUES (1, 'Bob', 10000);
 ```
 
 Access the data using the SELECT query.
 
-```shell
+```sql
 SELECT * FROM EMPLOYEES;
 ```
 
 Check the encrypted columns in the database.
 
-```shell
+```sql
 SELECT * FROM EMPLOYEES;
 ```
 
@@ -431,26 +432,26 @@ SELECT * FROM EMPLOYEES;
 
 Create an encrypted tablespace. Then create a table in that tablespace.
 
-```shell
+```sql
 CREATE TABLESPACE ENCRYPTED_SPACE DATAFILE '$ORACLE_HOME/dbs/enc_space.dbf' SIZE 150M ENCRYPTION USING 'AES256' DEFAULT STORAGE (ENCRYPT);  
 CREATE TABLE CUSTOMERS (ID INT, NAME VARCHAR (200), CREDIT_LIMIT INT) TABLESPACE ENCRYPTED_SPACE;
 ```
 
 Insert some values into the CUSTOMERS table.
 
-```shell
+```sql
 INSERT INTO CUSTOMERS VALUES (1, 'Bob', 10000);
 ```
 
 Access the data using the select query.
 
-```shell
+```sql
 SELECT * FROM CUSTOMERS;
 ```
 
 Check the encrypted tablespaces in the database:
 
-```shell
+```sql
 SELECT * FROM V$ENCRYPTED_TABLESPACES;
 ```
 

@@ -46,7 +46,7 @@ To create a Tokenizer with the CLI, run the following command:
 
 > **Note:**
 >
-> Note that custom tokenization has additional mandatory parameters.
+> Custom tokenization has additional mandatory parameters.
 
 ```shell Tokenization using Templates
 akeyless create-tokenizer \
@@ -93,7 +93,7 @@ Where:
 
 * `decoding-template`: An expression to alter the template of the decryption output for **Custom** tokenization.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-tokenizerp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys) section.
 
 ### Tokenize and Detokenize a Secret with the CLI
 
