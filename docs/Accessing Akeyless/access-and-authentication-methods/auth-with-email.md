@@ -61,7 +61,16 @@ To use an email-based Authentication Method with the Console:
 
 ### Using an Email Authentication Method with the CLI
 
-To authenticate with an email address and password with the CLI, run the following command:
+To use an email-based Authentication Method with a CLI profile, run the [Akeyless configure command](https://docs.akeyless.io/docs/cli-reference#configure). For more information about profiles, see [Working With Profiles](https://docs.akeyless.io/docs/cli#working-with-profiles):
+
+```shell
+akeyless configure \
+  --profile default \
+  --admin-email email-address@sample.com \
+  --admin-password <Password>
+```
+
+To authenticate with an Access ID and Access Key with the CLI, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
 ```shell
 akeyless auth \
