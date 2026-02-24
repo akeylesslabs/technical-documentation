@@ -26,9 +26,9 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service                  | Endpoint                            |
-| :----------------------- | :---------------------------------- |
-| Remote Access Portal     | `<gateway-url>:8000/sra/portal`     |
+| Service | Endpoint |
+| --- | --- |
+| Remote Access Portal | `<gateway-url>:8000/sra/portal` |
 | Remote Access Web Client | `<gateway-url>:8000/sra/web-client` |
 | Remote Access SSH Config | `<gateway-url>:8000/sra/ssh-config` |
 
@@ -44,9 +44,9 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
 The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes Deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
 
-Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the sshConfig`StatefulSet`(HPA can not support multiple pods without defining a shared persistent storage volume).
+Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the `sshConfig` `StatefulSet` (HPA cannot support multiple pods without defining a shared persistent storage volume).
 
-> 🚧 Warning
+> **Warning:**
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 

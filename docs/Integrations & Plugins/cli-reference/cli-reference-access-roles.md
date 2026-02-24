@@ -43,7 +43,7 @@ Creates a new role
 ### Usage
 
 ```shell
-akeyless create-role name <Role Name>
+akeyless create-role --name <Role Name>
 ```
 
 ### Flags

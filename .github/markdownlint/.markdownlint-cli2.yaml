@@ -5,6 +5,10 @@
 customRules:
   - ./custom-rules.js
 
+# Excluded files
+ignores:
+  - docs/Contributing Guides/technical-documentation-style-guide/index.md
+
 config:
   # =========================
   # Akeyless Custom Rules
@@ -310,6 +314,20 @@ config:
         replacement: "high-level"
         example_from: "This interface provides a bird's eye view of your items."
         example_to: "This interface provides a high-level view of your items."
+
+  # AKY018: Require canonical Markdown table separator rows
+  #
+  # Purpose:
+  #   Enforces a single table style for readability and consistency.
+  #
+  # Canonical separator row format:
+  #   | --- | --- |
+  #
+  # Flags examples such as:
+  #   |---|---|
+  #   | :--- | :--- |
+  #   | ---- | ---: |
+  AKY018: true
 
   # =========================
   # Core markdownlint Rules

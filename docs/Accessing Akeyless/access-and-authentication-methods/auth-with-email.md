@@ -20,7 +20,7 @@ Email authentication is intended for **interactive human access** and is not rec
 
 ## Creating an Email Authentication Method
 
-Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additonal email-based Authentication Method for an existing account.
+Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additional email-based Authentication Method for an existing account.
 
 ### Creating an Email Authentication Method with the Console
 
@@ -30,7 +30,7 @@ To create a new email-based Authentication Method with the Console:
 2. Select **+ New**. This opens the **Create Authentication Method** form.
 3. On the **Type** selection screen, select **Email**, then **Next →**.
 4. Enter a name for the Authentication Method, such as `My Email User 1` in the **Name** field, then select **Next →**.
-5. Supply the designated email address in the **Email** field. Optionally, configure [Two-Factor Authentication](#two-factor-authentication).
+5. Supply the designated email address in the **Email** field. Optionally, configure [Two-Factor Authentication](#optional-features).
 6. Select **Finish**.
 
 An email prompting to set a password and activate the Authentication Method will be sent to the specified email address. Be sure to associate the email Authentication Method with one or more Roles.
@@ -77,7 +77,7 @@ akeyless auth \
 
 * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDKs, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
-* **Allowed Trusted Gateway IPs:** Comma separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
+* **Allowed Trusted Gateway IPs:** Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
 * **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
 

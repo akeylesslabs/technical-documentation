@@ -22,7 +22,7 @@ To start building your chain of trust using Akeyless PKI Issuer, you can either 
 
 Using the PKI Issuer templates alongside the defined constraints enables maximum security with common PKI use cases, for example, limiting a PKI Issuer to accept issuance requests of specific key types and algorithms for example **RSA4096** for specific **Allowed Domains** while templating the resulted certificate to use a specific list of **Key Usage** with a well defined **Location** settings.
 
-In case you want to use your existing key, upload your RSA private key with the matching certificate for signing intermediate CA or leaf certificates based on your chain of trust, using the following command:
+If you want to use your existing key, upload your RSA private key with the matching certificate for signing intermediate CA or leaf certificates based on your chain of trust, using the following command:
 
 ```shell Upload CA
 akeyless upload-rsa \
@@ -63,9 +63,9 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
    --certificate-format pem
    ```
 
-   You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-dfc-keyp) section.
+   You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-dfc-key) section.
 
-> 👍 Note
+> **Note:**
 >
 > The example above demonstrates a very basic usage of Signer key, to support all PKI settings You can work with Classic Keys as well to generate a signing key with a self-signed certificate.
 
@@ -73,7 +73,7 @@ Alternatively, you can create a new RSA key with a self-signed certificate:
 
 A PKI Issuer enables you to issue certificates while the certificate templates are well-defined at the issuer level.
 
-> 👍 Using Classic Key as a Signer Key
+> **Note (Using Classic Key as a Signer Key):**
 >
 > To use a [Classic key](https://docs.akeyless.io/docs/classic-keys) as the **Signer Key** for a **PKI Issuer,** make sure **Classic** is **enabled** as an Allowed **Protection Key Type** in your account:
 >
@@ -88,7 +88,7 @@ akeyless create-pki-cert-issuer \
 --ttl 30d \
 --destination-path /path/to/store/issued/certificates \
 --create-public-crl \
---gw-cluster-url <https://Gateway URL:8000> \
+--gw-cluster-url 'https://Gateway URL:8000' \
 --expiration-event-in 30 \
 --allowed-extra-extensions '{"OID":["Value"]}'
 ```
@@ -113,9 +113,9 @@ Where:
 
 * `allowed-extra-extensions`: A `json` string that defines the allowed extra extensions for the PKI cert issuer, for example, `'{"1.2.3":["test"]}'`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
-> 👍 Note
+> **Note:**
 >
 > Set the PKI Issuer item to automatically store and renew any issued certificate with default expiration events to gain full automation of your PKI environments.
 
@@ -133,7 +133,7 @@ akeyless generate-csr \
 --generate-key \
 --alg <RSA2048> \
 --common-name <mydomain.com> \
---gateway-url <https://Akeyless-Gateway-URL:8000> 
+--gateway-url 'https://Akeyless-Gateway-URL:8000' 
 ```
 
 Where:
@@ -148,11 +148,11 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`). to generate the classic key/dfc key, relevant only when using `generate-key` option.
 
-> 📘 Note
+> **Note:**
 >
 > When using a wildcard certificate, if the `*` character is used in the name, it will be automatically replaced with `~` in the Akeyless Console when the `--destination-path` is specified (that is, when the certificate is stored in Akeyless).
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#generate-csr) section.
 
 ### Issuing a Certificate
 
@@ -173,11 +173,11 @@ Where:
 
 * `outfile`: Output file path with the certificate. If not provided, the file with the certificate will be created in the same location as the provided public key with the -cert extension.
 
-> 👍 Tip
+> **Tip:**
 >
 > You can provide the private key as well as part of the sign command for future certificate renewals using the `key-file-path` option.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-pki-certificatep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-pki-certificate) section.
 
 ### Revoke a Certificate
 
@@ -201,11 +201,11 @@ Where:
 
 * `version`: Certificate version to revoke. Required if `item-id` or `name` are used.
 
-Here you can provide a certificate full name, or use the`item-id` or the certificate `serial-number` instead. In case a CRL (Certificate Revocation List) is maintained, the certificate will be added to the revocation list.
+Here you can provide a certificate full name, or use the `item-id` or the certificate `serial-number` instead. If a CRL (Certificate Revocation List) is maintained, the certificate is added to the revocation list.
 
-> 📘 Note
+> **Note:**
 >
-> In order to view the **Certificate Revocation List**, the **PKI Cert Issuer's** signing key **must** include the `cRLSign` extension.
+> To view the **Certificate Revocation List**, the **PKI Cert Issuer's** signing key **must** include the `cRLSign` extension.
 
 ## Working With Certificates in the Console
 
@@ -227,7 +227,7 @@ Creating a CA private key and root certificate to build your chain of trust:
 
 * **Type:** The encryption algorithm used for the key.
 
-* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#gen-customer-fragment).
 
 * **Generate-Self-Signed-Certificate:** Enable this option to generate your root CA certificate as part of the key creation.
 
@@ -253,7 +253,7 @@ Creating a CA private key and root certificate to build your chain of trust:
 
    * **Allowed URI sans:** Specify the allowed URI for the certificates issued.
 
-4. [Read more about the descriptions of advanced and location parameters.](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp).
+4. [Read more about the descriptions of advanced and location parameters.](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer).
 
 ### Issuing a Certificate
 

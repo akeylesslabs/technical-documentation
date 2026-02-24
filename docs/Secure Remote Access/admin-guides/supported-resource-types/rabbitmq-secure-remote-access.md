@@ -20,7 +20,7 @@ To enable Secure Remote Access to RabbitMQ you need:
 
 * A [RabbitMQ Dynamic Secrets](https://docs.akeyless.io/docs/rabbitmq-producer).
 
-* Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions).
+* Akeyless [Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension).
 
 ## Set Up Remote Access to RabbitMQ from the Akeyless CLI
 

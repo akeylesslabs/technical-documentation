@@ -19,17 +19,17 @@ next:
 
 The following Authentication Methods can be used:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> 👍 Note
+> **Note:**
 >
 > In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For macOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
-Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/api-key) using the CLI:
+Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) using the CLI:
 
 ```shell
 akeyless create-auth-method --name /Dev/Spire-Server-Auth
@@ -104,7 +104,7 @@ KeyManager "akeyless_kms" {
     plugin_cmd = "/path/to/plugin_cmd"
     plugin_checksum = "sha256 of the plugin binary"
     plugin_data {
-        akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL:8000/api/v2>' # or use port 8081
+        akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL>:8000/api/v2>' # or use port 8081
         access_id = "<Your_Access_ID>"
             access_key = "<Your_Access_KEY>"
             key_metadata_file = "./key_metadata"
@@ -139,11 +139,9 @@ For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as 
 
 ## SPIRE Server Initialization
 
-> 📘 Info
+> **Info (Key Type):**
 >
-> **Key Type**
->
-> In order to set a key type for the SPIRE server, inside the `server` section, add the following parameter.
+> To set a key type for the SPIRE server, inside the `server` section, add the following parameter.
 >
 > For example, if we would want to use a key type of `RSA-2048` we will add: `ca_key_type` = `rsa-2048`. The default Key Type is: `ec-p256`
 
@@ -158,8 +156,6 @@ With a successful server initialization, 2 **Classic keys** will be created in y
 * **JWT-Signer-A** - Uses **JSON Web Tokens (JWT)** signed by an identity provider for authentication and authorization of clients.
 * **X509-CA-A** - Relies on **X.509** certificates issued by a trusted Certificate Authority.
 
-> 📘 Info
->
-> **SPIFFE/SPIRE**
+> **Info (SPIFFE/SPIRE):**
 >
 > For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

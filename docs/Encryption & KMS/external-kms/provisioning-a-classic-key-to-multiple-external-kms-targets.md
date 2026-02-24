@@ -26,7 +26,7 @@ akeyless create-classic-key \
 AWS KMS Target
 
 ```shell
-akeyless target-create-aws \
+akeyless target create aws \
   --name aws-kms-target \
   --access-key-id <ACCESS_KEY_ID> \
   --access-key <ACCESS_KEY>
@@ -35,7 +35,7 @@ akeyless target-create-aws \
 Azure Key Vault Target
 
 ```shell
-akeyless target-create-azure-kv \
+akeyless target create azure \
   --name azure-kv-target \
   --tenant-id <TENANT_ID> \
   --client-id <CLIENT_ID> \
@@ -46,7 +46,7 @@ akeyless target-create-azure-kv \
 GCP KMS Target
 
 ```shell
-akeyless target-create-gcp \
+akeyless target create gcp \
   --name gcp-kms-target \
   --project-id <GCP_PROJECT_ID> \
   --location <LOCATION> \
@@ -74,29 +74,29 @@ akeyless assoc-target-item \
 
 ### Step 1: Create or Select a Classic Key
 
-1. In the Akeyless Console, navigate to Items
-2. Create a new Classic Key or select an existing one
-3. Open the key to view its details
+1. In the Akeyless Console, navigate to **Items**.
+2. Create a new Classic Key or select an existing one.
+3. Open the key to view its details.
 
 ### Step 2: Open the Provisioning Tab
 
-1. Inside the Classic Key view, navigate to the Provisioning tab
-2. This tab displays all external targets currently attached to the key
+1. Inside the Classic Key view, navigate to the **Provisioning** tab.
+2. This tab displays all external targets currently attached to the key.
 
 ### Step 3: Attach an External Target
 
-1. Click Attach
-2. Enter the External Key Name
+1. Click **Attach**.
+2. Enter the **External Key Name**.
    1. This is the key name that will be created in the external KMS
    2. Each target may use a different external key name if required
-3. Select the target (for example, an AWS KMS target)
+3. Select the target (for example, an AWS KMS target).
 4. Choose the provisioning mode:
-5. Click Save
+5. Click **Save**.
 
 ### Step 4: Verify the Provisioned Target
 
-1. After saving, return to the Provisioning tab
-2. Confirm that the new target appears in the targets list
+1. After saving, return to the **Provisioning** tab.
+2. Confirm that the new target appears in the targets list.
 3. Verify:
    1. External Key Name
    2. Target type
@@ -106,9 +106,9 @@ akeyless assoc-target-item \
 
 To provision the same Classic Key to another external system:
 
-1. Click Attach again
-2. Select a different target (for example: AWS, Azure, GCP, or Thales)
-3. Provide a new External Key Name if needed
-4. Save the configuration
+1. Click **Attach** again.
+2. Select a different target (for example, AWS, Azure, GCP, or Thales).
+3. Provide a new **External Key Name** if needed.
+4. Save the configuration.
 
 You can repeat this process multiple times, each time adding another external target while continuing to manage a single Classic Key in Akeyless.

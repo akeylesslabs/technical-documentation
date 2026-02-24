@@ -12,7 +12,7 @@ next:
 ---
 Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway) to bootstrap the Akeyless Gateway deployment.
 
-> 📘 New Chart
+> **Note (New Chart):**
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Gateway.
 >
@@ -34,13 +34,13 @@ Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tre
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service                                                                        | Endpoint   |
-| :----------------------------------------------------------------------------- | :--------- |
+| Service | Endpoint |
+| --- | --- |
 | [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
-| Akeyless V1 REST API                                                           | `/api/v1`  |
-| Akeyless V2 REST API                                                           | `/api/v2`  |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
+| Akeyless V1 REST API | `/api/v1` |
+| Akeyless V2 REST API | `/api/v2` |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
 
 ## Helm Chart Configuration
 
@@ -65,17 +65,17 @@ Configure the Akeyless Gateway with a default [Authentication Method](https://do
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported for Kubernetes deployments:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
 
-* [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
+* [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
-* [Certificates](https://docs.akeyless.io/docs/certificate-based-authentication)
+* [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 
-* [Universal Identity](https://docs.akeyless.io/docs/universal-identity)
+* [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)
 
 ### API Key Authentication
 
@@ -119,9 +119,9 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ### CSP IAM Authentication
 
-While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [admin users](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) that will be able to manage your Gateway.
+While running your Kubernetes cluster inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of [admin users](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) who can manage your Gateway.
 
-Set the `gatewayAccessId` with your IAM [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you can define a list of users that will be able to manage your Gateway settings by way of the `allowedAccessPermissions` setting with any other `Access ID` of your [SAML](https://docs.akeyless.io/docs/saml), [OIDC](https://docs.akeyless.io/docs/openid) or an [API Key](https://docs.akeyless.io/docs/api-key) as described [here](https://docs.akeyless.io/docs/gateway-k8s#access-permissions).
+Set the `gatewayAccessId` with your IAM [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `allowedAccessPermissions` setting with any other `Access ID` of your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key), as described [here](https://docs.akeyless.io/docs/gateway-k8s#access-permissions).
 
 ### AWS IAM
 
@@ -131,7 +131,7 @@ AWS IAM can be used in the following approaches:
 
 * Service Account IAM Role
 
-In both cases, provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-on-k8s-copy-1#access-permissions):
+In both cases, provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Authentication Method's Access ID as your `gatewayAccessId`, and at least one other Access ID in the `allowedAccessPermissions` section to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-chart):
 
 ```yaml values.yaml
 globalConfig:
@@ -167,7 +167,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 Google Kubernetes Engine (GKE) can run Akeyless Gateway in its secured and managed Kubernetes Service in standard or autopilot mode.
 
-Deploying Akeyless Gateway by way of the Helm chart using the authentication between your Gateway and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP Workload Identity mechanism.
+Deploying Akeyless Gateway by way of the Helm chart using the authentication between your Gateway and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/auth-with-gcp) can be done using the GCP Workload Identity mechanism.
 
 Workload Identity allows workloads in your GKE clusters to impersonate Identity and Access Management (IAM) Service Accounts to access Google Cloud services. Workload Identity is enabled by default on Autopilot clusters.
 
@@ -175,13 +175,13 @@ Follow the [GKE workload identities guide](https://cloud.google.com/kubernetes-e
 
 Create a Kubernetes ServiceAccount for Akeyless Gateway to use. You can also use the default Kubernetes ServiceAccount in the default or any existing Namespace.
 
-Use the existing IAM service account that is bound to your [GCP](https://docs.akeyless.io/docs/gcp-auth-method) Auth Method.
+Use the existing IAM service account that is bound to your [GCP](https://docs.akeyless.io/docs/auth-with-gcp) Auth Method.
 
-> 👍 Note
+> **Note:**
 >
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
 >
-> To work with the GKE Workload Identity you must configure **only** the `Bound Service Accounts` field in your [GCP Auth Method](https://docs.akeyless.io/docs/gcp-auth-method).
+> To work with the GKE Workload Identity you must configure **only** the `Bound Service Accounts` field in your [GCP Auth Method](https://docs.akeyless.io/docs/auth-with-gcp).
 
 Allow the Kubernetes ServiceAccount to impersonate the IAM service account by adding an IAM policy binding between the two service accounts. This binding allows the Kubernetes ServiceAccount to act as the IAM service account.
 
@@ -208,7 +208,7 @@ kubectl annotate serviceaccount KSA_NAME \
 
 Set the relevant Kubernetes `serviceAccountName` or leave it empty to use the `default` Kubernetes ServiceAccount, update the `annotations`, and enable the `nodeSelector` to schedule the workloads on nodes that use Workload Identity and to use the annotated Kubernetes ServiceAccount.
 
-And set your [GCP](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins):
+And set your [GCP](https://docs.akeyless.io/docs/auth-with-gcp) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins):
 
 ```yaml Deployment
 globalConfig:
@@ -231,7 +231,7 @@ nodeSelector:
   iam.gke.io/gke-metadata-server-enabled: "true"
 ```
 
-> 📘 Info
+> **Info:**
 >
 > **NodeSelector** - For Autopilot clusters, omit the `nodeSelector` field. Autopilot rejects this `nodeSelector` because all nodes use Workload Identity.
 
@@ -241,7 +241,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure Active Directory for the configured tenant.
 
-To use [Azure workload identity](https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity) for your Gateway deployment, add the following label: `azure.workload.identity/use: "true"`, set the AKS Service Account name and the Azure Client ID using the annotation `azure.workload.identity/client-id`, and set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins):
+To use [Azure workload identity](https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity) for your Gateway deployment, add the following label: `azure.workload.identity/use: "true"`, set the AKS Service Account name and the Azure Client ID using the annotation `azure.workload.identity/client-id`, and set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins):
 
 ```yaml
 globalConfig:
@@ -266,7 +266,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ### Universal Identity
 
-Akeyless support [Universal Identity](https://docs.akeyless.io/docs/universal-identity) authentication method for on-premise Kubernetes cluster environments, eliminating the secret zero problems within your config files.
+Akeyless support [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) authentication method for on-premise Kubernetes cluster environments, eliminating the secret zero problems within your config files.
 
 Universal Identity Authentication Method requires a dedicated [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `UID-Token` where the key of the secret has to be `gateway-uid-init-token`.
 
@@ -277,7 +277,7 @@ kubectl create secret generic uid-token \
   --from-literal=gateway-uid-token=<base64-encoded-UID-Token>
 ```
 
-Set your [Universal Identity](https://docs.akeyless.io/docs/universal-identity) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins), and set the **Kubernetes Secret** name under `gatewayCredentialsExistingSecret`. Set the rotation interval and choose either to generate a child token for your pods using `uidCreateChildTokenPerPod` field.
+Set your [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity) `Access ID` as your `gatewayAccessId` and at least one another `Access ID` in the `allowedAccessPermissions` section, to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins), and set the **Kubernetes Secret** name under `gatewayCredentialsExistingSecret`. Set the rotation interval and choose either to generate a child token for your pods using `uidCreateChildTokenPerPod` field.
 
 ```yaml values.yaml
 globalConfig:
@@ -298,7 +298,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ### Certificates
 
-[Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) Authentication Method requires a dedicated [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `certificate.pem` and the corresponding `private_key.pem` files, where the key of the secret has to be `gateway-certificate` for the `certificate` and `gateway-certificate-key` for the `private_key`:
+[Certificate](https://docs.akeyless.io/docs/auth-with-certificate) Authentication Method requires a dedicated [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/) to store the `certificate.pem` and the corresponding `private_key.pem` files, where the key of the secret has to be `gateway-certificate` for the `certificate` and `gateway-certificate-key` for the `private_key`:
 
 ```shell
 kubectl create secret generic certificate-auth \
@@ -306,7 +306,7 @@ kubectl create secret generic certificate-auth \
   --from-literal=gateway-certificate-key=<base64-encoded-private_key>
 ```
 
-Set your [Certificate](https://docs.akeyless.io/docs/certificate-based-authentication) `Access ID` as your `gatewayAccessId`, and at least one other `Access ID` defined the `allowedAccessPermissions` to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#access-permissions):
+Set your [Certificate](https://docs.akeyless.io/docs/auth-with-certificate) `Access ID` as your `gatewayAccessId`, and at least one other `Access ID` defined the `allowedAccessPermissions` to provide human users access to [manage your Gateway](https://docs.akeyless.io/docs/gateway-k8s#access-permissions):
 
 ```yaml values.yaml
 globalConfig:
@@ -321,7 +321,7 @@ Save the file and proceed with the [installation](https://docs.akeyless.io/docs/
 
 ## Gateway Admins
 
-To support local management of your Gateway configuration, you can set a list of `Access ID` that will be able to log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
+To support local management of your Gateway configuration, you can set a list of `Access ID` values that can log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
 
 For example:
 
@@ -339,13 +339,13 @@ For example:
         - admin
 ```
 
-In this case, the above will create an **Access Permission** object named **Administrators**, associated with an Auth Method `p-yyyyyy` which for example is your [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) `Access ID`, where a user that at least matches one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute, will be authorized to access the Gateway with **Admin** permissions:
+In this case, the above will create an **Access Permission** object named **Administrators**, associated with an Auth Method `p-yyyyyy` which for example is your [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) `Access ID`, where a user that at least matches one [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) attribute, will be authorized to access the Gateway with **Admin** permissions:
 
 In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
 
-In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider. **If you don't specify the sub-claims, every user authenticated by this IdP will be able to log in to the Gateway with admin privileges.**
+In this case, the `Access ID` belongs to the authentication method created for a certain Identity Provider. **If you don't specify the sub-claims, every user authenticated by this IdP can log in to the Gateway with admin privileges.**
 
-To work with [API Key](https://docs.akeyless.io/docs/api-key) as an `allowedAccessPermissions` simply provide your [API Key](https://docs.akeyless.io/docs/api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of `permissions`.
+To work with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) as an `allowedAccessPermissions` simply provide your [API Key](https://docs.akeyless.io/docs/auth-with-api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of `permissions`.
 
 ### Access Permissions
 
@@ -405,7 +405,7 @@ Set the name of the secret `allowed-permissions` under `allowedAccessPermissions
 Full list of available permissions:
 
 | Permission | Description |
-|---|---|
+| --- | --- |
 | `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
 | `defaults` | Management of the defaults settings of your Gateway, including `GatewayUrl`, `TLS`, `Default Encryption Key`, and `Default AccessID` for login. |
 | `classic_keys` | Management of [Classic Keys](https://docs.akeyless.io/docs/classic-keys) |
@@ -418,11 +418,11 @@ Full list of available permissions:
 | `zero_knowledge_encryption` | Management of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) |
 | `caching` | Management of [Gateway Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache) settings |
 | `event_forwarding` | Management of [Event](https://docs.akeyless.io/docs/event-center) Forwarding settings |
-| `ladp_auth` | Management of [LDAP](https://docs.akeyless.io/docs/ldap) Auth Gateway configuration. |
-| `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Gateway configuration |
+| `ladp_auth` | Management of [LDAP](https://docs.akeyless.io/docs/auth-with-ldap) Auth Gateway configuration. |
+| `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
 | `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
 
-> 👍 Note
+> **Note:**
 >
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
@@ -437,7 +437,7 @@ TLSConf:
   enableSniProxy: true
 ```
 
-> 👍 Note
+> **Note:**
 >
 > All changes to allowed access IDs, such as editing, removing, and so on, can only be performed on **post-deployment allowed access IDs**. If an ID was defined during deployment it can't be removed or changed.
 

@@ -1,0 +1,25 @@
+name: CLI Command Heading Case
+
+on:
+  pull_request:
+    paths:
+      - "docs/Integrations & Plugins/cli-reference/**/*.md"
+      - ".github/scripts/check_cli_command_heading_case.py"
+      - ".github/workflows/cli-command-heading-case.yml"
+  workflow_dispatch:
+
+jobs:
+  validate-heading-case:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate CLI heading casing
+        run: python .github/scripts/check_cli_command_heading_case.py

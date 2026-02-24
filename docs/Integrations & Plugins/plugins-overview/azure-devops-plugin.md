@@ -20,13 +20,13 @@ Search for the "Vault - Read KV Secrets" Task, select it and configure it as fol
 
 Under **Vault Server Settings**: add the following Akeyless host as your Vault URL: `https://hvp.akeyless.io`, to work with your own [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) set the Vault URL of your Gateway HashiCorp Vault Proxy endpoint: `https://Your-Gateway-URL:8000/hvp` (or using your gateway URL at port 8200)
 
-> 👍 Note
+> **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
 Under **Authentication Method**: choose **Client Token** and provide the Akeyless token following this format:
 
-* The Token value can be a concatenation of your Access ID and your Access Key for an [API Key](https://docs.akeyless.io/docs/api-key) authentication in the following format: `< Access ID >".."< Access Key >`. It should be used more securely as an environment variable.
+* The Token value can be a concatenation of your Access ID and your Access Key for an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) authentication in the following format: `< Access ID >".."< Access Key >`. It should be used more securely as an environment variable.
 
 Alternatively, to work with any other [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) you can extract your token using Akeyless `auth` command:
 

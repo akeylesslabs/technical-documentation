@@ -1,8 +1,8 @@
-name: Markdown Linter
+# Weekly automation is consolidated in .github/workflows/automated-workflow-fixes.yml.
+# This workflow is kept for manual runs only.
+name: Markdown Linter (Manual)
 
 on:
-  schedule:
-    - cron: "0 2 * * 1" # Mondays at 2 AM UTC
   workflow_dispatch: # allow manual runs
 
 jobs:
@@ -39,15 +39,22 @@ jobs:
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
           set -e
 
-      # 4. Detect whether anything changed (docs or report file)
-      - name: Detect changes
+      # 4. Detect whether anything changed and whether lint violations remain
+      - name: Detect changes and violations
         id: changes
         run: |
           set -e
+
           if git diff --quiet; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+          if [ "${{ steps.mdl.outputs.exit_code }}" != "0" ]; then
+            echo "has_violations=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_violations=false" >> "$GITHUB_OUTPUT"
           fi
 
       # 5. Commit fixes + output report to automation branch
@@ -78,10 +85,10 @@ jobs:
           echo "sha=${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
           echo "url=https://github.com/${GITHUB_REPOSITORY}/commit/${COMMIT_SHA}" >> "$GITHUB_OUTPUT"
 
-      # 7. Create Jira issue (ADF description) when branch was updated
+      # 7. Create Jira issue when fixes were committed OR violations remain
       - name: Create Jira issue
         id: jira
-        if: steps.changes.outputs.has_changes == 'true'
+        if: steps.changes.outputs.has_changes == 'true' || steps.changes.outputs.has_violations == 'true'
         continue-on-error: true
         env:
           JIRA_BASE_URL: ${{ secrets.DOCS_JIRA_BASE_URL }}

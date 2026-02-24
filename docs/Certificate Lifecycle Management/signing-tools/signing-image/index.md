@@ -65,7 +65,7 @@ cd %AppData%/notation/plugins
 curl -o notation-akeyless https://rest.akeyless.io/Akeyless_Artifacts/Windows/notation-akeyless/notation-akeyless-windows-amd64.exe
 ```
 
-> 📘 Note
+> **Note:**
 >
 > For **AMD** architecture download the relevant binaries from [here](https://rest.akeyless.io/Akeyless_Artifacts/)
 
@@ -108,15 +108,15 @@ Where:
 
 * `access_id` - The Auth Method **Access ID**.  
 
-* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/api-key) Auth Method.
+* `access_key` - Relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method.
 
-* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) Auth Method.
+* `k8s_conf_name` - Relevant only for [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Method.
 
 ### Create a Self-Signed Certificate
 
 The Notary project specified the [requirements](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements) for different types of certificates, the following examples will use a **Self Signed CA** certificate.
 
-> 📘 Note
+> **Note:**
 >
 > It is possible to work with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) to generate the certificates, the PKI Issuer must be set with the `Code Signing` flag, and `Key Usage List` of `critical,DigitalSignature`.
 
@@ -155,7 +155,7 @@ Where:
 
 * `id`- The full key name or the key `item id`, as stored inside Akeyless. In our example, we used the created key named `CodeSign`.
 
-* `default` - Optional, to mark this key for Notation as a default key, with a friendly name for notation, in this example, we simply named it`Akeyless`.
+* `default` - Optional, to mark this key for Notation as a default key, with a friendly name for notation, in this example, we simply named it `Akeyless`.
 
 Verify that the key is added to the Notation keys:
 
@@ -195,7 +195,7 @@ notation sign $IMAGE
 
 To verify the container image, add the root certificate that signs the leaf certificate to the trust store and create trust policies for verification. For the self-signed certificate used in this tutorial, the root certificate is the self-signed certificate itself.
 
-> 📘 Note
+> **Note:**
 >
 > Depending on your OS the follow the folder structure as described [here](https://notaryproject.dev/docs/user-guides/tutorials/trust-policy/#create-a-trust-policy)
 

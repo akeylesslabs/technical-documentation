@@ -13,7 +13,7 @@ The Akeyless Gateway is a stateless Docker container, provided as a standalone o
 
 A basic Gateway deployment requires a server with a Docker Engine installed. You may download the latest Docker Engine on [Docker website](https://docs.docker.com/get-docker/). You'll need public network access enabled on port 443 to pull a Docker image from the `hub.docker.com`.
 
-> 📘 Tenant Environments
+> **Note (Tenant Environments):**
 >
 > Accounts that were created on specific environments should modify the services endpoints according to the relevant environments, for example, `eu` would use `https://vault.eu.akeyless.io`.
 >
@@ -22,7 +22,7 @@ A basic Gateway deployment requires a server with a Docker Engine installed. You
 The following table describes the main functionality of Akeyless microservices in the global environment:
 
 | Service | Endpoints | IP | Port | Description |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Console | `https://console.akeyless.io` | 52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128 | 443 | Akeyless SaaS platform |
 | Vault | `https://vault.akeyless.io`, `https://vault-ro.akeyless.io` | 52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128 | 443 | User Account Management (UAM), managing user accounts, items, and roles |
 | Auth | `https://auth.akeyless.io`, `https://auth-ro.akeyless.io` | 52.223.11.194, 35.71.185.167, 52.223.35.208, 35.71.147.131, 15.197.228.204, 3.33.247.128 | 443 | Akeyless Authentication service |
@@ -39,9 +39,9 @@ The following table describes the main functionality of Akeyless microservices i
 | Services S3 Bucket | `https://akeylessservices.s3.us-east-2.amazonaws.com` | N/A | 443 | S3 bucket to download and update Akeyless official binaries (for example, Gateway) |
 | Artifacts Endpoint | `https://artifacts.site2.akeyless.io` | 34.149.100.205 | 443 | _Optional:_ Akeyless official artifacts endpoint. Relevant when working with whitelisted IP ranges |
 
-> 👍 Note
+> **Note:**
 >
-> When using proxy services, you can use `sqs.us-east-2.amazonaws.com` instead of classic MQ services. In case you are not working with proxy service, and still want to utilize SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
+> When using proxy services, you can use `sqs.us-east-2.amazonaws.com` instead of classic MQ services. If you are not working with a proxy service and still want to use SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
 
 ## Working Without MQ Connection
 

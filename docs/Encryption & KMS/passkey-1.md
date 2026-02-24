@@ -53,9 +53,9 @@ _Request Payload:_
 
 ## Parameter Descriptions
 
-* token: The authentication token required to interact with the Akeyless API.
-* name: The name of the passkey. You can organize passkeys into folders using / separators in the name.
-* alg: The elliptic curve algorithm for the passkey. Allowed values are EC256, EC384, or EC512.
-* username: The username associated with the passkey, which will be searchable in the system.
-* origin-url: A list of allowed origin URLs (websites) where the passkey can be used. This parameter is searchable.
-* accessibility: Determines whether the passkey is for personal or regular use. If not specified, the passkey is classified as regular.
+* `token`: The authentication token required to interact with the Akeyless API.
+* `name`: The name of the passkey. You can organize passkeys into folders using `/` separators in the name.
+* `alg`: The elliptic curve algorithm for the passkey. Allowed values are `EC256`, `EC384`, or `EC512`.
+* `username`: The username associated with the passkey, which is searchable in the system.
+* `origin-url`: A list of allowed origin URLs (websites) where the passkey can be used. This parameter is searchable.
+* `accessibility`: Determines whether the passkey is for personal or regular use. If not specified, the passkey is classified as regular.

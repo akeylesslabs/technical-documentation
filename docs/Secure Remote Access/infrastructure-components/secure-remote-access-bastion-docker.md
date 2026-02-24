@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-> 📘 Legacy Chart
+> **Note (Legacy Chart):**
 >
 > This guide describe the flow using the **Legacy** chart of the Akeyless Secure Remote Access.
 >
@@ -40,7 +40,7 @@ For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticl
 
 Currently, this setup requires a **Volume** storage mechanism of [Docker](https://docs.docker.com/storage/volumes/).
 
-> 🚧 Note:
+> **Note:**
 >
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless private Docker Hub repository. Please contact your Account Manager for more details.
 
@@ -49,13 +49,13 @@ Currently, this setup requires a **Volume** storage mechanism of [Docker](https:
 The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
 
 Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` that will be authorized to request access.
+To control which users are allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs`.
 
 For RDP access that uses the **Fixed user** feature, rely on the username sub-claim to determine which **Windows** username to use. If you use a different sub-claim, specify it at deployment time using the `USERNAME_SUB_CLAIM` environment variable. To configure this behavior independently for SSH and RDP, use `SSH_USERNAME_SUB_CLAIM` and `RDP_USERNAME_SUB_CLAIM`, respectively.
 
 To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 
-> 📘 Info
+> **Info:**
 >
 > If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA.
 
@@ -63,17 +63,17 @@ To provide just-in-time native CLI access for your users using [Keyless SSH](htt
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
 
-* [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method)
+* [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp)
 
-* [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad)
+* [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure)
 
 ### API Key Authentication
 
-To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+To set your Bastion default authentication based on [API Key](https://docs.akeyless.io/docs/auth-with-api-key), set the `PRIVILEGED_ACCESS_ID` and the matching `PRIVILEGED_ACCESS_KEY` with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -98,11 +98,11 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ### CSP IAM Authentication
 
-While running your Dockers inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/aws-iam), [GCP](https://docs.akeyless.io/docs/gcp-auth-method), or [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
+While running your Dockers inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure), using machine-to-machine authentication between Akeyless and your Cloud Service Provider with a list of allowed `AccessIDs` that will be authorized to request access.
 
 ### AWS IAM
 
-AWS IAM can be used for an instance with an IAM Role. While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+AWS IAM can be used for an instance with an IAM Role. While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -125,7 +125,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ### GCP GCE
 
-Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/gcp-auth-method) can be done using the GCP.Set your [GCP GCE](https://docs.akeyless.io/docs/gcp-auth-method) `Access ID` as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
+Deploying Akeyless Bastion over Docker using the authentication between your Bastion and Akeyless SaaS using our [GCP Authentication method](https://docs.akeyless.io/docs/auth-with-gcp) can be done using the GCP.Set your [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp) `Access ID` as your `PRIVILEGED_ACCESS_ID` and at least one another `Access ID` in the `ALLOWED_ACCESS_IDS` list.
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -149,7 +149,7 @@ docker run --name ssh-bastion -d -p 0.0.0.0:2222:22 -p 0.0.0.0:9900:9900  \
 
 ### Azure Active Directory
 
-Set your [Azure Active Directory](https://docs.akeyless.io/docs/azure-ad) `Access ID` as your `PRIVILEGED\_ACCESS\_ID` with the matching service principal `azureobjectID', with a list of`ALLOWED\_ACCESS\_IDS\` that will be authorized to request access.
+Set your [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) `Access ID` as your `PRIVILEGED_ACCESS_ID` with the matching service principal `azureobjectID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access.
 
 ```shell web-bastion
 docker run --name web-bastion -d -p 8888:8888  \
@@ -209,7 +209,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e USERNAME_SUB_CLAIM="FIXED_USER_KEY_NAME" \
   -e AZURE_STORAGE_ACCOUNT="<Azure Storage Name>" \
-  -e AZURE_STORAGE_CONTAINER_NAME="<Azure Storage Container Name>" \    
+  -e AZURE_STORAGE_CONTAINER_NAME="<Azure Storage Container Name>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
@@ -223,7 +223,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e AZURE_CLIENT_ID="<Azure Client ID>" \
   -e AZURE_CLIENT_SECRET="<Azure Client Secret>" \
   -e AZURE_STORAGE_ACCOUNT="<Azure Storage Account>" \
-  -e AZURE_STORAGE_CONTAINER_NAME="<Azure Storage Container Name>" \  
+  -e AZURE_STORAGE_CONTAINER_NAME="<Azure Storage Container Name>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```

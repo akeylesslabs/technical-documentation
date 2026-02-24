@@ -16,17 +16,17 @@ Azure DevOps is a set of tools and services that help DevOps teams provision and
 
 With [this](https://github.com/LanceMcCarthy/akeyless-extension-azdo/) **community** plugin, you can fetch secrets directly from the Akeyless Platform into your workflows.
 
-This guide will demonstrate the use of an [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
+This guide will demonstrate the use of an [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) **Authentication Method** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
 ## Prerequisites
 
 1. An Azure Service Connection (see [here](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/getting-started.md#azure-setup) for setup if you don't have)
-2. A [JWT Authentication Method](https://docs.akeyless.io/docs/oauth20jwt) that points to the Service Connection with `Read` access to secrets
+2. A [JWT Authentication Method](https://docs.akeyless.io/docs/auth-with-oauth-jwt) that points to the Service Connection with `Read` access to secrets
 3. The Akeyless extension added to your Azure DevOps pipeline. You can do this in one of two ways:
    1. Search for `akeyless secrets` when adding a new task
    2. Go to [Akeyless Extensions - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=LancelotSoftware.akeyless-extensions)
 
-> 📘 Step-by-Step
+> **Note (Step-by-Step):**
 >
 > If this is your first time using the extension, see the documentation here to make sure you have the required prerequisites prepared: [Setup Akeyless and Azure service principal](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/getting-started.md).
 
@@ -36,7 +36,7 @@ The following Authentication Methods can be used for authentication:
 
 ### OAuth 2.0 / JWT
 
-Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/oauth20jwt) **Authentication Method** using the CLI:
+Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) **Authentication Method** using the CLI:
 
 ```shell
 akeyless create-auth-method-oauth2 --name /Dev/AzureAuth \
@@ -59,7 +59,7 @@ Create an **[Access Role](https://docs.akeyless.io/docs/rbac)**:
 akeyless create-role --name /Dev/AzureRole
 ```
 
-> 🚧 Warning
+> **Warning:**
 >
 > **It is required** to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
 >
@@ -85,7 +85,7 @@ akeyless set-role-rule --role-name /Dev/AzureRole \
 
 The following examples will demonstrate how to fetch [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
-> 📘 Classic Pipelines
+> **Note (Classic Pipelines):**
 >
 > If you are using classic pipelines, you will find the `Reference Name` under the `Output Variables` section. This will be the `name` of your task in the YAML file.
 
@@ -115,9 +115,9 @@ steps:
     staticSecrets: '{"/path/to/first-secret":"first_secret", "/path/to/second-secret":"second_secret" }'
 ```
 
-> 📘 JWT Usage
+> **Note (JWT Usage):**
 >
-> Note that we are using the `azure_jwt` output from the `AzureCLI` task to hold the JWT, then use it in the `akeyless-secret` task with `$(AzureCLI.azure_jwt)`.
+> Use the `azure_jwt` output from the `AzureCLI` task to hold the JWT, then pass it to the `akeyless-secret` task with `$(AzureCLI.azure_jwt)`.
 
 You will also have `$(MyAkeylessTask.first_secret)` and `$(MyAkeylessTask.second_secret)` available in subsequent tasks of that job if needed.
 

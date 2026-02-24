@@ -25,7 +25,7 @@ akeyless gateway-create-migration \
 --name <Migration name> \
 --type <Migration type> \
 --target-location <Target location> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ### Flags
@@ -48,7 +48,7 @@ akeyless gateway-create-migration \
 
 `--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, for example, `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
-`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
+`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to perform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json=[true]`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
@@ -70,7 +70,7 @@ akeyless gateway-create-migration \
 
 `--k8s-url`: Kubernetes API Server URL, for example, `https://kubernetes-api-endpoint.mycompany.com:6443` (relevant only for Kubernetes migration)
 
-`--k8s-skip-system`: Kubernetes Skip Control Plane Secrets, This option allows to avoid importing secrets from system namespaces (relevant only for Kubernetes migration)
+`--k8s-skip-system`: Kubernetes Skip Control Plane Secrets. This option avoids importing secrets from system namespaces (relevant only for Kubernetes migration)
 
 `--k8s-ca-certificate`: Kubernetes Cluster CA certificate (relevant only for Kubernetes migration with Certificate Authentication method)
 
@@ -104,7 +104,7 @@ akeyless gateway-create-migration \
 
 `--ad-local-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Active Directory migration)
 
-`--ad-os-filter`: Filter by Operating System to run the migration, can be used with wildcards, for example, SRV20* (Relevant only for Active Directory migration)
+`--ad-os-filter`: Filter by operating system to run the migration. This option can be used with wildcards, for example, `SRV20*` (Relevant only for Active Directory migration)
 
 `--ad-targets-type[=windows]`: Set the target type of the domain servers [ssh/windows](Relevant only for Active Directory migration)
 
@@ -114,7 +114,7 @@ akeyless gateway-create-migration \
 
 `--ad-winrm-over-http[=false]`: Use WinRM over HTTP, by default runs over HTTPS
 
-`--ad-target-format[=linked]`: Relevant only for `ad-discovery-types`=`computers`. For linked, all computers will be migrated into a linked target(s). if set with regular, the migration will create a target for each computer.
+`--ad-target-format[=linked]`: Relevant only for `ad-discovery-types`=`computers`. For `linked`, all computers are migrated into linked target(s). If set to `regular`, the migration creates a target for each computer.
 
 `--ad-discover-services[=false]`: Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
 
@@ -161,7 +161,7 @@ Delete migration
 ```shell
 akeyless gateway-delete-migration \
 --id <Migration ID> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ## `get`
@@ -173,7 +173,7 @@ Get migrations
 ```shell
 akeyless gateway-get-migration \
 --name <Migration Name> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ## `list`
@@ -183,44 +183,6 @@ List migrations
 ### Flags
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
-
-## `personal-items`
-
-Migrates personal items from external vault
-
-### Usage
-
-```shell
-akeyless gateway-migrate-personal-items \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---type <1password> \
---protection-key <Key Name> \
---target-location <Path/To/Target> \
---1password-url <Account Address> \
---1password-email <User Email> \
---1password-password <Users Password> \
---1password-secret-key <Secret Key>
-```
-
-### Flags
-
-`-u, --gateway-url[=http://localhost:18888]`: API Gateway URL (Akeyless UI port)
-
-`-t, --type[=1password]`: Migration provider type, Current supported options: [1password]
-
-`-k, --protection-key`: The name of a key that used to encrypt the secret value
-
-`-l, --target-location`: Target location in your Akeyless personal folder for migrated secrets
-
-`--1password-url`: 1Password sign-in address for your account
-
-`--1password-email`: 1Password user email
-
-`--1password-password`: 1Password password for the given user's email
-
-`--1password-secret-key`: User's 1Password Secret Key
-
-`--1password-vaults`: Optional list of 1Password vaults to migrate items from; can be used multiple times (--1password-vaults vault1 --1password-vaults vault2), If not provided, all non-private vaults will be migrated
 
 ## `status`
 
@@ -232,14 +194,14 @@ Gets migration Status
 akeyless gateway-migration-status \
 --name <Migration Name> \
 --id <Migration ID> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ### Flags
 
 `-n, --name`: Migration name to display
 
-`-i, --id`: Optional, instead of migration name, set a Migration ID (Can be retrieve with gateway-list-migration command)
+`-i, --id`: Optional. Instead of a migration name, set a Migration ID (can be retrieved with the `gateway-list-migration` command)
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
@@ -250,9 +212,9 @@ Sync migration
 ### Usage
 
 ```shell
-Akeyless gateway-sync-migration \
+akeyless gateway-sync-migration \
 --name <Migration Name> \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --sync <true/false>
 ```
 
@@ -276,12 +238,12 @@ akeyless gateway-update-migration \
 --id <Migration ID> \
 --name <Migration name> \
 --new-name <New migration name> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 ### Flags
 
-`-i, --id`: Migration ID (Can be retrieved with gateway-list-migration command)
+`-i, --id`: Migration ID (can be retrieved with the `gateway-list-migration` command)
 
 `-n, --name`: Migration name
 
@@ -301,7 +263,7 @@ akeyless gateway-update-migration \
 
 `--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, for example, `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
-`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
+`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to perform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json='true'`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
@@ -323,7 +285,7 @@ akeyless gateway-update-migration \
 
 `--k8s-url`: Kubernetes API Server URL, for example, `https://<k8s-api-endpoint>.mycompany.com:6443` (relevant only for Kubernetes migration)
 
-`--k8s-skip-system`: Kubernetes Skip Control Plane Secrets, This option allows to avoid importing secrets from system namespaces (relevant only for Kubernetes migration)
+`--k8s-skip-system`: Kubernetes Skip Control Plane Secrets. This option avoids importing secrets from system namespaces (relevant only for Kubernetes migration)
 
 `--k8s-ca-certificate`: Kubernetes Cluster CA certificate (relevant only for Kubernetes migration with Certificate Authentication method)
 
@@ -357,7 +319,7 @@ akeyless gateway-update-migration \
 
 `--ad-local-users-ignore`: Comma-separated list of Local Users which should not be migrated (Relevant only for Active Directory migration)
 
-`--ad-os-filter`: Filter by Operating System to run the migration, can be used with wildcards, for example, SRV20* (Relevant only for Active Directory migration)
+`--ad-os-filter`: Filter by operating system to run the migration. This option can be used with wildcards, for example, `SRV20*` (Relevant only for Active Directory migration)
 
 `--ad-targets-type[=ssh]`: Set the target type of the domain servers [SSH/Windows](Relevant only for Active Directory migration)
 
@@ -365,7 +327,7 @@ akeyless gateway-update-migration \
 
 `--ad-winrm-over-http[=false]`: Use WinRM over HTTP, by default runs over HTTPS
 
-`--ad-target-format[=linked]`: Relevant only for `ad-discovery-types`=`computers`. For linked, all computers will be migrated into a linked target(s). if set with regular, the migration will create a target for each computer.
+`--ad-target-format[=linked]`: Relevant only for `ad-discovery-types`=`computers`. For `linked`, all computers are migrated into linked target(s). If set to `regular`, the migration creates a target for each computer.
 
 `--ad-discover-services[=false]`: Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
 

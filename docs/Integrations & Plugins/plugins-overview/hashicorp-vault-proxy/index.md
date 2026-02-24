@@ -29,19 +29,19 @@ Or directly through your [Gateway](https://docs.akeyless.io/docs/api-gw) on port
 
 ## Usage
 
-HashiCorp Vault`V1` secret engine proxy will be available using this prefix: `v1/kv`
+HashiCorp Vault `V1` secret engine proxy will be available using this prefix: `v1/kv`
 
 ```curl Vault Proxy V1
 curl --header "X-Vault-Token: XXXXX" https://hvp.akeyless.io/v1/kv/{secret-name}
 ```
 
-HashiCorp Vault`V2` secret engine will be available using this prefix: `v1/secret/data`
+HashiCorp Vault `V2` secret engine will be available using this prefix: `v1/secret/data`
 
 ```curl Vault Proxy V2
 curl --header "X-Vault-Token: XXXX" https://hvp.akeyless.io/v1/secret/data/{secret-name}
 ```
 
-In case the secret value itself is a JSON-structured object, the **Path** must be in the following format:
+If the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
  `secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names**
 

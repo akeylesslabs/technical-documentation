@@ -16,7 +16,7 @@ next:
 
 The process of generating a certificate request from a Kubernetes cluster to Akeyless is divided into three steps:
 
-* Generating **Authentication Token** either using an [API Key](https://docs.akeyless.io/docs/api-key) or using [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) ServiceAccount token - This token will be used for authenticating to Akeyless.
+* Generating **Authentication Token** either using an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or using [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) ServiceAccount token - This token will be used for authenticating to Akeyless.
 * Configuring an **Issuer** - A Kubernetes resource that represents the Certificate Authority (CA).
 * Configuring the **Certificate Signing Request (CSR)** - A file that contains the data for the certificate
 
@@ -25,7 +25,7 @@ Once all of the above are set, **CSR** will be generated to Akeyless from the Ku
 ## Prerequisites
 
 * [cert-manager](https://cert-manager.io/docs/installation/) installed
-* A [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth) or an [API Key](https://docs.akeyless.io/docs/api-key) Auth Method attached to a role with `read` permission for **Items**
+* A [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method attached to a role with `read` permission for **Items**
 * [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates)
 
 Create a Namespace called `akeyless-cert-manager`:
@@ -38,13 +38,13 @@ kubectl create ns akeyless-cert-manager
 
 **cert-manager** authenticates to Akeyless using a Kubernetes **ServiceAccount token**, which is being generated using [Secretless Authentication with a Service Account](https://cert-manager.io/docs/configuration/vault/#secretless-authentication-with-a-service-account) - _Available in cert-manager >= v1.12.0_.
 
-> 📘 Info
+> **Info:**
 >
 > **Authentication with a Static ServiceAccount Token** - For **cert-manager** with a lower version than v1.12.0, you can use "[Authentication with a Static ServiceAccount Token](https://cert-manager.io/docs/configuration/vault/#static-service-account-token)" for authentication.
 
 Using **Secretless Authentication** with a ServiceAccount, a temporary ServiceAccount token is created, **cert-manager** uses this ServiceAccount token to authenticate.
 
-In order to create the ServiceAccount token, edit a configuration file that will contain a **ServiceAccount** with a **Role** and **RoleBinding** allowing Kubernetes token creation:
+To create the ServiceAccount token, edit a configuration file that will contain a **ServiceAccount** with a **Role** and **RoleBinding** allowing Kubernetes token creation:
 
 ```yaml k8s_sa.yaml
 apiVersion: v1
@@ -89,11 +89,11 @@ kubectl apply -f k8s_sa.yaml
 
 Once the ServiceAccount is created, an **Issuer** needs to be created as well. An **Issuer** is a Kubernetes resource that represents the CA, in our case, **Akeyless**.
 
-> 👍 Note
+> **Note:**
 >
 > With an **Issuer** resource, you can only refer to a ServiceAccount located in the same Namespace as the Issuer, for more information refer to [this](https://cert-manager.io/docs/configuration/vault/#:~:text=Issuer%20vs.%20ClusterIssuer%3A) link.
 
-In order to create the `Issuer` resource, edit a configuration file that will contain the data of your Akeyless environment with a reference to the `ServiceAccount` which we created in the previous step:
+To create the `Issuer` resource, edit a configuration file that will contain the data of your Akeyless environment with a reference to the `ServiceAccount` created in the previous step:
 
 ```yaml issuer.yaml
 apiVersion: cert-manager.io/v1
@@ -104,7 +104,7 @@ metadata:
 spec:
   vault:
     path: /pki/sign/dev/Pki_Cert_Issuer 
-    server: <https://Your_Akeyless_GW_URL:8000/hvp> # Or using port 8200
+    server: "https://Your_Akeyless_GW_URL:8000/hvp" # Or using port 8200
     auth:
       kubernetes:
         role: <"base64 encoding of access_id..k8s_auth_config_name">
@@ -119,7 +119,7 @@ Where:
 * `server` - The URL of the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) HashiCorp Vault Proxy endpoint `https://Your_Akeyless_GW_URL:8000/hvp` (or using your gateway URL at port 8200)
 * `role` - `<Access-ID..K8s Auth Config Name>` in Base64-encoded format. Note the Kubernetes Auth config name can be found in the Gateway config-manager (port 8000), under the "Kubernetes Auth" menu.
 
-> 📘 Info
+> **Info:**
 >
 > **Base64 encoding** - The following command can be used for Base64 conversion: `echo -n '<Access-ID..K8s Auth Config Name>' | base64`.
 
@@ -133,7 +133,7 @@ At this stage, all the configuration for Kubernetes authentication is set and it
 
 ### API Key Auth Method
 
-In order to use an [API Key](https://docs.akeyless.io/docs/api-key) Auth Method for generating certificate requests from the Kubernetes cluster to Akeyless, An **Authentication Token** is required.
+To use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) Auth Method for generating certificate requests from the Kubernetes cluster to Akeyless, an **Authentication Token** is required.
 
 The **Authentication Token** will be created using a `Secret` resource which will hold the `Access-Key` of the API Key Auth Method.
 
@@ -162,7 +162,7 @@ kubectl apply -f secret_token.yaml
 
 Once the **Authentication Token** is created, an Issuer needs to be created as well. An Issuer is a Kubernetes resource that represents the CA, in our case, **Akeyless**.
 
-In order to create the Issuer, edit a configuration file that will contain the data of your Akeyless environment with a reference to the `secret`:
+To create the Issuer, edit a configuration file that will contain the data of your Akeyless environment with a reference to the `secret`:
 
 ```yaml issuer.yaml
 apiVersion: cert-manager.io/v1
@@ -173,7 +173,7 @@ metadata:
 spec:
   vault:
     path: /pki/sign/dev/Pki_Cert_Issuer 
-    server: <http://<Your_Akeyless_GW_URL:8200> # HashiCorp Vault Proxy address
+    server: "http://<Your_Akeyless_GW_URL>:8200" # HashiCorp Vault Proxy address
     auth:
       appRole:
         path: approle
@@ -210,7 +210,7 @@ NAME              READY    AGE
 akeyless-issuer   True    4d21h
 ```
 
-Once the issuer is running, a certificate request can be generated. In order to do this, a `Certificate` resource needs to be created.
+Once the issuer is running, a certificate request can be generated. To do this, a `Certificate` resource needs to be created.
 
 Within the `certificate` resource file, information about the certificate itself will be defined, it will also be referenced to the `issuer` resource file that was created, which will call Akeyless to issue the certificate using the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates).
 

@@ -12,7 +12,7 @@ next:
 ---
 ## Introduction
 
-The Akeyless Platform combines the capabilities of an HSM and a KMS to provide enhanced key-life cycle management, including cryptographic key generation, protection, versioning/rotation (more on this subject on the key rotation guide [Key Rotation](https://docs.akeyless.io/docs/key-rotation)), and using keys with Encryption-as-a-Service and Digital Signing functions.
+The Akeyless Platform combines the capabilities of an HSM and a KMS to provide enhanced key lifecycle management, including cryptographic key generation, protection, versioning/rotation (more on this subject in the [Key Rotation](https://docs.akeyless.io/docs/key-rotation) guide), and using keys with Encryption-as-a-Service and Digital Signing functions.
 
 ### Key Types
 
@@ -29,7 +29,7 @@ Akeyless supports a wide range of encryption keys, including:
 * AES128CBC
 * AES256CBC
 
-> 📘 Info
+> **Info:**
 >
 > CBC type algorithms are easy to misuse, require additional data to be supplied when used, and are not authenticated. We recommend using a different type of algorithm unless there is a clear use case for it.
 
@@ -69,7 +69,7 @@ akeyless create-dfc-key -n MyRSAKey -a RSA2048
 akeyless create-dfc-key -n MyCBC -a AES256CBC
 ```
 
-> 📘 Info
+> **Info:**
 >
 > To list all available options for key creation run this command: `akeyless create-dfc-key -h`
 
@@ -109,12 +109,12 @@ After creating a key, you can use it to encrypt values using this command with t
 * `k`: The name of the key to encrypt with.
 * `p`: The string to encrypt.
 
-> 📘 Info
+> **Info:**
 >
-> When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, a 16 bytes of random data, encoded in Base64 format, which must be unique to each encryption operation, and must be saved in order to decrypt the value, marked with the parameter -X.
+> When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, a 16-byte random value encoded in Base64 format, which must be unique to each encryption operation and saved to decrypt the value, marked with the parameter -X.
 
 ```shell AES128GCM
-akeyless encrypt -k MyAES256GCMKey -p 12345
+akeyless encrypt -k MyAES128GCMKey -p 12345
 ```
 ```shell AES256CBC
 akeyless encrypt -k cbc -p 12345 -X iv=7iBxRZ3NvucULGXgpsUFGw==
@@ -129,13 +129,13 @@ AQAAAAEIAacq7xBbq3PYFnTmuUwqdRHclYjti/5u/MvVacv7mtFjlJQtUIpY13YF
 AQAAAAEIAWj/BDSTdvCHMG1aqBW+r+u41nEvN1qTRQ==
 ```
 
-Similarly, you can use it in order to Decrypt values using this command with the following parameters:
+Similarly, you can use it to decrypt values using this command with the following parameters:
 
-* `k`: The name of the key to encrypt with.
+* `k`: The name of the key to decrypt with.
 * `c`: The string to decrypt.
 
 ```shell AES128GCM
-akeyless decrypt -k MyAES256GCMKey -c AQAAAAEIAacq7xBbq3PYFnTmuUwqdRHclYjti/5u/MvVacv7mtFjlJQtUIpY13YF
+akeyless decrypt -k MyAES128GCMKey -c AQAAAAEIAacq7xBbq3PYFnTmuUwqdRHclYjti/5u/MvVacv7mtFjlJQtUIpY13YF
 ```
 ```shell AES256CBC
 akeyless decrypt -k cbc -c AQAAAAEIAWj/BDSTdvCHMG1aqBW+r+u41nEvN1qTRQ== -X iv=7iBxRZ3NvucULGXgpsUFGw==
@@ -151,13 +151,13 @@ The output should be the message you encrypted beforehand:
 ```
 
 Using **HMAC** with encryption:
-You may choose to add a hash function encryption over a key with the following command:
+You may choose to add a hash function operation over a key with the following command:
 
 ```shell
 akeyless hmac -p <plaintext> -f <hash function> -k <key>
 ```
 
-selecting a hash function between sha-256 and sha-512. The full parameters for this command can be found [here](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluehmacp).
+Select a hash function between `sha-256` and `sha-512`. The full parameters for this command can be found [here](https://docs.akeyless.io/docs/cli-reference-encryption-keys#hmac).
 
 ## Key Use in the Console
 
@@ -182,7 +182,7 @@ selecting a hash function between sha-256 and sha-512. The full parameters for t
 
 * **Type:** The algorithm type of key to be created (`AESxxxGCM`, `AESxxxSIV`, `AESxxxCBC`, `RSAxxxx`).
 
-* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluegen-customer-fragmentp).
+* **Customer Fragment:** If you have an existing [customer fragment](https://docs.akeyless.io/docs/dfc-overview), you may attach it to the key. If you wish to generate one, please refer to [these instructions](https://docs.akeyless.io/docs/cli-reference-encryption-keys#gen-customer-fragment).
 
 * **Protection level (For classic keys targeting GCP):** Users can select either "software" (default) or "hardware" (HSM) options for key creation. Choosing "hardware" generates keys within a Hardware Security Module for enhanced security. For classic keys targeting GCP, you can select the protection level (hardware or software) after creating the key. In the "Provision to an external KMS" section, click "Attach," select the GCP target, and choose the appropriate protection level.
 
@@ -199,9 +199,9 @@ selecting a hash function between sha-256 and sha-512. The full parameters for t
 
 3. Select the desired operation and enter the required text
 
-> 📘 Info
+> **Info:**
 >
-> When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, 16 bytes of random data, encoded in Base64 format, which must be unique to each encryption operation, and must be saved in order to decrypt the value, marked with the parameter -X.
+> When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, a 16-byte random value encoded in Base64 format, which must be unique to each encryption operation and saved to decrypt the value, marked with the parameter -X.
 
 ## Tutorial
 

@@ -53,7 +53,7 @@ The Akeyless **Go** SDK supports multiple [Authentication Methods](https://docs.
 
 ### API Key
 
-To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
+To use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) for authentication set the following:
 
 ```go
 go

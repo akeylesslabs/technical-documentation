@@ -16,7 +16,7 @@ Akeyless SSH Secure Remote Access enables traffic connections to servers that ar
 
 In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
 
-> 👍 Legacy Mode
+> **Note (Legacy Mode):**
 >
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
 > For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
@@ -41,7 +41,7 @@ akeyless update-ssh-cert-issuer \
 --secure-access-enable true \
 --secure-access-api <ssh-sra service control API endpoint URL> \
 --secure-access-ssh  <ssh-sra service server IP and Port> \
---secure-access-ssh-creds-user <SSH username> \ 
+--secure-access-ssh-creds-user <SSH username> \
 --host-provider[=explicit] \
 --secure-access-host <remote host> 
 ```
@@ -52,7 +52,7 @@ where:
 
 * `secure-access-ssh`: Secure Access SSH server. For example, `my.sra-server:22`.
 
-* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users`list, **Just In Time** users can be authorized by configuring `allowed_users` with `session_*`.
+* `secure-access-ssh-creds-user`: SSH username to connect to a target server, based on the `Allowed Users` list. **Just In Time** users can be authorized by configuring `allowed_users` with `session_*`.
 
 * `host-provider`: Host provider type by default works with explicit hosts, if you wish to work with [Linked Targets](https://docs.akeyless.io/docs/linked-target) instead, set this parameter to `target`. When `target` is selected, use the `assoc-target-item` command to attach the relevant Linked Target.
 
@@ -84,10 +84,10 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 Akeyless enables CLI access from any Unix terminal.
 
-> 👍 Note
+> **Note:**
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows subsystem for Linux."
-> This feature enables users to utilize their Windows OS environment as a Unix-like system.
+> This feature enables users to use their Windows OS environment as a Unix-like system.
 >
 > To work with `Akeyless connect` command from Windows machine, place the `.akeyless-connect.rc` script on your home directory.
 
@@ -149,11 +149,11 @@ This workaround explicitly enables legacy SSH key types that are deprecated and 
 
 ## Legacy Mode
 
-To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion by way of SSH certificate, and the Akeyless SRA bastion will utilize your SSH keys\password to connect to your legacy server.
+To support legacy applications, Akeyless enables a hybrid mode based on SSH certificates and SSH keys. Where your client will connect to the Akeyless SRA bastion by way of SSH certificate, and the Akeyless SRA bastion will use your SSH keys\password to connect to your legacy server.
 
 To work with SSH keys, you will have to create a Static Secret in an Akeyless account to store your SSH private key or SSH password. The secret value should be either your SSH password or your SSH private key.
 
-> 🚧 Note
+> **Note:**
 >
 > SSH password authentication brings with it risks. Please make sure you are connecting to the correct target server.
 
@@ -191,7 +191,7 @@ We support upload and download of files in SSH sessions through the Zero Trust W
 
 To upload a file, click on `Upload` button at the top and choose the file to upload from your local machine. The uploaded file will be placed in the user's $HOME directory on the remote machine.
 
-> 📘 Temporary files
+> **Note (Temporary files):**
 >
 > Files are created as temporary items inside the SSH server during the upload process, and are deleted upon completion.
 
@@ -202,6 +202,6 @@ To download a file:
 * First, copy the file to the download directory `/akl-downloads` which is already created in the user's $HOME directory on the remote machine (For example, `cp file-to-download.json /akl-downloads`).
 * Then, click on the `Download` button at the top which will open a menu with all files located in that directory. Click on a file to start the download to your local machine. Note that larger files will only appear upon completion.
 
-> 🚧 File size and free space
+> **Note (File size and free space):**
 >
-> In case there is a size limit issue on the SRA SSH server, (exceeding over 90% of space) a file will be created in the `akl-downloads` folder saying `NOT_ENOUGH_FREE_SPACE` and the user won't be able to download it.
+> If there is a size limit issue on the SRA SSH server (exceeding 90% of space), a file named `NOT_ENOUGH_FREE_SPACE` is created in the `akl-downloads` folder, and the user will not be able to download it.
