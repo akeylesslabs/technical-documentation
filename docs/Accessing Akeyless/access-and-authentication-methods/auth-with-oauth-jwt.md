@@ -41,7 +41,7 @@ You can find the complete list of additional parameters for this command in the 
 
 ## Create an OAuth2.0/JWT Authentication Method in the Akeyless Console
 
-1. Log in to the Akeyless Console and go to **Users & Auth Methods > ⊕ New > OAuth2.0/JWT**, and click on **Next →**.
+1. Log in to the Akeyless Console and go to **Users & Auth Methods > ⊕ New > OAuth2.0/JWT**, then click **Next →**.
 
 2. Define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
@@ -65,4 +65,4 @@ You can find the complete list of additional parameters for this command in the 
 
     * **Bound Client IDs:** Enter a list of the Client's IDs for which access is allowed. This parameter maps to the non-standard `cid` (Client Identification Data) sub-claim and is optional. Leave it empty for unrestricted access.
 
-4. Click on **Finish**.
+4. Click **Finish**.

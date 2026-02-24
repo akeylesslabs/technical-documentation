@@ -69,7 +69,7 @@ Note that between different sub-claims keys, the logic will always use the **AND
 
 For easier management of your access rules, sub-claims keys can be used for quicker and more scalable rule definitions for the access path.
 
-Each sub-claim key should be wrapped by double curly braces, that is `{{Sub-Claim Name}}` with a `/` as a separator for folders.
+Each sub-claim key should be wrapped by double curly braces, that is, `{{Sub-Claim Name}}`, with a `/` as a separator for folders.
 
 For example, say that the following sub-claims exist in your **Access Role**:
 
@@ -94,7 +94,7 @@ Those claims can be templated as `/{{Groups}}/{{Username}}/*` (or the relevant a
 
 Each user will get `read` permissions for the relevant paths, based on the sub-claims key values.
 
-This means that Alice will get `read` permissions under`/Engineering/Alice/*`. Bob and Charlie will have access to `/Security/Bob/*` and `/Security/Charlie/*`. Dennis will have access to `/DevOps/Dennis/*`.
+This means that Alice will get `read` permissions under `/Engineering/Alice/*`. Bob and Charlie will have access to `/Security/Bob/*` and `/Security/Charlie/*`. Dennis will have access to `/DevOps/Dennis/*`.
 
 > **Note:**
 >
@@ -102,7 +102,7 @@ This means that Alice will get `read` permissions under`/Engineering/Alice/*`. B
 
 ## View Sub-Claims
 
-To review the current Sub-Claims available for your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), from the Akeyless Console, simply click on your account logo and click on **Show Sub Claims**.
+To review the current Sub-Claims available for your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the Akeyless Console, click your account logo and select **Show Sub Claims**.
 
 To view the available Sub-Claims of your [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the Akeyless [CLI](https://docs.akeyless.io/docs/cli) based on the CLI profile you are using, run the following command:
 

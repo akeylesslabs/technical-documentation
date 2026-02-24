@@ -24,7 +24,7 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 ## Create an LDAP Authentication Method from the Akeyless Console
 
-1. Log in to the Akeyless Console, go to **Users & Auth Methods > New > LDAP**, and click on **Next →**.
+1. Log in to the Akeyless Console, go to **Users & Auth Methods > New > LDAP**, and click **Next →**.
 2. On the **Basic Configuration** step define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. The folder will be created with the authentication method if it does not exist.
 3. Define the remaining parameters as follows:
 
@@ -70,4 +70,4 @@ The following **Search Configuration** steps are **Optional**:
 
 * **LDAP Group Attribute:** LDAP attribute to follow on objects returned by `ldap_group_filter` to enumerate user group membership, the default is `cn`.
 
-* Click on **Finish**.
+* Click **Finish**.

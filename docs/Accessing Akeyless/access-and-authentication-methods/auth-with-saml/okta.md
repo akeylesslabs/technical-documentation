@@ -80,7 +80,7 @@ Alternatively, you can create this Auth Method from the Akeyless Console.
 
 To log in using SAML from Akeyless CLI:
 
-1. You should configure a new profile with your Access-ID from the previous step and SAML type (if no profile name is provided, the default will be configured):
+1. Configure a new profile with your Access ID from the previous step and SAML type (if no profile name is provided, the default will be configured):
 
     ```shell
     akeyless configure --access-id <Access ID> --access-type saml --profile 'okta-app'
@@ -92,4 +92,4 @@ To log in using SAML from Akeyless CLI:
     akeyless list-items --profile okta-app
     ```
 
-In the Akeyless Console login page, click on the SAML option and enter your SAML Access ID. You will be redirected to the Okta sign-in where you need to provide your Okta credentials.
+In the Akeyless Console login page, click the SAML option and enter your SAML Access ID. You will be redirected to the Okta sign-in page where you need to provide your Okta credentials.
