@@ -73,7 +73,7 @@ All other parameters have the same meaning whether or not you choose to use a ta
 You may update the Dynamic Secret information using the following command with the same parameters:
 
 ```shell
-akeyless dynamic-secret updateakeyless dynamic-secret get-value ping
+akeyless dynamic-secret update ping
 ```
 
 ### Fetch a Dynamic Ping Secret Value

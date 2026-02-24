@@ -50,7 +50,7 @@ akeyless dynamic-secret create snowflake \
 --db-name <Database to which the generated credentials are restricted>
 ```
 ```shell RSA Private Key Login
-akeyless dynamic-secret create akeyless dynamic-secret get-valuesnowflake \
+akeyless dynamic-secret create snowflake \
 --name <Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \

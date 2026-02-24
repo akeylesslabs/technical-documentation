@@ -60,7 +60,7 @@ akeyless dynamic-secret create eks \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valueeks \
+akeyless dynamic-secret create eks \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --eks-assume-role <Role ARN> \

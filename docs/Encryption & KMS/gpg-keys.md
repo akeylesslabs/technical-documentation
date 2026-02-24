@@ -27,7 +27,7 @@ akeyless create-classic-key \
 --name <key name> \
 --alg gpg \
 --gpg-alg <algorithm type> \
---gateway-url = 'https://<Your_Akeyless_GW_URL>:8000'
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
 ```
 
 Where:

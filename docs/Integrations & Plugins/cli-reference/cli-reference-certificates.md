@@ -309,7 +309,7 @@ Gets credentials for authentication with Kubernetes cluster based on a PKI Cert 
 akeyless get-kube-exec-creds \
 --cert-issuer-name <PKI cert issuer name> \
 --key-file-path <The client public or private key file path> \
---alt-names <The Subject Alternative Names to be included in the PKI certificate> \ 
+--alt-names <The Subject Alternative Names to be included in the PKI certificate> \
 --ttl <Updated certificate lifetime in seconds>
 ```
 
@@ -389,7 +389,7 @@ Get a challenge for certificate authentication
 ```shell
 akeyless get-cert-challenge \
 --access-id <AccessID> \
---cert-data <'Certificate data encoded in Base64'>
+--cert-data 'Certificate data encoded in Base64'
 ```
 
 ### `renew-certificate`
@@ -423,7 +423,7 @@ Updates a new PKI certificate issuer
 ```shell
 akeyless update-pki-cert-issuer \
 --name <PKI issuer name> \
---ttl <The maximum requested Time To Live for issued certificates, in seconds> \ 
+--ttl <The maximum requested Time To Live for issued certificates, in seconds> \
 --new-name <New item name> \
 --signer-key-name <A key to sign the certificate with> 
 ```
@@ -699,7 +699,7 @@ Creates a new PKI CA and Intermediate issuers
 #### Usage
 
 ```shell
-akeyless generate-ca \ 
+akeyless generate-ca \
 --pki-chain-name <PKI Issuer name> \
 --allowed-domains <Allowed domain list> \
 --ttl <Issued Certificates TTL> \
@@ -739,7 +739,7 @@ Discover Certificates in your organization
 #### Usage
 
 ```shell
-akeyless certificate-discovery \ 
+akeyless certificate-discovery \
 --hosts <IPs, CIDR ranges, or DNS names> \
 --port-ranges[=443] <80,8080-8085> \
 --target-location 'Discovery-Folder' \

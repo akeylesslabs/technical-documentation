@@ -180,10 +180,10 @@ akeyless gateway update log-forwarding elasticsearch \
 --cloud-id <Elasticsearch cloud id> \
 --auth-type <Elasticsearch auth type> \
 --api-key <Elasticsearch api key> \
---user-name <Elasticsearch user name> \                            
---password <Elasticsearch password> \                              
---enable-tls <enable tls> \                             
---certificate-file <path/to/certificate> \                      
+--user-name <Elasticsearch user name> \
+--password <Elasticsearch password> \
+--enable-tls <enable tls> \
+--certificate-file <path/to/certificate> \
 --tls-certificate <Elasticsearch tls certificate>        
 ```
 
@@ -343,9 +343,9 @@ akeyless gateway update log-forwarding splunk \
 --splunk-token <splunk-token> \
 --source <Splunk source> \
 --source-type <Splunk source type> \
---index <Splunk index> \ 
---enable-tls <enable tls> \                             
---certificate-file <path/to/certificate> \                      
+--index <Splunk index> \
+--enable-tls <enable tls> \
+--certificate-file <path/to/certificate> \
 --tls-certificate <Elasticsearch tls certificate>
 ```
 
@@ -448,8 +448,8 @@ akeyless gateway update log-forwarding syslog \
 --host <host> \
 --target-tag <Syslog target tag> \
 --formatter [text/cef] \
---enable-tls <enable tls> \                             
---certificate-file <path/to/certificate> \                      
+--enable-tls <enable tls> \
+--certificate-file <path/to/certificate> \
 --tls-certificate <Elasticsearch tls certificate>
 ```
 

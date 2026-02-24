@@ -38,7 +38,7 @@ akeyless dynamic-secret create gke \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuegke \
+akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gke-account-email <GKE service account email> \

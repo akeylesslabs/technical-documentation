@@ -38,7 +38,7 @@ akeyless dynamic-secret create ldap \
  Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valueldap \
+akeyless dynamic-secret create ldap \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --ldap-url <LDAP server URL> \

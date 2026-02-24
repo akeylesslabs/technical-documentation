@@ -44,7 +44,7 @@ akeyless dynamic-secret create rabbitmq \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuerabbitmq \
+akeyless dynamic-secret create rabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \

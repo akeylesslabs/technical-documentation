@@ -465,7 +465,7 @@ akeyless dynamic-secret create dockerhub \
 akeyless dynamic-secret create dockerhub \
 --name *<Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---dockerhub-token-scopes <'repo:admin,repo:write,repo:read,repo:public_read'> \      
+--dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read' \
 --dockerhub-username <Username for docker repository> \
 --dockerhub-password <Password for docker repository>
 ```
@@ -838,14 +838,14 @@ Creates Native Kubernetes Service Dynamic Secret
 #### Usage
 
 ```shell Using target
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --k8s-service-account <service account>
 ```
 ```shell Inline connection
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <Dynamic Secret name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --k8s-service-account <service account> \
@@ -854,7 +854,7 @@ akeyless dynamic-secret create k8s \
 --k8s-cluster-token ${TOKEN}
 
 # Or using GW Service Account
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --use-gw-service-account

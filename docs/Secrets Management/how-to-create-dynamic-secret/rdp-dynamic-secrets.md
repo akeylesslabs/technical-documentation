@@ -42,7 +42,7 @@ akeyless dynamic-secret create rdp \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuerdp \
+akeyless dynamic-secret create rdp \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rdp-user-groups <Group Name> \
