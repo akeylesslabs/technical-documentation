@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-> **Note:** Venafi recently became CyberArk Machine Identity Security.
+> **Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, the integration still uses `venafi` naming for backward compatibility.
 
 Akeyless officially integrates with **Cert Manager**. This guide demonstrates integration based on a Venafi Dynamic Secret. For direct integration with Akeyless, follow the main [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) guide.
 
