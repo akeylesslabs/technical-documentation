@@ -1,4 +1,6 @@
-name: CLI Command Path Check
+# Weekly automation is consolidated in .github/workflows/automated-workflow-fixes.yml.
+# This workflow is kept for manual runs only.
+name: CLI Command Path Check (Manual)
 
 on:
   workflow_dispatch:
