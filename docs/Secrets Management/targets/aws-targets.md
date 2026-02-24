@@ -16,7 +16,7 @@ If you are working with an explicit **Access Key**, to follow [AWS best practice
 
 When working with [Gateway](https://docs.akeyless.io/docs/api-gw) Cloud Identity, Akeyless uses AWS SDK and its default credentials precedence. In addition, if [External ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) is used, make sure to add permission to the **AWS Role** your Gateway uses so it can assume the relevant roles in the account.
 
-> 👍 AWS IAM Best Practices
+> **Note (AWS IAM Best Practices):**
 >
 > The best practice for using IAM roles in AWS is to leverage them for granting temporary, least-privilege access to resources, rather than relying on long-term access keys for users. Use your **Gateway cloud ID** to use IAM roles.
 
@@ -55,7 +55,7 @@ Alternatively, to use IAM explicit credentials:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueawsp) section.
 
-> 👍 Use Gateway's Cloud Identity
+> **Note (Use Gateway's Cloud Identity):**
 >
 > This is relevant for cases where your Gateway is hosted on an AWS resource (such as, EC2, EKS, ECS Fargate) that has some IAM role associated to it. Make sure the relevant IAM Role has enough permissions to perform the required actions as described in the relevant guides, for example, [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer), [AWS Rotated Secret](https://docs.akeyless.io/docs/create-an-aws-rotated-secret), and [AWS Universal Secrets Connector](https://docs.akeyless.io/docs/aws-universal-secrets-connector).
 >

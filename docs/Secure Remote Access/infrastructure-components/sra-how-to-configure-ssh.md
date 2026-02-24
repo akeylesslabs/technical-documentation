@@ -144,7 +144,7 @@ The following command will create a new SSH Cert Issuer in the Akeyless Platform
 akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /your-RSA-key-name --allowed-users 'ubuntu,root' --ttl 300
 ```
 
-> 👍 Akeyless Secure Remote Access
+> **Note (Akeyless Secure Remote Access):**
 >
 > While working with Secure Remote Access Bastion, make sure to set `allowed_users` with `session_*` to ensure JIT users will be authorized for access.
 >
@@ -164,7 +164,7 @@ After setting up a key and a certificate issuer, the following command will gene
 akeyless get-ssh-certificate --cert-username ubuntu --cert-issuer-name /prod/ssh-cert-issuer --public-key-file-path ~/.ssh/id_rsa.pub
 ```
 
-> 📘 Tip
+> **Tip:**
 >
 > The command `get-ssh-certificate` returns a certificate that is signed by the private CA key and uses the client’s public key that will be used to connect to the target server. The client's public key is not the same as the CA’s public key. It is a local public key that should be located in the command’s path together with the client’s private key. After you run the command, the signed certificate will be placed in the same path, so you can connect to the target server using the client’s private/public keys in that path.
 
@@ -244,4 +244,4 @@ To issue an SSH certificate using an existing CI through the console, go through
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/using-ssh-certificates-to-access-remote-machines" target="_blank" style="color: #00e">Using SSH Certificates to Access Remote Machines</a>.
+Check out our tutorial video on [Using SSH Certificates to Access Remote Machines](https://tutorials.akeyless.io/docs/using-ssh-certificates-to-access-remote-machines).

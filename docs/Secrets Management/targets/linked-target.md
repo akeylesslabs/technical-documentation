@@ -43,7 +43,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluelinkedp) section.
 
-> 👍 Note
+> **Note:**
 >
 > All Linked Target hosts will be added to the Secure Remote Access hosts lists automatically
 
