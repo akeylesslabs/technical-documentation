@@ -22,7 +22,7 @@ To create an OIDC authentication method with the CLI, run the following command:
 
 ```shell
 akeyless auth-method create oidc --name <Auth Method Name> \
---issuer <https://Idp-issuer-url> \
+--issuer https://Idp-issuer-url \
 --client-id <client-id> \
 --client-secret <client-secret> \
 --unique-identifier <UID (For example, 'email' or 'username')>

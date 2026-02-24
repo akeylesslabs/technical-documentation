@@ -23,7 +23,7 @@ Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (Y
 ```shell
 akeyless auth-method create oauth2 \
 --name <Auth Method Name> \
---jwks-uri <https://jwks-uri> \
+--jwks-uri https://jwks-uri \
 --unique-identifier email
 ```
 

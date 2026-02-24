@@ -168,7 +168,7 @@ Although this repository's workflows use placeholder values, it is still a real 
 
 > 👍 Zero-Knowledge Encryption
 >
-> If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint, for example, `<https://Your_GW_URL:8000/api/v2>` (or using your gateway URL at port `8081`).
+> If you are working with your own Akeyless Gateway, set the parameter `api-url` to point your Gateway Rest API endpoint, for example, `https://Your_GW_URL:8000/api/v2` (or using your gateway URL at port `8081`).
 
 ### Static Secrets Example
 
