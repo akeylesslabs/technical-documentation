@@ -37,7 +37,7 @@ Where:
 
 * `bound-tenant-id`: A comma-separated list of Azure tenant IDs that are allowed to authenticate to Akeyless using this authentication method.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
 
 ## Configure Akeyless CLI With the Azure AD Authentication Method
 

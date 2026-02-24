@@ -53,7 +53,7 @@ Where:
 
 * `certificate-file-name`: A path to the **Client** certificate.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
 
 ### Authenticate With the Certificate-based Authentication Method
 
@@ -77,7 +77,7 @@ Where:
 
 As a result, you should get the authentication token.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#auth) section.
 
 ### Create a Certificate-based Authentication Method in the Console
 

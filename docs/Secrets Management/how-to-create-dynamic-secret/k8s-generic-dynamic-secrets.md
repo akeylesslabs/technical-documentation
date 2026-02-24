@@ -433,7 +433,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
-2. Select the required database type and click **Next**.
+2. Select the required dynamic secret type and click **Next**.
 
 3. Define a **Name** of the dynamic secret, and specify the **Location** as a path to the virtual folder where you want to create the new dynamic secret, using slash `/` separators. If the folder does not exist, it will be created together with the dynamic secret.
 
