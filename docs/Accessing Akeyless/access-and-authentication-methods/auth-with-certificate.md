@@ -16,11 +16,11 @@ next:
 
 This method is most often used for **machine-to-machine** authentication, where servers or applications automatically prove their identity. Many organizations already operate a private CA to issue and manage certificates for their systems.
 
-2 modes can be used for authentication:
+Two modes can be used for authentication:
 
-* **CLI** / **UI**- In this mode, you only need to provide the `location` or `data` of the certificate and the matching private key locally.
+* **CLI** / **UI**: In this mode, you only need to provide the `location` or `data` of the certificate and the matching private key locally.
 
-* **SDK** – In this mode, to verify the possession of the client on the private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge. Alternatively, you can perform the certificate verification challenge [manually](https://docs.akeyless.io/docs/auth-with-certificate). Allowing you to avoid transmitting the private key to the Gateway.
+* **SDK**: In this mode, to verify possession of the client private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge, or you can perform the certificate verification challenge [manually](https://docs.akeyless.io/docs/auth-with-certificate), which lets you avoid transmitting the private key to the Gateway.
 
 ![Illustration for: SDK: In this mode, to verify the possession of the client on the private key, either the private key is sent to the Akeyless Gateway to verify the certificate challenge.…](https://files.readme.io/8191f2c-Cert_key_auth.png)
 
@@ -49,7 +49,7 @@ Where:
 
 * `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* `unique-identifier` A unique identifier parameter plays the same role as a `sub-claim` in OIDC, OAuth2, LDAP, and SAML authentication method types. It contains details that allow the system to uniquely identify the user (For example, distinguishing between users from within the same organization).
+* `unique-identifier`: A unique identifier parameter plays the same role as a `sub-claim` in OIDC, OAuth2, LDAP, and SAML authentication method types. It contains details that allow the system to uniquely identify the user (for example, distinguishing between users from within the same organization).
 
 * `certificate-file-name`: A path to the **Client** certificate.
 
@@ -75,7 +75,7 @@ Where:
 
 * `key-file-name`: Matching **Private Key** for the certificate in a `PEM` format
 
-As a result, you should get the authentication token
+As a result, you should get the authentication token.
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth) section.
 
@@ -89,7 +89,7 @@ You can find the complete list of additional parameters for this command in the 
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
 
@@ -125,7 +125,7 @@ Instead of providing your private key directly to the Gateway, you can now prove
 
 Use this option when you want maximum protection for your private key, or when your organization requires that private keys remain on managed endpoints.
 
-This can be done using 2 modes:
+This can be done using two modes:
 
 * Manual challenge generation and signing:
 
@@ -173,7 +173,7 @@ func main() {
     client := akeyless.NewAPIClient(&akeyless.Configuration{
         Servers: []akeyless.ServerConfiguration{
             {
-        URL: "https//:<Akeyless-GW-URL>/api/v2",
+        URL: "https://<Akeyless-GW-URL>/api/v2",
             },
         },
     }).V2Api

@@ -18,7 +18,7 @@ This standard provides secure delegated access. It means that an application can
 
 ## Create an OAuth2.0/JWT Authentication Method with the CLI
 
-Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oauth-jwt#create-an-oauth20jwt-authentication-method-in-the-akeyless-console).)
+Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oauth-jwt#create-an-oauth20jwt-authentication-method-in-the-akeyless-console).)
 
 ```shell
 akeyless auth-method create oauth2 \
@@ -47,7 +47,7 @@ You can find the complete list of additional parameters for this command in the 
 
 3. Define the remaining parameters as follows:
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the IP of the Gateway will be used in the logs.
 
@@ -55,9 +55,9 @@ You can find the complete list of additional parameters for this command in the 
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Unique Identifier :** A unique identifier is usually an email, username, or UPN. Whenever a user logs in with a token, OAuth2.0/JWT Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
+    * **Unique Identifier:** A unique identifier is usually an email, username, or UPN. Whenever a user logs in with a token, OAuth2.0/JWT Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
-    * **JWKS URL :** Enter the URL to the JSON Web Key Set (`JWKS`) containing the public keys that should be used to verify any JSON Web Token (`JWT`) issued by the authorization server. Alternatively, you can load the `JWKS` containing the public keys that should be used to verify the `JWT` issued by the authorization server using the `JSON` option
+    * **JWKS URL:** Enter the URL to the JSON Web Key Set (`JWKS`) containing the public keys that should be used to verify any JSON Web Token (`JWT`) issued by the authorization server. Alternatively, you can load the `JWKS` containing the public keys that should be used to verify the `JWT` issued by the authorization server using the `JSON` option.
 
     * **Issuer URL:** Enter the issuer URL. This parameter is optional.
 
