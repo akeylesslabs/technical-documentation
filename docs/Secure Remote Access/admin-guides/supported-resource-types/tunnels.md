@@ -28,13 +28,13 @@ While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/do
 
 Connections on the local machine made to the forwarded port will, in effect, connect to the remote machine.
 
-```shell Tunnel usage
+```shell
 akeyless connect --target <user>@<targetserver> \
---via-sra sra-host:port\
+--via-sra sra-host:port \
 --tunnel='-L 127.0.0.1:<port>:<targetserver>:<port>' \
 --cert-issuer-name "<Path/To/SSHCertIssuer>" \
---name "</Path/To/Secret>" \
- --sra-ctrl-port "http\https"
+--name "/Path/To/Secret" \
+--sra-ctrl-proto "https"
 ```
 
 Where:
@@ -42,11 +42,11 @@ Where:
 * `target`: The target resource, for example, `user@ssh-server[:port]`, `us-east-2`, and `mysql-server:3306`
 
 * `--via-sra`: SRA host, which the connection will go through. For example: `sra-host:port`.
-    * NOTE - With unified Gateway, use `-g <your-gateway-ip[:port]>` instead of `--via-sra`.
+    * With unified Gateway, use `-g <your-gateway-ip[:port]>` instead of `--via-sra`.
 
-* `tunnel`: SSH tunnel setting, for example, `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
+* `--tunnel`: SSH tunnel setting, for example, `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
 
-* `cert-issuer-name`: Optional. If already configured inside `akeyless-connect.rc` file, alternativity provide the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion.
+* `cert-issuer-name`: Optional. If already configured inside `akeyless-connect.rc` file, alternatively provide the full path to the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-certificates) to establish the connection to the bastion.
 
 * `name`: Full name of the secret item to use to connect. For example, use a Dynamic or a Rotated Secret for a database or RDP connection, or a Static Secret that contains the target system credentials.
 
@@ -105,7 +105,7 @@ akeyless connect -t <k8s.server.host> \
  --k8s-tunnel 2345
 ```
 
-> 📘 Note
+> **Note:**
 >
 > A remote port on the SSH bastion will automatically be allocated based on availability.
 

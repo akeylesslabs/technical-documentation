@@ -147,7 +147,7 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
     * MSSQL (instead of mssql)
     * Amazon Redshift (instead of Redshift)
     * Amazon EKS (instead of EKS or AWS EKS)
-    * `kubectl` (instead of Kubectl)'
+    * `kubectl` (instead of Kubectl)
 
 ### Command-Line Conventions
 
@@ -212,7 +212,7 @@ Due to the nature of CLI help pages, their documentation uses many shortened wor
 
 * **Keep sentences simple and clear**: Short sentences are easier to translate and less likely to create ambiguity.
 * **Avoid fragments**: Sentence fragments are harder to translate; therefore, wherever possible, write in complete sentences.
-* **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meeting to a native speaker or speakers from a particular regions. Examples:
+* **Avoid idioms, slang, and cultural references**: Idioms are untranslatable phrases that may only have meaning to a native speaker or speakers from a particular region. Examples:
     * "At heart, this product does a thing."
     * "Under the hood, the library uses an event-driven architecture.”
     * “As a rule of thumb, use HTTPS for all API calls.”
