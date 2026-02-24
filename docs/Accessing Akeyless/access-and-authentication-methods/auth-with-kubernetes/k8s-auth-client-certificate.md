@@ -102,7 +102,7 @@ CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/
 
 #### Create Kubernetes Auth Method
 
-Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the KKubernetes8s Auth Method. The result will output an `Access ID` and `private key` that you will need later for the Kubernetes auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method. The result will output an `Access ID` and `private key` that you will need later for the Kubernetes auth configuration in your [Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell
 akeyless auth-method create k8s -n my-k8s-auth-method --json
@@ -247,7 +247,7 @@ Token: t-bb7b...3564a7c9
 
 > **Note:**
 >
-> Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
+> Delete the private key and Access ID that you stored in environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
 ## Available Claims for Kubernetes Auth
 

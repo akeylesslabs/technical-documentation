@@ -47,9 +47,9 @@ akeyless auth-method create oidc --name 'My Okta app' --issuer https://{your-okt
 >
 > Set the OIDC Auth Method "Required Scopes" to "groups" so it is included in the sub-claims.
 
-## Login With OIDC from Akeyless CLI
+## Log in With OIDC From the Akeyless CLI
 
-1. Configure a new profile with your Access ID from the previous step and OIDC type (if the profile name is not provided, the default profile will be configured):
+1. Configure a new profile with your Access ID from the previous step and OIDC type (if no profile name is provided, the default profile will be configured):
 
     ```shell
     akeyless configure --access-id <your-access-id> --access-type oidc --profile 'okta-app'
