@@ -36,9 +36,9 @@ To use Auth0 as an IdP to authenticate the Akeyless Platform by way of OIDC, fol
 akeyless auth-method create oidc --name 'My Auth0 app' --issuer https://{your-auth0-domain}.auth0.com --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (For example, 'email' or 'username')}
 ```
 
-## Login With OIDC with the CLI
+## Log in With OIDC Using the CLI
 
-1. Configure a new profile with your Access ID from the previous step and OIDC type (if the profile name is not provided, the default profile will be configured):
+1. Configure a new profile with your Access ID from the previous step and OIDC type (if no profile name is provided, the default profile will be configured):
 
     ```shell
     akeyless configure --access-id <your-access-id> --access-type oidc --profile 'auth0-app'
