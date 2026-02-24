@@ -68,7 +68,7 @@ akeyless generate-csr \
 --generate-key \
 --alg <RSA1024> \
 --common-name <common name to be included in the CSR certificate> \
---gateway-url <https://Akeyless-Gateway-URL:8000>
+--gateway-url 'https://Akeyless-Gateway-URL:8000'
 ```
 
 Where:

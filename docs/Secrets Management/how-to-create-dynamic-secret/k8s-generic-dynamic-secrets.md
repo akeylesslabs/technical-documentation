@@ -267,7 +267,7 @@ If you haven't done so already, you can now create a [Generic Kubernetes Target]
 akeyless dynamic-secret create k8s \ 
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --k8s-service-account-type fixed \
 --k8s-service-account <example-service-account> \
 --k8s-namespace <namespace>
@@ -293,7 +293,7 @@ Where:
 akeyless dynamic-secret create k8s \ 
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
+--gateway-url 'https://<Your_Akeyless_GW_URL:8000' \
 --k8s-service-account-type dynamic \
 --k8s-predefined-role-type <Role|ClusterRole> \
 --k8s-predefined-role-name <Role or ClusterRole name> \
@@ -303,7 +303,7 @@ akeyless dynamic-secret create k8s \
 akeyless dynamic-secret create k8s \ 
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
+--gateway-url 'https://<Your_Akeyless_GW_URL:8000' \
 --k8s-service-account-type dynamic \
 --k8s-rolebinding-yaml-def <path/to/rolebinding/yml>
 --k8s-allowed-namespaces <namespace1, namespcae2>
@@ -567,7 +567,7 @@ subjects:
 
     ```shell
     akeyless dynamic-secret create k8s -n k8s-dashboard-producer \
-    --gateway-url <http://YourGWURL:8000> \
+    --gateway-url 'http://YourGWURL:8000' \
     --k8s-cluster-endpoint <cluster DNS/IP address> \
     --k8s-cluster-ca-cert <base 64 encoding of the cluster certificate> \
     --k8s-namespace kubernetes-dashboard \

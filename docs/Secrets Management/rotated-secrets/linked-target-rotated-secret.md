@@ -65,7 +65,7 @@ Create a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) with `r
 ```shell Windows
 akeyless rotated-secret create windows \
 --name <Rotated secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <LinkedTargetName> \
 --authentication-credentials <use-target-creds> \
 --rotator-type password \
@@ -79,7 +79,7 @@ akeyless rotated-secret create windows \
 ```shell SSH
 akeyless rotated-secret create ssh \
 --name <Rotated secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <LinkedTargetName> \
 --authentication-credentials <use-target-creds> \
 --rotator-type password \
@@ -128,7 +128,7 @@ Create a [Rotated Secret](https://docs.akeyless.io/docs/rotated-secrets) with `r
 
 ```shell
 akeyless create-rotated-secret --name <secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <ParentTargetName> \
 --authentication-credentials <use-target-creds> \
 --rotator-type target \

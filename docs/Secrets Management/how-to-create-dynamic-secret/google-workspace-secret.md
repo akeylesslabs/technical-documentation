@@ -60,7 +60,7 @@ To create a dynamic Google Workspace secret with the CLI using an existing GCP t
 ```shell
 akeyless dynamic-secret create google-workspace \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 --target-name <Target Name> \
 --access-mode [group / role] \
 --admin-name <admin user email> \
@@ -75,7 +75,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create google-workspace \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --access-mode [group / role] \
 --admin-name <admin user email> \
 --group-name <group email> \

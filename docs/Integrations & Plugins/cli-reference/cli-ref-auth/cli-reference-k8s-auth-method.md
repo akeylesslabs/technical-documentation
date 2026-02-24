@@ -83,7 +83,7 @@ akeyless gateway-create-k8s-auth-config \
 ```
 ```shell Rancher
 akeyless gateway-create-k8s-auth-config --name k8s-conf-rancher \
---gateway-url <https://Your-GW-URL>:8000 \
+--gateway-url 'https://Your-GW-URL:8000' \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
 --cluster-api-type rancher \

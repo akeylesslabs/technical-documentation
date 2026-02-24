@@ -19,7 +19,7 @@ To create a Rotated Docker Hub Secret using the Akeyless CLI, run the following 
 ```shell
 akeyless rotated-secret create dockerhub \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name to associate> \
 --password-length 16 \
 --rotator-type target

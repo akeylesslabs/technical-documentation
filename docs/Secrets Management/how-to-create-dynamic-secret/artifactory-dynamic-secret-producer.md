@@ -28,7 +28,7 @@ To create a dynamic Artifactory secret with the CLI using an existing [Artifacto
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --artifactory-token-scope <Space-separated list of scopes> \
 --artifactory-token-audience <Space-separated list of instances>
 ```
@@ -38,7 +38,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --artifactory-token-scope <Space-separated list of scopes> \
 --artifactory-token-audience <Space-separated list of instances> \
 --base-url <Artifactory REST URL> \
