@@ -122,9 +122,7 @@ For **Kubernetes**, **GCP** or **AzureAD** Auth Method set the following setting
 
 ## SPIRE Agent Initialization
 
-> **Info:**
->
-> **SPIRE Server**
+> **Info (SPIRE Server):**
 >
 > You are required to start the [SPIRE server](https://docs.akeyless.io/docs/spire-keymanager) before running the Agent commands.
 
@@ -156,8 +154,6 @@ Upon successful registration of the workload, a secret will be created in Akeyle
 * Certificate
 * x509SVIDKey
 
-> **Info:**
->
-> **SPIFFE/SPIRE**
+> **Info (SPIFFE/SPIRE):**
 >
 > For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

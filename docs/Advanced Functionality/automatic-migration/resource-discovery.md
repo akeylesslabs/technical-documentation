@@ -34,9 +34,7 @@ When working with [SSH Target](https://docs.akeyless.io/docs/ssh-target), the mi
 
 Note: When using Self Signed Certificate, please mount the matching certificate to the Akeyless Gateway server at `etc/ssl/certs`
 
-> **Note:**
->
-> **Active Directory migration compatibility**
+> **Note (Active Directory migration compatibility):**
 > The OpenSSH server is available as a supported Feature-on-Demand in Windows Server 2022, Windows Server 2019, and Windows 10 (build 1809 and later)
 
 ## Set Up Automatic Migration for Active Directory

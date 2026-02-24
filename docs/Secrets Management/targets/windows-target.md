@@ -34,9 +34,7 @@ Where:
 
 * `password`: The password of the Windows user.
 
-> **Note:**
->
-> **WinRM TLS**
+> **Note (WinRM TLS):**
 >
 > By default, Windows targets are working with TLS. When using a self-signed certificate, you can either load the certificate to your Target, or mount the relevant certificate into your Gateway filesystem under `etc/ssl/certs`
 

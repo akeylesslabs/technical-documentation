@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The structure of the Gateway installation command when using environment variables should be the following:
+The structure of the Gateway installation command when using environment variables should be as follows:
 
 ```shell
 docker run -d -p 8000:8000  -p 5696:5696 -e ENV_VARIABLE_1="value1" -e ENV_VARIABLE_2="value2" -v /HOST/PATH/TO/FILE:/GATEWAY/PATH/TO/FILE --name akeyless-gw akeyless/base:latest-akeyless
@@ -22,11 +22,11 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ENV_VARIABLE_1="value1" -e ENV_VARIA
 
 ## Authentication
 
-To set your Gateway with a default [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway instance will have inside your Akeyless account.
+Set your Gateway with a default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) to control the level of access your Gateway instance will have in your Akeyless account.
 
 The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) are supported for Docker deployments:
 
-* Email\Password
+* Email/password
 
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
@@ -40,13 +40,13 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 > **Note:**
 >
-> Your Gateway **Authentication Method** should have permission to create and manage both Items along with Targets items **only**.
+> Your Gateway **Authentication Method** should have permission to create and manage both Items and Target items **only**.
 
 While working with Cloud Service Providers [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods), you can provide a list of allowed users who can log in and manage your Gateway configuration.
 
 ### Email Authentication
 
-To set your Gateway default authentication based on your email\password which you used to create your Akeyless account:
+To set your Gateway default authentication based on your email/password used to create your Akeyless account:
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="email" -e ADMIN_PASSWORD="password" --name akeyless-gw akeyless/base:latest-akeyless
@@ -58,7 +58,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="email" -e ADMIN_PASS
 
 ### API Key Authentication
 
-To set your Gateway default authentication based on [API Key](https://docs.akeyless.io/docs/auth-with-api-key) provide the relevant `Access ID` and `Access Key` using those variables:
+To set your Gateway default authentication based on [API Key](https://docs.akeyless.io/docs/auth-with-api-key), provide the relevant `Access ID` and `Access Key` using these variables:
 
 `GATEWAY_ACCESS_ID="your-access-id"`, `GATEWAY_ACCESS_KEY="matching-access-key"`.
 
@@ -94,7 +94,7 @@ docker run -d -p 8000:8000  -p 5696:5696 -e ADMIN_UID_TOKEN=<UID Token> -e UID_R
 
 ### Certificates Authentication
 
-To set your Gateway default authentication based on [Certificates](https://docs.akeyless.io/docs/auth-with-certificate) provide the relevant `Access ID`, `Certificate`, and `Certificate Key` using those variables:
+To set your Gateway default authentication based on [Certificates](https://docs.akeyless.io/docs/auth-with-certificate), provide the relevant `Access ID`, `Certificate`, and `Certificate Key` using these variables:
 
 `GATEWAY_ACCESS_ID="your-access-id"`, `GATEWAY_CERTIFICATE="Certificate base64-encoded"` and `GATEWAY_CERTIFICATE_KEY="Certificate Key base64"`.
 

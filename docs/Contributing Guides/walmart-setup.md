@@ -133,9 +133,7 @@ Ldap Proxy URL: https://Akeyless.GW
 Profile ldap successfully configured
 ```
 
-> **Warning:**
->
-> **No validation of credentials**
+> **Warning (No validation of credentials):**
 > If you don’t enter the correct credentials, the CLI will not give you an error message, and it will just tell you that everything is configured. You will only receive an error message when you attempt to run commands.
 
 At the prompt `Would you like to add AKEYLESS-CLI to PATH (...)? (Y/n)` line, type `Y`.

@@ -105,7 +105,5 @@ Based on your permissions, you will have the ability to upload files from your l
 
 To download files from a remote server, simply drag the desired files into the `Download` folder inside the mounted virtual disk named `file-share on Guacamole RDP` located under `This PC`, and a download process will start immediately where the file will be put into your local machine's Download folder. To upload files, use the **Upload** button on top of your session actions bar menu. The files you upload will be located in the same shared drive.
 
-> **Info:**
->
-> **Mounted Folder**
+> **Info (Mounted Folder):**
 > Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.

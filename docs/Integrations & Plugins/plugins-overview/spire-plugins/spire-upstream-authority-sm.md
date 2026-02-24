@@ -147,9 +147,7 @@ Once the server is running, the Agent needs to be configured as well. Add the fo
 trust_bundle_path = "/Path/To/certificate/file" 
 ```
 
-> **Info:**
->
-> **trust bundle**
+> **Info (trust bundle):**
 >
 > The `"/Path/To/certificate.pem"` is a path on your machine where a `certificate.pem` file will be exist and the value of the file will be the value of the `certificate` that was created earlier in Akeyless.
 
@@ -167,8 +165,6 @@ Use the generated token to attest the `agent` to the `server`
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 ```
 
-> **Info:**
->
-> **SPIFFE/SPIRE**
+> **Info (SPIFFE/SPIRE):**
 >
 > For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide
