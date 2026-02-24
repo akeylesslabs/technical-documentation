@@ -43,7 +43,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` and so on.
 
-> 👍 Format restrictions
+> **Note (Format restrictions):**
 >
 > Kubernetes and HashiCorp target enforces that secrets will be in a JSON format, meaning that a valid jq filter would be for example: `{"password": .password}`
 

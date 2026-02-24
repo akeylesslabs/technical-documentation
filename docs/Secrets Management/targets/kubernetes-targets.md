@@ -112,7 +112,7 @@ Where:
 
 * `gke-account-key`: The **Private key** generated for this GKE service account (the value of the "private_key" field from the service-account's downloaded key `JSON` file. **Make sure** to replace all its escaped new-lines, `\\n`, with actual new lines).
 
-> 👍 Tip
+> **Tip:**
 >
 > Use this command to extract the private key value from your file:
 >
@@ -160,7 +160,7 @@ You can define a generic Kubernetes target to be used with [Generic Kubernetes D
 
 In both cases of **Bearer Token** and **GW Service Account**, the Service Account **must** have a **Kubernetes Role** with permissions as described in the [Generic Kubernetes](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) guide.
 
-> 📘 Note
+> **Note:**
 >
 > Kubernetes Client Certificate is not supported by Amazon EKS
 

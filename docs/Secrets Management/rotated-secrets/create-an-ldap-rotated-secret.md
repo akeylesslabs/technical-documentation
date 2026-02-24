@@ -60,7 +60,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Create a Rotated LDAP Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret#create-a-rotated-ldap-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 

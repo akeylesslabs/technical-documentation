@@ -38,7 +38,7 @@ Available database targets:
 
 ## Create a Database Target with the CLI
 
-> 📘 Notes
+> **Note:**
 >
 > To create a database target from Akeyless CLI, choose the database type within the `create-db-target` command
 >
@@ -309,7 +309,7 @@ To connect using **Wallet** provide the following:
 
 Click **Finish**.
 
-> 📘 Wallet with Password
+> **Note (Wallet with Password):**
 >
 > To use your Wallet with login type of Password ensure to add the relevant username to your wallet using the following format: `mkstore -wrl ~/mywallet2 -createCredential "(HOST=<host>)(PORT=1521)(SERVICE_NAME=<SN Name>)" <Username> <Password>`
 

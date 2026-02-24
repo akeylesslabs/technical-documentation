@@ -46,7 +46,7 @@ The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods
 
 Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the `sshConfig` `StatefulSet` (HPA cannot support multiple pods without defining a shared persistent storage volume).
 
-> 🚧 Warning
+> **Warning:**
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 

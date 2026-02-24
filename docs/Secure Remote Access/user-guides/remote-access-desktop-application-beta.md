@@ -18,7 +18,7 @@ Who Should benefit from using this application?
 * Security Professionals
 * Developers and Engineers
 
-> 📘 Note
+> **Note:**
 >
 > The Desktop App is currently in its Beta phase
 
@@ -58,7 +58,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 4. Open the app and sign in with your Akeyless credentials.
 
-> 📘 Installation Folder
+> **Note (Installation Folder):**
 >
 > The installation folder contains the following:
 >
@@ -79,7 +79,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 3. Upon successfully connecting to the remote target, the Desktop Application launches the default application configured for this resource type.
 
-> 👍 Note
+> **Note:**
 >
 > Applications such **Azure Data Studio**, **WindowsApp**, **DBeaver**, **PuTTY**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
 
@@ -122,7 +122,7 @@ Download the respective Desktop Application installation file from [here](https:
    4. **Control API Port** - the control API port (specify 8000 for unified Gateway, or 9900 if not)
    5. **Control API Path** - the SRA control API path (for example: `/sra/ssh-config`)
 
-> 📘 Connection Failures
+> **Note (Connection Failures):**
 >
 > If the desktop application fails to connect to the resource, it will display a message prompting you to verify your configuration.
 >

@@ -16,7 +16,7 @@ When sharing by way of **emails**, you’ll get a unique link to share with thos
 
 You can define a list of allowed email domains in the **Global Settings**. Secrets can only be shared with users whose email addresses belong to these domains. By default, sharing is allowed with all domains.
 
-> 🚧 Note
+> **Note:**
 >
 > You can define a list of allowed email domains in the Global Settings. Secrets can only be shared with users whose email addresses belong to these domains. For security purposes, when working with email-based sharing, only users whose email addresses you’ve specified can access the item using the shared link. By default, sharing is allowed with all domains.
 

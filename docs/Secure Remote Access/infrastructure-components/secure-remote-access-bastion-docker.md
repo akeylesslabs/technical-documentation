@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-> 📘 Legacy Chart
+> **Note (Legacy Chart):**
 >
 > This guide describe the flow using the **Legacy** chart of the Akeyless Secure Remote Access.
 >
@@ -40,7 +40,7 @@ For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticl
 
 Currently, this setup requires a **Volume** storage mechanism of [Docker](https://docs.docker.com/storage/volumes/).
 
-> 🚧 Note:
+> **Note:**
 >
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless private Docker Hub repository. Please contact your Account Manager for more details.
 
@@ -55,7 +55,7 @@ For RDP access that uses the **Fixed user** feature, rely on the username sub-cl
 
 To provide just-in-time native CLI access for your users using [Keyless SSH](https://docs.akeyless.io/docs/ssh-certificates) set the `CA_PUB` variable with the matching public key of the key you used to create the [SSH Certificate Issuer](https://docs.akeyless.io/docs/ssh-certificates)
 
-> 📘 Info
+> **Info:**
 >
 > If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA.
 

@@ -22,7 +22,7 @@ While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/do
 
 ## Usage
 
-> 🚧 Warning
+> **Warning:**
 >
 > For security reasons, please bind services only to the **local interface**. You can use local port forwarding to access the service that is listening on the remote server.
 

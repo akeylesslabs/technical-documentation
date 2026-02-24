@@ -34,7 +34,7 @@ Where:
 
 * `password`: The password of the Windows user.
 
-> 👍 Note
+> **Note:**
 >
 > **WinRM TLS**
 >
