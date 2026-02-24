@@ -184,44 +184,6 @@ List migrations
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-## `personal-items`
-
-Migrates personal items from external vault
-
-### Usage
-
-```shell
-akeyless gateway-migrate-personal-items \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---type <1password> \
---protection-key <Key Name> \
---target-location <Path/To/Target> \
---1password-url <Account Address> \
---1password-email <User Email> \
---1password-password <Users Password> \
---1password-secret-key <Secret Key>
-```
-
-### Flags
-
-`-u, --gateway-url[=http://localhost:18888]`: API Gateway URL (Akeyless UI port)
-
-`-t, --type[=1password]`: Migration provider type, Current supported options: [1password]
-
-`-k, --protection-key`: The name of a key that used to encrypt the secret value
-
-`-l, --target-location`: Target location in your Akeyless personal folder for migrated secrets
-
-`--1password-url`: 1Password sign-in address for your account
-
-`--1password-email`: 1Password user email
-
-`--1password-password`: 1Password password for the given user's email
-
-`--1password-secret-key`: User's 1Password Secret Key
-
-`--1password-vaults`: Optional list of 1Password vaults to migrate items from; can be used multiple times (--1password-vaults vault1 --1password-vaults vault2), If not provided, all non-private vaults will be migrated
-
 ## `status`
 
 Gets migration Status
