@@ -1000,7 +1000,7 @@ Update an Oracle Auth Method that will be used in the account using OCI principl
 ##### Usage
 
 ```shell
-akeyless auth-method update oci \ 
+akeyless auth-method update oci \
 --name <Auth Method name> \
 --new-name <Auth Method new name> \
 --tenant-ocid <Oracle Cloud tenant ID> \

@@ -25,7 +25,7 @@ akeyless gateway-create-migration \
 --name <Migration name> \
 --type <Migration type> \
 --target-location <Target location> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ### Flags
@@ -48,7 +48,7 @@ akeyless gateway-create-migration \
 
 `--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, for example, `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
-`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
+`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to perform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json=[true]`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 
@@ -161,7 +161,7 @@ Delete migration
 ```shell
 akeyless gateway-delete-migration \
 --id <Migration ID> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ## `get`
@@ -173,7 +173,7 @@ Get migrations
 ```shell
 akeyless gateway-get-migration \
 --name <Migration Name> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ## `list`
@@ -212,9 +212,9 @@ Sync migration
 ### Usage
 
 ```shell
-Akeyless gateway-sync-migration \
+akeyless gateway-sync-migration \
 --name <Migration Name> \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --sync <true/false>
 ```
 
@@ -238,12 +238,12 @@ akeyless gateway-update-migration \
 --id <Migration ID> \
 --name <Migration name> \
 --new-name <New migration name> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 ### Flags
 
-`-i, --id`: Migration ID (Can be retrieved with gateway-list-migration command)
+`-i, --id`: Migration ID (Can be retrieved with `gateway-list-migration` command)
 
 `-n, --name`: Migration name
 
@@ -263,7 +263,7 @@ akeyless gateway-update-migration \
 
 `--hashi-ns`: HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided Namespace, all its child namespaces are imported as well, for example, `nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp`. By default, import all namespaces (relevant only for HashiCorp Vault migration)
 
-`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to preform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
+`-T, --hashi-token`: HashiCorp Vault access token with sufficient permissions to perform list and read operations on secrets objects (relevant only for HashiCorp Vault migration)
 
 `--hashi-json='true'`: Import secret key as JSON value or independent secrets (relevant only for HashiCorp Vault migration)
 

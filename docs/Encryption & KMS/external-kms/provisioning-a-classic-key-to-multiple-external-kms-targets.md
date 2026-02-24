@@ -26,7 +26,7 @@ akeyless create-classic-key \
 AWS KMS Target
 
 ```shell
-akeyless target-create-aws \
+akeyless target create aws \
   --name aws-kms-target \
   --access-key-id <ACCESS_KEY_ID> \
   --access-key <ACCESS_KEY>
@@ -35,7 +35,7 @@ akeyless target-create-aws \
 Azure Key Vault Target
 
 ```shell
-akeyless target-create-azure-kv \
+akeyless target create azure \
   --name azure-kv-target \
   --tenant-id <TENANT_ID> \
   --client-id <CLIENT_ID> \
@@ -46,7 +46,7 @@ akeyless target-create-azure-kv \
 GCP KMS Target
 
 ```shell
-akeyless target-create-gcp \
+akeyless target create gcp \
   --name gcp-kms-target \
   --project-id <GCP_PROJECT_ID> \
   --location <LOCATION> \
