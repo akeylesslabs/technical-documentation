@@ -86,9 +86,7 @@ The existing permissions for Items, Access Roles, Auth Methods, and Targets are 
 * Delete: Allows a user to delete existing secrets and items in an authorized path.
 * Deny: Allows a user to deny any permission to other users in their authorized path.
 
-> **Note:**
->
-> **Permission Hierarchy**
+> **Note (Permission Hierarchy):**
 >
 > Some Akeyless permissions include others in them. For example, `list` is included under all other permissions, and `deny` has a complete override over any other permission.
 

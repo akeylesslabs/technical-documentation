@@ -205,9 +205,7 @@ For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
 
 * `azure_object_id` - Optional for Azure, objectID
 
-> **Warning:**
->
-> **TTL Configuration**
+> **Warning (TTL Configuration):**
 >
 > The requested TTL in `conf/server/server.conf` file should be lower than the TTL that is configured in the PKI Certificate Issuer.
 
@@ -239,8 +237,6 @@ The output of this command will print a token that will be used to start the Age
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 ```
 
-> **Info:**
->
-> **SPIFFE/SPIRE**
+> **Info (SPIFFE/SPIRE):**
 >
 > For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

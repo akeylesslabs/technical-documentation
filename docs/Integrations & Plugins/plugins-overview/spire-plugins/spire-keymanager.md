@@ -139,9 +139,7 @@ For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as 
 
 ## SPIRE Server Initialization
 
-> **Info:**
->
-> **Key Type**
+> **Info (Key Type):**
 >
 > To set a key type for the SPIRE server, inside the `server` section, add the following parameter.
 >
@@ -158,8 +156,6 @@ With a successful server initialization, 2 **Classic keys** will be created in y
 * **JWT-Signer-A** - Uses **JSON Web Tokens (JWT)** signed by an identity provider for authentication and authorization of clients.
 * **X509-CA-A** - Relies on **X.509** certificates issued by a trusted Certificate Authority.
 
-> **Info:**
->
-> **SPIFFE/SPIRE**
+> **Info (SPIFFE/SPIRE):**
 >
 > For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

@@ -18,9 +18,7 @@ You can create a Rotated Secret for either SSH password or a Private key. Before
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the SSH server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the relevant credential on your target server.
 
-> **Note:**
->
-> **Linux Distribution**
+> **Note (Linux Distribution):**
 >
 > While the Akeyless Rotated Secret can work by default with many popular Unix OS, some distributions like **RedHat** and so on, requires a customization of the default rotation statement. For those cases you can set a **Custom Rotation** command as described [here](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#custom-rotation-statement)
 

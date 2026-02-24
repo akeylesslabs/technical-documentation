@@ -20,9 +20,7 @@ The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubern
 
 * Kubernetes v1.21 or later.
 
-> **Info:**
->
-> **Required Gateway Access Permissions**
+> **Info (Required Gateway Access Permissions):**
 >
 > To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth
 

@@ -16,9 +16,7 @@ next:
 
 * Kubernetes v1.2` or later.
 
-> **Info:**
->
-> **Required Gateway Access Permissions**
+> **Info (Required Gateway Access Permissions):**
 >
 > To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth.
 
