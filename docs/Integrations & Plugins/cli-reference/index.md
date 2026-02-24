@@ -87,7 +87,7 @@ akeyless delete-item -n <Item name>
 
 `--delete-immediately[=false]`: When delete-in-days=-1, must be set
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
 
 ### `delete-items`
 
@@ -123,7 +123,7 @@ Gets the item details
 
 `--services-details[=false]`: Include all associated services details
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
 
 #### Output
 
@@ -157,7 +157,7 @@ List of all accessible items
 
 #### Flags
 
-`-t, --type`: The item types list of the requested items. In case it is empty, all types of items will be returned, options: [key, static-secret, dynamic-secret, rotated-secret, ssh-cert-issuer, pki-cert-issuer, classic-key]
+`-t, --type`: The item types list of the requested items. If it is empty, all item types are returned, options: [key, static-secret, dynamic-secret, rotated-secret, ssh-cert-issuer, pki-cert-issuer, classic-key]
 
 `--sub-types`: Optional the items sub types
 
@@ -175,7 +175,7 @@ List of all accessible items
 
 `--minimal-view`: Show only basic information of the items
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder, options: [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder, options: [regular/personal]
 
 ### `list-sra-bastions`
 
@@ -443,7 +443,7 @@ akeyless update-item --name <Item name> \
 
 `--gcp-sm-regions`: GCP Secret Manager regions for regional secrets (comma-separated). USC with GCP targets only
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [`regular`/`personal`]
+`--accessibility[=regular]`: For an item in a user's personal folder [`regular`/`personal`]
 
 `--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 

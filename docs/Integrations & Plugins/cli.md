@@ -282,7 +282,7 @@ export AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8000/api/v1
 set AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8080
 ```
 
-In case your Gateway uses a self-signed certificate not trusted by your machine, set the environment variable `AKEYLESS_TRUSTED_TLS_CERTIFICATE_FILE` with the location of your `PEM` file.
+If your Gateway uses a self-signed certificate that is not trusted by your machine, set the environment variable `AKEYLESS_TRUSTED_TLS_CERTIFICATE_FILE` with the location of your `PEM` file.
 
 ## Working With Zero-Knowledge Encryption
 

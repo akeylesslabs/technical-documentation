@@ -127,7 +127,7 @@ The **Key name** should be set to `data` and the **Path** is `secret/data/DevOps
 
 ![Illustration for: The Key name should be set to "data" and the Path is "secret/data/DevOps/Jenkins".](https://files.readme.io/ec122e2-Screenshot_at_Jan_05_20-52-23.png)
 
-In case the secret value itself is a JSON-structured object, the **Path** must be in the following format:
+If the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
  `secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key names** for example, let's create a secret that contains a JSON-structured value:
 

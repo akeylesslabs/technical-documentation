@@ -317,7 +317,7 @@ akeyless get-kube-exec-creds \
 
 `-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
-`-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be use to extract the public key)
+`-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be used to extract the public key)
 
 `--key-data-base64`: PKI key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
 
@@ -356,7 +356,7 @@ akeyless get-pki-certificate \
 
 `-c, --cert-issuer-name`: **Required**, The name of the PKI certificate issuer.
 
-`-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be use to extract the public key). When using **CSR** with a **private** key, the provided key will be stored with the issued certificate.
+`-k, --key-file-path`: The client public or private key file path (in case of a private key, it will be used to extract the public key). When using **CSR** with a **private** key, the provided key will be stored with the issued certificate.
 
 `--key-data-base64`: PKI key file contents encoded using Base64. If this option is used, the certificate will be printed to stdout
 

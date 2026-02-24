@@ -50,7 +50,7 @@ akeyless auth-method create k8s \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for Kubernetes authentication method is required `[RSA2048]`
+`-p, --public-key-file-path`: If `gen-key` is set to false, a path to a public key for the Kubernetes authentication method is required `[RSA2048]`
 
 `--public-key`: Base64-encoded or PEM formatted public key data
 
@@ -177,7 +177,7 @@ akeyless update-auth-method-k8s \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see `get-account-settings`)
 
-`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for Kubernetes authentication method is required [RSA2048]
+`-p, --public-key-file-path`: If `gen-key` is set to false, a path to a public key for the Kubernetes authentication method is required [RSA2048]
 
 `--public-key`: Base64-encoded or PEM formatted public key data
 

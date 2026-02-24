@@ -580,7 +580,7 @@ akeyless auth-method create oidc \
 
 `--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, Azure's Application ID URI)
 
-`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider's Application
+`--audience`: Audience claim to be used as part of the authentication flow. If set, it must match the one configured on the Identity Provider's Application
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
@@ -1091,7 +1091,7 @@ akeyless auth-method update oidc \
 `--required-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
 `--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, Azure's Application ID URI)
 
-`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider's Application
+`--audience`: Audience claim to be used as part of the authentication flow. If set, it must match the one configured on the Identity Provider's Application
 
 `-d, --delimiters`          A list of additional sub-claims delimiters
 
@@ -1183,7 +1183,7 @@ akeyless auth-method list \
 
 #### Flags
 
-`-t, --type`: The Auth Method types list of the requested method. In case it is empty, all types of Auth Method will be returned. options: [`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
+`-t, --type`: The Auth Method types list of the requested method. If it is empty, all Auth Method types are returned. options: [`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
 
 `--filter`: Filter by Auth Method name or part of it
 
