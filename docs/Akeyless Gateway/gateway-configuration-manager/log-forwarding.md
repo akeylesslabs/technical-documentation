@@ -34,7 +34,7 @@ You can export the Audit Logs from the Akeyless Gateway to any of the following 
 
 * [Syslog](https://docs.akeyless.io/docs/log-forwarding#syslog)
 
-> 🚧 Warning
+> **Warning:**
 >
 > The log forwarding mechanism can only fetch logs from the previous 24 hours. Please ensure that your Gateway default Authentication Method has an [Access Role](https://docs.akeyless.io/docs/rbac) that allows viewing **all** Audit Logs in the account.
 
@@ -42,7 +42,7 @@ You can export the Audit Logs from the Akeyless Gateway to any of the following 
 
 When you export the Audit Logs from the Akeyless Gateway to Amazon S3, the logs are stored in a specified S3 bucket under: `\{root_folder_name} / \{year} / \{month} / \{day}`
 
-> 📘 Info
+> **Info:**
 >
 > The default root folder is `akeyless-log`. You can change this when you set up the log file export in the Akeyless Gateway.
 
@@ -72,9 +72,9 @@ This file contains records from 16:30:00 to 16:39:59. Each entry is a JSON file 
 
 11. Select **Save Changes**.
 
-> 🚧 Warning
+> **Warning:**
 >
-> Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
+> Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your pod scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 
 ## Azure Log Analytics
 

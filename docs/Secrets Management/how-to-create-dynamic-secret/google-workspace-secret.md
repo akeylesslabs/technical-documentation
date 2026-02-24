@@ -37,9 +37,9 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
    * **Service Account Token Creator** - Impersonate service accounts (create OAuth2 access tokens, sign blobs or JWT, and so on)
    * **Service Account User** - Run operations as the service account
 
-3. **Generate and download JSON key**: Click on the **Service Account** that was created, go to **Keys**, click **Add Key > Create new key > Json**. The key will be downloaded automatically to your computer.
+3. **Generate and download JSON key**: Click the **Service Account** that was created, go to **Keys**, and click **Add Key > Create new key > JSON**. The key will be downloaded automatically to your computer.
 
-4. **Delegate Domain-Wide Authority**: In the **Google Workspace Admin Console**, go to **Security** > **Access and data control > API controls** click on **Manage Domain Wide Delegation** > **Add new** > enter the client **ID** from the **JSON** file downloaded earlier.
+4. **Delegate Domain-Wide Authority**: In the **Google Workspace Admin Console**, go to **Security** > **Access and data control > API controls**, click **Manage Domain Wide Delegation** > **Add new**, and enter the client **ID** from the **JSON** file downloaded earlier.
    * In the same location, add the following scopes:
 
      ```json
@@ -51,7 +51,7 @@ Follow these steps to create a **Service Account** in **Google Cloud Platform**:
 
 ## Create a Dynamic Google Workspace Secret with the CLI
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a Target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used. Using inline will force you to change the credentials in each individual item instead of just the Target.
 
@@ -60,7 +60,7 @@ To create a dynamic Google Workspace secret with the CLI using an existing GCP t
 ```shell
 akeyless dynamic-secret create google-workspace \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 --target-name <Target Name> \
 --access-mode [group / role] \
 --admin-name <admin user email> \
@@ -75,7 +75,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create google-workspace \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --access-mode [group / role] \
 --admin-name <admin user email> \
 --group-name <group email> \
@@ -124,7 +124,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic Secret for Google Workspace in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/github-dynamic-secret#/create-a-dynamic-secret-for-github-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -140,7 +140,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Target mode:** In this section, you can either select an existing GCP Target or specify details of the target GCP Service Account explicitly.
 
     * Use the **Choose an existing target** drop-down list to select the existing GCP Target.
-    * Select the **Explicitly specify target properties** option, to provide details of the target GCP Service Account Key in the next step.
+    * Select the **Explicitly specify target properties** option to provide details of the target GCP Service Account Key in the next step.
 * **Access Mode**: Select the GCP access mode, either **Group** or **Role**.
 
     * **Group**: Add a user to an existing group.
@@ -162,4 +162,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

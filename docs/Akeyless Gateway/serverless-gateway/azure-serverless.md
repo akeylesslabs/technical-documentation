@@ -22,17 +22,17 @@ This guide describes how to run a Serverless Gateway on **Azure** based on [Func
 
 * Network port `8000` on the cluster must be open **only for internal network access**, allowing access to the following services using the corresponding endpoints:
 
-| Service                                                                        | Endpoint   |
-| :----------------------------------------------------------------------------- | :--------- |
+| Service | Endpoint |
+| --- | --- |
 | [Gateway Console](https://docs.akeyless.io/docs/gateway-configuration-manager) | `/console` |
-| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)   | `/hvp`     |
-| Akeyless V1 REST API                                                           | `/api/v1`  |
-| Akeyless V2 REST API                                                           | `/api/v2`  |
-| [KMIP Server](https://docs.akeyless.io/docs/kmip-server)                       | `5696`     |
+| [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy) | `/hvp` |
+| Akeyless V1 REST API | `/api/v1` |
+| Akeyless V2 REST API | `/api/v2` |
+| [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
 
 For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/api/v2/`
 
-> 🚧 Warning
+> **Warning:**
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
@@ -52,16 +52,16 @@ Set your Gateway with a default [Authentication Method](https://docs.akeyless.io
 
 The following Authentication Methods are supported for Azure Serverless:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [Azure AD](https://docs.akeyless.io/docs/azure-ad)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
 
-> 👍 Tip
+> **Tip:**
 >
 > When working with **Azure AD** authentication method, you can set a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) containing the **Azure Object ID** on the Access-Role associated to the authentication method.
 >
 > When using the **Azure AD** authentication method, you can configure a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) on the associated [Access Role](https://docs.akeyless.io/docs/rbac) to match the user's **Azure Object ID** which can be found under **Identity** tab, in the **Function App** running the gateway.
 
-When using [Azure AD](https://docs.akeyless.io/docs/azure-ad) as the `admin_access_id` of the Gateway, make sure to set in addition a list of users that will be able to manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
+When using [Azure AD](https://docs.akeyless.io/docs/auth-with-azure) as the `admin_access_id` of the Gateway, make sure to additionally set a list of users who can manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
 
 ```shell Azure_AD
 using 'main.bicep'
@@ -76,7 +76,7 @@ param akeyless_url = 'https://vault.akeyless.io'
 @description('Cluster Name')
 param cluster_name = 'Azure Serverless'
 
-@description('Allowed values are azure_ad or access_key https://docs.akeyless.io/docs/access-and-authentication-method')
+@description('Allowed values are azure_ad or access_key https://docs.akeyless.io/docs/access-and-authentication-methods')
 param admin_access_id_type = 'azure'
 
 @description('Akeyless Admin Access ID')
@@ -130,7 +130,7 @@ param akeyless_url = 'https://vault.akeyless.io'
 @description('Cluster Name')
 param cluster_name = 'Azure Serverless'
 
-@description('Allowed values are azure or access_key https://docs.akeyless.io/docs/access-and-authentication-method')
+@description('Allowed values are azure or access_key https://docs.akeyless.io/docs/access-and-authentication-methods')
 param admin_access_id_type = 'access_key'
 
 @description('Akeyless Admin Access ID')
@@ -181,7 +181,7 @@ Where:
 
 * `admin_access_key`: The **Access Key** of the `admin_access_id`. **Relevant only** when `admin_access_id_type` is `access_key`.
 
-* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/api-key) or [SAML](https://docs.akeyless.io/docs/saml), and so on.
+* `allowed_access_permissions`: A list of allowed **Access IDs**, to delegate [permissions](https://docs.akeyless.io/docs/gateway-access-permissions) users will have on your Gateway components. **Required** when `admin_access_id_type` is `azure_ad`. For example, it can be used with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) or [SAML](https://docs.akeyless.io/docs/auth-with-saml), and so on.
 
 * `functionAppName`: The name for the [Function APP](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-csharp) that will be created in Azure.
 
@@ -201,7 +201,7 @@ To associate an existing [Storage Account](https://learn.microsoft.com/en-us/azu
 param storageAccountName string = '<Storage Account Name>' 
 
 resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-  name: <'storageAccountName'> 
+  name: storageAccountName 
   location: location 
   sku: {
     name: '<Storage SKU>' 
@@ -256,7 +256,7 @@ BICEP_PARAMS = params.bicepparam
 
 Upon successfully installing the **Serverless Gateway**, the Gateway console URL will be printed.
 
-> 📘 Gateway URL
+> **Note (Gateway URL):**
 >
 > The default value of the Gateway URL ends with `/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
 >
@@ -271,8 +271,8 @@ To configure your Akeyless Gateway:
 
 ## Limitations: Unavailable Services
 
-* [Kubernetes](https://docs.akeyless.io/docs/kubernetes-auth)
-* [LDAP Authentication](https://docs.akeyless.io/docs/ldap)
+* [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
+* [LDAP Authentication](https://docs.akeyless.io/docs/auth-with-ldap)
 * [Caching](https://docs.akeyless.io/docs/configure-the-gateway-cache)
 * [Automatic Migration](https://docs.akeyless.io/docs/automatic-migration)
 * Event on Gateway Status Change

@@ -24,20 +24,20 @@ There are two modes for this Dynamic Secret:
 
 ## Create a Dynamic GitLab Secret with the CLI
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/rdp-dynamic-secrets#github-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic GitLab secret with the CLI using an existing [GitLab Target](https://docs.akeyless.io/docs/gitlab-target), run the following command:
 
 ```shell
-akeyless dynamic-secret create gitlab \ 
+akeyless dynamic-secret create gitlab \
 --name <Dynamic Secret Name>
 --target-name <Target Name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gitlab-access-type <project| group> \
---project-name <Project Name> \                           
---group-name <Group Name> \  
+--project-name <Project Name> \
+--group-name <Group Name> \
 --gitlab-token-scopes <Access Token Scopes> \
 --gitlab-token-role <Access Token Role>
 ```
@@ -45,12 +45,12 @@ akeyless dynamic-secret create gitlab \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create gitlab \ 
+akeyless dynamic-secret create gitlab \
 --name <Dynamic Secret Name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gitlab-access-type <project | group> \
---project-name <Project Name> \                           
---group-name <Group Name> \  
+--project-name <Project Name> \
+--group-name <Group Name> \
 --gitlab-token-scopes <Accesds Token Scopes> \
 --gitlab-token-role <Accesds Token Role> \
 --gitlab-access-token <GitLab Token>
@@ -90,7 +90,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic Secret for GitLab in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/github-dynamic-secret#create-a-dynamic-github-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -103,11 +103,11 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
     * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-    * **Target mode:** In this section, you can either select an existing GitLab Target or specify details of the target GitLab repository explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Target mode:** In this section, you can either select an existing GitLab Target or specify details of the target GitLab repository explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
         * Use the **Choose an existing target** drop-down list to select the existing GitLab Target.
 
-        * Select the **Explicitly specify target properties** option, to provide details of the target GitLab repository in the next step.
+        * Select the **Explicitly specify target properties** option to provide details of the target GitLab repository in the next step.
     * **Access Type**: Choose one of the following Access-Types:
         * **Group**: Creates an access token for [GitLab Groups](https://docs.gitlab.com/ee/user/group/)
         * **Project**: Creates an access token for [GitLab Project](https://docs.gitlab.com/ee/user/get_started/get_started_projects.html)
@@ -120,7 +120,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target GitLab repository:
 
@@ -132,4 +132,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

@@ -16,7 +16,7 @@ There are two main parameters used to configure the connection to Akeyless - the
 
 The lookup plugin uses these by way of the environment variables `VAULT_ADDR` and `VAULT_TOKEN`.
 
-> 👍 Note
+> **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
@@ -39,7 +39,7 @@ sudo ansible-playbook -i inventory install.yml
 
 On AWX UI, navigate to **Resources** and create new **Credentials**. Select HashiCorp Vault Secret Lookup as your **Credentials Type** and set the **SERVER URL** to `https://hvp.akeyless.io` or work directly with your [Gateway](https://docs.akeyless.io/docs/api-gw) URL on port `8200`:
 
-You can either use Akeyless [API Key](https://docs.akeyless.io/docs/api-key) in the following format as your **Token**:
+You can either use Akeyless [API Key](https://docs.akeyless.io/docs/auth-with-api-key) in the following format as your **Token**:
 
 A concatenation of your `Access ID` and your `Access Key` with two dots as a delimiter that is: `< Access ID >..< Access Key >`.
 
@@ -75,7 +75,7 @@ The **Key name** should be set to `data` and the **Path** should be set to `secr
 
 ![Illustration for: The Key name**should be set to data and the Path should be set to secret/data/DevOps/Ansible.](https://files.readme.io/2958df1-ansible5.png)
 
-In case the secret value itself is a JSON-structured object, the **Path** must be in the following format:
+If the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
  `secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names** for example, let's create a secret that contains a JSON-structured value:
 

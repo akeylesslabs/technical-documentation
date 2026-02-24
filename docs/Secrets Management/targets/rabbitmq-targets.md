@@ -34,7 +34,7 @@ Where:
 
 * `uri`: The URL of the RabbitMQ server.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluerabbitmqp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#rabbitmq) section.
 
 ## Create a RabbitMQ Target in the Console
 

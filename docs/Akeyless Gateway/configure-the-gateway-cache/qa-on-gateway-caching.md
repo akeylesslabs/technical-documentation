@@ -31,7 +31,7 @@ The primary benefit of the cluster cache is realized during a SaaS outage. The g
 
 ## What Are the Supported Cache Types?
 
-The Akeyless Gateway utilizes two distinct types of caches to ensure both high performance and robust service continuity between your network and the Akeyless SaaS platform.
+The Akeyless Gateway uses two distinct types of caches to ensure both high performance and robust service continuity between your network and the Akeyless SaaS platform.
 
 The types of caches are:
 
@@ -70,7 +70,7 @@ Impact: Read-only operations for cached secrets will succeed. If the curl\_proxy
 
 ### Cluster Cache
 
-Behavior: Similar to the local cache, the Gateway will leverage the shared cluster cache to serve secrets and authentication data. This means all Gateway instances in the cluster will have access to the same cached data. The curl\_proxy processes on each Gateway instance will also utilize this shared cache for authentication data.
+Behavior: Similar to the local cache, the Gateway will leverage the shared cluster cache to serve secrets and authentication data. This means all Gateway instances in the cluster will have access to the same cached data. The curl\_proxy processes on each Gateway instance will also use this shared cache for authentication data.
 
 Impact: The cluster cache provides a more robust offline mode. All active Gateway instances can provide consistent cached data.
 
@@ -90,21 +90,21 @@ While both clients rely on the Gateway for secret retrieval, ESO's model of sync
 
 The different Gateway Cache configuration options related to caching are:
 
-| Name                         | Description                                                                                              |
-| :--------------------------- | :------------------------------------------------------------------------------------------------------- |
-| `CACHE_ENABLE`               | Whether the cache is enabled                                                                             |
-| `PROACTIVE_CACHE_ENABLE`     | Whether to enable proactive caching                                                                      |
-| `NEW_PROACTIVE_CACHE_ENABLE` | Whether to use the new/more efficient proactive cache mechanism                                          |
-| `PREFER_CLUSTER_CACHE_FIRST` | Whether to rely first on the cluster cache and then the local cache                                      |
-| `CACHE_MAX_ITEMS`            | Control the maximum amount of proactive cache items. This will override the default value of 50K objects |
-| `IGNORE_REDIS_HEALTH`        | `/health` check will ignore if Redis is down, and reply with `Health Check Ok` and `200 OK`              |
+| Name | Description |
+| --- | --- |
+| `CACHE_ENABLE` | Whether the cache is enabled |
+| `PROACTIVE_CACHE_ENABLE` | Whether to enable proactive caching |
+| `NEW_PROACTIVE_CACHE_ENABLE` | Whether to use the new/more efficient proactive cache mechanism |
+| `PREFER_CLUSTER_CACHE_FIRST` | Whether to rely first on the cluster cache and then the local cache |
+| `CACHE_MAX_ITEMS` | Control the maximum amount of proactive cache items. This will override the default value of 50K objects |
+| `IGNORE_REDIS_HEALTH` | `/health` check will ignore if Redis is down, and reply with `Health Check Ok` and `200 OK` |
 
 There are no differences between the `Kubernetes/Helm chart` options and the `VM-based/Docker` deployment methods. All configurations listed above can be used and function identically in both deployment types.
 Additional specific settings could be found in the Gateway Kubernetes configuration page
 
 ## What's the Behavior When Caching Is Enabled and a User Updates the Secret in UI?
 
-When a secret is updated in the UI, its value is immediately updated if accessed by way of the`get-secret-value` CLI command or API. In this scenario, the command will initially display the old value from the cache but will then sync with the SaaS to retrieve the new value. It will first update the local Gateway cache and then the Cluster cache.
+When a secret is updated in the UI, its value is immediately updated if accessed by way of the `get-secret-value` CLI command or API. In this scenario, the command will initially display the old value from the cache but will then sync with the SaaS to retrieve the new value. It will first update the local Gateway cache and then the Cluster cache.
 
 If the flag `PREFER_CLUSTER_CACHE_FIRST` is enabled, the value will be fetched from the cluster cache first and not from the Gateway local cache. This option improves the ability of the system to provide the most updated value when there are several Gateway instances.
 

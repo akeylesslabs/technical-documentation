@@ -34,7 +34,7 @@ akeyless create-web-target -n <your web target name> \
 
 ### Authentication
 
-> 👍 Note  
+> **Note:**
 > Custom Rotated Secret implementations should only handle requests from a known Akeyless Gateway instance. Every request made by Akeyless to a custom Rotated Secret implementation includes an `AkeylessCreds` header with a temporary JWT token issued and signed by Akeyless.
 
 Use the following endpoint to verify all requests:
@@ -50,10 +50,10 @@ POST auth.akeyless.io/validate-producer-credentials
 
 Where:
 
-| Field              | Description                                                                                                                                                                                                                    | Example                 |
-| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------- |
-| creds              | A temporary JWT token issued and signed by Akeyless that is included in the `AkeylessCreds` header of every request.                                                                                                           |                         |
-| expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials).                                                                                                                                                | `"p-1234"`              |
+| Field | Description | Example |
+| --- | --- | --- |
+| creds | A temporary JWT token issued and signed by Akeyless that is included in the `AkeylessCreds` header of every request. |  |
+| expected_access_id | The initial access ID used for the Akeyless Gateway (not the user credentials). | `"p-1234"` |
 | expected_item_name | (Optional) The item name of the custom Rotated Secret. This can be helpful if a single Akeyless Gateway runs multiple custom Rotated Secrets, and the custom Rotated Secret implementation should only respond to one of them. | `"/custom-rotated-foo"` |
 
 ### Create a Custom Rotated Secret with the CLI
@@ -63,7 +63,7 @@ To create a custom Rotated Secret with the CLI, run the following command:
 ```shell
 akeyless rotated-secret create custom \
 --name <Rotated Secret name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <Web Target item name> \
 --authentication-credentials <use-user-creds> \
 --password-length 16
@@ -97,7 +97,7 @@ Where:
 
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluecustomp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#custom) section.
 
 ## Working Example: Rotate an On‑Premises Application Password by way of Web Target (Customer R/S)
 

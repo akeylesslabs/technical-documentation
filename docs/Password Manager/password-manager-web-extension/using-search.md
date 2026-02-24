@@ -33,7 +33,7 @@ When your search yields results, the Akeyless Password Manager web browser exten
 
 ## Using the Search Bar
 
-To utilize this enhanced search functionality, follow these steps:
+To use this enhanced search functionality, follow these steps:
 
 1. Click on the search bar located at the top of either the Personal or Corporate Area.
 2. Input the search term or criteria relevant to the passwords and secrets you wish to find. You can include password names, location paths, or usernames in your search.

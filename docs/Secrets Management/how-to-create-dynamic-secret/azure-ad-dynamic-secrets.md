@@ -28,22 +28,22 @@ To create a Service Account in your Azure AD, follow the guide on [how to create
 
 ### Required Permissions by Action Type
 
-| Action                           | Permissions                                                                | Usage                                     |
-| :------------------------------- | :------------------------------------------------------------------------- | :---------------------------------------- |
-| Create/Delete user               | User.ReadWrite.All, Directory.ReadWrite.All                                | Ephemeral Azure Web Portal Credentials    |
-| Add user to group                | GroupMember.ReadWrite.All, Group.ReadWrite.All and Directory.ReadWrite.All | Ephemeral Azure Web Portal Credentials    |
-| Add user role                    | RoleManagement.ReadWrite.Directory                                         | Ephemeral Azure Web Portal Credentials    |
-| Create\Delete Application secret | Application.ReadWrite.OwnedBy, Application.ReadWrite.All                   | Ephemeral Azure Service Principal Secrets |
+| Action | Permissions | Usage |
+| --- | --- | --- |
+| Create/Delete user | User.ReadWrite.All, Directory.ReadWrite.All | Ephemeral Azure Web Portal Credentials |
+| Add user to group | GroupMember.ReadWrite.All, Group.ReadWrite.All and Directory.ReadWrite.All | Ephemeral Azure Web Portal Credentials |
+| Add user role | RoleManagement.ReadWrite.Directory | Ephemeral Azure Web Portal Credentials |
+| Create\Delete Application secret | Application.ReadWrite.OwnedBy, Application.ReadWrite.All | Ephemeral Azure Service Principal Secrets |
 
 ### Entra ID Custom Roles
 
 [Custom roles](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/custom-create?tabs=admin-center) in Entra ID allow you to define specific [permissions](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/custom-available-permissions) for users or groups. These roles help control access to resources and actions, ensuring users have only the permissions they need for their tasks.
 
-For example, the `microsoft.directory/applications/credentials/update` permission, Allows the ability to update the certificates and client secrets properties on single-tenant and multi-tenant applications.
+For example, the `microsoft.directory/applications/credentials/update` permission allows updating certificates and client secret properties on single-tenant and multi-tenant applications.
 
 ## Create a Dynamic Azure AD Secret with the CLI
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/azure-targets). It both saves time for multiple secret-level configurations (by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/azure-targets#create-an-azure-target-from-the-cli) each time), and it's also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -53,7 +53,7 @@ To create a dynamic Azure AD secret with the CLI using an existing [Azure Target
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --azure-user-portal-access <true|false> \
 --azure-user-programmatic-access <true|false> \
 --azure-app-obj-id <Azure App Object ID> \
@@ -68,7 +68,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --azure-user-portal-access <true|false> \
 --azure-user-programmatic-access <true|false> \
 --azure-app-obj-id <Azure App Object ID> \
@@ -112,7 +112,7 @@ If you don't have an [Azure AD Target](https://docs.akeyless.io/docs/azure-targe
 
 * `azure-client-secret`: Azure AD Client Secret.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueazurep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#azure) section.
 
 ## Fetch a Dynamic Azure AD Secret Value with the CLI
 
@@ -124,7 +124,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic Azure AD Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/azure-ad-dynamic-secrets#create-a-dynamic-azure-ad-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -138,15 +138,15 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-    * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
         * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/cloud-targets).
 
         * Check the **Explicitly specify target properties** to provide details of the target Azure AD in the next step.
 
-    * **Programmatic Access:** Select this radio button to create a new secret to access a specific App.
+    * **Programmatic Access:** Select this option to create a new secret to access a specific App.
 
-    * **Portal Access:** Select this radio button to create a new user and password.
+    * **Portal Access:** Select this option to create a new user and password.
 
     * **App Object ID:** Provide the ID of the App Object to access using a dynamic secret. (Required if **Programmatic Access** is selected.)
 
@@ -166,7 +166,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
@@ -174,7 +174,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target Azure AD server:
 
@@ -192,4 +192,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

@@ -39,11 +39,11 @@ Note that this guide assumes you already have a gateway, and will only refer to 
 
 The Docker Compose file defines the following services:
 
-| Service                                                             | Description                                       | Ports                       |
-| :------------------------------------------------------------------ | :------------------------------------------------ | :-------------------------- |
-| [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-compose#/) | Central access control and authentication gateway | 8000 (API), 8080 (Health)   |
-| SRA Web                                                             | Web-based Zero Trust portal for remote access     | As specified in YAML        |
-| SRA SSH Proxy                                                       | Secure SSH-based remote access                    | 2222 (SSH), 9900 (Internal) |
+| Service | Description | Ports |
+| --- | --- | --- |
+| [Akeyless Gateway](https://docs.akeyless.io/docs/gateway-compose#/) | Central access control and authentication gateway | 8000 (API), 8080 (Health) |
+| SRA Web | Web-based Zero Trust portal for remote access | As specified in YAML |
+| SRA SSH Proxy | Secure SSH-based remote access | 2222 (SSH), 9900 (Internal) |
 
 Each service runs within an isolated Docker bridge network (internal-net), ensuring secure internal communication.
 
@@ -72,9 +72,9 @@ To deploy a gateway with the SRA utility, run the following steps:
 
    * `GATEWAY_ACCESS_TYPE`: The `AccessType` of the authentication method.
 
-   * `GATEWAY_ACCESS_KEY`: The `AccessKey` of the authentication method (relevant only for [API Key](https://docs.akeyless.io/docs/api-key#/)).
+   * `GATEWAY_ACCESS_KEY`: The `AccessKey` of the authentication method (relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key)).
 
-   * `ALLOWED_ACCESS_PERMISSIONS`: A list of users that will be able to manage your Gateway configuration
+   * `ALLOWED_ACCESS_PERMISSIONS`: A list of users who can manage your Gateway configuration
 
    [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/gateway.env).
 
@@ -98,7 +98,7 @@ To install the Gateway with the SRA utility, run this command from the directory
 docker compose --profile sra up -d
 ```
 
-In order to verify the installation, run:
+To verify the installation, run:
 
 ```shell
 docker ps

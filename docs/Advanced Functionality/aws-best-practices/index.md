@@ -16,7 +16,7 @@ At its core, the **Akeyless Gateway** serves as a secure execution layer that fa
 
 When managing environments across multiple AWS accounts, the key requirement is to establish a consistent and automated approach for deploying and operating the **Akeyless Gateway** across the organization. This ensures reliable configuration, centralized control, and seamless integration of Gateway capabilities throughout all AWS member accounts.
 
-> 👍 AWS Partner
+> **Note (AWS Partner):**
 >
 > Akeyless is an [official AWS partner](https://partners.amazonaws.com/partners/0018a00001orv7AAAQ/) recognized with the Security ISV Competency.
 
@@ -24,11 +24,11 @@ When managing environments across multiple AWS accounts, the key requirement is 
 
 AWS compute resources can authenticate directly to Akeyless using supported identity mechanisms, including: EC2 instances, Lambda Functions, ECS (Elastic Container Service) tasks, and EKS (Elastic Kubernetes Service) pods (if using IAM roles for service accounts). These resources use AWS IAM roles to obtain temporary credentials, which Akeyless uses to validate their identity.
 
-When the **Gateway** is running on such a resource, it utilizes the existing identity to authenticate to Akeyless SaaS services.
+When the **Gateway** is running on such a resource, it uses the existing identity to authenticate to Akeyless SaaS services.
 
 ### How Is This Authentication Implemented Securely?
 
-Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Auth Method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
+Akeyless supports IAM-based authentication through its [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Auth Method, which leverages AWS’s native **STS** (Security Token Service) and identity documents. The process is as follows:
 
 1. The AWS resource retrieves temporary credentials from its IAM role.
 2. The resource sends these credentials to Akeyless using the auth API endpoint
@@ -42,7 +42,7 @@ All deployment patterns are working **without** any AWS long-lived credentials a
 
 When using an [AWS Target](https://docs.akeyless.io/docs/aws-targets)with the **Gateway Cloud ID** option, the Akeyless **Gateway** leverages the IAM role associated with the underlying compute service it’s running on, such as a service account role in EKS or an instance profile role attached to an EC2 instance. To extend access beyond the AWS account the Gateway is running on, the Target can be explicitly set with a **role ARN** with **External ID**, overriding the default identity behavior and allowing secure, cross-account operations. This means a single **Target** can be shared across multiple **Gateways**, with each **Gateway** operating under the permissions granted to its own associated AWS role.
 
-> 📘 AWS Configuration and credential precedence
+> **Note (AWS Configuration and credential precedence):**
 >
 > Akeyless uses AWS official SDK, hence the role that will be used is according to [AWS precedence](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html#cli-chap-authentication-precedence).
 

@@ -191,12 +191,12 @@ If `signtool verify` fails because the chain is untrusted, you must import the R
 Step A: Retrieve the Root CA Get the public certificate of the root key you created earlier.
 
 ```shell
-akeyless get-certificate \
+akeyless get-certificate-value \
   --name /YourCompany/code-signing/root-key \
-  --out-file root-ca.pem
+  --certificate-file-output root-ca.pem
 ```
 
-* [https://docs.akeyless.io/docs/certificate-based-authentication?isFramePreview=true#getting-a-certificate](https://docs.akeyless.io/docs/certificate-based-authentication?isFramePreview=true#getting-a-certificate)
+* [https://docs.akeyless.io/docs/auth-with-certificate?isFramePreview=true](https://docs.akeyless.io/docs/auth-with-certificate?isFramePreview=true)
 
 Step B: Import into Trusted Root Store Run this in Elevated PowerShell on the signing machine (or any machine verifying the signature).
 

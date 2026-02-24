@@ -48,7 +48,7 @@ The Akeyless **Python** SDK supports multiple [Authentication Methods](https://d
 
 ### API Key
 
-To use an [API Key](https://docs.akeyless.io/docs/api-key) for authentication set the following:
+To use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) for authentication set the following:
 
 ```python
 body = akeyless.Auth(access_id='Access ID', access_key='Access Key')
@@ -60,7 +60,7 @@ Make sure to set your `Access ID` and `Access Key` in the relevant places. The r
 
 ### UID
 
-Another way to use the SDK is by using [Universal Identity](https://docs.akeyless.io/docs/universal-identity)tokens:
+Another way to use the SDK is by using [Universal Identity](https://docs.akeyless.io/docs/auth-with-universal-identity)tokens:
 
 ```python
 body = akeyless.GetSecretValue(names=['my-secret'], uid_token='<some-token>')
@@ -68,7 +68,7 @@ res = api.get_secret_value(body)
 print(res['my-secret'])
 ```
 
-Note that when working with **Universal Identity** you should use the`uid_token`, while for any other authentication method, you should use `token`.
+Note that when working with **Universal Identity** you should use the `uid_token`, while for any other authentication method, you should use `token`.
 
 ### Using Cloud ID
 

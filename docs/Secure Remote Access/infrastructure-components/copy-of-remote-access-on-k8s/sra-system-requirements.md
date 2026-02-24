@@ -22,7 +22,7 @@ It can be deployed on Docker Compose or Kubernetes and creates two types Deploym
 
 #### Web-SRA
 
-The `web-sra` component allows access to RDP/SSH/DB target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`.
+The `web-sra` component allows access to RDP/SSH/DB target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL>:8000/sra/portal`.
 
 #### SSH-SRA
 
@@ -32,7 +32,7 @@ The `ssh-sra` component enables end-users to connect to targets that support CLI
 
 ### Zero-Trust Web Access (ZTWA)
 
-This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets by way of the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/browser-extensions), which opens a browser session and injects credentials into the browser for the user.
+This solution provides Secure Remote Access to [Web application](https://docs.akeyless.io/docs/web-applications-secure-remote-access) targets by way of the Zero-Trust Portal, also leveraging the Akeyless [Browser Extension](https://docs.akeyless.io/docs/password-manager-web-extension), which opens a browser session and injects credentials into the browser for the user.
 
 These targets are accessed using one of three methods: [Secure Web Browsing](https://docs.akeyless.io/docs/web-applications-secure-remote-access), [Secure Web Proxy](https://docs.akeyless.io/docs/web-applications-secure-remote-access), or [Direct Connections](https://docs.akeyless.io/docs/web-applications-secure-remote-access). This solution creates two types of applications as well:
 

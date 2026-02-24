@@ -12,19 +12,19 @@ next:
 ---
 Akeyless supports multiple options to authenticate your Kubernetes cluster with Akeyless Platform:
 
-* **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/kubernetes-auth)**
-* **[Universal Identity (UID)](https://docs.akeyless.io/docs/universal-identity)** Not supported by the External Secret Operator (ESO).
-* **[API Key](https://docs.akeyless.io/docs/api-key)**
+* **[Kubernetes (K8s) Auth](https://docs.akeyless.io/docs/auth-with-kubernetes)**
+* **[Universal Identity (UID)](https://docs.akeyless.io/docs/auth-with-universal-identity)** Not supported by the External Secret Operator (ESO).
+* **[API Key](https://docs.akeyless.io/docs/auth-with-api-key)**
 * Cloud Authentication:
-    * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/azure-ad)**
-    * **[AWS-IAM](https://docs.akeyless.io/docs/aws-iam)**
-    * **[GCP Auth](https://docs.akeyless.io/docs/gcp-auth-method)**
+    * **[Azure Active Directory (AD)](https://docs.akeyless.io/docs/auth-with-azure)**
+    * **[AWS-IAM](https://docs.akeyless.io/docs/auth-with-aws)**
+    * **[GCP Auth](https://docs.akeyless.io/docs/auth-with-gcp)**
 
 ## Kubernetes Auth
 
-> 👍 Note
+> **Note:**
 >
-> Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/kubernetes-auth).
+> Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/auth-with-kubernetes).
 
 To use the Kubernetes Auth Method for authentication:
 
@@ -33,14 +33,14 @@ AKEYLESS_ACCESS_TYPE: "k8s"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 AKEYLESS_K8S_AUTH_CONF_NAME: "K8s_conf_name"
 #you need to provide one of the following:
-AKEYLESS_GW_CONFIG_URL: "http://<Your-Akeyless-GW-URL:8000/console>" # or using port 18888
+AKEYLESS_GW_CONFIG_URL: "http://<Your-Akeyless-GW-URL>:8000/console" # or using port 18888
 or
-AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>" # or using port 8080
+AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1" # or using port 8080
 ```
 
-> 📘 Zero-Knowledge
+> **Note (Zero-Knowledge):**
 >
-> While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8000/api/v1>"`
+> While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1"`
 
 ## Universal Identity (UID)
 
@@ -48,7 +48,7 @@ To use UID Auth Method for authentication:
 
 ```yaml YAML
 AKEYLESS_ACCESS_TYPE: "universal_identity"
-AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8080>" 
+AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_INIT_TOKEN: "<token>"
 ```
 
@@ -59,7 +59,7 @@ To use API Key Auth Method for authentication:
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
-# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8080>" 
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "api_key"
 AKEYLESS_API_KEY: "<Access Key>"
 AKEYLESS_ACCESS_ID: "<Access Id>"
@@ -74,7 +74,7 @@ To use Azure AD Auth Method for authentication:
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
-# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8080>" 
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "azure_ad"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 # optional
@@ -88,7 +88,7 @@ To use AWS-IAM Auth Method for authentication:
 ```yaml YAML
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
-# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8080>" 
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "aws_iam"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 ```
@@ -100,7 +100,7 @@ To use GCP Auth Method for authentication:
 ```yaml
 AKEYLESS_URL: "https://vault.akeyless.io"
 # to Work with Private GW
-# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL:8080>" 
+# AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8080" 
 AKEYLESS_ACCESS_TYPE: "gcp"
 AKEYLESS_ACCESS_ID: "<Access Id>"
 AKEYLESS_GCP_AUDIENCE: "akeyless.io"

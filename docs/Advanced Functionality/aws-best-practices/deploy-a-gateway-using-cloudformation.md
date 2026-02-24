@@ -24,20 +24,20 @@ The following steps will be used to set up the environment and prepare it for in
 
 ### Create an Authentication Methods
 
-In this case, for simplicity, we used [API Key](https://docs.akeyless.io/docs/api-key) and [AWS IAM](https://docs.akeyless.io/docs/aws-iam)Authentication Method.
+In this case, for simplicity, we used [API Key](https://docs.akeyless.io/docs/auth-with-api-key) and [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)Authentication Method.
 
 In the Akeyless Console, navigate to **Users & Auth Methods**.
 
 1. Click **New** > **AWS IAM**.
 
-2. Provide a name AWS Account and click **Finish**. More details about the AWS IAM authentication method can be found [here](https://docs.akeyless.io/docs/aws-iam)
+2. Provide a name AWS Account and click **Finish**. More details about the AWS IAM authentication method can be found [here](https://docs.akeyless.io/docs/auth-with-aws)
 
-In addition, to create an authentication methods that support user login, for simplicity, we will use [API Key](https://docs.akeyless.io/docs/api-key)
+In addition, to create an authentication methods that support user login, for simplicity, we will use [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
 1. Click **New** > **API Key**
 2. Provide a name and click **Finish**
 
-> 👍 API Key Credentials
+> **Note (API Key Credentials):**
 >
 > Save the **Access ID** and **Access Key** shown. You’ll need them later.
 
@@ -69,7 +69,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
 2. Select **Upload a template file**, then upload the `yaml` file containing the CloudFormation template.
 
-    Set the `AccessId` with your [AWS IAM](https://docs.akeyless.io/docs/aws-iam) Auth Method's `Access ID`, where you can define a list of users that will be able to manage your Gateway settings by way of the `AllowedAccessID` setting with any other `Access ID`. In our example, we will use the [API Key](https://docs.akeyless.io/docs/api-key) we created earlier; alternatively, you can use your [SAML](https://docs.akeyless.io/docs/saml),[OIDC](https://docs.akeyless.io/docs/openid)as described [here](https://docs.akeyless.io/docs/gateway-k8s#access-permissions).
+    Set the `AccessId` with your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) Auth Method's `Access ID`, where you can define a list of users who can manage your Gateway settings by way of the `AllowedAccessID` setting with any other `Access ID`. In our example, we will use the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) we created earlier; alternatively, you can use your [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) as described [here](https://docs.akeyless.io/docs/gateway-k8s#access-permissions).
 
     ```yaml Gateway
     AWSTemplateFormatVersion: '2010-09-09'
@@ -556,7 +556,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
     This stack will:
 
-    * Launch an [EC2 instance](https://aws.amazon.com/pm/ec2/?refid=3fc1271f-8d0f-43b5-b177-4fba4b680f8b) with Docker installed and ready to run containers.
+    * Launch an [EC2 instance](https://aws.amazon.com/ec2/) with Docker installed and ready to run containers.
 
     * Deploy the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) inside a Docker container on the **EC2 instance** for secure, high-availability access to Akeyless Vault services.
 
@@ -568,7 +568,7 @@ First, login to `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console`, and enter the *
 
 1. Visit: `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console`.
 
-> 👍 Public IP
+> **Note (Public IP):**
 >
 > The `INSTANCE_PUBLIC_IP` can be found under the **Outputs** tab in the CloudFormation stack.
 

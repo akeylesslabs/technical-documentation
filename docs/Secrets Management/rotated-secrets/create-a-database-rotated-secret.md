@@ -32,9 +32,7 @@ You can create a Rotated Secret for a database user. Currently, Akeyless Rotated
 
 * Snowflake
 
-<Callout icon="🚧" theme="warn">
-  **_Warning_**: Before you get started, ensure creating a [Database Target](https://docs.akeyless.io/docs/database-targets) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.
-</Callout>
+> **Warning:** Before you get started, ensure creating a [Database Target](https://docs.akeyless.io/docs/database-targets) that includes the hostname, connection settings, and credentials for a privileged user authorized to rotate credentials.
 
 When a client requests a Rotated Secret value, the Akeyless Platform connects to the database server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target database.
 
@@ -45,7 +43,7 @@ To create a rotated database secret using the Akeyless CLI, run the following co
 ```shell
 akeyless rotated-secret create <DB type> \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name to associate> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --password-length 16 \
@@ -69,7 +67,7 @@ Where:
     * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use the credentials defined on the [Database Target](https://docs.akeyless.io/docs/database-targets) item.
 
-> 👍 Note
+> **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Database Target](https://docs.akeyless.io/docs/database-targets) user is required to change the password on behalf of the Rotated Secret user.
 
@@ -81,11 +79,11 @@ Where:
 * `rotated-password`: The password to rotate.
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`. Default `rotation-hour` is 14:00 UTC if not specified.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets-copy) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#create) section.
 
 ## Create a Rotated Database Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-a-database-rotated-secret#create-a-rotated-database-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -128,7 +126,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
 
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.
 

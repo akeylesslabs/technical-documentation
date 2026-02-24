@@ -34,4 +34,4 @@ This will copy the link to the domain for which you want to share the password. 
 
 Sharing passwords is simple. Look for the "Share" option within the password details screen, typically found at the bottom of the screen. Selecting this option will initiate the password-sharing process.
 
-The recipient will be able to log in to the domain using the shared link.
+The recipient can log in to the domain using the shared link.

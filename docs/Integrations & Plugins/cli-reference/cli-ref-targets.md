@@ -149,7 +149,7 @@ Creates a new Azure target in the current account
 
 ```shell
 akeyless target create azure \
---name <Target name> \ 
+--name <Target name> \
 --client-id <Azure client/application id> \
 --client-secret <Azure client secret> \
 --tenant-id <Azure tenant id> 
@@ -187,9 +187,9 @@ Creates a new DB target in the current account
 ```shell
 akeyless target create db \
 --name <Target name> \
---db-type <mysql/mssql/hanadb/postgres/mongodb/snowflake/oracle/cassandra/redshift/redis> \ 
---user-name <Database user name> \ 
---host <Database host> \ 
+--db-type <mysql/mssql/hanadb/postgres/mongodb/snowflake/oracle/cassandra/redshift/redis> \
+--user-name <Database user name> \
+--host <Database host> \
 --pwd <Database password> \
 --port <Database port> \
 --db-name <Database name>
@@ -303,12 +303,12 @@ Creates a new Amazon EKS target in the current account
 ```shell
 akeyless target create eks \
 --name <Target name> \
---eks-cluster-name <EKS cluster name> \ 
+--eks-cluster-name <EKS cluster name> \
 --eks-cluster-endpoint <EKS cluster endpoint> \
---eks-cluster-ca-cert <EKS cluster base-64 encoded certificate> \ 
---eks-access-key-id <EKS access key ID> \ 
---eks-secret-access-key <EKS secret access key> \ 
---eks-region <EKS region> \ 
+--eks-cluster-ca-cert <EKS cluster base-64 encoded certificate> \
+--eks-access-key-id <EKS access key ID> \
+--eks-secret-access-key <EKS secret access key> \
+--eks-region <EKS region> \
 --key <Key name>
 ```
 
@@ -346,7 +346,7 @@ Creates a new GCP target in the current account
 akeyless target create gcp \
 --name <Target name> \
 --gcp-key-file-path <Path to file with the base64-encoded service account private key> \
---gcp-key <Base64-encoded service account private key text> \ 
+--gcp-key <Base64-encoded service account private key text> \
 --use-gw-cloud-identity <Use the GWs Cloud IAM> \
 --key <Key name> 
 ```
@@ -517,7 +517,7 @@ Creates a new GlobalSign Atlas target in the current account
 ```shell
 akeyless target create globalsign-atlas \
 --name <Target name> \
---api-key <GlobalSign Atlas API Key> \ 
+--api-key <GlobalSign Atlas API Key> \
 --api-secret <GlobalSign Atlas API Secret> 
 ```
 
@@ -594,7 +594,7 @@ Creates a new HashiCorp Vault target
 ```shell
 akeyless target create hashi-vault \
 --name <Target name> \
---hashi-url 'https://<your-vault-api-url:8200>' \
+--hashi-url 'https://<your-vault-api-url>:8200' \
 --vault-token <Access Token> \
 --namespace <Namespace Name>
 ```
@@ -916,7 +916,7 @@ akeyless target create sectigo \
 
 `-i, --certificate-profile-id`: **Required**, Certificate Profile ID in Sectigo account
 
-`-e, --external-requester`: **Required**, External Requester - a comma separated list of emails
+`-e, --external-requester`: **Required**, External Requester - a comma-separated list of emails
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 
@@ -940,7 +940,7 @@ akeyless target create splunk \
 --username <Splunk Username> \
 --password <Splunk Password> \
 --splunk-token <Splunk Token> \
---token-owner <Splunk token owner> \ 
+--token-owner <Splunk token owner> \
 --audience <Splunk token audience> 
 --key <Key Name>
 ```
@@ -1121,8 +1121,8 @@ Create an association between target and item
 ```shell
 akeyless assoc-target-item \
 --target-name <The target to associate> \
---name <The item to associate> \ 
---vault-name <Name of the vault used> \ 
+--name <The item to associate> \
+--vault-name <Name of the vault used> \
 --key-operations <List of allowed operations for the key>
 ```
 
@@ -1268,7 +1268,7 @@ List of all targets in the account
 
 `--filter`: Filter by target name or part of it
 
-`-t, --type`: The target types list of the requested targets. In case it is empty, all types of targets will be returned. Options: `[hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]`
+`-t, --type`: The target types list of the requested targets. If it is empty, all target types are returned. Options: `[hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub ldap github chef web salesforce postgres]`
 
 `--pagination-token`: Next page reference
 
@@ -1812,7 +1812,7 @@ Creates a new GoDaddy target
 ##### Usage
 
 ```shell
-akeyless target update-godaddy-target \
+akeyless target update godaddy \
 --name <Target name> \
 --new-name <New target name> \
 --api-key <API Key> \
@@ -1860,7 +1860,7 @@ Updates a new HashiCorp Vault target
 akeyless target update hashi-vault \
 --name <Target name> \
 --new-name <New Target Name>
---hashi-url 'https://<your-vault-api-url:8200>' \
+--hashi-url 'https://<your-vault-api-url>:8200' \
 --vault-token <Access Token> \
 --namespace <Namespace Name>
 ```
@@ -2181,7 +2181,7 @@ akeyless target update sectigo \
 
 `-i, --certificate-profile-id`: **Required**, Certificate Profile ID in Sectigo account
 
-`-e, --external-requester`: **Required**, External Requester - a comma separated list of emails
+`-e, --external-requester`: **Required**, External Requester - a comma-separated list of emails
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 
@@ -2320,7 +2320,7 @@ Update an existing ZeroSSL Target in the current account
 ##### Usage
 
 ```shell
-akeyless target update-zerossl-target \
+akeyless target update zerossl \
 --name <Target Name> \
 --api-key <API Key of the ZeroSSLTarget account> \
 --imap-username <Username to access the IMAP service> \

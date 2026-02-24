@@ -26,12 +26,10 @@ No prior Akeyless account or configuration is required.
 
 1. Navigate to the Akeyless sign up page:  
    [https://console.akeyless.io/registration](https://console.akeyless.io/registration).
-2. Enter your email address, accept the <Anchor label="End User License Agreement" target="_blank" href="https://www.akeyless.io/end-user-license-agreement/">**End User License Agreement**</Anchor> **&** <Anchor label="Privacy Policy" target="_blank" href="https://www.akeyless.io/terms-of-service/">**Privacy Policy**</Anchor>, and select **Let's Get Started** (or select a social sign-in option).
+2. Enter your email address, accept the [**End User License Agreement**](https://www.akeyless.io/end-user-license-agreement/) **&** [**Privacy Policy**](https://www.akeyless.io/terms-of-service/), and select **Let's Get Started** (or select a social sign-in option).
    1. You may also have to complete a reCAPTCHA.
 
-<Callout icon="📘" theme="info">
-  You do _not_ need to change the **Environment** drop-down menu's value.
-</Callout>
+> **Note:** You do _not_ need to change the **Environment** drop-down menu's value.
 
 ## Step 2: Verify Your Email Address
 

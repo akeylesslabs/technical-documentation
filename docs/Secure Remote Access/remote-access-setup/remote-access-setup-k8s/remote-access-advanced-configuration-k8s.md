@@ -15,7 +15,7 @@ next:
 As both classic SSH and RDP access are based on SSH certificates, to support legacy algorithms for SSH signing, please set the `legacySigningAlg` with `true` to sign the SSH certificates using the legacy `ssh-rsa-cert-v01@openssh.com` signing algorithm.
 
 ```shell
-akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url https://<Your-Akeyless-GW-URL:8000>
+akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url https://<Your-Akeyless-GW-URL>:8000
 ```
 
 ## Key Exchange Algorithm
@@ -23,7 +23,7 @@ akeyless gateway update remote-access --legacy-ssh-algorithm true --gateway-url 
 A Key Exchange Algorithm is a method used to securely exchange cryptographic keys between parties over an insecure channel such as a public network. The primary goal of these algorithms is to enable two or more parties to securely establish a shared secret key, which can then be used for encrypting and decrypting messages during communication.
 
 ```shell
-akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url https://<Your-Akeyless-GW-URL:8000>
+akeyless gateway update remote-access --kexalgs <algorithm-name> --gateway-url https://<Your-Akeyless-GW-URL>:8000
 ```
 
 The options for this are:
@@ -46,10 +46,10 @@ The options for this are:
 For RDP connections with an [externally provided username](https://docs.akeyless.io/docs/remote-desktop-secure-access#set-up-remote-access-to-a-windows-machine-from-the-akeyless-console), you can set your RDP or SSH resources to use the relevant attribute from the IdP JWT (For example, email) to establish a connection to the target server using the authenticated username. This applies to all SSH-based sessions, including RDP and Linux systems.
 
 ```yaml RDP
-akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
+akeyless gateway update remote-access --rdp-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL>:8000
 ```
 ```yaml SSH
-akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL:8000>
+akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim> --gateway-url https://<Your-Akeyless-GW-URL>:8000
 ```
 
 ### Support for Other Keyboard Layouts
@@ -57,7 +57,7 @@ akeyless gateway update remote-access --ssh-target-configuration <your-sub-claim
 To enable a keyboard layout in your remote sessions for Windows, use the following command (the default is `en-us-qwerty`):
 
 ```shell
-akeyless gateway update remote-access --keyboard-layout <layout-option> --gateway-url https://<Your-Akeyless-GW-URL:8000>
+akeyless gateway update remote-access --keyboard-layout <layout-option> --gateway-url https://<Your-Akeyless-GW-URL>:8000
 ```
 
 ```yaml Layout Options
@@ -83,7 +83,7 @@ value: tr-tr-qwerty # Turkish-Q (Qwerty)
 
 ## Session Log Forwarding
 
-The Akeyless SRA support both Session Log Forwarding that capture CLI actions input and output during session, those can be forwarder to any logging system. This settings can be added by way of the Gateway management console or by way of CLI:
+The Akeyless SRA supports Session Log Forwarding, which captures CLI input and output during sessions. These logs can be forwarded to any logging system. These settings can be added by way of the Gateway management console or by way of CLI:
 
 ```shell
 akeyless gateway update remote-access-session-forwarding -h
@@ -91,13 +91,13 @@ akeyless gateway update remote-access-session-forwarding -h
 
 ## RDP Recordings
 
-**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage  To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or to an Azure Blob Storage
+**RDP** sessions provide video recordings that can be saved to AWS S3 buckets or Azure Blob Storage. To work with session recording for RDP, provide the following settings to upload your recording to an S3 bucket or Azure Blob Storage.
 
 ```shell
 akeyless gateway update remote-access-rdp-recording -h
 ```
 
-To store local recordings inside your Gateway , set the `rdp-session-storage` with `local`, session recordings will be stored inside the Gateway under `/home/akeyless/recordings`. Make sure to add Persistence Volume to your SRA deployment.
+To store local recordings inside your Gateway, set the `rdp-session-storage` to `local`. Session recordings will be stored inside the Gateway under `/home/akeyless/recordings`. Make sure to add a persistent volume to your SRA deployment.
 
 ## SSH Fingerprint
 

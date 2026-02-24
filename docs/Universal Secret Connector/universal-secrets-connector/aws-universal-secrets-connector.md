@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-This page discusses the creation of AWS [Universal Secrets Connectors](https://docs.akeyless.io/docs/external-secrets-manager). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, as they have varying parameters.
+This page discusses the creation of AWS [Universal Secrets Connectors](https://docs.akeyless.io/docs/universal-secrets-connector). If you wish to create a Universal Secrets Connector for a different cloud service, please go to the matching doc, as they have varying parameters.
 
-To manage secrets stored on AWS Secret Manager, the **USC** utilizes the [AWS Target](https://docs.akeyless.io/docs/aws-targets) to establish secure logical access into the related Secret Manager, effectively letting you manage them indirectly. Each **USC** item derives its permissions from the identity linked to its [AWS Target](https://docs.akeyless.io/docs/aws-targets).
+To manage secrets stored on AWS Secret Manager, the **USC** uses the [AWS Target](https://docs.akeyless.io/docs/aws-targets) to establish secure logical access into the related Secret Manager, effectively letting you manage them indirectly. Each **USC** item derives its permissions from the identity linked to its [AWS Target](https://docs.akeyless.io/docs/aws-targets).
 
 When a user is granted read access to a **USC** item, they can act using the permissions of that underlying identity. With USC, you can unify governance and visibility across fragmented secret stores without migrating data or altering existing workflows.
 
-After connecting to your AWS Secret Manager source, you will be able to manage all your secrets from Akeyless, including viewing, adding, updating, deleting, and [syncing secrets](https://docs.akeyless.io/docs/sync-secret).
+After connecting to your AWS Secret Manager source, you can manage all your secrets from Akeyless, including viewing, adding, updating, deleting, and [syncing secrets](https://docs.akeyless.io/docs/sync-secret).
 
-The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from the AWS Secret Manager. This is done automatically as Akeyless doesn't store a copy of the AWS secrets, ensuring that data residency and security policies remain untouched. The **USC** simply reflects them in real time, without any requirements or changes that should be made on the AWS Secret Manager endpoint.
+The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from AWS Secrets Manager. This is done automatically because Akeyless does not store a copy of the AWS secrets, ensuring that data residency and security policies remain untouched. The **USC** simply reflects them in real time, without requiring any changes on the AWS Secrets Manager endpoint.
 
 ![Illustration for: The USC solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from the AWS Secret…](https://files.readme.io/60251a70458e8bb82d88317bde1ad04b9e9a7b6ea82e68e0b11086106a0f6a7c-Synced_Secret-AWS.png)
 
@@ -55,7 +55,7 @@ The **USC** solution works in a governance loop model, supporting and reflecting
 
 ```
 
-Note, `secretsmanager:ListSecrets` is AWS Secrets Manager operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, read more [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions).
+Note: `secretsmanager:ListSecrets` is an AWS Secrets Manager operation that does not support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern. Read more [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions).
 
 To allow selecting a KMS encryption key for the secret, add the following permissions:
 
@@ -92,7 +92,7 @@ To allow selecting a KMS encryption key for the secret, add the following permis
 }
 ```
 
-Note, `kms:ListKeys` and `kms:ListAliases` are AWS KMS operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
+Note: `kms:ListKeys` and `kms:ListAliases` are AWS KMS operations that do not support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern. Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
 
 ## Working With Universal Secrets Connector with the CLI
 
@@ -112,7 +112,7 @@ The main parameters are:
 
 * `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create-usc).
 
 ### Listing USC Secrets
 
@@ -152,7 +152,7 @@ The main parameters are:
 
 * `secret-id`: The name or ID of the secret you would like to fetch.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#get).
 
 The output should look as follows:
 
@@ -182,7 +182,7 @@ The main parameters are:
 
 * `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
 
 ### Updating an Existing USC Secret
 
@@ -192,7 +192,7 @@ To update an existing secret in your USC, use the following command:
 akeyless usc update --usc-name <usc name> --secret-id <secret id or name> --value <new secret value>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
 
 ### Deleting an Existing USC Secret
 
@@ -202,7 +202,7 @@ To delete an existing secret in your USC, use the following command:
 akeyless usc delete --usc-name <usc name> --secret-id <secret id or name>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-external-secrets-manager).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
 
 ## Creating a Universal Secrets Connector from the Console
 
@@ -232,7 +232,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ## AWS Universal Secrets Details
 
-Once connected to a Target, you will be able to access a Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
+Once connected to a Target, you can access a Universal Secrets Connector in your Akeyless Console page, which allows you to manage your Universal Secrets and display the following information about the secret:
 
 * **Name:** Secret name
 
@@ -244,4 +244,4 @@ More information and secret value can be viewed by selecting a specific secret, 
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s" target="_blank">AWS Universal Secrets Connector</a>.
+Check out our tutorial video on [AWS Universal Secrets Connector](https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s).

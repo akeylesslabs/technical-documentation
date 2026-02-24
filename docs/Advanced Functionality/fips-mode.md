@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-> 📘 Note
+> **Note:**
 >
 > Currently, FIPS mode is supported only for Linux OS
 

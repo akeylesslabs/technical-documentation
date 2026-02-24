@@ -18,11 +18,11 @@ next:
 
 To implement [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge), you must set up a [Gateway](https://docs.akeyless.io/docs/api-gw).
 
-Once you have a Gateway up and running, you will be able to generate a component called the **Customer Fragment**. The customer fragment is a unique piece of any encryption key you will create using it that only you have access to, not even the Akeyless team can see it. These Customer Fragments will allow you to create our special type of key called the DFC key, which can only be used by an allowed user on the gateway that holds the corresponding Customer Fragment.
+Once you have a Gateway up and running, you can generate a component called the **Customer Fragment**. The customer fragment is a unique piece of any encryption key you create using it that only you can access, and even the Akeyless team cannot see it. These Customer Fragments allow you to create our special type of key called the DFC key, which can only be used by an allowed user on the gateway that holds the corresponding Customer Fragment.
 
 Using our unique Zero-Knowledge architecture, you can deploy multiple [Gateway](https://docs.akeyless.io/docs/api-gw) on several different geographical jurisdictions with different fragments to comply with the regulatory requirements applied in those jurisdictions.
 
-> 🚧 Warning
+> **Warning:**
 >
 > When working with Customer Fragments, it is **your responsibility to back them up** securely and in a safe place.
 >
@@ -67,7 +67,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -v /path/of/customer_fragments.json:/hom
 
 Once the **Customer Fragment** is mounted in the Gateway, it can be used to secure your DFC Encryption Keys for full Zero Knowledge Encryption.
 
-> 🚧 Warning
+> **Warning:**
 >
 > To create a DFC encryption key with Customer Fragment, the Auth Method that's being used needs to be on the list of allowed access IDs for the gateway.
 
@@ -109,7 +109,7 @@ A new AES256GCM key named MyKeyWithMyCF was successfully created
 
 To set a default Encryption Key based on your Customer Fragment to enforce Zero-Knowledge by default for all your secrets that will be created using your Gateway. This will ensure that any item created with Akeyless (by way of Web UI, CLI, or SDKs) will be encrypted using your encryption key.
 
-> 👍 Note
+> **Note:**
 >
 > Only Symmetric encryption keys of `AESGCM` algorithm can be used as Default Encryption Keys.
 

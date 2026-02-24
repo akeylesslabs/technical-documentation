@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-> 🚧 Warning
+> **Warning:**
 >
 > The [Kubernetes External Secrets](https://github.com/external-secrets/kubernetes-external-secrets) project has been **deprecated**.
 > It is recommended to use the [External Secrets Operator (ESO)](https://docs.akeyless.io/docs/external-secret-operator) instead.
@@ -18,9 +18,7 @@ next:
 
 [Kubernetes External Secrets](https://github.com/external-secrets/kubernetes-external-secrets) enable you to use external secret management systems, such as the Akeyless Platform, to securely add secrets in Kubernetes.
 
-> 👍 Note
->
-> **External Secrets Operator (ESO)**
+> **Note (External Secrets Operator (ESO)):**
 > Check out Akeyless official [Provider](https://external-secrets.io/v0.7.0-rc1/provider/akeyless/) of [External Secret project](https://external-secrets.io/v0.7.0-rc1/)
 
 Complete the following steps to allow Akeyless to add secrets in Kubernetes.

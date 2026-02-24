@@ -36,7 +36,7 @@ With Dynamic Secrets, you can control and manage which databases, tables, schema
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the database through the [Gateway](https://docs.akeyless.io/docs/api-gw) within your internal network and generates a temporary set of restricted access credentials.
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/database-targets). While it saves time for multiple secret level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the DB used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -48,7 +48,7 @@ To create a dynamic database secret with the CLI using an existing [Target](http
 akeyless dynamic-secret create mysql \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mysql-statements "CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON *.* TO '{{name}}'@'%';" \
 --mysql-revocation-statements "REVOKE ALL PRIVILEGES, GRANT OPTION FROM '{{name}}'@'%'; DROP USER '{{name}}'@'%';" \
 --password-length 16
@@ -57,7 +57,7 @@ akeyless dynamic-secret create mysql \
 akeyless dynamic-secret create postgresql \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --postgresql-statements "CREATE USER \"{{name}}\" WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\"; GRANT CONNECT ON DATABASE postgres TO \"{{name}}\"; GRANT USAGE ON SCHEMA public TO \"{{name}}\";" \
 --postgresql-revoke-statement "REASSIGN OWNED BY \"{{name}}\" TO {{userHost}}; DROP OWNED BY \"{{name}}\"; SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = '{{name}}'; DROP USER \"{{name}}\";" \
 --password-length 16
@@ -66,7 +66,7 @@ akeyless dynamic-secret create postgresql \
 akeyless dynamic-secret create redshift \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --redshift-statements "CREATE USER '{{username}}' WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO '{{username}}';" \
 --ssl "<false|true>" \
 --password-length 16
@@ -75,7 +75,7 @@ akeyless dynamic-secret create redshift \
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-creation-statements "CREATE LOGIN {{name}} WITH PASSWORD = '{{password}}';" \
 --mssql-revocation-statements "DROP LOGIN '{{name}}';" \
 --password-length 16
@@ -84,7 +84,7 @@ akeyless dynamic-secret create mssql \
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-creation-statements "CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}'; \
              CREATE USER [{{name}}] FOR LOGIN [{{name}}];" \
 --mssql-revocation-statements " DROP USER [{{name}}]; DROP LOGIN [{{name}}];" \
@@ -94,7 +94,7 @@ akeyless dynamic-secret create mssql \
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-creation-statements "CREATE USER [{{name}}] WITH PASSWORD = '{{password}}';" \
 --mssql-revocation-statements "DROP USER IF EXISTS [{{name}}]" \
 --password-length 16
@@ -103,7 +103,7 @@ akeyless dynamic-secret create mssql \
 akeyless dynamic-secret create mongodb \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mongodb-roles <New User Role> \
 --password-length 16
 ```
@@ -111,7 +111,7 @@ akeyless dynamic-secret create mongodb \
 akeyless dynamic-secret create oracledb \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --oracle-statements 'CREATE USER {{username}} IDENTIFIED BY "{{password}}"; GRANT CONNECT TO {{username}}; GRANT CREATE SESSION TO {{username}};' \
 --password-length 16
 ```
@@ -119,7 +119,7 @@ akeyless dynamic-secret create oracledb \
 akeyless dynamic-secret create cassandra \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --cassandra-statements "CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';" \
 --password-length 16
 ```
@@ -127,7 +127,7 @@ akeyless dynamic-secret create cassandra \
 akeyless dynamic-secret create hanadb \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --hanadb-creation-statements "CREATE USER {{name}} PASSWORD '{{password}}';GRANT 'MONITOR ADMIN' TO {{name}};" \
 --hanadb-revocation-statements "DROP USER {{name}};" \
 --password-length 16
@@ -138,7 +138,7 @@ akeyless dynamic-secret create hanadb \
 akeyless dynamic-secret create postgresql \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --postgresql-statements 'CREATE USER "{{name}}" WITH PASSWORD "{{password}}"; GRANT SELECT ON ALL TABLES IN SCHEMA public TO "{{name}}"; GRANT USAGE ON SCHEMA public TO "{{name}}";' \
 --postgresql-revoke-statement 'DROP USER "{{name}}";' \
 --password-length 16
@@ -147,7 +147,7 @@ akeyless dynamic-secret create postgresql \
 akeyless dynamic-secret create redis \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --acl-rules '["~*", "+@read", "+info"]'
 ```
 
@@ -156,7 +156,7 @@ Or using an inline connection string:
 ```shell MySQL/MariaDB
 akeyless dynamic-secret create mysql \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mysql-statements "CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON *.* TO '{{name}}'@'%';" \
 --mysql-dbname <MySQL DB Name > \
 --mysql-host <MySQL host> \
@@ -167,7 +167,7 @@ akeyless dynamic-secret create mysql \
 ```shell PostgreSQL
 akeyless dynamic-secret create postgresql \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --postgresql-db-name <PostgreSQL DB name> \
 --postgresql-username <PostgreSQL DB admin username> \
 --postgresql-password <PostgreSQL DBadmin password> \
@@ -179,7 +179,7 @@ akeyless dynamic-secret create postgresql \
 ```shell Redshift
 akeyless dynamic-secret create redshift \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --redshift-db-name <Redshift DB name> \
 --redshift-username <Redshift DB admin username> \
 --redshift-password <Redshift DB admin password> \
@@ -190,7 +190,7 @@ akeyless dynamic-secret create redshift \
 ```shell MSSQL
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-creation-statements "CREATE LOGIN {{name}} WITH PASSWORD = '{{password}}';" \
 --mssql-revocation-statements "DROP LOGIN '{{name}}';" \
 --mssql-dbname <MSSQL Server DB Name> \
@@ -203,7 +203,7 @@ akeyless dynamic-secret create mssql \
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-creation-statements "CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}'; \
              CREATE USER [{{name}}] FOR LOGIN [{{name}}];" \
 --mssql-revocation-statements " DROP USER [{{name}}]; DROP LOGIN [{{name}}];" \
@@ -212,7 +212,7 @@ akeyless dynamic-secret create mssql \
 ```shell Azure SQL
 akeyless dynamic-secret create mssql \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-creation-statements "CREATE USER [{{name}}] WITH PASSWORD = '{{password}}';" \
 --mssql-revocation-statements "DROP USER IF EXISTS [{{name}}]" \
 --mssql-dbname <MSSQL Server DB Name> \
@@ -224,7 +224,7 @@ akeyless dynamic-secret create mssql \
 ```shell MongoDB
 akeyless dynamic-secret create mongodb \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mongodb-roles <New User Role> \
 --mongodb-name <MongoDB name> \
 --mongodb-username <MongoDB server admin username> \
@@ -234,7 +234,7 @@ akeyless dynamic-secret create mongodb \
 ```shell Oracle
 akeyless dynamic-secret create oracledb \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --oracle-service-name <Your Oracle DB Service name > \
 --oracle-username <Oracle DB admin username> \
 --oracle-password <Oracle DB admin password> \
@@ -245,7 +245,7 @@ akeyless dynamic-secret create oracledb \
 ```shell Cassandra
 akeyless dynamic-secret create cassandra \
 --name <path to your secret> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --cassandra-hosts <Cassandra host> \
 --cassandra-port <Cassandra port> \
 --cassandra-username <Cassandra username> \
@@ -255,7 +255,7 @@ akeyless dynamic-secret create cassandra \
 ```shell SAP HANA database
 akeyless dynamic-secret create hanadb \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --hana-dbname <SAP HANA database name> \
 --hanadb-username <SAP HANA database admin username> \
 --hanadb-password <SAP HANA database admin password> \
@@ -269,7 +269,7 @@ akeyless dynamic-secret create hanadb \
 
 akeyless dynamic-secret create postgresql \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --postgresql-db-name <Vertica DB name> \
 --postgresql-username <Vertica DB admin username> \
 --postgresql-password <Vertica DBadmin password> \
@@ -281,7 +281,7 @@ akeyless dynamic-secret create postgresql \
 ```shell Redis
 akeyless dynamic-secret create redis \
 --name <New Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --host <Redis host> \
 --port[=6379] <Redis port> \
 --username <Redis Username> \
@@ -321,7 +321,7 @@ The following is an example revocation statement for Postgres:
 
 `REVOKE CONNECT ON DATABASE postgres FROM "{{name}}"; REVOKE USAGE ON SCHEMA public FROM "{{name}}"; REVOKE SELECT ON ALL TABLES IN SCHEMA public FROM "{{name}}"; DROP USER "{{name}}";`
 
-> 📘 Info
+> **Info:**
 >
 > For MySQL 8, modify the default `CREATE USER` statement to allow native MySQL password authentication.
 >
@@ -335,7 +335,7 @@ If you don't have a [Database Target](https://docs.akeyless.io/docs/database-tar
 
 Depending on your database type, provide a **privileged username** that has enough permission to create and revoke users on your database with the relevant connection settings. And set the relevant creation and revocation statements to control and manage the level of access and roles of your temporary credentials.
 
-You can find the complete list of parameters for these commands in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets) section.
+You can find the complete list of parameters for these commands in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#create) section.
 
 ## Fetch a Dynamic Database Secret Value with the CLI
 
@@ -363,7 +363,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
@@ -371,7 +371,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-        If you selected the **Explicitly specify target properties** mode, click **Next**.
+        If you selected the **Explicitly specify target properties** option, click **Next**.
 
         Depending on your database type, provide a privileged username that has enough permission to create users on your database with the relevant connection settings.
 
@@ -385,8 +385,8 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.
 
 ## Tutorial
 
-Check out our tutorial video on [Creating and Using MySQL Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets) .
+Check out our tutorial video on [Creating and Using MySQL Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets).

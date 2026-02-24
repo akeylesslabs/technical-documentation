@@ -18,9 +18,9 @@ next:
 ---
 Akeyless offers a unique Gateway, which adds an extra level of protection between your **private network** and the cloud.
 
-Acting as a SaaS extension of our core services, our **stateless** Gateway enables a transparent internal operation with a robust out-of-the-box mechanism to ensure service continuity and recovery while you are not required to change any network infrastructure in order to work with your internal resources.
+Acting as a SaaS extension of our core services, our **stateless** Gateway enables transparent internal operation with a robust out-of-the-box mechanism to ensure service continuity and recovery while you are not required to change any network infrastructure to work with your internal resources.
 
-Our unique approach enables a variety of capabilities relying on our state-of-the-art [Encryption Technology](https://docs.akeyless.io/docs/dfc) you can securely use our [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) along with [KMIP Server](https://docs.akeyless.io/docs/kmip-server) and more [Advanced Data Protection](https://docs.akeyless.io/docs/classic-keys) flavors, without exposing any internal resources to the public network.
+Our unique approach enables a variety of capabilities relying on our state-of-the-art [Encryption Technology](https://docs.akeyless.io/docs/dfc-overview) you can securely use our [Dynamic Secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), [Rotated Secrets](https://docs.akeyless.io/docs/rotated-secrets) along with [KMIP Server](https://docs.akeyless.io/docs/kmip-server) and more [Advanced Data Protection](https://docs.akeyless.io/docs/classic-keys) flavors, without exposing any internal resources to the public network.
 
 With this Gateway, Akeyless offers:
 

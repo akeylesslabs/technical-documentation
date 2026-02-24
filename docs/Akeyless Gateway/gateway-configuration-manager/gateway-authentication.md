@@ -16,15 +16,15 @@ next:
 ---
 Due to its nature as an extension to Akeyless SaaS services, the Akeyless Gateway can also act as a proxy for the Akeyless SaaS console. This proxy can be found on the `/console` endpoint of the Gateway URL (for example, `https://Your_Akeyless_Gateway_URL:8000/console`). Any user in the account can connect without any requirements based on their [Access Roles](https://docs.akeyless.io/docs/rbac). This endpoint replicates the Akeyless SaaS console, enabling seamless work with [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) items.
 
-To set a default [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) for your users, you can set either [SAML](https://docs.akeyless.io/docs/saml), [OIDC](https://docs.akeyless.io/docs/openid) or [Certificates-Based](https://docs.akeyless.io/docs/certificate-based-authentication) Authentication.
+To set a default [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) for your users, you can set either [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) or [Certificates-Based](https://docs.akeyless.io/docs/auth-with-certificate) Authentication.
 
-> 👍 Note
+> **Note:**
 >
-> Gateway Users Authentication does not mean those users will be able to log in and manage your Gateway deployment, to set a list of Gateway Allowed Admins please refer to the Gateway Admins section in the relevant deployment guide.
+> Gateway Users Authentication does not mean those users can log in and manage your Gateway deployment. To set a list of Gateway Allowed Admins, refer to the Gateway Admins section in the relevant deployment guide.
 
 ## SAML & OIDC
 
-To configure your Gateway to work with a default [SAML](https://docs.akeyless.io/docs/saml) or [OIDC](https://docs.akeyless.io/docs/openid) authentication method for your users, take the following steps:
+To configure your Gateway to work with a default [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) authentication method for your users, take the following steps:
 
 Open the Gateway Console by going to **Gateways -> Your-Gateway -> Manage Gateway**, on the **Defaults** page, provide the relevant `Access ID` and save your changes.
 
@@ -40,6 +40,6 @@ Open the Gateway Console by going to **Gateways -> Your-Gateway -> Manage Gatewa
 
 Once saved, users can log in to your Gateway Console on the `/console` endpoint of the Gateway URL (for example, `https://Your_Akeyless_Gateway_URL:8000/console`).
 
-> 🚧 Warning
+> **Warning:**
 >
-> Certificate-Based Authentication utilizes mTLS. Therefore, it is required that the Gateway itself will manage any TLS termination for the connection to Akeyless SaaS core services.
+> Certificate-Based Authentication uses mTLS. Therefore, it is required that the Gateway itself will manage any TLS termination for the connection to Akeyless SaaS core services.

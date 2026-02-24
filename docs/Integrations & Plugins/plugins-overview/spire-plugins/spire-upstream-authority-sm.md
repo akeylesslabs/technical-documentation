@@ -20,17 +20,17 @@ next:
 
 The following Authentication Methods are supported:
 
-* [API Key](https://docs.akeyless.io/docs/api-key)
-* [AWS IAM](https://docs.akeyless.io/docs/aws-iam)
-* [Azure](https://docs.akeyless.io/docs/azure-ad)
-* [GCP](https://docs.akeyless.io/docs/gcp-auth-method)
-* [K8s](https://docs.akeyless.io/docs/kubernetes-auth)
+* [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
+* [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws)
+* [Azure](https://docs.akeyless.io/docs/auth-with-azure)
+* [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
+* [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> 👍 Note
+> **Note:**
 >
 > In this guide, we will use an `API Key` Authentication Method for simplicity
 
-Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/api-key) using the CLI:
+Create a new [API Key Authentication Method](https://docs.akeyless.io/docs/auth-with-api-key) using the CLI:
 
 ```shell
 akeyless create-auth-method --name /Dev/Spire-Auth
@@ -65,7 +65,7 @@ Run the following command to download and unpack pre-built `spire-server` and `s
 curl -s -N -L https://github.com/spiffe/spire/releases/download/v1.7.0/spire-1.7.0-linux-amd64-glibc.tar.gz | tar xz
 ```
 
-Next, run the following command in order to create the `certificate` item in Akeyless:
+Next, run the following command to create the `certificate` item in Akeyless:
 
 ```shell
 akeyless create-certificate \
@@ -105,7 +105,7 @@ UpstreamAuthority  "akeyless_sm" {
      plugin_data {
        access_id = "<Your_Access_ID>"
        access_key = "<Your_Access_KEY>"
-       akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL:8000/api/v2>' # or use port 8081
+       akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL>:8000/api/v2>' # or use port 8081
        certificate_name = "</SPIRE/SVID/certificate_name>"
      }
 }
@@ -135,25 +135,23 @@ For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
 
 ### SPIRE Server Initialization
 
-In order to initialize the server, run the following command:
+To initialize the server, run the following command:
 
 ```shell
 bin/spire-server run -config conf/server/server.conf &
 ```
 
-Once the server is running, the Agent needs to be configured as well, add the following line to the `conf/agent/agent.conf` file in the `agent` section in order to set the path to the SPIRE server **CA bundle**:
+Once the server is running, the Agent needs to be configured as well. Add the following line to the `conf/agent/agent.conf` file in the `agent` section to set the path to the SPIRE server **CA bundle**:
 
 ```shell
 trust_bundle_path = "/Path/To/certificate/file" 
 ```
 
-> 📘 Info
->
-> **trust bundle**
+> **Info (trust bundle):**
 >
 > The `"/Path/To/certificate.pem"` is a path on your machine where a `certificate.pem` file will be exist and the value of the file will be the value of the `certificate` that was created earlier in Akeyless.
 
-Run the following command in order to generate a token that will be used to attest the `agent` to the `server`
+Run the following command to generate a token that will be used to attest the `agent` to the `server`
 
 ```shell
 bin/spire-server token generate -spiffeID spiffe://example.org/myagent
@@ -161,14 +159,12 @@ bin/spire-server token generate -spiffeID spiffe://example.org/myagent
 
 ### SPIRE Agent Initialization
 
-Use the token that was generated in order to attest the `agent` to the `server`
+Use the generated token to attest the `agent` to the `server`
 
 ```shell
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 ```
 
-> 📘 Info
->
-> **SPIFFE/SPIRE**
+> **Info (SPIFFE/SPIRE):**
 >
 > For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

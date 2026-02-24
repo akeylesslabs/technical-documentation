@@ -26,7 +26,7 @@ Where:
 
 * `url`: The Splunk server URL.
 
-* `api-key`: The Admin API Key that will be used in order to create the API Key.
+* `api-key`: The Admin API Key that will be used to create the API Key.
 
 * `username`:  The Splunk Username.
 

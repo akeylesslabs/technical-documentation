@@ -58,7 +58,7 @@ Or if using `jwt` `auth-flow` provide the following:
 
 * `app-private-key-data`: The Base64-encoded `PEM` private key of the connected app. Note: Used if `app-private-key-file-name` was not provided.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluesalesforcep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#salesforce) section.
 
 ## Create a Salesforce Target in the Console
 
@@ -80,7 +80,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
         * Check the **JWT** radio button to authenticate with JWT to connect to Salesforce.
 
-        * Check the **User-Password** radio button to authenticate with the`OAuth2.0` app username and password to connect to Salesforce.
+        * Check the **User-Password** radio button to authenticate with the `OAuth2.0` app username and password to connect to Salesforce.
 
     * If you selected the **JWT** radio button, provide **App Private key**, a Base64-encoded `PEM` of the connected app private key.
 
