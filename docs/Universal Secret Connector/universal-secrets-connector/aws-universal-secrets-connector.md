@@ -55,7 +55,7 @@ The **USC** solution works in a governance loop model, supporting and reflecting
 
 ```
 
-Note, `secretsmanager:ListSecrets` is AWS Secrets Manager operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, read more [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions).
+Note: `secretsmanager:ListSecrets` is an AWS Secrets Manager operation that does not support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern. Read more [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions).
 
 To allow selecting a KMS encryption key for the secret, add the following permissions:
 
@@ -92,7 +92,7 @@ To allow selecting a KMS encryption key for the secret, add the following permis
 }
 ```
 
-Note, `kms:ListKeys` and `kms:ListAliases` are AWS KMS operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
+Note: `kms:ListKeys` and `kms:ListAliases` are AWS KMS operations that do not support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern. Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
 
 ## Working With Universal Secrets Connector with the CLI
 

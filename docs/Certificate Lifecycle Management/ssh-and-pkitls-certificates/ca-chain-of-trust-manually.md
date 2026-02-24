@@ -112,7 +112,7 @@ akeyless create-pki-cert-issuer \
 
 At this point, we have created the following:
 
-* **Root CA Key**: A Singer Key with a Self Signed Certificate.
+* **Root CA Key**: A Signer Key with a Self Signed Certificate.
 * **Root PKI Cert Issuer**: To sign new Intermediate CA.
 
 Where **only** certificates with the domain `example.com` will be accepted and valid for 100 days, they will be automatically stored under the `/MyChain/IntermediateCertificates/` folder, with basic constraints of `CA: TRUE` and the mentioned **KeyUsage**, **OU**, and **Location** settings as defined in the issuer. An event about the upcoming expiration will be triggered 30 days before expiration.

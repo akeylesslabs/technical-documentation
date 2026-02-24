@@ -171,7 +171,7 @@ Would you like to add 'C:\Users\username\.akeyless\bin' To user PATH environment
 #after user inputs 'Y'
 Run the following command to start using Akeyless CLI:
 set "PATH=%PATH%;C:\Users\username\.akeyless\bin" (Update PATH for current session)
-setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permenantly)
+setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permanently)
 ```
 
 > 👍 Note

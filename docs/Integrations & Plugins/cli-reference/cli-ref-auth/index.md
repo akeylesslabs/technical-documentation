@@ -715,7 +715,7 @@ Update a new Auth Method that will be able to authenticate using AWS IAM credent
 ```shell
 akeyless auth-method update aws-iam \
 --name <Auth method name> \
---bound-aws-account-id <Accessble AWS account`s IDs> \
+--bound-aws-account-id <Accessible AWS account IDs> \
 --new-name <Auth method new name> 
 ```
 
@@ -1089,9 +1089,9 @@ akeyless auth-method update oidc \
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-oidc` to enable OIDC by way of Akeyless Console and `http://127.0.0.1:*` to enable OIDC by way of the Akeyless CLI)
 
 `--required-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
-`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, azures` Application ID URI)
+`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, Azure's Application ID URI)
 
-`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider`s Application
+`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider's Application
 
 `-d, --delimiters`          A list of additional sub-claims delimiters
 
