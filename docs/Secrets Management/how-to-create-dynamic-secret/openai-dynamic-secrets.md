@@ -71,12 +71,12 @@ Where:
 
     * **Delete Protection:** When enabled, protects the secret from accidental deletion.
 
-    * **Target mode:** In this section, you can either select an existing OpenAI Target or specify details of the target OpenAI account explicitly.ֿ
+    * **Target mode:** In this section, you can either select an existing OpenAI Target or specify details of the target OpenAI account explicitly.
 
-        * Use the **Choose an existing target** drop-down list to select the existing OpenAI Target .
+        * Use the **Choose an existing target** drop-down list to select the existing OpenAI Target.
         * Check the **Explicitly specify target properties** to provide details of the target OpenAI account in the next step.
 
-    * **Project ID** The Project ID where the new API Key will be created.
+    * **Project ID:** The Project ID where the new API Key will be created.
 
     * **User TTL**: Provide a time-to-live value for a dynamic secret. When TTL expires, the token becomes obsolete.
 
@@ -84,7 +84,7 @@ Where:
 
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge#/).
 
-5. If you checked the Explicitly specify target properties, click Next.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target OpenAI account:
 

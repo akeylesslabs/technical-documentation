@@ -85,42 +85,41 @@ Download the relevant Desktop Application installer from <https://download.akeyl
 
 ## Configuration & First-Time Setup
 
-1. Log in to the Desktop Application (using SAML, OIDC, Certificate, Access Key, and so on). You should be able to see a list of the resources you can connect to, upon your permissions. If you wish to add / remove targets from the list, you should update your permissions accordingly.
+1. Log in to the Desktop Application (using SAML, OIDC, Certificate, Access Key, and so on). You should see a list of the resources you can connect to based on your permissions. If you want to add or remove targets from the list, update your permissions accordingly.
+2. **Application Mapping** - To connect to remote resources, users should map them to applications. When using a mapped application, the desktop application launches the native application and securely initiates the connection.
+3. Listed below are the native clients that are supported by the Desktop Application:
 
-2. **Application Mapping** - To connect to remote resources, the user should map them to applications. When using mapped application, the Desktop application launches the native application and securely initiates the connection.
-   1. Listed Below are the native clients that supported by the Desktop Application:
+    | Operating System | Resource | Application Type | Comments |
+    | --- | --- | --- | --- |
+    | **Windows** | MSSQL Server | Azure Data Studio |  |
+    |  | RDP | Remote Desktop |  |
+    |  | Postgres DB | DBeaver |  |
+    |  | SSH Cert Issuer | PuTTY | WinSCP is a prerequisite for PuTTY. |
+    |  | SSH username and password | PuTTY | Specify port `2022`. |
+    |  | SSH File Transfer | WinSCP | Note: File transfers for certificate-based targets have a known limitation and are currently not supported. |
+    |  | PowerShell | PuTTY | PS tag should be configured on the secret item. |
+    |  | Direct Connection / Secure Remote Access | Default Browser |  |
+    | **macOS** | MSSQL Server | Azure Data Studio |  |
+    |  | Postgres DB | DBeaver |  |
+    |  | RDP | Windows App |  |
+    |  | SSH Cert Issuer | Terminal |  |
+    |  | SSH username and password | Terminal |  |
+    |  | Direct Connection / Secure Remote Access | Default Browser |  |
+    |  | SSH File Transfer (SFTP) | Terminal |  |
 
-        | Operating System | Resource | Application Type | Comments |
-        | --- | --- | --- | --- |
-        | **Windows** | MSSQL Server | Azure Data Studio |  |
-        |  | RDP | Remote Desktop |  |
-        |  | Postgres DB | DBeaver |  |
-        |  | SSH Cert Issuer | PuTTY | WinSCP is a prerequisite for PuTTY. |
-        |  | SSH username and password | PuTTY | Specify port `2022`. |
-        |  | SSH File Transfer | WinSCP | Note: File transfers for certificate-based targets have a known limitation and are currently not supported. |
-        |  | PowerShell | PuTTY | PS tag should be configured on the secret item. |
-        |  | Direct Connection / Secure Remote Access | Default Browser |  |
-        | **macOS** | MSSQL Server | Azure Data Studio |  |
-        |  | Postgres DB | DBeaver |  |
-        |  | RDP | Windows App |  |
-        |  | SSH Cert Issuer | Terminal |  |
-        |  | SSH username and password | Terminal |  |
-        |  | Direct Connection / Secure Remote Access | Default Browser |  |
-        |  | SSH File Transfer (SFTP) | Terminal |  |
-
-    > 🚧 Multiple Hosts / Linked Targets
+    > **Warning (Multiple hosts / linked targets):**
     >
-    > The Desktop Application supports the use of multiple hosts / linked targets. You can easily add / remove hosts you wish to connect to and select on `Confirm`.
+    > The Desktop Application supports multiple hosts / linked targets. You can add or remove hosts you want to connect to, and then select **Confirm**.
     >
-    > > Note: Removing host from the list only removes it from the list of hosts in the desktop application.
+    > Removing a host from the list only removes it from the Desktop Application host list.
 
-3. Configure the **Defaults Configuration** - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (the target you wish to connect to). If this information is not accessible to the desktop application, it will use the information configured in the Advanced Configuration.
+4. Configure the **Defaults Configuration** - When connecting to a remote target, the Desktop Application fetches the required parameters from the resource item (the target you want to connect to). If this information is not accessible to the Desktop Application, it uses the information configured in Advanced Configuration.
 
-   1. **Web Application Dispatcher** and **Web Proxy URL** - Should be provided if working with Zero trust Web Access solution (ZTWA)
-   2. **Secure SSH Access Address** (recommended) - This is the path and port for SSH deployment (`my.SSH.address`)
-   3. **SSH Certificate Issuer** (recommended) - This is the name of the SSH Certificate Issuer the Akeyless CLI will use to initiate the connection
-   4. **Control API Port** - the control API port (specify 8000 for unified Gateway, or 9900 if not)
-   5. **Control API Path** - the SRA control API path (for example: `/sra/ssh-config`)
+    * **Web Application Dispatcher** and **Web Proxy URL** - Should be provided if working with the Zero Trust Web Access solution (ZTWA).
+    * **Secure SSH Access Address** (recommended) - This is the path and port for SSH deployment (`my.SSH.address`).
+    * **SSH Certificate Issuer** (recommended) - This is the name of the SSH Certificate Issuer that the Akeyless CLI uses to initiate the connection.
+    * **Control API Port** - The control API port (specify `8000` for a unified Gateway, or `9900` otherwise).
+    * **Control API Path** - The SRA control API path (for example, `/sra/ssh-config`).
 
 > **Note (Connection Failures):**
 >

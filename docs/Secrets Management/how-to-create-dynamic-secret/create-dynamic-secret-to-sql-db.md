@@ -389,4 +389,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Tutorial
 
-Check out our tutorial video on [Creating and Using MySQL Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets) .
+Check out our tutorial video on [Creating and Using MySQL Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets).

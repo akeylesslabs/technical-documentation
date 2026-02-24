@@ -167,7 +167,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Target mode:** In this section, you can either select an existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) or specify details of the target AWS account explicitly.
 
-        * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets) .
+        * Use the **Choose an existing target** drop-down list to select the existing [AWS Target](https://docs.akeyless.io/docs/aws-targets).
 
         * Check the **Explicitly specify target properties** to provide details of the target AWS account in the next step.
 
@@ -193,7 +193,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-    * **Temporary Password Length** Set the length of the temporary password. Relevant only for **IAM User** access mode.
+    * **Temporary Password Length:** Set the length of the temporary password. Relevant only for **IAM User** access mode.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
@@ -221,7 +221,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.
 
 ## Tutorial
 
