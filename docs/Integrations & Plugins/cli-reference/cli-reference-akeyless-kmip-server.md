@@ -100,7 +100,7 @@ akeyless kmip-create-client \
 
 `-p, --output-file-folder`: Folder path to save client certificate files (for example, '.'). Two files are created: \<client-name>.key and \<client-name>.cert
 
-`-a, --activate-keys-on-creation"h-0": "`: If set to 'true', newly created keys on the client will be set to an 'active' state
+`-a, --activate-keys-on-creation[=false]`: If set to `true`, newly created keys on the client will be set to an `active` state
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

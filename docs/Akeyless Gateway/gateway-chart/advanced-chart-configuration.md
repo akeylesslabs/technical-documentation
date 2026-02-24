@@ -30,7 +30,7 @@ initialClusterDisplayName:
 
 env:
   - name: CLUSTER_URL
-    value: 'https://<Your-Akeyless-GW-URL:8000>'
+    value: 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ## Encryption Key

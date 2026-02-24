@@ -46,7 +46,7 @@ akeyless generate-ca \
 --allowed-domains example.com \
 --extended-key-usage clientauth \
 --ttl 10d \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 Where:

@@ -419,8 +419,8 @@ Creates a custom webhook-based dynamic secret
 ```shell
 akeyless dynamic-secret create custom \
 --name <Dynamic Secret Name> \
---create-sync-url <'https://example.com/sync/create:Port'> \
---revoke-sync-url <'https://example.com/sync/revoke:Port'> \
+--create-sync-url 'https://example.com/sync/create:Port' \
+--revoke-sync-url 'https://example.com/sync/revoke:Port' \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
