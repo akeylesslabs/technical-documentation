@@ -18,7 +18,7 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
     ![Illustration for: Create an Application 1. In your Azure account, go to App registrations > New registrations.](https://files.readme.io/c9edb74-image-20210902-145138.png)
 
-2. For **Redirect URI**, type select **Web** for **Application type**. Set `https://auth.akeyless.io/oidc/callback` as a value and select **Register**.
+2. For **Redirect URI**, select **Web** for **Application type**. Set `https://auth.akeyless.io/oidc/callback` as the value and select **Register**.
 
     ![Illustration for: 1. In your Azure account, go to App registrations > New registrations. 2. For Redirect URI, type select Web for Application type. Set…](https://files.readme.io/d399957-image-20210902-145556.png)
 
@@ -50,17 +50,17 @@ akeyless auth-method create oidc --name 'my Azure app' --issuer https://{your-is
 
 This can also be done from the Console UI by creating a New OIDC Auth Method and filling in the same required parameters.
 
-Notice the **unique-identifier** must be an available claim, which out of the box might be the "**preferred\_username**" field.
+Notice that **unique-identifier** must be an available claim, which out of the box might be the `preferred_username` field.
 If you wish to use a field such as **email** instead, make sure to first **Add optional claim** under **Token configuration** (in the Azure App), and add the **email** claim.
 
-To log in with SSO to Akeyless with your new Azure AD OIDC Auth Method, login to the Console, browse to Auth Methods, select the newly created OIDC Auth Method, and hit the "**Generate OIDC Bookmark URL**" - this will provide you with the SSO link.
+To log in with SSO to Akeyless using your new Azure AD OIDC Auth Method, log in to the Console, browse to Auth Methods, select the newly created OIDC Auth Method, and click **Generate OIDC Bookmark URL**. This provides the SSO link.
 
 ## Login With OIDC with the CLI
 
-You should configure a new profile with your Access-ID from the previous step and OIDC type (if no profile name is provided the default will be configured):
+Configure a new profile with your Access ID from the previous step and OIDC type (if no profile name is provided, the default will be configured):
 
 ```shell
-akeyless configure --access-id <your access ID > --access-type oidc --profile 'azure-app'
+akeyless configure --access-id <your-access-id> --access-type oidc --profile 'azure-app'
 ```
 
 Now, you can run any Akeyless CLI command and be authenticated with the Azure application:
