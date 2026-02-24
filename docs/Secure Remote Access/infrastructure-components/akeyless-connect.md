@@ -208,13 +208,9 @@ akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -v <via
 
 #### Non-interactive connection to Kubernetes
 
-Linux:
-
-```shell
+```shell Linux
 AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -v <via-sra-bastion-ssh-service> -n "Path To Kubernetes Dynamic Secret" --ssh-extra-args "non-interactive"
 ```
-
-Windows:
-
-```shell
+```shell Windows
+$env:AKEYLESS_PARAM = 'get pods'; .\akeyless.exe connect -t <k8 cluster endpoint> -v <via-sra-bastion-ssh-service> -n "Path To Kubernetes Dynamic Secret" --ssh-extra-args "non-interactive"
 ```

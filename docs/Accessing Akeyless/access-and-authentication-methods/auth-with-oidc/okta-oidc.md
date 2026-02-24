@@ -33,6 +33,7 @@ To use Okta as an IdP to authenticate into the Akeyless Platform by way of OIDC,
     > 📘 Adding ״groups״ claim - Okta side
     >
     > In Okta, add a custom "groups" claim under Authorization Server → Claims, using a filter (For example, regex) and bind it to a custom scope.
+    > In Okta, add a custom "groups" claim under Authorization Server → Claims, using a filter (for example, regex) and bind it to a custom scope.
 
 5. To bind the Okta application with your Akeyless account, create an OIDC Authentication Method using either CLI or UI, as described below.
 
