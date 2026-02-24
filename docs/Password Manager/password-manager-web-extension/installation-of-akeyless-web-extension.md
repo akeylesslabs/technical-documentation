@@ -68,14 +68,14 @@ Experience the transformative power of Akeyless on Microsoft Edge by following t
 
 ## Authentication Methods Support
 
-Once you've installed the Akeyless browser extension. Simply locate the distinctive "K" icon in your browser's toolbar and initiate the login process. To securely access your Akeyless account, you can utilize one of the following authentication methods:
+Once you've installed the Akeyless browser extension. Simply locate the distinctive "K" icon in your browser's toolbar and initiate the login process. To securely access your Akeyless account, you can use one of the following authentication methods:
 
 * Email and Password: Enter your registered email address and password to gain access.
-* Access-ID and Access-Key: Utilize your unique Access-ID and Access-Key combination for secure login.
+* Access-ID and Access-Key: Use your unique Access-ID and Access-Key combination for secure login.
 * SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
 * OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
 * GitHub: Integrate your GitHub account for convenient access.
-* Google: Utilize your Google account for effortless login.
+* Google: Use your Google account for effortless login.
 * Code-ID: Enter the unique code ID provided by your IT administrator. This code serves as your primary identifier and ensures that only authorized individuals can initiate the login process.
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.
     * Configure the [LDAP gateway URL](https://docs.akeyless.io/docs/configure-ldap-gateway-url-1) by way of advanced settings then login with Email option as a login type.

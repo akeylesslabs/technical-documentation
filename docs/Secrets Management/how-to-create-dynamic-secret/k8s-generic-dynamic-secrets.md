@@ -12,7 +12,7 @@ next:
 ---
 ## Introduction
 
-Akeyless allows you to create a wide variety of resources in Kubernetes to utilize Dynamic Secrets, from tokens for existing Kubernetes [Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/) that are used for authentication to completely new ServiceAccounts complete with Roles and RoleBindings.
+Akeyless allows you to create a wide variety of resources in Kubernetes to use Dynamic Secrets, from tokens for existing Kubernetes [Service Accounts](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/) that are used for authentication to completely new ServiceAccounts complete with Roles and RoleBindings.
 
 To know what resources to generate with and supply to Akeyless, you will first need to choose which of the following Service Account modes is best for your purposes:
 

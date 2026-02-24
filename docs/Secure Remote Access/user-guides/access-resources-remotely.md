@@ -35,7 +35,7 @@ Currently the SRA Portal supports the following Authentication Methods:
 
 The portal shows all the [resource types](https://docs.akeyless.io/docs/supported-resource-types) that you are authorized to access
 
-<Image alt="A screenshot of the Akeyless Secure Remote Access product and its portal of available options." border={false} src="https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png" />
+![A screenshot of the Akeyless Secure Remote Access product and its portal of available options.](https://files.readme.io/27339b3-Screenshot_2024-08-11_at_16.12.45.png)
 
 ### Add a Custom Target for SSH or RDP
 
