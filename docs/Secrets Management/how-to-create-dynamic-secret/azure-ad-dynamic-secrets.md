@@ -53,7 +53,7 @@ To create a dynamic Azure AD secret with the CLI using an existing [Azure Target
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --azure-user-portal-access <true|false> \
 --azure-user-programmatic-access <true|false> \
 --azure-app-obj-id <Azure App Object ID> \
@@ -68,7 +68,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --azure-user-portal-access <true|false> \
 --azure-user-programmatic-access <true|false> \
 --azure-app-obj-id <Azure App Object ID> \

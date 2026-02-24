@@ -30,7 +30,7 @@ To create a dynamic Chef Infra secret with the CLI using an existing [Chef Infra
 akeyless dynamic-secret create chef \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --chef-orgs <Chef organizations> \ 
 --password-length 16
 ```
@@ -41,7 +41,7 @@ Or using an inline connection string:
 akeyless dynamic-secret create akeyless dynamic-secret get-value chef \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --chef-orgs <Chef organizations> \
 --chef-server-username <Chef server username> \
 --chef-server-key <Chef server key> \

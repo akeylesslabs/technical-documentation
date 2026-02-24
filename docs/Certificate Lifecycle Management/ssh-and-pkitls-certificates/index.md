@@ -133,7 +133,7 @@ akeyless generate-csr \
 --generate-key \
 --alg <RSA2048> \
 --common-name <mydomain.com> \
---gateway-url <https://Akeyless-Gateway-URL:8000> 
+--gateway-url 'https://Akeyless-Gateway-URL:8000' 
 ```
 
 Where:

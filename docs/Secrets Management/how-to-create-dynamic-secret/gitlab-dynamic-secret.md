@@ -34,7 +34,7 @@ To create a dynamic GitLab secret with the CLI using an existing [GitLab Target]
 akeyless dynamic-secret create gitlab \ 
 --name <Dynamic Secret Name>
 --target-name <Target Name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gitlab-access-type <project| group> \
 --project-name <Project Name> \                           
 --group-name <Group Name> \  
@@ -47,7 +47,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create gitlab \ 
 --name <Dynamic Secret Name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gitlab-access-type <project | group> \
 --project-name <Project Name> \                           
 --group-name <Group Name> \  

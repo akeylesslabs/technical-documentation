@@ -21,7 +21,7 @@ To create a Rotated Windows Secret using the Akeyless CLI, run the following com
 ```shell
 akeyless rotated-secret create windows \
 --name <Rotated Secretsecret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <Windows target name to associate> \
 --authentication-credentials <use-target-creds> \
 --password-length 16 \

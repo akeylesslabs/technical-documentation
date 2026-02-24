@@ -30,7 +30,7 @@ To create a dynamic Snowflake secret with the CLI using the existing [Snowflake 
 akeyless dynamic-secret create snowflake \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \ 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \ 
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --password-length 16
@@ -41,7 +41,7 @@ Or using an inline connection strings/RSA private key:
 ```shell Inline Login
 akeyless dynamic-secret create snowflake \
 --name <Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --account <Snowflake account name> \
@@ -52,7 +52,7 @@ akeyless dynamic-secret create snowflake \
 ```shell RSA Private Key Login
 akeyless dynamic-secret create akeyless dynamic-secret get-valuesnowflake \
 --name <Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --snowflake-api-private-key RSA Private key (base64-encoded)\

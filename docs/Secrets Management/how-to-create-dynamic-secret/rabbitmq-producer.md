@@ -34,7 +34,7 @@ To create a dynamic RabbitMQ secret with the CLI using an existing [RabbitMQ Tar
 akeyless dynamic-secret create rabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rabbitmq-user-conf-permission <User configuration permission> \
 --rabbitmq-user-write-permission <User write permission> \
 --rabbitmq-user-read-permission <User read permission> \
@@ -47,7 +47,7 @@ Or using an inline connection string:
 akeyless dynamic-secret create akeyless dynamic-secret get-valuerabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rabbitmq-user-conf-permission <User configuration permission> \
 --rabbitmq-user-write-permission <User write permission> \
 --rabbitmq-user-read-permission <User read permission> \

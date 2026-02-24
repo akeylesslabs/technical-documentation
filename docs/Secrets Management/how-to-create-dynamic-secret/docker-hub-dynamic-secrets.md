@@ -30,7 +30,7 @@ To create a dynamic Docker Hub secret with the CLI using an existing [Docker Hub
 akeyless dynamic-secret create dockerhub \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read'
 ```
 
@@ -39,7 +39,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create akeyless dynamic-secret get-valuedockerhub \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read' \      
 --dockerhub-username <Username for docker repository> \
 --dockerhub-password <Password for docker repository>

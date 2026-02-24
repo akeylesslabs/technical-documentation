@@ -89,7 +89,7 @@ To create a dynamic AWS secret with the CLI using an existing [AWS Target](https
 akeyless dynamic-secret create aws \
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --aws-access-mode <iam_user|assumed_role> \
 --aws-user-policies <Policy ARN> \
 --aws-user-groups <UserGroup name> \
@@ -101,7 +101,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create aws \
 --name <secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --aws-access-mode <iam_user|assumed_role> \
 --aws-user-policies <Policy ARN> \
 --aws-user-groups <UserGroup name> \

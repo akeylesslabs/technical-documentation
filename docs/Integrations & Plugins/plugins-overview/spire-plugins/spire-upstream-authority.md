@@ -85,7 +85,7 @@ akeyless create-classic-key \
 --name <Key Name> \
 --alg <RSA2048 / RSA4096 / EC256 / EC384> \
 --generate-self-signed-certificate <True> \
---gateway-url <http://<Your-Akeyless-GW-URL>:8000> \
+--gateway-url 'http://<Your-Akeyless-GW-URL>:8000' \
 --certificate-ttl <TTL>
 ```
 

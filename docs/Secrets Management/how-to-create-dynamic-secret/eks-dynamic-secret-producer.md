@@ -53,7 +53,7 @@ To create an Amazon EKS Dynamic Secret with the CLI using an existing [Target](h
 akeyless dynamic-secret create eks \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --eks-assume-role <Role ARN>
 ```
 
@@ -62,7 +62,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create akeyless dynamic-secret get-valueeks \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --eks-assume-role <Role ARN> \
 --eks-access-key-id <IAM user Access Key ID> \
 --eks-secret-access-key <IAM user secret Access Key> \
