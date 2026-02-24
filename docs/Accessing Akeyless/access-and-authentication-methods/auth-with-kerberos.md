@@ -160,7 +160,7 @@ akeyless auth-method create kerberos \
 --group-dn CN=Users,DC=TEST,DC=COM \
 --group-filter (sAMAccountName={{.Username}}) \      
 --group-attr memberOf \
---gateway-url '<https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --unique-identifier sAMAccountName 
 ```
 
@@ -202,7 +202,7 @@ akeyless auth \
 --access-type=kerberos \
 --krb5conf-file-path /path/to/krb5.conf \
 --keytab-file-path /path/to/keytab \
---gateway-url '<https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 Running this command will authenticate the user specified in the `keytab` file to Akeyless using **Kerberos**

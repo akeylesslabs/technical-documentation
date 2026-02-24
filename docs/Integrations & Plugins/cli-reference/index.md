@@ -49,7 +49,7 @@ akeyless configure
 
 `--oidc-sp`: OIDC Service Provider (relevant only for `access-type=oidc`, inferred if empty), supported SPs: google, github
 
-`--azure_ad_object_id`: Azure Active Directory ObjectId (relevant only for access-type=azure_ad)
+`--azure-ad-object-id`: Azure Active Directory ObjectId (relevant only for access-type=azure_ad)
 
 `--gcp-audience`: GCP audience to use in signed JWT (relevant only for access-type=gcp)
 
@@ -83,7 +83,7 @@ akeyless delete-item -n <Item name>
 
 `--version[=-1]`: The specific version you want to delete - 0=last version, -1=entire item with all versions (default)
 
-`--delete-in-days "day`: The number of days to wait before deleting the item (relevant for keys only)
+`--delete-in-days`: The number of days to wait before deleting the item (relevant for keys only)
 
 `--delete-immediately[=false]`: When delete-in-days=-1, must be set
 
@@ -183,7 +183,7 @@ List of all Secure Remote Access (SRA) Bastions in the account
 
 #### Flags
 
-`--only-allowed-urls[=false]`: Filter the response to show only bastions allowed URLs
+`--allowed-urls-only[=false]`: Filter the response to show only bastions allowed URLs
 
 ### `Move-objects`
 
@@ -201,13 +201,13 @@ akeyless move-objects --source <Source path to move the objects from> \
 
 `-s, --source`: Required, Source path to move the objects from
 
-`--t, --target`: Required, Target path to move the objects to
+`-t, --target`: Required, Target path to move the objects to
 
 `-o, --objects-type[=item]`: The objects type to move (item/auth_method/role)
 
 ### `Set-item-state`
 
-Set Dynamic Secret item's state (Enabled, Disabled)
+Set an item's state (Enabled, Disabled)
 
 #### Usage
 
@@ -361,83 +361,91 @@ akeyless update-item --name <Item name> \
 
 #### Flags
 
-block:Flags]
-
 `-n, --name`: Required, Current item name
 
 `--new-name`: New item name
 
 `--description[=default_metadata]`: Description of the object
 
-`--add-tag`: List of the new tags that will be attached to this item. To specify multiple tags use argument multiple times: `--add-tag Tag1 --add-tag Tag2`
+`--add-tag`: List of new tags to attach to this item. To specify multiple tags, repeat the flag: `--add-tag Tag1 --add-tag Tag2`
 
-`--rm-tag`: List of the existent tags that will be removed from this item. To specify multiple tags use argument multiple times: `--rm-tag Tag1 --rm-tag Tag2`
+`--rm-tag`: List of existing tags to remove from this item. To specify multiple tags, repeat the flag: `--rm-tag Tag1 --rm-tag Tag2`
 
-`--secure-access-enable`: Enable/Disable Secure Remote Access, "0-1": "__(M
+`--max-versions`: Set the maximum number of versions, limited by account settings defaults
 
-`--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
+`--secure-access-enable`: Enable or disable Secure Remote Access [`true`/`false`]
 
-`--secure-access-bastion-api`: Bastion's SSH control API endpoint. For example, `my.bastion:9900` (relevant only for SSH cert issuer)
+`--secure-access-certificate-issuer`: Path to the SSH Certificate Issuer for Akeyless Secure Access
 
-`--secure-access-bastion-ssh`: Bastion's SSH server. For example, `my.bastion:22` (relevant only for SSH cert issuer)
+`--secure-access-api`: Secure Access SSH control API endpoint, for example `https://my.sra-server:9900` (relevant only for SSH cert issuer)
 
-`--secure-access-ssh-creds-user`: SSH username to connect to target server, must be in 'Allowed Users' list (relevant only for SSH cert issuer)
+`--secure-access-ssh`: Secure Access SSH server, for example `my.sra-server:22` (relevant only for SSH cert issuer)
 
-`--secure-access-use-internal-bastion`: Use internal SSH Bastion
+`--secure-access-ssh-creds-user`: SSH username used to connect to target server, and must be in the allowed users list (relevant only for SSH cert issuer)
 
-`--secure-access-ssh-creds`: Secret values contains SSH Credentials, either Private Key or Password em name\ "h-0": " (relevant only for Static-Secret or Rotated-secret)
+`--secure-access-use-internal-ssh-access`: Use internal SSH access
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag
+`--secure-access-ssh-creds`: Secret values that contain SSH credentials, either private key or password [`password`/`private-key`] (relevant only for Static Secret or Rotated Secret)
 
-`--secure-access-add-host`: List of the new hosts that will be attached to SRA servers host. To specify multiple tags use argument multiple times: `--secure-access-add-host` host1 `--secure-access-add-host` host2
+`--secure-access-host`: Target servers for connections. To specify multiple hosts, repeat this flag
 
-`--secure-access-rm-host`: List of the existent hosts that will be removed from SRA servers host. To specify multiple tags use argument multiple times: `--secure-access-rm-host` host1 `--secure-access-rm-host` host2
+`--secure-access-add-host`: List of new hosts to attach to SRA servers host. To specify multiple hosts, repeat the flag: `--secure-access-add-host host1 --secure-access-add-host host2`
+
+`--secure-access-rm-host`: List of existing hosts to remove from SRA servers host. To specify multiple hosts, repeat the flag: `--secure-access-rm-host host1 --secure-access-rm-host host2`
 
 `--secure-access-url`: Destination URL to inject secrets
 
-`--secure-access-web-browsing`: Secure browser by way of Akeyless Web Access Bastion
+`--secure-access-web-browsing[=false]`: Secure browser via Akeyless Secure Remote Access (SRA)
 
-`--secure-access-web-proxy`: Web-Proxy by way of Akeyless Web Access Bastion
+`--secure-access-web-proxy[=false]`: Web proxy via Akeyless Secure Remote Access (SRA)
 
-`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)
+`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic Secret)
 
-`--secure-access-rdp-user`: Override the RDP Domain username
+`--secure-access-rdp-user`: Override the RDP domain username
 
-`--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret)
+`--secure-access-rd-gateway-server`: RD Gateway server (relevant only for RDP)
 
-`--secure-access-rdp-user`: Override the RDP Domain username
+`--secure-access-allow-external-user`: Allow providing an external user for domain users [`true`/`false`]
 
-`--secure-access-allow-external-user`: Allow providing external user for a domain users (Mandatory)__
+`--secure-access-db-schema`: DB schema (relevant only for DB Dynamic Secret)
 
-`--secure-access-db-schema`: The DB schema (relevant only for DB Dynamic-Secret)
+`--secure-access-db-name`: DB name (relevant only for DB)
 
-`--secure-access-db-name`: "The DB name (relevant only for DB Dynamic-Secret)
+`--secure-access-aws-account-id`: AWS account ID (relevant only for AWS)
 
-`--secure-access-aws-account-id`: The AWS account ID (relevant only for AWS Dynamic-Secret)
+`--secure-access-aws-region`: AWS region (relevant only for AWS)
 
-`--secure-access-aws-region`: The AWS region (relevant only for AWS Dynamic-Secret)
+`--secure-access-aws-native-cli`: AWS native CLI (relevant only for AWS)
 
-`--secure-access-aws-native-cli`: The AWS native CLI (relevant only for AWS Dynamic-Secret)
+`--secure-access-cluster-endpoint`: Kubernetes cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic Secret)
 
-`--secure-access-cluster-endpoint`: The Kubernetes cluster endpoint URL (relevant only for EKS/GKE/K8s Dynamic-Secret)
+`--secure-access-dashboard-url`: Kubernetes dashboard URL (relevant only for Kubernetes)
 
-`--secure-access-dashboard-url`: The Kubernetes dashboard URL (relevant only for Kubernetes Dynamic-Secret)
+`--secure-access-allow-port-forwading`: Enable port forwarding when using CLI access (relevant only for EKS/GKE/K8s Dynamic Secret)
 
-`--secure-access-allow-port-forwading`: Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+`--host-provider`: Host provider type [`explicit`/`target`] (relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret, and LDAP dynamic secret)
 
-`--rotate-after-disconnect[=false]`: Rotate the value of the secret after SRA session ends (Mandatory) (relevant only for Rotated-secret on SRA)
+`--secure-access-gateway`: Defines which Gateway (Gateway URL) is related to a secret item
 
-`--behaviordelete-protection`: Protection from accidental deletion of this item
+`--rotate-after-disconnect[=false]`: Rotate the secret value after an SRA session ends [`true`/`false`]
 
-`--change-event`: Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret)
+`--change-event`: Trigger an event when a secret value changes [`true`/`false`] (relevant only for Static Secret)
 
-`-c, --cert-file-path`: Path to a file that contain the certificate in a PEM format. Used for updating RSA keys' certificates
+`-e, --expiration-event-in`: Number of days before certificate expiration to notify. To specify multiple events, repeat the flag: `--expiration-event-in 1 --expiration-event-in 5`
 
-`--cert-file-data`: PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.
+`-c, --cert-file-path`: Path to a file containing the certificate in PEM format. Used for updating RSA keys certificates
 
-`--certificate-format`: The format of the returned certificate [`pem`/`der`]
+`--cert-file-data`: PEM certificate in Base64 format. Used for updating RSA keys certificates
 
-`--accessibility \"data\":` In case of an item in a user's personal folder
+`--certificate-format`: Format of the returned certificate [`pem`/`der`]
+
+`--item-custom-fields`: Additional custom fields to associate with the item. To specify multiple fields, repeat the flag: `--item-custom-fields field1=value1 --item-custom-fields field2=value2`
+
+`--gcp-sm-regions`: GCP Secret Manager regions for regional secrets (comma-separated). USC with GCP targets only
+
+`--accessibility[=regular]`: In case of an item in a user's personal folder [`regular`/`personal`]
+
+`--delete-protection`: Protection from accidental deletion of this object [`true`/`false`]
 
 ### `Folder Management`
 

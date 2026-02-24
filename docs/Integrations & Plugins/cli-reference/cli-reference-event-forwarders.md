@@ -30,7 +30,7 @@ Create a new Email Event Forwarder
 akeyless event-forwarder create email \
 --name <Event Forwarder name> \
 --email-to <comma separated email addresses> \
---gateway-url <'https://<Your-Akeyless-GW-URL>:8000'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
@@ -80,7 +80,7 @@ Create a new Service Now Event Forwarder
 ```shell
 akeyless event-forwarder create servicenow \
 --name <Event Forwarder name> \
---gateway-url <'https://<Your-Akeyless-GW-URL>:8000'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --host <Workstation Host> \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
@@ -141,7 +141,7 @@ Create a new Slack Event Forwarder
 akeyless event-forwarder create slack \
 --name <Event Forwarder name> \
 --url <Slack Webhook URL> \
---gateway-url <'https://<Your-Akeyless-GW-URL>:8000'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
@@ -187,7 +187,7 @@ Create a new Webhook Event Forwarder
 akeyless event-forwarder create webhook \
 --name <Event Forwarder name> \
 --url <Webhook URL> \
---gateway-url <'https://<Your-Akeyless-GW-URL>:8000'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
@@ -253,7 +253,7 @@ Create a new teams Event Forwarder
 akeyless event-forwarder create teams \
 --name <Event Forwarder name> \
 --url <Teams Webhook URL> \
---gateway-url <'https://<Your-Akeyless-GW-URL>:8000'> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
