@@ -2362,7 +2362,7 @@ akeyless rotated-secret get-value \
 
 ```shell
 akeyless rotated-secret list \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ## Synchronization

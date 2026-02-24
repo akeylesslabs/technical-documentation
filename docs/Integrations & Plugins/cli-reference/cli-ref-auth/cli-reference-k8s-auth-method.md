@@ -74,7 +74,7 @@ Creates Kubernetes Auth config on Gateway
 akeyless gateway-create-k8s-auth-config \
 --name <k8s-conf name> \
 --access-id <Access_ID> \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --signing-key <Private_Key> \
 --k8s-host https://Your-K8s-Cluster-IP:8443 \
 --token-reviewer-jwt <SA_JWT_TOKEN> \
@@ -95,7 +95,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf-rancher \
 ```
 ```shell Gateway Service Account
 akeyless gateway-create-k8s-auth-config --name k8s-conf \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --access-id <Access_ID> \
 --signing-key <Private_Key> \
 --use-gw-service-account
@@ -262,7 +262,7 @@ Gets Gateway Kubernetes Auth config
 ```shell
 akeyless gateway-get-k8s-auth-config \
 --name <Kubernetes Auth config name> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ### Flags
@@ -279,7 +279,7 @@ Deletes Kubernetes Auth config
 ```shell
 akeyless gateway-delete-k8s-auth-config \
 --name <Auth config name> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ### Flags

@@ -153,7 +153,7 @@ Create a client key using a Certificate Signing Request (CSR):
 ```shell
 ֿexport USER_NAME="token-request-user" ;
 export GROUP="Akeyless-dynamic-secret";
-export GATEWAY_URL="https://<Your_Akeyless_GW_URL>:8000>";
+export GATEWAY_URL="https://<Your_Akeyless_GW_URL>:8000";
 K8S_CSR=$(akeyless generate-csr -n /k8s/Clustername/csr/$USER_NAME --generate-key --alg RSA2048 --common-name $USER_NAME --gateway-url $GATEWAY_URL --org $GROUP --json --jq-expression ".data"| base64 | tr -d "\n")
 USER_KEY=$(akeyless export-classic-key -n /k8s/Clustername/csr/$USER_NAME --jq-expression ".key" | base64)
 ```

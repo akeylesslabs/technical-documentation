@@ -100,7 +100,7 @@ akeyless gateway-update-allowed-access \
 --name <Allowed Access Name> \
 --access-id <Access-ID> \
 --new-name <New allowed access name> \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --description <Allowed Access description> \
 --sub-claims <key/val of sub claims> \
 --permissions <permissions for this allowed access> 

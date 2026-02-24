@@ -95,7 +95,7 @@ Create an Encryption Key in Akeyless, using supported algorithms:
 Both [DFC](https://docs.akeyless.io/docs/encryption-keys)and [Classic key](https://docs.akeyless.io/docs/classic-keys) are supported.
 
 ```shell
-akeyless create-classic-key -n Cosign -a RSA2048 --gateway-url https://<Your-Gateway-URL>:8000>
+akeyless create-classic-key -n Cosign -a RSA2048 --gateway-url https://<Your-Gateway-URL>:8000
 ```
 
 ## Importing the Image
