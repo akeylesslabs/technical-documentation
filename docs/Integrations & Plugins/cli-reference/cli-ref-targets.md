@@ -1812,7 +1812,7 @@ Creates a new GoDaddy target
 ##### Usage
 
 ```shell
-akeyless target update-godaddy-target \
+akeyless target update godaddy \
 --name <Target name> \
 --new-name <New target name> \
 --api-key <API Key> \
@@ -2320,7 +2320,7 @@ Update an existing ZeroSSL Target in the current account
 ##### Usage
 
 ```shell
-akeyless target update-zerossl-target \
+akeyless target update zerossl \
 --name <Target Name> \
 --api-key <API Key of the ZeroSSLTarget account> \
 --imap-username <Username to access the IMAP service> \
