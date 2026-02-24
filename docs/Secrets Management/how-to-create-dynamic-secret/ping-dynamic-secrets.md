@@ -51,7 +51,7 @@ To create a Ping Dynamic Secret without using an existing target, amend the comm
 ```shell
 akeyless dynamic-secret create ping \
 --name <Producer Name> \
---gateway-url 'https://<Your_Akeyless_GW_URL:8000' \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
 --ping-url 'https://my-pf-server.com' \
 --ping-privileged-user <Username> \
 --ping-password <Password>\

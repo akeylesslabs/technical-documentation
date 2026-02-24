@@ -594,7 +594,7 @@ Creates a new HashiCorp Vault target
 ```shell
 akeyless target create hashi-vault \
 --name <Target name> \
---hashi-url 'https://<your-vault-api-url:8200>' \
+--hashi-url 'https://<your-vault-api-url>:8200>' \
 --vault-token <Access Token> \
 --namespace <Namespace Name>
 ```
@@ -1860,7 +1860,7 @@ Updates a new HashiCorp Vault target
 akeyless target update hashi-vault \
 --name <Target name> \
 --new-name <New Target Name>
---hashi-url 'https://<your-vault-api-url:8200>' \
+--hashi-url 'https://<your-vault-api-url>:8200>' \
 --vault-token <Access Token> \
 --namespace <Namespace Name>
 ```

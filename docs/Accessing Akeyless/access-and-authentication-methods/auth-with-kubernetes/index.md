@@ -98,7 +98,7 @@ Use the Akeyless CLI to create the Kubernetes auth config:
 
 ```shell
 akeyless gateway-create-k8s-auth-config --name k8s-conf \
---gateway-url <https://Your-Akeyless-GW-URL>:8000 \
+--gateway-url 'https://Your-Akeyless-GW-URL:8000' \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
 --use-gw-service-account

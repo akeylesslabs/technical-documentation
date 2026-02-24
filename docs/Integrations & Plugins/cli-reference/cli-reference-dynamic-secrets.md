@@ -1286,7 +1286,7 @@ akeyless dynamic-secret create ping \
 akeyless dynamic-secret create ping \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---ping-url <https://my-pf-server.com> \
+--ping-url 'https://my-pf-server.com' \
 --ping-privileged-user <Username> \
 --ping-password <Password> \
 --ping-client-uthentication-type CLIENT_SECRET \

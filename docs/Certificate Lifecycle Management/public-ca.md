@@ -29,7 +29,7 @@ Run the following command to create a PKI Certificate Issuer with a Public CA Ta
 akeyless create-pki-cert-issuer \ 
 --name <PKI Issuer name> \
 --ca-target <Path/To/Target> \
---gw-cluster-url https://<Your-Gateway-URL:8000> \
+--gw-cluster-url https://<Your-Gateway-URL>:8000> \
 --ttl <7776000> \
 --allowed-domains <domain1.com,domain2.com> \
 --destination-path </Certificate/Storage/Folder> \

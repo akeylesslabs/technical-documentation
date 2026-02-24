@@ -19,7 +19,7 @@ To create an **HashiCorp Vault** target with the CLI, run the following command:
 ```shell
 akeyless target create hashi-vault \
 --name <target name> \
---hashi-url 'https://<your-vault-api-url:8200>' \
+--hashi-url 'https://<your-vault-api-url>:8200>' \
 --vault-token <Access Token> \
 --namespace <Namespace Name>
 ```
