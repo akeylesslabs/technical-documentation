@@ -14,7 +14,7 @@ next:
 ---
 This page discusses creating and using an email-based Authentication Method in Akeyless.
 
-Email Authentication allows human users to authenticate directly to the Akeyless Console using their email address and password. It is typically used for standalone accounts, administrators, or environments where SAML or OIDC federation is not required.
+Email authentication allows human users to authenticate directly to the Akeyless Console using their email address and password. It is typically used for standalone accounts, administrators, or environments where SAML or OIDC federation is not required.
 
 Email authentication is intended for **interactive human access** and is not recommended for machine or workload authentication.
 
