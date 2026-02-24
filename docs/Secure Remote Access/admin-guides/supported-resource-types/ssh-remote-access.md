@@ -204,4 +204,4 @@ To download a file:
 
 > 🚧 File size and free space
 >
-> In case there is a size limit issue on the SRA SSH server, (exceeding over 90% of space) a file will be created in the `akl-downloads` folder saying `NOT_ENOUGH_FREE_SPACE` and the user won't be able to download it.
+> If there is a size limit issue on the SRA SSH server (exceeding 90% of space), a file named `NOT_ENOUGH_FREE_SPACE` is created in the `akl-downloads` folder, and the user will not be able to download it.

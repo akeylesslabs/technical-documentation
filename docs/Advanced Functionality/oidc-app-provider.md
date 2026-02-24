@@ -19,9 +19,9 @@ To create an OIDC Application with the CLI, run the following command:
 ```shell
 akeyless create-oidc-app \
 --name <New OIDC App Name> \
---redirect-uris '<Comma Separated List of Allowed Redirect URIs>' \
---scopes '<Comma Separated List of Granted Scopes/Claims>' \
---audience '<Comma Separated List of Allowed Audiences>' \
+--redirect-uris '<comma-separated list of allowed redirect URIs>' \
+--scopes '<comma-separated list of granted scopes/claims>' \
+--audience '<comma-separated list of allowed audiences>' \
 --access-permission-assignment '[{"access_id":"<Akeyless Access ID>", "sub_claims":{"email":["user@example.com"]}}]'
 ```
 
@@ -136,9 +136,9 @@ Use the following command to update an OIDC App:
 ```shell
 akeyless update-oidc-app \
 --name <OIDC App Name> \
---redirect-uris '<Comma Separated List of Allowed Redirect URIs>' \
---scopes '<Comma Separated List of Granted Scopes/Claims>' \
---audience '<Comma Separated List of Allowed Audiences>' \
+--redirect-uris '<comma-separated list of allowed redirect URIs>' \
+--scopes '<comma-separated list of granted scopes/claims>' \
+--audience '<comma-separated list of allowed audiences>' \
 --access-permission-assignment '[{"access_id":"<Akeyless Access ID>", "sub_claims":{"email":["user@example.com"]}}]'
 ```
 
