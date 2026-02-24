@@ -10,9 +10,7 @@ metadata:
 next:
   description: ''
 ---
-<Callout icon="📘" theme="info">
-  **Note:** Venafi recently became CyberArk Machine Identity Security.
-</Callout>
+> **Note:** Venafi recently became CyberArk Machine Identity Security.
 
 To work with Venafi TPP, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
 

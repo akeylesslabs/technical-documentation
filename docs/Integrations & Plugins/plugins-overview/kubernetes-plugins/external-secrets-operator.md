@@ -192,9 +192,7 @@ stringData:
 
 This Secret is suitable when using Azure AD Managed Identity with sub-claim enforcement.
 
-<Callout icon="📘" theme="info">
-  ESO does not implement Azure Workload Identity flows internally. When `accessType: azure_ad` is used, ESO relies entirely on the Azure AD token available in the pod’s environment. This is typically projected by way of AKS Workload Identity. Therefore, the identity ESO uses depends on the `ServiceAccount` the `ExternalSecret` runs under, not on the `SecretStore`.
-</Callout>
+> **Note:** ESO does not implement Azure Workload Identity flows internally. When `accessType: azure_ad` is used, ESO relies entirely on the Azure AD token available in the pod’s environment. This is typically projected by way of AKS Workload Identity. Therefore, the identity ESO uses depends on the `ServiceAccount` the `ExternalSecret` runs under, not on the `SecretStore`.
 
 ### `SecretStore`: Namespaced Secret Provider
 

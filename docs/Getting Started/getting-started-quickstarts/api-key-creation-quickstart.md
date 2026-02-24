@@ -64,10 +64,8 @@ After the API Key is created:
 
 Store these values securely.
 
-<Callout icon="⚠️" theme="warning">
-  The **Access Key** is shown only once.  
-  If you lose it, you must create a new API Key.
-</Callout>
+> **Warning:** The **Access Key** is shown only once.
+> If you lose it, you must create a new API Key.
 
 ## Step 6: Assign Permissions
 
@@ -80,9 +78,7 @@ The API Key must be associated with **Roles** to control what it can access.
 5. In the **Auth Method** drop-down menu, select `/My API Key`.
 6. Select **Save**.
 
-<Callout icon="📘" theme="info">
-  The `/` added in this drop-down menu indicates that `My API Key` was created at the root of the Items directory in your Akeyless account. You can create subdirectories to organize your Items.
-</Callout>
+> **Note:** The `/` added in this drop-down menu indicates that `My API Key` was created at the root of the Items directory in your Akeyless account. You can create subdirectories to organize your Items.
 
 You can associate `My API Key` with a custom role later if desired.
 

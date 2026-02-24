@@ -30,7 +30,7 @@ Connections on the local machine made to the forwarded port will, in effect, con
 
 ```shell Tunnel usage
 akeyless connect --target <user>@<targetserver> \
---by way of-sra sra-host:port\
+--via-sra sra-host:port\
 --tunnel='-L 127.0.0.1:<port>:<targetserver>:<port>' \
 --cert-issuer-name "<Path/To/SSHCertIssuer>" \
 --name "</Path/To/Secret>" \
@@ -41,8 +41,8 @@ Where:
 
 * `target`: The target resource, for example, `user@ssh-server[:port]`, `us-east-2`, and `mysql-server:3306`
 
-* `--by way of-sra`: SRA host, which the connection will go through. For example: sra-host:port\`.
-    * NOTE - With unified Gateway, you should be using `-g <your-gateway-ip[:port]>`instead of `--by way of-sra`
+* `--via-sra`: SRA host, which the connection will go through. For example: `sra-host:port`.
+    * NOTE - With unified Gateway, use `-g <your-gateway-ip[:port]>` instead of `--via-sra`.
 
 * `tunnel`: SSH tunnel setting, for example, `-T='-L 127.0.0.1:<port>:127.0.0.1:<port>'`
 
@@ -60,7 +60,7 @@ To connect to a remote desktop server by way of the Akeyless SRA server from you
 
 ```shell
 akeyless connect -t <RDP User>@<RDP Host> \
---by way of-sra: sra-host:port [for example, 2222] \
+--via-sra sra-host:port [for example, 2222] \
 --tunnel='-L 127.0.0.1:3389:<RDP Host>:3389'\
 -c "<Path/To/SSHCertIssuer>" \
 -n "/Path/To/RDP/Dynamic/Secret"
@@ -100,7 +100,7 @@ Then, use the following command to create the tunnel using the same port number 
 akeyless connect -t <k8s.server.host> \
  -n "/Path/To/K8s/Dynamic/Secret" \
  -c "/Path/To/SSHCertIssuer" \
- --by way of-sra: sra-host:port [for example, 2222] \
+ --via-sra sra-host:port [for example, 2222] \
  --bastion-ctrl-proto=https \
  --k8s-tunnel 2345
 ```
@@ -145,7 +145,7 @@ To work with your native SSH tools, you can run a local tunnel on your host:
 
 ```shell
 akeyless connect -t <user>@<targetServer> \
- --by way of-sra: sra-host:port [for example, 2222] \
+ --via-sra sra-host:port [for example, 2222] \
 --tunnel='-L 127.0.0.1:<localPort>:<targetServer>:<targetPort>'
 ```
 

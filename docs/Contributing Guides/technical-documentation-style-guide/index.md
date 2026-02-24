@@ -5,13 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-<Callout icon="🚧" theme="warn">
-  Work In Progress
-</Callout>
-
-<Callout icon="❗️" theme="error">
-  This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
-</Callout>
+> **Warning:** This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
 
 ## Purpose
 

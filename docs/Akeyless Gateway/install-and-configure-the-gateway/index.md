@@ -21,9 +21,7 @@ next:
 
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
 
-<Callout icon="👍" theme="okay">
-  __Note:_ The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Using the account owner's email and password which has superuser privileges on the account._
-</Callout>
+> **Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), using the account owner's email and password with superuser privileges on the account.
 
 * A Linux or a Windows machine with [Docker Engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2 GB RAM.
 
@@ -53,9 +51,7 @@ After executing the above command, a new container named `akeyless-gateway` shou
 
 To upgrade your current Gateway version, simply restart the container using the `docker restart <container name>` command.
 
-<Callout icon="📘" theme="info">
-  _**Info:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in will become the admin user on this Gateway._
-</Callout>
+> **Note:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
 
 For further installation options, visit the [Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
 

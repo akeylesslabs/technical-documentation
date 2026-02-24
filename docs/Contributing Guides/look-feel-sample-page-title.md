@@ -27,7 +27,7 @@ We skip Heading 1.
 
 ###### Heading 6
 
-Basic text. **Bolded text.** _Italicized text._ `Inline code.` <Anchor label="Link." target="_blank" href="https://www.example.com">Link.</Anchor> ~~Strikethrough.~~
+Basic text. **Bolded text.** _Italicized text._ `Inline code.` [Link.](https://www.example.com) ~~Strikethrough.~~
 
 Image: ![Image Alt Text](https://files.readme.io/56f25792543c2effd77045921c098e39aa3917e410c6945a72aefc95bfabd003-Certificate.svg)
 
@@ -147,11 +147,7 @@ Tabs:
   </Tab>
 </Tabs>
 
-Callout:
-
-<Callout icon="❗️" theme="error">
-  Callout text.
-</Callout>
+Callouts: don't use them. They're proprietary to ReadMe.com.
 
 Recipe (use these for complicated codeblock walkthroughs:
 
