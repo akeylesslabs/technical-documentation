@@ -109,7 +109,7 @@ exit 0
 Click “Apply” and “Save”.
 Click “Build Now” and expect to see the following Console Output:
 
-![Illustration for: The Key name should be set to data and the Path is secret/data/DevOps/Jenkins. In case the secret value itself is a JSON-structured object, the Path must be in the…](https://files.readme.io/6f82e9a-Screenshot_at_Feb_24_18-18-31.png)
+![Illustration for: The Key name should be set to data and the Path is secret/data/DevOps/Jenkins. If the secret value itself is a JSON-structured object, the Path must be in the…](https://files.readme.io/6f82e9a-Screenshot_at_Feb_24_18-18-31.png)
 
 ### Static Secrets
 

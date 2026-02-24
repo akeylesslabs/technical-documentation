@@ -15,7 +15,7 @@ When a certificate is found, Akeyless automatically creates a corresponding cert
 
 ## Running a Certificate Discovery with the CLI
 
-In order to run a certificate discovery using the CLI, run the following command:
+To run a certificate discovery using the CLI, run the following command:
 
 ```shell
 akeyless certificate-discovery \

@@ -299,7 +299,7 @@ akeyless rotated-secret create custom \
 
 `--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -514,7 +514,7 @@ akeyless rotated-secret create ldap \
 
 `--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--target`: A list of linked targets to be associated, Relevant only for **Secure Remote Access** for **SSH cert issuer** and **LDAP rotated secret**, To specify multiple targets use argument multiple times
 
@@ -568,7 +568,7 @@ akeyless rotated-secret create mongodb \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -626,7 +626,7 @@ akeyless rotated-secret create mssql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -686,7 +686,7 @@ akeyless rotated-secret create mysql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -786,7 +786,7 @@ akeyless rotated-secret create oracledb \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -842,7 +842,7 @@ akeyless rotated-secret create postgresql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -948,7 +948,7 @@ akeyless rotated-secret create redshift \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1112,7 +1112,7 @@ akeyless rotated-secret create ssh \
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1174,7 +1174,7 @@ akeyless rotated-secret create windows \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1456,7 +1456,7 @@ akeyless rotated-secret update custom \
 
 `--secure-access-web-proxy[=false]`: Web-Proxy by way of Akeyless Web Access Bastion
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -1672,7 +1672,7 @@ akeyless rotated-secret update ldap \
 
 `--host-provider[=explicit]`: Host provider type [`explicit`/`target`], Relevant only for **Secure Remote Access** of **SSH cert issuer** and **LDAP rotated secret**
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--target`: A list of linked targets to be associated, Relevant only for **Secure Remote Access** for **SSH cert issuer** and **LDAP rotated secret**, To specify multiple targets use argument multiple times
 
@@ -1725,7 +1725,7 @@ akeyless rotated-secret update mongodb \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1782,7 +1782,7 @@ akeyless rotated-secret update mssql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1839,7 +1839,7 @@ akeyless rotated-secret update mysql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1935,7 +1935,7 @@ akeyless rotated-secret update oracledb \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -1992,7 +1992,7 @@ akeyless rotated-secret update postgresql \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -2096,7 +2096,7 @@ akeyless rotated-secret update redshift \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-db-name`: The DB name (relevant only for DB)
 
@@ -2261,7 +2261,7 @@ akeyless rotated-secret update ssh \
 
 `--secure-access-bastion-issuer`: Path to the **SSH Certificate Issuer** for your **Akeyless Bastion**
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
@@ -2322,7 +2322,7 @@ akeyless rotated-secret update windows \
 
 `--rotate-after-disconnect[=false]`: Rotate the value of the secret after the SRA session ends [`true`/`false`]
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for **Dynamic Secrets**/**producers**)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for **Dynamic Secrets**/**producers**)
 
 `--secure-access-rdp-domain`: Required when the Dynamic Secret is used for a domain user
 
