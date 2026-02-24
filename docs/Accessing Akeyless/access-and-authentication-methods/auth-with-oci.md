@@ -53,7 +53,7 @@ Where:
 
 * `group-ocid`: An OCI group ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one group ID by repeating this parameter.)
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-ref-auth).
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-ref-auth#create).
 
 ## Configure Akeyless CLI With the OCI IAM Authentication Method
 
