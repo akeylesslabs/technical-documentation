@@ -192,7 +192,7 @@ Where:
 
 * `unique-identifier`: A unique identifier (ID) value which is a sub-claim name that contains details uniquely identifying that resource. This sub-claim is used to distinguish between different identities
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-reference-kerberos)
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-reference-kerberos#create).
 
 Once created, you can use the `akeyless auth` command to authenticate a user by way of **Kerberos**:
 
