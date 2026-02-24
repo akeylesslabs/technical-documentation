@@ -69,7 +69,7 @@ akeyless gateway update log-forwarding elasticsearch \
 --index <index> \
 --server-type <cloud> \
 --cloud-id <your cloud-id> \
---auth-type <api_key \
+--auth-type <api_key> \
 --api-key <your api_key> 
 ```
 
@@ -144,7 +144,7 @@ Setting log forwarding to stdout:
 
 ```shell
 akeyless gateway update log-forwarding stdout \
---gateway-url 'https://Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://Your-Akeyless-GW-URL:8000' 
 ```
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluestdoutp) section.

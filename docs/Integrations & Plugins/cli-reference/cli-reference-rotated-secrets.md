@@ -72,7 +72,7 @@ Creates a new AWS rotated secret item
 akeyless rotated-secret create aws \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/api-key> 
 ```
 
@@ -138,7 +138,7 @@ Creates a new Azure rotated secret item
 akeyless rotated-secret create azure \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target|api-key|azure-storage-account|password> 
 ```
 
@@ -200,7 +200,7 @@ Creates a new Cassandra rotated secret item
  akeyless rotated-secret create cassandra \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password> 
 ```
 
@@ -246,7 +246,7 @@ Creates a new custom rotated secret item
 akeyless rotated-secret create custom \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -325,7 +325,7 @@ Creates a new Docker Hub rotated secret item
 akeyless rotated-secret create dockerhub \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -362,7 +362,7 @@ Creates a new GCP rotated secret item
 akeyless rotated-secret create gcp \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/service-account-rotator>
 ```
 
@@ -420,7 +420,7 @@ Creates a new SAP HANA database rotated secret item
 akeyless rotated-secret create hanadb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -464,7 +464,7 @@ Creates a new LDAP rotated secret item
 akeyless rotated-secret create ldap \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/ldap>
 ```
 
@@ -532,7 +532,7 @@ Creates a new MongoDB rotated secret item
 akeyless rotated-secret create mongodb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -590,7 +590,7 @@ Creates a new MSSQL rotated secret item
 akeyless rotated-secret create mssql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -650,7 +650,7 @@ Creates a new MySQL rotated secret item
 akeyless rotated-secret create mysql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -710,7 +710,7 @@ akeyless rotated-secret create openai \
 --target-name <Target Name> \
 --api-key-id <admin-api-key-id> \
 --api-key <admin-api-key> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/api-key>
 ```
 
@@ -750,7 +750,7 @@ Creates a new OracleDB rotated secret item
 akeyless rotated-secret create oracledb \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -806,7 +806,7 @@ Creates a new PostgreSQL rotated secret item
 akeyless rotated-secret create postgresql \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -866,7 +866,7 @@ Creates a new Redis rotated secret item
 akeyless rotated-secret create redis \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -912,7 +912,7 @@ Creates a new Amazon Redshift rotated secret item
 akeyless rotated-secret create redshift \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -966,7 +966,7 @@ Creates a new Snowflake rotated secret item
 akeyless rotated-secret create snowflake \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -1016,7 +1016,7 @@ Creates a new Splunk rotated secret item
 akeyless rotated-secret create splunk \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password/token/hec-token> \
 ```
 
@@ -1070,7 +1070,7 @@ Creates a new SSH rotated secret item
 akeyless rotated-secret create ssh \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -1136,7 +1136,7 @@ Creates a new Windows rotated secret item
 akeyless rotated-secret create windows \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -1237,7 +1237,7 @@ Commands to update a Rotated Secret
 ```shell
 akeyless rotated-secret update aws \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --new-name <New Item name>
 ```
 
@@ -1301,7 +1301,7 @@ akeyless rotated-secret update aws \
 akeyless rotated-secret update azure \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1358,7 +1358,7 @@ akeyless rotated-secret update azure \
  akeyless rotated-secret update cassandra \
 --name <Rotated Secret name> \
 --new-name <New-Item name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1523,7 +1523,7 @@ akeyless rotated-secret update dockerhub \
 akeyless rotated-secret update gcp \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1582,7 +1582,7 @@ akeyless rotated-secret update gcp \
 akeyless rotated-secret update hanadb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1625,7 +1625,7 @@ akeyless rotated-secret update hanadb \
 akeyless rotated-secret update ldap \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1692,7 +1692,7 @@ akeyless rotated-secret update ldap \
 akeyless rotated-secret update mongodb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1749,7 +1749,7 @@ akeyless rotated-secret update mongodb \
 akeyless rotated-secret update mssql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1806,7 +1806,7 @@ akeyless rotated-secret update mssql \
 akeyless rotated-secret update mysql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -1867,7 +1867,7 @@ akeyless rotated-secret update openai \
 --new-name <New Item name>
 --api-key-id <admin-api-key-id> \
 --api-key <admin-api-key> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1902,7 +1902,7 @@ akeyless rotated-secret update openai \
 akeyless rotated-secret update oracledb \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -1959,7 +1959,7 @@ akeyless rotated-secret update oracledb \
 akeyless rotated-secret update postgresql \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2018,7 +2018,7 @@ akeyless rotated-secret update postgresql \
 akeyless rotated-secret update redis \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2063,7 +2063,7 @@ akeyless rotated-secret update redis \
 akeyless rotated-secret update redshift \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2116,7 +2116,7 @@ akeyless rotated-secret update redshift \
 akeyless rotated-secret update snowflake \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password>
 ```
 
@@ -2168,7 +2168,7 @@ Updates a new Splunk rotated secret item
 akeyless rotated-secret update splunk \
 --name <Rotated Secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rotator-type <target/password/token/hec-token> \
 ```
 
@@ -2222,7 +2222,7 @@ akeyless rotated-secret update splunk \
 akeyless rotated-secret update ssh \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2287,7 +2287,7 @@ akeyless rotated-secret update ssh \
 akeyless rotated-secret update windows \
 --name <Rotated Secret name> \
 --new-name <New Item name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -2377,7 +2377,7 @@ akeyless rotated-secret sync \
 --usc-name <USC Name> \
 --remote-secret-name <Remote secret Name> \
 --namespace <Namespace Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -2406,7 +2406,7 @@ akeyless rotated-secret delete-sync \
 --usc-name <USC Name> \
 --remote-secret-name <Remote secret Name> \
 --delete-from-usc[=false] [true / false]
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags

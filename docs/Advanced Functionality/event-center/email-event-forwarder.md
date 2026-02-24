@@ -21,11 +21,11 @@ akeyless event-forwarder create email \
 --name MyForwarder \
 --email-to <comma separated email addresses> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---override-url <'https://<Your-Akeyless-GW-URL:8000/console/>'> #or use port 18888\
---include-error false \ 
+--override-url 'https://<Your-Akeyless-GW-URL>:8000/console/' \ #or use port 18888
+--include-error false \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*> \
---event-types <event type>
+--event-types <event type> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>
 ```
