@@ -187,8 +187,8 @@ akeyless get-rotated-secret-value -n <Rotated secret name> --host server02.examp
 
 ## Rotation Policy
 
-Rotation across multiple hosts will work on a best-effort approach to rotate at least one host from the given hosts' list. After successful rotation across all hosts, the rotation status will be `RotationSucceeded`. Upon a failure in one or more hosts, the rotation status will be `RotationPartialSucceeded`. In case of failure on all hosts, the rotation status will be `RotationFailed`. Each of those results will trigger events in the [Event Center](https://docs.akeyless.io/docs/event-center).
+Rotation across multiple hosts will work on a best-effort approach to rotate at least one host from the given hosts' list. After successful rotation across all hosts, the rotation status will be `RotationSucceeded`. Upon a failure in one or more hosts, the rotation status will be `RotationPartialSucceeded`. If rotation fails on all hosts, the rotation status will be `RotationFailed`. Each of those results will trigger events in the [Event Center](https://docs.akeyless.io/docs/event-center).
 
-In case of failure on one or more hosts, the Rotated Secret item keeps the old password on the hosts that ended with an error. When working with `rotator type target`, the old password is saved as an old version in the **Parent** Target.
+If rotation fails on one or more hosts, the Rotated Secret item keeps the old password on the hosts that ended with an error. When working with `rotator type target`, the old password is saved as an old version in the **Parent** Target.
 
 The Akeyless best practice flow is to generate different passwords for each **Local** user. You can set an identical password for **all** users by using the flag `same-password true`.

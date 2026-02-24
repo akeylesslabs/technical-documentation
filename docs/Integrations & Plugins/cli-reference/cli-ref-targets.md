@@ -916,7 +916,7 @@ akeyless target create sectigo \
 
 `-i, --certificate-profile-id`: **Required**, Certificate Profile ID in Sectigo account
 
-`-e, --external-requester`: **Required**, External Requester - a comma separated list of emails
+`-e, --external-requester`: **Required**, External Requester - a comma-separated list of emails
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 
@@ -2181,7 +2181,7 @@ akeyless target update sectigo \
 
 `-i, --certificate-profile-id`: **Required**, Certificate Profile ID in Sectigo account
 
-`-e, --external-requester`: **Required**, External Requester - a comma separated list of emails
+`-e, --external-requester`: **Required**, External Requester - a comma-separated list of emails
 
 `--timeout[=5m]`: Timeout waiting for certificate validation
 

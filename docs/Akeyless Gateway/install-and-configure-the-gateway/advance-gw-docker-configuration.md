@@ -317,10 +317,10 @@ It is also possible to <a href="https://docs.akeyless.io/docs/configure-the-gate
 To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `RESTRICT_SERVICE_TO_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`
 
 ```shell
-docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e GATEWAY_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 ```shell Legacy
-docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
+docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="aws-iam-access-id" -e RESTRICT_SERVICE_TO_ACCESS_IDS="comma-separated list of access-ids" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
 In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively to block specific `AccessIDs` you can use the `BLOCKLIST_ACCESS_IDS` variable instead.
@@ -355,7 +355,7 @@ When configuring your gateway, you may supply a default value for either OIDC, S
 
 * `-e DEFAULT_SAML_ACCESS_ID=<SAML Access ID>`
 * `-e DEFAULT_OIDC_ACCESS_ID=<OIDC Access ID>`
-* `-e AKEYLESS_OIDC_GW_AUTH=true` Optional, to authenticate directly against your Gateway. To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (in cases your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback` (For example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
+* `-e AKEYLESS_OIDC_GW_AUTH=true` Optional, to authenticate directly against your Gateway. To leverage your Gateway for the callback redirects instead of the Akeyless SaaS (if your IdP isn't publicly available), you can add the `AKEYLESS_OIDC_GW_AUTH` variable while making sure the corresponding OIDC App on your IdP has the "**Redirect URI**" set to the Gateway's configuration endpoint (port 8000) with the following URI suffix `/api/oidc-callback` (for example, `https://Your-Akeyless-GW-URL:8000/api/oidc-callback`).
 
 In the following way:
 

@@ -27,9 +27,9 @@ akeyless certificate-discovery \
 
 Where:
 
-* `hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
+* `hosts`: **Required**, A comma-separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
 
-* `port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080`-`8085`.
+* `port-ranges[=443]`: A comma-separated list of port ranges. Example: `80`, `8080`-`8085`.
 
 * `target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
 
