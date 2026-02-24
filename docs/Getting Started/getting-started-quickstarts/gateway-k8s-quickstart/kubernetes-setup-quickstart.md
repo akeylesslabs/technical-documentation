@@ -204,7 +204,7 @@ apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io create
 
 ## Step 7: Verify the Metrics Server
 
-1. Check the Metric Server deployment object:
+1. Check the Metrics Server deployment object:
 
     ```shell
     kubectl get deployment metrics-server -n kube-system

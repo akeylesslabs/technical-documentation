@@ -41,7 +41,7 @@ The portal shows all the [resource types](https://docs.akeyless.io/docs/supporte
 
 In addition to the existing hosts that are part of the allowed hosts on the [SSH Cert Issuer](https://docs.akeyless.io/docs/ssh-remote-access), you can also add new Hostnames or IP on the fly by using the matching SSH Cert Issuer that can provide access
 
-> 📘 Key Features
+> **Note (Key Features):**
 >
 > * **On-the-Fly Connections**: Users can provide a hostname or IP address for **RDP** or **SSH** sessions as needed
 > * **Temporary Host Addition**: Hostnames added through this feature are temporary and stored in the browser’s cache.

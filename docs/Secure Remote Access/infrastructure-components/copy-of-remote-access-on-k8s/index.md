@@ -7,7 +7,7 @@ metadata:
 ---
 Akeyless Secure Remote Access offers robust security for accessing your resources by leveraging a range of just-in-time credentials, including Dynamic Secrets, Rotated Secrets, and SSH certificates.
 
-> 📘 New Chart
+> **Note (New Chart):**
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
 >
@@ -136,7 +136,7 @@ sshConfig:
       # CAPublicKey: |
 ```
 
-> 📘 Info
+> **Info:**
 >
 > If you don't have an SSH certificate yet, please follow this guide on creating an SSH Cert issuer with Akeyless and set your `CAPublicKey` in the `values` file.
 >
