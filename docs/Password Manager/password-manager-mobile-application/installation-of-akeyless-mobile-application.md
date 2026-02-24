@@ -32,7 +32,7 @@ Open Apple App Store: On your iOS device, locate and launch the Apple App Store.
 
 Search for Akeyless: At the top of the App Store interface, you'll find a search bar. Tap on it and enter "Akeyless." Proceed by tapping the "Search" button on the keyboard.
 
-Choose Akeyless Mobile App: The search results will display various apps. Navigate to find the official Akeyless Password Manager mobile application, recognizable by its logo. Once you've found it, tap on the "Get" button next to the app.
+Choose Akeyless Mobile App: The search results will display various apps. Navigate to the official Akeyless Password Manager mobile application, recognizable by its logo. Once you've found it, tap the "Get" button next to the app.
 
 Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password or using Face ID/Touch ID for verification. Follow these steps to finalize the installation.
 
