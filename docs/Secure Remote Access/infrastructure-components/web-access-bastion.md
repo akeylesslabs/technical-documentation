@@ -29,7 +29,7 @@ This chart bootstraps the Akeyless-Web-Access-Bastion deployment on a Kubernetes
 
 * Kubernetes Installed
 
-* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and  1 vCPU available with 1 GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `webWorker` and for the `dispatcher` services.
+* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and 1 vCPU available with 1 GB RAM for the `WebDispatcher`. This can be explicitly specified inside the chart for the `webWorker` and for the `dispatcher` services.
 
 ### Networking
 
@@ -157,7 +157,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:
@@ -187,4 +187,4 @@ helm install <RELEASE NAME> akeyless/akeyless-zero-trust-web-access -f values.ya
 
 Verify that both pods are up and running:
 
-`web-worker-deployment`\ `web-dispatcher-deployment`
+`web-worker-deployment` / `web-dispatcher-deployment`

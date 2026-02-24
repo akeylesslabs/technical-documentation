@@ -12,7 +12,7 @@ next:
 ---
 You can define an AWS target that contains an AWS IAM principal to be used with an [AWS Dynamic Secrets](https://docs.akeyless.io/docs/aws-producer) or an [AWS Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 
-In case working with an explicit **Access Key**, to follow [AWS best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#update-access-keys), ensure to create an automatic rotation for this **Access Key** using [AWS Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
+If you are working with an explicit **Access Key**, to follow [AWS best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#update-access-keys), ensure you create automatic rotation for this **Access Key** using [AWS Rotated Secrets](https://docs.akeyless.io/docs/create-an-aws-rotated-secret).
 
 When working with [Gateway](https://docs.akeyless.io/docs/api-gw) Cloud Identity, Akeyless will use AWS SDK and its default credentials precedence. In addition, in case [External ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) is used, make sure to add to the **AWS Role** your Gateway is using permission to assume the relevant roles in the account.
 

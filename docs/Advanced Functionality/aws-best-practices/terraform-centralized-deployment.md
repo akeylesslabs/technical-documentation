@@ -42,7 +42,7 @@ You provide **one Role ARN** to the Gateway, and a single AWS Target handles eve
 
 Sign in to the AWS Management Console of your management account. Navigate to **Organizations** → **Organize accounts**.
 
-Copy your **AWS Management Account ID** and paste it into the field.`management_account`
+Copy your **AWS Management Account ID** and paste it into the `management_account` field.
 
 ## Configuration
 

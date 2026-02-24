@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Secure Remote Access Portal is available by way of the main console at: `http://Your-Akeyless-Gateway-URL:8000/sra/portal`. Or using the public SaaS console at `https://zerotrust.akeyless.io`
+The Secure Remote Access Portal is available through the main console at `http://Your-Akeyless-Gateway-URL:8000/sra/portal` or through the public SaaS console at `https://zerotrust.akeyless.io`.
 
 All Akeyless supported [Resource types](https://docs.akeyless.io/docs/supported-resource-types) can be accessed using the **SRA Portal**, [CLI](https://docs.akeyless.io/docs/cli) or by way of the [Desktop Application](https://docs.akeyless.io/docs/remote-access-desktop-application-beta).
 
