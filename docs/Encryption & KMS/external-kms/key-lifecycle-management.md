@@ -14,7 +14,7 @@ next:
       slug: classic-keys
       title: Classic Keys
 ---
-We call classic keys distributed to Cloud KMS providers - "managed keys".
+We call classic keys distributed to Cloud KMS providers "managed keys".
 
 > **Note:**
 >
@@ -48,7 +48,7 @@ akeyless set-item-state --name <Key Name> --desired-state <Disabled/Enabled>
 
 ## Delete a Managed Key
 
-To [delete the managed key from the Cloud KMS](https://docs.akeyless.io/docs/delete-the-association-between-a-classic-key-and-a-target), you need to remove its association with targets. When association with targets is removed, the key will be deleted from Cloud KMS Providers defined in those targets (but will be preserved in the Akeyless KMS).
+To [delete the managed key from the Cloud KMS](https://docs.akeyless.io/docs/delete-the-association-between-a-classic-key-and-a-target), you need to remove its association with targets. When association with targets is removed, the key is deleted from Cloud KMS providers defined in those targets (but is preserved in the Akeyless KMS).
 
 To delete the association between the key and the target, use the following [command](https://docs.akeyless.io/docs/cli-ref-targets#/delete-assoc-target-item):
 
