@@ -178,7 +178,7 @@ setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permanently)
 >
 > The CLI updates the path env for the **current user only**. This change only takes effect after the user logs off and logs back on.
 
-Copy and run the relevant command for your purpose (`permanent` or `current session`), after that, The CLI should be ready to use.
+Copy and run the relevant command for your purpose (`permanent` or `current session`). After that, the CLI should be ready to use.
 
 Try running the `create-secret` command to test your installation:
 
@@ -188,7 +188,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Non-Interactive Mode
 
-To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
+To initiate the CLI non-interactively, run `./akeyless --init`. This command works only the first time you run the CLI in that environment.
 If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
@@ -213,7 +213,7 @@ The CLI supports various types of [Authentication Methods](https://docs.akeyless
 
 For security reasons, if the correct credentials are not entered, the Akeyless CLI will not provide an error message immediately. Instead, you will receive an error message when attempting to run commands.
 
-To initiate the CLI non-interactively, run`./akeyless --init` which will work once only during the first time you run the CLI on that environment.
+To initiate the CLI non-interactively, run `./akeyless --init`. This command works only the first time you run the CLI in that environment.
 If you're working with a different tenant environment than the default, that is `vault.akeyless.io`, you can use the `--akeyless-url` flag to specify the tenant that the CLI will be configured to communicate with.
 For example, to work with the `eu` tenant you would run:
 
