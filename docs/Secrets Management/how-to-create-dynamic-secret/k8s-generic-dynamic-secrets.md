@@ -445,7 +445,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
     * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-    * **Target mode:** In this section, you can either select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets) or specify details of the endpoint specifically in the next section explicitly.
+    * **Target mode:** In this section, you can either select an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets) or specify endpoint details explicitly in the next section.
 
 5. Select your Service Account mode, **Fixed** or **Dynamic**, and fill in the following parameters:
 
@@ -457,7 +457,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
 
     _For Dynamic Mode:_
 
-    * **RoleBindings:** A YAML file describing the Role, and RoleBinding parameters.
+    * **RoleBindings:** A YAML file describing the Role and RoleBinding parameters.
 
     * **Role Type:** Select if the role is a Kubernetes Role or a Cluster Role.
 
@@ -486,7 +486,7 @@ Then you need to replace `< Dynamic Secret Value goes here >` with the response 
         * **Cluster CA Certificate:** Provide the Kubernetes cluster CA certificate (PEM format).
 
         * **Cluster Endpoint URL:** Specify the URL of the cluster.
-    2. **GW Service Account** to extract the connection settings from a  **Gateway** that runs on a **Kubernetes** cluster, with a Service Account with permissions as described in the [prerequisites](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
+    2. **GW Service Account** to extract the connection settings from a **Gateway** that runs on a **Kubernetes** cluster, with a Service Account with permissions as described in the [prerequisites](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#prerequisites) section of this page.
     3. **Client Certificate**
       * **Client Certificate:** Provide the Kubernetes client certificate (PEM format).
       * **Client Private Key:** Provide the Kubernetes client private key (PEM format).
