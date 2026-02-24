@@ -1455,7 +1455,7 @@ akeyless dynamic-secret create rabbitmq \
 
 `--rabbitmq-user-vhost`: User Virtual Host
 
-`--rabbitmq-user-tags`: Comma separated list of tags to apply to user
+`--rabbitmq-user-tags`: Comma-separated list of tags to apply to user
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
@@ -1955,7 +1955,7 @@ akeyless dynamic-secret update aws \
 
 `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
-`--session-tags`: String of Key value session tags comma separated, relevant only for Assumed Role
+`--session-tags`: String of key-value session tags, comma-separated, relevant only for Assumed Role
 
 `--transitive-tag-keys`: String of transitive tag keys space separated, relevant only for Assumed Role
 
@@ -2627,7 +2627,7 @@ akeyless dynamic-secret update ldap \
 
 `--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for Dynamic Secrets/producers)
 
 `--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for SSH cert issuer, LDAP rotated secret and LDAP dynamic secret, To specify multiple targets use argument multiple times
 
@@ -2986,7 +2986,7 @@ akeyless dynamic-secret update rabbitmq \
 
 `--rabbitmq-user-vhost`: User Virtual Host
 
-`--rabbitmq-user-tags`: Comma separated list of tags to apply to user
+`--rabbitmq-user-tags`: Comma-separated list of tags to apply to user
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 

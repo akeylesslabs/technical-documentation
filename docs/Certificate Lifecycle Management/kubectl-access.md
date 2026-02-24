@@ -36,7 +36,7 @@ Below we will describe how to configure kubectl to work with short-lived certifi
     openssl genrsa -out /home/user/kubectl-client.key 2048
     ```
 
-4. On the client side, set the kubeconfig file to work with the Akeyless PKI Cert Issuer in order to fetch the client access certificate as follows:
+4. On the client side, set the kubeconfig file to work with the Akeyless PKI Cert Issuer to fetch the client access certificate as follows:
 
     ```yaml
     users:

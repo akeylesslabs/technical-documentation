@@ -17,9 +17,9 @@ Policies are applied at the folder level and can automatically inherit to all su
   This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or later.
 </Callout>
 
-## Settings an Encryption Key Policy with the CLI
+## Setting an Encryption Key Policy with the CLI
 
-In order to set an encryption key policy using the CLI, run the following command:
+To set an encryption key policy using the CLI, run the following command:
 
 ```shell
 akeyless policy create keys \

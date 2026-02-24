@@ -239,7 +239,7 @@ You should now have a working certificate issuer.
 
 ### Issuing a Certificate
 
-In order to issue an SSH certificate using an existing CI through the console, go through the following steps:
+To issue an SSH certificate using an existing CI through the console, go through the following steps:
 
 1. Go to the folder in which your certificate issuer is located and select it.
 

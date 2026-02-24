@@ -87,7 +87,7 @@ Download the respective Desktop Application installation file from [here](https:
 
 1. Log in to the Desktop Application (using SAML, OIDC, Certificate, Access Key, and so on). You should be able to see a list of the resources you can connect to, upon your permissions. If you wish to add / remove targets from the list, you should update your permissions accordingly.
 
-2. **Application Mapping** - In order to connect to remote resources, the user should map them to applications. When using mapped application, the Desktop application launches the native application and securely initiates the connection.
+2. **Application Mapping** - To connect to remote resources, the user should map them to applications. When using mapped application, the Desktop application launches the native application and securely initiates the connection.
    1. Listed Below are the native clients that supported by the Desktop Application:
 
         | Operating System | Resource | Application Type | Comments |

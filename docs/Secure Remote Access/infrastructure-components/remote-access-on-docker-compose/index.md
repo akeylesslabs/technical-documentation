@@ -98,7 +98,7 @@ To install the Gateway with the SRA utility, run this command from the directory
 docker compose --profile sra up -d
 ```
 
-In order to verify the installation, run:
+To verify the installation, run:
 
 ```shell
 docker ps

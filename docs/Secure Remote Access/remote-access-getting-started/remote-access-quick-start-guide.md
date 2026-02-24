@@ -105,7 +105,7 @@ Follow the below commands:
 
 > 👍 SSH connection note
 >
-> This is the bare minimum in order to have a required SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/ssh-certificates).
+> This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/ssh-certificates).
 
 ## Configuration
 
@@ -144,7 +144,7 @@ akeylessGatewayAuth:
 
 `gatewayAccessType`: This is already set to `access_key` for API Key authentication.
 
-`gatewayCredentialsExistingSecret`: The value is already set to `akeyless-auth`. A Kubernetes Secret is **required** for the deployment. In order to create this, follow the steps described in [API Key Authentication in the Akeyless Gateway chart](https://docs.akeyless.io/docs/gateway-chart#api-key-authentication).
+`gatewayCredentialsExistingSecret`: The value is already set to `akeyless-auth`. A Kubernetes Secret is **required** for the deployment. To create this, follow the steps described in [API Key Authentication in the Akeyless Gateway chart](https://docs.akeyless.io/docs/gateway-chart#api-key-authentication).
 
 #### Gateway Section
 
