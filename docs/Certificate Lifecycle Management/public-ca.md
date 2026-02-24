@@ -26,7 +26,7 @@ The issuance flow utilizes a Public CA Target with Akeyless [PKI Issuer](https:/
 Run the following command to create a PKI Certificate Issuer with a Public CA Target:
 
 ```shell shell
-akeyless create-pki-cert-issuer \ 
+akeyless create-pki-cert-issuer \
 --name <PKI Issuer name> \
 --ca-target <Path/To/Target> \
 --gw-cluster-url https://<Your-Gateway-URL>:8000 \

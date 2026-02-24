@@ -31,7 +31,7 @@ akeyless dynamic-secret create chef \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---chef-orgs <Chef organizations> \ 
+--chef-orgs <Chef organizations> \
 --password-length 16
 ```
 

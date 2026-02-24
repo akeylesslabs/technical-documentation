@@ -28,7 +28,7 @@ akeyless rotated-secret create windows \
 --rotator-type <password> \
 --rotated-username <username> \
 --rotated-password <password> \
---user-dn <Base DN to perform user search> \ 
+--user-dn <Base DN to perform user search> \
 --auto-rotate <true|false> \
 --rotation-interval <1-365> \
 --rotation-hour <hour in UTC>

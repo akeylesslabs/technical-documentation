@@ -30,7 +30,7 @@ To rotate **Local users**, for example, `ubuntu` or `administrator`, across your
 
 ```shell Windows Target
 akeyless create-windows-target \
---name <WindowsTargetName> \ 
+--name <WindowsTargetName> \
 --hostname <Windows Hostname\IP> \
 --username <Domain@WindowsUsername> \
 --password <Password>
@@ -101,7 +101,7 @@ Create an [SSH](https://docs.akeyless.io/docs/ssh-target) or [Windows](https://d
 
 ```shell Windows Target
 akeyless create-windows-target \
---name <WindowsTargetName> \ 
+--name <WindowsTargetName> \
 --hostname <Windows Hostname\IP> \
 --username <Windows Local Username> \
 --password <Password>

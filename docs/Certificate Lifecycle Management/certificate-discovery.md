@@ -18,7 +18,7 @@ When a certificate is found, Akeyless automatically creates a corresponding cert
 In order to run a certificate discovery using the CLI, run the following command:
 
 ```shell
-akeyless certificate-discovery \ 
+akeyless certificate-discovery \
 --hosts <IPs, CIDR ranges, or DNS names> \
 --port-ranges[=443] <80,8080-8085> \
 --target-location 'Discovery-Folder' \

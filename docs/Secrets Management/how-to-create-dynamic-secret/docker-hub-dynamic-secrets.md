@@ -40,7 +40,7 @@ Or using an inline connection string:
 akeyless dynamic-secret create dockerhub \
 --name <Dynamic Secret Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
---dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read' \      
+--dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read' \
 --dockerhub-username <Username for docker repository> \
 --dockerhub-password <Password for docker repository>
 ```

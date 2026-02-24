@@ -30,7 +30,7 @@ To create a dynamic Snowflake secret with the CLI using the existing [Snowflake 
 akeyless dynamic-secret create snowflake \
 --name <New Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \ 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --password-length 16
