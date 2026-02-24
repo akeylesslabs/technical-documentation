@@ -28,8 +28,8 @@ Run the following CLI command to provision a certificate:
 akeyless assoc-target-item \
 --name <Certificate name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---certificate-path <Where to save the certificate> \ 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--certificate-path <Where to save the certificate> \
 --post-provision-command <"echo Akeyless">
 ```
 

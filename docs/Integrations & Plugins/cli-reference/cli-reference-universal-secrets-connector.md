@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-_The External Secrets Manager has been renamed Universal Secrets Connector. All`esm` commands will still work as expected._
+_The External Secrets Manager has been renamed Universal Secrets Connector. All `esm` commands will still work as expected._
 
 This section outlines the CLI commands relevant to Universal Secrets Connector.
 

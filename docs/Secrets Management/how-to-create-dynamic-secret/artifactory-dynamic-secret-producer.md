@@ -28,7 +28,7 @@ To create a dynamic Artifactory secret with the CLI using an existing [Artifacto
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --artifactory-token-scope <Space-separated list of scopes> \
 --artifactory-token-audience <Space-separated list of instances>
 ```
@@ -38,7 +38,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create artifactory \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --artifactory-token-scope <Space-separated list of scopes> \
 --artifactory-token-audience <Space-separated list of instances> \
 --base-url <Artifactory REST URL> \
@@ -110,7 +110,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Base URL:** Specify the JFrog Artifactory REST URL, which must end with the **artifactory** postfix.
 
-    For example, if you use your JFrog URL, this could be `<https://myjfrog.acme.org/artifactory/>`. Or, if you use your JFrog Artifactory server hostname and port, this could be `https://<ARTIFACTORY_SERVER_HOSTNAME>:8081/artifactory/`.
+    For example, if you use your JFrog URL, this could be `https://myjfrog.acme.org/artifactory/`. Or, if you use your JFrog Artifactory server hostname and port, this could be `https://<ARTIFACTORY_SERVER_HOSTNAME>:8081/artifactory/`.
 
     * **Admin Username:** Provide the name of the Artifactory user with privileges to create JWT tokens.
 

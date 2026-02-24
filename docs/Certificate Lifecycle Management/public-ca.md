@@ -26,10 +26,10 @@ The issuance flow utilizes a Public CA Target with Akeyless [PKI Issuer](https:/
 Run the following command to create a PKI Certificate Issuer with a Public CA Target:
 
 ```shell shell
-akeyless create-pki-cert-issuer \ 
+akeyless create-pki-cert-issuer \
 --name <PKI Issuer name> \
 --ca-target <Path/To/Target> \
---gw-cluster-url https://<Your-Gateway-URL:8000> \
+--gw-cluster-url https://<Your-Gateway-URL>:8000 \
 --ttl <7776000> \
 --allowed-domains <domain1.com,domain2.com> \
 --destination-path </Certificate/Storage/Folder> \
@@ -68,7 +68,7 @@ akeyless generate-csr \
 --generate-key \
 --alg <RSA1024> \
 --common-name <common name to be included in the CSR certificate> \
---gateway-url <https://Akeyless-Gateway-URL:8000>
+--gateway-url 'https://Akeyless-Gateway-URL:8000'
 ```
 
 Where:

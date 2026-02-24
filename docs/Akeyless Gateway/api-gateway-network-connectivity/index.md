@@ -41,7 +41,7 @@ The following table describes the main functionality of Akeyless microservices i
 
 > 👍 Note
 >
-> When using proxy services, you can use `sqs.us-east-2.amazonaws.com` instead of classic MQ services. In case you are not working with proxy service, and still want to utilize SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
+> When using proxy services, you can use `sqs.us-east-2.amazonaws.com` instead of classic MQ services. If you are not working with a proxy service and still want to use SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
 
 ## Working Without MQ Connection
 

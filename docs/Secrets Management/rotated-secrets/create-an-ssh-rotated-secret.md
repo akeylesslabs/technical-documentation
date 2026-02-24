@@ -31,7 +31,7 @@ To create a Rotated SSH Secret using the Akeyless CLI, run the following command
 ```shell
 akeyless rotated-secret create ssh \
 --name <Rotated Secret name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --password-length 16 \

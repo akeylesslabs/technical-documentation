@@ -21,14 +21,14 @@ To create a Rotated LDAP Secret using the Akeyless CLI, run the following comman
 ```shell
 akeyless rotated-secret create ldap \
 --name <secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <LDAP target name to associate> \
 --authentication-credentials <use-target-creds> \
 --password-length 16
 --rotator-type <ldap> \
 --rotated-username <username> \
 --rotated-password <password> \
---user-dn <Base DN to perform user search> \ 
+--user-dn <Base DN to perform user search> \
 --auto-rotate <true|false> \
 --rotation-interval <1-365> \
 --rotation-hour <hour in UTC>

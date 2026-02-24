@@ -127,7 +127,7 @@ subjects:
   namespace: <Namespace>
 ```
 
-If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using either the GW Service Account, or the dedicated Service Account (if its a dedicated Service Account, be sure to extract its Bearer Token).
+If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using either the GW Service Account or the dedicated Service Account (if it's a dedicated Service Account, be sure to extract its Bearer Token).
 
 > 📘 Info
 >
@@ -153,7 +153,7 @@ Create a client key using a Certificate Signing Request (CSR):
 ```shell
 ֿexport USER_NAME="token-request-user" ;
 export GROUP="Akeyless-dynamic-secret";
-export GATEWAY_URL="https://<Your_Akeyless_GW_URL:8000>";
+export GATEWAY_URL="https://<Your_Akeyless_GW_URL>:8000";
 K8S_CSR=$(akeyless generate-csr -n /k8s/Clustername/csr/$USER_NAME --generate-key --alg RSA2048 --common-name $USER_NAME --gateway-url $GATEWAY_URL --org $GROUP --json --jq-expression ".data"| base64 | tr -d "\n")
 USER_KEY=$(akeyless export-classic-key -n /k8s/Clustername/csr/$USER_NAME --jq-expression ".key" | base64)
 ```
@@ -264,10 +264,10 @@ If you haven't done so already, you can now create a [Generic Kubernetes Target]
 **Fixed Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Fixed Mode**, use the following command:
 
 ```shell Fixed Mode
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --k8s-service-account-type fixed \
 --k8s-service-account <example-service-account> \
 --k8s-namespace <namespace>
@@ -290,20 +290,20 @@ Where:
 **Dynamic Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Dynamic Mode**, use the following command (note parameters will change if you choose to create a ServiceAccount using an existing Role, or if you choose to generate everything from scratch):
 
 ```shell Existing Role
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
 --k8s-service-account-type dynamic \
 --k8s-predefined-role-type <Role|ClusterRole> \
 --k8s-predefined-role-name <Role or ClusterRole name> \
 --k8s-allowed-namespaces <namespace1, namespace2>
 ```
 ```shell Generated Role
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <secret name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your_Akeyless_GW_URL:8000>' \
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
 --k8s-service-account-type dynamic \
 --k8s-rolebinding-yaml-def <path/to/rolebinding/yml>
 --k8s-allowed-namespaces <namespace1, namespcae2>
@@ -567,7 +567,7 @@ subjects:
 
     ```shell
     akeyless dynamic-secret create k8s -n k8s-dashboard-producer \
-    --gateway-url <http://YourGWURL:8000> \
+    --gateway-url 'http://YourGWURL:8000' \
     --k8s-cluster-endpoint <cluster DNS/IP address> \
     --k8s-cluster-ca-cert <base 64 encoding of the cluster certificate> \
     --k8s-namespace kubernetes-dashboard \
@@ -611,7 +611,7 @@ The CLI command is `akeyless kubeconfig-generate`
 * `t, --tag` - A single tag attached to Dynamic Secrets
 * `o, --out[=kubeconfig.json]` - Output path for the generated `kubeconfig` file
 * `-profile, --token` - Use a saved profile (`$HOME/.akeyless/profiles`) or a temporary access token
-* `-uid-token` - Universal Identity token (required only with the`universal_identity` Authentication Method)
+* `-uid-token` - Universal Identity token (required only with the `universal_identity` Authentication Method)
 * `-json[=false]` - Return tool output in JSON
 * `-jq-expression` - jq filter for JSON output
 * `-no-creds-cleanup[=false]` -  Do not clean local temporary expired credentials

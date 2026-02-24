@@ -32,7 +32,7 @@ To create a dynamic GitHub secret with the CLI using an existing GitHub target, 
 akeyless dynamic-secret create github \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --installation-id <Your GitHub Installation ID>
 ```
 
@@ -41,7 +41,7 @@ Or using an inline connection string:
 ```shell
 akeyless dynamic-secret create github \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --installation-id <Your GitHub Installation ID> \
 --github-app-id <Your GitHub application ID> \
 --github-app-private-key <Base64-encoded application private key> \

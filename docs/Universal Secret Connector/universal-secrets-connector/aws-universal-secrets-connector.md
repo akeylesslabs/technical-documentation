@@ -18,7 +18,7 @@ When a user is granted read access to a **USC** item, they can act using the per
 
 After connecting to your AWS Secret Manager source, you will be able to manage all your secrets from Akeyless, including viewing, adding, updating, deleting, and [syncing secrets](https://docs.akeyless.io/docs/sync-secret).
 
-The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from the AWS Secret Manager. This is done automatically as Akeyless doesn't store a copy of the AWS secrets, ensuring that data residency and security policies remain untouched. The **USC** simply reflects them in real time, without any requirements or changes that should be made on the AWS Secret Manager endpoint.
+The **USC** solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from AWS Secrets Manager. This is done automatically because Akeyless does not store a copy of the AWS secrets, ensuring that data residency and security policies remain untouched. The **USC** simply reflects them in real time, without requiring any changes on the AWS Secrets Manager endpoint.
 
 ![Illustration for: The USC solution works in a governance loop model, supporting and reflecting any changes made to your AWS secrets, either from the Akeyless side or from the AWS Secret…](https://files.readme.io/60251a70458e8bb82d88317bde1ad04b9e9a7b6ea82e68e0b11086106a0f6a7c-Synced_Secret-AWS.png)
 
@@ -55,7 +55,7 @@ The **USC** solution works in a governance loop model, supporting and reflecting
 
 ```
 
-Note, `secretsmanager:ListSecrets` is AWS Secrets Manager operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, read more [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions).
+Note: `secretsmanager:ListSecrets` is an AWS Secrets Manager operation that does not support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern. Read more [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions).
 
 To allow selecting a KMS encryption key for the secret, add the following permissions:
 
@@ -92,7 +92,7 @@ To allow selecting a KMS encryption key for the secret, add the following permis
 }
 ```
 
-Note, `kms:ListKeys` and `kms:ListAliases` are AWS KMS operations that doesn’t support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern, Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
+Note: `kms:ListKeys` and `kms:ListAliases` are AWS KMS operations that do not support resource-level permissions. When an action is in that category, AWS requires you to grant it on `"Resource": "*"`, not on an ARN pattern. Read more [here](https://docs.aws.amazon.com/kms/latest/developerguide/alias-access.html#alias-access-view).
 
 ## Working With Universal Secrets Connector with the CLI
 

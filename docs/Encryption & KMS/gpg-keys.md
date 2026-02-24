@@ -27,7 +27,7 @@ akeyless create-classic-key \
 --name <key name> \
 --alg gpg \
 --gpg-alg <algorithm type> \
---gateway-url = 'https://<Your_Akeyless_GW_URL:8000>'
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
 ```
 
 Where:
@@ -81,8 +81,8 @@ Verification command:
 ```shell
 akeyless verify-gpg --key-name <RSA Key> \
 --message <message to verify> \
---signature <message signature> \ 
---display-id <Display id of the key to use in the decryption process> \ 
+--signature <message signature> \
+--display-id <Display id of the key to use in the decryption process> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 

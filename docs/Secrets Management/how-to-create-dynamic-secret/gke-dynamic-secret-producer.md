@@ -32,15 +32,15 @@ To create a dynamic GKE secret with the CLI using an existing [GKE Target](https
 akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuegke \
+akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gke-account-email <GKE service account email> \
 --gke-account-key <GKE service account Key>
 --gke-cluster-endpoint <GKE cluster endpoint URL> \

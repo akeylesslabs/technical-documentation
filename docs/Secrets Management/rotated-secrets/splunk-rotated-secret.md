@@ -19,7 +19,7 @@ To create a Splunk Rotated Secret using the Akeyless CLI, run the following comm
 ```shell
 akeyless rotated-secret create splunk \
 --name <Rotated secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name to associate> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --rotator-type <target|token|Username|hec-token> \

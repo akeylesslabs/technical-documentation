@@ -45,7 +45,7 @@ To create a rotated database secret using the Akeyless CLI, run the following co
 ```shell
 akeyless rotated-secret create <DB type> \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name to associate> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --password-length 16 \

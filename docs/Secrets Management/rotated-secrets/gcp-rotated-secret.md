@@ -26,7 +26,7 @@ To create a Rotated GCP Secret using the Akeyless CLI, run the following command
 ```shell
 akeyless rotated-secret create gcp \
 --name <Rotated Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <target name to associate> \
 --authentication-credentials <use-user-creds|use-target-creds> \
 --rotator-type <service-account-rotator|target> \

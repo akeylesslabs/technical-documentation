@@ -578,9 +578,9 @@ akeyless auth-method create oidc \
 
 `--require-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
 
-`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, azures` Application ID URI)
+`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, Azure's Application ID URI)
 
-`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider`s Application
+`--audience`: Audience claim to be used as part of the authentication flow. If set, it must match the one configured on the Identity Provider's Application
 
 `-d, --delimiters`: A list of additional sub-claims delimiters
 
@@ -715,7 +715,7 @@ Update a new Auth Method that will be able to authenticate using AWS IAM credent
 ```shell
 akeyless auth-method update aws-iam \
 --name <Auth method name> \
---bound-aws-account-id <Accessble AWS account`s IDs> \
+--bound-aws-account-id <Accessible AWS account IDs> \
 --new-name <Auth method new name> 
 ```
 
@@ -1000,7 +1000,7 @@ Update an Oracle Auth Method that will be used in the account using OCI principl
 ##### Usage
 
 ```shell
-akeyless auth-method update oci \ 
+akeyless auth-method update oci \
 --name <Auth Method name> \
 --new-name <Auth Method new name> \
 --tenant-ocid <Oracle Cloud tenant ID> \
@@ -1089,9 +1089,9 @@ akeyless auth-method update oidc \
 `--allowed-redirect-uri`: Allowed redirect URIs after the authentication (default is `https://console.akeyless.io/login-oidc` to enable OIDC by way of Akeyless Console and `http://127.0.0.1:*` to enable OIDC by way of the Akeyless CLI)
 
 `--required-scopes`: required scopes that the OIDC method will request from the OIDC Provider and the user must approve
-`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, azures` Application ID URI)
+`--required-scopes-prefix`: a prefix to add to all required-scopes when requesting them from the OIDC server (for example, Azure's Application ID URI)
 
-`--audience`: Audience claim to be used as part of the authentication flow. In case set, it must match the one configured on the Identity Provider`s Application
+`--audience`: Audience claim to be used as part of the authentication flow. If set, it must match the one configured on the Identity Provider's Application
 
 `-d, --delimiters`          A list of additional sub-claims delimiters
 
@@ -1146,7 +1146,7 @@ akeyless auth-method update saml \
 
 ## `validate-token`
 
-Checks the provided validating a token, and if valid prints its expiration time (Time-To-Live)validity and its TTL
+Validates the provided token and, if valid, prints its expiration time (Time-To-Live).
 
 ### Usage
 
@@ -1183,7 +1183,7 @@ akeyless auth-method list \
 
 #### Flags
 
-`-t, --type`: The Auth Method types list of the requested method. In case it is empty, all types of Auth Method will be returned. options: [`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
+`-t, --type`: The Auth Method types list of the requested method. If it is empty, all Auth Method types are returned. options: [`api_key`, `azure_ad`, `oauth2/jwt`, `saml2`, `ldap`, `aws_iam`, `oidc`, `universal_identity`, `gcp`, `k8s`, `cert`]
 
 `--filter`: Filter by Auth Method name or part of it
 

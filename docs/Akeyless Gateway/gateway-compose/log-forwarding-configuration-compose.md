@@ -32,11 +32,11 @@ TARGET_SYSLOG_TLS_CERTIFICATE:"<BASE64 PEM ENCODED CERT>"
 
 > 👍 Note
 >
-> The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
+> The output message format conforms to Syslog format and assumes the Syslog server does not add its own formatting to the message.
 >
 > Default format: `<date > <time> <host name> <log level> <message>`.
 >
-> The variable `target_syslog_formatter` controls the format of the outputted message either `text` or `cef` - for **CEF** format.
+> The `target_syslog_formatter` variable controls the output message format: `text` or `cef` (for **CEF** format).
 
 ### Splunk
 
@@ -113,7 +113,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 
 > 🚧 Warning
 >
-> Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your container scales down or restarts, logs that were not uploaded to your bucket will be lost.
+> Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your container scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 
 ```yaml
 enable="true"

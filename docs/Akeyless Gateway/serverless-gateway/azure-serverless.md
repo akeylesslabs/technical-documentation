@@ -201,7 +201,7 @@ To associate an existing [Storage Account](https://learn.microsoft.com/en-us/azu
 param storageAccountName string = '<Storage Account Name>' 
 
 resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-  name: <'storageAccountName'> 
+  name: storageAccountName 
   location: location 
   sku: {
     name: '<Storage SKU>' 

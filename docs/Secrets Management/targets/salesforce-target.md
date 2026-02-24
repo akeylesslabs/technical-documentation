@@ -80,7 +80,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
         * Check the **JWT** radio button to authenticate with JWT to connect to Salesforce.
 
-        * Check the **User-Password** radio button to authenticate with the`OAuth2.0` app username and password to connect to Salesforce.
+        * Check the **User-Password** radio button to authenticate with the `OAuth2.0` app username and password to connect to Salesforce.
 
     * If you selected the **JWT** radio button, provide **App Private key**, a Base64-encoded `PEM` of the connected app private key.
 

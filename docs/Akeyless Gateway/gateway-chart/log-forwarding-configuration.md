@@ -28,7 +28,7 @@ akeyless gateway update log-forwarding syslog \
 
 > 👍 Note
 >
-> The outputted message format conforms to Syslog format and assumes the Syslog server doesn’t add its own formatting to the message.
+> The output message format conforms to Syslog format and assumes the Syslog server does not add its own formatting to the message.
 
 Default format: `<date > <time> <host name> <log level> <message>`.
 
@@ -69,7 +69,7 @@ akeyless gateway update log-forwarding elasticsearch \
 --index <index> \
 --server-type <cloud> \
 --cloud-id <your cloud-id> \
---auth-type <api_key \
+--auth-type <api_key> \
 --api-key <your api_key> 
 ```
 
@@ -92,7 +92,7 @@ You can find the complete list of additional parameters for this command in the 
 
 > 🚧 Warning
 >
-> Logs will be uploaded to your S3 bucket based on 10 minutes intervals. Keep in mind that in case your pod will scale down or restart, logs that were not uploaded to your bucket will be lost.
+> Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your pod scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 
 The following permissions are required to forward the Audit Logs to an S3 bucket:
 
@@ -144,7 +144,7 @@ Setting log forwarding to stdout:
 
 ```shell
 akeyless gateway update log-forwarding stdout \
---gateway-url 'https://Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://Your-Akeyless-GW-URL:8000' 
 ```
 
 You can find the complete list of additional parameters for this command in the [CLI Reference - Log-Forwarding](https://docs.akeyless.io/docs/cli-reference-log-forwarding#p-stylecolorbluestdoutp) section.

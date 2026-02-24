@@ -21,14 +21,14 @@ To create a Rotated Windows Secret using the Akeyless CLI, run the following com
 ```shell
 akeyless rotated-secret create windows \
 --name <Rotated Secretsecret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <Windows target name to associate> \
 --authentication-credentials <use-target-creds> \
 --password-length 16 \
 --rotator-type <password> \
 --rotated-username <username> \
 --rotated-password <password> \
---user-dn <Base DN to perform user search> \ 
+--user-dn <Base DN to perform user search> \
 --auto-rotate <true|false> \
 --rotation-interval <1-365> \
 --rotation-hour <hour in UTC>

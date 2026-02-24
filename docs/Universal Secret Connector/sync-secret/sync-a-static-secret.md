@@ -49,4 +49,4 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 Click on **Save** to synchronize the rotated secret.
 
-In case an automatic sync fails, an event will be triggered. In that case, you will be able to perform a **manual sync** from this tab.
+If an automatic sync fails, an event is triggered. In that case, you can perform a **manual sync** from this tab.

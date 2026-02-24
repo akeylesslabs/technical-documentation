@@ -48,7 +48,7 @@ akeyless auth-method create oidc --name 'My Okta app' --issuer https://{your-okt
 
 ## Login With OIDC from Akeyless CLI
 
-1. You should configure a new profile with your Access ID from the previous step and OIDC type (In case the profile name is not provided the default profile will be configured):
+1. Configure a new profile with your Access ID from the previous step and OIDC type (if the profile name is not provided, the default profile will be configured):
 
     ```shell
     akeyless configure --access-id <your-access-id> --access-type oidc --profile 'okta-app'

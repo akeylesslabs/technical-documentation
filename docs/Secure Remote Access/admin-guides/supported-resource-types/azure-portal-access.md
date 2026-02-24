@@ -58,7 +58,7 @@ By default, access to the Azure portal will use direct network access mode. To w
 
 * `secure-access-web-browsing`: Optional, secure browser by way of Akeyless Web Access Bastion.
 
-Alternatively, in case you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
+Alternatively, if you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
 
 * `secure-access-web-proxy`: Optional, web-proxy by way of Akeyless Web Access Bastion.
 * `secure-access-url`: Required for Rotated Secret. The target URL where credentials will be injected.

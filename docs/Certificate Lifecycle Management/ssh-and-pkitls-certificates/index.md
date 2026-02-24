@@ -22,7 +22,7 @@ To start building your chain of trust using Akeyless PKI Issuer, you can either 
 
 Using the PKI Issuer templates alongside the defined constraints enables maximum security with common PKI use cases, for example, limiting a PKI Issuer to accept issuance requests of specific key types and algorithms for example **RSA4096** for specific **Allowed Domains** while templating the resulted certificate to use a specific list of **Key Usage** with a well defined **Location** settings.
 
-In case you want to use your existing key, upload your RSA private key with the matching certificate for signing intermediate CA or leaf certificates based on your chain of trust, using the following command:
+If you want to use your existing key, upload your RSA private key with the matching certificate for signing intermediate CA or leaf certificates based on your chain of trust, using the following command:
 
 ```shell Upload CA
 akeyless upload-rsa \
@@ -88,7 +88,7 @@ akeyless create-pki-cert-issuer \
 --ttl 30d \
 --destination-path /path/to/store/issued/certificates \
 --create-public-crl \
---gw-cluster-url <https://Gateway URL:8000> \
+--gw-cluster-url 'https://Gateway URL:8000' \
 --expiration-event-in 30 \
 --allowed-extra-extensions '{"OID":["Value"]}'
 ```
@@ -133,7 +133,7 @@ akeyless generate-csr \
 --generate-key \
 --alg <RSA2048> \
 --common-name <mydomain.com> \
---gateway-url <https://Akeyless-Gateway-URL:8000> 
+--gateway-url 'https://Akeyless-Gateway-URL:8000' 
 ```
 
 Where:
@@ -201,11 +201,11 @@ Where:
 
 * `version`: Certificate version to revoke. Required if `item-id` or `name` are used.
 
-Here you can provide a certificate full name, or use the`item-id` or the certificate `serial-number` instead. In case a CRL (Certificate Revocation List) is maintained, the certificate will be added to the revocation list.
+Here you can provide a certificate full name, or use the `item-id` or the certificate `serial-number` instead. If a CRL (Certificate Revocation List) is maintained, the certificate is added to the revocation list.
 
 > 📘 Note
 >
-> In order to view the **Certificate Revocation List**, the **PKI Cert Issuer's** signing key **must** include the `cRLSign` extension.
+> To view the **Certificate Revocation List**, the **PKI Cert Issuer's** signing key **must** include the `cRLSign` extension.
 
 ## Working With Certificates in the Console
 

@@ -147,7 +147,7 @@ Creates AWS Dynamic Secret
 akeyless dynamic-secret create aws \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --aws-access-mode <iam_userassumed_role> \
 --aws-user-policies <Policy ARN> \
 --aws-user-groups <UserGroup name> \
@@ -156,7 +156,7 @@ akeyless dynamic-secret create aws \
 ```shell Inline connection
 akeyless dynamic-secret create aws \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --aws-access-mode <iam_userassumed_role> \
 --aws-user-policies <Policy ARN> \
 --aws-user-groups <UserGroup name> \
@@ -202,7 +202,7 @@ akeyless dynamic-secret create aws \
 
 `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
-`--session-tags`: String of Key value session tags comma separated, relevant only for Assumed Role
+`--session-tags`: String of key-value session tags, comma-separated, relevant only for Assumed Role
 
 `--transitive-tag-keys`: String of transitive tag keys space separated, relevant only for Assumed Role
 
@@ -234,7 +234,7 @@ Creates Azure AD Dynamic Secret
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --azure-user-portal-access '< true / false >' \
 --azure-user-programmatic-access '< true false >' \
 --azure-app-obj-id <Azure App Object ID> \
@@ -245,7 +245,7 @@ akeyless dynamic-secret create azure \
 ```shell Inline connection
 akeyless dynamic-secret create azure \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --azure-user-portal-access <truefalse> \
 --azure-user-programmatic-access <truefalse> \
 --azure-app-obj-id <Azure App Object ID> \
@@ -315,13 +315,13 @@ Create Cassandra Dynamic Secret
 akeyless dynamic-secret create cassandra \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --cassandra-statements CREATE ROLE '{{username}}' WITH PASSWORD = '{{password}}' AND LOGIN = true; GRANT SELECT ON ALL KEYSPACES TO '{{username}}';
 ```
 ```shell Inline connection
 akeyless dynamic-secret create cassandra \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --cassandra-hosts <Cassandra host> \
 --cassandra-port <Cassandra port> \
 --cassandra-username <Cassandra username> \
@@ -335,7 +335,7 @@ akeyless dynamic-secret create cassandra \
 
 `--target-name`: Target name
 
-`--cassandra-hosts`: Cassandra hosts names or IP addresses, comma separated
+`--cassandra-hosts`: Cassandra host names or IP addresses, comma-separated
 
 `--cassandra-username`: Cassandra superuser user name
 
@@ -369,14 +369,14 @@ Creates Chef Dynamic Secret
 akeyless dynamic-secret create chef \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --chef-orgs <Chef organizations>
 ```
 ```shell Inline connection
 akeyless dynamic-secret create chef \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --chef-orgs <Chef organizations> \
 --chef-server-username <Chef server username> \
 --chef-server-key <Chef server key> \
@@ -419,9 +419,9 @@ Creates a custom webhook-based dynamic secret
 ```shell
 akeyless dynamic-secret create custom \
 --name <Dynamic Secret Name> \
---create-sync-url <'https://example.com/sync/create:Port'> \
---revoke-sync-url <'https://example.com/sync/revoke:Port'> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--create-sync-url 'https://example.com/sync/create:Port' \
+--revoke-sync-url 'https://example.com/sync/revoke:Port' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 #### Flags
@@ -458,14 +458,14 @@ Creates a Docker Hub Dynamic Secret
 akeyless dynamic-secret create dockerhub \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read'
 ```
 ```shell Inline connection
 akeyless dynamic-secret create dockerhub \
 --name *<Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---dockerhub-token-scopes <'repo:admin,repo:write,repo:read,repo:public_read'> \      
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read' \
 --dockerhub-username <Username for docker repository> \
 --dockerhub-password <Password for docker repository>
 ```
@@ -498,13 +498,13 @@ Creates Amazon Elastic Kubernetes Service (Amazon EKS) Dynamic Secret
 akeyless dynamic-secret create eks \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --eks-assume-role <Role ARN>
 ```
 ```shell inline connection
 akeyless dynamic-secret create eks \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --eks-assume-role <Role ARN> \
 --eks-access-key-id <IAM user Access Key ID> \
 --eks-secret-access-key <IAM user secret Access Key> \
@@ -561,7 +561,7 @@ akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --service-account-type <fixed/dynamic> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gcp-sa-email <service account email> \
 --gcp-cred-type <tokenkey> \
 --gcp-token-scopes <Token Scopes> \
@@ -571,7 +571,7 @@ akeyless dynamic-secret create gcp \
 akeyless dynamic-secret create gcp \
 --name <Dynamic Secret Name> \
 --service-account-type <fixed, dynamic> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gcp-sa-email <service account email> \
 --gcp-cred-type <tokenkey> \
 --gcp-token-scopes <Token Scopes> \
@@ -621,7 +621,7 @@ Creates Google-Workspace Dynamic Secret
 ```shell
 akeyless dynamic-secret create google-workspace \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 --access-mode <group / user> \
 --target-name <Target Name> \
 --admin-email <admin user email> \
@@ -670,13 +670,13 @@ Creates GitHub Dynamic Secret that support tokens creation with fixed TTL of 60 
 akeyless dynamic-secret create github \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --installation-id <Your GitHub Installation ID>
 ```
 ```shell Inline connection
 akeyless dynamic-secret create github \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --installation-id <Your GitHub Installation ID> \
 --github-app-id <Your GitHub application ID> \
 --github-app-private-key <Base64-encoded application private key> \
@@ -719,12 +719,12 @@ Creates Google Kubernetes Engine (GKE) Dynamic Secret
 akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 ```shell Inline connection
 akeyless dynamic-secret create gke \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gke-account-email <GKE service account email> \
 --gke-account-key <GKE service account Key> \
 --gke-cluster-endpoint <GKE cluster endpoint URL> \
@@ -774,14 +774,14 @@ Creates a SAP HANA Dynamic Secret
 akeyless dynamic-secret create hanadb \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --hanadb-creation-statements CREATE USER {{name}} PASSWORD '{{password}}';GRANT 'MONITOR ADMIN' TO {{name}}; \
 --hanadb-revocation-statements DROP USER {{name}};
 ```
 ```shell Inline connection
 akeyless dynamic-secret create hanadb \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --hana-dbname <SAP HANA database name> \
 --hanadb-username <SAP HANA database admin username> \
 --hanadb-password <SAP HANA database admin password> \
@@ -838,25 +838,25 @@ Creates Native Kubernetes Service Dynamic Secret
 #### Usage
 
 ```shell Using target
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --k8s-service-account <service account>
 ```
 ```shell Inline connection
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --k8s-service-account <service account> \
 --k8s-cluster-endpoint <Cluster Endpoint URL> \
 --k8s-cluster-ca-cert <Base64-encoded cluster CA certificate> \
 --k8s-cluster-token ${TOKEN}
 
 # Or using GW Service Account
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --use-gw-service-account
 ```
 
@@ -924,13 +924,13 @@ Creates LDAP Dynamic Secret
 akeyless dynamic-secret create ldap \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --user-dn <User Base DN>
 ```
 ```shell Inline connection
 akeyless dynamic-secret create ldap \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --ldap-url <LDAP server URL> \
 --bind-dn <LDAP Bind DN> \
 --bind-dn-password <Password> \
@@ -980,7 +980,7 @@ akeyless dynamic-secret create ldap \
 
 `--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for Dynamic Secrets/producers)
 
 `--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for SSH cert issuer, LDAP rotated secret and LDAP dynamic secret, To specify multiple targets use argument multiple times
 
@@ -996,13 +996,13 @@ Creates a MongoDB/MongoDB Atlas Dynamic Secret
 akeyless dynamic-secret create mongodb \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mongodb-roles <New User Role>
 ```
 ```shell Inline connection
 akeyless dynamic-secret create mongodb \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mongodb-roles <New User Role> \
 --mongodb-name <MongoDB name> \
 --mongodb-username <MongoDB server admin username> \
@@ -1070,14 +1070,14 @@ Creates Microsoft SQL Server
 akeyless dynamic-secret create mssql \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-creation-statements CREATE LOGIN {{name}} WITH PASSWORD = '{{password}}'; \
 --mssql-revocation-statements DROP LOGIN '{{name}}';
 ```
 ```shell Inline connection
 akeyless dynamic-secret create mssql \
 --name *<Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-creation-statements CREATE LOGIN {{name}} WITH PASSWORD = '{{password}}'; \
 --mssql-revocation-statements DROP LOGIN '{{name}}'; \
 --mssql-dbname <MSSQL Server DB Name> \
@@ -1137,13 +1137,13 @@ Creates MySQL Dynamic Secret
 akeyless dynamic-secret create mysql \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mysql-statements CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON *.* TO '{{name}}'@'%';
 ```
 ```shell Inline connection
 akeyless dynamic-secret create mysql \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mysql-statements CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}' PASSWORD EXPIRE INTERVAL 30 DAY;GRANT SELECT ON *.* TO '{{name}}'@'%'; \
 --mysql-dbname <MySQL DB Name > \
 --mysql-host <MySQL host> \
@@ -1194,7 +1194,7 @@ akeyless dynamic-secret create mysql \
 
 `--secure-access-bastion-issuer`: Path to the SSH Certificate Issuer for your Akeyless Bastion
 
-`--secure-access-host`: Target DB servers for connections. For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts)
+`--secure-access-host`: Target DB servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts)
 
 `--secure-access-web[=false]`: Enable Web Secure Remote Access
 
@@ -1208,13 +1208,13 @@ Creates Oracle DB Dynamic Secret
 akeyless dynamic-secret create oracledb \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \ 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --oracle-statements 'CREATE USER {{username}} IDENTIFIED BY {{password}}; GRANT CONNECT TO {{username}}; GRANT CREATE SESSION TO {{username}};'
 ```
 ```shell Inline connection
 akeyless dynamic-secret create oracledb \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --oracle-service-name <Your Oracle DB Service name > \
 --oracle-username <Oracle DB admin username> \
 --oracle-password <Oracle DB admin password> \
@@ -1277,21 +1277,21 @@ There are possible ways to run this command - using a target or an inline connec
 akeyless dynamic-secret create ping \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --ping-client-authentication-type CLIENT_SECRET \
 --ping-grant-types AUTHORIZATION_CODES \
---ping-redirect-uris <https://your-server.com/api/callback>
+--ping-redirect-uris 'https://your-server.com/api/callback'
 ```
 ```shell Inline connection
 akeyless dynamic-secret create ping \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---ping-url <https://my-pf-server.com> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--ping-url 'https://my-pf-server.com' \
 --ping-privileged-user <Username> \
 --ping-password <Password> \
 --ping-client-uthentication-type CLIENT_SECRET \
 --ping-grant-types AUTHORIZATION_CODES \
---ping-redirect-uris <https://your-server.com/api/callback>
+--ping-redirect-uris 'https://your-server.com/api/callback'
 ```
 
 #### Flags
@@ -1348,14 +1348,14 @@ Creates PostgreSQL Dynamic Secret
 akeyless dynamic-secret create postgresql \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --postgresql-statements 'CREATE USER {{name}} WITH PASSWORD {{password}}; GRANT SELECT ON ALL TABLES IN SCHEMA public TO {{name}}; GRANT CONNECT ON DATABASE postgres TO {{name}}; GRANT USAGE ON SCHEMA public TO {{name}};' \
 --postgresql-revoke-statement 'REASSIGN OWNED BY {{name}} TO {{userHost}}; DROP OWNED BY {{name}}; SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = {{name}}; DROP USER {{name}};'
 ```
 ```shell Inline connection
 akeyless dynamic-secret create postgresql \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --postgresql-db-name <PostgreSQL DB name> \
 --postgresql-username <PostgreSQL DB admin username> \
 --postgresql-password <PostgreSQL DBadmin password> \
@@ -1417,7 +1417,7 @@ Creates RabbitMQ Dynamic Secret
 akeyless dynamic-secret create rabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rabbitmq-user-conf-permission <User configuration permission> \
 --rabbitmq-user-write-permission <User write permission> \
 --rabbitmq-user-read-permission <User read permission>
@@ -1426,7 +1426,7 @@ akeyless dynamic-secret create rabbitmq \
 akeyless dynamic-secret create rabbitmq \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rabbitmq-user-conf-permission <User configuration permission> \
 --rabbitmq-user-write-permission <User write permission> \
 --rabbitmq-user-read-permission <User read permission> \
@@ -1455,7 +1455,7 @@ akeyless dynamic-secret create rabbitmq \
 
 `--rabbitmq-user-vhost`: User Virtual Host
 
-`--rabbitmq-user-tags`: Comma separated list of tags to apply to user
+`--rabbitmq-user-tags`: Comma-separated list of tags to apply to user
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
@@ -1485,13 +1485,13 @@ Creates RDP Dynamic Secret
 akeyless dynamic-secret create rdp \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rdp-user-groups <Group Name>
 ```
 ```shell Inline connection
 akeyless dynamic-secret create rdp \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rdp-user-groups <Group Name> \
 --rdp-host-name <RDP Host name> \
 --rdp-host-port <RDP port> \
@@ -1555,7 +1555,7 @@ Creates a Redis Dynamic Secret
 akeyless dynamic-secret create redis \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --username <Redis Username> \
 --password <Redis Password>
 ```
@@ -1602,14 +1602,14 @@ Creates an Amazon Redshift Dynamic Secret
 akeyless dynamic-secret create redshift \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --redshift-statements CREATE USER '{{username}}' WITH PASSWORD '{{password}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO '{{username}}'; \
 --ssl '< true / false >'
 ```
 ```shell Inline connection
 akeyless dynamic-secret create redshift \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --redshift-db-name <Redshift DB name> \
 --redshift-username <Redshift DB admin username> \
 --redshift-password <Redshift DB admin password> \
@@ -1660,14 +1660,14 @@ Creates Snowflake Dynamic Secret
 akeyless dynamic-secret create snowflake \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name>
 ```
 ```shell Inline connection
 akeyless dynamic-secret create snowflake \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --account <Snowflake account name> \
@@ -1719,9 +1719,9 @@ Creates a Venafi dynamic secret to create certificates generated by Venafi or mo
 #### Usage
 
 ```shell
-akeyless gateway-create venafi \
+akeyless dynamic-secret create venafi \
   --name <Dynamic Secret Name> \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --venafi-use-tpp <Required in TTP> \
   --venafi-access-token <Venafi Access Token> \
   --venafi-refresh-token <Venafi Refresh Token> \
@@ -1782,7 +1782,7 @@ Creates OpenAI Dynamic Secret
 ```shell
 akeyless dynamic-secret create openai \
   --name <Dynamic Secret Name> \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --api-key-id <Admin API key ID> \
   --api-key <Admin API key> \
   --org-id <organization ID> 
@@ -1869,7 +1869,7 @@ akeyless dynamic-secret update artifactory \
 --name <Dynamic Secret Name> \
 --artifactory-token-audience <Space-separated list of instances> \
 --new-name <Dynamic Secret New name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <Target Name> \
 --artifactory-token-scope <Space-separated list of scopes> \
 --producer-encryption-key-name <Encrypt Dynamic Secret producer with following key>
@@ -1910,7 +1910,7 @@ akeyless dynamic-secret update aws \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --aws-access-mode <iam_userassumed_role> \
 --aws-user-policies <Policy ARN> \
 --aws-user-groups <UserGroup name> \
@@ -1955,7 +1955,7 @@ akeyless dynamic-secret update aws \
 
 `--admin-creds-rotation-interval[=0]`: Admin credentials rotation interval (days)
 
-`--session-tags`: String of Key value session tags comma separated, relevant only for Assumed Role
+`--session-tags`: String of key-value session tags, comma-separated, relevant only for Assumed Role
 
 `--transitive-tag-keys`: String of transitive tag keys space separated, relevant only for Assumed Role
 
@@ -1986,7 +1986,7 @@ akeyless dynamic-secret update azure \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --azure-user-portal-access '< true / false >' \
 --azure-user-programmatic-access '< true / false >' \
 --azure-app-obj-id <Azure App Object ID> \
@@ -2170,7 +2170,7 @@ akeyless dynamic-secret update dockerhub \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --dockerhub-username <Username for docker repository> \
 --dockerhub-password <Password for docker repository>
 ```
@@ -2204,7 +2204,7 @@ akeyless dynamic-secret update eks \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --eks-assume-role <Role ARN> \
 --eks-cluster-name <EKS cluster name. Must match the EKS cluster name you want to connect to> \
 --eks-cluster-endpoint <EKS Cluster endpoint> \
@@ -2261,7 +2261,7 @@ akeyless dynamic-secret update gcp \
 --service-account-type[=fixed] <fixed, dynamic>
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gcp-sa-email <service account email> \
 --gcp-cred-type <tokenkey> \
 --gcp-key-file-path <Path to file with the Base64-encoded service account private key> \
@@ -2312,7 +2312,7 @@ akeyless dynamic-secret update gcp \
 akeyless dynamic-secret update google-workspace \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name>
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 --access-mode <group / user> \
 --target-name <Target Name> \
 --admin-email <admin user email> \
@@ -2360,7 +2360,7 @@ akeyless dynamic-secret update github \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --installation-id <Your GitHub Installation ID> \
 --installation-repository <instead of installation id, set a GitHub repository> \
 --github-app-id <Github application id> \
@@ -2403,7 +2403,7 @@ akeyless dynamic-secret update gke \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gke-account-email <GKE service account email> \
 --gke-cluster-endpoint <GKE cluster endpoint> \
 --gke-cluster-ca-cert <GKE Base-64 encoded cluster certificate> \
@@ -2457,7 +2457,7 @@ akeyless dynamic-secret update hanadb \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --hanadb-username <SAP HANA database user> \
 --hanadb-password <SAP HANA database-password> \
 --hanadb-host <SAP HANA database host name (Deafult = 127.0.0.1) \
@@ -2627,7 +2627,7 @@ akeyless dynamic-secret update ldap \
 
 `--host-provider`: Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of SSH cert issuer, LDAP rotated secret and LDAP dynamic secret
 
-`--secure-access-host`: Target servers for connections, For multiple values repeat this flag. (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers)
+`--secure-access-host`: Target servers for connections. For multiple values, repeat this flag. (If a Linked Target is associated, hosts will inherit Linked Target hosts - relevant only for Dynamic Secrets/producers)
 
 `--target`: A list of linked targets to be associated, Relevant only for Secure Remote Access for SSH cert issuer, LDAP rotated secret and LDAP dynamic secret, To specify multiple targets use argument multiple times
 
@@ -2642,7 +2642,7 @@ akeyless dynamic-secret update mongodb \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mongodb-name <MongoDB name> \
 --mongodb-custom-data <MongoDB custom data>\
 --mongodb-username <MongoDB server username> \
@@ -2709,7 +2709,7 @@ akeyless dynamic-secret update mssql \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mssql-dbname <MSSQL Server DB Name> \
 --mssql-username <MS SQL Server user> \
 --mssql-password <MS SQL Server password> \
@@ -2768,7 +2768,7 @@ akeyless dynamic-secret update mysql \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --mysql-username <MySQL user> \
 --mysql-password <MySQL password> \
 --mysql-host <MySQL host name (Deafult = 127.0.0.1) > \
@@ -2832,7 +2832,7 @@ akeyless dynamic-secret update oracledb \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --oracle-username <Oracle user> \
 --oracle-password <Oracle password> \
 --oracle-host <Oracle host name (Deafult = 127.0.0.1) > \
@@ -2892,7 +2892,7 @@ akeyless dynamic-secret update postgresql \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --postgresql-username <PostgreSQL user> \
 --postgresql-password <PostgreSQL password> \
 --postgresql-host <PostgreSQL host name (Deafult = 127.0.0.1) > \
@@ -2956,7 +2956,7 @@ akeyless dynamic-secret update rabbitmq \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --rabbitmq-user-conf-permission <User configuration permission> \
 --rabbitmq-user-write-permission <User write permission> \
 --rabbitmq-user-read-permission <User read permission> \
@@ -2986,7 +2986,7 @@ akeyless dynamic-secret update rabbitmq \
 
 `--rabbitmq-user-vhost`: User Virtual Host
 
-`--rabbitmq-user-tags`: Comma separated list of tags to apply to user
+`--rabbitmq-user-tags`: Comma-separated list of tags to apply to user
 
 `--producer-encryption-key-name`: Encrypt (Dynamic Secret) producer with following key
 
@@ -3072,7 +3072,7 @@ akeyless dynamic-secret update redis \
 --name <Dynamic Secret name> \
 --new-name <Dynamic Secret new name> \
 --target-name <Target name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --username <Redis username> \
 --password <Redis password>
 ```
@@ -3120,7 +3120,7 @@ akeyless dynamic-secret update redshift \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --redshift-username <redshiftL user> \
 --redshift-password <Redshift password> \
 --redshift-host <Redshift host name (Default = 127.0.0.1)> \
@@ -3172,7 +3172,7 @@ akeyless dynamic-secret update snowflake \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --role <New User Role> \
 --warehouse <Wahehouse Name> \
 --account-username <Snowflake account user name> \
@@ -3227,7 +3227,7 @@ akeyless dynamic-secret update venafi \
 --name <Dynamic Secret Name> \
 --new-name <Dynamic Secret New name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --venafi-zone <Venafi Zone> \
 --venafi-api-key <Venafi API key (Relevant when using Venafi Cloud)> \
 --venafi-use-tpp <When connecting to TPP this flag is required> \
@@ -3291,7 +3291,7 @@ Updates OpenAI Dynamic Secret
 akeyless dynamic-secret update openai \
   --name <Dynamic Secret Name> \
   --new-name <Dynamic Secret New name> \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --api-key-id <Admin API key ID> \
   --api-key <Admin API key> \
   --org-id <organization ID> 
@@ -3320,7 +3320,7 @@ Get dynamic secret details
 ```shell
 akeyless dynamic-secret get \
 --name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ## `get-value`
@@ -3358,7 +3358,7 @@ List available Dynamic Secrets
 
 ```shell
 akeyless dynamic-secret list \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 ### Flags
@@ -3374,7 +3374,7 @@ Deletes dynamic secret
 ```shell
 akeyless dynamic-secret delete \
 --name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 ### Flags
@@ -3398,7 +3398,7 @@ akeyless dynamic-secret tmp-creds delete \
 --name <Dynamic Secret name> \
 --tmp-creds-id <Temporary credentials ID> \
 --revoke-all \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --soft-delete <Use soft-delete> \
 --host <Host>
 ```
@@ -3426,7 +3426,7 @@ Get dynamic secret temporary credentials list
 ```shell
 akeyless dynamic-secret tmp-creds get \
 --name <Dynamic Secret name> \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -3446,8 +3446,8 @@ akeyless dynamic-secret tmp-creds update \
 --name <Dynamic Secret name> \
 --tmp-creds-id <Temporary credentials ID> \
 --new-ttl-min <New TTL in Minutes> \
---host <Requested host>
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'
+--host <Requested host> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 #### Flags
@@ -3471,7 +3471,7 @@ Set an item's state (Enabled, Disabled)
 ```shell
 akeyless set-item-state \
 --name <Dynamic Secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --desired-state <>
 ```
 

@@ -19,13 +19,13 @@ To set up a **Email** Event Forwarder, use the following command:
 ```shell
 akeyless event-forwarder create email \
 --name MyForwarder \
---email-to <comma separated email addresses> \
---gateway-url <'https://<Your-Akeyless-GW-URL:8000>'> \
---override-url <'https://<Your-Akeyless-GW-URL:8000/console/>'> #or use port 18888\
---include-error false \ 
+--email-to <comma-separated email addresses> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--override-url 'https://<Your-Akeyless-GW-URL>:8000/console/' \ #or use port 18888
+--include-error false \
 --items-event-source-locations </MySecrets/*> \
 --targets-event-source-locations </MyTargets/*> \
---event-types <event type>
+--event-types <event type> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>
 ```
@@ -36,7 +36,7 @@ The main parameters for the command are as follows:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `override-url` Override Akeyless default URL inside the email with your Gateway Console endpoint `https://Your-Akeyless-GW-URL:8000/console`. (or use your gateway URL at port `18888`)
+* `override-url` Override Akeyless default URL inside the email with your Gateway Console endpoint `https://<Your-Akeyless-GW-URL>:8000/console`. (or use your gateway URL at port `18888`)
 
 * `include-error` Boolean by default false, to include error details as part of the email.
 
@@ -46,7 +46,7 @@ The main parameters for the command are as follows:
 
 * `auth-methods-event-source-locations` **Auth Methods** event sources to forward events about, for example: `/API-Keys/*`
 
-* `gateways-event-source-locations`: **Gateways** event sources to forward events about, for example, the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL:8000`
+* `gateways-event-source-locations`: **Gateways** event sources to forward events about, for example, the relevant Gateways cluster URL: `https://<Your-Akeyless-GW-URL>:8000`
 
 * `event-types`: A comma-separated list of types of events to notify about, [view the full list of the available events](https://docs.akeyless.io/docs/event-center#event-types)
 

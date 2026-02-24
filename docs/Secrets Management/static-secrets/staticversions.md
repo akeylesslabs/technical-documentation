@@ -24,7 +24,7 @@ $ akeyless update-secret-val --name <secret name> --value <new secret value>
 The value of secret <secret name> was successfully updated.
 ```
 
-When you update a static secret, by default the latest version is updated. To keep the previous version of the secret stored in Akeyless, run the `--keep-prev-version=true`option.
+When you update a static secret, by default the latest version is updated. To keep the previous version of the secret stored in Akeyless, run the `--keep-prev-version=true` option.
 
 > 🚧 Warning
 >

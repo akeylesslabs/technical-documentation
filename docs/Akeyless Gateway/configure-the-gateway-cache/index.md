@@ -44,7 +44,7 @@ To enable and configure the Gateway Cache:
 >
 > Usually, after the Stale Timeout period expires for a secret, the secret is deleted from the Gateway Cache.
 >
-> In case there is no internet connection, the Gateway Cache won’t delete old items until the internet connection is restored.
+> If there is no internet connection, the Gateway Cache won’t delete old items until the internet connection is restored.
 
 ## Proactive Gateway Cache
 

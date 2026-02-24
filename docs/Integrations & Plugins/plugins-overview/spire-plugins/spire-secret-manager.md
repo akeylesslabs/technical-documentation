@@ -90,7 +90,7 @@ SVIDStore "akeyless_secretsmanager" {
     plugin_cmd = "/path/to/plugin_cmd"
     plugin_checksum = "sha256 of the plugin binary"
     plugin_data {
-     akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL:8000/api/v2>' # or use port 8081
+     akeyless_gateway_url = 'https://<Your-Akeyless-GW-URL>:8000/api/v2>' # or use port 8081
      access_id = "<Your_Access_ID>"
      access_key = "<Your_Access_KEY>"
      target_folder = "/SPIRE/SVID/"     

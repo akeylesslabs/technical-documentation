@@ -24,7 +24,7 @@ While default access can be assigned by way of [Role-Based Access Control (RBAC)
 
 ## Requesting Access with the CLI
 
-In order to request access to an item, use the following command:
+To request access to an item, use the following command:
 
 ```shell
 akeyless request-access --name <name> --type <item type> --capability <permissions needed> --comment <comment about the request>

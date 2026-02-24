@@ -42,7 +42,7 @@ After the migration, new secrets will be available under the specified path. If 
 
 > 👍 Note
 >
-> If there are existing secrets under the **Target location**, their values will be replaced in case of conflict. This can happen if you leave the "Target location" field blank and a new secret has the same name as the existing one.
+> If there are existing secrets under the **Target location**, their values are replaced if a conflict occurs. This can happen if you leave the "Target location" field blank and a new secret has the same name as an existing one.
 >
 > 👍 Tip
 >
@@ -56,7 +56,7 @@ After the migration, new secrets will be available under the specified path. If 
 
 To import secrets as `LOGIN`, `PASSWORD`, and `SECURE_NOTE` from 1Password into Akeyless Provide the relevant `sign-in address` which is your 1Password account URL for example “company_name.1Password.com” with a privileged email and password with your 1Password Secret Key`.
 
-You can choose the relevant `Vaults` you would like to migrate items from. comma separated, if left empty all non-private Vaults will be migrated.
+You can choose the relevant `Vaults` you would like to migrate items from. Enter them as a comma-separated list. If left empty, all non-private Vaults are migrated.
 
 To import the private vaults of your users into Akeyless Personal folder space, each user will have to run its own process using the Akeyless CLI command `gateway-migrate-personal-items`.
 
@@ -124,7 +124,7 @@ For any Kubernetes authentication method, the following options are available:
 
 * **Cluster URL endpoint:** This is the URL of the Kubernetes API server (including schema and port, for example, `https://<k8s-api.mycompany.com>:6443)`.
 
-* **Cluster CA Certificate:** Optional Certificate Authority data in case the server is accessed over HTTPS. This value can be found in your `~/.kube/config` file, under the **certificate-authority-data** property of the cluster with the existing secrets. There is no need to Base64-decode this value. It should be used as-is. If no value is provided, an insecure connection is used, which is discouraged.
+* **Cluster CA Certificate:** Optional Certificate Authority data if the server is accessed over HTTPS. This value can be found in your `~/.kube/config` file, under the **certificate-authority-data** property of the cluster with the existing secrets. There is no need to Base64-decode this value. It should be used as-is. If no value is provided, an insecure connection is used, which is discouraged.
 
 * **Namespace:** Use this field to import secrets from a particular Namespace only. By default, the secrets are imported from all namespaces.
 

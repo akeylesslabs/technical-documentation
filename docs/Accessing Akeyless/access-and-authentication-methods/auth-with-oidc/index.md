@@ -22,7 +22,7 @@ To create an OIDC authentication method with the CLI, run the following command:
 
 ```shell
 akeyless auth-method create oidc --name <Auth Method Name> \
---issuer <https://Idp-issuer-url> \
+--issuer https://Idp-issuer-url \
 --client-id <client-id> \
 --client-secret <client-secret> \
 --unique-identifier <UID (For example, 'email' or 'username')>
@@ -45,7 +45,7 @@ Where:
 > **Unique Identifier** should be a **key** name, that is not the value itself.
 > For example, `email` should be provided as is, and not the actual email address.
 
-By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes, in case your IdP uses different characters as a delimiter, you might set those using the `delimiters` parameter.
+By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes. If your IdP uses different characters as a delimiter, you can set those using the `delimiters` parameter.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueoidcp) section.
 

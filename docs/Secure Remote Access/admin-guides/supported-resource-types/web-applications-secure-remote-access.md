@@ -53,7 +53,7 @@ Where:
 
 > 🚧 Warning
 >
-> In case you are using an Alias or multiple fields as part of your login credentials, please make sure your secret value follows this format: `username..alias..password`
+> If you are using an alias or multiple fields as part of your login credentials, make sure your secret value follows this format: `username..alias..password`.
 
 On Akeyless Secure Remote Access Portal, click on the Web Access application, select the relevant item in the list.
 

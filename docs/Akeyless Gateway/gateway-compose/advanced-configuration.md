@@ -109,7 +109,7 @@ The password is stored in the Cache.env file and is referenced by both the `redi
 To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `RESTRICT_SERVICE_TO_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`
 
 ```yaml docker-compose.yaml
-RESTRICT_SERVICE_TO_ACCESS_IDS: <"comma separated list of access-ids">
+RESTRICT_SERVICE_TO_ACCESS_IDS: <"comma-separated list of access-ids">
 ```
 
 In the above example, in addition to your Gateway admin lists, you are limiting the audience of users that your Gateway will serve. Other `AccessIDs` will not be able to get service from your Gateway. Alternatively to block specific `AccessIDs` you can use the `BLOCKLIST_ACCESS_IDS` variable instead.
