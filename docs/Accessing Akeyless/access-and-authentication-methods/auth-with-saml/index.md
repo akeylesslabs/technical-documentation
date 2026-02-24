@@ -41,7 +41,7 @@ Where:
 
 By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes. If your IdP uses different characters as a delimiter, you can set those using the `delimiters` parameter.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
 
 ## Create a SAML Authentication Method in the Console
 
