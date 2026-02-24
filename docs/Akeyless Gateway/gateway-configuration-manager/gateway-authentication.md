@@ -42,4 +42,4 @@ Once saved, users can log in to your Gateway Console on the `/console` endpoint 
 
 > 🚧 Warning
 >
-> Certificate-Based Authentication utilizes mTLS. Therefore, it is required that the Gateway itself will manage any TLS termination for the connection to Akeyless SaaS core services.
+> Certificate-Based Authentication uses mTLS. Therefore, it is required that the Gateway itself will manage any TLS termination for the connection to Akeyless SaaS core services.

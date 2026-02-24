@@ -24,7 +24,7 @@ When managing environments across multiple AWS accounts, the key requirement is 
 
 AWS compute resources can authenticate directly to Akeyless using supported identity mechanisms, including: EC2 instances, Lambda Functions, ECS (Elastic Container Service) tasks, and EKS (Elastic Kubernetes Service) pods (if using IAM roles for service accounts). These resources use AWS IAM roles to obtain temporary credentials, which Akeyless uses to validate their identity.
 
-When the **Gateway** is running on such a resource, it utilizes the existing identity to authenticate to Akeyless SaaS services.
+When the **Gateway** is running on such a resource, it uses the existing identity to authenticate to Akeyless SaaS services.
 
 ### How Is This Authentication Implemented Securely?
 

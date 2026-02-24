@@ -22,7 +22,7 @@ The most straightforward use cases are the following:
 
 * The Proactive Cache enables storing secrets in the Gateway Cache in advance upon successful user authentication.
 
-The Gateway cache utilizes two primary types of caches: a **Local In-Memory Cache** for individual Gateway instances and a **Cluster Cache** for high availability in Kubernetes environments. This architecture ensures that secrets are readily available to applications while minimizing the load on the Akeyless SaaS platform.
+The Gateway cache uses two primary types of caches: a **Local In-Memory Cache** for individual Gateway instances and a **Cluster Cache** for high availability in Kubernetes environments. This architecture ensures that secrets are readily available to applications while minimizing the load on the Akeyless SaaS platform.
 
 In a high-availability configuration, secrets are stored in a **Cluster Cache**, typically backed by an internal database instance. This shared cache ensures every pod has a consistent view of the cached data. This model is crucial for resilience, as it allows the Gateway to continue serving cached secrets even during a complete Akeyless SaaS outage. Authentication can also persist during an outage for methods that can be validated locally, such as Kubernetes ServiceAccount authentication, where the Gateway can verify the token against the cluster's Kubernetes API server without needing to contact the SaaS.
 
@@ -50,7 +50,7 @@ To enable and configure the Gateway Cache:
 
 The Proactive Cache fetches all secrets from the Akeyless Cloud and stores them in the Gateway Cache upon successful authentication (based on the user access policy). To manage each user's access policy, the [Gateway's default Auth Method](https://docs.akeyless.io/docs/gateway-k8s#authentication) must have **List** permissions for **Auth-Methods** and **Roles**, as well as **Read** permission for the secret intended to be saved in the cache.
 
-The Gateway utilizes a proactive caching model with a delta-based update process to avoid the resource-intensive task of re-fetching all secrets periodically. This is managed by two parallel background processes:
+The Gateway uses a proactive caching model with a delta-based update process to avoid the resource-intensive task of re-fetching all secrets periodically. This is managed by two parallel background processes:
 
 * **Refresh-TTL Ticker**: This process runs at a configurable interval (by default every 5 minutes) and queries the Akeyless SaaS platform only for secrets that have been modified within that time window. By checking just for the delta of updated secrets, the Gateway significantly reduces the overhead of keeping the cache synchronized.
 * **Cleanup-TTL Ticker:** This independent process periodically compares the cache with the SaaS to remove entries for secrets that have been deleted or for which the Gateway's access permissions have been revoked.

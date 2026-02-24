@@ -259,7 +259,7 @@ Once finish, you will have a new role in the management account that trusts itse
 
 Now, that we have a role in the management account, a role needs to be created in each AWS Account we want to manage from the Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw).
 
-Run the following in order to create a role in the destination account:
+Run the following to create a role in the destination account:
 
 ```yaml main.tf
 terraform {

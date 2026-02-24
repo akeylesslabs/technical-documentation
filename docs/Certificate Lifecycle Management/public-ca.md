@@ -14,7 +14,7 @@ Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.glob
 
 The public certificate authority will sign and issue the certificate, while Akeyless will store and manage the certificate lifecycle.
 
-The issuance flow utilizes a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
+The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
 
 ## Prerequisites
 
