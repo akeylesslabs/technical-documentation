@@ -42,13 +42,13 @@ Then, add the following dependency to your project's `pom.xml` file:
 </dependency>
 ```
 
-> 👍 Note
+> **Note:**
 >
 > Don't forget to modify the value of the `<version>` element in the `pom.xml` file to specify the dependency version you want to include.
 
 ### Build from Source
 
-Clone the <a href="https://github.com/akeylesslabs/akeyless-java" target="_blank">SDK Repository</a> and execute:
+Clone the [SDK Repository](https://github.com/akeylesslabs/akeyless-java) and execute:
 
 ```shell
 mvn clean package

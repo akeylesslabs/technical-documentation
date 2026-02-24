@@ -44,13 +44,13 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluedockerhubp) section.
 
-> 🚧 Warning
+> **Warning:**
 >
 > Rotating the [Target](https://docs.akeyless.io/docs/targets) credentials (that is, changing your Docker Hub password) will invalidate all existing personal access tokens.
 
 ## Create a Rotated Docker Hub Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-a-docker-hub-rotated-secret#create-a-rotated-docker-hub-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 

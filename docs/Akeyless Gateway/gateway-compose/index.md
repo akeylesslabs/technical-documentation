@@ -19,7 +19,7 @@ Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/
 * [Docker Compose installed](https://docs.docker.com/compose/install/)
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your machine.
 
-> 🚧 Warning
+> **Warning:**
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
@@ -64,7 +64,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
-> 👍 Note
+> **Note:**
 >
 > Your Gateway **Authentication Method** should have permission to create and manage both Items along with Targets items **only**.
 
@@ -166,7 +166,7 @@ Full list of available permissions:
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
 | `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
 
-> 👍 Note
+> **Note:**
 >
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 

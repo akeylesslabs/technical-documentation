@@ -51,7 +51,7 @@ akeyless_url="https://api.akeyless.io" \<---- api v2 (8081 or 8000/api/v2)
 base_item_path="/sqlcrypt" \<--- base path for the keys to be created
 ```
 
-> 📘 Note
+> **Note:**
 >
 > Note: If the installer does not generate the `sqlcrypt.conf` file, refer to the Troubleshooting section below.
 
@@ -89,7 +89,7 @@ FOR CRYPTOGRAPHIC PROVIDER Akeyless;
 GO
 ```
 
-> 📘 Note
+> **Note:**
 >
 > Make sure to replace \<ACCESS_ID> and \<ACCESS_KEY> with your actual API Key credentials from Akeyless.
 
@@ -111,7 +111,7 @@ PROVIDER_KEY_NAME = 'SQL_Server_Key';
 GO
 ```
 
-> 📘 Note
+> **Note:**
 >
 > Note for Clusters: When working with a cluster, execute the above command only on the Primary server. On all other servers, use:
 
@@ -154,7 +154,7 @@ ENCRYPTION BY SERVER ASYMMETRIC KEY akls_ekm_login_key;
 GO
 ```
 
-> 📘 Note
+> **Note:**
 >
 > This does not create a new key in the Akeyless Platform. The key is created inside the database and encrypted using the key from Akeyless.
 

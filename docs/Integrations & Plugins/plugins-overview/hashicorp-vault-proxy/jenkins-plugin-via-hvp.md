@@ -16,13 +16,13 @@ The Jenkins plugin can also inject credentials into a build pipeline or freestyl
 
 To use the Jenkins plugin, you need to add the Akeyless plugin to Jenkins and enter credentials for authenticating against Akeyless. In this example, we will use an [API Key](https://docs.akeyless.io/docs/auth-with-api-key) for authentication.
 
-> 👍 Note
+> **Note:**
 >
 > You can use any of the [authentication methods](https://docs.akeyless.io/docs/access-and-authentication-methods) supported by Akeyless. Ensure that the authentication method you use is associated with an [access role](https://docs.akeyless.io/docs/rbac) with access to the required secrets.
 
 ## Configure the Akeyless Plugin in Jenkins
 
-> 👍 Note
+> **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 

@@ -26,7 +26,7 @@ The following Authentication Methods are supported:
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 * [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> 👍 Note
+> **Note:**
 >
 > In this guide, we will use an `API Key` Authentication Method for simplicity
 
@@ -147,7 +147,7 @@ Once the server is running, the Agent needs to be configured as well. Add the fo
 trust_bundle_path = "/Path/To/certificate/file" 
 ```
 
-> 📘 Info
+> **Info:**
 >
 > **trust bundle**
 >
@@ -167,7 +167,7 @@ Use the generated token to attest the `agent` to the `server`
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 ```
 
-> 📘 Info
+> **Info:**
 >
 > **SPIFFE/SPIRE**
 >

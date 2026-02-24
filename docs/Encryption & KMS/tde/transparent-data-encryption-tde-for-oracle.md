@@ -283,7 +283,7 @@ Reference: [Configuring an Auto-Open Connection into an External Key Manager](ht
 ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE";
 ```
 
-> 📘 Note
+> **Note:**
 >
 > When using Oracle RAC, perform all the above steps only on one target instance and have all the other RAC instance(s) shutdown. After following the above steps copy the `cwallet.sso` and `ewallet.p12` file from the configured node to all the other node(s) at the same `<software_wallet_location>` location. After copying `cwallet.sso` and `ewallet.p12` on the other node(s), restart all the other RAC instance(s).
 

@@ -20,7 +20,7 @@ You can define a Chef Infra dynamic secret to allow users to dynamically generat
 
 ## Create a Dynamic Chef Infra Secret with the CLI
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/chef-infra-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 

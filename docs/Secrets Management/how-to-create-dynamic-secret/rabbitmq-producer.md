@@ -92,7 +92,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic RabbitMQ Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/rabbitmq-producer#/create-a-dynamic-rabbitmq-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 

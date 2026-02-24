@@ -71,7 +71,7 @@ Akeyless has six main permission types for Items, Access Roles, Auth Methods, an
 
 The built-in admin role has full access to all parts of the accounts.
 
-> 🚧 Warning
+> **Warning:**
 >
 > It is considered a best practice **not** to use an API Key as the authentication method associated with your Admin role. We highly recommend you select one of the other available [Authentication Methods.](https://docs.akeyless.io/docs/access-and-authentication-methods)
 
@@ -86,7 +86,7 @@ The existing permissions for Items, Access Roles, Auth Methods, and Targets are 
 * Delete: Allows a user to delete existing secrets and items in an authorized path.
 * Deny: Allows a user to deny any permission to other users in their authorized path.
 
-> 👍 Note
+> **Note:**
 >
 > **Permission Hierarchy**
 >
@@ -115,7 +115,7 @@ The existing permissions for Secure Remote Access are as follows:
 
 With Administrative Rules, you can choose whether users have access only to the resources they own (**Own**), access to items users have `list` permission for (**Scoped**), or access to all resources (**All**).
 
-> 👍 Note
+> **Note:**
 >
 > The **Own** option is only relevant for **Audit Logs** and **Analytics**.
 

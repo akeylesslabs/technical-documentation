@@ -22,7 +22,7 @@ Akeyless supports multiple options to authenticate your Kubernetes cluster with 
 
 ## Kubernetes Auth
 
-> 👍 Note
+> **Note:**
 >
 > Native Kubernetes attributes such as `namespace` and `pod_name` can be leveraged as [sub-claims](https://docs.akeyless.io/docs/sub-claims) for policy segregation when using [Kubernetes Authentication](https://docs.akeyless.io/docs/auth-with-kubernetes).
 
@@ -38,7 +38,7 @@ or
 AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1" # or using port 8080
 ```
 
-> 📘 Zero-Knowledge
+> **Note (Zero-Knowledge):**
 >
 > While working with Customer Fragment for Zero-Knowledge set: `AKEYLESS_API_GW_URL: "https://<Your-Akeyless-GW-URL>:8000/api/v1"`
 

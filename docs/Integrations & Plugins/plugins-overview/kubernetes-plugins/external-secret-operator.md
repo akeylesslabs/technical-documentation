@@ -49,7 +49,7 @@ Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 * [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> 👍 Note
+> **Note:**
 >
 > This guide demonstrates authentication using API Key and Kubernetes Authentication Methods. However, for security purposes, it’s highly recommended to avoid using API Keys in production.
 
@@ -323,7 +323,7 @@ kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.key}' | ba
 
 The [ClusterSecretStore](https://external-secrets.io/v0.4.2/api-clustersecretstore/) is cluster-wide and can be accessed by `ExternalSecrets` from any Namespace, offering centralized secret management:
 
-> 👍 Note
+> **Note:**
 >
 > The **Namespace** value is required in the `secretRef` section.
 

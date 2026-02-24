@@ -11,7 +11,7 @@ next:
 ---
 ## Introduction
 
-> 👍 Note
+> **Note:**
 >
 > These instructions were created using the Vancouver release of ServiceNow. Newer versions may have a different UI.
 

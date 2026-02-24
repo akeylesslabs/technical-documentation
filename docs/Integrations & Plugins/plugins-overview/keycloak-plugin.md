@@ -43,7 +43,7 @@ Verify your deployment in Keycloak logs:
 [org.jboss.as.server] (DeploymentScanner-threads - 1) WFLYSRV0010: Deployed "akeyless-keycloak-jar-with-dependencies.jar" (runtime-name : "akeyless-keycloak-jar-with-dependencies.jar")
 ```
 
-> 👍 Note
+> **Note:**
 >
 > When working with [Ephemeral Containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/), the `deployments` folder should be mounted using Persistent Volumes.
 

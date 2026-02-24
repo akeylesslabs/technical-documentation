@@ -40,17 +40,17 @@ After the migration, new secrets will be available under the specified path. If 
 
 * **Protect secrets with the following key:** This required field allows selecting the encryption key for the protection of imported secrets. This property will enable you to use [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge).
 
-> 👍 Note
+> **Note:**
 >
 > If there are existing secrets under the **Target location**, their values are replaced if a conflict occurs. This can happen if you leave the "Target location" field blank and a new secret has the same name as an existing one.
 >
-> 👍 Tip
+> **Tip:**
 >
 > Before getting started, ensure that the platform where the secrets are stored is accessible over the network from the Akeyless Gateway server. Depending on the deployment, it might require adding an Akeyless Gateway IP address to a security group or a firewall.
 
 ## 1Password
 
-> 🚧 Deprecation Note
+> **Note (Deprecation):**
 >
 > Due to internal security restrictions this migration is deprecated starting from Gateway version `4.35.1`.
 
@@ -94,7 +94,7 @@ The main parameters for this command are:
 
 To import secrets from GCP Secrets Manager, you need to provide a GCP Service Account Key in the JSON format with sufficient permissions to get all secrets or a Gateway that runs on GCP using the Gateway Cloud ID option.
 
-> 👍 Tip
+> **Tip:**
 >
 > A GCP Service Account is a type of Google identity intended to interact with workloads. Authentication with this identity is required to fetch information over Google APIs.
 >
@@ -130,7 +130,7 @@ For any Kubernetes authentication method, the following options are available:
 
 * **Skip Control Plane Secrets:** This flag allows us to avoid importing secrets from system namespaces (the ones that begin with `kube-`). If you need to import secrets from all namespaces, uncheck this flag.
 
-> 👍 Tip
+> **Tip:**
 >
 > When choosing an authentication method to access your Kubernetes cluster, ensure that the credentials you provide have sufficient privileges to list and get secrets in the Namespace(s) you selected.
 
