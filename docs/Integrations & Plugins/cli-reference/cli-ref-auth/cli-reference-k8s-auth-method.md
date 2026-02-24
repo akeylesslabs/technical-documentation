@@ -76,7 +76,7 @@ akeyless gateway-create-k8s-auth-config \
 --access-id <Access_ID> \
 --gateway-url <API Gateway URL:8000> \
 --signing-key <Private_Key> \
---k8s-host <https://Your-K8s-Cluster-IP:8443> \
+--k8s-host https://Your-K8s-Cluster-IP:8443 \
 --token-reviewer-jwt <SA_JWT_TOKEN> \
 --k8s-ca-cert <CA_CERT> \
 --k8s-issuer <K8S_ISSUER>
@@ -87,7 +87,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf-rancher \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
 --cluster-api-type rancher \
---k8s-host=<https://Rancher Host>:443 \
+--k8s-host=https://<Rancher-Host>:443 \
 --k8s-ca-cert $CA_CERT \
 --k8s-issuer $K8S_ISSUER \
 --rancher-api-key <API_KEY> \

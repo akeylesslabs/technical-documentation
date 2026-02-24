@@ -34,7 +34,7 @@ akeyless event-forwarder create email \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL>:8000> \
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
 --event-types <event type> \
 --include-error <true / false> \
 --runner-type[=immediate] <immediate / periodic> \
@@ -85,7 +85,7 @@ akeyless event-forwarder create servicenow \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL>:8000> \
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
 --event-types <event type>
 ```
 
@@ -145,7 +145,7 @@ akeyless event-forwarder create slack \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL>:8000> \
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
 --event-types <event type> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>
@@ -191,7 +191,7 @@ akeyless event-forwarder create webhook \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL>:8000> \
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
 --event-types <event type> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>
@@ -257,7 +257,7 @@ akeyless event-forwarder create teams \
 --items-event-source-locations </Secrets/*> \
 --targets-event-source-locations </Targets/*> \
 --auth-methods-event-source-locations </Auth-Methods/*> \
---gateways-event-source-locations <https://<Your-Akeyless-GW-URL>:8000> \
+--gateways-event-source-locations 'https://<Your-Akeyless-GW-URL>:8000' \
 --event-types <event type> \
 --runner-type[=immediate] <immediate / periodic> \
 --every <1-24 hours>

@@ -1280,7 +1280,7 @@ akeyless dynamic-secret create ping \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --ping-client-authentication-type CLIENT_SECRET \
 --ping-grant-types AUTHORIZATION_CODES \
---ping-redirect-uris <https://your-server.com/api/callback>
+--ping-redirect-uris 'https://your-server.com/api/callback'
 ```
 ```shell Inline connection
 akeyless dynamic-secret create ping \
@@ -1291,7 +1291,7 @@ akeyless dynamic-secret create ping \
 --ping-password <Password> \
 --ping-client-uthentication-type CLIENT_SECRET \
 --ping-grant-types AUTHORIZATION_CODES \
---ping-redirect-uris <https://your-server.com/api/callback>
+--ping-redirect-uris 'https://your-server.com/api/callback'
 ```
 
 #### Flags

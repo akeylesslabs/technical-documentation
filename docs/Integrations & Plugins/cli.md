@@ -276,10 +276,10 @@ Where:
 To re-route the entire traffic directly by way of your [Gateway](https://docs.akeyless.io/docs/api-gw) for closed environments, create an environment variable `AKEYLESS_GATEWAY_URL` to point your CLI to interact with the relevant Gateway:
 
 ```shell Linux
-export AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8000/api/v1> 
+export AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8000/api/v1 
 ```
 ```shell Windows
-set AKEYLESS_GATEWAY_URL=<https://Your_GW_URL:8080>
+set AKEYLESS_GATEWAY_URL=https://Your_GW_URL:8080
 ```
 
 In case your Gateway uses a self-signed certificate not trusted by your machine, set the environment variable `AKEYLESS_TRUSTED_TLS_CERTIFICATE_FILE` with the location of your `PEM` file.
