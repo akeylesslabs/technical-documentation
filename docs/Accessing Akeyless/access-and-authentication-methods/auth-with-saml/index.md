@@ -16,7 +16,7 @@ The SAML authentication method allows users to authenticate using an external Id
 
 ## Create a SAML Authentication Method with the CLI
 
-Let's create a new SAML authentication method using the Akeyless CLI. You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-saml).
+Let's create a new SAML authentication method using the Akeyless CLI. You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-saml#create-a-saml-authentication-method-in-the-console).
 
 To create a SAML authentication method with the CLI, run the following command:
 
