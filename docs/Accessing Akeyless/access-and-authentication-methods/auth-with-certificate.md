@@ -34,7 +34,7 @@ This method is most often used for **machine-to-machine** authentication, where 
 
 To create a certificate-based authentication method, the user must provide a signed client certificate, and a `unique identifier` that could be a value of `common_name` or `organizational_unit` parameters from the certificate.
 
-A `unique identifier` acts as a <a href="https://docs.akeyless.io/docs/sub-claims" target="_blank">sub-claim</a> helping to uniquely identify the authenticating Identity.
+A `unique identifier` acts as a [sub-claim](https://docs.akeyless.io/docs/sub-claims) helping to uniquely identify the authenticating Identity.
 
 To create a certificate-based authentication method, run the following command:
 

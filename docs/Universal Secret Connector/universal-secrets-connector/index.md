@@ -40,4 +40,4 @@ To view all your Universal Secret Connectors, log in to the **Console** then nav
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s" target="_blank">Universal Secrets Connectors</a>.
+Check out our tutorial video on [Universal Secrets Connectors](https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s).

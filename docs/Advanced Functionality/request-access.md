@@ -18,7 +18,7 @@ This option needs to be enabled by an admin in the account under Account setting
 
 While default access can be assigned by way of [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac), this article discusses how to easily manage your access requests using customizable notifications and easy workflow to approve such requests
 
-> 👍 Note
+> **Note:**
 >
 > Upon approval of an Access Request a temporary Access Role will be created with details about the request ID under a dedicated folder `/Access Requests/<Requestor AccessID>/<ID>`, and will be deleted automatically within an hour.
 
