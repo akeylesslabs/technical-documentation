@@ -57,7 +57,7 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 
 Access to the Akeyless MCP server is set up for an MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of available MCP clients is available <Anchor label="here" target="_blank" href="https://modelcontextprotocol.io/clients">here</Anchor>.
 
-> Important: `akeyless mcp` does not read the `gateway_url` value from a CLI profile. Always pass the gateway explicitly by using `--gateway-url` in the MCP command arguments.
+> **Important:** `akeyless mcp` does not read the `gateway_url` value from a CLI profile. Always pass the gateway explicitly by using `--gateway-url` in the MCP command arguments.
 
 #### Sample Configuration Structure
 

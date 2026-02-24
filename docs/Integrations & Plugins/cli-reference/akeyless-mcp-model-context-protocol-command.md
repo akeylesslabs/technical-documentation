@@ -55,13 +55,15 @@ The `mcp` command accepts the same authentication parameters as standard Akeyles
 
 ## Common Parameters
 
-\--access-id: Your Akeyless Access ID
+`--access-id`: Your Akeyless Access ID
 
-\--access-key: Your Akeyless Access Key (for `access_key` auth)
+`--access-key`: Your Akeyless Access Key (for `access_key` auth)
 
-\--access-type: Authentication method (see list above)
+`--access-type`: Authentication method (see list above)
 
-\--gateway-url: Gateway URL (required for `akeyless mcp`; must be supplied in-line)
+`--gateway-url`: Gateway URL (required for `akeyless mcp`; must be supplied in-line)
+
+`--profile`: Use an existing CLI profile
 
 ## Setting Up MCP With Cursor
 
