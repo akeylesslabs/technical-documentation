@@ -117,7 +117,7 @@ The Web Access Bastion should be set with a **privileged** `AccessID` with **Rea
 
 Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
 
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs` that will be authorized to request access.
+To control which users are allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs`.
 
 ```yaml
 privilegedAccess:
