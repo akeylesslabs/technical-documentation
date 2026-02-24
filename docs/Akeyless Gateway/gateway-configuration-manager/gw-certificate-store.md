@@ -23,7 +23,7 @@ To upload certificates to your gateway using the CLI, run the following command:
 ```shell
 akeyless gateway update certificate-store \
 --name <Certificate Display name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --certificate-path <path/to/certificate/file> \
 --certificate-data <certificate data in base64 format>
 ```
@@ -33,7 +33,7 @@ To delete certificates from your gateway using the CLI, run the following comman
 ```shell
 akeyless gateway delete certificate-store \
 --name <Certificate Display name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 Where:

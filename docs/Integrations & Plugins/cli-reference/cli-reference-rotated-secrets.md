@@ -1684,7 +1684,7 @@ akeyless rotated-secret update ldap \
 
 `--delete-protection`: Protection from accidental deletion of this item, [`true`/`false`]
 
-### `monogodb`
+### `mongodb`
 
 #### Usage
 

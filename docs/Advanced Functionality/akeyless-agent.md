@@ -37,7 +37,7 @@ access_id = "AccessID"
 access_key = "AccessKey"
 k8s_auth_config_name = ""
 
-gateway_url = "https://<Your-Akeyless-GW-URL:8000>"
+gateway_url = "https://<Your-Akeyless-GW-URL>:8000>"
 
 log_file_path = "path_to/agent.log"     
 log_format = "text"                     

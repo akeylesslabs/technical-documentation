@@ -30,7 +30,7 @@ Using a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an
 
 > 👍 Note
 >
-> In this guide, we used the environment variable `MY_GW` to store the gateway address (`https://<Your-Akeyless-GW-URL:8000`). You can also directly use the gateway address if preferred.
+> In this guide, we used the environment variable `MY_GW` to store the gateway address (`https://<Your-Akeyless-GW-URL>:8000`). You can also directly use the gateway address if preferred.
 
 ### Creating a Root CA Signer Key
 

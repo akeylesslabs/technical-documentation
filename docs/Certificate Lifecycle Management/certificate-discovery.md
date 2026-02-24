@@ -22,7 +22,7 @@ akeyless certificate-discovery \
 --hosts <IPs, CIDR ranges, or DNS names> \
 --port-ranges[=443] <80,8080-8085> \
 --target-location 'Discovery-Folder' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 Where:
