@@ -40,8 +40,8 @@ The primary objective is to efficiently decrypt a substantial number of credit c
 ### Workflow
 
 * The encryption/decryption service will be provided by way of an API supporting:
-    * ingle value encryption/decryption.
-    * Batch processing for encryption/decryption.
+    * Single-value encryption/decryption.
+        * Batch processing for encryption/decryption.
 * The initial phase will focus on batch processing using a classic key (AES256) through a gateway, without involving asymmetric keys.
 
 ## Command References
@@ -56,14 +56,14 @@ akeyless encrypt-batch -h
 
 #### Options
 
-* \--batch-data: Batch data in JSON array format.
-* \--batch-data-file-path: Path to the file containing batch data.
-* \--profile, --token: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temporary access token.
-* \--uid-token: The universal identity token (required only for universal\_identity authentication).
-* \-h, --help: Display help information.
-* \--JSON\[=false]\: Set output format to JSON.
-* \--jq-expression: jq expression to filter result output.
-* \--no-creds-cleanup\[=false]\: Do not clean up local temporary expired credentials.
+* `--batch-data`: Batch data in JSON array format.
+* `--batch-data-file-path`: Path to the file containing batch data.
+* `--profile`, `--token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temporary access token.
+* `--uid-token`: The universal identity token (required only for `universal_identity` authentication).
+* `-h`, `--help`: Display help information.
+* `--json[=false]`: Set output format to JSON.
+* `--jq-expression`: jq expression to filter result output.
+* `--no-creds-cleanup[=false]`: Do not clean up local temporary expired credentials.
 
 ### Batch Decryption Command
 
@@ -75,11 +75,11 @@ akeyless decrypt-batch -h
 
 #### Options
 
-* \--batch-data: Batch data in JSON array format.
-* \--batch-data-file-path: Path to the file containing batch data.
-* \--profile, --token: Use a specific profile (`located at $HOME/.akeyless/profiles`) or a temporary access token.
-* \--uid-token: The universal identity token (required only for universal\_identity authentication).
-* \-h, --help: Display help information.
-* \--JSON\[=false]\: Set output format to JSON.
-* \--jq-expression: jq expression to filter result output.
-* \--no-creds-cleanup\[=false]\: Do not clean up local temporary expired credentials.
+* `--batch-data`: Batch data in JSON array format.
+* `--batch-data-file-path`: Path to the file containing batch data.
+* `--profile`, `--token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temporary access token.
+* `--uid-token`: The universal identity token (required only for `universal_identity` authentication).
+* `-h`, `--help`: Display help information.
+* `--json[=false]`: Set output format to JSON.
+* `--jq-expression`: jq expression to filter result output.
+* `--no-creds-cleanup[=false]`: Do not clean up local temporary expired credentials.
