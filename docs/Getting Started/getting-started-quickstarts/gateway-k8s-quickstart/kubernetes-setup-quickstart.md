@@ -35,7 +35,7 @@ This environment is intended for **development and testing only**, not productio
 
 You will need:
 
-* Docker Desktop installed (<Anchor label="Windows" target="_blank" href="https://docs.docker.com/desktop/setup/install/windows-install/">Windows</Anchor>, <Anchor label="macOS" target="_blank" href="https://docs.docker.com/desktop/setup/install/mac-install/">macOS</Anchor>, or <Anchor label="Linux" target="_blank" href="https://docs.docker.com/desktop/setup/install/linux/">Linux</Anchor>)
+* Docker Desktop installed ([Windows](https://docs.docker.com/desktop/setup/install/windows-install/), [macOS](https://docs.docker.com/desktop/setup/install/mac-install/), or [Linux](https://docs.docker.com/desktop/setup/install/linux/))
 * Permissions to change Docker Desktop settings
 * Internet access from your machine
 
@@ -101,7 +101,7 @@ Adjust these in **Settings → Resources**.
 
 ## Step 4: Install and Verify Helm
 
-1. <Anchor label="Install Helm following official documentation." target="_blank" href="https://helm.sh/docs/intro/install/">Install Helm following official documentation.</Anchor>
+1. [Install Helm following official documentation.](https://helm.sh/docs/intro/install/)
 
 2. Verify Helm:
 

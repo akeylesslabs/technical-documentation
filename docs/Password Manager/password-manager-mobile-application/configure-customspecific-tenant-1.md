@@ -26,4 +26,4 @@ Within the settings or configuration section, look for a field designated for en
 
 ![Illustration for: Saving Your Configuration](https://files.readme.io/180af2d-Screenshot_2024-03-20_at_11.17.16.png)
 
-After accurately entering the tenant URL, complete the setup by clicking the "Save" button. This step confirms and applies your settings, incorporating the custom tenant URL into your Password Manager application. With this configuration active, the application will automatically utilize the specified tenant URL for relevant operations, thus providing a more tailored and secure access management experience.
+After accurately entering the tenant URL, complete the setup by clicking the "Save" button. This step confirms and applies your settings, incorporating the custom tenant URL into your Password Manager application. With this configuration active, the application will automatically use the specified tenant URL for relevant operations, thus providing a more tailored and secure access management experience.

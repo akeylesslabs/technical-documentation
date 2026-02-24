@@ -103,9 +103,9 @@ akeyless set-role-rule --role-name /K8s/K8s_Role --path /K8s/'*' --capability re
 
     * Optional `restartRollout`: to apply automatic rollout restart to your deployments upon secret changes. Relevant only for the kinds of: `Deployment`, `DaemonSet` or `StatefulSet`. To control which deployments are not effected by the restart-rollout, you can use a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list) to disable this on the deployment level.
 
-    * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
+    * `AKEYLESS_REGISTRY_CREDS`: a reference to an existing secret that holds your container registry credentials. Relevant when working with Environment variables and a **private** container registry, to [override automatically](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#override-entrypoint-automatically) the Docker entrypoint, can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list). not required for **public** registry.
 
-    * Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be utilized at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
+    * Optional `AKEYLESS_IGNORE_CACHE`: to allow bypassing the Gateway cache when fetching secrets, ensuring access to the latest data, which is `disabled` by default. can be used at the deployment level using a dedicated [annotation](https://docs.akeyless.io/docs/how-to-provision-secret-to-your-k8s#annotations-list)
 
     * Optional `INIT_RUN_AS_USER`: To apply a [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) to your init container, set the following environment variable, `INIT_RUN_AS_USER: "id=65534"`.
 
@@ -473,7 +473,7 @@ this secret can be set globally on the deployment using this variable `AKEYLESS_
 
 Once this secret is provided the manual command is not required, and the Injector will override the entrypoint automatically.
 
-In AWS and GCP environments the node IAM role on EKS and GKE respectively can be utilized automatically to fetch private images from AWS ECR and GCP GAR respectively, hence no secret reference is required.
+In AWS and GCP environments the node IAM role on EKS and GKE respectively can be used automatically to fetch private images from AWS ECR and GCP GAR respectively, hence no secret reference is required.
 
 > 👍 Public Container Registry
 >

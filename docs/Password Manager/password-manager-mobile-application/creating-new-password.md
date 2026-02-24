@@ -51,7 +51,7 @@ In the 'Username' field, enter the username or login ID associated with the pass
 In the 'Password' field, you have two options:
 
 1. Manually type in the desired password.
-2. Utilize the password generation feature by tapping on the icon located at the end of the 'Password' field.
+2. Use the password generation feature by tapping on the icon located at the end of the 'Password' field.
    1. You can also adjust the password parameters, such as length and character types, using the provided options with the password generation settings provided below the password field.
    2. Once satisfied, tap on the icon again to generate a strong and secure password according to your specifications.
 

@@ -120,7 +120,7 @@ Would you like to configure a profile? (Y/n) Y
 Profile Name: (Default: default)
 ```
 
-Choose an <Anchor label="Authentication Method" target="_blank" href="https://docs.akeyless.io/docs/access-and-authentication-methods">Authentication Method</Anchor> from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/auth-with-api-key) method. Set the relevant **Access ID** and **Access Key**:
+Choose an [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) from the list to configure the profile with. Press `Enter` to use the default [API Key](https://docs.akeyless.io/docs/auth-with-api-key) method. Set the relevant **Access ID** and **Access Key**:
 
 ```shell
 Access ID: '<Access-ID>' 

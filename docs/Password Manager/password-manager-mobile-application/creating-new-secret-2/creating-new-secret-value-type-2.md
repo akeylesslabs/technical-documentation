@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Password Manager Mobile Application is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can store information not just in plain text but also in JSON format. This section will guide you on how to utilize the 'Value' field for both text and JSON data.
+Akeyless Password Manager Mobile Application is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can store information not just in plain text but also in JSON format. This section will guide you on how to use the 'Value' field for both text and JSON data.
 
 ![Illustration for: Akeyless Password Manager Mobile Application is designed to accommodate a variety of secret types. One of the key features is the flexibility of the 'Value' field, which can…](https://files.readme.io/4bb02a9-IMG_0055.png)
 

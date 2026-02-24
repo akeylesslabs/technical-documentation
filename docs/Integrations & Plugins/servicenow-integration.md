@@ -49,13 +49,13 @@ _Note:_ Notifications will need to be configured by ServiceNow Admin on the inst
 
 ## Required Akeyless Configuration
 
-To utilize the Akeyless ServiceNow App, an Access Role must be created. [This guide (Role-Based Access Control (RBAC))](https://docs.akeyless.io/docs/rbac) outlines the steps for creating an Access Role in Akeyless.
+To use the Akeyless ServiceNow App, an Access Role must be created. [This guide (Role-Based Access Control (RBAC))](https://docs.akeyless.io/docs/rbac) outlines the steps for creating an Access Role in Akeyless.
 
 Please configure the following permissions:
 
 * Create/Read/Update role under /Access Requests/*
 
-![Illustration for: To utilize the Akeyless ServiceNow App, an Access Role must be created. This guide (Role-Based Access Control (RBAC)) outlines the steps for creating an Access Role in…](https://files.readme.io/a2c79e6-image-20230206-103449.png)
+![Illustration for: To use the Akeyless ServiceNow App, an Access Role must be created. This guide (Role-Based Access Control (RBAC)) outlines the steps for creating an Access Role in…](https://files.readme.io/a2c79e6-image-20230206-103449.png)
 
 * List/Read for Auth methods under path
 

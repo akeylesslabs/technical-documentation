@@ -86,7 +86,7 @@ Open Microsoft SQL Server Management Studio, and run the SQL commands below to c
     GO
     ```
 
-    If you wish to utilize [Azure AD authentication](https://docs.akeyless.io/docs/auth-with-azure) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any placeholder value:
+    If you wish to use [Azure AD authentication](https://docs.akeyless.io/docs/auth-with-azure) instead of the API Key authentication, you will still need to set the `SECRET` parameter in the query above to any placeholder value:
 
     ```sql
     CREATE CREDENTIAL akeyless_tde

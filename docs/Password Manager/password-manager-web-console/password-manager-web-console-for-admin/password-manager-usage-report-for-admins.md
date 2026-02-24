@@ -14,7 +14,7 @@ This report provides administrators with a comprehensive overview of user intera
 
 ## Overview of the Report
 
-The Password Manager Usage Report delivers critical metrics that help in understanding how the organization's password management system is being utilized. Below are the key components of the report:
+The Password Manager Usage Report delivers critical metrics that help in understanding how the organization's password management system is being used. Below are the key components of the report:
 
 1. **Overall User Base**
     This metric provides a quick snapshot of the total number of users or clients who are actively using the password management system.
@@ -28,7 +28,7 @@ The Password Manager Usage Report delivers critical metrics that help in underst
         1. SAML (Security Assertion Markup Language): For users authenticated through SAML-based identity providers.
         2. OIDC (OpenID Connect): Reflects users leveraging this modern authentication protocol built on top of OAuth 2.0.
         3. LDAP (Lightweight Directory Access Protocol): For users authenticated by way of traditional directory services.
-        4. EMAIL: Users who utilize email-based authentication.
+        4. EMAIL: Users who use email-based authentication.
             Access ID: A unique identifier used for authentication within the system.
 
-![Illustration for: 3. LDAP (Lightweight Directory Access Protocol): For users authenticated by way of traditional directory services. 4. EMAIL: Users who utilize email-based authentication. Access ID:…](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)
+![Illustration for: 3. LDAP (Lightweight Directory Access Protocol): For users authenticated by way of traditional directory services. 4. EMAIL: Users who use email-based authentication. Access ID:…](https://files.readme.io/217ef18-Screenshot_2024-05-13_at_10.30.17.png)
