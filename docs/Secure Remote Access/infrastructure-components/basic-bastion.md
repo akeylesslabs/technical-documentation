@@ -20,7 +20,7 @@ next:
       slug: aws-console-secure-remote-access
       title: AWS Console Secure Remote Access
 ---
-> ❗️ Note
+> **Note:**
 >
 > This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
 

@@ -14,7 +14,7 @@ next:
       title: SSH Remote Access
       type: basic
 ---
-> ❗️ Note
+> **Note:**
 >
 > This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
 

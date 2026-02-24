@@ -53,7 +53,7 @@ Where:
 * `auto-rotate`: Select if you wish to auto-rotate the key, the default is false.
 * `rotation-interval`: Desired rotation interval, in days.
 
-Full parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueupdate-rotation-settingsp)
+Full parameters can be found [here](https://docs.akeyless.io/docs/cli-reference-encryption-keys).
 
 To view the key's existing versions, use the describe item command using the following parameters:
 
@@ -134,4 +134,4 @@ To rotate a key in the console,
 
 ## Tutorial
 
-Check out our tutorial video on [Creating and Rotating Encryption Keys](https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys) .
+Check out our tutorial video on [Creating and Rotating Encryption Keys](https://tutorials.akeyless.io/docs/creating-and-rotating-encryption-keys).
