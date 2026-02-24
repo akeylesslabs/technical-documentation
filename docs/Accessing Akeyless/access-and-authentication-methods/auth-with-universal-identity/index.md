@@ -167,7 +167,7 @@ Universal Identity Details:
 
 ## Create a Universal Identity Authentication Method in the Console
 
-1. Log in to the Akeyless Console and go to **Users & Auth Methods** > **⊕ New** > **Akeyless (Universal Identity)** .
+1. Log in to the Akeyless Console and go to **Users & Auth Methods** > **⊕ New** > **Akeyless (Universal Identity)**.
 
 2. Define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
@@ -175,14 +175,14 @@ Universal Identity Details:
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so they will be visible in the logs).
     If empty, the Gateway's IP will be used in the logs.
 
     * **Audit Log Sub Claims:** Enter a comma-separated list of sub-claims keys to be included in the Audit Logs.
 
-    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI` , `SDK`.
+    * **Allowed Client Type:** Select the allowed client type that will be authorized to use this authentication method. For example, `CLI`, `Web UI`, `SDK`.
 
     * Check **Deny Rotate** if you want to forbid token rotation.
 
@@ -194,20 +194,20 @@ Universal Identity Details:
 
 ### Generate a Token
 
-To generate a token in the Console,
+To generate a token in the Console:
 
-1. Open the corresponding authentication method
+1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab and then click **Generate**.
 
 > **Warning:**
 >
-> If a UID token already exists, generating a new UID token will reset the existing token
+> If a UID token already exists, generating a new UID token resets the existing token.
 
 ### Revoke a Token
 
-To revoke a token in the Console,
+To revoke a token in the Console:
 
-1. Open the corresponding authentication method
+1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab.
 3. Right-click the node and click **Revoke token**.
 4. Select **Revoke self** if you want to revoke the selected node only, or select **Revoke self and children** if you want to revoke the selected node and its child nodes.
@@ -215,7 +215,7 @@ To revoke a token in the Console,
 
 ### Create a Child Token
 
-To create a child token in the Console,
+To create a child token in the Console:
 
 1. Open the corresponding authentication method,
 2. Go to **UID Tree** tab.
@@ -232,9 +232,9 @@ To create a child token in the Console,
 
 ### Get the Token Tree
 
-To get the token tree in the Console,
+To get the token tree in the Console:
 
-1. Open the corresponding authentication method,
+1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab.
 
 > **Note:**

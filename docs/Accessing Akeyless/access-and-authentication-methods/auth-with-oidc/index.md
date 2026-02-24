@@ -16,7 +16,7 @@ next:
 
 ## Create an OIDC Authentication Method with the CLI
 
-Let's create a new OIDC authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oidc).)
+Let's create a new OIDC authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oidc).)
 
 To create an OIDC authentication method with the CLI, run the following command:
 
@@ -42,7 +42,7 @@ Where:
 
 > **Note:**
 >
-> **Unique Identifier** should be a **key** name, that is not the value itself.
+> **Unique Identifier** should be a **key** name, not the value itself.
 > For example, `email` should be provided as is, and not the actual email address.
 
 By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes. If your IdP uses different characters as a delimiter, you can set those using the `delimiters` parameter.
@@ -59,7 +59,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the Gateway's IP will be used in the logs.
 

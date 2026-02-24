@@ -125,10 +125,8 @@ For example:
 ```shell
 ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}]'
 ```
+```powershell
 ALLOWED_ACCESS_PERMISSIONS='[{\"name\": \"Administrators\", \"access_id\": \"Access ID\", \"permissions\": [\"admin\"]}]' --name akeyless-gateway akeyless/base:latest-akeyless
-```
-```shell
-ALLOWED_ACCESS_PERMISSIONS='[ {"name": "Administrators", "access_id": "p-yyyyyy", "sub_claims": {"email": ["test01@testhost.com", "test02@testhost.com"], "group": ["Devops"]}, "permissions": ["admin"]}]'
 ```
 
 Run the following:
