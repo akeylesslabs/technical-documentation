@@ -138,7 +138,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Delete Protection:** When enabled, it protects the secret from accidental deletion.
 
-    * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Target mode:** In this section, you can either select an existing Azure AD Target or specify details of the target Azure AD server explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
         * Use the **Choose an existing target** drop-down list to select the existing [Azure AD Target](https://docs.akeyless.io/docs/cloud-targets).
 
@@ -166,7 +166,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
@@ -174,7 +174,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target Azure AD server:
 
@@ -192,4 +192,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

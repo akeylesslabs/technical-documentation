@@ -371,7 +371,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-        If you selected the **Explicitly specify target properties** mode, click **Next**.
+        If you selected the **Explicitly specify target properties** option, click **Next**.
 
         Depending on your database type, provide a privileged username that has enough permission to create users on your database with the relevant connection settings.
 
@@ -385,7 +385,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.
 
 ## Tutorial
 

@@ -93,11 +93,11 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
     * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-    * **Target mode:** In this section, you can either select an existing GitHub Target or specify details of the target GitHub repository explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Target mode:** In this section, you can either select an existing GitHub Target or specify details of the target GitHub repository explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
         * Use the **Choose an existing target** drop-down list to select the existing GitHub Target.
 
-        * Select the **Explicitly specify target properties** option, to provide details of the target GitHub repository in the next step.
+        * Select the **Explicitly specify target properties** option to provide details of the target GitHub repository in the next step.
     * **Installation ID\ Repository path\ Organization Name:** Specify a GitHub application installation ID or repository path or Organization name.
     * **Installation Token Repositories:** Specify repositories that will accept generated tokens. By default, repositories of the GitHub installation will be used.
     * **Installation Token Permissions:** Specify permissions for generated tokens. By default, permissions for the GitHub installation will be used. Input format: `key=value` pairs or a `JSON`, for example, `{"content":"read"}`.
@@ -106,7 +106,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target GitHub repository:
 
@@ -124,4 +124,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.
