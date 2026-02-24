@@ -123,7 +123,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 4. Define the remaining parameters as follows:
 
     * **Delete Protection**: When enabled, protects the secret from accidental deletion.
-    * **Target mode:** In this section, you can either select an existing Snowflake Target or specify details of the target Snowflake account explicitly (For example, if you are not authorized to create and access Targets in the Akeyless Console).
+    * **Target mode:** In this section, you can either select an existing Snowflake Target or specify details of the target Snowflake account explicitly (for example, if you are not authorized to create and access Targets in the Akeyless Console).
 
         * Use the **Choose an existing target** drop-down list to select the existing Snowflake Target.
 
@@ -136,7 +136,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Algorithm**: The RSA key algorithm, (relevant only for **Key** Authentication Mode).
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
@@ -161,4 +161,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

@@ -98,14 +98,14 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
         * Use the **Choose an existing target** drop-down list to select the existing Docker Hub Target.
 
-        * Select the **Explicitly specify target properties** option, to provide details of the target Docker repository in the next step.
+        * Select the **Explicitly specify target properties** option to provide details of the target Docker repository in the next step.
     * **Token Scopes:** Select permission scopes to assign to the token. Each permission scope includes lower-permission scopes, that is, **Admin** includes all the rest of the permission scopes, **Write** contains **Read** and **Public**, and so on.
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
     * **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target Docker repository credentials:
 
@@ -121,4 +121,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

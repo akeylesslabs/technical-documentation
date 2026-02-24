@@ -140,7 +140,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 * **Target mode:** In this section, you can either select an existing GCP Target or specify details of the target GCP Service Account explicitly.
 
     * Use the **Choose an existing target** drop-down list to select the existing GCP Target.
-    * Select the **Explicitly specify target properties** option, to provide details of the target GCP Service Account Key in the next step.
+    * Select the **Explicitly specify target properties** option to provide details of the target GCP Service Account Key in the next step.
 * **Access Mode**: Select the GCP access mode, either **Group** or **Role**.
 
     * **Group**: Add a user to an existing group.
@@ -162,4 +162,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.
