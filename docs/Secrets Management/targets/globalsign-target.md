@@ -56,7 +56,7 @@ Where:
 
 Once the GlobalSign Target is created, it can be used to generate a [Public certificate](https://docs.akeyless.io/docs/public-ca).
 
-You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsignp) section.
+You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#globalsign) section.
 
 ## Create a GlobalSign Target in the Console
 

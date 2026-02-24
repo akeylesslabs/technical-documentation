@@ -34,7 +34,7 @@ Where:
 
 * `namespace`: List of vault namespaces. To specify multiple namespaces use the argument multiple times: `--namespace ns1` `--namespace ns2`
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluehashi-vaultp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#hashi-vault) section.
 
 ## Create a HashiCorp Vault Target in the Console
 

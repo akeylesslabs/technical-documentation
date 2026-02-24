@@ -80,7 +80,7 @@ If you don't have [RabbitMQ Target](https://docs.akeyless.io/docs/rabbitmq-targe
 
 * `rabbitmq-admin-pwd`: Admin password for the RabbitMQ server.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluerabbitmqp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#rabbitmq) section.
 
 ## Fetch a Dynamic RabbitMQ Secret Value with the CLI
 

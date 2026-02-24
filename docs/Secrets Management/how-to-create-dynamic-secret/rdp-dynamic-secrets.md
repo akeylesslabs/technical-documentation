@@ -80,7 +80,7 @@ Or you can use the command with your Remote Desktop target server connection set
 
 * `rdp-admin-pwd`: A password of the Admin user.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluerdpp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#rdp) section.
 
 ## Fetch a Dynamic RDP Secret Value with the CLI
 

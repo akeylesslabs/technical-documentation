@@ -44,7 +44,7 @@ Available database targets:
 >
 > `create-db-target` command includes all available databases targets, please follow the relevant database section for the relevant fields.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Database Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluedbp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Database Targets](https://docs.akeyless.io/docs/cli-ref-targets#db) section.
 
 To create database targets, you can define the following fields in the [Akeyless CLI](https://docs.akeyless.io/docs/cli):
 

@@ -31,7 +31,7 @@ Where:
 
 * `gcp-sa-email`: The GCP service account email.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluegcpp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#gcp) section.
 
 ## Create a GCP Target in the Console
 

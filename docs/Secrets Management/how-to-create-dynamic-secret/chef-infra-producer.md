@@ -73,7 +73,7 @@ If you don't have [Chef Infra Target](https://docs.akeyless.io/docs/chef-infra-t
 
 * `skip-ssl`: Select this checkbox to disable SSL connections.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluechefp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#chef) section.
 
 ## Fetch a Dynamic Chef Infra Secret Value with the CLI
 

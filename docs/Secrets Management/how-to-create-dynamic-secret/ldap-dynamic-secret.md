@@ -76,7 +76,7 @@ If you don't have [LDAP Target](https://docs.akeyless.io/docs/ldap-target) yet, 
 
 * `ldap-ca-cert`: The LDAP base-64 encoded CA Certificate.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueldapp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#ldap) section.
 
 ## Fetch a Dynamic LDAP Secret Value with the CLI
 

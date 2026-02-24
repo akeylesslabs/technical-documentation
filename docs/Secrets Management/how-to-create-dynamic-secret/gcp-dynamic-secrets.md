@@ -158,7 +158,7 @@ If you don't have a [GCP Target](https://docs.akeyless.io/docs/gcp-targets) yet,
 
 * `gcp-key-file-path`: Path to file with the Base64-encoded privileged service account private key.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegcpp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#gcp) section.
 
 ## Fetch a Dynamic GCP Secret Value with the CLI
 

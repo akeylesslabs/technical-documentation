@@ -349,7 +349,7 @@ If you don't have a configured [Kubernetes Targets](https://docs.akeyless.io/doc
 
 * `k8s-cluster-token`: A JWT authentication token authorized to manage Service Accounts, Roles, and RoleBinding depending on the working mode.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluek8sp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#k8s) section.
 
 ### Using Dynamic Generic Kubernetes Secrets
 

@@ -139,7 +139,7 @@ If you don't have an [AWS Target](https://docs.akeyless.io/docs/aws-targets) yet
 
 * `aws-region`: The AWS region that the temporary credentials are permitted to access.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueawsp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#aws) section.
 
 ## Fetch a Dynamic AWS Secret Value with the CLI
 

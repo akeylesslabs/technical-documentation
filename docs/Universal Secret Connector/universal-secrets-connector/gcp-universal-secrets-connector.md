@@ -137,21 +137,21 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 4. Define the remaining settings as follows:
 
-   * **Description:** Optional, enter a description of the Universal Secrets Connector.
+    * **Description:** Optional, enter a description of the Universal Secrets Connector.
 
-   * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
+    * **Tags:** Optional. Select one or more tags for the Universal Secrets Connector, or enter the name of a new tag to be added as part of the creation process.
 
-   * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
+    * **Delete Protection:** Optional, turn on this setting to protect the item from deletion
 
-   * **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/cloud-targets#gcp).
+    * **Target:** Select an existing [GCP Target](https://docs.akeyless.io/docs/cloud-targets#gcp).
 
-   * **Project ID:** Optional, The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) .
+    * **Project ID:** Optional. The GCP Project ID to use when specifying a project different from the one attached to the [GCP Target](https://docs.akeyless.io/docs/gcp-targets).
 
-   * **Region** Optional, Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
+    * **Region:** Optional. Choose the regions where this Universal Secrets Connector can manage secrets. You can select up to 12 regions.
 
-   * **Gateway:** Select the desired corresponding Gateway.
+    * **Gateway:** Select the desired corresponding Gateway.
 
-5. Click **Finish**
+5. Click **Finish**.
 
 ## GCP Universal Secrets Details
 

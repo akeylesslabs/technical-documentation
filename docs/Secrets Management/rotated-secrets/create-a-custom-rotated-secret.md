@@ -97,7 +97,7 @@ Where:
 
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluecustomp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#custom) section.
 
 ## Working Example: Rotate an On‑Premises Application Password by way of Web Target (Customer R/S)
 

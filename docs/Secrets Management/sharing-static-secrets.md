@@ -64,7 +64,7 @@ Where:
 * `action`: The action to perform on the item, you may choose `share` to share an item, `stop` to stop sharing an item, or `describe` to see with what addresses it was already shared, this parameter is mandatory.
 * `share-type`: The share type set to `token`, by default set to `email`.
 
-You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorblueshare-itemp)
+You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#share-item)
 
 ## Access Shared Secret
 
@@ -74,7 +74,7 @@ Secrets that were shared by way of **Email** can be accessed directly from any b
 akeyless unwrap-token --shared-token <shared token>
 ```
 
-You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#p-stylecolorblueunwrap-tokenp)
+You can find the complete list of parameters for these commands in the [CLI Reference section](https://docs.akeyless.io/docs/cli-reference-static-secrets#unwrap-token)
 
 ## Managing Shared Items
 

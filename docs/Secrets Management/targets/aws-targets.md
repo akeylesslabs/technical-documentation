@@ -53,7 +53,7 @@ Alternatively, to use IAM explicit credentials:
 
 * `region`: The AWS region.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueawsp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#aws) section.
 
 > **Note (Use Gateway's Cloud Identity):**
 >

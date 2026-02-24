@@ -70,7 +70,7 @@ If you don't have a [GKE Target](https://docs.akeyless.io/docs/kubernetes-target
 
 * `gke-account-key`: GKE service account key.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluegkep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#gke) section.
 
 For guidelines on how to get the GKE service account name and key, see the [API server authentication](https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication#environments-without-gcloud) guide.
 

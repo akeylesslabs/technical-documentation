@@ -58,7 +58,7 @@ akeyless target create globalsign \
 --external-requester <username of the requester>
 ```
 
-For a complete list of parameters and their descriptions, visit the [CLI Reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsignp).
+For a complete list of parameters and their descriptions, visit the [CLI Reference](https://docs.akeyless.io/docs/cli-ref-targets#globalsign).
 
 Once the Sectigo Target is created, it can be used to generate a [public certificate](https://docs.akeyless.io/docs/public-ca).
 
