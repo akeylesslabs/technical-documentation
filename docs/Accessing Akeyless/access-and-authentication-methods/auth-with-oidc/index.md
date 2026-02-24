@@ -25,14 +25,14 @@ akeyless auth-method create oidc --name <Auth Method Name> \
 --issuer https://Idp-issuer-url \
 --client-id <client-id> \
 --client-secret <client-secret> \
---unique-identifier <UID (For example, 'email' or 'username')>
+--unique-identifier <UID (for example, 'email' or 'username')>
 ```
 
 Where:
 
 * `name`: A unique name for the authentication method. The name can include the path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
-* `issuer`: The Identity Provider URL (for more information check the [Okta](https://docs.akeyless.io/docs/okta) example).
+* `issuer`: The Identity Provider URL (for more information, check the [Okta](https://docs.akeyless.io/docs/okta) example).
 
 * `client-id`: The Client ID (application ID).
 
