@@ -12,7 +12,7 @@ next:
 ---
 Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway) to bootstrap the Akeyless Gateway deployment.
 
-> 📘 New Chart
+> **Note (New Chart):**
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Gateway.
 >
@@ -177,7 +177,7 @@ Create a Kubernetes ServiceAccount for Akeyless Gateway to use. You can also use
 
 Use the existing IAM service account that is bound to your [GCP](https://docs.akeyless.io/docs/auth-with-gcp) Auth Method.
 
-> 👍 Note
+> **Note:**
 >
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
 >
@@ -231,7 +231,7 @@ nodeSelector:
   iam.gke.io/gke-metadata-server-enabled: "true"
 ```
 
-> 📘 Info
+> **Info:**
 >
 > **NodeSelector** - For Autopilot clusters, omit the `nodeSelector` field. Autopilot rejects this `nodeSelector` because all nodes use Workload Identity.
 
@@ -422,7 +422,7 @@ Full list of available permissions:
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
 | `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
 
-> 👍 Note
+> **Note:**
 >
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
@@ -437,7 +437,7 @@ TLSConf:
   enableSniProxy: true
 ```
 
-> 👍 Note
+> **Note:**
 >
 > All changes to allowed access IDs, such as editing, removing, and so on, can only be performed on **post-deployment allowed access IDs**. If an ID was defined during deployment it can't be removed or changed.
 

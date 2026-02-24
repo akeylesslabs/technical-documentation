@@ -37,7 +37,7 @@ In addition, to create an authentication methods that support user login, for si
 1. Click **New** > **API Key**
 2. Provide a name and click **Finish**
 
-> 👍 API Key Credentials
+> **Note (API Key Credentials):**
 >
 > Save the **Access ID** and **Access Key** shown. You’ll need them later.
 
@@ -568,7 +568,7 @@ First, login to `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console`, and enter the *
 
 1. Visit: `http://<YOUR_INSTANCE_PUBLIC_IP>:8000/console`.
 
-> 👍 Public IP
+> **Note (Public IP):**
 >
 > The `INSTANCE_PUBLIC_IP` can be found under the **Outputs** tab in the CloudFormation stack.
 

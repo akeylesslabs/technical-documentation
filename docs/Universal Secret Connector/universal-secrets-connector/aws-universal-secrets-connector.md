@@ -244,4 +244,4 @@ More information and secret value can be viewed by selecting a specific secret, 
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s" target="_blank">AWS Universal Secrets Connector</a>.
+Check out our tutorial video on [AWS Universal Secrets Connector](https://tutorials.akeyless.io/docs/managing-secrets-stored-in-aws-azure-gcp-k8s).

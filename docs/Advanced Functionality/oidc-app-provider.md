@@ -41,7 +41,7 @@ OAuth defines two client types, based on their ability to authenticate securely 
 * **Confidential** Clients capable of maintaining the confidentiality of their credentials (For example, client implemented on a secure server with restricted access to the client credentials), or capable of secure client authentication using other means. By default, an Akeyless OIDC App will be created for this client type.
 * **Public** Clients are incapable of maintaining the confidentiality of their credentials (For example, clients executing on the device used by the resource owner, such as an installed native application or a web browser-based application), and incapable of secure client authentication by way of any other means. To create an Akeyless OIDC App for **Public** client type use the `public` flag as part of the creation command.
 
-> 👍 Note
+> **Note:**
 >
 > **Special Scopes**
 > You can also set a scope of `offline_access` which will generate a `refresh token`.
@@ -81,7 +81,7 @@ You will need this token for the next step as well.
 
 Once authorized, make a `POST` request to the `Token Endpoint` to get your OIDC Token. The parameters should be URL encoded.
 
-> 📘 Info
+> **Info:**
 >
 > **Issuer URL, Token and well-known Endpoints**
 >
@@ -142,7 +142,7 @@ akeyless update-oidc-app \
 --access-permission-assignment '[{"access_id":"<Akeyless Access ID>", "sub_claims":{"email":["user@example.com"]}}]'
 ```
 
-> 🚧 Warning
+> **Warning:**
 >
 > **Overriding Information**
 > If you want to add to Redirects, Scopes, Audiences, or Access Permissions, ensure you have the original ones in the string or file as well so you don't override them.
