@@ -197,9 +197,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Fixed:** Assigns a role to a user based on the user's sub-claim.
 
-    * **Access Token:** Select this radio button to create a GCP access token as a dynamic secret.
+    * **Access Token:** Select this option to create a GCP access token as a dynamic secret.
 
-    * **Service Account Key:** Select this radio button to create a GCP service account key as a dynamic secret.
+    * **Service Account Key:** Select this option to create a GCP service account key as a dynamic secret.
 
     * **Token Scopes:** Provide a comma-separated list of [GCP access token scopes](https://developers.google.com/identity/protocols/oauth2/scopes). (If **Access Token** is selected.)
 

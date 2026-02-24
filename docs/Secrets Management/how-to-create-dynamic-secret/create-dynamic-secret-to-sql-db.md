@@ -335,7 +335,7 @@ If you don't have a [Database Target](https://docs.akeyless.io/docs/database-tar
 
 Depending on your database type, provide a **privileged username** that has enough permission to create and revoke users on your database with the relevant connection settings. And set the relevant creation and revocation statements to control and manage the level of access and roles of your temporary credentials.
 
-You can find the complete list of parameters for these commands in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets) section.
+You can find the complete list of parameters for these commands in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#create) section.
 
 ## Fetch a Dynamic Database Secret Value with the CLI
 
@@ -363,7 +363,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 

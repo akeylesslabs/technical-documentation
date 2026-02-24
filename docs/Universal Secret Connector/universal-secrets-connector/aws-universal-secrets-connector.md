@@ -112,7 +112,7 @@ The main parameters are:
 
 * `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create-usc).
 
 ### Listing USC Secrets
 
@@ -152,7 +152,7 @@ The main parameters are:
 
 * `secret-id`: The name or ID of the secret you would like to fetch.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#get).
 
 The output should look as follows:
 
@@ -182,7 +182,7 @@ The main parameters are:
 
 * `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
 
 ### Updating an Existing USC Secret
 
@@ -192,7 +192,7 @@ To update an existing secret in your USC, use the following command:
 akeyless usc update --usc-name <usc name> --secret-id <secret id or name> --value <new secret value>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#update).
 
 ### Deleting an Existing USC Secret
 
@@ -202,7 +202,7 @@ To delete an existing secret in your USC, use the following command:
 akeyless usc delete --usc-name <usc name> --secret-id <secret id or name>
 ```
 
-Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector).
+Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#delete).
 
 ## Creating a Universal Secrets Connector from the Console
 
