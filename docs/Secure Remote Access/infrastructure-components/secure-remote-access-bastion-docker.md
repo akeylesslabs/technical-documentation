@@ -209,7 +209,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e ALLOWED_ACCESS_IDS="<AccessIDs>" \
   -e USERNAME_SUB_CLAIM="FIXED_USER_KEY_NAME" \
   -e AZURE_STORAGE_ACCOUNT="<Azure Storage Name>" \
-  -e AZURE_STORAGE_CONTAINER_NAME="<Azure Storage Container Name>" \    
+  -e AZURE_STORAGE_CONTAINER_NAME="<Azure Storage Container Name>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```
@@ -223,7 +223,7 @@ docker run --name web-bastion -d -p 8888:8888  \
   -e AZURE_CLIENT_ID="<Azure Client ID>" \
   -e AZURE_CLIENT_SECRET="<Azure Client Secret>" \
   -e AZURE_STORAGE_ACCOUNT="<Azure Storage Account>" \
-  -e AZURE_STORAGE_CONTAINER_NAME="<Azure Storage Container Name>" \  
+  -e AZURE_STORAGE_CONTAINER_NAME="<Azure Storage Container Name>" \
   -e CLUSTER_NAME="Akeyless Bastion" \
   --restart unless-stopped akeyless/zero-trust-bastion:latest
 ```

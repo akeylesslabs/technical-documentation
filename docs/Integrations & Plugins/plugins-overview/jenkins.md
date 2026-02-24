@@ -14,7 +14,7 @@ next:
 
 The [Akeyless Plugin for Jenkins](https://github.com/jenkinsci/akeyless-plugin?tab=readme-ov-file#fetching-a-static-secret) enables secure integration of Akeyless-managed secrets and certificates within Jenkins pipelines. It supports multiple authentication methods, ensuring seamless and secure access to secrets and certificates.
 
-Additionally, JSON-structured secrets can be retrieved by specifying specific keys, allowing precise control over the data fetched from Akeyless.
+Additionally, JSON-structured secrets can be retrieved by specifying keys, allowing precise control over the data fetched from Akeyless.
 
 ## Installation
 

@@ -149,16 +149,16 @@ Once done, continue with creating a Kerberos Authentication Method:
 
 ```shell
 akeyless auth-method create kerberos \
---name <Auth Method Name> \      
---krb5conf-file-path /path/to/krb5.conf \                        
+--name <Auth Method Name> \
+--krb5conf-file-path /path/to/krb5.conf \
 --keytab-file-path /path/to/.keytab \
 --ldap-url <LDAP server URL> \
---bind-dn CN=user,CN=Users,DC=TEST,DC=COM \   
+--bind-dn CN=user,CN=Users,DC=TEST,DC=COM \
 --bind-dn-password <bind dn password> \
---user-dn CN=Users,DC=TEST,DC=COM \             
+--user-dn CN=Users,DC=TEST,DC=COM \
 --user-attribute sAMAccountName \
 --group-dn CN=Users,DC=TEST,DC=COM \
---group-filter (sAMAccountName={{.Username}}) \      
+--group-filter (sAMAccountName={{.Username}}) \
 --group-attr memberOf \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --unique-identifier sAMAccountName 

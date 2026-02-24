@@ -31,13 +31,13 @@ There are two modes for this Dynamic Secret:
 To create a dynamic GitLab secret with the CLI using an existing [GitLab Target](https://docs.akeyless.io/docs/gitlab-target), run the following command:
 
 ```shell
-akeyless dynamic-secret create gitlab \ 
+akeyless dynamic-secret create gitlab \
 --name <Dynamic Secret Name>
 --target-name <Target Name>
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gitlab-access-type <project| group> \
---project-name <Project Name> \                           
---group-name <Group Name> \  
+--project-name <Project Name> \
+--group-name <Group Name> \
 --gitlab-token-scopes <Access Token Scopes> \
 --gitlab-token-role <Access Token Role>
 ```
@@ -45,12 +45,12 @@ akeyless dynamic-secret create gitlab \
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create gitlab \ 
+akeyless dynamic-secret create gitlab \
 --name <Dynamic Secret Name>
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --gitlab-access-type <project | group> \
---project-name <Project Name> \                           
---group-name <Group Name> \  
+--project-name <Project Name> \
+--group-name <Group Name> \
 --gitlab-token-scopes <Accesds Token Scopes> \
 --gitlab-token-role <Accesds Token Role> \
 --gitlab-access-token <GitLab Token>

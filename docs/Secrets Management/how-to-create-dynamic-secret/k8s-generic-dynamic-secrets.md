@@ -264,7 +264,7 @@ If you haven't done so already, you can now create a [Generic Kubernetes Target]
 **Fixed Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Fixed Mode**, use the following command:
 
 ```shell Fixed Mode
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <secret name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
@@ -290,7 +290,7 @@ Where:
 **Dynamic Mode:** To create a dynamic generic Kubernetes Secret with the CLI using an existing [Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#create-a-generic-kubernetes-target-from-the-cli) in **Dynamic Mode**, use the following command (note parameters will change if you choose to create a ServiceAccount using an existing Role, or if you choose to generate everything from scratch):
 
 ```shell Existing Role
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <secret name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \
@@ -300,7 +300,7 @@ akeyless dynamic-secret create k8s \
 --k8s-allowed-namespaces <namespace1, namespace2>
 ```
 ```shell Generated Role
-akeyless dynamic-secret create k8s \ 
+akeyless dynamic-secret create k8s \
 --name <secret name> \
 --target-name <Target Name> \
 --gateway-url 'https://<Your_Akeyless_GW_URL>:8000' \

@@ -41,7 +41,7 @@ akeyless update-ssh-cert-issuer \
 --secure-access-enable true \
 --secure-access-api <ssh-sra service control API endpoint URL> \
 --secure-access-ssh  <ssh-sra service server IP and Port> \
---secure-access-ssh-creds-user <SSH username> \ 
+--secure-access-ssh-creds-user <SSH username> \
 --host-provider[=explicit] \
 --secure-access-host <remote host> 
 ```

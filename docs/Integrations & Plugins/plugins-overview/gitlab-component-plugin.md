@@ -31,7 +31,7 @@ In this guide, we will use [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-
 Create a new [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) **Authentication Method** using the CLI:
 
 ```shell
-akeyless create-auth-method-oauth2 --name /Dev/GitLabAuth-JWT \ 
+akeyless create-auth-method-oauth2 --name /Dev/GitLabAuth-JWT \
 --jwks-uri https://gitlab.com/oauth/discovery/keys \
 --unique-identifier user_login
 --force-sub-claims
@@ -54,8 +54,8 @@ akeyless create-role --name /Dev/GitLabRole
 Associate your new Role with the created Authentication Method, and assign it Sub-Claims:
 
 ```shell
-akeyless assoc-role-am --role-name /Dev/GitLabRole \ 
---am-name /Dev/GitLabAuth-JWT \ 
+akeyless assoc-role-am --role-name /Dev/GitLabRole \
+--am-name /Dev/GitLabAuth-JWT \
 --sub-claims user_login=<YOUR GitLab USERNAME>
 ```
 
@@ -66,7 +66,7 @@ akeyless assoc-role-am --role-name /Dev/GitLabRole \
 Set `Read` and `List` permissions for **Items**:
 
 ```shell
-akeyless set-role-rule --role-name /Dev/GitLabRole \ 
+akeyless set-role-rule --role-name /Dev/GitLabRole \
 --path /Path/To/your/secret/'*' \
 --capability read --capability list
 ```

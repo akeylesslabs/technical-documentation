@@ -81,8 +81,8 @@ Verification command:
 ```shell
 akeyless verify-gpg --key-name <RSA Key> \
 --message <message to verify> \
---signature <message signature> \ 
---display-id <Display id of the key to use in the decryption process> \ 
+--signature <message signature> \
+--display-id <Display id of the key to use in the decryption process> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
