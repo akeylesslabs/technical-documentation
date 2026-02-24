@@ -247,7 +247,7 @@ akeyless gateway update cache \
 
 `--minimum-fetch-interval[=5]`: When using Cache or/and Proactive Cache, additional secrets will be fetched upon requesting a secret, based on the requestor's access policy. Define minimum fetching interval to avoid over fetching in a given time frame
 
-`--backup-interval[=1]`: Secure backup interval in minutes. To ensure service continuity in case of power cycle and network outage secrets will be backed up periodically per backup interval
+`--backup-interval[=1]`: Secure backup interval in minutes. To ensure service continuity during power cycles and network outages, secrets are backed up periodically according to the backup interval
 
 `-u, --gateway-url`: Gateway URL (Configuration Management port)
 

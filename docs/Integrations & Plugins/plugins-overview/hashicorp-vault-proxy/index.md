@@ -41,7 +41,7 @@ HashiCorp Vault `V2` secret engine will be available using this prefix: `v1/secr
 curl --header "X-Vault-Token: XXXX" https://hvp.akeyless.io/v1/secret/data/{secret-name}
 ```
 
-In case the secret value itself is a JSON-structured object, the **Path** must be in the following format:
+If the secret value itself is a JSON-structured object, the **Path** must be in the following format:
 
  `secret/<Full Secret Name>`, without the `data/` prefix, you can use the internal JSON keys as the **Key Names**
 
