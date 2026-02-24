@@ -149,7 +149,7 @@ Where:
 | --- | --- | --- |
 | `payload` | New secret credentials to replace the existing credentials stored by Akeyless. | `mongodb://user:password@host`, `{"user":"mun","pass":"goh"}` |
 
-> **Note**
+> **Note:**
 >
 > Payload rotation is performed on a best-effort basis. The rotation process can fail, and even after a successful `/sync/rotate` request the dynamic secret can still use the old payload. To handle this scenario, the custom dynamic secret implementation should support both the old payload and the new payload until it receives at least one `/sync/create` or `/sync/revoke` request that uses the new payload.
 
@@ -189,7 +189,12 @@ That predefined ID is sent to the `POST /sync/revoke` endpoint, which must also 
 After you have a custom dynamic secret implementation that follows these specifications, create a custom dynamic secret from the Akeyless CLI.
 
 ```bash
-akeyless dynamic-secret create   --name <Dynamic Secret Name>   --gateway-url 'https://<Your-Akeyless-GW-URL>:8000'   --create-sync-url 'https://example.com/sync/create:Port'   --revoke-sync-url 'https://example.com/sync/revoke:Port'   --rotate-sync-url 'https://example.com/sync/rotate:Port'
+akeyless dynamic-secret create \
+--name <Dynamic Secret Name> \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--create-sync-url 'https://example.com/sync/create:Port' \
+--revoke-sync-url 'https://example.com/sync/revoke:Port' \
+--rotate-sync-url 'https://example.com/sync/rotate:Port'
 ```
 
 Where:
@@ -200,9 +205,9 @@ Where:
 * `revoke-sync-url`: URL of an endpoint that implements the `POST /sync/revoke` operation.
 * `rotate-sync-url`: URL of an endpoint that implements the `POST /sync/rotate` operation.
 
-You can find the complete list of parameters for this command in [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluecustomp).
+You can find the complete list of parameters for this command in [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#custom).
 
-> **Note**
+> **Note:**
 >
 > To work with Dynamic Secrets from the Akeyless Console, you must configure the Gateway URL to enable communication between the Akeyless SaaS and the Akeyless Gateway.
 

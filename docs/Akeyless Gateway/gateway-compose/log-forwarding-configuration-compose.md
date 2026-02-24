@@ -30,7 +30,7 @@ TARGET_SYSLOG_ENABLE_TLS:"TRUE"
 TARGET_SYSLOG_TLS_CERTIFICATE:"<BASE64 PEM ENCODED CERT>"
 ```
 
-> 👍 Note
+> **Note:**
 >
 > The output message format conforms to Syslog format and assumes the Syslog server does not add its own formatting to the message.
 >
@@ -111,7 +111,7 @@ For details about log tokens, see [here](https://docs.logz.io/user-guide/tokens/
 
 ### AWS S3
 
-> 🚧 Warning
+> **Warning:**
 >
 > Logs are uploaded to your S3 bucket at 10-minute intervals. Keep in mind that if your container scales down or restarts, any logs that have not been uploaded to your bucket will be lost.
 

@@ -43,7 +43,7 @@ To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-
 
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
-> 🚧 Warning
+> **Warning:**
 >
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
@@ -69,8 +69,8 @@ customerFragments: |
 
 You can also [configure TLS settings using the Web interface](https://docs.akeyless.io/docs/tls-certificate) of the Gateway Configuration Manager.
 
-We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted at transit.
-Please note that when you're enabling TLS, you must provide a TLS certificate and a TLS Private Key.
+We strongly recommend using Akeyless Gateway with TLS to ensure all traffic is encrypted in transit.
+Note that when you enable TLS, you must provide a TLS certificate and a TLS private key.
 
 To set the relevant service to use TLS and the minimum TLS version that will be used by default, set the following:
 
@@ -103,7 +103,7 @@ Set the default [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) 
 
 Set the default location where secrets created by this Gateway will be stored within your Akeyless account using the `defaultSecretLocation` setting with a path to store your secrets.
 
-> 🚧 Warning
+> **Warning:**
 >
 > Make sure your Gateway default Authentication Method has `read` permission to access your Encryption key, as well as `create` permission on the desired location to save your secrets.
 
@@ -179,7 +179,7 @@ To provide the settings of your Gateway deployment directly from your local Kube
 * `admin-certificate (base64)`
 * `admin-certificate-key (base64)`
 
-> 🚧 Warning
+> **Warning:**
 >
 > Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
@@ -201,7 +201,7 @@ To provide the settings of your Gateway deployment directly from your local Kube
 
 ## Restrict Gateway Access
 
-To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and will be served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they will be able to get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `restrictServiceToAccessIds` setting with a comma-separated list of `AccessIDs`
+To restrict access to Gateway services, you can specify exactly which `AccessIDs` will be authorized and served by the Gateway. For example, if you want to achieve complete segregation using [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge) across different teams or applications, you can also set their `AccessIDs` to ensure only they can get service from the Gateway that holds their Fragment. To set the list of users the Gateway services will serve, set the `restrictServiceToAccessIds` setting with a comma-separated list of `AccessIDs`
 
 ```yaml
 akeylessUserAuth:

@@ -33,7 +33,7 @@ Where:
 
 Upon successful renewal a new version will be created on the certificate item itself, and automatic provisioning will be triggered based on the existing settings.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluerenew-certificatep) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#renew-certificate) section.
 
 ## Renew a Certificate Using the Akeyless Console
 

@@ -12,7 +12,7 @@ next:
 ---
 The unified version of the Akeyless Gateway introduces significant improvements in deployment, configuration, and capabilities, intended to simplify Gateway and Remote Access deployment and operation and extend functionality.
 
-> 📘 Helm Chart
+> **Note (Helm Chart):**
 >
 > With this new version comes a new Helm chart for Kubernetes deployments. [Review the Helm Chart changes](https://github.com/akeylesslabs/helm-charts/blob/main/charts/akeyless-gateway/values.yaml).
 
@@ -70,6 +70,6 @@ The unified deployment of Gateway and Remote Access offers multiple configuratio
 
 ### Zero Trust Web Access Solution
 
-The unification of the Zero Trust Web Access (ZTWA) component with the Gateway is part of our roadmap. You will be able to continue working with the unified Gateway and ZTWA solution without any impact on operations.
+The unification of the Zero Trust Web Access (ZTWA) component with the Gateway is part of our roadmap. You can continue working with the unified Gateway and ZTWA solution without any impact on operations.
 
 With this timeline, an organization can adopt a unified version of SRA now with a clear understanding that enhanced web access functionality will be available in the near term.

@@ -19,7 +19,7 @@ Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/
 * [Docker Compose installed](https://docs.docker.com/compose/install/)
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your machine.
 
-> 🚧 Warning
+> **Warning:**
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
@@ -64,7 +64,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
-> 👍 Note
+> **Note:**
 >
 > Your Gateway **Authentication Method** should have permission to create and manage both Items along with Targets items **only**.
 
@@ -82,7 +82,7 @@ GATEWAY_ACCESS_TYPE=access_key
 
 While running your Gateway instance inside your cloud environment, you can use [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws), [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp), or [Azure Active Directory](https://docs.akeyless.io/docs/auth-with-azure) for authentication. Using machine-to-machine authentication between Akeyless and your Cloud Service Provider, they can supply a list of users allowed to to manage your Akeyless Gateway configuration by adding the `ALLOWED_ACCESS_PERMISSIONS` variable to the `.env` configuration file.
 
-Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you need to set a list of users that will be able to [manage your Gateway](https://docs.akeyless.io/docs/advance-gw-docker-configuration#/gateway-admins) configuration using `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) like [SAML](https://docs.akeyless.io/docs/auth-with-saml) or [OIDC](https://docs.akeyless.io/docs/auth-with-oidc) or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key).
+Set the `GATEWAY_ACCESS_ID` variable with your IAM [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) `Access ID`, where you need to set a list of users who can [manage your Gateway](https://docs.akeyless.io/docs/advance-gw-docker-configuration#/gateway-admins) configuration using the `ALLOWED_ACCESS_PERMISSIONS` variable with any other [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), like [SAML](https://docs.akeyless.io/docs/auth-with-saml), [OIDC](https://docs.akeyless.io/docs/auth-with-oidc), or an [API Key](https://docs.akeyless.io/docs/auth-with-api-key).
 
 ```shell AWS_IAM
 GATEWAY_ACCESS_ID=<AccessID>
@@ -114,7 +114,7 @@ ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"<AccessID>","name":"<Allowed Method N
 
 ## Gateway Admins
 
-To support local management of your Gateway configuration, you can set a list of `Access ID` that will be able to log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
+To support local management of your Gateway configuration, you can set a list of `Access ID` values that can log in and manage your Gateway. This setting can also work with [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) (when a shared authentication method is used), where for each entry you need to define a unique `name` which should describe the **Access Permission** object, with an `access-id`, `sub_claims` when applicable, and a list of `permissions`.
 
 Add the `ALLOWED_ACCESS_PERMISSIONS` environment variable to the `gateway.env` file, specifying a **JSON** list of allowed `Access IDs`:
 
@@ -133,7 +133,7 @@ In this case, the above will create an **Access Permission** object named **Admi
 In our example, `test01@testhost.com` and `test02@testhost` will be authorized, and any member of `group=Devops` will also be authorized.
 
 In this case, the `Access ID` belongs to the authentication method created for the certain Identity Provider.
-_If you don't specify the sub-claims, every user authenticated by this IdP will be able to log in to the Gateway with admin privileges._
+_If you don't specify the sub-claims, every user authenticated by this IdP can log in to the Gateway with admin privileges._
 
 To work with [API Key](https://docs.akeyless.io/docs/auth-with-api-key) as an `ALLOWED_ACCESS_PERMISSIONS` simply provide your [API Key](https://docs.akeyless.io/docs/auth-with-api-key) `Access ID` with a `name` for the **Access Permission** object, with a set of `permissions`.
 
@@ -166,7 +166,7 @@ Full list of available permissions:
 | `k8s_auth` | Management of [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes) Auth Gateway configuration |
 | `kmip` | Management of [KMIP Servers](https://docs.akeyless.io/docs/kmip-server) |
 
-> 👍 Note
+> **Note:**
 >
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 

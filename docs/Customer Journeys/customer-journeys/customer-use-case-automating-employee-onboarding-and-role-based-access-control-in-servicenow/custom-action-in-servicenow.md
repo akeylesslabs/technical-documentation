@@ -32,7 +32,7 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 * Understand the API you're calling, including the endpoint URL, required headers, and the JSON body structure for your POST request.
 
-> 📘 For our use case we will use the following Akeyless API endpoints
+> **Info:** For this use case, use the following Akeyless API endpoints.
 >
 > * `https://api.akeyless.io/auth`
 > * `https://api.akeyless.io/create-auth-method-saml`
@@ -63,7 +63,7 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 * In the action editor, add a new step and choose the type that allows you to execute a script, often labeled as Run Script or something similar.
 * In the script step, you will write the code to make the POST request to the external API. ServiceNow provides a RESTMessageV2 class for this purpose.
-* To add a place where you will be able to write a script select the blue plus button.
+* To add a place where you can write a script, select the blue plus button.
 
 ![Illustration for: In the script step, you will write the code to make the POST request to the external API. ServiceNow provides a RESTMessageV2 class for this purpose. To add a place where…](https://files.readme.io/b18117b-Screenshot_2024-02-29_at_19.11.03.png)
 
@@ -73,7 +73,7 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 * Place to write you script
 
-![Illustration for: To add a place where you will be able to write a script select the blue plus button. Select script option Place to write you script](https://files.readme.io/1f19248-Screenshot_2024-02-29_at_19.11.26.png)
+![Illustration for: To add a place where you can write a script, select the blue plus button. Select script option. Place to write your script.](https://files.readme.io/1f19248-Screenshot_2024-02-29_at_19.11.26.png)
 
 * In our scenario, we aim to obtain a token for utilizing the Akeyless API. Following this, we intend to establish an authentication method for a new employee and subsequently link this authentication method to the appropriate access role. Below is a script exemplifying this process.
 

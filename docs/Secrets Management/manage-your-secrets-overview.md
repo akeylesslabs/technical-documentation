@@ -20,7 +20,7 @@ Akeyless enables you to work with the following secret types:
 
 In addition, Akeyless enables you to work with:
 
-* **Targets**: Targets act as a connector between credentials and the items that need to utilize them, both saving time for the user and protecting your flows from credential breakage. For more detail, see [Targets](https://docs.akeyless.io/docs/targets).
+* **Targets**: Targets act as a connector between credentials and the items that need to use them, both saving time for the user and protecting your flows from credential breakage. For more detail, see [Targets](https://docs.akeyless.io/docs/targets).
 
 * **Encryption Keys**: AES, RSA, or EC keys of various sizes. Use these keys to encrypt secrets or any other kind of data and also to sign binaries or application transactions. See [Encryption Keys](https://docs.akeyless.io/docs/encryption-key-management-overview).
 

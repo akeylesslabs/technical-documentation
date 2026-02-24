@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-You can create an Artifactory dynamic secret to allow users to dynamically receive short-lived access tokens to interact with a JFrog Artifactory server (`v5.0.0` or later) by way of its <Anchor label="API" target="_blank" href="https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis">API</Anchor>.
+You can create an Artifactory dynamic secret to allow users to dynamically receive short-lived access tokens to interact with a JFrog Artifactory server (`v5.0.0` or later) by way of its [API](https://jfrog.com/help/r/jfrog-rest-apis/artifactory-rest-apis).
 
-For more information on how to use access tokens in Artifactory, see the <Anchor label="JFrog Artifactory documentation" target="_blank" href="https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens">JFrog Artifactory documentation</Anchor>.
+For more information on how to use access tokens in Artifactory, see the [JFrog Artifactory documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens).
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the Artifactory through your [Gateway](https://docs.akeyless.io/docs/api-gw) and generates a temporary access token.
 
 ## Create a Dynamic Artifactory Secret with the CLI
 
-> 👍 Note
+> **Note:**
 >
-> We recommend using Dynamic Secrets with [a Target](https://docs.akeyless.io/docs/artifactory-targets) . While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
+> We recommend using Dynamic Secrets with [a Target](https://docs.akeyless.io/docs/artifactory-targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
 To create a dynamic Artifactory secret with the CLI using an existing [Artifactory Target](https://docs.akeyless.io/docs/artifactory-targets), run the following command:
 
@@ -81,7 +81,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic Artifactory Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/artifactory-dynamic-secret-producer#/create-a-dynamic-artifactory-secret-in-the-akeyless-console), you need to configure the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 

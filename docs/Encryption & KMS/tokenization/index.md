@@ -20,7 +20,7 @@ Akeyless Platform performs Tokenization using a format-preserving Encryption (FP
 
 ## Why Is It Important to Preserve the Original Format of Data?
 
-First, a format-preserving Encryption (FPE) is a method of encrypting data for systems that require it to be in a specific format and to pass certain validation checks in order to use it. By using it, companies can avoid costly and time-consuming changes to their data models and code.
+First, format-preserving Encryption (FPE) is a method of encrypting data for systems that require it to be in a specific format and to pass certain validation checks to use it. By using it, companies can avoid costly and time-consuming changes to their data models and code.
 
 The second major advantage FPE has over conventional encryption is that data such as credit cards or Social Security numbers can still be used as a unique key to identify a row in a database.
 
@@ -44,9 +44,9 @@ This section of the guide explains the workflow with the Akeyless CLI. If you wi
 
 To create a Tokenizer with the CLI, run the following command:
 
-> 👍 Note
+> **Note:**
 >
-> Please note that custom tokenization has additional mandatory parameters.
+> Custom tokenization has additional mandatory parameters.
 
 ```shell Tokenization using Templates
 akeyless create-tokenizer \
@@ -93,7 +93,7 @@ Where:
 
 * `decoding-template`: An expression to alter the template of the decryption output for **Custom** tokenization.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-tokenizerp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Encryption Keys](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-tokenizer) section.
 
 ### Tokenize and Detokenize a Secret with the CLI
 

@@ -21,10 +21,10 @@ To use Akeyless Connect you need:
 * An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with Remote Access enabled.
 * OpenSSH v7.2 or higher on target servers.
 
-> 👍 Note
+> **Note:**
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."
-> This feature enables users to utilize their Windows OS environment as a Unix-like system.
+> This feature enables users to use their Windows OS environment as a Unix-like system.
 >
 > To work with the `akeyless-connect` command from a Windows machine, place the `.akeyless-connect.rc` script in your home directory.
 
@@ -34,7 +34,7 @@ Install the latest version of [Akeyless Command Line Interface (CLI)](https://do
 
 **Optional**: Download the [akeyless-connect.rc file](https://rest.akeyless.io/Akeyless_Artifacts/Linux/SSH/.akeyless-connect.rc) and open it in your preferred file editor. This file can be used to hold default variables, shortening your connect command. It can also be helpful for customizing information to your needs.
 
-> 📘 RC File Notes
+> **Note (RC File Notes):**
 >
 > The `~/.akeyless-connect.rc` file must be placed in your local `$HOME` directory to work.
 > The RC file still uses `BASTION_*` variable names for historical reasons, but the CLI flags are now `--sra-ctrl-*`.
@@ -130,7 +130,7 @@ Where the URL will be set as follows:
 
 `USE_SSH_LEGACY_ALG`- Specifies whether to use ssh-legacy-signing-algorithm. The default is No
 
-> 🚧 Compatibility Issue with Legacy SSH Versions (7.4 and 7.6)
+> **Note (Compatibility Issue with Legacy SSH Versions (7.4 and 7.6)):**
 >
 > Customers who have upgraded their Secure Remote Access (SRA) to the latest may experience SSH connection failures when using Akeyless Connect to access remote machines running OpenSSH version 7.4 or 7.6. This occurs both in CLI and the Web portal.
 >
@@ -142,7 +142,7 @@ Where the URL will be set as follows:
 >     value: -o PubkeyAcceptedKeyTypes=+ssh-rsa-cert-v01@openssh.com
 > ```
 >
-> NOTE that this workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
+> This workaround explicitly enables legacy SSH key types that are deprecated and **not aligned** with modern security best practices.
 
 ## Usage
 
@@ -152,7 +152,7 @@ Use the `akeyless connect` command to connect to a resource through the Gateway'
 akeyless connect -t <[user@]target/hostname/ip[:port]> -g <your-gateway-ip[:port]> -c <cert-issuer-name>
 ```
 
-> 📘 Legacy SRA Deployments
+> **Note (Legacy SRA Deployments):**
 >
 > For legacy deployments, users will still run:
 >
@@ -167,7 +167,7 @@ Perform secure remote access
 Options:
 
   -t, --target                           Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, and so on.
-  -v, --by way of-sra                          SRA host, which the connection will go through. For example: sra-host:port.
+    -v, --via-sra                                SRA host, which the connection will go through. For example: sra-host:port.
   -g, --gateway-url                      The Gateway URL (configuration management) address, for example, http://localhost:8000
   -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified it will be taken from ~/.akeyless-connect.rc. If not specified it will be taken from item details
   -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read.  The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
@@ -205,7 +205,7 @@ For SSH access through the SSH component, please use both the `-g <gw-ssh-url>` 
 akeyless connect -t user@ssh-server[:port] -g <gw-ssh-url> -c "<Path to SSH Cert Issuer>"
 ```
 
-> 📘 Info
+> **Info:**
 >
 > For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert-issuer-name` for the **other** cert-issuer. This will enable access through SRA based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
 

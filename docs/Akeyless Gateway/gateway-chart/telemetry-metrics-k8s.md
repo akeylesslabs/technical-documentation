@@ -200,7 +200,7 @@ To add the Gateway Cluster unique identifier to your logs set the `FORWARD_GW_AP
 
 **Application Logs** from all instances of this gateway will be forwarded in this format: `<date> <time> <gw-clustername-instance-id> <log>`.
 
-After starting the Docker container, you can utilize [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
+After starting the Docker container, you can use [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
 
 * In **Grafana**, navigate to Data Sources and add a new [Loki Data Source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/)
 

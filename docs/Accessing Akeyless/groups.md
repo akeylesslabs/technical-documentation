@@ -25,10 +25,10 @@ akeyless create-group \
 
 Where:
 
-`name`: A unique name for the Group. The name can include the path to the virtual folder in which you want to create the new Group, using the slash `/` separators. If the folder does not exist, it will be created together with the Group.
+* `name`: A unique name for the Group. The name can include the path to the virtual folder in which you want to create the new Group, using slash `/` separators. If the folder does not exist, it will be created together with the Group.
 
-`group-alias`: A short name for the Group. The alias cannot contain the special characters `/`, `.`, or `*` .
+* `group-alias`: A short name for the Group. The alias cannot contain the special characters `/`, `.`, or `*`.
 
-`user-assignment`: A JSON string defining a list of `access-ids` and `sub-claims`. For example `[{"access_id":"p-123456", "sub_claims":{"email":["user@example.com"]}}]`
+* `user-assignment`: A JSON string defining a list of `access-ids` and `sub-claims`. For example: `[{"access_id":"p-123456", "sub_claims":{"email":["user@example.com"]}}]`.
 
-`user-assignment-file`: Instead of a string, users can add this flag in order to pass a JSON file, using the same formatting, with a path to the file.
+* `user-assignment-file`: Instead of a string, users can add this flag to pass a JSON file, using the same formatting, with a path to the file.

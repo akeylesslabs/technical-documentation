@@ -28,12 +28,12 @@ To use Akeyless Connect you need:
 
 * OpenSSH v7.9  and OpenSSL 1.1.1 or higher on target servers.
 
-> 👍 Note
+> **Note:**
 >
 > `Akeyless connect` command supports legacy `~/.akeyless-sphere.rc` configuration file.
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows Subsystem for Linux."
-> This feature enables users to utilize their Windows OS environment as a Unix-like system.
+> This feature enables users to use their Windows OS environment as a Unix-like system.
 >
 > To work with the `akeyless-connect` command from a Windows machine, place the `.akeyless-connect.rc` script in your home directory.
 
@@ -136,7 +136,7 @@ To use Akeyless Connect you need:
 
     ```shell akeyless connect -h
     -t, --target                             Target resource, example formats: user@ssh-server[:port], us-east-2, mysql-server:3306, and so on.
-      -v, --by way of-bastion                      Bastion host, which the connection will go through. For example: bastion-host:port. 
+      -v, --via-sra                                 SRA host, which the connection will go through. For example: sra-host:port.
       -c, --cert-issuer-name                 Akeyless Certificate Issuer Name. If not specified will be taken from ~/.akeyless-connect.rc 
       -i, --identity-file                    Selects a file from which the identity (private key) for public key authentication is read. The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa.
       -n, --name                             Path to Secret, based on the required connection
@@ -169,52 +169,48 @@ To use Akeyless Connect you need:
 For SSH access through the bastion, please use both `-v ssh-bastion` and the `-c cert_issuer_name` option. Notice the end-users require `read` permission on the cert issuer item which enables them access to the bastion.
 
 ```shell
-akeyless connect -t user@ssh-server[:port] -v <by way of-sra-bastion-ssh-service> -c "<Path to SSH Cert Issuer>"
+akeyless connect -t user@ssh-server[:port] -v <via-sra-bastion-ssh-service> -c "<Path to SSH Cert Issuer>"
 ```
 
-> 📘 Info
+> **Info:**
 >
 > For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert_issuer_name` for the **other** cert-issuer. This will enable access through the bastion based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
 
 #### AWS
 
 ```shell
-akeyless connect -t us-east-1 -c my-ssh-cert-issuer -v <by way of-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
+akeyless connect -t us-east-1 -c my-ssh-cert-issuer -v <via-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
 If you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file, you can use:
 
 ```shell
-akeyless connect -t us-east-1 -v <by way of-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
+akeyless connect -t us-east-1 -v <via-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
 #### MongoDB
 
 ```shell
-akeyless connect -t <mongo server IP>:27017 -v <by way of-sra-bastion-ssh-service>:<port> -n "<Path to MongoDB Dynamic Secret>"
+akeyless connect -t <mongo server IP>:27017 -v <via-sra-bastion-ssh-service>:<port> -n "<Path to MongoDB Dynamic Secret>"
 ```
 
 #### MySQL
 
 ```shell
-akeyless connect -t <mysql-server>:3306 -v <by way of-sra-bastion-ssh-service>:<port> -n "<Path to MySQL Dynamic Secret>"
+akeyless connect -t <mysql-server>:3306 -v <via-sra-bastion-ssh-service>:<port> -n "<Path to MySQL Dynamic Secret>"
 ```
 
 #### Amazon EKS
 
 ```shell
-akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -v <by way of-sra-bastion-ssh-service>:<port> -n "<Path to EKS Dynamic secret>"
+akeyless connect -t <namespace>@<eks cluster endpoint without https:// > -v <via-sra-bastion-ssh-service>:<port> -n "<Path to EKS Dynamic secret>"
 ```
 
 #### Non-interactive connection to Kubernetes
 
-Linux:
-
-```shell
-AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -v <by way of-sra-bastion-ssh-service> -n "Path To Kubernetes Dynamic Secret" --ssh-extra-args "non-interactive"
+```shell Linux
+AKEYLESS_PARAM='get pod' akeyless connect -t <k8 cluster endpoint> -v <via-sra-bastion-ssh-service> -n "Path To Kubernetes Dynamic Secret" --ssh-extra-args "non-interactive"
 ```
-
-Windows:
-
-```shell
+```shell Windows
+$env:AKEYLESS_PARAM = 'get pods'; .\akeyless.exe connect -t <k8 cluster endpoint> -v <via-sra-bastion-ssh-service> -n "Path To Kubernetes Dynamic Secret" --ssh-extra-args "non-interactive"
 ```

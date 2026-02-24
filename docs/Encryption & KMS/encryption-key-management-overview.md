@@ -14,7 +14,7 @@ The Akeyless Platform combines the capabilities of a Hardware Security Module (H
 
 There are two general types of keys available for creation and use:
 
-* **Classic keys:** If you want to [Bring Your Own Key](https://docs.akeyless.io/docs/external-kms) to a Cloud KMS provider, you can create it as a [Classic Key](https://docs.akeyless.io/docs/classic-keys). Once you share [Classic Keys](https://docs.akeyless.io/docs/classic-keys) with a Cloud KMS, you can easily manage all your Keys directly from the Akeyless Platform while using them inside your cloud services directly from your Cloud KMS while simultaneously enjoying the security and centralized management provided by Akeyless. For more information, see [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
+* **Classic keys:** If you want to [Bring Your Own Key](https://docs.akeyless.io/docs/external-kms) to a Cloud KMS provider, you can create it as a [Classic Key](https://docs.akeyless.io/docs/classic-keys). Once you share [Classic Keys](https://docs.akeyless.io/docs/classic-keys) with a Cloud KMS, you can manage all your keys directly from the Akeyless Platform while using them in your cloud services through your Cloud KMS. For more information, see [Classic Keys](https://docs.akeyless.io/docs/classic-keys).
 
 * **DFC™ keys:** A key in Akeyless, by default, will be encrypted using Akeyless Distributed Fragments Cryptography™, our unique FIPS-certified encryption key management technology. With Akeyless DFC™, your encryption key is created as fragments across different regions and on different cloud providers. The key never exists as a whole, not even when it is used. For more information, see [Encryption Keys](https://docs.akeyless.io/docs/encryption-keys).
 

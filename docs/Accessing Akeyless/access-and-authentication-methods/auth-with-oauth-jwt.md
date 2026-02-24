@@ -18,7 +18,7 @@ This standard provides secure delegated access. It means that an application can
 
 ## Create an OAuth2.0/JWT Authentication Method with the CLI
 
-Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oauth-jwt).)
+Let's create a new OAuth2.0/JWT authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-oauth-jwt#create-an-oauth20jwt-authentication-method-in-the-akeyless-console).)
 
 ```shell
 akeyless auth-method create oauth2 \
@@ -37,17 +37,17 @@ Where:
 
 By default, Akeyless treats the comma char `,` as a delimiter for the JWT attributes. If your IdP uses different characters as a delimiter, you can set those using the `delimiters` parameter.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueoauth2p) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#create) section.
 
 ## Create an OAuth2.0/JWT Authentication Method in the Akeyless Console
 
-1. Log in to the Akeyless Console and go to **Users & Auth Methods > ⊕ New > OAuth2.0/JWT**, and click on **Next →**.
+1. Log in to the Akeyless Console and go to **Users & Auth Methods > ⊕ New > OAuth2.0/JWT**, then click **Next →**.
 
 2. Define a **Name** for the authentication method, and specify the **Location** as a path to the virtual folder where you want to create the new authentication method, using slash `/` separators. If the folder does not exist, it will be created together with the authentication method.
 
 3. Define the remaining parameters as follows:
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Enter a comma-separated list of CIDR blocks. When specified, the Gateway with the IP from this range will be trusted to forward original client IPs (so that they will be visible in the logs). If empty, the IP of the Gateway will be used in the logs.
 
@@ -55,9 +55,9 @@ You can find the complete list of additional parameters for this command in the 
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Unique Identifier :** A unique identifier is usually an email, username, or UPN. Whenever a user logs in with a token, OAuth2.0/JWT Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
+    * **Unique Identifier:** A unique identifier is usually an email, username, or UPN. Whenever a user logs in with a token, OAuth2.0/JWT Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
-    * **JWKS URL :** Enter the URL to the JSON Web Key Set (`JWKS`) containing the public keys that should be used to verify any JSON Web Token (`JWT`) issued by the authorization server. Alternatively, you can load the `JWKS` containing the public keys that should be used to verify the `JWT` issued by the authorization server using the `JSON` option
+    * **JWKS URL:** Enter the URL to the JSON Web Key Set (`JWKS`) containing the public keys that should be used to verify any JSON Web Token (`JWT`) issued by the authorization server. Alternatively, you can load the `JWKS` containing the public keys that should be used to verify the `JWT` issued by the authorization server using the `JSON` option.
 
     * **Issuer URL:** Enter the issuer URL. This parameter is optional.
 
@@ -65,4 +65,4 @@ You can find the complete list of additional parameters for this command in the 
 
     * **Bound Client IDs:** Enter a list of the Client's IDs for which access is allowed. This parameter maps to the non-standard `cid` (Client Identification Data) sub-claim and is optional. Leave it empty for unrestricted access.
 
-4. Click on **Finish**.
+4. Click **Finish**.

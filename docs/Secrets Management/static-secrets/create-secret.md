@@ -46,9 +46,9 @@ The response should be like this:
 A new secret named /Admin/AdminCredentials was successfully created
 ```
 
-> 👍 Note
+> **Note:**
 >
-> For details about these CLI command options, see the [CLI Command Reference](https://docs.akeyless.io/docs/cli-reference-static-secrets).
+> For details about these CLI command options, see the [CLI Command Reference](https://docs.akeyless.io/docs/cli-reference-static-secrets#create-secret).
 
 Next, assign the static secret to an access role that defines who can access the secret value, and with what permissions. For details, see [Add a Static Secret to an Access Role](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role).
 
@@ -80,4 +80,4 @@ Let’s create a static secret using the Akeyless Console. If you’d prefer, se
 
 ## Tutorial
 
-Check out our tutorial video on [Creating and Updating a Static Secret](https://tutorials.akeyless.io/docs/creating-a-static-secret) .
+Check out our tutorial video on [Creating and Updating a Static Secret](https://tutorials.akeyless.io/docs/creating-a-static-secret).

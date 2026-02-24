@@ -7,7 +7,7 @@ metadata:
 ---
 Akeyless Secure Remote Access offers robust security for accessing your resources by leveraging a range of just-in-time credentials, including Dynamic Secrets, Rotated Secrets, and SSH certificates.
 
-> 📘 New Chart
+> **Note (New Chart):**
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
 >
@@ -33,12 +33,10 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 
 ### Network Configuration
 
-<Callout icon="🌐" theme="default">
-  #### Network Configuration
-
-* When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in NGINX, you can use: `nginx.ingress.kubernetes.io/affinity: "cookie"`.
-* Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions documentation for more details.
-</Callout>
+> **Note (Sticky session requirements):**
+>
+> * When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in NGINX, you can use: `nginx.ingress.kubernetes.io/affinity: "cookie"`.
+> * Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions documentation for more details.
 
 * When using SSH sessions behind a load balancer, such as ELB, sessions may be closed due to idle connection timeouts. We recommend increasing the idle timeout to a higher value or setting it to unlimited.
 * For AWS ELB, adjust the idle timeout settings as per AWS ELB Idle Timeout documentation.
@@ -136,7 +134,7 @@ sshConfig:
       # CAPublicKey: |
 ```
 
-> 📘 Info
+> **Info:**
 >
 > If you don't have an SSH certificate yet, please follow this guide on creating an SSH Cert issuer with Akeyless and set your `CAPublicKey` in the `values` file.
 >

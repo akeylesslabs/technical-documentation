@@ -56,7 +56,7 @@ akeyless auth-method create ldap \
 
 ## `update`
 
-Update a new Auth Method that will be able to authenticate using LDAP
+Update a new Auth Method that can authenticate using LDAP
 
 ### Usage
 
@@ -142,7 +142,7 @@ akeyless gateway-update-ldap-auth-config \
 
 `--group-filter`: Go template used when constructing the group membership query. The template can access the following context variables: [UserDN, Username]
 
-`--group-attr`: LDAP attribute to follow on objects returned by ldap_group_filter in order to enumerate user group membership
+`--group-attr`: LDAP attribute to follow on objects returned by ldap_group_filter to enumerate user group membership
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 

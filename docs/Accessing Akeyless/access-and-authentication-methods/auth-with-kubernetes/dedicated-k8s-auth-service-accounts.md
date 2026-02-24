@@ -16,9 +16,7 @@ next:
 
 * Kubernetes v1.2` or later.
 
-> 📘 Info
->
-> **Required Gateway Access Permissions**
+> **Info (Required Gateway Access Permissions):**
 >
 > To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth.
 
@@ -28,7 +26,7 @@ This flow describes the creation of a dedicated Kubernetes ServiceAccount which 
 
 For a Rancher cluster, please create your [Rancher API Key](https://ranchermanager.docs.rancher.com/reference-guides/user-settings/api-keys) and refer to [Extract Kubernetes Cluster CA Certificate](https://docs.akeyless.io/docs/auth-with-kubernetes) to extract your Rancher server CA certificate.
 
-> 👍 Note
+> **Note:**
 >
 > To enable and use token request projection on a self-managed cluster, you must specify each of the following command line arguments to `kube-apiserver`:
 > `--service-account-issuer`
@@ -124,7 +122,7 @@ CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/
 
 #### Create Kubernetes Auth Method
 
-Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method. The result contains an `access Id` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method. The result contains an `Access ID` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw):
 
 ```shell
 akeyless create-auth-method-k8s -n my-k8s-auth-method --json
@@ -139,7 +137,7 @@ Upon successful creation, the response:
 }
 ```
 
-> 👍 Note
+> **Note:**
 >
 > Save the returned private key and `AccessID` for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
@@ -147,7 +145,7 @@ Upon successful creation, the response:
 
 To [discover your Kubernetes ServiceAccount issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
-> 👍 Note
+> **Note:**
 >
 > The Kubernetes Issuer parameter is no longer used by default, as the issuer validation is done by the API server, if you still wish to work with local issuer validation open a new tab to run this command as it starts a server. Then, go back to your original tab to extract the issuer.
 
@@ -200,7 +198,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created.
 
 * `signing-key`: The private key (Base64-encoded) associated with the public key defined in the Kubernetes auth
   (The private key that was created when the Kubernetes Auth Method was created previously).
@@ -260,7 +258,7 @@ When the cluster access type is **Rancher**, add the following parameters:
 
 Where:
 
-* `access-id`: The `Access Id` of the Kubernetes Auth Method that was created previously.
+* `access-id`: The `Access ID` of the Kubernetes Auth Method that was created previously.
 
 * `access-type`: The Auth Method access type, `k8s`.
 
@@ -275,9 +273,9 @@ Authentication succeeded.
 Token: t-bb7b...3564a7c9
 ```
 
-> 👍 Note
+> **Note:**
 >
-> Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
+> Delete the private key and Access ID that you stored in environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
 ## Available Claims for Kubernetes Auth
 
@@ -312,7 +310,7 @@ minikube start \
     --extra-config=kubelet.authentication-token-webhook=true
 ```
 
-> 👍 Note
+> **Note:**
 >
 > This example uses `api` as the service account issuer name, for your service accounts API audience.
 

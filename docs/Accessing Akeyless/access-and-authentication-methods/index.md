@@ -43,7 +43,7 @@ You can set a custom range of possible TTL for your tokens, setting the minimum,
 
 The default setting of your token TTL will affect all your authentication methods unless you have set a different TTL for a specific authentication method.
 
-> 👍 Note
+> **Note:**
 >
 > For an authentication method to have the necessary permissions to perform actions, you will need to attach it to a matching role.
 > To learn more about this, please go to [Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).

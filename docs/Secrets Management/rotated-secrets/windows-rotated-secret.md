@@ -46,7 +46,7 @@ Where:
     * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
 
-> 👍 Note
+> **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](https://docs.akeyless.io/docs/windows-target) user is required to change the password on behalf of the Rotated Secret user.
 
@@ -58,11 +58,11 @@ Where:
 * `rotated-password`: The password to rotate.
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorbluewindowsp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#windows) section.
 
 ## Create a Rotated Windows Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#create-a-rotated-ssh-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -95,6 +95,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
     * **Auto rotate:** Determines if automatic rotation is enabled.
     * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic password rotations when **Auto Rotate** is enabled.
     * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

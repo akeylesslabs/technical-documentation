@@ -9,15 +9,13 @@ metadata:
 next:
   description: ''
 ---
-<Callout icon="🚧" theme="warn">
-  This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator)
-</Callout>
+> **Warning:** This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator)
 
 [External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/) is a Kubernetes (K8s) operator that integrates with external secret management systems like Akeyless. The operator reads information from Akeyless APIs and automatically injects the values into a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 The goal of the ESO is to synchronize secrets from Akeyless into Kubernetes. ESO is a collection of custom API resources - `ExternalSecret`, `SecretStore`, and `ClusterSecretStore` that provides a user-friendly abstraction for the external API that stores and manages the lifecycle of the secrets for you.
 
-The ESO runs within your Kubernetes cluster as a `deployment` resource. It utilizes `CustomResourceDefinitions` to configure access to secret providers through `SecretStore` resources and manages Kubernetes Secret resources with `ExternalSecret` resources.
+The ESO runs within your Kubernetes cluster as a `deployment` resource. It uses `CustomResourceDefinitions` to configure access to secret providers through `SecretStore` resources and manages Kubernetes Secret resources with `ExternalSecret` resources.
 
 You can use two types of resources to fetch secrets from Akeyless:
 
@@ -51,7 +49,7 @@ Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 * [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> 👍 Note
+> **Note:**
 >
 > This guide demonstrates authentication using API Key and Kubernetes Authentication Methods. However, for security purposes, it’s highly recommended to avoid using API Keys in production.
 
@@ -325,7 +323,7 @@ kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.key}' | ba
 
 The [ClusterSecretStore](https://external-secrets.io/v0.4.2/api-clustersecretstore/) is cluster-wide and can be accessed by `ExternalSecrets` from any Namespace, offering centralized secret management:
 
-> 👍 Note
+> **Note:**
 >
 > The **Namespace** value is required in the `secretRef` section.
 

@@ -21,7 +21,7 @@ The following registries are compatible with the Sigstore signature specificatio
 * **GitLab**
 * **Docker Hub**
 
-> 📘 Gateway Version
+> **Note (Gateway Version):**
 >
 > This procedure is supported starting from Gateway version **3.59.0**
 

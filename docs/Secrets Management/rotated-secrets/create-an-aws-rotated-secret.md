@@ -71,7 +71,7 @@ Where:
     * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use the credentials defined on the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
 
-> 👍 Note
+> **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret user is not authorized to change their own Access Key, and a privileged AWS IAM principal, like the [AWS Target](https://docs.akeyless.io/docs/aws-targets), is required to change the Access Key on behalf of the Rotated Secret user.
 
@@ -88,11 +88,11 @@ Where:
 * `auto-rotate`: Enable auto-rotation if you need to update the Access Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
     * `grace-rotation-interval` and `grace-rotation-hour` defines the 2nd interval following the main rotation settings, relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueawsp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#aws) section.
 
 ## Create a Rotated AWS Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -140,6 +140,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Graceful Rotation Interval (in days):** Specifies the number of days (range: 1–365) to wait between the main **Rotation Interval** and the **Grace Rotation**. This setting is applicable only when both Auto Rotate and Graceful Rotation are enabled. If left empty, the system will apply the main **Rotation Interval** to both versions of the secret.
 
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

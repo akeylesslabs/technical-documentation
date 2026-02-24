@@ -36,7 +36,7 @@ akeyless create-ssh-cert-issuer \
 
 `-s, --signer-key-name`: **Required**, A key to sign the certificate with
 
-`-a, --allowed-users`: **Required**, List of allowed users that will be able to use the certificate, for example, ubuntu
+`-a, --allowed-users`: **Required**, List of allowed users who can use the certificate, for example, ubuntu
 
 `-t, --ttl`: **Required**, The requested Time To Live for the certificate, in seconds
 
@@ -114,7 +114,7 @@ akeyless update-ssh-cert-issuer \
 
 `-s, --signer-key-name`: **Required**, A key to sign the certificate with
 
-`-a, --allowed-users`: **Required**, List of allowed users that will be able to use the certificate, for example, ubuntu
+`-a, --allowed-users`: **Required**, List of allowed users who can use the certificate, for example, ubuntu
 
 `-t, --ttl`: **Required**, The requested Time To Live for the certificate, in seconds.
 

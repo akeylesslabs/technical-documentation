@@ -41,9 +41,9 @@ Where:
 
 * `hosts`: A comma-separated list of server hosts and server descriptions joined by a semicolon `;` (for example, `server-dev.com;My Dev server,server-prod.com;My Prod server description`).
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluelinkedp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#linked) section.
 
-> 👍 Note
+> **Note:**
 >
 > All Linked Target hosts will be added to the Secure Remote Access hosts lists automatically
 
@@ -73,7 +73,7 @@ To create a Linked Target follow these steps:
 4. Fill in these parameters:
 
     * **Parent Target**: Select an existing target from which to inherit credentials.
-    * **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname in order to open another row. After finishing, select **Confirm**.
+    * **Hosts**: Select the **+ Add Host(s)** button and insert host information. To add more than one host, select the **+** to the left of the hostname to open another row. After finishing, select **Confirm**.
 
 5. Click **Finish**.
 
@@ -83,6 +83,6 @@ To change any information find the Linked target in your **Targets** tab and sel
 
 ### Parent-less Linked Target
 
-While the main advantage of a Linked Target item is the ability to share and utilize the same privileged credentials from its Parent Target, a Linked Target item without a Parent will represent a collection of hosts for easier and more convenient management of SSH certificates by using parent-less Linked Targets for [SSH Cert Issuers](https://docs.akeyless.io/docs/ssh-certificates) with multiple hosts, eliminating the need to manage all those hosts across different items inside the Akeyless Platform.
+While the main advantage of a Linked Target item is the ability to share and use the same privileged credentials from its Parent Target, a Linked Target item without a Parent will represent a collection of hosts for easier and more convenient management of SSH certificates by using parent-less Linked Targets for [SSH Cert Issuers](https://docs.akeyless.io/docs/ssh-certificates) with multiple hosts, eliminating the need to manage all those hosts across different items inside the Akeyless Platform.
 
 To use a parent-less Linked Target, simply add hosts leaving the Parent Target set to "None".

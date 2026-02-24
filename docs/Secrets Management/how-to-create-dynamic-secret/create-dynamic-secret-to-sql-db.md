@@ -36,7 +36,7 @@ With Dynamic Secrets, you can control and manage which databases, tables, schema
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the database through the [Gateway](https://docs.akeyless.io/docs/api-gw) within your internal network and generates a temporary set of restricted access credentials.
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/database-targets). While it saves time for multiple secret level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the DB used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -321,7 +321,7 @@ The following is an example revocation statement for Postgres:
 
 `REVOKE CONNECT ON DATABASE postgres FROM "{{name}}"; REVOKE USAGE ON SCHEMA public FROM "{{name}}"; REVOKE SELECT ON ALL TABLES IN SCHEMA public FROM "{{name}}"; DROP USER "{{name}}";`
 
-> 📘 Info
+> **Info:**
 >
 > For MySQL 8, modify the default `CREATE USER` statement to allow native MySQL password authentication.
 >
@@ -335,7 +335,7 @@ If you don't have a [Database Target](https://docs.akeyless.io/docs/database-tar
 
 Depending on your database type, provide a **privileged username** that has enough permission to create and revoke users on your database with the relevant connection settings. And set the relevant creation and revocation statements to control and manage the level of access and roles of your temporary credentials.
 
-You can find the complete list of parameters for these commands in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets) section.
+You can find the complete list of parameters for these commands in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#create) section.
 
 ## Fetch a Dynamic Database Secret Value with the CLI
 
@@ -363,7 +363,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
 
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
@@ -371,7 +371,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-        If you selected the **Explicitly specify target properties** mode, click **Next**.
+        If you selected the **Explicitly specify target properties** option, click **Next**.
 
         Depending on your database type, provide a privileged username that has enough permission to create users on your database with the relevant connection settings.
 
@@ -385,8 +385,8 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.
 
 ## Tutorial
 
-Check out our tutorial video on [Creating and Using MySQL Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets) .
+Check out our tutorial video on [Creating and Using MySQL Dynamic Secrets](https://tutorials.akeyless.io/docs/creating-and-fetching-dynamic-secrets).

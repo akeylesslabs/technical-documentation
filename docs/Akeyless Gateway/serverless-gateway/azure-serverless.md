@@ -32,7 +32,7 @@ This guide describes how to run a Serverless Gateway on **Azure** based on [Func
 
 For example, to get to `/api/v2` endpoint, run: `https://<your_func_url>/api/gw/api/v2/`
 
-> 🚧 Warning
+> **Warning:**
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
@@ -55,13 +55,13 @@ The following Authentication Methods are supported for Azure Serverless:
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * [Azure AD](https://docs.akeyless.io/docs/auth-with-azure)
 
-> 👍 Tip
+> **Tip:**
 >
 > When working with **Azure AD** authentication method, you can set a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) containing the **Azure Object ID** on the Access-Role associated to the authentication method.
 >
 > When using the **Azure AD** authentication method, you can configure a [Sub-Claim](https://docs.akeyless.io/docs/sub-claims) on the associated [Access Role](https://docs.akeyless.io/docs/rbac) to match the user's **Azure Object ID** which can be found under **Identity** tab, in the **Function App** running the gateway.
 
-When using [Azure AD](https://docs.akeyless.io/docs/auth-with-azure) as the `admin_access_id` of the Gateway, make sure to set in addition a list of users that will be able to manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
+When using [Azure AD](https://docs.akeyless.io/docs/auth-with-azure) as the `admin_access_id` of the Gateway, make sure to additionally set a list of users who can manage your Gateway configuration using the `allowed_access_permissions` parameter, for example:
 
 ```shell Azure_AD
 using 'main.bicep'
@@ -256,7 +256,7 @@ BICEP_PARAMS = params.bicepparam
 
 Upon successfully installing the **Serverless Gateway**, the Gateway console URL will be printed.
 
-> 📘 Gateway URL
+> **Note (Gateway URL):**
 >
 > The default value of the Gateway URL ends with `/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
 >
