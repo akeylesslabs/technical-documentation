@@ -88,7 +88,7 @@ curl https://<Gateway-URL>:8080 -d "cmd=uid-rotate-token&&uid-token=u-XXXXX"
 
 Frequent key rotation is a best practice. You may create an automated script that will rotate your token in pre-scheduled intervals.
 
-While you can write your own script, we have a compatible one-minute interval token rotation script in the <a href="https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/" target="_blank">Akeyless Downloads</a> folder.
+While you can write your own script, we have a compatible one-minute interval token rotation script in the [Akeyless Downloads](https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/) folder.
 This script is Linux/macOS compatible, and has the following flow:
 
 1. Write the token to a path
@@ -199,7 +199,7 @@ To generate a token in the Console,
 1. Open the corresponding authentication method
 2. Go to **UID Tree** tab and then click**Generate**.
 
-> 🚧 Warning
+> **Warning:**
 >
 > If a UID token already exists, generating a new UID token will reset the existing token
 
@@ -236,7 +236,7 @@ To get the token tree in the Console,
 1. Open the corresponding authentication method,
 2. Go to **UID Tree** tab.
 
-> 📘 Note
+> **Note:**
 >
 > When your Token Tree becomes complex, you can use your mouse and **zoom in** to see specific Token better or **zoom out** to see the whole Token Tree
 

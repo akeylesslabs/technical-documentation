@@ -20,7 +20,7 @@ The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubern
 
 * Kubernetes v1.21 or later.
 
-> 📘 Info
+> **Info:**
 >
 > **Required Gateway Access Permissions**
 >
@@ -34,7 +34,7 @@ Akeyless supports several authentication strategies to interact with the Kuberne
 * A [dedicated ServiceAccount](https://docs.akeyless.io/docs/dedicated-k8s-auth-service-accounts)
 * A [client certificate](https://docs.akeyless.io/docs/k8s-auth-client-certificate)
 
-> 📘 Info
+> **Info:**
 >
 > ServiceAccount approaches work based on Kubernetes bearer tokens, whereas Certificate-based Authentication works based on a certificate and private key
 
@@ -88,7 +88,7 @@ Upon successful creation, the response:
 }
 ```
 
-> 👍 Note
+> **Note:**
 >
 > Save returned private key and `AccessID` for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`
 
@@ -170,7 +170,7 @@ Authentication succeeded.
 Token: t-bb7b...3564a7c9
 ```
 
-> 👍 Note
+> **Note:**
 >
 > Delete the private key and Access ID which you stored as an environment variables `$PRV_KEY` and `$ACCESS_ID`
 
@@ -208,7 +208,7 @@ minikube start \
     --extra-config=kubelet.authentication-token-webhook=true
 ```
 
-> 👍 Note
+> **Note:**
 >
 > This example uses `api` as the service account issuer name, for your service accounts API audience.
 

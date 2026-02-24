@@ -69,7 +69,7 @@ Where:
 
 * `oci-auth-type`: Represents the [OCI Authentication type](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm), supporting `apikey`, `resource`, and `instance`.
 
-> 📘 Note:
+> **Note:**
 >
 > When the `group-ocid` explicitly provided, the authentication flow will use them, if no **group** provided, the CLI will send a preliminary request to verify that the user is a member of the same tenant, and will extract the required **group** from the response.
 
