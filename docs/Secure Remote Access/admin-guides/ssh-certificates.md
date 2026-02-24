@@ -179,7 +179,7 @@ akeyless get-ssh-certificate --cert-username ubuntu --cert-issuer-name /prod/ssh
 
 > 📘 Tip
 >
-> The command `get-ssh-certificate` returns a certificate that is signed by the private CA key and uses the client’s public key that will be used to connect to the target server. The client's public key is not the same as the CA’s public key. It is a local public key that should be located in the command’s path together with the client’s private key. After you run the command, the signed certificate will be placed in the same path, so you will be able to connect to the target server using the client’s private/public keys which are located on the same path.
+> The command `get-ssh-certificate` returns a certificate that is signed by the private CA key and uses the client’s public key that will be used to connect to the target server. The client's public key is not the same as the CA’s public key. It is a local public key that should be located in the command’s path together with the client’s private key. After you run the command, the signed certificate will be placed in the same path, so you can connect to the target server using the client’s private/public keys in that path.
 
 The outcome of this command will be creating a new file beside the public key by adding a suffix to its name with `-cert.pub`, for example, `~/.ssh/id_rsa-cert.pub`. This is a well-known convention that OpenSSH uses during authentication.
 

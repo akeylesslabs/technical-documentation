@@ -145,7 +145,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf \
 
 ## `update`
 
-Update a new Authentication Method that will be able to authenticate using Kubernetes
+Update a new Authentication Method that can authenticate using Kubernetes
 
 ### Usage
 

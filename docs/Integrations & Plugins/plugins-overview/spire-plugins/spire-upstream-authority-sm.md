@@ -65,7 +65,7 @@ Run the following command to download and unpack pre-built `spire-server` and `s
 curl -s -N -L https://github.com/spiffe/spire/releases/download/v1.7.0/spire-1.7.0-linux-amd64-glibc.tar.gz | tar xz
 ```
 
-Next, run the following command in order to create the `certificate` item in Akeyless:
+Next, run the following command to create the `certificate` item in Akeyless:
 
 ```shell
 akeyless create-certificate \
@@ -135,13 +135,13 @@ For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
 
 ### SPIRE Server Initialization
 
-In order to initialize the server, run the following command:
+To initialize the server, run the following command:
 
 ```shell
 bin/spire-server run -config conf/server/server.conf &
 ```
 
-Once the server is running, the Agent needs to be configured as well, add the following line to the `conf/agent/agent.conf` file in the `agent` section in order to set the path to the SPIRE server **CA bundle**:
+Once the server is running, the Agent needs to be configured as well. Add the following line to the `conf/agent/agent.conf` file in the `agent` section to set the path to the SPIRE server **CA bundle**:
 
 ```shell
 trust_bundle_path = "/Path/To/certificate/file" 
@@ -153,7 +153,7 @@ trust_bundle_path = "/Path/To/certificate/file"
 >
 > The `"/Path/To/certificate.pem"` is a path on your machine where a `certificate.pem` file will be exist and the value of the file will be the value of the `certificate` that was created earlier in Akeyless.
 
-Run the following command in order to generate a token that will be used to attest the `agent` to the `server`
+Run the following command to generate a token that will be used to attest the `agent` to the `server`
 
 ```shell
 bin/spire-server token generate -spiffeID spiffe://example.org/myagent
@@ -161,7 +161,7 @@ bin/spire-server token generate -spiffeID spiffe://example.org/myagent
 
 ### SPIRE Agent Initialization
 
-Use the token that was generated in order to attest the `agent` to the `server`
+Use the generated token to attest the `agent` to the `server`
 
 ```shell
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &

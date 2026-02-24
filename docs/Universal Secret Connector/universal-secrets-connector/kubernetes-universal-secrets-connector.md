@@ -154,7 +154,7 @@ Additional parameters can be found in the [CLI Reference](https://docs.akeyless.
 
 ## Kubernetes Universal Secrets Connectors
 
-Once connected to a Target, you will be able to access the Universal Secrets Connector in your Akeyless Console page, which will allow you to manage your Universal Secrets, as well as display the following information about the secret:
+Once connected to a Target, you can access the Universal Secrets Connector in your Akeyless Console page, which allows you to manage your Universal Secrets and display the following information about the secret:
 
 * **Name:** Secret name
 

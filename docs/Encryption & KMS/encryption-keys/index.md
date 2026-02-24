@@ -111,7 +111,7 @@ After creating a key, you can use it to encrypt values using this command with t
 
 > 📘 Info
 >
-> When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, a 16 bytes of random data, encoded in Base64 format, which must be unique to each encryption operation, and must be saved in order to decrypt the value, marked with the parameter -X.
+> When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, a 16-byte random value encoded in Base64 format, which must be unique to each encryption operation and saved to decrypt the value, marked with the parameter -X.
 
 ```shell AES128GCM
 akeyless encrypt -k MyAES256GCMKey -p 12345
@@ -129,7 +129,7 @@ AQAAAAEIAacq7xBbq3PYFnTmuUwqdRHclYjti/5u/MvVacv7mtFjlJQtUIpY13YF
 AQAAAAEIAWj/BDSTdvCHMG1aqBW+r+u41nEvN1qTRQ==
 ```
 
-Similarly, you can use it in order to Decrypt values using this command with the following parameters:
+Similarly, you can use it to decrypt values using this command with the following parameters:
 
 * `k`: The name of the key to encrypt with.
 * `c`: The string to decrypt.
@@ -201,7 +201,7 @@ selecting a hash function between sha-256 and sha-512. The full parameters for t
 
 > 📘 Info
 >
-> When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, 16 bytes of random data, encoded in Base64 format, which must be unique to each encryption operation, and must be saved in order to decrypt the value, marked with the parameter -X.
+> When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, a 16-byte random value encoded in Base64 format, which must be unique to each encryption operation and saved to decrypt the value, marked with the parameter -X.
 
 ## Tutorial
 

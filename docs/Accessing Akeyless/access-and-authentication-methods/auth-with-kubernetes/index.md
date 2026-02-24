@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The Kubernetes (K8s) Auth Method uses Kubernetes JWTs in order to authenticate the Kubernetes application (For example, a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
+The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubernetes application (for example, a pod). Throughout the process, this Kubernetes JWT is never shared with Akeyless or any other third party, but only with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) that is controlled and operated in the customer environment. It is therefore considered a trusted machine.
 
-![Illustration for: The Kubernetes (K8s) Auth Method uses Kubernetes JWTs in order to authenticate the Kubernetes application (For example, a pod). Throughout the process, this Kubernetes JWT is…](https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png)
+![Illustration for: The Kubernetes (K8s) Auth Method uses Kubernetes JWTs to authenticate the Kubernetes application (for example, a pod). Throughout the process, this Kubernetes JWT is…](https://files.readme.io/ecfb4eb-Akeyless_Rebranded_Infographics.png)
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Akeyless supports several authentication strategies to interact with the Kuberne
 
 ## Using Akeyless Gateway ServiceAccount
 
-In order to work with your Gateway Service Account the following Kubernetes Role should be assigned to the Service Account that runs your Gateway, Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
+To work with your Gateway Service Account, the following Kubernetes Role should be assigned to the Service Account that runs your Gateway. Please make sure to adjust the `ServiceAccount:name` and `namespace` fields according to your environment:
 
 ```yaml Gateway SA Kubernetes Role
 cat << EOF > akl_gw_sa_token_reviewer.yaml 

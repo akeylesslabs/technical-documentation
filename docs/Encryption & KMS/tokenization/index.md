@@ -20,7 +20,7 @@ Akeyless Platform performs Tokenization using a format-preserving Encryption (FP
 
 ## Why Is It Important to Preserve the Original Format of Data?
 
-First, a format-preserving Encryption (FPE) is a method of encrypting data for systems that require it to be in a specific format and to pass certain validation checks in order to use it. By using it, companies can avoid costly and time-consuming changes to their data models and code.
+First, format-preserving Encryption (FPE) is a method of encrypting data for systems that require it to be in a specific format and to pass certain validation checks to use it. By using it, companies can avoid costly and time-consuming changes to their data models and code.
 
 The second major advantage FPE has over conventional encryption is that data such as credit cards or Social Security numbers can still be used as a unique key to identify a row in a database.
 
@@ -46,7 +46,7 @@ To create a Tokenizer with the CLI, run the following command:
 
 > 👍 Note
 >
-> Please note that custom tokenization has additional mandatory parameters.
+> Note that custom tokenization has additional mandatory parameters.
 
 ```shell Tokenization using Templates
 akeyless create-tokenizer \

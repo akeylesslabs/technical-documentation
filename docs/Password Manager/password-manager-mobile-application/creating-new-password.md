@@ -36,7 +36,7 @@ In the first field labeled 'Password Name,' enter a unique and easily recognizab
 
 Optionally, you can specify the 'Location' of the password by utilizing the drop-down button located on the right area of the 'Location' field.
 
-If the desired folder does not exist, you will be able to create a new folder within the password location window, select the "Create New Folder" button to create a new folder.
+If the desired folder does not exist, you can create a new folder within the password location window. Select the "Create New Folder" button.
 
 ### Step 4: Enhance Security and Add Context
 

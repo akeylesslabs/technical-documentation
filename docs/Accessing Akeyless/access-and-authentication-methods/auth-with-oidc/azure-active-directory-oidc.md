@@ -36,11 +36,11 @@ To use Azure Active Directory (AAD) as an IdP to authenticate the Akeyless Platf
 
     ![Illustration for: The Issuer URL can be fetched from Overview > Endpoints > OpenID Connect metadata document (note that the suffix /.well-known/openid-configuration should be…](https://files.readme.io/cb76d3c-image-20210902-151402.png)
 
-4. In order to add the AD group as a sub-claim, go to **Token configuration > Add Groups Claim**:
+4. To add the AD group as a sub-claim, go to **Token configuration > Add Groups Claim**:
 
     ![Illustration for: The Issuer URL can be fetched from Overview > Endpoints > OpenID Connect metadata document (note that the suffix /.well-known/openid-configuration should be…](https://files.readme.io/938b863-image-20210902-155120.png)
 
-5. In order to bind the Azure application with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
+5. To bind the Azure application with your Akeyless account, create an OIDC Authentication Method using either CLI or UI, as described below.
 
 ## Create an OIDC Authentication Method with the CLI
 

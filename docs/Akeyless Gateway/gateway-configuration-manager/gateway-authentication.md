@@ -20,7 +20,7 @@ To set a default [Authentication Methods](https://docs.akeyless.io/docs/access-a
 
 > 👍 Note
 >
-> Gateway Users Authentication does not mean those users will be able to log in and manage your Gateway deployment, to set a list of Gateway Allowed Admins please refer to the Gateway Admins section in the relevant deployment guide.
+> Gateway Users Authentication does not mean those users can log in and manage your Gateway deployment. To set a list of Gateway Allowed Admins, refer to the Gateway Admins section in the relevant deployment guide.
 
 ## SAML & OIDC
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This quick start guide is intended to get you started with deploying a Gateway (with Remote Access) using the most basic, required parameters and a clean Kubernetes cluster. Within just a few minutes you will see how easy it is to complete the Gateway deployment and secure your user and machine access. You will also be able to use just-in-time credentials with remote access to log into your various applications and services.
+This quick start guide is intended to get you started with deploying a Gateway (with Remote Access) using the most basic, required parameters and a clean Kubernetes cluster. Within just a few minutes you will see how easy it is to complete the Gateway deployment and secure your user and machine access. You can also use just-in-time credentials with remote access to log into your various applications and services.
 
 Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package manager with or without Remote Access. This can also be deployed using Docker Compose, but this guide will focus on Kubernetes.
 
@@ -18,7 +18,7 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 > 🚧 Security
 >
-> Please note that this guide was tested with AWS EKS and **not secured** with TLS. We highly suggest you do not use this in a production environment or with real credentials.
+> Note that this guide was tested with Amazon EKS and **not secured** with TLS. We strongly recommend not using this in a production environment or with real credentials.
 
 ## Prerequisites
 

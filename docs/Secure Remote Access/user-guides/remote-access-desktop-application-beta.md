@@ -126,4 +126,4 @@ Download the respective Desktop Application installation file from [here](https:
 >
 > If the desktop application fails to connect to the resource, it will display a message prompting you to verify your configuration.
 >
-> Please note that the Desktop log contains additional information that may help during an investigation.
+> Note that the Desktop log contains additional information that may help during an investigation.

@@ -53,7 +53,7 @@ Where:
 
 * `api-key-id`: The **ID** of the Admin API Key.
 
-* `api-key`: The Admin API Key that will be used in order to create the API Key.
+* `api-key`: The Admin API Key that will be used to create the API Key.
 
 * `org-id`: The organization ID.
 
@@ -92,7 +92,7 @@ Where:
 
 6. Provide details of the target OpenAI account:
 
-    * **API Key:** The Admin API Key that will be used in order to create the API Key.
+    * **API Key:** The Admin API Key that will be used to create the API Key.
 
     * **API Key ID:** The **ID** of the Admin API Key.
 

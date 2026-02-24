@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-In order to use GitHub as an IdP to authenticate the Akeyless Platform by way of OIDC, you need to follow the below steps.
+To use GitHub as an IdP to authenticate the Akeyless Platform by way of OIDC, follow the steps below.
 
 ## Create an OAuth Apps
 
@@ -24,7 +24,7 @@ In order to use GitHub as an IdP to authenticate the Akeyless Platform by way of
 
     ![Illustration for: Once the Application has been created, you need to obtain the Client ID and Client secret.](https://files.readme.io/bc9cf03-image-20210912-161821.png)
 
-4. In order to bind the GitHub Client ID with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
+4. To bind the GitHub Client ID with your Akeyless account, create an OIDC Authentication Method using either CLI or UI, as described below.
 
 ## Create an OIDC Authentication Method with the CLI
 

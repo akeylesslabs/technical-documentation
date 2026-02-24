@@ -1796,7 +1796,7 @@ akeyless dynamic-secret create openai \
 
 `api-key-id`: The ID of the Admin API Key.
 
-`api-key`: The Admin API Key that will be used in order to create the API Key.
+`api-key`: The Admin API Key that will be used to create the API Key.
 
 `org-id`: The organization ID.
 
@@ -3307,7 +3307,7 @@ akeyless dynamic-secret update openai \
 
 `api-key-id`: The ID of the Admin API Key.
 
-`api-key`: The Admin API Key that will be used in order to create the API Key.
+`api-key`: The Admin API Key that will be used to create the API Key.
 
 `org-id`: The organization ID.
 

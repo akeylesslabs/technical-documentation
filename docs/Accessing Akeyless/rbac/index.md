@@ -59,7 +59,7 @@ Despite the fact that users do not have access to items unless granted explicitl
 akeyless set-role-rule --role-name role1 --path /path/to/folder/topSecret --capability deny
 ```
 
-Add **client1** to the **role1**, so client1 will be able to access all items under **/path/to/folder/** apart from **/path/to/folder/topSecret**:
+Add **client1** to **role1**, so client1 can access all items under **/path/to/folder/** apart from **/path/to/folder/topSecret**:
 
 ```shell
 akeyless assoc-role-am --role-name role1 --am-name client1

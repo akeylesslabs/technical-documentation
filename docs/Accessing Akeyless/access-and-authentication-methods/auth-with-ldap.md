@@ -12,7 +12,7 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
 ---
-The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) uses an existing LDAP server in order to authenticate your users without sharing their credentials directly with Akeyless or any other third party. The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) interacts directly with your LDAP server inside your internal network, acting as an internal trusted server, to ensure safe communication.
+The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) uses an existing LDAP server to authenticate your users without sharing their credentials directly with Akeyless or any other third party. The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) interacts directly with your LDAP server inside your internal network, acting as an internal trusted server, to ensure safe communication.
 
 ## Prerequisites
 
@@ -68,6 +68,6 @@ The following **Search Configuration** steps are **Optional**:
 
 * **Go Template for Group Membership query:** Go template used when constructing the group membership query. The template can access the following context variables: `UserDN, Username`.
 
-* **LDAP Group Attribute:** LDAP attribute to follow on objects returned by `ldap_group_filter` in order to enumerate user group membership, the default is `cn`.
+* **LDAP Group Attribute:** LDAP attribute to follow on objects returned by `ldap_group_filter` to enumerate user group membership, the default is `cn`.
 
 * Click on **Finish**.

@@ -31,7 +31,7 @@ Or use the following Maven dependency definition:
 </dependency>
 ```
 
-In order to deploy this plugin into a Keycloak environment copy the `akeyless-keycloak-<version>-jar-with-dependencies.jar` into your Keycloak `deployments` folder.
+To deploy this plugin into a Keycloak environment, copy the `akeyless-keycloak-<version>-jar-with-dependencies.jar` into your Keycloak `deployments` folder.
 
 Verify your deployment in Keycloak logs:
 

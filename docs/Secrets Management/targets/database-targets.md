@@ -46,7 +46,7 @@ Available database targets:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Database Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluedbp) section.
 
-In order to create database targets you can define the following fields on [Akeyless CLI](https://docs.akeyless.io/docs/cli):
+To create database targets, you can define the following fields in the [Akeyless CLI](https://docs.akeyless.io/docs/cli):
 
 ```shell MySQL/MariaDB
 akeyless target create db \

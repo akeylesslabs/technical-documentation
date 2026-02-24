@@ -150,7 +150,7 @@ akeyless auth-method create api-key --name <Auth method name>
 
 ### `aws-iam`
 
-Create a new Auth Method that will be able to authenticate using AWS IAM credentials
+Create a new Auth Method that can authenticate using AWS IAM credentials
 
 #### Usage
 
@@ -209,7 +209,7 @@ akeyless auth-method create aws-iam \
 
 ### `azure-ad`
 
-Create a new Auth Method that will be able to authenticate using Azure Active Directory credentials
+Create a new Auth Method that can authenticate using Azure Active Directory credentials
 
 #### Usage
 
@@ -273,7 +273,7 @@ akeyless auth-method create azure-ad \
 
 ### `cert`
 
-Create a new Auth Method that will be able to authenticate using a client certificate
+Create a new Auth Method that can authenticate using a client certificate
 
 #### Usage
 
@@ -332,7 +332,7 @@ akeyless auth-method create cert \
 
 ### `email`
 
-Create a new Auth Method that will be able to authenticate using an email address
+Create a new Auth Method that can authenticate using an email address
 
 #### Usage
 
@@ -372,7 +372,7 @@ akeyless auth-method create email \
 
 ### `gcp`
 
-Create a new Auth Method that will be able to authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
+Create a new Auth Method that can authenticate using GCP IAM ServiceAccount credentials or GCE instance credentials
 
 #### Usage
 
@@ -418,21 +418,21 @@ akeyless auth-method create gcp \
 
 `--service-account-creds-data`: Service Account credentials data, Base64-encoded
 
-`--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag
+`--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects to authenticate. For multiple values repeat this flag
 
-`--bound-service-accounts`: A list of Service Accounts. Clients must belong to any of the provided service accounts in order to authenticate. For multiple values repeat this flag
+`--bound-service-accounts`: A list of Service Accounts. Clients must belong to any of the provided service accounts to authenticate. For multiple values repeat this flag
 
-`--bound-zones`: GCE only. A list of zones. GCE instances must belong to any of the provided zones in order to authenticate. For multiple values repeat this flag
+`--bound-zones`: GCE only. A list of zones. GCE instances must belong to any of the provided zones to authenticate. For multiple values repeat this flag
 
-`--bound-regions`: GCE only. A list of regions. GCE instances must belong to any of the provided regions in order to authenticate. For multiple values repeat this flag
+`--bound-regions`: GCE only. A list of regions. GCE instances must belong to any of the provided regions to authenticate. For multiple values repeat this flag
 
-`--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data` becomes mandatory.
+`--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data` becomes mandatory.
 
 `--unique-identifier`: A unique identifier (ID) value which is a `sub claim` name that contains details uniquely identifying that resource. This `sub claim` is used to distinguish between different identities.
 
 ### `oauth2`
 
-Create a new Auth Method that will be able to authenticate using OAuth2
+Create a new Auth Method that can authenticate using OAuth2
 
 #### Usage
 
@@ -586,7 +586,7 @@ akeyless auth-method create oidc \
 
 ### `saml`
 
-Create a new Auth Method that will be able to authenticate using SAML
+Create a new Auth Method that can authenticate using SAML
 
 #### Usage
 
@@ -708,7 +708,7 @@ akeyless auth-method update api-key --name <Auth method>
 
 #### `aws-iam`
 
-Update a new Auth Method that will be able to authenticate using AWS IAM credentials
+Update a new Auth Method that can authenticate using AWS IAM credentials
 
 ##### Usage
 
@@ -762,7 +762,7 @@ akeyless auth-method update aws-iam \
 
 #### `azure-ad`
 
-Update a new Auth Method that will be able to authenticate using Azure Active Directory credentials
+Update a new Auth Method that can authenticate using Azure Active Directory credentials
 
 ##### Usage
 
@@ -825,7 +825,7 @@ akeyless auth-method update azure-ad \
 
 #### `cert`
 
-Update a new Auth Method that will be able to authenticate using a client certificate.
+Update a new Auth Method that can authenticate using a client certificate.
 
 ##### Usage
 
@@ -884,7 +884,7 @@ akeyless auth-method update cert \
 
 #### `gcp`
 
-Update a new Auth Method that will be able to authenticate using GCP IAM Service Account credentials or GCE instance credentials
+Update a new Auth Method that can authenticate using GCP IAM Service Account credentials or GCE instance credentials
 
 ##### Usage
 
@@ -930,19 +930,19 @@ akeyless auth-method update gcp \
 
 `--service-account-creds-data`: Service Account credentials data, Base64-encoded
 
-`--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects in order to authenticate. For multiple values repeat this flag.
+`--bound-projects`: A list of GCP project IDs. Clients must belong to any of the provided projects to authenticate. For multiple values repeat this flag.
 
-`--bound-service-accounts`: A list of Service Accounts. Clients must belong to any of the provided service accounts in order to authenticate. For multiple values repeat this flag.
+`--bound-service-accounts`: A list of Service Accounts. Clients must belong to any of the provided service accounts to authenticate. For multiple values repeat this flag.
 
-`--bound-zones`: GCE only. A list of zones. GCE instances must belong to any of the provided zones in order to authenticate. For multiple values repeat this flag.
+`--bound-zones`: GCE only. A list of zones. GCE instances must belong to any of the provided zones to authenticate. For multiple values repeat this flag.
 
-`--bound-regions`: GCE only. A list of regions. GCE instances must belong to any of the provided regions in order to authenticate. For multiple values repeat this flag.
+`--bound-regions`: GCE only. A list of regions. GCE instances must belong to any of the provided regions to authenticate. For multiple values repeat this flag.
 
-`--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances in order to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data` becomes mandatory.
+`--bound-labels`: GCE only. A list of GCP labels formatted as "key:value" pairs that must be set on instances to authenticate. For multiple values repeat this flag. If this is added, the `--service-account-creds-file` or `--service-account-creds-data` becomes mandatory.
 
 #### `oauth2`
 
-Update a new Auth Method that will be able to authenticate using OAuth2
+Update a new Auth Method that can authenticate using OAuth2
 
 ##### Usage
 
@@ -1039,7 +1039,7 @@ akeyless auth-method update oci \
 
 #### `oidc`
 
-Update a new Auth Method that will be able to authenticate using OIDC
+Update a new Auth Method that can authenticate using OIDC
 
 ##### Usage
 
@@ -1097,7 +1097,7 @@ akeyless auth-method update oidc \
 
 #### `saml`
 
-Update a new Auth Method that will be able to authenticate using SAML
+Update a new Auth Method that can authenticate using SAML
 
 ##### Usage
 

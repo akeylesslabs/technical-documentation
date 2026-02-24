@@ -137,7 +137,7 @@ akeyless get-cert-challenge \
 --cert-data <cert data encoded in base64>
 ```
 
-Running the above will produce a unique value that must be signed by the corresponding private key in order to continue the authentication process. Note, this challenge is valid for 60 seconds only.
+Running the above produces a unique value that must be signed by the corresponding private key to continue the authentication process. Note, this challenge is valid for 60 seconds only.
 
 * Automated challenge generation and signing with the SDK:
 
