@@ -117,7 +117,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
     * **Sub Claim Name:** From which Sub Claim configured on your IdP to extract the user, where the default value is `ext_username`
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user.
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
-    * **Temporary Password Length** Set the length of the temporary password
+    * **Temporary Password Length:** Set the length of the temporary password.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).

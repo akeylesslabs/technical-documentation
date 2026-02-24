@@ -126,7 +126,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a key). When TTL expires, the key becomes obsolete.
 
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
 
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
 
