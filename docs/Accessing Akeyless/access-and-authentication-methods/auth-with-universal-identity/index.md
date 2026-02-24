@@ -20,7 +20,7 @@ While the process has an initiation phase where the Admin creates the original a
 
 ## Create a Universal Identity Authentication Method with the CLI
 
-Let's create a new Universal Identity authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-universal-identity#create-a-universal-identity-authentication-method-in-the-console).)
+Let's create a new Universal Identity authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-universal-identity#create-a-universal-identity-authentication-method-in-the-console).)
 
 To create a new Universal Identity authentication method with the CLI, run the following command:
 
@@ -91,11 +91,12 @@ Frequent key rotation is a best practice. You may create an automated script tha
 While you can write your own script, we have a compatible one-minute interval token rotation script in the [Akeyless Downloads](https://download.akeyless.io/Akeyless_Artifacts/Linux/Universal_Identity/) folder.
 This script is Linux/macOS compatible, and has the following flow:
 
-1. Write the token to a path
-2. Take the token from path to perform commands
-3. Rotate token
-4. Replace the token in path
-   After downloading the `.sh` file, execute it and select `init` and insert the token you generated to start the process. From this point on the script can be run automatically to rotate the token by itself.
+1. Write the token to a path.
+2. Take the token from the path to perform commands.
+3. Rotate the token.
+4. Replace the token in the path.
+
+After downloading the `.sh` file, execute it, select `init`, and insert the token you generated to start the process. From this point on, the script can run automatically to rotate the token.
 
 If you wish to write your own script, here are some useful parts you might want to include:
 
@@ -217,7 +218,7 @@ To revoke a token in the Console:
 
 To create a child token in the Console:
 
-1. Open the corresponding authentication method,
+1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab.
 3. Right-click the root node and click **Create child token**.
 4. Define the parameters as follows:
@@ -239,10 +240,10 @@ To get the token tree in the Console:
 
 > **Note:**
 >
-> When your Token Tree becomes complex, you can use your mouse and **zoom in** to see specific Token better or **zoom out** to see the whole Token Tree
+> When your Token Tree becomes complex, you can use your mouse to **zoom in** to see a specific token better, or **zoom out** to see the whole Token Tree.
 
 ## Best Practices
 
 A UID token is initially used to authenticate a client with Akeyless. The UID token includes essential authentication information, ensuring that the client's identity has been verified.
 
-Once authenticated, the best practice is to exchange the UID token for a **t-token** (Temporary Token). The **t-token** is a short-lived token used for subsequent API requests enabling better performance using the token for subsequent requests minimizes the need for repeated authentication processes, while using a shorter lifespan token reduces the opportunity for potential misuse.
+Once authenticated, the best practice is to exchange the UID token for a **t-token** (temporary token). The **t-token** is a short-lived token used for subsequent API requests. Using it for subsequent requests minimizes repeated authentication processes and reduces the opportunity for potential misuse.
