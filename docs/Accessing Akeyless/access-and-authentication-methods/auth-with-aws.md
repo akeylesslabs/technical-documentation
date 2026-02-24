@@ -18,7 +18,7 @@ next:
 
 ## Create an AWS IAM Authentication Method with the CLI
 
-Let's create a new AWS IAM authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://docs.akeyless.io/docs/cli-ref-auth#aws-iam).)
+Let's create a new AWS IAM authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/cli-ref-auth#aws-iam).)
 
 To create an AWS IAM authentication method with the CLI, run the following command:
 
@@ -47,7 +47,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 > **Note (Least Privileged Permissions):**
 >
-> AWS IAM authentication doesn't require any privileged permissions. Ensure you have an IAM role without any privileged permissions and attach it to the resource you want to authenticate (For example, EC2 instance).
+> AWS IAM authentication doesn't require any privileged permissions. Ensure you have an IAM role without any privileged permissions and attach it to the resource you want to authenticate (for example, an EC2 instance).
 
 ## Create an AWS IAM Authentication Method in the Akeyless Console
 
@@ -59,7 +59,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
@@ -87,7 +87,7 @@ akeyless get-cloud-identity --cloud-provider aws_iam
 
 By default, [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) (IMDSv2) enforces a hop limit of 1, which means the metadata token used for cloud identity (such as IAM role credentials) must be accessed directly from the **EC2 instance** that initiated the session.
 
-If the Akeyless Gateway runs in a different network context (For example, inside a container), it may fail to authenticate using the `aws_iam` authentication method because this hop limitation.
+If the Akeyless Gateway runs in a different network context (for example, inside a container), it may fail to authenticate using the `aws_iam` authentication method because of this hop limitation.
 
 To resolve this, you can increase the allowed number of network hops by modifying the `http-put-response-hop-limit` parameter. This can be done by way of the **AWS CLI** or the **AWS Management Console**.
 

@@ -78,7 +78,7 @@ akeyless get-cloud-identity --cloud-provider gcp
 
     * **Expiration Date:** Select the access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 
-    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Allowed Trusted Gateway IPs:** Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 
@@ -88,7 +88,7 @@ akeyless get-cloud-identity --cloud-provider gcp
 
     * **GCP Type:** Select the type of GCP authentication method to create, either `IAM` or `GCE`.
 
-    * **Bound Projects:** Enter a comma-separated list of GCP project IDs. The client must belong to one of these projects to authenticate. By "client," we mean CURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
+    * **Bound Projects:** Enter a comma-separated list of GCP project IDs. The client must belong to one of these projects to authenticate. By "client," we mean cURL, SDK, and so on. This parameter is optional. Leave it empty for unrestricted access.
 
     * **Audience:** Enter the audience to verify in the JWT received by the client. By default,
     the **Audience** is `akeyless.io`.
