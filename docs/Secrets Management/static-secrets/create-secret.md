@@ -48,7 +48,7 @@ A new secret named /Admin/AdminCredentials was successfully created
 
 > **Note:**
 >
-> For details about these CLI command options, see the [CLI Command Reference](https://docs.akeyless.io/docs/cli-reference-static-secrets).
+> For details about these CLI command options, see the [CLI Command Reference](https://docs.akeyless.io/docs/cli-reference-static-secrets#create-secret).
 
 Next, assign the static secret to an access role that defines who can access the secret value, and with what permissions. For details, see [Add a Static Secret to an Access Role](https://docs.akeyless.io/docs/add-a-static-secret-to-an-access-role).
 

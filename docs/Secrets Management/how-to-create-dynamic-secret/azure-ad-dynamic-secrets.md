@@ -144,9 +144,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
         * Check the **Explicitly specify target properties** to provide details of the target Azure AD in the next step.
 
-    * **Programmatic Access:** Select this radio button to create a new secret to access a specific App.
+    * **Programmatic Access:** Select this option to create a new secret to access a specific App.
 
-    * **Portal Access:** Select this radio button to create a new user and password.
+    * **Portal Access:** Select this option to create a new user and password.
 
     * **App Object ID:** Provide the ID of the App Object to access using a dynamic secret. (Required if **Programmatic Access** is selected.)
 
