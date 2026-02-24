@@ -18,7 +18,7 @@ The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) built-in Key Manage
 
 Cryptographic objects managed by the Akeyless KMIP server are stored under the `/kmip/default/` path, hence your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) authentication method must have sufficient privileges, including `create`, `list`, `delete` and `read` rules, under the `/kmip/default/*` path. This path can be changed during the KMIP server setup.
 
-> 📘 Note
+> **Note:**
 >
 > Only users from your Gateway admins list can configure the KMIP server.
 
@@ -43,7 +43,7 @@ Where:
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#p-stylecolorbluekmip-server-setup-p) section.
 
-> 👍 Note
+> **Note:**
 >
 > Make sure to replace the `hostname` field with your **Akeyless Gateway** hostname.
 
@@ -66,7 +66,7 @@ Note that this will automatically create 2 items under the `/kmip/default` path 
 
 * In this guide, we will use MongoDB Enterprise as a KMIP Client.
 
-> 📘 Notes
+> **Note:**
 >
 > This guide was created using MongoDB version 4.2 or earlier.
 >
@@ -108,7 +108,7 @@ MIIDSz...0otOEQQ==
 -----END CERTIFICATE-----
 ```
 
-> 👍 Note
+> **Note:**
 >
 > Save the received certificate and key in a safe place. They will be used to set up the connection.
 
@@ -147,7 +147,7 @@ This command grants our MongoDB KMIP client the ability to create and retrieve o
 
 You can find the complete list of settings for this command in the [CLI Reference - Akeyless KMIP Server](https://docs.akeyless.io/docs/cli-reference-akeyless-kmip-server#p-stylecolorbluekmip-client-set-rulep) section.
 
-> 👍 Note
+> **Note:**
 >
 > Note that these roles and permissions are only valid for **the selected KMIP Server**, not for all Akeyless functions.
 
@@ -213,7 +213,7 @@ The command output shows the created KMIP key ID:
 
 4. Save the private key and certificate of the client to set up the connection with your KMIP Client system.
 
-> 👍 Handling the "Cannot Parse Attribute: Unique Identifier" Error
+> **Note (Handling the "Cannot Parse Attribute: Unique Identifier" Error):**
 >
 > If you see the following error when starting MongoDB:
 >

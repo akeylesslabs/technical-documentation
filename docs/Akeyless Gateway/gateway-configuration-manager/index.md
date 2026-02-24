@@ -25,7 +25,7 @@ next:
 ---
 The Gateway Configuration Manager is available by way of the main console under **Gateways -> Your-Gateway -> Manage Gateway**
 
-> 👍 Note
+> **Note:**
 >
 > The use of HTTP protocol is considered insecure and discouraged; thus, remote Gateway configuration is not supported over HTTP. If you wish to configure your gateway remotely make sure you do it over HTTPS.
 >
@@ -47,7 +47,7 @@ As well as setting the default [Authentication Method](https://docs.akeyless.io/
 
 After the first login to the Gateway Configuration Manager, a record for the new Gateway instance is created in the Akeyless Console.
 
-> 📘 Info
+> **Info:**
 >
 > Each Gateway instance is uniquely identified by the combination of the **Access ID** of the first logged-in Authentication Method and the **Cluster Name** (_defaultCluster_ by default).
 

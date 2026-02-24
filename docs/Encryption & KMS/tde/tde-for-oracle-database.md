@@ -139,7 +139,7 @@ Add the following line to set your Oracle wallet:
 ENCRYPTION_WALLET_LOCATION=(SOURCE=(METHOD=HSM))
 ```
 
-> 👍 Note
+> **Note:**
 >
 > Starting from Oracle version 18C/19C, before running the commands below, you need to first complete the steps below to set the keystore
 

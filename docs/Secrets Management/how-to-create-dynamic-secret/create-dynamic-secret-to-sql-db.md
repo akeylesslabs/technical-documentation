@@ -36,7 +36,7 @@ With Dynamic Secrets, you can control and manage which databases, tables, schema
 
 When a client requests a dynamic secret value, the Akeyless Platform connects to the database through the [Gateway](https://docs.akeyless.io/docs/api-gw) within your internal network and generates a temporary set of restricted access credentials.
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/database-targets). While it saves time for multiple secret level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/create-dynamic-secret-to-sql-db#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the DB used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -321,7 +321,7 @@ The following is an example revocation statement for Postgres:
 
 `REVOKE CONNECT ON DATABASE postgres FROM "{{name}}"; REVOKE USAGE ON SCHEMA public FROM "{{name}}"; REVOKE SELECT ON ALL TABLES IN SCHEMA public FROM "{{name}}"; DROP USER "{{name}}";`
 
-> 📘 Info
+> **Info:**
 >
 > For MySQL 8, modify the default `CREATE USER` statement to allow native MySQL password authentication.
 >

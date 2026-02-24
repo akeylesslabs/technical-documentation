@@ -20,7 +20,7 @@ To add the Akeyless **C# .NET** SDK to your project, add the Akeyless package:
 dotnet add package akeyless --version <package-version>
 ```
 
-> 👍 Note
+> **Note:**
 >
 > For a full list of the existing versions and dependencies, see [here](https://www.nuget.org/packages/akeyless).
 

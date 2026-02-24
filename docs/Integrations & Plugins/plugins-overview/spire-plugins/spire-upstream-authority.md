@@ -25,7 +25,7 @@ The following Authentication Methods can be used:
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 * [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> 👍 Note
+> **Note:**
 >
 > In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For macOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
@@ -129,7 +129,7 @@ Where:
 
 Once the Classic Key and the PKI Issuer are created, a certificate needs to be generated:
 
-> 📘 Certificate Signing Request
+> **Note (Certificate Signing Request):**
 >
 > To generate a certificate using the PKI Cert Issuer, a Certificate Signing Request (CSR) is required.
 >
@@ -205,7 +205,7 @@ For **K8s, GCP** or **AzureAD** Auth methods set the following settings as well:
 
 * `azure_object_id` - Optional for Azure, objectID
 
-> 🚧 Warning
+> **Warning:**
 >
 > **TTL Configuration**
 >
@@ -239,7 +239,7 @@ The output of this command will print a token that will be used to start the Age
 bin/spire-agent run -config conf/agent/agent.conf -joinToken <token_string> &
 ```
 
-> 📘 Info
+> **Info:**
 >
 > **SPIFFE/SPIRE**
 >

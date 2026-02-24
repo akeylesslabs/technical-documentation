@@ -26,7 +26,7 @@ When working in **Dynamic Mode**, you may use a predefined role and only generat
 
 In addition, you must supply a list of Allowed Namespaces to exist within, to control where the Service Account will be created. If you select a pre-existing role (and not a cluster role) - it also must exist in the mentioned namespaces. It’s also possible to define the wildcard character `*` as the list of Allowed Namespaces to allow any Namespace.
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an inline connection string each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -129,7 +129,7 @@ subjects:
 
 If you haven't done so already, you can now create a [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) using either the GW Service Account or the dedicated Service Account (if it's a dedicated Service Account, be sure to extract its Bearer Token).
 
-> 📘 Info
+> **Info:**
 >
 > **Kubernetes v1.24 and above**
 >
@@ -339,7 +339,7 @@ roleRef:
   name: example-role
 ```
 
-> 🚧 Warning
+> **Warning:**
 >
 > While working with RoleBinding using `yml` file, the `namespace` subjects are ignored and managed only by way of the `Allowed Namespaces` list
 
@@ -425,7 +425,7 @@ akeyless get-dynamic-secret-value --name <Path to the dynamic secret> --args=nam
 
 Then you need to replace `< Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Dynamic Secrets from the Akeyless Console, you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -513,7 +513,7 @@ Let's see an example of how you could use dynamic generic Kubernetes secrets to 
 
 In this example, the **token-request-sa** service account will have permission to create tokens for the existing service account **Kubernetes-dashboard** on the **Kubernetes-dashboard** Namespace.
 
-> 👍 Note
+> **Note:**
 >
 > Make sure you have the `kubernetes-dashboard` created on your cluster in advance, and confirm the service account has some roles bound to it (in this example, we use the ServiceAccount `kubernetes-dashboard`, which might not have any roles by default, so feel free to change it).
 
@@ -626,7 +626,7 @@ When duplicate context names are detected during merge:
 * **Resolution message:** the CLI prints a clear notice in the terminal describing which context was kept and which was skipped or renamed.
 * **Auditable:** the same message is written to the log for later review.
 
-> 📘 Notes
+> **Note:**
 > _Example Terminal Notice:_
 > `WARNING: Context "prod-us1" already exists. Keeping the first occurrence; skipped merging duplicate from secret "ds-kube-prod-us1".`
 >
