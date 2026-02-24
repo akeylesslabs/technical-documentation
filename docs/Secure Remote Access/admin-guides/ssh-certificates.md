@@ -30,7 +30,7 @@ To configure a CA, you will need an **RSA key** to match. You can either use an 
 
 ### Uploading an Existing Key
 
-In case you want to use an existing key, upload your CA (RSA private key) for signing the client SSH certificate using the following command:
+If you want to use an existing key, upload your CA (RSA private key) for signing the client SSH certificate using the following command:
 
 ```shell your-RSA-key-name
 akeyless upload-rsa --name /keys/signer/MyRSA --alg RSA2048 --rsa-key-file-path Path-to-RSA.pem

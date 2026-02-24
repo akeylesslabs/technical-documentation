@@ -182,7 +182,7 @@ akeyless connect -t user@ssh-server[:port] -v <by way of-sra-bastion-ssh-service
 akeyless connect -t us-east-1 -c my-ssh-cert-issuer -v <by way of-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
 ```
 
-In case you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file you can use:
+If you already defined the `Cert Issuer` inside the `akeyless-connect.rc` file, you can use:
 
 ```shell
 akeyless connect -t us-east-1 -v <by way of-sra-bastion-ssh-service>:<port> -n "<Path to AWS Dynamic Secret>"
