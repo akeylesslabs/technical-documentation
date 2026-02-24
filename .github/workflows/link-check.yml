@@ -1,4 +1,6 @@
-name: Link Checker
+# Weekly automation is consolidated in .github/workflows/automated-workflow-fixes.yml.
+# This workflow is kept for manual runs only.
+name: Link Checker (Manual)
 
 on:
   workflow_dispatch: # allow manual runs
