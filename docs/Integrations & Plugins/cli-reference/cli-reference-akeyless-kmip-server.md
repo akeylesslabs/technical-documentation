@@ -236,7 +236,7 @@ akeyless kmip-set-server-state \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-> 📘 Info
+> **Info:**
 >
 > **Writing commands - generating secrets**
 >

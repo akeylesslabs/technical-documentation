@@ -54,7 +54,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
 
-> 👍 Allowed Domains
+> **Note (Allowed Domains):**
 >
 > Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix, it is recommended to check this in advance for future automated renewal.
 
@@ -85,7 +85,7 @@ Where:
 
 You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp) section.
 
-> 👍 Note
+> **Note:**
 >
 > The `Common Name` field (For example, server FQDN) - Should be listed under the `allowed-domains` as configured in the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item.
 

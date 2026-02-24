@@ -23,7 +23,7 @@ Each pipeline step runs in isolation, so secrets don’t carry over automaticall
 * [OAuth 2.0/JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
 * [API Key](https://docs.akeyless.io/docs/auth-with-api-key)
 
-> 👍 Note
+> **Note:**
 >
 > It is best practice to use environment variables instead of writing the actual variable values inside the pipeline.
 >

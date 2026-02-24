@@ -16,7 +16,7 @@ The structure of the Gateway installation command when using environment variabl
 docker run -d -p 8000:8000  -p 5696:5696 -e ENV_VARIABLE_1="value1" -e ENV_VARIABLE_2="value2" -v /HOST/PATH/TO/FILE:/GATEWAY/PATH/TO/FILE --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-> 👍 Note
+> **Note:**
 >
 > To update an existing Gateway, use the same **Gateway Access ID** and **Cluster Name** for the new Gateway to retrieve the latest settings and data from the previously removed Docker instance.
 

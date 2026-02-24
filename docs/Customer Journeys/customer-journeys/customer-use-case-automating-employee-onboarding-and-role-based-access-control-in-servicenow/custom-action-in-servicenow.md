@@ -32,7 +32,7 @@ To create a custom action in ServiceNow for sending a POST API request, follow t
 
 * Understand the API you're calling, including the endpoint URL, required headers, and the JSON body structure for your POST request.
 
-> 📘 For our use case we will use the following Akeyless API endpoints
+> **Info:** For this use case, use the following Akeyless API endpoints.
 >
 > * `https://api.akeyless.io/auth`
 > * `https://api.akeyless.io/create-auth-method-saml`

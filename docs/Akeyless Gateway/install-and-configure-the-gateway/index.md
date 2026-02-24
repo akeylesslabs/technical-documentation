@@ -35,9 +35,9 @@ next:
 | Akeyless V2 REST API | `/api/v2` |
 | [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
 
-> 🚧 Warning
+> **Warning:**
 >
-> Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
+> Make sure that this server is not globally open to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
 ## Installation
 

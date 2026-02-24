@@ -158,7 +158,7 @@ To configure your Akeyless Serverless Gateway:
 1. On your browser, navigate to the URL in the first output above labeled: `akeyless_serverless_gateway_url`.
 2. Enter your credentials to log in.
 
-> 📘 Akeyless Gateway URL
+> **Note (Akeyless Gateway URL):**
 >
 > The default value of the `akeyless_serverless_gateway_url` ends with `/default/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
 >
@@ -170,7 +170,7 @@ _Note:_ After installing the **Serverless Gateway,** it becomes accessible as a 
 
 ### AWS Configuration
 
-While the `lammbda_env_vars.tf` file contains the basic configuration required for deploying the **Serverless Gateway**, You can also configure the `variables.tf` file to match your **AWS account** needs. Below are examples of configurable settings:
+While the `lambda_env_vars.tf` file contains the basic configuration required for deploying the **Serverless Gateway**, you can also configure the `variables.tf` file to match your **AWS account** needs. Below are examples of configurable settings:
 
 * `aws_profile` - Set the **AWS Profile** for authentication, the default value is `default`
 
