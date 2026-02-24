@@ -51,9 +51,9 @@ Where:
 
 * `tenant-ocid`: An OCI tenant ID to authenticate to Akeyless using this authentication method.
 
-* `group-ocid`: An OCI group ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one Group ID by repeating this parameter.
+* `group-ocid`: An OCI group ID that is allowed to authenticate to Akeyless using this authentication method. (You can provide more than one group ID by repeating this parameter.)
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueocip).
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-ref-auth).
 
 ## Configure Akeyless CLI With the OCI IAM Authentication Method
 
