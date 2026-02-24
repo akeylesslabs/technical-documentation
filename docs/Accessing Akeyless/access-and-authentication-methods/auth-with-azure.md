@@ -12,7 +12,7 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
 ---
-Azure AD Authentication method enables authentication to Akeyless. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by the Azure AD for the configured tenant.
+The Azure AD authentication method enables authentication to Akeyless. Akeyless treats Azure as a trusted third party and verifies entities based on a JWT signed by Azure AD for the configured tenant.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Where:
 
 * `bound-tenant-id`: A comma-separated list of Azure tenant IDs that are allowed to authenticate to Akeyless using this authentication method.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorblueazure-adp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth) section.
 
 ## Configure Akeyless CLI With the Azure AD Authentication Method
 

@@ -69,7 +69,7 @@ To disable the permissions of a certain token, use the following command:
 akeyless uid-revoke-token --revoke-token <u-XXXX> --revoke-type revokeSelf --auth-method-name <UID Name>
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#p-stylecolorblueuid-revoke-tokenp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity) section.
 
 ### Rotate a Token
 
@@ -131,7 +131,7 @@ You will get the following result with the child token:
 "Child Token: u-XXXXXXXX2"
 ```
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity#p-stylecolorblueuid-create-child-tokenp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-reference-universal-identity) section.
 
 ### Get the Token Tree
 
@@ -197,7 +197,7 @@ Universal Identity Details:
 To generate a token in the Console,
 
 1. Open the corresponding authentication method
-2. Go to **UID Tree** tab and then click**Generate**.
+2. Go to **UID Tree** tab and then click **Generate**.
 
 > **Warning:**
 >
@@ -210,7 +210,8 @@ To revoke a token in the Console,
 1. Open the corresponding authentication method
 2. Go to **UID Tree** tab.
 3. Right-click the node and click **Revoke token**.
-4. Select **Revoke self** if you want to revoke the selected node only or select **Revoke self and children** if you want to revoke the selected node and its children node.5. Click **Save**.
+4. Select **Revoke self** if you want to revoke the selected node only, or select **Revoke self and children** if you want to revoke the selected node and its child nodes.
+5. Click **Save**.
 
 ### Create a Child Token
 

@@ -27,7 +27,7 @@ compute.instanceGroups.list
 
 > **Note (GKE Workloads Authentication):**
 >
-> When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any bounded rules other than `Bound Service Accounts` **will not apply**. GKE Workload Identity conceals metadata information about the running instance.
+> When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster with GKE Workload Identity enabled, any bound rules other than `Bound Service Accounts` **will not apply**. GKE Workload Identity conceals metadata information about the running instance.
 >
 > To work with the GKE Workload Identity with bounded rules, please configure **only** the `Bound Service Accounts` rule.
 >
@@ -35,7 +35,7 @@ compute.instanceGroups.list
 
 ## Create a GCP Authentication Method with the CLI
 
-Let's create a new GCP authentication method using the Akeyless CLI. (You can do this also from the [Akeyless Console](https://akeyless.readme.io/docs/gcp-auth-method#create-a-gcp-authentication-method-in-the-akeyless-console).)
+Let's create a new GCP authentication method using the Akeyless CLI. (You can also do this from the [Akeyless Console](https://docs.akeyless.io/docs/auth-with-gcp).)
 
 To create a GCP authentication method with the CLI, run the following command:
 
@@ -57,7 +57,7 @@ Where:
 
 * `bound-projects`: A list of GCP Project IDs.
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth#p-stylecolorbluegcpp) section.
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication](https://docs.akeyless.io/docs/cli-ref-auth) section.
 
 ## Configure Akeyless CLI With the GCP Authentication Method
 
