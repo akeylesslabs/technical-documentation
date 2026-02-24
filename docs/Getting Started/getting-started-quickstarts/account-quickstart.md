@@ -29,9 +29,7 @@ No prior Akeyless account or configuration is required.
 2. Enter your email address, accept the [**End User License Agreement**](https://www.akeyless.io/end-user-license-agreement/) **&** [**Privacy Policy**](https://www.akeyless.io/terms-of-service/), and select **Let's Get Started** (or select a social sign-in option).
    1. You may also have to complete a reCAPTCHA.
 
-<Callout icon="📘" theme="info">
-  You do _not_ need to change the **Environment** drop-down menu's value.
-</Callout>
+> **Note:** You do _not_ need to change the **Environment** drop-down menu's value.
 
 ## Step 2: Verify Your Email Address
 

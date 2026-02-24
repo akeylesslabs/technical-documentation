@@ -30,9 +30,7 @@ This page describes how to run an Akeyless Serverless Gateway on AWS using Hashi
 
 For example, to get to the `/api/v2` service, use this endpoint: `https://<your_serverless_gateway_url>.com/api/v2`
 
-<Callout icon="❗️" theme="error">
-  _**Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services._
-</Callout>
+> **Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services.
 
 ## Pre-Installation Configuration
 

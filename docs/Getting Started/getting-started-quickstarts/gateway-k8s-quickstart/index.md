@@ -33,9 +33,7 @@ You will need:
 
 <ApiKeyWarning />
 
-<Callout icon="👍">
-  We have created a [Setup Kubernetes Quickstart](https://docs.akeyless.io/docs/kubernetes-setup-quickstart) to assist you if you're unfamiliar with setting up a Kubernetes cluster.
-</Callout>
+> **Tip:** We have created a [Setup Kubernetes Quickstart](https://docs.akeyless.io/docs/kubernetes-setup-quickstart) to assist you if you're unfamiliar with setting up a Kubernetes cluster.
 
 ## Step 1: Create Namespace
 
@@ -157,9 +155,7 @@ TEST SUITE: None
 
     You should see `Quickstart Gateway` available with a **Status** of `Healthy`.
 
-<Callout icon="📘" theme="info">
-  We did not configure access to the Akeyless Gateway's local console in the Quickstart and attempts to access it are expected to fail.
-</Callout>
+> **Note:** We did not configure access to the Akeyless Gateway's local console in the Quickstart and attempts to access it are expected to fail.
 
 ***
 
