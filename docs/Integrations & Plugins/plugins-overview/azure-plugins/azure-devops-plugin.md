@@ -108,7 +108,7 @@ Example script usage after retrieval:
 
 ```yaml
 - script: |
-    mysql --host XXXXX --port 3306 --user=$(username) --password='$(password)' -e 'show databases;'
+    mysql --host XXXXX --port 3306 --user=$(DB_username) --password='$(DB_password)' -e 'show databases;'
   displayName: 'Show Databases in DB'
 ```
 

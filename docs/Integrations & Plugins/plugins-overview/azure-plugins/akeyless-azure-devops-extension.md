@@ -140,7 +140,7 @@ steps:
 
 - task: akeyless-get-secrets-value-task@0
   inputs:
-    connectedServiceName: 'mge_prod'
+    connectedServiceName: 'mge_prod_jwt'
     token: "$(AkeylessAuth.akeylessToken)"
     secretsPaths: 'api_key=/ai/agent/api-key,model_id=/ai/agent/model-id'
 ```
