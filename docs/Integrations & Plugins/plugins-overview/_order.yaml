@@ -8,7 +8,7 @@
 - circleci-plugin
 - consul-template-plugin
 - cursor-akeyless-secrets-manager
-- databricks-plugin
+- akeyless-mcp-plugin-jetbrains-ides
 - github-action
 - github-actions-community-plugin
 - gitlab-plugin
