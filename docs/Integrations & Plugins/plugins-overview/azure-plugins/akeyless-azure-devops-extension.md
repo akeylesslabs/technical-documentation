@@ -225,6 +225,4 @@ Known limitation from current extension docs:
 
 * Supported authentication methods are API Key and JWT.
 
-## TODO for maintainers
-
-* TODO: Validate and document the canonical YAML invocation aliases for each task in Azure Pipelines examples (`...@0` usage differs between historical examples in docs).
+Task aliases used in this page match the task names currently defined in the extension task manifests.
