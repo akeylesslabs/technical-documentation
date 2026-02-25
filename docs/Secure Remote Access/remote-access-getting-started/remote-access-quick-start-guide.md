@@ -16,7 +16,7 @@ Akeyless Gateway can be deployed on a Kubernetes cluster using the Helm package 
 
 Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In Kubernetes deployments, the configuration process takes place before the actual installation.
 
-> **Note (Security):**
+> ℹ️ **Note (Security):**
 >
 > This guide was tested with Amazon EKS and is **not secured** with TLS. We strongly recommend not using this setup in production or with real credentials.
 
@@ -33,13 +33,13 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 | [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) | 8000 |
 | SSH Access | 22 |
 
-> **Note (First things first):**
+> ℹ️ **Note (First things first):**
 >
 > Before we get started, you will need an Authentication Method with an Access Role and an SSH Certificate Issuer. If you already have both, skip to the [Remote Access Configuration](https://docs.akeyless.io/docs/remote-access-quick-start-guide#remote-access-section) section.
 
 ## Create Your Authentication Method
 
-> **Note (Authentication):**
+> ℹ️ **Note (Authentication):**
 >
 > For the purposes of this guide, we are using an API Key. However, for security reasons, it is advised to use a more secure [authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods).
 
@@ -103,7 +103,7 @@ Follow the below commands:
    akeyless create-ssh-cert-issuer --name your-ssh-cert-issuer-name --signer-key-name MyRSAKey --allowed-users 'ubuntu' --ttl 300
    ```
 
-> **Note (SSH connection):**
+> ℹ️ **Note (SSH connection):**
 >
 > This is the bare minimum required to have an SSH Certificate Issuer and access the Remote Access Portal. For more details on connecting to a resource by way of SSH, please see the docs [here](https://docs.akeyless.io/docs/ssh-certificates).
 

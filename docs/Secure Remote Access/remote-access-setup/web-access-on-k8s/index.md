@@ -58,7 +58,7 @@ For security reasons, please limit the `PersistentVolumes` mount permissions to 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.  
 For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster. [View the Metrics Server documentation](https://github.com/kubernetes-sigs/metrics-server).
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > To enable Secure Remote Access features you will have to get an access-key to Akeyless private repository. Please contact your Account Manager for more details.
 
@@ -101,7 +101,7 @@ env:
       value: http
 ```
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > The HTTP-type proxy will only work with Chrome browsers currently. For Firefox, you can skip this environment variable configuration so the default `socks-proxy` protocol will be used for example: `socks://proxy.example.com`
 

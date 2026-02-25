@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-> **Warning:** This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
+> ⚠️ **Warning:** This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
 
 ## Purpose
 
@@ -130,6 +130,7 @@ Do not use ReadMe's proprietary `<Callout>` tag.
 Use the following label and emoji set:
 
 * `ℹ️ **Note:**`
+* `ℹ️ **Info:**`
 * `✅ **Tip:**`
 * `⚠️ **Warning:**`
 * `❗ **Important:**`

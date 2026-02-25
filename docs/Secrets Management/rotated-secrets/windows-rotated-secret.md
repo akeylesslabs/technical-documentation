@@ -46,7 +46,7 @@ Where:
     * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use the credentials defined on the [Windows Target](https://docs.akeyless.io/docs/windows-target) item.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret user is not authorized to change their own password, and a privileged user, like the [Windows Target](https://docs.akeyless.io/docs/windows-target) user is required to change the password on behalf of the Rotated Secret user.
 
@@ -62,7 +62,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Create a Rotated Windows Secret in the Akeyless Console
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#create-a-rotated-ssh-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
