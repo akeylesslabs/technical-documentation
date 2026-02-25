@@ -37,7 +37,11 @@ Install the Vault Interaction extension from Visual Studio Marketplace:
 ### Initial configuration
 
 1. Add the **Vault - Read KV secrets** task (`VaultReadKV`) to your pipeline.
-2. Set Vault URL to `https://hvp.akeyless.io` or to your Akeyless Gateway Vault Proxy endpoint.
+2. Set Vault URL to one of these endpoints:
+
+    * `https://hvp.akeyless.io` (Akeyless public Vault Proxy endpoint)
+    * `https://<your-gateway-host>:8200` (Akeyless Gateway Vault Proxy endpoint)
+
 3. Set authentication to **Client Token** and provide an Akeyless token.
 4. Set KV path/version for your retrieval model (static-like KV paths or dynamic-like producer paths exposed through Vault-compatible routes).
 
@@ -49,26 +53,44 @@ Store token values in secure variables.
 
 ## Usage
 
-### Static secret retrieval with `VaultReadKV`
+### KV v1 static secret retrieval with `VaultReadKV@5`
 
 ```yaml
-- task: VaultReadKV@2
+- task: VaultReadKV@5
   inputs:
     strUrl: 'https://hvp.akeyless.io'
     ignoreCertificateChecks: true
     strAuthType: 'clientToken'
     strToken: '$(AKEYLESS_TOKEN)'
-    strKVEnginePath: '/secret/data'
+    strKVEnginePath: 'kv'
     kvVersion: 'v1'
-    strSecretPath: '/test'
+    strSecretPath: 'my-static-secret'
     strPrefixType: 'custom'
+    strVariablePrefix: 'APP'
     replaceCR: false
 ```
 
-### Dynamic-style retrieval with `VaultReadKV`
+### KV v2 static secret retrieval with `VaultReadKV@5`
 
 ```yaml
-- task: VaultReadKV@2
+- task: VaultReadKV@5
+  inputs:
+    strUrl: 'https://hvp.akeyless.io'
+    ignoreCertificateChecks: false
+    strAuthType: 'clientToken'
+    strToken: '$(AKEYLESS_TOKEN)'
+    strKVEnginePath: 'secret'
+    kvVersion: 'v2'
+    strSecretPath: 'my-app/prod'
+    strPrefixType: 'custom'
+    strVariablePrefix: 'APP'
+    replaceCR: false
+```
+
+### Dynamic-style retrieval with `VaultReadKV@5`
+
+```yaml
+- task: VaultReadKV@5
   inputs:
     strUrl: 'https://hvp.akeyless.io'
     ignoreCertificateChecks: false
@@ -76,8 +98,9 @@ Store token values in secure variables.
     strToken: '$(AKEYLESS_TOKEN)'
     strKVEnginePath: 'mysql/creds'
     kvVersion: 'v1'
-    strSecretPath: '/test'
+    strSecretPath: 'readonly'
     strPrefixType: 'custom'
+    strVariablePrefix: 'DB'
     replaceCR: false
 ```
 
@@ -109,7 +132,4 @@ Related authentication references:
 
 For the Vault Interaction extension itself, review its task options and caveats (for example, recursive discovery and variable prefix behavior) in the [Vault Interaction Marketplace page](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction).
 
-## TODO for maintainers
-
-* TODO: Validate and document one tested YAML example for KV v1 and one for KV v2 against current Vault Interaction extension version, including exact `VaultReadKV@` major version.
-* TODO: Add an explicit gateway endpoint format example that is verified against the current gateway deployment docs (port/path vary by deployment mode).
+Current examples use `VaultReadKV@5`, aligned with the Vault Interaction Marketplace examples and current extension major version documentation.
