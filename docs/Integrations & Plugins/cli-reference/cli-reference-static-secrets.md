@@ -37,7 +37,7 @@ akeyless create-secret \
 
 `-f, --format[=text]`: Secret format [`text`/`json` / `key-value`] (relevant only for type '`generic`')
 
-`--url, --inject-url`: Comma separated list of URLs associated with the item (only relevant for type 'password')
+`--url, --inject-url`: Comma-separated list of URLs associated with the item (only relevant for type 'password')
 
 `-p, --password`: The password value (relevant for "password manager" only)
 
@@ -45,7 +45,7 @@ akeyless create-secret \
 
 `-c, --custom-field`: Additional custom fields to associate with the item, to specify multiple fields repeat the argument: `--custom-field fieldName1=value1 -c fieldName2=value2` (only relevant for type 'password')
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
 
 `-t, --tag`: List of the tags attached to this secret. To specify multiple tags use argument multiple times: --tag Tag1 -t Tag2
 
@@ -108,7 +108,7 @@ akeyless describe-item \
 
 `--services-details[=false]`: Include all associated services details
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
 
 See [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects) and also [Updating and versioning Static Secrets](https://docs.akeyless.io/docs/staticversions) for details.
 
@@ -130,13 +130,13 @@ akeyless get-secret-value --name <Secret Name>
 
 `--ignore-cache[=false]`: Retrieve the Secret value without checking the Gateway's cache [true/false]. This flag is only relevant when using the REST API
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
 
 ## `import-passwords`
 
 Import passwords from CSV file
 
-> 📘 CSV Example
+> **Note (CSV Example):**
 >
 > The box below has an example CSV that is valid for importing in the format of Chrome
 
@@ -220,7 +220,7 @@ akeyless share-item \
 
 `-v, --view-once[=false]`: Shared secrets can only be viewed once [true/false]
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
 
 ## `unwrap-token`
 
@@ -273,7 +273,7 @@ akeyless update-secret-val \
 
 `--keep-prev-version`: Whether to keep previous version, options:[true, false]. If not set, use default according to account settings
 
-`--accessibility[=regular]`: In case of an item in a user's personal folder [regular/personal]
+`--accessibility[=regular]`: For an item in a user's personal folder [regular/personal]
 
 For other data, such as description or tags, use `update-item` as described in [Commands for all items and objects](https://docs.akeyless.io/docs/cli-reference#commands-for-all-items-and-objects).
 
@@ -315,8 +315,8 @@ akeyless static-secret-delete-sync \
 --name <Rotated Secret Name> \
 --usc-name <USC Name> \
 --remote-secret-name <Remote secret Name> \
---delete-from-usc[=false] [true / false]
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--delete-from-usc[=false] [true / false] \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 ### Flags

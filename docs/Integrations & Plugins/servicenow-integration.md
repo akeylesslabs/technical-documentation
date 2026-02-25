@@ -11,7 +11,7 @@ next:
 ---
 ## Introduction
 
-> 👍 Note
+> **Note:**
 >
 > These instructions were created using the Vancouver release of ServiceNow. Newer versions may have a different UI.
 
@@ -49,13 +49,13 @@ _Note:_ Notifications will need to be configured by ServiceNow Admin on the inst
 
 ## Required Akeyless Configuration
 
-To utilize the Akeyless ServiceNow App, an Access Role must be created. [This guide (Role-Based Access Control (RBAC))](https://docs.akeyless.io/docs/rbac) outlines the steps for creating an Access Role in Akeyless.
+To use the Akeyless ServiceNow App, an Access Role must be created. [This guide (Role-Based Access Control (RBAC))](https://docs.akeyless.io/docs/rbac) outlines the steps for creating an Access Role in Akeyless.
 
 Please configure the following permissions:
 
 * Create/Read/Update role under /Access Requests/*
 
-![Illustration for: To utilize the Akeyless ServiceNow App, an Access Role must be created. This guide (Role-Based Access Control (RBAC)) outlines the steps for creating an Access Role in…](https://files.readme.io/a2c79e6-image-20230206-103449.png)
+![Illustration for: To use the Akeyless ServiceNow App, an Access Role must be created. This guide (Role-Based Access Control (RBAC)) outlines the steps for creating an Access Role in…](https://files.readme.io/a2c79e6-image-20230206-103449.png)
 
 * List/Read for Auth methods under path
 
@@ -155,9 +155,9 @@ Insert the details. It is recommended to choose Auth type “JWT”. Insert the 
 
 ![Illustration for: Click on "All" and enter table name in the search field Click on the table name Once an access request is created by way of Akeyless system a new record will appear](https://files.readme.io/7417bb1-image-20230206-132008_1.png)
 
-* Admin users of the ServiceNow intense will be able to approve or decline the access request by updating the `Dession` field.
+* Admin users of the ServiceNow instance can approve or decline the access request by updating the `Decision` field.
 
-![Illustration for: Once an access request is created by way of Akeyless system a new record will appear Admin users of the ServiceNow intense will be able to approve or decline the access request…](https://files.readme.io/f337a71-image-20230206-132144.png)
+![Illustration for: Once an access request is created by way of the Akeyless system, a new record appears. Admin users of the ServiceNow instance can approve or decline the access request…](https://files.readme.io/f337a71-image-20230206-132144.png)
 
 * Upon approval within the ServiceNow Akeyless app, a request is sent to Akeyless systems to generate temporary access for the specific item.
 

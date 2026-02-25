@@ -20,15 +20,13 @@ next:
       slug: cert-manager
       title: Cert Manager
 ---
-<Callout icon="📘">
-  **Note:** Venafi recently became CyberArk Machine Identity Security.
-</Callout>
+> **Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, the integration still uses `venafi` naming for backward compatibility.
 
-Akeyless integrates with Venafi to provide certificate automation. Akeyless can be used for [Venafi Trust Protection Platform (TPP)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/) and [Venafi Cloud](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/) to ensure compliance with enterprise policies and consistency with industry standards.
+Akeyless integrates with CyberArk Machine Identity Security (formerly Venafi) to provide certificate automation. Akeyless can be used for [Venafi Trust Protection Platform (TPP)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/) and [Venafi Cloud](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/) to ensure compliance with enterprise policies and consistency with industry standards.
 
 You no longer need to manually issue new PKI certificates, and you can dynamically retrieve PKI certificates.
 
-Either Akeyless or Venafi can act as the certificate issuer.
+Either Akeyless or CyberArk Machine Identity Security can act as the certificate issuer.
 
 * **Venafi Issuer:** The certificate is signed by Venafi’s intermediate Certificate Authority (CA). The issued certificate is saved on Venafi and in the Akeyless Platform. The certificate issuing policy template is pulled from the Venafi Zone configuration.
 

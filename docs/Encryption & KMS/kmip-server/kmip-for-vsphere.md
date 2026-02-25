@@ -12,7 +12,7 @@ next:
 ---
 ## Create a KMIP Client on Akeyless Gateway
 
-1. From Akeyless CLI - enable the KMIP server:
+1. From the Akeyless CLI, enable the KMIP server:
 
     ```shell
     akeyless kmip-server-setup --hostname <akeyless.gateway.hostname> --gateway-url <Your_Akeyless_GW_URL> --root /kmip/default
@@ -40,7 +40,7 @@ next:
     -----END CERTIFICATE-----
     ```
 
-3. Save the received certificate and key in a safe place, they will be used to set up the connection.
+3. Save the received certificate and key in a safe place. They will be used to set up the connection.
 
 4. By default, KMIP clients have no permissions. To grant your KMIP client minimal access permissions, execute the following command:
 
@@ -75,7 +75,7 @@ next:
 
     ![Illustration for: 6. For a method, choose KMS certificate and private key.](https://files.readme.io/4d64c95-image-20210914-152556.png)
 
-7. For the **KMS Certificate** and **KMS Private key** set the certificate and the Private Key and click **Establish Trust**:
+7. For **KMS Certificate** and **KMS Private key**, set the certificate and private key, and click **Establish Trust**:
 
     ![Illustration for: 7. For the KMS Certificate and KMS Private key set the certificate and the Private Key and click Establish Trust.](https://files.readme.io/e797dc2-image-20210914-154420.png)
 

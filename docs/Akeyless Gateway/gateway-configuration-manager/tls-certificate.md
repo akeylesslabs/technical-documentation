@@ -16,13 +16,13 @@ next:
 ---
 ## Configuring TLS
 
-Akeyless Gateway should always be used with TLS to ensure all traffic is encrypted at transit.
+Akeyless Gateway should always be used with TLS to ensure all traffic is encrypted in transit.
 
 If you are working with Load Balancers or reverse proxies in front of your Gateway, TLS should be used for all network connections.
 
-> 👍 Note
+> **Note:**
 >
-> The use of HTTP protocol is considered insecure and discouraged; thus, remote Gateway configuration is not supported over HTTP. If you wish to configure your gateway remotely make sure you do it over HTTPS.
+> The use of the HTTP protocol is considered insecure and discouraged; thus, remote Gateway configuration is not supported over HTTP. If you wish to configure your Gateway remotely, make sure you do it over HTTPS.
 
 To configure TLS, on your [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) under the **General** tab:
 
@@ -35,7 +35,7 @@ To configure TLS, on your [Gateway Configuration Manager](https://docs.akeyless.
 Updating a TLS certificate can be accessed through the CLI by using the following command:
 
 ```shell
-akeyless gateway-update-tls-cert --gateway-url <https://Your-Akeyless-Gateway-URL:8000> --cert-data <TLS Certificate(base64-encoded)>
+akeyless gateway-update-tls-cert --gateway-url 'https://Your-Akeyless-Gateway-URL:8000' --cert-data <TLS Certificate(base64-encoded)>
 ```
 
 The command's full parameters are:

@@ -22,7 +22,7 @@ To view `Account Settings` options with the CLI, use the following command:
 akeyless update-account-settings -h
 ```
 
-You can find all the available commands in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#p-stylecolorblueupdate-account-settingsp).
+You can find all the available commands in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference#update-account-settings).
 
 ## Update Account Settings from the Akeyless Console
 
@@ -127,7 +127,7 @@ Users can set the default length of time Authentication Methods in the account w
 
 #### Account Owner Authentication
 
-This option will force authentication of the Owner of the account. Please note that this action will lock the default login out of the account. Approving this is irreversible and can not be revoked without direct contact with Akeyless Support.
+This option will force authentication of the account owner. Note that this action will lock the default login out of the account. Approval is irreversible and cannot be revoked without direct contact with Akeyless Support.
 
 #### Allowed Client IPs
 

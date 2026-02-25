@@ -22,7 +22,7 @@ It can be deployed on Docker Compose or Kubernetes and creates two types Deploym
 
 #### Web-SRA
 
-The `web-sra` component allows access to RDP/SSH/DB target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL:8000>/sra/portal`.
+The `web-sra` component allows access to RDP/SSH/DB target hosts from the [Zero-Trust Portal](https://zerotrust.akeyless.io) website as well as the internal portal at `http://<Your-Akeyless-GW-URL>:8000/sra/portal`.
 
 #### SSH-SRA
 

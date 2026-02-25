@@ -36,7 +36,7 @@ Where:
 
 * `password`: The password of the privileged user.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluepingp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#ping) section.
 
 ### Update a Ping Target with the CLI
 

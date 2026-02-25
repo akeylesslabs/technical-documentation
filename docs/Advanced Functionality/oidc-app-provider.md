@@ -19,9 +19,9 @@ To create an OIDC Application with the CLI, run the following command:
 ```shell
 akeyless create-oidc-app \
 --name <New OIDC App Name> \
---redirect-uris '<Comma Separated List of Allowed Redirect URIs>' \
---scopes '<Comma Separated List of Granted Scopes/Claims>' \
---audience '<Comma Separated List of Allowed Audiences>' \
+--redirect-uris '<comma-separated list of allowed redirect URIs>' \
+--scopes '<comma-separated list of granted scopes/claims>' \
+--audience '<comma-separated list of allowed audiences>' \
 --access-permission-assignment '[{"access_id":"<Akeyless Access ID>", "sub_claims":{"email":["user@example.com"]}}]'
 ```
 
@@ -29,7 +29,7 @@ Where:
 
 * `name`: A unique name for the OIDC App. The name can include the path to the virtual folder where you want to create the new app, using slash `/` separators. If the folder does not exist, it will be created together with the OIDC app.
 * `access-permission-assignment`: A JSON string defining which Akeyless Authentication Methods are allowed to use this OIDC App. This is set using the `access_id` and `sub_claims` for that Authentication Method. In addition, you can use an Akeyless [Groups](https://docs.akeyless.io/docs/groups) using `group_id` and `sub-claims`.
-* `permission-assignment-file`: Instead of a string, users can add this flag in order to pass a JSON file, using the same formatting, with a path to the file. Groups are allowed.
+* `permission-assignment-file`: Instead of a string, users can add this flag to pass a JSON file, using the same formatting, with a path to the file. Groups are allowed.
 * `redirect-uris` (Optional): A list of URIs that the user will be directed back to after authenticating and consenting at the OIDC App.
 * `scopes` (Optional): A list of scopes that third-party applications are allowed to request. These scopes (excluding special scopes) will be copied from the `sub-claims` in Akeyless to the OIDC Token. Scopes can include Groups as well.
 * `audience` (Optional): A list of audiences that third-party applications are allowed to request. This will only affect the `access token` (the `audience` for the `id token` is always the `client id` ).
@@ -41,9 +41,7 @@ OAuth defines two client types, based on their ability to authenticate securely 
 * **Confidential** Clients capable of maintaining the confidentiality of their credentials (For example, client implemented on a secure server with restricted access to the client credentials), or capable of secure client authentication using other means. By default, an Akeyless OIDC App will be created for this client type.
 * **Public** Clients are incapable of maintaining the confidentiality of their credentials (For example, clients executing on the device used by the resource owner, such as an installed native application or a web browser-based application), and incapable of secure client authentication by way of any other means. To create an Akeyless OIDC App for **Public** client type use the `public` flag as part of the creation command.
 
-> 👍 Note
->
-> **Special Scopes**
+> **Note (Special Scopes):**
 > You can also set a scope of `offline_access` which will generate a `refresh token`.
 
 Once created, you will see output similar to this:
@@ -79,11 +77,9 @@ You will need this token for the next step as well.
 
 ### Make a POST Request to Token Endpoint
 
-Once authorized, make a `POST` request to the `Token Endpoint` in order to get back your OIDC Token. The parameters should be URL encoded.
+Once authorized, make a `POST` request to the `Token Endpoint` to get your OIDC Token. The parameters should be URL encoded.
 
-> 📘 Info
->
-> **Issuer URL, Token and well-known Endpoints**
+> **Info (Issuer URL, Token and well-known Endpoints):**
 >
 > Your `Issuer URL` is always `https://auth.akeyless.io/oidc/provider/<AkeylessAccountId>`.
 >
@@ -136,15 +132,13 @@ Use the following command to update an OIDC App:
 ```shell
 akeyless update-oidc-app \
 --name <OIDC App Name> \
---redirect-uris '<Comma Separated List of Allowed Redirect URIs>' \
---scopes '<Comma Separated List of Granted Scopes/Claims>' \
---audience '<Comma Separated List of Allowed Audiences>' \
+--redirect-uris '<comma-separated list of allowed redirect URIs>' \
+--scopes '<comma-separated list of granted scopes/claims>' \
+--audience '<comma-separated list of allowed audiences>' \
 --access-permission-assignment '[{"access_id":"<Akeyless Access ID>", "sub_claims":{"email":["user@example.com"]}}]'
 ```
 
-> 🚧 Warning
->
-> **Overriding Information**
+> **Warning (Overriding Information):**
 > If you want to add to Redirects, Scopes, Audiences, or Access Permissions, ensure you have the original ones in the string or file as well so you don't override them.
 
 To update the name of an OIDC App, use the following command:

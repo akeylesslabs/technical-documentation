@@ -10,11 +10,9 @@ metadata:
 next:
   description: ''
 ---
-<Callout icon="📘" theme="info">
-  **Note:** Venafi recently became CyberArk Machine Identity Security.
-</Callout>
+> **Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, the integration still uses `venafi` naming for backward compatibility.
 
-To work with Venafi TPP, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
+To work with Venafi TPP in CyberArk Machine Identity Security, you can choose either to work with CyberArk Machine Identity Security as your certificate issuer or to work with Akeyless as your issuer.
 
 ## Prerequisites
 
@@ -31,7 +29,7 @@ The following command creates a Venafi Dynamic Secret using Venafi as the **cert
 ```shell
 akeyless dynamic-secret create venafi \
   --name my-venafi-dynamic-secret \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --venafi-use-tpp \
   --venafi-access-token <Venafi Access Token> \
   --venafi-refresh-token <Venafi Refresh Token> \
@@ -91,7 +89,7 @@ Create the Venafi Dynamic Secret in Akeyless Gateway:
 ```shell
 akeyless dynamic-secret create venafi \
   --name my-venafi-dynamic-secret \
-  --gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+  --gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
   --sign-using-akeyless-pki \
   --signer-key-name venafi-tpp \
   --allowed-domains '[*]' \

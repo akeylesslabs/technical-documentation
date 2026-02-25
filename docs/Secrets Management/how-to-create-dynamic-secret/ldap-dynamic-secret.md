@@ -20,7 +20,7 @@ You can define a dynamic LDAP secret to dynamically generate LDAP access credent
 
 ## Create a Dynamic LDAP Secret with the CLI
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/ldap-dynamic-secret#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -30,7 +30,7 @@ To create a dynamic LDAP secret with the CLI using an existing [LDAP Target](htt
 akeyless dynamic-secret create ldap \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --user-dn <User Base DN> \
 --password-length 16
 ```
@@ -38,9 +38,9 @@ akeyless dynamic-secret create ldap \
  Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valueldap \
+akeyless dynamic-secret create ldap \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --ldap-url <LDAP server URL> \
 --bind-dn <LDAP Bind DN> \
 --bind-dn-password <Password>\
@@ -76,7 +76,7 @@ If you don't have [LDAP Target](https://docs.akeyless.io/docs/ldap-target) yet, 
 
 * `ldap-ca-cert`: The LDAP base-64 encoded CA Certificate.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorblueldapp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#ldap) section.
 
 ## Fetch a Dynamic LDAP Secret Value with the CLI
 
@@ -88,7 +88,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic LDAP Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/ldap-dynamic-secret#create-a-dynamic-ldap-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -113,7 +113,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
         * **Extract:** Extract the user from a Sub Claim configured on your IdP, where the default value is `ext_username`
     * **Custom Username Template:** Set a [custom username template](https://docs.akeyless.io/docs/dynamic-secrets-user-templating) for the generated user (relevant only when **not using** externally provided username).
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
-    * **Temporary Password Length** Set the length of the temporary password.
+    * **Temporary Password Length:** Set the length of the temporary password.
     * **Time Unit:** Select the time unit (seconds, minutes, hours) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
@@ -138,7 +138,7 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.
 
 ## Username Length Policy
 
