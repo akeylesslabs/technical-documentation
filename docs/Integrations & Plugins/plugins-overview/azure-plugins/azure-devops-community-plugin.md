@@ -57,6 +57,8 @@ Reference setup from the upstream project:
 * [Getting started guide](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/getting-started.md)
 * [Examples](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/examples.md)
 
+## Usage
+
 ### Authentication setup example (OAuth 2.0/JWT)
 
 Create an OAuth 2.0/JWT auth method:
