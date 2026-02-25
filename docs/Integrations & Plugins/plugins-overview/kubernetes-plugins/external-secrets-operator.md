@@ -151,7 +151,7 @@ stringData:
   accessTypeParam: "<YOUR-ACCESS-KEY-HERE>"
 ```
 
-Use `api_key` for quick demos or POCs. For production, prefer **workload identities** (Kubernetes Auth, Azure AD, AWS IAM, GCP).
+<ApiKeyWarning />
 
 #### Kubernetes Auth Example
 
