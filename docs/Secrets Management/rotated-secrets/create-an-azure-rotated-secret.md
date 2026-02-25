@@ -68,7 +68,7 @@ Where:
     * `use-user-creds` - Use credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use credentials of the privileged Azure App defined inside the [Azure Target](https://docs.akeyless.io/docs/azure-targets) item.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret target App is not authorized to change its own client secret, and the privileged [Azure Target](https://docs.akeyless.io/docs/azure-targets) App is required to change the client secret on behalf of the Rotated Secret target App.
 
@@ -101,7 +101,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Create a Rotated Azure Secret in the Akeyless Console
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-azure-rotated-secret#create-a-rotated-azure-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 

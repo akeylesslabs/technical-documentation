@@ -90,7 +90,7 @@ To retrieve the value from Akeyless:
 
 `vault kv get secret/{secret-name}`
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > An optional flag: `-version` to get a specific version of the secret for example:
 >
@@ -104,7 +104,7 @@ To delete a secret from Akeyless:
 
 `vault kv delete secret/{secret-name}`
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > An optional flag: `-versions`, a list of specific versions you would like to delete from Akeyless, for example:
 >

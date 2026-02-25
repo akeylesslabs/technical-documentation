@@ -19,7 +19,7 @@ For example:
 
 Administrators can define which fields are available for each object type in Akeyless and whether those fields are required or optional.
 
-> **Note:** Currently, Custom Fields supports only **Items**.
+> ℹ️ **Note:** Currently, Custom Fields supports only **Items**.
 
 ## Manage Custom Field
 

@@ -9,7 +9,7 @@ metadata:
 next:
   description: ''
 ---
-> **Warning:** This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator)
+> ⚠️ **Warning:** This page has been superseded. [Please view the updated version instead.](https://docs.akeyless.io/docs/external-secrets-operator)
 
 [External Secrets Operator (ESO)](https://external-secrets.io/latest/provider/akeyless/) is a Kubernetes (K8s) operator that integrates with external secret management systems like Akeyless. The operator reads information from Akeyless APIs and automatically injects the values into a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
 
@@ -49,7 +49,7 @@ Akeyless official [provider](https://external-secrets.io/main/provider/akeyless/
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 * [Kubernetes](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > This guide demonstrates authentication using API Key and Kubernetes Authentication Methods. However, for security purposes, it’s highly recommended to avoid using API Keys in production.
 
@@ -323,7 +323,7 @@ kubectl get secret akeyless-secret-to-create -o jsonpath='{.data.tls\.key}' | ba
 
 The [ClusterSecretStore](https://external-secrets.io/v0.4.2/api-clustersecretstore/) is cluster-wide and can be accessed by `ExternalSecrets` from any Namespace, offering centralized secret management:
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The **Namespace** value is required in the `secretRef` section.
 

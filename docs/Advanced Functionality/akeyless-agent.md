@@ -21,7 +21,7 @@ The supported items that can be fetched using the Agent are:
 * [SSH Certificates](https://docs.akeyless.io/docs/ssh-certificates#/)
 * [PKI Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management#/)
 
-> **Note (CLI Version):**
+> ℹ️ **Note (CLI Version):**
 >
 > The Akeyless Agent is available starting from version `1.134.0`
 

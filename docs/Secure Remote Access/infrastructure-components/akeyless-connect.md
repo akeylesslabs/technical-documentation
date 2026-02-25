@@ -28,7 +28,7 @@ To use Akeyless Connect you need:
 
 * OpenSSH v7.9  and OpenSSL 1.1.1 or higher on target servers.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > `Akeyless connect` command supports legacy `~/.akeyless-sphere.rc` configuration file.
 >
@@ -172,7 +172,7 @@ For SSH access through the bastion, please use both `-v ssh-bastion` and the `-c
 akeyless connect -t user@ssh-server[:port] -v <via-sra-bastion-ssh-service> -c "<Path to SSH Cert Issuer>"
 ```
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > For using different SSH cert-issuers that enable access to target-servers **without** providing `read` permission to the end-users (only `list` permission on the cert-issuers), you will need to also pass the flag: `-n cert_issuer_name` for the **other** cert-issuer. This will enable access through the bastion based on its allowed-users list, where the bastion will read the secret (request the cert) on their behalf.
 

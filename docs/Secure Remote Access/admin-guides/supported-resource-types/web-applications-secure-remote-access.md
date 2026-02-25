@@ -20,7 +20,7 @@ The following browsing modes are available:
 * **Secure Web Browsing** - Users access an embedded, isolated and secured remote browser (Firefox) where the credentials are injected into the correct fields without exposing them to the user, provides auditing, and allows restricting user access to only allowed websites while enforcing specific policies per your preferences (such as disabling developer-tools, and so on)
 * **Secure Web Proxy** - Users access the web application where the Web Access Bastion acts as web proxy to access internal web resources from the external network (through the standard browser). This offers a VPN-like functionality for specific web apps.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Your web application must run over HTTPS
 
@@ -51,7 +51,7 @@ Where:
 * `secure-access-web-browsing`: Optional, secure web browsing over isolated web browser **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 * `secure-access-web-proxy`: Optional, secure web-proxy, **available only with** [Web Access Bastion](https://docs.akeyless.io/docs/web-access-on-k8s).
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > If you are using an alias or multiple fields as part of your login credentials, make sure your secret value follows this format: `username..alias..password`.
 

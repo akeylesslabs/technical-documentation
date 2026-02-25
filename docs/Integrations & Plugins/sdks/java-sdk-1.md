@@ -42,7 +42,7 @@ Then, add the following dependency to your project's `pom.xml` file:
 </dependency>
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Don't forget to modify the value of the `<version>` element in the `pom.xml` file to specify the dependency version you want to include.
 

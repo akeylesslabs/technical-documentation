@@ -152,7 +152,7 @@ akeyless create-secret --name MySecret1 --value MySecretPassword
 
 ### Windows
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > PowerShell ISE does not support interactive input mode. Please work with the PowerShell cmdlet to set up the Akeyless CLI.
 
@@ -174,7 +174,7 @@ set "PATH=%PATH%;C:\Users\username\.akeyless\bin" (Update PATH for current sessi
 setx PATH "%PATH%;C:\Users\username\.akeyless\bin" (Update PATH permanently)
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The CLI updates the path env for the **current user only**. This change only takes effect after the user logs off and logs back on.
 

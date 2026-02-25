@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-> **Note:** Venafi recently became CyberArk Machine Identity Security.
+> ℹ️ **Note:** Venafi recently became CyberArk Machine Identity Security.
 
 Akeyless officially integrates with **Cert Manager**. This guide demonstrates integration based on a Venafi Dynamic Secret. For direct integration with Akeyless, follow the main [Cert Manager](https://docs.akeyless.io/docs/kubernetes-cert-manager) guide.
 
@@ -53,7 +53,7 @@ The token in the Secret object is expected to be a Base64 encoding of an API Key
 access_id..access_key | base64
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The API Key token should be a concatenation of your `access_id` and your `access_key` with double dots as a delimiter.
 >

@@ -79,7 +79,7 @@ access_id = ""
 access_key = "*****************************"
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > * Update `base_item_path` to match your Akeyless path.
 > * Fill in your actual `access_id` and `access_key`.
