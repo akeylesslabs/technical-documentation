@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-In [Authentication and Authorization](https://docs.akeyless.io/docs/auth-overview) we saw that Authentication Methods represent machine identities or human identities.
+In [Authentication and Authorization](https://docs.akeyless.io/docs/auth-overview), we saw that Authentication Methods represent machine identities or human identities.
 
-Instead of authenticating identities itself, in most cases, Akeyless integrates with 3rd party identity providers that provide tokens of authentication.
+Rather than authenticating identities directly, Akeyless typically integrates with third-party identity providers that issue authentication tokens.
 
 For **machine** access, Akeyless supports:
 
@@ -50,21 +50,21 @@ The default setting of your token TTL will affect all your authentication method
 
 ### Product Type
 
-Accounts with multiple products can label **each** of their Authentication methods usage, mostly for billing and feature access based on their products. It is recommended to set the relevant product type with the expected usage purposes to provide your end users with the exact features according to the relevant product.
+Accounts with multiple products can label **each** authentication method, mostly for billing and feature access based on their products. It is recommended to set the relevant product type for the expected usage to provide your end users with the exact features for the relevant product.
 
 ## Common Optional Features
 
 The following optional features are available across Authentication Methods:
 
-* **Location:** Set the path to the virtual folder where the Authentication Method is created by using `/` separators.
-* **Description:** Add a description for the Authentication Method.
+* **Location:** Set the path to the virtual folder where the authentication method is created, using `/` separators.
+* **Description:** Add a description for the authentication method.
 * **Expiration Date:** Select an access expiration date. This parameter is optional. Leave it empty for access to continue without an expiration date.
 * **Allowed Client IPs:** Enter a comma-separated list of CIDR blocks from which the client can issue calls to the proxy. By "client," we mean cURL, SDKs, and so on. This parameter is optional. Leave it empty for unrestricted access.
 * **Allowed Trusted Gateway IPs:** Comma-separated CIDR blocks. If specified, the Gateway using this IP range will be trusted to forward the original client IP. If empty, the Gateway's IP address will be used.
 * **Audit Log Sub-Claims:** Include the following sub-claims values in Audit Logs.
 * **JWT TTL (in minutes):** The time span from authentication to JWT expiration.
 * **Allowed Client Type:** Select the allowed client types that will be authorized to use this authentication method. Multiple options can be selected. For example, `CLI`, `Web UI`, `Extension`, `Mobile`, `Gateway Admin`, or `SDK`.
-* **Delete Protection:** Enable this option to protect the Authentication Method from accidental deletion.
+* **Delete Protection:** Enable this option to protect the authentication method from accidental deletion.
 * **Require Sub Claim on role association:** Enable this checkbox to require sub-claims when a role is associated with this authentication method.
 
 ## Tutorial

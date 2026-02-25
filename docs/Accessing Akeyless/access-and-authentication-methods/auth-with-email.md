@@ -12,7 +12,7 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless.
 ---
-This page discusses creating and using an email-based Authentication Method in Akeyless.
+This page discusses creating and using an email-based authentication method in Akeyless.
 
 Email authentication allows human users to authenticate directly to the Akeyless Console using their email address and password. It is typically used for standalone accounts, administrators, or environments where SAML or OIDC federation is not required.
 
@@ -20,11 +20,11 @@ Email authentication is intended for **interactive human access** and is not rec
 
 ## Creating an Email Authentication Method
 
-Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additional email-based Authentication Method for an existing account.
+Email authentication is available by default for Akeyless accounts. No additional configuration is required. This action is distinct from creating a new Akeyless account: it creates an additional email-based authentication method for an existing account.
 
 ### Creating an Email Authentication Method with the Console
 
-To create a new email-based Authentication Method with the Console:
+To create a new email-based authentication method with the Console:
 
 1. In the Console, under **Administration**, navigate to **Users & Auth Methods**.
 2. Select **+ New**. This opens the **Create Authentication Method** form.
@@ -33,11 +33,11 @@ To create a new email-based Authentication Method with the Console:
 5. Supply the designated email address in the **Email** field. Optionally, configure [Two-Factor Authentication](#optional-features).
 6. Select **Finish**.
 
-An email prompting to set a password and activate the Authentication Method will be sent to the specified email address. Be sure to associate the email Authentication Method with one or more Roles.
+An email prompting to set a password and activate the authentication method will be sent to the specified email address. Be sure to associate the email authentication method with one or more Roles.
 
 ### Creating an Email Authentication Method with the CLI
 
-To create an email-based Authentication Method with the CLI:
+To create an email-based authentication method with the CLI:
 
 ```shell
 akeyless auth-method create email \
@@ -45,15 +45,15 @@ akeyless auth-method create email \
   --email email-address@sample.com
 ```
 
-An email prompting to set a password and activate the Authentication Method will be sent to the specified email address. Be sure to associate the email Authentication Method with one or more Roles.
+An email prompting to set a password and activate the authentication method will be sent to the specified email address. Be sure to associate the email authentication method with one or more Roles.
 
-[Read about more parameters available when creating an email-based Authentication Method.](https://docs.akeyless.io/docs/cli-ref-auth#email)
+[Read about more parameters available when creating an email-based authentication method.](https://docs.akeyless.io/docs/cli-ref-auth#email)
 
 ## Using an Email Authentication Method
 
 ### Using an Email Authentication Method with the Console
 
-To use an email-based Authentication Method with the Console:
+To use an email-based authentication method with the Console:
 
 1. Open the Akeyless Console: [https://console.akeyless.io](https://console.akeyless.io).
 2. Email authentication is the default option. Enter the email address used, then select **Sign in**.
@@ -61,7 +61,7 @@ To use an email-based Authentication Method with the Console:
 
 ### Using an Email Authentication Method with the CLI
 
-To authenticate with an email address and password with the CLI, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
+To authenticate with an email address and password using the CLI, run the [Akeyless auth command](https://docs.akeyless.io/docs/cli-ref-auth#auth):
 
 ```shell
 akeyless auth \
@@ -73,5 +73,5 @@ akeyless auth \
 
 For optional features that apply across Authentication Methods, see [Common Optional Features](https://docs.akeyless.io/docs/access-and-authentication-methods#common-optional-features).
 
-* **Two-Factor Authentication:** When creating an email-based Authentication Method, **Two-Factor Authentication** can be optionally enabled. The second factor can use either **Email** or an **Authenticator App**. Only Google Authenticator is supported as an Authenticator App. The Two-Factor Authentication configuration can be enabled, edited, or disabled on an existing email-based Authentication Method.
+* **Two-Factor Authentication:** When creating an email-based authentication method, **Two-Factor Authentication** can be optionally enabled. The second factor can use either **Email** or an **Authenticator App**. Only Google Authenticator is supported as an Authenticator App. The Two-Factor Authentication configuration can be enabled, edited, or disabled on an existing email-based authentication method.
 * **Forgot Password:** On the Console login screen, select **Forgot Password** below the **Email** field. This opens the **Forgot Your Credentials?** page. Enter the email address, then select **Reset Credentials**.
