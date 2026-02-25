@@ -17,7 +17,7 @@ Use this page to choose the integration path that best fits your team, then foll
 * [Azure DevOps Extension](https://docs.akeyless.io/docs/akeyless-azure-devops-extension): The official Akeyless extension for Azure DevOps pipelines, including a dedicated service connection and tasks for authentication, static secrets, dynamic secrets, and rotated secrets.
 * [Azure DevOps Plugin](https://docs.akeyless.io/docs/azure-devops-plugin): A HashiCorp Vault-compatible approach using the Vault Interaction task with the Akeyless [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy).
 
-Akeyless, an identity security platform, supports Azure identity-based and JWT-based authentication patterns for these plugin paths.
+Akeyless supports Azure identity-based and JWT-based authentication patterns for these plugin paths.
 
 For authentication setup in Akeyless, see:
 
