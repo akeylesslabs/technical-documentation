@@ -41,6 +41,54 @@ Install the Vault Interaction extension from Visual Studio Marketplace:
 3. Set authentication to **Client Token** and provide an Akeyless token.
 4. Set KV path/version for your retrieval model (static-like KV paths or dynamic-like producer paths exposed through Vault-compatible routes).
 
+For API Key authentication, the token can be provided in this format:
+
+* `<Access ID>..<Access Key>`
+
+Store token values in secure variables.
+
+## Usage
+
+### Static secret retrieval with `VaultReadKV`
+
+```yaml
+- task: VaultReadKV@2
+  inputs:
+    strUrl: 'https://hvp.akeyless.io'
+    ignoreCertificateChecks: true
+    strAuthType: 'clientToken'
+    strToken: '$(AKEYLESS_TOKEN)'
+    strKVEnginePath: '/secret/data'
+    kvVersion: 'v1'
+    strSecretPath: '/test'
+    strPrefixType: 'custom'
+    replaceCR: false
+```
+
+### Dynamic-style retrieval with `VaultReadKV`
+
+```yaml
+- task: VaultReadKV@2
+  inputs:
+    strUrl: 'https://hvp.akeyless.io'
+    ignoreCertificateChecks: false
+    strAuthType: 'clientToken'
+    strToken: '$(AKEYLESS_TOKEN)'
+    strKVEnginePath: 'mysql/creds'
+    kvVersion: 'v1'
+    strSecretPath: '/test'
+    strPrefixType: 'custom'
+    replaceCR: false
+```
+
+Example script usage after retrieval:
+
+```yaml
+- script: |
+    mysql --host XXXXX --port 3306 --user=$(username) --password='$(password)' -e 'show databases;'
+  displayName: 'Show Databases in DB'
+```
+
 Compatibility reference:
 
 * [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
@@ -48,10 +96,10 @@ Compatibility reference:
 
 ## Additional options
 
-You can authenticate by building a token from API Key material or by obtaining a token from another auth method:
+For an API Key auth method, generate a token with:
 
-```shell API Key Example
-akeyless auth --access-type api_key --access-id <Access ID>  --access-key <Access Key>
+```shell
+akeyless auth --access-type access_key --access-id <Access ID> --access-key <Access Key>
 ```
 
 Related authentication references:
