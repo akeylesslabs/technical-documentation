@@ -20,7 +20,7 @@ You can define a Docker Hub Dynamic Secret to generate just-in-time personal acc
 
 ## Create a Dynamic Docker Hub Secret with the CLI
 
-> 👍 Note
+> **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/targets). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -30,17 +30,17 @@ To create a dynamic Docker Hub secret with the CLI using an existing [Docker Hub
 akeyless dynamic-secret create dockerhub \
 --name <Dynamic Secret Name> \
 --target-name <Target Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read'
 ```
 
 Or using an inline connection string:
 
 ```shell
-akeyless dynamic-secret create akeyless dynamic-secret get-valuedockerhub \
+akeyless dynamic-secret create dockerhub \
 --name <Dynamic Secret Name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
---dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read' \      
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
+--dockerhub-token-scopes 'repo:admin,repo:write,repo:read,repo:public_read' \
 --dockerhub-username <Username for docker repository> \
 --dockerhub-password <Password for docker repository>
 ```
@@ -57,7 +57,7 @@ Where:
 
 Each permission scope includes lower-permission scopes, that is, `repo:admin` includes all the rest of the permission scopes, `repo:write` contains `repo:read` and `repo:public_read`, and so on.
 
-> 👍 Note
+> **Note:**
 >
 > If you don't have a configured Docker Hub target yet, you should [create](https://docs.akeyless.io/docs/docker-hub-target) it first.
 
@@ -69,7 +69,7 @@ If you don't have [Docker Hub Target](https://docs.akeyless.io/docs/docker-hub-t
 
 * `dockerhub-password`: A password of the privileged user of the Docker repository.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#p-stylecolorbluedockerhubp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Dynamic Secrets](https://docs.akeyless.io/docs/cli-reference-dynamic-secrets#dockerhub) section.
 
 ## Fetch a Dynamic Docker Hub Secret Value with the CLI
 
@@ -81,9 +81,9 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 ## Create a Dynamic Docker Hub Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
-> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/how-to-create-dynamic-secret), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/docker-hub-dynamic-secrets#create-a-dynamic-docker-hub-secret-in-the-akeyless-console), you need to configure the Gateway URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Dynamic Secret**.
 
@@ -98,14 +98,14 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
         * Use the **Choose an existing target** drop-down list to select the existing Docker Hub Target.
 
-        * Select the **Explicitly specify target properties** option, to provide details of the target Docker repository in the next step.
+        * Select the **Explicitly specify target properties** option to provide details of the target Docker repository in the next step.
     * **Token Scopes:** Select permission scopes to assign to the token. Each permission scope includes lower-permission scopes, that is, **Admin** includes all the rest of the permission scopes, **Write** contains **Read** and **Public**, and so on.
     * **User TTL:** Provide a time-to-live value for a dynamic secret (that is, a token). When TTL expires, the token becomes obsolete.
     * **Time Unit:** Select the time unit (`seconds`, `minutes`, `hours`) for the TTL value.
     * **Gateway:** Select the Gateway through which the dynamic secret will create users.
     * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-5. If you checked the **Explicitly specify target properties** radio button, click **Next**.
+5. If you checked **Explicitly specify target properties**, click **Next**.
 
 6. Provide details of the target Docker repository credentials:
 
@@ -121,4 +121,4 @@ akeyless dynamic-secret get-value --name <Path to your dynamic secret>
 
 2. Browse to the folder where you created a dynamic secret.
 
-3. Select the secret and click **Get Dynamic Secret** button.
+3. Select the secret and click the **Get Dynamic Secret** button.

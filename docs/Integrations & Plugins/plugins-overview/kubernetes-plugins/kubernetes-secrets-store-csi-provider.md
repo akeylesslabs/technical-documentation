@@ -14,7 +14,7 @@ next:
 
 The Secrets Store CSI Driver `secrets-store.csi.k8s.io` allows Kubernetes to mount multiple secrets, keys, and certs stored in enterprise-grade external secrets stores into their pods as a volume. Once the volume is attached, the data is mounted into the container's file system.
 
-> 👍 Note
+> **Note:**
 >
 > Kubernetes Secrets Store CSI Provider supports Static Secrets, Rotated Secrets and Certificates
 
@@ -159,7 +159,7 @@ spec:
         fileName: "bar"
 ```
 
-> 🚧 Warning
+> **Warning:**
 >
 > Using Access Key within `YAML` files is not secure. You can provide the `AKEYLESS_ACCESS_KEY` as an environment variable instead.
 
@@ -191,7 +191,7 @@ spec:
           secretProviderClass: "akeyless-test"
 ```
 
-> 🚧 Warning
+> **Warning:**
 >
 > The `SecretProviderClass` needs to be created in the same Namespace as the pod.
 

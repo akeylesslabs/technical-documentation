@@ -29,7 +29,7 @@ Before injecting secrets into containers, you must install and configure the **A
     helm repo update
     ```
 
-    You previously should have already added the official Akeyless Helm chart repository in order to install the Akeyless Gateway.
+    You should already have added the official Akeyless Helm chart repository to install the Akeyless Gateway.
 
     _Sample Output:_
 
@@ -199,9 +199,7 @@ Super Secret
 going to sleep...
 ```
 
-<Callout icon="📘" theme="info">
-  In this example, we have injected the Static Secret's value as both a file _and_ and an environment variable to illustrate your options. In a production environment, injecting the secret value as a file is the preferred method.
-</Callout>
+> **Note:** In this example, we have injected the Static Secret's value as both a file _and_ and an environment variable to illustrate your options. In a production environment, injecting the secret value as a file is the preferred method.
 
 ## Step 7: Clean Up
 

@@ -66,9 +66,9 @@ For example, when running on AWS with EKS: [https://docs.aws.amazon.com/eks/late
 ### Horizontal Auto-Scaling
 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.
-For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` StatefulSet (HPA can not support multiple pods without defining a shared persistent storage volume).
+For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster - [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server), as well as the above Storage PV must be defined for the `sshConfig` StatefulSet (HPA cannot support multiple pods without defining a shared persistent storage volume).
 
-> 🚧 Warning
+> **Warning:**
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 
@@ -101,7 +101,7 @@ apiGatewayURL: https://rest.akeyless.io
 
 The Secure Remote Access Bastion should be set with a **privileged** `AccessID` with **Read** and **list** permissions to fetch the relevant secret on behalf of your users. Set the `PRIVILEGED_ACCESS_ID` variable with the relevant `AccessID` as described in the Authentication section of this page.
 
-> 📘 Update permissions
+> **Note (Update permissions):**
 >
 > The requirement for "update" permissions is to allow SRA to display information about sessions.
 
@@ -128,7 +128,7 @@ sshConfig:
     CAPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu8RWf5bFDlLhPljsYEKFQAt6cFLdAVOy..."
 ```
 
-> 📘 Info
+> **Info:**
 >
 > If you don't have an SSH certificate ready, please follow this guide on creating [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless Platform and set your CA Public key in the chart `values`.
 >
@@ -214,7 +214,7 @@ Create a Kubernetes ServiceAccount for Akeyless Bastion to use. You can also use
 
 Use the existing IAM service account as provided in your [GCP GCE](https://docs.akeyless.io/docs/auth-with-gcp) Auth Method.
 
-> 👍 Note
+> **Note:**
 >
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
 >
@@ -284,7 +284,7 @@ helm install <RELEASE NAME> akeyless/akeyless-sra -f values.yaml
 
 Verify that both `ssh-sra-akeyless` and `web-sra-akeyless` pods are up and running.
 
-> 👍 Note
+> **Note:**
 >
 > Akeyless supports session termination, which can be configured as part of this chart deployment.
 > To enable session termination, please set your Gateway URL or your Okta\Keycloak `apiURL` and `apiToken` under `sessionTermination` section.

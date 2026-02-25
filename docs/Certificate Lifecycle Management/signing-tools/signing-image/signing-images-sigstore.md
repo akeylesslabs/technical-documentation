@@ -21,7 +21,7 @@ The following registries are compatible with the Sigstore signature specificatio
 * **GitLab**
 * **Docker Hub**
 
-> 📘 Gateway Version
+> **Note (Gateway Version):**
 >
 > This procedure is supported starting from Gateway version **3.59.0**
 
@@ -92,10 +92,10 @@ Create an Encryption Key in Akeyless, using supported algorithms:
 * `RSA4096`
 * `EC256`
 
-Both [DFC](https://docs.akeyless.io/docs/encryption-keys)and [Classic key](https://docs.akeyless.io/docs/classic-keys) are supported.
+Both [DFC](https://docs.akeyless.io/docs/encryption-keys) and [Classic key](https://docs.akeyless.io/docs/classic-keys) are supported.
 
 ```shell
-akeyless create-classic-key -n Cosign -a RSA2048 --gateway-url https://<Your-Gateway-URL:8000>
+akeyless create-classic-key -n Cosign -a RSA2048 --gateway-url https://<Your-Gateway-URL>:8000
 ```
 
 ## Importing the Image

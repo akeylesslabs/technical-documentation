@@ -144,7 +144,7 @@ docker run -d -p 8000:8000 -p 5696:5696 -p 8889:8889 -e ADMIN_ACCESS_ID="Access-
 
 **Application Logs** from all instances of this gateway will be forwarded using this format: `<date> <time> <gw-clustername-instance-id> <log>`.
 
-After starting the container, you can utilize [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
+After starting the container, you can use [Loki Grafana](https://grafana.com/docs/loki/latest/) to query logs effectively. Follow these steps:
 
 * In Grafana, navigate to Data Sources and add a new [Loki Data Source](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/)
 

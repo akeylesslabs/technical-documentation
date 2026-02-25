@@ -21,14 +21,14 @@ To create a Rotated LDAP Secret using the Akeyless CLI, run the following comman
 ```shell
 akeyless rotated-secret create ldap \
 --name <secret name> \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --target-name <LDAP target name to associate> \
 --authentication-credentials <use-target-creds> \
 --password-length 16
 --rotator-type <ldap> \
 --rotated-username <username> \
 --rotated-password <password> \
---user-dn <Base DN to perform user search> \ 
+--user-dn <Base DN to perform user search> \
 --auto-rotate <true|false> \
 --rotation-interval <1-365> \
 --rotation-hour <hour in UTC>
@@ -56,11 +56,11 @@ Where:
 
 * `auto-rotate`: Enable auto-rotation if you need to update the password regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#p-stylecolorblueldapp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#ldap) section.
 
 ## Create a Rotated LDAP Secret in the Akeyless Console
 
-> 👍 Note
+> **Note:**
 >
 > To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-ldap-rotated-secret#create-a-rotated-ldap-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
@@ -100,6 +100,6 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
     * **Rotation hour (local time zone):** Defines the time when the password should be rotated if **Auto Rotate** is enabled.
 
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click on ⊕ Add Notification and adjust the day count to any number you desire. This can be done multiple times to be notified more than once.
+    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.

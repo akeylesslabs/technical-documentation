@@ -20,7 +20,7 @@ The Model Context Protocol is a standardized protocol that allows AI systems to 
 * Perform operations on behalf of users
 * Maintain security boundaries and access controls
 
-Read more about the <Anchor label="Model Context Protocol" target="_blank" href="https://modelcontextprotocol.io/">Model Context Protocol</Anchor>.
+Read more about the [Model Context Protocol](https://modelcontextprotocol.io/).
 
 ## Akeyless MCP Server Features
 
@@ -49,8 +49,8 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 ### Prerequisites
 
 * The Akeyless CLI must be successfully installed and **updated to version 1.130.0** or newer.
-    * Read more about the <Anchor label="Akeyless CLI" target="_blank" href="https://docs.akeyless.io/update/docs/cli">Akeyless CLI</Anchor>.
-    * Learn about <Anchor label="updating the Akeyless CLI" target="_blank" href="https://docs.akeyless.io/docs/cli-reference#/update">updating the Akeyless CLI</Anchor>.
+    * Read more about the [Akeyless CLI](https://docs.akeyless.io/update/docs/cli).
+    * Learn about [updating the Akeyless CLI](https://docs.akeyless.io/docs/cli-reference#/update).
 * An Akeyless account must be created and a corresponding profile configured with the Akeyless CLI.
 
 ### Configuration and Setup
@@ -159,7 +159,7 @@ Acceptable values for `args.--oci-auth-type`:
 
 #### Example Authentication Method Configurations
 
-The Akeyless MCP server supports multiple <Anchor label="Authentication Methods" target="_blank" href="doc:access-and-authentication-methods">Authentication Methods</Anchor>:
+The Akeyless MCP server supports multiple [Authentication Methods](doc:access-and-authentication-methods):
 
 ##### Access Key Authentication (Default)
 

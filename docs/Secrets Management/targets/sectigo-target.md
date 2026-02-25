@@ -23,7 +23,7 @@ Akeyless will store the issued certificates, manage them, and notify you of upco
 2. Define the Name of the target, and specify the Location as a path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
 3. Select a **Protection key** with a Customer Fragment to enable Zero-Knowledge and click **Next**.
-    <Anchor label="Read more about Zero-Knowledge Encryption" target="_blank" href="doc:implement-zero-knowledge">Read more about Zero-Knowledge Encryption</Anchor>.
+    [Read more about Zero-Knowledge Encryption](doc:implement-zero-knowledge).
 
 4. Define the remaining parameters as follows:
 
@@ -58,10 +58,8 @@ akeyless target create globalsign \
 --external-requester <username of the requester>
 ```
 
-For a complete list of parameters and their descriptions, visit the [CLI Reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueglobalsignp).
+For a complete list of parameters and their descriptions, visit the [CLI Reference](https://docs.akeyless.io/docs/cli-ref-targets#globalsign).
 
 Once the Sectigo Target is created, it can be used to generate a [public certificate](https://docs.akeyless.io/docs/public-ca).
 
-<Callout icon="❗️" theme="error">
-  _The Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval._
-</Callout>
+> **Warning:** The Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval.

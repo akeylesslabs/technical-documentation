@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-In order to use GitHub as an IdP to authenticate the Akeyless Platform by way of OIDC, you need to follow the below steps.
+To use GitHub as an IdP to authenticate the Akeyless Platform by way of OIDC, follow the steps below.
 
-## Create an OAuth Apps
+## Create an OAuth App
 
 1. In your GitHub account, go to **Settings > Developer settings** and select **New OAuth App**.
 
@@ -20,16 +20,16 @@ In order to use GitHub as an IdP to authenticate the Akeyless Platform by way of
 
     ![Illustration for setting Homepage URL, Authorization callback URL, and registering the application.](https://files.readme.io/d849e9e-image-20210912-161540.png)
 
-3. Once the Application has been created, you need to obtain the **Client ID**, and **Client secret**:
+3. Once the application has been created, you need to obtain the **Client ID** and **Client secret**:
 
     ![Illustration for: Once the Application has been created, you need to obtain the Client ID and Client secret.](https://files.readme.io/bc9cf03-image-20210912-161821.png)
 
-4. In order to bind the GitHub Client ID with your Akeyless account, you need to create an OIDC Authentication Method using either CLI or UI, as described below.
+4. To bind the GitHub Client ID with your Akeyless account, create an OIDC Authentication Method using either CLI or UI, as described below.
 
 ## Create an OIDC Authentication Method with the CLI
 
 ```shell
-akeyless auth-method create oidc --name 'my GitHub app' --issuer https://github.com --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (For example, 'email' or 'username'')}
+akeyless auth-method create oidc --name 'my GitHub app' --issuer https://github.com --client-id {your-client-id} --client-secret {your-client-secret} --unique-identifier {your-unique-identifier (for example, 'email' or 'username')}
 ```
 
 The result should look like the following:
@@ -39,9 +39,9 @@ Auth Method my GitHub app successfully created
 - Access ID: p-xxxxxxxx
 ```
 
-## Login With OIDC with the CLI
+## Log in With OIDC Using the CLI
 
-1. You should configure a new profile with your Access-ID from the previous step and OIDC type (if no profile name is provided the default will be configured):
+1. Configure a new profile with your Access ID from the previous step and OIDC type (if no profile name is provided, the default will be configured):
 
     ```shell
     akeyless configure --access-id p-xxxxxxx --access-type oidc --profile 'github-oidc'

@@ -48,9 +48,7 @@ aws_auth_type_assume_role="" # Relevant for aws_auth_type_assume_role
 target_s3_aws_region=""
 ```
 
-<Callout icon="❗️" theme="error">
-  _**Warning:** Logs will be uploaded to an Amazon S3 bucket on ten minute intervals. Pods that terminate before this interval will not upload logs._
-</Callout>
+> **Warning:** Logs will be uploaded to an Amazon S3 bucket on ten-minute intervals. Pods that terminate before this interval will not upload logs.
 
 ### Azure Log Analytics
 
@@ -67,7 +65,7 @@ azure_workspace_key="" # can be "Primary key" or "Secondary key"
 
 Setting log forwarding to Datadog system:
 
-````yaml
+```yaml
 enable="true"
 target_log_type="datadog"
 target_datadog_host="<datadog host, for example, datadoghq.com>" (required)
@@ -75,6 +73,7 @@ target_datadog_api_key="<datadog api key>"(required)
 target_datadog_log_source="<The integration name associated with your log>" (optional. Default value: akeyless)
 target_datadog_log_tags="<Tags associated with your logs in the form of key:val,key:val... For example, env:test,version:1>"(optional)
 target_datadog_log_service="<The name of the application or service generating the log events>"(optional. Default value: akeyless-gateway)
+```
 
 ## Elasticsearch
 
@@ -100,7 +99,7 @@ target_elasticsearch_index="<your_index>" (required)
 #TLS Optional
 target_elasticsearch_enable_tls="true"
 target_elasticsearch_tls_certificate="<Based64 PEM encoded Cert>"
-````
+```
 
 ## Google Chronicle
 
@@ -132,7 +131,7 @@ Add the following to the `logstash.conf` file:\ `input { tcp { port => 8911 code
 
 ## Logz.io
 
-```yaml Shell
+```yaml
 enable="true"
 target_log_type="logz_io"
 target_logz_io_token="<TOKEN>"
@@ -196,10 +195,8 @@ target_syslog_enable_tls="true"
 target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-<Callout icon="📘" theme="info">
-  The message format conforms to the Syslog format and assumes that the Syslog server does not add its own formatting to the message.
-
-  Default format: `<date > <time> <host name> <log level> <message>`.
-
-  The variable `target_syslog_formatter` controls the output message format: either `text` or `cef`.
-</Callout>
+> **Note:** The message format conforms to the Syslog format and assumes that the Syslog server does not add its own formatting to the message.
+>
+> Default format: `<date > <time> <host name> <log level> <message>`.
+>
+> The variable `target_syslog_formatter` controls the output message format: either `text` or `cef`.

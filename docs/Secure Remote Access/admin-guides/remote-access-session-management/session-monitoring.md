@@ -48,9 +48,9 @@ Every session update is captured in the Audit Log. This ensures that any changes
 * **Extended Visibility for SRA Application Servers**: If a user has permissions to access one or more SRA application servers, they can view all sessions managed by those servers.
 * **Admin Access**: Administrators have full visibility of all sessions within the selected timeframe.
 
-> 📘 Permission Configuration
+> **Note (Permission Configuration):**
 >
-> In order to configure access to SRA Application servers, you should go to **Access Roles** -> **Administrative Rules** -> **Secure Remote Access.**
+> To configure access to SRA Application servers, go to **Access Roles** -> **Administrative Rules** -> **Secure Remote Access.**
 >
 > Choose **Own** for allowing access to specific SRA servers (also known as Extended Visibility) or **All** for all SRA servers (also known as Admin Access)
 
