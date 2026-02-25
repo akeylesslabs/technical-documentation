@@ -108,7 +108,7 @@ akeyless rotated-secret create aws \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created - to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -396,7 +396,7 @@ akeyless rotated-secret create gcp \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older service account key will be rotated. When there is only one key, a new version will be created to maintain 2 values at the same time.
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -1271,7 +1271,7 @@ akeyless rotated-secret update aws \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older AWS Access Key will be rotated. When there is only one Access Key, a new version will be created - to maintain 2 values at the same time, following AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -1332,7 +1332,7 @@ akeyless rotated-secret update azure \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older secret will be rotated. When there is only one secret, a new version will be created - to maintain 2 values at the same time. Relevant only for **Client Secret**.
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
@@ -1556,7 +1556,7 @@ akeyless rotated-secret update gcp \
 
 `--grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older service account key will be rotated. When there is only one key, a new version will be created to maintain 2 values at the same time.
 
-`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be bigger than rotation-interval)
+`--grace-rotation-interval`: The number of days to wait before deleting the old key (must be lower than `rotation-interval`)
 
 `--grace-rotation-hour`: The number of hours of grace rotation allowed in UTC
 
