@@ -50,8 +50,8 @@ Compatibility reference:
 
 You can authenticate by building a token from API Key material or by obtaining a token from another auth method:
 
-```shell
-akeyless auth --access-id <Access ID> --access-type <Auth method type>
+```shell API Key Example
+akeyless auth --access-type api_key --access-id <Access ID>  --access-key <Access Key>
 ```
 
 Related authentication references:
@@ -59,7 +59,7 @@ Related authentication references:
 * [Authentication methods overview](https://docs.akeyless.io/docs/access-and-authentication-methods)
 * [API Key authentication](https://docs.akeyless.io/docs/auth-with-api-key)
 
-For the Vault Interaction extension itself, review its own task options and caveats (for example recursive discovery and variable prefix behavior) in the Marketplace page.
+For the Vault Interaction extension itself, review its task options and caveats (for example, recursive discovery and variable prefix behavior) in the [Vault Interaction Marketplace page](https://marketplace.visualstudio.com/items?itemName=Fizcko.azure-devops-vault-interaction).
 
 ## TODO for maintainers
 
