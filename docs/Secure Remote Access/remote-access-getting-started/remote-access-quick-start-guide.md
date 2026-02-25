@@ -39,9 +39,9 @@ Akeyless provides a Helm chart to bootstrap the Akeyless Gateway deployment. In 
 
 ## Create Your Authentication Method
 
-> **Note (Authentication):**
->
-> For the purposes of this guide, we are using an API Key. However, for security reasons, it is advised to use a more secure [authentication method](https://docs.akeyless.io/docs/access-and-authentication-methods).
+For this guide, API key authentication is used for simplicity.
+
+<ApiKeyWarning />
 
 To create your API Key follow the below CLI commands:
 
