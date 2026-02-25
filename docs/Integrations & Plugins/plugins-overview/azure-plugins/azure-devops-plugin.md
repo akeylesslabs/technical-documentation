@@ -1,5 +1,5 @@
 ---
-title: Azure DevOps Plugin
+title: Azure DevOps with Vault Proxy Plugin
 excerpt: ''
 deprecated: false
 hidden: false
