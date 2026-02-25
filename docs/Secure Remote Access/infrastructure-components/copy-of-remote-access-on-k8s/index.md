@@ -7,7 +7,7 @@ metadata:
 ---
 Akeyless Secure Remote Access offers robust security for accessing your resources by leveraging a range of just-in-time credentials, including Dynamic Secrets, Rotated Secrets, and SSH certificates.
 
-> **Note (New Chart):**
+> ℹ️ **Note (New Chart):**
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Secure Remote Access.
 >
@@ -33,7 +33,7 @@ The Remote Access deployment spins up two pods in your cluster: `ssh-sra` and `w
 
 ### Network Configuration
 
-> **Note (Sticky session requirements):**
+> ℹ️ **Note (Sticky session requirements):**
 >
 > * When using **Ingress**, ensure _sticky sessions_ are enabled by using the appropriate annotation. For example, in NGINX, you can use: `nginx.ingress.kubernetes.io/affinity: "cookie"`.
 > * Configure your load balancer to support sticky sessions. For example, in AWS with Elastic Load Balancer (ELB), refer to AWS ELB Sticky Sessions documentation for more details.
@@ -134,7 +134,7 @@ sshConfig:
       # CAPublicKey: |
 ```
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > If you don't have an SSH certificate yet, please follow this guide on creating an SSH Cert issuer with Akeyless and set your `CAPublicKey` in the `values` file.
 >

@@ -25,7 +25,7 @@ compute.instances.get
 compute.instanceGroups.list
 ```
 
-> **Note (GKE Workloads Authentication):**
+> ℹ️ **Note (GKE Workloads Authentication):**
 >
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster with GKE Workload Identity enabled, any bound rules other than `Bound Service Accounts` **will not apply**. GKE Workload Identity conceals metadata information about the running instance.
 >

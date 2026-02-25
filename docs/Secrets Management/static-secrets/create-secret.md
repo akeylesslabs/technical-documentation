@@ -46,7 +46,7 @@ The response should be like this:
 A new secret named /Admin/AdminCredentials was successfully created
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > For details about these CLI command options, see the [CLI Command Reference](https://docs.akeyless.io/docs/cli-reference-static-secrets#create-secret).
 

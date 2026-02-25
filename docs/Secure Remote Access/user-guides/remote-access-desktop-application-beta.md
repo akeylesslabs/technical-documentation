@@ -18,7 +18,7 @@ Who benefits from using this application?
 * Security Professionals
 * Developers and Engineers
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The Desktop Application is currently in beta.
 
@@ -58,7 +58,7 @@ Download the relevant Desktop Application installer from <https://download.akeyl
 
 4. Open the app and sign in with your Akeyless credentials.
 
-> **Note (Installation Folder):**
+> ℹ️ **Note (Installation Folder):**
 >
 > The installation folder contains the following:
 >
@@ -71,7 +71,7 @@ Download the relevant Desktop Application installer from <https://download.akeyl
 
 2. It uses the Akeyless CLI to establish a tunnel, leveraging the SSH certificate configured in the **Defaults Configuration** window.
 
-    > **Warning (Important):**
+    > ⚠️ **Warning (Important):**
     >
     > 1. If you don't have an SSH certificate yet, please follow this guide on creating an [SSH Cert issuer](https://docs.akeyless.io/docs/ssh-certificates) with Akeyless and set your `CAPublicKey` in the `values` file.
     > 2. You also need to enable Secure Remote Access on the SSH Cert Issuer either in the UI or by adding the `--secure-access-enable true` flag to your CLI command.
@@ -79,7 +79,7 @@ Download the relevant Desktop Application installer from <https://download.akeyl
 
 3. Upon successfully connecting to the remote target, the Desktop Application launches the default application configured for this resource type.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Applications such as **Azure Data Studio**, **Windows App**, **DBeaver**, **PuTTY**, **WinSCP**, or others should already be installed on the local machine where the desktop application is installed.
 
@@ -107,7 +107,7 @@ Download the relevant Desktop Application installer from <https://download.akeyl
     |  | Direct Connection / Secure Remote Access | Default Browser |  |
     |  | SSH File Transfer (SFTP) | Terminal |  |
 
-    > **Warning (Multiple hosts / linked targets):**
+    > ⚠️ **Warning (Multiple hosts / linked targets):**
     >
     > The Desktop Application supports multiple hosts / linked targets. You can add or remove hosts you want to connect to, and then select **Confirm**.
     >
@@ -121,7 +121,7 @@ Download the relevant Desktop Application installer from <https://download.akeyl
     * **Control API Port** - The control API port (specify `8000` for a unified Gateway, or `9900` otherwise).
     * **Control API Path** - The SRA control API path (for example, `/sra/ssh-config`).
 
-> **Note (Connection Failures):**
+> ℹ️ **Note (Connection Failures):**
 >
 > If the desktop application fails to connect to the resource, it will display a message prompting you to verify your configuration.
 >

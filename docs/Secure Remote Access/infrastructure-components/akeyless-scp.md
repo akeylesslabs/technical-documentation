@@ -12,7 +12,7 @@ next:
 ---
 Akeyless SCP enables secure copy by way of [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion).
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Akeyless SCP currently supports only Unix-like operating systems.
 

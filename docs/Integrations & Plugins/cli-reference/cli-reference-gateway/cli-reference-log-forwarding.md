@@ -14,7 +14,7 @@ This section outlines the CLI commands relevant to the Gateway Log-Forwarding.
 
 <CLIGeneralFlags />
 
-> **Tip:**
+> ✅ **Tip:**
 >
 > Flags with a default value of `use-existing` indicate that the field's value will remain unchanged unless explicitly modified.
 

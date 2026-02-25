@@ -133,7 +133,7 @@ This will show all your `Roles` by `Role Name`.
 
 You can also run `steampipe query` which will open the query shell where you can simply run `select role_name from akeyless_role;`.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > A query will output only the information your Authentication Method has access to based on its Access Role.
 

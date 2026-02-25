@@ -48,7 +48,7 @@ Where:
     * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use the credentials defined on the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) item.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret Service Account is not authorized to change their Key, and a privileged user, like the [GCP Target](https://docs.akeyless.io/docs/gcp-targets) service account, is required to change the Service Account Key on behalf of the Rotated Secret service account.
 
@@ -69,7 +69,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Create a Rotated GCP Secret in the Akeyless Console
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 

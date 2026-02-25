@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-> **Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, the integration still uses `venafi` naming for backward compatibility.
+> ℹ️ **Note:** Venafi recently became CyberArk Machine Identity Security.
 
 To work with the Venafi Cloud platform in CyberArk Machine Identity Security, you can choose either to work with CyberArk Machine Identity Security as your certificate issuer or to work with Akeyless as your issuer.
 

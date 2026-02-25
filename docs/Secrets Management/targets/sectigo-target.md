@@ -62,4 +62,4 @@ For a complete list of parameters and their descriptions, visit the [CLI Referen
 
 Once the Sectigo Target is created, it can be used to generate a [public certificate](https://docs.akeyless.io/docs/public-ca).
 
-> **Warning:** The Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval.
+> ⚠️ **Warning:** The Akeyless PKI Issuer does not support Sectigo approval workflows, make sure your Sectigo certificate profile does not require a second approval.

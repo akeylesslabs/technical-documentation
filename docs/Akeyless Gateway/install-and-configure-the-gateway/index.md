@@ -21,7 +21,7 @@ next:
 
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
 
-> **Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), using the account owner's email and password with superuser privileges on the account.
+> ℹ️ **Note:** The following example uses the account default [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods), using the account owner's email and password with superuser privileges on the account.
 
 * A Linux or a Windows machine with [Docker Engine](https://docs.docker.com/get-docker/) installed with a minimum 1 vCPU available with 2 GB RAM.
 
@@ -35,7 +35,7 @@ next:
 | Akeyless V2 REST API | `/api/v2` |
 | [KMIP Server](https://docs.akeyless.io/docs/kmip-server) | `5696` |
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Make sure that this server is not globally open to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
@@ -51,7 +51,7 @@ After executing the above command, a new container named `akeyless-gateway` shou
 
 To upgrade your current Gateway version, simply restart the container using the `docker restart <container name>` command.
 
-> **Note:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
+> ℹ️ **Note:** In this example, the Gateway was installed without a default Authentication Method as part of the installation. Thus, **the first Authentication Method** used to log in becomes the admin user on this Gateway.
 
 For further installation options, visit the [Advanced Configuration](https://docs.akeyless.io/docs/advance-gw-docker-configuration) page.
 
