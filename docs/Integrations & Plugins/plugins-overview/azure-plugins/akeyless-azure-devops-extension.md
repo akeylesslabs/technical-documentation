@@ -35,11 +35,12 @@ The extension contribution manifest and task metadata in the source repo define 
 
 ### Install the extension
 
-Install from Visual Studio Marketplace:
+Install and add the extension to your Azure DevOps organization:
 
-* [Akeyless Secrets Management (Akeyless-Engineering)](https://marketplace.visualstudio.com/items?itemName=Akeyless-Engineering.akeyless-secrets-management)
-
-Then add it to your Azure DevOps organization from **Organization settings > Extensions**.
+1. Go to your Azure DevOps organization (for example, `https://dev.azure.com/<your-org>`).
+2. Select **Organization settings > Extensions**, then select **Browse marketplace**.
+3. Open [Akeyless Secrets Management (Akeyless-Engineering)](https://marketplace.visualstudio.com/items?itemName=Akeyless-Engineering.akeyless-secrets-management).
+4. Select **Get it free** or **Install**, then select your organization to complete installation.
 
 ### Initial configuration
 
