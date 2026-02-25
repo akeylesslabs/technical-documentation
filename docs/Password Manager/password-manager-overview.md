@@ -18,7 +18,7 @@ Akeyless transcends conventional password management by offering a comprehensive
 
 In the realm of collaborative password management, Akeyless stands out by empowering users to effortlessly share access to specific passwords within the team, thereby enhancing overall productivity. This shared environment ensures that crucial credentials are readily available to authorized team members, eliminating bottlenecks associated with traditional password-sharing methods.
 
-For users on the move, Akeyless provides the added convenience of a mobile application Password Manager, extending its capabilities beyond the desktop environment. The **mobile app** allows users to access and manage their passwords anytime, anywhere, ensuring that critical information is at their fingertips. This not only enhances flexibility but also reinforces the security of sensitive data by providing a secure and portable solution.
+For users on the move, Akeyless provides the added convenience of a mobile Password Manager application, extending its capabilities beyond the desktop environment. The **mobile app** allows users to access and manage their passwords anytime, anywhere, ensuring that critical information is at their fingertips. This not only enhances flexibility but also reinforces the security of sensitive data by providing a secure and portable solution.
 
 The Akeyless **browser extension** remains a powerful tool, streamlining the process of injecting stored passwords directly into corresponding websites. This not only saves time but also bolsters security by minimizing the need for manual entry. The extension seamlessly integrates into the user's workflow, offering an efficient solution for managing passwords on the go.
 
@@ -26,7 +26,7 @@ The Akeyless **browser extension** remains a powerful tool, streamlining the pro
 
 Furthermore, the Akeyless browser extension extends its utility beyond mere password injection. It acts as a dynamic tool for capturing and saving passwords in real time, ensuring that no password is left unsecured. This feature is particularly useful in scenarios where users need to rapidly save newly generated or updated passwords without disrupting their workflow.
 
-In essence, Akeyless is not just a password management system; it's a robust solution that adapts to the diverse needs of individuals and teams. Whether safeguarding personal passwords or collaborating within a team, Akeyless provides the tools and features needed to navigate the complex landscape of digital security with ease and confidence, including the added convenience of a mobile application Password Manager for users on the move.
+In essence, Akeyless is not just a password management system; it's a robust solution that adapts to the diverse needs of individuals and teams. Whether safeguarding personal passwords or collaborating within a team, Akeyless provides the tools and features needed to navigate the complex landscape of digital security with ease and confidence, including the added convenience of a mobile Password Manager application for users on the move.
 
 Akeyless revolutionizes your password management experience by establishing seamless and bidirectional integration between the console, mobile app, and extension. This innovative synergy ensures that any password meticulously created within the console becomes instantly and effortlessly accessible from the extension, and conversely, passwords generated in the extension seamlessly synchronize with the console.
 

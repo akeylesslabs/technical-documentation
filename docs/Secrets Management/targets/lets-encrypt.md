@@ -32,7 +32,7 @@ Where:
 
 * `name`: A unique name of the target. The name can include the path to the virtual folder where you want to create the new target, using slash `/` separators. If the folder does not exist, it will be created together with the target.
 
-* `lets-encrypt-url`: Either **Production** - `https://acme-v02.api.letsencrypt.org/directory` (default) or **Staging** - `[https://acme-v02.api.letsencrypt.org/directory](https://acme-staging-v02.api.letsencrypt.org/directory)`.
+* `lets-encrypt-url`: Either **Production** - `https://acme-v02.api.letsencrypt.org/directory` (default) or **Staging** - `https://acme-staging-v02.api.letsencrypt.org/directory`.
 
 * `acme-challenge`: **DNS**.
 

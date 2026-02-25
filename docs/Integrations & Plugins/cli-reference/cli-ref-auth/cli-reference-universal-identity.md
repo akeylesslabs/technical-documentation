@@ -16,7 +16,7 @@ This section outlines the CLI commands relevant to Universal Identity authentica
 
 ## `create`
 
-Create a new Auth Method that will be able to authenticate using Akeyless Universal Identity
+Create a new Auth Method that can authenticate using Akeyless Universal Identity
 
 ### Usage
 
@@ -139,7 +139,7 @@ Rotate Akeyless Universal Identity token
 
 ## `update`
 
-Update a new Auth Method that will be able to authenticate using Akeyless Universal Identity
+Update a new Auth Method that can authenticate using Akeyless Universal Identity
 
 ### Usage
 

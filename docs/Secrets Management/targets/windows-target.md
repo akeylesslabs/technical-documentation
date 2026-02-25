@@ -18,7 +18,7 @@ To create a Windows target with the CLI, run the following command:
 
 ```shell
 akeyless target create windows \
---name <target name> \ 
+--name <target name> \
 --hostname <Windows Hostname\IP> \
 --username <Windows Local Username> \
 --password <Password>
@@ -34,13 +34,11 @@ Where:
 
 * `password`: The password of the Windows user.
 
-> 👍 Note
->
-> **WinRM TLS**
+> **Note (WinRM TLS):**
 >
 > By default, Windows targets are working with TLS. When using a self-signed certificate, you can either load the certificate to your Target, or mount the relevant certificate into your Gateway filesystem under `etc/ssl/certs`
 
-You can find the complete list of parameters for this command at the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets) page.
+You can find the complete list of parameters for this command at the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#create) page.
 
 ## Create a Windows Target in the Console
 

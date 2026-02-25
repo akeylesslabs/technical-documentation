@@ -9,27 +9,25 @@ Certificate Discovery helps you continuously locate and inventory certificates a
 
 When a certificate is found, Akeyless automatically creates a corresponding certificate record with all available metadata, including where it was discovered (target and endpoint details) and the certificate’s key attributes. You can also predefined expiration event settings so newly discovered certificates are immediately tracked and monitored without manual onboarding.
 
-<Callout icon="👍" theme="okay">
-  This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or later.
-</Callout>
+> **Tip:** This feature is **Early Access** and is available only when using a [Gateway](https://docs.akeyless.io/docs/api-gw) running version `4.46.0` or later.
 
 ## Running a Certificate Discovery with the CLI
 
-In order to run a certificate discovery using the CLI, run the following command:
+To run a certificate discovery using the CLI, run the following command:
 
 ```shell
-akeyless certificate-discovery \ 
+akeyless certificate-discovery \
 --hosts <IPs, CIDR ranges, or DNS names> \
 --port-ranges[=443] <80,8080-8085> \
 --target-location 'Discovery-Folder' \
---gateway-url 'https://<Your-Akeyless-GW-URL:8000>'
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000'
 ```
 
 Where:
 
-* `hosts`: **Required**, A comma separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
+* `hosts`: **Required**, A comma-separated list of **IPs**, **CIDR ranges**, or **DNS names** to scan.
 
-* `port-ranges[=443]`: A comma separated list of port ranges. Example: `80`, `8080`-`8085`.
+* `port-ranges[=443]`: A comma-separated list of port ranges. Example: `80`, `8080`-`8085`.
 
 * `target-location`: **Required**, The folder the certificates that were found in the scan will be saved at.
 

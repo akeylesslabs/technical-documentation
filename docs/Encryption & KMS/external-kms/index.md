@@ -42,7 +42,7 @@ When your cloud provider encryption keys are managed by Akeyless:
 
 When you share a key with one of the supported Cloud KMS providers, a copy of the key material is securely transferred in accordance with the key import specification (BYOK) of the KMS provider.
 
-> 👍 Note
+> **Note:**
 >
 > Only [classic keys](https://docs.akeyless.io/docs/classic-keys) can be distributed to Cloud KMS providers.
 

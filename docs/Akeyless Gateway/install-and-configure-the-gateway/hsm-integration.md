@@ -12,9 +12,9 @@ next:
 ---
 In any encryption system, the ability to generate pseudo-random numbers is crucial, particularly for tasks like creating encryption keys. Akeyless addresses this need by offering a solution that not only generates pseudo-random numbers, but also enhances overall data security by leveraging **Hardware Security Modules (HSMs)** to generate and securely store these pseudo-random numbers for encryption keys, ensuring maximum data security.
 
-The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` protocol to provide a seamless solution. This integration can also be leveraged for the derivation of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) **Customer Fragments** from the **HSM** to the **Gateway**, using the [HKDF](https://en.wikipedia.org/wiki/HKDF) function.
+The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` protocol to provide a seamless solution. This integration can also be leveraged for the derivation of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) **Customer Fragments** from the **HSM** to the **Gateway**, using the [HKDF](https://en.wikipedia.org/wiki/HKDF) function.
 
-> 📘 HSM Entropy
+> **Note (HSM Entropy):**
 >
 > For setting the **HSM** to generate random numbers for the cryptographic operations, the **HSM** must support the `C_GenerateRandom` operation.
 
@@ -28,7 +28,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 To configure the Gateway for your **HSM**, specify the **HSM token** using one of the following parameters during deployment: `HSM_SLOT`, `HSM_TOKEN_LABEL`, or `HSM_TOKEN_SERIAL`. Only one parameter is required.  
 
-The following example uses the`HSM_SLOT`:
+The following example uses the `HSM_SLOT`:
 
 ```shell
 docker run -d -p 8000:8000 -p 5696:5696 \

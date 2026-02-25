@@ -74,7 +74,7 @@ To deploy a gateway with the SRA utility, run the following steps:
 
    * `GATEWAY_ACCESS_KEY`: The `AccessKey` of the authentication method (relevant only for [API Key](https://docs.akeyless.io/docs/auth-with-api-key)).
 
-   * `ALLOWED_ACCESS_PERMISSIONS`: A list of users that will be able to manage your Gateway configuration
+   * `ALLOWED_ACCESS_PERMISSIONS`: A list of users who can manage your Gateway configuration
 
    [Read more about the available parameters](https://github.com/akeylesslabs/docker-compose/blob/main/gateway.env).
 
@@ -98,7 +98,7 @@ To install the Gateway with the SRA utility, run this command from the directory
 docker compose --profile sra up -d
 ```
 
-In order to verify the installation, run:
+To verify the installation, run:
 
 ```shell
 docker ps

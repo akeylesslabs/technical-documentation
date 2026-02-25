@@ -36,7 +36,7 @@ Before using Akeyless Password Manager for autofill, you must grant it permissio
 
 ## Using Autofill With Akeyless Password Manager
 
-With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure. Here's how to utilize it:
+With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure. Here's how to use it:
 
 ![Illustration for: With autofill enabled, Akeyless Password Manager can seamlessly fill in your passwords, making logging into websites and apps faster and more secure.](https://files.readme.io/c309879-File_3.jpg)
 

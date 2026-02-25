@@ -44,9 +44,9 @@ In this guide, we will deploy SRA using the most basic configuration on a Kubern
 
 The **Horizontal Pod Autoscaler (HPA)** automatically adjusts the number of pods in a Kubernetes Deployment based on real-time resource usage (like `CPU` or `memory`) to maintain optimal performance and efficiency.
 
-Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the sshConfig`StatefulSet`(HPA can not support multiple pods without defining a shared persistent storage volume).
+Horizontal auto-scaling is based on the `HorizontalPodAutoscaler` object. For it to work correctly, the Kubernetes [Metrics Server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster, as well as the above **Storage PV** must be defined for the `sshConfig` `StatefulSet` (HPA cannot support multiple pods without defining a shared persistent storage volume).
 
-> 🚧 Warning
+> **Warning:**
 >
 > To enable Secure Remote Access features you will have to get an access key to Akeyless private repository. Please contact your Account Manager for more details.
 

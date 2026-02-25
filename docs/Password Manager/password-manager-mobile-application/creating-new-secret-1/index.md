@@ -38,7 +38,7 @@ If the desired folder does not exist, you have the option to create a new folder
 
 ## Step 4: Enhance Security and Add Context
 
-Providing Context: Use the 'Description' field to add any relevant information about the secret, such as its purpose or associated account details. This information helps organize and serves as a reminder of the secret’s use.
+Providing Context: Use the 'Description' field to add any relevant information about the secret, such as its purpose or associated account details. This information helps with organization and serves as a reminder of the secret’s use.
 
 Activating Delete Protection: For added security, especially against accidental deletions, toggle the 'Delete Protection' option. This feature requires an extra layer of confirmation before any deletion can occur.
 

@@ -150,7 +150,7 @@ Where:
 
 * `access_type`: The type of the Auth Method being used.
 
-* `cloud_id`: The `cloud_id`, can be retrieved by running: `akeyless get-cloud-identity`
+* `cloud_id`: The `cloud_id` can be retrieved by running `akeyless get-cloud-identity`.
 
 * `akeyless_gateway_url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 

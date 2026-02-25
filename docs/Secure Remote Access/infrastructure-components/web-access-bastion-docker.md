@@ -22,11 +22,11 @@ This guide provides guidance for the deployment of the Akeyless-Web-Access-Basti
 
 * Web Access Bastion - `docker-compose.yml` file.
 
-* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and  1 vCPU available with 1 GB RAM for the `WebDispatcher`.
+* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and 1 vCPU available with 1 GB RAM for the `WebDispatcher`.
 
 _**Network**_
 
-When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited.
+When using an embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout. It is advised to increase it to a reasonably high value or leave it unlimited.
 
 For example, when running on AWS with ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs\_elb\_console](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console)
 
@@ -36,7 +36,7 @@ To be able to download files to your local machine, the Docker Engine requires m
 
 For security reasons, please limit the volume mount permissions to `0650`.
 
-> 🚧 Note:
+> **Note:**
 >
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless's private repository. Please contact your Account Manager for more details.
 
@@ -69,7 +69,7 @@ The Secure Remote Access Bastion should be set with a **privileged** `AccessID` 
 
 Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
 
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a list of `AccessIDs` comma separated that will be authorized to request access.
+To control which users are allowed to request access from the Akeyless Bastion, set the `ALLOWED_ACCESS_IDS` variable with a comma-separated list of `AccessIDs`.
 
 ```yaml
 services:
@@ -138,7 +138,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `PRIVILEGED\_ACCESS\_ID`, with a list of `ALLOWED_ACCESS_IDS` that will be authorized to request access:
 
 ```yaml Shell
 services:
@@ -344,7 +344,7 @@ cat <<EOT > policies.json
 EOT
 ```
 
-> 🚧 Notice:
+> **Notice:**
 >
 > The `policies.json` **must** be provided for the isolated web browsing to work.
 

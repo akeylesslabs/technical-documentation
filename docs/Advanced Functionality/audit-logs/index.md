@@ -24,18 +24,18 @@ Akeyless log auditing is important for cybersecurity because it provides records
 
 ## Viewing Logs in the Console
 
-When using the console, you will be able to navigate to the **Audit Logs** tab to view logs in the following format:
+When using the console, you can navigate to the **Audit Logs** tab to view logs in the following format:
 
 ![Screenshot of Audit Logs in the Akeyless Platform Console](https://files.readme.io/800a8f4-Screenshot_at_Nov_10_13-44-36.png)
 
 These logs show you the time of the described action, what it was, whether it was successful or unsuccessful (status codes in the four hundreds means error), the client performing it, what IP it was performed from, and additional parameter tags such as access type or product type.
 
-You will be able to filter your logs based on any of these rubrics or tags inside the Akeyless SaaS platform in order to get insights or clarifications.
+You can filter your logs based on any of these rubrics or tags inside the Akeyless SaaS platform to get insights or clarifications.
 
 ## Reading the Raw Logs
 
 Another way to view your logs is to forward them in their raw form to tools such as Splunk, Logz.io, and so on.
-The logs will show up as a line of text, from which you will be able to read the following information:
+The logs will show up as a line of text, from which you can read the following information:
 
 | Log Line | Description |
 | --- | --- |

@@ -48,7 +48,7 @@ Where:
 
 Once the ZeroSSL Target is created, it can be used to generate a [public certificate](https://docs.akeyless.io/docs/public-ca).
 
-You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluezerosslp) section.
+You can find the complete list of parameters for this command in the [CLI reference](https://docs.akeyless.io/docs/cli-ref-targets#zerossl) section.
 
 ## Create a ZeroSSL Target in the Console
 

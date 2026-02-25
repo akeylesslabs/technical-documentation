@@ -16,7 +16,7 @@ GitHub Actions enables you to automate workflows for your GitHub-hosted reposito
 
 With [this](https://github.com/LanceMcCarthy/akeyless-action) **community** plugin, you can fetch secrets directly from the Akeyless Platform into your workflows.
 
-This guide will demonstrate the uses of [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) and [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) **Authentication Methods** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets)and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
+This guide will demonstrate the use of [OAuth 2.0 / JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) and [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) **Authentication Methods** to fetch both [Static](https://docs.akeyless.io/docs/static-secrets) and [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) secrets from Akeyless.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ Create an **[Access Role](https://docs.akeyless.io/docs/rbac)**:
 akeyless create-role --name /Dev/GitHubRole
 ```
 
-> 🚧 Warning
+> **Warning:**
 >
 > **It is required** to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
 >
@@ -281,4 +281,4 @@ For additional information use this [link](https://github.com/LanceMcCarthy/akey
 
 ## Tutorial
 
-Check out our tutorial video on <a href="https://tutorials.akeyless.io/docs/managing-secrets-in-github-pipelines" target="_blank" style="color: #00e">Managing Secrets in Github Pipelines</a>.
+Check out our tutorial video on [Managing Secrets in Github Pipelines](https://tutorials.akeyless.io/docs/managing-secrets-in-github-pipelines).

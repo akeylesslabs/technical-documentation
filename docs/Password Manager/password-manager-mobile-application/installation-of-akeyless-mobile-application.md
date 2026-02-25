@@ -32,7 +32,7 @@ Open Apple App Store: On your iOS device, locate and launch the Apple App Store.
 
 Search for Akeyless: At the top of the App Store interface, you'll find a search bar. Tap on it and enter "Akeyless." Proceed by tapping the "Search" button on the keyboard.
 
-Choose Akeyless Mobile App: The search results will display various apps. Navigate to find the official Akeyless Password Manager mobile application, recognizable by its logo. Once you've found it, tap on the "Get" button next to the app.
+Choose Akeyless Mobile App: The search results will display various apps. Navigate to the official Akeyless Password Manager mobile application, recognizable by its logo. Once you've found it, tap the "Get" button next to the app.
 
 Confirm Installation: iOS may prompt you to confirm the installation. This might include reviewing the permissions the app requires and possibly entering your Apple ID password or using Face ID/Touch ID for verification. Follow these steps to finalize the installation.
 
@@ -52,9 +52,9 @@ Therefore, requiring users to have a VPN installed on their phones before using 
 
 ## Authentication Methods Support
 
-Once you've installed the Akeyless browser extension. Simply locate the Akeyless Password Manager mobile app. To securely access your Akeyless account, you can utilize one of the following authentication methods:
+Once you've installed the Akeyless browser extension. Simply locate the Akeyless Password Manager mobile app. To securely access your Akeyless account, you can use one of the following authentication methods:
 
-* Access-ID and Access-Key: Utilize your unique Access-ID and Access-Key combination for secure login.
+* Access-ID and Access-Key: Use your unique Access-ID and Access-Key combination for secure login.
 * SAML: Leverage your existing SAML (Security Assertion Markup Language) identity provider for streamlined authentication.
 * OIDC: Employ your preferred OIDC (OpenID Connect) identity provider for a seamless login experience.
 * LDAP: For environments configured with LDAP, you can authenticate using your LDAP credentials for secure access.

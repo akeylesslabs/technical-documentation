@@ -49,7 +49,7 @@ Initiate Creation: Inside the event forwarders section, there should be an optio
 * Must have suffix = `?api=api`
 * Authentication
     * For our example, we are using user name and password authentication.
-    * username = the admin user name of the instance, in case you are using the dev ServiceNow environment the user name called 'admin'
+    * username = the admin user name of the instance. If you are using the dev ServiceNow environment, the user name is 'admin'.
     * ServiceNow details can be found here:
 
 ![Illustration for: Step 4: Configure Event Forwarder Settings. Configure the Authentication settings.](https://files.readme.io/9d65bba-Screenshot_2024-03-05_at_11.11.56.png)

@@ -28,7 +28,7 @@ Where:
 
 * `url`: The URL of your web application.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluewebp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#web) section.
 
 ## Create a Web Target in the Console
 

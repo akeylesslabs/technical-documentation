@@ -14,16 +14,16 @@ This document outlines the steps to set up Transparent Data Encryption (TDE) on 
 
 ## Directory Creation
 
-• Create the folder and subfolder `/tde.\`
-• No changes required to `sqlnet.ora` for Oracle Database 19c and up.
+* Create the folder and subfolder `/tde/`.
+* No changes are required to `sqlnet.ora` for Oracle Database 19c and later.
 
 ## Configuration Steps
 
-a. In this example, we use `hsm\_wallet` as the base folder. This can be adjusted based on your specific environment or the naming conventions used in your organization.
+1. In this example, we use `hsm\_wallet` as the base folder. This can be adjusted based on your specific environment or the naming conventions used in your organization.
 
-b. The `APP\_PASSWORD` is not directly used during the configuration process. It can be any value, as the actual configuration is pulled from a file.
+2. The `APP\_PASSWORD` is not directly used during the configuration process. It can be any value, as the actual configuration is pulled from a file.
 
-c. `/opt/oracle/admin` corresponds to the `$oracle\_HOME` directory in your environment.
+3. `/opt/oracle/admin` corresponds to the `$oracle\_HOME` directory in your environment.
 
 ## Key Management and Keystore Setup
 
@@ -33,7 +33,7 @@ Perform the following commands in SQL\*Plus or another Oracle SQL interface:
 SQL> ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY akeyless;
 ```
 
-Result: Keystore closed successfully
+Result: Keystore closed successfully.
 
 ```sql
 SQL> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=FILE";
@@ -51,7 +51,7 @@ Result: Keystore created at the specified location.
 SQL> ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY "APP_PASSWORD";
 ```
 
-Result: Keystore opened successfully
+Result: Keystore opened successfully.
 
 ```sql
 SQL> ADMINISTER KEY MANAGEMENT ADD SECRET 'APP_PASSWORD' FOR CLIENT 'HSM_PASSWORD' IDENTIFIED BY "APP_PASSWORD" WITH BACKUP;
@@ -63,13 +63,13 @@ Result: Secret added successfully for client HSM\_PASSWORD.
 SQL> ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY "APP_PASSWORD";
 ```
 
-Result: Keystore closed again
+Result: Keystore closed again.
 
 ```sql
 SQL> ADMINISTER KEY MANAGEMENT CREATE AUTO_LOGIN KEYSTORE FROM KEYSTORE '/opt/oracle/admin/FREE/hsm_wallet/tde' IDENTIFIED BY "APP_PASSWORD";
 ```
 
-Result: Auto-login key store created.
+Result: Auto-login keystore created.
 
 ```sql
 SQL> ALTER SYSTEM SET TDE_CONFIGURATION="KEYSTORE_CONFIGURATION=HSM|FILE";
@@ -120,4 +120,4 @@ ERROR at line 1:
 ORA-28354: Encryption wallet, auto login wallet, or HSM is already open.
 ```
 
-This error indicates that the wallet is already open. Refer to Oracle documentation for troubleshooting: [ORA-28354: Wallet Already Open](https://docs.oracle.com/en/error-help/db/ora-28354/?r=23ai)
+This error indicates that the wallet is already open. Refer to Oracle documentation for troubleshooting: [ORA-28354: Wallet Already Open](https://docs.oracle.com/en/error-help/db/ora-28354/?r=23ai).

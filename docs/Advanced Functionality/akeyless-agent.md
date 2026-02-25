@@ -21,7 +21,7 @@ The supported items that can be fetched using the Agent are:
 * [SSH Certificates](https://docs.akeyless.io/docs/ssh-certificates#/)
 * [PKI Certificates](https://docs.akeyless.io/docs/certificate-lifecycle-management#/)
 
-> 📘 CLI Version
+> **Note (CLI Version):**
 >
 > The Akeyless Agent is available starting from version `1.134.0`
 
@@ -37,7 +37,7 @@ access_id = "AccessID"
 access_key = "AccessKey"
 k8s_auth_config_name = ""
 
-gateway_url = "https://<Your-Akeyless-GW-URL:8000>"
+gateway_url = "https://<Your-Akeyless-GW-URL>:8000"
 
 log_file_path = "path_to/agent.log"     
 log_format = "text"                     
@@ -139,7 +139,7 @@ password={{ .Data.Password }}
 
 ## Start the Agent
 
-In order to start the Agent to provision the secrets you have defined in the `agent.toml` file, run the following command:
+To start the Agent and provision the secrets you have defined in the `agent.toml` file, run the following command:
 
 ```shell
 akeyless agent start \

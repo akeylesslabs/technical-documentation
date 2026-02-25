@@ -44,7 +44,7 @@ If you wish the target to reference a specific Storage Account, add the followin
 
 * `resource-name`: The name of the Azure Storage Account.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorblueazurep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#azure) section.
 
 ## Create an Azure Target in the Console
 

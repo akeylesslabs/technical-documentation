@@ -9,9 +9,9 @@ metadata:
 
 In AI development, we're obsessed with agent capabilities. But what about their security? An AI agent is a high-value target, holding keys to models (like Gemini) and, more critically, your data (like a MongoDB database).
 
-The common solution, .env files or Kubernetes secrets, just moves the problem. You still have a static, long-lived password sitting on a server. If that's compromised, it's game over.
+Common solutions like .env files or Kubernetes secrets just move the problem. You still have a static, long-lived password sitting on a server. If that's compromised, it's game over.
 
-This post explores a more radical, secure architecture: a "dynamic-only" secretless agent. We'll walk through the code for a Google ADK agent that starts with zero credentials. It uses its native GCP cloud identity to fetch its Gemini API Key, and for its database, it only accepts just-in-time, dynamic credentials.
+This post explores a more radical, secure architecture: a "dynamic-only" secretless agent. We'll walk through the code for a Google ADK agent that starts with zero credentials. It uses its native GCP cloud identity to fetch its Gemini API Key, and for its database, it requests only just-in-time dynamic credentials.
 
 ![Illustration for: This post explores a more radical, secure architecture: a "dynamic-only" secretless agent. We'll walk through the code for a Google ADK agent that starts with zero credentials.…](https://files.readme.io/f5c06bb7db757f742fa8959b6e0e705c800baeb66f72fc9b06283a60c37522a4-8630a779-57cb-4b0c-a9d4-65756bd93296.png)
 
@@ -255,7 +255,7 @@ The architecture we've explored isn't just a theoretical workaround; it's a prac
 
 By contrast, the "dynamic-only" model empowers the agent to start with zero secrets. It leverages its native cloud identity (GCP IAM) to prove who it is. Based on this identity, it fetches its Gemini API Key and loads it directly into the Google client's configuration in memory, bypassing environment variables entirely. More critically, it dynamically generates database credentials that are valid for only a few minutes.
 
-This means the agent's most sensitive secrets, its database access simply do not exist until the exact moment of execution and are gone before an attacker can find them. This shift from protecting Static Secrets to eliminating them entirely results in a far more resilient and auditable system.
+This means the agent's most sensitive secret, its database access, simply does not exist until the exact moment of execution and is gone before an attacker can find it. This shift from protecting Static Secrets to eliminating them entirely results in a far more resilient and auditable system.
 
 The benefits of this approach are profound:
 

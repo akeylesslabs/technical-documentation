@@ -18,9 +18,9 @@ Locate the Secret: Navigate to the "Secrets"/"Passwords" section of the Akeyless
 
 Initiate Edit Mode: From the quick editing menu, select the "Edit" option. This will trigger edit mode for the chosen secret.
 
-Make Desired Changes: Utilize the available fields to modify the secret information as needed.
+Make Desired Changes: Use the available fields to modify the secret information as needed.
 
-![Illustration for: Initiate Edit Mode: From the quick editing menu, select the "Edit" option. This will trigger edit mode for the chosen secret. Make Desired Changes: Utilize the available fields…](https://files.readme.io/e0c4908-Screenshot_2024-01-10_at_16.41.08.png)
+![Illustration for: Initiate Edit Mode: From the quick editing menu, select the "Edit" option. This will trigger edit mode for the chosen secret. Make Desired Changes: Use the available fields…](https://files.readme.io/e0c4908-Screenshot_2024-01-10_at_16.41.08.png)
 
 Apply Changes: Once you have made the necessary edits, click the "Save" button to permanently apply your modifications.
 
