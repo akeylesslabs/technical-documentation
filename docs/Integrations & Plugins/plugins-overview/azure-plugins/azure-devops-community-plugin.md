@@ -136,12 +136,12 @@ steps:
 Dynamic secret parsing example with `jq`:
 
 ```shell
-echo '$(MyAkeylessTask.MY_SQL_DYNAMIC_SECRET)' | jq -r 'to_entries|map("SQL_\(.key|ascii_upcase)=\(.value|tostring)")|.[]' >> $SQL
+SQL_JSON='$(MyAkeylessTask.my_dynamic_secret)'
 
-echo $SQL.id
-echo $SQL.user
-echo $SQL.ttl_in_minutes
-echo $SQL.password
+echo "$SQL_JSON" | jq -r '.id'
+echo "$SQL_JSON" | jq -r '.user'
+echo "$SQL_JSON" | jq -r '.ttl_in_minutes'
+echo "$SQL_JSON" | jq -r '.password'
 ```
 
 ## Additional options
