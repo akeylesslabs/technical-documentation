@@ -56,6 +56,14 @@ Install and add the extension to your Azure DevOps organization:
       * **Akeyless Get Dynamic Secrets Value**
       * **Akeyless Get Rotated Secret Value**
 
+When creating the service connection, configure these fields:
+
+* **Akeyless API Base URL**
+* **Access ID**
+* **Service connection name** (used in pipeline YAML)
+* **Description** (optional)
+* **Grant access permission to all pipelines** (optional)
+
 For authentication setup in Akeyless, see:
 
 * [API Key authentication](https://docs.akeyless.io/docs/auth-with-api-key)
