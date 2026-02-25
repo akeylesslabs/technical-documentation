@@ -18,6 +18,8 @@ API key authentication allows users and workloads to authenticate to Akeyless us
 
 API key authentication is intended for **programmatic access** and is not recommended for direct interactive Console sign-in.
 
+<ApiKeyWarning />
+
 ## Creating an API Key Authentication Method
 
 API key authentication is available by default for Akeyless accounts. No additional configuration is required.
