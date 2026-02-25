@@ -51,7 +51,7 @@ Install and add the extension to your Azure DevOps organization:
 3. Set the service connection Access ID.
 4. Add pipeline tasks in this order:
    1. **Akeyless Authenticate**
-   2. One of:
+   2. One or more of:
       * **Akeyless Get Secrets Value**
       * **Akeyless Get Dynamic Secrets Value**
       * **Akeyless Get Rotated Secret Value**
