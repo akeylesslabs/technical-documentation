@@ -149,18 +149,18 @@ Once done, continue with creating a Kerberos Authentication Method:
 
 ```shell
 akeyless auth-method create kerberos \
---name <Auth Method Name> \      
---krb5conf-file-path /path/to/krb5.conf \                        
+--name <Auth Method Name> \
+--krb5conf-file-path /path/to/krb5.conf \
 --keytab-file-path /path/to/.keytab \
 --ldap-url <LDAP server URL> \
---bind-dn CN=user,CN=Users,DC=TEST,DC=COM \   
+--bind-dn CN=user,CN=Users,DC=TEST,DC=COM \
 --bind-dn-password <bind dn password> \
---user-dn CN=Users,DC=TEST,DC=COM \             
+--user-dn CN=Users,DC=TEST,DC=COM \
 --user-attribute sAMAccountName \
 --group-dn CN=Users,DC=TEST,DC=COM \
---group-filter (sAMAccountName={{.Username}}) \      
+--group-filter (sAMAccountName={{.Username}}) \
 --group-attr memberOf \
---gateway-url '<https://<Your-Akeyless-GW-URL:8000>' \
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' \
 --unique-identifier sAMAccountName 
 ```
 
@@ -192,7 +192,7 @@ Where:
 
 * `unique-identifier`: A unique identifier (ID) value which is a sub-claim name that contains details uniquely identifying that resource. This sub-claim is used to distinguish between different identities
 
-You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-reference-kerberos)
+You can find the complete list of additional parameters for this command in the [CLI Reference - Authentication section](https://docs.akeyless.io/docs/cli-reference-kerberos#create).
 
 Once created, you can use the `akeyless auth` command to authenticate a user by way of **Kerberos**:
 
@@ -202,14 +202,14 @@ akeyless auth \
 --access-type=kerberos \
 --krb5conf-file-path /path/to/krb5.conf \
 --keytab-file-path /path/to/keytab \
---gateway-url '<https://<Your-Akeyless-GW-URL:8000>' 
+--gateway-url 'https://<Your-Akeyless-GW-URL>:8000' 
 ```
 
 Running this command will authenticate the user specified in the `keytab` file to Akeyless using **Kerberos**
 
 ## Kerberos SSO SDK
 
-To utilize SSO for Kerberos, add the `Akeyless.Kerberos` package to your `.NET` project, and run the following command in your project directory:
+To use SSO for Kerberos, add the `Akeyless.Kerberos` package to your `.NET` project, and run the following command in your project directory:
 
 ```csharp
 dotnet add package Akeyless.Kerberos --version 1.0.0
@@ -286,8 +286,8 @@ public class Program
 
 Make sure to change the following:
 
-`<your-gateway-spn` with the Service Principal Name for your Akeyless Gateway.
+`<your-gateway-spn>` with the Service Principal Name for your Akeyless Gateway.
 
-`<your-gateway-url` with the URL of your Akeyless Gateway.
+`<your-gateway-url>` with the URL of your Akeyless Gateway.
 
-`<your-access-id`with your Akeyless Access ID.
+`<your-access-id>` with your Akeyless Access ID.

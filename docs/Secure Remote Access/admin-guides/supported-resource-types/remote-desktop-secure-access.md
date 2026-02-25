@@ -87,7 +87,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 4. If you are locked out of a session, click on the "Unlock" button at the top of your screen and you will be given the option to reconnect to your session. **IMPORTANT** This option is only supported with the installation of our [Remote Access (SRA) Web Extension](https://chromewebstore.google.com/search/Akeyless%20SRA) on your browser.
 
-> 📘 Session In Use Indicator
+> **Note (Session In Use Indicator):**
 >
 > For RDP sessions using a **Rotated Secret** or **Static Secret**, there will be a text indicator showing "In use" next to any sessions that are currently occupied by another user.
 >
@@ -105,7 +105,5 @@ Based on your permissions, you will have the ability to upload files from your l
 
 To download files from a remote server, simply drag the desired files into the `Download` folder inside the mounted virtual disk named `file-share on Guacamole RDP` located under `This PC`, and a download process will start immediately where the file will be put into your local machine's Download folder. To upload files, use the **Upload** button on top of your session actions bar menu. The files you upload will be located in the same shared drive.
 
-> 📘 Info
->
-> **Mounted Folder**
+> **Info (Mounted Folder):**
 > Notice that upload stores (temporarily) the file on the Secure Remote Access server, please make sure it has enough disk space. The files will be cleared after the user disconnects.

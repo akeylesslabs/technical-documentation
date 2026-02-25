@@ -14,7 +14,7 @@ Akeyless supports [ZeroSSL](https://zerossl.com/), [GlobalSign](https://www.glob
 
 The public certificate authority will sign and issue the certificate, while Akeyless will store and manage the certificate lifecycle.
 
-The issuance flow utilizes a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
+The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates), ensuring full automation and storage of your public certificate while providing real-time expiration notification inside the [Event Center](https://docs.akeyless.io/docs/event-center) to manage the lifecycle of your certificates.
 
 ## Prerequisites
 
@@ -26,10 +26,10 @@ The issuance flow utilizes a Public CA Target with Akeyless [PKI Issuer](https:/
 Run the following command to create a PKI Certificate Issuer with a Public CA Target:
 
 ```shell shell
-akeyless create-pki-cert-issuer \ 
+akeyless create-pki-cert-issuer \
 --name <PKI Issuer name> \
 --ca-target <Path/To/Target> \
---gw-cluster-url https://<Your-Gateway-URL:8000> \
+--gw-cluster-url https://<Your-Gateway-URL>:8000 \
 --ttl <7776000> \
 --allowed-domains <domain1.com,domain2.com> \
 --destination-path </Certificate/Storage/Folder> \
@@ -52,9 +52,9 @@ Where:
 
 * `expiration-event-in`: How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use the argument multiple times: `expiration-event-in 10` `expiration-event-in 15`.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluecreate-pki-cert-issuerp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#create-pki-cert-issuer) section.
 
-> 👍 Allowed Domains
+> **Note (Allowed Domains):**
 >
 > Due to the nature of some Public CAs, for example, GoDaddy, **CN** might be sent with the classic `www.` prefix, it is recommended to check this in advance for future automated renewal.
 
@@ -68,7 +68,7 @@ akeyless generate-csr \
 --generate-key \
 --alg <RSA1024> \
 --common-name <common name to be included in the CSR certificate> \
---gateway-url <https://Akeyless-Gateway-URL:8000>
+--gateway-url 'https://Akeyless-Gateway-URL:8000'
 ```
 
 Where:
@@ -83,9 +83,9 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`). to generate the classic key, relevant only when using `generate-key` option.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorbluegenerate-csrp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#generate-csr) section.
 
-> 👍 Note
+> **Note:**
 >
 > The `Common Name` field (For example, server FQDN) - Should be listed under the `allowed-domains` as configured in the [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) item.
 
@@ -101,7 +101,7 @@ The output of this command contains the following value:
 
 * `display ID` - Certificate display ID.
 
-You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-pki-certificatep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-pki-certificate) section.
 
 To retrieve the certificate, run the following command:
 
@@ -111,7 +111,7 @@ akeyless get-certificate-value \
 --display-id <Certificate display ID>
 ```
 
-You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#p-stylecolorblueget-certificate-valuep) section.
+You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
 
 Once the certificate issue request is processed, a validation email will be sent to the email address listed in the Target, and it will be processed automatically by the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
 

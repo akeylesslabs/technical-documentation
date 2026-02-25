@@ -68,7 +68,7 @@ Creates a new Classic Key in the current account
 akeyless create-classic-key \
 --name <Key Name> \
 --alg <Key type> \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --generate-self-signed-certificate <True/False> \
 --certificate-ttl <Certificate TTL> \
 --certificate-common-name <Certificate common name> 
@@ -235,7 +235,7 @@ akeyless decrypt-file \
 --key-name <key name> \
 --in <file to decrypt> \
 --out <Path to the output file> \
---display-id <Display id of the key to use in the decryption process> \ 
+--display-id <Display id of the key to use in the decryption process> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
@@ -300,7 +300,7 @@ Decrypts a plaintext using RSA and the padding scheme from PKCS#1 v1.5
 akeyless decrypt-pkcs1 \
 --key-name <Key Name> \
 --ciphertext <Ciphertxt to decrypt> \
---display-id <Display id of the key> \ 
+--display-id <Display id of the key> \
 --item-id <Item id of the key>
 ```
 
@@ -357,7 +357,7 @@ Encrypts a file by using an AES key
 ```shell
 akeyless encrypt-file \
 --key-name <Key Name> \
---in <File to be encrypted> \ 
+--in <File to be encrypted> \
 --out <Output file> \
 --display-id <Display id of the key> 
 ```
@@ -442,7 +442,7 @@ Returns the Classic Key material
 akeyless export-classic-key \
 --name <Key name> \
 --version <Key version> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ### Flags
@@ -468,7 +468,7 @@ Download gateway customer fragments
 ```shell
 akeyless gateway-download-customer-fragments \
 --file-folder <path to download to> \
---gateway-url <API Gateway URL:8000>
+--gateway-url <API Gateway URL>:8000
 ```
 
 ## `gen-customer-fragment`
@@ -516,7 +516,7 @@ Generates a hash-based message authentication code (HMAC) for a message, using a
 ```shell
 akeyless hmac \
 --key-name <Key name> \
---display-id <Display id of the key> \ 
+--display-id <Display id of the key> \
 --item-id <Item id of the key>
 ```
 
@@ -561,7 +561,7 @@ Rotates an existing key, by creating a new version of the key
 ```shell
 akeyless rotate-key \
 --name <Key name> \
---gateway-url <API Gateway URL:8000> \ 
+--gateway-url <API Gateway URL>:8000 \
 --new-key-data <The new value of the key, base64-encoded>
 ```
 
@@ -718,7 +718,7 @@ Update the certificate for a classic key
 ```shell
 akeyless update-classic-key-certificate \
 --name <Classic key name> \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --cert-file-path <path/to/cert/file> \
 --cert-file-data <PEM Certificate in a Base64 format>
 ```
@@ -869,9 +869,9 @@ Verifies a GPG based on RSA signature
 ```shell
 akeyless verify-gpg \
 --key-name <RSA Key> \
---signature <message signature> \ 
+--signature <message signature> \
 --message <message to verify> \
---display-id <Display id of the key> \ 
+--display-id <Display id of the key> \
 --item-id <Item id of the key>
 ```
 
@@ -899,8 +899,8 @@ Verifies an RSA PKCS#1 v1.5 signature
 akeyless verify-pkcs1 \
 --key-name <RSA Key> \
 --message <message to verify> \
---signature <message signature> \ 
---display-id <Display id of the key> \ 
+--signature <message signature> \
+--display-id <Display id of the key> \
 --item-id <Item id of the key>
 ```
 

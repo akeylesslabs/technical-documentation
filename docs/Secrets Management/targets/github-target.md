@@ -34,7 +34,7 @@ Where:
 
 * `github-base-url`: Provide the GitHub base URL, default is [https://api.github.com/](https://api.github.com/).
 
-You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#p-stylecolorbluegithubp) section.
+You can find the complete list of parameters for this command in the [CLI Reference - Akeyless Targets](https://docs.akeyless.io/docs/cli-ref-targets#github) section.
 
 ## Create a GitHub Target in the Console
 

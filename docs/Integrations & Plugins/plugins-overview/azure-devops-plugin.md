@@ -20,7 +20,7 @@ Search for the "Vault - Read KV Secrets" Task, select it and configure it as fol
 
 Under **Vault Server Settings**: add the following Akeyless host as your Vault URL: `https://hvp.akeyless.io`, to work with your own [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) set the Vault URL of your Gateway HashiCorp Vault Proxy endpoint: `https://Your-Gateway-URL:8000/hvp` (or using your gateway URL at port 8200)
 
-> 👍 Note
+> **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 

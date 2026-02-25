@@ -35,9 +35,7 @@ To get the Analytic data using a CLI command run the following command:
 akeyless get-analytics-data
 ```
 
-<Callout icon="📘" theme="info">
-  Data in the Analytics report includes items stored in <Anchor label="Personal Folders" target="_blank" href="doc:personal-corporate-areas-navigation">Personal Folders</Anchor>.
-</Callout>
+> **Note:** Data in the Analytics report includes items stored in [Personal Folders](doc:personal-corporate-areas-navigation).
 
 ## Tutorial
 

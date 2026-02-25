@@ -58,7 +58,7 @@ By default, access to the Azure portal will use direct network access mode. To w
 
 * `secure-access-web-browsing`: Optional, secure browser by way of Akeyless Web Access Bastion.
 
-Alternatively, in case you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
+Alternatively, if you prefer to work with the Akeyless bastions as a proxy entry point, set this parameter as true:
 
 * `secure-access-web-proxy`: Optional, web-proxy by way of Akeyless Web Access Bastion.
 * `secure-access-url`: Required for Rotated Secret. The target URL where credentials will be injected.
@@ -89,7 +89,7 @@ Let's set up remote access to the Azure Portal from the Akeyless Console. If you
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
-> 📘 Custom Delay
+> **Note (Custom Delay):**
 >
 > You can specify a custom delay, measured in seconds \[0 - 120], before a newly generated dynamic secret becomes usable. This additional wait time helps target systems complete their sync process with the updated credentials
 

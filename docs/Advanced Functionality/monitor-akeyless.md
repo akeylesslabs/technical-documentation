@@ -36,7 +36,7 @@ A full list of the log servers to which logs can be forwarded can be found in th
 
 Setting the [Gateway](https://docs.akeyless.io/docs/api-gw) to forward the **Audit Logs** can be configured either during deployment or after the Gateway is deployed.
 
-> 📘 Authorized Users
+> **Note (Authorized Users):**
 >
 > Only users with access permission on the gateway to manage log forwarding will authorize to set log forwards.
 

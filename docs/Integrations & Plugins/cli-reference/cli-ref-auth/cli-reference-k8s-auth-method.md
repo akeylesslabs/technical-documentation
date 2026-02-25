@@ -50,7 +50,7 @@ akeyless auth-method create k8s \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see get-account-settings)
 
-`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for Kubernetes authentication method is required `[RSA2048]`
+`-p, --public-key-file-path`: If `gen-key` is set to false, a path to a public key for the Kubernetes authentication method is required `[RSA2048]`
 
 `--public-key`: Base64-encoded or PEM formatted public key data
 
@@ -74,20 +74,20 @@ Creates Kubernetes Auth config on Gateway
 akeyless gateway-create-k8s-auth-config \
 --name <k8s-conf name> \
 --access-id <Access_ID> \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --signing-key <Private_Key> \
---k8s-host <https://Your-K8s-Cluster-IP:8443> \
+--k8s-host https://Your-K8s-Cluster-IP:8443 \
 --token-reviewer-jwt <SA_JWT_TOKEN> \
 --k8s-ca-cert <CA_CERT> \
 --k8s-issuer <K8S_ISSUER>
 ```
 ```shell Rancher
 akeyless gateway-create-k8s-auth-config --name k8s-conf-rancher \
---gateway-url <https://Your-GW-URL>:8000 \
+--gateway-url 'https://Your-GW-URL:8000' \
 --access-id $ACCESS_ID \
 --signing-key $PRV_KEY \
 --cluster-api-type rancher \
---k8s-host=<https://Rancher Host>:443 \
+--k8s-host=https://<Rancher-Host>:443 \
 --k8s-ca-cert $CA_CERT \
 --k8s-issuer $K8S_ISSUER \
 --rancher-api-key <API_KEY> \
@@ -95,7 +95,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf-rancher \
 ```
 ```shell Gateway Service Account
 akeyless gateway-create-k8s-auth-config --name k8s-conf \
---gateway-url <API Gateway URL:8000> \
+--gateway-url <API Gateway URL>:8000 \
 --access-id <Access_ID> \
 --signing-key <Private_Key> \
 --use-gw-service-account
@@ -145,7 +145,7 @@ akeyless gateway-create-k8s-auth-config --name k8s-conf \
 
 ## `update`
 
-Update a new Authentication Method that will be able to authenticate using Kubernetes
+Update a new Authentication Method that can authenticate using Kubernetes
 
 ### Usage
 
@@ -177,7 +177,7 @@ akeyless update-auth-method-k8s \
 
 `--jwt-ttl[=0]`: Credentials expiration time in minutes. If not set, use default according to account settings (see `get-account-settings`)
 
-`-p, --public-key-file-path`: In case the gen-key set to false, path to a public key for Kubernetes authentication method is required [RSA2048]
+`-p, --public-key-file-path`: If `gen-key` is set to false, a path to a public key for the Kubernetes authentication method is required [RSA2048]
 
 `--public-key`: Base64-encoded or PEM formatted public key data
 
@@ -262,7 +262,7 @@ Gets Gateway Kubernetes Auth config
 ```shell
 akeyless gateway-get-k8s-auth-config \
 --name <Kubernetes Auth config name> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ### Flags
@@ -279,7 +279,7 @@ Deletes Kubernetes Auth config
 ```shell
 akeyless gateway-delete-k8s-auth-config \
 --name <Auth config name> \
---gateway-url <API Gateway URL:8000> 
+--gateway-url <API Gateway URL>:8000 
 ```
 
 ### Flags

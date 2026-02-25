@@ -22,11 +22,11 @@ This chart bootstraps the `Akeyless-Web-Access-Bastion` deployment on a Kubernet
 
 * Kubernetes Installed
 
-* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and  1 vCPU available with 1 GB RAM for the `WebDispatcher` This can be explicitly specified inside the chart for the `WebWorker` and for the `dispatcher` services.
+* Minimum 1 vCPU available with 2 GB RAM for the `WebWorker` and 1 vCPU available with 1 GB RAM for the `WebDispatcher`. This can be explicitly specified inside the chart for the `WebWorker` and for the `dispatcher` services.
 
 ### Network
 
-When using an Embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout, it's advised to increase it to a reasonably high value or even unlimited. [For example, when running on AWS with ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
+When using an embedded browser session behind a load balancer such as ELB, the session can be closed due to an idle connection timeout. It is advised to increase it to a reasonably high value or leave it unlimited. [For example, when running on AWS with ELB](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html?icmpid=docs_elb_console).
 
 ### Storage
 
@@ -58,7 +58,7 @@ For security reasons, please limit the `PersistentVolumes` mount permissions to 
 Horizontal auto-scaling is based on the HorizontalPodAutoscaler object.  
 For it to work correctly, the Kubernetes Metrics Server must be installed in the cluster. [View the Metrics Server documentation](https://github.com/kubernetes-sigs/metrics-server).
 
-> 🚧 Warning
+> **Warning:**
 >
 > To enable Secure Remote Access features you will have to get an access-key to Akeyless private repository. Please contact your Account Manager for more details.
 
@@ -101,7 +101,7 @@ env:
       value: http
 ```
 
-> 🚧 Warning
+> **Warning:**
 >
 > The HTTP-type proxy will only work with Chrome browsers currently. For Firefox, you can skip this environment variable configuration so the default `socks-proxy` protocol will be used for example: `socks://proxy.example.com`
 
@@ -109,7 +109,7 @@ The Web Access Bastion should be set with a **privileged** `AccessID` with **Rea
 
 Users can have only `list` permissions on their secrets. After successful authentication against your IdP, the bastion fetches the requested secret from Akeyless, then injects it transparently for the user.
 
-To control who will be the relevant users that will be allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs` that will be authorized to request access.
+To control which users are allowed to request access from the Akeyless Bastion, set the `allowedAccessIDs` field with a list of `AccessIDs`.
 
 ```yaml
 privilegedAccess:
@@ -149,7 +149,7 @@ AWS IAM can be used in the following approach:
 
 * Instance IAM Role
 
-While working with an IAM Role associated with the instance himself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
+While working with an IAM Role associated with the instance itself, you can simply provide your [AWS IAM](https://docs.akeyless.io/docs/auth-with-aws) `Access ID` as your `accessID`, with a list of `allowedAccessIDs` that will be authorized to request access:
 
 ```yaml values.yaml
 privilegedAccess:

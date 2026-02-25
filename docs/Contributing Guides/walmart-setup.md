@@ -64,7 +64,7 @@ Outgoing network access to Akeyless WMT SaaS Core Services by way of the followi
 
 There are a handful of ways to interact with Akeyless Vault for managing, creating, and fetching multiple types of supported [secrets](https://docs.akeyless.io/docs/manage-your-secrets-overview). One of them is our Command Line Interface (CLI), which is purpose-built to serve your custom automation scripts (usually within a CI/CD pipeline or backup process), as well as human DevOps/Software engineers.
 
-> 👍 Info
+> **Info:**
 >
 > For a full list of the available CLI command, see the [CLI reference](https://docs.akeyless.io/docs/cli-reference).
 
@@ -133,9 +133,7 @@ Ldap Proxy URL: https://Akeyless.GW
 Profile ldap successfully configured
 ```
 
-> 🚧 Warning
->
-> **No validation of credentials**
+> **Warning (No validation of credentials):**
 > If you don’t enter the correct credentials, the CLI will not give you an error message, and it will just tell you that everything is configured. You will only receive an error message when you attempt to run commands.
 
 At the prompt `Would you like to add AKEYLESS-CLI to PATH (...)? (Y/n)` line, type `Y`.

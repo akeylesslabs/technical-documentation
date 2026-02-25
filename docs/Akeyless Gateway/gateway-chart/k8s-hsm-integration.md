@@ -12,9 +12,9 @@ next:
 ---
 In any encryption system, the ability to generate pseudo-random numbers is crucial, particularly for tasks like creating encryption keys. Akeyless addresses this need by offering a solution that not only generates pseudo-random numbers, but also enhances overall data security by leveraging **Hardware Security Modules (HSMs)** to generate and securely store these pseudo-random numbers for encryption keys, ensuring maximum data security.
 
-The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` protocol to provide a seamless solution. This integration can also be leveraged for the derivation of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) **Customer Fragments** from the **HSM** to the **Gateway**, using the [HKDF](https://en.wikipedia.org/wiki/HKDF) function.
+The integration of the Akeyless Gateway with an **HSM** uses the `PKCS#11` protocol to provide a seamless solution. This integration can also be leveraged for the derivation of [Zero-Knowledge](https://docs.akeyless.io/docs/zero-knowledge) **Customer Fragments** from the **HSM** to the **Gateway**, using the [HKDF](https://en.wikipedia.org/wiki/HKDF) function.
 
-> 📘 HSM Entropy
+> **Note (HSM Entropy):**
 >
 > For setting the **HSM** to generate random numbers for the cryptographic operations, the **HSM** must support the `C_GenerateRandom` operation.
 
@@ -28,7 +28,7 @@ The integration of the Akeyless Gateway with an **HSM** utilizes the `PKCS#11` p
 
 ## HSM Configuration
 
-To set the Gateway to work with your **HSM** a persistence volume must be used in order to load the `pkcs11.so` file, you can either create a PVC manually and provide it using the `existingClaim` or set the `storageClass` for automatic provisioning with your Kubernetes provider. The `accessMode` should be `ReadWriteMany`.
+To set the Gateway to work with your **HSM**, a persistence volume must be used to load the `pkcs11.so` file. You can either create a PVC manually and provide it using the `existingClaim`, or set the `storageClass` for automatic provisioning with your Kubernetes provider. The `accessMode` should be `ReadWriteMany`.
 
 In addition, the **HSM pin** must be provided using a **Kubernetes Secret** which holds the `pin`, **note** the **Kubernetes Secret** key name must be set to `pin`
 
@@ -39,7 +39,7 @@ kubectl create secret generic hsm-pin \
 
 Set the following parameters as part of the `values.yaml` file:
 
-**Note** There are three options for identifying the **HSM Token** to work with: `slot`, `tokenLabel`, or`tokenSerial` - only one of these options needs to be set.
+**Note** There are three options for identifying the **HSM Token** to work with: `slot`, `tokenLabel`, or `tokenSerial` - only one of these options needs to be set.
 
 ```yaml
 ## HSM configuration

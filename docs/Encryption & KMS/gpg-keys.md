@@ -27,7 +27,7 @@ akeyless create-classic-key \
 --name <key name> \
 --alg gpg \
 --gpg-alg <algorithm type> \
---gateway-url = 'https://<Your_Akeyless_GW_URL:8000>'
+--gateway-url 'https://<Your_Akeyless_GW_URL>:8000'
 ```
 
 Where:
@@ -37,7 +37,7 @@ Where:
 * `gpg-alg`: Relevant only if GPG key type selected; options: [`RSA1024`, `RSA2048`, `RSA3072`, `RSA4096`, `X25519`]
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-Other parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluecreate-classic-keyp).
+Other parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#create-classic-key).
 
 ### Key Usage
 
@@ -47,12 +47,12 @@ Encryption command:
 
 ```shell
 akeyless encrypt-gpg -k <Key name> \
---display-id <Display id of the key to use in the encryption process \
+--display-id <Display id of the key to use in the encryption process> \
 --item-id <Item id of the key to use in the encryption process> \
 --in <Path to the file to be encrypted in base64 format>
 ```
 
-The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueencrypt-gpgp).
+The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#encrypt-gpg).
 
 Decryption command:
 
@@ -63,7 +63,7 @@ akeyless decrypt-gpg --key-name <Key Name> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
-The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluedecrypt-gpgp).
+The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#decrypt-gpg).
 
 Signing command:
 
@@ -74,23 +74,23 @@ akeyless sign-gpg --key-name <RSA signing key name> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
-The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorbluesign-gpgp).
+The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#sign-gpg).
 
 Verification command:
 
 ```shell
 akeyless verify-gpg --key-name <RSA Key> \
 --message <message to verify> \
---signature <message signature> \ 
---display-id <Display id of the key to use in the decryption process> \ 
+--signature <message signature> \
+--display-id <Display id of the key to use in the decryption process> \
 --item-id <Item id of the key to use in the encryption process>
 ```
 
-The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#p-stylecolorblueverify-gpgp).
+The full parameters can be found in the [CLI reference](https://docs.akeyless.io/docs/cli-reference-encryption-keys#verify-gpg).
 
 ## Working With GPG from the Console
 
-While the console can create GPG-type keys, their full usage functionalities are available from the CLO.
+While the console can create GPG-type keys, their full usage functionalities are available with the CLI.
 
 ### Key Creation
 

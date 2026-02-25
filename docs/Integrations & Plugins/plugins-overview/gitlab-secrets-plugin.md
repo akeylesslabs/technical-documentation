@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-The Akeyless <Anchor label="Official plugin" target="_blank" href="https://archives.docs.gitlab.com/18.0/ci/secrets/akeyless/">Official plugin</Anchor> for GitLab securely and easily fetches secrets into GitLab pipelines.
+The Akeyless [Official plugin](https://archives.docs.gitlab.com/18.0/ci/secrets/akeyless/) for GitLab securely and easily fetches secrets into GitLab pipelines.
 
-Using GitLab <Anchor label="ID tokens" target="_blank" href="https://docs.gitlab.com/ci/yaml/#id_tokens">ID tokens</Anchor> when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a <Anchor label="JSON Web Token (JWT)" target="_blank" href="https://docs.gitlab.com/ci/secrets/id_token_authentication/#id-tokens">JSON Web Token (JWT)</Anchor> as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
+Using GitLab [ID tokens](https://docs.gitlab.com/ci/yaml/#id_tokens) when a pipeline runs, GitLab generates a unique token for the job. This token is valid only for the duration of the job and expires once the job is complete. Each job is assigned a [JSON Web Token (JWT)](https://docs.gitlab.com/ci/secrets/id_token_authentication/#id-tokens) as a `CI/CD` variable called `ID_TOKEN` which can be used to authenticate to Akeyless.
 
 ## Prerequisites
 
 * GitLab Version **17.4** or higher.
 
-> 📘 Enable Akeyless CI Secret Plugin
+> **Note (Enable Akeyless CI Secret Plugin):**
 >
 > This plugin availability is currently controlled by GitLab Feature Flag, to enable this on your GitLab environment you might need to contact your GitLab Account Manager
 
@@ -35,7 +35,7 @@ This plugin supports the following Authentication Methods:
 * [Access Key](https://docs.akeyless.io/docs/auth-with-api-key)
 * [Certificate](https://docs.akeyless.io/docs/auth-with-certificate)
 
-To utilized the plugin you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless.
+To use the plugin, you need to use the `secrets:akeyless` keyword to authenticate and retrieve secrets from Akeyless.
 
 By default, when using `ID_TOKEN` the `akeyless_access_type` will be set to `jwt`. Where the Auth Method `Access ID` should be stored inside a GitLab **CI/CD** variable.
 
@@ -52,7 +52,7 @@ secrets:
     AKEYLESS_SECRET:
       token: $AKEYLESS_JWT
       akeyless:
-        akeyless_api_url: '<https://Your-Gateway-URL:8080/v2>'
+        akeyless_api_url: 'https://Your-Gateway-URL:8080/v2'
         name: '</SecretName>'
 ```
 ```yaml API Key
@@ -94,7 +94,7 @@ secrets:
         akeyless_access_type: 'k8s'
         k8s_service_account_token: 'k8s_service_account_token'
         k8s_auth_config_name: 'k8s_auth_config_name'
-        akeyless_api_url: '<https://Your-Gateway-URL:8080/v2>'
+        akeyless_api_url: 'https://Your-Gateway-URL:8080/v2'
 ```
 ```yaml Universal Identity
 secrets:
@@ -112,11 +112,11 @@ secrets:
         akeyless_token: '<t-token>'
 ```
 
-Where make sure to set the relevant `access_type` according to the Auth Method type you are using. For example the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) example demonstrates the use of **CI/CD** variable to store the Access Key. that is `access_key: $AKEYLESS_ACCESS_KEY`.
+Make sure to set the relevant `access_type` according to the Auth Method type you are using. For example, the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) example demonstrates using a **CI/CD** variable to store the Access Key: `access_key: $AKEYLESS_ACCESS_KEY`.
 
-> 🚧 Warning
+> **Warning:**
 >
-> For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
+> For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.gitlab.com/ci/secrets/id_token_authentication/#token-payload) to prevent access by unauthorized users.
 >
 > Sub-Claim configuration allows Akeyless to grant access to specific workflows, based on the claims that GitLab provides in the JWT.
 
@@ -124,7 +124,7 @@ Where make sure to set the relevant `access_type` according to the Auth Method t
 
 Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml` and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) Auth Method.
 
-> 📘 Tip
+> **Tip:**
 >
 > Working with GitLab Token payload can be used with Access Roles [path templates](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier management of your CI/CD project access using the `sub (subject)` field from your token.
 
@@ -153,11 +153,11 @@ Where:
 
 * `name`: The full name of the secret in Akeyless, for example, `/MyFirstSecret`
 
-* `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint that is`<https://Your_GW_URL:8080/v2>`, by default works with the public API: `https://api.akeyless.io`.
+* `akeyless_api_url`: **Optional** Your Gateway URL **API** endpoint that is `https://Your_GW_URL:8080/v2`, by default works with the public API: `https://api.akeyless.io`.
 
 * `gateway_ca_certificate`: **Optional**, Gateway CA Certificate when your Gateway TLS is set with **Private CA** .
 
-> 📘 Working with Gateway
+> **Note (Working with Gateway):**
 >
 > To fetch **Dynamic** and **Rotated** Secrets make sure your **GitLab Runner** has network access to the relevant Akeyless Gateway.
 
@@ -187,7 +187,7 @@ When reusing the same token for multiple use the following format:
 job:  # This job fetches the Akeyless Token  
   id_tokens:  
     AKEYLESS_JWT:  
-      aud: '<https://gitlab.com'>  
+      aud: 'https://gitlab.com'  
   secrets:  
     AKEYLESS_TOKEN:  
       token: $AKEYLESS_JWT  
