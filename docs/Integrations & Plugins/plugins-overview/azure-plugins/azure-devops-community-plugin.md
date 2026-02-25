@@ -57,6 +57,91 @@ Reference setup from the upstream project:
 * [Getting started guide](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/getting-started.md)
 * [Examples](https://github.com/LanceMcCarthy/akeyless-extension-azdo/blob/main/docs/examples.md)
 
+### Authentication setup example (OAuth 2.0/JWT)
+
+Create an OAuth 2.0/JWT auth method:
+
+```shell
+akeyless auth-method create oauth2 --name /Dev/AzureAuth \
+--jwks-uri https://login.microsoftonline.com/common/discovery/keys \
+--unique-identifier appid=<appid-string>
+```
+
+Create an access role and associate the auth method with sub-claims:
+
+```shell
+akeyless create-role --name /Dev/AzureRole
+
+akeyless assoc-role-am --role-name /Dev/AzureRole \
+--am-name /Dev/AzureAuth \
+--sub-claims appid=<appid-string>
+
+akeyless set-role-rule --role-name /Dev/AzureRole \
+--path /Path/To/your/secret/'*' \
+--capability read
+```
+
+### Pipeline examples
+
+#### Static secrets
+
+```yaml
+steps:
+- task: AzureCLI@2
+  name: AzureCLI
+  displayName: 'Get JWT from Azure'
+  inputs:
+    azureSubscription: 'service-connection-name'
+    scriptType: ps
+    scriptLocation: inlineScript
+    inlineScript: |
+      $JWT=$(az account get-access-token --query accessToken --output tsv)
+      echo "##vso[task.setvariable variable=azure_jwt;isoutput=true;issecret=true]$JWT"
+
+- task: akeyless-secrets@1
+  name: MyAkeylessTask
+  displayName: 'Get Secrets from Akeyless'
+  inputs:
+    accessid: '<your-access-id>'
+    azureJwt: '$(AzureCLI.azure_jwt)'
+    staticSecrets: '{"/path/to/first-secret":"first_secret", "/path/to/second-secret":"second_secret" }'
+```
+
+#### Dynamic secrets
+
+```yaml
+steps:
+- task: AzureCLI@2
+  name: AzureCLI
+  displayName: 'Get JWT from Azure'
+  inputs:
+    azureSubscription: 'service-connection-name'
+    scriptType: ps
+    scriptLocation: inlineScript
+    inlineScript: |
+      $JWT=$(az account get-access-token --query accessToken --output tsv)
+      echo "##vso[task.setvariable variable=azure_jwt;isoutput=true;issecret=true]$JWT"
+
+- task: akeyless-secrets@1
+  name: MyAkeylessTask
+  displayName: 'Get Secrets from Akeyless'
+  inputs:
+    accessid: '<your-access-id>'
+    azureJwt: '$(AzureCLI.azure_jwt)'
+    dynamicSecrets: '{"/path/to/dynamic/secret":"my_dynamic_secret"}'
+```
+
+Dynamic secret parsing example with `jq`:
+
+```shell
+echo '$(MyAkeylessTask.MY_SQL_DYNAMIC_SECRET)' | jq -r 'to_entries|map("SQL_\(.key|ascii_upcase)=\(.value|tostring)")|.[]' >> $SQL
+
+echo $SQL.id
+echo $SQL.user
+echo $SQL.ttl_in_minutes
+echo $SQL.password
+```
+
 ## Additional options
 
 From the task manifest, this plugin supports:
