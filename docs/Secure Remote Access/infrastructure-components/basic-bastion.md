@@ -20,7 +20,7 @@ next:
       slug: aws-console-secure-remote-access
       title: AWS Console Secure Remote Access
 ---
-> **Note:**
+> ℹ️ **Note:**
 >
 > This chart has been replaced by [Secure Remote Access Bastion](https://docs.akeyless.io/docs/secure-remote-access-bastion) and is no longer available.
 
@@ -46,7 +46,7 @@ Currently, when using DB application (MySQL, MongoDB) by way of the Basic Bastio
 
 * Cloud Provider LB - Make sure to config the LB to support sticky session, for example is AWS, using ELB: [https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html).
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > To enable Secure Remote Access features you will have to get an access-key to Akeyless private repository. Please contact your Account Manager for more details.
 

@@ -101,6 +101,6 @@ All of the parameters from the creation command will also apply here.
 
     * **Expiration Notification:** If you wish to get notified when the certificate's expiration date comes near, click on **⊕ Add Notification** and adjust the day count from the default 30 to any number you desire. This can be done multiple times to receive more than one notification.
 
-> **Tip:**
+> ✅ **Tip:**
 >
 > To view the entire certificate hierarchy simply click on the **View Certificate Details** to get a the decoded information of your certificate.

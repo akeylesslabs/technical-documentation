@@ -1013,7 +1013,7 @@ akeyless auth-method update oci \
 
 `-t, --tenant-ocid`: **Required**, The Oracle Cloud tenant ID
 
-`-g, --group-oicd`: **Required**, A list of required groups OCIDs
+`-g, --group-ocid`: **Required**, A list of required groups OCIDs
 
 `--new-name`: Auth Method new name
 

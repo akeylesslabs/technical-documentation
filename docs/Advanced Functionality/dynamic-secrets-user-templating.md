@@ -14,7 +14,7 @@ By default, a [Dynamic Secret](https://docs.akeyless.io/docs/how-to-create-dynam
 
 However, in cases where you need to use a **custom** or **predefined** username, for example, to align with existing identities or to integrate with external systems that require consistent naming, you can define a [template](https://pkg.go.dev/text/template) using the supported Go functions listed below.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > This feature is available only from GW version `4.34.0` and higher. Ensure you have enough randomness in your template to support the uniqueness of multiple usernames in parallel when using custom templates
 

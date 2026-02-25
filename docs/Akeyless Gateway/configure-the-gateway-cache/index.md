@@ -12,7 +12,7 @@ next:
 ---
 Upon network outage, the Gateway cache can still handle requests for Secrets retrievals (read-only). The cache will start working only after the Gateway is successfully operated. Only users already authenticated can get service from the Gateway cache, where the following [Authentication Methods](https://docs.akeyless.io/docs/access-and-authentication-methods) can keep authenticating on offline modes: **K8s**, **email**, **API Key**, **LDAP**, **Certificate** and **JWT**.
 
-> **Note (Offline Authentication Cache):**
+> ℹ️ **Note (Offline Authentication Cache):**
 >
 > Offline authentication cache is only supported in [Cluster Cache](https://docs.akeyless.io/docs/configure-the-gateway-cache#cluster-cache-mode) mode and requires the user being authenticated to have at least list permission on the relevant Authentication Method.
 
@@ -40,7 +40,7 @@ To enable and configure the Gateway Cache:
 
 5. Click **Save Changes**.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Usually, after the Stale Timeout period expires for a secret, the secret is deleted from the Gateway Cache.
 >

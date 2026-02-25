@@ -13,7 +13,7 @@ next:
 Consul Template is a key tool for generating configurations and managing infrastructure. Consul Template is a standalone application that renders data from Consul onto the file system.
 The integration with Akeyless allows users seamlessly to integrate secret data into the configurations.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
@@ -69,6 +69,6 @@ The integration with Akeyless allows users seamlessly to integrate secret data i
         your_secret_value: 1234
     ```
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > **Configuring Consul Template with Akeyless Gateway** - For Zero-Knowledge Encryption please configure [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) and set `VAULT_ADDR` to your private Akeyless Gateway: `export VAULT_ADDR=https://Your-Akeyless-Gateway:8200`.
