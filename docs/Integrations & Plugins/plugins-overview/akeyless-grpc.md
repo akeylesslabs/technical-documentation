@@ -1,5 +1,5 @@
 ---
-title: Akeyless gRPC
+title: gRPC
 excerpt: ''
 deprecated: false
 hidden: false
