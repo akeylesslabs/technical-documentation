@@ -67,15 +67,6 @@ Operational notes:
 
 * `staticSecrets` and `dynamicSecrets` are dictionary-like JSON strings (path-to-output-name mapping).
 * For complex dynamic secret JSON, parse outputs with `jq` or `ConvertFrom-Json` in a follow-up script task.
-
-## Related documentation
-
-* [Plugins Overview](https://docs.akeyless.io/docs/plugins-overview)
-* [Azure Plugins](https://docs.akeyless.io/docs/azure-plugins)
-* [Static secrets](https://docs.akeyless.io/docs/static-secrets)
-* [Dynamic secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
-* [OAuth 2.0/JWT authentication](https://docs.akeyless.io/docs/auth-with-oauth-jwt)
-
 ## TODO for maintainers
 
 * TODO: Confirm whether this page should remain `hidden: true` now that it is grouped under Azure plugins and intended as a reusable template example.

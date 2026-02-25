@@ -87,15 +87,6 @@ Known limitation from current extension docs:
 
 * Supported authentication methods are API Key and JWT.
 
-## Related documentation
-
-* [Plugins Overview](https://docs.akeyless.io/docs/plugins-overview)
-* [Azure Plugins](https://docs.akeyless.io/docs/azure-plugins)
-* [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
-* [Static secrets](https://docs.akeyless.io/docs/static-secrets)
-* [Dynamic secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
-* [Rotated secrets](https://docs.akeyless.io/docs/rotated-secrets)
-
 ## TODO for maintainers
 
 * TODO: Validate and document the canonical YAML invocation aliases for each task in Azure Pipelines examples (`...@0` usage differs between historical examples in docs).

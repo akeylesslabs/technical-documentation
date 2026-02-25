@@ -61,14 +61,6 @@ Related authentication references:
 
 For the Vault Interaction extension itself, review its own task options and caveats (for example recursive discovery and variable prefix behavior) in the Marketplace page.
 
-## Related documentation
-
-* [Plugins Overview](https://docs.akeyless.io/docs/plugins-overview)
-* [Azure Plugins](https://docs.akeyless.io/docs/azure-plugins)
-* [HashiCorp Vault Proxy](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
-* [Static secrets](https://docs.akeyless.io/docs/static-secrets)
-* [Dynamic secrets](https://docs.akeyless.io/docs/how-to-create-dynamic-secret)
-
 ## TODO for maintainers
 
 * TODO: Validate and document one tested YAML example for KV v1 and one for KV v2 against current Vault Interaction extension version, including exact `VaultReadKV@` major version.
