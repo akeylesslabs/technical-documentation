@@ -12,7 +12,7 @@ next:
 ---
 > ℹ️ **Note:** Venafi recently became CyberArk Machine Identity Security.
 
-To work with Venafi TPP, you can choose either to work with Venafi as your certificate issuer or to work with Akeyless as your issuer.
+To work with Venafi TPP in CyberArk Machine Identity Security, you can choose either to work with CyberArk Machine Identity Security as your certificate issuer or to work with Akeyless as your issuer.
 
 ## Prerequisites
 

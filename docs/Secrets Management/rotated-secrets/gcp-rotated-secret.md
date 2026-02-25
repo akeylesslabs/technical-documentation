@@ -61,7 +61,9 @@ Where:
 * `grace-rotation`: A boolean flag, when enabled, a graceful mode of rotation will be conducted, where only the older service account key will be rotated. When there is only one key, a new version will be created to maintain 2 values at the same time.
 
 * `auto-rotate`: Enable auto-rotation if you need to update the Service Account Key regularly. If this value is set to **true**, specify the `rotation-interval` in days, and optionally also the `rotation-hour`.
-    * `grace-rotation-interval` and `grace-rotation-hour` relevant only when `grace-rotation` is **enabled**, if not provided, the main `rotation-interval` settings will take place.
+    * `grace-rotation-interval` and `grace-rotation-hour` are relevant only when `grace-rotation` is **enabled**.
+    * `grace-rotation-interval` must be lower than `rotation-interval`.
+    * When `grace-rotation-timing` is `before`, `rotation-interval` must be higher than `2 × grace-rotation-interval` with at least one day.
 
 You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#gcp) section.
 
