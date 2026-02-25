@@ -31,6 +31,8 @@ Each pipeline step runs in isolation, so secrets don’t carry over automaticall
 
 In this guide, for simplicity, we will use an **API Key**.
 
+<ApiKeyWarning />
+
 ## Examples
 
 The section below will demonstrate how to work with items from your Akeyless account in your Bitbucket pipeline.
