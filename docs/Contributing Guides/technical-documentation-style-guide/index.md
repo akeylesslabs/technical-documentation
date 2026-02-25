@@ -140,8 +140,8 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
 * When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
     * GitLab (instead of Gitlab)
     * GitHub (instead of Github)
-    * Docker Hub (instead of dockerhub)
-    * HashiCorp Vault (instead of Hashi-Vault)
+    * Docker Hub (instead of `dockerhub`)
+    * HashiCorp Vault (instead of `Hashi-Vault`)
     * SAP HANA database (instead of HANA DB)
     * MySQL (instead of mysql)
     * MSSQL (instead of mssql)
