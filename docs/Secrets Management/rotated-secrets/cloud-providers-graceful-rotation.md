@@ -43,4 +43,8 @@ Example of a Rotated Secret that was configured with the following rotation sett
 
 ![Image](https://files.readme.io/d698e2b93fa560e1e14a3cc6d52f2bc4ffae3ed380e7e3732af569eebc1fc67d-After_--grace-rotation-timing__after_.png)
 
+Graceful Rotation input rules:
+
+    * In `before` mode, `rotation-interval` must be higher than `2 × grace-rotation-interval` with at least one day.
+
 Switching between Graceful Rotation modes (Before ↔ After) resets the rotation state. When you change the mode, Akeyless removes any existing rotated key versions created by the previous mode (including overlapping copies, if present) and re-initializes the secret. Rotation then restarts with a single fresh credential/key version, and subsequent versions are created according to the newly selected mode.
