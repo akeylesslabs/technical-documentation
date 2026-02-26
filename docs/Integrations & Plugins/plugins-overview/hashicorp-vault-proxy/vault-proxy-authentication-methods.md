@@ -14,6 +14,29 @@ next:
       title: HashiCorp Vault Proxy Dynamic Secrets
       url: https://docs.akeyless.io/docs/dynamic-secrets
 ---
+## Vault Token
+
+Many HashiCorp Vault integrations use token-based authentication.
+
+With HashiCorp Vault Proxy, set the Vault token as one of the following values:
+
+* API key format: `<Access ID>..<Access Key>`
+* Temporary Akeyless token: `t-...`
+* Universal Identity token: `u-...`
+
+Any Akeyless authentication method can be used to obtain a temporary token, then that token can be passed as the Vault token.
+
+Examples:
+
+```shell API Key Token
+curl --header "X-Vault-Token: <Access ID>..<Access Key>" \
+  https://hvp.akeyless.io/v1/kv/<secret-name>
+```
+```shell Temporary Token
+curl --header "X-Vault-Token: t-XXXXXXXXXXXXXXXX" \
+  https://hvp.akeyless.io/v1/kv/<secret-name>
+```
+
 ## HashiCorp Vault AppRole
 
 Some of Vault’s plugins support only AppRole authentication.
@@ -25,27 +48,6 @@ For example, Vault AppRole authentication using HashiCorp Vault Proxy:
 ```shell
 export VAULT_ADDR='https://hvp.akeyless.io'
 vault write auth/approle/login role_id="<Access Id>" secret_id="<Access Key>"
-```
-
-## Vault Token
-
-Many HashiCorp Vault integrations use token-based authentication.
-
-With HashiCorp Vault Proxy, set the Vault token as one of the following values:
-
-* API key format: `<Access ID>..<Access Key>`
-* Temporary Akeyless token: `t-...`
-* Universal Identity token: `u-...`
-
-Examples:
-
-```shell API Key Token
-curl --header "X-Vault-Token: <Access ID>..<Access Key>" \
-  https://hvp.akeyless.io/v1/kv/<secret-name>
-```
-```shell Temporary Token
-curl --header "X-Vault-Token: t-XXXXXXXXXXXXXXXX" \
-  https://hvp.akeyless.io/v1/kv/<secret-name>
 ```
 
 ## JWT
