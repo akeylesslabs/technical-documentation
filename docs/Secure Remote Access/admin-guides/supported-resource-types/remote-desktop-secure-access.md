@@ -89,7 +89,7 @@ Let's set up remote access to a Windows Machine from the Akeyless Console. If yo
 
 > ℹ️ **Note (Session In Use Indicator):**
 >
-> For RDP sessions using a **Rotated Secret** or **Static Secret**, there will be a text indicator showing "In use" next to any sessions that are currently occupied by another user.
+> For RDP sessions using a **Rotated Secret** or **Static Secret**, the **In use** indicator is tracked **per host**. A session marked **In use** on one host does not mark the same secret as **In use** on other hosts.
 >
 > To enable this feature, the Auth Method used for the Gateway-SRA privileged Access-ID requires an Access Role with the _Update_ permission on the relevant items' path
 
