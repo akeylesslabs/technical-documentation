@@ -14,7 +14,7 @@ next:
 
 The Akeyless browser extension seamlessly integrates with your favorite web browsers, including Firefox, Google Chrome, and Microsoft Edge. The installation process is straightforward and consistent across all supported browsers, ensuring a smooth and hassle-free experience.
 
-> **Note (Installing Akeyless Extensions with SRA Support):**
+> ℹ️ **Note (Installing Akeyless Extensions with SRA Support):**
 >
 > * To install the web extension for Akeyless Password Manager, please search for "**Akeyless Password Manager**" in your browser's extension store.
 > * If you require the web extension that supports SRA, search for "**Akeyless Password Manager**" instead.
@@ -31,7 +31,7 @@ To embark on a journey of effortless password management on Firefox, follow thes
 4. Grant Permissions: Review the permissions requested by the extension and click on the "Add" button to proceed.
 5. Pin Extension for Quick Access: For convenient access, right-click on the Akeyless icon in the toolbar and select "Pin" to keep it permanently visible.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > **After installing or updating the Akeyless Password Manager extension on the Firefox browser**, please follow these steps to ensure all functionalities work as expected:
 >

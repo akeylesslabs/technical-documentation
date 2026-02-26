@@ -16,7 +16,7 @@ Akeyless SSH Secure Remote Access enables traffic connections to servers that ar
 
 In this guide, we will connect to a remote target using an [SSH Certificate](https://docs.akeyless.io/docs/ssh-certificates).
 
-> **Note (Legacy Mode):**
+> ℹ️ **Note (Legacy Mode):**
 >
 > For legacy applications that do not support SSH certificates, Akeyless offers a unique hybrid solution that involves certificates and keys.
 > For more details, please refer to [Legacy mode section](https://docs.akeyless.io/docs/ssh-remote-access#legacy-mode) at the bottom of this page.
@@ -84,7 +84,7 @@ Let's set up remote access to an SSH host from the Akeyless Console.
 
 Akeyless enables CLI access from any Unix terminal.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Starting from Windows 10, Microsoft supports the native feature "Windows subsystem for Linux."
 > This feature enables users to use their Windows OS environment as a Unix-like system.
@@ -153,7 +153,7 @@ To support legacy applications, Akeyless enables a hybrid mode based on SSH cert
 
 To work with SSH keys, you will have to create a Static Secret in an Akeyless account to store your SSH private key or SSH password. The secret value should be either your SSH password or your SSH private key.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > SSH password authentication brings with it risks. Please make sure you are connecting to the correct target server.
 
@@ -191,7 +191,7 @@ We support upload and download of files in SSH sessions through the Zero Trust W
 
 To upload a file, click on `Upload` button at the top and choose the file to upload from your local machine. The uploaded file will be placed in the user's $HOME directory on the remote machine.
 
-> **Note (Temporary files):**
+> ℹ️ **Note (Temporary files):**
 >
 > Files are created as temporary items inside the SSH server during the upload process, and are deleted upon completion.
 
@@ -202,6 +202,6 @@ To download a file:
 * First, copy the file to the download directory `/akl-downloads` which is already created in the user's $HOME directory on the remote machine (For example, `cp file-to-download.json /akl-downloads`).
 * Then, click on the `Download` button at the top which will open a menu with all files located in that directory. Click on a file to start the download to your local machine. Note that larger files will only appear upon completion.
 
-> **Note (File size and free space):**
+> ℹ️ **Note (File size and free space):**
 >
 > If there is a size limit issue on the SRA SSH server (exceeding 90% of space), a file named `NOT_ENOUGH_FREE_SPACE` is created in the `akl-downloads` folder, and the user will not be able to download it.

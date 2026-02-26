@@ -35,6 +35,8 @@ The main parameters are:
 
 * `target-to-associate`: An existing [Target](https://docs.akeyless.io/docs/targets) that points to your desired endpoint.
 
+* `gcp-sm-regions`: Optional, comma-separated list of GCP Secret Manager regions used when listing regional secrets (maximum 12).
+
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create-usc).
 
 ### Listing USC Secrets
@@ -44,6 +46,16 @@ To list the secrets from your USC, use the following command:
 ```shell
 akeyless usc list --usc-name <usc name>
 ```
+
+This command lists global secrets by default.
+
+To list regional secrets for a GCP USC, use:
+
+```shell
+akeyless usc list --usc-name <usc name> --object-type regional-secrets
+```
+
+Regional listing uses the regions configured on the USC item (`--gcp-sm-regions` in `create-usc` or `update-item`).
 
 The output should look as follows:
 
@@ -106,6 +118,8 @@ The main parameters are:
 * `value`: The value of the secret you would like to create, plaintext, or Base64-encoded.
 
 Additional parameters can be found in the [CLI Reference](https://docs.akeyless.io/docs/cli-reference-universal-secrets-connector#create).
+
+For GCP USC, you can create a regional secret by adding `--region <gcp-region>`. If omitted, the secret is created as global.
 
 ### Updating an Existing USC Secret
 

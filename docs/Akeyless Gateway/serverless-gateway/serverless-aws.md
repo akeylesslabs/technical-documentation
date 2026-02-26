@@ -30,7 +30,7 @@ This page describes how to run an Akeyless Serverless Gateway on AWS using Hashi
 
 For example, to get to the `/api/v2` service, use this endpoint: `https://<your_serverless_gateway_url>.com/api/v2`
 
-> **Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services.
+> ⚠️ **Warning:** Make sure that this server is not globally open to the public network. The Akeyless Gateway only requires connections to Akeyless SaaS Core Services.
 
 ## Pre-Installation Configuration
 
@@ -158,7 +158,7 @@ To configure your Akeyless Serverless Gateway:
 1. On your browser, navigate to the URL in the first output above labeled: `akeyless_serverless_gateway_url`.
 2. Enter your credentials to log in.
 
-> **Note (Akeyless Gateway URL):**
+> ℹ️ **Note (Akeyless Gateway URL):**
 >
 > The default value of the `akeyless_serverless_gateway_url` ends with `/default/console` which will route you to **Akeyless Gateway Console** (Port `18888`).
 >

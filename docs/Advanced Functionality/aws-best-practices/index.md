@@ -16,7 +16,7 @@ At its core, the **Akeyless Gateway** serves as a secure execution layer that fa
 
 When managing environments across multiple AWS accounts, the key requirement is to establish a consistent and automated approach for deploying and operating the **Akeyless Gateway** across the organization. This ensures reliable configuration, centralized control, and seamless integration of Gateway capabilities throughout all AWS member accounts.
 
-> **Note (AWS Partner):**
+> ℹ️ **Note (AWS Partner):**
 >
 > Akeyless is an [official AWS partner](https://partners.amazonaws.com/partners/0018a00001orv7AAAQ/) recognized with the Security ISV Competency.
 
@@ -42,7 +42,7 @@ All deployment patterns are working **without** any AWS long-lived credentials a
 
 When using an [AWS Target](https://docs.akeyless.io/docs/aws-targets)with the **Gateway Cloud ID** option, the Akeyless **Gateway** leverages the IAM role associated with the underlying compute service it’s running on, such as a service account role in EKS or an instance profile role attached to an EC2 instance. To extend access beyond the AWS account the Gateway is running on, the Target can be explicitly set with a **role ARN** with **External ID**, overriding the default identity behavior and allowing secure, cross-account operations. This means a single **Target** can be shared across multiple **Gateways**, with each **Gateway** operating under the permissions granted to its own associated AWS role.
 
-> **Note (AWS Configuration and credential precedence):**
+> ℹ️ **Note (AWS Configuration and credential precedence):**
 >
 > Akeyless uses AWS official SDK, hence the role that will be used is according to [AWS precedence](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html#cli-chap-authentication-precedence).
 

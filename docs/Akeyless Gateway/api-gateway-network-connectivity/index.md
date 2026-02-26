@@ -13,7 +13,7 @@ The Akeyless Gateway is a stateless Docker container, provided as a standalone o
 
 A basic Gateway deployment requires a server with a Docker Engine installed. You may download the latest Docker Engine on [Docker website](https://docs.docker.com/get-docker/). You'll need public network access enabled on port 443 to pull a Docker image from the `hub.docker.com`.
 
-> **Note (Tenant Environments):**
+> ℹ️ **Note (Tenant Environments):**
 >
 > Accounts that were created on specific environments should modify the services endpoints according to the relevant environments, for example, `eu` would use `https://vault.eu.akeyless.io`.
 >
@@ -39,7 +39,7 @@ The following table describes the main functionality of Akeyless microservices i
 | Services S3 Bucket | `https://akeylessservices.s3.us-east-2.amazonaws.com` | N/A | 443 | S3 bucket to download and update Akeyless official binaries (for example, Gateway) |
 | Artifacts Endpoint | `https://artifacts.site2.akeyless.io` | 34.149.100.205 | 443 | _Optional:_ Akeyless official artifacts endpoint. Relevant when working with whitelisted IP ranges |
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > When using proxy services, you can use `sqs.us-east-2.amazonaws.com` instead of classic MQ services. If you are not working with a proxy service and still want to use SQS instead of classic MQ, set your **Gateway** deployment with the `SQS_NO_PROXY="true"` environment variable.
 

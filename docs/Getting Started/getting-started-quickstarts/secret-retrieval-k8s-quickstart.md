@@ -199,7 +199,7 @@ Super Secret
 going to sleep...
 ```
 
-> **Note:** In this example, we have injected the Static Secret's value as both a file _and_ and an environment variable to illustrate your options. In a production environment, injecting the secret value as a file is the preferred method.
+> ℹ️ **Note:** In this example, we have injected the Static Secret's value as both a file _and_ and an environment variable to illustrate your options. In a production environment, injecting the secret value as a file is the preferred method.
 
 ## Step 7: Clean Up
 

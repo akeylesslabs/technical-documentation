@@ -43,7 +43,7 @@ For more information about Kubernetes RBAC, see [the Kubernetes documentation](h
 
 ## Create an Amazon EKS Dynamic Secret with the CLI
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > We recommend using Dynamic Secrets with [Targets](https://docs.akeyless.io/docs/kubernetes-targets#eks). While it saves time for multiple secret-level configurations by not requiring you to provide an [inline connection string](https://docs.akeyless.io/docs/eks-dynamic-secret-producer#inline-connection-strings) each time, it is also important for security streamlining. Using a target allows you to rotate credentials without breaking the credential chain for the objects connected to the server used, using inline will force you to go and change the credentials in each individual item instead of just the target.
 
@@ -82,7 +82,7 @@ Where:
 
 * `eks-assume-role`: The role to assume when connecting to the Amazon EKS cluster with provided credentials.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The `eks-assume-role` parameter is required when the `aws-auth` ConfigMap is configured to allow the provided AWS IAM user to connect through the `mapRoles` key.
 >
@@ -169,6 +169,6 @@ akeyless dynamic-secret get-value --name <Path to the dynamic secret>
 
 Then on the `kubeconfig` you need to replace the `<Dynamic Secret Value goes here >` with the response token exactly as you received it.
 
-> **Note (Single `kubeconfig` Generation):**
+> ℹ️ **Note (Single `kubeconfig` Generation):**
 >
 > Akeyless supports generation of a single `kubeconfig` file. For more information see [here](https://docs.akeyless.io/docs/k8s-generic-dynamic-secrets#single-kubeconfig-generation)

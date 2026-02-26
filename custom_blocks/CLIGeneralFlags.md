@@ -1,8 +1,6 @@
 ---
 name: CLIGeneralFlags
 ---
-<!-- markdownlint-disable MD041 -->
-
 ## General Flags
 
 `--profile, --token`: Use a specific profile (located at `$HOME/.akeyless/profiles`) or a temporary access token

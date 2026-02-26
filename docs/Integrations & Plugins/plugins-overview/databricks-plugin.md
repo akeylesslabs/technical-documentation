@@ -159,7 +159,7 @@ What it does:
 * Converts to a Spark DataFrame and saves it as a Databricks table.
 * Displays the table contents for validation.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > * DLT workloads may not attach Managed Identity to every VM. In that case, use API Key authentication.
 > * For user-level or group-level RBAC, store access keys in Azure Key Vault per user/team.

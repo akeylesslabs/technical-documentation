@@ -12,7 +12,7 @@ next:
 ---
 You can retrieve a secret value directly from the [Akeyless CLI](https://docs.akeyless.io/docs/retrieve-secret#retrieve-a-secret-value-from-the-akeyless-cli) or from the [Akeyless Console](https://docs.akeyless.io/docs/retrieve-secret#retrieve-a-secret-value-from-the-akeyless-console).
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > You can also retrieve secret values directly from within a context you choose, such as from Kubernetes, Jenkins, Azure, or another of our integrations, or with the help of any of our SDKs. For details, see [Akeyless Plugins](https://docs.akeyless.io/docs/plugins-overview) and [SDKs](https://docs.akeyless.io/docs/sdks).
 
@@ -48,6 +48,6 @@ Let’s retrieve a secret value from the Akeyless Console. If you’d prefer, se
 
 3. By default, the secret value is encrypted. To the right of the **Value** field, select the eye icon. The decrypted secret value appears.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Select **copy to clipboard** to decrypt the secret value and copy it to the clipboard.

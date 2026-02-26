@@ -48,7 +48,7 @@ aws_auth_type_assume_role="" # Relevant for aws_auth_type_assume_role
 target_s3_aws_region=""
 ```
 
-> **Warning:** Logs will be uploaded to an Amazon S3 bucket on ten-minute intervals. Pods that terminate before this interval will not upload logs.
+> ⚠️ **Warning:** Logs will be uploaded to an Amazon S3 bucket on ten-minute intervals. Pods that terminate before this interval will not upload logs.
 
 ### Azure Log Analytics
 
@@ -195,7 +195,7 @@ target_syslog_enable_tls="true"
 target_syslog_tls_certificate="<Based64 PEM encoded Cert>"
 ```
 
-> **Note:** The message format conforms to the Syslog format and assumes that the Syslog server does not add its own formatting to the message.
+> ℹ️ **Note:** The message format conforms to the Syslog format and assumes that the Syslog server does not add its own formatting to the message.
 >
 > Default format: `<date > <time> <host name> <log level> <message>`.
 >
