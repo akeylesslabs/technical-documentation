@@ -39,7 +39,7 @@ To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-
 
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
@@ -183,7 +183,7 @@ To control the cache settings, you can [configure the cache](https://docs.akeyle
 
 While the **Cache** setup can address many cases for some environments, there is a requirement for a full high availability architecture of the **Cache** service, in such cases when the `cacheHA` is enabled, it will **override** all existing settings of the default cache. The HA mode of the cache **must** be set with a  with the `ReadWriteOnce` access mode.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > This feature is available only from GW version `4.34.0` and higher. To use Cache HA, **existing** GW Helm deployments must be fully uninstalled before proceeding with the Cache HA setup.
 
@@ -303,7 +303,7 @@ Accepted Values:
 
 To provide the settings of your Gateway deployment directly from your local Kubernetes secrets store, you can set the following settings
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
 

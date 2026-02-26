@@ -29,7 +29,7 @@ For details, see [Policy Segregation for Kubernetes](https://docs.akeyless.io/do
 
 ![Illustration for: Although authorization in Kubernetes is intentionally high level, you can configure the injector to support full and flexible segregation using Kubernetes policies together…](https://files.readme.io/dd531a9-Akeyless_Rebranded_Infographics_1.png)
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The documentation, configuration and examples for the plugin are also applicable to **Red Hat OpenShift** environment.
 
@@ -59,7 +59,7 @@ Alternatively, a secret can contain `JSON` structured data, for example:
 akeyless create-secret --name /K8s/secret-json --value '{"aws_access_key":"1234","aws_key_id":"abcd"}'
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The following example uses a pre-defined [Kubernetes Auth](https://docs.akeyless.io/docs/auth-with-kubernetes) called **K8s_Auth** in **K8s** folder that is `K8s/K8s_Auth`
 
@@ -402,7 +402,7 @@ This will create an environment variable per **each** key that exists within the
 
 To create the environment variables without the prefix you can use the `parse_json_without_prefix` flag instead.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The `parse_json_secret` flag is designed to handle flat JSON structures with single string-values (it does not support nested JSONs, nor array values).
 
@@ -475,7 +475,7 @@ Once this secret is provided the manual command is not required, and the Injecto
 
 In AWS and GCP environments the node IAM role on EKS and GKE respectively can be used automatically to fetch private images from AWS ECR and GCP GAR respectively, hence no secret reference is required.
 
-> **Note (Public Container Registry):**
+> ℹ️ **Note (Public Container Registry):**
 >
 > For public container registry no secret is required, the Injector will try to override the entrypoint automatically.
 

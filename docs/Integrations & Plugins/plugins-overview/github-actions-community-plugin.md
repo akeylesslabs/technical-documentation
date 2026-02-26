@@ -65,7 +65,7 @@ Create an **[Access Role](https://docs.akeyless.io/docs/rbac)**:
 akeyless create-role --name /Dev/GitHubRole
 ```
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > **It is required** to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) to prevent access by unauthorized users.
 >

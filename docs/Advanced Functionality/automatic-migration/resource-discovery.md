@@ -28,13 +28,13 @@ The [LDAP Target](https://docs.akeyless.io/docs/ldap-target) should contain a **
 
 When working with [SSH Target](https://docs.akeyless.io/docs/ssh-target), the migration process will try to install the `OpenSSH.Server` Windows feature on Windows servers where SSH is not installed, for domain servers using WinRM over `https` or `http` using NTLM for authentication over port `5986` or `5985` correspondingly.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Running WinRM over `http` should not be used on production environments.
 
 Note: When using Self Signed Certificate, please mount the matching certificate to the Akeyless Gateway server at `etc/ssl/certs`
 
-> **Note (Active Directory migration compatibility):**
+> ℹ️ **Note (Active Directory migration compatibility):**
 > The OpenSSH server is available as a supported Feature-on-Demand in Windows Server 2022, Windows Server 2019, and Windows 10 (build 1809 and later)
 
 ## Set Up Automatic Migration for Active Directory
@@ -64,7 +64,7 @@ To create the migration from your Active Directory, login to your Gateway on por
 
 * **Discover IIS Applications:** Discover any existing IIS Application that runs with explicit user credentials, as part of the rotated secret those IIS Application will be reflected, and upon Rotation, the relevant IIS Application will be restarted with the latest password.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Discover Local Users might require further installations of SSH on the servers, based on the supplied Computer Base DN. This will be done automatically by the migration process
 

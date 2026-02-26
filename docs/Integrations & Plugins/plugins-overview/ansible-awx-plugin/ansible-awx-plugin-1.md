@@ -16,7 +16,7 @@ There are two main parameters used to configure the connection to Akeyless - the
 
 The lookup plugin uses these by way of the environment variables `VAULT_ADDR` and `VAULT_TOKEN`.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 

@@ -17,7 +17,7 @@ next:
       slug: configuring-tls
       title: Configuring TLS
 ---
-> **Note (Gateway New Chart):**
+> ℹ️ **Note (Gateway New Chart):**
 >
 > The Gateway new chart docs is now available [here](https://docs.akeyless.io/docs/gateway-chart).
 
@@ -35,7 +35,7 @@ The Akeyless Gateway can be deployed on a Kubernetes (K8s) cluster using the Hel
 
 * Network connection to [Akeyless SaaS Core Services](https://docs.akeyless.io/docs/api-gateway-network-connectivity) from your cluster
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Make sure that this server is not globally opened to the public network. Akeyless Gateway requires only connections to Akeyless SaaS Core Services.
 
@@ -161,7 +161,7 @@ Create a Kubernetes ServiceAccount for Akeyless Gateway to use. You can also use
 
 Use the existing IAM service account that is bound to your [GCP](https://docs.akeyless.io/docs/auth-with-gcp) Auth Method.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > When authenticating from a pod inside a Google Kubernetes Engine (GKE) cluster using GKE Workload Identity enabled, any `bounded rules` other than `Bound Service Accounts` will not apply. GKE Workload Identity conceals metadata information about the running instance.
 >
@@ -210,7 +210,7 @@ akeylessUserAuth:
   allowedAccessPermissions: {}
 ```
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > **NodeSelector** - For Autopilot clusters, omit the `nodeSelector` field. Autopilot rejects this `nodeSelector` because all nodes use Workload Identity.
 
@@ -347,7 +347,7 @@ Full list of available permissions:
 | `general` | Management of Gateway General settings including `GatewayUrl`, `TLS` |
 | `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
@@ -362,7 +362,7 @@ TLSConf:
   enableSniProxy: true
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > All changes to allowed access IDs, such as editing, removing, and so on, can only be performed on **post-deployment allowed access IDs**. If an ID was defined during deployment it can't be removed or changed.
 

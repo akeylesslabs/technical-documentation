@@ -44,7 +44,7 @@ This section of the guide explains the workflow with the Akeyless CLI. If you wi
 
 To create a Tokenizer with the CLI, run the following command:
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Custom tokenization has additional mandatory parameters.
 

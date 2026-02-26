@@ -21,7 +21,7 @@ The **puppet/vault\_lookup** module can be installed by running the following co
 puppet module install puppet/vault_lookup
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 

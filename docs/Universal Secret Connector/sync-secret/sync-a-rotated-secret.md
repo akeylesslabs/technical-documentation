@@ -34,7 +34,7 @@ Where:
 
 * `filter-secret-value`: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` and so on.
 
-> **Note (Format restrictions):**
+> ℹ️ **Note (Format restrictions):**
 >
 > Kubernetes and HashiCorp targets enforce that secrets are in JSON format, which means a valid jq filter could be, for example: `{"password": .password}`
 
@@ -52,7 +52,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 * **Filter secret value (jq)**: Optional, to filter the value of the rotated secret, to sync only specific fields, or to manipulate the value using a jq expression, for example, `.password` and so on.
 
-> **Note (Format restrictions):**
+> ℹ️ **Note (Format restrictions):**
 >
 > Kubernetes and HashiCorp targets enforce that secrets are in JSON format, which means a valid jq filter could be, for example: `{"password": .password}`
 

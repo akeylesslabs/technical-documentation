@@ -200,7 +200,7 @@ To generate a token in the Console:
 1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab and then click **Generate**.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > If a UID token already exists, generating a new UID token resets the existing token.
 
@@ -238,7 +238,7 @@ To get the token tree in the Console:
 1. Open the corresponding authentication method.
 2. Go to **UID Tree** tab.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > When your Token Tree becomes complex, you can use your mouse to **zoom in** to see a specific token better, or **zoom out** to see the whole Token Tree.
 

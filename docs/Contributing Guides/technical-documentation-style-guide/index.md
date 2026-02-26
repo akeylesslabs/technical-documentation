@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-> **Warning:** This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
+> ⚠️ **Warning:** This style guide is subordinate to any brand guidelines and style guides created by the Marketing team. If anything conflicts and does not specifically mention an exception, use guidelines from the Marketing team. Known relevant guides are [below](https://docs.akeyless.io/docs/technical-documentation-style-guide#prerequisites).
 
 ## Purpose
 
@@ -115,6 +115,47 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
   ```
 </details>
 
+### Blockquote callouts
+
+Use markdown blockquote syntax for callouts with this heading format:
+
+`> [emoji] **Label:**`
+
+If needed, include context in parentheses:
+
+`> [emoji] **Label (Context):**`
+
+Do not use ReadMe's proprietary `<Callout>` tag.
+
+Use the following label and emoji set:
+
+* `ℹ️ **Note:**`
+* `ℹ️ **Info:**`
+* `✅ **Tip:**`
+* `⚠️ **Warning:**`
+* `❗ **Important:**`
+* `🚫 **Caution:**`
+
+Callout rules:
+
+* Keep the body on the next quoted line (or lines).
+* Do not repeat intros such as `Note:` or `Note that` inside the callout body.
+* Do not bold the first sentence in the body.
+* Keep punctuation and capitalization consistent with the selected label.
+* Prefer markdown blockquote callouts in all docs and reusable content blocks for portability and consistency.
+
+Example:
+
+> ⚠️ **Warning:**
+>
+> Rotating this key before dependent services are updated can break production workloads.
+
+With context:
+
+> ℹ️ **Note (Authentication):**
+>
+> Use an Authentication Method with read and list permissions on the required item path.
+
 ## Formatting
 
 * **Bold**: For UI elements, important notes, or emphasis.
@@ -140,8 +181,8 @@ Using ReadMe's "raw mode" you can add custom HTML. This should generally be avoi
 * When referencing non-Akeyless products and features, consistently apply the capitalization and punctuation of the owning organization of the product referenced. Some examples are:
     * GitLab (instead of Gitlab)
     * GitHub (instead of Github)
-    * Docker Hub (instead of dockerhub)
-    * HashiCorp Vault (instead of Hashi-Vault)
+    * Docker Hub (instead of `dockerhub`)
+    * HashiCorp Vault (instead of `Hashi-Vault`)
     * SAP HANA database (instead of HANA DB)
     * MySQL (instead of mysql)
     * MSSQL (instead of mssql)

@@ -136,7 +136,7 @@ akeyless get-secret-value --name <Secret Name>
 
 Import passwords from CSV file
 
-> **Note (CSV Example):**
+> ℹ️ **Note (CSV Example):**
 >
 > The box below has an example CSV that is valid for importing in the format of Chrome
 

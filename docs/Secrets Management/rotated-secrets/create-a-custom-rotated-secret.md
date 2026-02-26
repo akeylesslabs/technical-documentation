@@ -34,7 +34,7 @@ akeyless create-web-target -n <your web target name> \
 
 ### Authentication
 
-> **Note:**
+> ℹ️ **Note:**
 > Custom Rotated Secret implementations should only handle requests from a known Akeyless Gateway instance. Every request made by Akeyless to a custom Rotated Secret implementation includes an `AkeylessCreds` header with a temporary JWT token issued and signed by Akeyless.
 
 Use the following endpoint to verify all requests:
