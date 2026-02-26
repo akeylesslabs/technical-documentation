@@ -236,7 +236,7 @@ akeyless kmip-set-server-state \
 
 `-u, --gateway-url[=http://localhost:8000]`: API Gateway URL (Configuration Management port)
 
-> **Info (Writing commands - generating secrets):**
+> ℹ️ **Info (Writing commands - generating secrets):**
 >
 > The default Akeyless Vault behavior is that the write commands (generate secrets) are performed in the main region of Akeyless Vault, while the read commands (fetch secrets) are performed in the nearest region to you to minimize latency.
 > If you wish to change that and work only with the main region, please add

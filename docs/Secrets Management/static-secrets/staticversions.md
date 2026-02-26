@@ -26,7 +26,7 @@ The value of secret <secret name> was successfully updated.
 
 When you update a static secret, by default the latest version is updated. To keep the previous version of the secret stored in Akeyless, run the `--keep-prev-version=true` option.
 
-> **Warning (Metadata changes):**
+> ⚠️ **Warning (Metadata changes):**
 >
 > Changing the metadata of a secret does not change its version. To change the version and store the previous version, you must explicitly run `--keep-prev-version=true`.
 

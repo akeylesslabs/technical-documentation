@@ -55,7 +55,9 @@ The Akeyless MCP Server provides comprehensive access to Akeyless functionality,
 
 ### Configuration and Setup
 
-Access to the Akeyless MCP server is setup for a MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of some available MCP clients is available [here](https://modelcontextprotocol.io/clients).
+Access to the Akeyless MCP server is set up for an MCP client with a configuration file (for example, `~/.cursor/mcp.json` for Cursor). A list of available MCP clients is available <Anchor label="here" target="_blank" href="https://modelcontextprotocol.io/clients">here</Anchor>.
+
+If you use JetBrains IDEs, see <Anchor label="Akeyless MCP Plugin for JetBrains IDEs" href="doc:akeyless-mcp-plugin-jetbrains-ides" /> for full setup and usage instructions.
 
 #### Sample Configuration Structure
 

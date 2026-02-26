@@ -28,7 +28,7 @@ Given the critical role of the Root CA in validating end-user certificates, it's
 
 Using a [DFC Key](https://docs.akeyless.io/docs/encryption-keys) which brings an air-gapped solution out of the box, as your **Private** key adds an extra level of protection.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > In this guide, we used the environment variable `MY_GW` to store the gateway address (`https://<Your-Akeyless-GW-URL>:8000`). You can also directly use the gateway address if preferred.
 

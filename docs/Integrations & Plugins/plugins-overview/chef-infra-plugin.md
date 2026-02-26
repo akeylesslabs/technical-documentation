@@ -14,7 +14,7 @@ next:
 
 * Chef Workstation installed. Refer to [this](https://docs.chef.io/workstation/install_workstation/) guide to install the workstation.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Akeyless developed API compatibility with HashiCorp Vault OSS, enabling the use of Vault OSS community plugins for both Static and Dynamic Secrets, you can find more information [here](https://docs.akeyless.io/docs/hashicorp-vault-proxy)
 
@@ -111,6 +111,6 @@ next:
     Secret is: my chef secret value!
     ```
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > [Chef Plugin GitHub Repository](https://github.com/exospheredata/secrets_management)
