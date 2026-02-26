@@ -41,7 +41,7 @@ Users can filter the session list based on the following criteria to quickly loc
 
 ## Audit Logging
 
-Every session update is captured in the Audit Log. This ensures that any changes (such as status updates or modifications) are recorded for compliance and troubleshooting purposes.
+Every session update is captured in the Audit Log, including the Secure Remote Access Session ID. This ensures that any changes (such as status updates or modifications) are recorded for compliance and troubleshooting purposes.
 
 ## Permissions
 
