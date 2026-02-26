@@ -89,7 +89,7 @@ Let's set up remote access to the Azure Portal from the Akeyless Console. If you
 
 4. To the right of the **Enable Secure Remote Access** field, select the tick mark icon to save your changes.
 
-> **Note (Custom Delay):**
+> ℹ️ **Note (Custom Delay):**
 >
 > You can specify a custom delay, measured in seconds \[0 - 120], before a newly generated dynamic secret becomes usable. This additional wait time helps target systems complete their sync process with the updated credentials
 

@@ -97,7 +97,7 @@ Event forwarders are tools you can configure through the Event Center to get not
 
 Event Forwarders can only be managed by **Admins** or by users with explicit [permissions](https://docs.akeyless.io/docs/rbac).
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Event Forwarders require a running [Gateway](https://docs.akeyless.io/docs/api-gw). Both **Admins** and authorized users need to have [Access Permissions](https://docs.akeyless.io/docs/gateway-access-permissions) on at least one [Gateway](https://docs.akeyless.io/docs/api-gw) to create and manage Event Forwarders.
 

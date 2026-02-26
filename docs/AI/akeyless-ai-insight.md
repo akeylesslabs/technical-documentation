@@ -51,7 +51,7 @@ AI Insights can also be enabled at the account level using the Web UI.
 
 ![Illustration for: Step 1: Enable AI Insights at the Account Level To enable AI Insights, run the following command: AI Insights can also be enabled at the account level using the Web UI.](https://files.readme.io/df738f5faf06a3befb13f4f8a90ec9445814754171e5f2b2228df221a140103b-AccountLevel.png)
 
-> **Note:** To disable AI Insights, run the following command:
+> ℹ️ **Note:** To disable AI Insights, run the following command:
 >
 > `akeyless update-account-settings --enable-ai-insights false`
 

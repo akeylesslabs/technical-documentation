@@ -20,7 +20,7 @@ When using **Target** as the **Rotator Type** the **Parent** credentials will be
 
 When a new server is created in your environment, simply add the relevant hostname to your [Linked Target](https://docs.akeyless.io/docs/linked-target) to gain automated rotation for any new server.
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > Only Windows/SSH Target are currently supported for Rotated Secrets with Linked Target. If one of the hosts in a Linked Target item is accessible over a different port from the one configured in the Parent Target, make sure to specify the port as part of the host in the Linked Target. For example: `server01.com:443`.
 
@@ -45,7 +45,7 @@ akeyless create-ssh-target \
 --ssh-password <SSH password>
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The **Parent** Target `hostname` will be the first host whose **Local user's** password will be rotated.
 >
@@ -139,7 +139,7 @@ akeyless create-rotated-secret --name <secret name> \
 
 The rotation will generate a new password for the **Parent** Target and will use it for all hosts for the same **Local** user.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Working with `--rotator-type target` supports only Rotated Secret for the **Parent** Target which will trigger rotation on **all** associated **Linked Targets** hosts.
 

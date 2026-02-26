@@ -20,7 +20,7 @@ You can define several SSH Certificate Authorities (CAs). Each CA can sign your 
 
 You can sign the certificate with your own private key or generate a new one in the Akeyless Platform.
 
-> **Note (Usage):**
+> ℹ️ **Note (Usage):**
 >
 > We put the SSH Certificates section in the Secure Remote Access section of the docs because it is an integral part of setting up remote access SSH sessions. However, this feature can still be used for basic SSH logins without the need for a public SSH key on the target server even outside of the remote access use case.
 
@@ -157,7 +157,7 @@ The following command will create a new SSH Cert Issuer in the Akeyless Platform
 akeyless create-ssh-cert-issuer --name /prod/ssh-cert-issuer --signer-key-name /path/to/MyRSA --allowed-users 'ubuntu,root' --ttl 300
 ```
 
-> **Note (Akeyless Secure Remote Access):**
+> ℹ️ **Note (Akeyless Secure Remote Access):**
 >
 > While working with Secure Remote Access, make sure to set `allowed_users` with `session_*` to ensure JIT users will be authorized for access.
 >
@@ -177,7 +177,7 @@ After setting up a key and a certificate issuer, the following command will gene
 akeyless get-ssh-certificate --cert-username ubuntu --cert-issuer-name /prod/ssh-cert-issuer --public-key-file-path ~/.ssh/id_rsa.pub
 ```
 
-> **Tip:**
+> ✅ **Tip:**
 >
 > The command `get-ssh-certificate` returns a certificate that is signed by the private CA key and uses the client’s public key that will be used to connect to the target server. The client's public key is not the same as the CA’s public key. It is a local public key that should be located in the command’s path together with the client’s private key. After you run the command, the signed certificate will be placed in the same path, so you can connect to the target server using the client’s private/public keys in that path.
 

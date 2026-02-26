@@ -22,7 +22,7 @@ While your local machine uses the [Akeyless Connect](https://docs.akeyless.io/do
 
 ## Usage
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > For security reasons, please bind services only to the **local interface**. You can use local port forwarding to access the service that is listening on the remote server.
 
@@ -105,7 +105,7 @@ akeyless connect -t <k8s.server.host> \
  --k8s-tunnel 2345
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > A remote port on the SSH bastion will automatically be allocated based on availability.
 

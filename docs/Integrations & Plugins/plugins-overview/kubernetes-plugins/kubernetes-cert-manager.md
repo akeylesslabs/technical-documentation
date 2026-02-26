@@ -38,7 +38,7 @@ kubectl create ns akeyless-cert-manager
 
 **cert-manager** authenticates to Akeyless using a Kubernetes **ServiceAccount token**, which is being generated using [Secretless Authentication with a Service Account](https://cert-manager.io/docs/configuration/vault/#secretless-authentication-with-a-service-account) - _Available in cert-manager >= v1.12.0_.
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > **Authentication with a Static ServiceAccount Token** - For **cert-manager** with a lower version than v1.12.0, you can use "[Authentication with a Static ServiceAccount Token](https://cert-manager.io/docs/configuration/vault/#static-service-account-token)" for authentication.
 
@@ -89,7 +89,7 @@ kubectl apply -f k8s_sa.yaml
 
 Once the ServiceAccount is created, an **Issuer** needs to be created as well. An **Issuer** is a Kubernetes resource that represents the CA, in our case, **Akeyless**.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > With an **Issuer** resource, you can only refer to a ServiceAccount located in the same Namespace as the Issuer, for more information refer to [this](https://cert-manager.io/docs/configuration/vault/#:~:text=Issuer%20vs.%20ClusterIssuer%3A) link.
 
@@ -119,7 +119,7 @@ Where:
 * `server` - The URL of the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) HashiCorp Vault Proxy endpoint `https://Your_Akeyless_GW_URL:8000/hvp` (or using your gateway URL at port 8200)
 * `role` - `<Access-ID..K8s Auth Config Name>` in Base64-encoded format. Note the Kubernetes Auth config name can be found in the Gateway config-manager (port 8000), under the "Kubernetes Auth" menu.
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > **Base64 encoding** - The following command can be used for Base64 conversion: `echo -n '<Access-ID..K8s Auth Config Name>' | base64`.
 

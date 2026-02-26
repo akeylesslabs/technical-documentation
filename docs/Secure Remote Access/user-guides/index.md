@@ -16,7 +16,7 @@ Secure Remote Access (SRA) provides multiple flexible and secure ways to connect
 
 2. **[Desktop Application](https://docs.akeyless.io/docs/remote-access-desktop-application-beta)** - The Desktop Application can be installed on local machines running Windows or macOS. It enables access to various targets using native clients such as database clients, SSH terminals, or RDP software. **Ideal for**: users who prefer a dedicated application for accessing resources or require native client support.
 
-    > **Note (Desktop Application beta):**
+    > ℹ️ **Note (Desktop Application beta):**
     >
     > The Desktop Application is in beta. For additional information, contact our support team.
 

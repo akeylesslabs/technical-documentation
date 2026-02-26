@@ -12,7 +12,7 @@ next:
 ---
 **ServiceNow Event Forwarder** enables you to forward event notifications to **Endpoint URLs** based on your configuration. These include notifications about **Items, Auth Methods, Targets, and Gateways**, which can be configured to be sent immediately or every 1 to 24 hours.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The URL for the **ServiceNow** endpoint would be: `<serviceNowURL>/akeyless-events/`
 

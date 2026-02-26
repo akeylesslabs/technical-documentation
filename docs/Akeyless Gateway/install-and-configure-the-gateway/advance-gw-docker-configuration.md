@@ -16,7 +16,7 @@ The structure of the Gateway installation command when using environment variabl
 docker run -d -p 8000:8000  -p 5696:5696 -e ENV_VARIABLE_1="value1" -e ENV_VARIABLE_2="value2" -v /HOST/PATH/TO/FILE:/GATEWAY/PATH/TO/FILE --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > To update an existing Gateway, use the same **Gateway Access ID** and **Cluster Name** for the new Gateway to retrieve the latest settings and data from the previously removed Docker instance.
 
@@ -38,7 +38,7 @@ The following [Authentication Methods](https://docs.akeyless.io/docs/access-and-
 
 * [Certificates](https://docs.akeyless.io/docs/auth-with-certificate)
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Your Gateway **Authentication Method** should have permission to create and manage both Items and Target items **only**.
 
@@ -52,7 +52,7 @@ To set your Gateway default authentication based on your email/password used to 
 docker run -d -p 8000:8000 -p 5696:5696 -e ADMIN_ACCESS_ID="email" -e ADMIN_PASSWORD="password" --name akeyless-gw akeyless/base:latest-akeyless
 ```
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Using your default account credentials is not recommended for production environments and cannot work with MFA.
 
@@ -177,7 +177,7 @@ Full list of available permissions:
 | `general` | Management of Gateway General settings including `GatewayUrl`, `TLS` |
 | `admin` | Admin permission can manage all Gateway components, including **Access Permissions** |
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Only Gateway **Admins** can delegate permissions to additional users. Any pre-provisioned settings will not be editable from the Akeyless Console.
 
