@@ -16,7 +16,7 @@ next:
 
 * Kubernetes v1.21 or later.
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth.
 >
@@ -117,7 +117,7 @@ Upon successful creation, the response:
 }
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Save the returned `AccessID` and private key for next steps inside environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
@@ -125,7 +125,7 @@ Upon successful creation, the response:
 
 To [discover your Kubernetes ServiceAccount issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The Kubernetes Issuer parameter is no longer used by default, as the issuer validation is done by the API server, if you still wish to work with local issuer validation open a new tab to run this command as it starts a server. Then, go back to your original tab to extract the issuer.
 
@@ -245,7 +245,7 @@ Authentication succeeded.
 Token: t-bb7b...3564a7c9
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Delete the private key and Access ID that you stored in environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
@@ -282,6 +282,6 @@ minikube start \
     --extra-config=kubelet.authentication-token-webhook=true
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > This example uses `api` as the ServiceAccount issuer name, for your ServiceAccounts API audience.

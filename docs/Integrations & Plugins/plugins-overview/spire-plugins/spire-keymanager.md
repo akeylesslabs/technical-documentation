@@ -25,7 +25,7 @@ The following Authentication Methods can be used:
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 * [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For macOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
@@ -141,7 +141,7 @@ For **K8s**, **GCP**, or **AzureAD** Auth methods set the following settings as 
 
 ## SPIRE Server Initialization
 
-> **Info (Key Type):**
+> ℹ️ **Info (Key Type):**
 >
 > To set a key type for the SPIRE server, inside the `server` section, add the following parameter.
 >
@@ -158,6 +158,6 @@ With a successful server initialization, 2 **Classic keys** will be created in y
 * **JWT-Signer-A** - Uses **JSON Web Tokens (JWT)** signed by an identity provider for authentication and authorization of clients.
 * **X509-CA-A** - Relies on **X.509** certificates issued by a trusted Certificate Authority.
 
-> **Info (SPIFFE/SPIRE):**
+> ℹ️ **Info (SPIFFE/SPIRE):**
 >
 > For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

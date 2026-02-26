@@ -59,7 +59,7 @@ akeyless assoc-role-am --role-name /Dev/CI/CircleCIRole \
 --sub-claims iss=https://oidc.circleci.com/org/<ORGANIZATION_ID>
 ```
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > **Sub Claims** - It is **mandatory** to add an appropriate [Sub Claim](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the CircleCI documentation](https://circleci.com/docs/openid-connect-tokens#format-of-the-openid-connect-id-token) to prevent access of unauthorized users. This can also be used to limit access to specific workflows as described on the same CircleCI page under **Additional Claims**.
 
@@ -81,7 +81,7 @@ Create an environment variable in CircleCI called `ACCESS_ID` and store your Aut
 
 While working with [Zero Knowledge](https://docs.akeyless.io/docs/implement-zero-knowledge) encryption based on your fragment, store your Akeyless Gateway Restful API URL (that is port `8080`) in an environment variable named `AKEYLESS_GATEWAY_URL`.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > **Zero Knowledge** - The Akeyless Gateway should be reachable within your network. Working with your Gateway can be used when running CircleCI with self-hosted runners.
 
@@ -125,7 +125,7 @@ workflows:
             - akeyless
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > It is best practice to use environment variables instead of writing the actual variable values inside the pipeline
 

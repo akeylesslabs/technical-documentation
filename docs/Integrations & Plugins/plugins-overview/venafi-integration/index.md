@@ -20,7 +20,7 @@ next:
       slug: cert-manager
       title: Cert Manager
 ---
-> **Note:** Venafi is now CyberArk Machine Identity Security. In Akeyless CLI and API operations, the integration still uses `venafi` naming for backward compatibility.
+> ℹ️ **Note:** Venafi recently became CyberArk Machine Identity Security.
 
 Akeyless integrates with CyberArk Machine Identity Security (formerly Venafi) to provide certificate automation. Akeyless can be used for [Venafi Trust Protection Platform (TPP)](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/) and [Venafi Cloud](https://www.cyberark.com/venafi-and-cyberark-machine-identity-security/) to ensure compliance with enterprise policies and consistency with industry standards.
 

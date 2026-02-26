@@ -32,7 +32,7 @@ Email=james@example.com,linda@example.com
 
 Only JWTs or SAML-XML containing both the `Groups` and `Email` claims/attributes, and respective matching values of [`Engineering` or `Security`] and \[\`james\@example.com\` or \`linda\@example.com\`], would be authorized.
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > You may also use wildcard characters to allow a wider range of permissions. The supported wildcard characters are:
 > `?`: Replaces one character. For example, the string `1?1` will accept `121` but not `1231`.
@@ -50,7 +50,7 @@ Or directly from the Akeyless Console using the [Access Roles](https://docs.akey
 
 While by default between different sub-claims values the logic of the comma symbol is `OR`, it is possible to use the syntax of `OR`. In addition, to force logical `AND` between different values of a specific sub-claim, you can use the `AND` syntax.
 
-> **Note (Required Version):**
+> ℹ️ **Note (Required Version):**
 >
 > The Logical Operators Syntax support requires Gateway `4.19` version or higher.
 
@@ -96,7 +96,7 @@ Each user will get `read` permissions for the relevant paths, based on the sub-c
 
 This means that Alice will get `read` permissions under `/Engineering/Alice/*`. Bob and Charlie will have access to `/Security/Bob/*` and `/Security/Charlie/*`. Dennis will have access to `/DevOps/Dennis/*`.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Templating Access **Rules** supports Access **Role** case-sensitive settings.
 

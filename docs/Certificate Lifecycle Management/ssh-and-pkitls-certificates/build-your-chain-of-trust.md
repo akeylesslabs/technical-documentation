@@ -34,7 +34,7 @@ The whole chain of trust can be generated using one dedicated CLI command, which
 
     * **keyUsage**: `critical`, `cRLSign`, `digitalSignature`, `keyCertSign`
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Automatic creation of a Chain of Trust is not supported if the Item Naming Convention configured in Global Settings contains a literal space character. In this case, follow the [manual guide](https://docs.akeyless.io/docs/ca-chain-of-trust-manually) to build the Chain of Trust.
 
@@ -63,7 +63,7 @@ Where:
 
 Running the command above will create a **Certificate Chain** under **/My-First-Chain** folder, where certificates for `example.com` domain can be issued with a `TTL` of 10 days.
 
-> **Tip:**
+> ✅ **Tip:**
 >
 > The `pathlen` value can be change by using the `--max-path-len` flag.
 

@@ -25,7 +25,7 @@ The following Authentication Methods can be used:
 * [GCP](https://docs.akeyless.io/docs/auth-with-gcp)
 * [K8s](https://docs.akeyless.io/docs/auth-with-kubernetes)
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > In this guide, we will use an API Key Authentication Method for simplicity and we are only using Linux machines. For macOS, please see the guide [here](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/#building-spire-on-macosdarwin).
 
@@ -124,7 +124,7 @@ For **Kubernetes**, **GCP** or **AzureAD** Auth Method set the following setting
 
 ## SPIRE Agent Initialization
 
-> **Info (SPIRE Server):**
+> ℹ️ **Info (SPIRE Server):**
 >
 > You are required to start the [SPIRE server](https://docs.akeyless.io/docs/spire-keymanager) before running the Agent commands.
 
@@ -156,6 +156,6 @@ Upon successful registration of the workload, a secret will be created in Akeyle
 * Certificate
 * x509SVIDKey
 
-> **Info (SPIFFE/SPIRE):**
+> ℹ️ **Info (SPIFFE/SPIRE):**
 >
 > For the full configuration steps, visit the official [Quickstart for Linux and macOS X](https://spiffe.io/docs/latest/try/getting-started-linux-macos-x/) guide

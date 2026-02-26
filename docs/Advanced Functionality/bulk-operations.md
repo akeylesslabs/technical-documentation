@@ -17,7 +17,7 @@ The user running the command must have `Get`, `List`, and `Delete` permissions o
 
 Only items visible to the user making the action will be deleted. However, the operation will fail if the user has only `Get/List` (meaning they are visible to them) and not `Delete` on some of the items inside the path.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > If the designated folder contains one or more items of type `AES` or `RSA` keys the command will fail. To delete the folder first delete or move any `AES` or `RSA` keys inside it.
 

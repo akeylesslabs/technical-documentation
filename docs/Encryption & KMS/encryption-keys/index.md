@@ -29,7 +29,7 @@ Akeyless supports a wide range of encryption keys, including:
 * AES128CBC
 * AES256CBC
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > CBC type algorithms are easy to misuse, require additional data to be supplied when used, and are not authenticated. We recommend using a different type of algorithm unless there is a clear use case for it.
 
@@ -69,7 +69,7 @@ akeyless create-dfc-key -n MyRSAKey -a RSA2048
 akeyless create-dfc-key -n MyCBC -a AES256CBC
 ```
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > To list all available options for key creation run this command: `akeyless create-dfc-key -h`
 
@@ -109,7 +109,7 @@ After creating a key, you can use it to encrypt values using this command with t
 * `k`: The name of the key to encrypt with.
 * `p`: The string to encrypt.
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, a 16-byte random value encoded in Base64 format, which must be unique to each encryption operation and saved to decrypt the value, marked with the parameter -X.
 
@@ -199,7 +199,7 @@ Select a hash function between `sha-256` and `sha-512`. The full parameters for 
 
 3. Select the desired operation and enter the required text
 
-> **Info:**
+> ℹ️ **Info:**
 >
 > When using a CBC type encryption algorithm, there will be an additional parameter called the initialization vector, a 16-byte random value encoded in Base64 format, which must be unique to each encryption operation and saved to decrypt the value, marked with the parameter -X.
 

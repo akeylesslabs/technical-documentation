@@ -18,7 +18,7 @@ Using GitLab [ID tokens](https://docs.gitlab.com/ci/yaml/#id_tokens) when a pipe
 
 * GitLab Version **17.4** or higher.
 
-> **Note (Enable Akeyless CI Secret Plugin):**
+> ℹ️ **Note (Enable Akeyless CI Secret Plugin):**
 >
 > This plugin availability is currently controlled by GitLab Feature Flag, to enable this on your GitLab environment you might need to contact your GitLab Account Manager
 
@@ -114,7 +114,7 @@ secrets:
 
 Make sure to set the relevant `access_type` according to the Auth Method type you are using. For example, the [API Key](https://docs.akeyless.io/docs/auth-with-api-key) example demonstrates using a **CI/CD** variable to store the Access Key: `access_key: $AKEYLESS_ACCESS_KEY`.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > For JWT authentication, it is required to add appropriate [Sub-Claims](https://docs.akeyless.io/docs/sub-claims) based on the [claims available in the JWT](https://docs.gitlab.com/ci/secrets/id_token_authentication/#token-payload) to prevent access by unauthorized users.
 >
@@ -124,7 +124,7 @@ Make sure to set the relevant `access_type` according to the Auth Method type yo
 
 Open your GitLab project and make sure you have a `yaml` file named `.gitlab-ci.yml` and edit the Job according to your use case. All examples below will use the GitLab [ID tokens](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) to authenticate using [OAuth2.0/JWT](https://docs.akeyless.io/docs/auth-with-oauth-jwt) Auth Method.
 
-> **Tip:**
+> ✅ **Tip:**
 >
 > Working with GitLab Token payload can be used with Access Roles [path templates](https://docs.gitlab.com/ee/ci/secrets/id_token_authentication.html#token-payload) for easier management of your CI/CD project access using the `sub (subject)` field from your token.
 
@@ -157,7 +157,7 @@ Where:
 
 * `gateway_ca_certificate`: **Optional**, Gateway CA Certificate when your Gateway TLS is set with **Private CA** .
 
-> **Note (Working with Gateway):**
+> ℹ️ **Note (Working with Gateway):**
 >
 > To fetch **Dynamic** and **Rotated** Secrets make sure your **GitLab Runner** has network access to the relevant Akeyless Gateway.
 

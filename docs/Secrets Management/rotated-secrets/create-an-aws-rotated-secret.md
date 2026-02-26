@@ -71,7 +71,7 @@ Where:
     * `use-user-creds` - Use the credentials defined on the Rotated Secret item.
     * `use-target-creds` - Use the credentials defined on the [AWS Target](https://docs.akeyless.io/docs/aws-targets) item.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Select `use-target-creds` if the Rotated Secret user is not authorized to change their own Access Key, and a privileged AWS IAM principal, like the [AWS Target](https://docs.akeyless.io/docs/aws-targets), is required to change the Access Key on behalf of the Rotated Secret user.
 
@@ -94,7 +94,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 ## Create a Rotated AWS Secret in the Akeyless Console
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 

@@ -36,7 +36,7 @@ To be able to download files to your local machine, the Docker Engine requires m
 
 For security reasons, please limit the volume mount permissions to `0650`.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > To enable Secure Remote Access features, you will have to get an access key to Akeyless's private repository. Please contact your Account Manager for more details.
 
