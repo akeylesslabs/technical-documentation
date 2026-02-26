@@ -50,6 +50,6 @@ To enable Secure Remote Access to the GCP Portal you need:
 
 All secrets which have **Secure Web Browsing** option enabled are marked with a badge in the Akeyless Secure Remote Access Portal.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Please make sure that the GCP Portal site URL specified in the `values.yaml` file on the Web Access Bastion.

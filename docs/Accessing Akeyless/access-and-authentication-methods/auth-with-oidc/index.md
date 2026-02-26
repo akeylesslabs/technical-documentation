@@ -40,7 +40,7 @@ Where:
 
 * `unique-identifier`: A unique identifier is usually one of the following **keys**: `email`, `username`, or `UPN`. Whenever a user logs in with a token, OIDC Identity Providers issue sub-claims containing details that uniquely identify the user. A sub-claim includes a key holding the unique identifier value you configured and is used to distinguish between different users from within the same organization.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > **Unique Identifier** should be a **key** name, not the value itself.
 > For example, `email` should be provided as is, and not the actual email address.

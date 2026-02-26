@@ -755,8 +755,54 @@ module.exports = [
   },
 
   /**
-   * AKY011: Skipped
+   * AKY011: Disallow ReadMe proprietary <Callout> tags.
+   *
+   * Purpose:
+   * - Enforces the repository standard to use markdown blockquote callouts
+   *   (for example, "> ⚠️ **Warning:**") instead of proprietary ReadMe tags.
+   *
+   * Behavior:
+   * - Detection-only rule (no auto-fix).
+   * - Flags both opening and closing Callout tags:
+   *     <Callout ...>
+   *     </Callout>
+   * - Ignores fenced/indented code blocks and inline code spans by default.
+   *
+   * Options (in .markdownlint-cli2.yaml):
+   *   AKY011:
+   *     severity: error|warning|info   # Recommended: warning
+   *     ignore_code: true|false        # Default: true
    */
+  {
+    names: ["AKY011", "no-readme-callout-tag"],
+    description: "Disallow ReadMe proprietary <Callout> tags; use markdown blockquote callouts instead",
+    tags: ["callouts", "readme", "style"],
+    function: function (params, onError) {
+      const cfg = params.config || {};
+      const ignoreCode = cfg.ignore_code !== false; // default true
+
+      const codeLines = ignoreCode ? getCodeBlockLineSet(params.tokens) : new Set();
+      const lines = params.lines || [];
+      const calloutTagPattern = /<\s*\/?\s*Callout\b/i;
+
+      for (let i = 0; i < lines.length; i++) {
+        const ln = i + 1;
+        if (ignoreCode && codeLines.has(ln)) continue;
+
+        const raw = lines[i] || "";
+        const text = ignoreCode ? stripInlineCode(raw) : raw;
+
+        if (calloutTagPattern.test(text)) {
+          report(
+            onError,
+            ln,
+            "Use markdown blockquote callouts (for example, '> ⚠️ **Warning:**') instead of ReadMe <Callout> tags.",
+            raw.trim()
+          );
+        }
+      }
+    }
+  },
 
   /**
    * AKY012: Enforce SI unit formatting:

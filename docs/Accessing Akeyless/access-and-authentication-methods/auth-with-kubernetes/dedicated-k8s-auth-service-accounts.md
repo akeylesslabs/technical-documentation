@@ -16,7 +16,7 @@ next:
 
 * Kubernetes v1.2` or later.
 
-> **Info (Required Gateway Access Permissions):**
+> ℹ️ **Info (Required Gateway Access Permissions):**
 >
 > To set Kubernetes Authentication method, make sure you have [Access Permissions](https://docs.akeyless.io/docs/gateway-k8s#gateway-admins) on your Gateway to manage the Kubernetes Auth.
 
@@ -26,7 +26,7 @@ This flow describes the creation of a dedicated Kubernetes ServiceAccount which 
 
 For a Rancher cluster, please create your [Rancher API Key](https://ranchermanager.docs.rancher.com/reference-guides/user-settings/api-keys) and refer to [Extract Kubernetes Cluster CA Certificate](https://docs.akeyless.io/docs/auth-with-kubernetes) to extract your Rancher server CA certificate.
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > To enable and use token request projection on a self-managed cluster, you must specify each of the following command line arguments to `kube-apiserver`:
 > `--service-account-issuer`
@@ -137,7 +137,7 @@ Upon successful creation, the response:
 }
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Save the returned private key and `AccessID` for next steps inside an environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
@@ -145,7 +145,7 @@ Upon successful creation, the response:
 
 To [discover your Kubernetes ServiceAccount issuer](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-issuer-discovery) run the following command:
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > The Kubernetes Issuer parameter is no longer used by default, as the issuer validation is done by the API server, if you still wish to work with local issuer validation open a new tab to run this command as it starts a server. Then, go back to your original tab to extract the issuer.
 
@@ -273,7 +273,7 @@ Authentication succeeded.
 Token: t-bb7b...3564a7c9
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > Delete the private key and Access ID that you stored in environment variables `$PRV_KEY` and `$ACCESS_ID`.
 
@@ -310,7 +310,7 @@ minikube start \
     --extra-config=kubelet.authentication-token-webhook=true
 ```
 
-> **Note:**
+> ℹ️ **Note:**
 >
 > This example uses `api` as the service account issuer name, for your service accounts API audience.
 

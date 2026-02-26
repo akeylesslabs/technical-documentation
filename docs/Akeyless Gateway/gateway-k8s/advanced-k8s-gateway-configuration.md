@@ -43,7 +43,7 @@ To choose an existing [Encryption Key](https://docs.akeyless.io/docs/encryption-
 
 By default, the Gateway configuration is encrypted with your account's default encryption key.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > This key can be determined on cluster deployment only, and **cannot** be modified afterward.
 
@@ -103,7 +103,7 @@ Set the default [Encryption Key](https://docs.akeyless.io/docs/encryption-keys) 
 
 Set the default location where secrets created by this Gateway will be stored within your Akeyless account using the `defaultSecretLocation` setting with a path to store your secrets.
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Make sure your Gateway default Authentication Method has `read` permission to access your Encryption key, as well as `create` permission on the desired location to save your secrets.
 
@@ -179,7 +179,7 @@ To provide the settings of your Gateway deployment directly from your local Kube
 * `admin-certificate (base64)`
 * `admin-certificate-key (base64)`
 
-> **Warning:**
+> ⚠️ **Warning:**
 >
 > Providing any of those settings using an existing Kubernetes Secret, make sure that the corresponding parameters are left empty in your `values.yaml` file.
 
