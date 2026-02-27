@@ -12,11 +12,11 @@ next:
     Make sure to associate your new Authentication Method with an Access Role to
     grant the relevant permissions within Akeyless
 ---
-The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) uses an existing LDAP server to authenticate your users without sharing their credentials directly with Akeyless or any other third party. The [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) interacts directly with your LDAP server inside your internal network, acting as an internal trusted server, to ensure safe communication.
+The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods) uses an existing LDAP server to authenticate your users without sharing their credentials directly with Akeyless or any other third party. The [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway) interacts directly with your LDAP server inside your internal network, acting as an internal trusted server, to ensure safe communication.
 
 ## Prerequisites
 
-* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to an LDAP server.
+* [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway) with network access to an LDAP server.
 
 * An [Access Role](https://docs.akeyless.io/docs/rbac) with permissions to create an Authentication Method.
 
@@ -46,7 +46,7 @@ The LDAP [Authentication Method](https://docs.akeyless.io/docs/access-and-authen
 
 On the **LDAP Configuration** step define the following:
 
-* **Gateway:** An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) to create the LDAP configuration.
+* **Gateway:** An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway) to create the LDAP configuration.
 
 * **LDAP Server URL:** The LDAP server URL, for example, `ldap://planetexpress.com:389` or secured server `ldaps://planetexpress.com:636`.
 

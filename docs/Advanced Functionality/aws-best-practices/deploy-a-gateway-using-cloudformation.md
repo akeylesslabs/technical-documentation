@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This guide explains how to automate the integration with Akeyless using an [Amazon CloudFormation](https://aws.amazon.com/cloudformation/) template. The template provisions an Amazon EC2 instance with the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw), creates an AWS IAM Role with permissions to manage IAM users and secrets, and can generate both an [AWS Target](https://docs.akeyless.io/docs/aws-targets) and a [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) in Akeyless. The entire setup, from infrastructure deployment to integration configuration, is handled end to end.
+This guide explains how to automate the integration with Akeyless using an [Amazon CloudFormation](https://aws.amazon.com/cloudformation/) template. The template provisions an Amazon EC2 instance with the [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway), creates an AWS IAM Role with permissions to manage IAM users and secrets, and can generate both an [AWS Target](https://docs.akeyless.io/docs/aws-targets) and a [Dynamic Secret](https://docs.akeyless.io/docs/aws-producer) in Akeyless. The entire setup, from infrastructure deployment to integration configuration, is handled end to end.
 
 ## General Configuration
 
@@ -558,7 +558,7 @@ To deploy the Akeyless Gateway using [AWS CloudFormation](https://docs.aws.amazo
 
     * Launch an [EC2 instance](https://aws.amazon.com/ec2/) with Docker installed and ready to run containers.
 
-    * Deploy the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) inside a Docker container on the **EC2 instance** for secure, high-availability access to Akeyless Vault services.
+    * Deploy the [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway) inside a Docker container on the **EC2 instance** for secure, high-availability access to Akeyless Vault services.
 
     * Create an IAM Role with scoped permissions for managing secrets and IAM users through AWS.
 

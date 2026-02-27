@@ -12,7 +12,7 @@ next:
 ---
 ## Prerequisites
 
-* [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) with network access to the Kubernetes (K8s) cluster.
+* [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway) with network access to the Kubernetes (K8s) cluster.
 
 * Kubernetes v1.2` or later.
 
@@ -122,7 +122,7 @@ CA_CERT=$(openssl s_client -host <Rancher Server> -port 443 2>&1  | sed -n -e '/
 
 #### Create Kubernetes Auth Method
 
-Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method. The result contains an `Access ID` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw):
+Use the [Akeyless CLI](https://docs.akeyless.io/docs/cli) to create the Kubernetes Auth Method. The result contains an `Access ID` and a `private key` that you will need later for the Kubernetes Auth configuration in your [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway):
 
 ```shell
 akeyless create-auth-method-k8s -n my-k8s-auth-method --json
@@ -264,7 +264,7 @@ Where:
 
 * `gateway-url`: Akeyless Gateway Configuration Manager URL (port `8000`).
 
-* `k8s-auth-config-name`: The Kubernetes auth config name in your [Gateway](https://docs.akeyless.io/docs/api-gw).
+* `k8s-auth-config-name`: The Kubernetes auth config name in your [Gateway](https://docs.akeyless.io/docs/akeyless-gateway).
 
 Upon successful authentication, the response will be:
 
