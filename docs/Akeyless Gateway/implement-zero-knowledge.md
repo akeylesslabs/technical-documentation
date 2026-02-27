@@ -16,11 +16,11 @@ next:
 ---
 ## Introduction
 
-To implement [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge), you must set up a [Gateway](https://docs.akeyless.io/docs/api-gw).
+To implement [Zero-Knowledge Encryption](https://docs.akeyless.io/docs/zero-knowledge), you must set up a [Gateway](https://docs.akeyless.io/docs/akeyless-gateway).
 
 Once you have a Gateway up and running, you can generate a component called the **Customer Fragment**. The customer fragment is a unique piece of any encryption key you create using it that only you can access, and even the Akeyless team cannot see it. These Customer Fragments allow you to create our special type of key called the DFC key, which can only be used by an allowed user on the gateway that holds the corresponding Customer Fragment.
 
-Using our unique Zero-Knowledge architecture, you can deploy multiple [Gateway](https://docs.akeyless.io/docs/api-gw) on several different geographical jurisdictions with different fragments to comply with the regulatory requirements applied in those jurisdictions.
+Using our unique Zero-Knowledge architecture, you can deploy multiple [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) on several different geographical jurisdictions with different fragments to comply with the regulatory requirements applied in those jurisdictions.
 
 > ⚠️ **Warning:**
 >
