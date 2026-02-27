@@ -91,6 +91,27 @@ curl -vk https://gateway.yourdomain.com/console
 
 Expected result: the Gateway login page or a valid response from the Gateway endpoint.
 
+Validation criteria:
+
+* The ingress address resolves for `gateway.yourdomain.com`.
+* `https://gateway.yourdomain.com/console` is reachable.
+
+## Step 7: Access the Gateway
+
+* Gateway endpoint: `https://gateway.yourdomain.com/console`
+
+### Troubleshooting
+
+If the Gateway login shows **Authentication failed**:
+
+* Verify `globalConfig.gatewayAuth.gatewayAccessType` and `globalConfig.gatewayAuth.gatewayAccessId` match the auth method you intend to use.
+* Ensure the login identity is included in `globalConfig.allowedAccessPermissions`.
+* Re-apply your chart values:
+
+  ```shell
+  helm upgrade gateway akeyless/akeyless-gateway -f values.yaml -n akeyless
+  ```
+
 ## Related Reference Pages
 
 * [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart)
