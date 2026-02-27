@@ -12,7 +12,7 @@ next:
 ---
 Akeyless [Access Roles](https://docs.akeyless.io/docs/rbac) control all user access levels for items, analytics, and usage reports.
 
-In parallel with [Gateway](https://docs.akeyless.io/docs/api-gw) administrative operations, you can set the exact level of access your [Gateway administrative users](https://docs.akeyless.io/docs/advance-gw-docker-configuration#gateway-admins) will have, from the management of just [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) or [Rotated](https://docs.akeyless.io/docs/rotated-secrets) Secrets, up to, and including, complete admin rights.
+In parallel with [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) administrative operations, you can set the exact level of access your [Gateway administrative users](https://docs.akeyless.io/docs/advance-gw-docker-configuration#gateway-admins) will have, from the management of just [Dynamic](https://docs.akeyless.io/docs/how-to-create-dynamic-secret) or [Rotated](https://docs.akeyless.io/docs/rotated-secrets) Secrets, up to, and including, complete admin rights.
 
 > ℹ️ **Info:**
 >
