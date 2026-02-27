@@ -14,7 +14,7 @@ You can use Akeyless Dynamic Secrets to generate access credentials for Snowflak
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 
 * Snowflake privileged account: To create a Snowflake dynamic secret, ensure that you have a Snowflake account and credentials for the admin user (with the `USERADMIN` role or higher)
 

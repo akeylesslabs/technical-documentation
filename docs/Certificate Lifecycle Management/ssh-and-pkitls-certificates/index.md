@@ -105,7 +105,7 @@ Where:
 
 * `create-public-crl`: Optional, to maintain a public CRL at: `https://vault.akeyless.io/crl/<account-id>/<cert-issuer-display-id>`.
 
-* `create-private-crl` Optional, creates the CRL endpoint on the [Gateway](https://docs.akeyless.io/docs/api-gw) at: `https://<gatewayURL>/crl/<cert-issuer-display-id>`.
+* `create-private-crl` Optional, creates the CRL endpoint on the [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) at: `https://<gatewayURL>/crl/<cert-issuer-display-id>`.
 
 * `gw-cluster-url` Akeyless Gateway Configuration Manager URL (port 8000). Required for **private CRL**.
 

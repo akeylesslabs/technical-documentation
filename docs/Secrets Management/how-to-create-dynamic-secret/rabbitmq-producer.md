@@ -16,7 +16,7 @@ When a client requests a dynamic secret value, the Akeyless Platform connects to
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 
 * A RabbitMQ privileged user
 

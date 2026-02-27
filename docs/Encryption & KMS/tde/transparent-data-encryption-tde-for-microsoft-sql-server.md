@@ -33,7 +33,7 @@ curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypt
 ```
 
 * Run the MSI installer and follow the wizard installation steps:
-    * Enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL (port 8081) when prompted.
+    * Enter your Akeyless [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) URL (port 8081) when prompted.
     * Choose the path in Akeyless to store the keys.
     * Choose the OS installation path and save it for later reference. This process will:
         * Copy the .dll files.

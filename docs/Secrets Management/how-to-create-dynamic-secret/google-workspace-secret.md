@@ -17,7 +17,7 @@ next:
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 
 * `ext_email` sub-claim exists in your IdP
 

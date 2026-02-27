@@ -16,7 +16,7 @@ next:
 ---
 **GlobalSign** Target enables you to use **GlobalSign** as a Public CA with Akeyless [PKI Issuer](https://docs.akeyless.io/docs/ssh-and-pkitls-certificates) .
 
-With Public CA, Akeyless cannot access the private key that signs the certificates. Hence, Akeyless will programmatically contact GlobalSign through the [Gateway](https://docs.akeyless.io/docs/api-gw) using the account details of the domain owner to validate the certificate request.
+With Public CA, Akeyless cannot access the private key that signs the certificates. Hence, Akeyless will programmatically contact GlobalSign through the [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) using the account details of the domain owner to validate the certificate request.
 
 Akeyless will store and manage the issued certificates and notify you of upcoming expiration events.
 

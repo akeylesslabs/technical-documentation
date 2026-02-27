@@ -18,7 +18,7 @@ The issuance flow uses a Public CA Target with Akeyless [PKI Issuer](https://doc
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) to interact with the Public Certificate Authority.
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway) to interact with the Public Certificate Authority.
 * Target of the public CA.
 
 ### PKI Cert Issuer With a Target
@@ -113,6 +113,6 @@ akeyless get-certificate-value \
 
 You can find the complete list of parameters for this command in the [CLI Reference - certificates](https://docs.akeyless.io/docs/cli-reference-certificates#get-certificate-value) section.
 
-Once the certificate issue request is processed, a validation email will be sent to the email address listed in the Target, and it will be processed automatically by the [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+Once the certificate issue request is processed, a validation email will be sent to the email address listed in the Target, and it will be processed automatically by the [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 
 The issued [Certificate item](https://docs.akeyless.io/docs/certificate-storage) should be created under the `destination-path` storage folder inside Akeyless.

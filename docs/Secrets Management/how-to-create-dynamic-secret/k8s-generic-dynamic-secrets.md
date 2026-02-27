@@ -32,7 +32,7 @@ In addition, you must supply a list of Allowed Namespaces to exist within, to co
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 
 * A [Generic Kubernetes Target](https://docs.akeyless.io/docs/kubernetes-targets#k8s-generic) or the equivalent inline credentials
 

@@ -36,7 +36,7 @@ Transparent data encryption ([TDE](https://learn.microsoft.com/en-us/sql/relatio
     curl https://akeylessservices.s3.us-east-2.amazonaws.com/services/akeyless-crypto-provider/release/latest/AkeylessEkmProviderInstaller.msi --output AkeylessEkmProviderInstaller.msi
     ```
 
-2. Follow the wizard installation steps - enter your Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw) URL using the `/api/v2` endpoint (previously port `8081`), and choose a path in the Akeyless Platform to store the keys.
+2. Follow the wizard installation steps - enter your Akeyless [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) URL using the `/api/v2` endpoint (previously port `8081`), and choose a path in the Akeyless Platform to store the keys.
 
     Choose the OS installation path and save it for later. This will copy the `dll` files, and also creates a configuration file that can be edited later.
 

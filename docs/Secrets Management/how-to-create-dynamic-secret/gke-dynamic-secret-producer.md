@@ -14,7 +14,7 @@ You can create a dynamic Google Kubernetes Engine (GKE) secret to allow users re
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 
 * GKE Service Account
 

@@ -12,11 +12,11 @@ next:
 ---
 You can create a Rotated Secret for GCP Service Account. Before you start, create a [GCP Target](https://docs.akeyless.io/docs/gcp-targets) that includes the relevant information with a privileged service account assigned with the GCP service account key admin role.
 
-When a client requests a Rotated Secret value, the Akeyless Platform connects to the GCP Cloud through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the service account key.
+When a client requests a Rotated Secret value, the Akeyless Platform connects to the GCP Cloud through your [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) to rotate the service account key.
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 * [GCP Service Account](https://cloud.google.com/iam/docs/service-account-overview) with the [Service Account Key Admin](https://cloud.google.com/iam/docs/understanding-roles#iam.serviceAccountKeyAdmin) role assigned
 
 ## Create a Rotated GCP Service Account Secret with the CLI
@@ -71,7 +71,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note:**
 >
-> To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Rotated Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > GCP**.
 

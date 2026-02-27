@@ -40,7 +40,7 @@ api_client = akeyless.ApiClient(configuration)
 api = akeyless.V2Api(api_client)
 ```
 
-To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set `host` with your Gateway API endpoint on port `8081`.
+To work with Your [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) set `host` with your Gateway API endpoint on port `8081`.
 
 ## Authentication
 

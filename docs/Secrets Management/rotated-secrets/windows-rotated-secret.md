@@ -12,7 +12,7 @@ next:
 ---
 You can create a Rotated Secret for a Windows user password. Before you get started, ensure that you create a [Windows Target](https://docs.akeyless.io/docs/windows-target) that includes the hostname and connection settings, as well as credentials for a privileged user authorized to rotate credentials.
 
-When a client requests a Rotated Secret value, the Akeyless Platform connects to the Windows Server through your [Gateway](https://docs.akeyless.io/docs/api-gw) to rotate the user password on your target server.
+When a client requests a Rotated Secret value, the Akeyless Platform connects to the Windows Server through your [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) to rotate the user password on your target server.
 
 ## Create a Rotated Windows Secret with the CLI
 
@@ -64,7 +64,7 @@ You can find the complete list of parameters for this command in the [CLI Refere
 
 > ℹ️ **Note:**
 >
-> To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#create-a-rotated-ssh-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Rotated Secrets from the [Akeyless Console](https://docs.akeyless.io/docs/create-an-ssh-rotated-secret#create-a-rotated-ssh-secret-in-the-akeyless-console), you need to configure the [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 1. Log in to the Akeyless Console, and go to **Items > New > Rotated Secret > Windows**.
 
