@@ -52,6 +52,7 @@ Use this style guide as permanent context for all documentation work in this rep
 * Preserve navigation structures and ordering files (for example, `_order.yaml`) when adding or updating pages.
 * `_order.yaml` controls the visible navigation order for pages and folders in its directory. When adding, removing, or renaming pages, update the corresponding `_order.yaml` entry set to keep navigation deterministic and complete.
 * Use descriptive headings and maintain proper heading hierarchy (`##`, `###`, and deeper levels).
+* Use 4 spaces for Markdown indentation in nested content (for example, nested list items and fenced code blocks under list items).
 * Use absolute URLs for documentation links; do not use relative links.
 
     * Example: use `https://docs.akeyless.io/docs/mcp-server` instead of `/docs/mcp-server`.
