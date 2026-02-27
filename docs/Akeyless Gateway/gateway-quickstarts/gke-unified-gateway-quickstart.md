@@ -46,12 +46,11 @@ globalConfig:
       access_id: <admin-access-id>
       permissions:
         - admin
-
-serviceAccount:
-  create: true
-  serviceAccountName: akeyless-gateway-sa
-  annotations:
-    iam.gke.io/gcp-service-account: <gsa-name>@<project-id>.iam.gserviceaccount.com
+  serviceAccount:
+    create: true
+    serviceAccountName: akeyless-gateway-sa
+    annotations:
+      iam.gke.io/gcp-service-account: <gsa-name>@<project-id>.iam.gserviceaccount.com
 ```
 
 ## Step 4: Configure Managed Certificate and Ingress
@@ -77,24 +76,26 @@ kubectl apply -f managed-certificate.yaml
 Configure ingress in `values.yaml`:
 
 ```yaml values.yaml
-ingress:
-  enabled: true
-  ingressClassName: "gce"
-  annotations:
-    kubernetes.io/ingress.class: "gce"
-    networking.gke.io/managed-certificates: "akeyless-gateway-cert"
-  rules:
-    - hostname: "gateway.yourdomain.com"
-      servicePort: gateway
-      path: "/*"
-      pathType: ImplementationSpecific
-  tls: false
+gateway:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: "gce"
+      networking.gke.io/managed-certificates: "akeyless-gateway-cert"
+    rules:
+      - hostname: "gateway.yourdomain.com"
+        servicePort: gateway
+    path: "/*"
+    pathType: ImplementationSpecific
+    tls: false
 ```
+
+  Use the `kubernetes.io/ingress.class: "gce"` annotation for GKE Ingress with ManagedCertificate. For this flow, do not set `ingressClassName`.
 
 ## Step 5: Install the Gateway
 
 ```shell
-helm install gateway akeyless/akeyless-gateway -f values.yaml -n akeyless
+helm install gateway akeyless/akeyless-gateway -f values.yaml -n akeyless --create-namespace
 ```
 
 ## Step 6: Configure DNS and Validate

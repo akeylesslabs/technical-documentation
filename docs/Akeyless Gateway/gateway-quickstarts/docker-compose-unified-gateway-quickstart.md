@@ -54,13 +54,30 @@ ssh-keygen -t rsa -b 4096 -f ssh-config/ca -C "akeyless-ca"
 
 Ensure the public key is available as `ssh-config/ca.pub`.
 
-## Step 5: Start Services
+## Step 5: Set Redis Password Input
+
+Create a `.env` file in the same directory and set `REDIS_PASS`:
+
+```shell
+echo "REDIS_PASS=<strong-random-password>" > .env
+```
+
+Create the Docker Compose secret file expected by the sample:
+
+```shell
+mkdir -p secrets
+echo "<strong-random-password>" > secrets/redis_password
+```
+
+The current sample uses both `REDIS_PASS` and `secrets/redis_password`, so set both values.
+
+## Step 6: Start Services
 
 ```shell
 docker compose --profile gateway --profile sra up -d
 ```
 
-## Step 6: Validate Deployment
+## Step 7: Validate Deployment
 
 ```shell
 docker ps
@@ -69,7 +86,7 @@ curl -f http://localhost:8080/health
 
 Expected result: the health endpoint returns `OK` and all required containers are running.
 
-## Step 7: Access the Services
+## Step 8: Access the Services
 
 * Gateway endpoint: `http://localhost:8000`
 * SRA web endpoint: `http://localhost:8888`
