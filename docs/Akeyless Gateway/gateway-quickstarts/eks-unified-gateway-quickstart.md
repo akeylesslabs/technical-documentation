@@ -40,37 +40,39 @@ globalConfig:
       access_id: <admin-access-id>
       permissions:
         - admin
-
-serviceAccount:
-  create: true
-  serviceAccountName: akeyless-gateway-sa
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::<aws-account-id>:role/<gateway-role-name>
+  serviceAccount:
+    create: true
+    serviceAccountName: akeyless-gateway-sa
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::<aws-account-id>:role/<gateway-role-name>
 ```
 
 ## Step 3: Configure Ingress for ALB and ACM
 
 ```yaml values.yaml
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: "alb"
-    alb.ingress.kubernetes.io/scheme: "internet-facing"
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:<region>:<account-id>:certificate/<certificate-id>
-  rules:
-    - hostname: "gateway.yourdomain.com"
-      servicePort: gateway
-      path: "/*"
-      pathType: ImplementationSpecific
-  tls: true
+gateway:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: "alb"
+      alb.ingress.kubernetes.io/scheme: "internet-facing"
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+      alb.ingress.kubernetes.io/target-type: ip
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:<region>:<account-id>:certificate/<certificate-id>
+    rules:
+      - hostname: "gateway.yourdomain.com"
+        servicePort: gateway
+    path: "/*"
+    pathType: ImplementationSpecific
+    tls: false
 ```
+
+  When ALB handles TLS termination with `alb.ingress.kubernetes.io/certificate-arn` and HTTPS listen ports, keep `gateway.ingress.tls: false`.
 
 ## Step 4: Install the Gateway
 
 ```shell
-helm install gateway akeyless/akeyless-gateway -f values.yaml -n akeyless
+helm install gateway akeyless/akeyless-gateway -f values.yaml -n akeyless --create-namespace
 ```
 
 ## Step 5: Configure DNS
