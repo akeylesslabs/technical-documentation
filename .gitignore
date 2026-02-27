@@ -2,3 +2,4 @@
 Thumbs.db
 samples/unified-gateway/docker-compose-deploy/secrets/
 samples/unified-gateway/docker-compose-deploy/ssh-config/
+samples/unified-gateway/docker-compose-deploy/.env
