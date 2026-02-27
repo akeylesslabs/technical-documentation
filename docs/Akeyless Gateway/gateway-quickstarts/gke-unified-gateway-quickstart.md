@@ -108,6 +108,28 @@ curl -vk https://gateway.yourdomain.com/console
 
 Expected result: the managed certificate becomes active and the Gateway endpoint is reachable over HTTPS.
 
+Validation criteria:
+
+* `kubectl describe managedcertificate akeyless-gateway-cert` shows the certificate as active.
+* The ingress address resolves for `gateway.yourdomain.com`.
+* `https://gateway.yourdomain.com/console` is reachable.
+
+## Step 7: Access the Gateway
+
+* Gateway endpoint: `https://gateway.yourdomain.com/console`
+
+### Troubleshooting
+
+If the Gateway login shows **Authentication failed**:
+
+* Verify `globalConfig.gatewayAuth.gatewayAccessType` and `globalConfig.gatewayAuth.gatewayAccessId` match the auth method you intend to use.
+* Ensure the login identity is included in `globalConfig.allowedAccessPermissions`.
+* Re-apply your chart values:
+
+  ```shell
+  helm upgrade gateway akeyless/akeyless-gateway -f values.yaml -n akeyless
+  ```
+
 ## Related Reference Pages
 
 * [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart)
