@@ -13,10 +13,19 @@ next:
 
 This Quickstart guides you through deploying the Akeyless Gateway on a Kubernetes cluster using the official Helm chart and configuring it to authenticate to your Akeyless account with an API Key.
 
+This guide is a foundational Kubernetes onboarding flow. It focuses on a minimal, provider-agnostic deployment path to help you get a working Gateway quickly.
+
 By the end, you will have:
 
 * A running Gateway deployment on Kubernetes
 * The Gateway connected to your Akeyless account using API Key authentication
+
+If you need cloud-provider-specific deployment patterns (including managed ingress and workload identity flows), use the Gateway Deployment Quickstarts:
+
+* [Gateway Deployment Quickstarts](https://docs.akeyless.io/docs/gateway-quickstarts)
+* [Amazon Elastic Kubernetes Service (EKS) Quickstart](https://docs.akeyless.io/docs/eks-unified-gateway-quickstart)
+* [Google Kubernetes Engine (GKE) Quickstart](https://docs.akeyless.io/docs/gke-unified-gateway-quickstart)
+* [Azure Kubernetes Service (AKS) Quickstart](https://docs.akeyless.io/docs/aks-unified-gateway-quickstart)
 
 ## Prerequisites
 
