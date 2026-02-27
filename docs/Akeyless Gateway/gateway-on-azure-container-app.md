@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page describes how to run [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) on [Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps). The latest Docker image can be found at the [Akeyless Docker Hub](https://hub.docker.com/r/akeyless/gateway/tags) using the following image tag: `akeyless/gateway:latest-container-app`.
+This page describes how to run [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway) on [Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps). The latest Docker image can be found at the [Akeyless Docker Hub](https://hub.docker.com/r/akeyless/gateway/tags) using the following image tag: `akeyless/gateway:latest-container-app`.
 
 ## Prerequisites
 

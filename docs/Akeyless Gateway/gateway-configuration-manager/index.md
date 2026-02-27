@@ -51,7 +51,7 @@ After the first login to the Gateway Configuration Manager, a record for the new
 >
 > Each Gateway instance is uniquely identified by the combination of the **Access ID** of the first logged-in Authentication Method and the **Cluster Name** (_defaultCluster_ by default).
 
-You can identify and manage your [Gateway](https://docs.akeyless.io/docs/api-gw) inside the Akeyless Console, under the Gateways section.  
+You can identify and manage your [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) inside the Akeyless Console, under the Gateways section.  
 The Gateway's instance name is comprised of three strings, appearing in this order:
 
 * **Account ID:** The string with the following format `acc-xxxxxxx`
