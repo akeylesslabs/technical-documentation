@@ -26,70 +26,137 @@ cd technical-documentation/samples/unified-gateway/docker-compose-deploy
 
 ## Step 2: Configure `gateway.env`
 
-Set core authentication values:
+Edit `gateway.env` and set the following values:
 
-```shell
+```dotenv
 GATEWAY_ACCESS_ID="p-xxxxxx"
 GATEWAY_ACCESS_TYPE="access_key"
 GATEWAY_ACCESS_KEY="<your-access-key>"
 CLUSTER_NAME="my-gateway"
 ```
 
-## Step 3: Configure `sra.env`
+Also ensure `ALLOWED_ACCESS_PERMISSIONS` in `gateway.env` includes the users or auth methods that will sign in to Gateway/SRA web.
 
-Set SRA service endpoints:
+For example:
 
-```shell
-USE_CLUSTER_CACHE="true"
-REMOTE_ACCESS_WEB_SERVICE_INTERNAL_URL="http://akeyless-web:8888"
-REMOTE_ACCESS_SSH_SERVICE_INTERNAL_URL="http://akeyless-ssh:9900"
+```dotenv
+ALLOWED_ACCESS_PERMISSIONS='[{"access_id":"p-xxxxxxxxxxxx","name":"Gateway Admin"}]'
 ```
 
-## Step 4: Prepare SSH CA Key for SRA
+If `ALLOWED_ACCESS_PERMISSIONS` is not modified, Gateway and SRA sign-in flows can fail authentication.
+
+<ApiKeyWarning />
+
+## Step 3: Prepare SSH CA Key for SRA
 
 ```shell
 mkdir -p ssh-config
 ssh-keygen -t rsa -b 4096 -f ssh-config/ca -C "akeyless-ca"
 ```
 
-Ensure the public key is available as `ssh-config/ca.pub`.
+When prompted for a passphrase, either:
 
-## Step 5: Set Redis Password Input
+* Press `Enter` twice to create the key without a passphrase, or
+* Enter a passphrase twice if your environment requires encrypted key files.
 
-Create a `.env` file in the same directory and set `REDIS_PASS`:
+Ensure the public key is available as `ssh-config/ca.pub`. This is the default behavior.
 
-```shell
-echo "REDIS_PASS=<strong-random-password>" > .env
+Expected output includes lines similar to:
+
+```text
+Enter passphrase for "ssh-config/ca" (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in ssh-config/ca
+Your public key has been saved in ssh-config/ca.pub
 ```
 
-Create the Docker Compose secret file expected by the sample:
+## Step 4: Set Redis Password Input
 
-```shell
-mkdir -p secrets
-echo "<strong-random-password>" > secrets/redis_password
-```
+1. Create a `.env` file in the same directory and set `REDIS_PASS`:
 
-The current sample uses both `REDIS_PASS` and `secrets/redis_password`, so set both values.
+    ```shell
+    echo "REDIS_PASS=RedisPass_ChangeMe_2026" > .env
+    ```
 
-## Step 6: Start Services
+2. Create the secret file used by the sample Compose definition:
+
+    ```shell
+    mkdir -p secrets
+    echo "RedisPass_ChangeMe_2026" > secrets/redis_password
+    ```
+
+Use your own strong value instead of the example, and keep both values identical.
+
+## Step 5: Start Services
 
 ```shell
 docker compose --profile gateway --profile sra up -d
 ```
 
-## Step 7: Validate Deployment
+> ℹ️ **Note: Windows troubleshooting**
+>
+> If you see the following error, Docker Desktop is not connected to the Linux engine:
+>
+> ```text
+> open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified
+> ```
+>
+> * Start Docker Desktop and wait until it reports that Docker is running.
+> * Verify the CLI can reach Docker:
+>
+>     ```shell
+>     docker info
+>     ```
+>
+> * Run the compose command again.
+
+## Step 6: Validate Deployment
 
 ```shell
-docker ps
+docker compose --profile gateway --profile sra ps
 curl -f http://localhost:8080/health
 ```
 
-Expected result: the health endpoint returns `OK` and all required containers are running.
+Expected output includes lines similar to (some columns were removed from the sample output):
 
-## Step 8: Access the Services
+```text
+NAME               SERVICE            STATUS
+akeyless-gateway   akeyless-gateway   Up ## seconds (healthy)
+akeyless-sra-web   akeyless-web       Up ## seconds
+akeyless-sra-ssh   akeyless-ssh       Up ## seconds
+redis-cache        redis-cache        Up ## seconds
+
+Health Check Ok
+```
+
+Validation criteria:
+
+* `curl -f http://localhost:8080/health` returns `Health Check Ok`.
+* `docker compose --profile gateway --profile sra ps` shows `akeyless-gateway`, `akeyless-sra-web`, `akeyless-sra-ssh`, and `redis-cache` as `Up`.
+* `redis-cache` must not be in `Restarting` state.
+
+## Step 7: Access the Services
 
 * Gateway endpoint: `http://localhost:8000`
-* SRA web endpoint: `http://localhost:8888`
+* SRA portal: `http://localhost:8000/sra/portal/`
+
+> ℹ️ **Note: Windows troubleshooting**
+>
+> The SRA portal's supported authentication methods are: Certificate, LDAP, OIDC, and SAML.
+
+### Troubleshooting
+
+If `http://localhost:8000` shows **Authentication failed** when using the same API key from `gateway.env`:
+
+* Verify `GATEWAY_ACCESS_ID`, `GATEWAY_ACCESS_TYPE`, and `GATEWAY_ACCESS_KEY` are correct and from the same auth method.
+* Ensure the login identity is included in `ALLOWED_ACCESS_PERMISSIONS` (configured in Step 2).
+* If needed, test with another authorized Akeyless auth method configured in `ALLOWED_ACCESS_PERMISSIONS`.
+* Recreate services after env-file changes:
+
+    ```shell
+    docker compose --profile gateway --profile sra down
+    docker compose --profile gateway --profile sra up -d
+    ```
 
 ## Related Reference Pages
 
