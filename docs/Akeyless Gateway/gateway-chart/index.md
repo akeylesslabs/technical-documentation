@@ -12,6 +12,12 @@ next:
 ---
 Akeyless provides a [Helm chart](https://github.com/akeylesslabs/helm-charts/tree/main/charts/akeyless-gateway) to bootstrap the Akeyless Gateway deployment.
 
+For platform-specific deployment flows, use the following quickstarts:
+
+* [Amazon EKS Quickstart](https://docs.akeyless.io/docs/eks-unified-gateway-quickstart)
+* [Google Kubernetes Engine (GKE) Quickstart](https://docs.akeyless.io/docs/gke-unified-gateway-quickstart)
+* [Azure Kubernetes Service (AKS) Quickstart](https://docs.akeyless.io/docs/aks-unified-gateway-quickstart)
+
 > ℹ️ **Note (New Chart):**
 >
 > This guide describe the flow using the **latest** chart of the Akeyless Gateway.

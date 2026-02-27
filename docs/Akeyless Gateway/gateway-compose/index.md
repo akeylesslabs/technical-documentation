@@ -12,6 +12,8 @@ next:
 ---
 Akeyless Gateway can be deployed using [Docker Compose](https://docs.docker.com/compose/), in which, the configuration process takes place before the actual installation.
 
+For an end-to-end deployment flow of Unified Gateway and Secure Remote Access (SRA), see [Docker Compose Unified Gateway Quickstart](https://docs.akeyless.io/docs/docker-compose-unified-gateway-quickstart).
+
 ## Prerequisites
 
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
