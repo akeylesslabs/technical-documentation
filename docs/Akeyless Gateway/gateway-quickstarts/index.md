@@ -22,6 +22,8 @@ These quickstarts provide platform-specific deployment flows for the Akeyless Un
 * [Azure Kubernetes Service (AKS) Quickstart](https://docs.akeyless.io/docs/aks-unified-gateway-quickstart)
 * [Docker Compose Quickstart (Unified Gateway + Secure Remote Access)](https://docs.akeyless.io/docs/docker-compose-unified-gateway-quickstart)
 
+Use the Docker Compose quickstart when you need a local or single-host deployment flow for evaluation, integration testing, or small non-production environments.
+
 ## Related Getting Started Quickstarts
 
 If you are new to Akeyless, complete these quickstarts first:
