@@ -17,6 +17,13 @@ next:
       slug: gateway-k8s
       title: Gateway on Kubernetes
 ---
+For platform-oriented deployment guides, use the following quickstarts:
+
+* [Amazon EKS Quickstart](https://docs.akeyless.io/docs/eks-unified-gateway-quickstart)
+* [Google Kubernetes Engine (GKE) Quickstart](https://docs.akeyless.io/docs/gke-unified-gateway-quickstart)
+* [Azure Kubernetes Service (AKS) Quickstart](https://docs.akeyless.io/docs/aks-unified-gateway-quickstart)
+* [Docker Compose Unified Gateway Quickstart](https://docs.akeyless.io/docs/docker-compose-unified-gateway-quickstart)
+
 ## Prerequisites
 
 * An [Authentication Method](https://docs.akeyless.io/docs/access-and-authentication-methods). Make sure it has the right [access permission](https://docs.akeyless.io/docs/rbac) to create and manage [Secrets, Keys](https://docs.akeyless.io/docs/manage-your-secrets-overview) and [Targets](https://docs.akeyless.io/docs/targets).
