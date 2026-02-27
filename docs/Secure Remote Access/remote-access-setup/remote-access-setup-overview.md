@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Akeyless Secure Remote Access is part of the [Gateway](https://docs.akeyless.io/docs/api-gw). Users can deploy Remote Access components alongside the Gateway or can use the same chart to deploy Remote Access components after the Gateway is deployed.
+Akeyless Secure Remote Access is part of the [Gateway](https://docs.akeyless.io/docs/akeyless-gateway). Users can deploy Remote Access components alongside the Gateway or can use the same chart to deploy Remote Access components after the Gateway is deployed.
 
 The Remote Access solution can be deployed in one of two methods:
 

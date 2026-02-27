@@ -9,7 +9,7 @@ You can use Akeyless Dynamic Secrets to generate short-lived credentials that le
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw#/)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway#/)
 * an [Admin API Key](https://platform.openai.com/docs/api-reference/admin-api-keys)
 
 ## Create an OpenAI Dynamic Secret with the CLI

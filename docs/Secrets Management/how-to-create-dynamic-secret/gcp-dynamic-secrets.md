@@ -49,7 +49,7 @@ For example:
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw).
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway).
 
 * A GCP [privileged service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) to generate keys and access tokens.
 

@@ -43,7 +43,7 @@ For more information on the Terraform provider, see the [Akeyless GitHub Reposit
 
 The following example creates an API Key authentication method called **auth-method-api-key-demo** in the **terraform-tests** folder, and a static secret called **secret** in the same folder. It uses **AWS IAM** for authentication.
 
-To use your own [Gateway](https://docs.akeyless.io/docs/api-gw), set the `api_gateway_address` to your Gateway API port, which is `8081` or `8000/api/v2`:
+To use your own [Gateway](https://docs.akeyless.io/docs/akeyless-gateway), set the `api_gateway_address` to your Gateway API port, which is `8081` or `8000/api/v2`:
 
 ```shell
 provider "akeyless" {

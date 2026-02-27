@@ -71,4 +71,4 @@ The integration with Akeyless allows users seamlessly to integrate secret data i
 
 > ℹ️ **Info:**
 >
-> **Configuring Consul Template with Akeyless Gateway** - For Zero-Knowledge Encryption please configure [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw) and set `VAULT_ADDR` to your private Akeyless Gateway: `export VAULT_ADDR=https://Your-Akeyless-Gateway:8200`.
+> **Configuring Consul Template with Akeyless Gateway** - For Zero-Knowledge Encryption please configure [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway) and set `VAULT_ADDR` to your private Akeyless Gateway: `export VAULT_ADDR=https://Your-Akeyless-Gateway:8200`.

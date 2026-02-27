@@ -78,7 +78,7 @@ client.setBasePath("https://api.akeyless.io");
 V2Api api = new V2Api(client);
 ```
 
-To work with Your [Gateway](https://docs.akeyless.io/docs/api-gw) set the `client.setBasePath` with your Gateway API endpoint on port `8081`.
+To work with Your [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) set the `client.setBasePath` with your Gateway API endpoint on port `8081`.
 
 ## Authentication
 

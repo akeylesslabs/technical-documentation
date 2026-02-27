@@ -14,7 +14,7 @@ You can define a Chef Infra dynamic secret to allow users to dynamically generat
 
 ## Prerequisites
 
-* An [Akeyless Gateway](https://docs.akeyless.io/docs/api-gw)
+* An [Akeyless Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 
 * Chef privileged user
 

@@ -105,7 +105,7 @@ The output should look as follows:
 
 > ℹ️ **Note:**
 >
-> To start working with Dynamic Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/api-gw) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
+> To start working with Dynamic Secrets from the Akeyless Console, you need to configure the [Gateway](https://docs.akeyless.io/docs/akeyless-gateway) URL thus enabling communication between the Akeyless SaaS and the Akeyless Gateway.
 
 ### Create a Dynamic Ping Secret
 

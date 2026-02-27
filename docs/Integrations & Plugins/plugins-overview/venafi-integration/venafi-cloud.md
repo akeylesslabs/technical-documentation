@@ -16,7 +16,7 @@ To work with the Venafi Cloud platform in CyberArk Machine Identity Security, yo
 
 ## Prerequisites
 
-* Akeyless [Gateway](https://docs.akeyless.io/docs/api-gw)
+* Akeyless [Gateway](https://docs.akeyless.io/docs/akeyless-gateway)
 
 * Venafi Cloud
 
