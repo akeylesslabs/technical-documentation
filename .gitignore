@@ -1,2 +1,4 @@
 .DS_Store
 Thumbs.db
+samples/unified-gateway/docker-compose-deploy/secrets/
+samples/unified-gateway/docker-compose-deploy/ssh-config/
