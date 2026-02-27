@@ -55,7 +55,7 @@ Use this table to distinguish Gateway product options from deployment options:
 | --- | --- | --- | --- |
 | Unified Gateway | The current Akeyless Gateway model, deployed with the `akeyless-gateway` chart/configuration patterns. | Default choice for new deployments. | [Gateway on Kubernetes](https://docs.akeyless.io/docs/gateway-chart), [Docker Compose](https://docs.akeyless.io/docs/gateway-compose), [Gateway Deployment Quickstarts](https://docs.akeyless.io/docs/gateway-quickstarts) |
 | Legacy Gateway | The previous Kubernetes Gateway model, documented for backward compatibility. | Existing environments that still run the legacy deployment model. | [Gateway on Kubernetes (Legacy)](https://docs.akeyless.io/docs/gateway-k8s) |
-| Deployment option | The infrastructure/runtime where the Gateway is deployed (for example Kubernetes, Docker Compose, serverless, or Azure Container Apps). | Based on your platform and operational requirements. | [Gateway Overview](https://docs.akeyless.io/docs/api-gw) |
+| Deployment option | The infrastructure/runtime where the Gateway is deployed (for example Kubernetes, Docker Compose, serverless, or Azure Container Apps). | Based on your platform and operational requirements. | This page and the deployment-specific sections in this directory |
 
 ## Tutorial
 
