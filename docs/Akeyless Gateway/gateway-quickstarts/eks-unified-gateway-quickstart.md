@@ -12,11 +12,11 @@ This quickstart deploys the Akeyless Unified Gateway on Amazon Elastic Kubernete
 
 ## Prerequisites
 
-* Amazon EKS cluster with `kubectl` access.
-* Helm 3 installed.
-* AWS CLI configured with permissions for IAM, ACM, and EKS resources.
-* AWS Load Balancer Controller installed on the cluster.
-* Akeyless Authentication Method configured for AWS IAM.
+* [Amazon EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) with [kubectl access to the cluster](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html).
+* [Helm 3 installed.](https://helm.sh/docs/intro/install/)
+* [AWS CLI configured with an identity that has permissions for IAM, ACM, and EKS resources.](https://docs.aws.amazon.com/eks/latest/userguide/install-awscli.html)
+* [AWS Load Balancer Controller installed on the cluster.](https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html)
+* [Akeyless Authentication Method configured for AWS IAM.](https://docs.akeyless.io/docs/auth-with-aws)
 
 ## Step 1: Add the Akeyless Helm Repository
 
