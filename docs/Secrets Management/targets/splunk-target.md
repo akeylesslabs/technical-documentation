@@ -15,9 +15,12 @@ To create a Splunk target with the CLI, run the following command:
 akeyless target create splunk \
 --name <Target Name> \
 --url <Server URL> \
---username <Splunk Username>
---password <Splunk Password>
---token <Splunk Token>
+--use-tls[=true] \
+--username <Splunk Username> \
+--password <Splunk Password> \
+--splunk-token <Splunk Token> \
+--token-owner <Splunk token owner> \
+--audience <Splunk token audience>
 ```
 
 Where:
@@ -26,13 +29,15 @@ Where:
 
 * `url`: The Splunk server URL.
 
-* `api-key`: The Admin API Key that will be used to create the API Key.
-
 * `username`:  The Splunk Username.
 
 * `password`: The Splunk Password.
 
-* `token`: The Splunk Token.
+* `splunk-token`: The Splunk Token.
+
+* `token-owner`: The Splunk token owner username (relevant when using token authentication for rotation).
+
+* `audience`: The Splunk token audience (relevant when using token authentication for rotation).
 
 [View the complete list of parameters for this command.](https://docs.akeyless.io/docs/cli-ref-targets#splunk)
 
