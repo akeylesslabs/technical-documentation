@@ -24,9 +24,7 @@ akeyless rotated-secret create splunk \
 --rotator-type <target|password|token|hec-token>
 ```
 
-For the complete command syntax and all supported flags for create and update operations, see the CLI reference:
-
-* <https://docs.akeyless.io/docs/cli-reference-rotated-secrets>
+You can find the complete list of parameters for this command in the CLI Reference - Rotated Secrets section.
 
 Use `rotator-type` based on what you want to rotate:
 
