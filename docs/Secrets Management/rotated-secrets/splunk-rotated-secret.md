@@ -24,7 +24,7 @@ akeyless rotated-secret create splunk \
 --rotator-type <target|password|token|hec-token>
 ```
 
-You can find the complete list of parameters for this command in the CLI Reference - Rotated Secrets section.
+You can find the complete list of parameters for this command in the [CLI Reference - Rotated Secrets section](https://docs.akeyless.io/docs/cli-reference-rotated-secrets#splunk).
 
 Use `rotator-type` based on what you want to rotate:
 
@@ -47,30 +47,30 @@ To set credential source, token ownership fields, HEC fields, and rotation sched
 
 3. Define the remaining settings as follows:
 
-    * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
+   * **Delete Protection:** When enabled, protects the Rotated Secret from accidental deletion.
 
-    * **Target:** Defines the name of the [Splunk Target](https://docs.akeyless.io/docs/splunk-target) to be associated with the Rotated Secret.
+   * **Target:** Defines the name of the [Splunk Target](https://docs.akeyless.io/docs/splunk-target) to be associated with the Rotated Secret.
 
-    * **Authenticate with the following credentials:** Determines how to connect to the target Splunk account:
-        * **User credentials:** Use the credentials defined inside the Rotated Secret item.
-        * **Target credentials:** Use the credentials defined inside the [Splunk Target](https://docs.akeyless.io/docs/splunk-target) item.
+   * **Authenticate with the following credentials:** Determines how to connect to the target Splunk account:
+     * **User credentials:** Use the credentials defined inside the Rotated Secret item.
+     * **Target credentials:** Use the credentials defined inside the [Splunk Target](https://docs.akeyless.io/docs/splunk-target) item.
 
-    * **Rotator type:** Determines the rotator type:
-        * **Target**: Rotates the Token defined inside the [Splunk Target](https://docs.akeyless.io/docs/splunk-target) item.
-        * **Token**: Rotates the Token defined inside the Rotated Secret item.
-        * **Password**: Rotates the Password defined inside the Rotated Secret item.
-        * **HEC-Token**: Rotates the HEC-Token defined inside the Rotated Secret item.
+   * **Rotator type:** Determines the rotator type:
+     * **Target**: Rotates the Token defined inside the [Splunk Target](https://docs.akeyless.io/docs/splunk-target) item.
+     * **Token**: Rotates the Token defined inside the Rotated Secret item.
+     * **Password**: Rotates the Password defined inside the Rotated Secret item.
+     * **HEC-Token**: Rotates the HEC-Token defined inside the Rotated Secret item.
 
-    * **Gateway:** Select the Gateway through which the secret will be rotated.
+   * **Gateway:** Select the Gateway through which the secret will be rotated.
 
-    * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
+   * **Protection key**: To enable zero-Knowledge, select a key with a Customer Fragment. For more information, [read here](https://docs.akeyless.io/docs/implement-zero-knowledge).
 
-    * **Auto rotate:** Determines if automatic rotation is enabled.
+   * **Auto rotate:** Determines if automatic rotation is enabled.
 
-    * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic credential rotations when **Auto Rotate** is enabled.
+   * **Rotation interval (in days):** Defines the number of days (1-365) to wait between automatic credential rotations when **Auto Rotate** is enabled.
 
-    * **Rotation hour (local time zone):** Defines the time when credentials should be rotated if **Auto Rotate** is enabled.
+   * **Rotation hour (local time zone):** Defines the time when credentials should be rotated if **Auto Rotate** is enabled.
 
-    * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
+   * **Rotation Notification**: If you wish to get a notification before the next **Automatic Rotation**, click **⊕ Add Notification** and adjust the day count to any number you prefer. This can be done multiple times to be notified more than once.
 
 4. Click **Finish**.
