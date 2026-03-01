@@ -18,6 +18,8 @@ Use this style guide as permanent context for all documentation work in this rep
 ## Priority and scope
 
 * Apply these instructions to all content under `docs/`, `reference/`, `recipes/`, and reusable content under `custom_blocks/`.
+* Limit all modifications to this repository (`technical-documentation`) only.
+* Do not create, edit, rename, move, or delete files in any sibling repository in the workspace.
 * Follow source priority in this order:
 
     * Marketing/brand guidelines (if explicitly applicable)
