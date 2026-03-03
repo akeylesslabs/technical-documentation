@@ -57,7 +57,6 @@ akeyless create-dfc-key \
   --split-level 3 \
   --certificate-common-name code.sign.example.com \
   --certificate-ttl 30 \
-  --conf-file-path csr.conf \
   --generate-self-signed-certificate true
 ```
 
@@ -121,7 +120,7 @@ akeyless get-pki-certificate \
 Create a file named `sqlcrypt.conf` in a persistent location (`C:\Akeyless\conf\sqlcrypt.conf`).
 
 ```shell sqlcrypt.conf
-akeyless_url = "https://gw-aws.lm.cs.akeyless.fans/api/v2"
+akeyless_url = "https://<your-akeyless-gateway-url>/api/v2"
 base_item_path = "/YourCompany/"
 log_level = "debug"
 use_classic_keys = false
