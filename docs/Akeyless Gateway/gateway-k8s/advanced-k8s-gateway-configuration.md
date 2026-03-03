@@ -91,6 +91,30 @@ TLSConf:
    -----END RSA PRIVATE KEY-----
 ```
 
+### TLS 1.3 and PQC on EKS, GKE, and AKS
+
+The same TLS and PQC settings apply to all managed Kubernetes platforms, including EKS, GKE, and AKS.
+
+To enable hybrid post-quantum key exchange on the Gateway pod, set both TLS 1.3 and the Go runtime flag:
+
+```yaml values.yaml
+env:
+  - name: GODEBUG
+    value: tlsmlkem=1
+
+TLSConf:
+  minimumTlsVersion: "TLSv1.3"
+```
+
+After applying the updated `values.yaml`, restart the Gateway workload so the new runtime flag is loaded by the pod.
+
+To verify PQC support, open the Gateway endpoint over HTTPS in Chrome, check the connection security details, and confirm the negotiated key exchange includes `X25519MLKEM768`.
+
+`X25519MLKEM768` confirms a hybrid key exchange:
+
+* `X25519` (classical elliptic-curve cryptography)
+* `MLKEM-768` (post-quantum cryptography)
+
 ## Defaults Gateway Settings
 
 You can also configure the default settings using the [Gateway Configuration Manager](https://docs.akeyless.io/docs/gateway-configuration-manager) UI.
