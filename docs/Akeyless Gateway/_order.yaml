@@ -3,6 +3,7 @@
 - gateway-compose
 - gateway-on-azure-container-app
 - gateway-k8s
+- gateway-deployment-best-practices
 - gateway-chart
 - serverless-gateway
 - gateway-configuration-manager
